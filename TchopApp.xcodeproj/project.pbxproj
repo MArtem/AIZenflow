@@ -1,0 +1,681 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A00000110000000000000001 /* TchopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000210000000000000001 /* TchopApp.swift */; };
+		A00000120000000000000001 /* Models/AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000220000000000000001 /* Models/AppTab.swift */; };
+		A00000130000000000000001 /* AppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000230000000000000001 /* AppShellView.swift */; };
+		A00000140000000000000001 /* TopBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000240000000000000001 /* TopBarView.swift */; };
+		A00000150000000000000001 /* BrandMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000250000000000000001 /* BrandMarkView.swift */; };
+		A00000160000000000000001 /* BottomTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000260000000000000001 /* BottomTabBar.swift */; };
+		A00000170000000000000001 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000270000000000000001 /* FloatingActionButton.swift */; };
+		A00000180000000000000001 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000280000000000000001 /* SideMenuView.swift */; };
+		A00000190000000000000001 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000290000000000000001 /* NewsFeedView.swift */; };
+		A000001A0000000000000001 /* FeaturedArticleCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002A0000000000000001 /* FeaturedArticleCard.swift */; };
+		A000001B0000000000000001 /* DiscussionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002B0000000000000001 /* DiscussionCard.swift */; };
+		A000001C0000000000000001 /* TabStubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002C0000000000000001 /* TabStubView.swift */; };
+		A000001D0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A000002E0000000000000001 /* Assets.xcassets */; };
+		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
+		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
+		A00000390000000000000001 /* ArticleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* ArticleActionView.swift */; };
+		A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* Models/ChannelHeaderInfo.swift */; };
+		A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* Models/NewsFeedModels.swift */; };
+		A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* ViewModels/AppShellViewModel.swift */; };
+		A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000420000000000000001 /* ViewModels/NewsFeedViewModel.swift */; };
+		A00000430000000000000001 /* Persistence/AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000440000000000000001 /* Persistence/AppDatabase.swift */; };
+		A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000460000000000000001 /* Persistence/AppContentRecord.swift */; };
+		A00000470000000000000001 /* Persistence/AppDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000480000000000000001 /* Persistence/AppDataSeeder.swift */; };
+		A00000490000000000000001 /* Repositories/AppContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004A0000000000000001 /* Repositories/AppContentRepository.swift */; };
+		A000004B0000000000000001 /* Navigation/TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004C0000000000000001 /* Navigation/TabRouter.swift */; };
+		A000004D0000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* Navigation/TabRoutes.swift */; };
+		A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000500000000000000001 /* Navigation/AppCoordinator.swift */; };
+		A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000520000000000000001 /* Views/Tabs/NewsTabRootView.swift */; };
+		A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000540000000000000001 /* Views/Tabs/NewsDestinationView.swift */; };
+		A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000560000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift */; };
+		A00000570000000000000001 /* Views/Tabs/StubTabDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000580000000000000001 /* Views/Tabs/StubTabDetailView.swift */; };
+		A00000590000000000000001 /* Models/AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000005A0000000000000001 /* AppUser.swift */; };
+		A000005B0000000000000001 /* Services/UserSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000005C0000000000000001 /* UserSessionService.swift */; };
+		A000005D0000000000000001 /* Repositories/UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000005E0000000000000001 /* UserRepository.swift */; };
+		A00000610000000000000001 /* App/AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000620000000000000001 /* AppState.swift */; };
+		A00000630000000000000001 /* ViewModels/LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000640000000000000001 /* LoginViewModel.swift */; };
+		A00000650000000000000001 /* Views/AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000660000000000000001 /* AppRootView.swift */; };
+		A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000680000000000000001 /* LoginScreenView.swift */; };
+		A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006A0000000000000001 /* ProfileTabRootView.swift */; };
+		A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006C0000000000000001 /* FeedAPIManager.swift */; };
+		A00000730000000000000001 /* App/AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000740000000000000001 /* AppDIContainer.swift */; };
+		A00000750000000000000001 /* TchopNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* TchopNetworking */; };
+		A00000770000000000000001 /* TchopDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* TchopDatabase */; };
+		A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000820000000000000001 /* AppStateTests.swift */; };
+		A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000840000000000000001 /* LoginViewModelTests.swift */; };
+		A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000860000000000000001 /* NewsFeedViewModelTests.swift */; };
+		A00000870000000000000001 /* TchopAppTests/TestAppContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000880000000000000001 /* TestAppContentRepository.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A000008D0000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A000000B0000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A000000C0000000000000001;
+			remoteInfo = TchopApp;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A00000010000000000000001 /* TchopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TchopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000210000000000000001 /* TchopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopApp.swift; sourceTree = "<group>"; };
+		A00000220000000000000001 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
+		A00000230000000000000001 /* AppShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellView.swift; sourceTree = "<group>"; };
+		A00000240000000000000001 /* TopBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TopBarView.swift; sourceTree = "<group>"; };
+		A00000250000000000000001 /* BrandMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrandMarkView.swift; sourceTree = "<group>"; };
+		A00000260000000000000001 /* BottomTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomTabBar.swift; sourceTree = "<group>"; };
+		A00000270000000000000001 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
+		A00000280000000000000001 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
+		A00000290000000000000001 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
+		A000002A0000000000000001 /* FeaturedArticleCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedArticleCard.swift; sourceTree = "<group>"; };
+		A000002B0000000000000001 /* DiscussionCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiscussionCard.swift; sourceTree = "<group>"; };
+		A000002C0000000000000001 /* TabStubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStubView.swift; sourceTree = "<group>"; };
+		A000002D0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A000002E0000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
+		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
+		A000003A0000000000000001 /* ArticleActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleActionView.swift; sourceTree = "<group>"; };
+		A000003C0000000000000001 /* ChannelHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderInfo.swift; sourceTree = "<group>"; };
+		A000003E0000000000000001 /* NewsFeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModels.swift; sourceTree = "<group>"; };
+		A00000400000000000000001 /* AppShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellViewModel.swift; sourceTree = "<group>"; };
+		A00000420000000000000001 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
+		A00000440000000000000001 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
+		A00000460000000000000001 /* AppContentRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentRecord.swift; sourceTree = "<group>"; };
+		A00000480000000000000001 /* AppDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataSeeder.swift; sourceTree = "<group>"; };
+		A000004A0000000000000001 /* AppContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentRepository.swift; sourceTree = "<group>"; };
+		A000004C0000000000000001 /* TabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRouter.swift; sourceTree = "<group>"; };
+		A000004E0000000000000001 /* TabRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRoutes.swift; sourceTree = "<group>"; };
+		A00000500000000000000001 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		A00000520000000000000001 /* NewsTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabRootView.swift; sourceTree = "<group>"; };
+		A00000540000000000000001 /* NewsDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDestinationView.swift; sourceTree = "<group>"; };
+		A00000560000000000000001 /* StubTabNavigationRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubTabNavigationRootView.swift; sourceTree = "<group>"; };
+		A00000580000000000000001 /* StubTabDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubTabDetailView.swift; sourceTree = "<group>"; };
+		A000005A0000000000000001 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		A000005C0000000000000001 /* UserSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionService.swift; sourceTree = "<group>"; };
+		A000005E0000000000000001 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
+		A00000620000000000000001 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		A00000640000000000000001 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		A00000660000000000000001 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
+		A00000680000000000000001 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
+		A000006A0000000000000001 /* ProfileTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabRootView.swift; sourceTree = "<group>"; };
+		A000006C0000000000000001 /* FeedAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIManager.swift; sourceTree = "<group>"; };
+		A00000740000000000000001 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
+		A00000800000000000000001 /* TchopAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TchopAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A00000820000000000000001 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
+		A00000840000000000000001 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
+		A00000860000000000000001 /* NewsFeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModelTests.swift; sourceTree = "<group>"; };
+		A00000880000000000000001 /* TestAppContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppContentRepository.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A000000E0000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000750000000000000001 /* TchopNetworking in Frameworks */,
+				A00000770000000000000001 /* TchopDatabase in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A000008C0000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A00000020000000000000001 = {
+			isa = PBXGroup;
+			children = (
+				A00000030000000000000001 /* TchopApp */,
+				A00000040000000000000001 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A00000030000000000000001 /* TchopApp */ = {
+			isa = PBXGroup;
+			children = (
+				A00000210000000000000001 /* TchopApp.swift */,
+				A000000F0000000000000002 /* App */,
+				A000000A0000000000000002 /* Models */,
+				A000000E0000000000000002 /* Navigation */,
+				A000000C0000000000000002 /* Persistence */,
+				A000000D0000000000000002 /* Repositories */,
+				A00000100000000000000002 /* Services */,
+				A000000B0000000000000002 /* ViewModels */,
+				A00000050000000000000001 /* Views */,
+				A00000890000000000000001 /* TchopAppTests */,
+				A000002D0000000000000001 /* Info.plist */,
+				A000002E0000000000000001 /* Assets.xcassets */,
+			);
+			path = TchopApp;
+			sourceTree = "<group>";
+		};
+		A00000040000000000000001 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A00000010000000000000001 /* TchopApp.app */,
+				A00000800000000000000001 /* TchopAppTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A000000A0000000000000002 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A00000220000000000000001 /* AppTab.swift */,
+				A000005A0000000000000001 /* AppUser.swift */,
+				A000003C0000000000000001 /* ChannelHeaderInfo.swift */,
+				A000003E0000000000000001 /* NewsFeedModels.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A000000B0000000000000002 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A00000400000000000000001 /* AppShellViewModel.swift */,
+				A00000420000000000000001 /* NewsFeedViewModel.swift */,
+				A00000640000000000000001 /* LoginViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		A000000C0000000000000002 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				A00000440000000000000001 /* AppDatabase.swift */,
+				A00000460000000000000001 /* AppContentRecord.swift */,
+				A00000480000000000000001 /* AppDataSeeder.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		A000000D0000000000000002 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				A000004A0000000000000001 /* AppContentRepository.swift */,
+				A000005E0000000000000001 /* UserRepository.swift */,
+			);
+			path = Repositories;
+			sourceTree = "<group>";
+		};
+		A000000F0000000000000002 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				A00000740000000000000001 /* AppDIContainer.swift */,
+				A00000620000000000000001 /* AppState.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		A00000100000000000000002 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				A000006C0000000000000001 /* FeedAPIManager.swift */,
+				A000005C0000000000000001 /* UserSessionService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		A000000E0000000000000002 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				A000004C0000000000000001 /* TabRouter.swift */,
+				A000004E0000000000000001 /* TabRoutes.swift */,
+				A00000500000000000000001 /* AppCoordinator.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		A00000050000000000000001 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				A00000660000000000000001 /* AppRootView.swift */,
+				A00000230000000000000001 /* AppShellView.swift */,
+				A00000360000000000000001 /* ShellContentView.swift */,
+				A00000380000000000000001 /* TabContentView.swift */,
+				A00000240000000000000001 /* TopBarView.swift */,
+				A00000250000000000000001 /* BrandMarkView.swift */,
+				A00000110000000000000002 /* Auth */,
+				A00000060000000000000001 /* Menu */,
+				A00000070000000000000001 /* News */,
+				A00000080000000000000001 /* Tabs */,
+				A00000090000000000000001 /* Stub */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		A00000110000000000000002 /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				A00000680000000000000001 /* LoginScreenView.swift */,
+			);
+			path = Auth;
+			sourceTree = "<group>";
+		};
+		A00000060000000000000001 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				A00000280000000000000001 /* SideMenuView.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		A00000070000000000000001 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				A00000290000000000000001 /* NewsFeedView.swift */,
+				A000002A0000000000000001 /* FeaturedArticleCard.swift */,
+				A000002B0000000000000001 /* DiscussionCard.swift */,
+				A000003A0000000000000001 /* ArticleActionView.swift */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		A00000080000000000000001 /* Tabs */ = {
+			isa = PBXGroup;
+			children = (
+				A00000260000000000000001 /* BottomTabBar.swift */,
+				A00000270000000000000001 /* FloatingActionButton.swift */,
+				A00000520000000000000001 /* NewsTabRootView.swift */,
+				A00000540000000000000001 /* NewsDestinationView.swift */,
+				A000006A0000000000000001 /* ProfileTabRootView.swift */,
+				A00000560000000000000001 /* StubTabNavigationRootView.swift */,
+				A00000580000000000000001 /* StubTabDetailView.swift */,
+			);
+			path = Tabs;
+			sourceTree = "<group>";
+		};
+		A00000090000000000000001 /* Stub */ = {
+			isa = PBXGroup;
+			children = (
+				A000002C0000000000000001 /* TabStubView.swift */,
+			);
+			path = Stub;
+			sourceTree = "<group>";
+		};
+		A00000890000000000000001 /* TchopAppTests */ = {
+			isa = PBXGroup;
+			children = (
+				A00000820000000000000001 /* AppStateTests.swift */,
+				A00000840000000000000001 /* LoginViewModelTests.swift */,
+				A00000860000000000000001 /* NewsFeedViewModelTests.swift */,
+				A00000880000000000000001 /* TestAppContentRepository.swift */,
+			);
+			path = ../TchopAppTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A000000C0000000000000001 /* TchopApp */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A00000100000000000000001 /* Build configuration list for PBXNativeTarget "TchopApp" */;
+			buildPhases = (
+				A000000D0000000000000001 /* Sources */,
+				A000000E0000000000000001 /* Frameworks */,
+				A000000F0000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TchopApp;
+			packageProductDependencies = (
+				A00000760000000000000001 /* TchopNetworking */,
+				A00000780000000000000001 /* TchopDatabase */,
+			);
+			productName = TchopApp;
+			productReference = A00000010000000000000001 /* TchopApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		A000008A0000000000000001 /* TchopAppTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A000008E0000000000000001 /* Build configuration list for PBXNativeTarget "TchopAppTests" */;
+			buildPhases = (
+				A000008B0000000000000001 /* Sources */,
+				A000008C0000000000000001 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A000008F0000000000000001 /* PBXTargetDependency */,
+			);
+			name = TchopAppTests;
+			productName = TchopAppTests;
+			productReference = A00000800000000000000001 /* TchopAppTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A000000B0000000000000001 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2600;
+				LastUpgradeCheck = 2600;
+				TargetAttributes = {
+					A000000C0000000000000001 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
+				};
+			};
+			buildConfigurationList = A000000A0000000000000001 /* Build configuration list for PBXProject "TchopApp" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = A00000020000000000000001;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = A00000040000000000000001 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A000000C0000000000000001 /* TchopApp */,
+				A000008A0000000000000001 /* TchopAppTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXTargetDependency section */
+		A000008F0000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A000000C0000000000000001 /* TchopApp */;
+			targetProxy = A000008D0000000000000001 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A000000F0000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A000001D0000000000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A000000D0000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000110000000000000001 /* TchopApp.swift in Sources */,
+				A00000120000000000000001 /* Models/AppTab.swift in Sources */,
+				A00000130000000000000001 /* AppShellView.swift in Sources */,
+				A00000140000000000000001 /* TopBarView.swift in Sources */,
+				A00000150000000000000001 /* BrandMarkView.swift in Sources */,
+				A00000160000000000000001 /* BottomTabBar.swift in Sources */,
+				A00000170000000000000001 /* FloatingActionButton.swift in Sources */,
+				A00000180000000000000001 /* SideMenuView.swift in Sources */,
+				A00000190000000000000001 /* NewsFeedView.swift in Sources */,
+				A000001A0000000000000001 /* FeaturedArticleCard.swift in Sources */,
+				A000001B0000000000000001 /* DiscussionCard.swift in Sources */,
+				A000001C0000000000000001 /* TabStubView.swift in Sources */,
+				A00000350000000000000001 /* ShellContentView.swift in Sources */,
+				A00000370000000000000001 /* TabContentView.swift in Sources */,
+				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
+				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
+				A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
+				A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
+				A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */,
+				A00000430000000000000001 /* Persistence/AppDatabase.swift in Sources */,
+				A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */,
+				A00000470000000000000001 /* Persistence/AppDataSeeder.swift in Sources */,
+				A00000490000000000000001 /* Repositories/AppContentRepository.swift in Sources */,
+				A000004B0000000000000001 /* Navigation/TabRouter.swift in Sources */,
+				A000004D0000000000000001 /* Navigation/TabRoutes.swift in Sources */,
+				A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */,
+				A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */,
+				A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */,
+				A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */,
+				A00000570000000000000001 /* Views/Tabs/StubTabDetailView.swift in Sources */,
+				A00000590000000000000001 /* Models/AppUser.swift in Sources */,
+				A000005B0000000000000001 /* Services/UserSessionService.swift in Sources */,
+				A000005D0000000000000001 /* Repositories/UserRepository.swift in Sources */,
+				A00000610000000000000001 /* App/AppState.swift in Sources */,
+				A00000630000000000000001 /* ViewModels/LoginViewModel.swift in Sources */,
+				A00000650000000000000001 /* Views/AppRootView.swift in Sources */,
+				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
+				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
+				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
+				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A000008B0000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */,
+				A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */,
+				A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */,
+				A00000870000000000000001 /* TchopAppTests/TestAppContentRepository.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/TchopInfrastructure;
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A00000760000000000000001 /* TchopNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopNetworking;
+		};
+		A00000780000000000000001 /* TchopDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopDatabase;
+		};
+/* End XCSwiftPackageProductDependency section */
+
+/* Begin XCBuildConfiguration section */
+		A000001E0000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		A000001F0000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A000002F0000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		A00000300000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopApp;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		A00000900000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TchopApp.app/TchopApp";
+			};
+			name = Debug;
+		};
+		A00000910000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/TchopApp.app/TchopApp";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A000000A0000000000000001 /* Build configuration list for PBXProject "TchopApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A000001E0000000000000001 /* Debug */,
+				A000001F0000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A00000100000000000000001 /* Build configuration list for PBXNativeTarget "TchopApp" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A000002F0000000000000001 /* Debug */,
+				A00000300000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A000008E0000000000000001 /* Build configuration list for PBXNativeTarget "TchopAppTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A00000900000000000000001 /* Debug */,
+				A00000910000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A000000B0000000000000001 /* Project object */;
+}

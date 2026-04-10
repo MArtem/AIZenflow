@@ -1,0 +1,113 @@
+import SwiftUI
+
+struct AppShellView: View {
+    @ObservedObject var viewModel: AppShellViewModel
+    @ObservedObject var coordinator: AppCoordinator
+    let currentUser: AppUser?
+    let onLogout: () -> Void
+    @GestureState private var menuDragOffset: CGFloat = 0
+
+    var body: some View {
+        GeometryReader { proxy in
+            let menuWidth = min(proxy.size.width * 0.78, 320)
+            let menuOffset = currentMenuOffset(menuWidth: menuWidth)
+            let menuVisibility = currentMenuVisibility(menuWidth: menuWidth)
+
+            ZStack(alignment: .leading) {
+                Color(red: 0.97, green: 0.96, blue: 0.94)
+                    .ignoresSafeArea()
+
+                ShellContentView(
+                    viewModel: viewModel,
+                    coordinator: coordinator,
+                    currentUser: currentUser,
+                    onLogout: onLogout
+                )
+                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+                    .disabled(viewModel.isMenuOpen)
+                    .blur(radius: viewModel.isMenuOpen ? 1.5 : 0)
+
+                if viewModel.isMenuOpen || menuDragOffset > 0 {
+                    Button(action: viewModel.closeMenu) {
+                        Color.black.opacity(0.22 * menuVisibility)
+                            .ignoresSafeArea()
+                    }
+                    .buttonStyle(.plain)
+
+                    SideMenuView(
+                        channelInfo: viewModel.channelInfo,
+                        selectedTab: coordinator.selectedTab,
+                        footerText: viewModel.sideMenuFooterText,
+                        onSelect: selectTab
+                    )
+                    .frame(width: menuWidth, alignment: .topLeading)
+                    .frame(maxHeight: .infinity, alignment: .topLeading)
+                    .offset(x: menuOffset)
+                }
+
+                Color.clear
+                    .frame(width: 24)
+                    .contentShape(Rectangle())
+                    .ignoresSafeArea()
+                    .gesture(openMenuGesture(menuWidth: menuWidth))
+            }
+            .gesture(closeMenuGesture(menuWidth: menuWidth))
+            .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
+            .animation(.easeInOut(duration: 0.2), value: coordinator.selectedTab)
+        }
+    }
+
+    private func currentMenuOffset(menuWidth: CGFloat) -> CGFloat {
+        if viewModel.isMenuOpen {
+            return min(menuDragOffset, 0)
+        }
+
+        if menuDragOffset > 0 {
+            return -menuWidth + menuDragOffset
+        }
+
+        return -menuWidth
+    }
+
+    private func currentMenuVisibility(menuWidth: CGFloat) -> CGFloat {
+        let visibleWidth = viewModel.isMenuOpen
+            ? menuWidth + min(menuDragOffset, 0)
+            : max(menuDragOffset, 0)
+        return max(0, min(visibleWidth / menuWidth, 1))
+    }
+
+    private func openMenuGesture(menuWidth: CGFloat) -> some Gesture {
+        DragGesture(minimumDistance: 12)
+            .updating($menuDragOffset) { value, state, _ in
+                guard !viewModel.isMenuOpen, value.startLocation.x < 28 else { return }
+                state = max(0, min(value.translation.width, menuWidth))
+            }
+            .onEnded { value in
+                guard !viewModel.isMenuOpen, value.startLocation.x < 28 else { return }
+                if value.translation.width > menuWidth * 0.22 {
+                    withAnimation {
+                        viewModel.toggleMenu()
+                    }
+                }
+            }
+    }
+
+    private func closeMenuGesture(menuWidth: CGFloat) -> some Gesture {
+        DragGesture(minimumDistance: 12)
+            .updating($menuDragOffset) { value, state, _ in
+                guard viewModel.isMenuOpen else { return }
+                state = min(0, max(value.translation.width, -menuWidth))
+            }
+            .onEnded { value in
+                guard viewModel.isMenuOpen else { return }
+                if value.translation.width < -(menuWidth * 0.22) {
+                    viewModel.closeMenu()
+                }
+            }
+    }
+
+    private func selectTab(_ tab: AppTab) {
+        coordinator.selectTab(tab)
+        viewModel.closeMenu()
+    }
+}

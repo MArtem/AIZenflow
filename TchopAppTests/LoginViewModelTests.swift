@@ -1,0 +1,43 @@
+import XCTest
+@testable import TchopApp
+
+@MainActor
+final class LoginViewModelTests: XCTestCase {
+    func testSubmitWithEmptyUsernameShowsValidationError() {
+        let viewModel = LoginViewModel { _ in }
+        viewModel.username = "   "
+
+        viewModel.submit()
+
+        XCTAssertEqual(viewModel.errorMessage, "Enter a username.")
+    }
+
+    func testSubmitTrimsWhitespaceBeforeLogin() {
+        var capturedUsername: String?
+        let viewModel = LoginViewModel { username in
+            capturedUsername = username
+        }
+        viewModel.username = "  alice  "
+
+        viewModel.submit()
+
+        XCTAssertEqual(capturedUsername, "alice")
+        XCTAssertNil(viewModel.errorMessage)
+    }
+
+    func testSubmitShowsGenericErrorWhenLoginFails() {
+        let viewModel = LoginViewModel { _ in
+            throw TestLoginError.failed
+        }
+        viewModel.username = "alice"
+
+        viewModel.submit()
+
+        XCTAssertEqual(viewModel.errorMessage, "Unable to sign in right now.")
+    }
+}
+
+private enum TestLoginError: Error {
+    case failed
+}
+
