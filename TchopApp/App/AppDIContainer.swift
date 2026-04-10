@@ -1,7 +1,8 @@
 import Foundation
 import SwiftUI
 import TchopNetworking
-///Feature111
+///Feature
+///
 /// Composition root for the application.
 ///
 /// The container owns app-wide infrastructure services and constructs feature-level
