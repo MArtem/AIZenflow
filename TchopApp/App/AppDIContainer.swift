@@ -2,7 +2,6 @@ import Foundation
 import SwiftUI
 import TchopNetworking
 
-
 /// Composition root for the application.
 ///
 /// The container owns app-wide infrastructure services and constructs feature-level
