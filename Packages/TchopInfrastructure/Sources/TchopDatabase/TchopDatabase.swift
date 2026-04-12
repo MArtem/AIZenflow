@@ -1,89 +1,230 @@
+import CoreData
 import Foundation
 import SwiftData
 
-/// Describes database-layer errors with explicit operation context.
+/// Identifies the concrete persistence backend currently serving database operations.
+public enum DatabaseBackendKind: String, Sendable, Equatable {
+    /// SwiftData-backed persistence.
+    case swiftData
+
+    /// Core Data-backed persistence.
+    case coreData
+}
+
+/// Selects which persistence backend should be used by the database factory.
+public enum DatabaseBackendSelectionPolicy: Sendable, Equatable {
+    /// Picks the best available backend for the current runtime.
+    case automatic
+
+    /// Forces SwiftData when the caller provides a SwiftData container factory.
+    case swiftData
+
+    /// Forces Core Data when the caller provides a Core Data container factory.
+    case coreData
+
+    /// Resolves the effective backend for the current process.
+    ///
+    /// - Returns: The backend that should be instantiated by the factory.
+    public func resolveBackendKind() -> DatabaseBackendKind {
+        switch self {
+        case .automatic:
+            return .swiftData
+        case .swiftData:
+            return .swiftData
+        case .coreData:
+            return .coreData
+        }
+    }
+}
+
+/// Describes database-layer failures with explicit operation context.
 public enum DatabaseError: Error, Equatable, Sendable {
-    case saveFailed(String)
+    /// The requested operation could not run because the selected backend had no compatible implementation.
+    case unsupportedOperation(String)
+
+    /// The configured backend could not be constructed.
+    case backendInitializationFailed(String)
+
+    /// The backend failed while fetching data.
     case fetchFailed(String)
+
+    /// The backend failed while persisting data.
+    case saveFailed(String)
+
+    /// The backend failed while deleting data.
     case deleteFailed(String)
+
+    /// The backend failed while running a transaction.
     case transactionFailed(String)
 }
 
 /// Marks a model as supporting created and updated timestamps.
 public protocol TimestampTrackableRecord: AnyObject {
+    /// Creation timestamp.
     var createdAt: Date { get set }
+
+    /// Last update timestamp.
     var updatedAt: Date { get set }
 }
 
 /// Marks a model as supporting soft deletion.
 public protocol SoftDeletableRecord: AnyObject {
+    /// Timestamp when the record was soft deleted.
     var deletedAt: Date? { get set }
 }
 
-/// Runtime configuration for the SwiftData-backed database manager.
+/// Runtime configuration for the database service factory.
 public struct DatabaseConfiguration: Sendable, Equatable {
-    /// Defines whether the backing store should live only in memory.
+    /// Selected backend policy.
+    public let backendSelectionPolicy: DatabaseBackendSelectionPolicy
+
+    /// Indicates whether the store should live only in memory.
     public let isStoredInMemoryOnly: Bool
 
-    /// Creates a new database configuration.
-    public init(isStoredInMemoryOnly: Bool) {
+    /// Creates a new configuration value.
+    ///
+    /// - Parameters:
+    ///   - backendSelectionPolicy: Preferred backend resolution policy.
+    ///   - isStoredInMemoryOnly: When `true`, the resulting store should not write to disk.
+    public init(
+        backendSelectionPolicy: DatabaseBackendSelectionPolicy = .automatic,
+        isStoredInMemoryOnly: Bool
+    ) {
+        self.backendSelectionPolicy = backendSelectionPolicy
         self.isStoredInMemoryOnly = isStoredInMemoryOnly
     }
 
     /// Default persistent configuration.
-    public static let persistent = DatabaseConfiguration(isStoredInMemoryOnly: false)
+    public static let persistent = DatabaseConfiguration(
+        backendSelectionPolicy: .automatic,
+        isStoredInMemoryOnly: false
+    )
 
     /// In-memory configuration suited for tests and previews.
-    public static let inMemory = DatabaseConfiguration(isStoredInMemoryOnly: true)
+    public static let inMemory = DatabaseConfiguration(
+        backendSelectionPolicy: .automatic,
+        isStoredInMemoryOnly: true
+    )
 }
 
-/// Contract implemented by the database service used by repositories and seeders.
+/// Read-only operation that can be executed against either supported backend.
+///
+/// The caller supplies one or both backend implementations. The selected manager
+/// executes only the closure matching its active backend.
+public struct DatabaseReadOperation<Result> {
+    let swiftData: (@MainActor (ModelContext) throws -> Result)?
+    let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+
+    /// Creates a backend-neutral read operation.
+    ///
+    /// - Parameters:
+    ///   - swiftData: SwiftData implementation for the operation.
+    ///   - coreData: Core Data implementation for the operation.
+    public init(
+        swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
+        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+    ) {
+        self.swiftData = swiftData
+        self.coreData = coreData
+    }
+}
+
+/// Mutating operation that can be executed against either supported backend.
+///
+/// The manager automatically commits changes when the operation succeeds and rolls
+/// them back when it fails.
+public struct DatabaseWriteOperation<Result> {
+    let swiftData: (@MainActor (ModelContext) throws -> Result)?
+    let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+
+    /// Creates a backend-neutral write operation.
+    ///
+    /// - Parameters:
+    ///   - swiftData: SwiftData implementation for the operation.
+    ///   - coreData: Core Data implementation for the operation.
+    public init(
+        swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
+        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+    ) {
+        self.swiftData = swiftData
+        self.coreData = coreData
+    }
+}
+
+/// Common contract implemented by all database managers.
+///
+/// The interface is backend-neutral. Consumers describe their work as read/write
+/// operations and the manager dispatches them to the active backend.
 @MainActor
-public protocol DatabaseManaging {
-    /// Shared model container used by the manager.
-    var modelContainer: ModelContainer { get }
+public protocol DatabaseManaging: AnyObject {
+    /// Concrete backend currently serving requests.
+    var backendKind: DatabaseBackendKind { get }
 
-    /// Main model context used by the manager.
-    var modelContext: ModelContext { get }
+    /// Executes a read-only operation.
+    ///
+    /// - Parameter operation: Operation with backend-specific implementations.
+    /// - Returns: The value returned by the active backend implementation.
+    func read<Result>(_ operation: DatabaseReadOperation<Result>) throws -> Result
 
-    /// Fetches entities using the provided descriptor.
-    func fetch<T: PersistentModel>(_ descriptor: FetchDescriptor<T>) throws -> [T]
+    /// Executes a mutating operation and persists changes atomically.
+    ///
+    /// - Parameter operation: Operation with backend-specific implementations.
+    /// - Returns: The value returned by the active backend implementation.
+    func write<Result>(_ operation: DatabaseWriteOperation<Result>) throws -> Result
 
-    /// Fetches the first matching entity.
-    func fetchFirst<T: PersistentModel>(_ descriptor: FetchDescriptor<T>) throws -> T?
-
-    /// Returns the number of matching entities.
-    func fetchCount<T: PersistentModel>(_ descriptor: FetchDescriptor<T>) throws -> Int
-
-    /// Inserts a single model into the current context.
-    func insert<T: PersistentModel>(_ model: T)
-
-    /// Inserts many models into the current context.
-    func insert<S: Sequence>(_ models: S) where S.Element: PersistentModel
-
-    /// Deletes a single model.
-    func delete<T: PersistentModel>(_ model: T)
-
-    /// Deletes many models.
-    func delete<S: Sequence>(_ models: S) where S.Element: PersistentModel
-
-    /// Deletes all records of a given model type.
-    func deleteAll<T: PersistentModel>(_ modelType: T.Type) throws
-
-    /// Persists in-memory changes.
-    func save() throws
-
-    /// Rolls back unsaved changes.
+    /// Rolls back pending changes in the active backend context.
     func rollback()
-
-    /// Executes a transactional operation and rolls back on failure.
-    func performTransaction(_ operation: () throws -> Void) throws
-
-    /// Applies a soft delete timestamp when the model supports it.
-    func softDelete<T>(_ model: T, at date: Date) throws where T: PersistentModel & SoftDeletableRecord
 }
 
-/// Default SwiftData-backed implementation used by the application.
+/// Factory responsible for constructing backend-neutral database managers.
+public enum DatabaseServiceFactory {
+    /// Creates a database manager for the supplied configuration.
+    ///
+    /// - Parameters:
+    ///   - configuration: Backend selection and persistence configuration.
+    ///   - makeSwiftDataContainer: Factory used when the selected backend is SwiftData.
+    ///   - makeCoreDataContainer: Factory used when the selected backend is Core Data.
+    /// - Returns: A concrete database manager bound to the selected backend.
+    /// - Throws: ``DatabaseError/backendInitializationFailed(_:)`` when the requested backend
+    ///   cannot be constructed.
+    @MainActor
+    public static func makeDatabaseManager(
+        configuration: DatabaseConfiguration = .persistent,
+        makeSwiftDataContainer: (() throws -> ModelContainer)? = nil,
+        makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
+    ) throws -> any DatabaseManaging {
+        let backendKind = configuration.backendSelectionPolicy.resolveBackendKind()
+
+        switch backendKind {
+        case .swiftData:
+            guard let makeSwiftDataContainer else {
+                throw DatabaseError.backendInitializationFailed(
+                    "SwiftData backend requested without a ModelContainer factory."
+                )
+            }
+
+            do {
+                return SwiftDataDatabaseManager(modelContainer: try makeSwiftDataContainer())
+            } catch {
+                throw DatabaseError.backendInitializationFailed(String(describing: error))
+            }
+        case .coreData:
+            guard let makeCoreDataContainer else {
+                throw DatabaseError.backendInitializationFailed(
+                    "Core Data backend requested without an NSPersistentContainer factory."
+                )
+            }
+
+            do {
+                return CoreDataDatabaseManager(persistentContainer: try makeCoreDataContainer())
+            } catch {
+                throw DatabaseError.backendInitializationFailed(String(describing: error))
+            }
+        }
+    }
+}
+
+/// SwiftData-backed implementation of ``DatabaseManaging``.
 @MainActor
 public final class SwiftDataDatabaseManager: DatabaseManaging {
     /// Shared model container used by the manager.
@@ -94,99 +235,117 @@ public final class SwiftDataDatabaseManager: DatabaseManaging {
         modelContainer.mainContext
     }
 
+    /// Active backend kind.
+    public let backendKind: DatabaseBackendKind = .swiftData
+
     /// Creates a manager around an existing model container.
+    ///
+    /// - Parameter modelContainer: Container that owns the SwiftData store.
     public init(modelContainer: ModelContainer) {
         self.modelContainer = modelContainer
     }
 
-    public func fetch<T: PersistentModel>(_ descriptor: FetchDescriptor<T>) throws -> [T] {
+    public func read<Result>(_ operation: DatabaseReadOperation<Result>) throws -> Result {
+        guard let swiftDataOperation = operation.swiftData else {
+            throw DatabaseError.unsupportedOperation(
+                "Missing SwiftData implementation for read operation."
+            )
+        }
+
         do {
-            return try modelContext.fetch(descriptor)
+            return try swiftDataOperation(modelContext)
+        } catch let databaseError as DatabaseError {
+            throw databaseError
         } catch {
             throw DatabaseError.fetchFailed(String(describing: error))
         }
     }
 
-    public func fetchFirst<T: PersistentModel>(_ descriptor: FetchDescriptor<T>) throws -> T? {
-        try fetch(descriptor).first
-    }
+    public func write<Result>(_ operation: DatabaseWriteOperation<Result>) throws -> Result {
+        guard let swiftDataOperation = operation.swiftData else {
+            throw DatabaseError.unsupportedOperation(
+                "Missing SwiftData implementation for write operation."
+            )
+        }
 
-    public func fetchCount<T: PersistentModel>(_ descriptor: FetchDescriptor<T>) throws -> Int {
         do {
-            return try modelContext.fetchCount(descriptor)
-        } catch {
-            throw DatabaseError.fetchFailed(String(describing: error))
-        }
-    }
-
-    public func insert<T: PersistentModel>(_ model: T) {
-        stampTimestampsIfNeeded(model)
-        modelContext.insert(model)
-    }
-
-    public func insert<S: Sequence>(_ models: S) where S.Element: PersistentModel {
-        for model in models {
-            insert(model)
-        }
-    }
-
-    public func delete<T: PersistentModel>(_ model: T) {
-        modelContext.delete(model)
-    }
-
-    public func delete<S: Sequence>(_ models: S) where S.Element: PersistentModel {
-        for model in models {
-            delete(model)
-        }
-    }
-
-    public func deleteAll<T: PersistentModel>(_ modelType: T.Type) throws {
-        do {
-            try modelContext.delete(model: modelType)
-        } catch {
-            throw DatabaseError.deleteFailed(String(describing: error))
-        }
-    }
-
-    public func save() throws {
-        do {
+            let result = try swiftDataOperation(modelContext)
             try modelContext.save()
+            return result
+        } catch let databaseError as DatabaseError {
+            modelContext.rollback()
+            throw databaseError
         } catch {
-            throw DatabaseError.saveFailed(String(describing: error))
+            modelContext.rollback()
+            throw DatabaseError.transactionFailed(String(describing: error))
         }
     }
 
     public func rollback() {
         modelContext.rollback()
     }
+}
 
-    public func performTransaction(_ operation: () throws -> Void) throws {
+/// Core Data-backed implementation of ``DatabaseManaging``.
+@MainActor
+public final class CoreDataDatabaseManager: DatabaseManaging {
+    /// Shared persistent container used by the manager.
+    public let persistentContainer: NSPersistentContainer
+
+    /// Exposes the main managed object context for advanced integration points.
+    public var viewContext: NSManagedObjectContext {
+        persistentContainer.viewContext
+    }
+
+    /// Active backend kind.
+    public let backendKind: DatabaseBackendKind = .coreData
+
+    /// Creates a manager around an existing persistent container.
+    ///
+    /// - Parameter persistentContainer: Container that owns the Core Data store.
+    public init(persistentContainer: NSPersistentContainer) {
+        self.persistentContainer = persistentContainer
+    }
+
+    public func read<Result>(_ operation: DatabaseReadOperation<Result>) throws -> Result {
+        guard let coreDataOperation = operation.coreData else {
+            throw DatabaseError.unsupportedOperation(
+                "Missing Core Data implementation for read operation."
+            )
+        }
+
         do {
-            try operation()
-            try save()
+            return try coreDataOperation(viewContext)
+        } catch let databaseError as DatabaseError {
+            throw databaseError
         } catch {
-            rollback()
+            throw DatabaseError.fetchFailed(String(describing: error))
+        }
+    }
+
+    public func write<Result>(_ operation: DatabaseWriteOperation<Result>) throws -> Result {
+        guard let coreDataOperation = operation.coreData else {
+            throw DatabaseError.unsupportedOperation(
+                "Missing Core Data implementation for write operation."
+            )
+        }
+
+        do {
+            let result = try coreDataOperation(viewContext)
+            if viewContext.hasChanges {
+                try viewContext.save()
+            }
+            return result
+        } catch let databaseError as DatabaseError {
+            viewContext.rollback()
+            throw databaseError
+        } catch {
+            viewContext.rollback()
             throw DatabaseError.transactionFailed(String(describing: error))
         }
     }
 
-    public func softDelete<T>(_ model: T, at date: Date = .now) throws where T: PersistentModel & SoftDeletableRecord {
-        model.deletedAt = date
-
-        if let timestampedModel = model as? any TimestampTrackableRecord {
-            timestampedModel.updatedAt = date
-        }
-
-        try save()
-    }
-
-    private func stampTimestampsIfNeeded<T: PersistentModel>(_ model: T) {
-        guard let timestampedModel = model as? any TimestampTrackableRecord else {
-            return
-        }
-
-        let now = Date()
-        timestampedModel.updatedAt = now
-        timestampedModel.createdAt = timestampedModel.createdAt == .distantPast ? now : timestampedModel.createdAt
+    public func rollback() {
+        viewContext.rollback()
     }
 }

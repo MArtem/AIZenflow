@@ -208,17 +208,23 @@ xcrun simctl list devices | grep Booted
   `TchopNetworking` and `TchopDatabase`.
 - Old app-local infra files for `APIManager`, `DatabaseManaging`, and `DatabaseManager` were removed after the module split.
 - The `TchopDatabase` module currently provides `SwiftDataDatabaseManager` and `DatabaseManaging` with:
-  fetch,
-  fetchFirst,
-  fetchCount,
-  insert,
-  bulk insert,
-  delete,
-  deleteAll,
-  save,
-  rollback,
-  transaction support,
-  soft-delete and timestamp extension points.
+  backend-neutral manager factory,
+  `DatabaseBackendSelectionPolicy`,
+  `DatabaseReadOperation`,
+  `DatabaseWriteOperation`,
+  `SwiftDataDatabaseManager`,
+  `CoreDataDatabaseManager`,
+  `rollback`,
+  timestamp and soft-delete marker protocols.
+- The infrastructure database module is now backend-neutral in the same way as the app layer:
+  the package can instantiate either `SwiftData` or `Core Data` through one shared contract.
+- The package-level backend selection is driven by:
+  `DatabaseConfiguration`
+  and
+  `DatabaseServiceFactory.makeDatabaseManager(...)`.
+- Package tests now verify both backends:
+  `SwiftData` and `Core Data`,
+  plus factory selection for each.
 - The `TchopNetworking` module currently provides:
   `APIManager`,
   `MockAPIManager`,
