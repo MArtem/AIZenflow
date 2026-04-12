@@ -1,4 +1,7 @@
 import Foundation
+import CoreData
+import SwiftData
+import TchopDatabase
 
 /// Repository interface for loading and creating locally persisted users.
 @MainActor
@@ -13,9 +16,9 @@ protocol UserRepository {
 /// Default user repository backed by the configured app database adapter.
 @MainActor
 final class DefaultUserRepository: UserRepository {
-    private let databaseManager: any AppDatabaseManaging
+    private let databaseManager: any DatabaseManaging
 
-    init(databaseManager: any AppDatabaseManaging) {
+    init(databaseManager: any DatabaseManaging) {
         self.databaseManager = databaseManager
     }
 
@@ -26,9 +29,27 @@ final class DefaultUserRepository: UserRepository {
             return nil
         }
 
-        return try databaseManager.fetchUser(username: normalizedUsername).map {
-            AppUser(id: $0.id, username: $0.username, createdAt: $0.createdAt)
-        }
+        return try databaseManager.read(
+            DatabaseReadOperation(
+                swiftData: { context in
+                    let descriptor = FetchDescriptor<UserRecord>(
+                        predicate: #Predicate<UserRecord> { record in
+                            record.username == normalizedUsername
+                        }
+                    )
+
+                    return try context.fetch(descriptor).first.map { $0.toDomain() }
+                },
+                coreData: { context in
+                    let request = CoreDataUserEntity.fetchRequest()
+                    request.fetchLimit = 1
+                    request.predicate = NSPredicate(format: "username == %@", normalizedUsername)
+                    return try context.fetch(request).first.map {
+                        AppUser(id: $0.id, username: $0.username, createdAt: $0.createdAt)
+                    }
+                }
+            )
+        )
     }
 
     /// Returns the existing user or creates a new one and persists it.
@@ -39,17 +60,31 @@ final class DefaultUserRepository: UserRepository {
             return existingUser
         }
 
-        let storedUser = try databaseManager.performTransaction {
-            try databaseManager.insertUser(
-                username: normalizedUsername,
-                createdAt: Date()
-            )
-        }
+        let createdAt = Date()
 
-        return AppUser(
-            id: storedUser.id,
-            username: storedUser.username,
-            createdAt: storedUser.createdAt
+        return try databaseManager.write(
+            DatabaseWriteOperation(
+                swiftData: { context in
+                    let userRecord = UserRecord(
+                        username: normalizedUsername,
+                        createdAt: createdAt
+                    )
+                    context.insert(userRecord)
+                    return userRecord.toDomain()
+                },
+                coreData: { context in
+                    let entity = CoreDataUserEntity(context: context)
+                    entity.id = UUID().uuidString
+                    entity.username = normalizedUsername
+                    entity.createdAt = createdAt
+
+                    return AppUser(
+                        id: entity.id,
+                        username: entity.username,
+                        createdAt: entity.createdAt
+                    )
+                }
+            )
         )
     }
 }

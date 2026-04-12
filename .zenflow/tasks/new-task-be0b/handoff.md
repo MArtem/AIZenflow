@@ -247,17 +247,24 @@ xcrun simctl list devices | grep Booted
   `swift test --package-path Packages/TchopInfrastructure`
   and
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -configuration Debug CODE_SIGNING_ALLOWED=NO test`.
-- The app persistence layer is no longer bound directly to `SwiftData` in repositories.
-  Repositories now depend on `AppDatabaseManaging`, an app-facing backend adapter contract.
-- Two concrete app persistence adapters now exist:
-  `SwiftDataAppDatabaseAdapter`
-  and
-  `CoreDataAppDatabaseAdapter`.
-- `AppDIContainer` now chooses the persistence backend through `AppDatabaseConfiguration` and `AppDatabaseBackendSelectionPolicy`.
-  The default production policy is `automatic`, which resolves to `SwiftData` on iOS 17+ and falls back to `Core Data` otherwise.
+- The app persistence layer now uses the package database contract directly.
+  Repositories and seeders depend on `DatabaseManaging` from `TchopDatabase`, not on an app-local duplicate abstraction.
+- `TchopApp/Persistence/AppDatabase.swift` is now only an app-specific composition layer:
+  it builds the app's `SwiftData` and `Core Data` containers and delegates backend selection to `DatabaseServiceFactory`.
+- `AppDIContainer` now chooses persistence through `DatabaseConfiguration` and `DatabaseBackendSelectionPolicy`.
+  The default production policy remains `automatic`, which resolves to `SwiftData` on iOS 17+ and falls back to `Core Data` otherwise.
 - The persisted local model is intentionally reduced to the records the app truly reads locally today:
   the primary channel metadata and users.
   Feed cards continue to come from the API layer.
+- `TchopNetworking` was also pushed to a more complete baseline:
+  it now includes typed `noConnection` and `timeout` errors,
+  request authentication via `APIAuthenticationInterceptor`,
+  upload and download APIs with progress callbacks,
+  and an `APIOfflineRequestQueue` foundation that can replay queued work when connectivity returns.
+- Package tests now verify:
+  authentication header injection,
+  offline queue drain behavior,
+  and mock download writing in addition to the existing cancellation and stub-response coverage.
   `APIRequest`,
   `APIManaging`,
   interceptor protocols,

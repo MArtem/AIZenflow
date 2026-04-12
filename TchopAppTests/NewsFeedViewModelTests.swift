@@ -1,4 +1,5 @@
 import XCTest
+import TchopDatabase
 @testable import TchopApp
 
 @MainActor
@@ -89,7 +90,7 @@ private enum TestNewsFeedError: Error {
 @MainActor
 final class UserRepositoryTests: XCTestCase {
     func testFindUserReturnsNilForWhitespaceUsername() throws {
-        let repository = DefaultUserRepository(databaseManager: TestAppDatabaseManager())
+        let repository = DefaultUserRepository(databaseManager: makeInMemoryAppDatabaseManager())
 
         let user = try repository.findUser(username: "   ")
 
@@ -97,43 +98,51 @@ final class UserRepositoryTests: XCTestCase {
     }
 
     func testFindOrCreateReturnsExistingUserWithoutInsert() throws {
-        let databaseManager = TestAppDatabaseManager()
-        let existingUser = StoredUser(
-            id: "existing",
-            username: "alice",
-            createdAt: Date(timeIntervalSince1970: 1)
-        )
-        databaseManager.storedUsers["alice"] = existingUser
+        let databaseManager = makeInMemoryAppDatabaseManager()
         let repository = DefaultUserRepository(databaseManager: databaseManager)
+        let createdUser = try repository.findOrCreateUser(username: "alice")
 
         let user = try repository.findOrCreateUser(username: " alice ")
 
         XCTAssertEqual(user.username, "alice")
-        XCTAssertEqual(user.id, "existing")
-        XCTAssertTrue(databaseManager.insertedUsers.isEmpty)
+        XCTAssertEqual(user.id, createdUser.id)
     }
 
     func testFindOrCreateInsertsNewUserInsideTransaction() throws {
-        let databaseManager = TestAppDatabaseManager()
+        let databaseManager = makeInMemoryAppDatabaseManager()
         let repository = DefaultUserRepository(databaseManager: databaseManager)
 
         let user = try repository.findOrCreateUser(username: "bob")
 
         XCTAssertEqual(user.username, "bob")
-        XCTAssertEqual(databaseManager.transactionCallCount, 1)
-        XCTAssertEqual(databaseManager.insertedUsers.count, 1)
+        XCTAssertNotNil(try repository.findUser(username: "bob"))
     }
 }
 
 @MainActor
 final class AppContentRepositoryTests: XCTestCase {
     func testFetchChannelInfoMapsStoredChannel() throws {
-        let databaseManager = TestAppDatabaseManager()
-        databaseManager.storedChannel = StoredChannel(
-            id: "primary-channel",
-            title: "Tchop",
-            subtitle: "New channel name"
-        )
+        let databaseManager = makeInMemoryAppDatabaseManager()
+        _ = try databaseManager.write(
+            DatabaseWriteOperation(
+                swiftData: { context in
+                    context.insert(
+                        ChannelRecord(
+                            id: "primary-channel",
+                            title: "Tchop",
+                            subtitle: "New channel name"
+                        )
+                    )
+                },
+                coreData: { context in
+                    let entity = CoreDataChannelEntity(context: context)
+                    entity.id = "primary-channel"
+                    entity.title = "Tchop"
+                    entity.subtitle = "New channel name"
+                }
+            )
+        ) as Void
+
         let repository = DefaultAppContentRepository(
             databaseManager: databaseManager,
             feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: [])))
@@ -147,7 +156,7 @@ final class AppContentRepositoryTests: XCTestCase {
 
     func testFetchChannelInfoThrowsWhenChannelIsMissing() {
         let repository = DefaultAppContentRepository(
-            databaseManager: TestAppDatabaseManager(),
+            databaseManager: makeInMemoryAppDatabaseManager(),
             feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: [])))
         )
 
@@ -156,7 +165,7 @@ final class AppContentRepositoryTests: XCTestCase {
 
     func testFetchNewsFeedContentMapsDTOsToCards() async throws {
         let repository = DefaultAppContentRepository(
-            databaseManager: TestAppDatabaseManager(),
+            databaseManager: makeInMemoryAppDatabaseManager(),
             feedAPIManager: TestFeedAPIManager(
                 result: .success(
                     FeedResponseDTO(

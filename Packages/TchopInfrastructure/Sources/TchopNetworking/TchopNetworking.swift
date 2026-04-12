@@ -46,12 +46,24 @@ public struct APIConfiguration: Sendable, Equatable {
 /// Typed errors surfaced by the networking layer.
 public enum APIError: Error, Equatable, Sendable {
     case badURL(path: String)
+    case noConnection
     case invalidResponse
     case invalidStatusCode(Int)
     case decodingFailed(String)
     case requestCancelled
+    case timeout
     case transportFailure(String)
 }
+
+/// Progress event emitted by upload and download operations.
+public enum APITransferProgress: Sendable, Equatable {
+    case started
+    case progressed(Double)
+    case finished
+}
+
+/// Async callback used to report transfer progress.
+public typealias APIProgressHandler = @Sendable (APITransferProgress) async -> Void
 
 /// Provides cooperative cancellation for requests started outside direct task ownership.
 public actor APICancellationToken {
@@ -134,6 +146,18 @@ public protocol APIRouting: Sendable {
     func makeRequest() -> APIRequest<Response>
 }
 
+/// Provides authorization headers for authenticated requests.
+public protocol APIAuthenticationProviding: Sendable {
+    /// Returns headers that should be applied to authenticated requests.
+    func authorizationHeaders() async throws -> [String: String]
+}
+
+/// Exposes current network reachability for offline queue orchestration.
+public protocol APIConnectivityProviding: Sendable {
+    /// Indicates whether the network is currently reachable.
+    func isConnected() async -> Bool
+}
+
 /// Provides request adaptation, logging hooks, and retry decisions.
 public protocol APIRequestIntercepting: Sendable {
     /// Adapts the outgoing request before execution.
@@ -203,6 +227,27 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
         case let .failure(error):
             logger("[API] Failure for \(request.url?.absoluteString ?? "<missing-url>"): \(error)")
         }
+    }
+}
+
+/// Injects authorization headers into outgoing requests.
+public struct APIAuthenticationInterceptor: APIRequestIntercepting {
+    private let provider: any APIAuthenticationProviding
+
+    /// Creates an authentication interceptor.
+    public init(provider: any APIAuthenticationProviding) {
+        self.provider = provider
+    }
+
+    public func prepare(_ request: URLRequest) async throws -> URLRequest {
+        let headers = try await provider.authorizationHeaders()
+        var mutableRequest = request
+
+        for (header, value) in headers {
+            mutableRequest.setValue(value, forHTTPHeaderField: header)
+        }
+
+        return mutableRequest
     }
 }
 
@@ -281,6 +326,20 @@ public protocol APIManaging: Actor {
         cancellationToken: APICancellationToken?
     ) async throws -> Response where Response: Sendable
 
+    /// Uploads the file at the supplied URL and returns the typed response.
+    func upload<Response>(
+        _ request: APIRequest<Response>,
+        from fileURL: URL,
+        progressHandler: APIProgressHandler?
+    ) async throws -> Response where Response: Sendable
+
+    /// Downloads a resource to disk and returns the final file location.
+    func download(
+        _ request: APIRequest<Data>,
+        destinationURL: URL?,
+        progressHandler: APIProgressHandler?
+    ) async throws -> URL
+
     /// Cancels a running request with the matching identifier.
     func cancelRequest(id: UUID)
 
@@ -351,6 +410,107 @@ public actor APIManager: APIManaging {
             throw error
         } catch is CancellationError {
             throw APIError.requestCancelled
+        } catch let error as URLError {
+            throw mapTransportError(error)
+        } catch {
+            throw APIError.transportFailure(String(describing: error))
+        }
+    }
+
+    public func upload<Response>(
+        _ request: APIRequest<Response>,
+        from fileURL: URL,
+        progressHandler: APIProgressHandler?
+    ) async throws -> Response where Response: Sendable {
+        if let stubResponse = request.stubResponse {
+            await progressHandler?(.started)
+            let response = try await stubResponse()
+            await progressHandler?(.finished)
+            return response
+        }
+
+        var urlRequest = try makeURLRequest(for: request, configuration: configuration)
+
+        for interceptor in interceptors {
+            urlRequest = try await interceptor.prepare(urlRequest)
+        }
+
+        await progressHandler?(.started)
+
+        do {
+            let (data, response) = try await session.upload(for: urlRequest, fromFile: fileURL)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.invalidResponse
+            }
+
+            guard 200 ..< 300 ~= httpResponse.statusCode else {
+                throw APIError.invalidStatusCode(httpResponse.statusCode)
+            }
+
+            await progressHandler?(.progressed(1))
+            await progressHandler?(.finished)
+
+            guard let responseParser = request.responseParser else {
+                throw APIError.invalidResponse
+            }
+
+            return try responseParser(data, httpResponse)
+        } catch let error as APIError {
+            throw error
+        } catch let error as URLError {
+            throw mapTransportError(error)
+        } catch {
+            throw APIError.transportFailure(String(describing: error))
+        }
+    }
+
+    public func download(
+        _ request: APIRequest<Data>,
+        destinationURL: URL?,
+        progressHandler: APIProgressHandler?
+    ) async throws -> URL {
+        if let stubResponse = request.stubResponse {
+            await progressHandler?(.started)
+            let data = try await stubResponse()
+            let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).tmp")
+            try data.write(to: outputURL, options: .atomic)
+            await progressHandler?(.progressed(1))
+            await progressHandler?(.finished)
+            return outputURL
+        }
+
+        var urlRequest = try makeURLRequest(for: request, configuration: configuration)
+
+        for interceptor in interceptors {
+            urlRequest = try await interceptor.prepare(urlRequest)
+        }
+
+        await progressHandler?(.started)
+
+        do {
+            let (temporaryURL, response) = try await session.download(for: urlRequest)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                throw APIError.invalidResponse
+            }
+
+            guard 200 ..< 300 ~= httpResponse.statusCode else {
+                throw APIError.invalidStatusCode(httpResponse.statusCode)
+            }
+
+            let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).download")
+
+            if FileManager.default.fileExists(atPath: outputURL.path) {
+                try FileManager.default.removeItem(at: outputURL)
+            }
+
+            try FileManager.default.moveItem(at: temporaryURL, to: outputURL)
+
+            await progressHandler?(.progressed(1))
+            await progressHandler?(.finished)
+
+            return outputURL
+        } catch let error as APIError {
+            throw error
         } catch let error as URLError {
             throw mapTransportError(error)
         } catch {
@@ -545,8 +705,93 @@ public actor MockAPIManager: APIManaging {
         }
     }
 
+    public func upload<Response>(
+        _ request: APIRequest<Response>,
+        from fileURL: URL,
+        progressHandler: APIProgressHandler?
+    ) async throws -> Response where Response: Sendable {
+        await progressHandler?(.started)
+        let response = try await perform(request)
+        await progressHandler?(.finished)
+        return response
+    }
+
+    public func download(
+        _ request: APIRequest<Data>,
+        destinationURL: URL?,
+        progressHandler: APIProgressHandler?
+    ) async throws -> URL {
+        await progressHandler?(.started)
+        let data = try await perform(request)
+        let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).mock-download")
+        try data.write(to: outputURL, options: .atomic)
+        await progressHandler?(.finished)
+        return outputURL
+    }
+
     public func cancelRequest(id: UUID) {}
     public func cancelAllRequests() {}
+}
+
+/// In-memory offline queue foundation for deferred request execution.
+public actor APIOfflineRequestQueue {
+    private var queuedOperations: [QueuedOperation] = []
+
+    /// Creates an empty queue.
+    public init() {}
+
+    /// Number of requests currently waiting for connectivity.
+    public var pendingRequestCount: Int {
+        queuedOperations.count
+    }
+
+    /// Enqueues an operation for later execution.
+    public func enqueue(
+        id: UUID = UUID(),
+        operation: @escaping @Sendable () async -> Void
+    ) {
+        queuedOperations.append(
+            QueuedOperation(id: id, operation: operation)
+        )
+    }
+
+    /// Executes and clears queued operations when the connectivity provider reports an active connection.
+    public func drainIfConnected(using connectivityProvider: any APIConnectivityProviding) async {
+        guard await connectivityProvider.isConnected() else {
+            return
+        }
+
+        let operations = queuedOperations
+        queuedOperations.removeAll()
+
+        for operation in operations {
+            await operation.operation()
+        }
+    }
+
+    /// Clears all queued operations without executing them.
+    public func removeAll() {
+        queuedOperations.removeAll()
+    }
+}
+
+/// Static connectivity provider useful for tests and previews.
+public struct StaticConnectivityProvider: APIConnectivityProviding {
+    private let connected: Bool
+
+    /// Creates a provider with a fixed connectivity state.
+    public init(connected: Bool) {
+        self.connected = connected
+    }
+
+    public func isConnected() async -> Bool {
+        connected
+    }
+}
+
+private struct QueuedOperation: Sendable {
+    let id: UUID
+    let operation: @Sendable () async -> Void
 }
 
 private final class AnySendableResult: @unchecked Sendable {
@@ -598,6 +843,10 @@ private func mapTransportError(_ error: URLError) -> APIError {
     switch error.code {
     case .cancelled:
         return .requestCancelled
+    case .notConnectedToInternet:
+        return .noConnection
+    case .timedOut:
+        return .timeout
     default:
         return .transportFailure(error.localizedDescription)
     }

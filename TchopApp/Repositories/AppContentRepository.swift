@@ -1,4 +1,7 @@
 import Foundation
+import CoreData
+import SwiftData
+import TchopDatabase
 
 /// Repository interface for fixed channel header information.
 @MainActor
@@ -20,11 +23,11 @@ protocol AppContentRepository: ChannelInfoRepository, NewsFeedRepository {}
 /// Default app content repository that combines local persistence and API data.
 @MainActor
 final class DefaultAppContentRepository: AppContentRepository {
-    private let databaseManager: any AppDatabaseManaging
+    private let databaseManager: any DatabaseManaging
     private let feedAPIManager: any FeedAPIManaging
 
     init(
-        databaseManager: any AppDatabaseManaging,
+        databaseManager: any DatabaseManaging,
         feedAPIManager: any FeedAPIManaging
     ) {
         self.databaseManager = databaseManager
@@ -33,16 +36,30 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Fetches channel data from local persistence.
     func fetchChannelInfo() throws -> ChannelHeaderInfo {
-        let channel = try databaseManager.fetchPrimaryChannel()
+        let channel = try databaseManager.read(
+            DatabaseReadOperation(
+                swiftData: { context in
+                    let descriptor = FetchDescriptor<ChannelRecord>()
+                    return try context.fetch(descriptor).first.map {
+                        ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
+                    }
+                },
+                coreData: { context in
+                    let request = CoreDataChannelEntity.fetchRequest()
+                    request.fetchLimit = 1
+
+                    return try context.fetch(request).first.map {
+                        ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
+                    }
+                }
+            )
+        )
 
         guard let channel else {
             throw RepositoryError.missingChannel
         }
 
-        return ChannelHeaderInfo(
-            title: channel.title,
-            subtitle: channel.subtitle
-        )
+        return channel
     }
 
     /// Fetches feed cards from the feed API and maps them into view-facing models.

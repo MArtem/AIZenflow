@@ -1,8 +1,8 @@
 import Foundation
 import SwiftUI
+import TchopDatabase
 import TchopNetworking
-///Feature
-///
+
 /// Composition root for the application.
 ///
 /// The container owns app-wide infrastructure services and constructs feature-level
@@ -10,7 +10,7 @@ import TchopNetworking
 @MainActor
 final class AppDIContainer: ObservableObject {
     /// Database backend adapter consumed by repositories and seeders.
-    let databaseManager: any AppDatabaseManaging
+    let databaseManager: any DatabaseManaging
 
     /// Shared networking client used by feature-specific API managers.
     let apiManager: any APIManaging
@@ -31,7 +31,7 @@ final class AppDIContainer: ObservableObject {
     let databaseBackendKind: AppDatabaseBackendKind
 
     /// Creates the root dependency container and eagerly wires the initial graph.
-    init(databaseConfiguration: AppDatabaseConfiguration = .default) {
+    init(databaseConfiguration: AppDatabaseConfiguration = .persistent) {
         let databaseManager = AppDatabase.makeDatabaseManager(configuration: databaseConfiguration)
         self.databaseManager = databaseManager
         self.databaseBackendKind = databaseManager.backendKind
