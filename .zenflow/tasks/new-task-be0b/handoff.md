@@ -3,7 +3,7 @@
 ## TL;DR
 - Project: `TchopApp`
 - Status: working iOS SwiftUI app built from screenshot, now on MVVM + SwiftData + coordinator-based navigation + login flow + session restoration
-- Last confirmed state: app builds successfully with app-level state, DI environment, tab coordinators, login/logout flow, and restored active user session across relaunch
+- Last confirmed state: app builds successfully with app-level state, DI environment, tab coordinators, login/logout flow, restored active user session across relaunch, and real feature landing screens for `Mixes`, `Pinned`, and `Chat`
 - Resume point: continue from existing Xcode project, not from scratch
 
 ## Paths
@@ -78,6 +78,11 @@
 - Stub tab navigation root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/StubTabNavigationRootView.swift`
 - Stub tab detail: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/StubTabDetailView.swift`
 - Profile tab root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/ProfileTabRootView.swift`
+- Mixes tab root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/MixesTabRootView.swift`
+- Pinned tab root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/PinnedTabRootView.swift`
+- Chat tab root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/ChatTabRootView.swift`
+- Feature tab scaffold: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/FeatureTabScaffoldView.swift`
+- Feature tab fixture models: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/FeatureTabModels.swift`
 - Launch screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/LaunchScreen.storyboard`
 - App metadata: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Info.plist`
 
@@ -328,12 +333,40 @@ xcrun simctl list devices | grep Booted
   succeeded after this refactor.
   `swift test --package-path Packages/TchopInfrastructure`
   also succeeded after the module split.
+- The active tab experience has now moved beyond generic placeholder roots for `Mixes`, `Pinned`, and `Chat`.
+- `TabContentView` no longer routes those tabs through `StubTabNavigationRootView`.
+- Each of those tabs now has its own dedicated root screen:
+  `MixesTabRootView`,
+  `PinnedTabRootView`,
+  and
+  `ChatTabRootView`.
+- Those screens share one reusable presentational scaffold:
+  `FeatureTabScaffoldView`.
+- Their content is driven by typed local fixtures in:
+  `FeatureTabModels.swift`.
+- The intent of this step was UI refinement only:
+  the repository / service architecture is unchanged,
+  and each tab still preserves its own independent `NavigationStack` through the existing `TabRouter` instances.
+- Current feature tab navigation still uses the existing lightweight detail destination:
+  `StubTabDetailView`.
+  The root surfaces are now product-shaped,
+  while the deeper destination layer remains intentionally generic until real backend-backed features are introduced.
+- Latest verification after the feature-tab replacement:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build`
+  succeeded.
+  `swift test --package-path Packages/TchopInfrastructure`
+  also succeeded.
+- App-level `xcodebuild test` was attempted twice after this change:
+  once against `iPhone 17 Pro`
+  and once against `iPhone 16 Pro`.
+  In both cases the build phase completed, but the run stalled in CoreSimulator / test runner startup,
+  so there is currently no fresh green app-test confirmation for this specific tab-refinement step.
 
 ## Next Recommended Step
-- Next logical work is refinement, not foundational architecture.
+- Next logical work is deeper feature behavior, not shell architecture.
 - Good candidates:
-  replacing stub tab content with feature modules,
-  moving repositories behind protocols per feature,
+  replacing the generic detail destination for `Mixes`, `Pinned`, and `Chat` with real per-feature destination screens,
+  moving tab fixture data behind feature-specific view models or repositories,
   refining side menu destinations and deep-link handling,
   or adding network-backed services on top of the current local-first data layer.
 

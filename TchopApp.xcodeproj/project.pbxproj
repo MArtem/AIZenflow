@@ -54,6 +54,11 @@
 		A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000840000000000000001 /* LoginViewModelTests.swift */; };
 		A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000860000000000000001 /* NewsFeedViewModelTests.swift */; };
 		A00000870000000000000001 /* TchopAppTests/TestAppContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000880000000000000001 /* TestAppContentRepository.swift */; };
+		A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000930000000000000001 /* FeatureTabModels.swift */; };
+		A00000940000000000000001 /* Views/Tabs/FeatureTabScaffoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000950000000000000001 /* FeatureTabScaffoldView.swift */; };
+		A00000960000000000000001 /* Views/Tabs/MixesTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000970000000000000001 /* MixesTabRootView.swift */; };
+		A00000980000000000000001 /* Views/Tabs/PinnedTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000990000000000000001 /* PinnedTabRootView.swift */; };
+		A000009A0000000000000001 /* Views/Tabs/ChatTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009B0000000000000001 /* ChatTabRootView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -115,6 +120,11 @@
 		A00000840000000000000001 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		A00000860000000000000001 /* NewsFeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModelTests.swift; sourceTree = "<group>"; };
 		A00000880000000000000001 /* TestAppContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppContentRepository.swift; sourceTree = "<group>"; };
+		A00000930000000000000001 /* FeatureTabModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTabModels.swift; sourceTree = "<group>"; };
+		A00000950000000000000001 /* FeatureTabScaffoldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeatureTabScaffoldView.swift; sourceTree = "<group>"; };
+		A00000970000000000000001 /* MixesTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixesTabRootView.swift; sourceTree = "<group>"; };
+		A00000990000000000000001 /* PinnedTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedTabRootView.swift; sourceTree = "<group>"; };
+		A000009B0000000000000001 /* ChatTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabRootView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +189,7 @@
 				A00000220000000000000001 /* AppTab.swift */,
 				A000005A0000000000000001 /* AppUser.swift */,
 				A000003C0000000000000001 /* ChannelHeaderInfo.swift */,
+				A00000930000000000000001 /* FeatureTabModels.swift */,
 				A000003E0000000000000001 /* NewsFeedModels.swift */,
 			);
 			path = Models;
@@ -290,9 +301,13 @@
 			isa = PBXGroup;
 			children = (
 				A00000260000000000000001 /* BottomTabBar.swift */,
+				A000009B0000000000000001 /* ChatTabRootView.swift */,
+				A00000950000000000000001 /* FeatureTabScaffoldView.swift */,
 				A00000270000000000000001 /* FloatingActionButton.swift */,
+				A00000970000000000000001 /* MixesTabRootView.swift */,
 				A00000520000000000000001 /* NewsTabRootView.swift */,
 				A00000540000000000000001 /* NewsDestinationView.swift */,
+				A00000990000000000000001 /* PinnedTabRootView.swift */,
 				A000006A0000000000000001 /* ProfileTabRootView.swift */,
 				A00000560000000000000001 /* StubTabNavigationRootView.swift */,
 				A00000580000000000000001 /* StubTabDetailView.swift */,
@@ -438,6 +453,7 @@
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
+				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
 				A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
 				A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
 				A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */,
@@ -450,6 +466,10 @@
 				A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */,
 				A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */,
 				A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */,
+				A00000940000000000000001 /* Views/Tabs/FeatureTabScaffoldView.swift in Sources */,
+				A00000960000000000000001 /* Views/Tabs/MixesTabRootView.swift in Sources */,
+				A00000980000000000000001 /* Views/Tabs/PinnedTabRootView.swift in Sources */,
+				A000009A0000000000000001 /* Views/Tabs/ChatTabRootView.swift in Sources */,
 				A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */,
 				A00000570000000000000001 /* Views/Tabs/StubTabDetailView.swift in Sources */,
 				A00000590000000000000001 /* Models/AppUser.swift in Sources */,

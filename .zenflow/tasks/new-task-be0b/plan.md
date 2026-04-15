@@ -30,6 +30,16 @@ The app-level test coverage was then extended to include `TabRouter`, `AppCoordi
 The same backend-neutral architecture is now also implemented inside the `TchopDatabase` infrastructure module. The package exposes a shared `DatabaseManaging` contract with backend selection policy, `SwiftData` and `Core Data` managers, and backend-neutral read/write operation wrappers. Package tests now validate both backends and the factory selection path, and the full app test suite still passes against the updated package.
 The app layer has now been brought onto that same package contract directly. Repositories and seeders use `DatabaseManaging` from `TchopDatabase`, while `AppDatabase.swift` is reduced to app-specific container construction and hands backend choice to `DatabaseServiceFactory`. In parallel, `TchopNetworking` was extended with typed connectivity errors, an authentication interceptor, upload and download APIs with progress reporting, and an offline queue foundation. Both `swift test --package-path Packages/TchopInfrastructure` and `xcodebuild ... test` pass after these changes.
 
+### [x] Step: Replace stub tabs with feature screens
+
+Continue from the current coordinator-based tab architecture by replacing the generic stub views in `Mixes`, `Pinned`, and `Chat` with concrete SwiftUI feature screens that match the existing visual system and preserve independent navigation stacks.
+This step was completed by introducing dedicated `MixesTabRootView`, `PinnedTabRootView`, and `ChatTabRootView` screens backed by shared `FeatureTabContent` models and a reusable `FeatureTabScaffoldView`, while keeping each tab on its own `TabRouter`.
+Verification: `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build` succeeded, and `swift test --package-path Packages/TchopInfrastructure` still passes. `xcodebuild ... test` was attempted on both `iPhone 17 Pro` and `iPhone 16 Pro`, but the run stalled in CoreSimulator after build completion, so app test execution could not be conclusively completed in this environment.
+
+### [x] Step: Refresh handoff state
+
+Recorded the new tab-screen baseline in `handoff.md`, including the new view/model files, the removal of stub tab roots from active navigation, and the current verification status with the CoreSimulator issue noted for the next chat.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
