@@ -56,6 +56,11 @@ Address the review notes by removing remaining hardcoded discussion-card colors 
 Move `AppTheme` out of `AppTab` model file into a dedicated theme file to reduce UI/model coupling and keep design-system code discoverable.
 `AppTheme` was extracted into `TchopApp/App/AppTheme.swift`, wired into the app target, and `DiscussionCard` now uses theme tokens instead of fixed color literals. Verification succeeded with `xcodebuild ... build`, `xcodebuild ... test` (iPhone 16 Pro simulator), and `swift test --package-path Packages/TchopInfrastructure`.
 
+### [x] Step: Clarify view-composition requirements
+
+Reviewed the persistent iOS requirements and confirmed the project already bans local helper/computed properties that return `View`/`some View` in screens.
+Added an explicit rule to also ban local `@ViewBuilder` helpers and to require a separate `Builder/Factory` entity when screen/card assembly or dependency wiring becomes complex.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

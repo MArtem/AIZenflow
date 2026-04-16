@@ -74,9 +74,11 @@ Use this file as the persistent engineering instruction set for this project whe
 ## Project-Specific SwiftUI Structure Rules
 - Do not use computed properties like `private var something: some View` for view composition.
 - Do not use helper methods that return `View` or `some View`.
+- Do not use `@ViewBuilder` helper functions for view composition inside screens.
 - Do not place reusable nested `View` types inside parent view files.
 - Prefer separate reusable configurable view types in separate files.
 - Only `body` on concrete `View` types should return views.
+- If composition/setup becomes complex, introduce a dedicated `Builder/Factory` entity (separate type/file) to assemble the screen/card and inject dependencies instead of adding local view-returning helpers.
 
 ## Lists and Collections
 - Use `Identifiable` models.
