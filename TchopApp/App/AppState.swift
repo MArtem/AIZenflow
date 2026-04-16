@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 
 /// Root app-level state object.
@@ -17,6 +18,8 @@ final class AppState: ObservableObject {
     private let sessionService: any UserSessionManaging
     private let userRepository: any UserRepository
     private let navigationStateManager: any NavigationStateManaging
+    private var navigationBindings: Set<AnyCancellable> = []
+    private var isApplyingNavigationSnapshot = false
 
     /// Creates the app state and attempts to restore the previous user session.
     init(
@@ -31,6 +34,7 @@ final class AppState: ObservableObject {
         self.sessionService = sessionService
         self.userRepository = userRepository
         self.navigationStateManager = navigationStateManager
+        setupNavigationPersistenceBindings()
         restoreSession()
     }
 
@@ -58,6 +62,7 @@ final class AppState: ObservableObject {
         } else {
             coordinator.selectTab(.news)
             coordinator.resetAllNavigation()
+            navigationStateManager.clearSnapshot(for: updatedUser.id)
         }
     }
 
@@ -95,11 +100,38 @@ final class AppState: ObservableObject {
             return
         }
 
-        coordinator.selectTab(snapshot.selectedTab)
-        coordinator.newsRouter.replacePath(with: snapshot.newsPath)
-        coordinator.mixesRouter.replacePath(with: snapshot.mixesPath)
-        coordinator.pinnedRouter.replacePath(with: snapshot.pinnedPath)
-        coordinator.chatRouter.replacePath(with: snapshot.chatPath)
-        coordinator.profileRouter.replacePath(with: snapshot.profilePath)
+        isApplyingNavigationSnapshot = true
+        coordinator.applySnapshot(snapshot)
+        isApplyingNavigationSnapshot = false
+    }
+
+    private func setupNavigationPersistenceBindings() {
+        Publishers.MergeMany(
+            coordinator.$selectedTab.map { _ in () }.eraseToAnyPublisher(),
+            coordinator.newsRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            coordinator.mixesRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            coordinator.pinnedRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            coordinator.chatRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            coordinator.profileRouter.$path.map { _ in () }.eraseToAnyPublisher()
+        )
+        .sink { [weak self] _ in
+            self?.persistNavigationSnapshotIfNeeded()
+        }
+        .store(in: &navigationBindings)
+    }
+
+    private func persistNavigationSnapshotIfNeeded() {
+        guard !isApplyingNavigationSnapshot else {
+            return
+        }
+
+        guard let currentUser, currentUser.isNavigationStateRestoreEnabled else {
+            return
+        }
+
+        navigationStateManager.saveSnapshot(
+            coordinator.makeSnapshot(),
+            for: currentUser.id
+        )
     }
 }

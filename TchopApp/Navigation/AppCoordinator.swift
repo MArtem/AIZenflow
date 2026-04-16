@@ -44,4 +44,26 @@ final class AppCoordinator: ObservableObject {
         chatRouter.popToRoot()
         profileRouter.popToRoot()
     }
+
+    /// Creates a serializable snapshot of the current navigation state.
+    func makeSnapshot() -> NavigationSnapshot {
+        NavigationSnapshot(
+            selectedTab: selectedTab,
+            newsPath: newsRouter.path,
+            mixesPath: mixesRouter.path,
+            pinnedPath: pinnedRouter.path,
+            chatPath: chatRouter.path,
+            profilePath: profileRouter.path
+        )
+    }
+
+    /// Applies a previously saved navigation snapshot.
+    func applySnapshot(_ snapshot: NavigationSnapshot) {
+        selectTab(snapshot.selectedTab)
+        newsRouter.replacePath(with: snapshot.newsPath)
+        mixesRouter.replacePath(with: snapshot.mixesPath)
+        pinnedRouter.replacePath(with: snapshot.pinnedPath)
+        chatRouter.replacePath(with: snapshot.chatPath)
+        profileRouter.replacePath(with: snapshot.profilePath)
+    }
 }

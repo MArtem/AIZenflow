@@ -91,9 +91,11 @@ Added `isNavigationStateRestoreEnabled` into app user domain and persistence rec
 Wire restore behavior into `AppState`/`AppCoordinator` so login/restore flows conditionally resume navigation only when the profile flag is enabled.
 `AppState` now receives `UserRepository` and `NavigationStateManaging`, restores navigation only when profile flag is enabled, and applies immediate policy changes when the flag is toggled.
 
-### [ ] Step: Navigation plan 5/10 — coordinator snapshot API and save triggers
+### [x] Step: Navigation plan 5/10 — coordinator snapshot API and save triggers
 
 Add coordinator snapshot export/apply API and automatic snapshot save triggers on tab/path changes with race-safe behavior.
+Added `AppCoordinator.makeSnapshot/applySnapshot` and wired `AppState` reactive persistence bindings for selected tab + each tab router path.
+Snapshot writes now happen only for authenticated users with restore enabled, with an explicit guard to skip writes while applying restored state.
 
 ### [ ] Step: Navigation plan 6/10 — implement deep link manager
 
