@@ -21,6 +21,7 @@ final class AppState: ObservableObject {
     private let deepLinkManager: any DeepLinkManaging
     private var navigationBindings: Set<AnyCancellable> = []
     private var isApplyingNavigationSnapshot = false
+    private var pendingDeepLinkInput: PendingDeepLinkInput?
 
     /// Creates the app state and attempts to restore the previous user session.
     init(
@@ -45,7 +46,7 @@ final class AppState: ObservableObject {
     func signIn(username: String) throws {
         let signedInUser = try sessionService.signIn(username: username)
         currentUser = signedInUser
-        restoreNavigationIfNeeded(for: signedInUser)
+        applyPostAuthenticationNavigation(for: signedInUser)
     }
 
     /// Updates restore preference for the active profile and applies the chosen policy immediately.
@@ -73,7 +74,8 @@ final class AppState: ObservableObject {
     @discardableResult
     func handleIncomingURL(_ url: URL) -> Bool {
         guard currentUser != nil else {
-            return false
+            pendingDeepLinkInput = .url(url)
+            return true
         }
 
         return deepLinkManager.handle(url: url, coordinator: coordinator)
@@ -83,7 +85,8 @@ final class AppState: ObservableObject {
     @discardableResult
     func handleIncomingUserActivity(_ userActivity: NSUserActivity) -> Bool {
         guard currentUser != nil else {
-            return false
+            pendingDeepLinkInput = .userActivity(userActivity)
+            return true
         }
 
         return deepLinkManager.handle(userActivity: userActivity, coordinator: coordinator)
@@ -93,6 +96,7 @@ final class AppState: ObservableObject {
     func signOut() {
         sessionService.signOut()
         currentUser = nil
+        pendingDeepLinkInput = nil
         coordinator.selectTab(.news)
         coordinator.resetAllNavigation()
         appShellViewModel.closeMenu()
@@ -104,7 +108,7 @@ final class AppState: ObservableObject {
             let restoredUser = try sessionService.restoreSession()
             currentUser = restoredUser
             if let restoredUser {
-                restoreNavigationIfNeeded(for: restoredUser)
+                applyPostAuthenticationNavigation(for: restoredUser)
             }
         } catch {
             assertionFailure("Failed to restore user session: \(error)")
@@ -126,6 +130,31 @@ final class AppState: ObservableObject {
         isApplyingNavigationSnapshot = true
         coordinator.applySnapshot(snapshot)
         isApplyingNavigationSnapshot = false
+    }
+
+    private func applyPostAuthenticationNavigation(for user: AppUser) {
+        if applyPendingDeepLinkIfNeeded() {
+            return
+        }
+
+        restoreNavigationIfNeeded(for: user)
+    }
+
+    private func applyPendingDeepLinkIfNeeded() -> Bool {
+        guard let pendingDeepLinkInput else {
+            return false
+        }
+
+        let wasHandled: Bool
+        switch pendingDeepLinkInput {
+        case let .url(url):
+            wasHandled = deepLinkManager.handle(url: url, coordinator: coordinator)
+        case let .userActivity(userActivity):
+            wasHandled = deepLinkManager.handle(userActivity: userActivity, coordinator: coordinator)
+        }
+
+        self.pendingDeepLinkInput = nil
+        return wasHandled
     }
 
     private func setupNavigationPersistenceBindings() {
@@ -157,4 +186,9 @@ final class AppState: ObservableObject {
             for: currentUser.id
         )
     }
+}
+
+private enum PendingDeepLinkInput {
+    case url(URL)
+    case userActivity(NSUserActivity)
 }

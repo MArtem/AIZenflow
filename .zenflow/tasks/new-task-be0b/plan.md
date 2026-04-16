@@ -107,9 +107,10 @@ Implemented a dedicated `DeepLinkManager` that handles both custom scheme and un
 Connect URL and `NSUserActivity` entry points from the app lifecycle into `DeepLinkManager` with shared dispatching.
 App lifecycle link entry points are now wired from `TchopApp`/`AppRootView` into `AppState`, and `AppState` dispatches authenticated URL/user-activity events through `DeepLinkManager`.
 
-### [ ] Step: Navigation plan 8/10 — deep link vs restore priority policy
+### [x] Step: Navigation plan 8/10 — deep link vs restore priority policy
 
 Ensure incoming deep/universal links take priority over restore on startup/auth transitions and keep behavior deterministic.
+`AppState` now queues incoming link payloads before auth and applies them first after authentication/session-restore; navigation snapshot restore runs only when no pending link handled the transition.
 
 ### [ ] Step: Navigation plan 9/10 — navigation tests for restore and links
 
