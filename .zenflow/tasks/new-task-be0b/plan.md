@@ -50,6 +50,12 @@ The policy includes concrete review triggers (risk areas, diff size, refactors, 
 Implemented semantic theme colors for active app surfaces and text states so the existing SwiftUI screens now render correctly in both light and dark appearance modes without introducing business-logic changes.
 Updated the persistent engineering rules to require light/dark support for every new project by default, with semantic tokens as the standard approach and fixed colors limited to purely decorative elements.
 
+### [x] Step: Apply review recommendations for theme consistency
+
+Address the review notes by removing remaining hardcoded discussion-card colors and aligning this screen with semantic theme tokens so light/dark behavior stays consistent across the app.
+Move `AppTheme` out of `AppTab` model file into a dedicated theme file to reduce UI/model coupling and keep design-system code discoverable.
+`AppTheme` was extracted into `TchopApp/App/AppTheme.swift`, wired into the app target, and `DiscussionCard` now uses theme tokens instead of fixed color literals. Verification succeeded with `xcodebuild ... build`, `xcodebuild ... test` (iPhone 16 Pro simulator), and `swift test --package-path Packages/TchopInfrastructure`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

@@ -9,11 +9,11 @@ struct DiscussionCard: View {
             VStack(alignment: .leading, spacing: 10) {
                 Text(discussion.categoryTitle)
                     .font(.system(size: 13, weight: .semibold))
-                    .foregroundStyle(Color.white.opacity(0.9))
+                    .foregroundStyle(AppTheme.discussionTextPrimary.opacity(0.9))
 
                 Text(discussion.headline)
                     .font(.system(size: 16, weight: .bold))
-                    .foregroundStyle(.white)
+                    .foregroundStyle(AppTheme.discussionTextPrimary)
                     .lineSpacing(2)
 
                 HStack(spacing: 6) {
@@ -21,8 +21,8 @@ struct DiscussionCard: View {
                         Circle()
                             .fill(
                                 participant.isHighlighted
-                                    ? Color(red: 0.94, green: 0.61, blue: 0.46)
-                                    : Color.white.opacity(0.85)
+                                    ? AppTheme.accent
+                                    : AppTheme.discussionParticipantFill
                             )
                             .frame(width: 24, height: 24)
                             .overlay(
@@ -30,22 +30,22 @@ struct DiscussionCard: View {
                                     .font(.system(size: 11, weight: .bold))
                                     .foregroundStyle(
                                         participant.isHighlighted
-                                            ? .white
-                                            : Color(red: 0.28, green: 0.29, blue: 0.40)
+                                            ? AppTheme.discussionTextPrimary
+                                            : AppTheme.discussionParticipantText
                                     )
                             )
                     }
 
                     Text(discussion.joinedText)
                         .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(Color.white.opacity(0.82))
+                        .foregroundStyle(AppTheme.discussionTextSecondary)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding(16)
-            .background(Color(red: 0.28, green: 0.27, blue: 0.39))
+            .background(AppTheme.discussionCardSurface)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .black.opacity(0.05), radius: 6, y: 1)
+            .shadow(color: AppTheme.shadow.opacity(0.5), radius: 6, y: 1)
         }
         .buttonStyle(.plain)
     }
