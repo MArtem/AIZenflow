@@ -11,6 +11,12 @@ protocol UserRepository {
 
     /// Finds or creates a user with the provided username.
     func findOrCreateUser(username: String) throws -> AppUser
+
+    /// Updates navigation-state-restore preference for a user profile.
+    func updateNavigationStateRestoreEnabled(
+        userID: String,
+        isEnabled: Bool
+    ) throws -> AppUser
 }
 
 /// Default user repository backed by the configured app database adapter.
@@ -45,7 +51,12 @@ final class DefaultUserRepository: UserRepository {
                     request.fetchLimit = 1
                     request.predicate = NSPredicate(format: "username == %@", normalizedUsername)
                     return try context.fetch(request).first.map {
-                        AppUser(id: $0.id, username: $0.username, createdAt: $0.createdAt)
+                        AppUser(
+                            id: $0.id,
+                            username: $0.username,
+                            createdAt: $0.createdAt,
+                            isNavigationStateRestoreEnabled: $0.isNavigationStateRestoreEnabled
+                        )
                     }
                 }
             )
@@ -67,7 +78,8 @@ final class DefaultUserRepository: UserRepository {
                 swiftData: { context in
                     let userRecord = UserRecord(
                         username: normalizedUsername,
-                        createdAt: createdAt
+                        createdAt: createdAt,
+                        isNavigationStateRestoreEnabled: true
                     )
                     context.insert(userRecord)
                     return userRecord.toDomain()
@@ -77,14 +89,63 @@ final class DefaultUserRepository: UserRepository {
                     entity.id = UUID().uuidString
                     entity.username = normalizedUsername
                     entity.createdAt = createdAt
+                    entity.isNavigationStateRestoreEnabled = true
 
                     return AppUser(
                         id: entity.id,
                         username: entity.username,
-                        createdAt: entity.createdAt
+                        createdAt: entity.createdAt,
+                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
                     )
                 }
             )
         )
     }
+
+    /// Updates restore preference for the provided user identifier.
+    func updateNavigationStateRestoreEnabled(
+        userID: String,
+        isEnabled: Bool
+    ) throws -> AppUser {
+        try databaseManager.write(
+            DatabaseWriteOperation(
+                swiftData: { context in
+                    let descriptor = FetchDescriptor<UserRecord>(
+                        predicate: #Predicate<UserRecord> { record in
+                            record.id == userID
+                        }
+                    )
+
+                    guard let userRecord = try context.fetch(descriptor).first else {
+                        throw UserRepositoryError.userNotFound
+                    }
+
+                    userRecord.isNavigationStateRestoreEnabled = isEnabled
+                    return userRecord.toDomain()
+                },
+                coreData: { context in
+                    let request = CoreDataUserEntity.fetchRequest()
+                    request.fetchLimit = 1
+                    request.predicate = NSPredicate(format: "id == %@", userID)
+
+                    guard let entity = try context.fetch(request).first else {
+                        throw UserRepositoryError.userNotFound
+                    }
+
+                    entity.isNavigationStateRestoreEnabled = isEnabled
+
+                    return AppUser(
+                        id: entity.id,
+                        username: entity.username,
+                        createdAt: entity.createdAt,
+                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
+                    )
+                }
+            )
+        )
+    }
+}
+
+private enum UserRepositoryError: Error {
+    case userNotFound
 }

@@ -25,15 +25,18 @@ final class UserRecord {
     @Attribute(.unique) var username: String
     var id: String
     var createdAt: Date
+    var isNavigationStateRestoreEnabled: Bool
 
     init(
         id: String = UUID().uuidString,
         username: String,
-        createdAt: Date
+        createdAt: Date,
+        isNavigationStateRestoreEnabled: Bool = true
     ) {
         self.username = username
         self.id = id
         self.createdAt = createdAt
+        self.isNavigationStateRestoreEnabled = isNavigationStateRestoreEnabled
     }
 
     /// Maps the persistence record into the app-level domain user.
@@ -41,7 +44,8 @@ final class UserRecord {
         AppUser(
             id: id,
             username: username,
-            createdAt: createdAt
+            createdAt: createdAt,
+            isNavigationStateRestoreEnabled: isNavigationStateRestoreEnabled
         )
     }
 }

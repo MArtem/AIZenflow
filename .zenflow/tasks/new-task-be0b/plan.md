@@ -81,9 +81,10 @@ Added `NavigationStateManaging`, `DeepLinkManaging`, and `NavigationSnapshot` as
 Add a concrete `NavigationStateManager` with per-user snapshot save/restore/clear and route-serialization compatibility handling.
 Implemented `NavigationStateManager` as a dedicated manager with per-user keys in `UserDefaults`, snapshot JSON encoding/decoding, and version gating that automatically drops incompatible/corrupted payloads.
 
-### [ ] Step: Navigation plan 3/10 — add user profile restore flag
+### [x] Step: Navigation plan 3/10 — add user profile restore flag
 
 Persist `isNavigationStateRestoreEnabled` in user storage/repository and expose update APIs used by app state/profile UI.
+Added `isNavigationStateRestoreEnabled` into app user domain and persistence records (SwiftData/CoreData), and extended `UserRepository` with explicit update API for this profile preference.
 
 ### [ ] Step: Navigation plan 4/10 — integrate restore policy into app flow
 

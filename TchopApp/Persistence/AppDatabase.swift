@@ -130,7 +130,8 @@ enum AppDatabase {
         entity.properties = [
             makeStringAttribute(name: "id"),
             makeStringAttribute(name: "username"),
-            makeDateAttribute(name: "createdAt")
+            makeDateAttribute(name: "createdAt"),
+            makeBoolAttribute(name: "isNavigationStateRestoreEnabled")
         ]
         entity.uniquenessConstraints = [["username"]]
         return entity
@@ -149,6 +150,15 @@ enum AppDatabase {
         attribute.name = name
         attribute.attributeType = .dateAttributeType
         attribute.isOptional = false
+        return attribute
+    }
+
+    private static func makeBoolAttribute(name: String) -> NSAttributeDescription {
+        let attribute = NSAttributeDescription()
+        attribute.name = name
+        attribute.attributeType = .booleanAttributeType
+        attribute.isOptional = false
+        attribute.defaultValue = true
         return attribute
     }
 }
@@ -174,6 +184,7 @@ final class CoreDataUserEntity: NSManagedObject {
     @NSManaged var id: String
     @NSManaged var username: String
     @NSManaged var createdAt: Date
+    @NSManaged var isNavigationStateRestoreEnabled: Bool
 
     @nonobjc
     static func fetchRequest() -> NSFetchRequest<CoreDataUserEntity> {

@@ -10,4 +10,19 @@ struct AppUser: Equatable, Identifiable {
 
     /// Creation date stored the first time this user signs in.
     let createdAt: Date
+
+    /// Whether navigation state restore is enabled for this user profile.
+    let isNavigationStateRestoreEnabled: Bool
+
+    init(
+        id: String,
+        username: String,
+        createdAt: Date,
+        isNavigationStateRestoreEnabled: Bool = true
+    ) {
+        self.id = id
+        self.username = username
+        self.createdAt = createdAt
+        self.isNavigationStateRestoreEnabled = isNavigationStateRestoreEnabled
+    }
 }
