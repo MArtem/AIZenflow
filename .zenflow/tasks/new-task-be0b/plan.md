@@ -45,6 +45,11 @@ Recorded the new tab-screen baseline in `handoff.md`, including the new view/mod
 Added a persistent workflow policy for model roles so implementation defaults to `GPT-5.3 Codex` and `GPT-5.4` is used as a targeted review gate instead of a mandatory every-step reviewer.
 The policy includes concrete review triggers (risk areas, diff size, refactors, unstable tests, and pre-merge checks) to keep code quality high while avoiding unnecessary token spend on trivial edits.
 
+### [x] Step: Add light/dark theme support as baseline requirement
+
+Implemented semantic theme colors for active app surfaces and text states so the existing SwiftUI screens now render correctly in both light and dark appearance modes without introducing business-logic changes.
+Updated the persistent engineering rules to require light/dark support for every new project by default, with semantic tokens as the standard approach and fixed colors limited to purely decorative elements.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

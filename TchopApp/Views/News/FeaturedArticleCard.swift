@@ -9,21 +9,21 @@ struct FeaturedArticleCard: View {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 0) {
                     Text(article.postedInPrefix)
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(AppTheme.textTertiary)
 
                     Text(article.sourceTitle)
-                        .foregroundStyle(Color(red: 0.94, green: 0.48, blue: 0.34))
+                        .foregroundStyle(AppTheme.accent)
 
                     Spacer()
 
                     ZStack {
                         Circle()
-                            .fill(Color(red: 0.95, green: 0.95, blue: 0.95))
+                            .fill(AppTheme.surfaceSecondary)
                             .frame(width: 22, height: 22)
 
                         Image(systemName: "chevron.right")
                             .font(.system(size: 10, weight: .bold))
-                            .foregroundStyle(.gray)
+                            .foregroundStyle(AppTheme.iconSecondary)
                     }
                 }
                 .font(.system(size: 13, weight: .semibold))
@@ -78,28 +78,28 @@ struct FeaturedArticleCard: View {
 
                     Text(article.headline)
                         .font(.system(size: 18, weight: .bold))
-                        .foregroundStyle(Color(red: 0.25, green: 0.26, blue: 0.38))
+                        .foregroundStyle(AppTheme.textPrimary)
                         .fixedSize(horizontal: false, vertical: true)
 
                     Text(article.summary)
                         .font(.system(size: 13, weight: .regular))
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(AppTheme.textSecondary)
                         .lineSpacing(2)
 
                     Text(article.metadataLine)
                         .font(.system(size: 12, weight: .regular))
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(AppTheme.textTertiary)
 
                     Text(article.translationLabel)
                         .font(.system(size: 13, weight: .semibold))
-                        .foregroundStyle(Color(red: 0.94, green: 0.48, blue: 0.34))
+                        .foregroundStyle(AppTheme.accent)
                 }
                 .padding(.horizontal, 14)
                 .padding(.top, 14)
                 .padding(.bottom, 12)
 
                 Divider()
-                    .overlay(Color.gray.opacity(0.15))
+                    .overlay(AppTheme.borderSubtle)
 
                 HStack {
                     ForEach(Array(article.actions.enumerated()), id: \.element.id) { index, action in
@@ -113,14 +113,14 @@ struct FeaturedArticleCard: View {
                     Spacer()
                     Image(systemName: "ellipsis")
                         .font(.system(size: 18, weight: .semibold))
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(AppTheme.iconSecondary)
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)
             }
-            .background(Color.white)
+            .background(AppTheme.surfacePrimary)
             .clipShape(RoundedRectangle(cornerRadius: 12))
-            .shadow(color: .black.opacity(0.05), radius: 6, y: 1)
+            .shadow(color: AppTheme.shadow.opacity(0.35), radius: 6, y: 1)
         }
         .buttonStyle(.plain)
     }

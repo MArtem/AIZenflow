@@ -13,7 +13,7 @@ struct TopBarView: View {
                 Button(action: onMenuTap) {
                     Image(systemName: "line.3.horizontal")
                         .font(.system(size: 20, weight: .medium))
-                        .foregroundStyle(Color(red: 0.31, green: 0.33, blue: 0.40))
+                        .foregroundStyle(AppTheme.iconPrimary)
                         .frame(width: 32, height: 32)
                 }
                 .buttonStyle(.plain)
@@ -25,16 +25,16 @@ struct TopBarView: View {
                         VStack(alignment: .leading, spacing: 2) {
                             Text(channelInfo.title)
                                 .font(.system(size: 16, weight: .semibold))
-                                .foregroundStyle(Color(red: 0.20, green: 0.22, blue: 0.30))
+                                .foregroundStyle(AppTheme.textPrimary)
 
                             HStack(spacing: 4) {
                                 Text(channelInfo.subtitle)
                                     .font(.system(size: 13, weight: .regular))
-                                    .foregroundStyle(.gray)
+                                    .foregroundStyle(AppTheme.textTertiary)
 
                                 Image(systemName: "chevron.down")
                                     .font(.system(size: 10, weight: .semibold))
-                                    .foregroundStyle(.gray)
+                                    .foregroundStyle(AppTheme.textTertiary)
                             }
                         }
                     }
@@ -57,18 +57,18 @@ struct TopBarView: View {
                     .buttonStyle(.plain)
                 }
                 .font(.system(size: 18, weight: .regular))
-                .foregroundStyle(Color(red: 0.62, green: 0.64, blue: 0.69))
+                .foregroundStyle(AppTheme.iconSecondary)
             }
             .padding(.horizontal, 16)
             .padding(.top, 12)
             .padding(.bottom, 14)
-            .background(Color.white)
+            .background(AppTheme.surfacePrimary)
 
             Divider()
-                .overlay(Color.gray.opacity(0.12))
+                .overlay(AppTheme.borderSubtle)
         }
-        .background(Color.white)
-        .shadow(color: .black.opacity(0.03), radius: 6, y: 2)
+        .background(AppTheme.surfacePrimary)
+        .shadow(color: AppTheme.shadow.opacity(0.25), radius: 6, y: 2)
         .zIndex(1)
     }
 }

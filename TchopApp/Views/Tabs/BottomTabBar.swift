@@ -17,8 +17,8 @@ struct BottomTabBar: View {
                     .frame(maxWidth: .infinity)
                     .foregroundStyle(
                         selectedTab == tab
-                            ? Color(red: 0.95, green: 0.50, blue: 0.37)
-                            : Color(red: 0.35, green: 0.36, blue: 0.45)
+                            ? AppTheme.accent
+                            : AppTheme.textSecondary
                     )
                 }
                 .buttonStyle(.plain)
@@ -27,9 +27,9 @@ struct BottomTabBar: View {
         .padding(.horizontal, 10)
         .padding(.top, 10)
         .padding(.bottom, 18)
-        .background(Color.white)
+        .background(AppTheme.surfacePrimary)
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .shadow(color: .black.opacity(0.08), radius: 10, y: -1)
+        .shadow(color: AppTheme.shadow.opacity(0.4), radius: 10, y: -1)
         .padding(.horizontal, 10)
         .padding(.bottom, 8)
     }

@@ -10,6 +10,6 @@ struct ArticleActionView: View {
             Text(action.title)
                 .font(.system(size: 13, weight: .semibold))
         }
-        .foregroundStyle(.gray)
+        .foregroundStyle(AppTheme.textTertiary)
     }
 }

@@ -7,12 +7,12 @@ struct BrandMarkView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.white)
+                .fill(AppTheme.surfacePrimary)
                 .frame(width: iconSize, height: iconSize)
-                .shadow(color: .black.opacity(0.03), radius: 6, y: 1)
+                .shadow(color: AppTheme.shadow.opacity(0.25), radius: 6, y: 1)
 
             RoundedRectangle(cornerRadius: 8)
-                .fill(Color(red: 0.97, green: 0.95, blue: 0.92))
+                .fill(AppTheme.surfaceSecondary)
                 .frame(width: cardSize.width, height: cardSize.height)
 
             VStack(spacing: 2) {

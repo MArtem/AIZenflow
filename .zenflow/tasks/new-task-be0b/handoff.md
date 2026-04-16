@@ -361,6 +361,25 @@ xcrun simctl list devices | grep Booted
   and once against `iPhone 16 Pro`.
   In both cases the build phase completed, but the run stalled in CoreSimulator / test runner startup,
   so there is currently no fresh green app-test confirmation for this specific tab-refinement step.
+- The app now has explicit light/dark appearance support in the UI layer through shared semantic theme tokens in:
+  `TchopApp/Models/AppTab.swift` (`AppTheme`).
+- Active shell and content surfaces now consume `AppTheme` instead of hardcoded RGB values in key views:
+  `AppShellView`,
+  `TopBarView`,
+  `SideMenuView`,
+  `LoginScreenView`,
+  `BottomTabBar`,
+  `FeatureTabScaffoldView`,
+  `ProfileTabRootView`,
+  `NewsDestinationView`,
+  `StubTabDetailView`,
+  `FeaturedArticleCard`,
+  `ArticleActionView`,
+  `FloatingActionButton`,
+  `BrandMarkView`,
+  and
+  `TabStubView`.
+- Fixed colors are intentionally kept only in decorative content blocks (for example parts of card illustration art), while surfaces and text use semantic theme tokens for readability in both appearance modes.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

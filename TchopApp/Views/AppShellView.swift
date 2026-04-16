@@ -14,7 +14,7 @@ struct AppShellView: View {
             let menuVisibility = currentMenuVisibility(menuWidth: menuWidth)
 
             ZStack(alignment: .leading) {
-                Color(red: 0.97, green: 0.96, blue: 0.94)
+                AppTheme.canvasBackground
                     .ignoresSafeArea()
 
                 ShellContentView(

@@ -16,29 +16,29 @@ struct LoginScreenView: View {
             VStack(alignment: .leading, spacing: 8) {
                 Text("Sign in")
                     .font(.system(size: 34, weight: .bold))
-                    .foregroundStyle(Color(red: 0.22, green: 0.23, blue: 0.33))
+                    .foregroundStyle(AppTheme.textPrimary)
 
                 Text("Use any username. A new one will be stored locally on first login.")
                     .font(.system(size: 15, weight: .medium))
-                    .foregroundStyle(.gray)
+                    .foregroundStyle(AppTheme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
             }
 
             VStack(alignment: .leading, spacing: 10) {
                 Text("Username")
                     .font(.system(size: 13, weight: .semibold))
-                    .foregroundStyle(Color(red: 0.40, green: 0.41, blue: 0.50))
+                    .foregroundStyle(AppTheme.textTertiary)
 
                 TextField("Enter your name", text: $viewModel.username)
                     .textInputAutocapitalization(.words)
                     .autocorrectionDisabled()
                     .padding(.horizontal, 16)
                     .padding(.vertical, 14)
-                    .background(Color.white)
+                    .background(AppTheme.surfacePrimary)
                     .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
                     .overlay(
                         RoundedRectangle(cornerRadius: 16, style: .continuous)
-                            .stroke(Color.black.opacity(0.06), lineWidth: 1)
+                            .stroke(AppTheme.borderSubtle, lineWidth: 1)
                     )
             }
 
@@ -54,7 +54,7 @@ struct LoginScreenView: View {
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)
                     .foregroundStyle(.white)
-                    .background(Color(red: 0.95, green: 0.50, blue: 0.37))
+                    .background(AppTheme.accent)
                     .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
             }
             .buttonStyle(.plain)
@@ -62,6 +62,6 @@ struct LoginScreenView: View {
             Spacer()
         }
         .padding(.horizontal, 24)
-        .background(Color(red: 0.97, green: 0.96, blue: 0.94).ignoresSafeArea())
+        .background(AppTheme.canvasBackground.ignoresSafeArea())
     }
 }

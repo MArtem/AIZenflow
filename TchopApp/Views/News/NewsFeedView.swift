@@ -11,7 +11,7 @@ struct NewsFeedView: View {
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
                         .font(.system(size: 13, weight: .medium))
-                        .foregroundStyle(Color.red.opacity(0.82))
+                        .foregroundStyle(.red.opacity(0.82))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
 

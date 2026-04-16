@@ -11,23 +11,23 @@ struct ProfileTabRootView: View {
                 Spacer(minLength: 40)
 
                 Circle()
-                    .fill(Color.white)
+                    .fill(AppTheme.surfacePrimary)
                     .frame(width: 96, height: 96)
-                    .shadow(color: .black.opacity(0.05), radius: 10, y: 4)
+                    .shadow(color: AppTheme.shadow.opacity(0.35), radius: 10, y: 4)
                     .overlay(
                         Text(userInitials)
                             .font(.system(size: 30, weight: .bold))
-                            .foregroundStyle(Color(red: 0.95, green: 0.50, blue: 0.37))
+                            .foregroundStyle(AppTheme.accent)
                     )
 
                 VStack(spacing: 8) {
                     Text(currentUser.username)
                         .font(.system(size: 28, weight: .bold))
-                        .foregroundStyle(Color(red: 0.24, green: 0.25, blue: 0.36))
+                        .foregroundStyle(AppTheme.textPrimary)
 
                     Text("Signed in locally with SwiftData-backed user persistence.")
                         .font(.system(size: 15, weight: .medium))
-                        .foregroundStyle(.gray)
+                        .foregroundStyle(AppTheme.textTertiary)
                         .multilineTextAlignment(.center)
                 }
 
@@ -37,7 +37,7 @@ struct ProfileTabRootView: View {
                         .foregroundStyle(.white)
                         .padding(.horizontal, 18)
                         .padding(.vertical, 12)
-                        .background(Color(red: 0.95, green: 0.50, blue: 0.37))
+                        .background(AppTheme.accent)
                         .clipShape(Capsule())
                 }
                 .buttonStyle(.plain)
@@ -45,10 +45,10 @@ struct ProfileTabRootView: View {
                 Button(action: onLogout) {
                     Text("Log out")
                         .font(.system(size: 15, weight: .semibold))
-                        .foregroundStyle(Color(red: 0.95, green: 0.50, blue: 0.37))
+                        .foregroundStyle(AppTheme.accent)
                         .padding(.horizontal, 18)
                         .padding(.vertical, 12)
-                        .background(Color.white)
+                        .background(AppTheme.surfacePrimary)
                         .clipShape(Capsule())
                 }
                 .buttonStyle(.plain)

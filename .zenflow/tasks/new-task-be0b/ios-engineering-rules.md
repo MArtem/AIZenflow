@@ -67,6 +67,9 @@ Use this file as the persistent engineering instruction set for this project whe
 - Use modifiers cleanly.
 - Avoid heavy computations in `body`.
 - Minimize unnecessary re-renders.
+- Light and dark appearance support is mandatory for every project by default.
+- New screens and reusable components must use semantic theme tokens (not raw hardcoded RGB values for surface/text states) so both appearances stay readable and consistent.
+- Any exception where fixed colors are intentional (brand illustration or media content) must be explicitly limited to decorative elements only.
 
 ## Project-Specific SwiftUI Structure Rules
 - Do not use computed properties like `private var something: some View` for view composition.
