@@ -112,9 +112,10 @@ App lifecycle link entry points are now wired from `TchopApp`/`AppRootView` into
 Ensure incoming deep/universal links take priority over restore on startup/auth transitions and keep behavior deterministic.
 `AppState` now queues incoming link payloads before auth and applies them first after authentication/session-restore; navigation snapshot restore runs only when no pending link handled the transition.
 
-### [ ] Step: Navigation plan 9/10 — navigation tests for restore and links
+### [x] Step: Navigation plan 9/10 — navigation tests for restore and links
 
 Extend tests for restore on/off, snapshot policy, deep/universal link routing, and conflict-priority behavior.
+Added app-level tests for snapshot restore enabled/disabled behavior, post-login deep-link priority over snapshot restore, and dedicated deep-link parsing/routing coverage for both custom scheme and universal links.
 
 ### [ ] Step: Navigation plan 10/10 — documentation and handoff refresh
 

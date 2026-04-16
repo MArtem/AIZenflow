@@ -78,6 +78,115 @@ final class AppStateTests: XCTestCase {
         XCTAssertFalse(shellViewModel.isMenuOpen)
         XCTAssertEqual(sessionService.signOutCallCount, 1)
     }
+
+    func testInitRestoresNavigationSnapshotWhenFlagEnabled() {
+        let restoredUser = AppUser(
+            id: "user-snapshot-enabled",
+            username: "snapshot-on",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .chat,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [ChatRoute(title: "Room", description: "From snapshot")],
+            profilePath: []
+        )
+        let stateManager = TestNavigationStateManager(seed: [restoredUser.id: snapshot])
+        let sessionService = TestUserSessionService(
+            signInResult: .success(restoredUser),
+            restoreResult: .success(restoredUser)
+        )
+        let coordinator = AppCoordinator()
+
+        _ = AppState(
+            coordinator: coordinator,
+            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: TestDeepLinkManager()
+        )
+
+        XCTAssertEqual(coordinator.selectedTab, .chat)
+        XCTAssertEqual(coordinator.chatRouter.path.count, 1)
+    }
+
+    func testInitDoesNotRestoreSnapshotWhenFlagDisabled() {
+        let restoredUser = AppUser(
+            id: "user-snapshot-disabled",
+            username: "snapshot-off",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: false
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .profile,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [],
+            profilePath: [ProfileRoute(title: "Saved", description: "Saved")]
+        )
+        let stateManager = TestNavigationStateManager(seed: [restoredUser.id: snapshot])
+        let sessionService = TestUserSessionService(
+            signInResult: .success(restoredUser),
+            restoreResult: .success(restoredUser)
+        )
+        let coordinator = AppCoordinator(selectedTab: .mixes)
+
+        _ = AppState(
+            coordinator: coordinator,
+            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: TestDeepLinkManager()
+        )
+
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+    }
+
+    func testSignInPrioritizesPendingDeepLinkOverSnapshotRestore() throws {
+        let signedInUser = AppUser(
+            id: "user-priority",
+            username: "priority-user",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .profile,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [],
+            profilePath: [ProfileRoute(title: "Snapshot", description: "Should be skipped")]
+        )
+        let stateManager = TestNavigationStateManager(seed: [signedInUser.id: snapshot])
+        let sessionService = TestUserSessionService(
+            signInResult: .success(signedInUser),
+            restoreResult: .success(nil)
+        )
+        let coordinator = AppCoordinator()
+        let state = AppState(
+            coordinator: coordinator,
+            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: signedInUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: DeepLinkManager()
+        )
+
+        XCTAssertTrue(state.handleIncomingURL(URL(string: "tchop://chat?title=Support&description=Urgent")!))
+
+        try state.signIn(username: signedInUser.username)
+
+        XCTAssertEqual(coordinator.selectedTab, .chat)
+        XCTAssertEqual(coordinator.chatRouter.path.first?.title, "Support")
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+    }
 }
 
 @MainActor
@@ -144,6 +253,11 @@ private final class TestUserRepository: UserRepository {
 @MainActor
 private final class TestNavigationStateManager: NavigationStateManaging {
     private var snapshots: [String: NavigationSnapshot] = [:]
+    private(set) var clearCallCount = 0
+
+    init(seed: [String: NavigationSnapshot] = [:]) {
+        self.snapshots = seed
+    }
 
     func saveSnapshot(_ snapshot: NavigationSnapshot, for userID: String) {
         snapshots[userID] = snapshot
@@ -154,6 +268,7 @@ private final class TestNavigationStateManager: NavigationStateManaging {
     }
 
     func clearSnapshot(for userID: String) {
+        clearCallCount += 1
         snapshots[userID] = nil
     }
 }
@@ -268,5 +383,37 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertTrue(coordinator.chatRouter.path.isEmpty)
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
         XCTAssertEqual(coordinator.selectedTab, .profile)
+    }
+}
+
+@MainActor
+final class DeepLinkManagerTests: XCTestCase {
+    func testCustomSchemeDiscussionLinkRoutesToNewsDiscussion() {
+        let coordinator = AppCoordinator()
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "tchop://news/discussion?title=Debate&subtitle=12+joined&body=Body")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertTrue(handled)
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertEqual(coordinator.newsRouter.path.first?.destinationID, "discussion-details")
+        XCTAssertEqual(coordinator.newsRouter.path.first?.title, "Debate")
+    }
+
+    func testUniversalLinkRoutesToProfileDetail() {
+        let coordinator = AppCoordinator()
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "https://example.com/profile?title=Settings&description=Manage+profile")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertTrue(handled)
+        XCTAssertEqual(coordinator.selectedTab, .profile)
+        XCTAssertEqual(coordinator.profileRouter.path.first?.title, "Settings")
     }
 }
