@@ -1,7 +1,7 @@
 import Foundation
 
 /// Top-level application tabs shared by the tab bar and side menu.
-enum AppTab: String, CaseIterable, Identifiable {
+enum AppTab: String, CaseIterable, Identifiable, Codable {
     case news
     case mixes
     case pinned

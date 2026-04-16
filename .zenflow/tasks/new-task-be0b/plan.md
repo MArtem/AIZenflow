@@ -71,6 +71,47 @@ Handoff now explicitly includes: no local `@ViewBuilder` helper functions and Bu
 Updated the rule wording so it applies to any new destination screen or composed UI element, not only screen/card assembly.
 Allowed patterns are now explicit: direct type initialization at call site or dedicated `Builder/Factory` when complexity/dependency wiring justifies it; local view-returning helpers remain disallowed.
 
+### [x] Step: Navigation plan 1/10 — define target architecture contracts
+
+Started the navigation modernization track with explicit contracts and shared data models for the new capabilities.
+Added `NavigationStateManaging`, `DeepLinkManaging`, and `NavigationSnapshot` as the baseline architecture layer that the next steps will implement.
+
+### [ ] Step: Navigation plan 2/10 — implement snapshot persistence manager
+
+Add a concrete `NavigationStateManager` with per-user snapshot save/restore/clear and route-serialization compatibility handling.
+
+### [ ] Step: Navigation plan 3/10 — add user profile restore flag
+
+Persist `isNavigationStateRestoreEnabled` in user storage/repository and expose update APIs used by app state/profile UI.
+
+### [ ] Step: Navigation plan 4/10 — integrate restore policy into app flow
+
+Wire restore behavior into `AppState`/`AppCoordinator` so login/restore flows conditionally resume navigation only when the profile flag is enabled.
+
+### [ ] Step: Navigation plan 5/10 — coordinator snapshot API and save triggers
+
+Add coordinator snapshot export/apply API and automatic snapshot save triggers on tab/path changes with race-safe behavior.
+
+### [ ] Step: Navigation plan 6/10 — implement deep link manager
+
+Create `DeepLinkManager` to parse deep/universal links into typed navigation intents and route them via coordinator APIs.
+
+### [ ] Step: Navigation plan 7/10 — app lifecycle integration for links
+
+Connect URL and `NSUserActivity` entry points from the app lifecycle into `DeepLinkManager` with shared dispatching.
+
+### [ ] Step: Navigation plan 8/10 — deep link vs restore priority policy
+
+Ensure incoming deep/universal links take priority over restore on startup/auth transitions and keep behavior deterministic.
+
+### [ ] Step: Navigation plan 9/10 — navigation tests for restore and links
+
+Extend tests for restore on/off, snapshot policy, deep/universal link routing, and conflict-priority behavior.
+
+### [ ] Step: Navigation plan 10/10 — documentation and handoff refresh
+
+Update task documentation with architecture, manager contracts, policy details, and verification notes for resumed chats.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
