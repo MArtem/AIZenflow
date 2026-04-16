@@ -61,6 +61,11 @@ Move `AppTheme` out of `AppTab` model file into a dedicated theme file to reduce
 Reviewed the persistent iOS requirements and confirmed the project already bans local helper/computed properties that return `View`/`some View` in screens.
 Added an explicit rule to also ban local `@ViewBuilder` helpers and to require a separate `Builder/Factory` entity when screen/card assembly or dependency wiring becomes complex.
 
+### [x] Step: Sync handoff with updated composition rules
+
+Mirrored the same view-composition constraints in `handoff.md` so future chats inherit the exact policy from both persistent sources.
+Handoff now explicitly includes: no local `@ViewBuilder` helper functions and Builder/Factory-only escalation when view assembly/dependency setup becomes complex.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

@@ -89,10 +89,12 @@
 ## Code Style Decision
 - Do not use computed properties like `private var something: some View` for view composition.
 - Do not use helper methods that return `some View` for reusable UI pieces.
+- Do not use local `@ViewBuilder` helper functions for screen composition.
 - Prefer:
   separate `View` structs in separate files,
   direct composition inside `body`,
   plain state/data helpers that do not return views.
+- If view assembly or dependency wiring becomes complex, use a dedicated `Builder/Factory` entity in a separate type/file instead of local view-returning helpers.
 - This preference was explicitly requested by the user and should be preserved in future edits.
 - Nested reusable `View` types inside other view files should also be avoided when they can be first-class screen/component files.
 - In addition to project state, a reusable instruction file now exists:
@@ -142,7 +144,9 @@ xcrun simctl list devices | grep Booted
 - The codebase now follows the user's SwiftUI identity rule:
   no computed properties returning `some View`,
   no helper methods returning `some View`,
+  no local `@ViewBuilder` helper functions,
   only `body` on concrete `View` types should return views.
+- When composition/setup complexity grows, the project rule is to introduce a dedicated `Builder/Factory` type instead of adding local view-returning helpers.
 - The codebase also follows the stronger structure rule:
   reusable UI must be extracted into separate configurable types in separate files, not nested inside parent views.
 - `AppShellView` composition is now split into standalone files:
