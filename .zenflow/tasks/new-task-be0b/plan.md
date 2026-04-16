@@ -97,9 +97,10 @@ Add coordinator snapshot export/apply API and automatic snapshot save triggers o
 Added `AppCoordinator.makeSnapshot/applySnapshot` and wired `AppState` reactive persistence bindings for selected tab + each tab router path.
 Snapshot writes now happen only for authenticated users with restore enabled, with an explicit guard to skip writes while applying restored state.
 
-### [ ] Step: Navigation plan 6/10 — implement deep link manager
+### [x] Step: Navigation plan 6/10 — implement deep link manager
 
 Create `DeepLinkManager` to parse deep/universal links into typed navigation intents and route them via coordinator APIs.
+Implemented a dedicated `DeepLinkManager` that handles both custom scheme and universal-link URLs, maps them to typed tab/route destinations, and routes via coordinator-owned tab routers.
 
 ### [ ] Step: Navigation plan 7/10 — app lifecycle integration for links
 
