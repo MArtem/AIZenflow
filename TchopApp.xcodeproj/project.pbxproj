@@ -36,6 +36,7 @@
 		A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000500000000000000001 /* Navigation/AppCoordinator.swift */; };
 		A000009E0000000000000001 /* Navigation/NavigationContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009F0000000000000001 /* NavigationContracts.swift */; };
 		A00000A00000000000000001 /* Navigation/NavigationSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000A10000000000000001 /* NavigationSnapshot.swift */; };
+		A00000A20000000000000001 /* Navigation/NavigationStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000A30000000000000001 /* NavigationStateManager.swift */; };
 		A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000520000000000000001 /* Views/Tabs/NewsTabRootView.swift */; };
 		A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000540000000000000001 /* Views/Tabs/NewsDestinationView.swift */; };
 		A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000560000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift */; };
@@ -106,6 +107,7 @@
 		A00000500000000000000001 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		A000009F0000000000000001 /* NavigationContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContracts.swift; sourceTree = "<group>"; };
 		A00000A10000000000000001 /* NavigationSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSnapshot.swift; sourceTree = "<group>"; };
+		A00000A30000000000000001 /* NavigationStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStateManager.swift; sourceTree = "<group>"; };
 		A00000520000000000000001 /* NewsTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabRootView.swift; sourceTree = "<group>"; };
 		A00000540000000000000001 /* NewsDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDestinationView.swift; sourceTree = "<group>"; };
 		A00000560000000000000001 /* StubTabNavigationRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubTabNavigationRootView.swift; sourceTree = "<group>"; };
@@ -257,6 +259,7 @@
 				A00000500000000000000001 /* AppCoordinator.swift */,
 				A000009F0000000000000001 /* NavigationContracts.swift */,
 				A00000A10000000000000001 /* NavigationSnapshot.swift */,
+				A00000A30000000000000001 /* NavigationStateManager.swift */,
 			);
 			path = Navigation;
 			sourceTree = "<group>";
@@ -475,6 +478,7 @@
 				A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */,
 				A000009E0000000000000001 /* Navigation/NavigationContracts.swift in Sources */,
 				A00000A00000000000000001 /* Navigation/NavigationSnapshot.swift in Sources */,
+				A00000A20000000000000001 /* Navigation/NavigationStateManager.swift in Sources */,
 				A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */,
 				A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */,
 				A00000940000000000000001 /* Views/Tabs/FeatureTabScaffoldView.swift in Sources */,

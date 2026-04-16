@@ -76,9 +76,10 @@ Allowed patterns are now explicit: direct type initialization at call site or de
 Started the navigation modernization track with explicit contracts and shared data models for the new capabilities.
 Added `NavigationStateManaging`, `DeepLinkManaging`, and `NavigationSnapshot` as the baseline architecture layer that the next steps will implement.
 
-### [ ] Step: Navigation plan 2/10 — implement snapshot persistence manager
+### [x] Step: Navigation plan 2/10 — implement snapshot persistence manager
 
 Add a concrete `NavigationStateManager` with per-user snapshot save/restore/clear and route-serialization compatibility handling.
+Implemented `NavigationStateManager` as a dedicated manager with per-user keys in `UserDefaults`, snapshot JSON encoding/decoding, and version gating that automatically drops incompatible/corrupted payloads.
 
 ### [ ] Step: Navigation plan 3/10 — add user profile restore flag
 
