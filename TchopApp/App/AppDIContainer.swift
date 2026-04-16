@@ -30,6 +30,9 @@ final class AppDIContainer: ObservableObject {
     /// Manager that persists/restores per-user navigation snapshots.
     let navigationStateManager: any NavigationStateManaging
 
+    /// Manager that handles deep and universal links for app navigation.
+    let deepLinkManager: any DeepLinkManaging
+
     /// Active persistence backend chosen for the current app runtime.
     let databaseBackendKind: AppDatabaseBackendKind
 
@@ -62,6 +65,7 @@ final class AppDIContainer: ObservableObject {
 
         self.sessionService = UserSessionService(userRepository: userRepository)
         self.navigationStateManager = NavigationStateManager()
+        self.deepLinkManager = DeepLinkManager()
     }
 
     /// Creates the shell view model used by the authenticated part of the app.
@@ -76,7 +80,8 @@ final class AppDIContainer: ObservableObject {
             appShellViewModel: makeAppShellViewModel(),
             sessionService: sessionService,
             userRepository: userRepository,
-            navigationStateManager: navigationStateManager
+            navigationStateManager: navigationStateManager,
+            deepLinkManager: deepLinkManager
         )
     }
 }

@@ -2,6 +2,18 @@ import SwiftUI
 
 struct AppRootView: View {
     @ObservedObject var appState: AppState
+    let onOpenURL: (URL) -> Void
+    let onContinueUserActivity: (NSUserActivity) -> Void
+
+    init(
+        appState: AppState,
+        onOpenURL: @escaping (URL) -> Void = { _ in },
+        onContinueUserActivity: @escaping (NSUserActivity) -> Void = { _ in }
+    ) {
+        self.appState = appState
+        self.onOpenURL = onOpenURL
+        self.onContinueUserActivity = onContinueUserActivity
+    }
 
     var body: some View {
         Group {
@@ -16,5 +28,7 @@ struct AppRootView: View {
                 )
             }
         }
+        .onOpenURL(perform: onOpenURL)
+        .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: onContinueUserActivity)
     }
 }

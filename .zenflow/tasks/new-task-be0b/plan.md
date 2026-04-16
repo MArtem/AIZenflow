@@ -102,9 +102,10 @@ Snapshot writes now happen only for authenticated users with restore enabled, wi
 Create `DeepLinkManager` to parse deep/universal links into typed navigation intents and route them via coordinator APIs.
 Implemented a dedicated `DeepLinkManager` that handles both custom scheme and universal-link URLs, maps them to typed tab/route destinations, and routes via coordinator-owned tab routers.
 
-### [ ] Step: Navigation plan 7/10 — app lifecycle integration for links
+### [x] Step: Navigation plan 7/10 — app lifecycle integration for links
 
 Connect URL and `NSUserActivity` entry points from the app lifecycle into `DeepLinkManager` with shared dispatching.
+App lifecycle link entry points are now wired from `TchopApp`/`AppRootView` into `AppState`, and `AppState` dispatches authenticated URL/user-activity events through `DeepLinkManager`.
 
 ### [ ] Step: Navigation plan 8/10 — deep link vs restore priority policy
 

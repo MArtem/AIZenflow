@@ -16,7 +16,8 @@ final class AppStateTests: XCTestCase {
             appShellViewModel: shellViewModel,
             sessionService: sessionService,
             userRepository: TestUserRepository(user: expectedUser),
-            navigationStateManager: TestNavigationStateManager()
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager()
         )
 
         try state.signIn(username: "alice")
@@ -35,7 +36,8 @@ final class AppStateTests: XCTestCase {
             appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
-            navigationStateManager: TestNavigationStateManager()
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager()
         )
 
         XCTAssertEqual(state.currentUser, restoredUser)
@@ -64,7 +66,8 @@ final class AppStateTests: XCTestCase {
             appShellViewModel: shellViewModel,
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
-            navigationStateManager: TestNavigationStateManager()
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager()
         )
 
         state.signOut()
@@ -152,6 +155,17 @@ private final class TestNavigationStateManager: NavigationStateManaging {
 
     func clearSnapshot(for userID: String) {
         snapshots[userID] = nil
+    }
+}
+
+@MainActor
+private final class TestDeepLinkManager: DeepLinkManaging {
+    func handle(url: URL, coordinator: AppCoordinator) -> Bool {
+        false
+    }
+
+    func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool {
+        false
     }
 }
 

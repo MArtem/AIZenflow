@@ -18,6 +18,7 @@ final class AppState: ObservableObject {
     private let sessionService: any UserSessionManaging
     private let userRepository: any UserRepository
     private let navigationStateManager: any NavigationStateManaging
+    private let deepLinkManager: any DeepLinkManaging
     private var navigationBindings: Set<AnyCancellable> = []
     private var isApplyingNavigationSnapshot = false
 
@@ -27,13 +28,15 @@ final class AppState: ObservableObject {
         appShellViewModel: AppShellViewModel,
         sessionService: any UserSessionManaging,
         userRepository: any UserRepository,
-        navigationStateManager: any NavigationStateManaging
+        navigationStateManager: any NavigationStateManaging,
+        deepLinkManager: any DeepLinkManaging
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
         self.sessionService = sessionService
         self.userRepository = userRepository
         self.navigationStateManager = navigationStateManager
+        self.deepLinkManager = deepLinkManager
         setupNavigationPersistenceBindings()
         restoreSession()
     }
@@ -64,6 +67,26 @@ final class AppState: ObservableObject {
             coordinator.resetAllNavigation()
             navigationStateManager.clearSnapshot(for: updatedUser.id)
         }
+    }
+
+    /// Routes an incoming deep-link URL when the app has an authenticated user.
+    @discardableResult
+    func handleIncomingURL(_ url: URL) -> Bool {
+        guard currentUser != nil else {
+            return false
+        }
+
+        return deepLinkManager.handle(url: url, coordinator: coordinator)
+    }
+
+    /// Routes an incoming universal-link activity when the app has an authenticated user.
+    @discardableResult
+    func handleIncomingUserActivity(_ userActivity: NSUserActivity) -> Bool {
+        guard currentUser != nil else {
+            return false
+        }
+
+        return deepLinkManager.handle(userActivity: userActivity, coordinator: coordinator)
     }
 
     /// Signs out the current user and resets navigation back to the default app state.
