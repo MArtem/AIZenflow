@@ -66,6 +66,11 @@ Added an explicit rule to also ban local `@ViewBuilder` helpers and to require a
 Mirrored the same view-composition constraints in `handoff.md` so future chats inherit the exact policy from both persistent sources.
 Handoff now explicitly includes: no local `@ViewBuilder` helper functions and Builder/Factory-only escalation when view assembly/dependency setup becomes complex.
 
+### [x] Step: Generalize builder/factory rule scope
+
+Updated the rule wording so it applies to any new destination screen or composed UI element, not only screen/card assembly.
+Allowed patterns are now explicit: direct type initialization at call site or dedicated `Builder/Factory` when complexity/dependency wiring justifies it; local view-returning helpers remain disallowed.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

@@ -94,7 +94,10 @@
   separate `View` structs in separate files,
   direct composition inside `body`,
   plain state/data helpers that do not return views.
-- If view assembly or dependency wiring becomes complex, use a dedicated `Builder/Factory` entity in a separate type/file instead of local view-returning helpers.
+- For any new destination screen or composed UI element, use one of two approaches only:
+  direct view type initialization at call site, or
+  a dedicated `Builder/Factory` entity in a separate type/file when that actually improves composition/dependency wiring.
+- Never add local methods/properties/functions that return a new `View`/`some View` for this purpose.
 - This preference was explicitly requested by the user and should be preserved in future edits.
 - Nested reusable `View` types inside other view files should also be avoided when they can be first-class screen/component files.
 - In addition to project state, a reusable instruction file now exists:
@@ -146,7 +149,9 @@ xcrun simctl list devices | grep Booted
   no helper methods returning `some View`,
   no local `@ViewBuilder` helper functions,
   only `body` on concrete `View` types should return views.
-- When composition/setup complexity grows, the project rule is to introduce a dedicated `Builder/Factory` type instead of adding local view-returning helpers.
+- For new destination screens or composed UI elements, the allowed patterns are:
+  direct type initialization at call site, or dedicated `Builder/Factory` (when justified by complexity/dependency wiring).
+- Local methods/properties/functions that return new `View`/`some View` are explicitly disallowed.
 - The codebase also follows the stronger structure rule:
   reusable UI must be extracted into separate configurable types in separate files, not nested inside parent views.
 - `AppShellView` composition is now split into standalone files:

@@ -78,7 +78,10 @@ Use this file as the persistent engineering instruction set for this project whe
 - Do not place reusable nested `View` types inside parent view files.
 - Prefer separate reusable configurable view types in separate files.
 - Only `body` on concrete `View` types should return views.
-- If composition/setup becomes complex, introduce a dedicated `Builder/Factory` entity (separate type/file) to assemble the screen/card and inject dependencies instead of adding local view-returning helpers.
+- For any new destination screen or composed UI element, use one of two approaches only:
+  direct view type initialization at call site, or
+  a dedicated `Builder/Factory` entity in a separate type/file when that actually improves composition/dependency wiring.
+- Never introduce local methods/properties/functions that return a new `View`/`some View` for this purpose.
 
 ## Lists and Collections
 - Use `Identifiable` models.
