@@ -86,9 +86,10 @@ Implemented `NavigationStateManager` as a dedicated manager with per-user keys i
 Persist `isNavigationStateRestoreEnabled` in user storage/repository and expose update APIs used by app state/profile UI.
 Added `isNavigationStateRestoreEnabled` into app user domain and persistence records (SwiftData/CoreData), and extended `UserRepository` with explicit update API for this profile preference.
 
-### [ ] Step: Navigation plan 4/10 — integrate restore policy into app flow
+### [x] Step: Navigation plan 4/10 — integrate restore policy into app flow
 
 Wire restore behavior into `AppState`/`AppCoordinator` so login/restore flows conditionally resume navigation only when the profile flag is enabled.
+`AppState` now receives `UserRepository` and `NavigationStateManaging`, restores navigation only when profile flag is enabled, and applies immediate policy changes when the flag is toggled.
 
 ### [ ] Step: Navigation plan 5/10 — coordinator snapshot API and save triggers
 

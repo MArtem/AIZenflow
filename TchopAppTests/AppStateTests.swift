@@ -14,7 +14,9 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
-            sessionService: sessionService
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: expectedUser),
+            navigationStateManager: TestNavigationStateManager()
         )
 
         try state.signIn(username: "alice")
@@ -31,7 +33,9 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: AppCoordinator(),
             appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
-            sessionService: sessionService
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: TestNavigationStateManager()
         )
 
         XCTAssertEqual(state.currentUser, restoredUser)
@@ -58,7 +62,9 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
-            sessionService: sessionService
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: TestNavigationStateManager()
         )
 
         state.signOut()
@@ -101,6 +107,52 @@ private final class TestUserSessionService: UserSessionManaging {
 
 private enum TestSessionError: Error {
     case signInUnavailable
+}
+
+@MainActor
+private final class TestUserRepository: UserRepository {
+    private let user: AppUser
+
+    init(user: AppUser) {
+        self.user = user
+    }
+
+    func findUser(username: String) throws -> AppUser? {
+        user.username == username ? user : nil
+    }
+
+    func findOrCreateUser(username: String) throws -> AppUser {
+        user
+    }
+
+    func updateNavigationStateRestoreEnabled(
+        userID: String,
+        isEnabled: Bool
+    ) throws -> AppUser {
+        AppUser(
+            id: user.id,
+            username: user.username,
+            createdAt: user.createdAt,
+            isNavigationStateRestoreEnabled: isEnabled
+        )
+    }
+}
+
+@MainActor
+private final class TestNavigationStateManager: NavigationStateManaging {
+    private var snapshots: [String: NavigationSnapshot] = [:]
+
+    func saveSnapshot(_ snapshot: NavigationSnapshot, for userID: String) {
+        snapshots[userID] = snapshot
+    }
+
+    func restoreSnapshot(for userID: String) -> NavigationSnapshot? {
+        snapshots[userID]
+    }
+
+    func clearSnapshot(for userID: String) {
+        snapshots[userID] = nil
+    }
 }
 
 @MainActor

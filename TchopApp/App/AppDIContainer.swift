@@ -27,6 +27,9 @@ final class AppDIContainer: ObservableObject {
     /// Service responsible for sign-in and session restoration.
     let sessionService: any UserSessionManaging
 
+    /// Manager that persists/restores per-user navigation snapshots.
+    let navigationStateManager: any NavigationStateManaging
+
     /// Active persistence backend chosen for the current app runtime.
     let databaseBackendKind: AppDatabaseBackendKind
 
@@ -58,6 +61,7 @@ final class AppDIContainer: ObservableObject {
         self.userRepository = userRepository
 
         self.sessionService = UserSessionService(userRepository: userRepository)
+        self.navigationStateManager = NavigationStateManager()
     }
 
     /// Creates the shell view model used by the authenticated part of the app.
@@ -70,7 +74,9 @@ final class AppDIContainer: ObservableObject {
         AppState(
             coordinator: AppCoordinator(),
             appShellViewModel: makeAppShellViewModel(),
-            sessionService: sessionService
+            sessionService: sessionService,
+            userRepository: userRepository,
+            navigationStateManager: navigationStateManager
         )
     }
 }
