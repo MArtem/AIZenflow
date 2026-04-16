@@ -120,4 +120,10 @@ Use this file as the persistent engineering instruction set for this project whe
 ## Additional Persistent Instructions
 - When asked to merge from `main`, merge the latest changes from `main` and resolve conflicts carefully.
 - If any conflict resolution is ambiguous, ask the user before choosing a resolution.
+- Verification matrix for app-level checks must include both simulator targets:
+  `iPhone 16 Pro (iOS 18.2)` and `iPhone 17 Pro (iOS 26.0)`.
+- For app verification, run `xcodebuild ... build` and `xcodebuild ... test` on both targets.
+- If `iPhone 17 Pro (iOS 26.0)` tests fail with a simulator bootstrap/test-runner infrastructure error
+  (for example `Early unexpected exit` before test connection), reboot the simulator and retry once.
+  If the same infrastructure error repeats, record the failure explicitly in handoff/status instead of masking it.
 - Treat these rules as the default iOS working contract for this project and for future chats that resume it.

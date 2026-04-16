@@ -140,6 +140,13 @@ swift test --package-path Packages/TchopInfrastructure
 ```sh
 xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -configuration Debug CODE_SIGNING_ALLOWED=NO test
 ```
+- App verification matrix (required):
+```sh
+xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' -configuration Debug CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' -configuration Debug CODE_SIGNING_ALLOWED=NO test
+xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO build
+xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO test
+```
 - Find booted simulator:
 ```sh
 xcrun simctl list devices | grep Booted
@@ -261,10 +268,14 @@ xcrun simctl list devices | grep Booted
   `AppCoordinatorTests`,
   `UserRepositoryTests`,
   `AppContentRepositoryTests`.
-- The latest verified test status is green for both layers:
-  `swift test --package-path Packages/TchopInfrastructure`
-  and
-  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -configuration Debug CODE_SIGNING_ALLOWED=NO test`.
+- Latest dual-simulator verification snapshot:
+  `iPhone 16 Pro (iOS 18.2)`:
+  `build` and `test` both green.
+  `iPhone 17 Pro (iOS 26.0)`:
+  `build` green,
+  `test` failed twice with the same simulator/test-runner bootstrap infrastructure error:
+  `Early unexpected exit, operation never finished bootstrapping - test runner crashed before establishing connection`.
+  This is currently tracked as an environment instability, not a reproducible assertion failure in app tests.
 - The app persistence layer now uses the package database contract directly.
   Repositories and seeders depend on `DatabaseManaging` from `TchopDatabase`, not on an app-local duplicate abstraction.
 - `TchopApp/Persistence/AppDatabase.swift` is now only an app-specific composition layer:

@@ -123,6 +123,13 @@ Update task documentation with architecture, manager contracts, policy details, 
 Updated `handoff.md` with the new navigation architecture surface (`NavigationContracts`, `NavigationSnapshot`, `NavigationStateManager`, `DeepLinkManager`), restore-policy behavior in `AppState`, deep-link lifecycle entry points, and deterministic deep-link-over-restore priority.
 Also recorded fresh green verification commands for this navigation batch (`xcodebuild ... build` and `xcodebuild ... test` on iPhone 16 Pro simulator id), and corrected the theme-token source path to `TchopApp/App/AppTheme.swift` to keep resume context accurate.
 
+### [x] Step: Add dual-simulator verification policy
+
+Ran app verification on both required simulators:
+`iPhone 16 Pro (iOS 18.2)` and `iPhone 17 Pro (iOS 26.0)`.
+`iPhone 16 Pro` build/test passed; `iPhone 17 Pro` build passed but tests failed twice with the same test-runner bootstrap infrastructure crash (`Early unexpected exit` before establishing connection) even after simulator restart.
+Updated persistent iOS rules to require build+test on both targets and to explicitly record repeated iOS 26.0 bootstrap failures instead of masking them.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
