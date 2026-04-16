@@ -53,6 +53,10 @@
 - App coordinator: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/AppCoordinator.swift`
 - Generic tab router: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/TabRouter.swift`
 - Tab route structs: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/TabRoutes.swift`
+- Navigation contracts: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/NavigationContracts.swift`
+- Navigation snapshot model: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/NavigationSnapshot.swift`
+- Navigation snapshot manager: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/NavigationStateManager.swift`
+- Deep and universal link manager: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/DeepLinkManager.swift`
 - SwiftData database bootstrap: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDatabase.swift`
 - SwiftData records: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppContentRecord.swift`
 - SwiftData seed service: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDataSeeder.swift`
@@ -371,7 +375,7 @@ xcrun simctl list devices | grep Booted
   In both cases the build phase completed, but the run stalled in CoreSimulator / test runner startup,
   so there is currently no fresh green app-test confirmation for this specific tab-refinement step.
 - The app now has explicit light/dark appearance support in the UI layer through shared semantic theme tokens in:
-  `TchopApp/Models/AppTab.swift` (`AppTheme`).
+  `TchopApp/App/AppTheme.swift`.
 - Active shell and content surfaces now consume `AppTheme` instead of hardcoded RGB values in key views:
   `AppShellView`,
   `TopBarView`,
@@ -389,6 +393,27 @@ xcrun simctl list devices | grep Booted
   and
   `TabStubView`.
 - Fixed colors are intentionally kept only in decorative content blocks (for example parts of card illustration art), while surfaces and text use semantic theme tokens for readability in both appearance modes.
+- Navigation modernization plan is now implemented through step 9/10 and includes:
+  typed navigation contracts (`NavigationStateManaging`, `DeepLinkManaging`),
+  codable route snapshots (`NavigationSnapshot`) with per-user persistence,
+  profile-level restore preference (`isNavigationStateRestoreEnabled`),
+  deterministic priority policy (pending deep link before snapshot restore after auth),
+  and app lifecycle link wiring for both `onOpenURL` and `onContinueUserActivity`.
+- `AppState` now owns navigation save/restore policy decisions:
+  snapshot writes are enabled only for authenticated users with restore enabled,
+  writes are blocked while applying a restore payload to avoid loops,
+  and disabling restore clears persisted snapshot plus resets current tab paths.
+- Deep and universal links are now routed by a dedicated manager:
+  custom scheme `tchop://...` and `https://...` URLs map to typed destinations and are dispatched through `AppCoordinator` tab routers.
+- New app-level tests now cover the navigation contract behavior:
+  restore enabled vs disabled on app initialization,
+  deep-link priority over snapshot restore after sign-in,
+  custom-scheme routing,
+  universal-link routing.
+- Latest navigation verification is green:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build`
+  and
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'id=8D07221C-A47D-48AC-BA55-1078C1001909' -configuration Debug CODE_SIGNING_ALLOWED=NO test`.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

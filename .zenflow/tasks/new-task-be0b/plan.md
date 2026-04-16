@@ -117,9 +117,11 @@ Ensure incoming deep/universal links take priority over restore on startup/auth 
 Extend tests for restore on/off, snapshot policy, deep/universal link routing, and conflict-priority behavior.
 Added app-level tests for snapshot restore enabled/disabled behavior, post-login deep-link priority over snapshot restore, and dedicated deep-link parsing/routing coverage for both custom scheme and universal links.
 
-### [ ] Step: Navigation plan 10/10 — documentation and handoff refresh
+### [x] Step: Navigation plan 10/10 — documentation and handoff refresh
 
 Update task documentation with architecture, manager contracts, policy details, and verification notes for resumed chats.
+Updated `handoff.md` with the new navigation architecture surface (`NavigationContracts`, `NavigationSnapshot`, `NavigationStateManager`, `DeepLinkManager`), restore-policy behavior in `AppState`, deep-link lifecycle entry points, and deterministic deep-link-over-restore priority.
+Also recorded fresh green verification commands for this navigation batch (`xcodebuild ... build` and `xcodebuild ... test` on iPhone 16 Pro simulator id), and corrected the theme-token source path to `TchopApp/App/AppTheme.swift` to keep resume context accurate.
 
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
