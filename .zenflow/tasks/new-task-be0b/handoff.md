@@ -392,3 +392,18 @@ xcrun simctl list devices | grep Booted
   what the next chat should assume as current truth.
 - Keep `ios-engineering-rules.md` updated only if the user changes permanent engineering expectations.
 - Keep `services-engineering-rules.md` updated only if the user changes permanent services / infra expectations.
+
+## Model Policy (Quality vs Limits)
+- Default implementation agent:
+  `GPT-5.3 Codex`.
+- Default reviewer agent:
+  `GPT-5.4`,
+  but used as a targeted review gate, not as a mandatory check for every trivial change.
+- Require `GPT-5.4` review when at least one trigger is true:
+  changes touch `AppState`, DI, navigation, persistence, networking, or auth/session;
+  diff is larger than about 4 files or 200 lines;
+  protocol/contract refactors are involved;
+  test runs are failing or unstable;
+  work is about to merge into `main` for medium/large scope tasks.
+- For trivial/small low-risk edits:
+  `GPT-5.3 Codex` implementation plus local verification (`xcodebuild ... build` and relevant tests) is sufficient.
