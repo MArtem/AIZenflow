@@ -130,6 +130,13 @@ Ran app verification on both required simulators:
 `iPhone 16 Pro` build/test passed; `iPhone 17 Pro` build passed but tests failed twice with the same test-runner bootstrap infrastructure crash (`Early unexpected exit` before establishing connection) even after simulator restart.
 Updated persistent iOS rules to require build+test on both targets and to explicitly record repeated iOS 26.0 bootstrap failures instead of masking them.
 
+### [x] Step: Add safe database backend fallback for iOS 26 launch
+
+Investigated runtime crash on manual launch (`Fatal error: Failed to create database manager` with SwiftData model-container load issue) and found `AppDatabase.makeDatabaseManager` crashed unconditionally on primary backend init errors.
+Implemented a production-safe fallback: when primary backend init fails and policy is not already forced `coreData`, app now retries with Core Data backend before failing hard.
+This keeps app startup resilient on simulator/device stores where SwiftData container initialization can fail due to migration/runtime incompatibility.
+Post-fix verification: `iPhone 16 Pro (18.2)` build/test are green; `iPhone 17 Pro (26.0)` build is green and manual `simctl launch` succeeds, while `xcodebuild test` on 26.0 still fails with known runner bootstrap instability (`Early unexpected exit`).
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

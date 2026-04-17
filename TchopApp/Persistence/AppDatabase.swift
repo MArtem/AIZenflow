@@ -30,7 +30,37 @@ enum AppDatabase {
                 }
             )
         } catch {
-            fatalError("Failed to create database manager: \(error)")
+            guard configuration.backendSelectionPolicy != .coreData else {
+                fatalError("Failed to create database manager: \(error)")
+            }
+
+            assertionFailure(
+                "Primary database backend initialization failed: \(error). " +
+                "Attempting Core Data fallback."
+            )
+
+            let fallbackConfiguration = AppDatabaseConfiguration(
+                backendSelectionPolicy: .coreData,
+                isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
+            )
+
+            do {
+                return try DatabaseServiceFactory.makeDatabaseManager(
+                    configuration: fallbackConfiguration,
+                    makeSwiftDataContainer: {
+                        try makeSwiftDataModelContainer(
+                            isStoredInMemoryOnly: fallbackConfiguration.isStoredInMemoryOnly
+                        )
+                    },
+                    makeCoreDataContainer: {
+                        try makeCoreDataPersistentContainer(
+                            isStoredInMemoryOnly: fallbackConfiguration.isStoredInMemoryOnly
+                        )
+                    }
+                )
+            } catch {
+                fatalError("Failed to create database manager with Core Data fallback: \(error)")
+            }
         }
     }
 

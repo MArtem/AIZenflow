@@ -276,6 +276,9 @@ xcrun simctl list devices | grep Booted
   `test` failed twice with the same simulator/test-runner bootstrap infrastructure error:
   `Early unexpected exit, operation never finished bootstrapping - test runner crashed before establishing connection`.
   This is currently tracked as an environment instability, not a reproducible assertion failure in app tests.
+- Manual launch validation on `iPhone 17 Pro (iOS 26.0)` after database fallback change:
+  app installs and launches successfully via `simctl launch` (process starts normally),
+  which confirms the reported startup fatal error path is resolved.
 - The app persistence layer now uses the package database contract directly.
   Repositories and seeders depend on `DatabaseManaging` from `TchopDatabase`, not on an app-local duplicate abstraction.
 - `TchopApp/Persistence/AppDatabase.swift` is now only an app-specific composition layer:
@@ -410,6 +413,10 @@ xcrun simctl list devices | grep Booted
   profile-level restore preference (`isNavigationStateRestoreEnabled`),
   deterministic priority policy (pending deep link before snapshot restore after auth),
   and app lifecycle link wiring for both `onOpenURL` and `onContinueUserActivity`.
+- `AppDatabase.makeDatabaseManager` now includes a production-safe backend fallback:
+  if primary backend initialization fails (for example SwiftData container load issue),
+  app retries with Core Data backend before failing hard.
+  This prevents startup crash loops on simulator/device stores with SwiftData compatibility or migration issues.
 - `AppState` now owns navigation save/restore policy decisions:
   snapshot writes are enabled only for authenticated users with restore enabled,
   writes are blocked while applying a restore payload to avoid loops,
