@@ -2,6 +2,7 @@ import Foundation
 import SwiftData
 
 /// SwiftData record storing the pinned channel header metadata.
+@available(iOS 17, *)
 @Model
 final class ChannelRecord {
     @Attribute(.unique) var id: String
@@ -20,6 +21,7 @@ final class ChannelRecord {
 }
 
 /// SwiftData record storing a user created from the login flow.
+@available(iOS 17, *)
 @Model
 final class UserRecord {
     @Attribute(.unique) var username: String

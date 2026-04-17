@@ -137,6 +137,16 @@ Implemented a production-safe fallback: when primary backend init fails and poli
 This keeps app startup resilient on simulator/device stores where SwiftData container initialization can fail due to migration/runtime incompatibility.
 Post-fix verification: `iPhone 16 Pro (18.2)` build/test are green; `iPhone 17 Pro (26.0)` build is green and manual `simctl launch` succeeds, while `xcodebuild test` on 26.0 still fails with known runner bootstrap instability (`Early unexpected exit`).
 
+### [x] Step: Persist first-run backend strategy and auto-migrate Core Data to SwiftData on iOS 17+
+
+Reworked `AppDatabase` backend resolution to persist first-run backend selection in local settings and keep using the same backend across launches.
+On iOS 17+, when a legacy Core Data backend marker/store is found, app now automatically creates both managers, migrates channel/user content into SwiftData, switches persistent backend preference to SwiftData, and deletes old Core Data store files to save disk space.
+Deployment target was lowered from `18.0` to `16.0`, and `TchopDatabase` package platform target was also lowered to `iOS 16` with explicit SwiftData availability guards.
+App repositories/seeders and tests were updated to avoid unconditional iOS 17-only SwiftData API usage when building for iOS 16, while keeping SwiftData behavior active on iOS 17+.
+Verification is green on both required targets after the change:
+`xcodebuild ... build` and `xcodebuild ... test` on
+`iPhone 16 Pro (iOS 18.2)` and `iPhone 17 Pro (iOS 26.0)`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

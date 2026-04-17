@@ -14,53 +14,275 @@ typealias AppDatabaseConfiguration = DatabaseConfiguration
 
 /// Builds app-specific persistence containers and delegates backend selection to the infrastructure package.
 enum AppDatabase {
+    private enum BackendPreferenceStore {
+        private static let key = "app_database_selected_backend_kind"
+
+        static func load() -> AppDatabaseBackendKind? {
+            guard let rawValue = UserDefaults.standard.string(forKey: key) else {
+                return nil
+            }
+
+            return AppDatabaseBackendKind(rawValue: rawValue)
+        }
+
+        static func save(_ backendKind: AppDatabaseBackendKind) {
+            UserDefaults.standard.set(backendKind.rawValue, forKey: key)
+        }
+    }
+
+    private struct MigrationChannelPayload {
+        let id: String
+        let title: String
+        let subtitle: String
+    }
+
+    private struct MigrationUserPayload {
+        let id: String
+        let username: String
+        let createdAt: Date
+        let isNavigationStateRestoreEnabled: Bool
+    }
+
+    private struct CoreDataMigrationPayload {
+        let channels: [MigrationChannelPayload]
+        let users: [MigrationUserPayload]
+    }
+
     /// Creates the shared database manager used by the application.
     @MainActor
     static func makeDatabaseManager(
         configuration: AppDatabaseConfiguration = .persistent
     ) -> any DatabaseManaging {
         do {
-            return try DatabaseServiceFactory.makeDatabaseManager(
-                configuration: configuration,
-                makeSwiftDataContainer: {
-                    try makeSwiftDataModelContainer(isStoredInMemoryOnly: configuration.isStoredInMemoryOnly)
-                },
-                makeCoreDataContainer: {
-                    try makeCoreDataPersistentContainer(isStoredInMemoryOnly: configuration.isStoredInMemoryOnly)
-                }
-            )
+            return try makeDatabaseManagerWithPersistentSelection(configuration: configuration)
         } catch {
-            guard configuration.backendSelectionPolicy != .coreData else {
-                fatalError("Failed to create database manager: \(error)")
+            fatalError("Failed to create database manager: \(error)")
+        }
+    }
+
+    @MainActor
+    private static func makeDatabaseManagerWithPersistentSelection(
+        configuration: AppDatabaseConfiguration
+    ) throws -> any DatabaseManaging {
+        if configuration.backendSelectionPolicy == .swiftData {
+            if #available(iOS 17, *) {
+                let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
+                BackendPreferenceStore.save(.swiftData)
+                return swiftDataManager
             }
 
-            assertionFailure(
-                "Primary database backend initialization failed: \(error). " +
-                "Attempting Core Data fallback."
+            throw DatabaseError.backendInitializationFailed(
+                "SwiftData backend is unavailable on iOS versions below 17."
             )
+        }
 
-            let fallbackConfiguration = AppDatabaseConfiguration(
-                backendSelectionPolicy: .coreData,
+        if configuration.backendSelectionPolicy == .coreData {
+            let coreDataManager = try makeCoreDataManager(configuration: configuration)
+            BackendPreferenceStore.save(.coreData)
+            return coreDataManager
+        }
+
+        if #available(iOS 17, *) {
+            if let storedBackend = BackendPreferenceStore.load() {
+                switch storedBackend {
+                case .swiftData:
+                    return try makeSwiftDataManager(configuration: configuration)
+                case .coreData:
+                    return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
+                }
+            }
+
+            if hasLegacyCoreDataStoreOnDisk(configuration: configuration) {
+                return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
+            }
+
+            let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
+            BackendPreferenceStore.save(.swiftData)
+            return swiftDataManager
+        } else {
+            let coreDataManager = try makeCoreDataManager(configuration: configuration)
+            BackendPreferenceStore.save(.coreData)
+            return coreDataManager
+        }
+    }
+
+    @MainActor
+    @available(iOS 17, *)
+    private static func migrateCoreDataToSwiftDataAndCreateManager(
+        configuration: AppDatabaseConfiguration
+    ) throws -> any DatabaseManaging {
+        let coreDataManager = try makeCoreDataManager(configuration: configuration)
+        let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
+
+        do {
+            try migrateCoreDataContent(from: coreDataManager, to: swiftDataManager)
+            try purgeCoreDataStoreFilesIfNeeded(
                 isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
             )
+            BackendPreferenceStore.save(.swiftData)
+            return swiftDataManager
+        } catch {
+            assertionFailure(
+                "Core Data -> SwiftData migration failed. Keeping Core Data backend. Error: \(error)"
+            )
+            BackendPreferenceStore.save(.coreData)
+            return coreDataManager
+        }
+    }
 
-            do {
-                return try DatabaseServiceFactory.makeDatabaseManager(
-                    configuration: fallbackConfiguration,
-                    makeSwiftDataContainer: {
-                        try makeSwiftDataModelContainer(
-                            isStoredInMemoryOnly: fallbackConfiguration.isStoredInMemoryOnly
-                        )
-                    },
-                    makeCoreDataContainer: {
-                        try makeCoreDataPersistentContainer(
-                            isStoredInMemoryOnly: fallbackConfiguration.isStoredInMemoryOnly
+    @MainActor
+    private static func makeCoreDataManager(
+        configuration: AppDatabaseConfiguration
+    ) throws -> CoreDataDatabaseManager {
+        let manager = try DatabaseServiceFactory.makeDatabaseManager(
+            configuration: AppDatabaseConfiguration(
+                backendSelectionPolicy: .coreData,
+                isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
+            ),
+            makeCoreDataContainer: {
+                try makeCoreDataPersistentContainer(
+                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
+                )
+            }
+        )
+
+        guard let coreDataManager = manager as? CoreDataDatabaseManager else {
+            throw DatabaseError.backendInitializationFailed(
+                "Failed to cast database manager to CoreDataDatabaseManager."
+            )
+        }
+
+        return coreDataManager
+    }
+
+    @MainActor
+    @available(iOS 17, *)
+    private static func makeSwiftDataManager(
+        configuration: AppDatabaseConfiguration
+    ) throws -> SwiftDataDatabaseManager {
+        let manager = try DatabaseServiceFactory.makeDatabaseManager(
+            configuration: AppDatabaseConfiguration(
+                backendSelectionPolicy: .swiftData,
+                isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
+            ),
+            makeSwiftDataContainer: {
+                try makeSwiftDataModelContainer(
+                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
+                )
+            },
+            makeCoreDataContainer: {
+                try makeCoreDataPersistentContainer(
+                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
+                )
+            }
+        )
+
+        guard let swiftDataManager = manager as? SwiftDataDatabaseManager else {
+            throw DatabaseError.backendInitializationFailed(
+                "Failed to cast database manager to SwiftDataDatabaseManager."
+            )
+        }
+
+        return swiftDataManager
+    }
+
+    @MainActor
+    @available(iOS 17, *)
+    private static func migrateCoreDataContent(
+        from coreDataManager: CoreDataDatabaseManager,
+        to swiftDataManager: SwiftDataDatabaseManager
+    ) throws {
+        let payload = try coreDataManager.read(
+            DatabaseReadOperation(
+                coreData: { context in
+                    let channelRequest = CoreDataChannelEntity.fetchRequest()
+                    let userRequest = CoreDataUserEntity.fetchRequest()
+
+                    let channels = try context.fetch(channelRequest).map {
+                        MigrationChannelPayload(
+                            id: $0.id,
+                            title: $0.title,
+                            subtitle: $0.subtitle
                         )
                     }
-                )
-            } catch {
-                fatalError("Failed to create database manager with Core Data fallback: \(error)")
-            }
+
+                    let users = try context.fetch(userRequest).map {
+                        MigrationUserPayload(
+                            id: $0.id,
+                            username: $0.username,
+                            createdAt: $0.createdAt,
+                            isNavigationStateRestoreEnabled: $0.isNavigationStateRestoreEnabled
+                        )
+                    }
+
+                    return CoreDataMigrationPayload(channels: channels, users: users)
+                }
+            )
+        )
+
+        try swiftDataManager.write(
+            DatabaseWriteOperation(
+                swiftData: { context in
+                    for channel in payload.channels {
+                        let descriptor = FetchDescriptor<ChannelRecord>()
+                        if let existing = try context.fetch(descriptor).first(where: { $0.id == channel.id }) {
+                            existing.title = channel.title
+                            existing.subtitle = channel.subtitle
+                        } else {
+                            context.insert(
+                                ChannelRecord(
+                                    id: channel.id,
+                                    title: channel.title,
+                                    subtitle: channel.subtitle
+                                )
+                            )
+                        }
+                    }
+
+                    for user in payload.users {
+                        let descriptor = FetchDescriptor<UserRecord>()
+                        if let existing = try context.fetch(descriptor).first(where: { $0.username == user.username }) {
+                            existing.id = user.id
+                            existing.createdAt = user.createdAt
+                            existing.isNavigationStateRestoreEnabled = user.isNavigationStateRestoreEnabled
+                        } else {
+                            context.insert(
+                                UserRecord(
+                                    id: user.id,
+                                    username: user.username,
+                                    createdAt: user.createdAt,
+                                    isNavigationStateRestoreEnabled: user.isNavigationStateRestoreEnabled
+                                )
+                            )
+                        }
+                    }
+                }
+            )
+        ) as Void
+    }
+
+    @MainActor
+    private static func hasLegacyCoreDataStoreOnDisk(configuration: AppDatabaseConfiguration) -> Bool {
+        guard !configuration.isStoredInMemoryOnly else {
+            return false
+        }
+
+        return FileManager.default.fileExists(atPath: persistentStoreURL().path)
+    }
+
+    @MainActor
+    private static func purgeCoreDataStoreFilesIfNeeded(isStoredInMemoryOnly: Bool) throws {
+        guard !isStoredInMemoryOnly else {
+            return
+        }
+
+        let sqliteURL = persistentStoreURL()
+        let walURL = sqliteURL.deletingPathExtension().appendingPathExtension("sqlite-wal")
+        let shmURL = sqliteURL.deletingPathExtension().appendingPathExtension("sqlite-shm")
+
+        let fileManager = FileManager.default
+        for fileURL in [sqliteURL, walURL, shmURL] where fileManager.fileExists(atPath: fileURL.path) {
+            try fileManager.removeItem(at: fileURL)
         }
     }
 

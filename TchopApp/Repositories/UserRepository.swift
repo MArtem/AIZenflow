@@ -35,18 +35,24 @@ final class DefaultUserRepository: UserRepository {
             return nil
         }
 
-        return try databaseManager.read(
-            DatabaseReadOperation(
-                swiftData: { context in
-                    let descriptor = FetchDescriptor<UserRecord>(
-                        predicate: #Predicate<UserRecord> { record in
-                            record.username == normalizedUsername
-                        }
-                    )
+        switch databaseManager.backendKind {
+        case .swiftData:
+            if #available(iOS 17, *) {
+                return try databaseManager.read(
+                    DatabaseReadOperation(swiftData: { context in
+                        let descriptor = FetchDescriptor<UserRecord>(
+                            predicate: #Predicate<UserRecord> { record in
+                                record.username == normalizedUsername
+                            }
+                        )
 
-                    return try context.fetch(descriptor).first.map { $0.toDomain() }
-                },
-                coreData: { context in
+                        return try context.fetch(descriptor).first.map { $0.toDomain() }
+                    })
+                )
+            }
+
+            return try databaseManager.read(
+                DatabaseReadOperation(coreData: { context in
                     let request = CoreDataUserEntity.fetchRequest()
                     request.fetchLimit = 1
                     request.predicate = NSPredicate(format: "username == %@", normalizedUsername)
@@ -58,9 +64,25 @@ final class DefaultUserRepository: UserRepository {
                             isNavigationStateRestoreEnabled: $0.isNavigationStateRestoreEnabled
                         )
                     }
-                }
+                })
             )
-        )
+        case .coreData:
+            return try databaseManager.read(
+                DatabaseReadOperation(coreData: { context in
+                    let request = CoreDataUserEntity.fetchRequest()
+                    request.fetchLimit = 1
+                    request.predicate = NSPredicate(format: "username == %@", normalizedUsername)
+                    return try context.fetch(request).first.map {
+                        AppUser(
+                            id: $0.id,
+                            username: $0.username,
+                            createdAt: $0.createdAt,
+                            isNavigationStateRestoreEnabled: $0.isNavigationStateRestoreEnabled
+                        )
+                    }
+                })
+            )
+        }
     }
 
     /// Returns the existing user or creates a new one and persists it.
@@ -73,18 +95,24 @@ final class DefaultUserRepository: UserRepository {
 
         let createdAt = Date()
 
-        return try databaseManager.write(
-            DatabaseWriteOperation(
-                swiftData: { context in
-                    let userRecord = UserRecord(
-                        username: normalizedUsername,
-                        createdAt: createdAt,
-                        isNavigationStateRestoreEnabled: true
-                    )
-                    context.insert(userRecord)
-                    return userRecord.toDomain()
-                },
-                coreData: { context in
+        switch databaseManager.backendKind {
+        case .swiftData:
+            if #available(iOS 17, *) {
+                return try databaseManager.write(
+                    DatabaseWriteOperation(swiftData: { context in
+                        let userRecord = UserRecord(
+                            username: normalizedUsername,
+                            createdAt: createdAt,
+                            isNavigationStateRestoreEnabled: true
+                        )
+                        context.insert(userRecord)
+                        return userRecord.toDomain()
+                    })
+                )
+            }
+
+            return try databaseManager.write(
+                DatabaseWriteOperation(coreData: { context in
                     let entity = CoreDataUserEntity(context: context)
                     entity.id = UUID().uuidString
                     entity.username = normalizedUsername
@@ -97,9 +125,26 @@ final class DefaultUserRepository: UserRepository {
                         createdAt: entity.createdAt,
                         isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
                     )
-                }
+                })
             )
-        )
+        case .coreData:
+            return try databaseManager.write(
+                DatabaseWriteOperation(coreData: { context in
+                    let entity = CoreDataUserEntity(context: context)
+                    entity.id = UUID().uuidString
+                    entity.username = normalizedUsername
+                    entity.createdAt = createdAt
+                    entity.isNavigationStateRestoreEnabled = true
+
+                    return AppUser(
+                        id: entity.id,
+                        username: entity.username,
+                        createdAt: entity.createdAt,
+                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
+                    )
+                })
+            )
+        }
     }
 
     /// Updates restore preference for the provided user identifier.
@@ -107,23 +152,29 @@ final class DefaultUserRepository: UserRepository {
         userID: String,
         isEnabled: Bool
     ) throws -> AppUser {
-        try databaseManager.write(
-            DatabaseWriteOperation(
-                swiftData: { context in
-                    let descriptor = FetchDescriptor<UserRecord>(
-                        predicate: #Predicate<UserRecord> { record in
-                            record.id == userID
+        switch databaseManager.backendKind {
+        case .swiftData:
+            if #available(iOS 17, *) {
+                return try databaseManager.write(
+                    DatabaseWriteOperation(swiftData: { context in
+                        let descriptor = FetchDescriptor<UserRecord>(
+                            predicate: #Predicate<UserRecord> { record in
+                                record.id == userID
+                            }
+                        )
+
+                        guard let userRecord = try context.fetch(descriptor).first else {
+                            throw UserRepositoryError.userNotFound
                         }
-                    )
 
-                    guard let userRecord = try context.fetch(descriptor).first else {
-                        throw UserRepositoryError.userNotFound
-                    }
+                        userRecord.isNavigationStateRestoreEnabled = isEnabled
+                        return userRecord.toDomain()
+                    })
+                )
+            }
 
-                    userRecord.isNavigationStateRestoreEnabled = isEnabled
-                    return userRecord.toDomain()
-                },
-                coreData: { context in
+            return try databaseManager.write(
+                DatabaseWriteOperation(coreData: { context in
                     let request = CoreDataUserEntity.fetchRequest()
                     request.fetchLimit = 1
                     request.predicate = NSPredicate(format: "id == %@", userID)
@@ -140,9 +191,30 @@ final class DefaultUserRepository: UserRepository {
                         createdAt: entity.createdAt,
                         isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
                     )
-                }
+                })
             )
-        )
+        case .coreData:
+            return try databaseManager.write(
+                DatabaseWriteOperation(coreData: { context in
+                    let request = CoreDataUserEntity.fetchRequest()
+                    request.fetchLimit = 1
+                    request.predicate = NSPredicate(format: "id == %@", userID)
+
+                    guard let entity = try context.fetch(request).first else {
+                        throw UserRepositoryError.userNotFound
+                    }
+
+                    entity.isNavigationStateRestoreEnabled = isEnabled
+
+                    return AppUser(
+                        id: entity.id,
+                        username: entity.username,
+                        createdAt: entity.createdAt,
+                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
+                    )
+                })
+            )
+        }
     }
 }
 

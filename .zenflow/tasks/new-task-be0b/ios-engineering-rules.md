@@ -126,4 +126,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - If `iPhone 17 Pro (iOS 26.0)` tests fail with a simulator bootstrap/test-runner infrastructure error
   (for example `Early unexpected exit` before test connection), reboot the simulator and retry once.
   If the same infrastructure error repeats, record the failure explicitly in handoff/status instead of masking it.
+- Database backend policy for this project:
+  keep `Core Data` runtime-compatible path for iOS `<17`,
+  use `SwiftData` on iOS `17+`,
+  and when a user upgrades from a legacy Core Data store to iOS `17+`, migrate persisted content to SwiftData automatically and clean old Core Data store files after successful migration.
 - Treat these rules as the default iOS working contract for this project and for future chats that resume it.

@@ -3,6 +3,7 @@ import SwiftData
 import XCTest
 @testable import TchopDatabase
 
+@available(iOS 17, macOS 14, *)
 @Model
 private final class SwiftDataTestRecord {
     @Attribute(.unique) var id: String
@@ -17,6 +18,7 @@ private final class SwiftDataTestRecord {
 @MainActor
 final class TchopDatabaseTests: XCTestCase {
     /// Verifies that the SwiftData manager executes the backend-neutral read/write contract.
+    @available(iOS 17, macOS 14, *)
     func testSwiftDataManagerCanInsertAndFetchThroughUnifiedContract() throws {
         let schema = Schema([SwiftDataTestRecord.self])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
@@ -77,6 +79,7 @@ final class TchopDatabaseTests: XCTestCase {
     }
 
     /// Verifies that the service factory selects the requested backend correctly.
+    @available(iOS 17, macOS 14, *)
     func testDatabaseFactoryCreatesSwiftDataManagerWhenRequested() throws {
         let manager = try DatabaseServiceFactory.makeDatabaseManager(
             configuration: DatabaseConfiguration(
@@ -89,6 +92,7 @@ final class TchopDatabaseTests: XCTestCase {
         XCTAssertEqual(manager.backendKind, .swiftData)
     }
 
+    @available(iOS 17, macOS 14, *)
     private func makeInMemorySwiftDataContainer() throws -> ModelContainer {
         let schema = Schema([SwiftDataTestRecord.self])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)

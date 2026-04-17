@@ -36,24 +36,43 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Fetches channel data from local persistence.
     func fetchChannelInfo() throws -> ChannelHeaderInfo {
-        let channel = try databaseManager.read(
-            DatabaseReadOperation(
-                swiftData: { context in
-                    let descriptor = FetchDescriptor<ChannelRecord>()
-                    return try context.fetch(descriptor).first.map {
-                        ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
-                    }
-                },
-                coreData: { context in
+        let channel: ChannelHeaderInfo?
+
+        switch databaseManager.backendKind {
+        case .swiftData:
+            if #available(iOS 17, *) {
+                channel = try databaseManager.read(
+                    DatabaseReadOperation(swiftData: { context in
+                        let descriptor = FetchDescriptor<ChannelRecord>()
+                        return try context.fetch(descriptor).first.map {
+                            ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
+                        }
+                    })
+                )
+            } else {
+                channel = try databaseManager.read(
+                    DatabaseReadOperation(coreData: { context in
+                        let request = CoreDataChannelEntity.fetchRequest()
+                        request.fetchLimit = 1
+
+                        return try context.fetch(request).first.map {
+                            ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
+                        }
+                    })
+                )
+            }
+        case .coreData:
+            channel = try databaseManager.read(
+                DatabaseReadOperation(coreData: { context in
                     let request = CoreDataChannelEntity.fetchRequest()
                     request.fetchLimit = 1
 
                     return try context.fetch(request).first.map {
                         ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
                     }
-                }
+                })
             )
-        )
+        }
 
         guard let channel else {
             throw RepositoryError.missingChannel

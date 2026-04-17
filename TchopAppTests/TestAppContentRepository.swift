@@ -33,7 +33,7 @@ enum TestDatabaseError: Error {
 
 @MainActor
 func makeInMemoryAppDatabaseManager(
-    backend: AppDatabaseBackendSelectionPolicy = .swiftData
+    backend: AppDatabaseBackendSelectionPolicy = .coreData
 ) -> any DatabaseManaging {
     AppDatabase.makeDatabaseManager(
         configuration: DatabaseConfiguration(

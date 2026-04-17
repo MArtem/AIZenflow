@@ -28,7 +28,11 @@ public enum DatabaseBackendSelectionPolicy: Sendable, Equatable {
     public func resolveBackendKind() -> DatabaseBackendKind {
         switch self {
         case .automatic:
-            return .swiftData
+            if #available(iOS 17, macOS 14, *) {
+                return .swiftData
+            }
+
+            return .coreData
         case .swiftData:
             return .swiftData
         case .coreData:
@@ -112,19 +116,40 @@ public struct DatabaseConfiguration: Sendable, Equatable {
 /// The caller supplies one or both backend implementations. The selected manager
 /// executes only the closure matching its active backend.
 public struct DatabaseReadOperation<Result> {
-    let swiftData: (@MainActor (ModelContext) throws -> Result)?
+    let swiftData: (@MainActor (Any) throws -> Result)?
     let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+
+    /// Creates a Core Data-only read operation.
+    ///
+    /// - Parameter coreData: Core Data implementation for the operation.
+    public init(
+        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+    ) {
+        self.swiftData = nil
+        self.coreData = coreData
+    }
 
     /// Creates a backend-neutral read operation.
     ///
     /// - Parameters:
     ///   - swiftData: SwiftData implementation for the operation.
     ///   - coreData: Core Data implementation for the operation.
+    @available(iOS 17, macOS 14, *)
     public init(
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
-        self.swiftData = swiftData
+        self.swiftData = swiftData.map { swiftDataOperation in
+            { @MainActor context in
+                guard let modelContext = context as? ModelContext else {
+                    throw DatabaseError.unsupportedOperation(
+                        "Invalid SwiftData context for read operation."
+                    )
+                }
+
+                return try swiftDataOperation(modelContext)
+            }
+        }
         self.coreData = coreData
     }
 }
@@ -134,19 +159,40 @@ public struct DatabaseReadOperation<Result> {
 /// The manager automatically commits changes when the operation succeeds and rolls
 /// them back when it fails.
 public struct DatabaseWriteOperation<Result> {
-    let swiftData: (@MainActor (ModelContext) throws -> Result)?
+    let swiftData: (@MainActor (Any) throws -> Result)?
     let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+
+    /// Creates a Core Data-only write operation.
+    ///
+    /// - Parameter coreData: Core Data implementation for the operation.
+    public init(
+        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+    ) {
+        self.swiftData = nil
+        self.coreData = coreData
+    }
 
     /// Creates a backend-neutral write operation.
     ///
     /// - Parameters:
     ///   - swiftData: SwiftData implementation for the operation.
     ///   - coreData: Core Data implementation for the operation.
+    @available(iOS 17, macOS 14, *)
     public init(
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
-        self.swiftData = swiftData
+        self.swiftData = swiftData.map { swiftDataOperation in
+            { @MainActor context in
+                guard let modelContext = context as? ModelContext else {
+                    throw DatabaseError.unsupportedOperation(
+                        "Invalid SwiftData context for write operation."
+                    )
+                }
+
+                return try swiftDataOperation(modelContext)
+            }
+        }
         self.coreData = coreData
     }
 }
@@ -190,13 +236,19 @@ public enum DatabaseServiceFactory {
     @MainActor
     public static func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
-        makeSwiftDataContainer: (() throws -> ModelContainer)? = nil,
+        makeSwiftDataContainer: (() throws -> Any)? = nil,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
     ) throws -> any DatabaseManaging {
         let backendKind = configuration.backendSelectionPolicy.resolveBackendKind()
 
         switch backendKind {
         case .swiftData:
+            guard #available(iOS 17, macOS 14, *) else {
+                throw DatabaseError.backendInitializationFailed(
+                    "SwiftData backend requested on unsupported OS version."
+                )
+            }
+
             guard let makeSwiftDataContainer else {
                 throw DatabaseError.backendInitializationFailed(
                     "SwiftData backend requested without a ModelContainer factory."
@@ -204,7 +256,13 @@ public enum DatabaseServiceFactory {
             }
 
             do {
-                return SwiftDataDatabaseManager(modelContainer: try makeSwiftDataContainer())
+                guard let container = try makeSwiftDataContainer() as? ModelContainer else {
+                    throw DatabaseError.backendInitializationFailed(
+                        "SwiftData factory did not return ModelContainer."
+                    )
+                }
+
+                return SwiftDataDatabaseManager(modelContainer: container)
             } catch {
                 throw DatabaseError.backendInitializationFailed(String(describing: error))
             }
@@ -226,6 +284,7 @@ public enum DatabaseServiceFactory {
 
 /// SwiftData-backed implementation of ``DatabaseManaging``.
 @MainActor
+@available(iOS 17, macOS 14, *)
 public final class SwiftDataDatabaseManager: DatabaseManaging {
     /// Shared model container used by the manager.
     public let modelContainer: ModelContainer

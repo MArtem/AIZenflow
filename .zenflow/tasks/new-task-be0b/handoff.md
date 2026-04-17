@@ -428,10 +428,26 @@ xcrun simctl list devices | grep Booted
   deep-link priority over snapshot restore after sign-in,
   custom-scheme routing,
   universal-link routing.
+- Latest persistence/runtime update (2026-04-17):
+  deployment target is now `iOS 16.0` (app + `TchopInfrastructure` package),
+  database contracts are availability-safe for iOS 16 builds,
+  and runtime policy is:
+  `Core Data` path for iOS `<17`,
+  `SwiftData` for iOS `17+`,
+  with automatic Core Data -> SwiftData migration and legacy store cleanup after successful migration on iOS `17+`.
+- `TchopDatabase` now resolves `.automatic` backend as:
+  `coreData` on iOS `<17`,
+  `swiftData` on iOS `17+`.
+- App-level repositories/seeders/tests were adjusted to avoid unconditional iOS 17-only SwiftData API usage in iOS 16 build contexts.
 - Latest navigation verification is green:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build`
   and
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'id=8D07221C-A47D-48AC-BA55-1078C1001909' -configuration Debug CODE_SIGNING_ALLOWED=NO test`.
+- Dual-simulator verification is currently green after persistence changes:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' -configuration Debug CODE_SIGNING_ALLOWED=NO build`
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' -configuration Debug CODE_SIGNING_ALLOWED=NO test`
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO build`
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO test`
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

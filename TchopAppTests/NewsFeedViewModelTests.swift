@@ -124,23 +124,12 @@ final class AppContentRepositoryTests: XCTestCase {
     func testFetchChannelInfoMapsStoredChannel() throws {
         let databaseManager = makeInMemoryAppDatabaseManager()
         _ = try databaseManager.write(
-            DatabaseWriteOperation(
-                swiftData: { context in
-                    context.insert(
-                        ChannelRecord(
-                            id: "primary-channel",
-                            title: "Tchop",
-                            subtitle: "New channel name"
-                        )
-                    )
-                },
-                coreData: { context in
-                    let entity = CoreDataChannelEntity(context: context)
-                    entity.id = "primary-channel"
-                    entity.title = "Tchop"
-                    entity.subtitle = "New channel name"
-                }
-            )
+            DatabaseWriteOperation(coreData: { context in
+                let entity = CoreDataChannelEntity(context: context)
+                entity.id = "primary-channel"
+                entity.title = "Tchop"
+                entity.subtitle = "New channel name"
+            })
         ) as Void
 
         let repository = DefaultAppContentRepository(
