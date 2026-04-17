@@ -517,6 +517,15 @@ xcrun simctl list devices | grep Booted
 - `APIPersistedOfflineQueue` now exposes operational diagnostics via `Snapshot` and `DrainReport`, with new `drainWithReportIfConnected(...)` while keeping existing `drainIfConnected(...)`.
 - Added tests for metrics lifecycle capture and queue diagnostic counters/snapshots.
 - Verification for phase 3: `swift test --package-path Packages/TchopInfrastructure` succeeded.
+- Latest universal infra uplift (phase 4, 2026-04-17):
+  networking extension points were expanded without breaking existing interceptors.
+- Added pluggable error mapping via `APIErrorMapping` + `APIDefaultErrorMapper`, and `APIManager` now uses injected mapper for non-`APIError` failures across request flows.
+- Added typed retry metadata model `APIRetryContext` and a new interceptor surface `retryDirective(for context: APIRetryContext)`.
+  Existing retry API remains compatible through default bridging.
+- Added tests for:
+  custom mapper behavior (`testAPIManagerUsesCustomErrorMapperForNonAPIErrors`),
+  retry-context-driven retry policy (`testAPIManagerUsesRetryContextSurface`).
+- Verification for phase 4: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

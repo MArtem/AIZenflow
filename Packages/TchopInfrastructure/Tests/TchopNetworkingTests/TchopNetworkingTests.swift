@@ -167,6 +167,77 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(response, APIEmptyResponse())
     }
 
+    func testAPIManagerUsesCustomErrorMapperForNonAPIErrors() async {
+        struct SyntheticError: Error {}
+
+        let manager = APIManager(
+            configuration: .stub,
+            errorMapper: StaticErrorMapper(error: .transportFailure("mapped-error"))
+        )
+        let request = APIRequest<String>(
+            path: "mapper",
+            stubResponse: { throw SyntheticError() }
+        )
+
+        do {
+            _ = try await manager.perform(request)
+            XCTFail("Expected mapped API error")
+        } catch let error as APIError {
+            XCTAssertEqual(error, .transportFailure("mapped-error"))
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    func testAPIManagerUsesRetryContextSurface() async throws {
+        URLProtocolStub.reset()
+        var responseCounter = 0
+        URLProtocolStub.requestHandler = { request in
+            responseCounter += 1
+            let index = responseCounter
+            if index == 1 {
+                return (
+                    HTTPURLResponse(url: request.url!, statusCode: 500, httpVersion: nil, headerFields: nil)!,
+                    Data()
+                )
+            }
+
+            return (
+                HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!,
+                Data(#"{"value":"ok"}"#.utf8)
+            )
+        }
+
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
+        sessionConfiguration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: sessionConfiguration)
+
+        let contextRecorder = RetryContextRecorder()
+        let manager = APIManager(
+            configuration: APIConfiguration(baseURL: URL(string: "https://example.com")!),
+            session: session,
+            interceptors: [
+                ContextDrivenRetryInterceptor(
+                    recorder: contextRecorder
+                )
+            ]
+        )
+
+        struct ResponseModel: Decodable, Sendable, Equatable {
+            let value: String
+        }
+
+        let response = try await manager.perform(
+            APIRequest<ResponseModel>.json(path: "resource")
+        )
+
+        XCTAssertEqual(response, ResponseModel(value: "ok"))
+        let contexts = await contextRecorder.contexts
+        XCTAssertEqual(contexts.count, 1)
+        XCTAssertEqual(contexts.first?.error, .invalidStatusCode(500))
+        XCTAssertEqual(contexts.first?.attempt, 0)
+    }
+
     func testPersistedOfflineQueueStoresAndReloadsEntries() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -476,6 +547,38 @@ private actor TestMetricsCollector: APIMetricsCollecting {
 
     func record(_ event: APIMetricsEvent) async {
         events.append(event)
+    }
+}
+
+private struct StaticErrorMapper: APIErrorMapping {
+    let error: APIError
+
+    func map(_ error: Error) -> APIError {
+        self.error
+    }
+}
+
+private actor RetryContextRecorder {
+    private(set) var contexts: [APIRetryContext] = []
+
+    func record(_ context: APIRetryContext) {
+        contexts.append(context)
+    }
+}
+
+private struct ContextDrivenRetryInterceptor: APIRequestIntercepting {
+    let recorder: RetryContextRecorder
+
+    func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
+        await recorder.record(context)
+        if context.attempt == 0, case .invalidStatusCode(500) = context.error {
+            return .retry(afterNanoseconds: 0)
+        }
+        return .doNotRetry
+    }
+
+    func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
+        .doNotRetry
     }
 }
 

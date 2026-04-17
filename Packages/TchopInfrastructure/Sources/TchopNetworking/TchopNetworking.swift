@@ -55,6 +55,31 @@ public enum APIError: Error, Equatable, Sendable {
     case transportFailure(String)
 }
 
+/// Maps arbitrary runtime errors into typed ``APIError`` values.
+public protocol APIErrorMapping: Sendable {
+    /// Converts any error into an API error.
+    func map(_ error: Error) -> APIError
+}
+
+/// Default mapping strategy used by ``APIManager``.
+public struct APIDefaultErrorMapper: APIErrorMapping {
+    /// Creates default mapper.
+    public init() {}
+
+    public func map(_ error: Error) -> APIError {
+        if let apiError = error as? APIError {
+            return apiError
+        }
+        if error is CancellationError {
+            return .requestCancelled
+        }
+        if let urlError = error as? URLError {
+            return mapTransportError(urlError)
+        }
+        return .transportFailure(String(describing: error))
+    }
+}
+
 /// Progress event emitted by upload and download operations.
 public enum APITransferProgress: Sendable, Equatable {
     case started
@@ -222,6 +247,9 @@ public protocol APIRequestIntercepting: Sendable {
     /// Allows the interceptor to request a retry after a failure.
     func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective
 
+    /// Allows the interceptor to request a retry based on typed retry context.
+    func retryDirective(for context: APIRetryContext) async -> APIRetryDirective
+
     /// Notifies interceptor that retry was scheduled for a failed attempt.
     func didScheduleRetry(
         for error: APIError,
@@ -237,6 +265,9 @@ public extension APIRequestIntercepting {
     func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
         .doNotRetry
     }
+    func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
+        await retryDirective(for: context.error, attempt: context.attempt, request: context.request)
+    }
     func didScheduleRetry(
         for error: APIError,
         attempt: Int,
@@ -249,6 +280,23 @@ public extension APIRequestIntercepting {
 public enum APIRetryDirective: Sendable, Equatable {
     case doNotRetry
     case retry(afterNanoseconds: UInt64)
+}
+
+/// Retry metadata passed to interceptor retry policies.
+public struct APIRetryContext: Sendable {
+    public let error: APIError
+    public let attempt: Int
+    public let request: URLRequest
+
+    public init(
+        error: APIError,
+        attempt: Int,
+        request: URLRequest
+    ) {
+        self.error = error
+        self.attempt = attempt
+        self.request = request
+    }
 }
 
 /// Typed metric events emitted by networking observability interceptors.
@@ -545,17 +593,20 @@ public actor APIManager: APIManaging {
     private let session: URLSession
     private var interceptors: [any APIRequestIntercepting]
     private var runningTasks: [UUID: CancellableTask]
+    private let errorMapper: any APIErrorMapping
 
     /// Creates a new API client.
     public init(
         configuration: APIConfiguration,
         session: URLSession = .shared,
-        interceptors: [any APIRequestIntercepting] = []
+        interceptors: [any APIRequestIntercepting] = [],
+        errorMapper: any APIErrorMapping = APIDefaultErrorMapper()
     ) {
         self.configuration = configuration
         self.session = session
         self.interceptors = interceptors
         self.runningTasks = [:]
+        self.errorMapper = errorMapper
     }
 
     public func updateConfiguration(_ configuration: APIConfiguration) {
@@ -584,12 +635,8 @@ public actor APIManager: APIManaging {
             return try await task.value
         } catch let error as APIError {
             throw error
-        } catch is CancellationError {
-            throw APIError.requestCancelled
-        } catch let error as URLError {
-            throw mapTransportError(error)
         } catch {
-            throw APIError.transportFailure(String(describing: error))
+            throw errorMapper.map(error)
         }
     }
 
@@ -641,10 +688,8 @@ public actor APIManager: APIManaging {
             return try responseParser(data, httpResponse)
         } catch let error as APIError {
             throw error
-        } catch let error as URLError {
-            throw mapTransportError(error)
         } catch {
-            throw APIError.transportFailure(String(describing: error))
+            throw errorMapper.map(error)
         }
     }
 
@@ -706,10 +751,8 @@ public actor APIManager: APIManaging {
             return outputURL
         } catch let error as APIError {
             throw error
-        } catch let error as URLError {
-            throw mapTransportError(error)
         } catch {
-            throw APIError.transportFailure(String(describing: error))
+            throw errorMapper.map(error)
         }
     }
 
@@ -729,7 +772,7 @@ public actor APIManager: APIManaging {
         _ request: APIRequest<Response>,
         cancellationToken: APICancellationToken?
     ) -> Task<Response, Error> where Response: Sendable {
-        let task = Task<Response, Error> { [configuration, session, interceptors] in
+        let task = Task<Response, Error> { [configuration, session, interceptors, errorMapper] in
             if let stubResponse = request.stubResponse {
                 try await cancellationToken?.throwIfCancelled()
                 try Task.checkCancellation()
@@ -801,7 +844,7 @@ public actor APIManager: APIManaging {
                 } catch is CancellationError {
                     throw APIError.requestCancelled
                 } catch let error as URLError {
-                    let apiError = mapTransportError(error)
+                    let apiError = errorMapper.map(error)
 
                     if let delay = await retryDelay(for: apiError, attempt: attempt, request: urlRequest, interceptors: interceptors) {
                         for interceptor in interceptors {
@@ -819,7 +862,7 @@ public actor APIManager: APIManaging {
 
                     throw apiError
                 } catch {
-                    let apiError = APIError.transportFailure(String(describing: error))
+                    let apiError = errorMapper.map(error)
 
                     if let delay = await retryDelay(for: apiError, attempt: attempt, request: urlRequest, interceptors: interceptors) {
                         for interceptor in interceptors {
@@ -851,7 +894,13 @@ public actor APIManager: APIManaging {
         interceptors: [any APIRequestIntercepting]
     ) async -> UInt64? {
         for interceptor in interceptors {
-            let directive = await interceptor.retryDirective(for: error, attempt: attempt, request: request)
+            let directive = await interceptor.retryDirective(
+                for: APIRetryContext(
+                    error: error,
+                    attempt: attempt,
+                    request: request
+                )
+            )
 
             switch directive {
             case .doNotRetry:

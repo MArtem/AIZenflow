@@ -204,10 +204,17 @@ Completed:
 - Added tests for metrics event capture and queue diagnostic report/snapshot behavior.
 Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
-### [ ] Step: Universal infra uplift phase 4 (extensibility and API ergonomics)
+### [x] Step: Universal infra uplift phase 4 (extensibility and API ergonomics)
 
 Improve extension points without breaking current consumers.
 Scope: pluggable API error mapping strategy and unified retry metadata surface so feature modules can customize behavior with minimal adapter code.
+Completed:
+- Added pluggable `APIErrorMapping` contract with default implementation `APIDefaultErrorMapper`.
+- `APIManager` now accepts custom error mapper and uses it for non-`APIError` runtime failures across perform/upload/download/execute flows.
+- Added typed retry metadata surface `APIRetryContext` and new interceptor extension point `retryDirective(for context: APIRetryContext)`.
+- Kept compatibility by preserving existing `retryDirective(for:error:attempt:request:)` and bridging default behavior.
+- Added tests for custom mapper usage and retry-context-driven retry flow.
+Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
 ### [ ] Step: Universal infra uplift phase 5 (security hardening)
 
