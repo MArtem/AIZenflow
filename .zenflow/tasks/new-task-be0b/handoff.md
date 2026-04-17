@@ -476,6 +476,27 @@ xcrun simctl list devices | grep Booted
   `swift test --package-path Packages/TchopInfrastructure`,
   `xcodebuild ... test` on `iPhone 16 Pro (iOS 18.2)`,
   and `xcodebuild ... test` on `iPhone 17 Pro (iOS 26.0)`.
+- Latest universal infra uplift (phase 2, 2026-04-17):
+  `TchopNetworking` now includes a reusable durable offline queue layer with persisted payload records.
+- Added reusable primitives:
+  `APIOfflineQueueEntry<Payload>`,
+  `APIOfflineQueueStoring`,
+  `FileAPIOfflineQueueStore<Payload>`,
+  and actor `APIPersistedOfflineQueue<Store>`.
+- `APIPersistedOfflineQueue` behavior:
+  loads persisted entries at init,
+  enqueues and persists new payloads,
+  drains only when connectivity provider reports online,
+  retries failed operations by incrementing attempts,
+  and moves entries to dead letters after configured max attempts.
+- Added package tests for:
+  persisted queue reload across instances,
+  offline-vs-online drain behavior,
+  dead-letter transition after retry threshold.
+- Fresh verification for phase 2 is green:
+  `swift test --package-path Packages/TchopInfrastructure`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

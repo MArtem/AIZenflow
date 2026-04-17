@@ -164,6 +164,23 @@ Completed:
 - Added package tests for migration runner, batch writes, auth-refresh retry behavior, and custom status-code handling.
 Verification: `swift test --package-path Packages/TchopInfrastructure`, `xcodebuild ... test` on `iPhone 16 Pro (iOS 18.2)`, and `xcodebuild ... test` on `iPhone 17 Pro (iOS 26.0)` all succeeded.
 
+### [x] Step: Universal infra uplift phase 2 (durable offline execution)
+
+Introduce a persisted offline queue in `TchopNetworking` to move from in-memory foundation to reusable durable behavior suitable for real apps.
+Scope: payload-based queue records, pluggable persistence store with default file-backed implementation, retry attempts with dead-letter handling, and deterministic drain behavior gated by connectivity provider.
+Verification target: package tests plus app tests on both required simulators.
+Completed:
+- Added payload-based persisted queue primitives in `TchopNetworking`:
+  `APIOfflineQueueEntry`,
+  `APIOfflineQueueStoring`,
+  `FileAPIOfflineQueueStore`,
+  and `APIPersistedOfflineQueue` with retry attempts, dead-letter capture, and connectivity-gated draining.
+- Added tests for persistence reload, connectivity-aware drain policy, and dead-letter transition after retry limit.
+- Verification is green:
+  `swift test --package-path Packages/TchopInfrastructure`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

@@ -882,6 +882,191 @@ public actor APIOfflineRequestQueue {
     }
 }
 
+/// Describes a single persisted offline queue item.
+public struct APIOfflineQueueEntry<Payload>: Codable, Sendable where Payload: Codable & Sendable {
+    /// Stable identifier of queued operation.
+    public let id: UUID
+
+    /// Creation timestamp for ordering and diagnostics.
+    public let createdAt: Date
+
+    /// Current retry attempt count.
+    public let attempts: Int
+
+    /// Domain payload used to reconstruct operation execution.
+    public let payload: Payload
+
+    /// Creates a queue entry.
+    public init(
+        id: UUID = UUID(),
+        createdAt: Date = Date(),
+        attempts: Int = 0,
+        payload: Payload
+    ) {
+        self.id = id
+        self.createdAt = createdAt
+        self.attempts = attempts
+        self.payload = payload
+    }
+
+    /// Returns a copy of the entry with incremented attempt count.
+    public func incrementingAttempts() -> APIOfflineQueueEntry<Payload> {
+        APIOfflineQueueEntry(
+            id: id,
+            createdAt: createdAt,
+            attempts: attempts + 1,
+            payload: payload
+        )
+    }
+}
+
+/// Persistence contract for payload-based offline queue entries.
+public protocol APIOfflineQueueStoring: Sendable {
+    associatedtype Payload: Codable & Sendable
+
+    /// Loads all persisted queue entries.
+    func loadEntries() throws -> [APIOfflineQueueEntry<Payload>]
+
+    /// Persists queue entries atomically.
+    func saveEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws
+}
+
+/// File-backed store for payload-based offline queue entries.
+public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Payload: Codable & Sendable {
+    private let fileURL: URL
+    private let encoder: JSONEncoder
+    private let decoder: JSONDecoder
+
+    /// Creates a file-backed queue store.
+    public init(
+        fileURL: URL,
+        encoder: JSONEncoder = JSONEncoder(),
+        decoder: JSONDecoder = JSONDecoder()
+    ) {
+        self.fileURL = fileURL
+        self.encoder = encoder
+        self.decoder = decoder
+    }
+
+    public func loadEntries() throws -> [APIOfflineQueueEntry<Payload>] {
+        guard FileManager.default.fileExists(atPath: fileURL.path) else {
+            return []
+        }
+
+        let data = try Data(contentsOf: fileURL)
+        return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+    }
+
+    public func saveEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {
+        let directoryURL = fileURL.deletingLastPathComponent()
+        if !FileManager.default.fileExists(atPath: directoryURL.path) {
+            try FileManager.default.createDirectory(
+                at: directoryURL,
+                withIntermediateDirectories: true
+            )
+        }
+
+        let data = try encoder.encode(entries)
+        try data.write(to: fileURL, options: .atomic)
+    }
+}
+
+/// Durable payload-based offline queue with retry and dead-letter handling.
+public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQueueStoring {
+    /// Runtime settings for queue drain and retry behavior.
+    public struct Configuration: Sendable, Equatable {
+        /// Maximum attempts before moving an entry to dead letters.
+        public let maxAttempts: Int
+
+        /// Creates queue configuration.
+        public init(maxAttempts: Int = 3) {
+            self.maxAttempts = maxAttempts
+        }
+    }
+
+    private let store: Store
+    private let configuration: Configuration
+    private var entries: [APIOfflineQueueEntry<Store.Payload>] = []
+    private var deadLetterEntries: [APIOfflineQueueEntry<Store.Payload>] = []
+
+    /// Creates a persisted offline queue.
+    public init(
+        store: Store,
+        configuration: Configuration = .init()
+    ) throws {
+        self.store = store
+        self.configuration = configuration
+        self.entries = try store.loadEntries().sorted { $0.createdAt < $1.createdAt }
+    }
+
+    /// Number of entries waiting for execution.
+    public var pendingCount: Int {
+        entries.count
+    }
+
+    /// Entries that exhausted retry attempts.
+    public var deadLetters: [APIOfflineQueueEntry<Store.Payload>] {
+        deadLetterEntries
+    }
+
+    /// Adds payload as a new queue entry and persists state.
+    public func enqueue(
+        payload: Store.Payload,
+        id: UUID = UUID(),
+        createdAt: Date = Date()
+    ) throws {
+        entries.append(
+            APIOfflineQueueEntry(
+                id: id,
+                createdAt: createdAt,
+                payload: payload
+            )
+        )
+        try persist()
+    }
+
+    /// Clears all pending entries and persists state.
+    public func removeAll() throws {
+        entries.removeAll()
+        try persist()
+    }
+
+    /// Executes queued entries when connected.
+    ///
+    /// Failed entries are retried up to `maxAttempts`. Entries that exceed retries
+    /// are moved to dead letters.
+    public func drainIfConnected(
+        using connectivityProvider: any APIConnectivityProviding,
+        execute: @escaping @Sendable (Store.Payload) async throws -> Void
+    ) async throws {
+        guard await connectivityProvider.isConnected() else {
+            return
+        }
+
+        var remaining: [APIOfflineQueueEntry<Store.Payload>] = []
+
+        for entry in entries {
+            do {
+                try await execute(entry.payload)
+            } catch {
+                let nextEntry = entry.incrementingAttempts()
+                if nextEntry.attempts >= configuration.maxAttempts {
+                    deadLetterEntries.append(nextEntry)
+                } else {
+                    remaining.append(nextEntry)
+                }
+            }
+        }
+
+        entries = remaining
+        try persist()
+    }
+
+    private func persist() throws {
+        try store.saveEntries(entries)
+    }
+}
+
 /// Static connectivity provider useful for tests and previews.
 public struct StaticConnectivityProvider: APIConnectivityProviding {
     private let connected: Bool

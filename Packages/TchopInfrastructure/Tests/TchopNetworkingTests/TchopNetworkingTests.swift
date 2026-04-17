@@ -166,6 +166,94 @@ final class TchopNetworkingTests: XCTestCase {
 
         XCTAssertEqual(response, APIEmptyResponse())
     }
+
+    func testPersistedOfflineQueueStoresAndReloadsEntries() async throws {
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { try? FileManager.default.removeItem(at: fileURL) }
+
+        let queue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL)
+        )
+        try await queue.enqueue(payload: "first")
+        try await queue.enqueue(payload: "second")
+
+        let reloadedQueue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL)
+        )
+        let pendingCount = await reloadedQueue.pendingCount
+
+        XCTAssertEqual(pendingCount, 2)
+    }
+
+    func testPersistedOfflineQueueDrainsOnlyWhenConnected() async throws {
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { try? FileManager.default.removeItem(at: fileURL) }
+
+        let queue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL)
+        )
+        let recorder = InvocationRecorder()
+
+        try await queue.enqueue(payload: "payload")
+
+        try await queue.drainIfConnected(
+            using: StaticConnectivityProvider(connected: false),
+            execute: { _ in
+                await recorder.recordInvocation()
+            }
+        )
+        let disconnectedInvocationCount = await recorder.invocationCount
+        let disconnectedPendingCount = await queue.pendingCount
+        XCTAssertEqual(disconnectedInvocationCount, 0)
+        XCTAssertEqual(disconnectedPendingCount, 1)
+
+        try await queue.drainIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { _ in
+                await recorder.recordInvocation()
+            }
+        )
+
+        let connectedInvocationCount = await recorder.invocationCount
+        let connectedPendingCount = await queue.pendingCount
+        XCTAssertEqual(connectedInvocationCount, 1)
+        XCTAssertEqual(connectedPendingCount, 0)
+    }
+
+    func testPersistedOfflineQueueMovesFailedEntriesToDeadLetters() async throws {
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { try? FileManager.default.removeItem(at: fileURL) }
+
+        let queue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL),
+            configuration: APIPersistedOfflineQueue<FileAPIOfflineQueueStore<String>>.Configuration(maxAttempts: 2)
+        )
+
+        try await queue.enqueue(payload: "will-fail")
+
+        try await queue.drainIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { _ in throw APIError.transportFailure("failure") }
+        )
+        let firstDrainPendingCount = await queue.pendingCount
+        let firstDrainDeadLetterCount = await queue.deadLetters.count
+        XCTAssertEqual(firstDrainPendingCount, 1)
+        XCTAssertEqual(firstDrainDeadLetterCount, 0)
+
+        try await queue.drainIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { _ in throw APIError.transportFailure("failure") }
+        )
+
+        let finalPendingCount = await queue.pendingCount
+        let finalDeadLetters = await queue.deadLetters
+        XCTAssertEqual(finalPendingCount, 0)
+        XCTAssertEqual(finalDeadLetters.count, 1)
+        XCTAssertEqual(finalDeadLetters.first?.attempts, 2)
+    }
 }
 
 private struct TestAuthenticationProvider: APIAuthenticationProviding {
