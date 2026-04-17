@@ -929,11 +929,26 @@ public protocol APIOfflineQueueStoring: Sendable {
 
     /// Persists queue entries atomically.
     func saveEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws
+
+    /// Loads all persisted dead-letter entries.
+    func loadDeadLetterEntries() throws -> [APIOfflineQueueEntry<Payload>]
+
+    /// Persists dead-letter entries atomically.
+    func saveDeadLetterEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws
+}
+
+public extension APIOfflineQueueStoring {
+    func loadDeadLetterEntries() throws -> [APIOfflineQueueEntry<Payload>] {
+        []
+    }
+
+    func saveDeadLetterEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {}
 }
 
 /// File-backed store for payload-based offline queue entries.
 public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Payload: Codable & Sendable {
     private let fileURL: URL
+    private let deadLetterFileURL: URL
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder
 
@@ -944,6 +959,9 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         decoder: JSONDecoder = JSONDecoder()
     ) {
         self.fileURL = fileURL
+        self.deadLetterFileURL = fileURL.deletingPathExtension()
+            .appendingPathExtension("deadletters")
+            .appendingPathExtension(fileURL.pathExtension.isEmpty ? "json" : fileURL.pathExtension)
         self.encoder = encoder
         self.decoder = decoder
     }
@@ -968,6 +986,28 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
 
         let data = try encoder.encode(entries)
         try data.write(to: fileURL, options: .atomic)
+    }
+
+    public func loadDeadLetterEntries() throws -> [APIOfflineQueueEntry<Payload>] {
+        guard FileManager.default.fileExists(atPath: deadLetterFileURL.path) else {
+            return []
+        }
+
+        let data = try Data(contentsOf: deadLetterFileURL)
+        return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+    }
+
+    public func saveDeadLetterEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {
+        let directoryURL = deadLetterFileURL.deletingLastPathComponent()
+        if !FileManager.default.fileExists(atPath: directoryURL.path) {
+            try FileManager.default.createDirectory(
+                at: directoryURL,
+                withIntermediateDirectories: true
+            )
+        }
+
+        let data = try encoder.encode(entries)
+        try data.write(to: deadLetterFileURL, options: .atomic)
     }
 }
 
@@ -997,6 +1037,7 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         self.store = store
         self.configuration = configuration
         self.entries = try store.loadEntries().sorted { $0.createdAt < $1.createdAt }
+        self.deadLetterEntries = try store.loadDeadLetterEntries().sorted { $0.createdAt < $1.createdAt }
     }
 
     /// Number of entries waiting for execution.
@@ -1043,9 +1084,11 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
             return
         }
 
-        var remaining: [APIOfflineQueueEntry<Store.Payload>] = []
+        let drainingEntries = entries
+        entries.removeAll()
+        var retryEntries: [APIOfflineQueueEntry<Store.Payload>] = []
 
-        for entry in entries {
+        for entry in drainingEntries {
             do {
                 try await execute(entry.payload)
             } catch {
@@ -1053,17 +1096,19 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
                 if nextEntry.attempts >= configuration.maxAttempts {
                     deadLetterEntries.append(nextEntry)
                 } else {
-                    remaining.append(nextEntry)
+                    retryEntries.append(nextEntry)
                 }
             }
         }
 
-        entries = remaining
+        // Preserve entries enqueued while drain was in progress.
+        entries = retryEntries + entries
         try persist()
     }
 
     private func persist() throws {
         try store.saveEntries(entries)
+        try store.saveDeadLetterEntries(deadLetterEntries)
     }
 }
 

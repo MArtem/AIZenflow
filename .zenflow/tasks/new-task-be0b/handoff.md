@@ -497,6 +497,17 @@ xcrun simctl list devices | grep Booted
   `swift test --package-path Packages/TchopInfrastructure`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+- Post-review reliability hardening (2026-04-17):
+  `APIPersistedOfflineQueue.drainIfConnected` now detaches the active batch before awaits and merges retry entries back with entries enqueued during drain, preventing data loss from actor reentrancy.
+- Dead-letter persistence is now durable for file-backed storage:
+  `FileAPIOfflineQueueStore` persists and reloads dead-letter entries in a companion file, and `APIPersistedOfflineQueue` restores dead letters at init.
+- Added regression tests for:
+  enqueue-during-drain retention (`testPersistedOfflineQueueDoesNotDropEntriesEnqueuedDuringDrain`),
+  dead-letter persistence reload (`testPersistedOfflineQueueReloadsDeadLetters`).
+- Fresh verification after these fixes is green:
+  `swift test --package-path Packages/TchopInfrastructure`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

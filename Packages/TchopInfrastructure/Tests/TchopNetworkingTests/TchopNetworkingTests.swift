@@ -170,7 +170,7 @@ final class TchopNetworkingTests: XCTestCase {
     func testPersistedOfflineQueueStoresAndReloadsEntries() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
-        defer { try? FileManager.default.removeItem(at: fileURL) }
+        defer { removeOfflineQueueArtifacts(at: fileURL) }
 
         let queue = try APIPersistedOfflineQueue(
             store: FileAPIOfflineQueueStore<String>(fileURL: fileURL)
@@ -189,7 +189,7 @@ final class TchopNetworkingTests: XCTestCase {
     func testPersistedOfflineQueueDrainsOnlyWhenConnected() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
-        defer { try? FileManager.default.removeItem(at: fileURL) }
+        defer { removeOfflineQueueArtifacts(at: fileURL) }
 
         let queue = try APIPersistedOfflineQueue(
             store: FileAPIOfflineQueueStore<String>(fileURL: fileURL)
@@ -225,7 +225,7 @@ final class TchopNetworkingTests: XCTestCase {
     func testPersistedOfflineQueueMovesFailedEntriesToDeadLetters() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
-        defer { try? FileManager.default.removeItem(at: fileURL) }
+        defer { removeOfflineQueueArtifacts(at: fileURL) }
 
         let queue = try APIPersistedOfflineQueue(
             store: FileAPIOfflineQueueStore<String>(fileURL: fileURL),
@@ -254,6 +254,80 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(finalDeadLetters.count, 1)
         XCTAssertEqual(finalDeadLetters.first?.attempts, 2)
     }
+
+    func testPersistedOfflineQueueDoesNotDropEntriesEnqueuedDuringDrain() async throws {
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { removeOfflineQueueArtifacts(at: fileURL) }
+
+        let queue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL)
+        )
+        let control = DrainExecutionControl()
+        let recorder = InvocationRecorder()
+
+        try await queue.enqueue(payload: "first")
+
+        let drainTask = Task {
+            try await queue.drainIfConnected(
+                using: StaticConnectivityProvider(connected: true),
+                execute: { payload in
+                    await recorder.recordPayload(payload)
+                    await control.signalStartedAndWaitForResume()
+                }
+            )
+        }
+
+        await control.waitUntilStarted()
+        try await queue.enqueue(payload: "second")
+        await control.resume()
+        try await drainTask.value
+
+        let pendingAfterDrain = await queue.pendingCount
+        let executedPayloads = await recorder.payloads
+        XCTAssertEqual(pendingAfterDrain, 1)
+        XCTAssertEqual(executedPayloads, ["first"])
+
+        try await queue.drainIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { payload in
+                await recorder.recordPayload(payload)
+            }
+        )
+
+        let finalPendingCount = await queue.pendingCount
+        let finalExecutedPayloads = await recorder.payloads
+        XCTAssertEqual(finalPendingCount, 0)
+        XCTAssertEqual(finalExecutedPayloads, ["first", "second"])
+    }
+
+    func testPersistedOfflineQueueReloadsDeadLetters() async throws {
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { removeOfflineQueueArtifacts(at: fileURL) }
+
+        let queue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL),
+            configuration: APIPersistedOfflineQueue<FileAPIOfflineQueueStore<String>>.Configuration(maxAttempts: 1)
+        )
+
+        try await queue.enqueue(payload: "dead-letter")
+        try await queue.drainIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { _ in throw APIError.transportFailure("failure") }
+        )
+
+        let reloadedQueue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL),
+            configuration: APIPersistedOfflineQueue<FileAPIOfflineQueueStore<String>>.Configuration(maxAttempts: 1)
+        )
+
+        let reloadedPendingCount = await reloadedQueue.pendingCount
+        let reloadedDeadLetters = await reloadedQueue.deadLetters
+        XCTAssertEqual(reloadedPendingCount, 0)
+        XCTAssertEqual(reloadedDeadLetters.count, 1)
+        XCTAssertEqual(reloadedDeadLetters.first?.payload, "dead-letter")
+    }
 }
 
 private struct TestAuthenticationProvider: APIAuthenticationProviding {
@@ -266,10 +340,56 @@ private struct TestAuthenticationProvider: APIAuthenticationProviding {
 
 private actor InvocationRecorder {
     private(set) var invocationCount = 0
+    private(set) var payloads: [String] = []
 
     func recordInvocation() {
         invocationCount += 1
     }
+
+    func recordPayload(_ payload: String) {
+        invocationCount += 1
+        payloads.append(payload)
+    }
+}
+
+private actor DrainExecutionControl {
+    private var hasStarted = false
+    private var startedContinuation: CheckedContinuation<Void, Never>?
+    private var resumeContinuation: CheckedContinuation<Void, Never>?
+
+    func waitUntilStarted() async {
+        if hasStarted {
+            return
+        }
+        await withCheckedContinuation { continuation in
+            startedContinuation = continuation
+        }
+    }
+
+    func signalStartedAndWaitForResume() async {
+        if !hasStarted {
+            hasStarted = true
+            startedContinuation?.resume()
+            startedContinuation = nil
+        }
+
+        await withCheckedContinuation { continuation in
+            resumeContinuation = continuation
+        }
+    }
+
+    func resume() {
+        resumeContinuation?.resume()
+        resumeContinuation = nil
+    }
+}
+
+private func removeOfflineQueueArtifacts(at fileURL: URL) {
+    try? FileManager.default.removeItem(at: fileURL)
+    let deadLetterURL = fileURL.deletingPathExtension()
+        .appendingPathExtension("deadletters")
+        .appendingPathExtension(fileURL.pathExtension.isEmpty ? "json" : fileURL.pathExtension)
+    try? FileManager.default.removeItem(at: deadLetterURL)
 }
 
 private actor RefreshingTestAuthenticationProvider: APIAuthenticationRefreshing {

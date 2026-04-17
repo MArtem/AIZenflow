@@ -176,6 +176,12 @@ Completed:
   `FileAPIOfflineQueueStore`,
   and `APIPersistedOfflineQueue` with retry attempts, dead-letter capture, and connectivity-gated draining.
 - Added tests for persistence reload, connectivity-aware drain policy, and dead-letter transition after retry limit.
+- Post-review hardening applied:
+  fixed actor reentrancy race in `drainIfConnected` to preserve items enqueued while drain is in-flight,
+  and persisted dead-letter entries in `FileAPIOfflineQueueStore` so dead letters survive app restarts.
+- Added regression tests for:
+  enqueue-during-drain retention,
+  and dead-letter reload across queue instances.
 - Verification is green:
   `swift test --package-path Packages/TchopInfrastructure`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
