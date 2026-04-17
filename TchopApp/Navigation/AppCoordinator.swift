@@ -1,4 +1,5 @@
 import Foundation
+import TchopDatabase
 
 /// Coordinator that owns shared tab selection and per-tab routers.
 @MainActor

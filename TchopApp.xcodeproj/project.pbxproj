@@ -31,13 +31,11 @@
 		A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000460000000000000001 /* Persistence/AppContentRecord.swift */; };
 		A00000470000000000000001 /* Persistence/AppDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000480000000000000001 /* Persistence/AppDataSeeder.swift */; };
 		A00000490000000000000001 /* Repositories/AppContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004A0000000000000001 /* Repositories/AppContentRepository.swift */; };
-		A000004B0000000000000001 /* Navigation/TabRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004C0000000000000001 /* Navigation/TabRouter.swift */; };
 		A000004D0000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* Navigation/TabRoutes.swift */; };
 		A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000500000000000000001 /* Navigation/AppCoordinator.swift */; };
-		A000009E0000000000000001 /* Navigation/NavigationContracts.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009F0000000000000001 /* NavigationContracts.swift */; };
 		A00000A00000000000000001 /* Navigation/NavigationSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000A10000000000000001 /* NavigationSnapshot.swift */; };
-		A00000A20000000000000001 /* Navigation/NavigationStateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000A30000000000000001 /* NavigationStateManager.swift */; };
 		A00000A40000000000000001 /* Navigation/DeepLinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000A50000000000000001 /* DeepLinkManager.swift */; };
+		A00000A70000000000000001 /* Navigation/DeepLinkManaging.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000A60000000000000001 /* DeepLinkManaging.swift */; };
 		A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000520000000000000001 /* Views/Tabs/NewsTabRootView.swift */; };
 		A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000540000000000000001 /* Views/Tabs/NewsDestinationView.swift */; };
 		A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000560000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift */; };
@@ -103,13 +101,11 @@
 		A00000460000000000000001 /* AppContentRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentRecord.swift; sourceTree = "<group>"; };
 		A00000480000000000000001 /* AppDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataSeeder.swift; sourceTree = "<group>"; };
 		A000004A0000000000000001 /* AppContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentRepository.swift; sourceTree = "<group>"; };
-		A000004C0000000000000001 /* TabRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRouter.swift; sourceTree = "<group>"; };
 		A000004E0000000000000001 /* TabRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabRoutes.swift; sourceTree = "<group>"; };
 		A00000500000000000000001 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		A000009F0000000000000001 /* NavigationContracts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationContracts.swift; sourceTree = "<group>"; };
 		A00000A10000000000000001 /* NavigationSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationSnapshot.swift; sourceTree = "<group>"; };
-		A00000A30000000000000001 /* NavigationStateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationStateManager.swift; sourceTree = "<group>"; };
 		A00000A50000000000000001 /* DeepLinkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManager.swift; sourceTree = "<group>"; };
+		A00000A60000000000000001 /* DeepLinkManaging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkManaging.swift; sourceTree = "<group>"; };
 		A00000520000000000000001 /* NewsTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTabRootView.swift; sourceTree = "<group>"; };
 		A00000540000000000000001 /* NewsDestinationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsDestinationView.swift; sourceTree = "<group>"; };
 		A00000560000000000000001 /* StubTabNavigationRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubTabNavigationRootView.swift; sourceTree = "<group>"; };
@@ -256,12 +252,10 @@
 		A000000E0000000000000002 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				A000004C0000000000000001 /* TabRouter.swift */,
 				A000004E0000000000000001 /* TabRoutes.swift */,
 				A00000500000000000000001 /* AppCoordinator.swift */,
-				A000009F0000000000000001 /* NavigationContracts.swift */,
 				A00000A10000000000000001 /* NavigationSnapshot.swift */,
-				A00000A30000000000000001 /* NavigationStateManager.swift */,
+				A00000A60000000000000001 /* DeepLinkManaging.swift */,
 				A00000A50000000000000001 /* DeepLinkManager.swift */,
 			);
 			path = Navigation;
@@ -476,12 +470,10 @@
 				A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */,
 				A00000470000000000000001 /* Persistence/AppDataSeeder.swift in Sources */,
 				A00000490000000000000001 /* Repositories/AppContentRepository.swift in Sources */,
-				A000004B0000000000000001 /* Navigation/TabRouter.swift in Sources */,
 				A000004D0000000000000001 /* Navigation/TabRoutes.swift in Sources */,
 				A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */,
-				A000009E0000000000000001 /* Navigation/NavigationContracts.swift in Sources */,
 				A00000A00000000000000001 /* Navigation/NavigationSnapshot.swift in Sources */,
-				A00000A20000000000000001 /* Navigation/NavigationStateManager.swift in Sources */,
+				A00000A70000000000000001 /* Navigation/DeepLinkManaging.swift in Sources */,
 				A00000A40000000000000001 /* Navigation/DeepLinkManager.swift in Sources */,
 				A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */,
 				A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */,

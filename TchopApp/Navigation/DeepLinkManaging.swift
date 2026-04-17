@@ -1,0 +1,13 @@
+import Foundation
+
+/// Contract that routes incoming URLs/user activities into app navigation.
+@MainActor
+protocol DeepLinkManaging {
+    /// Handles a deep or universal link URL and updates coordinator navigation.
+    @discardableResult
+    func handle(url: URL, coordinator: AppCoordinator) -> Bool
+
+    /// Handles universal-link user activity and updates coordinator navigation.
+    @discardableResult
+    func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool
+}

@@ -147,6 +147,13 @@ Verification is green on both required targets after the change:
 `xcodebuild ... build` and `xcodebuild ... test` on
 `iPhone 16 Pro (iOS 18.2)` and `iPhone 17 Pro (iOS 26.0)`.
 
+### [x] Step: Package reusable navigation core and tighten DB factory typing
+
+Moved reusable navigation primitives into `TchopInfrastructure/TchopDatabase` by introducing `TchopNavigationCore.swift` with generic `TabRouter<Route>` and generic snapshot persistence contract `NavigationStateManaging` + `NavigationStateManager`.
+Updated app navigation to consume package types, removed duplicate app-local navigation utility files, and kept app-specific deep-link contract separate as `DeepLinkManaging`.
+Refined `DatabaseServiceFactory` overloads so SwiftData creation remains typed at the public API level (`ModelContainer` only in iOS 17+ overload), while preserving iOS 16 compatibility for Core Data paths. Synced Xcode project file references accordingly. Verification is green on both required simulator targets:
+`iPhone 16 Pro (iOS 18.2)` and `iPhone 17 Pro (iOS 26.0)` with `xcodebuild ... test`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

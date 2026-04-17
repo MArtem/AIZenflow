@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import TchopDatabase
 
 /// Root app-level state object.
 ///
@@ -123,7 +124,17 @@ final class AppState: ObservableObject {
             return
         }
 
-        guard let snapshot = navigationStateManager.restoreSnapshot(for: user.id) else {
+        guard
+            let snapshot = navigationStateManager.restoreSnapshot(
+                for: user.id,
+                as: NavigationSnapshot.self
+            )
+        else {
+            return
+        }
+
+        guard snapshot.version == NavigationSnapshot.supportedVersion else {
+            navigationStateManager.clearSnapshot(for: user.id)
             return
         }
 

@@ -1,4 +1,5 @@
 import XCTest
+import TchopDatabase
 @testable import TchopApp
 
 @MainActor
@@ -259,12 +260,20 @@ private final class TestNavigationStateManager: NavigationStateManaging {
         self.snapshots = seed
     }
 
-    func saveSnapshot(_ snapshot: NavigationSnapshot, for userID: String) {
-        snapshots[userID] = snapshot
+    func saveSnapshot<Snapshot: Codable>(_ snapshot: Snapshot, for userID: String) {
+        guard let typedSnapshot = snapshot as? NavigationSnapshot else {
+            return
+        }
+
+        snapshots[userID] = typedSnapshot
     }
 
-    func restoreSnapshot(for userID: String) -> NavigationSnapshot? {
-        snapshots[userID]
+    func restoreSnapshot<Snapshot: Codable>(for userID: String, as snapshotType: Snapshot.Type) -> Snapshot? {
+        guard let snapshot = snapshots[userID] else {
+            return nil
+        }
+
+        return snapshot as? Snapshot
     }
 
     func clearSnapshot(for userID: String) {

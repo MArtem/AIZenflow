@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopDatabase
 
 struct ProfileTabRootView: View {
     let currentUser: AppUser

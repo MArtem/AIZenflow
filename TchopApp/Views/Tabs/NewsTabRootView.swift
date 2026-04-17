@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopDatabase
 
 struct NewsTabRootView: View {
     @ObservedObject var viewModel: NewsFeedViewModel

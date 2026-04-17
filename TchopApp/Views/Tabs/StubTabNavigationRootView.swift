@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopDatabase
 
 struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {
     let tab: AppTab

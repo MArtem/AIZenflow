@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopDatabase
 
 struct ChatTabRootView: View {
     @ObservedObject var router: TabRouter<ChatRoute>

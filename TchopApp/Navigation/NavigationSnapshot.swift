@@ -2,6 +2,9 @@ import Foundation
 
 /// Serializable representation of app navigation state across tabs.
 struct NavigationSnapshot: Codable, Equatable {
+    /// Snapshot version supported by the current app build.
+    static let supportedVersion = 1
+
     /// Snapshot version for future schema migrations.
     let version: Int
 
@@ -16,7 +19,7 @@ struct NavigationSnapshot: Codable, Equatable {
     let profilePath: [ProfileRoute]
 
     init(
-        version: Int = 1,
+        version: Int = NavigationSnapshot.supportedVersion,
         selectedTab: AppTab,
         newsPath: [NewsRoute],
         mixesPath: [MixesRoute],

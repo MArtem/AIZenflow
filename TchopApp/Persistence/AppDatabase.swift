@@ -169,11 +169,6 @@ enum AppDatabase {
                 try makeSwiftDataModelContainer(
                     isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
                 )
-            },
-            makeCoreDataContainer: {
-                try makeCoreDataPersistentContainer(
-                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
-                )
             }
         )
 

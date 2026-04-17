@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopDatabase
 
 struct PinnedTabRootView: View {
     @ObservedObject var router: TabRouter<PinnedRoute>

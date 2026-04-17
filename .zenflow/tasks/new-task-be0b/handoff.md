@@ -448,6 +448,21 @@ xcrun simctl list devices | grep Booted
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' -configuration Debug CODE_SIGNING_ALLOWED=NO test`
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO build`
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO test`
+- Latest infra/navigation packaging update (2026-04-17):
+  reusable navigation primitives are now in the infrastructure package (`Packages/TchopInfrastructure/Sources/TchopDatabase/TchopNavigationCore.swift`):
+  generic `TabRouter<Route>`,
+  generic `NavigationStateManaging`,
+  and `NavigationStateManager`.
+- App-local duplicates (`TabRouter.swift`, `NavigationContracts.swift`, `NavigationStateManager.swift`) were removed from `TchopApp/Navigation`,
+  app code was switched to package imports,
+  and app-specific link routing contract is now a dedicated local file `DeepLinkManaging.swift`.
+- `DatabaseServiceFactory` public API is now tighter for reuse:
+  Core Data overload remains iOS 16-compatible,
+  SwiftData overload is typed with `ModelContainer` and constrained to iOS 17+,
+  while backend fallback behavior in app database policy remains unchanged.
+- Fresh verification after this packaging/unification pass:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,id=8D07221C-A47D-48AC-BA55-1078C1001909' test` succeeded;
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,id=39CE4180-05FE-4978-A3DD-4CE44AE7F334' test` succeeded.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.
