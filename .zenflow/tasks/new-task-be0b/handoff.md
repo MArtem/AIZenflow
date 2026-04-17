@@ -107,6 +107,9 @@
 - In addition to project state, a reusable instruction file now exists:
   `ios-engineering-rules.md`
   This file should be treated as the persistent engineering ruleset for future chats.
+- Additional persistent UI quality rule:
+  interface code must always be written to minimize or eliminate unnecessary re-renders and memory waste,
+  and implementations should avoid logical/programming mistakes that can degrade render/memory behavior.
 
 ## Important Fixes Already Done
 - Fixed `Missing bundle ID` by adding required bundle keys into `Info.plist`.

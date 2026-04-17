@@ -70,6 +70,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Light and dark appearance support is mandatory for every project by default.
 - New screens and reusable components must use semantic theme tokens (not raw hardcoded RGB values for surface/text states) so both appearances stay readable and consistent.
 - Any exception where fixed colors are intentional (brand illustration or media content) must be explicitly limited to decorative elements only.
+- UI must always be designed and implemented with explicit focus on avoiding unnecessary re-renders and memory waste.
+- Target state for every screen/component: optimal and stable code without logical/programming errors that can trigger redundant rendering or excess memory usage.
 
 ## Project-Specific SwiftUI Structure Rules
 - Do not use computed properties like `private var something: some View` for view composition.
@@ -104,6 +106,7 @@ Use this file as the persistent engineering instruction set for this project whe
 - Minimize unnecessary re-renders.
 - Use `Equatable` where it helps.
 - Be careful with large lists.
+- Prioritize memory safety and predictable lifecycle behavior in UI/state code to avoid leaks and hidden retention.
 
 ## Response Style
 - Briefly explain the approach.

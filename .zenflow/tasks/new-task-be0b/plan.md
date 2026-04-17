@@ -187,6 +187,12 @@ Completed:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
+### [x] Step: Add persistent UI performance and memory rule
+
+Added a permanent coding requirement in `ios-engineering-rules.md` and synced it to `handoff.md`:
+UI must always be implemented with explicit focus on avoiding unnecessary re-renders and memory waste.
+The expected baseline is stable, optimal code without logical/programming issues that can cause redundant rendering or excess memory usage.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
