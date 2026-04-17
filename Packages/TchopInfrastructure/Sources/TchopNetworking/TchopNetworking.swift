@@ -390,15 +390,47 @@ public enum APILogLevel: Sendable, Equatable {
 
 /// Logs request and response metadata for debugging and diagnostics.
 public struct APILoggingInterceptor: APIRequestIntercepting {
+    /// Redaction rules applied before request/response metadata is logged.
+    public struct RedactionConfiguration: Sendable, Equatable {
+        public let sensitiveHeaders: Set<String>
+        public let sensitiveQueryItems: Set<String>
+        public let redactedPlaceholder: String
+
+        public init(
+            sensitiveHeaders: Set<String> = [
+                "authorization",
+                "x-api-key",
+                "api-key",
+                "cookie",
+                "set-cookie"
+            ],
+            sensitiveQueryItems: Set<String> = [
+                "token",
+                "access_token",
+                "refresh_token",
+                "api_key",
+                "key"
+            ],
+            redactedPlaceholder: String = "<redacted>"
+        ) {
+            self.sensitiveHeaders = Set(sensitiveHeaders.map { $0.lowercased() })
+            self.sensitiveQueryItems = Set(sensitiveQueryItems.map { $0.lowercased() })
+            self.redactedPlaceholder = redactedPlaceholder
+        }
+    }
+
     private let level: APILogLevel
+    private let redaction: RedactionConfiguration
     private let logger: @Sendable (String) -> Void
 
     /// Creates a logging interceptor.
     public init(
         level: APILogLevel,
+        redaction: RedactionConfiguration = .init(),
         logger: @escaping @Sendable (String) -> Void = { print($0) }
     ) {
         self.level = level
+        self.redaction = redaction
         self.logger = logger
     }
 
@@ -408,8 +440,13 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
         }
 
         let method = request.httpMethod ?? "UNKNOWN"
-        let url = request.url?.absoluteString ?? "<missing-url>"
-        logger("[API] \(method) \(url)")
+        let url = redact(url: request.url)
+        if level == .requestAndResponse, let headers = request.allHTTPHeaderFields, !headers.isEmpty {
+            let redactedHeaders = redact(headers: headers)
+            logger("[API] \(method) \(url) headers=\(redactedHeaders)")
+        } else {
+            logger("[API] \(method) \(url)")
+        }
         return request
     }
 
@@ -418,12 +455,47 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
             return
         }
 
+        let redactedURL = redact(url: request.url)
+
         switch result {
         case let .success((data, response)):
-            logger("[API] Response \(response.statusCode) for \(request.url?.absoluteString ?? "<missing-url>") (\(data.count) bytes)")
+            logger("[API] Response \(response.statusCode) for \(redactedURL) (\(data.count) bytes)")
         case let .failure(error):
-            logger("[API] Failure for \(request.url?.absoluteString ?? "<missing-url>"): \(error)")
+            logger("[API] Failure for \(redactedURL): \(error)")
         }
+    }
+
+    private func redact(url: URL?) -> String {
+        guard
+            let url,
+            var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
+        else {
+            return "<missing-url>"
+        }
+
+        if let queryItems = components.queryItems, !queryItems.isEmpty {
+            components.queryItems = queryItems.map { item in
+                guard redaction.sensitiveQueryItems.contains(item.name.lowercased()) else {
+                    return item
+                }
+                return URLQueryItem(
+                    name: item.name,
+                    value: redaction.redactedPlaceholder
+                )
+            }
+        }
+
+        return components.string ?? url.absoluteString
+    }
+
+    private func redact(headers: [String: String]) -> String {
+        let sorted = headers.keys.sorted(by: { $0.lowercased() < $1.lowercased() })
+        let pairs = sorted.map { key -> String in
+            let isSensitive = redaction.sensitiveHeaders.contains(key.lowercased())
+            let value = isSensitive ? redaction.redactedPlaceholder : (headers[key] ?? "")
+            return "\(key)=\(value)"
+        }
+        return "{\(pairs.joined(separator: ", "))}"
     }
 }
 

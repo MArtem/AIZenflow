@@ -518,6 +518,38 @@ final class TchopNetworkingTests: XCTestCase {
             )
         )
     }
+
+    func testLoggingInterceptorRedactsSensitiveHeadersAndQueryValues() async throws {
+        let logs = LogRecorder()
+        let interceptor = APILoggingInterceptor(
+            level: .requestAndResponse,
+            logger: { message in
+                Task { await logs.append(message) }
+            }
+        )
+
+        var request = URLRequest(
+            url: URL(string: "https://example.com/feed?token=super-secret&query=swift")!
+        )
+        request.setValue("Bearer secret-token", forHTTPHeaderField: "Authorization")
+        request.setValue("trace-123", forHTTPHeaderField: "X-Trace-Id")
+
+        _ = try await interceptor.prepare(request)
+        await interceptor.didReceive(
+            result: .failure(.timeout),
+            request: request
+        )
+
+        // Allow detached log tasks to flush into the recorder actor.
+        try await Task.sleep(nanoseconds: 10_000_000)
+
+        let joined = await logs.joined()
+        XCTAssertFalse(joined.contains("super-secret"))
+        XCTAssertFalse(joined.contains("secret-token"))
+        XCTAssertTrue(joined.contains("token=%3Credacted%3E"))
+        XCTAssertTrue(joined.contains("Authorization=<redacted>"))
+        XCTAssertTrue(joined.contains("X-Trace-Id=trace-123"))
+    }
 }
 
 private struct TestAuthenticationProvider: APIAuthenticationProviding {
@@ -563,6 +595,18 @@ private actor RetryContextRecorder {
 
     func record(_ context: APIRetryContext) {
         contexts.append(context)
+    }
+}
+
+private actor LogRecorder {
+    private var values: [String] = []
+
+    func append(_ value: String) {
+        values.append(value)
+    }
+
+    func joined() -> String {
+        values.joined(separator: "\n")
     }
 }
 

@@ -526,6 +526,13 @@ xcrun simctl list devices | grep Booted
   custom mapper behavior (`testAPIManagerUsesCustomErrorMapperForNonAPIErrors`),
   retry-context-driven retry policy (`testAPIManagerUsesRetryContextSurface`).
 - Verification for phase 4: `swift test --package-path Packages/TchopInfrastructure` succeeded.
+- Latest universal infra uplift (phase 5, 2026-04-17):
+  security hardening was applied to networking diagnostics/logging defaults.
+- `APILoggingInterceptor` now supports `RedactionConfiguration` and redacts sensitive query values and headers before emitting logs.
+  Response/failure logs also use redacted URL output.
+- Added regression test proving tokens/authorization secrets are not emitted:
+  `testLoggingInterceptorRedactsSensitiveHeadersAndQueryValues`.
+- Verification for phase 5: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

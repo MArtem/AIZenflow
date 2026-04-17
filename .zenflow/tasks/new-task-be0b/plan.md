@@ -216,10 +216,16 @@ Completed:
 - Added tests for custom mapper usage and retry-context-driven retry flow.
 Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
-### [ ] Step: Universal infra uplift phase 5 (security hardening)
+### [x] Step: Universal infra uplift phase 5 (security hardening)
 
 Harden diagnostics and logging defaults to avoid leaking sensitive data.
 Scope: sensitive header/query redaction in logging pipeline, safe defaults, and tests proving secrets are not emitted.
+Completed:
+- Added `APILoggingInterceptor.RedactionConfiguration` with default sensitive header/query key sets and redaction placeholder.
+- Logging now redacts sensitive query values in URLs and sensitive headers in request logs.
+- Response/failure logs now use redacted URLs.
+- Added regression test (`testLoggingInterceptorRedactsSensitiveHeadersAndQueryValues`) to ensure secret query/header values are not emitted.
+Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
 ### [ ] Step: Universal infra uplift phase 6 (operational tooling and recovery ergonomics)
 
