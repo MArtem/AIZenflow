@@ -463,6 +463,19 @@ xcrun simctl list devices | grep Booted
 - Fresh verification after this packaging/unification pass:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,id=8D07221C-A47D-48AC-BA55-1078C1001909' test` succeeded;
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,id=39CE4180-05FE-4978-A3DD-4CE44AE7F334' test` succeeded.
+- Latest universal infra uplift (phase 1, 2026-04-17):
+  `TchopDatabase` gained reusable migration primitives (`DatabaseMigrationVersionStoring`, `UserDefaultsDatabaseMigrationVersionStore`, `DatabaseMigrationStep`, `DatabaseMigrationRunner`) and explicit batch contract support (`DatabaseBatchWriteOperation`, `writeBatch`, async-friendly `readAsync/writeAsync/writeBatchAsync` extensions).
+- `TchopNetworking` gained auth-refresh retry support (`APIAuthenticationRefreshing`, `APIAuthorizationRefreshInterceptor`) and retry-time request re-preparation so refreshed headers are applied on the next attempt.
+- `APIRequest` now supports custom accepted status code ranges (`validStatusCodes`), a reusable JSON builder (`APIRequest.json(...)`), and `APIEmptyResponse` for no-body endpoints.
+- Package tests now also cover:
+  migration-runner flow,
+  batch write behavior,
+  auth refresh + retry header update path,
+  and custom status-code acceptance.
+- Verification for this uplift is green:
+  `swift test --package-path Packages/TchopInfrastructure`,
+  `xcodebuild ... test` on `iPhone 16 Pro (iOS 18.2)`,
+  and `xcodebuild ... test` on `iPhone 17 Pro (iOS 26.0)`.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

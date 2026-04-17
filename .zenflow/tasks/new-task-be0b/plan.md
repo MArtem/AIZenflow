@@ -154,6 +154,16 @@ Updated app navigation to consume package types, removed duplicate app-local nav
 Refined `DatabaseServiceFactory` overloads so SwiftData creation remains typed at the public API level (`ModelContainer` only in iOS 17+ overload), while preserving iOS 16 compatibility for Core Data paths. Synced Xcode project file references accordingly. Verification is green on both required simulator targets:
 `iPhone 16 Pro (iOS 18.2)` and `iPhone 17 Pro (iOS 26.0)` with `xcodebuild ... test`.
 
+### [x] Step: Universal infra uplift phase 1 (reusability-first)
+
+Raise `TchopNetworking` and `TchopDatabase` toward a more universal reusable baseline while preserving package-first architecture and iOS app portability.
+Scope for this phase: add backend-agnostic versioned migration primitives in DB module, extend DB contract with batch/async-friendly APIs, and improve networking with auth-refresh retry pipeline plus more flexible response handling utilities.
+Completed:
+- `TchopDatabase` now includes reusable migration infrastructure (`DatabaseMigrationVersionStoring`, `UserDefaultsDatabaseMigrationVersionStore`, `DatabaseMigrationStep`, `DatabaseMigrationRunner`) plus explicit `DatabaseBatchWriteOperation` and `writeBatch` / async-friendly manager extensions.
+- `TchopNetworking` now supports reusable auth-refresh retry flow (`APIAuthenticationRefreshing`, `APIAuthorizationRefreshInterceptor`), request re-preparation on each retry attempt (critical for refreshed headers), customizable accepted status-code ranges per request, and a dedicated JSON request builder (`APIRequest.json`) plus `APIEmptyResponse`.
+- Added package tests for migration runner, batch writes, auth-refresh retry behavior, and custom status-code handling.
+Verification: `swift test --package-path Packages/TchopInfrastructure`, `xcodebuild ... test` on `iPhone 16 Pro (iOS 18.2)`, and `xcodebuild ... test` on `iPhone 17 Pro (iOS 26.0)` all succeeded.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

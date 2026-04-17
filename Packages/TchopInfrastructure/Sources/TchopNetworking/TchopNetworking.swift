@@ -62,6 +62,11 @@ public enum APITransferProgress: Sendable, Equatable {
     case finished
 }
 
+/// Empty marker response for endpoints that intentionally return no payload.
+public struct APIEmptyResponse: Sendable, Decodable, Equatable {
+    public init() {}
+}
+
 /// Async callback used to report transfer progress.
 public typealias APIProgressHandler = @Sendable (APITransferProgress) async -> Void
 
@@ -114,6 +119,11 @@ public struct APIRequest<Response>: Sendable where Response: Sendable {
     /// Parses the raw transport payload into the expected response type.
     public let responseParser: (@Sendable (Data, HTTPURLResponse) throws -> Response)?
 
+    /// Optional set of accepted HTTP status codes.
+    ///
+    /// When omitted, `200..<300` is used.
+    public let validStatusCodes: Range<Int>?
+
     /// Creates a typed request.
     public init(
         id: UUID = UUID(),
@@ -124,7 +134,8 @@ public struct APIRequest<Response>: Sendable where Response: Sendable {
         body: Data? = nil,
         timeoutInterval: TimeInterval? = nil,
         stubResponse: (@Sendable () async throws -> Response)? = nil,
-        responseParser: (@Sendable (Data, HTTPURLResponse) throws -> Response)? = nil
+        responseParser: (@Sendable (Data, HTTPURLResponse) throws -> Response)? = nil,
+        validStatusCodes: Range<Int>? = nil
     ) {
         self.id = id
         self.path = path
@@ -135,6 +146,42 @@ public struct APIRequest<Response>: Sendable where Response: Sendable {
         self.timeoutInterval = timeoutInterval
         self.stubResponse = stubResponse
         self.responseParser = responseParser
+        self.validStatusCodes = validStatusCodes
+    }
+}
+
+public extension APIRequest where Response: Decodable {
+    /// Builds a request that decodes JSON into `Response` with a configurable decoder.
+    static func json(
+        id: UUID = UUID(),
+        path: String,
+        method: HTTPMethod = .get,
+        headers: [String: String] = [:],
+        queryItems: [URLQueryItem] = [],
+        body: Data? = nil,
+        timeoutInterval: TimeInterval? = nil,
+        stubResponse: (@Sendable () async throws -> Response)? = nil,
+        jsonDecoder: JSONDecoder = JSONDecoder(),
+        validStatusCodes: Range<Int>? = nil
+    ) -> APIRequest<Response> {
+        APIRequest<Response>(
+            id: id,
+            path: path,
+            method: method,
+            headers: headers,
+            queryItems: queryItems,
+            body: body,
+            timeoutInterval: timeoutInterval,
+            stubResponse: stubResponse,
+            responseParser: { data, _ in
+                do {
+                    return try jsonDecoder.decode(Response.self, from: data)
+                } catch {
+                    throw APIError.decodingFailed(String(describing: error))
+                }
+            },
+            validStatusCodes: validStatusCodes
+        )
     }
 }
 
@@ -150,6 +197,12 @@ public protocol APIRouting: Sendable {
 public protocol APIAuthenticationProviding: Sendable {
     /// Returns headers that should be applied to authenticated requests.
     func authorizationHeaders() async throws -> [String: String]
+}
+
+/// Extends auth providers with token refresh capability used by retry interceptors.
+public protocol APIAuthenticationRefreshing: APIAuthenticationProviding {
+    /// Refreshes auth state and returns updated authorization headers.
+    func refreshAuthorizationHeaders() async throws -> [String: String]
 }
 
 /// Exposes current network reachability for offline queue orchestration.
@@ -248,6 +301,33 @@ public struct APIAuthenticationInterceptor: APIRequestIntercepting {
         }
 
         return mutableRequest
+    }
+}
+
+/// Performs a one-shot auth refresh and triggers request retry after HTTP 401 responses.
+public struct APIAuthorizationRefreshInterceptor: APIRequestIntercepting {
+    private let provider: any APIAuthenticationRefreshing
+
+    /// Creates an authorization refresh interceptor.
+    public init(provider: any APIAuthenticationRefreshing) {
+        self.provider = provider
+    }
+
+    public func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
+        guard attempt == 0 else {
+            return .doNotRetry
+        }
+
+        guard case .invalidStatusCode(let statusCode) = error, statusCode == 401 else {
+            return .doNotRetry
+        }
+
+        do {
+            _ = try await provider.refreshAuthorizationHeaders()
+            return .retry(afterNanoseconds: 0)
+        } catch {
+            return .doNotRetry
+        }
     }
 }
 
@@ -443,12 +523,20 @@ public actor APIManager: APIManaging {
                 throw APIError.invalidResponse
             }
 
-            guard 200 ..< 300 ~= httpResponse.statusCode else {
-                throw APIError.invalidStatusCode(httpResponse.statusCode)
+            guard isStatusCodeValid(httpResponse.statusCode, for: request) else {
+                let error = APIError.invalidStatusCode(httpResponse.statusCode)
+                for interceptor in interceptors {
+                    await interceptor.didReceive(result: .failure(error), request: urlRequest)
+                }
+                throw error
             }
 
             await progressHandler?(.progressed(1))
             await progressHandler?(.finished)
+
+            for interceptor in interceptors {
+                await interceptor.didReceive(result: .success((data, httpResponse)), request: urlRequest)
+            }
 
             guard let responseParser = request.responseParser else {
                 throw APIError.invalidResponse
@@ -493,8 +581,12 @@ public actor APIManager: APIManaging {
                 throw APIError.invalidResponse
             }
 
-            guard 200 ..< 300 ~= httpResponse.statusCode else {
-                throw APIError.invalidStatusCode(httpResponse.statusCode)
+            guard isStatusCodeValid(httpResponse.statusCode, for: request) else {
+                let error = APIError.invalidStatusCode(httpResponse.statusCode)
+                for interceptor in interceptors {
+                    await interceptor.didReceive(result: .failure(error), request: urlRequest)
+                }
+                throw error
             }
 
             let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).download")
@@ -507,6 +599,13 @@ public actor APIManager: APIManaging {
 
             await progressHandler?(.progressed(1))
             await progressHandler?(.finished)
+
+            for interceptor in interceptors {
+                await interceptor.didReceive(
+                    result: .success((Data(), httpResponse)),
+                    request: urlRequest
+                )
+            }
 
             return outputURL
         } catch let error as APIError {
@@ -541,15 +640,16 @@ public actor APIManager: APIManaging {
                 return try await stubResponse()
             }
 
-            var urlRequest = try makeURLRequest(for: request, configuration: configuration)
-
-            for interceptor in interceptors {
-                urlRequest = try await interceptor.prepare(urlRequest)
-            }
+            let baseURLRequest = try makeURLRequest(for: request, configuration: configuration)
 
             var attempt = 0
 
             while true {
+                var urlRequest = baseURLRequest
+                for interceptor in interceptors {
+                    urlRequest = try await interceptor.prepare(urlRequest)
+                }
+
                 try await cancellationToken?.throwIfCancelled()
                 try Task.checkCancellation()
 
@@ -562,7 +662,7 @@ public actor APIManager: APIManaging {
                         throw APIError.invalidResponse
                     }
 
-                    guard 200 ..< 300 ~= httpResponse.statusCode else {
+                    guard isStatusCodeValid(httpResponse.statusCode, for: request) else {
                         let error = APIError.invalidStatusCode(httpResponse.statusCode)
                         for interceptor in interceptors {
                             await interceptor.didReceive(result: .failure(error), request: urlRequest)
@@ -642,6 +742,13 @@ public actor APIManager: APIManaging {
         }
 
         return nil
+    }
+
+    private func isStatusCodeValid<Response>(
+        _ statusCode: Int,
+        for request: APIRequest<Response>
+    ) -> Bool where Response: Sendable {
+        (request.validStatusCodes ?? (200 ..< 300)).contains(statusCode)
     }
 }
 

@@ -85,6 +85,87 @@ final class TchopNetworkingTests: XCTestCase {
         let data = try Data(contentsOf: fileURL)
         XCTAssertEqual(String(decoding: data, as: UTF8.self), "payload")
     }
+
+    func testAuthorizationRefreshInterceptorRefreshesAndRetriesRequest() async throws {
+        URLProtocolStub.reset()
+        URLProtocolStub.requestHandler = { request in
+            let token = request.value(forHTTPHeaderField: "Authorization")
+            if token == "Bearer old-token" {
+                return (
+                    HTTPURLResponse(url: request.url!, statusCode: 401, httpVersion: nil, headerFields: nil)!,
+                    Data()
+                )
+            }
+
+            return (
+                HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!,
+                Data(#"{"value":"ok"}"#.utf8)
+            )
+        }
+
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
+        sessionConfiguration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: sessionConfiguration)
+
+        let authProvider = RefreshingTestAuthenticationProvider(
+            initialHeaders: ["Authorization": "Bearer old-token"],
+            refreshedHeaders: ["Authorization": "Bearer new-token"]
+        )
+        let manager = APIManager(
+            configuration: APIConfiguration(baseURL: URL(string: "https://example.com")!),
+            session: session,
+            interceptors: [
+                APIAuthenticationInterceptor(provider: authProvider),
+                APIAuthorizationRefreshInterceptor(provider: authProvider)
+            ]
+        )
+
+        struct ResponseModel: Decodable, Sendable, Equatable {
+            let value: String
+        }
+
+        let response = try await manager.perform(
+            APIRequest<ResponseModel>.json(
+                path: "resource",
+                jsonDecoder: JSONDecoder()
+            )
+        )
+
+        XCTAssertEqual(response, ResponseModel(value: "ok"))
+        let requests = URLProtocolStub.observedRequests
+        XCTAssertEqual(requests.count, 2)
+        XCTAssertEqual(requests.first?.value(forHTTPHeaderField: "Authorization"), "Bearer old-token")
+        XCTAssertEqual(requests.last?.value(forHTTPHeaderField: "Authorization"), "Bearer new-token")
+    }
+
+    func testRequestAllowsCustomValidStatusCodes() async throws {
+        URLProtocolStub.reset()
+        URLProtocolStub.requestHandler = { request in
+            (
+                HTTPURLResponse(url: request.url!, statusCode: 404, httpVersion: nil, headerFields: nil)!,
+                Data()
+            )
+        }
+
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
+        sessionConfiguration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: sessionConfiguration)
+
+        let manager = APIManager(
+            configuration: APIConfiguration(baseURL: URL(string: "https://example.com")!),
+            session: session
+        )
+
+        let response = try await manager.perform(
+            APIRequest<APIEmptyResponse>(
+                path: "no-content",
+                responseParser: { _, _ in APIEmptyResponse() },
+                validStatusCodes: 400 ..< 500
+            )
+        )
+
+        XCTAssertEqual(response, APIEmptyResponse())
+    }
 }
 
 private struct TestAuthenticationProvider: APIAuthenticationProviding {
@@ -101,4 +182,60 @@ private actor InvocationRecorder {
     func recordInvocation() {
         invocationCount += 1
     }
+}
+
+private actor RefreshingTestAuthenticationProvider: APIAuthenticationRefreshing {
+    private var headers: [String: String]
+    private let refreshedHeaders: [String: String]
+
+    init(initialHeaders: [String: String], refreshedHeaders: [String: String]) {
+        self.headers = initialHeaders
+        self.refreshedHeaders = refreshedHeaders
+    }
+
+    func authorizationHeaders() async throws -> [String: String] {
+        headers
+    }
+
+    func refreshAuthorizationHeaders() async throws -> [String: String] {
+        headers = refreshedHeaders
+        return headers
+    }
+}
+
+private final class URLProtocolStub: URLProtocol {
+    static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))?
+    static var observedRequests: [URLRequest] = []
+
+    static func reset() {
+        requestHandler = nil
+        observedRequests = []
+    }
+
+    override class func canInit(with request: URLRequest) -> Bool {
+        true
+    }
+
+    override class func canonicalRequest(for request: URLRequest) -> URLRequest {
+        request
+    }
+
+    override func startLoading() {
+        guard let handler = URLProtocolStub.requestHandler else {
+            client?.urlProtocol(self, didFailWithError: APIError.transportFailure("Missing request handler"))
+            return
+        }
+
+        do {
+            URLProtocolStub.observedRequests.append(request)
+            let (response, data) = try handler(request)
+            client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
+            client?.urlProtocol(self, didLoad: data)
+            client?.urlProtocolDidFinishLoading(self)
+        } catch {
+            client?.urlProtocol(self, didFailWithError: error)
+        }
+    }
+
+    override func stopLoading() {}
 }

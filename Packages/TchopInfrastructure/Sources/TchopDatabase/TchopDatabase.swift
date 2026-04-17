@@ -60,6 +60,9 @@ public enum DatabaseError: Error, Equatable, Sendable {
 
     /// The backend failed while running a transaction.
     case transactionFailed(String)
+
+    /// A versioned migration could not be completed.
+    case migrationFailed(String)
 }
 
 /// Marks a model as supporting created and updated timestamps.
@@ -197,6 +200,49 @@ public struct DatabaseWriteOperation<Result> {
     }
 }
 
+/// Batch mutating operation that can be executed against either supported backend.
+///
+/// Use this wrapper when a caller wants to make the "batch intent" explicit while
+/// still relying on the same backend-neutral manager contract.
+public struct DatabaseBatchWriteOperation<Result> {
+    let swiftData: (@MainActor (Any) throws -> Result)?
+    let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+
+    /// Creates a Core Data-only batch write operation.
+    ///
+    /// - Parameter coreData: Core Data implementation for the operation.
+    public init(
+        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+    ) {
+        self.swiftData = nil
+        self.coreData = coreData
+    }
+
+    /// Creates a backend-neutral batch write operation.
+    ///
+    /// - Parameters:
+    ///   - swiftData: SwiftData implementation for the operation.
+    ///   - coreData: Core Data implementation for the operation.
+    @available(iOS 17, macOS 14, *)
+    public init(
+        swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
+        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+    ) {
+        self.swiftData = swiftData.map { swiftDataOperation in
+            { @MainActor context in
+                guard let modelContext = context as? ModelContext else {
+                    throw DatabaseError.unsupportedOperation(
+                        "Invalid SwiftData context for batch write operation."
+                    )
+                }
+
+                return try swiftDataOperation(modelContext)
+            }
+        }
+        self.coreData = coreData
+    }
+}
+
 /// Common contract implemented by all database managers.
 ///
 /// The interface is backend-neutral. Consumers describe their work as read/write
@@ -220,6 +266,146 @@ public protocol DatabaseManaging: AnyObject {
 
     /// Rolls back pending changes in the active backend context.
     func rollback()
+
+    /// Executes a batch mutating operation and persists changes atomically.
+    ///
+    /// - Parameter operation: Batch operation with backend-specific implementations.
+    /// - Returns: The value returned by the active backend implementation.
+    func writeBatch<Result>(_ operation: DatabaseBatchWriteOperation<Result>) throws -> Result
+}
+
+@MainActor
+public extension DatabaseManaging {
+    /// Async variant of ``read(_:)`` for call sites that standardize on async APIs.
+    func readAsync<Result>(_ operation: DatabaseReadOperation<Result>) async throws -> Result {
+        try read(operation)
+    }
+
+    /// Async variant of ``write(_:)`` for call sites that standardize on async APIs.
+    func writeAsync<Result>(_ operation: DatabaseWriteOperation<Result>) async throws -> Result {
+        try write(operation)
+    }
+
+    /// Async variant of ``writeBatch(_:)`` for call sites that standardize on async APIs.
+    func writeBatchAsync<Result>(_ operation: DatabaseBatchWriteOperation<Result>) async throws -> Result {
+        try writeBatch(operation)
+    }
+}
+
+/// Persists and retrieves applied migration versions.
+@MainActor
+public protocol DatabaseMigrationVersionStoring: AnyObject {
+    /// Returns current applied version for a migration key.
+    func currentVersion(for key: String) -> Int
+
+    /// Saves current applied version for a migration key.
+    func setCurrentVersion(_ version: Int, for key: String)
+}
+
+/// UserDefaults-backed migration version storage.
+@MainActor
+public final class UserDefaultsDatabaseMigrationVersionStore: DatabaseMigrationVersionStoring {
+    private let userDefaults: UserDefaults
+    private let keyPrefix: String
+
+    /// Creates a migration version store.
+    public init(
+        userDefaults: UserDefaults = .standard,
+        keyPrefix: String = "database_migration_version_"
+    ) {
+        self.userDefaults = userDefaults
+        self.keyPrefix = keyPrefix
+    }
+
+    public func currentVersion(for key: String) -> Int {
+        userDefaults.integer(forKey: keyPrefix + key)
+    }
+
+    public func setCurrentVersion(_ version: Int, for key: String) {
+        userDefaults.set(version, forKey: keyPrefix + key)
+    }
+}
+
+/// Single version transition step in a migration plan.
+@MainActor
+public struct DatabaseMigrationStep {
+    /// Source schema/version.
+    public let fromVersion: Int
+
+    /// Target schema/version.
+    public let toVersion: Int
+
+    private let migrateClosure: (any DatabaseManaging) throws -> Void
+
+    /// Creates a migration step.
+    public init(
+        fromVersion: Int,
+        toVersion: Int,
+        migrate: @escaping (any DatabaseManaging) throws -> Void
+    ) {
+        self.fromVersion = fromVersion
+        self.toVersion = toVersion
+        self.migrateClosure = migrate
+    }
+
+    func run(using manager: any DatabaseManaging) throws {
+        try migrateClosure(manager)
+    }
+}
+
+/// Applies ordered versioned migrations against a database manager.
+@MainActor
+public final class DatabaseMigrationRunner {
+    private let versionStore: any DatabaseMigrationVersionStoring
+
+    /// Creates a migration runner.
+    public init(versionStore: any DatabaseMigrationVersionStoring) {
+        self.versionStore = versionStore
+    }
+
+    /// Runs all required migrations for a key from stored version to target version.
+    ///
+    /// - Returns: Final applied version.
+    public func migrateIfNeeded(
+        key: String,
+        targetVersion: Int,
+        using manager: any DatabaseManaging,
+        steps: [DatabaseMigrationStep]
+    ) throws -> Int {
+        var currentVersion = versionStore.currentVersion(for: key)
+        guard currentVersion < targetVersion else {
+            return currentVersion
+        }
+
+        let groupedSteps = Dictionary(grouping: steps, by: \.fromVersion)
+
+        while currentVersion < targetVersion {
+            guard let nextStep = groupedSteps[currentVersion]?.sorted(by: { $0.toVersion < $1.toVersion }).first else {
+                throw DatabaseError.migrationFailed(
+                    "Missing migration step from version \(currentVersion) for key \(key)."
+                )
+            }
+
+            guard nextStep.toVersion > currentVersion else {
+                throw DatabaseError.migrationFailed(
+                    "Invalid migration step \(nextStep.fromVersion)->\(nextStep.toVersion) for key \(key)."
+                )
+            }
+
+            do {
+                try nextStep.run(using: manager)
+            } catch let databaseError as DatabaseError {
+                throw databaseError
+            } catch {
+                throw DatabaseError.migrationFailed(String(describing: error))
+            }
+
+            currentVersion = nextStep.toVersion
+            versionStore.setCurrentVersion(currentVersion, for: key)
+        }
+
+        return currentVersion
+    }
 }
 
 /// Factory responsible for constructing backend-neutral database managers.
@@ -384,6 +570,26 @@ public final class SwiftDataDatabaseManager: DatabaseManaging {
     public func rollback() {
         modelContext.rollback()
     }
+
+    public func writeBatch<Result>(_ operation: DatabaseBatchWriteOperation<Result>) throws -> Result {
+        guard let swiftDataOperation = operation.swiftData else {
+            throw DatabaseError.unsupportedOperation(
+                "Missing SwiftData implementation for batch write operation."
+            )
+        }
+
+        do {
+            let result = try swiftDataOperation(modelContext)
+            try modelContext.save()
+            return result
+        } catch let databaseError as DatabaseError {
+            modelContext.rollback()
+            throw databaseError
+        } catch {
+            modelContext.rollback()
+            throw DatabaseError.transactionFailed(String(describing: error))
+        }
+    }
 }
 
 /// Core Data-backed implementation of ``DatabaseManaging``.
@@ -447,5 +653,27 @@ public final class CoreDataDatabaseManager: DatabaseManaging {
 
     public func rollback() {
         viewContext.rollback()
+    }
+
+    public func writeBatch<Result>(_ operation: DatabaseBatchWriteOperation<Result>) throws -> Result {
+        guard let coreDataOperation = operation.coreData else {
+            throw DatabaseError.unsupportedOperation(
+                "Missing Core Data implementation for batch write operation."
+            )
+        }
+
+        do {
+            let result = try coreDataOperation(viewContext)
+            if viewContext.hasChanges {
+                try viewContext.save()
+            }
+            return result
+        } catch let databaseError as DatabaseError {
+            viewContext.rollback()
+            throw databaseError
+        } catch {
+            viewContext.rollback()
+            throw DatabaseError.transactionFailed(String(describing: error))
+        }
     }
 }

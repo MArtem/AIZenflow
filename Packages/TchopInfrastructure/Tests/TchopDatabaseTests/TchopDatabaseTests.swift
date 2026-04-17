@@ -65,6 +65,31 @@ final class TchopDatabaseTests: XCTestCase {
         XCTAssertEqual(records.first?.title, "First")
     }
 
+    /// Verifies that batch writes use the same transactional semantics.
+    func testCoreDataManagerCanExecuteBatchWrite() throws {
+        let manager = CoreDataDatabaseManager(
+            persistentContainer: try makeInMemoryCoreDataContainer()
+        )
+
+        try manager.writeBatch(
+            DatabaseBatchWriteOperation(coreData: { context in
+                for index in 1 ... 3 {
+                    let entity = CoreDataTestRecord(context: context)
+                    entity.id = "\(index)"
+                    entity.title = "Title \(index)"
+                }
+            })
+        )
+
+        let records = try manager.read(
+            DatabaseReadOperation(coreData: { context in
+                try context.fetch(CoreDataTestRecord.fetchRequest())
+            })
+        )
+
+        XCTAssertEqual(records.count, 3)
+    }
+
     /// Verifies that the service factory selects the requested backend correctly.
     func testDatabaseFactoryCreatesCoreDataManagerWhenRequested() throws {
         let manager = try DatabaseServiceFactory.makeDatabaseManager(
@@ -90,6 +115,45 @@ final class TchopDatabaseTests: XCTestCase {
         )
 
         XCTAssertEqual(manager.backendKind, .swiftData)
+    }
+
+    /// Verifies that migration runner applies ordered steps and stores resulting version.
+    func testMigrationRunnerAppliesVersionedPlan() throws {
+        let manager = CoreDataDatabaseManager(
+            persistentContainer: try makeInMemoryCoreDataContainer()
+        )
+        let versionStore = InMemoryMigrationVersionStore()
+        let runner = DatabaseMigrationRunner(versionStore: versionStore)
+
+        let steps = [
+            DatabaseMigrationStep(fromVersion: 0, toVersion: 1, migrate: { _ in }),
+            DatabaseMigrationStep(fromVersion: 1, toVersion: 2, migrate: { db in
+                try db.writeBatch(
+                    DatabaseBatchWriteOperation(coreData: { context in
+                        let entity = CoreDataTestRecord(context: context)
+                        entity.id = "migrated"
+                        entity.title = "From migration"
+                    })
+                )
+            })
+        ]
+
+        let appliedVersion = try runner.migrateIfNeeded(
+            key: "main_store",
+            targetVersion: 2,
+            using: manager,
+            steps: steps
+        )
+
+        XCTAssertEqual(appliedVersion, 2)
+        XCTAssertEqual(versionStore.currentVersion(for: "main_store"), 2)
+
+        let records = try manager.read(
+            DatabaseReadOperation(coreData: { context in
+                try context.fetch(CoreDataTestRecord.fetchRequest())
+            })
+        )
+        XCTAssertEqual(records.first?.id, "migrated")
     }
 
     @available(iOS 17, macOS 14, *)
@@ -140,6 +204,19 @@ final class TchopDatabaseTests: XCTestCase {
         attribute.attributeType = .stringAttributeType
         attribute.isOptional = false
         return attribute
+    }
+}
+
+@MainActor
+private final class InMemoryMigrationVersionStore: DatabaseMigrationVersionStoring {
+    private var values: [String: Int] = [:]
+
+    func currentVersion(for key: String) -> Int {
+        values[key, default: 0]
+    }
+
+    func setCurrentVersion(_ version: Int, for key: String) {
+        values[key] = version
     }
 }
 
