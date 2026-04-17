@@ -221,6 +221,14 @@ public protocol APIRequestIntercepting: Sendable {
 
     /// Allows the interceptor to request a retry after a failure.
     func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective
+
+    /// Notifies interceptor that retry was scheduled for a failed attempt.
+    func didScheduleRetry(
+        for error: APIError,
+        attempt: Int,
+        delayNanoseconds: UInt64,
+        request: URLRequest
+    ) async
 }
 
 public extension APIRequestIntercepting {
@@ -229,12 +237,100 @@ public extension APIRequestIntercepting {
     func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
         .doNotRetry
     }
+    func didScheduleRetry(
+        for error: APIError,
+        attempt: Int,
+        delayNanoseconds: UInt64,
+        request: URLRequest
+    ) async {}
 }
 
 /// Describes whether a request should be retried after a failed attempt.
 public enum APIRetryDirective: Sendable, Equatable {
     case doNotRetry
     case retry(afterNanoseconds: UInt64)
+}
+
+/// Typed metric events emitted by networking observability interceptors.
+public enum APIMetricsEvent: Sendable, Equatable {
+    case requestPrepared(method: String, url: String)
+    case requestSucceeded(statusCode: Int, bytes: Int, url: String)
+    case requestFailed(error: APIError, url: String)
+    case retryScheduled(error: APIError, attempt: Int, delayNanoseconds: UInt64, url: String)
+}
+
+/// Sink contract for API metric events.
+public protocol APIMetricsCollecting: Sendable {
+    /// Records a metrics event.
+    func record(_ event: APIMetricsEvent) async
+}
+
+/// In-memory metrics collector useful for debug overlays and tests.
+public actor APIMemoryMetricsCollector: APIMetricsCollecting {
+    private var eventsStorage: [APIMetricsEvent] = []
+
+    /// Creates an empty collector.
+    public init() {}
+
+    /// Recorded events in insertion order.
+    public var events: [APIMetricsEvent] {
+        eventsStorage
+    }
+
+    /// Clears all recorded events.
+    public func reset() {
+        eventsStorage.removeAll()
+    }
+
+    public func record(_ event: APIMetricsEvent) async {
+        eventsStorage.append(event)
+    }
+}
+
+/// Interceptor that emits typed lifecycle metrics for each request.
+public struct APIMetricsInterceptor: APIRequestIntercepting {
+    private let collector: any APIMetricsCollecting
+
+    /// Creates a metrics interceptor.
+    public init(collector: any APIMetricsCollecting) {
+        self.collector = collector
+    }
+
+    public func prepare(_ request: URLRequest) async throws -> URLRequest {
+        let method = request.httpMethod ?? "UNKNOWN"
+        let url = request.url?.absoluteString ?? "<missing-url>"
+        await collector.record(.requestPrepared(method: method, url: url))
+        return request
+    }
+
+    public func didReceive(result: Result<(Data, HTTPURLResponse), APIError>, request: URLRequest) async {
+        let url = request.url?.absoluteString ?? "<missing-url>"
+        switch result {
+        case let .success((data, response)):
+            await collector.record(
+                .requestSucceeded(statusCode: response.statusCode, bytes: data.count, url: url)
+            )
+        case let .failure(error):
+            await collector.record(.requestFailed(error: error, url: url))
+        }
+    }
+
+    public func didScheduleRetry(
+        for error: APIError,
+        attempt: Int,
+        delayNanoseconds: UInt64,
+        request: URLRequest
+    ) async {
+        let url = request.url?.absoluteString ?? "<missing-url>"
+        await collector.record(
+            .retryScheduled(
+                error: error,
+                attempt: attempt,
+                delayNanoseconds: delayNanoseconds,
+                url: url
+            )
+        )
+    }
 }
 
 /// Controls log verbosity for the logging interceptor.
@@ -688,6 +784,14 @@ public actor APIManager: APIManaging {
                     return try responseParser(data, httpResponse)
                 } catch let error as APIError {
                     if let delay = await retryDelay(for: error, attempt: attempt, request: urlRequest, interceptors: interceptors) {
+                        for interceptor in interceptors {
+                            await interceptor.didScheduleRetry(
+                                for: error,
+                                attempt: attempt,
+                                delayNanoseconds: delay,
+                                request: urlRequest
+                            )
+                        }
                         attempt += 1
                         try await Task.sleep(nanoseconds: delay)
                         continue
@@ -700,6 +804,14 @@ public actor APIManager: APIManaging {
                     let apiError = mapTransportError(error)
 
                     if let delay = await retryDelay(for: apiError, attempt: attempt, request: urlRequest, interceptors: interceptors) {
+                        for interceptor in interceptors {
+                            await interceptor.didScheduleRetry(
+                                for: apiError,
+                                attempt: attempt,
+                                delayNanoseconds: delay,
+                                request: urlRequest
+                            )
+                        }
                         attempt += 1
                         try await Task.sleep(nanoseconds: delay)
                         continue
@@ -710,6 +822,14 @@ public actor APIManager: APIManaging {
                     let apiError = APIError.transportFailure(String(describing: error))
 
                     if let delay = await retryDelay(for: apiError, attempt: attempt, request: urlRequest, interceptors: interceptors) {
+                        for interceptor in interceptors {
+                            await interceptor.didScheduleRetry(
+                                for: apiError,
+                                attempt: attempt,
+                                delayNanoseconds: delay,
+                                request: urlRequest
+                            )
+                        }
                         attempt += 1
                         try await Task.sleep(nanoseconds: delay)
                         continue
@@ -1013,6 +1133,52 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
 
 /// Durable payload-based offline queue with retry and dead-letter handling.
 public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQueueStoring {
+    /// Snapshot of current queue state.
+    public struct Snapshot: Sendable, Equatable {
+        public let pendingCount: Int
+        public let deadLetterCount: Int
+        public let oldestPendingCreatedAt: Date?
+        public let oldestDeadLetterCreatedAt: Date?
+
+        public init(
+            pendingCount: Int,
+            deadLetterCount: Int,
+            oldestPendingCreatedAt: Date?,
+            oldestDeadLetterCreatedAt: Date?
+        ) {
+            self.pendingCount = pendingCount
+            self.deadLetterCount = deadLetterCount
+            self.oldestPendingCreatedAt = oldestPendingCreatedAt
+            self.oldestDeadLetterCreatedAt = oldestDeadLetterCreatedAt
+        }
+    }
+
+    /// Drain execution report for diagnostics and metrics.
+    public struct DrainReport: Sendable, Equatable {
+        public let skippedDueToNoConnectivity: Bool
+        public let attempted: Int
+        public let succeeded: Int
+        public let failed: Int
+        public let retried: Int
+        public let movedToDeadLetters: Int
+
+        public init(
+            skippedDueToNoConnectivity: Bool,
+            attempted: Int,
+            succeeded: Int,
+            failed: Int,
+            retried: Int,
+            movedToDeadLetters: Int
+        ) {
+            self.skippedDueToNoConnectivity = skippedDueToNoConnectivity
+            self.attempted = attempted
+            self.succeeded = succeeded
+            self.failed = failed
+            self.retried = retried
+            self.movedToDeadLetters = movedToDeadLetters
+        }
+    }
+
     /// Runtime settings for queue drain and retry behavior.
     public struct Configuration: Sendable, Equatable {
         /// Maximum attempts before moving an entry to dead letters.
@@ -1050,6 +1216,16 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         deadLetterEntries
     }
 
+    /// Returns a deterministic snapshot of current queue state.
+    public func makeSnapshot() -> Snapshot {
+        Snapshot(
+            pendingCount: entries.count,
+            deadLetterCount: deadLetterEntries.count,
+            oldestPendingCreatedAt: entries.first?.createdAt,
+            oldestDeadLetterCreatedAt: deadLetterEntries.first?.createdAt
+        )
+    }
+
     /// Adds payload as a new queue entry and persists state.
     public func enqueue(
         payload: Store.Payload,
@@ -1080,23 +1256,46 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         using connectivityProvider: any APIConnectivityProviding,
         execute: @escaping @Sendable (Store.Payload) async throws -> Void
     ) async throws {
+        _ = try await drainWithReportIfConnected(using: connectivityProvider, execute: execute)
+    }
+
+    /// Executes queued entries when connected and returns detailed drain diagnostics.
+    public func drainWithReportIfConnected(
+        using connectivityProvider: any APIConnectivityProviding,
+        execute: @escaping @Sendable (Store.Payload) async throws -> Void
+    ) async throws -> DrainReport {
         guard await connectivityProvider.isConnected() else {
-            return
+            return DrainReport(
+                skippedDueToNoConnectivity: true,
+                attempted: 0,
+                succeeded: 0,
+                failed: 0,
+                retried: 0,
+                movedToDeadLetters: 0
+            )
         }
 
         let drainingEntries = entries
         entries.removeAll()
         var retryEntries: [APIOfflineQueueEntry<Store.Payload>] = []
+        var succeededCount = 0
+        var failedCount = 0
+        var retryCount = 0
+        var deadLetterCount = 0
 
         for entry in drainingEntries {
             do {
                 try await execute(entry.payload)
+                succeededCount += 1
             } catch {
+                failedCount += 1
                 let nextEntry = entry.incrementingAttempts()
                 if nextEntry.attempts >= configuration.maxAttempts {
                     deadLetterEntries.append(nextEntry)
+                    deadLetterCount += 1
                 } else {
                     retryEntries.append(nextEntry)
+                    retryCount += 1
                 }
             }
         }
@@ -1104,6 +1303,15 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         // Preserve entries enqueued while drain was in progress.
         entries = retryEntries + entries
         try persist()
+
+        return DrainReport(
+            skippedDueToNoConnectivity: false,
+            attempted: drainingEntries.count,
+            succeeded: succeededCount,
+            failed: failedCount,
+            retried: retryCount,
+            movedToDeadLetters: deadLetterCount
+        )
     }
 
     private func persist() throws {

@@ -328,6 +328,125 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(reloadedDeadLetters.count, 1)
         XCTAssertEqual(reloadedDeadLetters.first?.payload, "dead-letter")
     }
+
+    func testPersistedOfflineQueueDrainReportAndSnapshotExposeDiagnostics() async throws {
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { removeOfflineQueueArtifacts(at: fileURL) }
+
+        let queue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: fileURL),
+            configuration: APIPersistedOfflineQueue<FileAPIOfflineQueueStore<String>>.Configuration(maxAttempts: 2)
+        )
+
+        try await queue.enqueue(payload: "ok", createdAt: Date(timeIntervalSince1970: 10))
+        try await queue.enqueue(payload: "fail", createdAt: Date(timeIntervalSince1970: 20))
+
+        let firstReport = try await queue.drainWithReportIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { payload in
+                if payload == "fail" {
+                    throw APIError.transportFailure("failure")
+                }
+            }
+        )
+
+        XCTAssertEqual(
+            firstReport,
+            APIPersistedOfflineQueue<FileAPIOfflineQueueStore<String>>.DrainReport(
+                skippedDueToNoConnectivity: false,
+                attempted: 2,
+                succeeded: 1,
+                failed: 1,
+                retried: 1,
+                movedToDeadLetters: 0
+            )
+        )
+
+        let snapshotAfterFirstDrain = await queue.makeSnapshot()
+        XCTAssertEqual(snapshotAfterFirstDrain.pendingCount, 1)
+        XCTAssertEqual(snapshotAfterFirstDrain.deadLetterCount, 0)
+        XCTAssertNotNil(snapshotAfterFirstDrain.oldestPendingCreatedAt)
+
+        let secondReport = try await queue.drainWithReportIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { _ in
+                throw APIError.transportFailure("failure")
+            }
+        )
+        XCTAssertEqual(secondReport.movedToDeadLetters, 1)
+
+        let finalSnapshot = await queue.makeSnapshot()
+        XCTAssertEqual(finalSnapshot.pendingCount, 0)
+        XCTAssertEqual(finalSnapshot.deadLetterCount, 1)
+        XCTAssertNotNil(finalSnapshot.oldestDeadLetterCreatedAt)
+    }
+
+    func testMetricsInterceptorCapturesLifecycleEvents() async throws {
+        let collector = TestMetricsCollector()
+        let interceptor = APIMetricsInterceptor(collector: collector)
+        let request = URLRequest(url: URL(string: "https://example.com/resource")!)
+
+        _ = try await interceptor.prepare(request)
+        await interceptor.didReceive(
+            result: .success(
+                (
+                    Data("ok".utf8),
+                    HTTPURLResponse(
+                        url: request.url!,
+                        statusCode: 200,
+                        httpVersion: nil,
+                        headerFields: nil
+                    )!
+                )
+            ),
+            request: request
+        )
+        await interceptor.didReceive(
+            result: .failure(.timeout),
+            request: request
+        )
+        await interceptor.didScheduleRetry(
+            for: .timeout,
+            attempt: 1,
+            delayNanoseconds: 250_000_000,
+            request: request
+        )
+
+        let events = await collector.events
+        XCTAssertEqual(events.count, 4)
+        XCTAssertEqual(
+            events[0],
+            .requestPrepared(
+                method: "GET",
+                url: "https://example.com/resource"
+            )
+        )
+        XCTAssertEqual(
+            events[1],
+            .requestSucceeded(
+                statusCode: 200,
+                bytes: 2,
+                url: "https://example.com/resource"
+            )
+        )
+        XCTAssertEqual(
+            events[2],
+            .requestFailed(
+                error: .timeout,
+                url: "https://example.com/resource"
+            )
+        )
+        XCTAssertEqual(
+            events[3],
+            .retryScheduled(
+                error: .timeout,
+                attempt: 1,
+                delayNanoseconds: 250_000_000,
+                url: "https://example.com/resource"
+            )
+        )
+    }
 }
 
 private struct TestAuthenticationProvider: APIAuthenticationProviding {
@@ -349,6 +468,14 @@ private actor InvocationRecorder {
     func recordPayload(_ payload: String) {
         invocationCount += 1
         payloads.append(payload)
+    }
+}
+
+private actor TestMetricsCollector: APIMetricsCollecting {
+    private(set) var events: [APIMetricsEvent] = []
+
+    func record(_ event: APIMetricsEvent) async {
+        events.append(event)
     }
 }
 

@@ -511,6 +511,12 @@ xcrun simctl list devices | grep Booted
   `swift test --package-path Packages/TchopInfrastructure`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+- Latest universal infra uplift (phase 3, 2026-04-17):
+  added observability foundation in `TchopNetworking` with typed metric events (`APIMetricsEvent`), collector contract (`APIMetricsCollecting`), in-memory collector (`APIMemoryMetricsCollector`), and lifecycle interceptor (`APIMetricsInterceptor`).
+- Interceptor contract now includes retry scheduling callback (`didScheduleRetry`), and `APIManager` emits retry events when backoff is selected.
+- `APIPersistedOfflineQueue` now exposes operational diagnostics via `Snapshot` and `DrainReport`, with new `drainWithReportIfConnected(...)` while keeping existing `drainIfConnected(...)`.
+- Added tests for metrics lifecycle capture and queue diagnostic counters/snapshots.
+- Verification for phase 3: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

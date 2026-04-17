@@ -193,6 +193,32 @@ Added a permanent coding requirement in `ios-engineering-rules.md` and synced it
 UI must always be implemented with explicit focus on avoiding unnecessary re-renders and memory waste.
 The expected baseline is stable, optimal code without logical/programming issues that can cause redundant rendering or excess memory usage.
 
+### [x] Step: Universal infra uplift phase 3 (observability foundation)
+
+Add reusable observability primitives to infrastructure modules so API/database/offline queue behavior can be measured in production and tests.
+Scope: typed metrics events for networking, queue snapshots/drain reports, lightweight collector utilities, and baseline tests for deterministic event capture.
+Completed:
+- Added networking observability primitives: `APIMetricsEvent`, `APIMetricsCollecting`, `APIMemoryMetricsCollector`, and `APIMetricsInterceptor`.
+- Extended interceptor contract with retry scheduling callback (`didScheduleRetry`) and wired retry notifications from `APIManager`.
+- Added queue diagnostics in `APIPersistedOfflineQueue`: `Snapshot`, `DrainReport`, and `drainWithReportIfConnected(...)` while preserving existing `drainIfConnected(...)`.
+- Added tests for metrics event capture and queue diagnostic report/snapshot behavior.
+Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
+
+### [ ] Step: Universal infra uplift phase 4 (extensibility and API ergonomics)
+
+Improve extension points without breaking current consumers.
+Scope: pluggable API error mapping strategy and unified retry metadata surface so feature modules can customize behavior with minimal adapter code.
+
+### [ ] Step: Universal infra uplift phase 5 (security hardening)
+
+Harden diagnostics and logging defaults to avoid leaking sensitive data.
+Scope: sensitive header/query redaction in logging pipeline, safe defaults, and tests proving secrets are not emitted.
+
+### [ ] Step: Universal infra uplift phase 6 (operational tooling and recovery ergonomics)
+
+Add lightweight operational helpers around persisted offline queues for debugging/support workflows.
+Scope: queue diagnostics export/import helpers (pending + dead letters), corruption-safe load behavior, and tests for recovery scenarios.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
