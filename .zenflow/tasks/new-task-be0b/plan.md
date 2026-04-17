@@ -227,10 +227,17 @@ Completed:
 - Added regression test (`testLoggingInterceptorRedactsSensitiveHeadersAndQueryValues`) to ensure secret query/header values are not emitted.
 Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
-### [ ] Step: Universal infra uplift phase 6 (operational tooling and recovery ergonomics)
+### [x] Step: Universal infra uplift phase 6 (operational tooling and recovery ergonomics)
 
 Add lightweight operational helpers around persisted offline queues for debugging/support workflows.
 Scope: queue diagnostics export/import helpers (pending + dead letters), corruption-safe load behavior, and tests for recovery scenarios.
+Completed:
+- Added corruption handling policy to `FileAPIOfflineQueueStore` (`throwError` or `recoverToEmpty`).
+- Default behavior is now corruption-safe recovery for persisted queue/dead-letter files by moving broken payloads aside and continuing with empty state.
+- Added queue operational tooling in `APIPersistedOfflineQueue`:
+  `DiagnosticsPayload`, `DiagnosticsImportStrategy`, `exportDiagnosticsPayload()`, and `importDiagnosticsPayload(...)`.
+- Added tests for corrupted store recovery and diagnostics export/import roundtrip.
+Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 

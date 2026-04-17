@@ -533,6 +533,18 @@ xcrun simctl list devices | grep Booted
 - Added regression test proving tokens/authorization secrets are not emitted:
   `testLoggingInterceptorRedactsSensitiveHeadersAndQueryValues`.
 - Verification for phase 5: `swift test --package-path Packages/TchopInfrastructure` succeeded.
+- Latest universal infra uplift (phase 6, 2026-04-17):
+  operational tooling and recovery ergonomics were added around persisted offline queues.
+- `FileAPIOfflineQueueStore` now supports corruption policies:
+  `throwError` and `recoverToEmpty` (default).
+  Recovery mode moves corrupted payload files aside and restores queue/dead-letter state as empty.
+- `APIPersistedOfflineQueue` now supports diagnostics export/import:
+  `DiagnosticsPayload`,
+  `DiagnosticsImportStrategy`,
+  `exportDiagnosticsPayload()`,
+  `importDiagnosticsPayload(...)`.
+- Added tests for corruption recovery and diagnostics payload roundtrip import/export.
+- Verification for phase 6: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

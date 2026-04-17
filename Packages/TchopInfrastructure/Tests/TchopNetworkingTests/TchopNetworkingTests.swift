@@ -550,6 +550,63 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertTrue(joined.contains("Authorization=<redacted>"))
         XCTAssertTrue(joined.contains("X-Trace-Id=trace-123"))
     }
+
+    func testFileOfflineQueueStoreRecoversFromCorruptedPayloadWhenPolicyIsRecoverToEmpty() async throws {
+        let fileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { removeOfflineQueueArtifacts(at: fileURL) }
+
+        try Data("not-json".utf8).write(to: fileURL, options: .atomic)
+
+        let queue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(
+                fileURL: fileURL,
+                corruptionPolicy: .recoverToEmpty
+            )
+        )
+
+        let pendingCount = await queue.pendingCount
+        let snapshot = await queue.makeSnapshot()
+        XCTAssertEqual(pendingCount, 0)
+        XCTAssertEqual(snapshot.pendingCount, 0)
+    }
+
+    func testPersistedOfflineQueueCanExportAndImportDiagnosticsPayload() async throws {
+        let sourceFileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { removeOfflineQueueArtifacts(at: sourceFileURL) }
+
+        let sourceQueue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: sourceFileURL),
+            configuration: APIPersistedOfflineQueue<FileAPIOfflineQueueStore<String>>.Configuration(maxAttempts: 1)
+        )
+        try await sourceQueue.enqueue(payload: "pending")
+        try await sourceQueue.enqueue(payload: "dead-candidate")
+        try await sourceQueue.drainIfConnected(
+            using: StaticConnectivityProvider(connected: true),
+            execute: { payload in
+                if payload == "dead-candidate" {
+                    throw APIError.transportFailure("fail")
+                }
+            }
+        )
+
+        let payload = await sourceQueue.exportDiagnosticsPayload()
+
+        let targetFileURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
+        defer { removeOfflineQueueArtifacts(at: targetFileURL) }
+        let targetQueue = try APIPersistedOfflineQueue(
+            store: FileAPIOfflineQueueStore<String>(fileURL: targetFileURL)
+        )
+
+        try await targetQueue.importDiagnosticsPayload(payload, strategy: .replace)
+
+        let targetPending = await targetQueue.pendingCount
+        let targetDeadLetters = await targetQueue.deadLetters
+        XCTAssertEqual(targetPending, payload.pendingEntries.count)
+        XCTAssertEqual(targetDeadLetters.count, payload.deadLetterEntries.count)
+    }
 }
 
 private struct TestAuthenticationProvider: APIAuthenticationProviding {

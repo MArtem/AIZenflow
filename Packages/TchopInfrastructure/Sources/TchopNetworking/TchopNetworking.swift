@@ -1188,14 +1188,25 @@ public extension APIOfflineQueueStoring {
 
 /// File-backed store for payload-based offline queue entries.
 public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Payload: Codable & Sendable {
+    /// Defines how store behaves when persisted JSON is corrupted.
+    public enum CorruptionPolicy: Sendable, Equatable {
+        /// Surface decoding/read errors to caller.
+        case throwError
+
+        /// Move corrupted file aside and recover with empty entries.
+        case recoverToEmpty
+    }
+
     private let fileURL: URL
     private let deadLetterFileURL: URL
     private let encoder: JSONEncoder
     private let decoder: JSONDecoder
+    private let corruptionPolicy: CorruptionPolicy
 
     /// Creates a file-backed queue store.
     public init(
         fileURL: URL,
+        corruptionPolicy: CorruptionPolicy = .recoverToEmpty,
         encoder: JSONEncoder = JSONEncoder(),
         decoder: JSONDecoder = JSONDecoder()
     ) {
@@ -1203,6 +1214,7 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         self.deadLetterFileURL = fileURL.deletingPathExtension()
             .appendingPathExtension("deadletters")
             .appendingPathExtension(fileURL.pathExtension.isEmpty ? "json" : fileURL.pathExtension)
+        self.corruptionPolicy = corruptionPolicy
         self.encoder = encoder
         self.decoder = decoder
     }
@@ -1212,8 +1224,12 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
             return []
         }
 
-        let data = try Data(contentsOf: fileURL)
-        return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        do {
+            let data = try Data(contentsOf: fileURL)
+            return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        } catch {
+            return try recoverOrThrow(for: fileURL, error: error)
+        }
     }
 
     public func saveEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {
@@ -1234,8 +1250,12 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
             return []
         }
 
-        let data = try Data(contentsOf: deadLetterFileURL)
-        return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        do {
+            let data = try Data(contentsOf: deadLetterFileURL)
+            return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        } catch {
+            return try recoverOrThrow(for: deadLetterFileURL, error: error)
+        }
     }
 
     public func saveDeadLetterEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {
@@ -1250,10 +1270,47 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         let data = try encoder.encode(entries)
         try data.write(to: deadLetterFileURL, options: .atomic)
     }
+
+    private func recoverOrThrow(
+        for url: URL,
+        error: Error
+    ) throws -> [APIOfflineQueueEntry<Payload>] {
+        switch corruptionPolicy {
+        case .throwError:
+            throw error
+        case .recoverToEmpty:
+            let backupURL = url.appendingPathExtension("corrupted-\(Int(Date().timeIntervalSince1970))")
+            try? FileManager.default.moveItem(at: url, to: backupURL)
+            return []
+        }
+    }
 }
 
 /// Durable payload-based offline queue with retry and dead-letter handling.
 public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQueueStoring {
+    /// Export payload for diagnostics, support tooling, and state transfers.
+    public struct DiagnosticsPayload: Codable, Sendable where Store.Payload: Codable & Sendable {
+        public let exportedAt: Date
+        public let pendingEntries: [APIOfflineQueueEntry<Store.Payload>]
+        public let deadLetterEntries: [APIOfflineQueueEntry<Store.Payload>]
+
+        public init(
+            exportedAt: Date = Date(),
+            pendingEntries: [APIOfflineQueueEntry<Store.Payload>],
+            deadLetterEntries: [APIOfflineQueueEntry<Store.Payload>]
+        ) {
+            self.exportedAt = exportedAt
+            self.pendingEntries = pendingEntries
+            self.deadLetterEntries = deadLetterEntries
+        }
+    }
+
+    /// Defines how imported diagnostics payload should be applied.
+    public enum DiagnosticsImportStrategy: Sendable, Equatable {
+        case replace
+        case append
+    }
+
     /// Snapshot of current queue state.
     public struct Snapshot: Sendable, Equatable {
         public let pendingCount: Int
@@ -1345,6 +1402,32 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
             oldestPendingCreatedAt: entries.first?.createdAt,
             oldestDeadLetterCreatedAt: deadLetterEntries.first?.createdAt
         )
+    }
+
+    /// Exports current queue state for diagnostics or offline support workflows.
+    public func exportDiagnosticsPayload() -> DiagnosticsPayload {
+        DiagnosticsPayload(
+            pendingEntries: entries,
+            deadLetterEntries: deadLetterEntries
+        )
+    }
+
+    /// Imports diagnostics payload into queue state.
+    public func importDiagnosticsPayload(
+        _ payload: DiagnosticsPayload,
+        strategy: DiagnosticsImportStrategy = .replace
+    ) throws {
+        switch strategy {
+        case .replace:
+            entries = payload.pendingEntries.sorted { $0.createdAt < $1.createdAt }
+            deadLetterEntries = payload.deadLetterEntries.sorted { $0.createdAt < $1.createdAt }
+        case .append:
+            entries = (entries + payload.pendingEntries).sorted { $0.createdAt < $1.createdAt }
+            deadLetterEntries = (deadLetterEntries + payload.deadLetterEntries)
+                .sorted { $0.createdAt < $1.createdAt }
+        }
+
+        try persist()
     }
 
     /// Adds payload as a new queue entry and persists state.
