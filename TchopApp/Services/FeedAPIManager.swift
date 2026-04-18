@@ -2,18 +2,18 @@ import Foundation
 import TchopNetworking
 
 /// DTO returned by the feed API abstraction.
-struct FeedResponseDTO {
+struct FeedResponseDTO: Sendable {
     let cards: [FeedCardDTO]
 }
 
 /// Card payload variants produced by the feed API.
-enum FeedCardDTO {
+enum FeedCardDTO: Sendable {
     case featuredArticle(FeaturedArticleDTO)
     case discussion(DiscussionDTO)
 }
 
 /// DTO describing the featured article card.
-struct FeaturedArticleDTO {
+struct FeaturedArticleDTO: Sendable {
     let id: String
     let postedInPrefix: String
     let sourceTitle: String
@@ -26,14 +26,14 @@ struct FeaturedArticleDTO {
 }
 
 /// DTO describing a single article action.
-struct ArticleActionDTO {
+struct ArticleActionDTO: Sendable {
     let id: String
     let systemName: String
     let title: String
 }
 
 /// DTO describing the discussion card.
-struct DiscussionDTO {
+struct DiscussionDTO: Sendable {
     let id: String
     let categoryTitle: String
     let headline: String
@@ -42,7 +42,7 @@ struct DiscussionDTO {
 }
 
 /// DTO describing a participant preview inside a discussion card.
-struct DiscussionParticipantDTO {
+struct DiscussionParticipantDTO: Sendable {
     let id: String
     let initials: String
     let isHighlighted: Bool
@@ -69,7 +69,9 @@ struct StubFeedAPIManager: FeedAPIManaging {
             APIRequest(
                 path: "feed",
                 method: .get,
-                stubResponse: FeedAPIStubFactory.makeFeedResponse
+                stubResponse: {
+                    try await FeedAPIStubFactory.makeFeedResponse()
+                }
             )
         )
     }
