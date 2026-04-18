@@ -88,23 +88,23 @@ private enum FeedAPIStubFactory {
     static func makeFeaturedArticle() -> FeaturedArticleDTO {
         FeaturedArticleDTO(
             id: "article-featured-1",
-            postedInPrefix: "Posted in ",
-            sourceTitle: "Our Blog",
-            brandTitle: "Tchop",
-            headline: "Parrots help others in need, study\nshows for first time",
-            summary: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem...",
-            metadataLine: "by Adorlee Querry · two days ago · read time: 2min",
-            translationLabel: "See translation",
+            postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix", fallback: "Posted in "),
+            sourceTitle: AppLocalization.text("news.fallback.sourceTitle", fallback: "Our Blog"),
+            brandTitle: AppLocalization.text("news.fallback.brandTitle", fallback: "Tchop"),
+            headline: AppLocalization.text("news.fallback.headline", fallback: "Parrots help others in need, study\nshows for first time"),
+            summary: AppLocalization.text("news.fallback.summary", fallback: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem..."),
+            metadataLine: AppLocalization.text("news.fallback.metadataLine", fallback: "by Adorlee Querry · two days ago · read time: 2min"),
+            translationLabel: AppLocalization.text("news.fallback.translationLabel", fallback: "See translation"),
             actions: [
                 ArticleActionDTO(
                     id: "article-featured-1-like",
                     systemName: "hand.thumbsup.fill",
-                    title: "Like"
+                    title: AppLocalization.text("news.fallback.action.like", fallback: "Like")
                 ),
                 ArticleActionDTO(
                     id: "article-featured-1-comments",
                     systemName: "bubble.left.fill",
-                    title: "48 Comments"
+                    title: AppLocalization.text("news.fallback.action.comments", fallback: "48 Comments")
                 )
             ]
         )
@@ -113,8 +113,8 @@ private enum FeedAPIStubFactory {
     static func makeDiscussion() -> DiscussionDTO {
         DiscussionDTO(
             id: "discussion-1",
-            categoryTitle: "Discussion",
-            headline: "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio",
+            categoryTitle: AppLocalization.text("news.fallback.discussion.category", fallback: "Discussion"),
+            headline: AppLocalization.text("news.fallback.discussion.headline", fallback: "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio"),
             participants: [
                 DiscussionParticipantDTO(
                     id: "discussion-1-participant-a",
@@ -132,7 +132,7 @@ private enum FeedAPIStubFactory {
                     isHighlighted: false
                 )
             ],
-            joinedText: "+12 joined"
+            joinedText: AppLocalization.text("news.fallback.discussion.joinedText", fallback: "+12 joined")
         )
     }
 }

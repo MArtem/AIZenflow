@@ -45,7 +45,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 self.content = NewsFeedFixtures.fallbackContent
-                self.errorMessage = "Failed to load feed."
+                self.errorMessage = AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
             }
 
             self.isLoading = false
@@ -71,23 +71,23 @@ private enum NewsFeedFixtures {
                 .featuredArticle(
                     FeaturedArticleCardModel(
                         id: "featured-article-fallback",
-                        postedInPrefix: "Posted in ",
-                        sourceTitle: "Our Blog",
-                        brandTitle: "Tchop",
-                        headline: "Parrots help others in need, study\nshows for first time",
-                        summary: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem...",
-                        metadataLine: "by Adorlee Querry · two days ago · read time: 2min",
-                        translationLabel: "See translation",
+                        postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix", fallback: "Posted in "),
+                        sourceTitle: AppLocalization.text("news.fallback.sourceTitle", fallback: "Our Blog"),
+                        brandTitle: AppLocalization.text("news.fallback.brandTitle", fallback: "Tchop"),
+                        headline: AppLocalization.text("news.fallback.headline", fallback: "Parrots help others in need, study\nshows for first time"),
+                        summary: AppLocalization.text("news.fallback.summary", fallback: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem..."),
+                        metadataLine: AppLocalization.text("news.fallback.metadataLine", fallback: "by Adorlee Querry · two days ago · read time: 2min"),
+                        translationLabel: AppLocalization.text("news.fallback.translationLabel", fallback: "See translation"),
                         actions: [
                             ArticleActionItem(
                                 id: "like",
                                 systemName: "hand.thumbsup.fill",
-                                title: "Like"
+                                title: AppLocalization.text("news.fallback.action.like", fallback: "Like")
                             ),
                             ArticleActionItem(
                                 id: "comments",
                                 systemName: "bubble.left.fill",
-                                title: "48 Comments"
+                                title: AppLocalization.text("news.fallback.action.comments", fallback: "48 Comments")
                             )
                         ]
                     )
@@ -95,14 +95,14 @@ private enum NewsFeedFixtures {
                 .discussion(
                     DiscussionCardModel(
                         id: "discussion-fallback",
-                        categoryTitle: "Discussion",
-                        headline: "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio",
+                        categoryTitle: AppLocalization.text("news.fallback.discussion.category", fallback: "Discussion"),
+                        headline: AppLocalization.text("news.fallback.discussion.headline", fallback: "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio"),
                         participants: [
                             DiscussionParticipant(id: "adorlee", initials: "A", isHighlighted: true),
                             DiscussionParticipant(id: "mattis", initials: "M", isHighlighted: false),
                             DiscussionParticipant(id: "sophia", initials: "S", isHighlighted: false)
                         ],
-                        joinedText: "+12 joined"
+                        joinedText: AppLocalization.text("news.fallback.discussion.joinedText", fallback: "+12 joined")
                     )
                 )
             ]

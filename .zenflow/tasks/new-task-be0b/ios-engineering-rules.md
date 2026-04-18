@@ -68,6 +68,9 @@ Use this file as the persistent engineering instruction set for this project whe
 - Avoid heavy computations in `body`.
 - Minimize unnecessary re-renders.
 - Light and dark appearance support is mandatory for every project by default.
+- Localization and internationalization support is mandatory for every project by default.
+- Every new user-facing element (screen, component, text label, error, placeholder, CTA, destination copy) must be added through localization keys, not hardcoded literals.
+- Prefer a centralized localization manager/facade (ideally package-backed) so locale resolution and formatting rules stay consistent and reusable across projects.
 - New screens and reusable components must use semantic theme tokens (not raw hardcoded RGB values for surface/text states) so both appearances stay readable and consistent.
 - Any exception where fixed colors are intentional (brand illustration or media content) must be explicitly limited to decorative elements only.
 - UI must always be designed and implemented with explicit focus on avoiding unnecessary re-renders and memory waste.

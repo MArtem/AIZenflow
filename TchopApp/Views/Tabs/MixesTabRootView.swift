@@ -32,7 +32,11 @@ struct MixesTabRootView: View {
         router.push(
             MixesRoute(
                 title: action.title,
-                description: "\(action.caption). This mix is positioned as a curated entry point that bundles related stories into one navigable stream."
+                description: AppLocalization.text(
+                    "mixes.route.quickAction.descriptionFormat",
+                    fallback: "%@. This mix is positioned as a curated entry point that bundles related stories into one navigable stream.",
+                    action.caption
+                )
             )
         )
     }
@@ -41,7 +45,12 @@ struct MixesTabRootView: View {
         router.push(
             MixesRoute(
                 title: item.title,
-                description: "\(item.summary)\n\n\(item.metadata)"
+                description: AppLocalization.text(
+                    "route.item.descriptionFormat",
+                    fallback: "%@\n\n%@",
+                    item.summary,
+                    item.metadata
+                )
             )
         )
     }

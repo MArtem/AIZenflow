@@ -32,7 +32,11 @@ struct PinnedTabRootView: View {
         router.push(
             PinnedRoute(
                 title: action.title,
-                description: "\(action.caption). This pinned collection keeps durable references visible beyond the transient feed."
+                description: AppLocalization.text(
+                    "pinned.route.quickAction.descriptionFormat",
+                    fallback: "%@. This pinned collection keeps durable references visible beyond the transient feed.",
+                    action.caption
+                )
             )
         )
     }
@@ -41,7 +45,12 @@ struct PinnedTabRootView: View {
         router.push(
             PinnedRoute(
                 title: item.title,
-                description: "\(item.summary)\n\n\(item.metadata)"
+                description: AppLocalization.text(
+                    "route.item.descriptionFormat",
+                    fallback: "%@\n\n%@",
+                    item.summary,
+                    item.metadata
+                )
             )
         )
     }

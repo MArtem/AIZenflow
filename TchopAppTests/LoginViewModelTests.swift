@@ -10,7 +10,10 @@ final class LoginViewModelTests: XCTestCase {
 
         viewModel.submit()
 
-        XCTAssertEqual(viewModel.errorMessage, "Enter a username.")
+        XCTAssertEqual(
+            viewModel.errorMessage,
+            AppLocalization.text("login.error.emptyUsername", fallback: "Enter a username.")
+        )
     }
 
     func testSubmitTrimsWhitespaceBeforeLogin() {
@@ -34,7 +37,10 @@ final class LoginViewModelTests: XCTestCase {
 
         viewModel.submit()
 
-        XCTAssertEqual(viewModel.errorMessage, "Unable to sign in right now.")
+        XCTAssertEqual(
+            viewModel.errorMessage,
+            AppLocalization.text("login.error.generic", fallback: "Unable to sign in right now.")
+        )
     }
 }
 

@@ -21,7 +21,7 @@ final class LoginViewModel: ObservableObject {
         let normalizedUsername = username.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard !normalizedUsername.isEmpty else {
-            errorMessage = "Enter a username."
+            errorMessage = AppLocalization.text("login.error.emptyUsername", fallback: "Enter a username.")
             return
         }
 
@@ -29,7 +29,7 @@ final class LoginViewModel: ObservableObject {
             try onLogin(normalizedUsername)
             errorMessage = nil
         } catch {
-            errorMessage = "Unable to sign in right now."
+            errorMessage = AppLocalization.text("login.error.generic", fallback: "Unable to sign in right now.")
         }
     }
 }

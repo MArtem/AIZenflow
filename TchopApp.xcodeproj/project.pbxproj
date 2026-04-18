@@ -53,6 +53,8 @@
 		A000009C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
 		A00000750000000000000001 /* TchopNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* TchopNetworking */; };
 		A00000770000000000000001 /* TchopDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* TchopDatabase */; };
+		A00000B20000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
+		A00000B00000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
 		A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000820000000000000001 /* AppStateTests.swift */; };
 		A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000840000000000000001 /* LoginViewModelTests.swift */; };
 		A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000860000000000000001 /* NewsFeedViewModelTests.swift */; };
@@ -121,6 +123,7 @@
 		A000006C0000000000000001 /* FeedAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIManager.swift; sourceTree = "<group>"; };
 		A00000740000000000000001 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		A000009D0000000000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
+		A00000B10000000000000001 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
 		A00000800000000000000001 /* TchopAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TchopAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00000820000000000000001 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		A00000840000000000000001 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -140,6 +143,7 @@
 			files = (
 				A00000750000000000000001 /* TchopNetworking in Frameworks */,
 				A00000770000000000000001 /* TchopDatabase in Frameworks */,
+				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +239,7 @@
 			children = (
 				A00000740000000000000001 /* AppDIContainer.swift */,
 				A00000620000000000000001 /* AppState.swift */,
+				A00000B10000000000000001 /* AppLocalization.swift */,
 				A000009D0000000000000001 /* AppTheme.swift */,
 			);
 			path = App;
@@ -362,6 +367,7 @@
 			packageProductDependencies = (
 				A00000760000000000000001 /* TchopNetworking */,
 				A00000780000000000000001 /* TchopDatabase */,
+				A00000B30000000000000001 /* TchopLocalization */,
 			);
 			productName = TchopApp;
 			productReference = A00000010000000000000001 /* TchopApp.app */;
@@ -404,6 +410,7 @@
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
+				ru,
 				Base,
 			);
 			mainGroup = A00000020000000000000001;
@@ -493,6 +500,7 @@
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
 				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
+				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -527,6 +535,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
 			productName = TchopDatabase;
+		};
+		A00000B30000000000000001 /* TchopLocalization */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopLocalization;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -32,7 +32,11 @@ struct ChatTabRootView: View {
         router.push(
             ChatRoute(
                 title: action.title,
-                description: "\(action.caption). This room is modeled as a fast-response collaboration surface around feed activity and team coordination."
+                description: AppLocalization.text(
+                    "chat.route.quickAction.descriptionFormat",
+                    fallback: "%@. This room is modeled as a fast-response collaboration surface around feed activity and team coordination.",
+                    action.caption
+                )
             )
         )
     }
@@ -41,7 +45,12 @@ struct ChatTabRootView: View {
         router.push(
             ChatRoute(
                 title: item.title,
-                description: "\(item.summary)\n\n\(item.metadata)"
+                description: AppLocalization.text(
+                    "route.item.descriptionFormat",
+                    fallback: "%@\n\n%@",
+                    item.summary,
+                    item.metadata
+                )
             )
         )
     }

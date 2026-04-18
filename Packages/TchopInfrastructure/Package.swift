@@ -5,6 +5,7 @@ import PackageDescription
 /// Root package manifest describing infrastructure products and targets.
 let package = Package(
     name: "TchopInfrastructure",
+    defaultLocalization: "en",
     platforms: [
         .iOS(.v16),
         .macOS(.v14)
@@ -17,6 +18,10 @@ let package = Package(
         .library(
             name: "TchopDatabase",
             targets: ["TchopDatabase"]
+        ),
+        .library(
+            name: "TchopLocalization",
+            targets: ["TchopLocalization"]
         )
     ],
     targets: [
@@ -26,6 +31,12 @@ let package = Package(
         .target(
             name: "TchopDatabase"
         ),
+        .target(
+            name: "TchopLocalization",
+            resources: [
+                .process("Resources")
+            ]
+        ),
         .testTarget(
             name: "TchopNetworkingTests",
             dependencies: ["TchopNetworking"]
@@ -33,6 +44,10 @@ let package = Package(
         .testTarget(
             name: "TchopDatabaseTests",
             dependencies: ["TchopDatabase"]
+        ),
+        .testTarget(
+            name: "TchopLocalizationTests",
+            dependencies: ["TchopLocalization"]
         )
     ]
 )

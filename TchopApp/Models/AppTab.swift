@@ -14,11 +14,16 @@ enum AppTab: String, CaseIterable, Identifiable, Codable {
     /// Human-readable title rendered in the bottom tab bar and menu.
     var title: String {
         switch self {
-        case .news: "News"
-        case .mixes: "Mixes"
-        case .pinned: "Pinned"
-        case .chat: "Chat"
-        case .profile: "Profile"
+        case .news:
+            AppLocalization.text("tab.news.title", fallback: "News")
+        case .mixes:
+            AppLocalization.text("tab.mixes.title", fallback: "Mixes")
+        case .pinned:
+            AppLocalization.text("tab.pinned.title", fallback: "Pinned")
+        case .chat:
+            AppLocalization.text("tab.chat.title", fallback: "Chat")
+        case .profile:
+            AppLocalization.text("tab.profile.title", fallback: "Profile")
         }
     }
 
@@ -47,11 +52,16 @@ enum AppTab: String, CaseIterable, Identifiable, Codable {
     /// Placeholder copy used by stub screens.
     var stubDescription: String {
         switch self {
-        case .news: "Latest stories and channel updates."
-        case .mixes: "Curated collections and recommended posts."
-        case .pinned: "Saved highlights and priority content."
-        case .chat: "Direct messages and team conversations."
-        case .profile: "Account settings, activity, and preferences."
+        case .news:
+            AppLocalization.text("tab.news.stubDescription", fallback: "Latest stories and channel updates.")
+        case .mixes:
+            AppLocalization.text("tab.mixes.stubDescription", fallback: "Curated collections and recommended posts.")
+        case .pinned:
+            AppLocalization.text("tab.pinned.stubDescription", fallback: "Saved highlights and priority content.")
+        case .chat:
+            AppLocalization.text("tab.chat.stubDescription", fallback: "Direct messages and team conversations.")
+        case .profile:
+            AppLocalization.text("tab.profile.stubDescription", fallback: "Account settings, activity, and preferences.")
         }
     }
 }

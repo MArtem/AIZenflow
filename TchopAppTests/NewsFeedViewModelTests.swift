@@ -35,7 +35,10 @@ final class NewsFeedViewModelTests: XCTestCase {
 
         await waitForLoading(of: viewModel)
 
-        XCTAssertEqual(viewModel.errorMessage, "Failed to load feed.")
+        XCTAssertEqual(
+            viewModel.errorMessage,
+            AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
+        )
         XCTAssertFalse(viewModel.isLoading)
         XCTAssertFalse(viewModel.content.cards.isEmpty)
     }

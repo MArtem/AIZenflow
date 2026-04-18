@@ -45,8 +45,8 @@ enum AppDataSeeder {
                         context.insert(
                             ChannelRecord(
                                 id: "primary-channel",
-                                title: "Tchop",
-                                subtitle: "New channel name"
+                                title: AppLocalization.text("channel.default.title", fallback: "Tchop"),
+                                subtitle: AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
                             )
                         )
                     })
@@ -56,8 +56,8 @@ enum AppDataSeeder {
                     DatabaseWriteOperation(coreData: { context in
                         let entity = CoreDataChannelEntity(context: context)
                         entity.id = "primary-channel"
-                        entity.title = "Tchop"
-                        entity.subtitle = "New channel name"
+                        entity.title = AppLocalization.text("channel.default.title", fallback: "Tchop")
+                        entity.subtitle = AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
                     })
                 ) as Void
             }
@@ -66,8 +66,8 @@ enum AppDataSeeder {
                 DatabaseWriteOperation(coreData: { context in
                     let entity = CoreDataChannelEntity(context: context)
                     entity.id = "primary-channel"
-                    entity.title = "Tchop"
-                    entity.subtitle = "New channel name"
+                    entity.title = AppLocalization.text("channel.default.title", fallback: "Tchop")
+                    entity.subtitle = AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
                 })
             ) as Void
         }

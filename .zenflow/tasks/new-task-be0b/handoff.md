@@ -66,6 +66,7 @@
 - Feed API manager: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/FeedAPIManager.swift`
 - Networking module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`
 - Database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
+- Localization module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopLocalization/TchopLocalization.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
 - Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
 - Login screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift`
@@ -110,6 +111,10 @@
 - Additional persistent UI quality rule:
   interface code must always be written to minimize or eliminate unnecessary re-renders and memory waste,
   and implementations should avoid logical/programming mistakes that can degrade render/memory behavior.
+- Additional persistent localization rule:
+  localization and internationalization are mandatory by default;
+  every new user-facing element must be wired through localization keys (no hardcoded user-facing literals).
+  Prefer centralized manager/facade approach (package-backed where practical) to keep locale handling reusable and consistent.
 
 ## Important Fixes Already Done
 - Fixed `Missing bundle ID` by adding required bundle keys into `Info.plist`.

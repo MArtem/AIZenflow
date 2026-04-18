@@ -22,7 +22,10 @@ final class AppShellViewModel: ObservableObject {
     init(
         contentRepository: any AppContentRepository,
         isMenuOpen: Bool = false,
-        sideMenuFooterText: String = "Select a destination here or from the bottom bar. Both stay in sync through the same tab state."
+        sideMenuFooterText: String = AppLocalization.text(
+            "shell.sideMenu.footer",
+            fallback: "Select a destination here or from the bottom bar. Both stay in sync through the same tab state."
+        )
     ) {
         self.isMenuOpen = isMenuOpen
         self.channelInfo = Self.resolveChannelInfo(from: contentRepository)
@@ -47,8 +50,8 @@ final class AppShellViewModel: ObservableObject {
 
     private static func resolveChannelInfo(from repository: any AppContentRepository) -> ChannelHeaderInfo {
         (try? repository.fetchChannelInfo()) ?? ChannelHeaderInfo(
-            title: "Tchop",
-            subtitle: "New channel name"
+            title: AppLocalization.text("channel.default.title", fallback: "Tchop"),
+            subtitle: AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
         )
     }
 }

@@ -27,14 +27,19 @@ struct ProfileTabRootView: View {
                         .font(.system(size: 28, weight: .bold))
                         .foregroundStyle(AppTheme.textPrimary)
 
-                    Text("Signed in locally with SwiftData-backed user persistence.")
+                    Text(
+                        AppLocalization.text(
+                            "profile.signedInHint",
+                            fallback: "Signed in locally with SwiftData-backed user persistence."
+                        )
+                    )
                         .font(.system(size: 15, weight: .medium))
                         .foregroundStyle(AppTheme.textTertiary)
                         .multilineTextAlignment(.center)
                 }
 
                 Button(action: openProfileDetails) {
-                    Text("Open profile details")
+                    Text(AppLocalization.text("profile.openDetails", fallback: "Open profile details"))
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundStyle(.white)
                         .padding(.horizontal, 18)
@@ -45,7 +50,7 @@ struct ProfileTabRootView: View {
                 .buttonStyle(.plain)
 
                 Button(action: onLogout) {
-                    Text("Log out")
+                    Text(AppLocalization.text("profile.logout", fallback: "Log out"))
                         .font(.system(size: 15, weight: .semibold))
                         .foregroundStyle(AppTheme.accent)
                         .padding(.horizontal, 18)
@@ -87,8 +92,11 @@ struct ProfileTabRootView: View {
     private func openProfileDetails() {
         router.push(
             ProfileRoute(
-                title: "Profile Details",
-                description: "This profile screen belongs to the profile router. Logging out resets app state and returns to the login screen."
+                title: AppLocalization.text("profile.detailsTitle", fallback: "Profile Details"),
+                description: AppLocalization.text(
+                    "profile.detailsDescription",
+                    fallback: "This profile screen belongs to the profile router. Logging out resets app state and returns to the login screen."
+                )
             )
         )
     }

@@ -292,6 +292,20 @@ Verification:
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
+### [x] Step: Add project-wide localization/i18n baseline with package manager
+
+Introduce a reusable package-level localization manager and wire app-level localization access through a dedicated facade so screens/view-models/routes consume string keys instead of hardcoded user-facing literals.
+Migrate existing UI and fixture content paths to localized keys, add English/Russian resources, and update coding rules/handoff to require localization+i18n for every new element by default.
+Completed:
+- Added `TchopLocalization` package module with reusable `LocalizationManaging` + `LocalizationManager`, plus `en/ru` localized resources and dedicated package tests.
+- Wired app target to the new package product and added centralized app facade `AppLocalization` for key-based lookup/formatting.
+- Replaced hardcoded user-facing strings in views, models, feature fixtures, deep-link defaults, and view-model error messaging with localization keys.
+- Updated persistent docs (`ios-engineering-rules.md` and `handoff.md`) to require localization/i18n for every new user-facing element by default.
+Verification:
+`swift test --package-path Packages/TchopInfrastructure`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

@@ -127,8 +127,14 @@ final class DeepLinkManager: DeepLinkManaging {
             guard let title = requiredQueryValue("title", queryItems) else {
                 return .invalidInAppLink(reason: "missing-discussion-title")
             }
-            let subtitle = queryValue("subtitle", queryItems) ?? "Open discussion"
-            let body = queryValue("body", queryItems) ?? "Discussion deep link destination."
+            let subtitle = queryValue("subtitle", queryItems) ?? AppLocalization.text(
+                "deeplink.news.discussion.subtitle",
+                fallback: "Open discussion"
+            )
+            let body = queryValue("body", queryItems) ?? AppLocalization.text(
+                "deeplink.news.discussion.body",
+                fallback: "Discussion deep link destination."
+            )
             return .resolved(
                 DeepLinkIntent(
                     destination: .newsDiscussion(
@@ -151,8 +157,14 @@ final class DeepLinkManager: DeepLinkManaging {
         guard let title = requiredQueryValue("title", queryItems) else {
             return .invalidInAppLink(reason: "missing-article-title")
         }
-        let subtitle = queryValue("subtitle", queryItems) ?? "From deep link"
-        let body = queryValue("body", queryItems) ?? "Article deep link destination."
+        let subtitle = queryValue("subtitle", queryItems) ?? AppLocalization.text(
+            "deeplink.news.article.subtitle",
+            fallback: "From deep link"
+        )
+        let body = queryValue("body", queryItems) ?? AppLocalization.text(
+            "deeplink.news.article.body",
+            fallback: "Article deep link destination."
+        )
         let accentLabel = queryValue("accent", queryItems)
 
         return .resolved(
@@ -179,7 +191,10 @@ final class DeepLinkManager: DeepLinkManaging {
             return .resolved(DeepLinkIntent(destination: .tab(.mixes), policy: .replace))
         }
 
-        let description = queryValue("description", queryItems) ?? "Mix detail opened from a deep link."
+        let description = queryValue("description", queryItems) ?? AppLocalization.text(
+            "deeplink.mixes.description",
+            fallback: "Mix detail opened from a deep link."
+        )
         return .resolved(
             DeepLinkIntent(
                 destination: .mixes(MixesRoute(title: title, description: description)),
@@ -196,7 +211,10 @@ final class DeepLinkManager: DeepLinkManaging {
             return .resolved(DeepLinkIntent(destination: .tab(.pinned), policy: .replace))
         }
 
-        let description = queryValue("description", queryItems) ?? "Pinned detail opened from a deep link."
+        let description = queryValue("description", queryItems) ?? AppLocalization.text(
+            "deeplink.pinned.description",
+            fallback: "Pinned detail opened from a deep link."
+        )
         return .resolved(
             DeepLinkIntent(
                 destination: .pinned(PinnedRoute(title: title, description: description)),
@@ -213,7 +231,10 @@ final class DeepLinkManager: DeepLinkManaging {
             return .resolved(DeepLinkIntent(destination: .tab(.chat), policy: .replace))
         }
 
-        let description = queryValue("description", queryItems) ?? "Chat room opened from a deep link."
+        let description = queryValue("description", queryItems) ?? AppLocalization.text(
+            "deeplink.chat.description",
+            fallback: "Chat room opened from a deep link."
+        )
         return .resolved(
             DeepLinkIntent(
                 destination: .chat(ChatRoute(title: title, description: description)),
@@ -230,7 +251,10 @@ final class DeepLinkManager: DeepLinkManaging {
             return .resolved(DeepLinkIntent(destination: .tab(.profile), policy: .replace))
         }
 
-        let description = queryValue("description", queryItems) ?? "Profile detail opened from a deep link."
+        let description = queryValue("description", queryItems) ?? AppLocalization.text(
+            "deeplink.profile.description",
+            fallback: "Profile detail opened from a deep link."
+        )
         return .resolved(
             DeepLinkIntent(
                 destination: .profile(ProfileRoute(title: title, description: description)),

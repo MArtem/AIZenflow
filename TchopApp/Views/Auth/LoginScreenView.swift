@@ -15,22 +15,30 @@ struct LoginScreenView: View {
             Spacer()
 
             VStack(alignment: .leading, spacing: 8) {
-                Text("Sign in")
+                Text(AppLocalization.text("login.title", fallback: "Sign in"))
                     .font(.system(size: 34, weight: .bold))
                     .foregroundStyle(AppTheme.textPrimary)
 
-                Text("Use any username. A new one will be stored locally on first login.")
+                Text(
+                    AppLocalization.text(
+                        "login.subtitle",
+                        fallback: "Use any username. A new one will be stored locally on first login."
+                    )
+                )
                     .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(AppTheme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
             }
 
             VStack(alignment: .leading, spacing: 10) {
-                Text("Username")
+                Text(AppLocalization.text("login.usernameLabel", fallback: "Username"))
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(AppTheme.textTertiary)
 
-                TextField("Enter your name", text: $viewModel.username)
+                TextField(
+                    AppLocalization.text("login.usernamePlaceholder", fallback: "Enter your name"),
+                    text: $viewModel.username
+                )
                     .textInputAutocapitalization(.words)
                     .autocorrectionDisabled()
                     .padding(.horizontal, 16)
@@ -50,7 +58,7 @@ struct LoginScreenView: View {
             }
 
             Button(action: viewModel.submit) {
-                Text("Continue")
+                Text(AppLocalization.text("login.continueButton", fallback: "Continue"))
                     .font(.system(size: 16, weight: .semibold))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)

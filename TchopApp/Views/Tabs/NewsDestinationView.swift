@@ -35,6 +35,8 @@ struct NewsDestinationView: View {
     }
 
     private var titleForNavigationBar: String {
-        route.destinationID == "discussion-details" ? "Discussion" : "Article"
+        route.destinationID == "discussion-details"
+            ? AppLocalization.text("news.destination.title.discussion", fallback: "Discussion")
+            : AppLocalization.text("news.destination.title.article", fallback: "Article")
     }
 }
