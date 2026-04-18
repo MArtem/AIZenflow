@@ -259,6 +259,19 @@ Completed:
 - Added coordinator-level `NavigationTransitionPolicy` and idempotent route application helpers for all tabs to avoid duplicate pushes/replaces.
 - Added tests for invalid in-app fallback, unsupported host rejection, deep-link push behavior, and idempotent coordinator transitions.
 
+### [x] Step: Establish profiling baseline for current app runtime
+
+Captured a CLI-driven profiling baseline for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` using `xctrace`, `sample`, `vmmap`, and simulator logs.
+Observed baseline:
+- build for profiling succeeded with isolated DerivedData;
+- `App Launch`, `Time Profiler`, and `Leaks` traces were recorded successfully;
+- `SwiftUI` instrument is not supported on Simulator, and `Allocations` produced an attach-privileges limitation in this environment, so those results are non-authoritative;
+- startup appears fast with the first active scene transition completing in roughly `0.67s` based on simulator logs;
+- idle CPU sample did not show hot loops or busy work on the main thread;
+- physical footprint was about `24.6MB` with peak around `25.2MB` in the sampled startup/idle window.
+Risk note:
+- CLI launches in this environment exit unusually early with `exit(0)`, which limits long-running live profiling depth; future deeper profiling should be done with interactive Instruments/device sessions when investigating rendering hitches or sustained memory growth.
+
 ### [x] Step: Navigation phase 8 — snapshot evolution, migration, and navigation observability
 
 Evolve navigation snapshot model to a new version with backward migration from v1 payloads and safe restore sanitization controls.

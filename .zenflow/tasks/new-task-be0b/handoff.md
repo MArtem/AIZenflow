@@ -143,6 +143,11 @@
 - Additional collaboration rule:
   if anything is unclear, ask questions, clarify trade-offs, and propose alternatives/ideas instead of assuming silent defaults.
   Each new task and shared implementation plan should be treated as a collaborative step requiring active attention from both sides.
+- Current profiling baseline:
+  CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
+  Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
+  Environment limitations:
+  `SwiftUI` instrument is unsupported on Simulator, `Allocations` had an attach-privileges limitation in CLI mode, and the app process exits early with `exit(0)` in these scripted launches, so long-running render/memory profiling should be repeated in interactive Instruments or on device when needed.
 
 ## Important Fixes Already Done
 - Fixed `Missing bundle ID` by adding required bundle keys into `Info.plist`.
