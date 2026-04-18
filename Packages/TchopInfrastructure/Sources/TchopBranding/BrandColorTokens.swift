@@ -2,10 +2,10 @@ import SwiftUI
 
 #if canImport(UIKit)
 import UIKit
-private typealias PlatformColor = UIColor
+typealias BrandPlatformColor = UIColor
 #elseif canImport(AppKit)
 import AppKit
-private typealias PlatformColor = NSColor
+typealias BrandPlatformColor = NSColor
 #endif
 
 /// Centralized raw palette values for each supported brand variant.
@@ -20,11 +20,11 @@ enum BrandColorTokens {
     static let oceanFloatingActionButtonShadowLight = platformColor(red: 0.09, green: 0.49, blue: 0.73, alpha: 0.35)
     static let oceanFloatingActionButtonShadowDark = platformColor(red: 0.34, green: 0.76, blue: 0.92, alpha: 0.42)
 
-    private static func platformColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> PlatformColor {
+    private static func platformColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> BrandPlatformColor {
         #if canImport(UIKit)
-        PlatformColor(red: red, green: green, blue: blue, alpha: alpha)
+        BrandPlatformColor(red: red, green: green, blue: blue, alpha: alpha)
         #elseif canImport(AppKit)
-        PlatformColor(
+        BrandPlatformColor(
             calibratedRed: red,
             green: green,
             blue: blue,
