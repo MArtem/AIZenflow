@@ -22,6 +22,10 @@ let package = Package(
         .library(
             name: "TchopLocalization",
             targets: ["TchopLocalization"]
+        ),
+        .library(
+            name: "TchopCache",
+            targets: ["TchopCache"]
         )
     ],
     targets: [
@@ -37,6 +41,9 @@ let package = Package(
                 .process("Resources")
             ]
         ),
+        .target(
+            name: "TchopCache"
+        ),
         .testTarget(
             name: "TchopNetworkingTests",
             dependencies: ["TchopNetworking"]
@@ -48,6 +55,10 @@ let package = Package(
         .testTarget(
             name: "TchopLocalizationTests",
             dependencies: ["TchopLocalization"]
+        ),
+        .testTarget(
+            name: "TchopCacheTests",
+            dependencies: ["TchopCache"]
         )
     ]
 )

@@ -21,6 +21,8 @@ Use this file as the persistent services-layer instruction set for this project 
 - Repositories should depend on the database manager, not on raw storage primitives directly.
 - Keep transaction/save boundaries explicit.
 - Avoid leaking persistence-specific models into view models and views.
+- For non-relational local data (small DTOs, flags, transient payloads), prefer a dedicated local cache manager behind a protocol contract.
+- Favor reusable package-level cache modules (in-memory + file-backed implementations) over feature-specific ad-hoc caching logic.
 
 ## Integration Rule
 - Feature services may compose lower-level infrastructure services.

@@ -306,6 +306,29 @@ Verification:
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
+### [x] Step: Add reusable local cache package module
+
+Introduce a dedicated infrastructure cache module as a reusable package product with a clear manager protocol and concrete in-memory + file-backed local cache implementations.
+Cover core behaviors with tests (set/get/remove/clear, expiration policy, and persistence restore), then sync task docs/rules with the new cache baseline.
+Verify through package tests and app test matrix on both required simulators.
+Completed:
+- Added new package product/target `TchopCache` in `Packages/TchopInfrastructure/Package.swift`.
+- Implemented reusable cache API in `TchopCache`:
+  `LocalCacheManaging`,
+  `CacheExpiration`,
+  `LocalCacheError`,
+  `InMemoryLocalCacheManager`,
+  `FileLocalCacheManager` (file-backed persistence in caches directory).
+- Added dedicated cache tests for core lifecycle and expiration behavior:
+  `Packages/TchopInfrastructure/Tests/TchopCacheTests/TchopCacheTests.swift`.
+- Synced task documentation:
+  `handoff.md` now includes the cache module/tests in architecture state,
+  and `services-engineering-rules.md` now includes persistence-layer guidance for protocol-first reusable local cache managers.
+Verification:
+- `swift test --package-path Packages/TchopInfrastructure`
+- `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`
+- `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

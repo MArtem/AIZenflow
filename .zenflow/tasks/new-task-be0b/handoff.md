@@ -67,8 +67,10 @@
 - Networking module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`
 - Database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
 - Localization module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopLocalization/TchopLocalization.swift`
+- Local cache module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCache/TchopCache.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
 - Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
+- Local cache tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopCacheTests/TchopCacheTests.swift`
 - Login screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift`
 - Header: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift`
 - Side menu: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Menu/SideMenuView.swift`
@@ -251,6 +253,12 @@ xcrun simctl list devices | grep Booted
   timestamp and soft-delete marker protocols.
 - The infrastructure database module is now backend-neutral in the same way as the app layer:
   the package can instantiate either `SwiftData` or `Core Data` through one shared contract.
+- The infrastructure package now also exposes a reusable local cache module:
+  `TchopCache`.
+- `TchopCache` currently provides a protocol-first cache contract
+  (`LocalCacheManaging`) and two manager implementations:
+  `InMemoryLocalCacheManager` and `FileLocalCacheManager`,
+  with expiration policies (`never`, `after`, `at`) and cleanup of expired entries.
 - The package-level backend selection is driven by:
   `DatabaseConfiguration`
   and
