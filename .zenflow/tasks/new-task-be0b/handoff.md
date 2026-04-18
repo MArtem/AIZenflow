@@ -20,6 +20,12 @@
 - The project also has an active persistent services and infrastructure ruleset in `services-engineering-rules.md`.
 - A standing merge instruction also exists:
   when asked to merge from `main`, merge the latest changes from `main` and ask the user if any conflict resolution is unclear.
+- Post-task verification policy now uses 4 explicit levels with default `Absent` (`Отсутствует`).
+- Verification runs only when the user explicitly requests a level after task completion:
+  `Full` = all tests + build on iPhone 16 Pro (iOS 18.2) + build on iPhone 17 Pro (iOS 26.0),
+  `Medium` = all tests + build on iPhone 17 Pro (iOS 26.0),
+  `Low` = build on iPhone 17 Pro (iOS 26.0),
+  `Absent` = no tests/build/simulator checks.
 - The user may refer to these as `/ios` and `/services` shorthand. Treat them as active instructions for future chats after reading the two rules files.
 
 ## What Was Built
@@ -160,6 +166,14 @@ xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=i
 - Find booted simulator:
 ```sh
 xcrun simctl list devices | grep Booted
+```
+- Verification levels (current default):
+```text
+Default: Absent (no verification runs unless explicitly requested by the user)
+Full:    all tests + build iPhone 16 Pro (18.2) + build iPhone 17 Pro (26.0)
+Medium:  all tests + build iPhone 17 Pro (26.0)
+Low:     build iPhone 17 Pro (26.0)
+Absent:  no tests/build/simulator checks
 ```
 
 ## Current Truth

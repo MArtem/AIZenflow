@@ -329,6 +329,14 @@ Verification:
 - `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`
 - `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`
 
+### [x] Step: Add explicit post-task verification levels and set default to absent
+
+Updated project documentation to use four explicit verification levels after each task:
+`Full`, `Medium`, `Low`, and `Absent`.
+Set default behavior to `Absent` so no tests/build/simulator checks are run unless the user explicitly requests a verification level after task completion.
+Synced this policy in:
+`ios-engineering-rules.md` (persistent rule source) and `handoff.md` (resume context).
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

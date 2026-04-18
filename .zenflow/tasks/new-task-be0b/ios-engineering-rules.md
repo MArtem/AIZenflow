@@ -126,9 +126,14 @@ Use this file as the persistent engineering instruction set for this project whe
 ## Additional Persistent Instructions
 - When asked to merge from `main`, merge the latest changes from `main` and resolve conflicts carefully.
 - If any conflict resolution is ambiguous, ask the user before choosing a resolution.
-- Verification matrix for app-level checks must include both simulator targets:
-  `iPhone 16 Pro (iOS 18.2)` and `iPhone 17 Pro (iOS 26.0)`.
-- For app verification, run `xcodebuild ... build` and `xcodebuild ... test` on both targets.
+- Post-task verification now uses explicit verification levels.
+- Default verification level is `Absent` (`Отсутствует`): do not run tests, builds, or simulator launch checks unless the user explicitly requests one of the levels below after task completion.
+- Supported verification levels:
+  - `Full` (`Полная`): run all tests + build on `iPhone 16 Pro (iOS 18.2)` + build on `iPhone 17 Pro (iOS 26.0)`.
+  - `Medium` (`Средняя`): run all tests + build on `iPhone 17 Pro (iOS 26.0)`.
+  - `Low` (`Низкая`): build on `iPhone 17 Pro (iOS 26.0)` only.
+  - `Absent` (`Отсутствует`): no tests, no builds, no simulator launch checks.
+- Execute verification only when the user explicitly asks after finishing the task and names one of these levels.
 - If `iPhone 17 Pro (iOS 26.0)` tests fail with a simulator bootstrap/test-runner infrastructure error
   (for example `Early unexpected exit` before test connection), reboot the simulator and retry once.
   If the same infrastructure error repeats, record the failure explicitly in handoff/status instead of masking it.
