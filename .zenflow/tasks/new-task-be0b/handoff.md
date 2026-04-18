@@ -557,6 +557,31 @@ xcrun simctl list devices | grep Booted
   `swift test --package-path Packages/TchopInfrastructure`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+- Navigation reliability + state evolution cycle (phase 7/8, 2026-04-18):
+  added production-oriented reliability and observability on top of the existing navigation baseline.
+- Phase 7 (reliability / policy):
+  `DeepLinkManager` now resolves links via typed intent parsing states
+  (`resolved`, `invalidInAppLink`, `unsupported`) with deterministic fallback behavior for invalid in-app links.
+  Added coordinator-level transition policy (`NavigationTransitionPolicy`: `push`, `replace`, `popToRoot`) and idempotent per-tab route application helpers to prevent duplicate stack churn.
+- Phase 8 (snapshot evolution / observability):
+  `NavigationSnapshot` moved to schema `v2` with backward-compatible decode for v1 payloads, migration helper (`migratedToSupportedVersion`), and bounded restore sanitization (`maxRoutesPerTab`).
+  Added typed navigation observability contracts:
+  `NavigationEvent`,
+  `NavigationEventReporting`,
+  `NavigationNoopEventReporter`,
+  `NavigationMemoryEventReporter`.
+  `AppState` now emits restore lifecycle events and applies safe rollback for unsupported future snapshot versions (clear snapshot + reset navigation).
+- Added/extended tests for:
+  migration+sanitization restore behavior,
+  future-version snapshot rollback,
+  invalid in-app deep-link fallback,
+  unsupported host rejection,
+  deep-link push transition behavior,
+  idempotent coordinator transitions.
+- Fresh verification for phase 7/8 is green:
+  `swift test --package-path Packages/TchopInfrastructure`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

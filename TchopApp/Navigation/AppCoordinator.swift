@@ -1,6 +1,13 @@
 import Foundation
 import TchopDatabase
 
+/// Defines stack mutation policy for navigation transitions.
+enum NavigationTransitionPolicy: String, Codable, Equatable {
+    case push
+    case replace
+    case popToRoot
+}
+
 /// Coordinator that owns shared tab selection and per-tab routers.
 @MainActor
 final class AppCoordinator: ObservableObject {
@@ -66,5 +73,91 @@ final class AppCoordinator: ObservableObject {
         pinnedRouter.replacePath(with: snapshot.pinnedPath)
         chatRouter.replacePath(with: snapshot.chatPath)
         profileRouter.replacePath(with: snapshot.profilePath)
+    }
+
+    /// Applies transition for a news destination with idempotency guarantees.
+    func navigateToNews(_ route: NewsRoute, policy: NavigationTransitionPolicy) {
+        applyTransition(
+            route: route,
+            policy: policy,
+            router: newsRouter,
+            isEquivalent: { lhs, rhs in
+                lhs.destinationID == rhs.destinationID &&
+                    lhs.title == rhs.title &&
+                    lhs.subtitle == rhs.subtitle &&
+                    lhs.bodyText == rhs.bodyText &&
+                    lhs.accentLabel == rhs.accentLabel
+            }
+        )
+    }
+
+    /// Applies transition for a mixes destination with idempotency guarantees.
+    func navigateToMixes(_ route: MixesRoute, policy: NavigationTransitionPolicy) {
+        applyTransition(
+            route: route,
+            policy: policy,
+            router: mixesRouter,
+            isEquivalent: { lhs, rhs in
+                lhs.title == rhs.title && lhs.description == rhs.description
+            }
+        )
+    }
+
+    /// Applies transition for a pinned destination with idempotency guarantees.
+    func navigateToPinned(_ route: PinnedRoute, policy: NavigationTransitionPolicy) {
+        applyTransition(
+            route: route,
+            policy: policy,
+            router: pinnedRouter,
+            isEquivalent: { lhs, rhs in
+                lhs.title == rhs.title && lhs.description == rhs.description
+            }
+        )
+    }
+
+    /// Applies transition for a chat destination with idempotency guarantees.
+    func navigateToChat(_ route: ChatRoute, policy: NavigationTransitionPolicy) {
+        applyTransition(
+            route: route,
+            policy: policy,
+            router: chatRouter,
+            isEquivalent: { lhs, rhs in
+                lhs.title == rhs.title && lhs.description == rhs.description
+            }
+        )
+    }
+
+    /// Applies transition for a profile destination with idempotency guarantees.
+    func navigateToProfile(_ route: ProfileRoute, policy: NavigationTransitionPolicy) {
+        applyTransition(
+            route: route,
+            policy: policy,
+            router: profileRouter,
+            isEquivalent: { lhs, rhs in
+                lhs.title == rhs.title && lhs.description == rhs.description
+            }
+        )
+    }
+
+    private func applyTransition<Route: Hashable>(
+        route: Route,
+        policy: NavigationTransitionPolicy,
+        router: TabRouter<Route>,
+        isEquivalent: (Route, Route) -> Bool
+    ) {
+        switch policy {
+        case .popToRoot:
+            router.popToRoot()
+        case .replace:
+            if router.path.count == 1, let current = router.path.first, isEquivalent(current, route) {
+                return
+            }
+            router.replacePath(with: [route])
+        case .push:
+            if let current = router.path.last, isEquivalent(current, route) {
+                return
+            }
+            router.push(route)
+        }
     }
 }

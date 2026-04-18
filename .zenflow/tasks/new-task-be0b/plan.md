@@ -249,6 +249,31 @@ Verification:
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
+### [x] Step: Navigation phase 7 — reliability, intent validation, and transition policy
+
+Introduce typed deep-link intents with explicit validation and deterministic fallback behavior for invalid in-app links.
+Add coordinator-level navigation transition policy (`push/replace/popToRoot`) with idempotent route application to avoid duplicate-stack churn and unstable navigation jumps.
+Add focused tests for invalid-link fallback, idempotent transitions, and deterministic route outcomes.
+Completed:
+- Added typed deep-link intent pipeline with parse result states (`resolved` / `invalidInAppLink` / `unsupported`) and deterministic fallback-to-news behavior for invalid in-app links.
+- Added coordinator-level `NavigationTransitionPolicy` and idempotent route application helpers for all tabs to avoid duplicate pushes/replaces.
+- Added tests for invalid in-app fallback, unsupported host rejection, deep-link push behavior, and idempotent coordinator transitions.
+
+### [x] Step: Navigation phase 8 — snapshot evolution, migration, and navigation observability
+
+Evolve navigation snapshot model to a new version with backward migration from v1 payloads and safe restore sanitization controls.
+Add navigation observability primitives (typed events + reporter) and emit metrics/traces for restore/deep-link success-failure paths.
+Add tests for snapshot migration, sanitization behavior, and observability event emission.
+Completed:
+- Upgraded `NavigationSnapshot` to version `2`, added backward-compatible decoding for v1 payloads, explicit migration to supported version, and stack sanitization (`maxRoutesPerTab`).
+- Added navigation observability contracts (`NavigationEvent`, `NavigationEventReporting`, noop + memory reporter) and wired event emission in deep-link handling and snapshot restore flows.
+- Added safe rollback path for unsupported future snapshot versions (clear + reset), with explicit failure event.
+- Added tests for migration + sanitization and future-version rollback behavior.
+Verification:
+`swift test --package-path Packages/TchopInfrastructure`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

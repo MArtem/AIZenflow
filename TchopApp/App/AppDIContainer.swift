@@ -33,6 +33,9 @@ final class AppDIContainer: ObservableObject {
     /// Manager that handles deep and universal links for app navigation.
     let deepLinkManager: any DeepLinkManaging
 
+    /// Reporter for navigation restore/deep-link diagnostics.
+    let navigationEventReporter: any NavigationEventReporting
+
     /// Active persistence backend chosen for the current app runtime.
     let databaseBackendKind: AppDatabaseBackendKind
 
@@ -65,7 +68,8 @@ final class AppDIContainer: ObservableObject {
 
         self.sessionService = UserSessionService(userRepository: userRepository)
         self.navigationStateManager = NavigationStateManager()
-        self.deepLinkManager = DeepLinkManager()
+        self.navigationEventReporter = NavigationNoopEventReporter()
+        self.deepLinkManager = DeepLinkManager(eventReporter: navigationEventReporter)
     }
 
     /// Creates the shell view model used by the authenticated part of the app.
@@ -81,7 +85,8 @@ final class AppDIContainer: ObservableObject {
             sessionService: sessionService,
             userRepository: userRepository,
             navigationStateManager: navigationStateManager,
-            deepLinkManager: deepLinkManager
+            deepLinkManager: deepLinkManager,
+            navigationEventReporter: navigationEventReporter
         )
     }
 }

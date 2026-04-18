@@ -20,6 +20,7 @@ final class AppState: ObservableObject {
     private let userRepository: any UserRepository
     private let navigationStateManager: any NavigationStateManaging
     private let deepLinkManager: any DeepLinkManaging
+    private let navigationEventReporter: any NavigationEventReporting
     private var navigationBindings: Set<AnyCancellable> = []
     private var isApplyingNavigationSnapshot = false
     private var pendingDeepLinkInput: PendingDeepLinkInput?
@@ -31,7 +32,8 @@ final class AppState: ObservableObject {
         sessionService: any UserSessionManaging,
         userRepository: any UserRepository,
         navigationStateManager: any NavigationStateManaging,
-        deepLinkManager: any DeepLinkManaging
+        deepLinkManager: any DeepLinkManaging,
+        navigationEventReporter: (any NavigationEventReporting)? = nil
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -39,6 +41,7 @@ final class AppState: ObservableObject {
         self.userRepository = userRepository
         self.navigationStateManager = navigationStateManager
         self.deepLinkManager = deepLinkManager
+        self.navigationEventReporter = navigationEventReporter ?? NavigationNoopEventReporter()
         setupNavigationPersistenceBindings()
         restoreSession()
     }
@@ -121,6 +124,12 @@ final class AppState: ObservableObject {
         guard user.isNavigationStateRestoreEnabled else {
             coordinator.selectTab(.news)
             coordinator.resetAllNavigation()
+            navigationEventReporter.report(
+                .snapshotRestoreSkipped(
+                    userID: user.id,
+                    reason: "restore-disabled"
+                )
+            )
             return
         }
 
@@ -130,17 +139,56 @@ final class AppState: ObservableObject {
                 as: NavigationSnapshot.self
             )
         else {
+            navigationEventReporter.report(
+                .snapshotRestoreSkipped(
+                    userID: user.id,
+                    reason: "snapshot-missing"
+                )
+            )
             return
         }
 
-        guard snapshot.version == NavigationSnapshot.supportedVersion else {
+        navigationEventReporter.report(
+            .snapshotRestoreStarted(
+                userID: user.id,
+                sourceVersion: snapshot.version
+            )
+        )
+
+        guard snapshot.version <= NavigationSnapshot.supportedVersion else {
+            coordinator.selectTab(.news)
+            coordinator.resetAllNavigation()
             navigationStateManager.clearSnapshot(for: user.id)
+            navigationEventReporter.report(
+                .snapshotRestoreFailed(
+                    userID: user.id,
+                    reason: "unsupported-future-version-\(snapshot.version)"
+                )
+            )
             return
         }
+
+        let migratedSnapshot = snapshot.migratedToSupportedVersion()
+        let sanitizedSnapshot = migratedSnapshot.sanitized()
+        let wasMigrated = migratedSnapshot.version != snapshot.version
+        let wasSanitized = sanitizedSnapshot != migratedSnapshot
 
         isApplyingNavigationSnapshot = true
-        coordinator.applySnapshot(snapshot)
+        coordinator.applySnapshot(sanitizedSnapshot)
         isApplyingNavigationSnapshot = false
+
+        if wasMigrated || wasSanitized {
+            navigationStateManager.saveSnapshot(sanitizedSnapshot, for: user.id)
+        }
+
+        navigationEventReporter.report(
+            .snapshotRestoreCompleted(
+                userID: user.id,
+                appliedVersion: sanitizedSnapshot.version,
+                wasSanitized: wasSanitized,
+                wasMigrated: wasMigrated
+            )
+        )
     }
 
     private func applyPostAuthenticationNavigation(for user: AppUser) {
