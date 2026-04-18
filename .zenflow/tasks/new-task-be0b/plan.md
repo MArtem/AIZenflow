@@ -294,6 +294,15 @@ Lightweight validation only:
 - `xcodebuild -list -project TchopApp.xcodeproj` sees `TchopWidgetsExtension` and `TchopWidgets` successfully.
 Per current project verification policy, no full build/test run was started because the user did not request a verification level for this task.
 
+### [x] Step: Fix widget extension install failure on simulator
+
+Investigated simulator install failure (`IXErrorDomain`, `Invalid placeholder attributes`) and confirmed the root cause was the widget extension using an auto-generated Info.plist that did not produce a valid nested `NSExtension` dictionary for placeholder creation.
+Fixed the extension target by switching to an explicit `TchopWidgetsExtension/Info.plist` with a proper `NSExtension` payload.
+Re-ran the requested `Low` verification and then verified the originally failing path directly:
+- `xcodebuild ... build` on `iPhone 17 Pro (iOS 26.0)` passed;
+- `xcrun simctl install ... TchopApp.app` passed;
+- `xcrun simctl launch ... com.example.TchopApp` passed.
+
 ### [x] Step: Navigation phase 8 — snapshot evolution, migration, and navigation observability
 
 Evolve navigation snapshot model to a new version with backward migration from v1 payloads and safe restore sanitization controls.

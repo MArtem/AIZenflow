@@ -112,6 +112,7 @@
 - Shared app-group config: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Shared/AppGroupConfiguration.swift`
 - Widget extension bundle: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/TchopWidgetsBundle.swift`
 - Widget extension view/provider: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/FeedHeadlineWidget.swift`
+- Widget extension Info.plist: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/Info.plist`
 
 ## Code Style Decision
 - Do not use computed properties like `private var something: some View` for view composition.
@@ -147,6 +148,8 @@
   widget-related persistence and shared contracts should live in a reusable package-backed layer where practical,
   while app-specific mapping from feature state into widget snapshots should stay in an app bridge/composition layer.
   Current implementation uses `TchopWidgets` for shared snapshot storage and `AppWidgetBridge` to publish the first feed-card headline into shared app-group storage for the widget extension.
+  Important fix: the widget extension must use an explicit `Info.plist` with a valid nested `NSExtension` dictionary.
+  The earlier auto-generated plist configuration caused simulator install failure with `IXErrorDomain` / `Invalid placeholder attributes`.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.
