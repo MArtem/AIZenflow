@@ -385,6 +385,12 @@ The goal is discoverability: semantic theme resolution stays in `TchopBranding.s
 Prepared a reusable infrastructure layer for UI settings fetched from server, starting with a mock remote source and a shell-level flag controlling whether the floating action button should be shown.
 The app shell now consumes this through a dedicated `TchopUIConfiguration` package so future server-driven UI tweaks can extend the same snapshot/manager flow instead of introducing ad-hoc per-screen flags.
 
+### [x] Step: Fix Sendable warning in feed stub response pipeline
+
+Resolved Swift concurrency warning:
+`Converting non-Sendable function value to '@Sendable () async throws -> FeedResponseDTO' may introduce data races`.
+Applied an explicit `@Sendable`-compatible stub closure in `StubFeedAPIManager` and marked feed DTO graph as `Sendable` to keep the request/stub path concurrency-safe.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

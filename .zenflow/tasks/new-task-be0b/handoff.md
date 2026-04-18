@@ -137,6 +137,9 @@
 - Server-driven UI settings baseline:
   reusable UI configuration fetched from backend should be modeled behind a package-backed manager/snapshot contract where practical,
   so server-controlled visibility/toggle rules can evolve without scattering request logic into SwiftUI screens.
+- Concurrency warning hardening:
+  feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
+  to prevent data-race warnings in the networking stub pipeline.
 - Additional collaboration rule:
   if anything is unclear, ask questions, clarify trade-offs, and propose alternatives/ideas instead of assuming silent defaults.
   Each new task and shared implementation plan should be treated as a collaborative step requiring active attention from both sides.
