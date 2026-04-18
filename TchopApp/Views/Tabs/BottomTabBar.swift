@@ -33,5 +33,6 @@ struct BottomTabBar: View {
         .shadow(color: AppTheme.shadow.opacity(0.4), radius: 10, y: -1)
         .padding(.horizontal, 10)
         .padding(.bottom, 8)
+        .animation(.easeInOut(duration: 0.2), value: selectedTab)
     }
 }

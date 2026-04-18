@@ -27,6 +27,7 @@ struct AppShellView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .disabled(viewModel.isMenuOpen)
                     .blur(radius: viewModel.isMenuOpen ? 1.5 : 0)
+                    .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
 
                 if viewModel.isMenuOpen || menuDragOffset > 0 {
                     Button(action: viewModel.closeMenu) {
@@ -34,6 +35,7 @@ struct AppShellView: View {
                             .ignoresSafeArea()
                     }
                     .buttonStyle(.plain)
+                    .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
 
                     SideMenuView(
                         channelInfo: viewModel.channelInfo,
@@ -44,6 +46,7 @@ struct AppShellView: View {
                     .frame(width: menuWidth, alignment: .topLeading)
                     .frame(maxHeight: .infinity, alignment: .topLeading)
                     .offset(x: menuOffset)
+                    .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
                 }
 
                 Color.clear
@@ -53,8 +56,6 @@ struct AppShellView: View {
                     .gesture(openMenuGesture(menuWidth: menuWidth))
             }
             .gesture(closeMenuGesture(menuWidth: menuWidth))
-            .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
-            .animation(.easeInOut(duration: 0.2), value: coordinator.selectedTab)
         }
     }
 

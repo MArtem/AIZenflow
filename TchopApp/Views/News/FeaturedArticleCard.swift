@@ -103,7 +103,8 @@ struct FeaturedArticleCard: View {
                     .overlay(AppTheme.borderSubtle)
 
                 HStack {
-                    ForEach(Array(article.actions.enumerated()), id: \.element.id) { index, action in
+                    ForEach(article.actions.indices, id: \.self) { index in
+                        let action = article.actions[index]
                         ArticleActionView(action: action)
 
                         if index < article.actions.count - 1 {

@@ -28,15 +28,16 @@ struct TabContentView: View {
                 router: coordinator.chatRouter
             )
         case .profile:
-            ProfileTabRootView(
-                currentUser: currentUser ?? AppUser(
-                    id: "missing-user",
-                    username: "Unknown User",
-                    createdAt: .now
-                ),
-                router: coordinator.profileRouter,
-                onLogout: onLogout
-            )
+            if let currentUser {
+                ProfileTabRootView(
+                    currentUser: currentUser,
+                    router: coordinator.profileRouter,
+                    onLogout: onLogout
+                )
+            } else {
+                ProgressView()
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
         }
     }
 }

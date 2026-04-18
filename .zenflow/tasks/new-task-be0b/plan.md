@@ -279,6 +279,19 @@ Verification:
 Added concise documentation comments to Swift files that had no `///` comments, focusing on top-level types and key test suites/views/models to improve readability and onboarding.
 The pass intentionally keeps comments short and structural (purpose/role), without over-commenting implementation details.
 
+### [x] Step: Apply view performance review optimizations
+
+Apply the previously reported SwiftUI review notes to reduce avoidable re-render cost and transient allocations in hot UI paths.
+Scope is intentionally narrow: remove fallback model allocation from `TabContentView`, remove temporary array allocation from `FeaturedArticleCard`, and localize menu/tab animations in `AppShellView`.
+Completed:
+- Removed fallback `AppUser` allocation from `TabContentView` and replaced it with a guarded `currentUser` branch + lightweight loading placeholder.
+- Replaced `ForEach(Array(article.actions.enumerated()))` with index-based iteration in `FeaturedArticleCard` to avoid temporary array creation on each render.
+- Narrowed animation scope in `AppShellView` (removed container-wide animation modifiers) and moved tab selection animation to `BottomTabBar`.
+Verification:
+`swift test --package-path Packages/TchopInfrastructure`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
