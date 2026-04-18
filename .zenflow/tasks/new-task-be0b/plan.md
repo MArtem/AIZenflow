@@ -274,6 +274,11 @@ Verification:
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
 `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
+### [x] Step: Add baseline comments across all Swift files
+
+Added concise documentation comments to Swift files that had no `///` comments, focusing on top-level types and key test suites/views/models to improve readability and onboarding.
+The pass intentionally keeps comments short and structural (purpose/role), without over-commenting implementation details.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

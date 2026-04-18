@@ -1,6 +1,7 @@
 import SwiftUI
 import TchopDatabase
 
+/// Root news-tab container that binds feed and destination navigation.
 struct NewsTabRootView: View {
     @ObservedObject var viewModel: NewsFeedViewModel
     @ObservedObject var router: TabRouter<NewsRoute>

@@ -1,6 +1,7 @@
 import SwiftUI
 import TchopDatabase
 
+/// Root chat-tab screen bound to its dedicated navigation router.
 struct ChatTabRootView: View {
     @ObservedObject var router: TabRouter<ChatRoute>
 

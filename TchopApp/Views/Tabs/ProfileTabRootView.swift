@@ -1,6 +1,7 @@
 import SwiftUI
 import TchopDatabase
 
+/// Root profile-tab screen bound to its dedicated navigation router.
 struct ProfileTabRootView: View {
     let currentUser: AppUser
     @ObservedObject var router: TabRouter<ProfileRoute>

@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Renders detail destination content for a selected news route.
 struct NewsDestinationView: View {
     let route: NewsRoute
 

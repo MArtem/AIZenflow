@@ -1,6 +1,8 @@
 // swift-tools-version: 5.9
+// Defines reusable infrastructure modules for networking, database, and navigation.
 import PackageDescription
 
+/// Root package manifest describing infrastructure products and targets.
 let package = Package(
     name: "TchopInfrastructure",
     platforms: [

@@ -1,6 +1,7 @@
 import XCTest
 @testable import TchopApp
 
+/// Validates login form state and submission behavior.
 @MainActor
 final class LoginViewModelTests: XCTestCase {
     func testSubmitWithEmptyUsernameShowsValidationError() {
@@ -40,4 +41,3 @@ final class LoginViewModelTests: XCTestCase {
 private enum TestLoginError: Error {
     case failed
 }
-

@@ -2,6 +2,7 @@ import XCTest
 import TchopDatabase
 @testable import TchopApp
 
+/// Covers app session and navigation restore flows in root state.
 @MainActor
 final class AppStateTests: XCTestCase {
     func testSignInUpdatesCurrentUser() throws {
@@ -395,6 +396,7 @@ private final class TestDeepLinkManager: DeepLinkManaging {
 }
 
 @MainActor
+/// Verifies generic tab router stack operations.
 final class TabRouterTests: XCTestCase {
     func testPushAppendRouteToPath() {
         let router = TabRouter<NewsRoute>()
@@ -448,6 +450,7 @@ final class TabRouterTests: XCTestCase {
 }
 
 @MainActor
+/// Verifies coordinator-level tab and stack orchestration behavior.
 final class AppCoordinatorTests: XCTestCase {
     func testSelectTabDoesNotResetOtherTabPaths() {
         let coordinator = AppCoordinator()
@@ -525,6 +528,7 @@ final class AppCoordinatorTests: XCTestCase {
 }
 
 @MainActor
+/// Verifies deep/universal link routing into navigation destinations.
 final class DeepLinkManagerTests: XCTestCase {
     func testCustomSchemeDiscussionLinkRoutesToNewsDiscussion() {
         let coordinator = AppCoordinator()

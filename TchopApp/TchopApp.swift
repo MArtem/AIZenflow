@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Application entry point that wires DI container and root app state.
 @main
 struct TchopApp: App {
     private let container: AppDIContainer

@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Compact action cluster shown under article content cards.
 struct ArticleActionView: View {
     let action: ArticleActionItem
 

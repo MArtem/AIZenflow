@@ -582,6 +582,17 @@ xcrun simctl list devices | grep Booted
   `swift test --package-path Packages/TchopInfrastructure`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+- Documentation pass (2026-04-18):
+  added concise `///` comments across Swift files that previously had no doc comments.
+- Scope of the pass:
+  top-level views,
+  tab roots and shared tab components,
+  feature/tab fixture models,
+  app entry point,
+  test suites and test helpers,
+  package manifest root declaration.
+- Goal:
+  improve discoverability/onboarding without adding noisy line-by-line comments.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

@@ -1,6 +1,7 @@
 import SwiftUI
 import TchopDatabase
 
+/// Generic navigation root hosting a typed path with destination builder closure.
 struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {
     let tab: AppTab
     @ObservedObject var router: TabRouter<Route>

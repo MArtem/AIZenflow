@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Hosts tab-level content including top bar, feed, and action affordances.
 struct TabContentView: View {
     let selectedTab: AppTab
     @ObservedObject var coordinator: AppCoordinator

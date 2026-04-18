@@ -1,5 +1,6 @@
 import Foundation
 
+/// Shared content model for scaffolded feature tabs.
 struct FeatureTabContent: Equatable {
     let title: String
     let subtitle: String
@@ -8,6 +9,7 @@ struct FeatureTabContent: Equatable {
     let sections: [FeatureTabSection]
 }
 
+/// Quick action item shown in a feature tab header block.
 struct FeatureQuickAction: Identifiable, Equatable {
     let id: String
     let title: String
@@ -15,12 +17,14 @@ struct FeatureQuickAction: Identifiable, Equatable {
     let systemImageName: String
 }
 
+/// Section containing grouped items in a feature tab list.
 struct FeatureTabSection: Identifiable, Equatable {
     let id: String
     let title: String
     let items: [FeatureTabItem]
 }
 
+/// Leaf row model rendered inside feature tab sections.
 struct FeatureTabItem: Identifiable, Equatable {
     let id: String
     let eyebrow: String
@@ -29,6 +33,7 @@ struct FeatureTabItem: Identifiable, Equatable {
     let metadata: String
 }
 
+/// Static fixture factory for feature-tab placeholder content.
 enum FeatureTabFixtures {
     static let mixes = FeatureTabContent(
         title: "Mixes",

@@ -2,6 +2,7 @@ import XCTest
 import TchopDatabase
 @testable import TchopApp
 
+/// Verifies async loading states and error handling for feed view model.
 @MainActor
 final class NewsFeedViewModelTests: XCTestCase {
     func testReloadLoadsContentFromRepository() async {
@@ -88,6 +89,7 @@ private enum TestNewsFeedError: Error {
 }
 
 @MainActor
+/// Verifies persistence-facing user repository behavior.
 final class UserRepositoryTests: XCTestCase {
     func testFindUserReturnsNilForWhitespaceUsername() throws {
         let repository = DefaultUserRepository(databaseManager: makeInMemoryAppDatabaseManager())
@@ -120,6 +122,7 @@ final class UserRepositoryTests: XCTestCase {
 }
 
 @MainActor
+/// Verifies app-content repository mapping from persistence/API models.
 final class AppContentRepositoryTests: XCTestCase {
     func testFetchChannelInfoMapsStoredChannel() throws {
         let databaseManager = makeInMemoryAppDatabaseManager()

@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Layout wrapper combining top chrome, tab content, and overlays.
 struct ShellContentView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator

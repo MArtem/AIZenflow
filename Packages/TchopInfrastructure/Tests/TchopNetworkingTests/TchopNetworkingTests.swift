@@ -1,6 +1,7 @@
 import XCTest
 @testable import TchopNetworking
 
+/// Validates networking client behavior, retry logic, and offline queue durability.
 final class TchopNetworkingTests: XCTestCase {
     func testMockManagerReturnsStubbedValue() async throws {
         let manager = MockAPIManager()

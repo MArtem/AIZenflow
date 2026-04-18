@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Root authenticated shell with side menu and tab content container.
 struct AppShellView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator

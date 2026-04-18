@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Slide-out menu with app-level navigation actions.
 struct SideMenuView: View {
     let channelInfo: ChannelHeaderInfo
     let selectedTab: AppTab

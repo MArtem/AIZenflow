@@ -1,6 +1,7 @@
 import SwiftUI
 import UIKit
 
+/// Semantic color tokens used across app screens in light and dark modes.
 enum AppTheme {
     static let accent = dynamicColor(
         light: UIColor(red: 0.95, green: 0.50, blue: 0.37, alpha: 1),

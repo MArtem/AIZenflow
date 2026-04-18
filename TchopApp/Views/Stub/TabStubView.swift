@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Simple placeholder used for tabs not yet backed by real feature screens.
 struct TabStubView: View {
     var tab: AppTab
     let onOpenSample: () -> Void

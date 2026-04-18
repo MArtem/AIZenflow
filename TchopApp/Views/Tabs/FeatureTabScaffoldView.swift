@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Shared scaffold for non-news tabs with list sections and quick actions.
 struct FeatureTabScaffoldView: View {
     let content: FeatureTabContent
     let onQuickActionTap: (FeatureQuickAction) -> Void

@@ -1,6 +1,7 @@
 import SwiftUI
 import TchopDatabase
 
+/// Root mixes-tab screen bound to its dedicated navigation router.
 struct MixesTabRootView: View {
     @ObservedObject var router: TabRouter<MixesRoute>
 

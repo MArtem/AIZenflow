@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Username-based authentication screen shown before entering the app shell.
 struct LoginScreenView: View {
     @StateObject private var viewModel: LoginViewModel
 

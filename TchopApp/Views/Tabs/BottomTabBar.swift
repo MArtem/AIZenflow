@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Custom bottom tab bar that drives coordinator tab selection.
 struct BottomTabBar: View {
     let selectedTab: AppTab
     var onSelect: (AppTab) -> Void

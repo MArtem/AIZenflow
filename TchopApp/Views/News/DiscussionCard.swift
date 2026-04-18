@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Card rendering a highlighted discussion preview in the news feed.
 struct DiscussionCard: View {
     let discussion: DiscussionCardModel
     let onTap: () -> Void

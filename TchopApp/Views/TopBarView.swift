@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Reusable top bar with menu trigger and channel metadata.
 struct TopBarView: View {
     let channelInfo: ChannelHeaderInfo
     var onMenuTap: () -> Void

@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Compact brand mark icon used in top bar and authentication UI.
 struct BrandMarkView: View {
     var iconSize: CGFloat
     var cardSize: CGSize

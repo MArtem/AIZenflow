@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Primary hero card for the featured article at the top of the feed.
 struct FeaturedArticleCard: View {
     let article: FeaturedArticleCardModel
     let onTap: () -> Void

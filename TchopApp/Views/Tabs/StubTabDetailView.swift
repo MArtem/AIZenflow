@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Generic destination view used by scaffolded feature-tab routes.
 struct StubTabDetailView: View {
     let title: String
     let description: String

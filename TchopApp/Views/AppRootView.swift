@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Root switch between authentication flow and authenticated shell.
 struct AppRootView: View {
     @ObservedObject var appState: AppState
     let onOpenURL: (URL) -> Void

@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Main feed list rendering heterogeneous card content.
 struct NewsFeedView: View {
     @ObservedObject var viewModel: NewsFeedViewModel
     let onFeaturedArticleTap: () -> Void
