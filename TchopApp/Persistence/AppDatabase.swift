@@ -13,7 +13,10 @@ typealias AppDatabaseBackendSelectionPolicy = DatabaseBackendSelectionPolicy
 typealias AppDatabaseConfiguration = DatabaseConfiguration
 
 /// Builds app-specific persistence containers and delegates backend selection to the infrastructure package.
+@MainActor
 enum AppDatabase {
+    private static let databaseResolver: any DatabaseManagerResolving = DatabaseManagerResolver()
+
     private enum BackendPreferenceStore {
         private static let key = "app_database_selected_backend_kind"
 
@@ -134,7 +137,7 @@ enum AppDatabase {
     private static func makeCoreDataManager(
         configuration: AppDatabaseConfiguration
     ) throws -> CoreDataDatabaseManager {
-        let manager = try DatabaseServiceFactory.makeDatabaseManager(
+        let manager = try databaseResolver.makeDatabaseManager(
             configuration: AppDatabaseConfiguration(
                 backendSelectionPolicy: .coreData,
                 isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
@@ -160,7 +163,7 @@ enum AppDatabase {
     private static func makeSwiftDataManager(
         configuration: AppDatabaseConfiguration
     ) throws -> SwiftDataDatabaseManager {
-        let manager = try DatabaseServiceFactory.makeDatabaseManager(
+        let manager = try databaseResolver.makeDatabaseManager(
             configuration: AppDatabaseConfiguration(
                 backendSelectionPolicy: .swiftData,
                 isStoredInMemoryOnly: configuration.isStoredInMemoryOnly

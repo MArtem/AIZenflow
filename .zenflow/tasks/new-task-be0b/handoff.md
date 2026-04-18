@@ -71,7 +71,11 @@
 - Session service: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift`
 - Feed API manager: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/FeedAPIManager.swift`
 - Networking module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`
-- Database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
+- Database umbrella module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
+- Database core module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabaseCore/TchopDatabaseCore.swift`
+- SwiftData database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopSwiftDataDatabase/TchopSwiftDataDatabase.swift`
+- Core Data database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCoreDataDatabase/TchopCoreDataDatabase.swift`
+- Database composition module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabaseComposition/TchopDatabaseComposition.swift`
 - Localization module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopLocalization/TchopLocalization.swift`
 - Local cache module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCache/TchopCache.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
@@ -256,27 +260,35 @@ Absent:  no tests/build/simulator checks
 - `TchopApp` now links two local package products:
   `TchopNetworking` and `TchopDatabase`.
 - Old app-local infra files for `APIManager`, `DatabaseManaging`, and `DatabaseManager` were removed after the module split.
-- The `TchopDatabase` module currently provides `SwiftDataDatabaseManager` and `DatabaseManaging` with:
-  backend-neutral manager factory,
+- The database infrastructure is now split into reusable package targets:
+  `TchopDatabaseCore`,
+  `TchopSwiftDataDatabase`,
+  `TchopCoreDataDatabase`,
+  `TchopDatabaseComposition`,
+  plus umbrella target `TchopDatabase` for backward-compatible imports.
+- `TchopDatabaseCore` owns the shared contract surface:
+  `DatabaseManaging`,
   `DatabaseBackendSelectionPolicy`,
   `DatabaseReadOperation`,
   `DatabaseWriteOperation`,
-  `SwiftDataDatabaseManager`,
-  `CoreDataDatabaseManager`,
-  `rollback`,
-  timestamp and soft-delete marker protocols.
-- The infrastructure database module is now backend-neutral in the same way as the app layer:
-  the package can instantiate either `SwiftData` or `Core Data` through one shared contract.
+  `DatabaseBatchWriteOperation`,
+  shared errors, and migration primitives.
+- `TchopSwiftDataDatabase` owns `SwiftDataDatabaseManager`.
+- `TchopCoreDataDatabase` owns `CoreDataDatabaseManager`.
+- `TchopDatabaseComposition` owns the resolver/facade layer:
+  `DatabaseManagerResolving`,
+  `DatabaseManagerResolver`,
+  and compatibility facade `DatabaseServiceFactory`.
 - The infrastructure package now also exposes a reusable local cache module:
   `TchopCache`.
 - `TchopCache` currently provides a protocol-first cache contract
   (`LocalCacheManaging`) and two manager implementations:
   `InMemoryLocalCacheManager` and `FileLocalCacheManager`,
   with expiration policies (`never`, `after`, `at`) and cleanup of expired entries.
-- The package-level backend selection is driven by:
+- The package-level backend selection is now driven by:
   `DatabaseConfiguration`
   and
-  `DatabaseServiceFactory.makeDatabaseManager(...)`.
+  `DatabaseManagerResolver` / `DatabaseServiceFactory`.
 - Package tests now verify both backends:
   `SwiftData` and `Core Data`,
   plus factory selection for each.
@@ -312,7 +324,7 @@ Absent:  no tests/build/simulator checks
 - The app persistence layer now uses the package database contract directly.
   Repositories and seeders depend on `DatabaseManaging` from `TchopDatabase`, not on an app-local duplicate abstraction.
 - `TchopApp/Persistence/AppDatabase.swift` is now only an app-specific composition layer:
-  it builds the app's `SwiftData` and `Core Data` containers and delegates backend selection to `DatabaseServiceFactory`.
+  it builds the app's `SwiftData` and `Core Data` containers and delegates backend creation to package composition contract `DatabaseManagerResolving`.
 - `AppDIContainer` now chooses persistence through `DatabaseConfiguration` and `DatabaseBackendSelectionPolicy`.
   The default production policy remains `automatic`, which resolves to `SwiftData` on iOS 17+ and falls back to `Core Data` otherwise.
 - The persisted local model is intentionally reduced to the records the app truly reads locally today:

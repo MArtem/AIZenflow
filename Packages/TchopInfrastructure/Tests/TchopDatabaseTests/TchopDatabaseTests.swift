@@ -103,10 +103,39 @@ final class TchopDatabaseTests: XCTestCase {
         XCTAssertEqual(manager.backendKind, .coreData)
     }
 
+    /// Verifies that the new resolver protocol can construct a Core Data backend directly.
+    func testDatabaseManagerResolverCreatesCoreDataManagerWhenRequested() throws {
+        let resolver: any DatabaseManagerResolving = DatabaseManagerResolver()
+        let manager = try resolver.makeDatabaseManager(
+            configuration: DatabaseConfiguration(
+                backendSelectionPolicy: .coreData,
+                isStoredInMemoryOnly: true
+            ),
+            makeCoreDataContainer: makeInMemoryCoreDataContainer
+        )
+
+        XCTAssertEqual(manager.backendKind, .coreData)
+    }
+
     /// Verifies that the service factory selects the requested backend correctly.
     @available(iOS 17, macOS 14, *)
     func testDatabaseFactoryCreatesSwiftDataManagerWhenRequested() throws {
         let manager = try DatabaseServiceFactory.makeDatabaseManager(
+            configuration: DatabaseConfiguration(
+                backendSelectionPolicy: .swiftData,
+                isStoredInMemoryOnly: true
+            ),
+            makeSwiftDataContainer: makeInMemorySwiftDataContainer
+        )
+
+        XCTAssertEqual(manager.backendKind, .swiftData)
+    }
+
+    /// Verifies that the new resolver protocol can construct a SwiftData backend directly.
+    @available(iOS 17, macOS 14, *)
+    func testDatabaseManagerResolverCreatesSwiftDataManagerWhenRequested() throws {
+        let resolver: any DatabaseManagerResolving = DatabaseManagerResolver()
+        let manager = try resolver.makeDatabaseManager(
             configuration: DatabaseConfiguration(
                 backendSelectionPolicy: .swiftData,
                 isStoredInMemoryOnly: true

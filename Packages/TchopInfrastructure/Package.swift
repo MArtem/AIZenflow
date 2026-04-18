@@ -16,6 +16,22 @@ let package = Package(
             targets: ["TchopNetworking"]
         ),
         .library(
+            name: "TchopDatabaseCore",
+            targets: ["TchopDatabaseCore"]
+        ),
+        .library(
+            name: "TchopSwiftDataDatabase",
+            targets: ["TchopSwiftDataDatabase"]
+        ),
+        .library(
+            name: "TchopCoreDataDatabase",
+            targets: ["TchopCoreDataDatabase"]
+        ),
+        .library(
+            name: "TchopDatabaseComposition",
+            targets: ["TchopDatabaseComposition"]
+        ),
+        .library(
             name: "TchopDatabase",
             targets: ["TchopDatabase"]
         ),
@@ -33,7 +49,32 @@ let package = Package(
             name: "TchopNetworking"
         ),
         .target(
-            name: "TchopDatabase"
+            name: "TchopDatabaseCore"
+        ),
+        .target(
+            name: "TchopSwiftDataDatabase",
+            dependencies: ["TchopDatabaseCore"]
+        ),
+        .target(
+            name: "TchopCoreDataDatabase",
+            dependencies: ["TchopDatabaseCore"]
+        ),
+        .target(
+            name: "TchopDatabaseComposition",
+            dependencies: [
+                "TchopDatabaseCore",
+                "TchopSwiftDataDatabase",
+                "TchopCoreDataDatabase"
+            ]
+        ),
+        .target(
+            name: "TchopDatabase",
+            dependencies: [
+                "TchopDatabaseCore",
+                "TchopSwiftDataDatabase",
+                "TchopCoreDataDatabase",
+                "TchopDatabaseComposition"
+            ]
         ),
         .target(
             name: "TchopLocalization",

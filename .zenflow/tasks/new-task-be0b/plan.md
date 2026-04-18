@@ -337,6 +337,32 @@ Set default behavior to `Absent` so no tests/build/simulator checks are run unle
 Synced this policy in:
 `ios-engineering-rules.md` (persistent rule source) and `handoff.md` (resume context).
 
+### [x] Step: Split database infrastructure into reusable backend packages plus composition facade
+
+Refactor the current single mixed database module into separate reusable package targets for shared contracts, SwiftData backend, Core Data backend, and composition/factory resolution.
+Keep the app-facing contract backend-neutral (`DatabaseManaging`) while moving backend-specific code into isolated targets so future projects can depend on combined mode or only one backend as needed.
+Preserve current runtime behavior in the app, including backend selection policy and migration path, then verify with full package/app checks.
+Completed:
+- Split the database package into dedicated reusable targets/products:
+  `TchopDatabaseCore`,
+  `TchopSwiftDataDatabase`,
+  `TchopCoreDataDatabase`,
+  `TchopDatabaseComposition`,
+  while keeping `TchopDatabase` as a backward-compatible umbrella target.
+- Moved shared database contracts, configuration, operations, errors, and migration primitives into `TchopDatabaseCore`.
+- Moved backend implementations into isolated targets:
+  `SwiftDataDatabaseManager` to `TchopSwiftDataDatabase`,
+  `CoreDataDatabaseManager` to `TchopCoreDataDatabase`.
+- Added composition contract `DatabaseManagerResolving` and concrete `DatabaseManagerResolver` in `TchopDatabaseComposition`, with `DatabaseServiceFactory` preserved as compatibility facade.
+- Switched app composition in `TchopApp/Persistence/AppDatabase.swift` to the new resolver contract instead of treating the DB layer as one mixed manager implementation.
+- Extended package tests to verify resolver-based creation for both backends.
+- Synced `handoff.md` with the new DB package structure and composition contract.
+Verification:
+- `swift test --package-path Packages/TchopInfrastructure`
+- `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -derivedDataPath .cache/DerivedData -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`
+- `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -derivedDataPath .cache/DerivedData-build16 -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' build`
+- `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -derivedDataPath .cache/DerivedData-build17 -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' build`
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
