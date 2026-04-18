@@ -239,6 +239,16 @@ Completed:
 - Added tests for corrupted store recovery and diagnostics export/import roundtrip.
 Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
+### [x] Step: Apply post-review hardening recommendations for phase 3-6
+
+Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.
+`FileAPIOfflineQueueStore` now recovers only from JSON decoding corruption (not generic I/O/read errors), and `APIManager` now emits `didScheduleRetry` for retries coming from the `invalidStatusCode` branch as well.
+Added regression tests for both fixes to prevent reintroduction.
+Verification:
+`swift test --package-path Packages/TchopInfrastructure`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+`xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

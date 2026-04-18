@@ -545,6 +545,18 @@ xcrun simctl list devices | grep Booted
   `importDiagnosticsPayload(...)`.
 - Added tests for corruption recovery and diagnostics payload roundtrip import/export.
 - Verification for phase 6: `swift test --package-path Packages/TchopInfrastructure` succeeded.
+- Post-review hardening follow-up (2026-04-18):
+  applied requested fixes from review findings for phase 3-6.
+- `FileAPIOfflineQueueStore` recovery path now only auto-recovers on JSON `DecodingError` corruption.
+  Generic I/O/read errors are no longer swallowed in `recoverToEmpty`, preventing silent queue loss on non-corruption failures.
+- `APIManager` now emits `didScheduleRetry` for retries triggered by the `invalidStatusCode` branch as well, so observability/metrics interceptors see all scheduled retries consistently.
+- Added regression tests:
+  `testFileOfflineQueueStoreRecoverToEmptyDoesNotMaskNonDecodingReadErrors`,
+  `testAPIManagerEmitsRetryScheduledForInvalidStatusCodeBranch`.
+- Fresh verification after hardening is green:
+  `swift test --package-path Packages/TchopInfrastructure`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' test`,
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test`.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

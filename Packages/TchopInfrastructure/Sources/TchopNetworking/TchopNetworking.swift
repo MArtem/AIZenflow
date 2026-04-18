@@ -880,6 +880,14 @@ public actor APIManager: APIManaging {
                         }
 
                         if let delay = await retryDelay(for: error, attempt: attempt, request: urlRequest, interceptors: interceptors) {
+                            for interceptor in interceptors {
+                                await interceptor.didScheduleRetry(
+                                    for: error,
+                                    attempt: attempt,
+                                    delayNanoseconds: delay,
+                                    request: urlRequest
+                                )
+                            }
                             attempt += 1
                             try await Task.sleep(nanoseconds: delay)
                             continue
@@ -1227,8 +1235,10 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         do {
             let data = try Data(contentsOf: fileURL)
             return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        } catch let decodingError as DecodingError {
+            return try recoverOrThrow(for: fileURL, error: decodingError)
         } catch {
-            return try recoverOrThrow(for: fileURL, error: error)
+            throw error
         }
     }
 
@@ -1253,8 +1263,10 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         do {
             let data = try Data(contentsOf: deadLetterFileURL)
             return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        } catch let decodingError as DecodingError {
+            return try recoverOrThrow(for: deadLetterFileURL, error: decodingError)
         } catch {
-            return try recoverOrThrow(for: deadLetterFileURL, error: error)
+            throw error
         }
     }
 

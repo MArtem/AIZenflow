@@ -238,6 +238,58 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(contexts.first?.attempt, 0)
     }
 
+    func testAPIManagerEmitsRetryScheduledForInvalidStatusCodeBranch() async throws {
+        URLProtocolStub.reset()
+        var responseCounter = 0
+        URLProtocolStub.requestHandler = { request in
+            responseCounter += 1
+            if responseCounter == 1 {
+                return (
+                    HTTPURLResponse(url: request.url!, statusCode: 500, httpVersion: nil, headerFields: nil)!,
+                    Data()
+                )
+            }
+
+            return (
+                HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!,
+                Data(#"{"value":"ok"}"#.utf8)
+            )
+        }
+
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
+        sessionConfiguration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: sessionConfiguration)
+        let collector = TestMetricsCollector()
+
+        let manager = APIManager(
+            configuration: APIConfiguration(baseURL: URL(string: "https://example.com")!),
+            session: session,
+            interceptors: [
+                APIMetricsInterceptor(collector: collector),
+                RetryOnFirst500Interceptor()
+            ]
+        )
+
+        struct ResponseModel: Decodable, Sendable, Equatable {
+            let value: String
+        }
+
+        let response = try await manager.perform(
+            APIRequest<ResponseModel>.json(path: "resource")
+        )
+        XCTAssertEqual(response, ResponseModel(value: "ok"))
+
+        let events = await collector.events
+        XCTAssertTrue(
+            events.contains { event in
+                if case let .retryScheduled(error, attempt, _, _) = event {
+                    return error == .invalidStatusCode(500) && attempt == 0
+                }
+                return false
+            }
+        )
+    }
+
     func testPersistedOfflineQueueStoresAndReloadsEntries() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -571,6 +623,20 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(snapshot.pendingCount, 0)
     }
 
+    func testFileOfflineQueueStoreRecoverToEmptyDoesNotMaskNonDecodingReadErrors() throws {
+        let directoryURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent("offline-queue-dir-\(UUID().uuidString)")
+        defer { try? FileManager.default.removeItem(at: directoryURL) }
+        try FileManager.default.createDirectory(at: directoryURL, withIntermediateDirectories: true)
+
+        let store = FileAPIOfflineQueueStore<String>(
+            fileURL: directoryURL,
+            corruptionPolicy: .recoverToEmpty
+        )
+
+        XCTAssertThrowsError(try store.loadEntries())
+    }
+
     func testPersistedOfflineQueueCanExportAndImportDiagnosticsPayload() async throws {
         let sourceFileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -680,6 +746,15 @@ private struct ContextDrivenRetryInterceptor: APIRequestIntercepting {
 
     func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
         .doNotRetry
+    }
+}
+
+private struct RetryOnFirst500Interceptor: APIRequestIntercepting {
+    func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
+        if context.attempt == 0, context.error == .invalidStatusCode(500) {
+            return .retry(afterNanoseconds: 0)
+        }
+        return .doNotRetry
     }
 }
 
