@@ -380,6 +380,11 @@ Completed:
 Moved the raw `classic` and `ocean` color definitions out of the brand-theme factory into a dedicated branding source file so future target palette edits happen in one obvious place.
 The goal is discoverability: semantic theme resolution stays in `TchopBranding.swift`, while the actual RGB values now live in explicit brand token constants.
 
+### [x] Step: Add package-backed server-driven UI configuration baseline
+
+Prepared a reusable infrastructure layer for UI settings fetched from server, starting with a mock remote source and a shell-level flag controlling whether the floating action button should be shown.
+The app shell now consumes this through a dedicated `TchopUIConfiguration` package so future server-driven UI tweaks can extend the same snapshot/manager flow instead of introducing ad-hoc per-screen flags.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

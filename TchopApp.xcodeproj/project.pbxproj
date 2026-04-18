@@ -57,6 +57,7 @@
 		A00000B00000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
 		B00000030000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
 		B00000040000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
+		C00000010000000000000001 /* TchopUIConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = C00000020000000000000001 /* TchopUIConfiguration */; };
 		A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000820000000000000001 /* AppStateTests.swift */; };
 		A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000840000000000000001 /* LoginViewModelTests.swift */; };
 		A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000860000000000000001 /* NewsFeedViewModelTests.swift */; };
@@ -148,6 +149,7 @@
 				A00000750000000000000001 /* TchopNetworking in Frameworks */,
 				A00000770000000000000001 /* TchopDatabase in Frameworks */,
 				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
+				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,6 +168,7 @@
 				A00000770000000000000001 /* TchopDatabase in Frameworks */,
 				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
 				B00000040000000000000001 /* TchopBranding in Frameworks */,
+				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -386,6 +389,7 @@
 				A00000780000000000000001 /* TchopDatabase */,
 				A00000B30000000000000001 /* TchopLocalization */,
 				B000000C0000000000000001 /* TchopBranding */,
+				C00000020000000000000001 /* TchopUIConfiguration */,
 			);
 			productName = TchopApp;
 			productReference = A00000010000000000000001 /* TchopApp.app */;
@@ -409,6 +413,7 @@
 				A00000780000000000000001 /* TchopDatabase */,
 				A00000B30000000000000001 /* TchopLocalization */,
 				B000000C0000000000000001 /* TchopBranding */,
+				C00000020000000000000001 /* TchopUIConfiguration */,
 			);
 			productName = TchopAppOcean;
 			productReference = B00000010000000000000001 /* TchopAppOcean.app */;
@@ -656,6 +661,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
 			productName = TchopBranding;
+		};
+		C00000020000000000000001 /* TchopUIConfiguration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopUIConfiguration;
 		};
 /* End XCSwiftPackageProductDependency section */
 

@@ -26,7 +26,7 @@ struct ShellContentView: View {
                 )
             }
 
-            if coordinator.selectedTab == .news {
+            if coordinator.selectedTab == .news && viewModel.showsFloatingActionButton {
                 FloatingActionButton()
                     .padding(.leading, 290)
                     .padding(.bottom, 66)

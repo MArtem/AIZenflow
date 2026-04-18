@@ -1,5 +1,6 @@
 import XCTest
 import TchopDatabase
+import TchopUIConfiguration
 @testable import TchopApp
 
 /// Covers app session and navigation restore flows in root state.
@@ -12,7 +13,7 @@ final class AppStateTests: XCTestCase {
             restoreResult: .success(nil)
         )
         let coordinator = AppCoordinator()
-        let shellViewModel = AppShellViewModel(contentRepository: TestAppContentRepository())
+        let shellViewModel = makeShellViewModel()
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
@@ -35,7 +36,7 @@ final class AppStateTests: XCTestCase {
         )
         let state = AppState(
             coordinator: AppCoordinator(),
-            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            appShellViewModel: makeShellViewModel(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: TestNavigationStateManager(),
@@ -62,7 +63,7 @@ final class AppStateTests: XCTestCase {
             )
         )
 
-        let shellViewModel = AppShellViewModel(contentRepository: TestAppContentRepository(), isMenuOpen: true)
+        let shellViewModel = makeShellViewModel(isMenuOpen: true)
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
@@ -105,7 +106,7 @@ final class AppStateTests: XCTestCase {
 
         _ = AppState(
             coordinator: coordinator,
-            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            appShellViewModel: makeShellViewModel(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: stateManager,
@@ -140,7 +141,7 @@ final class AppStateTests: XCTestCase {
 
         _ = AppState(
             coordinator: coordinator,
-            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            appShellViewModel: makeShellViewModel(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: stateManager,
@@ -174,7 +175,7 @@ final class AppStateTests: XCTestCase {
         let coordinator = AppCoordinator()
         let state = AppState(
             coordinator: coordinator,
-            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            appShellViewModel: makeShellViewModel(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: signedInUser),
             navigationStateManager: stateManager,
@@ -215,7 +216,7 @@ final class AppStateTests: XCTestCase {
 
         _ = AppState(
             coordinator: AppCoordinator(),
-            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            appShellViewModel: makeShellViewModel(),
             sessionService: TestUserSessionService(
                 signInResult: .success(restoredUser),
                 restoreResult: .success(restoredUser)
@@ -263,7 +264,7 @@ final class AppStateTests: XCTestCase {
 
         _ = AppState(
             coordinator: coordinator,
-            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
+            appShellViewModel: makeShellViewModel(),
             sessionService: TestUserSessionService(
                 signInResult: .success(restoredUser),
                 restoreResult: .success(restoredUser)
@@ -286,6 +287,17 @@ final class AppStateTests: XCTestCase {
             )
         )
     }
+}
+
+@MainActor
+private func makeShellViewModel(isMenuOpen: Bool = false) -> AppShellViewModel {
+    AppShellViewModel(
+        contentRepository: TestAppContentRepository(),
+        uiConfigurationManager: UIConfigurationManager(
+            remoteProvider: MockUIConfigurationRemoteProvider(delayNanoseconds: 0)
+        ),
+        isMenuOpen: isMenuOpen
+    )
 }
 
 @MainActor

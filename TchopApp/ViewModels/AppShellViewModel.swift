@@ -1,4 +1,5 @@
 import Foundation
+import TchopUIConfiguration
 
 /// View model for the authenticated shell.
 ///
@@ -18,9 +19,15 @@ final class AppShellViewModel: ObservableObject {
     /// View model for the news feed feature.
     let newsFeedViewModel: NewsFeedViewModel
 
+    /// Whether the floating action button should be rendered for the active shell.
+    @Published private(set) var showsFloatingActionButton: Bool
+
+    private let uiConfigurationManager: any UIConfigurationManaging
+
     /// Creates the shell view model from repository-backed content.
     init(
         contentRepository: any AppContentRepository,
+        uiConfigurationManager: any UIConfigurationManaging,
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text(
             "shell.sideMenu.footer",
@@ -31,11 +38,12 @@ final class AppShellViewModel: ObservableObject {
         self.channelInfo = Self.resolveChannelInfo(from: contentRepository)
         self.sideMenuFooterText = sideMenuFooterText
         self.newsFeedViewModel = NewsFeedViewModel(repository: contentRepository)
-    }
+        self.showsFloatingActionButton = true
+        self.uiConfigurationManager = uiConfigurationManager
 
-    /// Whether the shell should render the floating action button for the current tab.
-    var showsFloatingActionButton: Bool {
-        true
+        Task {
+            await loadUIConfiguration()
+        }
     }
 
     /// Toggles the side menu state.
@@ -46,6 +54,15 @@ final class AppShellViewModel: ObservableObject {
     /// Closes the side menu explicitly.
     func closeMenu() {
         isMenuOpen = false
+    }
+
+    private func loadUIConfiguration() async {
+        do {
+            let configuration = try await uiConfigurationManager.fetchConfiguration()
+            showsFloatingActionButton = configuration.shell.showsFloatingActionButton
+        } catch {
+            assertionFailure("Failed to fetch UI configuration: \(error)")
+        }
     }
 
     private static func resolveChannelInfo(from repository: any AppContentRepository) -> ChannelHeaderInfo {

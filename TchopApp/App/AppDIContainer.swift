@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import TchopDatabase
 import TchopNetworking
+import TchopUIConfiguration
 
 /// Composition root for the application.
 ///
@@ -26,6 +27,9 @@ final class AppDIContainer: ObservableObject {
 
     /// Service responsible for sign-in and session restoration.
     let sessionService: any UserSessionManaging
+
+    /// Remote UI configuration manager used for server-driven shell tweaks.
+    let uiConfigurationManager: any UIConfigurationManaging
 
     /// Manager that persists/restores per-user navigation snapshots.
     let navigationStateManager: any NavigationStateManaging
@@ -57,6 +61,10 @@ final class AppDIContainer: ObservableObject {
         let feedAPIManager = StubFeedAPIManager(apiManager: apiManager)
         self.feedAPIManager = feedAPIManager
 
+        self.uiConfigurationManager = UIConfigurationManager(
+            remoteProvider: MockUIConfigurationRemoteProvider()
+        )
+
         let contentRepository = DefaultAppContentRepository(
             databaseManager: databaseManager,
             feedAPIManager: feedAPIManager
@@ -74,7 +82,10 @@ final class AppDIContainer: ObservableObject {
 
     /// Creates the shell view model used by the authenticated part of the app.
     func makeAppShellViewModel() -> AppShellViewModel {
-        AppShellViewModel(contentRepository: contentRepository)
+        AppShellViewModel(
+            contentRepository: contentRepository,
+            uiConfigurationManager: uiConfigurationManager
+        )
     }
 
     /// Creates the root app state object used by the app entry point.

@@ -79,6 +79,7 @@
 - Database composition module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabaseComposition/TchopDatabaseComposition.swift`
 - Localization module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopLocalization/TchopLocalization.swift`
 - Branding module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopBranding/TchopBranding.swift`
+- UI configuration module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift`
 - Local cache module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCache/TchopCache.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
 - Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
@@ -133,6 +134,9 @@
 - Additional persistent target-branding rule:
   for multi-target apps, target-specific colors and future UI tokens should be resolved through a centralized semantic branding layer,
   preferably package-backed and driven by target metadata/build settings rather than local target checks inside views.
+- Server-driven UI settings baseline:
+  reusable UI configuration fetched from backend should be modeled behind a package-backed manager/snapshot contract where practical,
+  so server-controlled visibility/toggle rules can evolve without scattering request logic into SwiftUI screens.
 - Additional collaboration rule:
   if anything is unclear, ask questions, clarify trade-offs, and propose alternatives/ideas instead of assuming silent defaults.
   Each new task and shared implementation plan should be treated as a collaborative step requiring active attention from both sides.

@@ -44,6 +44,10 @@ let package = Package(
             targets: ["TchopBranding"]
         ),
         .library(
+            name: "TchopUIConfiguration",
+            targets: ["TchopUIConfiguration"]
+        ),
+        .library(
             name: "TchopCache",
             targets: ["TchopCache"]
         )
@@ -90,6 +94,9 @@ let package = Package(
             name: "TchopBranding"
         ),
         .target(
+            name: "TchopUIConfiguration"
+        ),
+        .target(
             name: "TchopCache"
         ),
         .testTarget(
@@ -107,6 +114,10 @@ let package = Package(
         .testTarget(
             name: "TchopBrandingTests",
             dependencies: ["TchopBranding"]
+        ),
+        .testTarget(
+            name: "TchopUIConfigurationTests",
+            dependencies: ["TchopUIConfiguration"]
         ),
         .testTarget(
             name: "TchopCacheTests",
