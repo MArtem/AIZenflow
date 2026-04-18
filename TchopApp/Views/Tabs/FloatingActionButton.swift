@@ -8,9 +8,9 @@ struct FloatingActionButton: View {
                 .font(.system(size: 28, weight: .medium))
                 .foregroundStyle(.white)
                 .frame(width: 56, height: 56)
-                .background(AppTheme.accent)
+                .background(AppTheme.floatingActionButtonFill)
                 .clipShape(Circle())
-                .shadow(color: AppTheme.accent.opacity(0.35), radius: 10, y: 6)
+                .shadow(color: AppTheme.floatingActionButtonShadow, radius: 10, y: 6)
         }
         .buttonStyle(.plain)
     }

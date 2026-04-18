@@ -77,6 +77,7 @@
 - Core Data database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCoreDataDatabase/TchopCoreDataDatabase.swift`
 - Database composition module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabaseComposition/TchopDatabaseComposition.swift`
 - Localization module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopLocalization/TchopLocalization.swift`
+- Branding module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopBranding/TchopBranding.swift`
 - Local cache module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCache/TchopCache.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
 - Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
@@ -102,6 +103,7 @@
 - Feature tab fixture models: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/FeatureTabModels.swift`
 - Launch screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/LaunchScreen.storyboard`
 - App metadata: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Info.plist`
+- App branding bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppBranding.swift`
 
 ## Code Style Decision
 - Do not use computed properties like `private var something: some View` for view composition.
@@ -127,6 +129,12 @@
   localization and internationalization are mandatory by default;
   every new user-facing element must be wired through localization keys (no hardcoded user-facing literals).
   Prefer centralized manager/facade approach (package-backed where practical) to keep locale handling reusable and consistent.
+- Additional persistent target-branding rule:
+  for multi-target apps, target-specific colors and future UI tokens should be resolved through a centralized semantic branding layer,
+  preferably package-backed and driven by target metadata/build settings rather than local target checks inside views.
+- Additional collaboration rule:
+  if anything is unclear, ask questions, clarify trade-offs, and propose alternatives/ideas instead of assuming silent defaults.
+  Each new task and shared implementation plan should be treated as a collaborative step requiring active attention from both sides.
 
 ## Important Fixes Already Done
 - Fixed `Missing bundle ID` by adding required bundle keys into `Info.plist`.

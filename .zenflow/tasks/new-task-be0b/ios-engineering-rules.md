@@ -71,6 +71,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Localization and internationalization support is mandatory for every project by default.
 - Every new user-facing element (screen, component, text label, error, placeholder, CTA, destination copy) must be added through localization keys, not hardcoded literals.
 - Prefer a centralized localization manager/facade (ideally package-backed) so locale resolution and formatting rules stay consistent and reusable across projects.
+- For multi-target apps, target-specific UI styling must be configured through semantic branding/theme tokens resolved from target metadata or build settings, not through scattered target checks in view code.
+- Prefer a package-backed branding manager/facade so button colors and future UI tokens can be swapped per target without forking view implementations.
 - New screens and reusable components must use semantic theme tokens (not raw hardcoded RGB values for surface/text states) so both appearances stay readable and consistent.
 - Any exception where fixed colors are intentional (brand illustration or media content) must be explicitly limited to decorative elements only.
 - UI must always be designed and implemented with explicit focus on avoiding unnecessary re-renders and memory waste.
@@ -122,6 +124,8 @@ Use this file as the persistent engineering instruction set for this project whe
 ## Clarification Rule
 - Ask clarifying questions when requirements are ambiguous or when an architectural decision needs confirmation.
 - Clarifying questions are explicitly encouraged by the user for this project.
+- Stay actively engaged in planning and implementation discussion: clarify unclear points, surface trade-offs, propose alternatives, and contribute implementation ideas instead of silently assuming defaults.
+- Treat every new task and every shared plan as a collaborative design step that requires attention from both sides before high-impact decisions are locked in.
 
 ## Additional Persistent Instructions
 - When asked to merge from `main`, merge the latest changes from `main` and resolve conflicts carefully.

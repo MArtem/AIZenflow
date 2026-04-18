@@ -1,12 +1,12 @@
 import SwiftUI
+import TchopBranding
 import UIKit
 
 /// Semantic color tokens used across app screens in light and dark modes.
 enum AppTheme {
-    static let accent = dynamicColor(
-        light: UIColor(red: 0.95, green: 0.50, blue: 0.37, alpha: 1),
-        dark: UIColor(red: 1.00, green: 0.64, blue: 0.52, alpha: 1)
-    )
+    static let accent = AppBranding.theme.primaryAccent
+    static let floatingActionButtonFill = AppBranding.theme.floatingActionButtonFill
+    static let floatingActionButtonShadow = AppBranding.theme.floatingActionButtonShadow
 
     static let canvasBackground = dynamicColor(
         light: UIColor(red: 0.97, green: 0.96, blue: 0.94, alpha: 1),

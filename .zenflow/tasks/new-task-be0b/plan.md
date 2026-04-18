@@ -363,6 +363,17 @@ Verification:
 - `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -derivedDataPath .cache/DerivedData-build16 -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' build`
 - `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -derivedDataPath .cache/DerivedData-build17 -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' build`
 
+### [x] Step: Add multi-target app branding with package-backed UI configuration
+
+Add a second app target and introduce a reusable package-backed branding layer so target-specific UI differences are configured centrally instead of scattered through app code.
+Use target build settings / Info.plist keys as the source of truth for brand selection, wire the first-tab `+` button color to a semantic branding token, and document the stronger collaboration/clarification rule for future tasks.
+Completed:
+- Added package-backed target branding infrastructure via `TchopBranding`, with semantic brand tokens resolved from target metadata instead of scattered target checks in app views.
+- Added a second app target, `TchopAppOcean`, that reuses the same codebase but supplies a different brand variant through build settings and shared `Info.plist` placeholders.
+- Added shared app-level bridge `AppBranding` and wired `AppTheme` semantic tokens to target branding so the news-tab floating `+` button now changes color by target.
+- Added a dedicated shared scheme for `TchopAppOcean` and linked both app targets to the new `TchopBranding` package product.
+- Updated persistent documentation to require proactive clarification/collaboration and to standardize target-based theming through centralized semantic branding.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

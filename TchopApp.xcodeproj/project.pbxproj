@@ -55,6 +55,8 @@
 		A00000770000000000000001 /* TchopDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* TchopDatabase */; };
 		A00000B20000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
 		A00000B00000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
+		B00000030000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
+		B00000040000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
 		A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000820000000000000001 /* AppStateTests.swift */; };
 		A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000840000000000000001 /* LoginViewModelTests.swift */; };
 		A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000860000000000000001 /* NewsFeedViewModelTests.swift */; };
@@ -78,6 +80,7 @@
 
 /* Begin PBXFileReference section */
 		A00000010000000000000001 /* TchopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TchopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B00000010000000000000001 /* TchopAppOcean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TchopAppOcean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00000210000000000000001 /* TchopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopApp.swift; sourceTree = "<group>"; };
 		A00000220000000000000001 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
 		A00000230000000000000001 /* AppShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellView.swift; sourceTree = "<group>"; };
@@ -124,6 +127,7 @@
 		A00000740000000000000001 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		A000009D0000000000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		A00000B10000000000000001 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
+		B00000020000000000000001 /* AppBranding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBranding.swift; sourceTree = "<group>"; };
 		A00000800000000000000001 /* TchopAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TchopAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00000820000000000000001 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		A00000840000000000000001 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -151,6 +155,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B00000050000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000750000000000000001 /* TchopNetworking in Frameworks */,
+				A00000770000000000000001 /* TchopDatabase in Frameworks */,
+				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
+				B00000040000000000000001 /* TchopBranding in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -188,6 +203,7 @@
 			isa = PBXGroup;
 			children = (
 				A00000010000000000000001 /* TchopApp.app */,
+				B00000010000000000000001 /* TchopAppOcean.app */,
 				A00000800000000000000001 /* TchopAppTests.xctest */,
 			);
 			name = Products;
@@ -237,6 +253,7 @@
 		A000000F0000000000000002 /* App */ = {
 			isa = PBXGroup;
 			children = (
+				B00000020000000000000001 /* AppBranding.swift */,
 				A00000740000000000000001 /* AppDIContainer.swift */,
 				A00000620000000000000001 /* AppState.swift */,
 				A00000B10000000000000001 /* AppLocalization.swift */,
@@ -368,9 +385,33 @@
 				A00000760000000000000001 /* TchopNetworking */,
 				A00000780000000000000001 /* TchopDatabase */,
 				A00000B30000000000000001 /* TchopLocalization */,
+				B000000C0000000000000001 /* TchopBranding */,
 			);
 			productName = TchopApp;
 			productReference = A00000010000000000000001 /* TchopApp.app */;
+			productType = "com.apple.product-type.application";
+		};
+		B00000080000000000000001 /* TchopAppOcean */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B000000B0000000000000001 /* Build configuration list for PBXNativeTarget "TchopAppOcean" */;
+			buildPhases = (
+				B00000070000000000000001 /* Sources */,
+				B00000050000000000000001 /* Frameworks */,
+				B00000060000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TchopAppOcean;
+			packageProductDependencies = (
+				A00000760000000000000001 /* TchopNetworking */,
+				A00000780000000000000001 /* TchopDatabase */,
+				A00000B30000000000000001 /* TchopLocalization */,
+				B000000C0000000000000001 /* TchopBranding */,
+			);
+			productName = TchopAppOcean;
+			productReference = B00000010000000000000001 /* TchopAppOcean.app */;
 			productType = "com.apple.product-type.application";
 		};
 		A000008A0000000000000001 /* TchopAppTests */ = {
@@ -403,6 +444,9 @@
 					A000000C0000000000000001 = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
+					B00000080000000000000001 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 				};
 			};
 			buildConfigurationList = A000000A0000000000000001 /* Build configuration list for PBXProject "TchopApp" */;
@@ -424,6 +468,7 @@
 			projectRoot = "";
 			targets = (
 				A000000C0000000000000001 /* TchopApp */,
+				B00000080000000000000001 /* TchopAppOcean */,
 				A000008A0000000000000001 /* TchopAppTests */,
 			);
 		};
@@ -439,6 +484,14 @@
 
 /* Begin PBXResourcesBuildPhase section */
 		A000000F0000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A000001D0000000000000001 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B00000060000000000000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -500,6 +553,64 @@
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
 				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
+				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
+				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
+				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		B00000070000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A00000110000000000000001 /* TchopApp.swift in Sources */,
+				A00000120000000000000001 /* Models/AppTab.swift in Sources */,
+				A00000130000000000000001 /* AppShellView.swift in Sources */,
+				A00000140000000000000001 /* TopBarView.swift in Sources */,
+				A00000150000000000000001 /* BrandMarkView.swift in Sources */,
+				A00000160000000000000001 /* BottomTabBar.swift in Sources */,
+				A00000170000000000000001 /* FloatingActionButton.swift in Sources */,
+				A00000180000000000000001 /* SideMenuView.swift in Sources */,
+				A00000190000000000000001 /* NewsFeedView.swift in Sources */,
+				A000001A0000000000000001 /* FeaturedArticleCard.swift in Sources */,
+				A000001B0000000000000001 /* DiscussionCard.swift in Sources */,
+				A000001C0000000000000001 /* TabStubView.swift in Sources */,
+				A00000350000000000000001 /* ShellContentView.swift in Sources */,
+				A00000370000000000000001 /* TabContentView.swift in Sources */,
+				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
+				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
+				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
+				A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
+				A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
+				A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */,
+				A00000430000000000000001 /* Persistence/AppDatabase.swift in Sources */,
+				A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */,
+				A00000470000000000000001 /* Persistence/AppDataSeeder.swift in Sources */,
+				A00000490000000000000001 /* Repositories/AppContentRepository.swift in Sources */,
+				A000004D0000000000000001 /* Navigation/TabRoutes.swift in Sources */,
+				A000004F0000000000000001 /* Navigation/AppCoordinator.swift in Sources */,
+				A00000A00000000000000001 /* Navigation/NavigationSnapshot.swift in Sources */,
+				A00000A70000000000000001 /* Navigation/DeepLinkManaging.swift in Sources */,
+				A00000A40000000000000001 /* Navigation/DeepLinkManager.swift in Sources */,
+				A00000510000000000000001 /* Views/Tabs/NewsTabRootView.swift in Sources */,
+				A00000530000000000000001 /* Views/Tabs/NewsDestinationView.swift in Sources */,
+				A00000940000000000000001 /* Views/Tabs/FeatureTabScaffoldView.swift in Sources */,
+				A00000960000000000000001 /* Views/Tabs/MixesTabRootView.swift in Sources */,
+				A00000980000000000000001 /* Views/Tabs/PinnedTabRootView.swift in Sources */,
+				A000009A0000000000000001 /* Views/Tabs/ChatTabRootView.swift in Sources */,
+				A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */,
+				A00000570000000000000001 /* Views/Tabs/StubTabDetailView.swift in Sources */,
+				A00000590000000000000001 /* Models/AppUser.swift in Sources */,
+				A000005B0000000000000001 /* Services/UserSessionService.swift in Sources */,
+				A000005D0000000000000001 /* Repositories/UserRepository.swift in Sources */,
+				A00000610000000000000001 /* App/AppState.swift in Sources */,
+				A00000630000000000000001 /* ViewModels/LoginViewModel.swift in Sources */,
+				A00000650000000000000001 /* Views/AppRootView.swift in Sources */,
+				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
+				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
+				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
+				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
+				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
 			);
@@ -540,6 +651,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
 			productName = TchopLocalization;
+		};
+		B000000C0000000000000001 /* TchopBranding */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopBranding;
 		};
 /* End XCSwiftPackageProductDependency section */
 
@@ -592,6 +708,7 @@
 		A000002F0000000000000001 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_DISPLAY_NAME = TchopApp;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -611,6 +728,7 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TCHOP_BRAND_VARIANT = classic;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -618,6 +736,7 @@
 		A00000300000000000000001 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APP_DISPLAY_NAME = TchopApp;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -636,6 +755,62 @@
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TCHOP_BRAND_VARIANT = classic;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		B00000090000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_DISPLAY_NAME = "Tchop Ocean";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_TESTABILITY = YES;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppOcean;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TCHOP_BRAND_VARIANT = ocean;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		B000000A0000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_DISPLAY_NAME = "Tchop Ocean";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopApp/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppOcean;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TCHOP_BRAND_VARIANT = ocean;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -707,6 +882,15 @@
 			buildConfigurations = (
 				A000002F0000000000000001 /* Debug */,
 				A00000300000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		B000000B0000000000000001 /* Build configuration list for PBXNativeTarget "TchopAppOcean" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				B00000090000000000000001 /* Debug */,
+				B000000A0000000000000001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
