@@ -76,48 +76,35 @@ public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
             return BrandTheme(
                 variant: .classic,
                 primaryAccent: dynamicColor(
-                    light: platformColor(red: 0.95, green: 0.50, blue: 0.37, alpha: 1),
-                    dark: platformColor(red: 1.00, green: 0.64, blue: 0.52, alpha: 1)
+                    light: BrandColorTokens.classicPrimaryAccentLight,
+                    dark: BrandColorTokens.classicPrimaryAccentDark
                 ),
                 floatingActionButtonFill: dynamicColor(
-                    light: platformColor(red: 0.95, green: 0.50, blue: 0.37, alpha: 1),
-                    dark: platformColor(red: 1.00, green: 0.64, blue: 0.52, alpha: 1)
+                    light: BrandColorTokens.classicPrimaryAccentLight,
+                    dark: BrandColorTokens.classicPrimaryAccentDark
                 ),
                 floatingActionButtonShadow: dynamicColor(
-                    light: platformColor(red: 0.95, green: 0.50, blue: 0.37, alpha: 0.35),
-                    dark: platformColor(red: 1.00, green: 0.64, blue: 0.52, alpha: 0.40)
+                    light: BrandColorTokens.classicFloatingActionButtonShadowLight,
+                    dark: BrandColorTokens.classicFloatingActionButtonShadowDark
                 )
             )
         case .ocean:
             return BrandTheme(
                 variant: .ocean,
                 primaryAccent: dynamicColor(
-                    light: platformColor(red: 0.09, green: 0.49, blue: 0.73, alpha: 1),
-                    dark: platformColor(red: 0.34, green: 0.76, blue: 0.92, alpha: 1)
+                    light: BrandColorTokens.oceanPrimaryAccentLight,
+                    dark: BrandColorTokens.oceanPrimaryAccentDark
                 ),
                 floatingActionButtonFill: dynamicColor(
-                    light: platformColor(red: 0.09, green: 0.49, blue: 0.73, alpha: 1),
-                    dark: platformColor(red: 0.34, green: 0.76, blue: 0.92, alpha: 1)
+                    light: BrandColorTokens.oceanPrimaryAccentLight,
+                    dark: BrandColorTokens.oceanPrimaryAccentDark
                 ),
                 floatingActionButtonShadow: dynamicColor(
-                    light: platformColor(red: 0.09, green: 0.49, blue: 0.73, alpha: 0.35),
-                    dark: platformColor(red: 0.34, green: 0.76, blue: 0.92, alpha: 0.42)
+                    light: BrandColorTokens.oceanFloatingActionButtonShadowLight,
+                    dark: BrandColorTokens.oceanFloatingActionButtonShadowDark
                 )
             )
         }
-    }
-
-    private static func platformColor(red: CGFloat, green: CGFloat, blue: CGFloat, alpha: CGFloat) -> PlatformColor {
-        #if canImport(UIKit)
-        PlatformColor(red: red, green: green, blue: blue, alpha: alpha)
-        #elseif canImport(AppKit)
-        PlatformColor(
-            calibratedRed: red,
-            green: green,
-            blue: blue,
-            alpha: alpha
-        )
-        #endif
     }
 
     private static func dynamicColor(light: PlatformColor, dark: PlatformColor) -> Color {

@@ -375,6 +375,11 @@ Completed:
 - Updated persistent documentation to require proactive clarification/collaboration and to standardize target-based theming through centralized semantic branding.
 - Follow-up verification policy was tightened as well: if a requested verification run finds a real code/configuration error, fix it immediately and rerun the same verification level before reporting back.
 
+### [x] Step: Extract raw brand colors into dedicated tokens file
+
+Moved the raw `classic` and `ocean` color definitions out of the brand-theme factory into a dedicated branding source file so future target palette edits happen in one obvious place.
+The goal is discoverability: semantic theme resolution stays in `TchopBranding.swift`, while the actual RGB values now live in explicit brand token constants.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
