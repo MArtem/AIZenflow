@@ -373,6 +373,7 @@ Completed:
 - Added shared app-level bridge `AppBranding` and wired `AppTheme` semantic tokens to target branding so the news-tab floating `+` button now changes color by target.
 - Added a dedicated shared scheme for `TchopAppOcean` and linked both app targets to the new `TchopBranding` package product.
 - Updated persistent documentation to require proactive clarification/collaboration and to standardize target-based theming through centralized semantic branding.
+- Follow-up verification policy was tightened as well: if a requested verification run finds a real code/configuration error, fix it immediately and rerun the same verification level before reporting back.
 
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 

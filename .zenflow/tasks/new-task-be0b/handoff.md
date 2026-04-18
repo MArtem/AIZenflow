@@ -26,6 +26,7 @@
   `Medium` = all tests + build on iPhone 17 Pro (iOS 26.0),
   `Low` = build on iPhone 17 Pro (iOS 26.0),
   `Absent` = no tests/build/simulator checks.
+- If a requested verification run finds a real code/configuration issue, fix it immediately and rerun that same verification level before closing the task.
 - The user may refer to these as `/ios` and `/services` shorthand. Treat them as active instructions for future chats after reading the two rules files.
 
 ## What Was Built

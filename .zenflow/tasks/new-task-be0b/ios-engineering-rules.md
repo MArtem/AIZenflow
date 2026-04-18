@@ -138,6 +138,7 @@ Use this file as the persistent engineering instruction set for this project whe
   - `Low` (`Низкая`): build on `iPhone 17 Pro (iOS 26.0)` only.
   - `Absent` (`Отсутствует`): no tests, no builds, no simulator launch checks.
 - Execute verification only when the user explicitly asks after finishing the task and names one of these levels.
+- If a requested verification run finds a real code/configuration error, fix it immediately and rerun the same verification level before reporting the final result.
 - If `iPhone 17 Pro (iOS 26.0)` tests fail with a simulator bootstrap/test-runner infrastructure error
   (for example `Early unexpected exit` before test connection), reboot the simulator and retry once.
   If the same infrastructure error repeats, record the failure explicitly in handoff/status instead of masking it.

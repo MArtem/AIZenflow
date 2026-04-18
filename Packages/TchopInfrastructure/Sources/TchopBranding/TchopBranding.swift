@@ -49,7 +49,7 @@ public protocol BrandThemeManaging {
 public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
     private let infoDictionary: [String: Any]
 
-    public init(bundle: Bundle) {
+    public convenience init(bundle: Bundle) {
         self.init(infoDictionary: bundle.infoDictionary ?? [:])
     }
 
