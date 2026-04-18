@@ -142,6 +142,22 @@ Use this file as the persistent engineering instruction set for this project whe
 - If `iPhone 17 Pro (iOS 26.0)` tests fail with a simulator bootstrap/test-runner infrastructure error
   (for example `Early unexpected exit` before test connection), reboot the simulator and retry once.
   If the same infrastructure error repeats, record the failure explicitly in handoff/status instead of masking it.
+- Profiling command policy:
+  when the user asks for `профайлинг` / profiling, perform the best practical profiling workflow available for the environment instead of a minimal spot check.
+  Preferred profiling stack:
+  `xctrace` (`App Launch`, `Time Profiler`, `Leaks`, and `Allocations` when supported),
+  process sampling (`sample`),
+  memory map inspection (`vmmap`),
+  and simulator/device logs.
+  When possible, use both cold-launch and short live-session measurements, then provide:
+  startup observations,
+  CPU observations,
+  memory observations,
+  leak-risk observations,
+  explicit tooling/environment limitations,
+  and concrete remediation suggestions if issues are found.
+  If Simulator/CLI limitations block deep profiling (for example unsupported SwiftUI instrument, attach restrictions, or early process exit),
+  record those limitations explicitly and recommend follow-up profiling with interactive Instruments and/or a real device rather than presenting weak data as conclusive.
 - Database backend policy for this project:
   keep `Core Data` runtime-compatible path for iOS `<17`,
   use `SwiftData` on iOS `17+`,

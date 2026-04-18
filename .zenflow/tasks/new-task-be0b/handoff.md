@@ -148,6 +148,15 @@
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
   Environment limitations:
   `SwiftUI` instrument is unsupported on Simulator, `Allocations` had an attach-privileges limitation in CLI mode, and the app process exits early with `exit(0)` in these scripted launches, so long-running render/memory profiling should be repeated in interactive Instruments or on device when needed.
+- Persistent profiling workflow:
+  when the user asks for `профайлинг`, treat that as a request for the fullest practical profiling pass available in the current environment, not a minimal one-off check.
+  Preferred workflow:
+  build with isolated DerivedData if needed,
+  collect `xctrace` traces (`App Launch`, `Time Profiler`, `Leaks`, `Allocations` when supported),
+  collect `sample` and `vmmap`,
+  inspect simulator/device logs,
+  then summarize startup, CPU, memory, leaks risk, environment/tooling limitations, and concrete fix directions.
+  If Simulator/CLI restrictions make some instruments non-authoritative, state that explicitly and recommend follow-up in interactive Instruments and/or on a physical device.
 
 ## Important Fixes Already Done
 - Fixed `Missing bundle ID` by adding required bundle keys into `Info.plist`.

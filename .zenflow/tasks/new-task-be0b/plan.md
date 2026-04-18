@@ -272,6 +272,17 @@ Observed baseline:
 Risk note:
 - CLI launches in this environment exit unusually early with `exit(0)`, which limits long-running live profiling depth; future deeper profiling should be done with interactive Instruments/device sessions when investigating rendering hitches or sustained memory growth.
 
+### [x] Step: Persist profiling workflow in project documentation
+
+Added a persistent `профайлинг` workflow definition to project documentation so future requests use the fullest practical profiling pass by default.
+The documented profiling workflow now includes:
+- `xctrace` traces for launch/CPU/leaks/allocations when supported,
+- `sample`,
+- `vmmap`,
+- simulator/device log inspection,
+- an explicit report structure covering startup, CPU, memory, leak risk, tooling limitations, and remediation suggestions.
+Also documented that Simulator/CLI restrictions must be called out explicitly and escalated to interactive Instruments or real-device profiling when deeper evidence is required.
+
 ### [x] Step: Navigation phase 8 — snapshot evolution, migration, and navigation observability
 
 Evolve navigation snapshot model to a new version with backward migration from v1 payloads and safe restore sanitization controls.
