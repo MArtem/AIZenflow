@@ -81,9 +81,11 @@
 - Branding module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopBranding/TchopBranding.swift`
 - UI configuration module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift`
 - Local cache module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCache/TchopCache.swift`
+- Widgets module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
 - Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
 - Local cache tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopCacheTests/TchopCacheTests.swift`
+- Widgets tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopWidgetsTests/TchopWidgetsTests.swift`
 - Login screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift`
 - Header: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift`
 - Side menu: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Menu/SideMenuView.swift`
@@ -106,6 +108,10 @@
 - Launch screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/LaunchScreen.storyboard`
 - App metadata: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Info.plist`
 - App branding bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppBranding.swift`
+- App widget bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppWidgetBridge.swift`
+- Shared app-group config: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Shared/AppGroupConfiguration.swift`
+- Widget extension bundle: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/TchopWidgetsBundle.swift`
+- Widget extension view/provider: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/FeedHeadlineWidget.swift`
 
 ## Code Style Decision
 - Do not use computed properties like `private var something: some View` for view composition.
@@ -137,6 +143,10 @@
 - Server-driven UI settings baseline:
   reusable UI configuration fetched from backend should be modeled behind a package-backed manager/snapshot contract where practical,
   so server-controlled visibility/toggle rules can evolve without scattering request logic into SwiftUI screens.
+- Widget baseline:
+  widget-related persistence and shared contracts should live in a reusable package-backed layer where practical,
+  while app-specific mapping from feature state into widget snapshots should stay in an app bridge/composition layer.
+  Current implementation uses `TchopWidgets` for shared snapshot storage and `AppWidgetBridge` to publish the first feed-card headline into shared app-group storage for the widget extension.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

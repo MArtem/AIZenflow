@@ -283,6 +283,17 @@ The documented profiling workflow now includes:
 - an explicit report structure covering startup, CPU, memory, leak risk, tooling limitations, and remediation suggestions.
 Also documented that Simulator/CLI restrictions must be called out explicitly and escalated to interactive Instruments or real-device profiling when deeper evidence is required.
 
+### [x] Step: Add reusable widget package and first feed headline widget
+
+Introduced a reusable widgets support package `TchopWidgets` with shared snapshot contracts and `UserDefaults` app-group persistence for widget content.
+Added app-side widget sync bridge plus a real `TchopWidgetsExtension` target that reads the shared snapshot and renders the headline of the first feed card.
+Current test payload is the featured article headline from the feed screen, which resolves to the stubbed text `Parrots help others in need, study shows for first time`.
+Lightweight validation only:
+- `plutil -lint TchopApp.xcodeproj/project.pbxproj` passed;
+- `swift package dump-package --package-path Packages/TchopInfrastructure` passed;
+- `xcodebuild -list -project TchopApp.xcodeproj` sees `TchopWidgetsExtension` and `TchopWidgets` successfully.
+Per current project verification policy, no full build/test run was started because the user did not request a verification level for this task.
+
 ### [x] Step: Navigation phase 8 — snapshot evolution, migration, and navigation observability
 
 Evolve navigation snapshot model to a new version with backward migration from v1 payloads and safe restore sanitization controls.

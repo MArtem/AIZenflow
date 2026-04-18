@@ -21,6 +21,7 @@ final class AppState: ObservableObject {
     private let navigationStateManager: any NavigationStateManaging
     private let deepLinkManager: any DeepLinkManaging
     private let navigationEventReporter: any NavigationEventReporting
+    private let widgetContentSyncManager: any WidgetContentSyncing
     private var navigationBindings: Set<AnyCancellable> = []
     private var isApplyingNavigationSnapshot = false
     private var pendingDeepLinkInput: PendingDeepLinkInput?
@@ -33,7 +34,8 @@ final class AppState: ObservableObject {
         userRepository: any UserRepository,
         navigationStateManager: any NavigationStateManaging,
         deepLinkManager: any DeepLinkManaging,
-        navigationEventReporter: (any NavigationEventReporting)? = nil
+        navigationEventReporter: (any NavigationEventReporting)? = nil,
+        widgetContentSyncManager: any WidgetContentSyncing
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -42,6 +44,7 @@ final class AppState: ObservableObject {
         self.navigationStateManager = navigationStateManager
         self.deepLinkManager = deepLinkManager
         self.navigationEventReporter = navigationEventReporter ?? NavigationNoopEventReporter()
+        self.widgetContentSyncManager = widgetContentSyncManager
         setupNavigationPersistenceBindings()
         restoreSession()
     }
@@ -104,6 +107,7 @@ final class AppState: ObservableObject {
         coordinator.selectTab(.news)
         coordinator.resetAllNavigation()
         appShellViewModel.closeMenu()
+        widgetContentSyncManager.clearFeed()
     }
 
     /// Restores the previously persisted user session if one exists.

@@ -13,14 +13,21 @@ final class NewsFeedViewModel: ObservableObject {
     @Published private(set) var errorMessage: String?
 
     private let repository: any NewsFeedRepository
+    private let widgetContentSyncManager: any WidgetContentSyncing
     private var loadingTask: Task<Void, Never>?
 
     /// Creates the feed view model and immediately starts the first load.
-    init(repository: any NewsFeedRepository, content: NewsFeedContent? = nil) {
+    init(
+        repository: any NewsFeedRepository,
+        widgetContentSyncManager: any WidgetContentSyncing = NoopWidgetContentSyncManager.shared,
+        content: NewsFeedContent? = nil
+    ) {
         self.repository = repository
+        self.widgetContentSyncManager = widgetContentSyncManager
         self.content = content ?? NewsFeedFixtures.fallbackContent
         self.isLoading = false
         self.errorMessage = nil
+        widgetContentSyncManager.syncFeed(content: self.content)
         reload()
     }
 
@@ -41,11 +48,13 @@ final class NewsFeedViewModel: ObservableObject {
                     return
                 }
                 self.content = content
+                self.widgetContentSyncManager.syncFeed(content: content)
             } catch is CancellationError {
                 return
             } catch {
                 self.content = NewsFeedFixtures.fallbackContent
                 self.errorMessage = AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
+                self.widgetContentSyncManager.syncFeed(content: self.content)
             }
 
             self.isLoading = false

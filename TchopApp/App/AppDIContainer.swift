@@ -3,6 +3,7 @@ import SwiftUI
 import TchopDatabase
 import TchopNetworking
 import TchopUIConfiguration
+import TchopWidgets
 
 /// Composition root for the application.
 ///
@@ -40,6 +41,9 @@ final class AppDIContainer: ObservableObject {
     /// Reporter for navigation restore/deep-link diagnostics.
     let navigationEventReporter: any NavigationEventReporting
 
+    /// Bridge that syncs app content into shared widget storage.
+    let widgetContentSyncManager: any WidgetContentSyncing
+
     /// Active persistence backend chosen for the current app runtime.
     let databaseBackendKind: AppDatabaseBackendKind
 
@@ -65,6 +69,13 @@ final class AppDIContainer: ObservableObject {
             remoteProvider: MockUIConfigurationRemoteProvider()
         )
 
+        let widgetSnapshotManager = try? UserDefaultsFeedHeadlineWidgetSnapshotManager(
+            suiteName: AppGroupConfiguration.widgetsSuiteName
+        )
+        self.widgetContentSyncManager = widgetSnapshotManager.map {
+            FeedHeadlineWidgetSyncManager(snapshotManager: $0)
+        } ?? NoopWidgetContentSyncManager.shared
+
         let contentRepository = DefaultAppContentRepository(
             databaseManager: databaseManager,
             feedAPIManager: feedAPIManager
@@ -84,7 +95,8 @@ final class AppDIContainer: ObservableObject {
     func makeAppShellViewModel() -> AppShellViewModel {
         AppShellViewModel(
             contentRepository: contentRepository,
-            uiConfigurationManager: uiConfigurationManager
+            uiConfigurationManager: uiConfigurationManager,
+            widgetContentSyncManager: widgetContentSyncManager
         )
     }
 
@@ -97,10 +109,12 @@ final class AppDIContainer: ObservableObject {
             userRepository: userRepository,
             navigationStateManager: navigationStateManager,
             deepLinkManager: deepLinkManager,
-            navigationEventReporter: navigationEventReporter
+            navigationEventReporter: navigationEventReporter,
+            widgetContentSyncManager: widgetContentSyncManager
         )
     }
 }
+
 
 private struct DIContainerKey: EnvironmentKey {
     static let defaultValue: AppDIContainer? = nil

@@ -28,6 +28,7 @@ final class AppShellViewModel: ObservableObject {
     init(
         contentRepository: any AppContentRepository,
         uiConfigurationManager: any UIConfigurationManaging,
+        widgetContentSyncManager: any WidgetContentSyncing,
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text(
             "shell.sideMenu.footer",
@@ -37,7 +38,10 @@ final class AppShellViewModel: ObservableObject {
         self.isMenuOpen = isMenuOpen
         self.channelInfo = Self.resolveChannelInfo(from: contentRepository)
         self.sideMenuFooterText = sideMenuFooterText
-        self.newsFeedViewModel = NewsFeedViewModel(repository: contentRepository)
+        self.newsFeedViewModel = NewsFeedViewModel(
+            repository: contentRepository,
+            widgetContentSyncManager: widgetContentSyncManager
+        )
         self.showsFloatingActionButton = true
         self.uiConfigurationManager = uiConfigurationManager
 
