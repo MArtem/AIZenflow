@@ -213,6 +213,10 @@
   `TchopNetworking` transfer operations now have a consistent cancellation surface.
   `upload` and `download` support the same optional `APICancellationToken` model as `perform`, so reusable consumers can apply one cancellation strategy across normal requests and long-running transfers.
   Regression coverage was added for cancelled upload/download flows in the package tests.
+- Database composition baseline:
+  `TchopDatabaseComposition` now exposes `DatabaseManagerFactorySet` as the canonical reusable composition payload instead of relying only on overload-heavy resolver entry points.
+  The resolver/factory layer can now report `availableBackends` for a given factory set and resolve either backend through one unified `makeDatabaseManager(configuration:factories:)` surface.
+  `AppDatabase` has been switched to that unified composition contract, so app-level persistence orchestration now depends on the same reusable API shape that other iOS projects can adopt.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

@@ -117,6 +117,15 @@ final class TchopDatabaseTests: XCTestCase {
         XCTAssertEqual(manager.backendKind, .coreData)
     }
 
+    /// Verifies that the factory-set API reports only actually constructible backends.
+    func testDatabaseFactorySetReportsAvailableCoreDataBackend() throws {
+        let factories = DatabaseManagerFactorySet(
+            makeCoreDataContainer: makeInMemoryCoreDataContainer
+        )
+
+        XCTAssertEqual(DatabaseServiceFactory.availableBackends(for: factories), [.coreData])
+    }
+
     /// Verifies that the service factory selects the requested backend correctly.
     @available(iOS 17, macOS 14, *)
     func testDatabaseFactoryCreatesSwiftDataManagerWhenRequested() throws {
@@ -129,6 +138,38 @@ final class TchopDatabaseTests: XCTestCase {
         )
 
         XCTAssertEqual(manager.backendKind, .swiftData)
+    }
+
+    /// Verifies that the unified factory-set API can resolve both backends from one payload.
+    @available(iOS 17, macOS 14, *)
+    func testDatabaseFactorySetCanCreateRequestedBackend() throws {
+        let factories = DatabaseManagerFactorySet(
+            makeSwiftDataContainer: makeInMemorySwiftDataContainer,
+            makeCoreDataContainer: makeInMemoryCoreDataContainer
+        )
+
+        XCTAssertEqual(
+            DatabaseServiceFactory.availableBackends(for: factories),
+            [.swiftData, .coreData]
+        )
+
+        let swiftDataManager = try DatabaseServiceFactory.makeDatabaseManager(
+            configuration: DatabaseConfiguration(
+                backendSelectionPolicy: .swiftData,
+                isStoredInMemoryOnly: true
+            ),
+            factories: factories
+        )
+        XCTAssertEqual(swiftDataManager.backendKind, .swiftData)
+
+        let coreDataManager = try DatabaseServiceFactory.makeDatabaseManager(
+            configuration: DatabaseConfiguration(
+                backendSelectionPolicy: .coreData,
+                isStoredInMemoryOnly: true
+            ),
+            factories: factories
+        )
+        XCTAssertEqual(coreDataManager.backendKind, .coreData)
     }
 
     /// Verifies that the new resolver protocol can construct a SwiftData backend directly.

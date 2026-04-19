@@ -111,11 +111,11 @@ enum AppDatabase {
                 backendSelectionPolicy: .coreData,
                 isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
             ),
-            makeCoreDataContainer: {
+            factories: DatabaseManagerFactorySet(makeCoreDataContainer: {
                 try AppDatabaseContainerFactory.makeCoreDataPersistentContainer(
                     isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
                 )
-            }
+            })
         )
 
         guard let coreDataManager = manager as? CoreDataDatabaseManager else {
@@ -137,11 +137,13 @@ enum AppDatabase {
                 backendSelectionPolicy: .swiftData,
                 isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
             ),
-            makeSwiftDataContainer: {
-                try AppDatabaseContainerFactory.makeSwiftDataModelContainer(
-                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
-                )
-            }
+            factories: DatabaseManagerFactorySet(
+                makeSwiftDataContainer: {
+                    try AppDatabaseContainerFactory.makeSwiftDataModelContainer(
+                        isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
+                    )
+                }
+            )
         )
 
         guard let swiftDataManager = manager as? SwiftDataDatabaseManager else {

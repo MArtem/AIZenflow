@@ -5,9 +5,76 @@ import TchopCoreDataDatabase
 import TchopDatabaseCore
 import TchopSwiftDataDatabase
 
+/// Groups backend container factories into one reusable composition payload.
+@MainActor
+public struct DatabaseManagerFactorySet {
+    public let makeCoreDataContainer: (() throws -> NSPersistentContainer)?
+    private let swiftDataContainerFactory: (() throws -> Any)?
+
+    public init(
+        makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
+    ) {
+        self.makeCoreDataContainer = makeCoreDataContainer
+        self.swiftDataContainerFactory = nil
+    }
+
+    @available(iOS 17, macOS 14, *)
+    public init(
+        makeSwiftDataContainer: (() throws -> ModelContainer)? = nil,
+        makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
+    ) {
+        self.makeCoreDataContainer = makeCoreDataContainer
+        self.swiftDataContainerFactory = makeSwiftDataContainer.map { factory in
+            { try factory() as Any }
+        }
+    }
+
+    @available(iOS 17, macOS 14, *)
+    public var makeSwiftDataContainer: (() throws -> ModelContainer)? {
+        guard let swiftDataContainerFactory else {
+            return nil
+        }
+
+        return {
+            guard let container = try swiftDataContainerFactory() as? ModelContainer else {
+                throw DatabaseError.backendInitializationFailed(
+                    "Invalid SwiftData container factory output."
+                )
+            }
+
+            return container
+        }
+    }
+
+    public func supportsBackend(_ backend: DatabaseBackendKind) -> Bool {
+        switch backend {
+        case .coreData:
+            return makeCoreDataContainer != nil
+        case .swiftData:
+            if #available(iOS 17, macOS 14, *) {
+                return makeSwiftDataContainer != nil
+            }
+            return false
+        }
+    }
+
+    public var availableBackends: [DatabaseBackendKind] {
+        DatabaseBackendKind.allCases.filter(supportsBackend(_:))
+    }
+}
+
 /// Shared composition contract that resolves a concrete backend manager for the caller.
 @MainActor
 public protocol DatabaseManagerResolving {
+    func availableBackends(
+        for factories: DatabaseManagerFactorySet
+    ) -> [DatabaseBackendKind]
+
+    func makeDatabaseManager(
+        configuration: DatabaseConfiguration,
+        factories: DatabaseManagerFactorySet
+    ) throws -> any DatabaseManaging
+
     func makeDatabaseManager(
         configuration: DatabaseConfiguration,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)?
@@ -32,28 +99,65 @@ public protocol DatabaseManagerResolving {
 public struct DatabaseManagerResolver: DatabaseManagerResolving {
     public init() {}
 
+    public func availableBackends(
+        for factories: DatabaseManagerFactorySet
+    ) -> [DatabaseBackendKind] {
+        factories.availableBackends
+    }
+
+    public func makeDatabaseManager(
+        configuration: DatabaseConfiguration = .persistent,
+        factories: DatabaseManagerFactorySet
+    ) throws -> any DatabaseManaging {
+        let backendKind = configuration.backendSelectionPolicy.resolveBackendKind()
+        guard factories.supportsBackend(backendKind) else {
+            throw DatabaseError.backendInitializationFailed(
+                "Requested backend \(backendKind.rawValue) is unavailable for the provided factories."
+            )
+        }
+
+        switch backendKind {
+        case .coreData:
+            guard let makeCoreDataContainer = factories.makeCoreDataContainer else {
+                throw DatabaseError.backendInitializationFailed(
+                    "Core Data backend requested without an NSPersistentContainer factory."
+                )
+            }
+
+            do {
+                return CoreDataDatabaseManager(persistentContainer: try makeCoreDataContainer())
+            } catch {
+                throw DatabaseError.backendInitializationFailed(String(describing: error))
+            }
+        case .swiftData:
+            if #available(iOS 17, macOS 14, *) {
+                guard let makeSwiftDataContainer = factories.makeSwiftDataContainer else {
+                    throw DatabaseError.backendInitializationFailed(
+                        "SwiftData backend requested without a ModelContainer factory."
+                    )
+                }
+
+                do {
+                    return SwiftDataDatabaseManager(modelContainer: try makeSwiftDataContainer())
+                } catch {
+                    throw DatabaseError.backendInitializationFailed(String(describing: error))
+                }
+            }
+
+            throw DatabaseError.backendInitializationFailed(
+                "SwiftData backend is unavailable on the current platform version."
+            )
+        }
+    }
+
     public func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
     ) throws -> any DatabaseManaging {
-        let backendKind = configuration.backendSelectionPolicy.resolveBackendKind()
-        guard backendKind == .coreData else {
-            throw DatabaseError.backendInitializationFailed(
-                "SwiftData backend requested without a SwiftData-capable resolver call."
-            )
-        }
-
-        guard let makeCoreDataContainer else {
-            throw DatabaseError.backendInitializationFailed(
-                "Core Data backend requested without an NSPersistentContainer factory."
-            )
-        }
-
-        do {
-            return CoreDataDatabaseManager(persistentContainer: try makeCoreDataContainer())
-        } catch {
-            throw DatabaseError.backendInitializationFailed(String(describing: error))
-        }
+        try makeDatabaseManager(
+            configuration: configuration,
+            factories: DatabaseManagerFactorySet(makeCoreDataContainer: makeCoreDataContainer)
+        )
     }
 
     @available(iOS 17, macOS 14, *)
@@ -61,24 +165,12 @@ public struct DatabaseManagerResolver: DatabaseManagerResolving {
         configuration: DatabaseConfiguration = .persistent,
         makeSwiftDataContainer: (() throws -> ModelContainer)?
     ) throws -> any DatabaseManaging {
-        let backendKind = configuration.backendSelectionPolicy.resolveBackendKind()
-        guard backendKind == .swiftData else {
-            throw DatabaseError.backendInitializationFailed(
-                "Core Data backend requested without a Core Data-capable resolver call."
+        try makeDatabaseManager(
+            configuration: configuration,
+            factories: DatabaseManagerFactorySet(
+                makeSwiftDataContainer: makeSwiftDataContainer
             )
-        }
-
-        guard let makeSwiftDataContainer else {
-            throw DatabaseError.backendInitializationFailed(
-                "SwiftData backend requested without a ModelContainer factory."
-            )
-        }
-
-        do {
-            return SwiftDataDatabaseManager(modelContainer: try makeSwiftDataContainer())
-        } catch {
-            throw DatabaseError.backendInitializationFailed(String(describing: error))
-        }
+        )
     }
 
     @available(iOS 17, macOS 14, *)
@@ -87,29 +179,36 @@ public struct DatabaseManagerResolver: DatabaseManagerResolving {
         makeSwiftDataContainer: (() throws -> ModelContainer)?,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)?
     ) throws -> any DatabaseManaging {
-        switch configuration.backendSelectionPolicy.resolveBackendKind() {
-        case .swiftData:
-            return try makeDatabaseManager(
-                configuration: DatabaseConfiguration(
-                    backendSelectionPolicy: .swiftData,
-                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
-                ),
-                makeSwiftDataContainer: makeSwiftDataContainer
-            )
-        case .coreData:
-            return try makeDatabaseManager(
-                configuration: DatabaseConfiguration(
-                    backendSelectionPolicy: .coreData,
-                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
-                ),
+        try makeDatabaseManager(
+            configuration: configuration,
+            factories: DatabaseManagerFactorySet(
+                makeSwiftDataContainer: makeSwiftDataContainer,
                 makeCoreDataContainer: makeCoreDataContainer
             )
-        }
+        )
     }
 }
 
 /// Backward-compatible factory facade that delegates to `DatabaseManagerResolver`.
 public enum DatabaseServiceFactory {
+    @MainActor
+    public static func availableBackends(
+        for factories: DatabaseManagerFactorySet
+    ) -> [DatabaseBackendKind] {
+        DatabaseManagerResolver().availableBackends(for: factories)
+    }
+
+    @MainActor
+    public static func makeDatabaseManager(
+        configuration: DatabaseConfiguration = .persistent,
+        factories: DatabaseManagerFactorySet
+    ) throws -> any DatabaseManaging {
+        try DatabaseManagerResolver().makeDatabaseManager(
+            configuration: configuration,
+            factories: factories
+        )
+    }
+
     @MainActor
     public static func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,

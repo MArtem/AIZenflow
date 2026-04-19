@@ -3,7 +3,7 @@ import Foundation
 import SwiftData
 
 /// Identifies the concrete persistence backend currently serving database operations.
-public enum DatabaseBackendKind: String, Sendable, Equatable {
+public enum DatabaseBackendKind: String, Sendable, Equatable, CaseIterable {
     /// SwiftData-backed persistence.
     case swiftData
 

@@ -506,6 +506,12 @@ Completed the first `TchopNetworking` package uplift by adding optional `APICanc
 This makes the reusable API client more coherent for consumers with long-running transfer operations and avoids having one cancellation contract for standard requests and another for uploads/downloads.
 Added regression tests to verify cancelled upload/download flows short-circuit correctly.
 
+### [x] Step: Unify database resolver composition surface
+
+Completed the next database-package uplift by replacing the resolver's overload-heavy composition surface with a reusable `DatabaseManagerFactorySet`.
+`TchopDatabaseComposition` now exposes one universal payload for backend factories, explicit `availableBackends` reporting, and a single resolver/factory entry point that can select either backend from the same factory set.
+`AppDatabase` now uses that unified composition contract, and package tests cover both backend availability reporting and backend resolution through the new factory-set API.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
