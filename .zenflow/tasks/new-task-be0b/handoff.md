@@ -764,6 +764,10 @@ Absent:  no tests/build/simulator checks
   package manifest root declaration.
 - Goal:
   improve discoverability/onboarding without adding noisy line-by-line comments.
+- Test structure pass (next improvement cycle, iteration 2):
+  reusable app test doubles were extracted into `TchopAppTests/TestDoubles/`.
+  `AppStateTests`, `AppShellViewModelTests`, and `NewsFeedViewModelTests` now keep scenario logic locally while shared doubles such as session, navigation-state, deep-link, UI-configuration, feed-repository, and app-content repository fixtures live in dedicated files.
+  This is the new baseline for future test helper growth: reusable doubles go into `TestDoubles`, scenario-specific helpers may stay local to the suite.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

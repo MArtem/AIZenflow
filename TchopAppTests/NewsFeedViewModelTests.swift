@@ -79,34 +79,6 @@ final class NewsFeedViewModelTests: XCTestCase {
 }
 
 @MainActor
-private final class TestNewsFeedRepository: NewsFeedRepository {
-    private let result: Result<NewsFeedContent, Error>
-    private let delayNanoseconds: UInt64
-
-    /// Creates a new TestNewsFeedRepository instance.
-    init(
-        result: Result<NewsFeedContent, Error>,
-        delayNanoseconds: UInt64 = 0
-    ) {
-        self.result = result
-        self.delayNanoseconds = delayNanoseconds
-    }
-
-    /// Fetches news feed content.
-    func fetchNewsFeedContent() async throws -> NewsFeedContent {
-        if delayNanoseconds > 0 {
-            try await Task.sleep(nanoseconds: delayNanoseconds)
-        }
-
-        return try result.get()
-    }
-}
-
-private enum TestNewsFeedError: Error {
-    case failed
-}
-
-@MainActor
 /// Verifies persistence-facing user repository behavior.
 final class UserRepositoryTests: XCTestCase {
     /// Verifies find user returns nil for whitespace username.

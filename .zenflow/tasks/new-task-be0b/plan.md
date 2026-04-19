@@ -545,10 +545,13 @@ The project now treats method comments as a required baseline rather than an opt
 Started the next improvement cycle by adding `PROJECT_HEALTH.md` as the package/app-boundary inventory for the project.
 The document now records which modules are already reusable, which ones must remain app-specific, what should not be extracted yet, where the main structural risks are, and the ordered queue for the next round of improvements.
 
-### [ ] Step: Extract test doubles from large test files
+### [x] Step: Extract test doubles from large test files
 
 Move app test helper types into dedicated `TchopAppTests/TestDoubles/` files so test suites become smaller and easier to maintain.
 This should cover session doubles, navigation-state doubles, deep-link doubles, and UI-configuration doubles where appropriate.
+
+Completed by moving the reusable test infrastructure out of `AppStateTests`, `AppShellViewModelTests`, and `NewsFeedViewModelTests` into dedicated `TchopAppTests/TestDoubles/` files.
+`TestUserSessionService`, `TestUserRepository`, `TestNavigationStateManager`, `TestDeepLinkManager`, `TestUIConfigurationManager`, `TestNewsFeedRepository`, and `TestAppContentRepository` now live in a shared test-only layer so the test suites remain focused on behavior rather than embedded fixture plumbing.
 
 ### [ ] Step: Expand UI configuration package with versioning and staleness policy
 

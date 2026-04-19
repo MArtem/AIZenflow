@@ -68,38 +68,3 @@ final class AppShellViewModelTests: XCTestCase {
         XCTFail("Timed out waiting for condition")
     }
 }
-
-private enum TestUIConfigurationError: Error {
-    case refreshFailed
-}
-
-private actor TestUIConfigurationManager: UIConfigurationManaging {
-    private let currentSnapshotValue: UIConfigurationSnapshot
-    private let refreshResult: Result<UIConfigurationSnapshot, Error>
-    private let refreshDelayNanoseconds: UInt64
-
-    /// Creates a new TestUIConfigurationManager instance.
-    init(
-        currentSnapshot: UIConfigurationSnapshot,
-        refreshResult: Result<UIConfigurationSnapshot, Error>,
-        refreshDelayNanoseconds: UInt64
-    ) {
-        self.currentSnapshotValue = currentSnapshot
-        self.refreshResult = refreshResult
-        self.refreshDelayNanoseconds = refreshDelayNanoseconds
-    }
-
-    /// Returns configuration.
-    func currentConfiguration() async -> UIConfigurationSnapshot {
-        currentSnapshotValue
-    }
-
-    /// Handles refresh configuration.
-    func refreshConfiguration() async throws -> UIConfigurationSnapshot {
-        if refreshDelayNanoseconds > 0 {
-            try await Task.sleep(nanoseconds: refreshDelayNanoseconds)
-        }
-
-        return try refreshResult.get()
-    }
-}

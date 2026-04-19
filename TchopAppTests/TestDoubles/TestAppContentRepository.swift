@@ -7,7 +7,7 @@ import TchopDatabase
 /// Lightweight in-memory repository used by view-model and state tests.
 @MainActor
 final class TestAppContentRepository: AppContentRepository {
-    /// Fetches channel info.
+    /// Returns a fixed channel header fixture.
     func fetchChannelInfo() throws -> ChannelHeaderInfo {
         ChannelHeaderInfo(
             title: "Tchop",
@@ -15,7 +15,7 @@ final class TestAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Fetches news feed content.
+    /// Returns an empty feed fixture for tests that do not care about content mapping.
     func fetchNewsFeedContent() async throws -> NewsFeedContent {
         NewsFeedContent(cards: [])
     }
@@ -25,7 +25,7 @@ final class TestAppContentRepository: AppContentRepository {
 struct TestFeedAPIManager: FeedAPIManaging {
     let result: Result<FeedResponseDTO, Error>
 
-    /// Fetches feed.
+    /// Returns the configured feed response fixture.
     func fetchFeed() async throws -> FeedResponseDTO {
         try result.get()
     }
@@ -39,7 +39,6 @@ enum TestDatabaseError: Error {
 
 /// Creates a disposable in-memory database manager for app tests.
 @MainActor
-/// Creates in memory app database manager.
 func makeInMemoryAppDatabaseManager(
     backend: AppDatabaseBackendSelectionPolicy = .coreData
 ) -> any DatabaseManaging {
