@@ -553,10 +553,13 @@ This should cover session doubles, navigation-state doubles, deep-link doubles, 
 Completed by moving the reusable test infrastructure out of `AppStateTests`, `AppShellViewModelTests`, and `NewsFeedViewModelTests` into dedicated `TchopAppTests/TestDoubles/` files.
 `TestUserSessionService`, `TestUserRepository`, `TestNavigationStateManager`, `TestDeepLinkManager`, `TestUIConfigurationManager`, `TestNewsFeedRepository`, and `TestAppContentRepository` now live in a shared test-only layer so the test suites remain focused on behavior rather than embedded fixture plumbing.
 
-### [ ] Step: Expand UI configuration package with versioning and staleness policy
+### [x] Step: Expand UI configuration package with versioning and staleness policy
 
 Add schema/version support, TTL or staleness metadata, and optional refresh throttling to `TchopUIConfiguration`.
 Keep the package generic and reusable; avoid app-specific config rules.
+
+Completed by adding `UIConfigurationSnapshotMetadata` with schema version and freshness timestamps, plus manager-level `UIConfigurationStalenessPolicy` and `UIConfigurationRefreshThrottling`.
+`UIConfigurationManager` now validates stored and remote snapshot schema versions, reports staleness, bypasses throttling when cached data is stale, and reuses the current snapshot when refresh throttling applies; app DI now opts into a conservative default policy instead of treating every refresh equally.
 
 ### [ ] Step: Expand branding package into fuller semantic token groups
 

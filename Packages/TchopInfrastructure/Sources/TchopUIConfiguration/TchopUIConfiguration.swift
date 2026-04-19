@@ -2,11 +2,40 @@ import Foundation
 
 /// Root snapshot describing server-driven UI configuration for the app shell.
 public struct UIConfigurationSnapshot: Codable, Equatable, Sendable {
+    public static let supportedSchemaVersion = 1
+
+    public let metadata: UIConfigurationSnapshotMetadata
     public let shell: ShellUIConfiguration
 
     /// Creates a new UIConfigurationSnapshot instance.
-    public init(shell: ShellUIConfiguration) {
+    public init(
+        metadata: UIConfigurationSnapshotMetadata = UIConfigurationSnapshotMetadata(
+            schemaVersion: UIConfigurationSnapshot.supportedSchemaVersion,
+            fetchedAt: .distantPast,
+            expirationDate: nil
+        ),
+        shell: ShellUIConfiguration
+    ) {
+        self.metadata = metadata
         self.shell = shell
+    }
+}
+
+/// Metadata describing the freshness and schema of a UI configuration snapshot.
+public struct UIConfigurationSnapshotMetadata: Codable, Equatable, Sendable {
+    public let schemaVersion: Int
+    public let fetchedAt: Date
+    public let expirationDate: Date?
+
+    /// Creates a new UIConfigurationSnapshotMetadata instance.
+    public init(
+        schemaVersion: Int,
+        fetchedAt: Date,
+        expirationDate: Date?
+    ) {
+        self.schemaVersion = schemaVersion
+        self.fetchedAt = fetchedAt
+        self.expirationDate = expirationDate
     }
 }
 
@@ -30,6 +59,8 @@ public protocol UIConfigurationRemoteProviding: Sendable {
 public protocol UIConfigurationManaging: Sendable {
     /// Returns configuration.
     func currentConfiguration() async -> UIConfigurationSnapshot
+    /// Returns whether the current configuration should be considered stale.
+    func isCurrentConfigurationStale() async -> Bool
     /// Handles refresh configuration.
     func refreshConfiguration() async throws -> UIConfigurationSnapshot
     /// Fetches configuration.
@@ -41,6 +72,19 @@ public extension UIConfigurationManaging {
     func fetchConfiguration() async throws -> UIConfigurationSnapshot {
         try await refreshConfiguration()
     }
+}
+
+/// Describes when a cached UI configuration snapshot should be considered stale.
+public enum UIConfigurationStalenessPolicy: Equatable, Sendable {
+    case never
+    case after(TimeInterval)
+    case expirationDate
+}
+
+/// Describes when refresh requests should reuse the current snapshot instead of hitting remote.
+public enum UIConfigurationRefreshThrottling: Equatable, Sendable {
+    case none
+    case minimumInterval(TimeInterval)
 }
 
 /// Persists and restores the last known UI configuration snapshot.
@@ -56,6 +100,11 @@ public protocol UIConfigurationSnapshotStoring: Sendable {
 /// Errors emitted by the default UI configuration snapshot store.
 public enum UIConfigurationSnapshotStoreError: Error, Equatable {
     case unavailableUserDefaults(suiteName: String)
+}
+
+/// Errors emitted by the reusable UI configuration manager.
+public enum UIConfigurationManagerError: Error, Equatable {
+    case unsupportedSchemaVersion(actual: Int, supported: Int)
 }
 
 /// UserDefaults-backed UI configuration snapshot storage.
@@ -113,20 +162,32 @@ public actor UIConfigurationManager: UIConfigurationManaging {
     private let remoteProvider: any UIConfigurationRemoteProviding
     private let store: (any UIConfigurationSnapshotStoring)?
     private let fallbackSnapshot: UIConfigurationSnapshot
+    private let stalenessPolicy: UIConfigurationStalenessPolicy
+    private let refreshThrottling: UIConfigurationRefreshThrottling
+    private let dateProvider: @Sendable () -> Date
     private var currentSnapshot: UIConfigurationSnapshot
 
     /// Creates a new UIConfigurationManager instance.
     public init(
         remoteProvider: any UIConfigurationRemoteProviding,
         store: (any UIConfigurationSnapshotStoring)? = nil,
+        stalenessPolicy: UIConfigurationStalenessPolicy = .never,
+        refreshThrottling: UIConfigurationRefreshThrottling = .none,
+        dateProvider: @escaping @Sendable () -> Date = Date.init,
         fallbackSnapshot: UIConfigurationSnapshot = UIConfigurationSnapshot(
             shell: ShellUIConfiguration(showsFloatingActionButton: true)
         )
     ) {
         self.remoteProvider = remoteProvider
         self.store = store
+        self.stalenessPolicy = stalenessPolicy
+        self.refreshThrottling = refreshThrottling
+        self.dateProvider = dateProvider
         self.fallbackSnapshot = fallbackSnapshot
-        self.currentSnapshot = (try? store?.load()) ?? fallbackSnapshot
+        self.currentSnapshot = Self.sanitizedSnapshot(
+            try? store?.load(),
+            fallbackSnapshot: fallbackSnapshot
+        )
     }
 
     /// Returns configuration.
@@ -134,17 +195,95 @@ public actor UIConfigurationManager: UIConfigurationManaging {
         currentSnapshot
     }
 
+    /// Returns whether the current configuration should be considered stale.
+    public func isCurrentConfigurationStale() async -> Bool {
+        Self.isSnapshotStale(
+            currentSnapshot,
+            policy: stalenessPolicy,
+            now: dateProvider()
+        )
+    }
+
     /// Handles refresh configuration.
     public func refreshConfiguration() async throws -> UIConfigurationSnapshot {
+        let now = dateProvider()
+        if shouldUseCurrentSnapshot(for: now) {
+            return currentSnapshot
+        }
+
         let snapshot = try await remoteProvider.fetchConfiguration()
-        currentSnapshot = snapshot
-        try store?.save(snapshot)
-        return snapshot
+        let sanitizedSnapshot = try Self.validatedRemoteSnapshot(snapshot)
+        currentSnapshot = sanitizedSnapshot
+        try store?.save(sanitizedSnapshot)
+        return sanitizedSnapshot
     }
 
     /// Fetches configuration.
     public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
         try await refreshConfiguration()
+    }
+
+    /// Returns whether refresh can safely reuse the current snapshot.
+    private func shouldUseCurrentSnapshot(for now: Date) -> Bool {
+        guard !Self.isSnapshotStale(currentSnapshot, policy: stalenessPolicy, now: now) else {
+            return false
+        }
+
+        switch refreshThrottling {
+        case .none:
+            return false
+        case let .minimumInterval(interval):
+            return now.timeIntervalSince(currentSnapshot.metadata.fetchedAt) < interval
+        }
+    }
+
+    /// Returns a snapshot that can safely be used as the active cached state.
+    private static func sanitizedSnapshot(
+        _ snapshot: UIConfigurationSnapshot?,
+        fallbackSnapshot: UIConfigurationSnapshot
+    ) -> UIConfigurationSnapshot {
+        guard
+            let snapshot,
+            snapshot.metadata.schemaVersion == UIConfigurationSnapshot.supportedSchemaVersion
+        else {
+            return fallbackSnapshot
+        }
+
+        return snapshot
+    }
+
+    /// Validates a newly fetched remote snapshot before storing and exposing it.
+    private static func validatedRemoteSnapshot(
+        _ snapshot: UIConfigurationSnapshot
+    ) throws -> UIConfigurationSnapshot {
+        guard snapshot.metadata.schemaVersion == UIConfigurationSnapshot.supportedSchemaVersion else {
+            throw UIConfigurationManagerError.unsupportedSchemaVersion(
+                actual: snapshot.metadata.schemaVersion,
+                supported: UIConfigurationSnapshot.supportedSchemaVersion
+            )
+        }
+
+        return snapshot
+    }
+
+    /// Returns whether the provided snapshot is stale under the supplied policy.
+    private static func isSnapshotStale(
+        _ snapshot: UIConfigurationSnapshot,
+        policy: UIConfigurationStalenessPolicy,
+        now: Date
+    ) -> Bool {
+        switch policy {
+        case .never:
+            return false
+        case let .after(interval):
+            return now.timeIntervalSince(snapshot.metadata.fetchedAt) >= interval
+        case .expirationDate:
+            guard let expirationDate = snapshot.metadata.expirationDate else {
+                return false
+            }
+
+            return now >= expirationDate
+        }
     }
 }
 

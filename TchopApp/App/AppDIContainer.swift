@@ -128,7 +128,9 @@ final class AppDIContainer: ObservableObject {
     private static func makeUIConfigurationManager() -> any UIConfigurationManaging {
         UIConfigurationManager(
             remoteProvider: MockUIConfigurationRemoteProvider(),
-            store: UserDefaultsUIConfigurationSnapshotStore(userDefaults: .standard)
+            store: UserDefaultsUIConfigurationSnapshotStore(userDefaults: .standard),
+            stalenessPolicy: .after(300),
+            refreshThrottling: .minimumInterval(30)
         )
     }
 

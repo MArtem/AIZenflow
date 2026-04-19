@@ -768,6 +768,10 @@ Absent:  no tests/build/simulator checks
   reusable app test doubles were extracted into `TchopAppTests/TestDoubles/`.
   `AppStateTests`, `AppShellViewModelTests`, and `NewsFeedViewModelTests` now keep scenario logic locally while shared doubles such as session, navigation-state, deep-link, UI-configuration, feed-repository, and app-content repository fixtures live in dedicated files.
   This is the new baseline for future test helper growth: reusable doubles go into `TestDoubles`, scenario-specific helpers may stay local to the suite.
+- UI configuration package pass (next improvement cycle, iteration 3):
+  `TchopUIConfiguration` now carries explicit snapshot metadata through `UIConfigurationSnapshotMetadata` with schema version and freshness timestamps.
+  `UIConfigurationManager` gained reusable staleness and throttling policies, validates unsupported snapshot schema versions, falls back safely when persisted snapshots are incompatible, and exposes `isCurrentConfigurationStale()` for consumers that need freshness-aware behavior.
+  The app currently uses conservative defaults in DI: stale after 5 minutes and throttle refreshes for 30 seconds when the cached snapshot is still fresh.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

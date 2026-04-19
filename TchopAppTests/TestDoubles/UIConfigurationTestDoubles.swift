@@ -27,6 +27,11 @@ actor TestUIConfigurationManager: UIConfigurationManaging {
         currentSnapshotValue
     }
 
+    /// Returns whether the current snapshot should be treated as stale in tests.
+    func isCurrentConfigurationStale() async -> Bool {
+        false
+    }
+
     /// Returns the configured refresh result after the optional delay.
     func refreshConfiguration() async throws -> UIConfigurationSnapshot {
         if refreshDelayNanoseconds > 0 {
