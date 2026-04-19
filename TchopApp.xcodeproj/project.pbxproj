@@ -72,6 +72,7 @@
 		D00000050000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
 		D00000070000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
 		D00000080000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D00000200000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D000000B0000000000000001 /* FeedHeadlineWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000C0000000000000001 /* FeedHeadlineWidget.swift */; };
 		D000000D0000000000000001 /* TchopWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000E0000000000000001 /* TchopWidgetsBundle.swift */; };
 		D000000F0000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
@@ -90,6 +91,17 @@
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D00000210000000000000001 /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				D00000200000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +113,13 @@
 			remoteInfo = TchopApp;
 		};
 		D00000120000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A000000B0000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D00000160000000000000001;
+			remoteInfo = TchopWidgetsExtension;
+		};
+		D00000220000000000000001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = A000000B0000000000000001 /* Project object */;
 			proxyType = 1;
@@ -477,10 +496,12 @@
 				B00000070000000000000001 /* Sources */,
 				B00000050000000000000001 /* Frameworks */,
 				B00000060000000000000001 /* Resources */,
+				D00000210000000000000001 /* Embed App Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D00000230000000000000001 /* PBXTargetDependency */,
 			);
 			name = TchopAppOcean;
 			packageProductDependencies = (
@@ -589,6 +610,11 @@
 			isa = PBXTargetDependency;
 			target = D00000160000000000000001 /* TchopWidgetsExtension */;
 			targetProxy = D00000120000000000000001 /* PBXContainerItemProxy */;
+		};
+		D00000230000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D00000160000000000000001 /* TchopWidgetsExtension */;
+			targetProxy = D00000220000000000000001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

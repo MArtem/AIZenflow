@@ -303,6 +303,11 @@ Re-ran the requested `Low` verification and then verified the originally failing
 - `xcrun simctl install ... TchopApp.app` passed;
 - `xcrun simctl launch ... com.example.TchopApp` passed.
 
+### [x] Step: Embed widget extension into TchopAppOcean
+
+Extended widget embedding so `TchopWidgetsExtension` is now also embedded into the `TchopAppOcean` application target, not only the base `TchopApp` target.
+This was done by adding the extension target dependency and a dedicated `Embed App Extensions` copy phase for `TchopAppOcean` in the Xcode project configuration.
+
 ### [x] Step: Navigation phase 8 — snapshot evolution, migration, and navigation observability
 
 Evolve navigation snapshot model to a new version with backward migration from v1 payloads and safe restore sanitization controls.
