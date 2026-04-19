@@ -149,6 +149,7 @@ Owned concerns:
 Keep reusable:
 - current/refresh/store contracts
 - generic snapshot persistence
+- both persisted and in-memory snapshot-store implementations
 
 Needs expansion:
 - versioning

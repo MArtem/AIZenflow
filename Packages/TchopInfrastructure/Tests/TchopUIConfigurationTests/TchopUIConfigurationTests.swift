@@ -222,30 +222,6 @@ final class TchopUIConfigurationTests: XCTestCase {
     }
 }
 
-private final class InMemoryUIConfigurationSnapshotStore: @unchecked Sendable, UIConfigurationSnapshotStoring {
-    private var snapshot: UIConfigurationSnapshot?
-
-    /// Creates a new InMemoryUIConfigurationSnapshotStore instance.
-    init(snapshot: UIConfigurationSnapshot? = nil) {
-        self.snapshot = snapshot
-    }
-
-    /// Saves this operation.
-    func save(_ snapshot: UIConfigurationSnapshot) throws {
-        self.snapshot = snapshot
-    }
-
-    /// Loads this operation.
-    func load() throws -> UIConfigurationSnapshot? {
-        snapshot
-    }
-
-    /// Clears this operation.
-    func clear() throws {
-        snapshot = nil
-    }
-}
-
 /// Asserts an async throwing expression raises an error that matches expectations.
 private func XCTAssertThrowsErrorAsync<T>(
     _ expression: () async throws -> T,

@@ -157,6 +157,34 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
     }
 }
 
+/// In-memory UI configuration snapshot storage for previews, tests, and ephemeral hosts.
+public final class InMemoryUIConfigurationSnapshotStore:
+    @unchecked Sendable,
+    UIConfigurationSnapshotStoring
+{
+    private var snapshot: UIConfigurationSnapshot?
+
+    /// Creates a new InMemoryUIConfigurationSnapshotStore instance.
+    public init(snapshot: UIConfigurationSnapshot? = nil) {
+        self.snapshot = snapshot
+    }
+
+    /// Saves this operation.
+    public func save(_ snapshot: UIConfigurationSnapshot) throws {
+        self.snapshot = snapshot
+    }
+
+    /// Loads this operation.
+    public func load() throws -> UIConfigurationSnapshot? {
+        snapshot
+    }
+
+    /// Clears this operation.
+    public func clear() throws {
+        snapshot = nil
+    }
+}
+
 /// Reusable manager that serves current cached configuration and refreshes from a remote source.
 public actor UIConfigurationManager: UIConfigurationManaging {
     private let remoteProvider: any UIConfigurationRemoteProviding

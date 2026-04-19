@@ -858,6 +858,11 @@ Absent:  no tests/build/simulator checks
   This is a small but real reuse improvement:
   host apps, previews, and ephemeral test harnesses can now adopt the package's state-store abstraction without writing their own temporary in-memory store.
   No host lifecycle policy was moved into the package; only the missing reusable store implementation was promoted.
+- Package completeness cycle (current cycle, step 2):
+  `TchopUIConfiguration` now also exposes `InMemoryUIConfigurationSnapshotStore` publicly instead of keeping that implementation only inside package tests.
+  This mirrors the same practical package gap that was fixed in push notifications:
+  the package already defined a reusable snapshot-store protocol, so shipping both persisted and ephemeral store implementations materially improves reuse for previews, tests, and lightweight host apps.
+  No app-specific UI policy or remote-contract logic was moved into the package.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,

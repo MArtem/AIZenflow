@@ -651,6 +651,8 @@ Do not expand packages with speculative features that are not justified by curre
 Package completeness cycle progress:
 - Promoted `InMemoryPushNotificationStateStore` from a test-only helper into the `TchopPushNotifications` package, because the package already exposed a reusable store abstraction but only shipped a `UserDefaults` implementation publicly.
 - This closes a real portability gap for previews, ephemeral hosts, and tests without adding new lifecycle policy or host-app coupling.
+- Promoted `InMemoryUIConfigurationSnapshotStore` from a test-only helper into `TchopUIConfiguration` for the same reason: the package already exposed a reusable snapshot-store contract but only shipped a `UserDefaults` implementation publicly.
+- This gives other apps and preview/test hosts an ephemeral cache option without introducing any new server-driven UI policy into the package.
 
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 

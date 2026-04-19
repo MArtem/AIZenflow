@@ -121,6 +121,7 @@ Server-driven UI configuration package with:
 - refresh semantics
 - persisted snapshot storage
 - default `UserDefaults` store
+- reusable in-memory snapshot store for previews and ephemeral hosts
 
 ### `TchopCache`
 Reusable local cache package with in-memory and file-backed implementations.
