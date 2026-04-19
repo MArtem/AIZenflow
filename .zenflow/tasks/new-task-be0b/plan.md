@@ -561,10 +561,13 @@ Keep the package generic and reusable; avoid app-specific config rules.
 Completed by adding `UIConfigurationSnapshotMetadata` with schema version and freshness timestamps, plus manager-level `UIConfigurationStalenessPolicy` and `UIConfigurationRefreshThrottling`.
 `UIConfigurationManager` now validates stored and remote snapshot schema versions, reports staleness, bypasses throttling when cached data is stale, and reuses the current snapshot when refresh throttling applies; app DI now opts into a conservative default policy instead of treating every refresh equally.
 
-### [ ] Step: Expand branding package into fuller semantic token groups
+### [x] Step: Expand branding package into fuller semantic token groups
 
 Grow `TchopBranding` from the current narrow token set into broader semantic groups for button, badge, tab, card, navigation, destructive, and success states.
 Keep target-based resolution centralized and package-backed.
+
+Completed by expanding `BrandTheme` into semantic groups (`button`, `badge`, `tab`, `card`, `navigation`, `status`) while preserving backward-compatible aliases for the older narrow tokens.
+`AppTheme` now starts consuming those semantic groups directly, so target-specific theming has a broader reusable surface without forcing the app to keep inventing its own parallel token vocabulary.
 
 ### [ ] Step: Refactor deep-link routing toward declarative rules
 

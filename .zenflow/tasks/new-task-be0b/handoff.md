@@ -772,6 +772,10 @@ Absent:  no tests/build/simulator checks
   `TchopUIConfiguration` now carries explicit snapshot metadata through `UIConfigurationSnapshotMetadata` with schema version and freshness timestamps.
   `UIConfigurationManager` gained reusable staleness and throttling policies, validates unsupported snapshot schema versions, falls back safely when persisted snapshots are incompatible, and exposes `isCurrentConfigurationStale()` for consumers that need freshness-aware behavior.
   The app currently uses conservative defaults in DI: stale after 5 minutes and throttle refreshes for 30 seconds when the cached snapshot is still fresh.
+- Branding package pass (next improvement cycle, iteration 4):
+  `TchopBranding` now exposes richer semantic groups through `BrandTheme`: `button`, `badge`, `tab`, `card`, `navigation`, and `status`.
+  The previous narrow tokens remain available as compatibility aliases, but the package is now a more realistic reusable branding baseline for other iOS projects that need target-specific semantic theming rather than only one accent and one FAB color.
+  `AppTheme` has started consuming those semantic groups directly for accent, FAB, selection, and status tokens.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

@@ -4,9 +4,17 @@ import UIKit
 
 /// Semantic color tokens used across app screens in light and dark modes.
 enum AppTheme {
-    static let accent = AppBranding.theme.primaryAccent
-    static let floatingActionButtonFill = AppBranding.theme.floatingActionButtonFill
-    static let floatingActionButtonShadow = AppBranding.theme.floatingActionButtonShadow
+    static let accent = AppBranding.theme.button.primaryFill
+    static let accentOnColor = AppBranding.theme.button.primaryForeground
+    static let floatingActionButtonFill = AppBranding.theme.button.floatingActionFill
+    static let floatingActionButtonShadow = AppBranding.theme.button.floatingActionShadow
+    static let selectionFill = AppBranding.theme.navigation.activeBackground
+    static let navigationActiveTint = AppBranding.theme.navigation.activeTint
+    static let badgeAccentFill = AppBranding.theme.badge.accentFill
+    static let badgeAccentForeground = AppBranding.theme.badge.accentForeground
+    static let cardHighlightBorder = AppBranding.theme.card.highlightedBorder
+    static let success = AppBranding.theme.status.success
+    static let destructive = AppBranding.theme.status.destructive
 
     static let canvasBackground = dynamicColor(
         light: UIColor(red: 0.97, green: 0.96, blue: 0.94, alpha: 1),
@@ -26,11 +34,6 @@ enum AppTheme {
     static let menuSurface = dynamicColor(
         light: UIColor(red: 0.98, green: 0.97, blue: 0.95, alpha: 1),
         dark: UIColor(red: 0.10, green: 0.11, blue: 0.15, alpha: 1)
-    )
-
-    static let selectionFill = dynamicColor(
-        light: UIColor(red: 0.99, green: 0.94, blue: 0.91, alpha: 1),
-        dark: UIColor(red: 0.24, green: 0.17, blue: 0.15, alpha: 1)
     )
 
     static let textPrimary = dynamicColor(
