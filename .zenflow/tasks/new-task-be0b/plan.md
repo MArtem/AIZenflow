@@ -540,6 +540,45 @@ Completed the next test-layer pass by adding focused app-level coverage for the 
 Completed the final documentation pass by adding project-level documentation in `PROJECT_DOCUMENTATION.md`, updating persistent rules, and applying method-level comments across app, package, and test Swift files.
 The project now treats method comments as a required baseline rather than an optional style choice, and the working documentation explicitly records the architecture, targets, package modules, runtime flows, verification policy, and documentation standard.
 
+### [x] Step: Add project health inventory and next-cycle roadmap
+
+Started the next improvement cycle by adding `PROJECT_HEALTH.md` as the package/app-boundary inventory for the project.
+The document now records which modules are already reusable, which ones must remain app-specific, what should not be extracted yet, where the main structural risks are, and the ordered queue for the next round of improvements.
+
+### [ ] Step: Extract test doubles from large test files
+
+Move app test helper types into dedicated `TchopAppTests/TestDoubles/` files so test suites become smaller and easier to maintain.
+This should cover session doubles, navigation-state doubles, deep-link doubles, and UI-configuration doubles where appropriate.
+
+### [ ] Step: Expand UI configuration package with versioning and staleness policy
+
+Add schema/version support, TTL or staleness metadata, and optional refresh throttling to `TchopUIConfiguration`.
+Keep the package generic and reusable; avoid app-specific config rules.
+
+### [ ] Step: Expand branding package into fuller semantic token groups
+
+Grow `TchopBranding` from the current narrow token set into broader semantic groups for button, badge, tab, card, navigation, destructive, and success states.
+Keep target-based resolution centralized and package-backed.
+
+### [ ] Step: Refactor deep-link routing toward declarative rules
+
+Reduce `DeepLinkManager` growth risk by moving route definitions and parsing behavior toward a more declarative routing table or equivalent structured model.
+Preserve the current app-specific URL contract while making the implementation easier to extend safely.
+
+### [ ] Step: Strengthen AppDatabase migration policy and testability
+
+Remove remaining `fatalError`-style bootstrap behavior where practical, isolate migration policy further, and add stronger migration-focused tests around legacy Core Data to SwiftData upgrade scenarios.
+
+### [ ] Step: Add snapshot or UI test coverage for core screens
+
+Add focused UI-level regression coverage for `AppRootView`, `AppShellView`, and `NewsTabRootView`.
+Prefer a minimal but stable baseline that protects layout/state regressions without introducing brittle test noise.
+
+### [ ] Step: Add unified analytics and event layer across core infra packages
+
+Design and implement a shared product-level event model that can sit above `TchopNavigation`, `TchopPushNotifications`, and `TchopNetworking`.
+Keep transport-specific or app-lifecycle-specific details behind adapters rather than hardcoding them into the shared event API.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

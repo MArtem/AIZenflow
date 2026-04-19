@@ -12,6 +12,7 @@
 - App folder: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp`
 - Infrastructure package: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure`
 - Project documentation: `/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md`
+- Project health inventory: `/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md`
 - This handoff: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md`
 - Engineering rules: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - Services rules: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
@@ -234,6 +235,9 @@
 - Documentation baseline:
   full project documentation now lives in `PROJECT_DOCUMENTATION.md` and records the architecture, targets, packages, runtime flows, verification policy, and working conventions.
   The codebase also now follows a stricter comment standard: every method/function/initializer should carry a concise responsibility comment across app, infrastructure, and test code.
+- Project health baseline:
+  `PROJECT_HEALTH.md` now records the reusable package inventory, the app-specific modules that should stay local, the modules that should not be extracted yet, the current structural risks, and the ordered next improvement queue.
+  This is now the quickest source of truth for deciding whether new code belongs in a package or in the app layer.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.
