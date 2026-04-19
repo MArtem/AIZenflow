@@ -1,4 +1,5 @@
 import Foundation
+import TchopNavigation
 
 /// Resolves deep and universal links into coordinator-driven app navigation.
 @MainActor
