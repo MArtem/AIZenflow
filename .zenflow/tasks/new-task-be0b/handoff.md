@@ -848,6 +848,11 @@ Absent:  no tests/build/simulator checks
   `TchopApp` applies it during startup,
   and `TchopAppUITests` now verifies that `tchop://profile` lands on `profile.root`.
   This adds protection for a real launch/navigation path without broadening the suite into brittle multi-screen UI automation.
+- Quality / verification cycle (current cycle, step 3):
+  `AppStateTests` now also protect two runtime side effects that were previously untested:
+  `signOut()` clearing widget feed state,
+  and `requestPushNotificationAuthorization()` delegating into the app push bridge.
+  The added doubles stay app-level and lightweight, so this closes a real regression gap in the push/widget lifecycle without adding new runtime abstractions.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,

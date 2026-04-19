@@ -95,6 +95,56 @@ final class AppStateTests: XCTestCase {
         XCTAssertEqual(sessionService.signOutCallCount, 1)
     }
 
+    /// Verifies sign out clears widget feed state alongside the in-app session reset.
+    func testSignOutClearsWidgetFeed() {
+        let restoredUser = AppUser(id: "user-widget-clear", username: "signed-in", createdAt: Date())
+        let widgetContentSyncManager = RecordingWidgetContentSyncManager()
+        let state = AppState(
+            coordinator: AppCoordinator(),
+            appShellViewModel: makeShellViewModel(),
+            sessionService: TestUserSessionService(
+                signInResult: .success(restoredUser),
+                restoreResult: .success(restoredUser)
+            ),
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: widgetContentSyncManager,
+            pushNotificationBridge: NoopPushNotificationBridge()
+        )
+
+        state.signOut()
+
+        XCTAssertEqual(widgetContentSyncManager.clearCallCount, 1)
+    }
+
+    /// Verifies app state forwards explicit push authorization requests into the push bridge.
+    func testRequestPushNotificationAuthorizationDelegatesToPushBridge() async {
+        let pushBridge = RecordingPushNotificationBridge()
+        let state = AppState(
+            coordinator: AppCoordinator(),
+            appShellViewModel: makeShellViewModel(),
+            sessionService: TestUserSessionService(
+                signInResult: .failure(TestSessionError.signInUnavailable),
+                restoreResult: .success(nil)
+            ),
+            userRepository: TestUserRepository(
+                user: AppUser(id: "user-push-request", username: "push-user", createdAt: Date())
+            ),
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: pushBridge
+        )
+
+        state.requestPushNotificationAuthorization()
+        try? await Task.sleep(for: .milliseconds(20))
+
+        XCTAssertEqual(pushBridge.requestAuthorizationAndRegisterCallCount, 1)
+    }
+
     /// Verifies init restores navigation snapshot when flag enabled.
     func testInitRestoresNavigationSnapshotWhenFlagEnabled() {
         let restoredUser = AppUser(

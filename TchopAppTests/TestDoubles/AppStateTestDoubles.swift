@@ -1,5 +1,7 @@
 import Foundation
+import UIKit
 import TchopNavigation
+import TchopPushNotifications
 @testable import TchopApp
 
 /// Test-only session error cases used by app-state scenarios.
@@ -126,5 +128,66 @@ final class TestDeepLinkManager: DeepLinkManaging {
     /// Always declines user-activity handling.
     func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool {
         false
+    }
+}
+
+/// Recording widget sync double used for logout side-effect assertions.
+@MainActor
+final class RecordingWidgetContentSyncManager: WidgetContentSyncing {
+    private(set) var syncCallCount = 0
+    private(set) var clearCallCount = 0
+
+    /// Creates a new RecordingWidgetContentSyncManager instance.
+    init() {}
+
+    /// Tracks feed synchronization calls.
+    func syncFeed(content: NewsFeedContent) {
+        syncCallCount += 1
+    }
+
+    /// Tracks widget snapshot clearing calls.
+    func clearFeed() {
+        clearCallCount += 1
+    }
+}
+
+/// Recording push bridge double used for app-state delegation assertions.
+@MainActor
+final class RecordingPushNotificationBridge: AppPushNotificationBridging {
+    private(set) var startCallCount = 0
+    private(set) var requestAuthorizationAndRegisterCallCount = 0
+    private(set) var didRegisterCallCount = 0
+    private(set) var didFailToRegisterCallCount = 0
+    private(set) var handledRemoteNotificationCount = 0
+
+    /// Creates a new RecordingPushNotificationBridge instance.
+    init() {}
+
+    /// Tracks application startup wiring calls.
+    func start(application: UIApplication) {
+        startCallCount += 1
+    }
+
+    /// Tracks explicit authorization requests from app state.
+    func requestAuthorizationAndRegister(application: UIApplication) async {
+        requestAuthorizationAndRegisterCallCount += 1
+    }
+
+    /// Tracks successful device token forwarding.
+    func didRegisterForRemoteNotifications(deviceToken: Data) async {
+        didRegisterCallCount += 1
+    }
+
+    /// Tracks APNs registration failure forwarding.
+    func didFailToRegisterForRemoteNotifications(error: Error) async {
+        didFailToRegisterCallCount += 1
+    }
+
+    /// Tracks remote notification forwarding.
+    func handleRemoteNotification(
+        userInfo: [AnyHashable: Any],
+        source: PushNotificationEventSource
+    ) async {
+        handledRemoteNotificationCount += 1
     }
 }
