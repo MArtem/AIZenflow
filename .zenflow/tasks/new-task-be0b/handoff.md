@@ -190,6 +190,10 @@
   package tests pass,
   `TchopApp` builds and tests pass on `iPhone 16 Pro (iOS 18.2)`,
   and `TchopApp` builds and tests pass on `iPhone 17 Pro (iOS 26.0)`.
+- Composition/DI baseline:
+  hidden fallback dependency resolution has been removed from `AppState`, `AppShellViewModel`, and `NewsFeedViewModel`.
+  No-op implementations are still allowed, but they must now be injected explicitly from the composition root or tests instead of being silently created inside feature/runtime types.
+  `AppDIContainer` is the single place that assembles package-backed bridges/managers for runtime use and now owns explicit helper factories for API, UI configuration, widget sync, push bridge, and local seeding.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

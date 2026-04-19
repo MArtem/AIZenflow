@@ -28,7 +28,7 @@ final class AppShellViewModel: ObservableObject {
     init(
         contentRepository: any AppContentRepository,
         uiConfigurationManager: any UIConfigurationManaging,
-        widgetContentSyncManager: (any WidgetContentSyncing)? = nil,
+        widgetContentSyncManager: any WidgetContentSyncing,
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text(
             "shell.sideMenu.footer",
@@ -38,10 +38,9 @@ final class AppShellViewModel: ObservableObject {
         self.isMenuOpen = isMenuOpen
         self.channelInfo = Self.resolveChannelInfo(from: contentRepository)
         self.sideMenuFooterText = sideMenuFooterText
-        let resolvedWidgetContentSyncManager = widgetContentSyncManager ?? NoopWidgetContentSyncManager()
         self.newsFeedViewModel = NewsFeedViewModel(
             repository: contentRepository,
-            widgetContentSyncManager: resolvedWidgetContentSyncManager
+            widgetContentSyncManager: widgetContentSyncManager
         )
         self.showsFloatingActionButton = true
         self.uiConfigurationManager = uiConfigurationManager

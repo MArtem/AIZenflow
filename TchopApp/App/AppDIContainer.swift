@@ -58,38 +58,17 @@ final class AppDIContainer: ObservableObject {
         self.databaseManager = databaseManager
         self.databaseBackendKind = databaseManager.backendKind
 
-        do {
-            try AppDataSeeder.seedIfNeeded(in: databaseManager)
-        } catch {
-            assertionFailure("Failed to seed local data: \(error)")
-        }
+        Self.seedLocalDataIfNeeded(using: databaseManager)
 
-        let apiManager = APIManager(configuration: .stub)
+        let apiManager = Self.makeAPIManager()
         self.apiManager = apiManager
 
-        let feedAPIManager = StubFeedAPIManager(apiManager: apiManager)
+        let feedAPIManager = Self.makeFeedAPIManager(apiManager: apiManager)
         self.feedAPIManager = feedAPIManager
 
-        self.uiConfigurationManager = UIConfigurationManager(
-            remoteProvider: MockUIConfigurationRemoteProvider()
-        )
-
-        let widgetSnapshotManager = try? UserDefaultsFeedHeadlineWidgetSnapshotManager(
-            suiteName: AppGroupConfiguration.widgetsSuiteName
-        )
-        self.widgetContentSyncManager = widgetSnapshotManager.map {
-            FeedHeadlineWidgetSyncManager(snapshotManager: $0)
-        } ?? NoopWidgetContentSyncManager()
-
-        let pushNotificationStateStore = UserDefaultsPushNotificationStateStore(
-            userDefaults: .standard
-        )
-        let pushNotificationManager = PushNotificationManager(
-            store: pushNotificationStateStore
-        )
-        self.pushNotificationBridge = AppPushNotificationBridge(
-            manager: pushNotificationManager
-        )
+        self.uiConfigurationManager = Self.makeUIConfigurationManager()
+        self.widgetContentSyncManager = Self.makeWidgetContentSyncManager()
+        self.pushNotificationBridge = Self.makePushNotificationBridge()
 
         let contentRepository = DefaultAppContentRepository(
             databaseManager: databaseManager,
@@ -128,6 +107,45 @@ final class AppDIContainer: ObservableObject {
             widgetContentSyncManager: widgetContentSyncManager,
             pushNotificationBridge: pushNotificationBridge
         )
+    }
+
+    private static func seedLocalDataIfNeeded(using databaseManager: any DatabaseManaging) {
+        do {
+            try AppDataSeeder.seedIfNeeded(in: databaseManager)
+        } catch {
+            assertionFailure("Failed to seed local data: \(error)")
+        }
+    }
+
+    private static func makeAPIManager() -> any APIManaging {
+        APIManager(configuration: .stub)
+    }
+
+    private static func makeFeedAPIManager(apiManager: any APIManaging) -> any FeedAPIManaging {
+        StubFeedAPIManager(apiManager: apiManager)
+    }
+
+    private static func makeUIConfigurationManager() -> any UIConfigurationManaging {
+        UIConfigurationManager(remoteProvider: MockUIConfigurationRemoteProvider())
+    }
+
+    private static func makeWidgetContentSyncManager() -> any WidgetContentSyncing {
+        let widgetSnapshotManager = try? UserDefaultsFeedHeadlineWidgetSnapshotManager(
+            suiteName: AppGroupConfiguration.widgetsSuiteName
+        )
+        return widgetSnapshotManager.map {
+            FeedHeadlineWidgetSyncManager(snapshotManager: $0)
+        } ?? NoopWidgetContentSyncManager()
+    }
+
+    private static func makePushNotificationBridge() -> any AppPushNotificationBridging {
+        let pushNotificationStateStore = UserDefaultsPushNotificationStateStore(
+            userDefaults: .standard
+        )
+        let pushNotificationManager = PushNotificationManager(
+            store: pushNotificationStateStore
+        )
+        return AppPushNotificationBridge(manager: pushNotificationManager)
     }
 }
 

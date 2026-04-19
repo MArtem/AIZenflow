@@ -20,7 +20,10 @@ final class NewsFeedViewModelTests: XCTestCase {
             ]
         )
         let repository = TestNewsFeedRepository(result: .success(expectedContent))
-        let viewModel = NewsFeedViewModel(repository: repository)
+        let viewModel = NewsFeedViewModel(
+            repository: repository,
+            widgetContentSyncManager: NoopWidgetContentSyncManager()
+        )
 
         await waitForLoading(of: viewModel)
 
@@ -31,7 +34,10 @@ final class NewsFeedViewModelTests: XCTestCase {
 
     func testReloadPublishesErrorStateOnFailure() async {
         let repository = TestNewsFeedRepository(result: .failure(TestNewsFeedError.failed))
-        let viewModel = NewsFeedViewModel(repository: repository)
+        let viewModel = NewsFeedViewModel(
+            repository: repository,
+            widgetContentSyncManager: NoopWidgetContentSyncManager()
+        )
 
         await waitForLoading(of: viewModel)
 
@@ -45,7 +51,10 @@ final class NewsFeedViewModelTests: XCTestCase {
 
     func testCancelLoadingStopsLoadingState() {
         let repository = TestNewsFeedRepository(result: .success(.init(cards: [])), delayNanoseconds: 500_000_000)
-        let viewModel = NewsFeedViewModel(repository: repository)
+        let viewModel = NewsFeedViewModel(
+            repository: repository,
+            widgetContentSyncManager: NoopWidgetContentSyncManager()
+        )
 
         viewModel.cancelLoading()
 

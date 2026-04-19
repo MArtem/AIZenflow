@@ -476,6 +476,12 @@ Validation for this step was structural:
 and
 `plutil -lint TchopApp.xcodeproj/project.pbxproj`.
 
+### [x] Step: Tighten composition root and remove hidden DI fallbacks
+
+Completed the DI/composition cleanup by removing implicit no-op/fallback dependency creation from `AppState`, `AppShellViewModel`, and `NewsFeedViewModel`.
+Those runtime/feature types now require their infrastructure dependencies explicitly, while `AppDIContainer` owns the actual assembly and exposes small helper factories for seeding, API manager creation, feed API composition, UI configuration, widget sync, and push-bridge setup.
+Updated app tests to pass explicit test/no-op dependencies so the composition contract is now visible in both production and test code instead of being hidden behind optional parameters.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

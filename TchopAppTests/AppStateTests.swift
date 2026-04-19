@@ -20,7 +20,10 @@ final class AppStateTests: XCTestCase {
             sessionService: sessionService,
             userRepository: TestUserRepository(user: expectedUser),
             navigationStateManager: TestNavigationStateManager(),
-            deepLinkManager: TestDeepLinkManager()
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         try state.signIn(username: "alice")
@@ -40,7 +43,10 @@ final class AppStateTests: XCTestCase {
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: TestNavigationStateManager(),
-            deepLinkManager: TestDeepLinkManager()
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         XCTAssertEqual(state.currentUser, restoredUser)
@@ -70,7 +76,10 @@ final class AppStateTests: XCTestCase {
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: TestNavigationStateManager(),
-            deepLinkManager: TestDeepLinkManager()
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         state.signOut()
@@ -110,7 +119,10 @@ final class AppStateTests: XCTestCase {
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: stateManager,
-            deepLinkManager: TestDeepLinkManager()
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         XCTAssertEqual(coordinator.selectedTab, .chat)
@@ -145,7 +157,10 @@ final class AppStateTests: XCTestCase {
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: stateManager,
-            deepLinkManager: TestDeepLinkManager()
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         XCTAssertEqual(coordinator.selectedTab, .news)
@@ -179,7 +194,10 @@ final class AppStateTests: XCTestCase {
             sessionService: sessionService,
             userRepository: TestUserRepository(user: signedInUser),
             navigationStateManager: stateManager,
-            deepLinkManager: DeepLinkManager()
+            deepLinkManager: DeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         XCTAssertTrue(state.handleIncomingURL(URL(string: "tchop://chat?title=Support&description=Urgent")!))
@@ -224,7 +242,9 @@ final class AppStateTests: XCTestCase {
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: stateManager,
             deepLinkManager: TestDeepLinkManager(),
-            navigationEventReporter: reporter
+            navigationEventReporter: reporter,
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         let savedSnapshot = stateManager.snapshot(for: restoredUser.id)
@@ -272,7 +292,9 @@ final class AppStateTests: XCTestCase {
             userRepository: TestUserRepository(user: restoredUser),
             navigationStateManager: stateManager,
             deepLinkManager: TestDeepLinkManager(),
-            navigationEventReporter: reporter
+            navigationEventReporter: reporter,
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge()
         )
 
         XCTAssertEqual(coordinator.selectedTab, .news)
@@ -296,6 +318,7 @@ private func makeShellViewModel(isMenuOpen: Bool = false) -> AppShellViewModel {
         uiConfigurationManager: UIConfigurationManager(
             remoteProvider: MockUIConfigurationRemoteProvider(delayNanoseconds: 0)
         ),
+        widgetContentSyncManager: NoopWidgetContentSyncManager(),
         isMenuOpen: isMenuOpen
     )
 }

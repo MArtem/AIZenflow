@@ -36,9 +36,9 @@ final class AppState: ObservableObject {
         userRepository: any UserRepository,
         navigationStateManager: any NavigationStateManaging,
         deepLinkManager: any DeepLinkManaging,
-        navigationEventReporter: (any NavigationEventReporting)? = nil,
-        widgetContentSyncManager: (any WidgetContentSyncing)? = nil,
-        pushNotificationBridge: (any AppPushNotificationBridging)? = nil
+        navigationEventReporter: any NavigationEventReporting,
+        widgetContentSyncManager: any WidgetContentSyncing,
+        pushNotificationBridge: any AppPushNotificationBridging
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -46,9 +46,9 @@ final class AppState: ObservableObject {
         self.userRepository = userRepository
         self.navigationStateManager = navigationStateManager
         self.deepLinkManager = deepLinkManager
-        self.navigationEventReporter = navigationEventReporter ?? NavigationNoopEventReporter()
-        self.widgetContentSyncManager = widgetContentSyncManager ?? NoopWidgetContentSyncManager()
-        self.pushNotificationBridge = pushNotificationBridge ?? NoopPushNotificationBridge()
+        self.navigationEventReporter = navigationEventReporter
+        self.widgetContentSyncManager = widgetContentSyncManager
+        self.pushNotificationBridge = pushNotificationBridge
         setupNavigationPersistenceBindings()
         restoreSession()
     }
