@@ -88,6 +88,8 @@
 		E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000090000000000000001 /* TchopApplicationDelegate.swift */; };
 		E00000060000000000000001 /* App/AppPushNotificationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000080000000000000001 /* AppPushNotificationBridge.swift */; };
 		E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000090000000000000001 /* TchopApplicationDelegate.swift */; };
+		F00000010000000000000001 /* TchopNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F00000020000000000000001 /* TchopNavigation */; };
+		F00000030000000000000001 /* TchopNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F00000020000000000000001 /* TchopNavigation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -226,6 +228,7 @@
 				D00000050000000000000001 /* TchopWidgets in Frameworks */,
 				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
 				E00000010000000000000001 /* TchopPushNotifications in Frameworks */,
+				F00000010000000000000001 /* TchopNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -247,6 +250,7 @@
 				D00000070000000000000001 /* TchopWidgets in Frameworks */,
 				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
 				E00000020000000000000001 /* TchopPushNotifications in Frameworks */,
+				F00000030000000000000001 /* TchopNavigation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -526,6 +530,7 @@
 				D00000060000000000000001 /* TchopWidgets */,
 				C00000020000000000000001 /* TchopUIConfiguration */,
 				E00000030000000000000001 /* TchopPushNotifications */,
+				F00000020000000000000001 /* TchopNavigation */,
 			);
 			productName = TchopApp;
 			productReference = A00000010000000000000001 /* TchopApp.app */;
@@ -554,6 +559,7 @@
 				D00000060000000000000001 /* TchopWidgets */,
 				C00000020000000000000001 /* TchopUIConfiguration */,
 				E00000030000000000000001 /* TchopPushNotifications */,
+				F00000020000000000000001 /* TchopNavigation */,
 			);
 			productName = TchopAppOcean;
 			productReference = B00000010000000000000001 /* TchopAppOcean.app */;
@@ -916,6 +922,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
 			productName = TchopPushNotifications;
+		};
+		F00000020000000000000001 /* TchopNavigation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopNavigation;
 		};
 /* End XCSwiftPackageProductDependency section */
 

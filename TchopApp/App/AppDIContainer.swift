@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import TchopDatabase
+import TchopNavigation
 import TchopNetworking
 import TchopPushNotifications
 import TchopUIConfiguration

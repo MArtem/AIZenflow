@@ -466,6 +466,16 @@ Resolved Swift concurrency warning:
 `Converting non-Sendable function value to '@Sendable () async throws -> FeedResponseDTO' may introduce data races`.
 Applied an explicit `@Sendable`-compatible stub closure in `StubFeedAPIManager` and marked feed DTO graph as `Sendable` to keep the request/stub path concurrency-safe.
 
+### [x] Step: Separate navigation primitives from database umbrella boundary
+
+Completed the first architecture-boundary refactor by extracting generic navigation primitives into a dedicated reusable package target/product, `TchopNavigation`.
+Moved `TabRouter`, `NavigationStateManaging`, and `NavigationStateManager` out of the `TchopDatabase` source tree, linked both app targets to `TchopNavigation`, and switched app navigation-focused files to import the new module directly.
+Kept `TchopDatabase` as a backward-compatible umbrella by re-exporting `TchopNavigation`, so package consumers are not forced into a breaking migration while the app layer now reflects the cleaner dependency boundary.
+Validation for this step was structural:
+`swift package dump-package --package-path Packages/TchopInfrastructure`
+and
+`plutil -lint TchopApp.xcodeproj/project.pbxproj`.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

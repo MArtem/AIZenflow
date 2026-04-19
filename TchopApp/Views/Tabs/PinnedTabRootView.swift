@@ -1,5 +1,5 @@
 import SwiftUI
-import TchopDatabase
+import TchopNavigation
 
 /// Root pinned-tab screen bound to its dedicated navigation router.
 struct PinnedTabRootView: View {

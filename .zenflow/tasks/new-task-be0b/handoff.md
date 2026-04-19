@@ -72,6 +72,7 @@
 - Session service: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift`
 - Feed API manager: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/FeedAPIManager.swift`
 - Networking module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`
+- Navigation module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopNavigation/TchopNavigation.swift`
 - Database umbrella module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
 - Database core module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabaseCore/TchopDatabaseCore.swift`
 - SwiftData database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopSwiftDataDatabase/TchopSwiftDataDatabase.swift`
@@ -572,14 +573,15 @@ Absent:  no tests/build/simulator checks
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2' -configuration Debug CODE_SIGNING_ALLOWED=NO test`
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO build`
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' -configuration Debug CODE_SIGNING_ALLOWED=NO test`
-- Latest infra/navigation packaging update (2026-04-17):
-  reusable navigation primitives are now in the infrastructure package (`Packages/TchopInfrastructure/Sources/TchopDatabase/TchopNavigationCore.swift`):
+- Latest infra/navigation packaging update (2026-04-19):
+  reusable navigation primitives now live in a dedicated infrastructure module (`Packages/TchopInfrastructure/Sources/TchopNavigation/TchopNavigation.swift`):
   generic `TabRouter<Route>`,
   generic `NavigationStateManaging`,
   and `NavigationStateManager`.
-- App-local duplicates (`TabRouter.swift`, `NavigationContracts.swift`, `NavigationStateManager.swift`) were removed from `TchopApp/Navigation`,
-  app code was switched to package imports,
-  and app-specific link routing contract is now a dedicated local file `DeepLinkManaging.swift`.
+- App code now imports `TchopNavigation` directly for routing/snapshot concerns instead of getting navigation primitives indirectly from `TchopDatabase`.
+- `TchopDatabase` remains as a backward-compatible umbrella import and now re-exports `TchopNavigation` for older call sites, but navigation and persistence are no longer coupled at the package-boundary level.
+- App-local duplicates (`TabRouter.swift`, `NavigationContracts.swift`, `NavigationStateManager.swift`) had already been removed from `TchopApp/Navigation`,
+  and app-specific link routing contract remains a dedicated local file `DeepLinkManaging.swift`.
 - `DatabaseServiceFactory` public API is now tighter for reuse:
   Core Data overload remains iOS 16-compatible,
   SwiftData overload is typed with `ModelContainer` and constrained to iOS 17+,

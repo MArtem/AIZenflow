@@ -32,6 +32,10 @@ let package = Package(
             targets: ["TchopDatabaseComposition"]
         ),
         .library(
+            name: "TchopNavigation",
+            targets: ["TchopNavigation"]
+        ),
+        .library(
             name: "TchopDatabase",
             targets: ["TchopDatabase"]
         ),
@@ -84,12 +88,16 @@ let package = Package(
             ]
         ),
         .target(
+            name: "TchopNavigation"
+        ),
+        .target(
             name: "TchopDatabase",
             dependencies: [
                 "TchopDatabaseCore",
                 "TchopSwiftDataDatabase",
                 "TchopCoreDataDatabase",
-                "TchopDatabaseComposition"
+                "TchopDatabaseComposition",
+                "TchopNavigation"
             ]
         ),
         .target(

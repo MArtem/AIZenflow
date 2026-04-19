@@ -1,5 +1,5 @@
 import Foundation
-import TchopDatabase
+import TchopNavigation
 
 /// Defines stack mutation policy for navigation transitions.
 enum NavigationTransitionPolicy: String, Codable, Equatable {
