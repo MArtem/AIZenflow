@@ -4,6 +4,7 @@ import Foundation
 public struct UIConfigurationSnapshot: Codable, Equatable, Sendable {
     public let shell: ShellUIConfiguration
 
+    /// Creates a new UIConfigurationSnapshot instance.
     public init(shell: ShellUIConfiguration) {
         self.shell = shell
     }
@@ -13,6 +14,7 @@ public struct UIConfigurationSnapshot: Codable, Equatable, Sendable {
 public struct ShellUIConfiguration: Codable, Equatable, Sendable {
     public let showsFloatingActionButton: Bool
 
+    /// Creates a new ShellUIConfiguration instance.
     public init(showsFloatingActionButton: Bool) {
         self.showsFloatingActionButton = showsFloatingActionButton
     }
@@ -20,17 +22,22 @@ public struct ShellUIConfiguration: Codable, Equatable, Sendable {
 
 /// Contract for a remote source that fetches UI configuration from backend.
 public protocol UIConfigurationRemoteProviding: Sendable {
+    /// Fetches configuration.
     func fetchConfiguration() async throws -> UIConfigurationSnapshot
 }
 
 /// App-facing contract that can serve the active UI configuration snapshot.
 public protocol UIConfigurationManaging: Sendable {
+    /// Returns configuration.
     func currentConfiguration() async -> UIConfigurationSnapshot
+    /// Handles refresh configuration.
     func refreshConfiguration() async throws -> UIConfigurationSnapshot
+    /// Fetches configuration.
     func fetchConfiguration() async throws -> UIConfigurationSnapshot
 }
 
 public extension UIConfigurationManaging {
+    /// Fetches configuration.
     func fetchConfiguration() async throws -> UIConfigurationSnapshot {
         try await refreshConfiguration()
     }
@@ -38,8 +45,11 @@ public extension UIConfigurationManaging {
 
 /// Persists and restores the last known UI configuration snapshot.
 public protocol UIConfigurationSnapshotStoring: Sendable {
+    /// Saves this operation.
     func save(_ snapshot: UIConfigurationSnapshot) throws
+    /// Loads this operation.
     func load() throws -> UIConfigurationSnapshot?
+    /// Clears this operation.
     func clear() throws
 }
 
@@ -56,6 +66,7 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
     private let userDefaults: UserDefaults
     private let storageKey: String
 
+    /// Creates a new UserDefaultsUIConfigurationSnapshotStore instance.
     public init(
         userDefaults: UserDefaults,
         storageKey: String = "ui-configuration.snapshot"
@@ -64,6 +75,7 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
         self.storageKey = storageKey
     }
 
+    /// Creates a new UserDefaultsUIConfigurationSnapshotStore instance.
     public convenience init(
         suiteName: String,
         storageKey: String = "ui-configuration.snapshot"
@@ -75,11 +87,13 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
         self.init(userDefaults: userDefaults, storageKey: storageKey)
     }
 
+    /// Saves this operation.
     public func save(_ snapshot: UIConfigurationSnapshot) throws {
         let data = try JSONEncoder().encode(snapshot)
         userDefaults.set(data, forKey: storageKey)
     }
 
+    /// Loads this operation.
     public func load() throws -> UIConfigurationSnapshot? {
         guard let data = userDefaults.data(forKey: storageKey) else {
             return nil
@@ -88,6 +102,7 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
         return try JSONDecoder().decode(UIConfigurationSnapshot.self, from: data)
     }
 
+    /// Clears this operation.
     public func clear() throws {
         userDefaults.removeObject(forKey: storageKey)
     }
@@ -100,6 +115,7 @@ public actor UIConfigurationManager: UIConfigurationManaging {
     private let fallbackSnapshot: UIConfigurationSnapshot
     private var currentSnapshot: UIConfigurationSnapshot
 
+    /// Creates a new UIConfigurationManager instance.
     public init(
         remoteProvider: any UIConfigurationRemoteProviding,
         store: (any UIConfigurationSnapshotStoring)? = nil,
@@ -113,10 +129,12 @@ public actor UIConfigurationManager: UIConfigurationManaging {
         self.currentSnapshot = (try? store?.load()) ?? fallbackSnapshot
     }
 
+    /// Returns configuration.
     public func currentConfiguration() async -> UIConfigurationSnapshot {
         currentSnapshot
     }
 
+    /// Handles refresh configuration.
     public func refreshConfiguration() async throws -> UIConfigurationSnapshot {
         let snapshot = try await remoteProvider.fetchConfiguration()
         currentSnapshot = snapshot
@@ -124,6 +142,7 @@ public actor UIConfigurationManager: UIConfigurationManaging {
         return snapshot
     }
 
+    /// Fetches configuration.
     public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
         try await refreshConfiguration()
     }
@@ -134,6 +153,7 @@ public struct MockUIConfigurationRemoteProvider: UIConfigurationRemoteProviding 
     private let response: UIConfigurationSnapshot
     private let delayNanoseconds: UInt64
 
+    /// Creates a new MockUIConfigurationRemoteProvider instance.
     public init(
         response: UIConfigurationSnapshot = UIConfigurationSnapshot(
             shell: ShellUIConfiguration(showsFloatingActionButton: true)
@@ -144,6 +164,7 @@ public struct MockUIConfigurationRemoteProvider: UIConfigurationRemoteProviding 
         self.delayNanoseconds = delayNanoseconds
     }
 
+    /// Fetches configuration.
     public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
         try await Task.sleep(nanoseconds: delayNanoseconds)
         try Task.checkCancellation()

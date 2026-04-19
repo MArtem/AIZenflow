@@ -5,6 +5,7 @@ import TchopDatabase
 /// Verifies async loading states and error handling for feed view model.
 @MainActor
 final class NewsFeedViewModelTests: XCTestCase {
+    /// Verifies reload loads content from repository.
     func testReloadLoadsContentFromRepository() async {
         let expectedContent = NewsFeedContent(
             cards: [
@@ -32,6 +33,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.errorMessage)
     }
 
+    /// Verifies reload publishes error state on failure.
     func testReloadPublishesErrorStateOnFailure() async {
         let repository = TestNewsFeedRepository(result: .failure(TestNewsFeedError.failed))
         let viewModel = NewsFeedViewModel(
@@ -49,6 +51,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.content.cards.isEmpty)
     }
 
+    /// Verifies cancel loading stops loading state.
     func testCancelLoadingStopsLoadingState() {
         let repository = TestNewsFeedRepository(result: .success(.init(cards: [])), delayNanoseconds: 500_000_000)
         let viewModel = NewsFeedViewModel(
@@ -61,6 +64,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.isLoading)
     }
 
+    /// Waits until for loading.
     private func waitForLoading(of viewModel: NewsFeedViewModel) async {
         for _ in 0..<20 {
             if !viewModel.isLoading {
@@ -79,6 +83,7 @@ private final class TestNewsFeedRepository: NewsFeedRepository {
     private let result: Result<NewsFeedContent, Error>
     private let delayNanoseconds: UInt64
 
+    /// Creates a new TestNewsFeedRepository instance.
     init(
         result: Result<NewsFeedContent, Error>,
         delayNanoseconds: UInt64 = 0
@@ -87,6 +92,7 @@ private final class TestNewsFeedRepository: NewsFeedRepository {
         self.delayNanoseconds = delayNanoseconds
     }
 
+    /// Fetches news feed content.
     func fetchNewsFeedContent() async throws -> NewsFeedContent {
         if delayNanoseconds > 0 {
             try await Task.sleep(nanoseconds: delayNanoseconds)
@@ -103,6 +109,7 @@ private enum TestNewsFeedError: Error {
 @MainActor
 /// Verifies persistence-facing user repository behavior.
 final class UserRepositoryTests: XCTestCase {
+    /// Verifies find user returns nil for whitespace username.
     func testFindUserReturnsNilForWhitespaceUsername() throws {
         let repository = DefaultUserRepository(databaseManager: makeInMemoryAppDatabaseManager())
 
@@ -111,6 +118,7 @@ final class UserRepositoryTests: XCTestCase {
         XCTAssertNil(user)
     }
 
+    /// Verifies find or create returns existing user without insert.
     func testFindOrCreateReturnsExistingUserWithoutInsert() throws {
         let databaseManager = makeInMemoryAppDatabaseManager()
         let repository = DefaultUserRepository(databaseManager: databaseManager)
@@ -122,6 +130,7 @@ final class UserRepositoryTests: XCTestCase {
         XCTAssertEqual(user.id, createdUser.id)
     }
 
+    /// Verifies find or create inserts new user inside transaction.
     func testFindOrCreateInsertsNewUserInsideTransaction() throws {
         let databaseManager = makeInMemoryAppDatabaseManager()
         let repository = DefaultUserRepository(databaseManager: databaseManager)
@@ -132,6 +141,7 @@ final class UserRepositoryTests: XCTestCase {
         XCTAssertNotNil(try repository.findUser(username: "bob"))
     }
 
+    /// Verifies find or create throws for whitespace username.
     func testFindOrCreateThrowsForWhitespaceUsername() {
         let repository = DefaultUserRepository(databaseManager: makeInMemoryAppDatabaseManager())
 
@@ -142,6 +152,7 @@ final class UserRepositoryTests: XCTestCase {
 @MainActor
 /// Verifies app-content repository mapping from persistence/API models.
 final class AppContentRepositoryTests: XCTestCase {
+    /// Verifies fetch channel info maps stored channel.
     func testFetchChannelInfoMapsStoredChannel() throws {
         let databaseManager = makeInMemoryAppDatabaseManager()
         _ = try databaseManager.write(
@@ -164,6 +175,7 @@ final class AppContentRepositoryTests: XCTestCase {
         XCTAssertEqual(channel.subtitle, "New channel name")
     }
 
+    /// Verifies fetch channel info throws when channel is missing.
     func testFetchChannelInfoThrowsWhenChannelIsMissing() {
         let repository = DefaultAppContentRepository(
             databaseManager: makeInMemoryAppDatabaseManager(),
@@ -173,6 +185,7 @@ final class AppContentRepositoryTests: XCTestCase {
         XCTAssertThrowsError(try repository.fetchChannelInfo())
     }
 
+    /// Verifies fetch news feed content maps dtos to cards.
     func testFetchNewsFeedContentMapsDTOsToCards() async throws {
         let repository = DefaultAppContentRepository(
             databaseManager: makeInMemoryAppDatabaseManager(),

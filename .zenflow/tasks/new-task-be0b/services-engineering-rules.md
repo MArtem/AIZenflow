@@ -40,6 +40,7 @@ Use this file as the persistent services-layer instruction set for this project 
 - Use typed errors with context. Avoid exposing bare `Error` in service contracts.
 - Thread safety is required by design. Use actors where shared mutable async state exists.
 - Add DocC-compatible documentation to public types and public functions.
+- Service and infrastructure code now also follows a stricter local rule for this project: every method/function/initializer should have a concise comment explaining its role, not only public APIs.
 
 ## Database Service Expectations
 - Keep every operation behind Swift protocols.

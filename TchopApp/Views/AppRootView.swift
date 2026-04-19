@@ -6,6 +6,7 @@ struct AppRootView: View {
     let onOpenURL: (URL) -> Void
     let onContinueUserActivity: (NSUserActivity) -> Void
 
+    /// Creates a new AppRootView instance.
     init(
         appState: AppState,
         onOpenURL: @escaping (URL) -> Void = { _ in },

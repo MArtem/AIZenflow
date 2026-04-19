@@ -28,6 +28,7 @@ struct MixesTabRootView: View {
         )
     }
 
+    /// Opens quick action.
     private func openQuickAction(_ action: FeatureQuickAction) {
         router.push(
             MixesRoute(
@@ -41,6 +42,7 @@ struct MixesTabRootView: View {
         )
     }
 
+    /// Opens item.
     private func openItem(_ item: FeatureTabItem) {
         router.push(
             MixesRoute(

@@ -59,6 +59,7 @@ struct AppShellView: View {
         }
     }
 
+    /// Returns menu offset.
     private func currentMenuOffset(menuWidth: CGFloat) -> CGFloat {
         if viewModel.isMenuOpen {
             return min(menuDragOffset, 0)
@@ -71,6 +72,7 @@ struct AppShellView: View {
         return -menuWidth
     }
 
+    /// Returns menu visibility.
     private func currentMenuVisibility(menuWidth: CGFloat) -> CGFloat {
         let visibleWidth = viewModel.isMenuOpen
             ? menuWidth + min(menuDragOffset, 0)
@@ -78,6 +80,7 @@ struct AppShellView: View {
         return max(0, min(visibleWidth / menuWidth, 1))
     }
 
+    /// Opens menu gesture.
     private func openMenuGesture(menuWidth: CGFloat) -> some Gesture {
         DragGesture(minimumDistance: 12)
             .updating($menuDragOffset) { value, state, _ in
@@ -94,6 +97,7 @@ struct AppShellView: View {
             }
     }
 
+    /// Handles close menu gesture.
     private func closeMenuGesture(menuWidth: CGFloat) -> some Gesture {
         DragGesture(minimumDistance: 12)
             .updating($menuDragOffset) { value, state, _ in
@@ -108,6 +112,7 @@ struct AppShellView: View {
             }
     }
 
+    /// Selects tab.
     private func selectTab(_ tab: AppTab) {
         coordinator.selectTab(tab)
         viewModel.closeMenu()

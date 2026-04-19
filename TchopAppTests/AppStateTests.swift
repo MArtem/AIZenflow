@@ -7,6 +7,7 @@ import TchopUIConfiguration
 /// Covers app session and navigation restore flows in root state.
 @MainActor
 final class AppStateTests: XCTestCase {
+    /// Verifies sign in updates current user.
     func testSignInUpdatesCurrentUser() throws {
         let expectedUser = AppUser(id: "user-1", username: "alice", createdAt: Date())
         let sessionService = TestUserSessionService(
@@ -32,6 +33,7 @@ final class AppStateTests: XCTestCase {
         XCTAssertEqual(state.currentUser, expectedUser)
     }
 
+    /// Verifies init restores persisted session.
     func testInitRestoresPersistedSession() {
         let restoredUser = AppUser(id: "user-2", username: "restored", createdAt: Date())
         let sessionService = TestUserSessionService(
@@ -53,6 +55,7 @@ final class AppStateTests: XCTestCase {
         XCTAssertEqual(state.currentUser, restoredUser)
     }
 
+    /// Verifies sign out clears user and resets shell state.
     func testSignOutClearsUserAndResetsShellState() {
         let restoredUser = AppUser(id: "user-3", username: "signed-in", createdAt: Date())
         let sessionService = TestUserSessionService(
@@ -92,6 +95,7 @@ final class AppStateTests: XCTestCase {
         XCTAssertEqual(sessionService.signOutCallCount, 1)
     }
 
+    /// Verifies init restores navigation snapshot when flag enabled.
     func testInitRestoresNavigationSnapshotWhenFlagEnabled() {
         let restoredUser = AppUser(
             id: "user-snapshot-enabled",
@@ -130,6 +134,7 @@ final class AppStateTests: XCTestCase {
         XCTAssertEqual(coordinator.chatRouter.path.count, 1)
     }
 
+    /// Verifies init does not restore snapshot when flag disabled.
     func testInitDoesNotRestoreSnapshotWhenFlagDisabled() {
         let restoredUser = AppUser(
             id: "user-snapshot-disabled",
@@ -168,6 +173,7 @@ final class AppStateTests: XCTestCase {
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
     }
 
+    /// Verifies sign in prioritizes pending deep link over snapshot restore.
     func testSignInPrioritizesPendingDeepLinkOverSnapshotRestore() throws {
         let signedInUser = AppUser(
             id: "user-priority",
@@ -210,6 +216,7 @@ final class AppStateTests: XCTestCase {
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
     }
 
+    /// Verifies init migrates and sanitizes snapshot before apply.
     func testInitMigratesAndSanitizesSnapshotBeforeApply() {
         let restoredUser = AppUser(
             id: "user-snapshot-migrate",
@@ -263,6 +270,7 @@ final class AppStateTests: XCTestCase {
         )
     }
 
+    /// Verifies init drops future snapshot version and resets navigation safely.
     func testInitDropsFutureSnapshotVersionAndResetsNavigationSafely() {
         let restoredUser = AppUser(
             id: "user-snapshot-future",
@@ -313,6 +321,7 @@ final class AppStateTests: XCTestCase {
 }
 
 @MainActor
+/// Creates shell view model.
 private func makeShellViewModel(isMenuOpen: Bool = false) -> AppShellViewModel {
     AppShellViewModel(
         contentRepository: TestAppContentRepository(),
@@ -331,6 +340,7 @@ private final class TestUserSessionService: UserSessionManaging {
 
     private(set) var signOutCallCount = 0
 
+    /// Creates a new TestUserSessionService instance.
     init(
         signInResult: Result<AppUser, Error>,
         restoreResult: Result<AppUser?, Error>
@@ -339,14 +349,17 @@ private final class TestUserSessionService: UserSessionManaging {
         self.restoreResult = restoreResult
     }
 
+    /// Signs sign in.
     func signIn(username: String) throws -> AppUser {
         try signInResult.get()
     }
 
+    /// Restores session.
     func restoreSession() throws -> AppUser? {
         try restoreResult.get()
     }
 
+    /// Signs sign out.
     func signOut() {
         signOutCallCount += 1
     }
@@ -360,18 +373,22 @@ private enum TestSessionError: Error {
 private final class TestUserRepository: UserRepository {
     private let user: AppUser
 
+    /// Creates a new TestUserRepository instance.
     init(user: AppUser) {
         self.user = user
     }
 
+    /// Handles find user.
     func findUser(username: String) throws -> AppUser? {
         user.username == username ? user : nil
     }
 
+    /// Handles find or create user.
     func findOrCreateUser(username: String) throws -> AppUser {
         user
     }
 
+    /// Updates navigation state restore enabled.
     func updateNavigationStateRestoreEnabled(
         userID: String,
         isEnabled: Bool
@@ -390,10 +407,12 @@ private final class TestNavigationStateManager: NavigationStateManaging {
     private var snapshots: [String: NavigationSnapshot] = [:]
     private(set) var clearCallCount = 0
 
+    /// Creates a new TestNavigationStateManager instance.
     init(seed: [String: NavigationSnapshot] = [:]) {
         self.snapshots = seed
     }
 
+    /// Saves snapshot.
     func saveSnapshot<Snapshot: Codable>(_ snapshot: Snapshot, for userID: String) {
         guard let typedSnapshot = snapshot as? NavigationSnapshot else {
             return
@@ -402,6 +421,7 @@ private final class TestNavigationStateManager: NavigationStateManaging {
         snapshots[userID] = typedSnapshot
     }
 
+    /// Restores snapshot.
     func restoreSnapshot<Snapshot: Codable>(for userID: String, as snapshotType: Snapshot.Type) -> Snapshot? {
         guard let snapshot = snapshots[userID] else {
             return nil
@@ -410,11 +430,13 @@ private final class TestNavigationStateManager: NavigationStateManaging {
         return snapshot as? Snapshot
     }
 
+    /// Clears snapshot.
     func clearSnapshot(for userID: String) {
         clearCallCount += 1
         snapshots[userID] = nil
     }
 
+    /// Handles snapshot.
     func snapshot(for userID: String) -> NavigationSnapshot? {
         snapshots[userID]
     }
@@ -422,10 +444,12 @@ private final class TestNavigationStateManager: NavigationStateManaging {
 
 @MainActor
 private final class TestDeepLinkManager: DeepLinkManaging {
+    /// Handles this operation.
     func handle(url: URL, coordinator: AppCoordinator) -> Bool {
         false
     }
 
+    /// Handles this operation.
     func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool {
         false
     }
@@ -434,6 +458,7 @@ private final class TestDeepLinkManager: DeepLinkManaging {
 @MainActor
 /// Verifies generic tab router stack operations.
 final class TabRouterTests: XCTestCase {
+    /// Verifies push append route to path.
     func testPushAppendRouteToPath() {
         let router = TabRouter<NewsRoute>()
 
@@ -449,6 +474,7 @@ final class TabRouterTests: XCTestCase {
         XCTAssertEqual(router.path.count, 1)
     }
 
+    /// Verifies pop removes last route only.
     func testPopRemovesLastRouteOnly() {
         let router = TabRouter<NewsRoute>()
         let firstRoute = NewsRoute(
@@ -470,6 +496,7 @@ final class TabRouterTests: XCTestCase {
         XCTAssertEqual(router.path, [firstRoute])
     }
 
+    /// Verifies pop to root clears entire path.
     func testPopToRootClearsEntirePath() {
         let router = TabRouter<MixesRoute>()
         router.replacePath(
@@ -490,6 +517,7 @@ final class TabRouterTests: XCTestCase {
 final class AppCoordinatorTests: XCTestCase {
     private var cancellables: Set<AnyCancellable> = []
 
+    /// Verifies select tab does not reset other tab paths.
     func testSelectTabDoesNotResetOtherTabPaths() {
         let coordinator = AppCoordinator()
         coordinator.newsRouter.push(
@@ -511,6 +539,7 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.chatRouter.path.count, 1)
     }
 
+    /// Verifies show tab root selects tab and clears only that tab path.
     func testShowTabRootSelectsTabAndClearsOnlyThatTabPath() {
         let coordinator = AppCoordinator(selectedTab: .profile)
         coordinator.newsRouter.push(
@@ -532,6 +561,7 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.newsRouter.path.count, 1)
     }
 
+    /// Verifies reset all navigation clears every tab path.
     func testResetAllNavigationClearsEveryTabPath() {
         let coordinator = AppCoordinator(selectedTab: .profile)
         coordinator.newsRouter.push(
@@ -557,6 +587,7 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.selectedTab, .profile)
     }
 
+    /// Verifies push transition is idempotent for equivalent route.
     func testPushTransitionIsIdempotentForEquivalentRoute() {
         let coordinator = AppCoordinator()
         let route = ChatRoute(title: "Support", description: "Room")
@@ -570,6 +601,7 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.chatRouter.path.count, 1)
     }
 
+    /// Verifies replace transition is idempotent for equivalent route.
     func testReplaceTransitionIsIdempotentForEquivalentRoute() {
         let coordinator = AppCoordinator()
         coordinator.navigateToProfile(
@@ -585,6 +617,7 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.profileRouter.path.count, 1)
     }
 
+    /// Verifies navigation changes publisher emits for selected tab and path changes.
     func testNavigationChangesPublisherEmitsForSelectedTabAndPathChanges() {
         let coordinator = AppCoordinator()
         var emissionCount = 0
@@ -605,6 +638,7 @@ final class AppCoordinatorTests: XCTestCase {
 @MainActor
 /// Verifies deep/universal link routing into navigation destinations.
 final class DeepLinkManagerTests: XCTestCase {
+    /// Verifies custom scheme discussion link routes to news discussion.
     func testCustomSchemeDiscussionLinkRoutesToNewsDiscussion() {
         let coordinator = AppCoordinator()
         let manager = DeepLinkManager()
@@ -620,6 +654,7 @@ final class DeepLinkManagerTests: XCTestCase {
         XCTAssertEqual(coordinator.newsRouter.path.first?.title, "Debate")
     }
 
+    /// Verifies universal link routes to profile detail.
     func testUniversalLinkRoutesToProfileDetail() {
         let coordinator = AppCoordinator()
         let manager = DeepLinkManager()
@@ -634,6 +669,7 @@ final class DeepLinkManagerTests: XCTestCase {
         XCTAssertEqual(coordinator.profileRouter.path.first?.title, "Settings")
     }
 
+    /// Verifies invalid in app link falls back to news root.
     func testInvalidInAppLinkFallsBackToNewsRoot() {
         let coordinator = AppCoordinator(selectedTab: .profile)
         coordinator.profileRouter.push(
@@ -651,6 +687,7 @@ final class DeepLinkManagerTests: XCTestCase {
         XCTAssertTrue(coordinator.newsRouter.path.isEmpty)
     }
 
+    /// Verifies unsupported universal host is rejected.
     func testUnsupportedUniversalHostIsRejected() {
         let coordinator = AppCoordinator()
         let manager = DeepLinkManager()
@@ -665,6 +702,7 @@ final class DeepLinkManagerTests: XCTestCase {
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
     }
 
+    /// Verifies transition push adds stack entry for deep link.
     func testTransitionPushAddsStackEntryForDeepLink() {
         let coordinator = AppCoordinator()
         let manager = DeepLinkManager()
@@ -681,6 +719,7 @@ final class DeepLinkManagerTests: XCTestCase {
         XCTAssertEqual(coordinator.chatRouter.path.count, 2)
     }
 
+    /// Verifies tab root deep link resets existing tab stack.
     func testTabRootDeepLinkResetsExistingTabStack() {
         let coordinator = AppCoordinator(selectedTab: .profile)
         coordinator.profileRouter.push(

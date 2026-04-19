@@ -2,6 +2,7 @@ import XCTest
 @testable import TchopUIConfiguration
 
 final class TchopUIConfigurationTests: XCTestCase {
+    /// Verifies mock provider returns configured snapshot.
     func testMockProviderReturnsConfiguredSnapshot() async throws {
         let snapshot = UIConfigurationSnapshot(
             shell: ShellUIConfiguration(showsFloatingActionButton: false)
@@ -18,6 +19,7 @@ final class TchopUIConfigurationTests: XCTestCase {
         XCTAssertEqual(result, snapshot)
     }
 
+    /// Verifies manager returns fallback snapshot before refresh.
     func testManagerReturnsFallbackSnapshotBeforeRefresh() async {
         let fallbackSnapshot = UIConfigurationSnapshot(
             shell: ShellUIConfiguration(showsFloatingActionButton: true)
@@ -37,6 +39,7 @@ final class TchopUIConfigurationTests: XCTestCase {
         XCTAssertEqual(currentSnapshot, fallbackSnapshot)
     }
 
+    /// Verifies manager refresh persists snapshot to store.
     func testManagerRefreshPersistsSnapshotToStore() async throws {
         let snapshot = UIConfigurationSnapshot(
             shell: ShellUIConfiguration(showsFloatingActionButton: false)
@@ -57,6 +60,7 @@ final class TchopUIConfigurationTests: XCTestCase {
         XCTAssertEqual(persistedSnapshot, snapshot)
     }
 
+    /// Verifies manager bootstraps current snapshot from store.
     func testManagerBootstrapsCurrentSnapshotFromStore() async {
         let snapshot = UIConfigurationSnapshot(
             shell: ShellUIConfiguration(showsFloatingActionButton: false)
@@ -76,18 +80,22 @@ final class TchopUIConfigurationTests: XCTestCase {
 private final class InMemoryUIConfigurationSnapshotStore: @unchecked Sendable, UIConfigurationSnapshotStoring {
     private var snapshot: UIConfigurationSnapshot?
 
+    /// Creates a new InMemoryUIConfigurationSnapshotStore instance.
     init(snapshot: UIConfigurationSnapshot? = nil) {
         self.snapshot = snapshot
     }
 
+    /// Saves this operation.
     func save(_ snapshot: UIConfigurationSnapshot) throws {
         self.snapshot = snapshot
     }
 
+    /// Loads this operation.
     func load() throws -> UIConfigurationSnapshot? {
         snapshot
     }
 
+    /// Clears this operation.
     func clear() throws {
         snapshot = nil
     }

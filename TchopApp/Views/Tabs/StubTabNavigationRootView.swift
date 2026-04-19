@@ -27,6 +27,7 @@ struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {
         )
     }
 
+    /// Opens sample.
     private func openSample() {
         router.push(sampleRoute)
     }

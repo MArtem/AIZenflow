@@ -6,11 +6,13 @@ import TchopNavigation
 final class DeepLinkManager: DeepLinkManaging {
     private let eventReporter: any NavigationEventReporting
 
+    /// Creates a new DeepLinkManager instance.
     init(eventReporter: (any NavigationEventReporting)? = nil) {
         self.eventReporter = eventReporter ?? NavigationNoopEventReporter()
     }
 
     @discardableResult
+    /// Handles this operation.
     func handle(url: URL, coordinator: AppCoordinator) -> Bool {
         let urlString = url.absoluteString
         switch parseIntent(from: url) {
@@ -35,6 +37,7 @@ final class DeepLinkManager: DeepLinkManaging {
     }
 
     @discardableResult
+    /// Handles this operation.
     func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool {
         guard let webpageURL = userActivity.webpageURL else {
             return false
@@ -43,6 +46,7 @@ final class DeepLinkManager: DeepLinkManaging {
         return handle(url: webpageURL, coordinator: coordinator)
     }
 
+    /// Parses intent.
     private func parseIntent(from url: URL) -> DeepLinkParseResult {
         guard let components = URLComponents(url: url, resolvingAgainstBaseURL: false) else {
             return .unsupported
@@ -56,6 +60,7 @@ final class DeepLinkManager: DeepLinkManaging {
         return parseUniversalLinkIntent(components: components)
     }
 
+    /// Parses custom scheme intent.
     private func parseCustomSchemeIntent(components: URLComponents) -> DeepLinkParseResult {
         guard let host = components.host else {
             return .invalidInAppLink(reason: "missing-host")
@@ -68,6 +73,7 @@ final class DeepLinkManager: DeepLinkManaging {
         return buildIntent(pathSegments: segments, queryItems: components.queryItems ?? [])
     }
 
+    /// Parses universal link intent.
     private func parseUniversalLinkIntent(components: URLComponents) -> DeepLinkParseResult {
         guard let host = components.host?.lowercased(), host == "example.com" || host == "www.example.com" else {
             return .unsupported
@@ -79,6 +85,7 @@ final class DeepLinkManager: DeepLinkManaging {
         return buildIntent(pathSegments: pathSegments, queryItems: components.queryItems ?? [])
     }
 
+    /// Builds intent.
     private func buildIntent(
         pathSegments: [String],
         queryItems: [URLQueryItem]
@@ -108,6 +115,7 @@ final class DeepLinkManager: DeepLinkManaging {
         }
     }
 
+    /// Builds news intent.
     private func buildNewsIntent(
         pathSegments: [String],
         queryItems: [URLQueryItem],
@@ -183,6 +191,7 @@ final class DeepLinkManager: DeepLinkManaging {
         )
     }
 
+    /// Builds mixes intent.
     private func buildMixesIntent(
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
@@ -203,6 +212,7 @@ final class DeepLinkManager: DeepLinkManaging {
         )
     }
 
+    /// Builds pinned intent.
     private func buildPinnedIntent(
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
@@ -223,6 +233,7 @@ final class DeepLinkManager: DeepLinkManaging {
         )
     }
 
+    /// Builds chat intent.
     private func buildChatIntent(
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
@@ -243,6 +254,7 @@ final class DeepLinkManager: DeepLinkManaging {
         )
     }
 
+    /// Builds profile intent.
     private func buildProfileIntent(
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
@@ -263,6 +275,7 @@ final class DeepLinkManager: DeepLinkManaging {
         )
     }
 
+    /// Applies this operation.
     private func apply(_ intent: DeepLinkIntent, coordinator: AppCoordinator) {
         switch intent.destination {
         case let .tab(tab):
@@ -288,6 +301,7 @@ final class DeepLinkManager: DeepLinkManaging {
         }
     }
 
+    /// Handles query value.
     private func queryValue(_ name: String, _ items: [URLQueryItem]) -> String? {
         guard let value = items.first(where: { $0.name == name })?.value?.trimmingCharacters(in: .whitespacesAndNewlines),
               !value.isEmpty else {
@@ -296,10 +310,12 @@ final class DeepLinkManager: DeepLinkManaging {
         return value
     }
 
+    /// Handles required query value.
     private func requiredQueryValue(_ name: String, _ items: [URLQueryItem]) -> String? {
         queryValue(name, items)
     }
 
+    /// Parses transition policy.
     private func parseTransitionPolicy(queryItems: [URLQueryItem]) -> NavigationTransitionPolicy {
         guard let rawValue = queryValue("transition", queryItems)?.lowercased() else {
             return .replace

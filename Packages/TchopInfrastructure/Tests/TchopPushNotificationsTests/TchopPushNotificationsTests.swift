@@ -4,6 +4,7 @@ import Testing
 
 struct TchopPushNotificationsTests {
     @Test
+    /// Handles device token formats as lowercase hex.
     func deviceTokenFormatsAsLowercaseHex() {
         let token = APNsDeviceToken(data: Data([0xDE, 0xAD, 0xBE, 0xEF]))
 
@@ -11,6 +12,7 @@ struct TchopPushNotificationsTests {
     }
 
     @Test
+    /// Handles default parser extracts alert and custom data.
     func defaultParserExtractsAlertAndCustomData() {
         let parser = DefaultPushNotificationPayloadParser()
         let payload = parser.parse(
@@ -38,6 +40,7 @@ struct TchopPushNotificationsTests {
     }
 
     @Test
+    /// Handles manager persists token and opened payload.
     func managerPersistsTokenAndOpenedPayload() async throws {
         let suiteName = "TchopPushNotificationsTests.\(UUID().uuidString)"
         let userDefaults = try #require(UserDefaults(suiteName: suiteName))

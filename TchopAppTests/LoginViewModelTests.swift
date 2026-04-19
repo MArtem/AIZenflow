@@ -4,6 +4,7 @@ import XCTest
 /// Validates login form state and submission behavior.
 @MainActor
 final class LoginViewModelTests: XCTestCase {
+    /// Verifies submit with empty username shows validation error.
     func testSubmitWithEmptyUsernameShowsValidationError() {
         let viewModel = LoginViewModel { _ in }
         viewModel.username = "   "
@@ -16,6 +17,7 @@ final class LoginViewModelTests: XCTestCase {
         )
     }
 
+    /// Verifies submit trims whitespace before login.
     func testSubmitTrimsWhitespaceBeforeLogin() {
         var capturedUsername: String?
         let viewModel = LoginViewModel { username in
@@ -29,6 +31,7 @@ final class LoginViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.errorMessage)
     }
 
+    /// Verifies submit shows generic error when login fails.
     func testSubmitShowsGenericErrorWhenLoginFails() {
         let viewModel = LoginViewModel { _ in
             throw TestLoginError.failed

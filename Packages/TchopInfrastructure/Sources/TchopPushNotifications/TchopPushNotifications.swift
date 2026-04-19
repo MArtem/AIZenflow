@@ -20,10 +20,12 @@ public enum PushNotificationEventSource: String, Codable, Equatable, Sendable {
 public struct APNsDeviceToken: Codable, Equatable, Sendable {
     public let value: String
 
+    /// Creates a new APNsDeviceToken instance.
     public init(value: String) {
         self.value = value
     }
 
+    /// Creates a new APNsDeviceToken instance.
     public init(data: Data) {
         self.value = data.map { String(format: "%02x", $0) }.joined()
     }
@@ -38,6 +40,7 @@ public struct PushNotificationPayload: Codable, Equatable, Sendable {
     public let sound: String?
     public let customData: [String: String]
 
+    /// Creates a new PushNotificationPayload instance.
     public init(
         source: PushNotificationEventSource,
         title: String?,
@@ -64,6 +67,7 @@ public struct PushNotificationState: Codable, Equatable, Sendable {
     public let lastReceivedPayload: PushNotificationPayload?
     public let lastOpenedPayload: PushNotificationPayload?
 
+    /// Creates a new PushNotificationState instance.
     public init(
         authorizationStatus: PushNotificationAuthorizationStatus = .notDetermined,
         isRegisteredForRemoteNotifications: Bool = false,
@@ -83,13 +87,17 @@ public struct PushNotificationState: Codable, Equatable, Sendable {
 
 /// Store abstraction that keeps the reusable push state independent from the host app.
 public protocol PushNotificationStateStoring: Sendable {
+    /// Saves this operation.
     func save(_ state: PushNotificationState) throws
+    /// Loads this operation.
     func load() throws -> PushNotificationState?
+    /// Clears this operation.
     func clear() throws
 }
 
 /// Payload parser abstraction for host apps that may need a custom APNs contract later.
 public protocol PushNotificationPayloadParsing: Sendable {
+    /// Parses this operation.
     func parse(
         userInfo: [AnyHashable: Any],
         source: PushNotificationEventSource
@@ -98,12 +106,19 @@ public protocol PushNotificationPayloadParsing: Sendable {
 
 /// Public manager contract consumed by the app composition layer.
 public protocol PushNotificationManaging: Sendable {
+    /// Returns state.
     func currentState() async -> PushNotificationState
+    /// Updates authorization status.
     func updateAuthorizationStatus(_ status: PushNotificationAuthorizationStatus) async throws -> PushNotificationState
+    /// Updates remote registration.
     func updateRemoteRegistration(isRegistered: Bool) async throws -> PushNotificationState
+    /// Handles device token.
     func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState
+    /// Handles registration failure.
     func handleRegistrationFailure(_ errorDescription: String) async throws -> PushNotificationState
+    /// Handles remote notification.
     func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload
+    /// Clears state.
     func clearState() async throws
 }
 
@@ -117,6 +132,7 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
     private let userDefaults: UserDefaults
     private let storageKey: String
 
+    /// Creates a new UserDefaultsPushNotificationStateStore instance.
     public init(
         userDefaults: UserDefaults,
         storageKey: String = "push-notifications.state"
@@ -125,6 +141,7 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
         self.storageKey = storageKey
     }
 
+    /// Creates a new UserDefaultsPushNotificationStateStore instance.
     public convenience init(
         suiteName: String,
         storageKey: String = "push-notifications.state"
@@ -136,11 +153,13 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
         self.init(userDefaults: userDefaults, storageKey: storageKey)
     }
 
+    /// Saves this operation.
     public func save(_ state: PushNotificationState) throws {
         let data = try JSONEncoder().encode(state)
         userDefaults.set(data, forKey: storageKey)
     }
 
+    /// Loads this operation.
     public func load() throws -> PushNotificationState? {
         guard let data = userDefaults.data(forKey: storageKey) else {
             return nil
@@ -149,6 +168,7 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
         return try JSONDecoder().decode(PushNotificationState.self, from: data)
     }
 
+    /// Clears this operation.
     public func clear() throws {
         userDefaults.removeObject(forKey: storageKey)
     }
@@ -156,8 +176,10 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
 
 /// Default parser that normalizes APNs payloads into a reusable model.
 public struct DefaultPushNotificationPayloadParser: PushNotificationPayloadParsing {
+    /// Creates a new DefaultPushNotificationPayloadParser instance.
     public init() {}
 
+    /// Parses this operation.
     public func parse(
         userInfo: [AnyHashable: Any],
         source: PushNotificationEventSource
@@ -240,6 +262,7 @@ public actor PushNotificationManager: PushNotificationManaging {
     private let store: any PushNotificationStateStoring
     private var state: PushNotificationState
 
+    /// Creates a new PushNotificationManager instance.
     public init(
         store: any PushNotificationStateStoring
     ) {
@@ -247,10 +270,12 @@ public actor PushNotificationManager: PushNotificationManaging {
         self.state = (try? store.load()) ?? PushNotificationState()
     }
 
+    /// Returns state.
     public func currentState() async -> PushNotificationState {
         state
     }
 
+    /// Updates authorization status.
     public func updateAuthorizationStatus(_ status: PushNotificationAuthorizationStatus) async throws -> PushNotificationState {
         state = PushNotificationState(
             authorizationStatus: status,
@@ -264,6 +289,7 @@ public actor PushNotificationManager: PushNotificationManaging {
         return state
     }
 
+    /// Updates remote registration.
     public func updateRemoteRegistration(isRegistered: Bool) async throws -> PushNotificationState {
         state = PushNotificationState(
             authorizationStatus: state.authorizationStatus,
@@ -277,6 +303,7 @@ public actor PushNotificationManager: PushNotificationManaging {
         return state
     }
 
+    /// Handles device token.
     public func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState {
         state = PushNotificationState(
             authorizationStatus: state.authorizationStatus,
@@ -290,6 +317,7 @@ public actor PushNotificationManager: PushNotificationManaging {
         return state
     }
 
+    /// Handles registration failure.
     public func handleRegistrationFailure(_ errorDescription: String) async throws -> PushNotificationState {
         state = PushNotificationState(
             authorizationStatus: state.authorizationStatus,
@@ -303,6 +331,7 @@ public actor PushNotificationManager: PushNotificationManaging {
         return state
     }
 
+    /// Handles remote notification.
     public func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload {
         state = PushNotificationState(
             authorizationStatus: state.authorizationStatus,
@@ -316,11 +345,13 @@ public actor PushNotificationManager: PushNotificationManaging {
         return payload
     }
 
+    /// Clears state.
     public func clearState() async throws {
         state = PushNotificationState()
         try store.clear()
     }
 
+    /// Handles persist state.
     private func persistState() throws {
         try store.save(state)
     }

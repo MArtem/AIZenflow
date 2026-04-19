@@ -3,6 +3,7 @@ import XCTest
 
 /// Verifies local cache manager behavior for memory and file backends.
 final class TchopCacheTests: XCTestCase {
+    /// Verifies in memory cache stores and reads value.
     func testInMemoryCacheStoresAndReadsValue() async throws {
         let cache = InMemoryLocalCacheManager()
 
@@ -12,6 +13,7 @@ final class TchopCacheTests: XCTestCase {
         XCTAssertEqual(value, "value-1")
     }
 
+    /// Verifies in memory cache expires value.
     func testInMemoryCacheExpiresValue() async throws {
         let cache = InMemoryLocalCacheManager(dateProvider: { Date(timeIntervalSince1970: 200) })
 
@@ -25,6 +27,7 @@ final class TchopCacheTests: XCTestCase {
         XCTAssertNil(value)
     }
 
+    /// Verifies file cache persists value across instances.
     func testFileCachePersistsValueAcrossInstances() async throws {
         let directory = try makeTemporaryDirectory()
         defer { try? FileManager.default.removeItem(at: directory) }
@@ -38,6 +41,7 @@ final class TchopCacheTests: XCTestCase {
         XCTAssertEqual(value, ["a", "b"])
     }
 
+    /// Verifies file cache remove and clear.
     func testFileCacheRemoveAndClear() async throws {
         let directory = try makeTemporaryDirectory()
         defer { try? FileManager.default.removeItem(at: directory) }
@@ -55,6 +59,7 @@ final class TchopCacheTests: XCTestCase {
         XCTAssertNil(remaining)
     }
 
+    /// Verifies cache rejects empty key.
     func testCacheRejectsEmptyKey() async throws {
         let cache = InMemoryLocalCacheManager()
 
@@ -66,6 +71,7 @@ final class TchopCacheTests: XCTestCase {
         }
     }
 
+    /// Creates temporary directory.
     private func makeTemporaryDirectory() throws -> URL {
         let directory = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)

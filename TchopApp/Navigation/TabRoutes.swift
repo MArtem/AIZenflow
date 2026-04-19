@@ -9,6 +9,7 @@ struct NewsRoute: Hashable, Identifiable, Codable {
     let bodyText: String
     let accentLabel: String?
 
+    /// Creates a new NewsRoute instance.
     init(
         id: UUID = UUID(),
         destinationID: String,
@@ -32,6 +33,7 @@ struct MixesRoute: Hashable, Identifiable, Codable {
     let title: String
     let description: String
 
+    /// Creates a new MixesRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title
@@ -45,6 +47,7 @@ struct PinnedRoute: Hashable, Identifiable, Codable {
     let title: String
     let description: String
 
+    /// Creates a new PinnedRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title
@@ -58,6 +61,7 @@ struct ChatRoute: Hashable, Identifiable, Codable {
     let title: String
     let description: String
 
+    /// Creates a new ChatRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title
@@ -71,6 +75,7 @@ struct ProfileRoute: Hashable, Identifiable, Codable {
     let title: String
     let description: String
 
+    /// Creates a new ProfileRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title

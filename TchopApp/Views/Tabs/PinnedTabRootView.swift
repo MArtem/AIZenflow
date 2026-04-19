@@ -28,6 +28,7 @@ struct PinnedTabRootView: View {
         )
     }
 
+    /// Opens quick action.
     private func openQuickAction(_ action: FeatureQuickAction) {
         router.push(
             PinnedRoute(
@@ -41,6 +42,7 @@ struct PinnedTabRootView: View {
         )
     }
 
+    /// Opens item.
     private func openItem(_ item: FeatureTabItem) {
         router.push(
             PinnedRoute(

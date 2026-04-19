@@ -5,17 +5,22 @@ import TchopWidgets
 /// App-facing contract that synchronizes feed data into widget storage.
 @MainActor
 protocol WidgetContentSyncing {
+    /// Synchronizes feed.
     func syncFeed(content: NewsFeedContent)
+    /// Clears feed.
     func clearFeed()
 }
 
 /// No-op implementation used where widget synchronization is unavailable or unnecessary.
 @MainActor
 final class NoopWidgetContentSyncManager: WidgetContentSyncing {
+    /// Creates a new NoopWidgetContentSyncManager instance.
     init() {}
 
+    /// Synchronizes feed.
     func syncFeed(content: NewsFeedContent) {}
 
+    /// Clears feed.
     func clearFeed() {}
 }
 
@@ -24,10 +29,12 @@ final class NoopWidgetContentSyncManager: WidgetContentSyncing {
 final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
     private let snapshotManager: any FeedHeadlineWidgetSnapshotManaging
 
+    /// Creates a new FeedHeadlineWidgetSyncManager instance.
     init(snapshotManager: any FeedHeadlineWidgetSnapshotManaging) {
         self.snapshotManager = snapshotManager
     }
 
+    /// Synchronizes feed.
     func syncFeed(content: NewsFeedContent) {
         guard let headline = Self.resolveHeadline(from: content) else {
             return
@@ -41,6 +48,7 @@ final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
         }
     }
 
+    /// Clears feed.
     func clearFeed() {
         do {
             try snapshotManager.clear()

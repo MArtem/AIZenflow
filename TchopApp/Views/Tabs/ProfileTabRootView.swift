@@ -89,6 +89,7 @@ struct ProfileTabRootView: View {
         return value.isEmpty ? "U" : value.uppercased()
     }
 
+    /// Opens profile details.
     private func openProfileDetails() {
         router.push(
             ProfileRoute(

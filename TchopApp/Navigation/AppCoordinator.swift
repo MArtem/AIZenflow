@@ -164,6 +164,7 @@ final class AppCoordinator: ObservableObject {
         )
     }
 
+    /// Applies transition.
     private func applyTransition<Route: Hashable>(
         route: Route,
         policy: NavigationTransitionPolicy,

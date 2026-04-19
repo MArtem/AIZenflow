@@ -3,6 +3,7 @@ import XCTest
 
 /// Validates networking client behavior, retry logic, and offline queue durability.
 final class TchopNetworkingTests: XCTestCase {
+    /// Verifies mock manager returns stubbed value.
     func testMockManagerReturnsStubbedValue() async throws {
         let manager = MockAPIManager()
         let request = APIRequest<String>(
@@ -15,6 +16,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(response, "ok")
     }
 
+    /// Verifies cancellation token cancels request.
     func testCancellationTokenCancelsRequest() async {
         let manager = APIManager(configuration: .stub)
         let token = APICancellationToken()
@@ -38,6 +40,7 @@ final class TchopNetworkingTests: XCTestCase {
         }
     }
 
+    /// Verifies authentication interceptor injects headers.
     func testAuthenticationInterceptorInjectsHeaders() async throws {
         let interceptor = APIAuthenticationInterceptor(
             provider: TestAuthenticationProvider(headers: ["Authorization": "Bearer token"])
@@ -49,6 +52,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(preparedRequest.value(forHTTPHeaderField: "Authorization"), "Bearer token")
     }
 
+    /// Verifies offline queue drains only when connected.
     func testOfflineQueueDrainsOnlyWhenConnected() async {
         let queue = APIOfflineRequestQueue()
         let recorder = InvocationRecorder()
@@ -69,6 +73,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(remainingOperations, 0)
     }
 
+    /// Verifies mock manager download writes stubbed data.
     func testMockManagerDownloadWritesStubbedData() async throws {
         let manager = MockAPIManager()
         let destinationURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
@@ -87,6 +92,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(String(decoding: data, as: UTF8.self), "payload")
     }
 
+    /// Verifies upload respects cancelled token before starting.
     func testUploadRespectsCancelledTokenBeforeStarting() async {
         let manager = MockAPIManager()
         let token = APICancellationToken()
@@ -115,6 +121,7 @@ final class TchopNetworkingTests: XCTestCase {
         }
     }
 
+    /// Verifies download respects cancelled token before writing file.
     func testDownloadRespectsCancelledTokenBeforeWritingFile() async {
         let manager = MockAPIManager()
         let token = APICancellationToken()
@@ -143,6 +150,7 @@ final class TchopNetworkingTests: XCTestCase {
         }
     }
 
+    /// Verifies authorization refresh interceptor refreshes and retries request.
     func testAuthorizationRefreshInterceptorRefreshesAndRetriesRequest() async throws {
         URLProtocolStub.reset()
         URLProtocolStub.requestHandler = { request in
@@ -195,6 +203,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(requests.last?.value(forHTTPHeaderField: "Authorization"), "Bearer new-token")
     }
 
+    /// Verifies request allows custom valid status codes.
     func testRequestAllowsCustomValidStatusCodes() async throws {
         URLProtocolStub.reset()
         URLProtocolStub.requestHandler = { request in
@@ -224,6 +233,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(response, APIEmptyResponse())
     }
 
+    /// Verifies apimanager uses custom error mapper for non apierrors.
     func testAPIManagerUsesCustomErrorMapperForNonAPIErrors() async {
         struct SyntheticError: Error {}
 
@@ -246,6 +256,7 @@ final class TchopNetworkingTests: XCTestCase {
         }
     }
 
+    /// Verifies apimanager uses retry context surface.
     func testAPIManagerUsesRetryContextSurface() async throws {
         URLProtocolStub.reset()
         var responseCounter = 0
@@ -295,6 +306,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(contexts.first?.attempt, 0)
     }
 
+    /// Verifies apimanager emits retry scheduled for invalid status code branch.
     func testAPIManagerEmitsRetryScheduledForInvalidStatusCodeBranch() async throws {
         URLProtocolStub.reset()
         var responseCounter = 0
@@ -347,6 +359,7 @@ final class TchopNetworkingTests: XCTestCase {
         )
     }
 
+    /// Verifies persisted offline queue stores and reloads entries.
     func testPersistedOfflineQueueStoresAndReloadsEntries() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -366,6 +379,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(pendingCount, 2)
     }
 
+    /// Verifies persisted offline queue drains only when connected.
     func testPersistedOfflineQueueDrainsOnlyWhenConnected() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -402,6 +416,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(connectedPendingCount, 0)
     }
 
+    /// Verifies persisted offline queue moves failed entries to dead letters.
     func testPersistedOfflineQueueMovesFailedEntriesToDeadLetters() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -435,6 +450,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(finalDeadLetters.first?.attempts, 2)
     }
 
+    /// Verifies persisted offline queue does not drop entries enqueued during drain.
     func testPersistedOfflineQueueDoesNotDropEntriesEnqueuedDuringDrain() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -481,6 +497,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(finalExecutedPayloads, ["first", "second"])
     }
 
+    /// Verifies persisted offline queue reloads dead letters.
     func testPersistedOfflineQueueReloadsDeadLetters() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -509,6 +526,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(reloadedDeadLetters.first?.payload, "dead-letter")
     }
 
+    /// Verifies persisted offline queue drain report and snapshot expose diagnostics.
     func testPersistedOfflineQueueDrainReportAndSnapshotExposeDiagnostics() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -562,6 +580,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertNotNil(finalSnapshot.oldestDeadLetterCreatedAt)
     }
 
+    /// Verifies metrics interceptor captures lifecycle events.
     func testMetricsInterceptorCapturesLifecycleEvents() async throws {
         let collector = TestMetricsCollector()
         let interceptor = APIMetricsInterceptor(collector: collector)
@@ -628,6 +647,7 @@ final class TchopNetworkingTests: XCTestCase {
         )
     }
 
+    /// Verifies logging interceptor redacts sensitive headers and query values.
     func testLoggingInterceptorRedactsSensitiveHeadersAndQueryValues() async throws {
         let logs = LogRecorder()
         let interceptor = APILoggingInterceptor(
@@ -660,6 +680,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertTrue(joined.contains("X-Trace-Id=trace-123"))
     }
 
+    /// Verifies file offline queue store recovers from corrupted payload when policy is recover to empty.
     func testFileOfflineQueueStoreRecoversFromCorruptedPayloadWhenPolicyIsRecoverToEmpty() async throws {
         let fileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -680,6 +701,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(snapshot.pendingCount, 0)
     }
 
+    /// Verifies file offline queue store recover to empty does not mask non decoding read errors.
     func testFileOfflineQueueStoreRecoverToEmptyDoesNotMaskNonDecodingReadErrors() throws {
         let directoryURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-dir-\(UUID().uuidString)")
@@ -694,6 +716,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertThrowsError(try store.loadEntries())
     }
 
+    /// Verifies persisted offline queue can export and import diagnostics payload.
     func testPersistedOfflineQueueCanExportAndImportDiagnosticsPayload() async throws {
         let sourceFileURL = FileManager.default.temporaryDirectory
             .appendingPathComponent("offline-queue-\(UUID().uuidString).json")
@@ -735,6 +758,7 @@ final class TchopNetworkingTests: XCTestCase {
 private struct TestAuthenticationProvider: APIAuthenticationProviding {
     let headers: [String: String]
 
+    /// Handles authorization headers.
     func authorizationHeaders() async throws -> [String: String] {
         headers
     }
@@ -744,10 +768,12 @@ private actor InvocationRecorder {
     private(set) var invocationCount = 0
     private(set) var payloads: [String] = []
 
+    /// Handles record invocation.
     func recordInvocation() {
         invocationCount += 1
     }
 
+    /// Handles record payload.
     func recordPayload(_ payload: String) {
         invocationCount += 1
         payloads.append(payload)
@@ -757,6 +783,7 @@ private actor InvocationRecorder {
 private actor TestMetricsCollector: APIMetricsCollecting {
     private(set) var events: [APIMetricsEvent] = []
 
+    /// Handles record.
     func record(_ event: APIMetricsEvent) async {
         events.append(event)
     }
@@ -765,6 +792,7 @@ private actor TestMetricsCollector: APIMetricsCollecting {
 private struct StaticErrorMapper: APIErrorMapping {
     let error: APIError
 
+    /// Maps this operation.
     func map(_ error: Error) -> APIError {
         self.error
     }
@@ -773,6 +801,7 @@ private struct StaticErrorMapper: APIErrorMapping {
 private actor RetryContextRecorder {
     private(set) var contexts: [APIRetryContext] = []
 
+    /// Handles record.
     func record(_ context: APIRetryContext) {
         contexts.append(context)
     }
@@ -781,10 +810,12 @@ private actor RetryContextRecorder {
 private actor LogRecorder {
     private var values: [String] = []
 
+    /// Handles append.
     func append(_ value: String) {
         values.append(value)
     }
 
+    /// Handles joined.
     func joined() -> String {
         values.joined(separator: "\n")
     }
@@ -793,6 +824,7 @@ private actor LogRecorder {
 private struct ContextDrivenRetryInterceptor: APIRequestIntercepting {
     let recorder: RetryContextRecorder
 
+    /// Handles retry directive.
     func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
         await recorder.record(context)
         if context.attempt == 0, case .invalidStatusCode(500) = context.error {
@@ -801,12 +833,14 @@ private struct ContextDrivenRetryInterceptor: APIRequestIntercepting {
         return .doNotRetry
     }
 
+    /// Handles retry directive.
     func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
         .doNotRetry
     }
 }
 
 private struct RetryOnFirst500Interceptor: APIRequestIntercepting {
+    /// Handles retry directive.
     func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
         if context.attempt == 0, context.error == .invalidStatusCode(500) {
             return .retry(afterNanoseconds: 0)
@@ -820,6 +854,7 @@ private actor DrainExecutionControl {
     private var startedContinuation: CheckedContinuation<Void, Never>?
     private var resumeContinuation: CheckedContinuation<Void, Never>?
 
+    /// Waits until until started.
     func waitUntilStarted() async {
         if hasStarted {
             return
@@ -829,6 +864,7 @@ private actor DrainExecutionControl {
         }
     }
 
+    /// Handles signal started and wait for resume.
     func signalStartedAndWaitForResume() async {
         if !hasStarted {
             hasStarted = true
@@ -841,12 +877,14 @@ private actor DrainExecutionControl {
         }
     }
 
+    /// Handles resume.
     func resume() {
         resumeContinuation?.resume()
         resumeContinuation = nil
     }
 }
 
+/// Removes offline queue artifacts.
 private func removeOfflineQueueArtifacts(at fileURL: URL) {
     try? FileManager.default.removeItem(at: fileURL)
     let deadLetterURL = fileURL.deletingPathExtension()
@@ -859,15 +897,18 @@ private actor RefreshingTestAuthenticationProvider: APIAuthenticationRefreshing 
     private var headers: [String: String]
     private let refreshedHeaders: [String: String]
 
+    /// Creates a new RefreshingTestAuthenticationProvider instance.
     init(initialHeaders: [String: String], refreshedHeaders: [String: String]) {
         self.headers = initialHeaders
         self.refreshedHeaders = refreshedHeaders
     }
 
+    /// Handles authorization headers.
     func authorizationHeaders() async throws -> [String: String] {
         headers
     }
 
+    /// Handles refresh authorization headers.
     func refreshAuthorizationHeaders() async throws -> [String: String] {
         headers = refreshedHeaders
         return headers
@@ -891,6 +932,7 @@ private final class URLProtocolStub: URLProtocol {
         request
     }
 
+    /// Handles start loading.
     override func startLoading() {
         guard let handler = URLProtocolStub.requestHandler else {
             client?.urlProtocol(self, didFailWithError: APIError.transportFailure("Missing request handler"))
@@ -908,5 +950,6 @@ private final class URLProtocolStub: URLProtocol {
         }
     }
 
+    /// Handles stop loading.
     override func stopLoading() {}
 }

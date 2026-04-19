@@ -14,6 +14,7 @@ struct AppUser: Equatable, Identifiable {
     /// Whether navigation state restore is enabled for this user profile.
     let isNavigationStateRestoreEnabled: Bool
 
+    /// Creates a new AppUser instance.
     init(
         id: String,
         username: String,

@@ -9,6 +9,7 @@ private final class SwiftDataTestRecord {
     @Attribute(.unique) var id: String
     var title: String
 
+    /// Creates a new SwiftDataTestRecord instance.
     init(id: String, title: String) {
         self.id = id
         self.title = title
@@ -19,6 +20,7 @@ private final class SwiftDataTestRecord {
 final class TchopDatabaseTests: XCTestCase {
     /// Verifies that the SwiftData manager executes the backend-neutral read/write contract.
     @available(iOS 17, macOS 14, *)
+    /// Verifies swift data manager can insert and fetch through unified contract.
     func testSwiftDataManagerCanInsertAndFetchThroughUnifiedContract() throws {
         let schema = Schema([SwiftDataTestRecord.self])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
@@ -128,6 +130,7 @@ final class TchopDatabaseTests: XCTestCase {
 
     /// Verifies that the service factory selects the requested backend correctly.
     @available(iOS 17, macOS 14, *)
+    /// Verifies database factory creates swift data manager when requested.
     func testDatabaseFactoryCreatesSwiftDataManagerWhenRequested() throws {
         let manager = try DatabaseServiceFactory.makeDatabaseManager(
             configuration: DatabaseConfiguration(
@@ -142,6 +145,7 @@ final class TchopDatabaseTests: XCTestCase {
 
     /// Verifies that the unified factory-set API can resolve both backends from one payload.
     @available(iOS 17, macOS 14, *)
+    /// Verifies database factory set can create requested backend.
     func testDatabaseFactorySetCanCreateRequestedBackend() throws {
         let factories = DatabaseManagerFactorySet(
             makeSwiftDataContainer: makeInMemorySwiftDataContainer,
@@ -174,6 +178,7 @@ final class TchopDatabaseTests: XCTestCase {
 
     /// Verifies that the new resolver protocol can construct a SwiftData backend directly.
     @available(iOS 17, macOS 14, *)
+    /// Verifies database manager resolver creates swift data manager when requested.
     func testDatabaseManagerResolverCreatesSwiftDataManagerWhenRequested() throws {
         let resolver: any DatabaseManagerResolving = DatabaseManagerResolver()
         let manager = try resolver.makeDatabaseManager(
@@ -227,12 +232,14 @@ final class TchopDatabaseTests: XCTestCase {
     }
 
     @available(iOS 17, macOS 14, *)
+    /// Creates in memory swift data container.
     private func makeInMemorySwiftDataContainer() throws -> ModelContainer {
         let schema = Schema([SwiftDataTestRecord.self])
         let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
         return try ModelContainer(for: schema, configurations: [configuration])
     }
 
+    /// Creates in memory core data container.
     private func makeInMemoryCoreDataContainer() throws -> NSPersistentContainer {
         let model = NSManagedObjectModel()
         let entity = NSEntityDescription()
@@ -268,6 +275,7 @@ final class TchopDatabaseTests: XCTestCase {
         return container
     }
 
+    /// Creates string attribute.
     private func makeStringAttribute(name: String) -> NSAttributeDescription {
         let attribute = NSAttributeDescription()
         attribute.name = name
@@ -281,10 +289,12 @@ final class TchopDatabaseTests: XCTestCase {
 private final class InMemoryMigrationVersionStore: DatabaseMigrationVersionStoring {
     private var values: [String: Int] = [:]
 
+    /// Returns version.
     func currentVersion(for key: String) -> Int {
         values[key, default: 0]
     }
 
+    /// Sets current version.
     func setCurrentVersion(_ version: Int, for key: String) {
         values[key] = version
     }

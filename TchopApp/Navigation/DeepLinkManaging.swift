@@ -6,9 +6,11 @@ import TchopNavigation
 protocol DeepLinkManaging {
     /// Handles a deep or universal link URL and updates coordinator navigation.
     @discardableResult
+    /// Handles this operation.
     func handle(url: URL, coordinator: AppCoordinator) -> Bool
 
     /// Handles universal-link user activity and updates coordinator navigation.
     @discardableResult
+    /// Handles this operation.
     func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool
 }

@@ -9,6 +9,7 @@ final class ChannelRecord {
     var title: String
     var subtitle: String
 
+    /// Creates a new ChannelRecord instance.
     init(
         id: String = "primary-channel",
         title: String,
@@ -29,6 +30,7 @@ final class UserRecord {
     var createdAt: Date
     var isNavigationStateRestoreEnabled: Bool
 
+    /// Creates a new UserRecord instance.
     init(
         id: String = UUID().uuidString,
         username: String,

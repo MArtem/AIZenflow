@@ -26,6 +26,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     private let databaseManager: any DatabaseManaging
     private let feedAPIManager: any FeedAPIManaging
 
+    /// Creates a new DefaultAppContentRepository instance.
     init(
         databaseManager: any DatabaseManaging,
         feedAPIManager: any FeedAPIManaging
@@ -55,6 +56,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     @available(iOS 17, *)
+    /// Fetches swift data channel info.
     private func fetchSwiftDataChannelInfo() throws -> ChannelHeaderInfo {
         guard let channel = try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
@@ -68,6 +70,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         return channel
     }
 
+    /// Fetches core data channel info.
     private func fetchCoreDataChannelInfo() throws -> ChannelHeaderInfo {
         guard let channel = try databaseManager.read(
             DatabaseReadOperation(coreData: { context in

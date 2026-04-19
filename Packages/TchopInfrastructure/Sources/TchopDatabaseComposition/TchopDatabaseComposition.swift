@@ -11,6 +11,7 @@ public struct DatabaseManagerFactorySet {
     public let makeCoreDataContainer: (() throws -> NSPersistentContainer)?
     private let swiftDataContainerFactory: (() throws -> Any)?
 
+    /// Creates a new DatabaseManagerFactorySet instance.
     public init(
         makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
     ) {
@@ -19,6 +20,7 @@ public struct DatabaseManagerFactorySet {
     }
 
     @available(iOS 17, macOS 14, *)
+    /// Creates a new DatabaseManagerFactorySet instance.
     public init(
         makeSwiftDataContainer: (() throws -> ModelContainer)? = nil,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
@@ -46,6 +48,7 @@ public struct DatabaseManagerFactorySet {
         }
     }
 
+    /// Reports backend.
     public func supportsBackend(_ backend: DatabaseBackendKind) -> Bool {
         switch backend {
         case .coreData:
@@ -66,27 +69,32 @@ public struct DatabaseManagerFactorySet {
 /// Shared composition contract that resolves a concrete backend manager for the caller.
 @MainActor
 public protocol DatabaseManagerResolving {
+    /// Handles available backends.
     func availableBackends(
         for factories: DatabaseManagerFactorySet
     ) -> [DatabaseBackendKind]
 
+    /// Creates database manager.
     func makeDatabaseManager(
         configuration: DatabaseConfiguration,
         factories: DatabaseManagerFactorySet
     ) throws -> any DatabaseManaging
 
+    /// Creates database manager.
     func makeDatabaseManager(
         configuration: DatabaseConfiguration,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)?
     ) throws -> any DatabaseManaging
 
     @available(iOS 17, macOS 14, *)
+    /// Creates database manager.
     func makeDatabaseManager(
         configuration: DatabaseConfiguration,
         makeSwiftDataContainer: (() throws -> ModelContainer)?
     ) throws -> any DatabaseManaging
 
     @available(iOS 17, macOS 14, *)
+    /// Creates database manager.
     func makeDatabaseManager(
         configuration: DatabaseConfiguration,
         makeSwiftDataContainer: (() throws -> ModelContainer)?,
@@ -97,14 +105,17 @@ public protocol DatabaseManagerResolving {
 /// Default resolver that composes the shared contract with concrete backend managers.
 @MainActor
 public struct DatabaseManagerResolver: DatabaseManagerResolving {
+    /// Creates a new DatabaseManagerResolver instance.
     public init() {}
 
+    /// Handles available backends.
     public func availableBackends(
         for factories: DatabaseManagerFactorySet
     ) -> [DatabaseBackendKind] {
         factories.availableBackends
     }
 
+    /// Creates database manager.
     public func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         factories: DatabaseManagerFactorySet
@@ -150,6 +161,7 @@ public struct DatabaseManagerResolver: DatabaseManagerResolving {
         }
     }
 
+    /// Creates database manager.
     public func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
@@ -161,6 +173,7 @@ public struct DatabaseManagerResolver: DatabaseManagerResolving {
     }
 
     @available(iOS 17, macOS 14, *)
+    /// Creates database manager.
     public func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         makeSwiftDataContainer: (() throws -> ModelContainer)?
@@ -174,6 +187,7 @@ public struct DatabaseManagerResolver: DatabaseManagerResolving {
     }
 
     @available(iOS 17, macOS 14, *)
+    /// Creates database manager.
     public func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         makeSwiftDataContainer: (() throws -> ModelContainer)?,

@@ -7,6 +7,7 @@ import TchopPushNotifications
 final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
     weak var pushNotificationBridge: (any AppPushNotificationBridging)?
 
+    /// Handles application.
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
@@ -16,6 +17,7 @@ final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNot
         return true
     }
 
+    /// Handles application.
     func application(
         _ application: UIApplication,
         didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data
@@ -25,6 +27,7 @@ final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNot
         }
     }
 
+    /// Handles application.
     func application(
         _ application: UIApplication,
         didFailToRegisterForRemoteNotificationsWithError error: Error
@@ -34,6 +37,7 @@ final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNot
         }
     }
 
+    /// Handles application.
     func application(
         _ application: UIApplication,
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
@@ -48,6 +52,7 @@ final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNot
         }
     }
 
+    /// Handles user notification center.
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
@@ -62,6 +67,7 @@ final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNot
         }
     }
 
+    /// Handles user notification center.
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         didReceive response: UNNotificationResponse,

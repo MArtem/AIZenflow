@@ -14,10 +14,12 @@ public final class SwiftDataDatabaseManager: DatabaseManaging {
 
     public let backendKind: DatabaseBackendKind = .swiftData
 
+    /// Creates a new SwiftDataDatabaseManager instance.
     public init(modelContainer: ModelContainer) {
         self.modelContainer = modelContainer
     }
 
+    /// Reads this operation.
     public func read<Result>(_ operation: DatabaseReadOperation<Result>) throws -> Result {
         guard let swiftDataOperation = operation.swiftData else {
             throw DatabaseError.unsupportedOperation(
@@ -34,6 +36,7 @@ public final class SwiftDataDatabaseManager: DatabaseManaging {
         }
     }
 
+    /// Writes this operation.
     public func write<Result>(_ operation: DatabaseWriteOperation<Result>) throws -> Result {
         guard let swiftDataOperation = operation.swiftData else {
             throw DatabaseError.unsupportedOperation(
@@ -54,10 +57,12 @@ public final class SwiftDataDatabaseManager: DatabaseManaging {
         }
     }
 
+    /// Rolls back this operation.
     public func rollback() {
         modelContext.rollback()
     }
 
+    /// Writes batch.
     public func writeBatch<Result>(_ operation: DatabaseBatchWriteOperation<Result>) throws -> Result {
         guard let swiftDataOperation = operation.swiftData else {
             throw DatabaseError.unsupportedOperation(

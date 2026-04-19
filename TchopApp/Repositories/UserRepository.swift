@@ -24,6 +24,7 @@ protocol UserRepository {
 final class DefaultUserRepository: UserRepository {
     private let databaseManager: any DatabaseManaging
 
+    /// Creates a new DefaultUserRepository instance.
     init(databaseManager: any DatabaseManaging) {
         self.databaseManager = databaseManager
     }

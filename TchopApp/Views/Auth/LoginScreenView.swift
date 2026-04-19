@@ -4,6 +4,7 @@ import SwiftUI
 struct LoginScreenView: View {
     @StateObject private var viewModel: LoginViewModel
 
+    /// Creates a new LoginScreenView instance.
     init(onLogin: @escaping (String) throws -> Void) {
         _viewModel = StateObject(
             wrappedValue: LoginViewModel(onLogin: onLogin)

@@ -83,6 +83,7 @@ final class AppState: ObservableObject {
 
     /// Routes an incoming deep-link URL when the app has an authenticated user.
     @discardableResult
+    /// Handles incoming url.
     func handleIncomingURL(_ url: URL) -> Bool {
         guard currentUser != nil else {
             pendingDeepLinkInput = .url(url)
@@ -94,6 +95,7 @@ final class AppState: ObservableObject {
 
     /// Routes an incoming universal-link activity when the app has an authenticated user.
     @discardableResult
+    /// Handles incoming user activity.
     func handleIncomingUserActivity(_ userActivity: NSUserActivity) -> Bool {
         guard currentUser != nil else {
             pendingDeepLinkInput = .userActivity(userActivity)
@@ -137,6 +139,7 @@ final class AppState: ObservableObject {
         }
     }
 
+    /// Restores navigation if needed.
     private func restoreNavigationIfNeeded(for user: AppUser) {
         guard user.isNavigationStateRestoreEnabled else {
             coordinator.selectTab(.news)
@@ -208,6 +211,7 @@ final class AppState: ObservableObject {
         )
     }
 
+    /// Applies post authentication navigation.
     private func applyPostAuthenticationNavigation(for user: AppUser) {
         if applyPendingDeepLinkIfNeeded() {
             return
@@ -216,6 +220,7 @@ final class AppState: ObservableObject {
         restoreNavigationIfNeeded(for: user)
     }
 
+    /// Applies pending deep link if needed.
     private func applyPendingDeepLinkIfNeeded() -> Bool {
         guard let pendingDeepLinkInput else {
             return false
@@ -233,6 +238,7 @@ final class AppState: ObservableObject {
         return wasHandled
     }
 
+    /// Handles setup navigation persistence bindings.
     private func setupNavigationPersistenceBindings() {
         coordinator.navigationChanges
         .sink { [weak self] _ in
@@ -241,6 +247,7 @@ final class AppState: ObservableObject {
         .store(in: &navigationBindings)
     }
 
+    /// Handles persist navigation snapshot if needed.
     private func persistNavigationSnapshotIfNeeded() {
         guard !isApplyingNavigationSnapshot else {
             return

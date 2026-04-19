@@ -8,6 +8,7 @@ struct TchopApp: App {
     private let container: AppDIContainer
     @StateObject private var appState: AppState
 
+    /// Creates a new TchopApp instance.
     init() {
         let container = AppDIContainer()
         self.container = container

@@ -65,6 +65,7 @@ public struct DatabaseConfiguration: Sendable, Equatable {
     public let backendSelectionPolicy: DatabaseBackendSelectionPolicy
     public let isStoredInMemoryOnly: Bool
 
+    /// Creates a new DatabaseConfiguration instance.
     public init(
         backendSelectionPolicy: DatabaseBackendSelectionPolicy = .automatic,
         isStoredInMemoryOnly: Bool
@@ -89,6 +90,7 @@ public struct DatabaseReadOperation<Result> {
     public let swiftData: (@MainActor (Any) throws -> Result)?
     public let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
 
+    /// Creates a new DatabaseReadOperation instance.
     public init(
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
@@ -97,6 +99,7 @@ public struct DatabaseReadOperation<Result> {
     }
 
     @available(iOS 17, macOS 14, *)
+    /// Creates a new DatabaseReadOperation instance.
     public init(
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
@@ -121,6 +124,7 @@ public struct DatabaseWriteOperation<Result> {
     public let swiftData: (@MainActor (Any) throws -> Result)?
     public let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
 
+    /// Creates a new DatabaseWriteOperation instance.
     public init(
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
@@ -129,6 +133,7 @@ public struct DatabaseWriteOperation<Result> {
     }
 
     @available(iOS 17, macOS 14, *)
+    /// Creates a new DatabaseWriteOperation instance.
     public init(
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
@@ -153,6 +158,7 @@ public struct DatabaseBatchWriteOperation<Result> {
     public let swiftData: (@MainActor (Any) throws -> Result)?
     public let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
 
+    /// Creates a new DatabaseBatchWriteOperation instance.
     public init(
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
@@ -161,6 +167,7 @@ public struct DatabaseBatchWriteOperation<Result> {
     }
 
     @available(iOS 17, macOS 14, *)
+    /// Creates a new DatabaseBatchWriteOperation instance.
     public init(
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
@@ -184,22 +191,29 @@ public struct DatabaseBatchWriteOperation<Result> {
 @MainActor
 public protocol DatabaseManaging: AnyObject {
     var backendKind: DatabaseBackendKind { get }
+    /// Reads this operation.
     func read<Result>(_ operation: DatabaseReadOperation<Result>) throws -> Result
+    /// Writes this operation.
     func write<Result>(_ operation: DatabaseWriteOperation<Result>) throws -> Result
+    /// Rolls back this operation.
     func rollback()
+    /// Writes batch.
     func writeBatch<Result>(_ operation: DatabaseBatchWriteOperation<Result>) throws -> Result
 }
 
 @MainActor
 public extension DatabaseManaging {
+    /// Reads async.
     func readAsync<Result>(_ operation: DatabaseReadOperation<Result>) async throws -> Result {
         try read(operation)
     }
 
+    /// Writes async.
     func writeAsync<Result>(_ operation: DatabaseWriteOperation<Result>) async throws -> Result {
         try write(operation)
     }
 
+    /// Writes batch async.
     func writeBatchAsync<Result>(
         _ operation: DatabaseBatchWriteOperation<Result>
     ) async throws -> Result {
@@ -210,7 +224,9 @@ public extension DatabaseManaging {
 /// Persists and retrieves applied migration versions.
 @MainActor
 public protocol DatabaseMigrationVersionStoring: AnyObject {
+    /// Returns version.
     func currentVersion(for key: String) -> Int
+    /// Sets current version.
     func setCurrentVersion(_ version: Int, for key: String)
 }
 
@@ -220,6 +236,7 @@ public final class UserDefaultsDatabaseMigrationVersionStore: DatabaseMigrationV
     private let userDefaults: UserDefaults
     private let keyPrefix: String
 
+    /// Creates a new UserDefaultsDatabaseMigrationVersionStore instance.
     public init(
         userDefaults: UserDefaults = .standard,
         keyPrefix: String = "database_migration_version_"
@@ -228,10 +245,12 @@ public final class UserDefaultsDatabaseMigrationVersionStore: DatabaseMigrationV
         self.keyPrefix = keyPrefix
     }
 
+    /// Returns version.
     public func currentVersion(for key: String) -> Int {
         userDefaults.integer(forKey: keyPrefix + key)
     }
 
+    /// Sets current version.
     public func setCurrentVersion(_ version: Int, for key: String) {
         userDefaults.set(version, forKey: keyPrefix + key)
     }
@@ -245,6 +264,7 @@ public struct DatabaseMigrationStep {
 
     private let migrateClosure: (any DatabaseManaging) throws -> Void
 
+    /// Creates a new DatabaseMigrationStep instance.
     public init(
         fromVersion: Int,
         toVersion: Int,
@@ -255,6 +275,7 @@ public struct DatabaseMigrationStep {
         self.migrateClosure = migrate
     }
 
+    /// Handles run.
     func run(using manager: any DatabaseManaging) throws {
         try migrateClosure(manager)
     }
@@ -265,10 +286,12 @@ public struct DatabaseMigrationStep {
 public final class DatabaseMigrationRunner {
     private let versionStore: any DatabaseMigrationVersionStoring
 
+    /// Creates a new DatabaseMigrationRunner instance.
     public init(versionStore: any DatabaseMigrationVersionStoring) {
         self.versionStore = versionStore
     }
 
+    /// Migrates if needed.
     public func migrateIfNeeded(
         key: String,
         targetVersion: Int,

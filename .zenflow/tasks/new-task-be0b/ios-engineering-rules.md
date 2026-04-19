@@ -105,7 +105,10 @@ Use this file as the persistent engineering instruction set for this project whe
 - Use meaningful naming.
 - Avoid magic numbers when they should be constants.
 - Keep functions small.
-- Add comments only where logic is non-obvious.
+- Every method/function/initializer must have a concise comment describing its responsibility.
+- Prefer DocC-compatible `///` comments so behavior is readable directly in code navigation tools.
+- Comment coverage is expected in app code, infrastructure code, and test code.
+- Comments should explain responsibility and intent, not just restate syntax.
 
 ## Performance
 - Minimize unnecessary re-renders.

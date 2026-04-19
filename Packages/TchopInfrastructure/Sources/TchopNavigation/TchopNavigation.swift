@@ -28,14 +28,17 @@ public enum NavigationEvent: Equatable {
 /// Contract used to report navigation events for diagnostics and observability.
 @MainActor
 public protocol NavigationEventReporting: AnyObject {
+    /// Reports this operation.
     func report(_ event: NavigationEvent)
 }
 
 /// Default no-op navigation event reporter.
 @MainActor
 public final class NavigationNoopEventReporter: NavigationEventReporting {
+    /// Creates a new NavigationNoopEventReporter instance.
     public init() {}
 
+    /// Reports this operation.
     public func report(_ event: NavigationEvent) {}
 }
 
@@ -44,8 +47,10 @@ public final class NavigationNoopEventReporter: NavigationEventReporting {
 public final class NavigationMemoryEventReporter: NavigationEventReporting {
     public private(set) var events: [NavigationEvent] = []
 
+    /// Creates a new NavigationMemoryEventReporter instance.
     public init() {}
 
+    /// Reports this operation.
     public func report(_ event: NavigationEvent) {
         events.append(event)
     }
@@ -121,6 +126,7 @@ public final class NavigationStateManager: NavigationStateManaging {
         self.decoder = decoder
     }
 
+    /// Saves snapshot.
     public func saveSnapshot<Snapshot: Codable>(_ snapshot: Snapshot, for userID: String) {
         guard let encodedSnapshot = try? encoder.encode(snapshot) else {
             assertionFailure("Failed to encode navigation snapshot.")
@@ -130,6 +136,7 @@ public final class NavigationStateManager: NavigationStateManaging {
         userDefaults.set(encodedSnapshot, forKey: key(for: userID))
     }
 
+    /// Restores snapshot.
     public func restoreSnapshot<Snapshot: Codable>(
         for userID: String,
         as snapshotType: Snapshot.Type
@@ -146,10 +153,12 @@ public final class NavigationStateManager: NavigationStateManaging {
         return decodedSnapshot
     }
 
+    /// Clears snapshot.
     public func clearSnapshot(for userID: String) {
         userDefaults.removeObject(forKey: key(for: userID))
     }
 
+    /// Handles key.
     private func key(for userID: String) -> String {
         Constants.snapshotKeyPrefix + userID
     }

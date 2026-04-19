@@ -3,6 +3,7 @@ import XCTest
 
 /// Validates localization manager lookup and formatting behavior.
 final class TchopLocalizationTests: XCTestCase {
+    /// Verifies localized returns english value for explicit locale.
     func testLocalizedReturnsEnglishValueForExplicitLocale() {
         let manager = LocalizationManager()
 
@@ -15,6 +16,7 @@ final class TchopLocalizationTests: XCTestCase {
         XCTAssertEqual(value, "Sign in")
     }
 
+    /// Verifies localized returns russian value for explicit locale.
     func testLocalizedReturnsRussianValueForExplicitLocale() {
         let manager = LocalizationManager()
 
@@ -27,6 +29,7 @@ final class TchopLocalizationTests: XCTestCase {
         XCTAssertEqual(value, "Вход")
     }
 
+    /// Verifies localized formats arguments.
     func testLocalizedFormatsArguments() {
         let manager = LocalizationManager()
 

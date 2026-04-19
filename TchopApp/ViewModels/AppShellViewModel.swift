@@ -60,6 +60,7 @@ final class AppShellViewModel: ObservableObject {
         isMenuOpen = false
     }
 
+    /// Loads uiconfiguration.
     private func loadUIConfiguration() async {
         let cachedConfiguration = await uiConfigurationManager.currentConfiguration()
         showsFloatingActionButton = cachedConfiguration.shell.showsFloatingActionButton

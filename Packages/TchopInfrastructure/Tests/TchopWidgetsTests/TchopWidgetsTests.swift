@@ -4,6 +4,7 @@ import Testing
 
 struct TchopWidgetsTests {
     @Test
+    /// Handles snapshot manager persists and loads snapshot.
     func snapshotManagerPersistsAndLoadsSnapshot() throws {
         let suiteName = "TchopWidgetsTests.\(UUID().uuidString)"
         let userDefaults = try #require(UserDefaults(suiteName: suiteName))
@@ -20,6 +21,7 @@ struct TchopWidgetsTests {
     }
 
     @Test
+    /// Handles snapshot manager clears stored snapshot.
     func snapshotManagerClearsStoredSnapshot() throws {
         let suiteName = "TchopWidgetsTests.\(UUID().uuidString)"
         let userDefaults = try #require(UserDefaults(suiteName: suiteName))

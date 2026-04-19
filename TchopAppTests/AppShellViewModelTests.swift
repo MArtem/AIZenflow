@@ -4,6 +4,7 @@ import TchopUIConfiguration
 
 @MainActor
 final class AppShellViewModelTests: XCTestCase {
+    /// Verifies shell view model applies cached uiconfiguration before refresh completes.
     func testShellViewModelAppliesCachedUIConfigurationBeforeRefreshCompletes() async {
         let uiConfigurationManager = TestUIConfigurationManager(
             currentSnapshot: UIConfigurationSnapshot(
@@ -24,6 +25,7 @@ final class AppShellViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.showsFloatingActionButton)
     }
 
+    /// Verifies shell view model applies refreshed uiconfiguration when fetch succeeds.
     func testShellViewModelAppliesRefreshedUIConfigurationWhenFetchSucceeds() async {
         let uiConfigurationManager = TestUIConfigurationManager(
             currentSnapshot: UIConfigurationSnapshot(
@@ -48,6 +50,7 @@ final class AppShellViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.showsFloatingActionButton)
     }
 
+    /// Waits until until.
     private func waitUntil(
         _ condition: @autoclosure () -> Bool,
         timeoutNanoseconds: UInt64 = 1_000_000_000
@@ -75,6 +78,7 @@ private actor TestUIConfigurationManager: UIConfigurationManaging {
     private let refreshResult: Result<UIConfigurationSnapshot, Error>
     private let refreshDelayNanoseconds: UInt64
 
+    /// Creates a new TestUIConfigurationManager instance.
     init(
         currentSnapshot: UIConfigurationSnapshot,
         refreshResult: Result<UIConfigurationSnapshot, Error>,
@@ -85,10 +89,12 @@ private actor TestUIConfigurationManager: UIConfigurationManaging {
         self.refreshDelayNanoseconds = refreshDelayNanoseconds
     }
 
+    /// Returns configuration.
     func currentConfiguration() async -> UIConfigurationSnapshot {
         currentSnapshotValue
     }
 
+    /// Handles refresh configuration.
     func refreshConfiguration() async throws -> UIConfigurationSnapshot {
         if refreshDelayNanoseconds > 0 {
             try await Task.sleep(nanoseconds: refreshDelayNanoseconds)

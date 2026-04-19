@@ -28,6 +28,7 @@ struct ChatTabRootView: View {
         )
     }
 
+    /// Opens quick action.
     private func openQuickAction(_ action: FeatureQuickAction) {
         router.push(
             ChatRoute(
@@ -41,6 +42,7 @@ struct ChatTabRootView: View {
         )
     }
 
+    /// Opens item.
     private func openItem(_ item: FeatureTabItem) {
         router.push(
             ChatRoute(

@@ -68,6 +68,7 @@ final class NewsFeedViewModel: ObservableObject {
         isLoading = false
     }
 
+    /// Cleans up any in-flight resources before release.
     deinit {
         loadingTask?.cancel()
     }

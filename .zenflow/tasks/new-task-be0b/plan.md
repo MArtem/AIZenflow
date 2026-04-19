@@ -535,6 +535,11 @@ This reduces unnecessary feed traversal during interaction and makes the card-to
 Completed the next test-layer pass by adding focused app-level coverage for the new shell UI configuration flow.
 `AppShellViewModelTests` now verifies that shell state first applies the cached `currentConfiguration()` snapshot and then updates again when `refreshConfiguration()` succeeds, which protects the new persisted/current/refresh contract added to `TchopUIConfiguration`.
 
+### [x] Step: Final documentation and comment coverage sync
+
+Completed the final documentation pass by adding project-level documentation in `PROJECT_DOCUMENTATION.md`, updating persistent rules, and applying method-level comments across app, package, and test Swift files.
+The project now treats method comments as a required baseline rather than an optional style choice, and the working documentation explicitly records the architecture, targets, package modules, runtime flows, verification policy, and documentation standard.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

@@ -6,10 +6,15 @@ import TchopPushNotifications
 /// App-facing abstraction used by the application delegate to forward APNs events.
 @MainActor
 protocol AppPushNotificationBridging: AnyObject {
+    /// Handles start.
     func start(application: UIApplication)
+    /// Requests authorization and register.
     func requestAuthorizationAndRegister(application: UIApplication) async
+    /// Handles register for remote notifications.
     func didRegisterForRemoteNotifications(deviceToken: Data) async
+    /// Handles fail to register for remote notifications.
     func didFailToRegisterForRemoteNotifications(error: Error) async
+    /// Handles remote notification.
     func handleRemoteNotification(
         userInfo: [AnyHashable: Any],
         source: PushNotificationEventSource
@@ -19,14 +24,19 @@ protocol AppPushNotificationBridging: AnyObject {
 /// No-op implementation used when the app intentionally does not wire real push handling.
 @MainActor
 final class NoopPushNotificationBridge: AppPushNotificationBridging {
+    /// Handles start.
     func start(application: UIApplication) {}
 
+    /// Requests authorization and register.
     func requestAuthorizationAndRegister(application: UIApplication) async {}
 
+    /// Handles register for remote notifications.
     func didRegisterForRemoteNotifications(deviceToken: Data) async {}
 
+    /// Handles fail to register for remote notifications.
     func didFailToRegisterForRemoteNotifications(error: Error) async {}
 
+    /// Handles remote notification.
     func handleRemoteNotification(
         userInfo: [AnyHashable: Any],
         source: PushNotificationEventSource
@@ -40,6 +50,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
     private let notificationCenter: UNUserNotificationCenter
     private let payloadParser: any PushNotificationPayloadParsing
 
+    /// Creates a new AppPushNotificationBridge instance.
     init(
         manager: any PushNotificationManaging,
         notificationCenter: UNUserNotificationCenter = .current(),
@@ -50,6 +61,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         self.payloadParser = payloadParser
     }
 
+    /// Handles start.
     func start(application: UIApplication) {
         Task {
             let status = await refreshAuthorizationStatus()
@@ -62,6 +74,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         }
     }
 
+    /// Requests authorization and register.
     func requestAuthorizationAndRegister(application: UIApplication) async {
         do {
             let isGranted = try await notificationCenter.requestAuthorization(
@@ -83,6 +96,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         }
     }
 
+    /// Handles register for remote notifications.
     func didRegisterForRemoteNotifications(deviceToken: Data) async {
         do {
             _ = try await manager.handleDeviceToken(deviceToken)
@@ -91,6 +105,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         }
     }
 
+    /// Handles fail to register for remote notifications.
     func didFailToRegisterForRemoteNotifications(error: Error) async {
         do {
             _ = try await manager.handleRegistrationFailure(error.localizedDescription)
@@ -99,6 +114,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         }
     }
 
+    /// Handles remote notification.
     func handleRemoteNotification(
         userInfo: [AnyHashable: Any],
         source: PushNotificationEventSource
@@ -111,6 +127,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         }
     }
 
+    /// Handles refresh authorization status.
     private func refreshAuthorizationStatus() async -> PushNotificationAuthorizationStatus {
         let settings = await notificationCenter.notificationSettings()
         let status = PushNotificationAuthorizationStatus(settings.authorizationStatus)
@@ -124,6 +141,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
 }
 
 extension PushNotificationAuthorizationStatus {
+    /// Creates a new AppPushNotificationBridge instance.
     init(_ status: UNAuthorizationStatus) {
         switch status {
         case .notDetermined:

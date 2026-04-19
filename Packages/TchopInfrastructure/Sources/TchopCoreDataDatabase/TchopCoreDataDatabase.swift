@@ -13,10 +13,12 @@ public final class CoreDataDatabaseManager: DatabaseManaging {
 
     public let backendKind: DatabaseBackendKind = .coreData
 
+    /// Creates a new CoreDataDatabaseManager instance.
     public init(persistentContainer: NSPersistentContainer) {
         self.persistentContainer = persistentContainer
     }
 
+    /// Reads this operation.
     public func read<Result>(_ operation: DatabaseReadOperation<Result>) throws -> Result {
         guard let coreDataOperation = operation.coreData else {
             throw DatabaseError.unsupportedOperation(
@@ -33,6 +35,7 @@ public final class CoreDataDatabaseManager: DatabaseManaging {
         }
     }
 
+    /// Writes this operation.
     public func write<Result>(_ operation: DatabaseWriteOperation<Result>) throws -> Result {
         guard let coreDataOperation = operation.coreData else {
             throw DatabaseError.unsupportedOperation(
@@ -55,10 +58,12 @@ public final class CoreDataDatabaseManager: DatabaseManaging {
         }
     }
 
+    /// Rolls back this operation.
     public func rollback() {
         viewContext.rollback()
     }
 
+    /// Writes batch.
     public func writeBatch<Result>(_ operation: DatabaseBatchWriteOperation<Result>) throws -> Result {
         guard let coreDataOperation = operation.coreData else {
             throw DatabaseError.unsupportedOperation(

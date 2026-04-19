@@ -11,6 +11,7 @@
 - Xcode project: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp.xcodeproj`
 - App folder: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp`
 - Infrastructure package: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure`
+- Project documentation: `/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md`
 - This handoff: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md`
 - Engineering rules: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - Services rules: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
@@ -230,6 +231,9 @@
 - Test coverage baseline:
   app-level coverage now includes dedicated tests for `AppShellViewModel` around the server-driven UI configuration lifecycle.
   The suite verifies that the shell first applies cached `currentConfiguration()` state and then applies refreshed state from `refreshConfiguration()`, protecting the newer persisted/current/refresh contract in `TchopUIConfiguration`.
+- Documentation baseline:
+  full project documentation now lives in `PROJECT_DOCUMENTATION.md` and records the architecture, targets, packages, runtime flows, verification policy, and working conventions.
+  The codebase also now follows a stricter comment standard: every method/function/initializer should carry a concise responsibility comment across app, infrastructure, and test code.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

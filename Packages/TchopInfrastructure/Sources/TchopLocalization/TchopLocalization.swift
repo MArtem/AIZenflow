@@ -34,6 +34,7 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
         self.bundleProvider = bundleProvider
     }
 
+    /// Resolves this operation.
     public func localized(_ key: String, fallback: String, localeIdentifier: String? = nil) -> String {
         let bundle = resolvedBundle(localeIdentifier: localeIdentifier)
         return NSLocalizedString(
@@ -45,6 +46,7 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
         )
     }
 
+    /// Resolves this operation.
     public func localized(
         _ key: String,
         fallback: String,
@@ -60,6 +62,7 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
         return String(format: format, locale: locale, arguments: arguments)
     }
 
+    /// Handles resolved bundle.
     private func resolvedBundle(localeIdentifier: String?) -> Bundle {
         let bundle = bundleProvider()
         guard

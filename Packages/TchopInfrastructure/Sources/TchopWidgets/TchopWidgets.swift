@@ -11,6 +11,7 @@ public struct FeedHeadlineWidgetSnapshot: Codable, Equatable, Sendable {
     public let headline: String
     public let updatedAt: Date
 
+    /// Creates a new FeedHeadlineWidgetSnapshot instance.
     public init(headline: String, updatedAt: Date = Date()) {
         self.headline = headline
         self.updatedAt = updatedAt
@@ -19,8 +20,11 @@ public struct FeedHeadlineWidgetSnapshot: Codable, Equatable, Sendable {
 
 /// Shared persistence contract used by the app and widget extension.
 public protocol FeedHeadlineWidgetSnapshotManaging {
+    /// Saves this operation.
     func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws
+    /// Loads this operation.
     func load() throws -> FeedHeadlineWidgetSnapshot?
+    /// Clears this operation.
     func clear() throws
 }
 
@@ -34,6 +38,7 @@ public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWi
     private let userDefaults: UserDefaults
     private let snapshotKey: String
 
+    /// Creates a new UserDefaultsFeedHeadlineWidgetSnapshotManager instance.
     public init(
         userDefaults: UserDefaults,
         snapshotKey: String = FeedHeadlineWidgetConstants.snapshotKey
@@ -42,6 +47,7 @@ public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWi
         self.snapshotKey = snapshotKey
     }
 
+    /// Creates a new UserDefaultsFeedHeadlineWidgetSnapshotManager instance.
     public convenience init(
         suiteName: String,
         snapshotKey: String = FeedHeadlineWidgetConstants.snapshotKey
@@ -53,11 +59,13 @@ public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWi
         self.init(userDefaults: userDefaults, snapshotKey: snapshotKey)
     }
 
+    /// Saves this operation.
     public func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws {
         let data = try JSONEncoder().encode(snapshot)
         userDefaults.set(data, forKey: snapshotKey)
     }
 
+    /// Loads this operation.
     public func load() throws -> FeedHeadlineWidgetSnapshot? {
         guard let data = userDefaults.data(forKey: snapshotKey) else {
             return nil
@@ -66,6 +74,7 @@ public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWi
         return try JSONDecoder().decode(FeedHeadlineWidgetSnapshot.self, from: data)
     }
 
+    /// Clears this operation.
     public func clear() throws {
         userDefaults.removeObject(forKey: snapshotKey)
     }

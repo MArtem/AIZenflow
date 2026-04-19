@@ -66,6 +66,7 @@ public struct APIDefaultErrorMapper: APIErrorMapping {
     /// Creates default mapper.
     public init() {}
 
+    /// Maps this operation.
     public func map(_ error: Error) -> APIError {
         if let apiError = error as? APIError {
             return apiError
@@ -89,6 +90,7 @@ public enum APITransferProgress: Sendable, Equatable {
 
 /// Empty marker response for endpoints that intentionally return no payload.
 public struct APIEmptyResponse: Sendable, Decodable, Equatable {
+    /// Creates a new APIEmptyResponse instance.
     public init() {}
 }
 
@@ -260,14 +262,19 @@ public protocol APIRequestIntercepting: Sendable {
 }
 
 public extension APIRequestIntercepting {
+    /// Handles prepare.
     func prepare(_ request: URLRequest) async throws -> URLRequest { request }
+    /// Handles receive.
     func didReceive(result: Result<(Data, HTTPURLResponse), APIError>, request: URLRequest) async {}
+    /// Handles retry directive.
     func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
         .doNotRetry
     }
+    /// Handles retry directive.
     func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
         await retryDirective(for: context.error, attempt: context.attempt, request: context.request)
     }
+    /// Handles schedule retry.
     func didScheduleRetry(
         for error: APIError,
         attempt: Int,
@@ -288,6 +295,7 @@ public struct APIRetryContext: Sendable {
     public let attempt: Int
     public let request: URLRequest
 
+    /// Creates a new APIRetryContext instance.
     public init(
         error: APIError,
         attempt: Int,
@@ -330,6 +338,7 @@ public actor APIMemoryMetricsCollector: APIMetricsCollecting {
         eventsStorage.removeAll()
     }
 
+    /// Handles record.
     public func record(_ event: APIMetricsEvent) async {
         eventsStorage.append(event)
     }
@@ -344,6 +353,7 @@ public struct APIMetricsInterceptor: APIRequestIntercepting {
         self.collector = collector
     }
 
+    /// Handles prepare.
     public func prepare(_ request: URLRequest) async throws -> URLRequest {
         let method = request.httpMethod ?? "UNKNOWN"
         let url = request.url?.absoluteString ?? "<missing-url>"
@@ -351,6 +361,7 @@ public struct APIMetricsInterceptor: APIRequestIntercepting {
         return request
     }
 
+    /// Handles receive.
     public func didReceive(result: Result<(Data, HTTPURLResponse), APIError>, request: URLRequest) async {
         let url = request.url?.absoluteString ?? "<missing-url>"
         switch result {
@@ -363,6 +374,7 @@ public struct APIMetricsInterceptor: APIRequestIntercepting {
         }
     }
 
+    /// Handles schedule retry.
     public func didScheduleRetry(
         for error: APIError,
         attempt: Int,
@@ -396,6 +408,7 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
         public let sensitiveQueryItems: Set<String>
         public let redactedPlaceholder: String
 
+        /// Creates a new RedactionConfiguration instance.
         public init(
             sensitiveHeaders: Set<String> = [
                 "authorization",
@@ -434,6 +447,7 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
         self.logger = logger
     }
 
+    /// Handles prepare.
     public func prepare(_ request: URLRequest) async throws -> URLRequest {
         guard level != .none else {
             return request
@@ -450,6 +464,7 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
         return request
     }
 
+    /// Handles receive.
     public func didReceive(result: Result<(Data, HTTPURLResponse), APIError>, request: URLRequest) async {
         guard level == .requestAndResponse else {
             return
@@ -465,6 +480,7 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
         }
     }
 
+    /// Handles redact.
     private func redact(url: URL?) -> String {
         guard
             let url,
@@ -488,6 +504,7 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
         return components.string ?? url.absoluteString
     }
 
+    /// Handles redact.
     private func redact(headers: [String: String]) -> String {
         let sorted = headers.keys.sorted(by: { $0.lowercased() < $1.lowercased() })
         let pairs = sorted.map { key -> String in
@@ -508,6 +525,7 @@ public struct APIAuthenticationInterceptor: APIRequestIntercepting {
         self.provider = provider
     }
 
+    /// Handles prepare.
     public func prepare(_ request: URLRequest) async throws -> URLRequest {
         let headers = try await provider.authorizationHeaders()
         var mutableRequest = request
@@ -529,6 +547,7 @@ public struct APIAuthorizationRefreshInterceptor: APIRequestIntercepting {
         self.provider = provider
     }
 
+    /// Handles retry directive.
     public func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
         guard attempt == 0 else {
             return .doNotRetry
@@ -577,6 +596,7 @@ public struct APIRetryInterceptor: APIRequestIntercepting {
         self.configuration = configuration
     }
 
+    /// Handles retry directive.
     public func retryDirective(for error: APIError, attempt: Int, request: URLRequest) async -> APIRetryDirective {
         guard attempt < configuration.maxRetries else {
             return .doNotRetry
@@ -592,6 +612,7 @@ public struct APIRetryInterceptor: APIRequestIntercepting {
         }
     }
 
+    /// Creates delay.
     private func makeDelay(attempt: Int) -> UInt64 {
         let multiplier = UInt64(pow(2.0, Double(attempt)))
         let baseDelay = min(configuration.baseDelayNanoseconds * multiplier, configuration.maxDelayNanoseconds)
@@ -660,16 +681,19 @@ public protocol APIManaging: Actor {
 }
 
 private protocol CancellableTask {
+    /// Cancels this operation.
     func cancel()
 }
 
 private final class TaskBox<Response>: CancellableTask {
     let task: Task<Response, Error>
 
+    /// Creates a new TaskBox instance.
     init(task: Task<Response, Error>) {
         self.task = task
     }
 
+    /// Cancels this operation.
     func cancel() {
         task.cancel()
     }
@@ -697,18 +721,22 @@ public actor APIManager: APIManaging {
         self.errorMapper = errorMapper
     }
 
+    /// Updates configuration.
     public func updateConfiguration(_ configuration: APIConfiguration) {
         self.configuration = configuration
     }
 
+    /// Updates interceptors.
     public func updateInterceptors(_ interceptors: [any APIRequestIntercepting]) {
         self.interceptors = interceptors
     }
 
+    /// Handles perform.
     public func perform<Response>(_ request: APIRequest<Response>) async throws -> Response where Response: Sendable {
         try await perform(request, cancellationToken: nil)
     }
 
+    /// Handles perform.
     public func perform<Response>(
         _ request: APIRequest<Response>,
         cancellationToken: APICancellationToken?
@@ -728,6 +756,7 @@ public actor APIManager: APIManaging {
         }
     }
 
+    /// Handles upload.
     public func upload<Response>(
         _ request: APIRequest<Response>,
         from fileURL: URL,
@@ -741,6 +770,7 @@ public actor APIManager: APIManaging {
         )
     }
 
+    /// Handles upload.
     public func upload<Response>(
         _ request: APIRequest<Response>,
         from fileURL: URL,
@@ -799,6 +829,7 @@ public actor APIManager: APIManaging {
         }
     }
 
+    /// Handles download.
     public func download(
         _ request: APIRequest<Data>,
         destinationURL: URL?,
@@ -812,6 +843,7 @@ public actor APIManager: APIManaging {
         )
     }
 
+    /// Handles download.
     public func download(
         _ request: APIRequest<Data>,
         destinationURL: URL?,
@@ -880,11 +912,13 @@ public actor APIManager: APIManaging {
         }
     }
 
+    /// Cancels request.
     public func cancelRequest(id: UUID) {
         runningTasks[id]?.cancel()
         runningTasks[id] = nil
     }
 
+    /// Cancels all requests.
     public func cancelAllRequests() {
         for task in runningTasks.values {
             task.cancel()
@@ -892,6 +926,7 @@ public actor APIManager: APIManaging {
         runningTasks.removeAll()
     }
 
+    /// Handles execute.
     private func execute<Response>(
         _ request: APIRequest<Response>,
         cancellationToken: APICancellationToken?
@@ -1019,6 +1054,7 @@ public actor APIManager: APIManaging {
         return task
     }
 
+    /// Handles retry delay.
     private func retryDelay(
         for error: APIError,
         attempt: Int,
@@ -1045,6 +1081,7 @@ public actor APIManager: APIManaging {
         return nil
     }
 
+    /// Checks whether status code valid.
     private func isStatusCodeValid<Response>(
         _ statusCode: Int,
         for request: APIRequest<Response>
@@ -1077,18 +1114,22 @@ public actor MockAPIManager: APIManaging {
         stubs[requestID] = AnySendableResult(result)
     }
 
+    /// Updates configuration.
     public func updateConfiguration(_ configuration: APIConfiguration) {
         self.configuration = configuration
     }
 
+    /// Updates interceptors.
     public func updateInterceptors(_ interceptors: [any APIRequestIntercepting]) {
         self.interceptors = interceptors
     }
 
+    /// Handles perform.
     public func perform<Response>(_ request: APIRequest<Response>) async throws -> Response where Response: Sendable {
         try await perform(request, cancellationToken: nil)
     }
 
+    /// Handles perform.
     public func perform<Response>(
         _ request: APIRequest<Response>,
         cancellationToken: APICancellationToken?
@@ -1113,6 +1154,7 @@ public actor MockAPIManager: APIManaging {
         }
     }
 
+    /// Handles upload.
     public func upload<Response>(
         _ request: APIRequest<Response>,
         from fileURL: URL,
@@ -1126,6 +1168,7 @@ public actor MockAPIManager: APIManaging {
         )
     }
 
+    /// Handles upload.
     public func upload<Response>(
         _ request: APIRequest<Response>,
         from fileURL: URL,
@@ -1140,6 +1183,7 @@ public actor MockAPIManager: APIManaging {
         return response
     }
 
+    /// Handles download.
     public func download(
         _ request: APIRequest<Data>,
         destinationURL: URL?,
@@ -1153,6 +1197,7 @@ public actor MockAPIManager: APIManaging {
         )
     }
 
+    /// Handles download.
     public func download(
         _ request: APIRequest<Data>,
         destinationURL: URL?,
@@ -1169,7 +1214,9 @@ public actor MockAPIManager: APIManaging {
         return outputURL
     }
 
+    /// Cancels request.
     public func cancelRequest(id: UUID) {}
+    /// Cancels all requests.
     public func cancelAllRequests() {}
 }
 
@@ -1271,10 +1318,12 @@ public protocol APIOfflineQueueStoring: Sendable {
 }
 
 public extension APIOfflineQueueStoring {
+    /// Loads dead letter entries.
     func loadDeadLetterEntries() throws -> [APIOfflineQueueEntry<Payload>] {
         []
     }
 
+    /// Saves dead letter entries.
     func saveDeadLetterEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {}
 }
 
@@ -1311,6 +1360,7 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         self.decoder = decoder
     }
 
+    /// Loads entries.
     public func loadEntries() throws -> [APIOfflineQueueEntry<Payload>] {
         guard FileManager.default.fileExists(atPath: fileURL.path) else {
             return []
@@ -1326,6 +1376,7 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         }
     }
 
+    /// Saves entries.
     public func saveEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {
         let directoryURL = fileURL.deletingLastPathComponent()
         if !FileManager.default.fileExists(atPath: directoryURL.path) {
@@ -1339,6 +1390,7 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         try data.write(to: fileURL, options: .atomic)
     }
 
+    /// Loads dead letter entries.
     public func loadDeadLetterEntries() throws -> [APIOfflineQueueEntry<Payload>] {
         guard FileManager.default.fileExists(atPath: deadLetterFileURL.path) else {
             return []
@@ -1354,6 +1406,7 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         }
     }
 
+    /// Saves dead letter entries.
     public func saveDeadLetterEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws {
         let directoryURL = deadLetterFileURL.deletingLastPathComponent()
         if !FileManager.default.fileExists(atPath: directoryURL.path) {
@@ -1367,6 +1420,7 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         try data.write(to: deadLetterFileURL, options: .atomic)
     }
 
+    /// Handles recover or throw.
     private func recoverOrThrow(
         for url: URL,
         error: Error
@@ -1390,6 +1444,7 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         public let pendingEntries: [APIOfflineQueueEntry<Store.Payload>]
         public let deadLetterEntries: [APIOfflineQueueEntry<Store.Payload>]
 
+        /// Creates a new DiagnosticsPayload instance.
         public init(
             exportedAt: Date = Date(),
             pendingEntries: [APIOfflineQueueEntry<Store.Payload>],
@@ -1414,6 +1469,7 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         public let oldestPendingCreatedAt: Date?
         public let oldestDeadLetterCreatedAt: Date?
 
+        /// Creates a new Snapshot instance.
         public init(
             pendingCount: Int,
             deadLetterCount: Int,
@@ -1436,6 +1492,7 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         public let retried: Int
         public let movedToDeadLetters: Int
 
+        /// Creates a new DrainReport instance.
         public init(
             skippedDueToNoConnectivity: Bool,
             attempted: Int,
@@ -1614,6 +1671,7 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         )
     }
 
+    /// Handles persist.
     private func persist() throws {
         try store.saveEntries(entries)
         try store.saveDeadLetterEntries(deadLetterEntries)
@@ -1629,6 +1687,7 @@ public struct StaticConnectivityProvider: APIConnectivityProviding {
         self.connected = connected
     }
 
+    /// Checks whether connected.
     public func isConnected() async -> Bool {
         connected
     }
@@ -1652,6 +1711,7 @@ private final class AnySendableResult: @unchecked Sendable {
     }
 }
 
+/// Creates urlrequest.
 private func makeURLRequest<Response>(
     for request: APIRequest<Response>,
     configuration: APIConfiguration
@@ -1684,6 +1744,7 @@ private func makeURLRequest<Response>(
     return urlRequest
 }
 
+/// Maps transport error.
 private func mapTransportError(_ error: URLError) -> APIError {
     switch error.code {
     case .cancelled:

@@ -27,6 +27,7 @@ public struct BrandTheme {
     public let floatingActionButtonFill: Color
     public let floatingActionButtonShadow: Color
 
+    /// Creates a new BrandTheme instance.
     public init(
         variant: BrandVariant,
         primaryAccent: Color,
@@ -49,10 +50,12 @@ public protocol BrandThemeManaging {
 public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
     private let infoDictionary: [String: Any]
 
+    /// Creates a new InfoDictionaryBrandThemeManager instance.
     public convenience init(bundle: Bundle) {
         self.init(infoDictionary: bundle.infoDictionary ?? [:])
     }
 
+    /// Creates a new InfoDictionaryBrandThemeManager instance.
     public init(infoDictionary: [String: Any]) {
         self.infoDictionary = infoDictionary
     }

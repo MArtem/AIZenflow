@@ -6,6 +6,7 @@ public enum CacheExpiration: Sendable {
     case after(TimeInterval)
     case at(Date)
 
+    /// Resolves date.
     func resolveDate(from now: Date) -> Date? {
         switch self {
         case .never:
@@ -20,19 +21,23 @@ public enum CacheExpiration: Sendable {
 
 /// Generic contract for local cache managers.
 public protocol LocalCacheManaging: Sendable {
+    /// Sets value.
     func setValue<Value: Codable & Sendable>(
         _ value: Value,
         forKey key: String,
         expiration: CacheExpiration
     ) async throws
 
+    /// Returns the current value.
     func value<Value: Codable & Sendable>(
         forKey key: String,
         as type: Value.Type
     ) async throws -> Value?
 
+    /// Removes value.
     func removeValue(forKey key: String) async throws
 
+    /// Clears this operation.
     func clear() async throws
 }
 
@@ -48,10 +53,12 @@ public actor InMemoryLocalCacheManager: LocalCacheManaging {
     private var storage: [String: StoredCacheEntry] = [:]
     private let dateProvider: @Sendable () -> Date
 
+    /// Creates a new InMemoryLocalCacheManager instance.
     public init(dateProvider: @escaping @Sendable () -> Date = { Date() }) {
         self.dateProvider = dateProvider
     }
 
+    /// Sets value.
     public func setValue<Value: Codable & Sendable>(
         _ value: Value,
         forKey key: String,
@@ -63,6 +70,7 @@ public actor InMemoryLocalCacheManager: LocalCacheManaging {
         storage[normalizedKey] = StoredCacheEntry(payload: data, expirationDate: expirationDate)
     }
 
+    /// Returns the current value.
     public func value<Value: Codable & Sendable>(
         forKey key: String,
         as type: Value.Type
@@ -78,11 +86,13 @@ public actor InMemoryLocalCacheManager: LocalCacheManaging {
         return try decodeCacheValue(entry.payload, as: type)
     }
 
+    /// Removes value.
     public func removeValue(forKey key: String) async throws {
         let normalizedKey = try validateCacheKey(key)
         storage[normalizedKey] = nil
     }
 
+    /// Clears this operation.
     public func clear() async throws {
         storage.removeAll(keepingCapacity: false)
     }
@@ -94,6 +104,7 @@ public actor FileLocalCacheManager: LocalCacheManaging {
     private let fileManager: FileManager
     private let dateProvider: @Sendable () -> Date
 
+    /// Creates a new FileLocalCacheManager instance.
     public init(
         directoryURL: URL? = nil,
         fileManager: FileManager = .default,
@@ -115,6 +126,7 @@ public actor FileLocalCacheManager: LocalCacheManaging {
         try fileManager.createDirectory(at: self.directoryURL, withIntermediateDirectories: true)
     }
 
+    /// Sets value.
     public func setValue<Value: Codable & Sendable>(
         _ value: Value,
         forKey key: String,
@@ -130,6 +142,7 @@ public actor FileLocalCacheManager: LocalCacheManaging {
         try encodedEntry.write(to: cacheFileURL(for: normalizedKey), options: .atomic)
     }
 
+    /// Returns the current value.
     public func value<Value: Codable & Sendable>(
         forKey key: String,
         as type: Value.Type
@@ -149,6 +162,7 @@ public actor FileLocalCacheManager: LocalCacheManaging {
         return try decodeCacheValue(entry.payload, as: type)
     }
 
+    /// Removes value.
     public func removeValue(forKey key: String) async throws {
         let normalizedKey = try validateCacheKey(key)
         let fileURL = cacheFileURL(for: normalizedKey)
@@ -158,6 +172,7 @@ public actor FileLocalCacheManager: LocalCacheManaging {
         try fileManager.removeItem(at: fileURL)
     }
 
+    /// Clears this operation.
     public func clear() async throws {
         guard fileManager.fileExists(atPath: directoryURL.path) else {
             return
@@ -172,6 +187,7 @@ public actor FileLocalCacheManager: LocalCacheManaging {
         }
     }
 
+    /// Handles cache file url.
     private func cacheFileURL(for key: String) -> URL {
         let encodedKey = Data(key.utf8)
             .base64EncodedString()
@@ -185,6 +201,7 @@ private struct StoredCacheEntry: Codable, Sendable {
     let payload: Data
     let expirationDate: Date?
 
+    /// Checks whether expired.
     func isExpired(now: Date) -> Bool {
         guard let expirationDate else {
             return false
@@ -193,6 +210,7 @@ private struct StoredCacheEntry: Codable, Sendable {
     }
 }
 
+/// Handles validate cache key.
 private func validateCacheKey(_ key: String) throws -> String {
     let normalizedKey = key.trimmingCharacters(in: .whitespacesAndNewlines)
     guard !normalizedKey.isEmpty else {
@@ -201,6 +219,7 @@ private func validateCacheKey(_ key: String) throws -> String {
     return normalizedKey
 }
 
+/// Handles encode cache value.
 private func encodeCacheValue<T: Encodable>(_ value: T) throws -> Data {
     do {
         return try JSONEncoder().encode(value)
@@ -209,6 +228,7 @@ private func encodeCacheValue<T: Encodable>(_ value: T) throws -> Data {
     }
 }
 
+/// Handles decode cache value.
 private func decodeCacheValue<T: Decodable>(_ data: Data, as type: T.Type) throws -> T {
     do {
         return try JSONDecoder().decode(type, from: data)

@@ -26,6 +26,7 @@ struct NewsTabRootView: View {
         )
     }
 
+    /// Opens featured article.
     private func openFeaturedArticle(_ article: FeaturedArticleCardModel) {
         router.push(
             NewsRoute(
@@ -38,6 +39,7 @@ struct NewsTabRootView: View {
         )
     }
 
+    /// Opens discussion.
     private func openDiscussion(_ discussion: DiscussionCardModel) {
         router.push(
             NewsRoute(

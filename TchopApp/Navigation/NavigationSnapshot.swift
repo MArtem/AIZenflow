@@ -24,6 +24,7 @@ struct NavigationSnapshot: Codable, Equatable {
     let chatPath: [ChatRoute]
     let profilePath: [ProfileRoute]
 
+    /// Creates a new NavigationSnapshot instance.
     init(
         version: Int = NavigationSnapshot.supportedVersion,
         createdAt: Date = Date(),
@@ -87,6 +88,7 @@ struct NavigationSnapshot: Codable, Equatable {
         case profilePath
     }
 
+    /// Creates a new CodingKeys instance.
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.version = try container.decodeIfPresent(Int.self, forKey: .version) ?? 1
