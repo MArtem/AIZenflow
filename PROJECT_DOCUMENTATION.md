@@ -204,6 +204,9 @@ Comment policy:
 ## Working Rules Summary
 - use package-backed reusable managers where that improves cross-project reuse
 - keep app-specific composition in the app layer
+- do not add abstractions or package extraction without clear practical value for the current app or a realistic near-term reuse case
+- reject changes that mostly increase indirection, code size, onboarding cost, or logic depth while adding little real benefit
+- prefer the simplest design that preserves correctness, maintainability, and practical reuse
 - avoid view-returning helper methods inside screens
 - support light and dark appearance
 - support localization for all user-facing strings

@@ -248,6 +248,10 @@
 - Additional collaboration rule:
   if anything is unclear, ask questions, clarify trade-offs, and propose alternatives/ideas instead of assuming silent defaults.
   Each new task and shared implementation plan should be treated as a collaborative step requiring active attention from both sides.
+- Additional anti-overengineering rule:
+  do not introduce new abstractions, managers, factories, protocols, or package extraction purely for theoretical flexibility.
+  If a change mostly increases complexity, indirection, onboarding cost, or code volume while adding limited practical value, it should be rejected.
+  The preferred baseline is the simplest design that preserves correctness, maintainability, and realistic cross-project reuse.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
@@ -803,6 +807,13 @@ Absent:  no tests/build/simulator checks
   and `PushNotificationAnalyticsCollector` for `TchopPushNotifications`.
   `TchopPushNotifications` itself now emits a typed `PushNotificationEvent` lifecycle stream through `PushNotificationEventCollecting`, so push analytics no longer needs to inspect mutable state snapshots after the fact.
   Package tests now cover analytics mapping/forwarding and the new push lifecycle event emission path.
+- Upcoming roadmap policy:
+  the next work is organized into three explicit cycles only:
+  `Analytics Integration Cycle`,
+  `Quality / Verification Cycle`,
+  and `Package Completeness Cycle`.
+  Each cycle must be executed step-by-step with one commit per completed step and a pause for explicit user `Continue` before the next one.
+  These cycles are constrained by the anti-overengineering rule above: skip any step that turns into complexity for complexity's sake without meaningful practical payoff.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

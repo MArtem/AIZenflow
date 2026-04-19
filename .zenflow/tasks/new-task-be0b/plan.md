@@ -600,6 +600,40 @@ Keep transport-specific or app-lifecycle-specific details behind adapters rather
 Completed by introducing a new reusable package target, `TchopAnalytics`, with a shared `ProductAnalyticsEvent` model, collector contract, and in-memory collector.
 Thin adapters now map `NavigationEvent`, `APIMetricsEvent`, and the new `PushNotificationEvent` lifecycle stream into that shared analytics surface without coupling the lower-level packages to one product analytics format.
 
+### [ ] Step: Analytics Integration Cycle
+
+Integrate the new analytics infrastructure into real app runtime paths, but only where it produces direct practical value and does not noticeably raise complexity for day-to-day development.
+Apply the standing anti-overengineering rule to this entire cycle: skip any substep that turns into abstraction for abstraction's sake.
+
+- Wire `TchopAnalytics` into `AppDIContainer` as one shared collector surface.
+- Replace the current no-op navigation reporter with an analytics-backed reporter in app runtime composition.
+- Add `APIAnalyticsMetricsCollector` into the real `APIManager` interceptor pipeline.
+- Connect push lifecycle analytics through the app push bridge / push manager wiring.
+- Add a lightweight debug inspection surface only if it stays simple and materially helps validate event flow.
+- Add only the highest-value app/package tests needed to prove that runtime wiring actually emits analytics events.
+
+### [ ] Step: Quality / Verification Cycle
+
+Strengthen proof of correctness around the architecture that now exists, focusing on contract protection and regression prevention rather than on test volume for its own sake.
+Apply the same anti-overengineering rule here: prefer the smallest verification additions that meaningfully reduce risk.
+
+- Re-run and harden the analytics-related package and app coverage after runtime integration.
+- Expand UI smoke coverage only where it protects important launch/navigation states without becoming brittle.
+- Review and tighten the current `Low` / `Medium` / `Full` verification workflow so it is more repeatable and easier to apply.
+- Target unstable or high-risk paths first: navigation restore, deep links, DB selection/migration, push flow, and UI configuration lifecycle.
+- Clean up warnings or test harness issues only when they reduce real verification noise or false negatives.
+
+### [ ] Step: Package Completeness Cycle
+
+Perform one more reuse-focused package pass, but only on capabilities that materially improve portability across iOS projects.
+Do not expand packages with speculative features that are not justified by current code or realistic near-term reuse.
+
+- Reassess `TchopAnalytics` for only the missing practical pieces needed for real reuse, such as retention/persistence/privacy if justified.
+- Reassess `TchopNetworking`, `TchopNavigation`, and `TchopPushNotifications` for remaining app-specific leakage in their public APIs.
+- Add package functionality only where it closes a real reuse gap already visible in this project.
+- Keep app-specific policy, product semantics, and host lifecycle composition in the app layer unless extraction is clearly beneficial.
+- Finish with documentation updates that explain what was intentionally not generalized and why.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
