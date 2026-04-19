@@ -267,6 +267,7 @@ Completed:
 - Added package product/target/test target `TchopPushNotifications` with reusable types for APNs authorization state, token formatting, payload parsing, and `UserDefaults`-backed state persistence.
 - Added app-layer bridge `AppPushNotificationBridge` and `TchopApplicationDelegate` so the SwiftUI app now receives APNs registration and remote-notification callbacks through a composition layer instead of app-global logic.
 - Updated project/app configuration with push entitlement, `remote-notification` background mode, and simulator-ready `.apns` payload fixtures for both app bundle identifiers.
+- Added an explicit app-facing `AppState.requestPushNotificationAuthorization()` entry point for future UI wiring, while keeping the permission prompt opt-in rather than auto-triggered on launch.
 
 ### [x] Step: Establish profiling baseline for current app runtime
 

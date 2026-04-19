@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import UIKit
 import TchopDatabase
 
 /// Root app-level state object.
@@ -22,6 +23,7 @@ final class AppState: ObservableObject {
     private let deepLinkManager: any DeepLinkManaging
     private let navigationEventReporter: any NavigationEventReporting
     private let widgetContentSyncManager: any WidgetContentSyncing
+    private let pushNotificationBridge: any AppPushNotificationBridging
     private var navigationBindings: Set<AnyCancellable> = []
     private var isApplyingNavigationSnapshot = false
     private var pendingDeepLinkInput: PendingDeepLinkInput?
@@ -35,7 +37,8 @@ final class AppState: ObservableObject {
         navigationStateManager: any NavigationStateManaging,
         deepLinkManager: any DeepLinkManaging,
         navigationEventReporter: (any NavigationEventReporting)? = nil,
-        widgetContentSyncManager: any WidgetContentSyncing
+        widgetContentSyncManager: any WidgetContentSyncing,
+        pushNotificationBridge: any AppPushNotificationBridging
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -45,6 +48,7 @@ final class AppState: ObservableObject {
         self.deepLinkManager = deepLinkManager
         self.navigationEventReporter = navigationEventReporter ?? NavigationNoopEventReporter()
         self.widgetContentSyncManager = widgetContentSyncManager
+        self.pushNotificationBridge = pushNotificationBridge
         setupNavigationPersistenceBindings()
         restoreSession()
     }
@@ -108,6 +112,15 @@ final class AppState: ObservableObject {
         coordinator.resetAllNavigation()
         appShellViewModel.closeMenu()
         widgetContentSyncManager.clearFeed()
+    }
+
+    /// Requests push notification authorization and APNs registration on demand.
+    func requestPushNotificationAuthorization() {
+        Task { @MainActor [pushNotificationBridge] in
+            pushNotificationBridge.requestAuthorizationAndRegister(
+                application: UIApplication.shared
+            )
+        }
     }
 
     /// Restores the previously persisted user session if one exists.

@@ -211,6 +211,8 @@
 		A000009B0000000000000001 /* ChatTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabRootView.swift; sourceTree = "<group>"; };
 		E00000080000000000000001 /* AppPushNotificationBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushNotificationBridge.swift; sourceTree = "<group>"; };
 		E00000090000000000000001 /* TchopApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopApplicationDelegate.swift; sourceTree = "<group>"; };
+		E000000A0000000000000001 /* SampleTchopApp.apns */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleTchopApp.apns; sourceTree = "<group>"; };
+		E000000B0000000000000001 /* SampleTchopAppOcean.apns */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleTchopAppOcean.apns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -292,6 +294,7 @@
 				A00000890000000000000001 /* TchopAppTests */,
 				A000002D0000000000000001 /* Info.plist */,
 				A000002E0000000000000001 /* Assets.xcassets */,
+				E000000C0000000000000001 /* PushNotifications */,
 				D00000130000000000000001 /* TchopApp.entitlements */,
 			);
 			path = TchopApp;
@@ -371,6 +374,15 @@
 				D00000040000000000000001 /* AppGroupConfiguration.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		E000000C0000000000000001 /* PushNotifications */ = {
+			isa = PBXGroup;
+			children = (
+				E000000A0000000000000001 /* SampleTchopApp.apns */,
+				E000000B0000000000000001 /* SampleTchopAppOcean.apns */,
+			);
+			path = PushNotifications;
 			sourceTree = "<group>";
 		};
 		D00000180000000000000001 /* TchopWidgetsExtension */ = {

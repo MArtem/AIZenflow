@@ -124,7 +124,8 @@ final class AppDIContainer: ObservableObject {
             navigationStateManager: navigationStateManager,
             deepLinkManager: deepLinkManager,
             navigationEventReporter: navigationEventReporter,
-            widgetContentSyncManager: widgetContentSyncManager
+            widgetContentSyncManager: widgetContentSyncManager,
+            pushNotificationBridge: pushNotificationBridge
         )
     }
 }

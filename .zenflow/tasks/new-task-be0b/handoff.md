@@ -112,6 +112,7 @@
 - App branding bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppBranding.swift`
 - App push notification bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppPushNotificationBridge.swift`
 - App delegate bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/TchopApplicationDelegate.swift`
+- App push request entry point: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift`
 - App widget bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppWidgetBridge.swift`
 - Shared app-group config: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Shared/AppGroupConfiguration.swift`
 - Simulator push payload for TchopApp: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/PushNotifications/SampleTchopApp.apns`
@@ -177,6 +178,8 @@
   Current launch behavior is intentionally conservative:
   on app start we only refresh current notification authorization state and auto-register for remote notifications if permission already exists;
   we do not auto-prompt the user on every launch.
+  `AppState` now also exposes an explicit app-facing method to request push authorization on demand,
+  so future UI can trigger the permission flow without reaching directly into `UIApplicationDelegate` wiring.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.
