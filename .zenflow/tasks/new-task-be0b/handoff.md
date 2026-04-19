@@ -834,6 +834,14 @@ Absent:  no tests/build/simulator checks
   the optional debug analytics inspection surface was intentionally skipped.
   Reason: for the current project it would introduce extra UI/debug plumbing and cognitive overhead without enough practical payoff, so omitting it is the correct anti-overengineering choice.
   The cycle is therefore considered complete with runtime wiring and regression coverage in place.
+- Quality / verification cycle (current cycle, step 1):
+  the verification matrix is now codified in `scripts/verify.sh`.
+  This gives one repeatable entry point for:
+  `low`,
+  `medium`,
+  and `full`
+  without adding CI-only plumbing or extra automation layers.
+  The script intentionally stays narrow and only captures the already agreed `TchopApp` verification workflow.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,

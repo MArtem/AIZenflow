@@ -631,6 +631,10 @@ Apply the same anti-overengineering rule here: prefer the smallest verification 
 - Target unstable or high-risk paths first: navigation restore, deep links, DB selection/migration, push flow, and UI configuration lifecycle.
 - Clean up warnings or test harness issues only when they reduce real verification noise or false negatives.
 
+Quality / verification cycle progress:
+- Added [scripts/verify.sh](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/verify.sh) as the single source of truth for `low`, `medium`, and `full` verification commands.
+- Kept the script intentionally narrow: it only codifies the already agreed verification matrix for `TchopApp`, without introducing CI-only wrappers or extra orchestration layers.
+
 ### [ ] Step: Package Completeness Cycle
 
 Perform one more reuse-focused package pass, but only on capabilities that materially improve portability across iOS projects.

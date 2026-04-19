@@ -190,6 +190,11 @@ Supported levels:
 
 If a requested verification finds a real issue, the issue must be fixed immediately and the same verification level rerun.
 
+Verification is also codified in [scripts/verify.sh](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/verify.sh), so routine checks do not depend on recalling long command lines manually:
+- `./scripts/verify.sh low`
+- `./scripts/verify.sh medium`
+- `./scripts/verify.sh full`
+
 ## Documentation and Commenting Policy
 The project now requires two documentation layers:
 - project-level documentation in markdown for architecture, targets, packages, flows, and working rules
