@@ -40,6 +40,17 @@
                ReferencedContainer = "container:TchopApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "U00000060000000000000001"
+               BuildableName = "TchopAppUITests.xctest"
+               BlueprintName = "TchopAppUITests"
+               ReferencedContainer = "container:TchopApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

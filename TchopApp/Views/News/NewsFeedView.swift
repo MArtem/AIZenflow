@@ -35,6 +35,7 @@ struct NewsFeedView: View {
             .padding(.top, 16)
             .padding(.bottom, 120)
         }
+        .accessibilityIdentifier("news.feed")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .refreshable {
             viewModel.reload()

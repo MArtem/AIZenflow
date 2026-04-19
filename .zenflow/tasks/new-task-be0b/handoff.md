@@ -113,6 +113,7 @@
 - Launch screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/LaunchScreen.storyboard`
 - App metadata: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Info.plist`
 - App branding bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppBranding.swift`
+- App launch configuration: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppLaunchConfiguration.swift`
 - App push notification bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppPushNotificationBridge.swift`
 - App delegate bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/TchopApplicationDelegate.swift`
 - App push request entry point: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift`
@@ -123,6 +124,7 @@
 - Widget extension bundle: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/TchopWidgetsBundle.swift`
 - Widget extension view/provider: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/FeedHeadlineWidget.swift`
 - Widget extension Info.plist: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/Info.plist`
+- UI smoke test target: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopAppUITests/TchopAppUITests.swift`
 
 ## Code Style Decision
 - Do not use computed properties like `private var something: some View` for view composition.
@@ -785,6 +787,12 @@ Absent:  no tests/build/simulator checks
   This makes the automatic Core Data / SwiftData / migration decision path unit-testable without creating real persistence containers.
   A new throwing entry point, `AppDatabase.makeDatabaseManagerOrThrow(...)`, is available for tests and non-fatal bootstrap callers, while the old non-throwing `makeDatabaseManager(...)` remains only as a thin fatal wrapper for app composition.
   The Core Data store URL bootstrap no longer uses `fatalError` inside `AppDatabaseContainerFactory`, and new `AppDatabasePolicyTests` cover selection and bootstrap scenarios.
+- UI smoke coverage pass (next improvement cycle, iteration 7):
+  a new `TchopAppUITests` target now provides minimal but stable launch-level coverage for the signed-out root screen, authenticated shell, and authenticated news feed baseline.
+  `AppRootView`, `LoginScreenView`, `ShellContentView`, and `NewsFeedView` now expose stable accessibility identifiers for those entry states.
+  `AppLaunchConfiguration` reads UI-test launch environment flags and switches the app to in-memory persistence during UI tests, with optional authenticated session bootstrap so smoke tests stay deterministic and isolated from persisted simulator state.
+  During the same pass, the app database policy fix from the prior `Low` verification was folded in:
+  runtime SwiftData branches now use explicit `#available(iOS 17, *)` guards, and legacy Core Data store detection uses the corrected on-disk store URL check.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

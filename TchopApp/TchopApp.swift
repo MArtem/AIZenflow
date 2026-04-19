@@ -10,11 +10,20 @@ struct TchopApp: App {
 
     /// Creates a new TchopApp instance.
     init() {
-        let container = AppDIContainer()
+        let launchConfiguration = AppLaunchConfiguration()
+        let container = AppDIContainer(
+            databaseConfiguration: launchConfiguration.databaseConfiguration
+        )
+        let appState = container.makeAppState()
+
+        if launchConfiguration.launchesAuthenticatedSession {
+            try? appState.signIn(username: launchConfiguration.uiTestUsername)
+        }
+
         self.container = container
 
         _appState = StateObject(
-            wrappedValue: container.makeAppState()
+            wrappedValue: appState
         )
 
         applicationDelegate.pushNotificationBridge = container.pushNotificationBridge

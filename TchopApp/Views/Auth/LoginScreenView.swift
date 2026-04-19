@@ -40,6 +40,7 @@ struct LoginScreenView: View {
                     AppLocalization.text("login.usernamePlaceholder", fallback: "Enter your name"),
                     text: $viewModel.username
                 )
+                    .accessibilityIdentifier("login.usernameField")
                     .textInputAutocapitalization(.words)
                     .autocorrectionDisabled()
                     .padding(.horizontal, 16)
@@ -67,6 +68,7 @@ struct LoginScreenView: View {
                     .background(AppTheme.accent)
                     .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
             }
+            .accessibilityIdentifier("login.continueButton")
             .buttonStyle(.plain)
 
             Spacer()

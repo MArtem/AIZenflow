@@ -34,6 +34,7 @@ struct ShellContentView: View {
 
             BottomTabBar(selectedTab: coordinator.selectedTab, onSelect: coordinator.selectTab)
         }
+        .accessibilityIdentifier("shell.content")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
     }
 }

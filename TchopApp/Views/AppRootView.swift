@@ -21,6 +21,7 @@ struct AppRootView: View {
         Group {
             if appState.currentUser == nil {
                 LoginScreenView(onLogin: appState.signIn)
+                    .accessibilityIdentifier("login.screen")
             } else {
                 AppShellView(
                     viewModel: appState.appShellViewModel,
@@ -28,6 +29,7 @@ struct AppRootView: View {
                     currentUser: appState.currentUser,
                     onLogout: appState.signOut
                 )
+                .accessibilityIdentifier("shell.screen")
             }
         }
         .onOpenURL(perform: onOpenURL)

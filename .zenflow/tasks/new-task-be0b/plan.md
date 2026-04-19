@@ -584,10 +584,13 @@ Completed by extracting a testable runtime-selection layer (`AppDatabaseRuntimeP
 `AppDatabase` now exposes a throwing bootstrap API for callers and tests that want to avoid the fatal wrapper, and the Core Data store URL bootstrap no longer uses `fatalError` internally.
 Added focused `AppDatabasePolicyTests` covering automatic backend selection, legacy Core Data migration selection, unsupported explicit SwiftData requests, and the throwing in-memory Core Data bootstrap path.
 
-### [ ] Step: Add snapshot or UI test coverage for core screens
+### [x] Step: Add snapshot or UI test coverage for core screens
 
 Add focused UI-level regression coverage for `AppRootView`, `AppShellView`, and `NewsTabRootView`.
 Prefer a minimal but stable baseline that protects layout/state regressions without introducing brittle test noise.
+
+Completed by adding a dedicated `TchopAppUITests` target with smoke coverage for three core launch states: signed-out root, authenticated shell, and authenticated news feed entry.
+The app now supports UI-test launch configuration through `AppLaunchConfiguration`, using process-environment flags to force in-memory persistence and an authenticated session bootstrap so the smoke suite stays deterministic and isolated from device state.
 
 ### [ ] Step: Add unified analytics and event layer across core infra packages
 
