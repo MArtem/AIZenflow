@@ -103,10 +103,7 @@ public protocol PushNotificationManaging: Sendable {
     func updateRemoteRegistration(isRegistered: Bool) async throws -> PushNotificationState
     func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState
     func handleRegistrationFailure(_ errorDescription: String) async throws -> PushNotificationState
-    func handleRemoteNotification(
-        userInfo: [AnyHashable: Any],
-        source: PushNotificationEventSource
-    ) async throws -> PushNotificationPayload
+    func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload
     func clearState() async throws
 }
 
@@ -116,7 +113,7 @@ public enum PushNotificationStateStoreError: Error {
 }
 
 /// UserDefaults-backed push state storage used by the app by default.
-public final class UserDefaultsPushNotificationStateStore: PushNotificationStateStoring {
+public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, PushNotificationStateStoring {
     private let userDefaults: UserDefaults
     private let storageKey: String
 
@@ -241,15 +238,12 @@ public struct DefaultPushNotificationPayloadParser: PushNotificationPayloadParsi
 /// Reusable actor that stores push-registration state and the latest APNs payloads.
 public actor PushNotificationManager: PushNotificationManaging {
     private let store: any PushNotificationStateStoring
-    private let payloadParser: any PushNotificationPayloadParsing
     private var state: PushNotificationState
 
     public init(
-        store: any PushNotificationStateStoring,
-        payloadParser: any PushNotificationPayloadParsing = DefaultPushNotificationPayloadParser()
+        store: any PushNotificationStateStoring
     ) {
         self.store = store
-        self.payloadParser = payloadParser
         self.state = (try? store.load()) ?? PushNotificationState()
     }
 
@@ -309,19 +303,14 @@ public actor PushNotificationManager: PushNotificationManaging {
         return state
     }
 
-    public func handleRemoteNotification(
-        userInfo: [AnyHashable: Any],
-        source: PushNotificationEventSource
-    ) async throws -> PushNotificationPayload {
-        let payload = payloadParser.parse(userInfo: userInfo, source: source)
-
+    public func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload {
         state = PushNotificationState(
             authorizationStatus: state.authorizationStatus,
             isRegisteredForRemoteNotifications: state.isRegisteredForRemoteNotifications,
             deviceToken: state.deviceToken,
             lastRegistrationErrorDescription: state.lastRegistrationErrorDescription,
-            lastReceivedPayload: source == .opened ? state.lastReceivedPayload : payload,
-            lastOpenedPayload: source == .opened ? payload : state.lastOpenedPayload
+            lastReceivedPayload: payload.source == .opened ? state.lastReceivedPayload : payload,
+            lastOpenedPayload: payload.source == .opened ? payload : state.lastOpenedPayload
         )
         try persistState()
         return payload

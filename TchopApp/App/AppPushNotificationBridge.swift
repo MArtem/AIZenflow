@@ -21,13 +21,16 @@ protocol AppPushNotificationBridging: AnyObject {
 final class AppPushNotificationBridge: AppPushNotificationBridging {
     private let manager: any PushNotificationManaging
     private let notificationCenter: UNUserNotificationCenter
+    private let payloadParser: any PushNotificationPayloadParsing
 
     init(
         manager: any PushNotificationManaging,
-        notificationCenter: UNUserNotificationCenter = .current()
+        notificationCenter: UNUserNotificationCenter = .current(),
+        payloadParser: any PushNotificationPayloadParsing = DefaultPushNotificationPayloadParser()
     ) {
         self.manager = manager
         self.notificationCenter = notificationCenter
+        self.payloadParser = payloadParser
     }
 
     func start(application: UIApplication) {
@@ -84,7 +87,8 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         source: PushNotificationEventSource
     ) async {
         do {
-            _ = try await manager.handleRemoteNotification(userInfo: userInfo, source: source)
+            let payload = payloadParser.parse(userInfo: userInfo, source: source)
+            _ = try await manager.handleRemoteNotification(payload)
         } catch {
             assertionFailure("Failed to handle APNs payload: \(error)")
         }
