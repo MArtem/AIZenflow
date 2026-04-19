@@ -2,13 +2,6 @@ import Combine
 import Foundation
 import TchopNavigation
 
-/// Defines stack mutation policy for navigation transitions.
-enum NavigationTransitionPolicy: String, Codable, Equatable {
-    case push
-    case replace
-    case popToRoot
-}
-
 /// Coordinator that owns shared tab selection and per-tab routers.
 @MainActor
 final class AppCoordinator: ObservableObject {

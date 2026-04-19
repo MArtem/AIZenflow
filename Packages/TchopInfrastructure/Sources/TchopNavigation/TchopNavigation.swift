@@ -1,6 +1,56 @@
 import Combine
 import Foundation
 
+/// Defines stack mutation policy for navigation transitions.
+public enum NavigationTransitionPolicy: String, Codable, Equatable, Sendable {
+    case push
+    case replace
+    case popToRoot
+}
+
+/// Typed events emitted by navigation restore and deep-link flows.
+@MainActor
+public enum NavigationEvent: Equatable {
+    case deepLinkHandled(url: String, destination: String, policy: NavigationTransitionPolicy)
+    case deepLinkRejected(url: String, reason: String)
+    case deepLinkFallback(url: String, reason: String)
+    case snapshotRestoreStarted(userID: String, sourceVersion: Int)
+    case snapshotRestoreCompleted(
+        userID: String,
+        appliedVersion: Int,
+        wasSanitized: Bool,
+        wasMigrated: Bool
+    )
+    case snapshotRestoreSkipped(userID: String, reason: String)
+    case snapshotRestoreFailed(userID: String, reason: String)
+}
+
+/// Contract used to report navigation events for diagnostics and observability.
+@MainActor
+public protocol NavigationEventReporting: AnyObject {
+    func report(_ event: NavigationEvent)
+}
+
+/// Default no-op navigation event reporter.
+@MainActor
+public final class NavigationNoopEventReporter: NavigationEventReporting {
+    public init() {}
+
+    public func report(_ event: NavigationEvent) {}
+}
+
+/// In-memory navigation reporter primarily used by tests.
+@MainActor
+public final class NavigationMemoryEventReporter: NavigationEventReporting {
+    public private(set) var events: [NavigationEvent] = []
+
+    public init() {}
+
+    public func report(_ event: NavigationEvent) {
+        events.append(event)
+    }
+}
+
 /// Generic router that stores a typed navigation path for a single stack.
 @MainActor
 public final class TabRouter<Route: Hashable>: ObservableObject {

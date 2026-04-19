@@ -518,6 +518,12 @@ Completed the first real `TchopUIConfiguration` package uplift by moving it beyo
 The package now supports a reusable persisted snapshot store, explicit `currentConfiguration()` vs `refreshConfiguration()` semantics, and a default `UserDefaultsUIConfigurationSnapshotStore` so other iOS projects can adopt server-driven UI config without rebuilding caching/bootstrap behavior from scratch.
 `AppShellViewModel` now applies the current cached snapshot first and then refreshes from the remote provider, while package tests cover fallback bootstrap, persistence on refresh, and reload from store.
 
+### [x] Step: Move reusable navigation observability and transition contracts into package
+
+Completed the first extraction pass for app-local navigation infrastructure that was generic enough to live in `TchopNavigation`.
+`NavigationTransitionPolicy`, `NavigationEvent`, `NavigationEventReporting`, `NavigationNoopEventReporter`, and `NavigationMemoryEventReporter` now live in the package instead of the app target, so transition semantics and navigation observability are reusable across projects that adopt the same coordinator/router pattern.
+The app navigation layer now imports those contracts from `TchopNavigation` rather than defining them locally.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

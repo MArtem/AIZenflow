@@ -221,6 +221,9 @@
   `TchopUIConfiguration` is no longer just a thin async fetch wrapper over a remote provider.
   The package now exposes a reusable current/refresh contract (`currentConfiguration()` and `refreshConfiguration()`), a persisted snapshot storage abstraction (`UIConfigurationSnapshotStoring`), and a default `UserDefaultsUIConfigurationSnapshotStore`.
   The app now bootstraps shell UI from the last known cached configuration before refreshing from the remote provider, which makes the package more realistic and reusable for other iOS apps with server-driven UI toggles.
+- Navigation package baseline:
+  `TchopNavigation` now contains not only router and snapshot-persistence primitives, but also the reusable transition and observability contracts used by the app navigation layer.
+  `NavigationTransitionPolicy`, `NavigationEvent`, `NavigationEventReporting`, `NavigationNoopEventReporter`, and `NavigationMemoryEventReporter` were moved out of the app target into the package so the same coordinator-driven navigation diagnostics can be reused in other iOS projects.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.
