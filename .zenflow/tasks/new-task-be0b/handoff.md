@@ -224,6 +224,9 @@
 - Navigation package baseline:
   `TchopNavigation` now contains not only router and snapshot-persistence primitives, but also the reusable transition and observability contracts used by the app navigation layer.
   `NavigationTransitionPolicy`, `NavigationEvent`, `NavigationEventReporting`, `NavigationNoopEventReporter`, and `NavigationMemoryEventReporter` were moved out of the app target into the package so the same coordinator-driven navigation diagnostics can be reused in other iOS projects.
+- Feed UI interaction baseline:
+  the news feed no longer depends on hidden "find first card of this type" lookups when opening destinations from card taps.
+  `NewsFeedView` now forwards the concrete tapped card model back to `NewsTabRootView`, which makes navigation deterministic for the tapped item and removes redundant rescans of the feed array during interaction.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

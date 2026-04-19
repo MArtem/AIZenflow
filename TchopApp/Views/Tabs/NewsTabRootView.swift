@@ -26,11 +26,7 @@ struct NewsTabRootView: View {
         )
     }
 
-    private func openFeaturedArticle() {
-        guard let article else {
-            return
-        }
-
+    private func openFeaturedArticle(_ article: FeaturedArticleCardModel) {
         router.push(
             NewsRoute(
                 destinationID: "article-details",
@@ -42,11 +38,7 @@ struct NewsTabRootView: View {
         )
     }
 
-    private func openDiscussion() {
-        guard let discussion else {
-            return
-        }
-
+    private func openDiscussion(_ discussion: DiscussionCardModel) {
         router.push(
             NewsRoute(
                 destinationID: "discussion-details",
@@ -58,23 +50,4 @@ struct NewsTabRootView: View {
         )
     }
 
-    private var article: FeaturedArticleCardModel? {
-        for card in viewModel.content.cards {
-            if case let .featuredArticle(article) = card {
-                return article
-            }
-        }
-
-        return nil
-    }
-
-    private var discussion: DiscussionCardModel? {
-        for card in viewModel.content.cards {
-            if case let .discussion(discussion) = card {
-                return discussion
-            }
-        }
-
-        return nil
-    }
 }

@@ -3,8 +3,8 @@ import SwiftUI
 /// Main feed list rendering heterogeneous card content.
 struct NewsFeedView: View {
     @ObservedObject var viewModel: NewsFeedViewModel
-    let onFeaturedArticleTap: () -> Void
-    let onDiscussionTap: () -> Void
+    let onFeaturedArticleTap: (FeaturedArticleCardModel) -> Void
+    let onDiscussionTap: (DiscussionCardModel) -> Void
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -21,12 +21,12 @@ struct NewsFeedView: View {
                     case let .featuredArticle(article):
                         FeaturedArticleCard(
                             article: article,
-                            onTap: onFeaturedArticleTap
+                            onTap: { onFeaturedArticleTap(article) }
                         )
                     case let .discussion(discussion):
                         DiscussionCard(
                             discussion: discussion,
-                            onTap: onDiscussionTap
+                            onTap: { onDiscussionTap(discussion) }
                         )
                     }
                 }

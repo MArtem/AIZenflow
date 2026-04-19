@@ -524,6 +524,12 @@ Completed the first extraction pass for app-local navigation infrastructure that
 `NavigationTransitionPolicy`, `NavigationEvent`, `NavigationEventReporting`, `NavigationNoopEventReporter`, and `NavigationMemoryEventReporter` now live in the package instead of the app target, so transition semantics and navigation observability are reusable across projects that adopt the same coordinator/router pattern.
 The app navigation layer now imports those contracts from `TchopNavigation` rather than defining them locally.
 
+### [x] Step: Tighten feed UI action flow and remove hidden card lookups
+
+Completed the first targeted SwiftUI quality pass by removing hidden feed-card lookups from `NewsTabRootView`.
+`NewsFeedView` now forwards the concrete tapped `FeaturedArticleCardModel` or `DiscussionCardModel` back to the tab root, so navigation opens the exact card the user tapped without rescanning the feed array or relying on "first matching card" behavior.
+This reduces unnecessary feed traversal during interaction and makes the card-to-destination flow more explicit and less error-prone as the timeline grows.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
