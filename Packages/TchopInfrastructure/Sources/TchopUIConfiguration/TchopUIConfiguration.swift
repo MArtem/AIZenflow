@@ -1,7 +1,7 @@
 import Foundation
 
 /// Root snapshot describing server-driven UI configuration for the app shell.
-public struct UIConfigurationSnapshot: Equatable, Sendable {
+public struct UIConfigurationSnapshot: Codable, Equatable, Sendable {
     public let shell: ShellUIConfiguration
 
     public init(shell: ShellUIConfiguration) {
@@ -10,7 +10,7 @@ public struct UIConfigurationSnapshot: Equatable, Sendable {
 }
 
 /// Shell-scoped UI toggles that can be modified by remote configuration.
-public struct ShellUIConfiguration: Equatable, Sendable {
+public struct ShellUIConfiguration: Codable, Equatable, Sendable {
     public let showsFloatingActionButton: Bool
 
     public init(showsFloatingActionButton: Bool) {
@@ -25,19 +25,107 @@ public protocol UIConfigurationRemoteProviding: Sendable {
 
 /// App-facing contract that can serve the active UI configuration snapshot.
 public protocol UIConfigurationManaging: Sendable {
+    func currentConfiguration() async -> UIConfigurationSnapshot
+    func refreshConfiguration() async throws -> UIConfigurationSnapshot
     func fetchConfiguration() async throws -> UIConfigurationSnapshot
 }
 
-/// Thin reusable manager that fronts a remote provider.
-public struct UIConfigurationManager: UIConfigurationManaging {
-    private let remoteProvider: any UIConfigurationRemoteProviding
+public extension UIConfigurationManaging {
+    func fetchConfiguration() async throws -> UIConfigurationSnapshot {
+        try await refreshConfiguration()
+    }
+}
 
-    public init(remoteProvider: any UIConfigurationRemoteProviding) {
+/// Persists and restores the last known UI configuration snapshot.
+public protocol UIConfigurationSnapshotStoring: Sendable {
+    func save(_ snapshot: UIConfigurationSnapshot) throws
+    func load() throws -> UIConfigurationSnapshot?
+    func clear() throws
+}
+
+/// Errors emitted by the default UI configuration snapshot store.
+public enum UIConfigurationSnapshotStoreError: Error, Equatable {
+    case unavailableUserDefaults(suiteName: String)
+}
+
+/// UserDefaults-backed UI configuration snapshot storage.
+public final class UserDefaultsUIConfigurationSnapshotStore:
+    @unchecked Sendable,
+    UIConfigurationSnapshotStoring
+{
+    private let userDefaults: UserDefaults
+    private let storageKey: String
+
+    public init(
+        userDefaults: UserDefaults,
+        storageKey: String = "ui-configuration.snapshot"
+    ) {
+        self.userDefaults = userDefaults
+        self.storageKey = storageKey
+    }
+
+    public convenience init(
+        suiteName: String,
+        storageKey: String = "ui-configuration.snapshot"
+    ) throws {
+        guard let userDefaults = UserDefaults(suiteName: suiteName) else {
+            throw UIConfigurationSnapshotStoreError.unavailableUserDefaults(suiteName: suiteName)
+        }
+
+        self.init(userDefaults: userDefaults, storageKey: storageKey)
+    }
+
+    public func save(_ snapshot: UIConfigurationSnapshot) throws {
+        let data = try JSONEncoder().encode(snapshot)
+        userDefaults.set(data, forKey: storageKey)
+    }
+
+    public func load() throws -> UIConfigurationSnapshot? {
+        guard let data = userDefaults.data(forKey: storageKey) else {
+            return nil
+        }
+
+        return try JSONDecoder().decode(UIConfigurationSnapshot.self, from: data)
+    }
+
+    public func clear() throws {
+        userDefaults.removeObject(forKey: storageKey)
+    }
+}
+
+/// Reusable manager that serves current cached configuration and refreshes from a remote source.
+public actor UIConfigurationManager: UIConfigurationManaging {
+    private let remoteProvider: any UIConfigurationRemoteProviding
+    private let store: (any UIConfigurationSnapshotStoring)?
+    private let fallbackSnapshot: UIConfigurationSnapshot
+    private var currentSnapshot: UIConfigurationSnapshot
+
+    public init(
+        remoteProvider: any UIConfigurationRemoteProviding,
+        store: (any UIConfigurationSnapshotStoring)? = nil,
+        fallbackSnapshot: UIConfigurationSnapshot = UIConfigurationSnapshot(
+            shell: ShellUIConfiguration(showsFloatingActionButton: true)
+        )
+    ) {
         self.remoteProvider = remoteProvider
+        self.store = store
+        self.fallbackSnapshot = fallbackSnapshot
+        self.currentSnapshot = (try? store?.load()) ?? fallbackSnapshot
+    }
+
+    public func currentConfiguration() async -> UIConfigurationSnapshot {
+        currentSnapshot
+    }
+
+    public func refreshConfiguration() async throws -> UIConfigurationSnapshot {
+        let snapshot = try await remoteProvider.fetchConfiguration()
+        currentSnapshot = snapshot
+        try store?.save(snapshot)
+        return snapshot
     }
 
     public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
-        try await remoteProvider.fetchConfiguration()
+        try await refreshConfiguration()
     }
 }
 

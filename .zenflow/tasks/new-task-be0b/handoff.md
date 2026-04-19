@@ -217,6 +217,10 @@
   `TchopDatabaseComposition` now exposes `DatabaseManagerFactorySet` as the canonical reusable composition payload instead of relying only on overload-heavy resolver entry points.
   The resolver/factory layer can now report `availableBackends` for a given factory set and resolve either backend through one unified `makeDatabaseManager(configuration:factories:)` surface.
   `AppDatabase` has been switched to that unified composition contract, so app-level persistence orchestration now depends on the same reusable API shape that other iOS projects can adopt.
+- UI configuration baseline:
+  `TchopUIConfiguration` is no longer just a thin async fetch wrapper over a remote provider.
+  The package now exposes a reusable current/refresh contract (`currentConfiguration()` and `refreshConfiguration()`), a persisted snapshot storage abstraction (`UIConfigurationSnapshotStoring`), and a default `UserDefaultsUIConfigurationSnapshotStore`.
+  The app now bootstraps shell UI from the last known cached configuration before refreshing from the remote provider, which makes the package more realistic and reusable for other iOS apps with server-driven UI toggles.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

@@ -126,7 +126,10 @@ final class AppDIContainer: ObservableObject {
     }
 
     private static func makeUIConfigurationManager() -> any UIConfigurationManaging {
-        UIConfigurationManager(remoteProvider: MockUIConfigurationRemoteProvider())
+        UIConfigurationManager(
+            remoteProvider: MockUIConfigurationRemoteProvider(),
+            store: UserDefaultsUIConfigurationSnapshotStore(userDefaults: .standard)
+        )
     }
 
     private static func makeWidgetContentSyncManager() -> any WidgetContentSyncing {

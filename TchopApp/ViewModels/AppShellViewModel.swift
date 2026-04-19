@@ -61,8 +61,11 @@ final class AppShellViewModel: ObservableObject {
     }
 
     private func loadUIConfiguration() async {
+        let cachedConfiguration = await uiConfigurationManager.currentConfiguration()
+        showsFloatingActionButton = cachedConfiguration.shell.showsFloatingActionButton
+
         do {
-            let configuration = try await uiConfigurationManager.fetchConfiguration()
+            let configuration = try await uiConfigurationManager.refreshConfiguration()
             showsFloatingActionButton = configuration.shell.showsFloatingActionButton
         } catch {
             assertionFailure("Failed to fetch UI configuration: \(error)")

@@ -512,6 +512,12 @@ Completed the next database-package uplift by replacing the resolver's overload-
 `TchopDatabaseComposition` now exposes one universal payload for backend factories, explicit `availableBackends` reporting, and a single resolver/factory entry point that can select either backend from the same factory set.
 `AppDatabase` now uses that unified composition contract, and package tests cover both backend availability reporting and backend resolution through the new factory-set API.
 
+### [x] Step: Expand UI configuration package into reusable current/refresh/store layer
+
+Completed the first real `TchopUIConfiguration` package uplift by moving it beyond a thin one-shot remote fetch wrapper.
+The package now supports a reusable persisted snapshot store, explicit `currentConfiguration()` vs `refreshConfiguration()` semantics, and a default `UserDefaultsUIConfigurationSnapshotStore` so other iOS projects can adopt server-driven UI config without rebuilding caching/bootstrap behavior from scratch.
+`AppShellViewModel` now applies the current cached snapshot first and then refreshes from the remote provider, while package tests cover fallback bootstrap, persistence on refresh, and reload from store.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
