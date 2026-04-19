@@ -226,6 +226,35 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
     }
 }
 
+/// In-memory push state storage useful for previews, tests, and ephemeral hosts.
+public final class InMemoryPushNotificationStateStore: @unchecked Sendable, PushNotificationStateStoring {
+    private final class StorageBox: @unchecked Sendable {
+        var state: PushNotificationState?
+    }
+
+    private let storage = StorageBox()
+
+    /// Creates a new InMemoryPushNotificationStateStore instance.
+    public init(initialState: PushNotificationState? = nil) {
+        storage.state = initialState
+    }
+
+    /// Saves this operation.
+    public func save(_ state: PushNotificationState) throws {
+        storage.state = state
+    }
+
+    /// Loads this operation.
+    public func load() throws -> PushNotificationState? {
+        storage.state
+    }
+
+    /// Clears this operation.
+    public func clear() throws {
+        storage.state = nil
+    }
+}
+
 /// Default parser that normalizes APNs payloads into a reusable model.
 public struct DefaultPushNotificationPayloadParser: PushNotificationPayloadParsing {
     /// Creates a new DefaultPushNotificationPayloadParser instance.

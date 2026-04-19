@@ -132,6 +132,7 @@ Shared app/widget snapshot primitives for feed headline rendering.
 ### `TchopPushNotifications`
 Reusable APNs state/token/payload management package.
 System callback handling remains in the app bridge layer.
+The package now includes both `UserDefaultsPushNotificationStateStore` and `InMemoryPushNotificationStateStore`, so host apps can choose between persisted and ephemeral storage without adding app-local store implementations.
 
 ## Key Runtime Flows
 ### App launch

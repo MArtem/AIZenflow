@@ -115,26 +115,3 @@ struct TchopPushNotificationsTests {
         #expect(events[5] == .stateCleared)
     }
 }
-
-private struct InMemoryPushNotificationStateStore: PushNotificationStateStoring {
-    private final class StorageBox: @unchecked Sendable {
-        var state: PushNotificationState?
-    }
-
-    private let storage = StorageBox()
-
-    /// Saves this operation.
-    func save(_ state: PushNotificationState) throws {
-        storage.state = state
-    }
-
-    /// Loads this operation.
-    func load() throws -> PushNotificationState? {
-        storage.state
-    }
-
-    /// Clears this operation.
-    func clear() throws {
-        storage.state = nil
-    }
-}

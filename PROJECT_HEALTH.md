@@ -193,6 +193,7 @@ Owned concerns:
 
 Keep reusable:
 - package-backed manager and parser contracts
+- both persisted and in-memory state-store implementations for host apps with different lifecycle needs
 
 Do not couple to app:
 - `UIApplicationDelegate`

@@ -853,6 +853,11 @@ Absent:  no tests/build/simulator checks
   `signOut()` clearing widget feed state,
   and `requestPushNotificationAuthorization()` delegating into the app push bridge.
   The added doubles stay app-level and lightweight, so this closes a real regression gap in the push/widget lifecycle without adding new runtime abstractions.
+- Package completeness cycle (current cycle, step 1):
+  `TchopPushNotifications` now exposes `InMemoryPushNotificationStateStore` as a public package type instead of keeping that implementation only inside package tests.
+  This is a small but real reuse improvement:
+  host apps, previews, and ephemeral test harnesses can now adopt the package's state-store abstraction without writing their own temporary in-memory store.
+  No host lifecycle policy was moved into the package; only the missing reusable store implementation was promoted.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,

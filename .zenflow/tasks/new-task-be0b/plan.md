@@ -648,6 +648,10 @@ Do not expand packages with speculative features that are not justified by curre
 - Keep app-specific policy, product semantics, and host lifecycle composition in the app layer unless extraction is clearly beneficial.
 - Finish with documentation updates that explain what was intentionally not generalized and why.
 
+Package completeness cycle progress:
+- Promoted `InMemoryPushNotificationStateStore` from a test-only helper into the `TchopPushNotifications` package, because the package already exposed a reusable store abstraction but only shipped a `UserDefaults` implementation publicly.
+- This closes a real portability gap for previews, ephemeral hosts, and tests without adding new lifecycle policy or host-app coupling.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
