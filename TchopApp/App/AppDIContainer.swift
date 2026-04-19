@@ -1,5 +1,6 @@
 import Foundation
 import SwiftUI
+import TchopAnalytics
 import TchopDatabase
 import TchopNavigation
 import TchopNetworking
@@ -13,6 +14,9 @@ import TchopWidgets
 /// dependencies for the SwiftUI tree.
 @MainActor
 final class AppDIContainer: ObservableObject {
+    /// Shared in-memory analytics sink that app runtime integrations can reuse.
+    let analyticsCollector: ProductAnalyticsMemoryCollector
+
     /// Database backend adapter consumed by repositories and seeders.
     let databaseManager: any DatabaseManaging
 
@@ -54,6 +58,8 @@ final class AppDIContainer: ObservableObject {
 
     /// Creates the root dependency container and eagerly wires the initial graph.
     init(databaseConfiguration: AppDatabaseConfiguration = .persistent) {
+        self.analyticsCollector = ProductAnalyticsMemoryCollector()
+
         let databaseManager = AppDatabase.makeDatabaseManager(configuration: databaseConfiguration)
         self.databaseManager = databaseManager
         self.databaseBackendKind = databaseManager.backendKind

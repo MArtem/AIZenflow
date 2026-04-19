@@ -605,12 +605,16 @@ Thin adapters now map `NavigationEvent`, `APIMetricsEvent`, and the new `PushNot
 Integrate the new analytics infrastructure into real app runtime paths, but only where it produces direct practical value and does not noticeably raise complexity for day-to-day development.
 Apply the standing anti-overengineering rule to this entire cycle: skip any substep that turns into abstraction for abstraction's sake.
 
-- Wire `TchopAnalytics` into `AppDIContainer` as one shared collector surface.
+- [x] Wire `TchopAnalytics` into `AppDIContainer` as one shared collector surface.
 - Replace the current no-op navigation reporter with an analytics-backed reporter in app runtime composition.
 - Add `APIAnalyticsMetricsCollector` into the real `APIManager` interceptor pipeline.
 - Connect push lifecycle analytics through the app push bridge / push manager wiring.
 - Add a lightweight debug inspection surface only if it stays simple and materially helps validate event flow.
 - Add only the highest-value app/package tests needed to prove that runtime wiring actually emits analytics events.
+
+Progress:
+`TchopAnalytics` is now linked into both app targets, and `AppDIContainer` owns one shared `ProductAnalyticsMemoryCollector` as the app-level analytics sink.
+No runtime wiring was added in this substep yet; that keeps the change focused on composition setup without prematurely increasing event-flow complexity.
 
 ### [ ] Step: Quality / Verification Cycle
 

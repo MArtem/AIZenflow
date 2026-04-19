@@ -807,6 +807,10 @@ Absent:  no tests/build/simulator checks
   and `PushNotificationAnalyticsCollector` for `TchopPushNotifications`.
   `TchopPushNotifications` itself now emits a typed `PushNotificationEvent` lifecycle stream through `PushNotificationEventCollecting`, so push analytics no longer needs to inspect mutable state snapshots after the fact.
   Package tests now cover analytics mapping/forwarding and the new push lifecycle event emission path.
+- Analytics integration cycle (current cycle, step 1):
+  `TchopAnalytics` is now linked into both host app targets, and `AppDIContainer` owns one shared `ProductAnalyticsMemoryCollector` instance as the future runtime sink for analytics wiring.
+  This step intentionally stops at composition setup only: navigation, networking, and push flows are not yet wired to the collector in runtime.
+  That keeps the change small and useful without adding event-flow complexity before each source is integrated one at a time.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,
