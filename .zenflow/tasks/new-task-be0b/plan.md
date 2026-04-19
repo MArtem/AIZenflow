@@ -308,6 +308,13 @@ Re-ran the requested `Low` verification and then verified the originally failing
 Extended widget embedding so `TchopWidgetsExtension` is now also embedded into the `TchopAppOcean` application target, not only the base `TchopApp` target.
 This was done by adding the extension target dependency and a dedicated `Embed App Extensions` copy phase for `TchopAppOcean` in the Xcode project configuration.
 
+### [x] Step: Split Ocean widget extension identity and pass Low verification
+
+While verifying `TchopAppOcean`, the build failed because the shared widget extension bundle identifier (`com.example.TchopApp.widgets`) is not a valid prefix for the `TchopAppOcean` host bundle identifier.
+Fixed this by introducing a dedicated `TchopWidgetsOceanExtension` target that reuses the same widget sources but uses its own bundle identifier: `com.example.TchopAppOcean.widgets`.
+Re-ran the same `Low` verification successfully:
+- `xcodebuild -project TchopApp.xcodeproj -scheme TchopAppOcean -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build`
+
 ### [x] Step: Navigation phase 8 — snapshot evolution, migration, and navigation observability
 
 Evolve navigation snapshot model to a new version with backward migration from v1 payloads and safe restore sanitization controls.

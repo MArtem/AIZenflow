@@ -150,8 +150,11 @@
   Current implementation uses `TchopWidgets` for shared snapshot storage and `AppWidgetBridge` to publish the first feed-card headline into shared app-group storage for the widget extension.
   Important fix: the widget extension must use an explicit `Info.plist` with a valid nested `NSExtension` dictionary.
   The earlier auto-generated plist configuration caused simulator install failure with `IXErrorDomain` / `Invalid placeholder attributes`.
-  The same `TchopWidgetsExtension` is now embedded into both application targets:
-  `TchopApp` and `TchopAppOcean`.
+  Multi-app nuance:
+  widget extensions cannot be shared as one `.appex` target across host apps with different bundle identifiers.
+  `TchopApp` embeds `TchopWidgetsExtension` with bundle id `com.example.TchopApp.widgets`,
+  while `TchopAppOcean` embeds `TchopWidgetsOceanExtension` with bundle id `com.example.TchopAppOcean.widgets`.
+  Both extension targets reuse the same widget source files and app-group-backed snapshot model.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

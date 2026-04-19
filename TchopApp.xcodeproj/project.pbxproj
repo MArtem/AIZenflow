@@ -73,10 +73,15 @@
 		D00000070000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
 		D00000080000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D00000200000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		D00000240000000000000001 /* TchopWidgetsOceanExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D000000B0000000000000001 /* FeedHeadlineWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000C0000000000000001 /* FeedHeadlineWidget.swift */; };
 		D000000D0000000000000001 /* TchopWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000E0000000000000001 /* TchopWidgetsBundle.swift */; };
 		D000000F0000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
 		D00000100000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
+		D00000250000000000000001 /* FeedHeadlineWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000C0000000000000001 /* FeedHeadlineWidget.swift */; };
+		D00000260000000000000001 /* TchopWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000E0000000000000001 /* TchopWidgetsBundle.swift */; };
+		D00000270000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
+		D00000280000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -97,7 +102,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 13;
 			files = (
-				D00000200000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */,
+				D00000240000000000000001 /* TchopWidgetsOceanExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -123,8 +128,8 @@
 			isa = PBXContainerItemProxy;
 			containerPortal = A000000B0000000000000001 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = D00000160000000000000001;
-			remoteInfo = TchopWidgetsExtension;
+			remoteGlobalIDString = D000002C0000000000000001;
+			remoteInfo = TchopWidgetsOceanExtension;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -132,6 +137,7 @@
 		A00000010000000000000001 /* TchopApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TchopApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B00000010000000000000001 /* TchopAppOcean.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TchopAppOcean.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D000000A0000000000000001 /* TchopWidgetsExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TchopWidgetsExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TchopWidgetsOceanExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00000210000000000000001 /* TchopApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopApp.swift; sourceTree = "<group>"; };
 		A00000220000000000000001 /* AppTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTab.swift; sourceTree = "<group>"; };
 		A00000230000000000000001 /* AppShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellView.swift; sourceTree = "<group>"; };
@@ -186,6 +192,7 @@
 		D00000130000000000000001 /* TchopApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopApp.entitlements; sourceTree = "<group>"; };
 		D00000140000000000000001 /* TchopWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		D000001F0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D00000290000000000000001 /* TchopWidgetsOceanExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopWidgetsOceanExtension.entitlements; sourceTree = "<group>"; };
 		A00000800000000000000001 /* TchopAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TchopAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00000820000000000000001 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		A00000840000000000000001 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -239,6 +246,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		D000002B0000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00000280000000000000001 /* TchopWidgets in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -278,6 +293,7 @@
 				A00000010000000000000001 /* TchopApp.app */,
 				B00000010000000000000001 /* TchopAppOcean.app */,
 				D000000A0000000000000001 /* TchopWidgetsExtension.appex */,
+				D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */,
 				A00000800000000000000001 /* TchopAppTests.xctest */,
 			);
 			name = Products;
@@ -352,6 +368,7 @@
 				D000001F0000000000000001 /* Info.plist */,
 				D000000E0000000000000001 /* TchopWidgetsBundle.swift */,
 				D00000140000000000000001 /* TchopWidgetsExtension.entitlements */,
+				D00000290000000000000001 /* TchopWidgetsOceanExtension.entitlements */,
 			);
 			path = TchopWidgetsExtension;
 			sourceTree = "<group>";
@@ -536,6 +553,26 @@
 			productReference = D000000A0000000000000001 /* TchopWidgetsExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
+		D000002C0000000000000001 /* TchopWidgetsOceanExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D000002F0000000000000001 /* Build configuration list for PBXNativeTarget "TchopWidgetsOceanExtension" */;
+			buildPhases = (
+				D000002D0000000000000001 /* Sources */,
+				D000002B0000000000000001 /* Frameworks */,
+				D000002E0000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TchopWidgetsOceanExtension;
+			packageProductDependencies = (
+				D00000060000000000000001 /* TchopWidgets */,
+			);
+			productName = TchopWidgetsOceanExtension;
+			productReference = D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		A000008A0000000000000001 /* TchopAppTests */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = A000008E0000000000000001 /* Build configuration list for PBXNativeTarget "TchopAppTests" */;
@@ -572,6 +609,9 @@
 					D00000160000000000000001 = {
 						CreatedOnToolsVersion = 26.0.1;
 					};
+					D000002C0000000000000001 = {
+						CreatedOnToolsVersion = 26.0.1;
+					};
 				};
 			};
 			buildConfigurationList = A000000A0000000000000001 /* Build configuration list for PBXProject "TchopApp" */;
@@ -595,6 +635,7 @@
 				A000000C0000000000000001 /* TchopApp */,
 				B00000080000000000000001 /* TchopAppOcean */,
 				D00000160000000000000001 /* TchopWidgetsExtension */,
+				D000002C0000000000000001 /* TchopWidgetsOceanExtension */,
 				A000008A0000000000000001 /* TchopAppTests */,
 			);
 		};
@@ -613,7 +654,7 @@
 		};
 		D00000230000000000000001 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = D00000160000000000000001 /* TchopWidgetsExtension */;
+			target = D000002C0000000000000001 /* TchopWidgetsOceanExtension */;
 			targetProxy = D00000220000000000000001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -636,6 +677,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D000001B0000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D000002E0000000000000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -770,6 +818,16 @@
 				D000000B0000000000000001 /* FeedHeadlineWidget.swift in Sources */,
 				D000000D0000000000000001 /* TchopWidgetsBundle.swift in Sources */,
 				D000000F0000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		D000002D0000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D00000250000000000000001 /* FeedHeadlineWidget.swift in Sources */,
+				D00000260000000000000001 /* TchopWidgetsBundle.swift in Sources */,
+				D00000270000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1088,6 +1146,58 @@
 			};
 			name = Release;
 		};
+		D00000300000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TchopWidgetsExtension/TchopWidgetsOceanExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopWidgetsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		D00000310000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TchopWidgetsExtension/TchopWidgetsOceanExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopWidgetsExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.widgets;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1123,6 +1233,15 @@
 			buildConfigurations = (
 				D000001C0000000000000001 /* Debug */,
 				D000001D0000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D000002F0000000000000001 /* Build configuration list for PBXNativeTarget "TchopWidgetsOceanExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D00000300000000000000001 /* Debug */,
+				D00000310000000000000001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
