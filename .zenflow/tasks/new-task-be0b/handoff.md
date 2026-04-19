@@ -82,10 +82,12 @@
 - UI configuration module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift`
 - Local cache module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCache/TchopCache.swift`
 - Widgets module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift`
+- Push notifications module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopPushNotifications/TchopPushNotifications.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
 - Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
 - Local cache tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopCacheTests/TchopCacheTests.swift`
 - Widgets tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopWidgetsTests/TchopWidgetsTests.swift`
+- Push notification tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopPushNotificationsTests/TchopPushNotificationsTests.swift`
 - Login screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift`
 - Header: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift`
 - Side menu: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Menu/SideMenuView.swift`
@@ -108,8 +110,12 @@
 - Launch screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/LaunchScreen.storyboard`
 - App metadata: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Info.plist`
 - App branding bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppBranding.swift`
+- App push notification bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppPushNotificationBridge.swift`
+- App delegate bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/TchopApplicationDelegate.swift`
 - App widget bridge: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppWidgetBridge.swift`
 - Shared app-group config: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Shared/AppGroupConfiguration.swift`
+- Simulator push payload for TchopApp: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/PushNotifications/SampleTchopApp.apns`
+- Simulator push payload for TchopAppOcean: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/PushNotifications/SampleTchopAppOcean.apns`
 - Widget extension bundle: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/TchopWidgetsBundle.swift`
 - Widget extension view/provider: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/FeedHeadlineWidget.swift`
 - Widget extension Info.plist: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/Info.plist`
@@ -155,6 +161,22 @@
   `TchopApp` embeds `TchopWidgetsExtension` with bundle id `com.example.TchopApp.widgets`,
   while `TchopAppOcean` embeds `TchopWidgetsOceanExtension` with bundle id `com.example.TchopAppOcean.widgets`.
   Both extension targets reuse the same widget source files and app-group-backed snapshot model.
+- Push notifications baseline:
+  APNs state/token/payload parsing is now package-backed via `TchopPushNotifications`,
+  while `AppPushNotificationBridge` and `TchopApplicationDelegate` own UIKit / `UNUserNotificationCenter` callback wiring in the app layer.
+  The package currently provides:
+  `PushNotificationManager`,
+  `PushNotificationState`,
+  `APNsDeviceToken`,
+  `DefaultPushNotificationPayloadParser`,
+  and `UserDefaultsPushNotificationStateStore`.
+  The app now includes the minimum realistic project configuration available without a real server yet:
+  `aps-environment = development` in app entitlements,
+  `remote-notification` background mode in `Info.plist`,
+  and simulator-ready `.apns` payload files for both app bundle identifiers.
+  Current launch behavior is intentionally conservative:
+  on app start we only refresh current notification authorization state and auto-register for remote notifications if permission already exists;
+  we do not auto-prompt the user on every launch.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

@@ -259,6 +259,15 @@ Completed:
 - Added coordinator-level `NavigationTransitionPolicy` and idempotent route application helpers for all tabs to avoid duplicate pushes/replaces.
 - Added tests for invalid in-app fallback, unsupported host rejection, deep-link push behavior, and idempotent coordinator transitions.
 
+### [x] Step: Add reusable APNs push-notification package and app integration
+
+Introduce a package-backed APNs manager that can own authorization state, APNs registration results, device-token persistence, and remote-payload dispatching without depending on a real backend yet.
+Wire it into the SwiftUI app through an app-level bridge and `UIApplicationDelegate` callbacks, and add the project configuration that is realistically possible today: push entitlement, remote-notification background mode, and simulator-friendly mock payload support for manual testing.
+Completed:
+- Added package product/target/test target `TchopPushNotifications` with reusable types for APNs authorization state, token formatting, payload parsing, and `UserDefaults`-backed state persistence.
+- Added app-layer bridge `AppPushNotificationBridge` and `TchopApplicationDelegate` so the SwiftUI app now receives APNs registration and remote-notification callbacks through a composition layer instead of app-global logic.
+- Updated project/app configuration with push entitlement, `remote-notification` background mode, and simulator-ready `.apns` payload fixtures for both app bundle identifiers.
+
 ### [x] Step: Establish profiling baseline for current app runtime
 
 Captured a CLI-driven profiling baseline for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` using `xctrace`, `sample`, `vmmap`, and simulator logs.

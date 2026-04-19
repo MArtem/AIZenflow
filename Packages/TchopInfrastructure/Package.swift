@@ -54,6 +54,10 @@ let package = Package(
         .library(
             name: "TchopWidgets",
             targets: ["TchopWidgets"]
+        ),
+        .library(
+            name: "TchopPushNotifications",
+            targets: ["TchopPushNotifications"]
         )
     ],
     targets: [
@@ -106,6 +110,9 @@ let package = Package(
         .target(
             name: "TchopWidgets"
         ),
+        .target(
+            name: "TchopPushNotifications"
+        ),
         .testTarget(
             name: "TchopNetworkingTests",
             dependencies: ["TchopNetworking"]
@@ -133,6 +140,10 @@ let package = Package(
         .testTarget(
             name: "TchopWidgetsTests",
             dependencies: ["TchopWidgets"]
+        ),
+        .testTarget(
+            name: "TchopPushNotificationsTests",
+            dependencies: ["TchopPushNotifications"]
         )
     ]
 )

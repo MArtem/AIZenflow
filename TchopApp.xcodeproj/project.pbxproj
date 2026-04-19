@@ -82,6 +82,12 @@
 		D00000260000000000000001 /* TchopWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000E0000000000000001 /* TchopWidgetsBundle.swift */; };
 		D00000270000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
 		D00000280000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
+		E00000010000000000000001 /* TchopPushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = E00000030000000000000001 /* TchopPushNotifications */; };
+		E00000020000000000000001 /* TchopPushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = E00000030000000000000001 /* TchopPushNotifications */; };
+		E00000040000000000000001 /* App/AppPushNotificationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000080000000000000001 /* AppPushNotificationBridge.swift */; };
+		E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000090000000000000001 /* TchopApplicationDelegate.swift */; };
+		E00000060000000000000001 /* App/AppPushNotificationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000080000000000000001 /* AppPushNotificationBridge.swift */; };
+		E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000090000000000000001 /* TchopApplicationDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -203,6 +209,8 @@
 		A00000970000000000000001 /* MixesTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MixesTabRootView.swift; sourceTree = "<group>"; };
 		A00000990000000000000001 /* PinnedTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinnedTabRootView.swift; sourceTree = "<group>"; };
 		A000009B0000000000000001 /* ChatTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatTabRootView.swift; sourceTree = "<group>"; };
+		E00000080000000000000001 /* AppPushNotificationBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppPushNotificationBridge.swift; sourceTree = "<group>"; };
+		E00000090000000000000001 /* TchopApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopApplicationDelegate.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +223,7 @@
 				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
 				D00000050000000000000001 /* TchopWidgets in Frameworks */,
 				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
+				E00000010000000000000001 /* TchopPushNotifications in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -235,6 +244,7 @@
 				B00000040000000000000001 /* TchopBranding in Frameworks */,
 				D00000070000000000000001 /* TchopWidgets in Frameworks */,
 				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
+				E00000020000000000000001 /* TchopPushNotifications in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,6 +358,8 @@
 				A00000620000000000000001 /* AppState.swift */,
 				A00000B10000000000000001 /* AppLocalization.swift */,
 				A000009D0000000000000001 /* AppTheme.swift */,
+				E00000080000000000000001 /* AppPushNotificationBridge.swift */,
+				E00000090000000000000001 /* TchopApplicationDelegate.swift */,
 				D00000020000000000000001 /* AppWidgetBridge.swift */,
 			);
 			path = App;
@@ -501,6 +513,7 @@
 				B000000C0000000000000001 /* TchopBranding */,
 				D00000060000000000000001 /* TchopWidgets */,
 				C00000020000000000000001 /* TchopUIConfiguration */,
+				E00000030000000000000001 /* TchopPushNotifications */,
 			);
 			productName = TchopApp;
 			productReference = A00000010000000000000001 /* TchopApp.app */;
@@ -528,6 +541,7 @@
 				B000000C0000000000000001 /* TchopBranding */,
 				D00000060000000000000001 /* TchopWidgets */,
 				C00000020000000000000001 /* TchopUIConfiguration */,
+				E00000030000000000000001 /* TchopPushNotifications */,
 			);
 			productName = TchopAppOcean;
 			productReference = B00000010000000000000001 /* TchopAppOcean.app */;
@@ -747,6 +761,8 @@
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
+				E00000040000000000000001 /* App/AppPushNotificationBridge.swift in Sources */,
+				E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 			);
@@ -806,6 +822,8 @@
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
+				E00000060000000000000001 /* App/AppPushNotificationBridge.swift in Sources */,
+				E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 			);
@@ -881,6 +899,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
 			productName = TchopWidgets;
+		};
+		E00000030000000000000001 /* TchopPushNotifications */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopPushNotifications;
 		};
 /* End XCSwiftPackageProductDependency section */
 

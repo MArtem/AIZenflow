@@ -1,14 +1,17 @@
 import SwiftUI
+import UIKit
 
 /// Application entry point that wires DI container and root app state.
 @main
 struct TchopApp: App {
+    @UIApplicationDelegateAdaptor(TchopApplicationDelegate.self) private var applicationDelegate
     private let container: AppDIContainer
     @StateObject private var appState: AppState
 
     init() {
         let container = AppDIContainer()
         self.container = container
+        applicationDelegate.pushNotificationBridge = container.pushNotificationBridge
 
         _appState = StateObject(
             wrappedValue: container.makeAppState()

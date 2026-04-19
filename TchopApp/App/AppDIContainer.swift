@@ -2,6 +2,7 @@ import Foundation
 import SwiftUI
 import TchopDatabase
 import TchopNetworking
+import TchopPushNotifications
 import TchopUIConfiguration
 import TchopWidgets
 
@@ -44,6 +45,9 @@ final class AppDIContainer: ObservableObject {
     /// Bridge that syncs app content into shared widget storage.
     let widgetContentSyncManager: any WidgetContentSyncing
 
+    /// Bridge that adapts system APNs callbacks into package-backed push state handling.
+    let pushNotificationBridge: any AppPushNotificationBridging
+
     /// Active persistence backend chosen for the current app runtime.
     let databaseBackendKind: AppDatabaseBackendKind
 
@@ -75,6 +79,16 @@ final class AppDIContainer: ObservableObject {
         self.widgetContentSyncManager = widgetSnapshotManager.map {
             FeedHeadlineWidgetSyncManager(snapshotManager: $0)
         } ?? NoopWidgetContentSyncManager.shared
+
+        let pushNotificationStateStore = UserDefaultsPushNotificationStateStore(
+            userDefaults: .standard
+        )
+        let pushNotificationManager = PushNotificationManager(
+            store: pushNotificationStateStore
+        )
+        self.pushNotificationBridge = AppPushNotificationBridge(
+            manager: pushNotificationManager
+        )
 
         let contentRepository = DefaultAppContentRepository(
             databaseManager: databaseManager,

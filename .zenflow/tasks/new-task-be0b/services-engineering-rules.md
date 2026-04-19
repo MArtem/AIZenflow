@@ -28,6 +28,8 @@ Use this file as the persistent services-layer instruction set for this project 
 - Feature services may compose lower-level infrastructure services.
 - Repositories map service or persistence DTOs into domain models.
 - View models depend on repositories or use cases, not on raw API/database managers unless there is a strong reason.
+- APNs / push-notification handling should live behind a reusable package-backed manager where practical.
+- Keep system callbacks (`UIApplicationDelegate`, `UNUserNotificationCenterDelegate`) in an app bridge/composition layer, while token/state/payload parsing and persistence stay in the reusable package layer.
 
 ## Active Service Brief
 - Design production-ready, scalable, maintainable, and performant services.
