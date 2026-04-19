@@ -482,6 +482,12 @@ Completed the DI/composition cleanup by removing implicit no-op/fallback depende
 Those runtime/feature types now require their infrastructure dependencies explicitly, while `AppDIContainer` owns the actual assembly and exposes small helper factories for seeding, API manager creation, feed API composition, UI configuration, widget sync, and push-bridge setup.
 Updated app tests to pass explicit test/no-op dependencies so the composition contract is now visible in both production and test code instead of being hidden behind optional parameters.
 
+### [x] Step: Centralize navigation root behavior in coordinator
+
+Completed the navigation/coordinator cleanup by moving tab-root reset behavior into `AppCoordinator` (`showTabRoot(_:)`) and exposing a single `navigationChanges` publisher for snapshot persistence observers.
+`AppState` now subscribes to coordinator-level navigation changes instead of wiring every router publisher manually, and `DeepLinkManager` now delegates root resets to the coordinator instead of mutating tab stacks itself.
+Also tightened deep-link semantics: links that target a tab root now intentionally open that tab at root state rather than preserving a stale nested stack.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

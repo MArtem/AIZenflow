@@ -1,5 +1,6 @@
+import Combine
 import XCTest
-import TchopDatabase
+import TchopNavigation
 import TchopUIConfiguration
 @testable import TchopApp
 
@@ -487,6 +488,8 @@ final class TabRouterTests: XCTestCase {
 @MainActor
 /// Verifies coordinator-level tab and stack orchestration behavior.
 final class AppCoordinatorTests: XCTestCase {
+    private var cancellables: Set<AnyCancellable> = []
+
     func testSelectTabDoesNotResetOtherTabPaths() {
         let coordinator = AppCoordinator()
         coordinator.newsRouter.push(
@@ -506,6 +509,27 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.selectedTab, .chat)
         XCTAssertEqual(coordinator.newsRouter.path.count, 1)
         XCTAssertEqual(coordinator.chatRouter.path.count, 1)
+    }
+
+    func testShowTabRootSelectsTabAndClearsOnlyThatTabPath() {
+        let coordinator = AppCoordinator(selectedTab: .profile)
+        coordinator.newsRouter.push(
+            NewsRoute(
+                destinationID: "article-1",
+                title: "News",
+                subtitle: "Subtitle",
+                bodyText: "Body"
+            )
+        )
+        coordinator.profileRouter.push(
+            ProfileRoute(title: "Profile", description: "Current profile")
+        )
+
+        coordinator.showTabRoot(.profile)
+
+        XCTAssertEqual(coordinator.selectedTab, .profile)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+        XCTAssertEqual(coordinator.newsRouter.path.count, 1)
     }
 
     func testResetAllNavigationClearsEveryTabPath() {
@@ -559,6 +583,22 @@ final class AppCoordinatorTests: XCTestCase {
         )
 
         XCTAssertEqual(coordinator.profileRouter.path.count, 1)
+    }
+
+    func testNavigationChangesPublisherEmitsForSelectedTabAndPathChanges() {
+        let coordinator = AppCoordinator()
+        var emissionCount = 0
+
+        coordinator.navigationChanges
+            .sink { _ in
+                emissionCount += 1
+            }
+            .store(in: &cancellables)
+
+        coordinator.selectTab(.chat)
+        coordinator.chatRouter.push(ChatRoute(title: "Support", description: "Room"))
+
+        XCTAssertGreaterThanOrEqual(emissionCount, 2)
     }
 }
 
@@ -639,5 +679,22 @@ final class DeepLinkManagerTests: XCTestCase {
         )
 
         XCTAssertEqual(coordinator.chatRouter.path.count, 2)
+    }
+
+    func testTabRootDeepLinkResetsExistingTabStack() {
+        let coordinator = AppCoordinator(selectedTab: .profile)
+        coordinator.profileRouter.push(
+            ProfileRoute(title: "Current", description: "Current profile")
+        )
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "https://example.com/profile")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertTrue(handled)
+        XCTAssertEqual(coordinator.selectedTab, .profile)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
     }
 }

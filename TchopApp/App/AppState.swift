@@ -234,14 +234,7 @@ final class AppState: ObservableObject {
     }
 
     private func setupNavigationPersistenceBindings() {
-        Publishers.MergeMany(
-            coordinator.$selectedTab.map { _ in () }.eraseToAnyPublisher(),
-            coordinator.newsRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            coordinator.mixesRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            coordinator.pinnedRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            coordinator.chatRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            coordinator.profileRouter.$path.map { _ in () }.eraseToAnyPublisher()
-        )
+        coordinator.navigationChanges
         .sink { [weak self] _ in
             self?.persistNavigationSnapshotIfNeeded()
         }

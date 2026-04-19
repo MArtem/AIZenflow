@@ -17,8 +17,7 @@ final class DeepLinkManager: DeepLinkManaging {
             eventReporter.report(.deepLinkRejected(url: urlString, reason: "unsupported-link"))
             return false
         case let .invalidInAppLink(reason):
-            coordinator.selectTab(.news)
-            coordinator.newsRouter.popToRoot()
+            coordinator.showTabRoot(.news)
             eventReporter.report(.deepLinkFallback(url: urlString, reason: reason))
             return true
         case let .resolved(intent):
@@ -266,7 +265,7 @@ final class DeepLinkManager: DeepLinkManaging {
     private func apply(_ intent: DeepLinkIntent, coordinator: AppCoordinator) {
         switch intent.destination {
         case let .tab(tab):
-            coordinator.selectTab(tab)
+            coordinator.showTabRoot(tab)
         case let .newsArticle(route):
             coordinator.selectTab(.news)
             coordinator.navigateToNews(route, policy: intent.policy)

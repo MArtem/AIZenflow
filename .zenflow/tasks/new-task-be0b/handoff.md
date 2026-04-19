@@ -194,6 +194,10 @@
   hidden fallback dependency resolution has been removed from `AppState`, `AppShellViewModel`, and `NewsFeedViewModel`.
   No-op implementations are still allowed, but they must now be injected explicitly from the composition root or tests instead of being silently created inside feature/runtime types.
   `AppDIContainer` is the single place that assembles package-backed bridges/managers for runtime use and now owns explicit helper factories for API, UI configuration, widget sync, push bridge, and local seeding.
+- Navigation/coordinator baseline:
+  `AppCoordinator` now owns the canonical root-opening behavior for tabs via `showTabRoot(_:)` and also exposes a single `navigationChanges` publisher for snapshot persistence observers.
+  `AppState` no longer knows about every router publisher directly, and `DeepLinkManager` no longer manually resets tab stacks.
+  Deep links to tab roots now intentionally land on that tab's root screen instead of preserving a stale nested stack from a previous session.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

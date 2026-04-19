@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 import TchopNavigation
 
@@ -44,6 +45,24 @@ final class AppCoordinator: ObservableObject {
         selectedTab = tab
     }
 
+    /// Opens the root state of the provided tab.
+    func showTabRoot(_ tab: AppTab) {
+        switch tab {
+        case .news:
+            newsRouter.popToRoot()
+        case .mixes:
+            mixesRouter.popToRoot()
+        case .pinned:
+            pinnedRouter.popToRoot()
+        case .chat:
+            chatRouter.popToRoot()
+        case .profile:
+            profileRouter.popToRoot()
+        }
+
+        selectedTab = tab
+    }
+
     /// Clears every tab navigation stack.
     func resetAllNavigation() {
         newsRouter.popToRoot()
@@ -51,6 +70,19 @@ final class AppCoordinator: ObservableObject {
         pinnedRouter.popToRoot()
         chatRouter.popToRoot()
         profileRouter.popToRoot()
+    }
+
+    /// Emits whenever selected tab or any tab stack changes.
+    var navigationChanges: AnyPublisher<Void, Never> {
+        Publishers.MergeMany(
+            $selectedTab.map { _ in () }.eraseToAnyPublisher(),
+            newsRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            mixesRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            pinnedRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            chatRouter.$path.map { _ in () }.eraseToAnyPublisher(),
+            profileRouter.$path.map { _ in () }.eraseToAnyPublisher()
+        )
+        .eraseToAnyPublisher()
     }
 
     /// Creates a serializable snapshot of the current navigation state.
