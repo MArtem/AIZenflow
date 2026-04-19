@@ -66,7 +66,7 @@ final class AppDIContainer: ObservableObject {
 
         Self.seedLocalDataIfNeeded(using: databaseManager)
 
-        let apiManager = Self.makeAPIManager()
+        let apiManager = Self.makeAPIManager(analyticsCollector: analyticsCollector)
         self.apiManager = apiManager
 
         let feedAPIManager = Self.makeFeedAPIManager(apiManager: apiManager)
@@ -125,8 +125,19 @@ final class AppDIContainer: ObservableObject {
         }
     }
 
-    private static func makeAPIManager() -> any APIManaging {
-        APIManager(configuration: .stub)
+    private static func makeAPIManager(
+        analyticsCollector: ProductAnalyticsMemoryCollector
+    ) -> any APIManaging {
+        APIManager(
+            configuration: .stub,
+            interceptors: [
+                APIMetricsInterceptor(
+                    collector: APIAnalyticsMetricsCollector(
+                        collector: analyticsCollector
+                    )
+                )
+            ]
+        )
     }
 
     private static func makeFeedAPIManager(apiManager: any APIManaging) -> any FeedAPIManaging {

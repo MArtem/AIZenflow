@@ -815,6 +815,10 @@ Absent:  no tests/build/simulator checks
   app runtime navigation diagnostics are now wired into the shared analytics sink through `NavigationAnalyticsEventReporter` in `AppDIContainer`.
   This means existing `NavigationEvent` emissions from deep-link handling and snapshot restore now already land in the app's shared `ProductAnalyticsMemoryCollector` during normal runtime.
   Networking and push flows are still intentionally left for later substeps so the cycle stays incremental and easy to reason about.
+- Analytics integration cycle (current cycle, step 3):
+  the real app `APIManager` is now created with `APIMetricsInterceptor`, backed by `APIAnalyticsMetricsCollector` and the same shared `ProductAnalyticsMemoryCollector` from `AppDIContainer`.
+  This means request preparation, success, failure, and retry metrics now flow into the shared app-level analytics sink during normal runtime.
+  Push lifecycle analytics is still intentionally unwired at this point so each analytics source is integrated in isolation.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,
