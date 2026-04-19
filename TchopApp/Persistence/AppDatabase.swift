@@ -56,10 +56,22 @@ enum AppDatabase {
             AppDatabaseBackendPreferenceStore.save(.coreData)
             return coreDataManager
         case .useSwiftData:
+            guard #available(iOS 17, *) else {
+                throw DatabaseError.backendInitializationFailed(
+                    "SwiftData backend is unavailable on iOS versions below 17."
+                )
+            }
+
             let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
             AppDatabaseBackendPreferenceStore.save(.swiftData)
             return swiftDataManager
         case .migrateCoreDataToSwiftData:
+            guard #available(iOS 17, *) else {
+                throw DatabaseError.backendInitializationFailed(
+                    "SwiftData migration is unavailable on iOS versions below 17."
+                )
+            }
+
             return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
         }
     }
@@ -150,9 +162,11 @@ enum AppDatabase {
             return false
         }
 
-        return (try? AppDatabaseContainerFactory.persistentStoreURL())?.path.map {
-            FileManager.default.fileExists(atPath: $0)
-        } ?? false
+        guard let storeURL = try? AppDatabaseContainerFactory.persistentStoreURL() else {
+            return false
+        }
+
+        return FileManager.default.fileExists(atPath: storeURL.path)
     }
 }
 
