@@ -141,6 +141,7 @@ private enum AppContentMapper {
         )
     }
 
+    @available(iOS 17, *)
     static func mapChannelInfo(_ channel: ChannelRecord) -> ChannelHeaderInfo {
         ChannelHeaderInfo(title: channel.title, subtitle: channel.subtitle)
     }

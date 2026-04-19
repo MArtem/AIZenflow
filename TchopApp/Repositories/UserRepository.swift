@@ -198,6 +198,7 @@ private enum UsernameNormalizer {
 }
 
 private enum PersistenceUserMapper {
+    @available(iOS 17, *)
     static func map(_ record: UserRecord) -> AppUser {
         record.toDomain()
     }
