@@ -23,55 +23,44 @@ enum AppDatabase {
         configuration: AppDatabaseConfiguration = .persistent
     ) -> any DatabaseManaging {
         do {
-            return try makeDatabaseManagerWithPersistentSelection(configuration: configuration)
+            return try makeDatabaseManagerOrThrow(configuration: configuration)
         } catch {
             fatalError("Failed to create database manager: \(error)")
         }
+    }
+
+    /// Creates the shared database manager used by the application or throws the underlying bootstrap error.
+    @MainActor
+    static func makeDatabaseManagerOrThrow(
+        configuration: AppDatabaseConfiguration = .persistent
+    ) throws -> any DatabaseManaging {
+        try makeDatabaseManagerWithPersistentSelection(configuration: configuration)
     }
 
     @MainActor
     private static func makeDatabaseManagerWithPersistentSelection(
         configuration: AppDatabaseConfiguration
     ) throws -> any DatabaseManaging {
-        if configuration.backendSelectionPolicy == .swiftData {
-            if #available(iOS 17, *) {
-                let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
-                AppDatabaseBackendPreferenceStore.save(.swiftData)
-                return swiftDataManager
-            }
-
-            throw DatabaseError.backendInitializationFailed(
-                "SwiftData backend is unavailable on iOS versions below 17."
+        let plan = try AppDatabaseRuntimePolicy.plan(
+            for: configuration,
+            context: AppDatabaseRuntimeContext(
+                storedBackend: AppDatabaseBackendPreferenceStore.load(),
+                hasLegacyCoreDataStoreOnDisk: hasLegacyCoreDataStoreOnDisk(configuration: configuration),
+                supportsSwiftData: AppDatabaseSwiftDataAvailability.current
             )
-        }
+        )
 
-        if configuration.backendSelectionPolicy == .coreData {
+        switch plan {
+        case .useCoreData:
             let coreDataManager = try makeCoreDataManager(configuration: configuration)
             AppDatabaseBackendPreferenceStore.save(.coreData)
             return coreDataManager
-        }
-
-        if #available(iOS 17, *) {
-            if let storedBackend = AppDatabaseBackendPreferenceStore.load() {
-                switch storedBackend {
-                case .swiftData:
-                    return try makeSwiftDataManager(configuration: configuration)
-                case .coreData:
-                    return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
-                }
-            }
-
-            if hasLegacyCoreDataStoreOnDisk(configuration: configuration) {
-                return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
-            }
-
+        case .useSwiftData:
             let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
             AppDatabaseBackendPreferenceStore.save(.swiftData)
             return swiftDataManager
-        } else {
-            let coreDataManager = try makeCoreDataManager(configuration: configuration)
-            AppDatabaseBackendPreferenceStore.save(.coreData)
-            return coreDataManager
+        case .migrateCoreDataToSwiftData:
+            return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
         }
     }
 
@@ -161,9 +150,76 @@ enum AppDatabase {
             return false
         }
 
-        return FileManager.default.fileExists(
-            atPath: AppDatabaseContainerFactory.persistentStoreURL().path
-        )
+        return (try? AppDatabaseContainerFactory.persistentStoreURL())?.path.map {
+            FileManager.default.fileExists(atPath: $0)
+        } ?? false
+    }
+}
+
+/// Runtime facts that influence automatic app database backend selection.
+struct AppDatabaseRuntimeContext: Equatable {
+    let storedBackend: AppDatabaseBackendKind?
+    let hasLegacyCoreDataStoreOnDisk: Bool
+    let supportsSwiftData: Bool
+}
+
+/// App-level resolution plan describing which persistence path should be used.
+enum AppDatabaseResolutionPlan: Equatable {
+    case useCoreData
+    case useSwiftData
+    case migrateCoreDataToSwiftData
+}
+
+/// Thin runtime policy deciding which app persistence path to use before containers are built.
+enum AppDatabaseRuntimePolicy {
+    /// Resolves the database bootstrap plan from configuration and runtime context.
+    static func plan(
+        for configuration: AppDatabaseConfiguration,
+        context: AppDatabaseRuntimeContext
+    ) throws -> AppDatabaseResolutionPlan {
+        if configuration.backendSelectionPolicy == .swiftData {
+            guard context.supportsSwiftData else {
+                throw DatabaseError.backendInitializationFailed(
+                    "SwiftData backend is unavailable on iOS versions below 17."
+                )
+            }
+
+            return .useSwiftData
+        }
+
+        if configuration.backendSelectionPolicy == .coreData {
+            return .useCoreData
+        }
+
+        guard context.supportsSwiftData else {
+            return .useCoreData
+        }
+
+        if let storedBackend = context.storedBackend {
+            switch storedBackend {
+            case .swiftData:
+                return .useSwiftData
+            case .coreData:
+                return .migrateCoreDataToSwiftData
+            }
+        }
+
+        if context.hasLegacyCoreDataStoreOnDisk {
+            return .migrateCoreDataToSwiftData
+        }
+
+        return .useSwiftData
+    }
+}
+
+/// Centralized SwiftData availability probe used by app-level database policy.
+enum AppDatabaseSwiftDataAvailability {
+    static var current: Bool {
+        if #available(iOS 17, *) {
+            return true
+        }
+
+        return false
     }
 }
 
@@ -327,7 +383,7 @@ private enum AppDatabaseContainerFactory {
         description.shouldAddStoreAsynchronously = false
 
         if !isStoredInMemoryOnly {
-            description.url = persistentStoreURL()
+            description.url = try persistentStoreURL()
         }
 
         container.persistentStoreDescriptions = [description]
@@ -351,7 +407,7 @@ private enum AppDatabaseContainerFactory {
             return
         }
 
-        let sqliteURL = persistentStoreURL()
+        let sqliteURL = try persistentStoreURL()
         let walURL = sqliteURL.deletingPathExtension().appendingPathExtension("sqlite-wal")
         let shmURL = sqliteURL.deletingPathExtension().appendingPathExtension("sqlite-shm")
 
@@ -361,20 +417,16 @@ private enum AppDatabaseContainerFactory {
         }
     }
 
-    static func persistentStoreURL() -> URL {
+    static func persistentStoreURL() throws -> URL {
         let applicationSupportDirectory = FileManager.default.urls(
             for: .applicationSupportDirectory,
             in: .userDomainMask
         ).first ?? FileManager.default.temporaryDirectory
 
-        do {
-            try FileManager.default.createDirectory(
-                at: applicationSupportDirectory,
-                withIntermediateDirectories: true
-            )
-        } catch {
-            fatalError("Failed to create application support directory: \(error)")
-        }
+        try FileManager.default.createDirectory(
+            at: applicationSupportDirectory,
+            withIntermediateDirectories: true
+        )
 
         return applicationSupportDirectory.appendingPathComponent("TchopApp.sqlite")
     }

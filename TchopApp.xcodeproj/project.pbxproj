@@ -65,6 +65,7 @@
 		A10000030000000000000001 /* TchopAppTests/TestDoubles/NewsFeedTestDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000040000000000000001 /* NewsFeedTestDoubles.swift */; };
 		A10000050000000000000001 /* TchopAppTests/TestDoubles/TestAppContentRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000060000000000000001 /* TestAppContentRepository.swift */; };
 		A10000070000000000000001 /* TchopAppTests/TestDoubles/UIConfigurationTestDoubles.swift in Sources */ = {isa = PBXBuildFile; fileRef = A10000080000000000000001 /* UIConfigurationTestDoubles.swift */; };
+		A20000010000000000000001 /* TchopAppTests/AppDatabasePolicyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A20000020000000000000001 /* AppDatabasePolicyTests.swift */; };
 		A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000930000000000000001 /* FeatureTabModels.swift */; };
 		A00000940000000000000001 /* Views/Tabs/FeatureTabScaffoldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000950000000000000001 /* FeatureTabScaffoldView.swift */; };
 		A00000960000000000000001 /* Views/Tabs/MixesTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000970000000000000001 /* MixesTabRootView.swift */; };
@@ -208,6 +209,7 @@
 		A00000820000000000000001 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		A00000840000000000000001 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
 		A00000860000000000000001 /* NewsFeedViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModelTests.swift; sourceTree = "<group>"; };
+		A20000020000000000000001 /* AppDatabasePolicyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabasePolicyTests.swift; sourceTree = "<group>"; };
 		A10000020000000000000001 /* AppStateTestDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTestDoubles.swift; sourceTree = "<group>"; };
 		A10000040000000000000001 /* NewsFeedTestDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTestDoubles.swift; sourceTree = "<group>"; };
 		A10000060000000000000001 /* TestAppContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppContentRepository.swift; sourceTree = "<group>"; };
@@ -502,6 +504,7 @@
 		A00000890000000000000001 /* TchopAppTests */ = {
 			isa = PBXGroup;
 			children = (
+				A20000020000000000000001 /* AppDatabasePolicyTests.swift */,
 				A00000820000000000000001 /* AppStateTests.swift */,
 				A00000840000000000000001 /* LoginViewModelTests.swift */,
 				A00000860000000000000001 /* NewsFeedViewModelTests.swift */,
@@ -888,6 +891,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A20000010000000000000001 /* TchopAppTests/AppDatabasePolicyTests.swift in Sources */,
 				A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */,
 				A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */,
 				A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */,

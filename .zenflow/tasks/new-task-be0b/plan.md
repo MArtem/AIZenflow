@@ -577,9 +577,12 @@ Preserve the current app-specific URL contract while making the implementation e
 Completed by replacing the root-segment `switch` in `DeepLinkManager` with a declarative `DeepLinkRouteDefinition` table that resolves supported roots (`news`, `mixes`, `pinned`, `chat`, `profile`) through explicit handlers.
 The external URL contract and fallback behavior stay unchanged, but adding a new root destination no longer requires expanding a monolithic `switch` and scattering that change across the parser.
 
-### [ ] Step: Strengthen AppDatabase migration policy and testability
+### [x] Step: Strengthen AppDatabase migration policy and testability
 
 Remove remaining `fatalError`-style bootstrap behavior where practical, isolate migration policy further, and add stronger migration-focused tests around legacy Core Data to SwiftData upgrade scenarios.
+Completed by extracting a testable runtime-selection layer (`AppDatabaseRuntimePolicy`, `AppDatabaseRuntimeContext`, `AppDatabaseResolutionPlan`) out of the app database bootstrap path.
+`AppDatabase` now exposes a throwing bootstrap API for callers and tests that want to avoid the fatal wrapper, and the Core Data store URL bootstrap no longer uses `fatalError` internally.
+Added focused `AppDatabasePolicyTests` covering automatic backend selection, legacy Core Data migration selection, unsupported explicit SwiftData requests, and the throwing in-memory Core Data bootstrap path.
 
 ### [ ] Step: Add snapshot or UI test coverage for core screens
 

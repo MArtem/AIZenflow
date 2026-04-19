@@ -780,6 +780,11 @@ Absent:  no tests/build/simulator checks
   `DeepLinkManager` no longer dispatches root paths through one growing `switch`.
   Supported root segments are now described by a declarative `DeepLinkRouteDefinition` table, while nested `news` destinations still resolve through the existing specialized article/discussion logic.
   The public URL contract and invalid-link fallback behavior are unchanged, but future root-level deep links can now be added by registering another route definition instead of editing one larger parser branch.
+- App database policy pass (next improvement cycle, iteration 6):
+  `AppDatabase` now separates runtime backend selection policy from actual container construction through `AppDatabaseRuntimePolicy`, `AppDatabaseRuntimeContext`, and `AppDatabaseResolutionPlan`.
+  This makes the automatic Core Data / SwiftData / migration decision path unit-testable without creating real persistence containers.
+  A new throwing entry point, `AppDatabase.makeDatabaseManagerOrThrow(...)`, is available for tests and non-fatal bootstrap callers, while the old non-throwing `makeDatabaseManager(...)` remains only as a thin fatal wrapper for app composition.
+  The Core Data store URL bootstrap no longer uses `fatalError` inside `AppDatabaseContainerFactory`, and new `AppDatabasePolicyTests` cover selection and bootstrap scenarios.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.
