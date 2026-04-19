@@ -819,6 +819,10 @@ Absent:  no tests/build/simulator checks
   the real app `APIManager` is now created with `APIMetricsInterceptor`, backed by `APIAnalyticsMetricsCollector` and the same shared `ProductAnalyticsMemoryCollector` from `AppDIContainer`.
   This means request preparation, success, failure, and retry metrics now flow into the shared app-level analytics sink during normal runtime.
   Push lifecycle analytics is still intentionally unwired at this point so each analytics source is integrated in isolation.
+- Analytics integration cycle (current cycle, step 4):
+  app push runtime wiring now also uses `PushNotificationAnalyticsCollector` when creating `PushNotificationManager` inside `AppDIContainer`.
+  This means push authorization updates, registration state changes, device token updates, registration failures, handled payloads, and state resets now all flow into the same shared app-level analytics sink.
+  At this point the app runtime has practical analytics wiring for navigation, networking, and push without adding extra debug UI or new speculative composition layers.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,

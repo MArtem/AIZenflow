@@ -74,7 +74,9 @@ final class AppDIContainer: ObservableObject {
 
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
         self.widgetContentSyncManager = Self.makeWidgetContentSyncManager()
-        self.pushNotificationBridge = Self.makePushNotificationBridge()
+        self.pushNotificationBridge = Self.makePushNotificationBridge(
+            analyticsCollector: analyticsCollector
+        )
 
         let contentRepository = DefaultAppContentRepository(
             databaseManager: databaseManager,
@@ -162,12 +164,17 @@ final class AppDIContainer: ObservableObject {
         } ?? NoopWidgetContentSyncManager()
     }
 
-    private static func makePushNotificationBridge() -> any AppPushNotificationBridging {
+    private static func makePushNotificationBridge(
+        analyticsCollector: ProductAnalyticsMemoryCollector
+    ) -> any AppPushNotificationBridging {
         let pushNotificationStateStore = UserDefaultsPushNotificationStateStore(
             userDefaults: .standard
         )
         let pushNotificationManager = PushNotificationManager(
-            store: pushNotificationStateStore
+            store: pushNotificationStateStore,
+            eventCollector: PushNotificationAnalyticsCollector(
+                collector: analyticsCollector
+            )
         )
         return AppPushNotificationBridge(manager: pushNotificationManager)
     }
