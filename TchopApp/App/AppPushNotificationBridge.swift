@@ -16,6 +16,23 @@ protocol AppPushNotificationBridging: AnyObject {
     ) async
 }
 
+/// No-op implementation used when the app intentionally does not wire real push handling.
+@MainActor
+final class NoopPushNotificationBridge: AppPushNotificationBridging {
+    func start(application: UIApplication) {}
+
+    func requestAuthorizationAndRegister(application: UIApplication) async {}
+
+    func didRegisterForRemoteNotifications(deviceToken: Data) async {}
+
+    func didFailToRegisterForRemoteNotifications(error: Error) async {}
+
+    func handleRemoteNotification(
+        userInfo: [AnyHashable: Any],
+        source: PushNotificationEventSource
+    ) async {}
+}
+
 /// App composition bridge that connects system APNs callbacks with the reusable package manager.
 @MainActor
 final class AppPushNotificationBridge: AppPushNotificationBridging {

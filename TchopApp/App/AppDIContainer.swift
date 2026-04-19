@@ -78,7 +78,7 @@ final class AppDIContainer: ObservableObject {
         )
         self.widgetContentSyncManager = widgetSnapshotManager.map {
             FeedHeadlineWidgetSyncManager(snapshotManager: $0)
-        } ?? NoopWidgetContentSyncManager.shared
+        } ?? NoopWidgetContentSyncManager()
 
         let pushNotificationStateStore = UserDefaultsPushNotificationStateStore(
             userDefaults: .standard

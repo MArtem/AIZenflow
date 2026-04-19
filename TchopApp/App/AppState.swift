@@ -37,8 +37,8 @@ final class AppState: ObservableObject {
         navigationStateManager: any NavigationStateManaging,
         deepLinkManager: any DeepLinkManaging,
         navigationEventReporter: (any NavigationEventReporting)? = nil,
-        widgetContentSyncManager: any WidgetContentSyncing,
-        pushNotificationBridge: any AppPushNotificationBridging
+        widgetContentSyncManager: (any WidgetContentSyncing)? = nil,
+        pushNotificationBridge: (any AppPushNotificationBridging)? = nil
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -47,8 +47,8 @@ final class AppState: ObservableObject {
         self.navigationStateManager = navigationStateManager
         self.deepLinkManager = deepLinkManager
         self.navigationEventReporter = navigationEventReporter ?? NavigationNoopEventReporter()
-        self.widgetContentSyncManager = widgetContentSyncManager
-        self.pushNotificationBridge = pushNotificationBridge
+        self.widgetContentSyncManager = widgetContentSyncManager ?? NoopWidgetContentSyncManager()
+        self.pushNotificationBridge = pushNotificationBridge ?? NoopPushNotificationBridge()
         setupNavigationPersistenceBindings()
         restoreSession()
     }
@@ -117,7 +117,7 @@ final class AppState: ObservableObject {
     /// Requests push notification authorization and APNs registration on demand.
     func requestPushNotificationAuthorization() {
         Task { @MainActor [pushNotificationBridge] in
-            pushNotificationBridge.requestAuthorizationAndRegister(
+            await pushNotificationBridge.requestAuthorizationAndRegister(
                 application: UIApplication.shared
             )
         }

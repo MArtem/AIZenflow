@@ -12,9 +12,7 @@ protocol WidgetContentSyncing {
 /// No-op implementation used where widget synchronization is unavailable or unnecessary.
 @MainActor
 final class NoopWidgetContentSyncManager: WidgetContentSyncing {
-    static let shared = NoopWidgetContentSyncManager()
-
-    private init() {}
+    init() {}
 
     func syncFeed(content: NewsFeedContent) {}
 

@@ -11,11 +11,12 @@ struct TchopApp: App {
     init() {
         let container = AppDIContainer()
         self.container = container
-        applicationDelegate.pushNotificationBridge = container.pushNotificationBridge
 
         _appState = StateObject(
             wrappedValue: container.makeAppState()
         )
+
+        applicationDelegate.pushNotificationBridge = container.pushNotificationBridge
     }
 
     var body: some Scene {

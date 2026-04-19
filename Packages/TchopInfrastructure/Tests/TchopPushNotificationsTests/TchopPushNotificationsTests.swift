@@ -51,16 +51,14 @@ struct TchopPushNotificationsTests {
         _ = try await manager.updateAuthorizationStatus(.authorized)
         _ = try await manager.handleDeviceToken(Data([0xAA, 0xBB]))
         let payload = try await manager.handleRemoteNotification(
-            userInfo: [
-                "aps": [
-                    "alert": [
-                        "title": "Feed update",
-                        "body": "Parrots help others..."
-                    ]
-                ],
-                "route": "tchop://news"
-            ],
-            source: .opened
+            PushNotificationPayload(
+                source: .opened,
+                title: "Feed update",
+                body: "Parrots help others...",
+                badge: nil,
+                sound: nil,
+                customData: ["route": "tchop://news"]
+            )
         )
 
         let reloadedManager = PushNotificationManager(store: store)

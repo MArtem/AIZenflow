@@ -268,6 +268,15 @@ Completed:
 - Added app-layer bridge `AppPushNotificationBridge` and `TchopApplicationDelegate` so the SwiftUI app now receives APNs registration and remote-notification callbacks through a composition layer instead of app-global logic.
 - Updated project/app configuration with push entitlement, `remote-notification` background mode, and simulator-ready `.apns` payload fixtures for both app bundle identifiers.
 - Added an explicit app-facing `AppState.requestPushNotificationAuthorization()` entry point for future UI wiring, while keeping the permission prompt opt-in rather than auto-triggered on launch.
+- Post-implementation hardening:
+  fixed APNs package test drift after manager API changes,
+  fixed missing `await` in `AppState`,
+  fixed early `UIApplicationDelegateAdaptor` assignment in `TchopApp`,
+  and refactored widget/push no-op defaults to avoid main-actor violations in default arguments.
+- Full verification is now green:
+  `swift test --package-path Packages/TchopInfrastructure`,
+  `xcodebuild ... build` and `xcodebuild ... test` on `iPhone 16 Pro (iOS 18.2)`,
+  and `xcodebuild ... build` and `xcodebuild ... test` on `iPhone 17 Pro (iOS 26.0)`.
 
 ### [x] Step: Establish profiling baseline for current app runtime
 

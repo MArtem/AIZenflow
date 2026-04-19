@@ -19,15 +19,16 @@ final class NewsFeedViewModel: ObservableObject {
     /// Creates the feed view model and immediately starts the first load.
     init(
         repository: any NewsFeedRepository,
-        widgetContentSyncManager: any WidgetContentSyncing = NoopWidgetContentSyncManager.shared,
+        widgetContentSyncManager: (any WidgetContentSyncing)? = nil,
         content: NewsFeedContent? = nil
     ) {
         self.repository = repository
-        self.widgetContentSyncManager = widgetContentSyncManager
+        let resolvedWidgetContentSyncManager = widgetContentSyncManager ?? NoopWidgetContentSyncManager()
+        self.widgetContentSyncManager = resolvedWidgetContentSyncManager
         self.content = content ?? NewsFeedFixtures.fallbackContent
         self.isLoading = false
         self.errorMessage = nil
-        widgetContentSyncManager.syncFeed(content: self.content)
+        resolvedWidgetContentSyncManager.syncFeed(content: self.content)
         reload()
     }
 

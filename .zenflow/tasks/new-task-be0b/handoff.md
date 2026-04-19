@@ -180,6 +180,15 @@
   we do not auto-prompt the user on every launch.
   `AppState` now also exposes an explicit app-facing method to request push authorization on demand,
   so future UI can trigger the permission flow without reaching directly into `UIApplicationDelegate` wiring.
+  Post-integration verification hardening also fixed:
+  APNs package tests that still called an outdated manager API,
+  a missing `await` in `AppState`,
+  early assignment of the application-delegate bridge in `TchopApp.init`,
+  and main-actor violations caused by no-op widget/push dependencies in default arguments.
+  Current verification state for this APNs block is fully green:
+  package tests pass,
+  `TchopApp` builds and tests pass on `iPhone 16 Pro (iOS 18.2)`,
+  and `TchopApp` builds and tests pass on `iPhone 17 Pro (iOS 26.0)`.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.
