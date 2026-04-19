@@ -87,7 +87,9 @@ final class AppDIContainer: ObservableObject {
 
         self.sessionService = UserSessionService(userRepository: userRepository)
         self.navigationStateManager = NavigationStateManager()
-        self.navigationEventReporter = NavigationNoopEventReporter()
+        self.navigationEventReporter = NavigationAnalyticsEventReporter(
+            collector: analyticsCollector
+        )
         self.deepLinkManager = DeepLinkManager(eventReporter: navigationEventReporter)
     }
 

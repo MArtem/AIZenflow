@@ -606,7 +606,7 @@ Integrate the new analytics infrastructure into real app runtime paths, but only
 Apply the standing anti-overengineering rule to this entire cycle: skip any substep that turns into abstraction for abstraction's sake.
 
 - [x] Wire `TchopAnalytics` into `AppDIContainer` as one shared collector surface.
-- Replace the current no-op navigation reporter with an analytics-backed reporter in app runtime composition.
+- [x] Replace the current no-op navigation reporter with an analytics-backed reporter in app runtime composition.
 - Add `APIAnalyticsMetricsCollector` into the real `APIManager` interceptor pipeline.
 - Connect push lifecycle analytics through the app push bridge / push manager wiring.
 - Add a lightweight debug inspection surface only if it stays simple and materially helps validate event flow.
@@ -614,7 +614,8 @@ Apply the standing anti-overengineering rule to this entire cycle: skip any subs
 
 Progress:
 `TchopAnalytics` is now linked into both app targets, and `AppDIContainer` owns one shared `ProductAnalyticsMemoryCollector` as the app-level analytics sink.
-No runtime wiring was added in this substep yet; that keeps the change focused on composition setup without prematurely increasing event-flow complexity.
+Navigation diagnostics are now also wired to that collector through `NavigationAnalyticsEventReporter`, so deep-link and snapshot-restore events already flow into the shared analytics sink during normal app runtime.
+Networking and push analytics remain intentionally unwired for now so the cycle can continue in small, low-risk steps.
 
 ### [ ] Step: Quality / Verification Cycle
 

@@ -811,6 +811,10 @@ Absent:  no tests/build/simulator checks
   `TchopAnalytics` is now linked into both host app targets, and `AppDIContainer` owns one shared `ProductAnalyticsMemoryCollector` instance as the future runtime sink for analytics wiring.
   This step intentionally stops at composition setup only: navigation, networking, and push flows are not yet wired to the collector in runtime.
   That keeps the change small and useful without adding event-flow complexity before each source is integrated one at a time.
+- Analytics integration cycle (current cycle, step 2):
+  app runtime navigation diagnostics are now wired into the shared analytics sink through `NavigationAnalyticsEventReporter` in `AppDIContainer`.
+  This means existing `NavigationEvent` emissions from deep-link handling and snapshot restore now already land in the app's shared `ProductAnalyticsMemoryCollector` during normal runtime.
+  Networking and push flows are still intentionally left for later substeps so the cycle stays incremental and easy to reason about.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,
