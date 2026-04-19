@@ -600,7 +600,7 @@ Keep transport-specific or app-lifecycle-specific details behind adapters rather
 Completed by introducing a new reusable package target, `TchopAnalytics`, with a shared `ProductAnalyticsEvent` model, collector contract, and in-memory collector.
 Thin adapters now map `NavigationEvent`, `APIMetricsEvent`, and the new `PushNotificationEvent` lifecycle stream into that shared analytics surface without coupling the lower-level packages to one product analytics format.
 
-### [ ] Step: Analytics Integration Cycle
+### [x] Step: Analytics Integration Cycle
 
 Integrate the new analytics infrastructure into real app runtime paths, but only where it produces direct practical value and does not noticeably raise complexity for day-to-day development.
 Apply the standing anti-overengineering rule to this entire cycle: skip any substep that turns into abstraction for abstraction's sake.
@@ -609,15 +609,16 @@ Apply the standing anti-overengineering rule to this entire cycle: skip any subs
 - [x] Replace the current no-op navigation reporter with an analytics-backed reporter in app runtime composition.
 - [x] Add `APIAnalyticsMetricsCollector` into the real `APIManager` interceptor pipeline.
 - [x] Connect push lifecycle analytics through the app push bridge / push manager wiring.
-- Add a lightweight debug inspection surface only if it stays simple and materially helps validate event flow.
-- Add only the highest-value app/package tests needed to prove that runtime wiring actually emits analytics events.
+- [x] Add a lightweight debug inspection surface only if it stays simple and materially helps validate event flow.
+- [x] Add only the highest-value app/package tests needed to prove that runtime wiring actually emits analytics events.
 
 Progress:
 `TchopAnalytics` is now linked into both app targets, and `AppDIContainer` owns one shared `ProductAnalyticsMemoryCollector` as the app-level analytics sink.
 Navigation diagnostics are now also wired to that collector through `NavigationAnalyticsEventReporter`, so deep-link and snapshot-restore events already flow into the shared analytics sink during normal app runtime.
 `APIManager` now also includes `APIMetricsInterceptor` backed by `APIAnalyticsMetricsCollector`, so prepared/succeeded/failed/retry networking metrics are emitted into the same shared analytics sink during runtime.
 `PushNotificationManager` now also emits lifecycle analytics through `PushNotificationAnalyticsCollector`, so authorization, registration, token, payload, and reset events reach the same shared analytics sink during runtime.
-The only remaining optional substep in this cycle is a debug inspection surface, which should be implemented only if it stays genuinely simple and useful.
+Added `AppDIContainerTests` as the minimal app-level regression layer proving that the real DI-assembled runtime now emits navigation, networking, and push analytics into the shared collector.
+The optional debug inspection surface was intentionally not implemented: at the current project size it would add more UI/debug complexity than practical value, so skipping it is the correct anti-overengineering decision for this cycle.
 
 ### [ ] Step: Quality / Verification Cycle
 

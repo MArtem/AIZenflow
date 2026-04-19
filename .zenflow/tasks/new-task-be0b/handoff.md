@@ -823,6 +823,17 @@ Absent:  no tests/build/simulator checks
   app push runtime wiring now also uses `PushNotificationAnalyticsCollector` when creating `PushNotificationManager` inside `AppDIContainer`.
   This means push authorization updates, registration state changes, device token updates, registration failures, handled payloads, and state resets now all flow into the same shared app-level analytics sink.
   At this point the app runtime has practical analytics wiring for navigation, networking, and push without adding extra debug UI or new speculative composition layers.
+- Analytics integration cycle (current cycle, step 5):
+  a new app-level test file, `TchopAppTests/AppDIContainerTests.swift`, now verifies the real DI-assembled runtime wiring for analytics.
+  The tests cover:
+  analytics emission through `navigationEventReporter`,
+  networking analytics emitted by the real `APIManager` interceptor pipeline,
+  and push lifecycle analytics emitted through the app push bridge / push manager path.
+  This closes the high-value proof gap for analytics runtime integration without adding any debug UI surface or extra runtime complexity.
+- Analytics integration cycle completion note:
+  the optional debug analytics inspection surface was intentionally skipped.
+  Reason: for the current project it would introduce extra UI/debug plumbing and cognitive overhead without enough practical payoff, so omitting it is the correct anti-overengineering choice.
+  The cycle is therefore considered complete with runtime wiring and regression coverage in place.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,
