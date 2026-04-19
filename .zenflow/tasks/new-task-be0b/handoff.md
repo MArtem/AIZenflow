@@ -776,6 +776,10 @@ Absent:  no tests/build/simulator checks
   `TchopBranding` now exposes richer semantic groups through `BrandTheme`: `button`, `badge`, `tab`, `card`, `navigation`, and `status`.
   The previous narrow tokens remain available as compatibility aliases, but the package is now a more realistic reusable branding baseline for other iOS projects that need target-specific semantic theming rather than only one accent and one FAB color.
   `AppTheme` has started consuming those semantic groups directly for accent, FAB, selection, and status tokens.
+- Deep-link routing pass (next improvement cycle, iteration 5):
+  `DeepLinkManager` no longer dispatches root paths through one growing `switch`.
+  Supported root segments are now described by a declarative `DeepLinkRouteDefinition` table, while nested `news` destinations still resolve through the existing specialized article/discussion logic.
+  The public URL contract and invalid-link fallback behavior are unchanged, but future root-level deep links can now be added by registering another route definition instead of editing one larger parser branch.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

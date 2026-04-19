@@ -569,10 +569,13 @@ Keep target-based resolution centralized and package-backed.
 Completed by expanding `BrandTheme` into semantic groups (`button`, `badge`, `tab`, `card`, `navigation`, `status`) while preserving backward-compatible aliases for the older narrow tokens.
 `AppTheme` now starts consuming those semantic groups directly, so target-specific theming has a broader reusable surface without forcing the app to keep inventing its own parallel token vocabulary.
 
-### [ ] Step: Refactor deep-link routing toward declarative rules
+### [x] Step: Refactor deep-link routing toward declarative rules
 
 Reduce `DeepLinkManager` growth risk by moving route definitions and parsing behavior toward a more declarative routing table or equivalent structured model.
 Preserve the current app-specific URL contract while making the implementation easier to extend safely.
+
+Completed by replacing the root-segment `switch` in `DeepLinkManager` with a declarative `DeepLinkRouteDefinition` table that resolves supported roots (`news`, `mixes`, `pinned`, `chat`, `profile`) through explicit handlers.
+The external URL contract and fallback behavior stay unchanged, but adding a new root destination no longer requires expanding a monolithic `switch` and scattering that change across the parser.
 
 ### [ ] Step: Strengthen AppDatabase migration policy and testability
 

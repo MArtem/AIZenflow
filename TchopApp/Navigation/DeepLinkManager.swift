@@ -5,6 +5,44 @@ import TchopNavigation
 @MainActor
 final class DeepLinkManager: DeepLinkManaging {
     private let eventReporter: any NavigationEventReporting
+    private lazy var routeDefinitions: [DeepLinkRouteDefinition] = makeRouteDefinitions()
+
+    /// Builds the declarative routing table for supported deep-link roots.
+    private func makeRouteDefinitions() -> [DeepLinkRouteDefinition] {
+        [
+            DeepLinkRouteDefinition(rootSegment: "news") { [self] pathSegments, queryItems, transitionPolicy in
+                return self.buildNewsIntent(
+                    pathSegments: pathSegments,
+                    queryItems: queryItems,
+                    transitionPolicy: transitionPolicy
+                )
+            },
+            DeepLinkRouteDefinition(rootSegment: "mixes") { [self] _, queryItems, transitionPolicy in
+                return self.buildMixesIntent(
+                    queryItems: queryItems,
+                    transitionPolicy: transitionPolicy
+                )
+            },
+            DeepLinkRouteDefinition(rootSegment: "pinned") { [self] _, queryItems, transitionPolicy in
+                return self.buildPinnedIntent(
+                    queryItems: queryItems,
+                    transitionPolicy: transitionPolicy
+                )
+            },
+            DeepLinkRouteDefinition(rootSegment: "chat") { [self] _, queryItems, transitionPolicy in
+                return self.buildChatIntent(
+                    queryItems: queryItems,
+                    transitionPolicy: transitionPolicy
+                )
+            },
+            DeepLinkRouteDefinition(rootSegment: "profile") { [self] _, queryItems, transitionPolicy in
+                return self.buildProfileIntent(
+                    queryItems: queryItems,
+                    transitionPolicy: transitionPolicy
+                )
+            }
+        ]
+    }
 
     /// Creates a new DeepLinkManager instance.
     init(eventReporter: (any NavigationEventReporting)? = nil) {
@@ -95,24 +133,11 @@ final class DeepLinkManager: DeepLinkManaging {
         }
 
         let transitionPolicy = parseTransitionPolicy(queryItems: queryItems)
-        switch firstSegment {
-        case "news":
-            return buildNewsIntent(
-                pathSegments: pathSegments,
-                queryItems: queryItems,
-                transitionPolicy: transitionPolicy
-            )
-        case "mixes":
-            return buildMixesIntent(queryItems: queryItems, transitionPolicy: transitionPolicy)
-        case "pinned":
-            return buildPinnedIntent(queryItems: queryItems, transitionPolicy: transitionPolicy)
-        case "chat":
-            return buildChatIntent(queryItems: queryItems, transitionPolicy: transitionPolicy)
-        case "profile":
-            return buildProfileIntent(queryItems: queryItems, transitionPolicy: transitionPolicy)
-        default:
+        guard let routeDefinition = routeDefinitions.first(where: { $0.rootSegment == firstSegment }) else {
             return .invalidInAppLink(reason: "unknown-root-segment")
         }
+
+        return routeDefinition.resolve(pathSegments, queryItems, transitionPolicy)
     }
 
     /// Builds news intent.
@@ -329,6 +354,31 @@ final class DeepLinkManager: DeepLinkManaging {
         default:
             return .replace
         }
+    }
+}
+
+/// Declarative definition for a supported deep-link root segment.
+private struct DeepLinkRouteDefinition {
+    let rootSegment: String
+    private let resolver: @MainActor ([String], [URLQueryItem], NavigationTransitionPolicy) -> DeepLinkParseResult
+
+    /// Creates a new DeepLinkRouteDefinition instance.
+    init(
+        rootSegment: String,
+        resolver: @escaping @MainActor ([String], [URLQueryItem], NavigationTransitionPolicy) -> DeepLinkParseResult
+    ) {
+        self.rootSegment = rootSegment
+        self.resolver = resolver
+    }
+
+    /// Resolves the incoming path and query items into a parse result.
+    @MainActor
+    func resolve(
+        _ pathSegments: [String],
+        _ queryItems: [URLQueryItem],
+        _ transitionPolicy: NavigationTransitionPolicy
+    ) -> DeepLinkParseResult {
+        resolver(pathSegments, queryItems, transitionPolicy)
     }
 }
 
