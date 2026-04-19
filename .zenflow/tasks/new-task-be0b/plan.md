@@ -494,6 +494,12 @@ Completed the data-flow cleanup by making repositories more explicit about orche
 `DefaultAppContentRepository` now delegates DTO/persistence mapping to focused private mapper helpers, while `DefaultUserRepository` now enforces username normalization at the repository boundary and throws on blank usernames in `findOrCreateUser(username:)` instead of relying only on UI validation.
 Added a regression test to ensure whitespace-only usernames cannot be persisted through the repository API.
 
+### [x] Step: Split persistence orchestration responsibilities inside AppDatabase
+
+Completed the persistence-orchestration refactor by separating `AppDatabase` internals into focused helpers without changing the app-facing API.
+Backend preference persistence now lives in `AppDatabaseBackendPreferenceStore`, migration flow in `AppDatabaseMigrationCoordinator`, and container/store bootstrap in `AppDatabaseContainerFactory`, while `AppDatabase` itself remains the runtime policy/orchestration facade.
+This keeps app-specific persistence policy local to the app layer, but reduces the amount of mixed backend/bootstrap/migration code living in one enum body.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

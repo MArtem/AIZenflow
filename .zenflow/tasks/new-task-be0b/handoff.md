@@ -203,6 +203,12 @@
   `DefaultUserRepository` now enforces username normalization at the repository boundary as well:
   `findUser(username:)` still returns `nil` for blank input,
   but `findOrCreateUser(username:)` now throws for blank/whitespace-only usernames instead of silently creating invalid persisted users if some non-UI caller bypasses screen validation.
+- Persistence orchestration baseline:
+  `AppDatabase` has been split internally by responsibility even though the public app-facing API stays the same.
+  Backend preference persistence now lives in `AppDatabaseBackendPreferenceStore`,
+  Core Data -> SwiftData data transfer lives in `AppDatabaseMigrationCoordinator`,
+  and container/store bootstrap logic lives in `AppDatabaseContainerFactory`.
+  Runtime backend policy still stays in `AppDatabase`, but the file is no longer one large mixed implementation block.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.
