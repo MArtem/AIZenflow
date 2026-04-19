@@ -500,6 +500,12 @@ Completed the persistence-orchestration refactor by separating `AppDatabase` int
 Backend preference persistence now lives in `AppDatabaseBackendPreferenceStore`, migration flow in `AppDatabaseMigrationCoordinator`, and container/store bootstrap in `AppDatabaseContainerFactory`, while `AppDatabase` itself remains the runtime policy/orchestration facade.
 This keeps app-specific persistence policy local to the app layer, but reduces the amount of mixed backend/bootstrap/migration code living in one enum body.
 
+### [x] Step: Make networking transfer cancellation consistent
+
+Completed the first `TchopNetworking` package uplift by adding optional `APICancellationToken` support to `upload` and `download`, matching the existing cancellation model already used by `perform`.
+This makes the reusable API client more coherent for consumers with long-running transfer operations and avoids having one cancellation contract for standard requests and another for uploads/downloads.
+Added regression tests to verify cancelled upload/download flows short-circuit correctly.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

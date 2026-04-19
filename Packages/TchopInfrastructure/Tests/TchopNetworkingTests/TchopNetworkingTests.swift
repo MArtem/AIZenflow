@@ -87,6 +87,62 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(String(decoding: data, as: UTF8.self), "payload")
     }
 
+    func testUploadRespectsCancelledTokenBeforeStarting() async {
+        let manager = MockAPIManager()
+        let token = APICancellationToken()
+        await token.cancel()
+        let fileURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        try? Data("payload".utf8).write(to: fileURL, options: .atomic)
+        defer { try? FileManager.default.removeItem(at: fileURL) }
+
+        let request = APIRequest<String>(
+            path: "upload",
+            stubResponse: { "ok" }
+        )
+
+        do {
+            _ = try await manager.upload(
+                request,
+                from: fileURL,
+                progressHandler: nil,
+                cancellationToken: token
+            )
+            XCTFail("Expected upload cancellation")
+        } catch let error as APIError {
+            XCTAssertEqual(error, .requestCancelled)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    func testDownloadRespectsCancelledTokenBeforeWritingFile() async {
+        let manager = MockAPIManager()
+        let token = APICancellationToken()
+        await token.cancel()
+        let destinationURL = FileManager.default.temporaryDirectory.appendingPathComponent(UUID().uuidString)
+        defer { try? FileManager.default.removeItem(at: destinationURL) }
+
+        let request = APIRequest<Data>(
+            path: "download-cancelled",
+            stubResponse: { Data("payload".utf8) }
+        )
+
+        do {
+            _ = try await manager.download(
+                request,
+                destinationURL: destinationURL,
+                progressHandler: nil,
+                cancellationToken: token
+            )
+            XCTFail("Expected download cancellation")
+        } catch let error as APIError {
+            XCTAssertEqual(error, .requestCancelled)
+            XCTAssertFalse(FileManager.default.fileExists(atPath: destinationURL.path))
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
     func testAuthorizationRefreshInterceptorRefreshesAndRetriesRequest() async throws {
         URLProtocolStub.reset()
         URLProtocolStub.requestHandler = { request in

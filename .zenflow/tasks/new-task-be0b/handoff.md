@@ -209,6 +209,10 @@
   Core Data -> SwiftData data transfer lives in `AppDatabaseMigrationCoordinator`,
   and container/store bootstrap logic lives in `AppDatabaseContainerFactory`.
   Runtime backend policy still stays in `AppDatabase`, but the file is no longer one large mixed implementation block.
+- Networking package baseline:
+  `TchopNetworking` transfer operations now have a consistent cancellation surface.
+  `upload` and `download` support the same optional `APICancellationToken` model as `perform`, so reusable consumers can apply one cancellation strategy across normal requests and long-running transfers.
+  Regression coverage was added for cancelled upload/download flows in the package tests.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

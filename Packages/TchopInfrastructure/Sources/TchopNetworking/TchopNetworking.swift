@@ -629,11 +629,27 @@ public protocol APIManaging: Actor {
         progressHandler: APIProgressHandler?
     ) async throws -> Response where Response: Sendable
 
+    /// Uploads the file at the supplied URL while observing a cancellation token.
+    func upload<Response>(
+        _ request: APIRequest<Response>,
+        from fileURL: URL,
+        progressHandler: APIProgressHandler?,
+        cancellationToken: APICancellationToken?
+    ) async throws -> Response where Response: Sendable
+
     /// Downloads a resource to disk and returns the final file location.
     func download(
         _ request: APIRequest<Data>,
         destinationURL: URL?,
         progressHandler: APIProgressHandler?
+    ) async throws -> URL
+
+    /// Downloads a resource to disk while observing a cancellation token.
+    func download(
+        _ request: APIRequest<Data>,
+        destinationURL: URL?,
+        progressHandler: APIProgressHandler?,
+        cancellationToken: APICancellationToken?
     ) async throws -> URL
 
     /// Cancels a running request with the matching identifier.
@@ -717,9 +733,25 @@ public actor APIManager: APIManaging {
         from fileURL: URL,
         progressHandler: APIProgressHandler?
     ) async throws -> Response where Response: Sendable {
+        try await upload(
+            request,
+            from: fileURL,
+            progressHandler: progressHandler,
+            cancellationToken: nil
+        )
+    }
+
+    public func upload<Response>(
+        _ request: APIRequest<Response>,
+        from fileURL: URL,
+        progressHandler: APIProgressHandler?,
+        cancellationToken: APICancellationToken?
+    ) async throws -> Response where Response: Sendable {
         if let stubResponse = request.stubResponse {
+            try await cancellationToken?.throwIfCancelled()
             await progressHandler?(.started)
             let response = try await stubResponse()
+            try await cancellationToken?.throwIfCancelled()
             await progressHandler?(.finished)
             return response
         }
@@ -730,10 +762,12 @@ public actor APIManager: APIManaging {
             urlRequest = try await interceptor.prepare(urlRequest)
         }
 
+        try await cancellationToken?.throwIfCancelled()
         await progressHandler?(.started)
 
         do {
             let (data, response) = try await session.upload(for: urlRequest, fromFile: fileURL)
+            try await cancellationToken?.throwIfCancelled()
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw APIError.invalidResponse
             }
@@ -770,9 +804,25 @@ public actor APIManager: APIManaging {
         destinationURL: URL?,
         progressHandler: APIProgressHandler?
     ) async throws -> URL {
+        try await download(
+            request,
+            destinationURL: destinationURL,
+            progressHandler: progressHandler,
+            cancellationToken: nil
+        )
+    }
+
+    public func download(
+        _ request: APIRequest<Data>,
+        destinationURL: URL?,
+        progressHandler: APIProgressHandler?,
+        cancellationToken: APICancellationToken?
+    ) async throws -> URL {
         if let stubResponse = request.stubResponse {
+            try await cancellationToken?.throwIfCancelled()
             await progressHandler?(.started)
             let data = try await stubResponse()
+            try await cancellationToken?.throwIfCancelled()
             let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).tmp")
             try data.write(to: outputURL, options: .atomic)
             await progressHandler?(.progressed(1))
@@ -786,10 +836,12 @@ public actor APIManager: APIManaging {
             urlRequest = try await interceptor.prepare(urlRequest)
         }
 
+        try await cancellationToken?.throwIfCancelled()
         await progressHandler?(.started)
 
         do {
             let (temporaryURL, response) = try await session.download(for: urlRequest)
+            try await cancellationToken?.throwIfCancelled()
             guard let httpResponse = response as? HTTPURLResponse else {
                 throw APIError.invalidResponse
             }
@@ -1066,8 +1118,24 @@ public actor MockAPIManager: APIManaging {
         from fileURL: URL,
         progressHandler: APIProgressHandler?
     ) async throws -> Response where Response: Sendable {
+        try await upload(
+            request,
+            from: fileURL,
+            progressHandler: progressHandler,
+            cancellationToken: nil
+        )
+    }
+
+    public func upload<Response>(
+        _ request: APIRequest<Response>,
+        from fileURL: URL,
+        progressHandler: APIProgressHandler?,
+        cancellationToken: APICancellationToken?
+    ) async throws -> Response where Response: Sendable {
+        try await cancellationToken?.throwIfCancelled()
         await progressHandler?(.started)
-        let response = try await perform(request)
+        let response = try await perform(request, cancellationToken: cancellationToken)
+        try await cancellationToken?.throwIfCancelled()
         await progressHandler?(.finished)
         return response
     }
@@ -1077,8 +1145,24 @@ public actor MockAPIManager: APIManaging {
         destinationURL: URL?,
         progressHandler: APIProgressHandler?
     ) async throws -> URL {
+        try await download(
+            request,
+            destinationURL: destinationURL,
+            progressHandler: progressHandler,
+            cancellationToken: nil
+        )
+    }
+
+    public func download(
+        _ request: APIRequest<Data>,
+        destinationURL: URL?,
+        progressHandler: APIProgressHandler?,
+        cancellationToken: APICancellationToken?
+    ) async throws -> URL {
+        try await cancellationToken?.throwIfCancelled()
         await progressHandler?(.started)
-        let data = try await perform(request)
+        let data = try await perform(request, cancellationToken: cancellationToken)
+        try await cancellationToken?.throwIfCancelled()
         let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).mock-download")
         try data.write(to: outputURL, options: .atomic)
         await progressHandler?(.finished)
