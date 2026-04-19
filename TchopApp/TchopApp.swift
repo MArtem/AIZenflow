@@ -20,6 +20,10 @@ struct TchopApp: App {
             try? appState.signIn(username: launchConfiguration.uiTestUsername)
         }
 
+        if let initialURL = launchConfiguration.initialURL {
+            _ = appState.handleIncomingURL(initialURL)
+        }
+
         self.container = container
 
         _appState = StateObject(

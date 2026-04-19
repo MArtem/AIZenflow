@@ -842,6 +842,12 @@ Absent:  no tests/build/simulator checks
   and `full`
   without adding CI-only plumbing or extra automation layers.
   The script intentionally stays narrow and only captures the already agreed `TchopApp` verification workflow.
+- Quality / verification cycle (current cycle, step 2):
+  UI smoke coverage now includes one launch-time deep-link scenario for the authenticated app.
+  `AppLaunchConfiguration` accepts `TCHOP_UI_TEST_INITIAL_URL`,
+  `TchopApp` applies it during startup,
+  and `TchopAppUITests` now verifies that `tchop://profile` lands on `profile.root`.
+  This adds protection for a real launch/navigation path without broadening the suite into brittle multi-screen UI automation.
 - Upcoming roadmap policy:
   the next work is organized into three explicit cycles only:
   `Analytics Integration Cycle`,

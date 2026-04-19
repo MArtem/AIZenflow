@@ -66,6 +66,7 @@ struct ProfileTabRootView: View {
             .padding(.horizontal, 32)
             .padding(.bottom, 120)
             .background(Color.clear)
+            .accessibilityIdentifier("profile.root")
             .navigationDestination(for: ProfileRoute.self) { route in
                 StubTabDetailView(
                     title: route.title,

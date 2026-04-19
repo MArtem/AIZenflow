@@ -32,14 +32,34 @@ final class TchopAppUITests: XCTestCase {
         XCTAssertTrue(application.otherElements["news.feed"].waitForExistence(timeout: 3))
     }
 
+    /// Verifies launch-time deep links can bring an authenticated session directly to the profile tab.
+    func testAuthenticatedLaunchWithInitialProfileDeepLinkShowsProfileRoot() {
+        let application = makeApplication(
+            authenticated: true,
+            initialURL: "tchop://profile"
+        )
+
+        application.launch()
+
+        XCTAssertTrue(application.otherElements["profile.root"].waitForExistence(timeout: 3))
+        XCTAssertTrue(application.staticTexts["ui-smoke"].exists)
+    }
+
     /// Creates a configured application instance for UI smoke coverage.
-    private func makeApplication(authenticated: Bool) -> XCUIApplication {
+    private func makeApplication(
+        authenticated: Bool,
+        initialURL: String? = nil
+    ) -> XCUIApplication {
         let application = XCUIApplication()
         application.launchEnvironment["TCHOP_UI_TEST_MODE"] = "1"
         application.launchEnvironment["TCHOP_UI_TEST_USERNAME"] = "ui-smoke"
 
         if authenticated {
             application.launchEnvironment["TCHOP_UI_TEST_AUTHENTICATED"] = "1"
+        }
+
+        if let initialURL {
+            application.launchEnvironment["TCHOP_UI_TEST_INITIAL_URL"] = initialURL
         }
 
         return application

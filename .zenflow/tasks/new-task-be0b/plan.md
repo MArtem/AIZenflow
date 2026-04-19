@@ -634,6 +634,7 @@ Apply the same anti-overengineering rule here: prefer the smallest verification 
 Quality / verification cycle progress:
 - Added [scripts/verify.sh](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/verify.sh) as the single source of truth for `low`, `medium`, and `full` verification commands.
 - Kept the script intentionally narrow: it only codifies the already agreed verification matrix for `TchopApp`, without introducing CI-only wrappers or extra orchestration layers.
+- Expanded UI smoke coverage only for one high-value launch/navigation path: authenticated startup with an initial deep link to `profile`, using a deterministic launch hook instead of broader brittle UI automation.
 
 ### [ ] Step: Package Completeness Cycle
 
