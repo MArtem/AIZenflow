@@ -488,6 +488,12 @@ Completed the navigation/coordinator cleanup by moving tab-root reset behavior i
 `AppState` now subscribes to coordinator-level navigation changes instead of wiring every router publisher manually, and `DeepLinkManager` now delegates root resets to the coordinator instead of mutating tab stacks itself.
 Also tightened deep-link semantics: links that target a tab root now intentionally open that tab at root state rather than preserving a stale nested stack.
 
+### [x] Step: Tighten repository data-flow contracts
+
+Completed the data-flow cleanup by making repositories more explicit about orchestration vs mapping responsibilities.
+`DefaultAppContentRepository` now delegates DTO/persistence mapping to focused private mapper helpers, while `DefaultUserRepository` now enforces username normalization at the repository boundary and throws on blank usernames in `findOrCreateUser(username:)` instead of relying only on UI validation.
+Added a regression test to ensure whitespace-only usernames cannot be persisted through the repository API.
+
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 
 **For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:

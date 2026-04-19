@@ -198,6 +198,11 @@
   `AppCoordinator` now owns the canonical root-opening behavior for tabs via `showTabRoot(_:)` and also exposes a single `navigationChanges` publisher for snapshot persistence observers.
   `AppState` no longer knows about every router publisher directly, and `DeepLinkManager` no longer manually resets tab stacks.
   Deep links to tab roots now intentionally land on that tab's root screen instead of preserving a stale nested stack from a previous session.
+- Repository/data-flow baseline:
+  `DefaultAppContentRepository` is now thinner and delegates DTO/persistence-to-domain mapping to dedicated private mapper helpers instead of mixing orchestration and all mapping logic inside the fetch methods.
+  `DefaultUserRepository` now enforces username normalization at the repository boundary as well:
+  `findUser(username:)` still returns `nil` for blank input,
+  but `findOrCreateUser(username:)` now throws for blank/whitespace-only usernames instead of silently creating invalid persisted users if some non-UI caller bypasses screen validation.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.

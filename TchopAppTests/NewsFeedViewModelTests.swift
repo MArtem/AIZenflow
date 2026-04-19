@@ -131,6 +131,12 @@ final class UserRepositoryTests: XCTestCase {
         XCTAssertEqual(user.username, "bob")
         XCTAssertNotNil(try repository.findUser(username: "bob"))
     }
+
+    func testFindOrCreateThrowsForWhitespaceUsername() {
+        let repository = DefaultUserRepository(databaseManager: makeInMemoryAppDatabaseManager())
+
+        XCTAssertThrowsError(try repository.findOrCreateUser(username: "   "))
+    }
 }
 
 @MainActor

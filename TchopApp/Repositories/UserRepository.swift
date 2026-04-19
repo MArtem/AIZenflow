@@ -30,8 +30,7 @@ final class DefaultUserRepository: UserRepository {
 
     /// Finds a normalized user record in local persistence.
     func findUser(username: String) throws -> AppUser? {
-        let normalizedUsername = username.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !normalizedUsername.isEmpty else {
+        guard let normalizedUsername = UsernameNormalizer.normalize(username) else {
             return nil
         }
 
@@ -46,7 +45,7 @@ final class DefaultUserRepository: UserRepository {
                             }
                         )
 
-                        return try context.fetch(descriptor).first.map { $0.toDomain() }
+                        return try context.fetch(descriptor).first.map(PersistenceUserMapper.map)
                     })
                 )
             }
@@ -56,14 +55,7 @@ final class DefaultUserRepository: UserRepository {
                     let request = CoreDataUserEntity.fetchRequest()
                     request.fetchLimit = 1
                     request.predicate = NSPredicate(format: "username == %@", normalizedUsername)
-                    return try context.fetch(request).first.map {
-                        AppUser(
-                            id: $0.id,
-                            username: $0.username,
-                            createdAt: $0.createdAt,
-                            isNavigationStateRestoreEnabled: $0.isNavigationStateRestoreEnabled
-                        )
-                    }
+                    return try context.fetch(request).first.map(PersistenceUserMapper.map)
                 })
             )
         case .coreData:
@@ -72,14 +64,7 @@ final class DefaultUserRepository: UserRepository {
                     let request = CoreDataUserEntity.fetchRequest()
                     request.fetchLimit = 1
                     request.predicate = NSPredicate(format: "username == %@", normalizedUsername)
-                    return try context.fetch(request).first.map {
-                        AppUser(
-                            id: $0.id,
-                            username: $0.username,
-                            createdAt: $0.createdAt,
-                            isNavigationStateRestoreEnabled: $0.isNavigationStateRestoreEnabled
-                        )
-                    }
+                    return try context.fetch(request).first.map(PersistenceUserMapper.map)
                 })
             )
         }
@@ -87,7 +72,9 @@ final class DefaultUserRepository: UserRepository {
 
     /// Returns the existing user or creates a new one and persists it.
     func findOrCreateUser(username: String) throws -> AppUser {
-        let normalizedUsername = username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard let normalizedUsername = UsernameNormalizer.normalize(username) else {
+            throw UserRepositoryError.invalidUsername
+        }
 
         if let existingUser = try findUser(username: normalizedUsername) {
             return existingUser
@@ -106,7 +93,7 @@ final class DefaultUserRepository: UserRepository {
                             isNavigationStateRestoreEnabled: true
                         )
                         context.insert(userRecord)
-                        return userRecord.toDomain()
+                        return PersistenceUserMapper.map(userRecord)
                     })
                 )
             }
@@ -118,13 +105,7 @@ final class DefaultUserRepository: UserRepository {
                     entity.username = normalizedUsername
                     entity.createdAt = createdAt
                     entity.isNavigationStateRestoreEnabled = true
-
-                    return AppUser(
-                        id: entity.id,
-                        username: entity.username,
-                        createdAt: entity.createdAt,
-                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
-                    )
+                    return PersistenceUserMapper.map(entity)
                 })
             )
         case .coreData:
@@ -135,13 +116,7 @@ final class DefaultUserRepository: UserRepository {
                     entity.username = normalizedUsername
                     entity.createdAt = createdAt
                     entity.isNavigationStateRestoreEnabled = true
-
-                    return AppUser(
-                        id: entity.id,
-                        username: entity.username,
-                        createdAt: entity.createdAt,
-                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
-                    )
+                    return PersistenceUserMapper.map(entity)
                 })
             )
         }
@@ -168,7 +143,7 @@ final class DefaultUserRepository: UserRepository {
                         }
 
                         userRecord.isNavigationStateRestoreEnabled = isEnabled
-                        return userRecord.toDomain()
+                        return PersistenceUserMapper.map(userRecord)
                     })
                 )
             }
@@ -184,13 +159,7 @@ final class DefaultUserRepository: UserRepository {
                     }
 
                     entity.isNavigationStateRestoreEnabled = isEnabled
-
-                    return AppUser(
-                        id: entity.id,
-                        username: entity.username,
-                        createdAt: entity.createdAt,
-                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
-                    )
+                    return PersistenceUserMapper.map(entity)
                 })
             )
         case .coreData:
@@ -205,13 +174,7 @@ final class DefaultUserRepository: UserRepository {
                     }
 
                     entity.isNavigationStateRestoreEnabled = isEnabled
-
-                    return AppUser(
-                        id: entity.id,
-                        username: entity.username,
-                        createdAt: entity.createdAt,
-                        isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
-                    )
+                    return PersistenceUserMapper.map(entity)
                 })
             )
         }
@@ -220,4 +183,31 @@ final class DefaultUserRepository: UserRepository {
 
 private enum UserRepositoryError: Error {
     case userNotFound
+    case invalidUsername
+}
+
+private enum UsernameNormalizer {
+    static func normalize(_ username: String) -> String? {
+        let normalizedUsername = username.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !normalizedUsername.isEmpty else {
+            return nil
+        }
+
+        return normalizedUsername
+    }
+}
+
+private enum PersistenceUserMapper {
+    static func map(_ record: UserRecord) -> AppUser {
+        record.toDomain()
+    }
+
+    static func map(_ entity: CoreDataUserEntity) -> AppUser {
+        AppUser(
+            id: entity.id,
+            username: entity.username,
+            createdAt: entity.createdAt,
+            isNavigationStateRestoreEnabled: entity.isNavigationStateRestoreEnabled
+        )
+    }
 }

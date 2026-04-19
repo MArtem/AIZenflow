@@ -36,100 +36,116 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Fetches channel data from local persistence.
     func fetchChannelInfo() throws -> ChannelHeaderInfo {
-        let channel: ChannelHeaderInfo?
-
         switch databaseManager.backendKind {
         case .swiftData:
             if #available(iOS 17, *) {
-                channel = try databaseManager.read(
-                    DatabaseReadOperation(swiftData: { context in
-                        let descriptor = FetchDescriptor<ChannelRecord>()
-                        return try context.fetch(descriptor).first.map {
-                            ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
-                        }
-                    })
-                )
-            } else {
-                channel = try databaseManager.read(
-                    DatabaseReadOperation(coreData: { context in
-                        let request = CoreDataChannelEntity.fetchRequest()
-                        request.fetchLimit = 1
-
-                        return try context.fetch(request).first.map {
-                            ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
-                        }
-                    })
-                )
+                return try fetchSwiftDataChannelInfo()
             }
+
+            return try fetchCoreDataChannelInfo()
         case .coreData:
-            channel = try databaseManager.read(
-                DatabaseReadOperation(coreData: { context in
-                    let request = CoreDataChannelEntity.fetchRequest()
-                    request.fetchLimit = 1
-
-                    return try context.fetch(request).first.map {
-                        ChannelHeaderInfo(title: $0.title, subtitle: $0.subtitle)
-                    }
-                })
-            )
+            return try fetchCoreDataChannelInfo()
         }
+    }
 
-        guard let channel else {
+    /// Fetches feed cards from the feed API and maps them into view-facing models.
+    func fetchNewsFeedContent() async throws -> NewsFeedContent {
+        let response = try await feedAPIManager.fetchFeed()
+        return AppContentMapper.mapFeedContent(from: response)
+    }
+
+    @available(iOS 17, *)
+    private func fetchSwiftDataChannelInfo() throws -> ChannelHeaderInfo {
+        guard let channel = try databaseManager.read(
+            DatabaseReadOperation(swiftData: { context in
+                let descriptor = FetchDescriptor<ChannelRecord>()
+                return try context.fetch(descriptor).first.map(AppContentMapper.mapChannelInfo)
+            })
+        ) else {
             throw RepositoryError.missingChannel
         }
 
         return channel
     }
 
-    /// Fetches feed cards from the feed API and maps them into view-facing models.
-    func fetchNewsFeedContent() async throws -> NewsFeedContent {
-        let response = try await feedAPIManager.fetchFeed()
+    private func fetchCoreDataChannelInfo() throws -> ChannelHeaderInfo {
+        guard let channel = try databaseManager.read(
+            DatabaseReadOperation(coreData: { context in
+                let request = CoreDataChannelEntity.fetchRequest()
+                request.fetchLimit = 1
+                return try context.fetch(request).first.map(AppContentMapper.mapChannelInfo)
+            })
+        ) else {
+            throw RepositoryError.missingChannel
+        }
 
-        return NewsFeedContent(
-            cards: response.cards.map { card in
-                switch card {
-                case let .featuredArticle(article):
-                    return .featuredArticle(
-                        FeaturedArticleCardModel(
-                            id: article.id,
-                            postedInPrefix: article.postedInPrefix,
-                            sourceTitle: article.sourceTitle,
-                            brandTitle: article.brandTitle,
-                            headline: article.headline,
-                            summary: article.summary,
-                            metadataLine: article.metadataLine,
-                            translationLabel: article.translationLabel,
-                            actions: article.actions.map { action in
-                                ArticleActionItem(
-                                    id: action.id,
-                                    systemName: action.systemName,
-                                    title: action.title
-                                )
-                            }
-                        )
-                    )
-                case let .discussion(discussion):
-                    return .discussion(
-                        DiscussionCardModel(
-                            id: discussion.id,
-                            categoryTitle: discussion.categoryTitle,
-                            headline: discussion.headline,
-                            participants: discussion.participants.map { participant in
-                                DiscussionParticipant(
-                                    id: participant.id,
-                                    initials: participant.initials,
-                                    isHighlighted: participant.isHighlighted
-                                )
-                            },
-                            joinedText: discussion.joinedText
-                        )
-                    )
-                }
-            }
-        )
+        return channel
     }
 }
 
 private enum RepositoryError: Error {
     case missingChannel
+}
+
+private enum AppContentMapper {
+    static func mapFeedContent(from response: FeedResponseDTO) -> NewsFeedContent {
+        NewsFeedContent(cards: response.cards.map(mapFeedCard))
+    }
+
+    static func mapFeedCard(_ card: FeedCardDTO) -> NewsFeedCard {
+        switch card {
+        case let .featuredArticle(article):
+            return .featuredArticle(mapFeaturedArticle(article))
+        case let .discussion(discussion):
+            return .discussion(mapDiscussion(discussion))
+        }
+    }
+
+    static func mapFeaturedArticle(_ article: FeaturedArticleDTO) -> FeaturedArticleCardModel {
+        FeaturedArticleCardModel(
+            id: article.id,
+            postedInPrefix: article.postedInPrefix,
+            sourceTitle: article.sourceTitle,
+            brandTitle: article.brandTitle,
+            headline: article.headline,
+            summary: article.summary,
+            metadataLine: article.metadataLine,
+            translationLabel: article.translationLabel,
+            actions: article.actions.map(mapArticleAction)
+        )
+    }
+
+    static func mapArticleAction(_ action: ArticleActionDTO) -> ArticleActionItem {
+        ArticleActionItem(
+            id: action.id,
+            systemName: action.systemName,
+            title: action.title
+        )
+    }
+
+    static func mapDiscussion(_ discussion: DiscussionDTO) -> DiscussionCardModel {
+        DiscussionCardModel(
+            id: discussion.id,
+            categoryTitle: discussion.categoryTitle,
+            headline: discussion.headline,
+            participants: discussion.participants.map(mapDiscussionParticipant),
+            joinedText: discussion.joinedText
+        )
+    }
+
+    static func mapDiscussionParticipant(_ participant: DiscussionParticipantDTO) -> DiscussionParticipant {
+        DiscussionParticipant(
+            id: participant.id,
+            initials: participant.initials,
+            isHighlighted: participant.isHighlighted
+        )
+    }
+
+    static func mapChannelInfo(_ channel: ChannelRecord) -> ChannelHeaderInfo {
+        ChannelHeaderInfo(title: channel.title, subtitle: channel.subtitle)
+    }
+
+    static func mapChannelInfo(_ channel: CoreDataChannelEntity) -> ChannelHeaderInfo {
+        ChannelHeaderInfo(title: channel.title, subtitle: channel.subtitle)
+    }
 }
