@@ -122,6 +122,58 @@ public protocol PushNotificationManaging: Sendable {
     func clearState() async throws
 }
 
+/// Typed lifecycle events emitted by the reusable push manager.
+public enum PushNotificationEvent: Sendable, Equatable {
+    case authorizationStatusUpdated(PushNotificationAuthorizationStatus)
+    case remoteRegistrationUpdated(isRegistered: Bool)
+    case deviceTokenUpdated(String)
+    case registrationFailed(reason: String)
+    case remoteNotificationHandled(
+        source: PushNotificationEventSource,
+        route: String?,
+        title: String?
+    )
+    case stateCleared
+}
+
+/// Sink contract for push lifecycle events.
+public protocol PushNotificationEventCollecting: Sendable {
+    /// Records a push event.
+    func record(_ event: PushNotificationEvent) async
+}
+
+/// In-memory collector for push lifecycle events.
+public actor PushNotificationMemoryEventCollector: PushNotificationEventCollecting {
+    private var eventsStorage: [PushNotificationEvent] = []
+
+    /// Creates an empty push event collector.
+    public init() {}
+
+    /// Recorded push events in insertion order.
+    public var events: [PushNotificationEvent] {
+        eventsStorage
+    }
+
+    /// Clears all recorded push events.
+    public func reset() {
+        eventsStorage.removeAll()
+    }
+
+    /// Records a push lifecycle event.
+    public func record(_ event: PushNotificationEvent) async {
+        eventsStorage.append(event)
+    }
+}
+
+/// Default no-op collector used when push analytics is not wired.
+public struct PushNotificationNoopEventCollector: PushNotificationEventCollecting {
+    /// Creates a new no-op push event collector.
+    public init() {}
+
+    /// Ignores the incoming push event.
+    public func record(_ event: PushNotificationEvent) async {}
+}
+
 /// Errors produced by the default state store.
 public enum PushNotificationStateStoreError: Error {
     case unavailableUserDefaults(suiteName: String)
@@ -260,13 +312,16 @@ public struct DefaultPushNotificationPayloadParser: PushNotificationPayloadParsi
 /// Reusable actor that stores push-registration state and the latest APNs payloads.
 public actor PushNotificationManager: PushNotificationManaging {
     private let store: any PushNotificationStateStoring
+    private let eventCollector: any PushNotificationEventCollecting
     private var state: PushNotificationState
 
     /// Creates a new PushNotificationManager instance.
     public init(
-        store: any PushNotificationStateStoring
+        store: any PushNotificationStateStoring,
+        eventCollector: any PushNotificationEventCollecting = PushNotificationNoopEventCollector()
     ) {
         self.store = store
+        self.eventCollector = eventCollector
         self.state = (try? store.load()) ?? PushNotificationState()
     }
 
@@ -286,6 +341,7 @@ public actor PushNotificationManager: PushNotificationManaging {
             lastOpenedPayload: state.lastOpenedPayload
         )
         try persistState()
+        await eventCollector.record(.authorizationStatusUpdated(status))
         return state
     }
 
@@ -300,20 +356,23 @@ public actor PushNotificationManager: PushNotificationManaging {
             lastOpenedPayload: state.lastOpenedPayload
         )
         try persistState()
+        await eventCollector.record(.remoteRegistrationUpdated(isRegistered: isRegistered))
         return state
     }
 
     /// Handles device token.
     public func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState {
+        let normalizedToken = APNsDeviceToken(data: deviceToken)
         state = PushNotificationState(
             authorizationStatus: state.authorizationStatus,
             isRegisteredForRemoteNotifications: true,
-            deviceToken: APNsDeviceToken(data: deviceToken),
+            deviceToken: normalizedToken,
             lastRegistrationErrorDescription: nil,
             lastReceivedPayload: state.lastReceivedPayload,
             lastOpenedPayload: state.lastOpenedPayload
         )
         try persistState()
+        await eventCollector.record(.deviceTokenUpdated(normalizedToken.value))
         return state
     }
 
@@ -328,6 +387,7 @@ public actor PushNotificationManager: PushNotificationManaging {
             lastOpenedPayload: state.lastOpenedPayload
         )
         try persistState()
+        await eventCollector.record(.registrationFailed(reason: errorDescription))
         return state
     }
 
@@ -342,6 +402,13 @@ public actor PushNotificationManager: PushNotificationManaging {
             lastOpenedPayload: payload.source == .opened ? payload : state.lastOpenedPayload
         )
         try persistState()
+        await eventCollector.record(
+            .remoteNotificationHandled(
+                source: payload.source,
+                route: payload.customData["route"],
+                title: payload.title
+            )
+        )
         return payload
     }
 
@@ -349,6 +416,7 @@ public actor PushNotificationManager: PushNotificationManaging {
     public func clearState() async throws {
         state = PushNotificationState()
         try store.clear()
+        await eventCollector.record(.stateCleared)
     }
 
     /// Handles persist state.

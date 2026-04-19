@@ -592,10 +592,13 @@ Prefer a minimal but stable baseline that protects layout/state regressions with
 Completed by adding a dedicated `TchopAppUITests` target with smoke coverage for three core launch states: signed-out root, authenticated shell, and authenticated news feed entry.
 The app now supports UI-test launch configuration through `AppLaunchConfiguration`, using process-environment flags to force in-memory persistence and an authenticated session bootstrap so the smoke suite stays deterministic and isolated from device state.
 
-### [ ] Step: Add unified analytics and event layer across core infra packages
+### [x] Step: Add unified analytics and event layer across core infra packages
 
 Design and implement a shared product-level event model that can sit above `TchopNavigation`, `TchopPushNotifications`, and `TchopNetworking`.
 Keep transport-specific or app-lifecycle-specific details behind adapters rather than hardcoding them into the shared event API.
+
+Completed by introducing a new reusable package target, `TchopAnalytics`, with a shared `ProductAnalyticsEvent` model, collector contract, and in-memory collector.
+Thin adapters now map `NavigationEvent`, `APIMetricsEvent`, and the new `PushNotificationEvent` lifecycle stream into that shared analytics surface without coupling the lower-level packages to one product analytics format.
 
 **Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
 

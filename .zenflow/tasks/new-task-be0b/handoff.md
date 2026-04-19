@@ -86,11 +86,13 @@
 - Local cache module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopCache/TchopCache.swift`
 - Widgets module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift`
 - Push notifications module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopPushNotifications/TchopPushNotifications.swift`
+- Analytics module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopAnalytics/TchopAnalytics.swift`
 - Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
 - Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
 - Local cache tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopCacheTests/TchopCacheTests.swift`
 - Widgets tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopWidgetsTests/TchopWidgetsTests.swift`
 - Push notification tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopPushNotificationsTests/TchopPushNotificationsTests.swift`
+- Analytics tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopAnalyticsTests/TchopAnalyticsTests.swift`
 - Login screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift`
 - Header: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift`
 - Side menu: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Menu/SideMenuView.swift`
@@ -793,6 +795,14 @@ Absent:  no tests/build/simulator checks
   `AppLaunchConfiguration` reads UI-test launch environment flags and switches the app to in-memory persistence during UI tests, with optional authenticated session bootstrap so smoke tests stay deterministic and isolated from persisted simulator state.
   During the same pass, the app database policy fix from the prior `Low` verification was folded in:
   runtime SwiftData branches now use explicit `#available(iOS 17, *)` guards, and legacy Core Data store detection uses the corrected on-disk store URL check.
+- Unified analytics pass (next improvement cycle, iteration 8):
+  a new reusable package target, `TchopAnalytics`, now defines the shared product-level event surface above the lower-level infrastructure modules.
+  The package exposes `ProductAnalyticsDomain`, `ProductAnalyticsEvent`, `ProductAnalyticsCollecting`, and `ProductAnalyticsMemoryCollector`, plus thin adapters that map existing module-specific telemetry into that shared model:
+  `NavigationAnalyticsEventReporter` for `TchopNavigation`,
+  `APIAnalyticsMetricsCollector` for `TchopNetworking`,
+  and `PushNotificationAnalyticsCollector` for `TchopPushNotifications`.
+  `TchopPushNotifications` itself now emits a typed `PushNotificationEvent` lifecycle stream through `PushNotificationEventCollecting`, so push analytics no longer needs to inspect mutable state snapshots after the fact.
+  Package tests now cover analytics mapping/forwarding and the new push lifecycle event emission path.
 
 ## Next Recommended Step
 - Next logical work is deeper feature behavior, not shell architecture.

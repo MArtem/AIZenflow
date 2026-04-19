@@ -72,4 +72,69 @@ struct TchopPushNotificationsTests {
         #expect(state.deviceToken?.value == "aabb")
         #expect(state.lastOpenedPayload?.customData["route"] == "tchop://news")
     }
+
+    @Test
+    /// Handles manager emits push lifecycle events while persisting state transitions.
+    func managerEmitsLifecycleEvents() async throws {
+        let collector = PushNotificationMemoryEventCollector()
+        let manager = PushNotificationManager(
+            store: InMemoryPushNotificationStateStore(),
+            eventCollector: collector
+        )
+
+        _ = try await manager.updateAuthorizationStatus(.authorized)
+        _ = try await manager.updateRemoteRegistration(isRegistered: true)
+        _ = try await manager.handleDeviceToken(Data([0x01, 0x02]))
+        _ = try await manager.handleRegistrationFailure("network-error")
+        _ = try await manager.handleRemoteNotification(
+            PushNotificationPayload(
+                source: .foreground,
+                title: "Feed update",
+                body: nil,
+                badge: nil,
+                sound: nil,
+                customData: ["route": "tchop://news"]
+            )
+        )
+        try await manager.clearState()
+
+        let events = await collector.events
+
+        #expect(events.count == 6)
+        #expect(events[0] == .authorizationStatusUpdated(.authorized))
+        #expect(events[1] == .remoteRegistrationUpdated(isRegistered: true))
+        #expect(events[2] == .deviceTokenUpdated("0102"))
+        #expect(events[3] == .registrationFailed(reason: "network-error"))
+        #expect(
+            events[4] == .remoteNotificationHandled(
+                source: .foreground,
+                route: "tchop://news",
+                title: "Feed update"
+            )
+        )
+        #expect(events[5] == .stateCleared)
+    }
+}
+
+private struct InMemoryPushNotificationStateStore: PushNotificationStateStoring {
+    private final class StorageBox: @unchecked Sendable {
+        var state: PushNotificationState?
+    }
+
+    private let storage = StorageBox()
+
+    /// Saves this operation.
+    func save(_ state: PushNotificationState) throws {
+        storage.state = state
+    }
+
+    /// Loads this operation.
+    func load() throws -> PushNotificationState? {
+        storage.state
+    }
+
+    /// Clears this operation.
+    func clear() throws {
+        storage.state = nil
+    }
 }
