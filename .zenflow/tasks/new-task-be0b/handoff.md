@@ -227,6 +227,9 @@
 - Feed UI interaction baseline:
   the news feed no longer depends on hidden "find first card of this type" lookups when opening destinations from card taps.
   `NewsFeedView` now forwards the concrete tapped card model back to `NewsTabRootView`, which makes navigation deterministic for the tapped item and removes redundant rescans of the feed array during interaction.
+- Test coverage baseline:
+  app-level coverage now includes dedicated tests for `AppShellViewModel` around the server-driven UI configuration lifecycle.
+  The suite verifies that the shell first applies cached `currentConfiguration()` state and then applies refreshed state from `refreshConfiguration()`, protecting the newer persisted/current/refresh contract in `TchopUIConfiguration`.
 - Concurrency warning hardening:
   feed stub response path now explicitly satisfies `@Sendable` requirements, and feed DTO types are marked `Sendable`
   to prevent data-race warnings in the networking stub pipeline.
