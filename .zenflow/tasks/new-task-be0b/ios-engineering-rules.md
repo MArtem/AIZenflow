@@ -11,6 +11,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Think before answering.
 - Prefer clarity, simplicity, and correctness over cleverness.
 - Avoid overengineering, but design for scalability.
+- Optimize for human readability and unambiguous intent, not just for technical elegance.
+- Code should be easy for another developer to read, reason about, and maintain without rediscovering hidden assumptions.
 - Use modern Swift 5.9+ and SwiftUI best practices.
 - Follow Apple Human Interface Guidelines where UI is involved.
 - Code must compile and be realistic for production use.
@@ -108,6 +110,9 @@ Use this file as the persistent engineering instruction set for this project whe
 - Do not add abstractions, managers, factories, protocols, or package extraction "for future flexibility" unless they provide clear practical benefit for the current project or near-term reusable baseline.
 - If a proposed step mostly increases code size, logic depth, onboarding cost, or indirection while adding little real operational/architectural value, do not do it.
 - Prefer the simplest design that preserves correctness, maintainability, and realistic reuse. Development for its own sake is explicitly disallowed for this project.
+- When there is a trade-off between architectural purity and human readability, prefer the most readable design that still preserves correctness, structure, hierarchy, and realistic scalability.
+- Code must target both high engineering quality and high readability at the same time; "good architecture" is not a justification for code that becomes unnecessarily hard to read or reason about.
+- Favor explicit, unsurprising logic over clever, compressed, or overly abstract implementations.
 - Every method/function/initializer must have a concise comment describing its responsibility.
 - Prefer DocC-compatible `///` comments so behavior is readable directly in code navigation tools.
 - Comment coverage is expected in app code, infrastructure code, and test code.
@@ -132,6 +137,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Clarifying questions are explicitly encouraged by the user for this project.
 - Stay actively engaged in planning and implementation discussion: clarify unclear points, surface trade-offs, propose alternatives, and contribute implementation ideas instead of silently assuming defaults.
 - Treat every new task and every shared plan as a collaborative design step that requires attention from both sides before high-impact decisions are locked in.
+- If there is a meaningful trade-off between simpler code and a more complex architectural option, raise it explicitly and ask before locking in the direction.
+- Questions, objections, implementation ideas, and design alternatives from the agent are always welcome for this project and should be surfaced proactively instead of held back.
 
 ## Additional Persistent Instructions
 - When asked to merge from `main`, merge the latest changes from `main` and resolve conflicts carefully.

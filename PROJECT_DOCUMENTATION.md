@@ -214,9 +214,12 @@ Comment policy:
 - do not add abstractions or package extraction without clear practical value for the current app or a realistic near-term reuse case
 - reject changes that mostly increase indirection, code size, onboarding cost, or logic depth while adding little real benefit
 - prefer the simplest design that preserves correctness, maintainability, and practical reuse
+- prefer code that is easy for a human developer to read, understand, and maintain; readability and unambiguous intent are first-class quality goals
+- if a more complex architectural option materially hurts readability, only choose it when the practical structural benefit is clear and worth the cost
 - avoid view-returning helper methods inside screens
 - support light and dark appearance
 - support localization for all user-facing strings
 - prefer semantic theme tokens over hardcoded UI colors
 - optimize SwiftUI code to avoid unnecessary re-renders and memory waste
 - ask clarifying questions when requirements or trade-offs are unclear
+- proactively raise questions, trade-offs, objections, and alternative ideas instead of silently choosing defaults on high-impact decisions

@@ -35,12 +35,14 @@ Use this file as the persistent services-layer instruction set for this project 
 - Design production-ready, scalable, maintainable, and performant services.
 - Follow SOLID everywhere in service and infra code.
 - Prefer protocol-driven architecture for routers, clients, interceptors, repositories, managers, and persistence adapters.
+- Keep service and infrastructure code easy for humans to read and reason about; do not hide simple behavior behind needless layers.
 - Public APIs should use async/await only. Avoid completion handlers in public service APIs.
 - Use initializer-based dependency injection. Avoid singletons and hidden shared state.
 - Use typed errors with context. Avoid exposing bare `Error` in service contracts.
 - Thread safety is required by design. Use actors where shared mutable async state exists.
 - Add DocC-compatible documentation to public types and public functions.
 - Service and infrastructure code now also follows a stricter local rule for this project: every method/function/initializer should have a concise comment explaining its role, not only public APIs.
+- If a service or package design becomes materially harder to understand for the average developer, that added complexity must be justified by clear practical value, not theoretical flexibility.
 
 ## Database Service Expectations
 - Keep every operation behind Swift protocols.
@@ -81,3 +83,4 @@ Use this file as the persistent services-layer instruction set for this project 
   - preferred DB backend
   - auth method
   - whether the work must integrate with the existing project structure or may introduce a new module layout
+- Also ask whenever there is a real trade-off between simpler code and a more elaborate architecture, or between reuse and readability, instead of deciding silently.

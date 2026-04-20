@@ -679,3 +679,30 @@ To reflect the actual purpose of the first step, you can rename it to something 
 Rule of thumb for step size: each step = a coherent unit of work (component, endpoint, test suite). Not too granular (single function), not too broad (entire feature). Unit tests are part of each step, not separate.
 
 Update `{@artifacts_path}/plan.md`.
+
+## Next Agreed Plan
+
+### [ ] Step: Commit verification fixes
+
+Formally close the last completed verification cycle with one dedicated commit containing the fixes found during the successful `Full` run.
+This step exists to remove hanging context and create a clean baseline before any further cleanup or refactoring work starts.
+
+### [ ] Step: Clean Core Data test warnings
+
+Investigate and remove the old `NSEntityDescription` duplication warnings still emitted by the package database tests.
+Keep this step behavior-preserving: the goal is cleaner verification and a healthier test harness, not product changes.
+
+### [ ] Step: Readability-first project-wide refactoring cycle
+
+Run a fresh refactoring pass across the app and reusable packages with the updated project rules:
+- no development for its own sake,
+- highest possible engineering quality,
+- simplest readable code that preserves correctness, structure, hierarchy, and scalability,
+- explicit escalation to the user when there is a real trade-off between architectural purity and human readability.
+
+Scope for this cycle:
+- review app code and package code together,
+- simplify logic and reduce unnecessary indirection where possible,
+- keep reusable boundaries where they still provide real value,
+- avoid weakening architecture or scalability just to make code shorter,
+- ask the user about any meaningful readability-vs-architecture compromise before deciding.

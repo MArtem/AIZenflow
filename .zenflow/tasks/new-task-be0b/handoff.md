@@ -252,6 +252,12 @@
   do not introduce new abstractions, managers, factories, protocols, or package extraction purely for theoretical flexibility.
   If a change mostly increases complexity, indirection, onboarding cost, or code volume while adding limited practical value, it should be rejected.
   The preferred baseline is the simplest design that preserves correctness, maintainability, and realistic cross-project reuse.
+- Additional readability-first rule:
+  code should be of high engineering quality but still remain easy for a human developer to read, understand, and maintain.
+  Architectural quality does not justify unnecessary complexity or reduced clarity.
+  When there is a real trade-off between simpler/more readable code and a more complex architectural option, that trade-off should be surfaced to the user explicitly before locking in the direction.
+- Additional collaboration rule refinement:
+  questions, objections, implementation ideas, clarifications, and architectural alternatives from the agent are always welcome on this project and should be raised proactively instead of silently assuming defaults.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
