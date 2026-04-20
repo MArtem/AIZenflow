@@ -37,7 +37,7 @@ final class AppDIContainerTests: XCTestCase {
             )
         )
 
-        let events = await container.analyticsCollector.events
+        let events = await waitForAnalyticsEvents(in: container.analyticsCollector, minimumCount: 2)
 
         XCTAssertEqual(response, 1)
         XCTAssertTrue(
@@ -86,5 +86,26 @@ final class AppDIContainerTests: XCTestCase {
                 $0.attributes["route"] == "tchop://news"
             })
         )
+    }
+
+    /// Waits until the shared analytics collector accumulates the expected number of events.
+    private func waitForAnalyticsEvents(
+        in collector: ProductAnalyticsMemoryCollector,
+        minimumCount: Int,
+        timeoutNanoseconds: UInt64 = 500_000_000
+    ) async -> [ProductAnalyticsEvent] {
+        let deadline = ContinuousClock.now + .nanoseconds(Int(timeoutNanoseconds))
+        var latestEvents: [ProductAnalyticsEvent] = []
+
+        while ContinuousClock.now < deadline {
+            latestEvents = await collector.events
+            if latestEvents.count >= minimumCount {
+                return latestEvents
+            }
+
+            try? await Task.sleep(nanoseconds: 20_000_000)
+        }
+
+        return await collector.events
     }
 }

@@ -778,12 +778,40 @@ public actor APIManager: APIManaging {
         cancellationToken: APICancellationToken?
     ) async throws -> Response where Response: Sendable {
         if let stubResponse = request.stubResponse {
+            var urlRequest = try makeURLRequest(for: request, configuration: configuration)
+
+            for interceptor in interceptors {
+                urlRequest = try await interceptor.prepare(urlRequest)
+            }
+
             try await cancellationToken?.throwIfCancelled()
             await progressHandler?(.started)
-            let response = try await stubResponse()
-            try await cancellationToken?.throwIfCancelled()
-            await progressHandler?(.finished)
-            return response
+
+            do {
+                let response = try await stubResponse()
+                try await cancellationToken?.throwIfCancelled()
+                await progressHandler?(.finished)
+
+                for interceptor in interceptors {
+                    await interceptor.didReceive(
+                        result: .success((Data(), Self.makeStubHTTPURLResponse(for: urlRequest))),
+                        request: urlRequest
+                    )
+                }
+
+                return response
+            } catch let error as APIError {
+                for interceptor in interceptors {
+                    await interceptor.didReceive(result: .failure(error), request: urlRequest)
+                }
+                throw error
+            } catch {
+                let mappedError = errorMapper.map(error)
+                for interceptor in interceptors {
+                    await interceptor.didReceive(result: .failure(mappedError), request: urlRequest)
+                }
+                throw mappedError
+            }
         }
 
         var urlRequest = try makeURLRequest(for: request, configuration: configuration)
@@ -851,15 +879,43 @@ public actor APIManager: APIManaging {
         cancellationToken: APICancellationToken?
     ) async throws -> URL {
         if let stubResponse = request.stubResponse {
+            var urlRequest = try makeURLRequest(for: request, configuration: configuration)
+
+            for interceptor in interceptors {
+                urlRequest = try await interceptor.prepare(urlRequest)
+            }
+
             try await cancellationToken?.throwIfCancelled()
             await progressHandler?(.started)
-            let data = try await stubResponse()
-            try await cancellationToken?.throwIfCancelled()
-            let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).tmp")
-            try data.write(to: outputURL, options: .atomic)
-            await progressHandler?(.progressed(1))
-            await progressHandler?(.finished)
-            return outputURL
+
+            do {
+                let data = try await stubResponse()
+                try await cancellationToken?.throwIfCancelled()
+                let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).tmp")
+                try data.write(to: outputURL, options: .atomic)
+                await progressHandler?(.progressed(1))
+                await progressHandler?(.finished)
+
+                for interceptor in interceptors {
+                    await interceptor.didReceive(
+                        result: .success((data, Self.makeStubHTTPURLResponse(for: urlRequest))),
+                        request: urlRequest
+                    )
+                }
+
+                return outputURL
+            } catch let error as APIError {
+                for interceptor in interceptors {
+                    await interceptor.didReceive(result: .failure(error), request: urlRequest)
+                }
+                throw error
+            } catch {
+                let mappedError = errorMapper.map(error)
+                for interceptor in interceptors {
+                    await interceptor.didReceive(result: .failure(mappedError), request: urlRequest)
+                }
+                throw mappedError
+            }
         }
 
         var urlRequest = try makeURLRequest(for: request, configuration: configuration)
@@ -933,9 +989,38 @@ public actor APIManager: APIManaging {
     ) -> Task<Response, Error> where Response: Sendable {
         let task = Task<Response, Error> { [configuration, session, interceptors, errorMapper] in
             if let stubResponse = request.stubResponse {
+                var urlRequest = try makeURLRequest(for: request, configuration: configuration)
+
+                for interceptor in interceptors {
+                    urlRequest = try await interceptor.prepare(urlRequest)
+                }
+
                 try await cancellationToken?.throwIfCancelled()
                 try Task.checkCancellation()
-                return try await stubResponse()
+
+                do {
+                    let response = try await stubResponse()
+
+                    for interceptor in interceptors {
+                        await interceptor.didReceive(
+                            result: .success((Data(), Self.makeStubHTTPURLResponse(for: urlRequest))),
+                            request: urlRequest
+                        )
+                    }
+
+                    return response
+                } catch let error as APIError {
+                    for interceptor in interceptors {
+                        await interceptor.didReceive(result: .failure(error), request: urlRequest)
+                    }
+                    throw error
+                } catch {
+                    let mappedError = errorMapper.map(error)
+                    for interceptor in interceptors {
+                        await interceptor.didReceive(result: .failure(mappedError), request: urlRequest)
+                    }
+                    throw mappedError
+                }
             }
 
             let baseURLRequest = try makeURLRequest(for: request, configuration: configuration)
@@ -1087,6 +1172,16 @@ public actor APIManager: APIManaging {
         for request: APIRequest<Response>
     ) -> Bool where Response: Sendable {
         (request.validStatusCodes ?? (200 ..< 300)).contains(statusCode)
+    }
+
+    /// Creates a synthetic successful HTTP response for stub-driven requests.
+    private static func makeStubHTTPURLResponse(for request: URLRequest) -> HTTPURLResponse {
+        HTTPURLResponse(
+            url: request.url ?? URL(string: "https://stub.tchop.local")!,
+            statusCode: 200,
+            httpVersion: "HTTP/1.1",
+            headerFields: nil
+        )!
     }
 }
 

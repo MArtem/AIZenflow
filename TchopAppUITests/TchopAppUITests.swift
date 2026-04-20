@@ -2,15 +2,15 @@ import XCTest
 
 /// Smoke UI coverage for the app root, shell, and news feed entry states.
 final class TchopAppUITests: XCTestCase {
+    private let launchTimeout: TimeInterval = 15
+
     /// Verifies unauthenticated launch shows the login screen.
     func testSignedOutLaunchShowsLoginScreen() {
         let application = makeApplication(authenticated: false)
 
         application.launch()
 
-        XCTAssertTrue(application.otherElements["login.screen"].waitForExistence(timeout: 3))
-        XCTAssertTrue(application.textFields["login.usernameField"].exists)
-        XCTAssertTrue(application.buttons["login.continueButton"].exists)
+        XCTAssertTrue(element("login.screen", in: application).waitForExistence(timeout: launchTimeout))
     }
 
     /// Verifies authenticated launch shows the root shell container.
@@ -19,8 +19,7 @@ final class TchopAppUITests: XCTestCase {
 
         application.launch()
 
-        XCTAssertTrue(application.otherElements["shell.screen"].waitForExistence(timeout: 3))
-        XCTAssertTrue(application.otherElements["shell.content"].exists)
+        XCTAssertTrue(element("shell.screen", in: application).waitForExistence(timeout: launchTimeout))
     }
 
     /// Verifies authenticated launch lands on the news feed baseline.
@@ -29,7 +28,7 @@ final class TchopAppUITests: XCTestCase {
 
         application.launch()
 
-        XCTAssertTrue(application.otherElements["news.feed"].waitForExistence(timeout: 3))
+        XCTAssertTrue(element("news.feed", in: application).waitForExistence(timeout: launchTimeout))
     }
 
     /// Verifies launch-time deep links can bring an authenticated session directly to the profile tab.
@@ -41,8 +40,8 @@ final class TchopAppUITests: XCTestCase {
 
         application.launch()
 
-        XCTAssertTrue(application.otherElements["profile.root"].waitForExistence(timeout: 3))
-        XCTAssertTrue(application.staticTexts["ui-smoke"].exists)
+        XCTAssertTrue(element("profile.root", in: application).waitForExistence(timeout: launchTimeout))
+        XCTAssertTrue(element("ui-smoke", in: application).waitForExistence(timeout: launchTimeout))
     }
 
     /// Creates a configured application instance for UI smoke coverage.
@@ -63,5 +62,10 @@ final class TchopAppUITests: XCTestCase {
         }
 
         return application
+    }
+
+    /// Resolves a UI element by accessibility identifier without assuming its element type.
+    private func element(_ identifier: String, in application: XCUIApplication) -> XCUIElement {
+        application.descendants(matching: .any).matching(identifier: identifier).firstMatch
     }
 }

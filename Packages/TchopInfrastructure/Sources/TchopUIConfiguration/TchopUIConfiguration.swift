@@ -201,7 +201,7 @@ public actor UIConfigurationManager: UIConfigurationManaging {
         store: (any UIConfigurationSnapshotStoring)? = nil,
         stalenessPolicy: UIConfigurationStalenessPolicy = .never,
         refreshThrottling: UIConfigurationRefreshThrottling = .none,
-        dateProvider: @escaping @Sendable () -> Date = Date.init,
+        dateProvider: @escaping @Sendable () -> Date = { Date() },
         fallbackSnapshot: UIConfigurationSnapshot = UIConfigurationSnapshot(
             shell: ShellUIConfiguration(showsFloatingActionButton: true)
         )
