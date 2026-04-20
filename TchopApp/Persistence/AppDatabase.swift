@@ -34,26 +34,27 @@ enum AppDatabase {
     static func makeDatabaseManagerOrThrow(
         configuration: AppDatabaseConfiguration = .persistent
     ) throws -> any DatabaseManaging {
-        try makeDatabaseManagerWithPersistentSelection(configuration: configuration)
+        let runtimeContext = try AppDatabaseRuntimeContext.current(for: configuration)
+        let resolutionPlan = try AppDatabaseRuntimePolicy.plan(
+            for: configuration,
+            context: runtimeContext
+        )
+
+        return try makeDatabaseManager(
+            for: resolutionPlan,
+            configuration: configuration
+        )
     }
 
     @MainActor
-    private static func makeDatabaseManagerWithPersistentSelection(
+    private static func makeDatabaseManager(
+        for resolutionPlan: AppDatabaseResolutionPlan,
         configuration: AppDatabaseConfiguration
     ) throws -> any DatabaseManaging {
-        let plan = try AppDatabaseRuntimePolicy.plan(
-            for: configuration,
-            context: AppDatabaseRuntimeContext(
-                storedBackend: AppDatabaseBackendPreferenceStore.load(),
-                hasLegacyCoreDataStoreOnDisk: hasLegacyCoreDataStoreOnDisk(configuration: configuration),
-                supportsSwiftData: AppDatabaseSwiftDataAvailability.current
-            )
-        )
-
-        switch plan {
+        switch resolutionPlan {
         case .useCoreData:
             let coreDataManager = try makeCoreDataManager(configuration: configuration)
-            AppDatabaseBackendPreferenceStore.save(.coreData)
+            persistSelectedBackendIfNeeded(for: resolutionPlan)
             return coreDataManager
         case .useSwiftData:
             guard #available(iOS 17, *) else {
@@ -63,7 +64,7 @@ enum AppDatabase {
             }
 
             let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
-            AppDatabaseBackendPreferenceStore.save(.swiftData)
+            persistSelectedBackendIfNeeded(for: resolutionPlan)
             return swiftDataManager
         case .migrateCoreDataToSwiftData:
             guard #available(iOS 17, *) else {
@@ -74,6 +75,16 @@ enum AppDatabase {
 
             return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
         }
+    }
+
+    /// Persists the backend selection when the chosen plan maps to a stable backend.
+    @MainActor
+    private static func persistSelectedBackendIfNeeded(for resolutionPlan: AppDatabaseResolutionPlan) {
+        guard let backendKind = resolutionPlan.persistedBackendKind else {
+            return
+        }
+
+        AppDatabaseBackendPreferenceStore.save(backendKind)
     }
 
     @MainActor
@@ -156,18 +167,6 @@ enum AppDatabase {
         return swiftDataManager
     }
 
-    @MainActor
-    private static func hasLegacyCoreDataStoreOnDisk(configuration: AppDatabaseConfiguration) -> Bool {
-        guard !configuration.isStoredInMemoryOnly else {
-            return false
-        }
-
-        guard let storeURL = try? AppDatabaseContainerFactory.persistentStoreURL() else {
-            return false
-        }
-
-        return FileManager.default.fileExists(atPath: storeURL.path)
-    }
 }
 
 /// Runtime facts that influence automatic app database backend selection.
@@ -175,6 +174,31 @@ struct AppDatabaseRuntimeContext: Equatable {
     let storedBackend: AppDatabaseBackendKind?
     let hasLegacyCoreDataStoreOnDisk: Bool
     let supportsSwiftData: Bool
+
+    /// Builds the current runtime context from app configuration and device capabilities.
+    @MainActor
+    static func current(for configuration: AppDatabaseConfiguration) throws -> Self {
+        Self(
+            storedBackend: AppDatabaseBackendPreferenceStore.load(),
+            hasLegacyCoreDataStoreOnDisk: try hasLegacyCoreDataStoreOnDisk(
+                configuration: configuration
+            ),
+            supportsSwiftData: AppDatabaseSwiftDataAvailability.current
+        )
+    }
+
+    /// Checks whether the legacy on-disk Core Data store still exists for the current app runtime.
+    @MainActor
+    private static func hasLegacyCoreDataStoreOnDisk(
+        configuration: AppDatabaseConfiguration
+    ) throws -> Bool {
+        guard !configuration.isStoredInMemoryOnly else {
+            return false
+        }
+
+        let storeURL = try AppDatabaseContainerFactory.persistentStoreURL()
+        return FileManager.default.fileExists(atPath: storeURL.path)
+    }
 }
 
 /// App-level resolution plan describing which persistence path should be used.
@@ -182,6 +206,18 @@ enum AppDatabaseResolutionPlan: Equatable {
     case useCoreData
     case useSwiftData
     case migrateCoreDataToSwiftData
+
+    /// Returns the backend kind that should be persisted for stable plans.
+    var persistedBackendKind: AppDatabaseBackendKind? {
+        switch self {
+        case .useCoreData:
+            return .coreData
+        case .useSwiftData:
+            return .swiftData
+        case .migrateCoreDataToSwiftData:
+            return nil
+        }
+    }
 }
 
 /// Thin runtime policy deciding which app persistence path to use before containers are built.

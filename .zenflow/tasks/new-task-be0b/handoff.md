@@ -926,6 +926,13 @@ Absent:  no tests/build/simulator checks
 - The old Core Data warnings in `Packages/TchopInfrastructure/Tests/TchopDatabaseTests` were then cleaned up without changing product behavior.
   Root cause: the test harness created multiple in-memory Core Data models that all pointed the same managed-object subclass at different `NSEntityDescription` instances, and the subclass-based `entity()` lookup became ambiguous.
   The harness now uses explicit `entityName` + `NSManagedObject` creation/fetch requests instead of subclass-based lookup, and `swift test --package-path Packages/TchopInfrastructure` is green with those warnings gone.
+- Readability-first refactoring cycle has now started with a narrow pass over `TchopApp/Persistence/AppDatabase.swift`.
+  The goal of this first step was not to redesign persistence again, but to make the runtime bootstrap flow easier to read:
+  `makeDatabaseManagerOrThrow(...)` now explicitly builds `AppDatabaseRuntimeContext`, resolves `AppDatabaseResolutionPlan`, and then delegates to a single manager-construction entry point.
+  The same pass also moved stable backend persistence behind `AppDatabaseResolutionPlan.persistedBackendKind`, which removed inline persistence branching from the bootstrap switch.
+  Legacy Core Data store discovery now lives with the runtime-context builder instead of being scattered across the top-level enum.
+  Verification for this step:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

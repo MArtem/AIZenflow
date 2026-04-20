@@ -710,3 +710,12 @@ Scope for this cycle:
 - keep reusable boundaries where they still provide real value,
 - avoid weakening architecture or scalability just to make code shorter,
 - ask the user about any meaningful readability-vs-architecture compromise before deciding.
+
+Readability-first cycle progress:
+- Step 1 focused on [AppDatabase.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDatabase.swift), which remained one of the highest-noise orchestration files after the earlier architecture work.
+- The database bootstrap flow is now more explicit without changing the public app-facing API:
+  `makeDatabaseManagerOrThrow(...)` first builds a dedicated `AppDatabaseRuntimeContext`, then resolves a concrete `AppDatabaseResolutionPlan`, then delegates to one manager-building entry point.
+- Stable backend persistence was also moved behind `AppDatabaseResolutionPlan.persistedBackendKind`, so the bootstrap switch no longer hardcodes `save(.coreData)` / `save(.swiftData)` inline.
+- Legacy Core Data store discovery moved into `AppDatabaseRuntimeContext.current(...)`, which keeps runtime facts grouped together instead of spreading them across the top-level bootstrap enum.
+- Verification:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded after adding the required `@MainActor` isolation to the new runtime-context helpers.
