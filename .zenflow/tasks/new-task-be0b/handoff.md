@@ -258,6 +258,17 @@
   When there is a real trade-off between simpler/more readable code and a more complex architectural option, that trade-off should be surfaced to the user explicitly before locking in the direction.
 - Additional collaboration rule refinement:
   questions, objections, implementation ideas, clarifications, and architectural alternatives from the agent are always welcome on this project and should be raised proactively instead of silently assuming defaults.
+- Readability-first refactor progress:
+  `AppDatabase`, `AppState`, and `DeepLinkManager` have already been simplified in earlier steps, and the next completed step now also simplifies `AppDIContainer`.
+  The composition root keeps the same public role, but its initializer is now grouped into clearer factory stages:
+  analytics/database bootstrap,
+  API/feed setup,
+  repository/session setup,
+  widget/push/UI configuration setup,
+  and navigation service setup.
+  `makeAppState()` also now reads linearly by building the coordinator and shell view model first, then returning `AppState`.
+  This step intentionally avoids introducing extra protocols or nested builders and keeps the refactor scoped to readability and dependency grouping only.
+  Verification for this step is green on `iPhone 17 Pro (iOS 26.0)` with `xcodebuild ... build`.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.

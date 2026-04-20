@@ -58,13 +58,14 @@ final class AppDIContainer: ObservableObject {
 
     /// Creates the root dependency container and eagerly wires the initial graph.
     init(databaseConfiguration: AppDatabaseConfiguration = .persistent) {
-        self.analyticsCollector = ProductAnalyticsMemoryCollector()
+        let analyticsCollector = ProductAnalyticsMemoryCollector()
+        self.analyticsCollector = analyticsCollector
 
-        let databaseManager = AppDatabase.makeDatabaseManager(configuration: databaseConfiguration)
+        let databaseManager = Self.makeSeededDatabaseManager(
+            configuration: databaseConfiguration
+        )
         self.databaseManager = databaseManager
         self.databaseBackendKind = databaseManager.backendKind
-
-        Self.seedLocalDataIfNeeded(using: databaseManager)
 
         let apiManager = Self.makeAPIManager(analyticsCollector: analyticsCollector)
         self.apiManager = apiManager
@@ -72,27 +73,26 @@ final class AppDIContainer: ObservableObject {
         let feedAPIManager = Self.makeFeedAPIManager(apiManager: apiManager)
         self.feedAPIManager = feedAPIManager
 
+        let repositories = Self.makeRepositories(
+            databaseManager: databaseManager,
+            feedAPIManager: feedAPIManager
+        )
+        self.contentRepository = repositories.contentRepository
+        self.userRepository = repositories.userRepository
+        self.sessionService = UserSessionService(userRepository: repositories.userRepository)
+
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
         self.widgetContentSyncManager = Self.makeWidgetContentSyncManager()
         self.pushNotificationBridge = Self.makePushNotificationBridge(
             analyticsCollector: analyticsCollector
         )
 
-        let contentRepository = DefaultAppContentRepository(
-            databaseManager: databaseManager,
-            feedAPIManager: feedAPIManager
+        let navigationServices = Self.makeNavigationServices(
+            analyticsCollector: analyticsCollector
         )
-        self.contentRepository = contentRepository
-
-        let userRepository = DefaultUserRepository(databaseManager: databaseManager)
-        self.userRepository = userRepository
-
-        self.sessionService = UserSessionService(userRepository: userRepository)
-        self.navigationStateManager = NavigationStateManager()
-        self.navigationEventReporter = NavigationAnalyticsEventReporter(
-            collector: analyticsCollector
-        )
-        self.deepLinkManager = DeepLinkManager(eventReporter: navigationEventReporter)
+        self.navigationStateManager = navigationServices.navigationStateManager
+        self.navigationEventReporter = navigationServices.navigationEventReporter
+        self.deepLinkManager = navigationServices.deepLinkManager
     }
 
     /// Creates the shell view model used by the authenticated part of the app.
@@ -106,9 +106,12 @@ final class AppDIContainer: ObservableObject {
 
     /// Creates the root app state object used by the app entry point.
     func makeAppState() -> AppState {
-        AppState(
-            coordinator: AppCoordinator(),
-            appShellViewModel: makeAppShellViewModel(),
+        let coordinator = AppCoordinator()
+        let appShellViewModel = makeAppShellViewModel()
+
+        return AppState(
+            coordinator: coordinator,
+            appShellViewModel: appShellViewModel,
             sessionService: sessionService,
             userRepository: userRepository,
             navigationStateManager: navigationStateManager,
@@ -119,12 +122,38 @@ final class AppDIContainer: ObservableObject {
         )
     }
 
+    /// Creates the shared database manager and performs local seeding before the graph is assembled.
+    private static func makeSeededDatabaseManager(
+        configuration: AppDatabaseConfiguration
+    ) -> any DatabaseManaging {
+        let databaseManager = AppDatabase.makeDatabaseManager(configuration: configuration)
+        seedLocalDataIfNeeded(using: databaseManager)
+        return databaseManager
+    }
+
     private static func seedLocalDataIfNeeded(using databaseManager: any DatabaseManaging) {
         do {
             try AppDataSeeder.seedIfNeeded(in: databaseManager)
         } catch {
             assertionFailure("Failed to seed local data: \(error)")
         }
+    }
+
+    /// Creates app repositories that sit on top of the shared database and API layer.
+    private static func makeRepositories(
+        databaseManager: any DatabaseManaging,
+        feedAPIManager: any FeedAPIManaging
+    ) -> (
+        contentRepository: any AppContentRepository,
+        userRepository: any UserRepository
+    ) {
+        (
+            contentRepository: DefaultAppContentRepository(
+                databaseManager: databaseManager,
+                feedAPIManager: feedAPIManager
+            ),
+            userRepository: DefaultUserRepository(databaseManager: databaseManager)
+        )
     }
 
     private static func makeAPIManager(
@@ -177,6 +206,26 @@ final class AppDIContainer: ObservableObject {
             )
         )
         return AppPushNotificationBridge(manager: pushNotificationManager)
+    }
+
+    /// Creates navigation persistence and diagnostics services used by app state.
+    private static func makeNavigationServices(
+        analyticsCollector: ProductAnalyticsMemoryCollector
+    ) -> (
+        navigationStateManager: any NavigationStateManaging,
+        navigationEventReporter: any NavigationEventReporting,
+        deepLinkManager: any DeepLinkManaging
+    ) {
+        let navigationStateManager = NavigationStateManager()
+        let navigationEventReporter = NavigationAnalyticsEventReporter(
+            collector: analyticsCollector
+        )
+
+        return (
+            navigationStateManager: navigationStateManager,
+            navigationEventReporter: navigationEventReporter,
+            deepLinkManager: DeepLinkManager(eventReporter: navigationEventReporter)
+        )
     }
 }
 

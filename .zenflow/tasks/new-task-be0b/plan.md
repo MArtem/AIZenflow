@@ -239,6 +239,13 @@ Completed:
 - Added tests for corrupted store recovery and diagnostics export/import roundtrip.
 Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
+### [x] Step: Readability-first refactor 4 — simplify composition root in AppDIContainer
+
+Applied a readability-focused refactor to `TchopApp/App/AppDIContainer.swift` without changing the public app-facing composition API.
+The container initializer now assembles runtime services through a few linear factory groups instead of one long mixed block, and `makeAppState()` now reads more directly by constructing local coordinator/shell objects before returning the root state.
+Added small private helpers for seeded database setup, repository assembly, and navigation service assembly so related dependencies stay grouped in one place without introducing new abstraction layers.
+Verification: `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.
