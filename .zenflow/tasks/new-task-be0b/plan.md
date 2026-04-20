@@ -253,6 +253,13 @@ The repeated interceptor loops for request preparation, transport result broadca
 This step intentionally avoided new public abstractions and only removed repeated low-level plumbing inside the package implementation.
 Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
 
+### [x] Step: Readability-first refactor 6 — simplify persistence branches in UserRepository
+
+Applied a readability-focused refactor to `TchopApp/Repositories/UserRepository.swift` without changing any repository contracts or persistence behavior.
+The main repository methods now delegate the repeated SwiftData/Core Data branches to small private helpers for fetch, create, and restore-preference update flows, and the repeated Core Data single-record request setup is centralized in one helper.
+This step intentionally kept the logic in the same file and did not introduce any new protocols, services, or generic abstraction layers.
+Verification: `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.

@@ -275,6 +275,15 @@
   The goal of this step was only to reduce control-flow noise and make the runtime paths easier to read.
   No new public types or extra extension points were added.
   Verification for this package step is green with `swift test --package-path Packages/TchopInfrastructure`.
+- Repository readability refactor progress:
+  `UserRepository` has now also been simplified.
+  The public methods still expose the same repository behavior, but the repeated persistence branches are now delegated to small private helpers:
+  fetch by username,
+  create user,
+  and update restore preference.
+  The repeated Core Data single-record request boilerplate is also centralized in one helper.
+  This keeps the file easier to scan while avoiding extra architectural layers.
+  Verification for this step is green on `iPhone 17 Pro (iOS 26.0)` with `xcodebuild ... build`.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
