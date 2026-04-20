@@ -725,3 +725,12 @@ Readability-first cycle progress:
 - Verification:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
   A targeted `xcodebuild test -only-testing:TchopAppTests/AppStateTests` run was attempted first, but the simulator runner stalled without producing a useful failure signal, so it was not used as the primary verification result for this step.
+- Step 3 focused on [DeepLinkManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/DeepLinkManager.swift), which still had repetitive "tab root or detail" intent construction and repetitive coordinator-application code for tab-specific destinations.
+- `mixes`, `pinned`, `chat`, and `profile` intent builders now share one private `buildTabOrDetailIntent(...)` helper instead of each reimplementing the same `title` / `description` flow.
+- Applying parsed destinations into the coordinator is also now more direct to read:
+  news destinations share one helper,
+  tab-specific detail destinations share one helper for `selectTab(...) + navigate()`,
+  while tab-root behavior still stays explicit through `coordinator.showTabRoot(...)`.
+- This was kept deliberately local to the file: no URL contract changes, no route-definition changes, and no new public abstractions.
+- Verification:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.

@@ -943,6 +943,15 @@ Absent:  no tests/build/simulator checks
   Verification for this step:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
   A targeted `xcodebuild test -only-testing:TchopAppTests/AppStateTests` run was also attempted, but the simulator runner stalled without surfacing a concrete test failure, so the step was closed on the successful build signal instead.
+- The third readability-first step then focused on `TchopApp/Navigation/DeepLinkManager.swift`.
+  The routing table and URL contract were intentionally left unchanged.
+  The simplification was local to the file:
+  `mixes`, `pinned`, `chat`, and `profile` now share one helper for "tab root or detail" intent construction,
+  news article/discussion application now shares one helper,
+  and tab-specific detail application now shares one helper for the repeated `selectTab(...) + navigate(...)` pattern.
+  This reduced repetitive code without moving routing behavior into new abstractions or packages.
+  Verification for this step:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

@@ -50,7 +50,6 @@ final class DeepLinkManager: DeepLinkManaging {
     }
 
     @discardableResult
-    /// Handles this operation.
     func handle(url: URL, coordinator: AppCoordinator) -> Bool {
         let urlString = url.absoluteString
         switch parseIntent(from: url) {
@@ -75,7 +74,6 @@ final class DeepLinkManager: DeepLinkManaging {
     }
 
     @discardableResult
-    /// Handles this operation.
     func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool {
         guard let webpageURL = userActivity.webpageURL else {
             return false
@@ -221,19 +219,15 @@ final class DeepLinkManager: DeepLinkManaging {
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
     ) -> DeepLinkParseResult {
-        guard let title = queryValue("title", queryItems) else {
-            return .resolved(DeepLinkIntent(destination: .tab(.mixes), policy: .replace))
-        }
-
-        let description = queryValue("description", queryItems) ?? AppLocalization.text(
-            "deeplink.mixes.description",
-            fallback: "Mix detail opened from a deep link."
-        )
-        return .resolved(
-            DeepLinkIntent(
-                destination: .mixes(MixesRoute(title: title, description: description)),
-                policy: transitionPolicy
-            )
+        buildTabOrDetailIntent(
+            tab: .mixes,
+            queryItems: queryItems,
+            transitionPolicy: transitionPolicy,
+            makeDetail: { title, description in
+                .mixes(MixesRoute(title: title, description: description))
+            },
+            descriptionLocalizationKey: "deeplink.mixes.description",
+            descriptionFallback: "Mix detail opened from a deep link."
         )
     }
 
@@ -242,19 +236,15 @@ final class DeepLinkManager: DeepLinkManaging {
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
     ) -> DeepLinkParseResult {
-        guard let title = queryValue("title", queryItems) else {
-            return .resolved(DeepLinkIntent(destination: .tab(.pinned), policy: .replace))
-        }
-
-        let description = queryValue("description", queryItems) ?? AppLocalization.text(
-            "deeplink.pinned.description",
-            fallback: "Pinned detail opened from a deep link."
-        )
-        return .resolved(
-            DeepLinkIntent(
-                destination: .pinned(PinnedRoute(title: title, description: description)),
-                policy: transitionPolicy
-            )
+        buildTabOrDetailIntent(
+            tab: .pinned,
+            queryItems: queryItems,
+            transitionPolicy: transitionPolicy,
+            makeDetail: { title, description in
+                .pinned(PinnedRoute(title: title, description: description))
+            },
+            descriptionLocalizationKey: "deeplink.pinned.description",
+            descriptionFallback: "Pinned detail opened from a deep link."
         )
     }
 
@@ -263,19 +253,15 @@ final class DeepLinkManager: DeepLinkManaging {
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
     ) -> DeepLinkParseResult {
-        guard let title = queryValue("title", queryItems) else {
-            return .resolved(DeepLinkIntent(destination: .tab(.chat), policy: .replace))
-        }
-
-        let description = queryValue("description", queryItems) ?? AppLocalization.text(
-            "deeplink.chat.description",
-            fallback: "Chat room opened from a deep link."
-        )
-        return .resolved(
-            DeepLinkIntent(
-                destination: .chat(ChatRoute(title: title, description: description)),
-                policy: transitionPolicy
-            )
+        buildTabOrDetailIntent(
+            tab: .chat,
+            queryItems: queryItems,
+            transitionPolicy: transitionPolicy,
+            makeDetail: { title, description in
+                .chat(ChatRoute(title: title, description: description))
+            },
+            descriptionLocalizationKey: "deeplink.chat.description",
+            descriptionFallback: "Chat room opened from a deep link."
         )
     }
 
@@ -284,58 +270,106 @@ final class DeepLinkManager: DeepLinkManaging {
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy
     ) -> DeepLinkParseResult {
+        buildTabOrDetailIntent(
+            tab: .profile,
+            queryItems: queryItems,
+            transitionPolicy: transitionPolicy,
+            makeDetail: { title, description in
+                .profile(ProfileRoute(title: title, description: description))
+            },
+            descriptionLocalizationKey: "deeplink.profile.description",
+            descriptionFallback: "Profile detail opened from a deep link."
+        )
+    }
+
+    /// Builds a root-tab intent when no title is provided, otherwise builds the requested detail destination.
+    private func buildTabOrDetailIntent(
+        tab: AppTab,
+        queryItems: [URLQueryItem],
+        transitionPolicy: NavigationTransitionPolicy,
+        makeDetail: (String, String) -> DeepLinkDestination,
+        descriptionLocalizationKey: String,
+        descriptionFallback: String
+    ) -> DeepLinkParseResult {
         guard let title = queryValue("title", queryItems) else {
-            return .resolved(DeepLinkIntent(destination: .tab(.profile), policy: .replace))
+            return .resolved(DeepLinkIntent(destination: .tab(tab), policy: .replace))
         }
 
         let description = queryValue("description", queryItems) ?? AppLocalization.text(
-            "deeplink.profile.description",
-            fallback: "Profile detail opened from a deep link."
+            descriptionLocalizationKey,
+            fallback: descriptionFallback
         )
+
         return .resolved(
             DeepLinkIntent(
-                destination: .profile(ProfileRoute(title: title, description: description)),
+                destination: makeDetail(title, description),
                 policy: transitionPolicy
             )
         )
     }
 
-    /// Applies this operation.
+    /// Applies the resolved destination to the coordinator with the correct tab selection behavior.
     private func apply(_ intent: DeepLinkIntent, coordinator: AppCoordinator) {
         switch intent.destination {
         case let .tab(tab):
             coordinator.showTabRoot(tab)
         case let .newsArticle(route):
-            coordinator.selectTab(.news)
-            coordinator.navigateToNews(route, policy: intent.policy)
+            applyNewsDestination(route, coordinator: coordinator, policy: intent.policy)
         case let .newsDiscussion(route):
-            coordinator.selectTab(.news)
-            coordinator.navigateToNews(route, policy: intent.policy)
+            applyNewsDestination(route, coordinator: coordinator, policy: intent.policy)
         case let .mixes(route):
-            coordinator.selectTab(.mixes)
-            coordinator.navigateToMixes(route, policy: intent.policy)
+            applyTabDestination(.mixes, coordinator: coordinator) {
+                coordinator.navigateToMixes(route, policy: intent.policy)
+            }
         case let .pinned(route):
-            coordinator.selectTab(.pinned)
-            coordinator.navigateToPinned(route, policy: intent.policy)
+            applyTabDestination(.pinned, coordinator: coordinator) {
+                coordinator.navigateToPinned(route, policy: intent.policy)
+            }
         case let .chat(route):
-            coordinator.selectTab(.chat)
-            coordinator.navigateToChat(route, policy: intent.policy)
+            applyTabDestination(.chat, coordinator: coordinator) {
+                coordinator.navigateToChat(route, policy: intent.policy)
+            }
         case let .profile(route):
-            coordinator.selectTab(.profile)
-            coordinator.navigateToProfile(route, policy: intent.policy)
+            applyTabDestination(.profile, coordinator: coordinator) {
+                coordinator.navigateToProfile(route, policy: intent.policy)
+            }
         }
     }
 
-    /// Handles query value.
+    /// Applies a news route because both article and discussion destinations share the same tab navigation API.
+    private func applyNewsDestination(
+        _ route: NewsRoute,
+        coordinator: AppCoordinator,
+        policy: NavigationTransitionPolicy
+    ) {
+        applyTabDestination(.news, coordinator: coordinator) {
+            coordinator.navigateToNews(route, policy: policy)
+        }
+    }
+
+    /// Selects the required tab before running the destination-specific navigation action.
+    private func applyTabDestination(
+        _ tab: AppTab,
+        coordinator: AppCoordinator,
+        navigate: () -> Void
+    ) {
+        coordinator.selectTab(tab)
+        navigate()
+    }
+
+    /// Returns a trimmed query-item value when present and non-empty.
     private func queryValue(_ name: String, _ items: [URLQueryItem]) -> String? {
-        guard let value = items.first(where: { $0.name == name })?.value?.trimmingCharacters(in: .whitespacesAndNewlines),
-              !value.isEmpty else {
+        guard
+            let value = items.first(where: { $0.name == name })?.value?
+                .trimmingCharacters(in: .whitespacesAndNewlines),
+            !value.isEmpty
+        else {
             return nil
         }
         return value
     }
 
-    /// Handles required query value.
+    /// Returns the required query-item value.
     private func requiredQueryValue(_ name: String, _ items: [URLQueryItem]) -> String? {
         queryValue(name, items)
     }
