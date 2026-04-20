@@ -246,6 +246,13 @@ The container initializer now assembles runtime services through a few linear fa
 Added small private helpers for seeded database setup, repository assembly, and navigation service assembly so related dependencies stay grouped in one place without introducing new abstraction layers.
 Verification: `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
 
+### [x] Step: Readability-first refactor 5 — simplify interceptor flow in TchopNetworking
+
+Applied a package-level readability refactor to `Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`, focused only on the `APIManager` control flow.
+The repeated interceptor loops for request preparation, transport result broadcasting, and retry scheduling are now expressed through a few private helpers, which makes `perform` / `upload` / `download` read more linearly without changing the public networking API or runtime capabilities.
+This step intentionally avoided new public abstractions and only removed repeated low-level plumbing inside the package implementation.
+Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.

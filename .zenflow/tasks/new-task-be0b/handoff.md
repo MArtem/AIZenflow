@@ -269,6 +269,12 @@
   `makeAppState()` also now reads linearly by building the coordinator and shell view model first, then returning `AppState`.
   This step intentionally avoids introducing extra protocols or nested builders and keeps the refactor scoped to readability and dependency grouping only.
   Verification for this step is green on `iPhone 17 Pro (iOS 26.0)` with `xcodebuild ... build`.
+- Package readability refactor progress:
+  `TchopNetworking` has also been simplified on the implementation side without changing its public surface.
+  Inside `APIManager`, the repeated interceptor loops for request preparation, result broadcasting, and retry scheduling now go through a few private helpers instead of being duplicated across `perform`, `upload`, and `download`.
+  The goal of this step was only to reduce control-flow noise and make the runtime paths easier to read.
+  No new public types or extra extension points were added.
+  Verification for this package step is green with `swift test --package-path Packages/TchopInfrastructure`.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
