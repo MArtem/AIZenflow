@@ -691,6 +691,10 @@ This step exists to remove hanging context and create a clean baseline before an
 
 Investigate and remove the old `NSEntityDescription` duplication warnings still emitted by the package database tests.
 Keep this step behavior-preserving: the goal is cleaner verification and a healthier test harness, not product changes.
+Completed by removing ambiguous Core Data subclass-to-entity resolution from `TchopDatabaseTests`.
+The test harness now creates/fetches Core Data entities via explicit `entityName` + `NSManagedObject`, which avoids duplicate `NSEntityDescription` lookup warnings when multiple in-memory models are created during the suite.
+Verification:
+`swift test --package-path Packages/TchopInfrastructure` succeeded and the old Core Data warnings no longer appear in `TchopDatabaseTests`.
 
 ### [ ] Step: Readability-first project-wide refactoring cycle
 

@@ -923,6 +923,9 @@ Absent:  no tests/build/simulator checks
 - The signed-out launch smoke test was simplified for the same reason: `login.usernameField` and `login.continueButton` were not stable enough XCUI launch markers on the current runtime. The smoke suite now treats `login.screen` as the signed-out launch truth and leaves control-level verification to richer UI interaction tests if those are needed later.
 - Once the UI smoke suite became stable, `Full` still surfaced one app-test timing issue in `AppDIContainerTests`: the networking analytics assertion read the shared collector too early for the async interceptor pipeline. The test now waits for the expected minimum event count instead of assuming immediate collector visibility.
 - The same debugging pass then exposed the real production bug behind that failing analytics test: `APIManager` skipped request interceptors for `stubResponse`-backed `perform`, `upload`, and `download` paths. Stubbed requests now go through `prepare` and `didReceive` as well, using a synthetic HTTP 200 response so analytics and other interceptors see consistent request lifecycles even under stub configuration.
+- The old Core Data warnings in `Packages/TchopInfrastructure/Tests/TchopDatabaseTests` were then cleaned up without changing product behavior.
+  Root cause: the test harness created multiple in-memory Core Data models that all pointed the same managed-object subclass at different `NSEntityDescription` instances, and the subclass-based `entity()` lookup became ambiguous.
+  The harness now uses explicit `entityName` + `NSManagedObject` creation/fetch requests instead of subclass-based lookup, and `swift test --package-path Packages/TchopInfrastructure` is green with those warnings gone.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

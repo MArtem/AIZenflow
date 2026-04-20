@@ -51,20 +51,20 @@ final class TchopDatabaseTests: XCTestCase {
 
         try manager.write(
             DatabaseWriteOperation(coreData: { context in
-                let entity = CoreDataTestRecord(context: context)
-                entity.id = "1"
-                entity.title = "First"
+                let entity = self.makeCoreDataTestRecord(in: context)
+                entity.setValue("1", forKey: "id")
+                entity.setValue("First", forKey: "title")
             })
         )
 
         let records = try manager.read(
             DatabaseReadOperation(coreData: { context in
-                try context.fetch(CoreDataTestRecord.fetchRequest())
+                try context.fetch(self.makeCoreDataTestFetchRequest())
             })
         )
 
         XCTAssertEqual(records.count, 1)
-        XCTAssertEqual(records.first?.title, "First")
+        XCTAssertEqual(records.first?.value(forKey: "title") as? String, "First")
     }
 
     /// Verifies that batch writes use the same transactional semantics.
@@ -76,16 +76,16 @@ final class TchopDatabaseTests: XCTestCase {
         try manager.writeBatch(
             DatabaseBatchWriteOperation(coreData: { context in
                 for index in 1 ... 3 {
-                    let entity = CoreDataTestRecord(context: context)
-                    entity.id = "\(index)"
-                    entity.title = "Title \(index)"
+                    let entity = self.makeCoreDataTestRecord(in: context)
+                    entity.setValue("\(index)", forKey: "id")
+                    entity.setValue("Title \(index)", forKey: "title")
                 }
             })
         )
 
         let records = try manager.read(
             DatabaseReadOperation(coreData: { context in
-                try context.fetch(CoreDataTestRecord.fetchRequest())
+                try context.fetch(self.makeCoreDataTestFetchRequest())
             })
         )
 
@@ -205,9 +205,9 @@ final class TchopDatabaseTests: XCTestCase {
             DatabaseMigrationStep(fromVersion: 1, toVersion: 2, migrate: { db in
                 try db.writeBatch(
                     DatabaseBatchWriteOperation(coreData: { context in
-                        let entity = CoreDataTestRecord(context: context)
-                        entity.id = "migrated"
-                        entity.title = "From migration"
+                        let entity = self.makeCoreDataTestRecord(in: context)
+                        entity.setValue("migrated", forKey: "id")
+                        entity.setValue("From migration", forKey: "title")
                     })
                 )
             })
@@ -225,10 +225,10 @@ final class TchopDatabaseTests: XCTestCase {
 
         let records = try manager.read(
             DatabaseReadOperation(coreData: { context in
-                try context.fetch(CoreDataTestRecord.fetchRequest())
+                try context.fetch(self.makeCoreDataTestFetchRequest())
             })
         )
-        XCTAssertEqual(records.first?.id, "migrated")
+        XCTAssertEqual(records.first?.value(forKey: "id") as? String, "migrated")
     }
 
     @available(iOS 17, macOS 14, *)
@@ -243,8 +243,8 @@ final class TchopDatabaseTests: XCTestCase {
     private func makeInMemoryCoreDataContainer() throws -> NSPersistentContainer {
         let model = NSManagedObjectModel()
         let entity = NSEntityDescription()
-        entity.name = CoreDataTestRecord.entityName
-        entity.managedObjectClassName = NSStringFromClass(CoreDataTestRecord.self)
+        entity.name = CoreDataTestRecordSchema.entityName
+        entity.managedObjectClassName = NSStringFromClass(NSManagedObject.self)
         entity.properties = [
             makeStringAttribute(name: "id"),
             makeStringAttribute(name: "title")
@@ -283,6 +283,19 @@ final class TchopDatabaseTests: XCTestCase {
         attribute.isOptional = false
         return attribute
     }
+
+    /// Creates a Core Data test record without relying on subclass-to-entity lookup.
+    private func makeCoreDataTestRecord(in context: NSManagedObjectContext) -> NSManagedObject {
+        NSEntityDescription.insertNewObject(
+            forEntityName: CoreDataTestRecordSchema.entityName,
+            into: context
+        )
+    }
+
+    /// Creates an explicit fetch request for the Core Data test entity.
+    private func makeCoreDataTestFetchRequest() -> NSFetchRequest<NSManagedObject> {
+        NSFetchRequest<NSManagedObject>(entityName: CoreDataTestRecordSchema.entityName)
+    }
 }
 
 @MainActor
@@ -300,14 +313,6 @@ private final class InMemoryMigrationVersionStore: DatabaseMigrationVersionStori
     }
 }
 
-private final class CoreDataTestRecord: NSManagedObject {
+private enum CoreDataTestRecordSchema {
     static let entityName = "CoreDataTestRecord"
-
-    @NSManaged var id: String
-    @NSManaged var title: String
-
-    @nonobjc
-    static func fetchRequest() -> NSFetchRequest<CoreDataTestRecord> {
-        NSFetchRequest<CoreDataTestRecord>(entityName: entityName)
-    }
 }
