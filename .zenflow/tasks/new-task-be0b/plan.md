@@ -719,3 +719,9 @@ Readability-first cycle progress:
 - Legacy Core Data store discovery moved into `AppDatabaseRuntimeContext.current(...)`, which keeps runtime facts grouped together instead of spreading them across the top-level bootstrap enum.
 - Verification:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded after adding the required `@MainActor` isolation to the new runtime-context helpers.
+- Step 2 focused on [AppState.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift), where the runtime flow was correct but repeated the same deep-link and navigation-reset logic in several places.
+- Incoming URL and user-activity handling now share one private entry point, pending deep-link replay now shares one resolver, snapshot application now uses one helper with `defer`, and "go back to default app navigation" now lives in a single helper instead of being repeated inline.
+- This step intentionally did not introduce any new abstractions or split the type across files; the goal was to keep the same responsibilities but make the control flow easier to scan.
+- Verification:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
+  A targeted `xcodebuild test -only-testing:TchopAppTests/AppStateTests` run was attempted first, but the simulator runner stalled without producing a useful failure signal, so it was not used as the primary verification result for this step.

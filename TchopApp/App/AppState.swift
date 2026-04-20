@@ -75,34 +75,21 @@ final class AppState: ObservableObject {
         if isEnabled {
             restoreNavigationIfNeeded(for: updatedUser)
         } else {
-            coordinator.selectTab(.news)
-            coordinator.resetAllNavigation()
+            resetNavigationToDefaultState()
             navigationStateManager.clearSnapshot(for: updatedUser.id)
         }
     }
 
     /// Routes an incoming deep-link URL when the app has an authenticated user.
     @discardableResult
-    /// Handles incoming url.
     func handleIncomingURL(_ url: URL) -> Bool {
-        guard currentUser != nil else {
-            pendingDeepLinkInput = .url(url)
-            return true
-        }
-
-        return deepLinkManager.handle(url: url, coordinator: coordinator)
+        handleDeepLinkInput(.url(url))
     }
 
     /// Routes an incoming universal-link activity when the app has an authenticated user.
     @discardableResult
-    /// Handles incoming user activity.
     func handleIncomingUserActivity(_ userActivity: NSUserActivity) -> Bool {
-        guard currentUser != nil else {
-            pendingDeepLinkInput = .userActivity(userActivity)
-            return true
-        }
-
-        return deepLinkManager.handle(userActivity: userActivity, coordinator: coordinator)
+        handleDeepLinkInput(.userActivity(userActivity))
     }
 
     /// Signs out the current user and resets navigation back to the default app state.
@@ -110,8 +97,7 @@ final class AppState: ObservableObject {
         sessionService.signOut()
         currentUser = nil
         pendingDeepLinkInput = nil
-        coordinator.selectTab(.news)
-        coordinator.resetAllNavigation()
+        resetNavigationToDefaultState()
         appShellViewModel.closeMenu()
         widgetContentSyncManager.clearFeed()
     }
@@ -142,8 +128,7 @@ final class AppState: ObservableObject {
     /// Restores navigation if needed.
     private func restoreNavigationIfNeeded(for user: AppUser) {
         guard user.isNavigationStateRestoreEnabled else {
-            coordinator.selectTab(.news)
-            coordinator.resetAllNavigation()
+            resetNavigationToDefaultState()
             navigationEventReporter.report(
                 .snapshotRestoreSkipped(
                     userID: user.id,
@@ -176,8 +161,7 @@ final class AppState: ObservableObject {
         )
 
         guard snapshot.version <= NavigationSnapshot.supportedVersion else {
-            coordinator.selectTab(.news)
-            coordinator.resetAllNavigation()
+            resetNavigationToDefaultState()
             navigationStateManager.clearSnapshot(for: user.id)
             navigationEventReporter.report(
                 .snapshotRestoreFailed(
@@ -193,9 +177,7 @@ final class AppState: ObservableObject {
         let wasMigrated = migratedSnapshot.version != snapshot.version
         let wasSanitized = sanitizedSnapshot != migratedSnapshot
 
-        isApplyingNavigationSnapshot = true
-        coordinator.applySnapshot(sanitizedSnapshot)
-        isApplyingNavigationSnapshot = false
+        applyNavigationSnapshot(sanitizedSnapshot)
 
         if wasMigrated || wasSanitized {
             navigationStateManager.saveSnapshot(sanitizedSnapshot, for: user.id)
@@ -226,28 +208,20 @@ final class AppState: ObservableObject {
             return false
         }
 
-        let wasHandled: Bool
-        switch pendingDeepLinkInput {
-        case let .url(url):
-            wasHandled = deepLinkManager.handle(url: url, coordinator: coordinator)
-        case let .userActivity(userActivity):
-            wasHandled = deepLinkManager.handle(userActivity: userActivity, coordinator: coordinator)
-        }
-
         self.pendingDeepLinkInput = nil
-        return wasHandled
+        return resolveDeepLinkInput(pendingDeepLinkInput)
     }
 
-    /// Handles setup navigation persistence bindings.
+    /// Subscribes to coordinator navigation changes and persists snapshots when allowed.
     private func setupNavigationPersistenceBindings() {
         coordinator.navigationChanges
-        .sink { [weak self] _ in
-            self?.persistNavigationSnapshotIfNeeded()
-        }
-        .store(in: &navigationBindings)
+            .sink { [weak self] _ in
+                self?.persistNavigationSnapshotIfNeeded()
+            }
+            .store(in: &navigationBindings)
     }
 
-    /// Handles persist navigation snapshot if needed.
+    /// Persists the current navigation snapshot when the active user opted into restore.
     private func persistNavigationSnapshotIfNeeded() {
         guard !isApplyingNavigationSnapshot else {
             return
@@ -261,6 +235,40 @@ final class AppState: ObservableObject {
             coordinator.makeSnapshot(),
             for: currentUser.id
         )
+    }
+
+    /// Queues unauthenticated deep links and resolves them immediately once a user session exists.
+    @discardableResult
+    private func handleDeepLinkInput(_ input: PendingDeepLinkInput) -> Bool {
+        guard currentUser != nil else {
+            pendingDeepLinkInput = input
+            return true
+        }
+
+        return resolveDeepLinkInput(input)
+    }
+
+    /// Resolves a concrete deep-link input through the deep-link manager.
+    private func resolveDeepLinkInput(_ input: PendingDeepLinkInput) -> Bool {
+        switch input {
+        case let .url(url):
+            return deepLinkManager.handle(url: url, coordinator: coordinator)
+        case let .userActivity(userActivity):
+            return deepLinkManager.handle(userActivity: userActivity, coordinator: coordinator)
+        }
+    }
+
+    /// Resets the app navigation back to the default signed-out root state.
+    private func resetNavigationToDefaultState() {
+        coordinator.selectTab(.news)
+        coordinator.resetAllNavigation()
+    }
+
+    /// Applies a restored navigation snapshot while suppressing persistence feedback loops.
+    private func applyNavigationSnapshot(_ snapshot: NavigationSnapshot) {
+        isApplyingNavigationSnapshot = true
+        defer { isApplyingNavigationSnapshot = false }
+        coordinator.applySnapshot(snapshot)
     }
 }
 

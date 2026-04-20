@@ -933,6 +933,16 @@ Absent:  no tests/build/simulator checks
   Legacy Core Data store discovery now lives with the runtime-context builder instead of being scattered across the top-level enum.
   Verification for this step:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
+- The second readability-first step then focused on `TchopApp/App/AppState.swift`.
+  No responsibilities were moved out of the type; instead, the duplicated control flow was reduced in-place:
+  incoming deep-link handling now goes through one private entry point,
+  pending deep-link replay goes through one resolver,
+  default navigation reset is centralized in one helper,
+  and restored snapshot application now uses a single helper with `defer` to keep the persistence-suppression flag consistent.
+  This keeps the file easier to scan without introducing new layers or splitting behavior across multiple files.
+  Verification for this step:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
+  A targeted `xcodebuild test -only-testing:TchopAppTests/AppStateTests` run was also attempted, but the simulator runner stalled without surfacing a concrete test failure, so the step was closed on the successful build signal instead.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:
