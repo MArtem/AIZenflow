@@ -43,6 +43,7 @@ Use this file as the persistent services-layer instruction set for this project 
 - Add DocC-compatible documentation to public types and public functions.
 - Service and infrastructure code now also follows a stricter local rule for this project: every method/function/initializer should have a concise comment explaining its role, not only public APIs.
 - If a service or package design becomes materially harder to understand for the average developer, that added complexity must be justified by clear practical value, not theoretical flexibility.
+- All future service, infrastructure, package, and persistence additions inherit these same constraints by default; new modules do not get a looser standard than the existing baseline.
 
 ## Database Service Expectations
 - Keep every operation behind Swift protocols.

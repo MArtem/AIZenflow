@@ -208,6 +208,25 @@ Comment policy:
 - public APIs should remain DocC-compatible
 - app and test code follow the same baseline so navigation, session, and UI contracts are readable without rediscovery
 
+## Inheritance Policy For Future Code
+Every future step in this repository must inherit the current architecture and engineering principles by default.
+This applies to:
+- new modules
+- new package products
+- new services and managers
+- new entities and models
+- new repositories and view models
+- new screens and reusable views
+- new files and refactors inside existing files
+
+Inheritance rules:
+- new code should preserve the current package-vs-app boundary unless there is a clear practical reason to move it
+- readability-first engineering remains mandatory for all future code, not just for the refactoring cycle that introduced it
+- development for its own sake is disallowed; added abstraction must justify its operational or structural value
+- if a new module or layer cannot clearly improve correctness, maintainability, or realistic reuse, it should not be added
+- future refactors must prefer explicit, linear control flow over clever or overly abstracted solutions
+- when there is a real trade-off between readability and a more complex architectural move, that trade-off must be surfaced and agreed before implementation
+
 ## Working Rules Summary
 - use package-backed reusable managers where that improves cross-project reuse
 - keep app-specific composition in the app layer
@@ -223,3 +242,4 @@ Comment policy:
 - optimize SwiftUI code to avoid unnecessary re-renders and memory waste
 - ask clarifying questions when requirements or trade-offs are unclear
 - proactively raise questions, trade-offs, objections, and alternative ideas instead of silently choosing defaults on high-impact decisions
+- treat the current architecture and these rules as the default inherited baseline for all future modules, entities, files, and refactors unless an explicit decision is made to change them

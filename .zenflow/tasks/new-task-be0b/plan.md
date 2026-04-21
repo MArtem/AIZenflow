@@ -258,6 +258,23 @@ Verification: `swift test --package-path Packages/TchopInfrastructure` succeeded
 Applied a readability-focused refactor to `TchopApp/Repositories/UserRepository.swift` without changing any repository contracts or persistence behavior.
 The main repository methods now delegate the repeated SwiftData/Core Data branches to small private helpers for fetch, create, and restore-preference update flows, and the repeated Core Data single-record request setup is centralized in one helper.
 This step intentionally kept the logic in the same file and did not introduce any new protocols, services, or generic abstraction layers.
+
+### [x] Step: Verification and baseline preservation after readability cycle
+
+Ran `Full` verification through `./scripts/verify.sh full`.
+Result:
+- package tests passed
+- app tests passed
+- build on `iPhone 16 Pro (iOS 18.2)` passed
+- build on `iPhone 17 Pro (iOS 26.0)` passed
+
+One real issue was found during the first `Full` attempt:
+- `NewsFeedViewModelTests` relied on synchronous `Task` scheduling and intermittently failed around `fetchCallCount`
+
+The fix stayed narrow and test-only:
+- `TchopAppTests/NewsFeedViewModelTests.swift` now waits for the expected repository call count instead of assuming immediate task execution
+
+After verification, the persistent documentation baseline was also strengthened so future modules, entities, files, and refactors inherit the same readability-first, no-overengineering, and architecture-preservation rules by default.
 Verification: `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
 
 ### [x] Step: Readability-first refactor 7 — simplify channel-loading flow in AppContentRepository

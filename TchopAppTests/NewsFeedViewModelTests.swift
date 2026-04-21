@@ -79,6 +79,7 @@ final class NewsFeedViewModelTests: XCTestCase {
             loadFailureMessage: "Failed to load"
         )
 
+        await waitForFetchCallCount(1, in: repository)
         XCTAssertEqual(repository.fetchCallCount, 1)
 
         viewModel.refresh()
@@ -118,6 +119,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         )
 
         await waitForLoading(of: viewModel)
+        await waitForFetchCallCount(1, in: repository)
         XCTAssertEqual(repository.fetchCallCount, 1)
         XCTAssertEqual(
             viewModel.state,
@@ -126,6 +128,7 @@ final class NewsFeedViewModelTests: XCTestCase {
 
         viewModel.retry()
 
+        await waitForFetchCallCount(2, in: repository)
         XCTAssertEqual(repository.fetchCallCount, 2)
         await waitForLoading(of: viewModel)
         XCTAssertEqual(viewModel.state, .loaded(expectedContent))
@@ -178,6 +181,22 @@ final class NewsFeedViewModelTests: XCTestCase {
         }
 
         XCTFail("Timed out waiting for feed loading to finish")
+    }
+
+    /// Waits until the repository records the expected number of fetches.
+    private func waitForFetchCallCount(
+        _ expectedCount: Int,
+        in repository: TestNewsFeedRepository
+    ) async {
+        for _ in 0..<20 {
+            if repository.fetchCallCount == expectedCount {
+                return
+            }
+
+            try? await Task.sleep(nanoseconds: 20_000_000)
+        }
+
+        XCTFail("Timed out waiting for feed repository fetch count to reach \(expectedCount)")
     }
 }
 

@@ -17,6 +17,7 @@ Use this file as the persistent engineering instruction set for this project whe
 - Follow Apple Human Interface Guidelines where UI is involved.
 - Code must compile and be realistic for production use.
 - Apply SOLID principles consistently across the codebase.
+- Treat the current architecture, layering decisions, and readability-first standards as inherited defaults for all future modules, entities, and files unless an explicit change is agreed.
 
 ## Architecture Requirements
 - Use MVVM by default.
@@ -113,6 +114,7 @@ Use this file as the persistent engineering instruction set for this project whe
 - When there is a trade-off between architectural purity and human readability, prefer the most readable design that still preserves correctness, structure, hierarchy, and realistic scalability.
 - Code must target both high engineering quality and high readability at the same time; "good architecture" is not a justification for code that becomes unnecessarily hard to read or reason about.
 - Favor explicit, unsurprising logic over clever, compressed, or overly abstract implementations.
+- New files and new refactors must inherit the same simplicity-first and no-development-for-its-own-sake rules; do not loosen standards just because the code is newly introduced.
 - Every method/function/initializer must have a concise comment describing its responsibility.
 - Prefer DocC-compatible `///` comments so behavior is readable directly in code navigation tools.
 - Comment coverage is expected in app code, infrastructure code, and test code.

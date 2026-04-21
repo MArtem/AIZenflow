@@ -258,6 +258,18 @@
   When there is a real trade-off between simpler/more readable code and a more complex architectural option, that trade-off should be surfaced to the user explicitly before locking in the direction.
 - Additional collaboration rule refinement:
   questions, objections, implementation ideas, clarifications, and architectural alternatives from the agent are always welcome on this project and should be raised proactively instead of silently assuming defaults.
+- Verification baseline after the readability-first cycle:
+  `./scripts/verify.sh full` is green.
+  Package tests pass,
+  app tests pass,
+  build on `iPhone 16 Pro (iOS 18.2)` passes,
+  and build on `iPhone 17 Pro (iOS 26.0)` passes.
+  During the first full run, `NewsFeedViewModelTests` exposed async scheduling flakiness because the suite assumed immediate `Task` execution.
+  The fix was intentionally test-only:
+  the tests now wait for repository `fetchCallCount` transitions instead of asserting them synchronously.
+- Persistent inheritance rule:
+  future modules, entities, managers, services, files, and refactors should inherit the current architecture boundaries and readability-first / anti-overengineering rules by default.
+  New code does not get a weaker standard than the current baseline.
 - Readability-first refactor progress:
   `AppDatabase`, `AppState`, and `DeepLinkManager` have already been simplified in earlier steps, and the next completed step now also simplifies `AppDIContainer`.
   The composition root keeps the same public role, but its initializer is now grouped into clearer factory stages:
