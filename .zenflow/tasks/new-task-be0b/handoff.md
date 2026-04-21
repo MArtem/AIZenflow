@@ -1071,6 +1071,12 @@ Absent:  no tests/build/simulator checks
   refresh is ignored while another request is running,
   and retry is only valid from a visible failed state.
   This keeps the feed runtime API more explicit without growing the state model or adding any extra orchestration layers.
+  The next readability-first step then returned to `TchopApp/Navigation/DeepLinkManager.swift`.
+  The file remains one of the larger app-side orchestration points, but the chosen cleanup stayed intentionally small:
+  article and discussion deep links were both rebuilding the same `NewsRoute` shape with duplicated title/body/subtitle parsing and fallback localization code.
+  That repeated logic now goes through one `buildNewsDetailIntent(...)` helper.
+  No URL format, route resolution behavior, event reporting, or transition policy changed.
+  The value of the step is simply lower duplication inside an important routing file without introducing a second routing layer or broader abstraction surface.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

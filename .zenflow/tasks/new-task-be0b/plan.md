@@ -860,4 +860,10 @@ Readability-first cycle progress:
   refresh only starts when no request is in flight,
   and retry only starts from a visible failed state.
   This improves clarity in an actively used feature type without expanding the state machine or adding new abstraction layers.
+- The next readability-first step returned to `TchopApp/Navigation/DeepLinkManager.swift`, which is still one of the larger app-level routing files.
+  The cleanup stayed deliberately narrow:
+  article and discussion deep links were both manually reconstructing the same `NewsRoute` shape with mostly duplicated query parsing and fallback localization logic.
+- That duplication now goes through one `buildNewsDetailIntent(...)` helper.
+  The URL contract, event reporting, tab selection behavior, and route table did not change.
+  This was still worth doing because it removes repeated routing logic from a high-traffic orchestration file without introducing a new routing layer or any extra public types.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

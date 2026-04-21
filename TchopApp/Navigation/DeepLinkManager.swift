@@ -155,29 +155,16 @@ final class DeepLinkManager: DeepLinkManaging {
 
         let secondSegment = pathSegments[1].lowercased()
         if secondSegment == "discussion" {
-            guard let title = requiredQueryValue("title", queryItems) else {
-                return .invalidInAppLink(reason: "missing-discussion-title")
-            }
-            let subtitle = queryValue("subtitle", queryItems) ?? AppLocalization.text(
-                "deeplink.news.discussion.subtitle",
-                fallback: "Open discussion"
-            )
-            let body = queryValue("body", queryItems) ?? AppLocalization.text(
-                "deeplink.news.discussion.body",
-                fallback: "Discussion deep link destination."
-            )
-            return .resolved(
-                DeepLinkIntent(
-                    destination: .newsDiscussion(
-                        NewsRoute(
-                            destinationID: "discussion-details",
-                            title: title,
-                            subtitle: subtitle,
-                            bodyText: body
-                        )
-                    ),
-                    policy: transitionPolicy
-                )
+            return buildNewsDetailIntent(
+                queryItems: queryItems,
+                transitionPolicy: transitionPolicy,
+                missingTitleReason: "missing-discussion-title",
+                destinationID: "discussion-details",
+                subtitleLocalizationKey: "deeplink.news.discussion.subtitle",
+                subtitleFallback: "Open discussion",
+                bodyLocalizationKey: "deeplink.news.discussion.body",
+                bodyFallback: "Discussion deep link destination.",
+                makeDestination: DeepLinkDestination.newsDiscussion
             )
         }
 
@@ -185,24 +172,50 @@ final class DeepLinkManager: DeepLinkManaging {
             return .invalidInAppLink(reason: "unknown-news-destination")
         }
 
-        guard let title = requiredQueryValue("title", queryItems) else {
-            return .invalidInAppLink(reason: "missing-article-title")
+        return buildNewsDetailIntent(
+            queryItems: queryItems,
+            transitionPolicy: transitionPolicy,
+            missingTitleReason: "missing-article-title",
+            destinationID: "article-details",
+            subtitleLocalizationKey: "deeplink.news.article.subtitle",
+            subtitleFallback: "From deep link",
+            bodyLocalizationKey: "deeplink.news.article.body",
+            bodyFallback: "Article deep link destination.",
+            makeDestination: DeepLinkDestination.newsArticle
+        )
+    }
+
+    /// Builds article/discussion detail intents that share the same NewsRoute shape.
+    private func buildNewsDetailIntent(
+        queryItems: [URLQueryItem],
+        transitionPolicy: NavigationTransitionPolicy,
+        missingTitleReason: String,
+        destinationID: String,
+        subtitleLocalizationKey: String,
+        subtitleFallback: String,
+        bodyLocalizationKey: String,
+        bodyFallback: String,
+        makeDestination: (NewsRoute) -> DeepLinkDestination
+    ) -> DeepLinkParseResult {
+        guard let title = queryValue("title", queryItems) else {
+            return .invalidInAppLink(reason: missingTitleReason)
         }
+
         let subtitle = queryValue("subtitle", queryItems) ?? AppLocalization.text(
-            "deeplink.news.article.subtitle",
-            fallback: "From deep link"
+            subtitleLocalizationKey,
+            fallback: subtitleFallback
         )
         let body = queryValue("body", queryItems) ?? AppLocalization.text(
-            "deeplink.news.article.body",
-            fallback: "Article deep link destination."
+            bodyLocalizationKey,
+            fallback: bodyFallback
         )
         let accentLabel = queryValue("accent", queryItems)
 
         return .resolved(
             DeepLinkIntent(
-                destination: .newsArticle(
+                destination: makeDestination(
                     NewsRoute(
-                        destinationID: "article-details",
+                        destinationID: destinationID,
                         title: title,
                         subtitle: subtitle,
                         bodyText: body,
@@ -367,11 +380,6 @@ final class DeepLinkManager: DeepLinkManaging {
             return nil
         }
         return value
-    }
-
-    /// Returns the required query-item value.
-    private func requiredQueryValue(_ name: String, _ items: [URLQueryItem]) -> String? {
-        queryValue(name, items)
     }
 
     /// Parses transition policy.
