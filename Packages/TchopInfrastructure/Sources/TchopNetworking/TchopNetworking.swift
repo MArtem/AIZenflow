@@ -778,34 +778,22 @@ public actor APIManager: APIManaging {
         cancellationToken: APICancellationToken?
     ) async throws -> Response where Response: Sendable {
         if let stubResponse = request.stubResponse {
-            let urlRequest = try await Self.prepareRequest(
-                for: request,
-                configuration: configuration,
-                interceptors: interceptors
-            )
-
             try await cancellationToken?.throwIfCancelled()
             await progressHandler?(.started)
 
             do {
-                let response = try await stubResponse()
+                let (_, response) = try await executeStubResponse(
+                    for: request,
+                    interceptors: interceptors,
+                    errorMapper: errorMapper,
+                    operation: stubResponse
+                )
                 try await cancellationToken?.throwIfCancelled()
                 await progressHandler?(.finished)
 
-                await Self.notifyInterceptors(
-                    of: .success((Data(), Self.makeStubHTTPURLResponse(for: urlRequest))),
-                    for: urlRequest,
-                    interceptors: interceptors
-                )
-
                 return response
-            } catch let error as APIError {
-                await Self.notifyInterceptors(of: .failure(error), for: urlRequest, interceptors: interceptors)
-                throw error
             } catch {
-                let mappedError = errorMapper.map(error)
-                await Self.notifyInterceptors(of: .failure(mappedError), for: urlRequest, interceptors: interceptors)
-                throw mappedError
+                throw error
             }
         }
 
@@ -874,37 +862,25 @@ public actor APIManager: APIManaging {
         cancellationToken: APICancellationToken?
     ) async throws -> URL {
         if let stubResponse = request.stubResponse {
-            let urlRequest = try await Self.prepareRequest(
-                for: request,
-                configuration: configuration,
-                interceptors: interceptors
-            )
-
             try await cancellationToken?.throwIfCancelled()
             await progressHandler?(.started)
 
             do {
-                let data = try await stubResponse()
+                let (data, _) = try await executeStubResponse(
+                    for: request,
+                    interceptors: interceptors,
+                    errorMapper: errorMapper,
+                    operation: stubResponse
+                )
                 try await cancellationToken?.throwIfCancelled()
                 let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).tmp")
                 try data.write(to: outputURL, options: .atomic)
                 await progressHandler?(.progressed(1))
                 await progressHandler?(.finished)
 
-                await Self.notifyInterceptors(
-                    of: .success((data, Self.makeStubHTTPURLResponse(for: urlRequest))),
-                    for: urlRequest,
-                    interceptors: interceptors
-                )
-
                 return outputURL
-            } catch let error as APIError {
-                await Self.notifyInterceptors(of: .failure(error), for: urlRequest, interceptors: interceptors)
-                throw error
             } catch {
-                let mappedError = errorMapper.map(error)
-                await Self.notifyInterceptors(of: .failure(mappedError), for: urlRequest, interceptors: interceptors)
-                throw mappedError
+                throw error
             }
         }
 
@@ -976,33 +952,17 @@ public actor APIManager: APIManaging {
     ) -> Task<Response, Error> where Response: Sendable {
         let task = Task<Response, Error> { [configuration, session, interceptors, errorMapper] in
             if let stubResponse = request.stubResponse {
-                let urlRequest = try await Self.prepareRequest(
-                    for: request,
-                    configuration: configuration,
-                    interceptors: interceptors
-                )
-
                 try await cancellationToken?.throwIfCancelled()
                 try Task.checkCancellation()
 
-                do {
-                    let response = try await stubResponse()
-
-                    await Self.notifyInterceptors(
-                        of: .success((Data(), Self.makeStubHTTPURLResponse(for: urlRequest))),
-                        for: urlRequest,
-                        interceptors: interceptors
-                    )
-
-                    return response
-                } catch let error as APIError {
-                    await Self.notifyInterceptors(of: .failure(error), for: urlRequest, interceptors: interceptors)
-                    throw error
-                } catch {
-                    let mappedError = errorMapper.map(error)
-                    await Self.notifyInterceptors(of: .failure(mappedError), for: urlRequest, interceptors: interceptors)
-                    throw mappedError
-                }
+                let (_, response) = try await Self.executeStubResponse(
+                    for: request,
+                    configuration: configuration,
+                    interceptors: interceptors,
+                    errorMapper: errorMapper,
+                    operation: stubResponse
+                )
+                return response
             }
 
             let baseURLRequest = try makeURLRequest(for: request, configuration: configuration)
@@ -1032,16 +992,12 @@ public actor APIManager: APIManaging {
                         let error = APIError.invalidStatusCode(httpResponse.statusCode)
                         await Self.notifyInterceptors(of: .failure(error), for: urlRequest, interceptors: interceptors)
 
-                        if let delay = await retryDelay(for: error, attempt: attempt, request: urlRequest, interceptors: interceptors) {
-                            await Self.notifyRetryScheduled(
-                                for: error,
-                                attempt: attempt,
-                                delayNanoseconds: delay,
-                                request: urlRequest,
-                                interceptors: interceptors
-                            )
-                            attempt += 1
-                            try await Task.sleep(nanoseconds: delay)
+                        if try await Self.performRetryIfNeeded(
+                            for: error,
+                            attempt: &attempt,
+                            request: urlRequest,
+                            interceptors: interceptors
+                        ) {
                             continue
                         }
 
@@ -1060,16 +1016,12 @@ public actor APIManager: APIManaging {
 
                     return try responseParser(data, httpResponse)
                 } catch let error as APIError {
-                    if let delay = await retryDelay(for: error, attempt: attempt, request: urlRequest, interceptors: interceptors) {
-                        await Self.notifyRetryScheduled(
-                            for: error,
-                            attempt: attempt,
-                            delayNanoseconds: delay,
-                            request: urlRequest,
-                            interceptors: interceptors
-                        )
-                        attempt += 1
-                        try await Task.sleep(nanoseconds: delay)
+                    if try await Self.performRetryIfNeeded(
+                        for: error,
+                        attempt: &attempt,
+                        request: urlRequest,
+                        interceptors: interceptors
+                    ) {
                         continue
                     }
 
@@ -1079,16 +1031,12 @@ public actor APIManager: APIManaging {
                 } catch let error as URLError {
                     let apiError = errorMapper.map(error)
 
-                    if let delay = await retryDelay(for: apiError, attempt: attempt, request: urlRequest, interceptors: interceptors) {
-                        await Self.notifyRetryScheduled(
-                            for: apiError,
-                            attempt: attempt,
-                            delayNanoseconds: delay,
-                            request: urlRequest,
-                            interceptors: interceptors
-                        )
-                        attempt += 1
-                        try await Task.sleep(nanoseconds: delay)
+                    if try await Self.performRetryIfNeeded(
+                        for: apiError,
+                        attempt: &attempt,
+                        request: urlRequest,
+                        interceptors: interceptors
+                    ) {
                         continue
                     }
 
@@ -1096,16 +1044,12 @@ public actor APIManager: APIManaging {
                 } catch {
                     let apiError = errorMapper.map(error)
 
-                    if let delay = await retryDelay(for: apiError, attempt: attempt, request: urlRequest, interceptors: interceptors) {
-                        await Self.notifyRetryScheduled(
-                            for: apiError,
-                            attempt: attempt,
-                            delayNanoseconds: delay,
-                            request: urlRequest,
-                            interceptors: interceptors
-                        )
-                        attempt += 1
-                        try await Task.sleep(nanoseconds: delay)
+                    if try await Self.performRetryIfNeeded(
+                        for: apiError,
+                        attempt: &attempt,
+                        request: urlRequest,
+                        interceptors: interceptors
+                    ) {
                         continue
                     }
 
@@ -1204,6 +1148,81 @@ public actor APIManager: APIManaging {
                 request: request
             )
         }
+    }
+
+    /// Executes a stubbed request with the same interceptor notifications as a live request.
+    private static func executeStubResponse<Response>(
+        for request: APIRequest<Response>,
+        configuration: APIConfiguration,
+        interceptors: [any APIRequestIntercepting],
+        errorMapper: any APIErrorMapping,
+        operation: @Sendable () async throws -> Response
+    ) async throws -> (URLRequest, Response) where Response: Sendable {
+        let preparedRequest = try await Self.prepareRequest(
+            for: request,
+            configuration: configuration,
+            interceptors: interceptors
+        )
+
+        return try await executeStubResponse(
+            for: preparedRequest,
+            interceptors: interceptors,
+            errorMapper: errorMapper,
+            operation: operation
+        )
+    }
+
+    /// Executes a stubbed operation for an already prepared request.
+    private static func executeStubResponse<Response>(
+        for request: URLRequest,
+        interceptors: [any APIRequestIntercepting],
+        errorMapper: any APIErrorMapping,
+        operation: @Sendable () async throws -> Response
+    ) async throws -> (URLRequest, Response) where Response: Sendable {
+        do {
+            let response = try await operation()
+            await Self.notifyInterceptors(
+                of: .success((Data(), Self.makeStubHTTPURLResponse(for: request))),
+                for: request,
+                interceptors: interceptors
+            )
+            return (request, response)
+        } catch let error as APIError {
+            await Self.notifyInterceptors(of: .failure(error), for: request, interceptors: interceptors)
+            throw error
+        } catch {
+            let mappedError = errorMapper.map(error)
+            await Self.notifyInterceptors(of: .failure(mappedError), for: request, interceptors: interceptors)
+            throw mappedError
+        }
+    }
+
+    /// Performs retry notification and delay handling when interceptors allow another attempt.
+    private static func performRetryIfNeeded(
+        for error: APIError,
+        attempt: inout Int,
+        request: URLRequest,
+        interceptors: [any APIRequestIntercepting]
+    ) async throws -> Bool {
+        guard let delay = await retryDelay(
+            for: error,
+            attempt: attempt,
+            request: request,
+            interceptors: interceptors
+        ) else {
+            return false
+        }
+
+        await notifyRetryScheduled(
+            for: error,
+            attempt: attempt,
+            delayNanoseconds: delay,
+            request: request,
+            interceptors: interceptors
+        )
+        attempt += 1
+        try await Task.sleep(nanoseconds: delay)
+        return true
     }
 
     /// Creates a synthetic successful HTTP response for stub-driven requests.

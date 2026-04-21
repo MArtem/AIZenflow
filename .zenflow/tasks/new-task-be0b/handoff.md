@@ -1045,6 +1045,11 @@ Absent:  no tests/build/simulator checks
   otherwise fetch and store the next remote snapshot through `fetchAndStoreRemoteSnapshot()`.
   Snapshot staleness checks also now go through one instance-level helper instead of repeatedly threading policy through static calls.
   No new public APIs or extra package types were introduced.
+  The next readability-first step then moved into `Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`.
+  The goal again was not to redesign the package, only to reduce the biggest repeated orchestration blocks.
+  Stubbed request handling now goes through shared `executeStubResponse(...)` helpers,
+  and repeated retry notification/sleep logic now goes through `performRetryIfNeeded(...)`.
+  This leaves `perform`, `upload`, `download`, and the internal execute loop closer to one shared runtime model without adding a separate executor abstraction or changing the public API.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

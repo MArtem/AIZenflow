@@ -831,4 +831,10 @@ Readability-first cycle progress:
   `fetchAndStoreRemoteSnapshot()`,
   while stale checks now have one instance-level helper instead of repeatedly threading policy through static calls.
 - This makes the manager easier to scan without introducing new package types or expanding the feature surface.
+- The next readability-first step moved into [TchopNetworking.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift).
+  The API surface stayed the same.
+  The cleanup targeted the two biggest repeated orchestration patterns:
+  stub execution and retry scheduling.
+- Stubbed request execution now goes through shared `executeStubResponse(...)` helpers, and repeated retry notification/sleep logic now goes through `performRetryIfNeeded(...)`.
+  This keeps `perform`, `upload`, `download`, and the internal execute loop closer to the same mental model without introducing a separate executor object or changing runtime semantics.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.
