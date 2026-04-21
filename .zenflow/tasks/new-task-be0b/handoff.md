@@ -1038,6 +1038,13 @@ Absent:  no tests/build/simulator checks
   The intent was not to redesign the composition root again, but to reduce the densest assembly segment.
   The `database -> api -> feed api -> repositories -> session` chain is now grouped behind a single `makeContentServices(...)` helper.
   This keeps the initializer readable as a sequence of stages while avoiding a bigger builder pattern or extra container abstraction.
+  The next readability-first step then moved into `Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift`.
+  The manager already had the right capabilities, so the change stayed local to refresh orchestration.
+  `refreshConfiguration()` now reads through one straight flow:
+  attempt to reuse the current snapshot when valid,
+  otherwise fetch and store the next remote snapshot through `fetchAndStoreRemoteSnapshot()`.
+  Snapshot staleness checks also now go through one instance-level helper instead of repeatedly threading policy through static calls.
+  No new public APIs or extra package types were introduced.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

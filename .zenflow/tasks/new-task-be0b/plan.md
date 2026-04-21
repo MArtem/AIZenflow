@@ -823,4 +823,12 @@ Readability-first cycle progress:
   content services assembly,
   UI/widget/push bridges,
   navigation services.
+- The next readability-first step moved into [TchopUIConfiguration.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift).
+  The public API and behavior stayed the same.
+  The cleanup focused only on the manager refresh path:
+  `refreshConfiguration()` now reads linearly through
+  reusable-current-snapshot resolution and
+  `fetchAndStoreRemoteSnapshot()`,
+  while stale checks now have one instance-level helper instead of repeatedly threading policy through static calls.
+- This makes the manager easier to scan without introducing new package types or expanding the feature surface.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

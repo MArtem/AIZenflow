@@ -225,44 +225,22 @@ public actor UIConfigurationManager: UIConfigurationManaging {
 
     /// Returns whether the current configuration should be considered stale.
     public func isCurrentConfigurationStale() async -> Bool {
-        Self.isSnapshotStale(
-            currentSnapshot,
-            policy: stalenessPolicy,
-            now: dateProvider()
-        )
+        isSnapshotStale(currentSnapshot, now: dateProvider())
     }
 
     /// Handles refresh configuration.
     public func refreshConfiguration() async throws -> UIConfigurationSnapshot {
         let now = dateProvider()
-        if shouldUseCurrentSnapshot(for: now) {
-            return currentSnapshot
+        if let reusableSnapshot = reusableCurrentSnapshot(for: now) {
+            return reusableSnapshot
         }
 
-        let snapshot = try await remoteProvider.fetchConfiguration()
-        let sanitizedSnapshot = try Self.validatedRemoteSnapshot(snapshot)
-        currentSnapshot = sanitizedSnapshot
-        try store?.save(sanitizedSnapshot)
-        return sanitizedSnapshot
+        return try await fetchAndStoreRemoteSnapshot()
     }
 
     /// Fetches configuration.
     public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
         try await refreshConfiguration()
-    }
-
-    /// Returns whether refresh can safely reuse the current snapshot.
-    private func shouldUseCurrentSnapshot(for now: Date) -> Bool {
-        guard !Self.isSnapshotStale(currentSnapshot, policy: stalenessPolicy, now: now) else {
-            return false
-        }
-
-        switch refreshThrottling {
-        case .none:
-            return false
-        case let .minimumInterval(interval):
-            return now.timeIntervalSince(currentSnapshot.metadata.fetchedAt) < interval
-        }
     }
 
     /// Returns a snapshot that can safely be used as the active cached state.
@@ -278,6 +256,38 @@ public actor UIConfigurationManager: UIConfigurationManaging {
         }
 
         return snapshot
+    }
+
+    /// Returns the current snapshot when refresh can safely reuse it without a remote hit.
+    private func reusableCurrentSnapshot(for now: Date) -> UIConfigurationSnapshot? {
+        guard !isSnapshotStale(currentSnapshot, now: now) else {
+            return nil
+        }
+
+        switch refreshThrottling {
+        case .none:
+            return nil
+        case let .minimumInterval(interval):
+            guard now.timeIntervalSince(currentSnapshot.metadata.fetchedAt) < interval else {
+                return nil
+            }
+
+            return currentSnapshot
+        }
+    }
+
+    /// Fetches, validates, stores, and activates the next remote snapshot.
+    private func fetchAndStoreRemoteSnapshot() async throws -> UIConfigurationSnapshot {
+        let remoteSnapshot = try await remoteProvider.fetchConfiguration()
+        let validatedSnapshot = try Self.validatedRemoteSnapshot(remoteSnapshot)
+        currentSnapshot = validatedSnapshot
+        try store?.save(validatedSnapshot)
+        return validatedSnapshot
+    }
+
+    /// Returns whether the provided snapshot is stale under the manager's active policy.
+    private func isSnapshotStale(_ snapshot: UIConfigurationSnapshot, now: Date) -> Bool {
+        Self.isSnapshotStale(snapshot, policy: stalenessPolicy, now: now)
     }
 
     /// Validates a newly fetched remote snapshot before storing and exposing it.
