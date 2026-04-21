@@ -195,7 +195,7 @@ final class AppState: ObservableObject {
     }
 
     /// Reports that snapshot restore was skipped before applying any persisted state.
-    private func reportSnapshotRestoreSkipped(for userID: UUID, reason: String) {
+    private func reportSnapshotRestoreSkipped(for userID: String, reason: String) {
         navigationEventReporter.report(
             .snapshotRestoreSkipped(
                 userID: userID,
@@ -205,7 +205,7 @@ final class AppState: ObservableObject {
     }
 
     /// Reports that snapshot restore failed after a persisted snapshot was inspected.
-    private func reportSnapshotRestoreFailed(for userID: UUID, reason: String) {
+    private func reportSnapshotRestoreFailed(for userID: String, reason: String) {
         navigationEventReporter.report(
             .snapshotRestoreFailed(
                 userID: userID,
