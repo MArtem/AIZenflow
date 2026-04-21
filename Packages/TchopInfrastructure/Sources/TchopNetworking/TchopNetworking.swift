@@ -782,8 +782,9 @@ public actor APIManager: APIManaging {
             await progressHandler?(.started)
 
             do {
-                let (_, response) = try await executeStubResponse(
+                let (_, response) = try await Self.executeStubResponse(
                     for: request,
+                    configuration: configuration,
                     interceptors: interceptors,
                     errorMapper: errorMapper,
                     operation: stubResponse
@@ -866,8 +867,9 @@ public actor APIManager: APIManaging {
             await progressHandler?(.started)
 
             do {
-                let (data, _) = try await executeStubResponse(
+                let (_, data) = try await Self.executeStubResponse(
                     for: request,
+                    configuration: configuration,
                     interceptors: interceptors,
                     errorMapper: errorMapper,
                     operation: stubResponse
@@ -1063,7 +1065,7 @@ public actor APIManager: APIManaging {
     }
 
     /// Handles retry delay.
-    private func retryDelay(
+    private static func retryDelay(
         for error: APIError,
         attempt: Int,
         request: URLRequest,
@@ -1204,7 +1206,7 @@ public actor APIManager: APIManaging {
         request: URLRequest,
         interceptors: [any APIRequestIntercepting]
     ) async throws -> Bool {
-        guard let delay = await retryDelay(
+        guard let delay = await Self.retryDelay(
             for: error,
             attempt: attempt,
             request: request,
