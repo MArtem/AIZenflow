@@ -815,4 +815,12 @@ Readability-first cycle progress:
   `loadUIConfiguration()` applies the current snapshot and then delegates the remote refresh to `refreshUIConfiguration()`,
   and the refresh failure path now goes through one named `handleUIConfigurationRefreshFailure(...)` helper instead of staying embedded inline.
 - This keeps the shell runtime flow easier to scan without adding new state, new abstractions, or any extra DI surface.
+- The next readability-first step returned to [AppDIContainer.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppDIContainer.swift).
+  The container already had the right high-level layering, so the cleanup stayed narrow:
+  the dense `database -> api -> feed api -> repositories -> session` assembly path is now grouped behind one `makeContentServices(...)` helper.
+- This leaves the initializer reading in clearer stages without introducing a builder type, nested container, or extra protocol surface:
+  persistence bootstrap,
+  content services assembly,
+  UI/widget/push bridges,
+  navigation services.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

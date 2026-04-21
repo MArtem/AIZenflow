@@ -1034,6 +1034,10 @@ Absent:  no tests/build/simulator checks
   `loadUIConfiguration()` applies the current snapshot first and then delegates remote refresh to `refreshUIConfiguration()`,
   and refresh failures now go through `handleUIConfigurationRefreshFailure(...)` instead of staying inline.
   This makes the shell runtime flow easier to read without adding any new state model, coordinator, or DI abstraction.
+  The next readability-first step then returned to `TchopApp/App/AppDIContainer.swift`.
+  The intent was not to redesign the composition root again, but to reduce the densest assembly segment.
+  The `database -> api -> feed api -> repositories -> session` chain is now grouped behind a single `makeContentServices(...)` helper.
+  This keeps the initializer readable as a sequence of stages while avoiding a bigger builder pattern or extra container abstraction.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

@@ -67,19 +67,15 @@ final class AppDIContainer: ObservableObject {
         self.databaseManager = databaseManager
         self.databaseBackendKind = databaseManager.backendKind
 
-        let apiManager = Self.makeAPIManager(analyticsCollector: analyticsCollector)
-        self.apiManager = apiManager
-
-        let feedAPIManager = Self.makeFeedAPIManager(apiManager: apiManager)
-        self.feedAPIManager = feedAPIManager
-
-        let repositories = Self.makeRepositories(
+        let contentServices = Self.makeContentServices(
             databaseManager: databaseManager,
-            feedAPIManager: feedAPIManager
+            analyticsCollector: analyticsCollector
         )
-        self.contentRepository = repositories.contentRepository
-        self.userRepository = repositories.userRepository
-        self.sessionService = UserSessionService(userRepository: repositories.userRepository)
+        self.apiManager = contentServices.apiManager
+        self.feedAPIManager = contentServices.feedAPIManager
+        self.contentRepository = contentServices.contentRepository
+        self.userRepository = contentServices.userRepository
+        self.sessionService = contentServices.sessionService
 
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
         self.widgetContentSyncManager = Self.makeWidgetContentSyncManager()
@@ -134,6 +130,33 @@ final class AppDIContainer: ObservableObject {
         let databaseManager = AppDatabase.makeDatabaseManager(configuration: configuration)
         seedLocalDataIfNeeded(using: databaseManager)
         return databaseManager
+    }
+
+    /// Creates the content-facing stack from networking through repositories and session service.
+    private static func makeContentServices(
+        databaseManager: any DatabaseManaging,
+        analyticsCollector: ProductAnalyticsMemoryCollector
+    ) -> (
+        apiManager: any APIManaging,
+        feedAPIManager: any FeedAPIManaging,
+        contentRepository: any AppContentRepository,
+        userRepository: any UserRepository,
+        sessionService: any UserSessionManaging
+    ) {
+        let apiManager = makeAPIManager(analyticsCollector: analyticsCollector)
+        let feedAPIManager = makeFeedAPIManager(apiManager: apiManager)
+        let repositories = makeRepositories(
+            databaseManager: databaseManager,
+            feedAPIManager: feedAPIManager
+        )
+
+        return (
+            apiManager: apiManager,
+            feedAPIManager: feedAPIManager,
+            contentRepository: repositories.contentRepository,
+            userRepository: repositories.userRepository,
+            sessionService: UserSessionService(userRepository: repositories.userRepository)
+        )
     }
 
     private static func seedLocalDataIfNeeded(using databaseManager: any DatabaseManaging) {
