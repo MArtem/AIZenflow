@@ -1024,6 +1024,9 @@ Absent:  no tests/build/simulator checks
   The old `reload()` entry point remains only as a backward-compatible alias to `refresh()`.
   The policy remains private inside the view model through `NewsFeedLoadPolicy`, `shouldStartLoad(for:)`, and `makeLoadingTask()`, so the runtime behavior is clearer without adding more published state.
   `TchopApp/Views/News/NewsFeedView.swift` now calls `refresh()` directly, and `TchopAppTests/NewsFeedViewModelTests.swift` now covers duplicate-refresh suppression, retry-after-failure, and inert retry-before-failure.
+  The immediate follow-up step then closed the remaining UI gap:
+  `TchopApp/Views/News/NewsFeedView.swift` now shows a visible `Retry` control inside the failed-state banner and wires it directly to `viewModel.retry()`.
+  This was intentionally kept local to the existing view so the retry policy is usable in the real screen without creating a separate error component, extra view model state, or additional navigation/UI layers.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

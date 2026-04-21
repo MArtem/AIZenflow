@@ -10,10 +10,20 @@ struct NewsFeedView: View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
                 if case let .failed(_, errorMessage) = viewModel.state {
-                    Text(errorMessage)
-                        .font(.system(size: 13, weight: .medium))
-                        .foregroundStyle(.red.opacity(0.82))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+                    HStack(alignment: .top, spacing: 12) {
+                        Text(errorMessage)
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundStyle(.red.opacity(0.82))
+                            .frame(maxWidth: .infinity, alignment: .leading)
+
+                        Button("Retry") {
+                            viewModel.retry()
+                        }
+                        .font(.system(size: 13, weight: .semibold))
+                        .buttonStyle(.plain)
+                        .foregroundStyle(.primary)
+                        .accessibilityIdentifier("news.feed.retry")
+                    }
                 }
 
                 ForEach(viewModel.state.content.cards) { card in
