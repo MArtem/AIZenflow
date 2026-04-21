@@ -62,19 +62,32 @@ final class AppShellViewModel: ObservableObject {
 
     /// Loads uiconfiguration.
     private func loadUIConfiguration() async {
-        let cachedConfiguration = await uiConfigurationManager.currentConfiguration()
-        showsFloatingActionButton = cachedConfiguration.shell.showsFloatingActionButton
+        applyShellConfiguration(await uiConfigurationManager.currentConfiguration())
 
         do {
-            let configuration = try await uiConfigurationManager.refreshConfiguration()
-            showsFloatingActionButton = configuration.shell.showsFloatingActionButton
+            applyShellConfiguration(try await uiConfigurationManager.refreshConfiguration())
         } catch {
             assertionFailure("Failed to fetch UI configuration: \(error)")
         }
     }
 
+    /// Applies shell-specific UI settings from a full configuration snapshot.
+    private func applyShellConfiguration(_ configuration: UIConfigurationSnapshot) {
+        showsFloatingActionButton = configuration.shell.showsFloatingActionButton
+    }
+
+    /// Resolves repository-backed channel info or falls back to local defaults.
     private static func resolveChannelInfo(from repository: any AppContentRepository) -> ChannelHeaderInfo {
-        (try? repository.fetchChannelInfo()) ?? ChannelHeaderInfo(
+        if let channelInfo = try? repository.fetchChannelInfo() {
+            return channelInfo
+        }
+
+        return makeFallbackChannelInfo()
+    }
+
+    /// Creates the fallback channel info used when local persistence is unavailable.
+    private static func makeFallbackChannelInfo() -> ChannelHeaderInfo {
+        ChannelHeaderInfo(
             title: AppLocalization.text("channel.default.title", fallback: "Tchop"),
             subtitle: AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
         )

@@ -275,6 +275,13 @@ The repeated tab-specific `popToRoot()` switch logic is now centralized in one h
 This step keeps the same navigation model and public surface and only removes procedural repetition from the coordinator.
 Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
 
+### [x] Step: Readability-first refactor 9 — simplify shell configuration flow in AppShellViewModel
+
+Applied a small readability refactor to `TchopApp/ViewModels/AppShellViewModel.swift`.
+The shell now applies configuration snapshots through a dedicated helper instead of repeating direct FAB flag assignment, and fallback channel resolution is expressed explicitly instead of being hidden inside an inline nil-coalescing expression.
+This step intentionally did not introduce a separate shell state model or alter the existing initialization/runtime flow.
+Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.

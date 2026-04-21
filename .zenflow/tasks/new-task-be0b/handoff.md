@@ -296,6 +296,11 @@
   Snapshot application also now routes path replacement through a dedicated helper, so the main method reads more directly.
   This step did not alter the routing model, tab ownership, or navigation API surface.
   No automatic verification was run here because the user requested not to trigger low-level checks after every step unless explicitly asked.
+- Shell view-model readability progress:
+  `AppShellViewModel` has also been simplified.
+  Applying shell configuration now goes through one helper instead of repeating direct FAB flag mutation, and fallback channel info is built through an explicit helper instead of an inline `try? ... ?? ...` expression.
+  This keeps the file easier to scan without introducing a separate shell state abstraction.
+  No automatic verification was run here because the user requested not to trigger low-level checks after every step unless explicitly asked.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
