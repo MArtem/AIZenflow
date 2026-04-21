@@ -102,7 +102,7 @@ final class AppDIContainer: ObservableObject {
             widgetContentSyncManager: widgetContentSyncManager
         )
 
-        AppShellViewModel(
+        return AppShellViewModel(
             channelInfo: Self.resolveChannelInfo(from: contentRepository),
             newsFeedViewModel: newsFeedViewModel,
             uiConfigurationManager: uiConfigurationManager,
