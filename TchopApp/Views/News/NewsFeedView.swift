@@ -9,14 +9,14 @@ struct NewsFeedView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
-                if let errorMessage = viewModel.errorMessage {
+                if case let .failed(_, errorMessage) = viewModel.state {
                     Text(errorMessage)
                         .font(.system(size: 13, weight: .medium))
                         .foregroundStyle(.red.opacity(0.82))
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
 
-                ForEach(viewModel.content.cards) { card in
+                ForEach(viewModel.state.content.cards) { card in
                     switch card {
                     case let .featuredArticle(article):
                         FeaturedArticleCard(

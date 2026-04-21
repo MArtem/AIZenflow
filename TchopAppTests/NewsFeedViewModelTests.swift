@@ -31,6 +31,7 @@ final class NewsFeedViewModelTests: XCTestCase {
 
         await waitForLoading(of: viewModel)
 
+        XCTAssertEqual(viewModel.state, .loaded(expectedContent))
         XCTAssertEqual(viewModel.content, expectedContent)
         XCTAssertFalse(viewModel.isLoading)
         XCTAssertNil(viewModel.errorMessage)
@@ -49,6 +50,13 @@ final class NewsFeedViewModelTests: XCTestCase {
 
         await waitForLoading(of: viewModel)
 
+        XCTAssertEqual(
+            viewModel.state,
+            .failed(
+                content: NewsFeedFixtures.fallbackContent,
+                message: AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
+            )
+        )
         XCTAssertEqual(
             viewModel.errorMessage,
             AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
@@ -70,6 +78,7 @@ final class NewsFeedViewModelTests: XCTestCase {
 
         viewModel.cancelLoading()
 
+        XCTAssertEqual(viewModel.state, .loaded(NewsFeedFixtures.fallbackContent))
         XCTAssertFalse(viewModel.isLoading)
     }
 

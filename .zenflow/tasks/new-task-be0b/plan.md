@@ -291,6 +291,15 @@ The two card models now expose service/navigation-facing derived values (`servic
 App tests were updated to match the new initialization surface.
 Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
 
+### [x] Step: Feed-state runtime refactor — introduce a minimal explicit NewsFeedState
+
+Applied the minimal explicit state-model variant to `TchopApp/ViewModels/NewsFeedViewModel.swift` and `TchopApp/Views/News/NewsFeedView.swift`.
+`NewsFeedViewModel` now publishes one `NewsFeedState` source of truth (`loading`, `loaded`, `failed`) instead of mutating three separate published fields for content/loading/error, while lightweight computed accessors are still kept for callers that only need convenience reads.
+The feed UI now renders from `viewModel.state`, and feed-view-model tests were updated to assert the explicit state transitions directly.
+This keeps the change narrow and readable without introducing a larger screen-state architecture.
+The recent mechanical `return` fix in `AppDIContainer.makeAppShellViewModel()` from the last requested `Low` verification is included in the same commit so the worktree does not keep a dangling verification-only fix.
+Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.

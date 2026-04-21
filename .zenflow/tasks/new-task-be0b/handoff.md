@@ -312,6 +312,17 @@
   This removes manual card-type switching from `NewsTabRootView` and `AppWidgetBridge` and makes the models better suited for real service/caller integration.
   Tests that construct `NewsFeedViewModel` and `AppShellViewModel` were updated to use the new DI surface.
   No automatic verification was run for this step because the user requested not to trigger low-level checks after every step unless explicitly asked.
+- Minimal feed-state baseline:
+  `NewsFeedViewModel` now publishes one explicit `NewsFeedState` instead of spreading runtime state across three independently published fields.
+  The state currently stays intentionally small:
+  `loading(NewsFeedContent)`,
+  `loaded(NewsFeedContent)`,
+  `failed(content: NewsFeedContent, message: String)`.
+  Convenience read accessors for `content`, `isLoading`, and `errorMessage` still exist, but the source of truth is now the single state enum.
+  `NewsFeedView` renders from `viewModel.state`, and `NewsFeedViewModelTests` now assert the explicit state transitions directly.
+  This is the minimal explicit-state version, not a larger screen-state architecture.
+  Also included in the same working change is the mechanical `return` fix in `AppDIContainer.makeAppShellViewModel()` that was discovered during the last user-requested `Low` verification.
+  No automatic verification was run for this step because the user requested not to trigger low-level checks after every step unless explicitly asked.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
