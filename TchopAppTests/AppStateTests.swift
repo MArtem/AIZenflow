@@ -374,11 +374,17 @@ final class AppStateTests: XCTestCase {
 /// Creates shell view model.
 private func makeShellViewModel(isMenuOpen: Bool = false) -> AppShellViewModel {
     AppShellViewModel(
-        contentRepository: TestAppContentRepository(),
+        channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
+        newsFeedViewModel: NewsFeedViewModel(
+            repository: TestNewsFeedRepository(result: .success(NewsFeedContent(cards: []))),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedContent(cards: []),
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
+        ),
         uiConfigurationManager: UIConfigurationManager(
             remoteProvider: MockUIConfigurationRemoteProvider(delayNanoseconds: 0)
         ),
-        widgetContentSyncManager: NoopWidgetContentSyncManager(),
         isMenuOpen: isMenuOpen
     )
 }

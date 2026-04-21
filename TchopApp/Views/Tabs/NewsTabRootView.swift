@@ -28,28 +28,12 @@ struct NewsTabRootView: View {
 
     /// Opens featured article.
     private func openFeaturedArticle(_ article: FeaturedArticleCardModel) {
-        router.push(
-            NewsRoute(
-                destinationID: "article-details",
-                title: article.headline.replacingOccurrences(of: "\n", with: " "),
-                subtitle: article.sourceTitle,
-                bodyText: article.summary,
-                accentLabel: article.translationLabel
-            )
-        )
+        router.push(article.detailRoute)
     }
 
     /// Opens discussion.
     private func openDiscussion(_ discussion: DiscussionCardModel) {
-        router.push(
-            NewsRoute(
-                destinationID: "discussion-details",
-                title: discussion.categoryTitle,
-                subtitle: discussion.joinedText,
-                bodyText: discussion.headline.replacingOccurrences(of: "\n", with: " "),
-                accentLabel: nil
-            )
-        )
+        router.push(discussion.detailRoute)
     }
 
 }

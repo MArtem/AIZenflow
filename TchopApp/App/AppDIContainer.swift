@@ -97,10 +97,15 @@ final class AppDIContainer: ObservableObject {
 
     /// Creates the shell view model used by the authenticated part of the app.
     func makeAppShellViewModel() -> AppShellViewModel {
-        AppShellViewModel(
-            contentRepository: contentRepository,
-            uiConfigurationManager: uiConfigurationManager,
+        let newsFeedViewModel = Self.makeNewsFeedViewModel(
+            repository: contentRepository,
             widgetContentSyncManager: widgetContentSyncManager
+        )
+
+        AppShellViewModel(
+            channelInfo: Self.resolveChannelInfo(from: contentRepository),
+            newsFeedViewModel: newsFeedViewModel,
+            uiConfigurationManager: uiConfigurationManager,
         )
     }
 
@@ -173,6 +178,35 @@ final class AppDIContainer: ObservableObject {
 
     private static func makeFeedAPIManager(apiManager: any APIManaging) -> any FeedAPIManaging {
         StubFeedAPIManager(apiManager: apiManager)
+    }
+
+    /// Creates the feed view model with app-level bootstrap and fallback content.
+    private static func makeNewsFeedViewModel(
+        repository: any NewsFeedRepository,
+        widgetContentSyncManager: any WidgetContentSyncing
+    ) -> NewsFeedViewModel {
+        NewsFeedViewModel(
+            repository: repository,
+            widgetContentSyncManager: widgetContentSyncManager,
+            initialContent: NewsFeedFixtures.fallbackContent,
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: AppLocalization.text(
+                "news.error.loadFailed",
+                fallback: "Failed to load feed."
+            )
+        )
+    }
+
+    /// Resolves repository-backed channel info or falls back to local defaults.
+    private static func resolveChannelInfo(from repository: any AppContentRepository) -> ChannelHeaderInfo {
+        if let channelInfo = try? repository.fetchChannelInfo() {
+            return channelInfo
+        }
+
+        return ChannelHeaderInfo(
+            title: AppLocalization.text("channel.default.title", fallback: "Tchop"),
+            subtitle: AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
+        )
     }
 
     private static func makeUIConfigurationManager() -> any UIConfigurationManaging {

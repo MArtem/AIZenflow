@@ -15,9 +15,9 @@ final class AppShellViewModelTests: XCTestCase {
         )
 
         let viewModel = AppShellViewModel(
-            contentRepository: TestAppContentRepository(),
+            channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
+            newsFeedViewModel: makeTestNewsFeedViewModel(),
             uiConfigurationManager: uiConfigurationManager,
-            widgetContentSyncManager: NoopWidgetContentSyncManager()
         )
 
         await waitUntil(viewModel.showsFloatingActionButton == false)
@@ -40,9 +40,9 @@ final class AppShellViewModelTests: XCTestCase {
         )
 
         let viewModel = AppShellViewModel(
-            contentRepository: TestAppContentRepository(),
+            channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
+            newsFeedViewModel: makeTestNewsFeedViewModel(),
             uiConfigurationManager: uiConfigurationManager,
-            widgetContentSyncManager: NoopWidgetContentSyncManager()
         )
 
         await waitUntil(viewModel.showsFloatingActionButton == true)
@@ -66,5 +66,16 @@ final class AppShellViewModelTests: XCTestCase {
         }
 
         XCTFail("Timed out waiting for condition")
+    }
+
+    /// Creates a lightweight feed view model for shell tests.
+    private func makeTestNewsFeedViewModel() -> NewsFeedViewModel {
+        NewsFeedViewModel(
+            repository: TestNewsFeedRepository(result: .success(NewsFeedContent(cards: []))),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedContent(cards: []),
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
+        )
     }
 }

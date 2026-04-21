@@ -301,6 +301,17 @@
   Applying shell configuration now goes through one helper instead of repeating direct FAB flag mutation, and fallback channel info is built through an explicit helper instead of an inline `try? ... ?? ...` expression.
   This keeps the file easier to scan without introducing a separate shell state abstraction.
   No automatic verification was run here because the user requested not to trigger low-level checks after every step unless explicitly asked.
+- News feed runtime/model baseline:
+  `NewsFeedViewModel` and the two news-card models have now been refactored toward a more realistic runtime shape.
+  `NewsFeedViewModel` no longer owns hidden app-level fallback fixture creation or localized error-string creation; both bootstrap/failure content and failure message are injected.
+  `AppShellViewModel` also no longer constructs `NewsFeedViewModel` inside itself and instead receives the child view model as a dependency, while `AppDIContainer` now owns creation of:
+  resolved channel info,
+  the news feed view model,
+  and the app-level fallback feed state.
+  On the model side, `FeaturedArticleCardModel` and `DiscussionCardModel` now expose derived `detailRoute` and `serviceHeadline` values, and `NewsFeedContent` exposes `primaryServiceHeadline` for service consumers such as widgets.
+  This removes manual card-type switching from `NewsTabRootView` and `AppWidgetBridge` and makes the models better suited for real service/caller integration.
+  Tests that construct `NewsFeedViewModel` and `AppShellViewModel` were updated to use the new DI surface.
+  No automatic verification was run for this step because the user requested not to trigger low-level checks after every step unless explicitly asked.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.

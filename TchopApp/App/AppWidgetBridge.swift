@@ -59,15 +59,6 @@ final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
     }
 
     private static func resolveHeadline(from content: NewsFeedContent) -> String? {
-        guard let firstCard = content.cards.first else {
-            return nil
-        }
-
-        switch firstCard {
-        case let .featuredArticle(article):
-            return article.headline.replacingOccurrences(of: "\n", with: " ")
-        case let .discussion(discussion):
-            return discussion.headline.replacingOccurrences(of: "\n", with: " ")
-        }
+        content.primaryServiceHeadline
     }
 }

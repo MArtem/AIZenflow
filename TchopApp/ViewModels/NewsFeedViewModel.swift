@@ -14,19 +14,25 @@ final class NewsFeedViewModel: ObservableObject {
 
     private let repository: any NewsFeedRepository
     private let widgetContentSyncManager: any WidgetContentSyncing
+    private let loadFailureContent: NewsFeedContent
+    private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
 
     /// Creates the feed view model and immediately starts the first load.
     init(
         repository: any NewsFeedRepository,
         widgetContentSyncManager: any WidgetContentSyncing,
-        content: NewsFeedContent? = nil
+        initialContent: NewsFeedContent,
+        loadFailureContent: NewsFeedContent,
+        loadFailureMessage: String
     ) {
         self.repository = repository
         self.widgetContentSyncManager = widgetContentSyncManager
-        self.content = content ?? NewsFeedFixtures.fallbackContent
+        self.content = initialContent
         self.isLoading = false
         self.errorMessage = nil
+        self.loadFailureContent = loadFailureContent
+        self.loadFailureMessage = loadFailureMessage
         widgetContentSyncManager.syncFeed(content: self.content)
         reload()
     }
@@ -47,14 +53,11 @@ final class NewsFeedViewModel: ObservableObject {
                 guard !Task.isCancelled else {
                     return
                 }
-                self.content = content
-                self.widgetContentSyncManager.syncFeed(content: content)
+                self.applyLoadedContent(content)
             } catch is CancellationError {
                 return
             } catch {
-                self.content = NewsFeedFixtures.fallbackContent
-                self.errorMessage = AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
-                self.widgetContentSyncManager.syncFeed(content: self.content)
+                self.applyLoadFailureState()
             }
 
             self.isLoading = false
@@ -72,50 +75,17 @@ final class NewsFeedViewModel: ObservableObject {
     deinit {
         loadingTask?.cancel()
     }
-}
 
-private enum NewsFeedFixtures {
-    static let fallbackContent: NewsFeedContent = {
-        NewsFeedContent(
-            cards: [
-                .featuredArticle(
-                    FeaturedArticleCardModel(
-                        id: "featured-article-fallback",
-                        postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix", fallback: "Posted in "),
-                        sourceTitle: AppLocalization.text("news.fallback.sourceTitle", fallback: "Our Blog"),
-                        brandTitle: AppLocalization.text("news.fallback.brandTitle", fallback: "Tchop"),
-                        headline: AppLocalization.text("news.fallback.headline", fallback: "Parrots help others in need, study\nshows for first time"),
-                        summary: AppLocalization.text("news.fallback.summary", fallback: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem..."),
-                        metadataLine: AppLocalization.text("news.fallback.metadataLine", fallback: "by Adorlee Querry · two days ago · read time: 2min"),
-                        translationLabel: AppLocalization.text("news.fallback.translationLabel", fallback: "See translation"),
-                        actions: [
-                            ArticleActionItem(
-                                id: "like",
-                                systemName: "hand.thumbsup.fill",
-                                title: AppLocalization.text("news.fallback.action.like", fallback: "Like")
-                            ),
-                            ArticleActionItem(
-                                id: "comments",
-                                systemName: "bubble.left.fill",
-                                title: AppLocalization.text("news.fallback.action.comments", fallback: "48 Comments")
-                            )
-                        ]
-                    )
-                ),
-                .discussion(
-                    DiscussionCardModel(
-                        id: "discussion-fallback",
-                        categoryTitle: AppLocalization.text("news.fallback.discussion.category", fallback: "Discussion"),
-                        headline: AppLocalization.text("news.fallback.discussion.headline", fallback: "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio"),
-                        participants: [
-                            DiscussionParticipant(id: "adorlee", initials: "A", isHighlighted: true),
-                            DiscussionParticipant(id: "mattis", initials: "M", isHighlighted: false),
-                            DiscussionParticipant(id: "sophia", initials: "S", isHighlighted: false)
-                        ],
-                        joinedText: AppLocalization.text("news.fallback.discussion.joinedText", fallback: "+12 joined")
-                    )
-                )
-            ]
-        )
-    }()
+    /// Applies freshly loaded feed content to published state and side effects.
+    private func applyLoadedContent(_ content: NewsFeedContent) {
+        self.content = content
+        widgetContentSyncManager.syncFeed(content: content)
+    }
+
+    /// Applies the configured fallback state after a failed feed load.
+    private func applyLoadFailureState() {
+        content = loadFailureContent
+        errorMessage = loadFailureMessage
+        widgetContentSyncManager.syncFeed(content: content)
+    }
 }

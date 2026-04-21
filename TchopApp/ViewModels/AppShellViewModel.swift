@@ -26,9 +26,9 @@ final class AppShellViewModel: ObservableObject {
 
     /// Creates the shell view model from repository-backed content.
     init(
-        contentRepository: any AppContentRepository,
+        channelInfo: ChannelHeaderInfo,
+        newsFeedViewModel: NewsFeedViewModel,
         uiConfigurationManager: any UIConfigurationManaging,
-        widgetContentSyncManager: any WidgetContentSyncing,
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text(
             "shell.sideMenu.footer",
@@ -36,12 +36,9 @@ final class AppShellViewModel: ObservableObject {
         )
     ) {
         self.isMenuOpen = isMenuOpen
-        self.channelInfo = Self.resolveChannelInfo(from: contentRepository)
+        self.channelInfo = channelInfo
         self.sideMenuFooterText = sideMenuFooterText
-        self.newsFeedViewModel = NewsFeedViewModel(
-            repository: contentRepository,
-            widgetContentSyncManager: widgetContentSyncManager
-        )
+        self.newsFeedViewModel = newsFeedViewModel
         self.showsFloatingActionButton = true
         self.uiConfigurationManager = uiConfigurationManager
 
@@ -74,22 +71,5 @@ final class AppShellViewModel: ObservableObject {
     /// Applies shell-specific UI settings from a full configuration snapshot.
     private func applyShellConfiguration(_ configuration: UIConfigurationSnapshot) {
         showsFloatingActionButton = configuration.shell.showsFloatingActionButton
-    }
-
-    /// Resolves repository-backed channel info or falls back to local defaults.
-    private static func resolveChannelInfo(from repository: any AppContentRepository) -> ChannelHeaderInfo {
-        if let channelInfo = try? repository.fetchChannelInfo() {
-            return channelInfo
-        }
-
-        return makeFallbackChannelInfo()
-    }
-
-    /// Creates the fallback channel info used when local persistence is unavailable.
-    private static func makeFallbackChannelInfo() -> ChannelHeaderInfo {
-        ChannelHeaderInfo(
-            title: AppLocalization.text("channel.default.title", fallback: "Tchop"),
-            subtitle: AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
-        )
     }
 }

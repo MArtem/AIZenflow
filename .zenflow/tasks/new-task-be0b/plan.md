@@ -282,6 +282,15 @@ The shell now applies configuration snapshots through a dedicated helper instead
 This step intentionally did not introduce a separate shell state model or alter the existing initialization/runtime flow.
 Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
 
+### [x] Step: Content-model runtime refactor — prepare NewsFeedViewModel and card models for real DI/service usage
+
+Applied a larger content-flow refactor across `NewsFeedViewModel`, `NewsFeedModels`, `AppShellViewModel`, `AppDIContainer`, `AppWidgetBridge`, and `NewsTabRootView`.
+`NewsFeedViewModel` no longer hides app-level bootstrap/fallback content and error text inside itself; these are now injected from the composition root, which makes the view model closer to a real runtime type used in production apps.
+`AppShellViewModel` also no longer creates `NewsFeedViewModel` internally and instead receives it as an injected dependency together with already-resolved `ChannelHeaderInfo`, so feature view-model construction is now owned by the DI layer rather than by another view model.
+The two card models now expose service/navigation-facing derived values (`serviceHeadline` and `detailRoute`), and shared feed-level service access (`primaryServiceHeadline`) is exposed on `NewsFeedContent`, which removes manual card-type switching from widget sync and news-tab navigation code.
+App tests were updated to match the new initialization surface.
+Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.

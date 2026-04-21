@@ -23,7 +23,10 @@ final class NewsFeedViewModelTests: XCTestCase {
         let repository = TestNewsFeedRepository(result: .success(expectedContent))
         let viewModel = NewsFeedViewModel(
             repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager()
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedFixtures.fallbackContent,
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
         )
 
         await waitForLoading(of: viewModel)
@@ -38,7 +41,10 @@ final class NewsFeedViewModelTests: XCTestCase {
         let repository = TestNewsFeedRepository(result: .failure(TestNewsFeedError.failed))
         let viewModel = NewsFeedViewModel(
             repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager()
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedFixtures.fallbackContent,
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
         )
 
         await waitForLoading(of: viewModel)
@@ -56,7 +62,10 @@ final class NewsFeedViewModelTests: XCTestCase {
         let repository = TestNewsFeedRepository(result: .success(.init(cards: [])), delayNanoseconds: 500_000_000)
         let viewModel = NewsFeedViewModel(
             repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager()
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedFixtures.fallbackContent,
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
         )
 
         viewModel.cancelLoading()
