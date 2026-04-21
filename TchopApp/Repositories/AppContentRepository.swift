@@ -37,6 +37,17 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Fetches channel data from local persistence.
     func fetchChannelInfo() throws -> ChannelHeaderInfo {
+        try requireChannelInfo(fetchChannelInfoFromCurrentBackend())
+    }
+
+    /// Fetches feed cards from the feed API and maps them into view-facing models.
+    func fetchNewsFeedContent() async throws -> NewsFeedContent {
+        let response = try await feedAPIManager.fetchFeed()
+        return AppContentMapper.mapFeedContent(from: response)
+    }
+
+    /// Resolves channel info using the currently selected persistence backend.
+    private func fetchChannelInfoFromCurrentBackend() throws -> ChannelHeaderInfo? {
         switch databaseManager.backendKind {
         case .swiftData:
             if #available(iOS 17, *) {
@@ -49,40 +60,41 @@ final class DefaultAppContentRepository: AppContentRepository {
         }
     }
 
-    /// Fetches feed cards from the feed API and maps them into view-facing models.
-    func fetchNewsFeedContent() async throws -> NewsFeedContent {
-        let response = try await feedAPIManager.fetchFeed()
-        return AppContentMapper.mapFeedContent(from: response)
+    /// Converts an optional channel result into a repository-level success or error.
+    private func requireChannelInfo(_ channel: ChannelHeaderInfo?) throws -> ChannelHeaderInfo {
+        guard let channel else {
+            throw RepositoryError.missingChannel
+        }
+
+        return channel
     }
 
     @available(iOS 17, *)
-    /// Fetches swift data channel info.
-    private func fetchSwiftDataChannelInfo() throws -> ChannelHeaderInfo {
-        guard let channel = try databaseManager.read(
+    /// Fetches channel info through the SwiftData backend.
+    private func fetchSwiftDataChannelInfo() throws -> ChannelHeaderInfo? {
+        try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
                 let descriptor = FetchDescriptor<ChannelRecord>()
                 return try context.fetch(descriptor).first.map(AppContentMapper.mapChannelInfo)
             })
-        ) else {
-            throw RepositoryError.missingChannel
-        }
-
-        return channel
+        )
     }
 
-    /// Fetches core data channel info.
-    private func fetchCoreDataChannelInfo() throws -> ChannelHeaderInfo {
-        guard let channel = try databaseManager.read(
+    /// Fetches channel info through the Core Data backend.
+    private func fetchCoreDataChannelInfo() throws -> ChannelHeaderInfo? {
+        try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
-                let request = CoreDataChannelEntity.fetchRequest()
-                request.fetchLimit = 1
+                let request = Self.makeCoreDataChannelFetchRequest()
                 return try context.fetch(request).first.map(AppContentMapper.mapChannelInfo)
             })
-        ) else {
-            throw RepositoryError.missingChannel
-        }
+        )
+    }
 
-        return channel
+    /// Builds a single-record Core Data request for channel metadata.
+    private static func makeCoreDataChannelFetchRequest() -> NSFetchRequest<CoreDataChannelEntity> {
+        let request = CoreDataChannelEntity.fetchRequest()
+        request.fetchLimit = 1
+        return request
     }
 }
 

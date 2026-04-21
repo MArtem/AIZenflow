@@ -284,6 +284,12 @@
   The repeated Core Data single-record request boilerplate is also centralized in one helper.
   This keeps the file easier to scan while avoiding extra architectural layers.
   Verification for this step is green on `iPhone 17 Pro (iOS 26.0)` with `xcodebuild ... build`.
+- Additional repository readability progress:
+  `AppContentRepository` has also been simplified around the channel-loading branch.
+  `fetchChannelInfo()` now reads through one backend-resolution helper and one explicit `requireChannelInfo(...)` helper instead of repeating the same optional-to-error conversion inside each backend-specific fetch.
+  The Core Data channel request setup is centralized in a small helper as well.
+  This step was intentionally kept narrow and did not touch the feed API flow or mapper surface.
+  No automatic verification was run here because the user requested not to trigger low-level checks after every step unless explicitly asked.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.

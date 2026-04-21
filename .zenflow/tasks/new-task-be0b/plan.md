@@ -260,6 +260,14 @@ The main repository methods now delegate the repeated SwiftData/Core Data branch
 This step intentionally kept the logic in the same file and did not introduce any new protocols, services, or generic abstraction layers.
 Verification: `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
 
+### [x] Step: Readability-first refactor 7 — simplify channel-loading flow in AppContentRepository
+
+Applied a small readability refactor to `TchopApp/Repositories/AppContentRepository.swift`, focused only on the channel-loading branch.
+`fetchChannelInfo()` now reads as one linear flow: resolve the current backend result, then require a non-empty channel or throw the repository error.
+The repeated missing-channel guard was removed from the backend-specific methods, and the Core Data single-record request setup is now centralized in one helper.
+This step intentionally did not touch the feed-loading contract or introduce new repository abstractions.
+Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.
