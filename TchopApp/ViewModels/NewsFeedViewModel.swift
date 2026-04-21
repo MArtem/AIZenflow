@@ -42,25 +42,6 @@ private enum NewsFeedLoadPolicy {
     case initial
     case refresh
     case retry
-
-    /// Whether this policy may start a new request while another one is already running.
-    var allowsReplacingInFlightLoad: Bool {
-        switch self {
-        case .initial:
-            return true
-        case .refresh, .retry:
-            return false
-        }
-    }
-
-    /// Whether this policy is only valid after a visible load failure.
-    var requiresFailureState: Bool {
-        if case .retry = self {
-            return true
-        }
-
-        return false
-    }
 }
 
 /// View model responsible for loading and exposing the home feed state.
@@ -117,11 +98,6 @@ final class NewsFeedViewModel: ObservableObject {
         load(using: .retry)
     }
 
-    /// Backward-compatible alias that maps legacy reload calls to refresh semantics.
-    func reload() {
-        refresh()
-    }
-
     /// Cancels the current feed refresh and clears the loading state.
     func cancelLoading() {
         loadingTask?.cancel()
@@ -155,7 +131,7 @@ final class NewsFeedViewModel: ObservableObject {
             return
         }
 
-        if policy.allowsReplacingInFlightLoad {
+        if case .initial = policy {
             loadingTask?.cancel()
         }
 
@@ -165,15 +141,22 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Evaluates whether the requested load policy is valid in the current runtime state.
     private func shouldStartLoad(for policy: NewsFeedLoadPolicy) -> Bool {
-        if isLoading, !policy.allowsReplacingInFlightLoad {
+        switch policy {
+        case .initial:
+            return true
+        case .refresh:
+            return !isLoading
+        case .retry:
+            guard !isLoading else {
+                return false
+            }
+
+            if case .failed = state {
+                return true
+            }
+
             return false
         }
-
-        if policy.requiresFailureState, errorMessage == nil {
-            return false
-        }
-
-        return true
     }
 
     /// Creates the async task that resolves repository content into published state.

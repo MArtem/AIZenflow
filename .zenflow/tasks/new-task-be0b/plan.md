@@ -852,4 +852,12 @@ Readability-first cycle progress:
   apply the restored snapshot.
 - The branchy snapshot-specific logic now lives behind `resolveRestorableSnapshot(...)`, `applyRestoredSnapshot(...)`, `reportSnapshotRestoreSkipped(...)`, and `reportSnapshotRestoreFailed(...)`.
   This reduces cognitive load in the main runtime flow without changing persistence semantics, restore policy, or public behavior.
+- The next readability-first step returned to `TchopApp/ViewModels/NewsFeedViewModel.swift` because the feed runtime still had one leftover ambiguity:
+  both the explicit `refresh()/retry()` API and the old `reload()` alias existed at the same time even though the rest of the app no longer used `reload()`.
+  The cleanup removed that alias and simplified `NewsFeedLoadPolicy` guards so the view model now exposes only the real runtime intents it supports.
+- `initial`, `refresh`, and `retry` still keep the same behavior, but the policy reads more directly:
+  initial load always starts,
+  refresh only starts when no request is in flight,
+  and retry only starts from a visible failed state.
+  This improves clarity in an actively used feature type without expanding the state machine or adding new abstraction layers.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

@@ -1063,6 +1063,14 @@ Absent:  no tests/build/simulator checks
   apply the restored snapshot.
   The snapshot-specific branching now sits behind `resolveRestorableSnapshot(...)`, `applyRestoredSnapshot(...)`, `reportSnapshotRestoreSkipped(...)`, and `reportSnapshotRestoreFailed(...)`.
   This improves readability without changing restore policy, persistence behavior, or authenticated app flow.
+  The next readability-first step then returned to `TchopApp/ViewModels/NewsFeedViewModel.swift`.
+  By that point the feed had already moved to explicit `refresh()` and `retry()` semantics, and no real call sites still depended on `reload()`.
+  Keeping that alias only preserved duplicate API vocabulary inside an active feature type, so it was removed.
+  `NewsFeedLoadPolicy` was also flattened to the three real guard rules the runtime uses:
+  initial load always starts,
+  refresh is ignored while another request is running,
+  and retry is only valid from a visible failed state.
+  This keeps the feed runtime API more explicit without growing the state model or adding any extra orchestration layers.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

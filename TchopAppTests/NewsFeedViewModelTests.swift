@@ -5,7 +5,7 @@ import TchopDatabase
 /// Verifies async loading states and error handling for feed view model.
 @MainActor
 final class NewsFeedViewModelTests: XCTestCase {
-    /// Verifies reload loads content from repository.
+    /// Verifies initial load resolves content from the repository.
     func testReloadLoadsContentFromRepository() async {
         let expectedContent = NewsFeedContent(
             cards: [
@@ -37,7 +37,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.errorMessage)
     }
 
-    /// Verifies reload publishes error state on failure.
+    /// Verifies initial load publishes error state on failure.
     func testReloadPublishesErrorStateOnFailure() async {
         let repository = TestNewsFeedRepository(result: .failure(TestNewsFeedError.failed))
         let viewModel = NewsFeedViewModel(
