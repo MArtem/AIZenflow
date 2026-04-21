@@ -56,8 +56,7 @@ final class AppState: ObservableObject {
     /// Signs in with the provided username and updates the source of truth user state.
     func signIn(username: String) throws {
         let signedInUser = try sessionService.signIn(username: username)
-        currentUser = signedInUser
-        applyPostAuthenticationNavigation(for: signedInUser)
+        activateAuthenticatedUser(signedInUser)
     }
 
     /// Updates restore preference for the active profile and applies the chosen policy immediately.
@@ -115,9 +114,10 @@ final class AppState: ObservableObject {
     private func restoreSession() {
         do {
             let restoredUser = try sessionService.restoreSession()
-            currentUser = restoredUser
             if let restoredUser {
-                applyPostAuthenticationNavigation(for: restoredUser)
+                activateAuthenticatedUser(restoredUser)
+            } else {
+                currentUser = nil
             }
         } catch {
             assertionFailure("Failed to restore user session: \(error)")
@@ -221,6 +221,12 @@ final class AppState: ObservableObject {
         }
 
         restoreNavigationIfNeeded(for: user)
+    }
+
+    /// Stores the active user and applies the standard authenticated runtime bootstrap flow.
+    private func activateAuthenticatedUser(_ user: AppUser) {
+        currentUser = user
+        applyPostAuthenticationNavigation(for: user)
     }
 
     /// Applies pending deep link if needed.

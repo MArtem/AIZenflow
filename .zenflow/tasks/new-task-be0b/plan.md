@@ -866,4 +866,9 @@ Readability-first cycle progress:
 - That duplication now goes through one `buildNewsDetailIntent(...)` helper.
   The URL contract, event reporting, tab selection behavior, and route table did not change.
   This was still worth doing because it removes repeated routing logic from a high-traffic orchestration file without introducing a new routing layer or any extra public types.
+- The next readability-first step returned to `TchopApp/App/AppState.swift`, but this time for the authenticated bootstrap path rather than navigation restore.
+  Both `signIn(...)` and `restoreSession()` were manually performing the same
+  `currentUser = user` plus post-authentication navigation bootstrap sequence.
+- That shared transition now goes through one `activateAuthenticatedUser(...)` helper.
+  The runtime behavior did not change, but the authenticated entry path is now easier to scan and easier to keep consistent in future edits because the standard post-login bootstrap only exists in one place.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

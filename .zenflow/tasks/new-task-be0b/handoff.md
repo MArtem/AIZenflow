@@ -1077,6 +1077,10 @@ Absent:  no tests/build/simulator checks
   That repeated logic now goes through one `buildNewsDetailIntent(...)` helper.
   No URL format, route resolution behavior, event reporting, or transition policy changed.
   The value of the step is simply lower duplication inside an important routing file without introducing a second routing layer or broader abstraction surface.
+  The next readability-first step then returned once more to `TchopApp/App/AppState.swift`, this time for the authenticated bootstrap path rather than navigation restore.
+  `signIn(...)` and `restoreSession()` were both manually setting `currentUser` and then kicking off the same post-authentication runtime flow.
+  That sequence now goes through one `activateAuthenticatedUser(...)` helper.
+  This does not change behavior, but it keeps authenticated entry into the app more explicit and reduces the chance that future post-login/runtime bootstrap changes get applied to one path but not the other.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)
