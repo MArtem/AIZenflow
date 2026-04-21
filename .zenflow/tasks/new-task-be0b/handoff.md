@@ -1017,6 +1017,14 @@ Absent:  no tests/build/simulator checks
   This reduced repetitive code without moving routing behavior into new abstractions or packages.
   Verification for this step:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
+- The latest readability-first step focused on `TchopApp/ViewModels/NewsFeedViewModel.swift` and the immediate feed UI call site.
+  The goal was to add explicit `refresh` / `retry` semantics without growing the screen state machine or introducing a second feed coordinator layer.
+  `refresh()` is now the user-driven reload path and refuses duplicate refreshes while a request is already running.
+  `retry()` now only starts a request after the feed has entered a visible failed state.
+  The old `reload()` entry point remains only as a backward-compatible alias to `refresh()`.
+  The policy remains private inside the view model through `NewsFeedLoadPolicy`, `shouldStartLoad(for:)`, and `makeLoadingTask()`, so the runtime behavior is clearer without adding more published state.
+  `TchopApp/Views/News/NewsFeedView.swift` now calls `refresh()` directly, and `TchopAppTests/NewsFeedViewModelTests.swift` now covers duplicate-refresh suppression, retry-after-failure, and inert retry-before-failure.
+  No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

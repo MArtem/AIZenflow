@@ -37,6 +37,32 @@ enum NewsFeedState: Equatable {
     }
 }
 
+/// Internal load policies that separate initial load, manual refresh and retry semantics.
+private enum NewsFeedLoadPolicy {
+    case initial
+    case refresh
+    case retry
+
+    /// Whether this policy may start a new request while another one is already running.
+    var allowsReplacingInFlightLoad: Bool {
+        switch self {
+        case .initial:
+            return true
+        case .refresh, .retry:
+            return false
+        }
+    }
+
+    /// Whether this policy is only valid after a visible load failure.
+    var requiresFailureState: Bool {
+        if case .retry = self {
+            return true
+        }
+
+        return false
+    }
+}
+
 /// View model responsible for loading and exposing the home feed state.
 @MainActor
 final class NewsFeedViewModel: ObservableObject {
@@ -63,7 +89,7 @@ final class NewsFeedViewModel: ObservableObject {
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
         widgetContentSyncManager.syncFeed(content: initialContent)
-        reload()
+        load(using: .initial)
     }
 
     /// Current feed content shown by the news screen.
@@ -81,28 +107,19 @@ final class NewsFeedViewModel: ObservableObject {
         state.errorMessage
     }
 
-    /// Reloads the news feed, cancelling any in-flight request first.
+    /// Starts a user-driven refresh when no feed request is already running.
+    func refresh() {
+        load(using: .refresh)
+    }
+
+    /// Retries feed loading only after a visible failed state.
+    func retry() {
+        load(using: .retry)
+    }
+
+    /// Backward-compatible alias that maps legacy reload calls to refresh semantics.
     func reload() {
-        loadingTask?.cancel()
-        state = .loading(content)
-
-        loadingTask = Task { [weak self] in
-            guard let self else {
-                return
-            }
-
-            do {
-                let content = try await repository.fetchNewsFeedContent()
-                guard !Task.isCancelled else {
-                    return
-                }
-                self.applyLoadedContent(content)
-            } catch is CancellationError {
-                return
-            } catch {
-                self.applyLoadFailureState()
-            }
-        }
+        refresh()
     }
 
     /// Cancels the current feed refresh and clears the loading state.
@@ -130,5 +147,53 @@ final class NewsFeedViewModel: ObservableObject {
     private func applyLoadFailureState() {
         state = .failed(content: loadFailureContent, message: loadFailureMessage)
         widgetContentSyncManager.syncFeed(content: loadFailureContent)
+    }
+
+    /// Applies load policy guards and starts a new request when the transition is allowed.
+    private func load(using policy: NewsFeedLoadPolicy) {
+        guard shouldStartLoad(for: policy) else {
+            return
+        }
+
+        if policy.allowsReplacingInFlightLoad {
+            loadingTask?.cancel()
+        }
+
+        state = .loading(content)
+        loadingTask = makeLoadingTask()
+    }
+
+    /// Evaluates whether the requested load policy is valid in the current runtime state.
+    private func shouldStartLoad(for policy: NewsFeedLoadPolicy) -> Bool {
+        if isLoading, !policy.allowsReplacingInFlightLoad {
+            return false
+        }
+
+        if policy.requiresFailureState, errorMessage == nil {
+            return false
+        }
+
+        return true
+    }
+
+    /// Creates the async task that resolves repository content into published state.
+    private func makeLoadingTask() -> Task<Void, Never> {
+        Task { [weak self] in
+            guard let self else {
+                return
+            }
+
+            do {
+                let content = try await repository.fetchNewsFeedContent()
+                guard !Task.isCancelled else {
+                    return
+                }
+                self.applyLoadedContent(content)
+            } catch is CancellationError {
+                return
+            } catch {
+                self.applyLoadFailureState()
+            }
+        }
     }
 }

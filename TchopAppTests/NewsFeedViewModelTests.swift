@@ -65,6 +65,91 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.content.cards.isEmpty)
     }
 
+    /// Verifies refresh does not start a second request while one is already running.
+    func testRefreshIgnoresDuplicateRequestWhileLoading() async {
+        let repository = TestNewsFeedRepository(
+            result: .success(NewsFeedContent(cards: [])),
+            delayNanoseconds: 200_000_000
+        )
+        let viewModel = NewsFeedViewModel(
+            repository: repository,
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedFixtures.fallbackContent,
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
+        )
+
+        XCTAssertEqual(repository.fetchCallCount, 1)
+
+        viewModel.refresh()
+
+        XCTAssertEqual(repository.fetchCallCount, 1)
+
+        await waitForLoading(of: viewModel)
+    }
+
+    /// Verifies retry starts a second request only after the view model enters failed state.
+    func testRetryStartsNewRequestAfterFailure() async {
+        let expectedContent = NewsFeedContent(
+            cards: [
+                .discussion(
+                    DiscussionCardModel(
+                        id: "discussion",
+                        categoryTitle: "Discussion",
+                        headline: "Recovered content",
+                        participants: [],
+                        joinedText: "+1 joined"
+                    )
+                )
+            ]
+        )
+        let repository = TestNewsFeedRepository(
+            results: [
+                .failure(TestNewsFeedError.failed),
+                .success(expectedContent),
+            ]
+        )
+        let viewModel = NewsFeedViewModel(
+            repository: repository,
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedFixtures.fallbackContent,
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
+        )
+
+        await waitForLoading(of: viewModel)
+        XCTAssertEqual(repository.fetchCallCount, 1)
+        XCTAssertEqual(
+            viewModel.state,
+            .failed(content: NewsFeedFixtures.fallbackContent, message: "Failed to load")
+        )
+
+        viewModel.retry()
+
+        XCTAssertEqual(repository.fetchCallCount, 2)
+        await waitForLoading(of: viewModel)
+        XCTAssertEqual(viewModel.state, .loaded(expectedContent))
+    }
+
+    /// Verifies retry stays inert while feed is not in failed state.
+    func testRetryDoesNothingBeforeFailure() async {
+        let repository = TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [])))
+        let viewModel = NewsFeedViewModel(
+            repository: repository,
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            initialContent: NewsFeedFixtures.fallbackContent,
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
+        )
+
+        await waitForLoading(of: viewModel)
+        XCTAssertEqual(repository.fetchCallCount, 1)
+
+        viewModel.retry()
+
+        XCTAssertEqual(repository.fetchCallCount, 1)
+    }
+
     /// Verifies cancel loading stops loading state.
     func testCancelLoadingStopsLoadingState() {
         let repository = TestNewsFeedRepository(result: .success(.init(cards: [])), delayNanoseconds: 500_000_000)

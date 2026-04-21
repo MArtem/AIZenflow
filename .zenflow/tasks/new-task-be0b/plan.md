@@ -795,3 +795,14 @@ Readability-first cycle progress:
 - This was kept deliberately local to the file: no URL contract changes, no route-definition changes, and no new public abstractions.
 - Verification:
   `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded.
+- The latest readability-first step focused on the feed runtime flow in [NewsFeedViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift) without expanding the existing `NewsFeedState` enum.
+- Feed loading now has explicit public entry points with distinct intent:
+  `refresh()` is the normal user-driven reload path and ignores duplicate refresh requests while a load is already running,
+  `retry()` only starts a new request after a visible failed state,
+  and legacy `reload()` remains only as a backward-compatible alias to `refresh()`.
+- The policy itself stays private and local to the type through `NewsFeedLoadPolicy`, `shouldStartLoad(for:)`, and `makeLoadingTask()`, so the runtime semantics are clearer without adding new screen states or spreading feed rules into the UI layer.
+- [NewsFeedView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift) now uses `refresh()` explicitly, and [NewsFeedViewModelTests.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopAppTests/NewsFeedViewModelTests.swift) now covers:
+  duplicate refresh suppression while loading,
+  retry after failure,
+  and inert retry before failure.
+- Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

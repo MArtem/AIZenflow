@@ -38,7 +38,7 @@ struct NewsFeedView: View {
         .accessibilityIdentifier("news.feed")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .refreshable {
-            viewModel.reload()
+            viewModel.refresh()
         }
     }
 }
