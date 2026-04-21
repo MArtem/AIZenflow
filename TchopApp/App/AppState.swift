@@ -127,29 +127,7 @@ final class AppState: ObservableObject {
 
     /// Restores navigation if needed.
     private func restoreNavigationIfNeeded(for user: AppUser) {
-        guard user.isNavigationStateRestoreEnabled else {
-            resetNavigationToDefaultState()
-            navigationEventReporter.report(
-                .snapshotRestoreSkipped(
-                    userID: user.id,
-                    reason: "restore-disabled"
-                )
-            )
-            return
-        }
-
-        guard
-            let snapshot = navigationStateManager.restoreSnapshot(
-                for: user.id,
-                as: NavigationSnapshot.self
-            )
-        else {
-            navigationEventReporter.report(
-                .snapshotRestoreSkipped(
-                    userID: user.id,
-                    reason: "snapshot-missing"
-                )
-            )
+        guard let snapshot = resolveRestorableSnapshot(for: user) else {
             return
         }
 
@@ -159,19 +137,42 @@ final class AppState: ObservableObject {
                 sourceVersion: snapshot.version
             )
         )
+        applyRestoredSnapshot(snapshot, for: user)
+    }
+
+    /// Resolves the snapshot that may be restored for the current user.
+    private func resolveRestorableSnapshot(for user: AppUser) -> NavigationSnapshot? {
+        guard user.isNavigationStateRestoreEnabled else {
+            resetNavigationToDefaultState()
+            reportSnapshotRestoreSkipped(for: user.id, reason: "restore-disabled")
+            return nil
+        }
+
+        guard
+            let snapshot = navigationStateManager.restoreSnapshot(
+                for: user.id,
+                as: NavigationSnapshot.self
+            )
+        else {
+            reportSnapshotRestoreSkipped(for: user.id, reason: "snapshot-missing")
+            return nil
+        }
 
         guard snapshot.version <= NavigationSnapshot.supportedVersion else {
             resetNavigationToDefaultState()
             navigationStateManager.clearSnapshot(for: user.id)
-            navigationEventReporter.report(
-                .snapshotRestoreFailed(
-                    userID: user.id,
-                    reason: "unsupported-future-version-\(snapshot.version)"
-                )
+            reportSnapshotRestoreFailed(
+                for: user.id,
+                reason: "unsupported-future-version-\(snapshot.version)"
             )
-            return
+            return nil
         }
 
+        return snapshot
+    }
+
+    /// Applies a resolved snapshot and records whether migration or sanitization changed it.
+    private func applyRestoredSnapshot(_ snapshot: NavigationSnapshot, for user: AppUser) {
         let migratedSnapshot = snapshot.migratedToSupportedVersion()
         let sanitizedSnapshot = migratedSnapshot.sanitized()
         let wasMigrated = migratedSnapshot.version != snapshot.version
@@ -189,6 +190,26 @@ final class AppState: ObservableObject {
                 appliedVersion: sanitizedSnapshot.version,
                 wasSanitized: wasSanitized,
                 wasMigrated: wasMigrated
+            )
+        )
+    }
+
+    /// Reports that snapshot restore was skipped before applying any persisted state.
+    private func reportSnapshotRestoreSkipped(for userID: UUID, reason: String) {
+        navigationEventReporter.report(
+            .snapshotRestoreSkipped(
+                userID: userID,
+                reason: reason
+            )
+        )
+    }
+
+    /// Reports that snapshot restore failed after a persisted snapshot was inspected.
+    private func reportSnapshotRestoreFailed(for userID: UUID, reason: String) {
+        navigationEventReporter.report(
+            .snapshotRestoreFailed(
+                userID: userID,
+                reason: reason
             )
         )
     }

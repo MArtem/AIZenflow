@@ -844,4 +844,12 @@ Readability-first cycle progress:
   `makeState(...)` builds the next snapshot while preserving unchanged fields,
   and `updateState(...)` centralizes apply/persist/event-emission.
   This removes the repeated full-state reconstruction from each lifecycle method without introducing a second state layer or changing persistence behavior.
+- The next readability-first step returned to [AppState.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift), because it remains one of the highest-value app-level orchestration files.
+  The cleanup stayed local to navigation snapshot restore.
+  `restoreNavigationIfNeeded(for:)` now reads as a three-stage flow:
+  resolve a restorable snapshot,
+  report restore start,
+  apply the restored snapshot.
+- The branchy snapshot-specific logic now lives behind `resolveRestorableSnapshot(...)`, `applyRestoredSnapshot(...)`, `reportSnapshotRestoreSkipped(...)`, and `reportSnapshotRestoreFailed(...)`.
+  This reduces cognitive load in the main runtime flow without changing persistence semantics, restore policy, or public behavior.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

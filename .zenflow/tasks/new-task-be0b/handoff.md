@@ -1055,6 +1055,14 @@ Absent:  no tests/build/simulator checks
   Repeated full-state reconstruction is now routed through `makeState(...)`,
   and the common apply/persist/event-emission sequence is now routed through `updateState(...)`.
   This keeps the lifecycle methods shorter and more uniform without adding a second state layer or changing the persisted model.
+  The next readability-first step then returned to `TchopApp/App/AppState.swift`, which remains one of the higher-value runtime orchestration points in the app layer.
+  The change stayed focused on navigation snapshot restore.
+  `restoreNavigationIfNeeded(for:)` now reads through a smaller top-level flow:
+  resolve a restorable snapshot,
+  report restore start,
+  apply the restored snapshot.
+  The snapshot-specific branching now sits behind `resolveRestorableSnapshot(...)`, `applyRestoredSnapshot(...)`, `reportSnapshotRestoreSkipped(...)`, and `reportSnapshotRestoreFailed(...)`.
+  This improves readability without changing restore policy, persistence behavior, or authenticated app flow.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)
