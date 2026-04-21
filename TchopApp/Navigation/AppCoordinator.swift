@@ -40,29 +40,15 @@ final class AppCoordinator: ObservableObject {
 
     /// Opens the root state of the provided tab.
     func showTabRoot(_ tab: AppTab) {
-        switch tab {
-        case .news:
-            newsRouter.popToRoot()
-        case .mixes:
-            mixesRouter.popToRoot()
-        case .pinned:
-            pinnedRouter.popToRoot()
-        case .chat:
-            chatRouter.popToRoot()
-        case .profile:
-            profileRouter.popToRoot()
-        }
-
+        popToRoot(for: tab)
         selectedTab = tab
     }
 
     /// Clears every tab navigation stack.
     func resetAllNavigation() {
-        newsRouter.popToRoot()
-        mixesRouter.popToRoot()
-        pinnedRouter.popToRoot()
-        chatRouter.popToRoot()
-        profileRouter.popToRoot()
+        for tab in AppTab.allCases {
+            popToRoot(for: tab)
+        }
     }
 
     /// Emits whenever selected tab or any tab stack changes.
@@ -92,12 +78,8 @@ final class AppCoordinator: ObservableObject {
 
     /// Applies a previously saved navigation snapshot.
     func applySnapshot(_ snapshot: NavigationSnapshot) {
-        selectTab(snapshot.selectedTab)
-        newsRouter.replacePath(with: snapshot.newsPath)
-        mixesRouter.replacePath(with: snapshot.mixesPath)
-        pinnedRouter.replacePath(with: snapshot.pinnedPath)
-        chatRouter.replacePath(with: snapshot.chatPath)
-        profileRouter.replacePath(with: snapshot.profilePath)
+        selectedTab = snapshot.selectedTab
+        replacePaths(using: snapshot)
     }
 
     /// Applies transition for a news destination with idempotency guarantees.
@@ -185,5 +167,30 @@ final class AppCoordinator: ObservableObject {
             }
             router.push(route)
         }
+    }
+
+    /// Pops the navigation stack for a single tab.
+    private func popToRoot(for tab: AppTab) {
+        switch tab {
+        case .news:
+            newsRouter.popToRoot()
+        case .mixes:
+            mixesRouter.popToRoot()
+        case .pinned:
+            pinnedRouter.popToRoot()
+        case .chat:
+            chatRouter.popToRoot()
+        case .profile:
+            profileRouter.popToRoot()
+        }
+    }
+
+    /// Applies all tab paths from a stored snapshot.
+    private func replacePaths(using snapshot: NavigationSnapshot) {
+        newsRouter.replacePath(with: snapshot.newsPath)
+        mixesRouter.replacePath(with: snapshot.mixesPath)
+        pinnedRouter.replacePath(with: snapshot.pinnedPath)
+        chatRouter.replacePath(with: snapshot.chatPath)
+        profileRouter.replacePath(with: snapshot.profilePath)
     }
 }

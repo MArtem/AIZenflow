@@ -268,6 +268,13 @@ The repeated missing-channel guard was removed from the backend-specific methods
 This step intentionally did not touch the feed-loading contract or introduce new repository abstractions.
 Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
 
+### [x] Step: Readability-first refactor 8 — simplify root-reset flow in AppCoordinator
+
+Applied a narrow readability refactor to `TchopApp/Navigation/AppCoordinator.swift`.
+The repeated tab-specific `popToRoot()` switch logic is now centralized in one helper and reused by both `showTabRoot(_:)` and `resetAllNavigation()`, while snapshot application now uses a dedicated helper for path replacement.
+This step keeps the same navigation model and public surface and only removes procedural repetition from the coordinator.
+Verification was not run for this step because the user explicitly requested not to run automatic low-level checks after every iteration unless asked.
+
 ### [x] Step: Apply post-review hardening recommendations for phase 3-6
 
 Applied review-driven corrections in `TchopNetworking` to avoid silent data-loss behavior and to keep retry observability complete.

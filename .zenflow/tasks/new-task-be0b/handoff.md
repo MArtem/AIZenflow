@@ -290,6 +290,12 @@
   The Core Data channel request setup is centralized in a small helper as well.
   This step was intentionally kept narrow and did not touch the feed API flow or mapper surface.
   No automatic verification was run here because the user requested not to trigger low-level checks after every step unless explicitly asked.
+- Coordinator readability progress:
+  `AppCoordinator` has now also been simplified.
+  The repeated tab-specific `popToRoot()` switch is centralized in one helper and reused by both root-opening and full reset flows.
+  Snapshot application also now routes path replacement through a dedicated helper, so the main method reads more directly.
+  This step did not alter the routing model, tab ownership, or navigation API surface.
+  No automatic verification was run here because the user requested not to trigger low-level checks after every step unless explicitly asked.
 - Current profiling baseline:
   CLI profiling was captured for `TchopApp` on `iPhone 17 Pro (iOS 26.0)` with `xctrace` (`App Launch`, `Time Profiler`, `Leaks`), `sample`, `vmmap`, and simulator logs.
   Startup appears healthy with first-active transition around `0.67s`, idle sample showed no CPU hotspot or busy-loop pattern, and physical footprint was about `24.6MB` with peak around `25.2MB` during startup/idle sampling.
