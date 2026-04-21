@@ -1081,6 +1081,12 @@ Absent:  no tests/build/simulator checks
   `signIn(...)` and `restoreSession()` were both manually setting `currentUser` and then kicking off the same post-authentication runtime flow.
   That sequence now goes through one `activateAuthenticatedUser(...)` helper.
   This does not change behavior, but it keeps authenticated entry into the app more explicit and reduces the chance that future post-login/runtime bootstrap changes get applied to one path but not the other.
+  The next readability-first step then touched `Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift` at a much smaller seam.
+  `UIConfigurationManager` still had a manual `fetchConfiguration()` implementation that did nothing except call `refreshConfiguration()`,
+  even though `UIConfigurationManaging` already exposes that exact alias through its default protocol extension.
+  The explicit actor implementation was removed.
+  This keeps the package API the same while reducing one redundant override.
+  After this point the remaining readability-first opportunities look much closer to cosmetic formatting/structure cleanup than to changes with meaningful payoff.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

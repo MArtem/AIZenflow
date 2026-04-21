@@ -871,4 +871,9 @@ Readability-first cycle progress:
   `currentUser = user` plus post-authentication navigation bootstrap sequence.
 - That shared transition now goes through one `activateAuthenticatedUser(...)` helper.
   The runtime behavior did not change, but the authenticated entry path is now easier to scan and easier to keep consistent in future edits because the standard post-login bootstrap only exists in one place.
+- The next readability-first step touched `Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift`, but only at a very narrow seam:
+  `UIConfigurationManager` was still manually implementing `fetchConfiguration()` even though `UIConfigurationManaging` already provides the exact same alias to `refreshConfiguration()` through its default protocol extension.
+- The actor-level duplicate implementation was removed.
+  This keeps the public API unchanged while reducing one unnecessary override in a reusable package type.
+  At this point the remaining readability-first opportunities are getting much closer to cosmetic cleanup than to meaningful simplification.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

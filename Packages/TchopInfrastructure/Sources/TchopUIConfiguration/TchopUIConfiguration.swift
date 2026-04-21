@@ -238,11 +238,6 @@ public actor UIConfigurationManager: UIConfigurationManaging {
         return try await fetchAndStoreRemoteSnapshot()
     }
 
-    /// Fetches configuration.
-    public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
-        try await refreshConfiguration()
-    }
-
     /// Returns a snapshot that can safely be used as the active cached state.
     private static func sanitizedSnapshot(
         _ snapshot: UIConfigurationSnapshot?,
