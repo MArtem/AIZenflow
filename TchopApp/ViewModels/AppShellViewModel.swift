@@ -42,9 +42,7 @@ final class AppShellViewModel: ObservableObject {
         self.showsFloatingActionButton = true
         self.uiConfigurationManager = uiConfigurationManager
 
-        Task {
-            await loadUIConfiguration()
-        }
+        startUIConfigurationLoad()
     }
 
     /// Toggles the side menu state.
@@ -57,19 +55,37 @@ final class AppShellViewModel: ObservableObject {
         isMenuOpen = false
     }
 
+    /// Starts the asynchronous shell configuration bootstrap sequence.
+    private func startUIConfigurationLoad() {
+        Task {
+            await loadUIConfiguration()
+        }
+    }
+
     /// Loads uiconfiguration.
     private func loadUIConfiguration() async {
-        applyShellConfiguration(await uiConfigurationManager.currentConfiguration())
+        let currentConfiguration = await uiConfigurationManager.currentConfiguration()
+        applyShellConfiguration(currentConfiguration)
+        await refreshUIConfiguration()
+    }
 
+    /// Refreshes shell configuration from the remote-backed configuration manager.
+    private func refreshUIConfiguration() async {
         do {
-            applyShellConfiguration(try await uiConfigurationManager.refreshConfiguration())
+            let refreshedConfiguration = try await uiConfigurationManager.refreshConfiguration()
+            applyShellConfiguration(refreshedConfiguration)
         } catch {
-            assertionFailure("Failed to fetch UI configuration: \(error)")
+            handleUIConfigurationRefreshFailure(error)
         }
     }
 
     /// Applies shell-specific UI settings from a full configuration snapshot.
     private func applyShellConfiguration(_ configuration: UIConfigurationSnapshot) {
         showsFloatingActionButton = configuration.shell.showsFloatingActionButton
+    }
+
+    /// Handles non-fatal refresh failures after the cached configuration has already been applied.
+    private func handleUIConfigurationRefreshFailure(_ error: any Error) {
+        assertionFailure("Failed to fetch UI configuration: \(error)")
     }
 }

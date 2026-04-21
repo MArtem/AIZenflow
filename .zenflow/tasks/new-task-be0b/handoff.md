@@ -1027,6 +1027,13 @@ Absent:  no tests/build/simulator checks
   The immediate follow-up step then closed the remaining UI gap:
   `TchopApp/Views/News/NewsFeedView.swift` now shows a visible `Retry` control inside the failed-state banner and wires it directly to `viewModel.retry()`.
   This was intentionally kept local to the existing view so the retry policy is usable in the real screen without creating a separate error component, extra view model state, or additional navigation/UI layers.
+  The following readability-first step then focused on `TchopApp/ViewModels/AppShellViewModel.swift`.
+  The type was already small enough that a bigger rewrite would have been unjustified.
+  The change therefore stayed local to the UI configuration bootstrap sequence:
+  `init` now calls one explicit `startUIConfigurationLoad()` helper,
+  `loadUIConfiguration()` applies the current snapshot first and then delegates remote refresh to `refreshUIConfiguration()`,
+  and refresh failures now go through `handleUIConfigurationRefreshFailure(...)` instead of staying inline.
+  This makes the shell runtime flow easier to read without adding any new state model, coordinator, or DI abstraction.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

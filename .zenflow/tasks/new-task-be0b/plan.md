@@ -808,4 +808,11 @@ Readability-first cycle progress:
 - The next feed step stayed deliberately minimal and completed the UI-to-runtime path:
   [NewsFeedView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift) now exposes an explicit `Retry` control in the failed-state banner, wired directly to `viewModel.retry()`.
 - This keeps the new retry policy usable from the actual screen without introducing a separate error view model, additional screen states, or a debug-only trigger path.
+- The next readability-first step moved to [AppShellViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/AppShellViewModel.swift).
+  No responsibilities were moved out of the type.
+  The cleanup was limited to the configuration bootstrap path:
+  `init` now starts one explicit `startUIConfigurationLoad()` helper,
+  `loadUIConfiguration()` applies the current snapshot and then delegates the remote refresh to `refreshUIConfiguration()`,
+  and the refresh failure path now goes through one named `handleUIConfigurationRefreshFailure(...)` helper instead of staying embedded inline.
+- This keeps the shell runtime flow easier to scan without adding new state, new abstractions, or any extra DI surface.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.
