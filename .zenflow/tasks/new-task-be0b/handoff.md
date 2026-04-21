@@ -1050,6 +1050,11 @@ Absent:  no tests/build/simulator checks
   Stubbed request handling now goes through shared `executeStubResponse(...)` helpers,
   and repeated retry notification/sleep logic now goes through `performRetryIfNeeded(...)`.
   This leaves `perform`, `upload`, `download`, and the internal execute loop closer to one shared runtime model without adding a separate executor abstraction or changing the public API.
+  The next readability-first step then moved into `Packages/TchopInfrastructure/Sources/TchopPushNotifications/TchopPushNotifications.swift`.
+  The manager contract already matched the intended host usage, so the change stayed inside `PushNotificationManager`.
+  Repeated full-state reconstruction is now routed through `makeState(...)`,
+  and the common apply/persist/event-emission sequence is now routed through `updateState(...)`.
+  This keeps the lifecycle methods shorter and more uniform without adding a second state layer or changing the persisted model.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

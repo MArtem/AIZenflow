@@ -361,78 +361,56 @@ public actor PushNotificationManager: PushNotificationManaging {
 
     /// Updates authorization status.
     public func updateAuthorizationStatus(_ status: PushNotificationAuthorizationStatus) async throws -> PushNotificationState {
-        state = PushNotificationState(
-            authorizationStatus: status,
-            isRegisteredForRemoteNotifications: state.isRegisteredForRemoteNotifications,
-            deviceToken: state.deviceToken,
-            lastRegistrationErrorDescription: state.lastRegistrationErrorDescription,
-            lastReceivedPayload: state.lastReceivedPayload,
-            lastOpenedPayload: state.lastOpenedPayload
+        try await updateState(
+            to: makeState(authorizationStatus: status),
+            event: .authorizationStatusUpdated(status)
         )
-        try persistState()
-        await eventCollector.record(.authorizationStatusUpdated(status))
         return state
     }
 
     /// Updates remote registration.
     public func updateRemoteRegistration(isRegistered: Bool) async throws -> PushNotificationState {
-        state = PushNotificationState(
-            authorizationStatus: state.authorizationStatus,
-            isRegisteredForRemoteNotifications: isRegistered,
-            deviceToken: state.deviceToken,
-            lastRegistrationErrorDescription: state.lastRegistrationErrorDescription,
-            lastReceivedPayload: state.lastReceivedPayload,
-            lastOpenedPayload: state.lastOpenedPayload
+        try await updateState(
+            to: makeState(isRegisteredForRemoteNotifications: isRegistered),
+            event: .remoteRegistrationUpdated(isRegistered: isRegistered)
         )
-        try persistState()
-        await eventCollector.record(.remoteRegistrationUpdated(isRegistered: isRegistered))
         return state
     }
 
     /// Handles device token.
     public func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState {
         let normalizedToken = APNsDeviceToken(data: deviceToken)
-        state = PushNotificationState(
-            authorizationStatus: state.authorizationStatus,
-            isRegisteredForRemoteNotifications: true,
-            deviceToken: normalizedToken,
-            lastRegistrationErrorDescription: nil,
-            lastReceivedPayload: state.lastReceivedPayload,
-            lastOpenedPayload: state.lastOpenedPayload
+        try await updateState(
+            to: makeState(
+                isRegisteredForRemoteNotifications: true,
+                deviceToken: normalizedToken,
+                lastRegistrationErrorDescription: nil
+            ),
+            event: .deviceTokenUpdated(normalizedToken.value)
         )
-        try persistState()
-        await eventCollector.record(.deviceTokenUpdated(normalizedToken.value))
         return state
     }
 
     /// Handles registration failure.
     public func handleRegistrationFailure(_ errorDescription: String) async throws -> PushNotificationState {
-        state = PushNotificationState(
-            authorizationStatus: state.authorizationStatus,
-            isRegisteredForRemoteNotifications: false,
-            deviceToken: state.deviceToken,
-            lastRegistrationErrorDescription: errorDescription,
-            lastReceivedPayload: state.lastReceivedPayload,
-            lastOpenedPayload: state.lastOpenedPayload
+        try await updateState(
+            to: makeState(
+                isRegisteredForRemoteNotifications: false,
+                lastRegistrationErrorDescription: errorDescription
+            ),
+            event: .registrationFailed(reason: errorDescription)
         )
-        try persistState()
-        await eventCollector.record(.registrationFailed(reason: errorDescription))
         return state
     }
 
     /// Handles remote notification.
     public func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload {
-        state = PushNotificationState(
-            authorizationStatus: state.authorizationStatus,
-            isRegisteredForRemoteNotifications: state.isRegisteredForRemoteNotifications,
-            deviceToken: state.deviceToken,
-            lastRegistrationErrorDescription: state.lastRegistrationErrorDescription,
-            lastReceivedPayload: payload.source == .opened ? state.lastReceivedPayload : payload,
-            lastOpenedPayload: payload.source == .opened ? payload : state.lastOpenedPayload
-        )
-        try persistState()
-        await eventCollector.record(
-            .remoteNotificationHandled(
+        try await updateState(
+            to: makeState(
+                lastReceivedPayload: payload.source == .opened ? state.lastReceivedPayload : payload,
+                lastOpenedPayload: payload.source == .opened ? payload : state.lastOpenedPayload
+            ),
+            event: .remoteNotificationHandled(
                 source: payload.source,
                 route: payload.customData["route"],
                 title: payload.title
@@ -451,5 +429,34 @@ public actor PushNotificationManager: PushNotificationManaging {
     /// Handles persist state.
     private func persistState() throws {
         try store.save(state)
+    }
+
+    /// Builds the next persisted state while preserving every unchanged field.
+    private func makeState(
+        authorizationStatus: PushNotificationAuthorizationStatus? = nil,
+        isRegisteredForRemoteNotifications: Bool? = nil,
+        deviceToken: APNsDeviceToken?? = .none,
+        lastRegistrationErrorDescription: String?? = .none,
+        lastReceivedPayload: PushNotificationPayload?? = .none,
+        lastOpenedPayload: PushNotificationPayload?? = .none
+    ) -> PushNotificationState {
+        PushNotificationState(
+            authorizationStatus: authorizationStatus ?? state.authorizationStatus,
+            isRegisteredForRemoteNotifications: isRegisteredForRemoteNotifications ?? state.isRegisteredForRemoteNotifications,
+            deviceToken: deviceToken ?? state.deviceToken,
+            lastRegistrationErrorDescription: lastRegistrationErrorDescription ?? state.lastRegistrationErrorDescription,
+            lastReceivedPayload: lastReceivedPayload ?? state.lastReceivedPayload,
+            lastOpenedPayload: lastOpenedPayload ?? state.lastOpenedPayload
+        )
+    }
+
+    /// Applies, persists, and reports the next push manager state in one place.
+    private func updateState(
+        to newState: PushNotificationState,
+        event: PushNotificationEvent
+    ) async throws {
+        state = newState
+        try persistState()
+        await eventCollector.record(event)
     }
 }

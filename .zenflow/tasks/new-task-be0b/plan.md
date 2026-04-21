@@ -837,4 +837,11 @@ Readability-first cycle progress:
   stub execution and retry scheduling.
 - Stubbed request execution now goes through shared `executeStubResponse(...)` helpers, and repeated retry notification/sleep logic now goes through `performRetryIfNeeded(...)`.
   This keeps `perform`, `upload`, `download`, and the internal execute loop closer to the same mental model without introducing a separate executor object or changing runtime semantics.
+- The next readability-first step moved into [TchopPushNotifications.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopPushNotifications/TchopPushNotifications.swift).
+  The public manager contract stayed the same.
+  The cleanup targeted repeated state reconstruction inside `PushNotificationManager`.
+- State transitions now go through two local helpers:
+  `makeState(...)` builds the next snapshot while preserving unchanged fields,
+  and `updateState(...)` centralizes apply/persist/event-emission.
+  This removes the repeated full-state reconstruction from each lifecycle method without introducing a second state layer or changing persistence behavior.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.
