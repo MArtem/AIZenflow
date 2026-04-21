@@ -102,8 +102,6 @@ final class NewsFeedViewModel: ObservableObject {
             } catch {
                 self.applyLoadFailureState()
             }
-
-            self.isLoading = false
         }
     }
 
