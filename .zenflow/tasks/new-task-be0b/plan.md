@@ -981,3 +981,6 @@ Readability-first cycle progress:
   `DefaultAppContentRepository` marks bootstrap snapshots as cached and rewrites them to offline-cached when the network gate blocks refresh,
   and `NewsFeedView` shows a small status line above the cards when the user is seeing saved content.
 - This keeps the stale/offline signal honest for the user while avoiding a second feed state machine, a separate banner service, or extra coordinator/UI policy layers.
+- The pull-to-refresh policy is now fixed for this section:
+  when the device is online, refresh goes through the API path again and then syncs the database snapshot;
+  when the device is offline, refresh intentionally keeps the current persisted snapshot visible and the UI explicitly shows that the feed is being served from offline/saved data.

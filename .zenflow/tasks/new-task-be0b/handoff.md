@@ -1170,6 +1170,10 @@ Absent:  no tests/build/simulator checks
   no second state machine,
   no new banner manager,
   and no broader stale-content framework yet.
+  Pull-to-refresh policy is now explicit and should be preserved:
+  online refresh re-enters the API path and then re-syncs persistence,
+  offline refresh does not switch the screen into an error-only state and does not discard the current feed;
+  it keeps showing the persisted snapshot from the database and surfaces the offline status through the cached/offline UI marker.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

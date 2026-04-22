@@ -89,6 +89,7 @@ final class NewsFeedViewModel: ObservableObject {
     }
 
     /// Starts a user-driven refresh when no feed request is already running.
+    /// Online refresh goes through the API path; offline refresh keeps the stored snapshot and updates the UI source metadata.
     func refresh() {
         load(using: .refresh)
     }

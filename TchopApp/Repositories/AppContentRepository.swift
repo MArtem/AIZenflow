@@ -17,7 +17,7 @@ protocol NewsFeedRepository {
     /// Returns the current persisted feed snapshot if one is already available locally.
     func currentNewsFeedContent() throws -> NewsFeedContent?
 
-    /// Refreshes feed content from the API, syncs persistence, and returns the resulting snapshot.
+    /// Refreshes feed content from the API when online, otherwise returns the current persisted snapshot marked as offline.
     func refreshNewsFeedContent() async throws -> NewsFeedContent
 }
 
@@ -59,7 +59,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         return content.cards.isEmpty ? nil : content
     }
 
-    /// Refreshes feed cards from the feed API, syncs persistence, and rereads the stored snapshot.
+    /// Refreshes feed cards from the feed API when online, or keeps the persisted snapshot visible when offline.
     func refreshNewsFeedContent() async throws -> NewsFeedContent {
         guard networkAvailabilityChecker.isInternetAvailable else {
             if let persistedContent = try currentNewsFeedContent() {
