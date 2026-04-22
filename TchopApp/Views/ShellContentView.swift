@@ -10,15 +10,7 @@ struct ShellContentView: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            TabContentView(
-                selectedTab: coordinator.selectedTab,
-                coordinator: coordinator,
-                newsFeedViewModel: viewModel.newsFeedViewModel,
-                currentUser: currentUser,
-                onNavigationRestoreChange: onNavigationRestoreChange,
-                onLogout: onLogout
-            )
-            .safeAreaInset(edge: .top, spacing: 0) {
+            VStack(spacing: 0) {
                 TopBarView(
                     channelInfo: viewModel.channelInfo,
                     onMenuTap: viewModel.toggleMenu,
@@ -26,7 +18,18 @@ struct ShellContentView: View {
                     onSearchTap: {},
                     onNotificationsTap: {}
                 )
+
+                TabContentView(
+                    selectedTab: coordinator.selectedTab,
+                    coordinator: coordinator,
+                    newsFeedViewModel: viewModel.newsFeedViewModel,
+                    currentUser: currentUser,
+                    onNavigationRestoreChange: onNavigationRestoreChange,
+                    onLogout: onLogout
+                )
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             }
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
             if coordinator.selectedTab == .news && viewModel.showsFloatingActionButton {
                 FloatingActionButton()
