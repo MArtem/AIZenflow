@@ -27,6 +27,7 @@ final class ChannelRecord {
 final class UserRecord {
     @Attribute(.unique) var username: String
     var id: String
+    var appleUserID: String?
     var createdAt: Date
     var isNavigationStateRestoreEnabled: Bool
 
@@ -34,11 +35,13 @@ final class UserRecord {
     init(
         id: String = UUID().uuidString,
         username: String,
+        appleUserID: String? = nil,
         createdAt: Date,
         isNavigationStateRestoreEnabled: Bool = true
     ) {
         self.username = username
         self.id = id
+        self.appleUserID = appleUserID
         self.createdAt = createdAt
         self.isNavigationStateRestoreEnabled = isNavigationStateRestoreEnabled
     }
@@ -48,6 +51,7 @@ final class UserRecord {
         AppUser(
             id: id,
             username: username,
+            appleUserID: appleUserID,
             createdAt: createdAt,
             isNavigationStateRestoreEnabled: isNavigationStateRestoreEnabled
         )

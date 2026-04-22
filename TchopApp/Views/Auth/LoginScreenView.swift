@@ -1,3 +1,4 @@
+import AuthenticationServices
 import SwiftUI
 
 /// Username-based authentication screen shown before entering the app shell.
@@ -5,9 +6,15 @@ struct LoginScreenView: View {
     @StateObject private var viewModel: LoginViewModel
 
     /// Creates a new LoginScreenView instance.
-    init(onLogin: @escaping (String) throws -> Void) {
+    init(
+        onLogin: @escaping (String) throws -> Void,
+        onAppleLogin: @escaping (AppleSignInSessionProfile) throws -> Void
+    ) {
         _viewModel = StateObject(
-            wrappedValue: LoginViewModel(onLogin: onLogin)
+            wrappedValue: LoginViewModel(
+                onLogin: onLogin,
+                onAppleLogin: onAppleLogin
+            )
         )
     }
 
@@ -29,6 +36,29 @@ struct LoginScreenView: View {
                     .font(.system(size: 15, weight: .medium))
                     .foregroundStyle(AppTheme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
+            }
+
+            SignInWithAppleButton(.signIn) { request in
+                request.requestedScopes = [.fullName, .email]
+            } onCompletion: { result in
+                viewModel.handleAppleSignInCompletion(result)
+            }
+            .accessibilityIdentifier("login.appleButton")
+            .frame(height: 52)
+            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+
+            HStack(spacing: 12) {
+                Rectangle()
+                    .fill(AppTheme.borderSubtle)
+                    .frame(height: 1)
+
+                Text(AppLocalization.text("login.separator", fallback: "or"))
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(AppTheme.textTertiary)
+
+                Rectangle()
+                    .fill(AppTheme.borderSubtle)
+                    .frame(height: 1)
             }
 
             VStack(alignment: .leading, spacing: 10) {
@@ -60,7 +90,7 @@ struct LoginScreenView: View {
             }
 
             Button(action: viewModel.submit) {
-                Text(AppLocalization.text("login.continueButton", fallback: "Continue"))
+                Text(AppLocalization.text("login.continueButton", fallback: "Continue with username"))
                     .font(.system(size: 16, weight: .semibold))
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 15)

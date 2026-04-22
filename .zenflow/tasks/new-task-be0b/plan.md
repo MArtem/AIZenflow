@@ -893,4 +893,15 @@ Readability-first cycle progress:
 - The actor-level duplicate implementation was removed.
   This keeps the public API unchanged while reducing one unnecessary override in a reusable package type.
   At this point the remaining readability-first opportunities are getting much closer to cosmetic cleanup than to meaningful simplification.
+- Temporary execution rule from commit `a063e72` onward:
+  do not write tests,
+  do not update tests,
+  do not run tests,
+  and do not spend delivery budget on verification until the user explicitly asks for a retrospective test pass across the commits from this point to the then-current head.
+- Current implementation focus:
+  integrate `Sign in with Apple` into the existing auth flow without introducing unnecessary auth layers.
+  The target baseline for this step is:
+  stable Apple identity persistence,
+  session restore by stable local user id,
+  and a readable login screen that keeps local username sign-in as a fallback path.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.

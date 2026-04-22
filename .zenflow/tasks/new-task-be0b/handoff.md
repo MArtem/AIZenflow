@@ -1099,6 +1099,17 @@ Absent:  no tests/build/simulator checks
   The explicit actor implementation was removed.
   This keeps the package API the same while reducing one redundant override.
   After this point the remaining readability-first opportunities look much closer to cosmetic formatting/structure cleanup than to changes with meaningful payoff.
+  Temporary execution rule from commit `a063e72` onward:
+  do not write tests,
+  do not update tests,
+  do not run tests,
+  and do not spend delivery budget on verification until the user explicitly asks for a retrospective test pass across the commits from this point forward.
+  Current active implementation step:
+  integrate `Sign in with Apple` into the current auth flow while keeping the architecture simple.
+  The intended baseline for this work is:
+  stable Apple identity persistence,
+  session restore by stable local user id,
+  and a login screen that keeps the existing local username path as fallback instead of replacing it.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
 
 ## Model Policy (Quality vs Limits)

@@ -20,7 +20,10 @@ struct AppRootView: View {
     var body: some View {
         Group {
             if appState.currentUser == nil {
-                LoginScreenView(onLogin: appState.signIn)
+                LoginScreenView(
+                    onLogin: appState.signIn,
+                    onAppleLogin: appState.signInWithApple(profile:)
+                )
                     .accessibilityIdentifier("login.screen")
             } else {
                 AppShellView(

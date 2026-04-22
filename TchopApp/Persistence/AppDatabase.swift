@@ -300,6 +300,7 @@ private enum AppDatabaseMigrationCoordinator {
     private struct MigrationUserPayload {
         let id: String
         let username: String
+        let appleUserID: String?
         let createdAt: Date
         let isNavigationStateRestoreEnabled: Bool
     }
@@ -347,6 +348,7 @@ private enum AppDatabaseMigrationCoordinator {
                         MigrationUserPayload(
                             id: $0.id,
                             username: $0.username,
+                            appleUserID: $0.appleUserID,
                             createdAt: $0.createdAt,
                             isNavigationStateRestoreEnabled: $0.isNavigationStateRestoreEnabled
                         )
@@ -387,8 +389,15 @@ private enum AppDatabaseMigrationCoordinator {
     ) throws {
         for user in users {
             let descriptor = FetchDescriptor<UserRecord>()
-            if let existing = try context.fetch(descriptor).first(where: { $0.username == user.username }) {
+            if let existing = try context.fetch(descriptor).first(where: {
+                if let appleUserID = user.appleUserID {
+                    return $0.appleUserID == appleUserID
+                }
+
+                return $0.username == user.username
+            }) {
                 existing.id = user.id
+                existing.appleUserID = user.appleUserID
                 existing.createdAt = user.createdAt
                 existing.isNavigationStateRestoreEnabled = user.isNavigationStateRestoreEnabled
             } else {
@@ -396,6 +405,7 @@ private enum AppDatabaseMigrationCoordinator {
                     UserRecord(
                         id: user.id,
                         username: user.username,
+                        appleUserID: user.appleUserID,
                         createdAt: user.createdAt,
                         isNavigationStateRestoreEnabled: user.isNavigationStateRestoreEnabled
                     )
@@ -510,6 +520,7 @@ private enum AppDatabaseContainerFactory {
         entity.properties = [
             makeStringAttribute(name: "id"),
             makeStringAttribute(name: "username"),
+            makeStringAttribute(name: "appleUserID", isOptional: true),
             makeDateAttribute(name: "createdAt"),
             makeBoolAttribute(name: "isNavigationStateRestoreEnabled")
         ]
@@ -518,10 +529,17 @@ private enum AppDatabaseContainerFactory {
     }
 
     private static func makeStringAttribute(name: String) -> NSAttributeDescription {
+        makeStringAttribute(name: name, isOptional: false)
+    }
+
+    private static func makeStringAttribute(
+        name: String,
+        isOptional: Bool
+    ) -> NSAttributeDescription {
         let attribute = NSAttributeDescription()
         attribute.name = name
         attribute.attributeType = .stringAttributeType
-        attribute.isOptional = false
+        attribute.isOptional = isOptional
         return attribute
     }
 
@@ -563,6 +581,7 @@ final class CoreDataUserEntity: NSManagedObject {
 
     @NSManaged var id: String
     @NSManaged var username: String
+    @NSManaged var appleUserID: String?
     @NSManaged var createdAt: Date
     @NSManaged var isNavigationStateRestoreEnabled: Bool
 

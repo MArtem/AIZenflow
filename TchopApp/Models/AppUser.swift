@@ -8,6 +8,9 @@ struct AppUser: Equatable, Identifiable {
     /// Display and sign-in name entered on the login screen.
     let username: String
 
+    /// Stable Apple identity identifier when the profile originates from Sign in with Apple.
+    let appleUserID: String?
+
     /// Creation date stored the first time this user signs in.
     let createdAt: Date
 
@@ -18,11 +21,13 @@ struct AppUser: Equatable, Identifiable {
     init(
         id: String,
         username: String,
+        appleUserID: String? = nil,
         createdAt: Date,
         isNavigationStateRestoreEnabled: Bool = true
     ) {
         self.id = id
         self.username = username
+        self.appleUserID = appleUserID
         self.createdAt = createdAt
         self.isNavigationStateRestoreEnabled = isNavigationStateRestoreEnabled
     }

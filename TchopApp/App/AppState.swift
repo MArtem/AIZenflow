@@ -59,6 +59,12 @@ final class AppState: ObservableObject {
         activateAuthenticatedUser(signedInUser)
     }
 
+    /// Signs in with a normalized Apple identity profile and updates the source of truth user state.
+    func signInWithApple(profile: AppleSignInSessionProfile) throws {
+        let signedInUser = try sessionService.signInWithApple(profile: profile)
+        activateAuthenticatedUser(signedInUser)
+    }
+
     /// Updates restore preference for the active profile and applies the chosen policy immediately.
     func setNavigationRestoreEnabled(_ isEnabled: Bool) throws {
         guard let currentUser else {
