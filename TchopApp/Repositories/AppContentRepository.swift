@@ -43,7 +43,8 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// Fetches feed cards from the feed API and maps them into view-facing models.
     func fetchNewsFeedContent() async throws -> NewsFeedContent {
         let response = try await feedAPIManager.fetchFeed()
-        return AppContentMapper.mapFeedContent(from: response)
+        try syncPersistedFeedContent(with: response)
+        return try fetchPersistedNewsFeedContent()
     }
 
     /// Resolves channel info using the currently selected persistence backend.
@@ -96,10 +97,292 @@ final class DefaultAppContentRepository: AppContentRepository {
         request.fetchLimit = 1
         return request
     }
+
+    /// Fetches the current persisted feed snapshot using the selected backend.
+    private func fetchPersistedNewsFeedContent() throws -> NewsFeedContent {
+        let cards = try fetchPersistedFeedCardsFromCurrentBackend()
+        return NewsFeedContent(cards: cards)
+    }
+
+    /// Reads persisted feed cards from the selected backend and maps them into presentation models.
+    private func fetchPersistedFeedCardsFromCurrentBackend() throws -> [NewsFeedCard] {
+        switch databaseManager.backendKind {
+        case .swiftData:
+            if #available(iOS 17, *) {
+                return try fetchSwiftDataFeedCards()
+            }
+
+            return try fetchCoreDataFeedCards()
+        case .coreData:
+            return try fetchCoreDataFeedCards()
+        }
+    }
+
+    /// Synchronizes the full persisted feed snapshot with the latest API response.
+    private func syncPersistedFeedContent(with response: FeedResponseDTO) throws {
+        let syncedAt = Date()
+        let snapshots = try AppContentPersistenceMapper.makeFeedCardSnapshots(
+            from: response,
+            syncedAt: syncedAt
+        )
+
+        switch databaseManager.backendKind {
+        case .swiftData:
+            if #available(iOS 17, *) {
+                try syncSwiftDataFeedCards(with: snapshots)
+            } else {
+                try syncCoreDataFeedCards(with: snapshots)
+            }
+        case .coreData:
+            try syncCoreDataFeedCards(with: snapshots)
+        }
+    }
+
+    @available(iOS 17, *)
+    /// Fetches persisted feed cards through the SwiftData backend.
+    private func fetchSwiftDataFeedCards() throws -> [NewsFeedCard] {
+        try databaseManager.read(
+            DatabaseReadOperation(swiftData: { context in
+                let descriptor = FetchDescriptor<FeedCardRecord>(
+                    sortBy: [SortDescriptor(\.sortOrder, order: .forward)]
+                )
+                return try context.fetch(descriptor).compactMap(AppContentMapper.mapFeedCard)
+            })
+        )
+    }
+
+    /// Fetches persisted feed cards through the Core Data backend.
+    private func fetchCoreDataFeedCards() throws -> [NewsFeedCard] {
+        try databaseManager.read(
+            DatabaseReadOperation(coreData: { context in
+                let request = Self.makeCoreDataFeedCardFetchRequest()
+                return try context.fetch(request).compactMap(AppContentMapper.mapFeedCard)
+            })
+        )
+    }
+
+    @available(iOS 17, *)
+    /// Performs full-snapshot upsert/delete sync of feed cards in SwiftData.
+    private func syncSwiftDataFeedCards(
+        with snapshots: [FeedCardPersistenceSnapshot]
+    ) throws {
+        try databaseManager.write(
+            DatabaseWriteOperation(swiftData: { context in
+                let descriptor = FetchDescriptor<FeedCardRecord>()
+                let existingRecords = try context.fetch(descriptor)
+                let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
+
+                for record in existingRecords where snapshotsByID[record.id] == nil {
+                    context.delete(record)
+                }
+
+                for snapshot in snapshots {
+                    if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
+                        AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
+                    } else {
+                        context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
+                    }
+                }
+            })
+        ) as Void
+    }
+
+    /// Performs full-snapshot upsert/delete sync of feed cards in Core Data.
+    private func syncCoreDataFeedCards(
+        with snapshots: [FeedCardPersistenceSnapshot]
+    ) throws {
+        try databaseManager.write(
+            DatabaseWriteOperation(coreData: { context in
+                let request = Self.makeCoreDataFeedCardFetchRequest()
+                let existingRecords = try context.fetch(request)
+                let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
+
+                for record in existingRecords where snapshotsByID[record.id] == nil {
+                    context.delete(record)
+                }
+
+                for snapshot in snapshots {
+                    if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
+                        AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
+                    } else {
+                        let record = CoreDataFeedCardEntity(context: context)
+                        AppContentPersistenceMapper.apply(snapshot, to: record)
+                    }
+                }
+            })
+        ) as Void
+    }
+
+    /// Builds an ordered Core Data request for persisted feed cards.
+    private static func makeCoreDataFeedCardFetchRequest() -> NSFetchRequest<CoreDataFeedCardEntity> {
+        let request = CoreDataFeedCardEntity.fetchRequest()
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "sortOrder", ascending: true)
+        ]
+        return request
+    }
 }
 
 private enum RepositoryError: Error {
     case missingChannel
+}
+
+private struct FeedCardPersistenceSnapshot {
+    let id: String
+    let kind: FeedCardRecordKind
+    let sortOrder: Int
+    let remoteUpdatedAt: Date
+    let syncedAt: Date
+    let publishedAt: Date?
+    let postedInPrefix: String?
+    let sourceTitle: String?
+    let brandTitle: String?
+    let headline: String
+    let summary: String?
+    let metadataLine: String?
+    let translationLabel: String?
+    let articleActionsData: Data?
+    let categoryTitle: String?
+    let participantsData: Data?
+    let joinedText: String?
+}
+
+private enum AppContentPersistenceMapper {
+    static func makeFeedCardSnapshots(
+        from response: FeedResponseDTO,
+        syncedAt: Date
+    ) throws -> [FeedCardPersistenceSnapshot] {
+        try response.cards.enumerated().map { index, card in
+            try makeFeedCardSnapshot(card, sortOrder: index, syncedAt: syncedAt)
+        }
+    }
+
+    static func makeFeedCardRecord(from snapshot: FeedCardPersistenceSnapshot) -> FeedCardRecord {
+        FeedCardRecord(
+            id: snapshot.id,
+            kind: snapshot.kind,
+            sortOrder: snapshot.sortOrder,
+            remoteUpdatedAt: snapshot.remoteUpdatedAt,
+            syncedAt: snapshot.syncedAt,
+            publishedAt: snapshot.publishedAt,
+            postedInPrefix: snapshot.postedInPrefix,
+            sourceTitle: snapshot.sourceTitle,
+            brandTitle: snapshot.brandTitle,
+            headline: snapshot.headline,
+            summary: snapshot.summary,
+            metadataLine: snapshot.metadataLine,
+            translationLabel: snapshot.translationLabel,
+            articleActionsData: snapshot.articleActionsData,
+            categoryTitle: snapshot.categoryTitle,
+            participantsData: snapshot.participantsData,
+            joinedText: snapshot.joinedText
+        )
+    }
+
+    @available(iOS 17, *)
+    static func apply(_ snapshot: FeedCardPersistenceSnapshot, to record: FeedCardRecord) {
+        record.kindRawValue = snapshot.kind.rawValue
+        record.sortOrder = snapshot.sortOrder
+        record.remoteUpdatedAt = snapshot.remoteUpdatedAt
+        record.syncedAt = snapshot.syncedAt
+        record.publishedAt = snapshot.publishedAt
+        record.postedInPrefix = snapshot.postedInPrefix
+        record.sourceTitle = snapshot.sourceTitle
+        record.brandTitle = snapshot.brandTitle
+        record.headline = snapshot.headline
+        record.summary = snapshot.summary
+        record.metadataLine = snapshot.metadataLine
+        record.translationLabel = snapshot.translationLabel
+        record.articleActionsData = snapshot.articleActionsData
+        record.categoryTitle = snapshot.categoryTitle
+        record.participantsData = snapshot.participantsData
+        record.joinedText = snapshot.joinedText
+    }
+
+    static func apply(_ snapshot: FeedCardPersistenceSnapshot, to record: CoreDataFeedCardEntity) {
+        record.id = snapshot.id
+        record.kindRawValue = snapshot.kind.rawValue
+        record.sortOrder = Int64(snapshot.sortOrder)
+        record.remoteUpdatedAt = snapshot.remoteUpdatedAt
+        record.syncedAt = snapshot.syncedAt
+        record.publishedAt = snapshot.publishedAt
+        record.postedInPrefix = snapshot.postedInPrefix
+        record.sourceTitle = snapshot.sourceTitle
+        record.brandTitle = snapshot.brandTitle
+        record.headline = snapshot.headline
+        record.summary = snapshot.summary
+        record.metadataLine = snapshot.metadataLine
+        record.translationLabel = snapshot.translationLabel
+        record.articleActionsData = snapshot.articleActionsData
+        record.categoryTitle = snapshot.categoryTitle
+        record.participantsData = snapshot.participantsData
+        record.joinedText = snapshot.joinedText
+    }
+
+    private static func makeFeedCardSnapshot(
+        _ card: FeedCardDTO,
+        sortOrder: Int,
+        syncedAt: Date
+    ) throws -> FeedCardPersistenceSnapshot {
+        switch card {
+        case let .featuredArticle(article):
+            return FeedCardPersistenceSnapshot(
+                id: article.id,
+                kind: .featuredArticle,
+                sortOrder: sortOrder,
+                remoteUpdatedAt: article.remoteUpdatedAt,
+                syncedAt: syncedAt,
+                publishedAt: article.publishedAt,
+                postedInPrefix: article.postedInPrefix,
+                sourceTitle: article.sourceTitle,
+                brandTitle: article.brandTitle,
+                headline: article.headline,
+                summary: article.summary,
+                metadataLine: article.metadataLine,
+                translationLabel: article.translationLabel,
+                articleActionsData: try JSONEncoder().encode(
+                    article.actions.map {
+                        FeedCardActionPayload(
+                            id: $0.id,
+                            systemName: $0.systemName,
+                            title: $0.title
+                        )
+                    }
+                ),
+                categoryTitle: nil,
+                participantsData: nil,
+                joinedText: nil
+            )
+        case let .discussion(discussion):
+            return FeedCardPersistenceSnapshot(
+                id: discussion.id,
+                kind: .discussion,
+                sortOrder: sortOrder,
+                remoteUpdatedAt: discussion.remoteUpdatedAt,
+                syncedAt: syncedAt,
+                publishedAt: discussion.publishedAt,
+                postedInPrefix: nil,
+                sourceTitle: nil,
+                brandTitle: nil,
+                headline: discussion.headline,
+                summary: nil,
+                metadataLine: nil,
+                translationLabel: nil,
+                articleActionsData: nil,
+                categoryTitle: discussion.categoryTitle,
+                participantsData: try JSONEncoder().encode(
+                    discussion.participants.map {
+                        FeedCardParticipantPayload(
+                            id: $0.id,
+                            initials: $0.initials,
+                            isHighlighted: $0.isHighlighted
+                        )
+                    }
+                ),
+                joinedText: discussion.joinedText
+            )
+        }
+    }
 }
 
 private enum AppContentMapper {
@@ -154,6 +437,117 @@ private enum AppContentMapper {
             initials: participant.initials,
             isHighlighted: participant.isHighlighted
         )
+    }
+
+    @available(iOS 17, *)
+    static func mapFeedCard(_ record: FeedCardRecord) -> NewsFeedCard? {
+        guard let kind = record.kind else {
+            return nil
+        }
+
+        switch kind {
+        case .featuredArticle:
+            return .featuredArticle(mapFeaturedArticle(record))
+        case .discussion:
+            return .discussion(mapDiscussion(record))
+        }
+    }
+
+    static func mapFeedCard(_ record: CoreDataFeedCardEntity) -> NewsFeedCard? {
+        guard let kind = FeedCardRecordKind(rawValue: record.kindRawValue) else {
+            return nil
+        }
+
+        switch kind {
+        case .featuredArticle:
+            return .featuredArticle(mapFeaturedArticle(record))
+        case .discussion:
+            return .discussion(mapDiscussion(record))
+        }
+    }
+
+    @available(iOS 17, *)
+    static func mapFeaturedArticle(_ record: FeedCardRecord) -> FeaturedArticleCardModel {
+        FeaturedArticleCardModel(
+            id: record.id,
+            postedInPrefix: record.postedInPrefix ?? "",
+            sourceTitle: record.sourceTitle ?? "",
+            brandTitle: record.brandTitle ?? "",
+            headline: record.headline,
+            summary: record.summary ?? "",
+            metadataLine: record.metadataLine ?? "",
+            translationLabel: record.translationLabel ?? "",
+            actions: decodeArticleActions(from: record.articleActionsData)
+        )
+    }
+
+    static func mapFeaturedArticle(_ record: CoreDataFeedCardEntity) -> FeaturedArticleCardModel {
+        FeaturedArticleCardModel(
+            id: record.id,
+            postedInPrefix: record.postedInPrefix ?? "",
+            sourceTitle: record.sourceTitle ?? "",
+            brandTitle: record.brandTitle ?? "",
+            headline: record.headline,
+            summary: record.summary ?? "",
+            metadataLine: record.metadataLine ?? "",
+            translationLabel: record.translationLabel ?? "",
+            actions: decodeArticleActions(from: record.articleActionsData)
+        )
+    }
+
+    @available(iOS 17, *)
+    static func mapDiscussion(_ record: FeedCardRecord) -> DiscussionCardModel {
+        DiscussionCardModel(
+            id: record.id,
+            categoryTitle: record.categoryTitle ?? "",
+            headline: record.headline,
+            participants: decodeDiscussionParticipants(from: record.participantsData),
+            joinedText: record.joinedText ?? ""
+        )
+    }
+
+    static func mapDiscussion(_ record: CoreDataFeedCardEntity) -> DiscussionCardModel {
+        DiscussionCardModel(
+            id: record.id,
+            categoryTitle: record.categoryTitle ?? "",
+            headline: record.headline,
+            participants: decodeDiscussionParticipants(from: record.participantsData),
+            joinedText: record.joinedText ?? ""
+        )
+    }
+
+    static func decodeArticleActions(from data: Data?) -> [ArticleActionItem] {
+        guard
+            let data,
+            let payload = try? JSONDecoder().decode([FeedCardActionPayload].self, from: data)
+        else {
+            return []
+        }
+
+        return payload.map {
+            ArticleActionItem(
+                id: $0.id,
+                systemName: $0.systemName,
+                title: $0.title
+            )
+        }
+    }
+
+    static func decodeDiscussionParticipants(from data: Data?) -> [DiscussionParticipant] {
+        guard
+            let data,
+            let payload = try? JSONDecoder().decode([FeedCardParticipantPayload].self, from: data)
+        else {
+            return []
+        }
+
+        return payload.map {
+            DiscussionParticipant(
+                id: $0.id,
+                initials: $0.initials,
+                isHighlighted: $0.isHighlighted
+            )
+        }
     }
 
     @available(iOS 17, *)

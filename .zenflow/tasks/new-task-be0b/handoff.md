@@ -1130,6 +1130,17 @@ Absent:  no tests/build/simulator checks
   session restore by stable local user id,
   and a login screen that keeps the existing local username path as fallback instead of replacing it.
   No verification has been run yet for this latest step because the user explicitly asked not to trigger automatic verification after each refactor.
+  The latest content step then moved into `TchopApp/Repositories/AppContentRepository.swift`.
+  Feed loading no longer stops at `API DTO -> presentation models`.
+  The repository now owns the first real storage-backed feed path:
+  after every successful API fetch it builds feed-card persistence snapshots,
+  performs a full replacement sync by stable card `id` into the selected backend (`SwiftData` or `Core Data`),
+  deletes obsolete cards,
+  and then rereads the persisted ordered cards back into `NewsFeedContent`.
+  This keeps the change localized to the repository layer without introducing a generic sync engine, a new offline cache service, or a broader feature rewrite.
+  Persisted feed cards now carry `sortOrder`, `remoteUpdatedAt`, `publishedAt`, local `syncedAt`, and serialized action/participant payloads,
+  which gives the home feed its first real offline-capable snapshot path while staying compatible with the existing two card types.
+  No tests or verification were run for this step because the temporary test freeze remains active and the user did not request an exception.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

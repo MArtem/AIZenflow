@@ -938,3 +938,18 @@ Readability-first cycle progress:
   session restore by stable local user id,
   and a readable login screen that keeps local username sign-in as a fallback path.
 - Verification for this step has not been run yet after the final change set; the user did not request automatic verification for this task.
+- The next content-persistence step moved into [AppContentRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/AppContentRepository.swift).
+  Feed loading now uses a repository-owned storage-backed path instead of mapping the API response straight into UI models.
+  On each successful feed fetch, the repository now:
+  maps the API snapshot into persistence payloads,
+  performs full-snapshot sync into the active backend (`SwiftData` or `Core Data`) by stable card `id`,
+  removes obsolete cards,
+  and then rereads the ordered persisted cards back into `NewsFeedContent`.
+- The persistence sync stays intentionally local:
+  no generic sync engine was introduced,
+  no new package was added,
+  and `NewsFeedViewModel` was not expanded yet.
+  Article actions and discussion participants are serialized into the existing feed-card records,
+  `sortOrder`, `remoteUpdatedAt`, `publishedAt`, and local `syncedAt` now participate in the stored snapshot,
+  and the app now has the first real offline-capable feed path for the home screen.
+- No tests or verification were run for this step because the temporary test freeze is still in effect and the user did not request an exception.
