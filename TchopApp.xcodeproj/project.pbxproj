@@ -20,6 +20,7 @@
 		A000001B0000000000000001 /* DiscussionCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002B0000000000000001 /* DiscussionCard.swift */; };
 		A000001C0000000000000001 /* TabStubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002C0000000000000001 /* TabStubView.swift */; };
 		A000001D0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A000002E0000000000000001 /* Assets.xcassets */; };
+		A00000D10000000000000001 /* StubFeedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A00000D20000000000000001 /* StubFeedResponse.json */; };
 		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
 		A00000390000000000000001 /* ArticleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* ArticleActionView.swift */; };
@@ -180,6 +181,7 @@
 		A000002C0000000000000001 /* TabStubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStubView.swift; sourceTree = "<group>"; };
 		A000002D0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A000002E0000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A00000D20000000000000001 /* StubFeedResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponse.json; sourceTree = "<group>"; };
 		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
 		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		A000003A0000000000000001 /* ArticleActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleActionView.swift; sourceTree = "<group>"; };
@@ -332,6 +334,7 @@
 				U00000050000000000000001 /* TchopAppUITests */,
 				A000002D0000000000000001 /* Info.plist */,
 				A000002E0000000000000001 /* Assets.xcassets */,
+				A00000D00000000000000001 /* Resources */,
 				E000000C0000000000000001 /* PushNotifications */,
 				D00000130000000000000001 /* TchopApp.entitlements */,
 			);
@@ -415,6 +418,14 @@
 				D00000040000000000000001 /* AppGroupConfiguration.swift */,
 			);
 			path = Shared;
+			sourceTree = "<group>";
+		};
+		A00000D00000000000000001 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				A00000D20000000000000001 /* StubFeedResponse.json */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		E000000C0000000000000001 /* PushNotifications */ = {
@@ -786,6 +797,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
+				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -794,6 +806,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
+				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

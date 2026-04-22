@@ -282,6 +282,11 @@ Prepared the project-side Apple sign-in environment without pretending simulator
 App and widget entitlements now resolve the shared app group from build setting `APP_GROUP_IDENTIFIER`, relevant app/widget targets now expose bundle identifiers through `APP_BUNDLE_IDENTIFIER`, and the login screen explicitly warns that simulator-only Apple auth remains an unreliable signal.
 This keeps the project locally ready for the moment a real bundle id, Apple capability setup, and physical-device validation become available.
 
+### [x] Step: Feed contract 1 — move stub feed DTO creation into JSON resource parsing
+
+Replaced hardcoded in-code feed DTO construction with a project-stored JSON resource in the app target.
+`StubFeedAPIManager` now decodes `StubFeedResponse.json` into `Decodable` feed DTOs, and the stub contract already includes `remoteUpdatedAt` / `publishedAt` fields so the later persistence and sync layer can build on the same API shape.
+
 ### [x] Step: Verification and baseline preservation after readability cycle
 
 Ran `Full` verification through `./scripts/verify.sh full`.

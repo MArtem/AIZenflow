@@ -271,6 +271,9 @@
   app and widget entitlements no longer hardcode the shared app group directly and now resolve it through build setting `APP_GROUP_IDENTIFIER`.
   Relevant app and widget targets also expose bundle identifiers through `APP_BUNDLE_IDENTIFIER`, which makes later replacement of `com.example.*` safer and more localized.
   The login screen now explicitly warns that simulator-only Apple auth is not a reliable final validation signal.
+- Feed contract baseline:
+  hardcoded feed DTO creation in `StubFeedAPIManager` has been replaced by decoding a project-stored JSON resource from the app target.
+  The stub feed JSON now includes 10 cards and already carries `remoteUpdatedAt` / `publishedAt` fields to match the future persistence-backed sync flow.
 - Verification baseline after the readability-first cycle:
   `./scripts/verify.sh full` is green.
   Package tests pass,

@@ -2,19 +2,41 @@ import Foundation
 import TchopNetworking
 
 /// DTO returned by the feed API abstraction.
-struct FeedResponseDTO: Sendable {
+struct FeedResponseDTO: Decodable, Sendable {
     let cards: [FeedCardDTO]
 }
 
 /// Card payload variants produced by the feed API.
-enum FeedCardDTO: Sendable {
+enum FeedCardDTO: Decodable, Sendable {
     case featuredArticle(FeaturedArticleDTO)
     case discussion(DiscussionDTO)
+
+    private enum CodingKeys: String, CodingKey {
+        case type
+    }
+
+    private enum CardType: String, Decodable {
+        case featuredArticle
+        case discussion
+    }
+
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+
+        switch try container.decode(CardType.self, forKey: .type) {
+        case .featuredArticle:
+            self = .featuredArticle(try FeaturedArticleDTO(from: decoder))
+        case .discussion:
+            self = .discussion(try DiscussionDTO(from: decoder))
+        }
+    }
 }
 
 /// DTO describing the featured article card.
-struct FeaturedArticleDTO: Sendable {
+struct FeaturedArticleDTO: Decodable, Sendable {
     let id: String
+    let remoteUpdatedAt: Date
+    let publishedAt: Date?
     let postedInPrefix: String
     let sourceTitle: String
     let brandTitle: String
@@ -26,15 +48,17 @@ struct FeaturedArticleDTO: Sendable {
 }
 
 /// DTO describing a single article action.
-struct ArticleActionDTO: Sendable {
+struct ArticleActionDTO: Decodable, Sendable {
     let id: String
     let systemName: String
     let title: String
 }
 
 /// DTO describing the discussion card.
-struct DiscussionDTO: Sendable {
+struct DiscussionDTO: Decodable, Sendable {
     let id: String
+    let remoteUpdatedAt: Date
+    let publishedAt: Date?
     let categoryTitle: String
     let headline: String
     let participants: [DiscussionParticipantDTO]
@@ -42,7 +66,7 @@ struct DiscussionDTO: Sendable {
 }
 
 /// DTO describing a participant preview inside a discussion card.
-struct DiscussionParticipantDTO: Sendable {
+struct DiscussionParticipantDTO: Decodable, Sendable {
     let id: String
     let initials: String
     let isHighlighted: Bool
@@ -81,60 +105,59 @@ private enum FeedAPIStubFactory {
     static func makeFeedResponse() async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
         try Task.checkCancellation()
-        return FeedResponseDTO(cards: [
-            .featuredArticle(makeFeaturedArticle()),
-            .discussion(makeDiscussion())
-        ])
+        let feedData = try loadStubFeedResponseData()
+        return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
     }
 
-    static func makeFeaturedArticle() -> FeaturedArticleDTO {
-        FeaturedArticleDTO(
-            id: "article-featured-1",
-            postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix", fallback: "Posted in "),
-            sourceTitle: AppLocalization.text("news.fallback.sourceTitle", fallback: "Our Blog"),
-            brandTitle: AppLocalization.text("news.fallback.brandTitle", fallback: "Tchop"),
-            headline: AppLocalization.text("news.fallback.headline", fallback: "Parrots help others in need, study\nshows for first time"),
-            summary: AppLocalization.text("news.fallback.summary", fallback: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem..."),
-            metadataLine: AppLocalization.text("news.fallback.metadataLine", fallback: "by Adorlee Querry · two days ago · read time: 2min"),
-            translationLabel: AppLocalization.text("news.fallback.translationLabel", fallback: "See translation"),
-            actions: [
-                ArticleActionDTO(
-                    id: "article-featured-1-like",
-                    systemName: "hand.thumbsup.fill",
-                    title: AppLocalization.text("news.fallback.action.like", fallback: "Like")
-                ),
-                ArticleActionDTO(
-                    id: "article-featured-1-comments",
-                    systemName: "bubble.left.fill",
-                    title: AppLocalization.text("news.fallback.action.comments", fallback: "48 Comments")
-                )
-            ]
-        )
+    private static func loadStubFeedResponseData() throws -> Data {
+        guard
+            let responseURL = Bundle.main.url(
+                forResource: "StubFeedResponse",
+                withExtension: "json",
+                subdirectory: "Resources"
+            ) ?? Bundle.main.url(forResource: "StubFeedResponse", withExtension: "json")
+        else {
+            throw FeedAPIStubError.missingStubResource
+        }
+
+        return try Data(contentsOf: responseURL)
     }
 
-    static func makeDiscussion() -> DiscussionDTO {
-        DiscussionDTO(
-            id: "discussion-1",
-            categoryTitle: AppLocalization.text("news.fallback.discussion.category", fallback: "Discussion"),
-            headline: AppLocalization.text("news.fallback.discussion.headline", fallback: "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio"),
-            participants: [
-                DiscussionParticipantDTO(
-                    id: "discussion-1-participant-a",
-                    initials: "A",
-                    isHighlighted: true
-                ),
-                DiscussionParticipantDTO(
-                    id: "discussion-1-participant-m",
-                    initials: "M",
-                    isHighlighted: false
-                ),
-                DiscussionParticipantDTO(
-                    id: "discussion-1-participant-s",
-                    initials: "S",
-                    isHighlighted: false
-                )
-            ],
-            joinedText: AppLocalization.text("news.fallback.discussion.joinedText", fallback: "+12 joined")
-        )
+    private static func makeJSONDecoder() -> JSONDecoder {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .custom { decoder in
+            let container = try decoder.singleValueContainer()
+            let value = try container.decode(String.self)
+
+            if let date = iso8601DateFormatterWithFractionalSeconds.date(from: value) {
+                return date
+            }
+
+            if let date = iso8601DateFormatter.date(from: value) {
+                return date
+            }
+
+            throw DecodingError.dataCorruptedError(
+                in: container,
+                debugDescription: "Unsupported ISO8601 date value: \(value)"
+            )
+        }
+        return decoder
     }
+
+    private static let iso8601DateFormatterWithFractionalSeconds: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        return formatter
+    }()
+
+    private static let iso8601DateFormatter: ISO8601DateFormatter = {
+        let formatter = ISO8601DateFormatter()
+        formatter.formatOptions = [.withInternetDateTime]
+        return formatter
+    }()
+}
+
+private enum FeedAPIStubError: Error {
+    case missingStubResource
 }
