@@ -101,7 +101,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
     }
 }
 
-private enum FeedAPIStubFactory {
+enum FeedAPIStubFactory {
     static func makeFeedResponse() async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
         try Task.checkCancellation()
