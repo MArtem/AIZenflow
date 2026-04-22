@@ -1,6 +1,26 @@
 import Foundation
 import SwiftData
 
+/// Raw feed card kinds supported by the current persistence layer.
+enum FeedCardRecordKind: String, Codable, Sendable {
+    case featuredArticle
+    case discussion
+}
+
+/// Persisted action payload stored for featured article cards.
+struct FeedCardActionPayload: Codable, Equatable, Sendable {
+    let id: String
+    let systemName: String
+    let title: String
+}
+
+/// Persisted participant payload stored for discussion cards.
+struct FeedCardParticipantPayload: Codable, Equatable, Sendable {
+    let id: String
+    let initials: String
+    let isHighlighted: Bool
+}
+
 /// SwiftData record storing the pinned channel header metadata.
 @available(iOS 17, *)
 @Model
@@ -18,6 +38,75 @@ final class ChannelRecord {
         self.id = id
         self.title = title
         self.subtitle = subtitle
+    }
+}
+
+/// SwiftData record storing a persisted home-feed card snapshot.
+@available(iOS 17, *)
+@Model
+final class FeedCardRecord {
+    @Attribute(.unique) var id: String
+    var kindRawValue: String
+    var sortOrder: Int
+    var remoteUpdatedAt: Date
+    var syncedAt: Date
+    var publishedAt: Date?
+
+    var postedInPrefix: String?
+    var sourceTitle: String?
+    var brandTitle: String?
+    var headline: String
+    var summary: String?
+    var metadataLine: String?
+    var translationLabel: String?
+    var articleActionsData: Data?
+
+    var categoryTitle: String?
+    var participantsData: Data?
+    var joinedText: String?
+
+    /// Creates a new FeedCardRecord instance.
+    init(
+        id: String,
+        kind: FeedCardRecordKind,
+        sortOrder: Int,
+        remoteUpdatedAt: Date,
+        syncedAt: Date,
+        publishedAt: Date? = nil,
+        postedInPrefix: String? = nil,
+        sourceTitle: String? = nil,
+        brandTitle: String? = nil,
+        headline: String,
+        summary: String? = nil,
+        metadataLine: String? = nil,
+        translationLabel: String? = nil,
+        articleActionsData: Data? = nil,
+        categoryTitle: String? = nil,
+        participantsData: Data? = nil,
+        joinedText: String? = nil
+    ) {
+        self.id = id
+        self.kindRawValue = kind.rawValue
+        self.sortOrder = sortOrder
+        self.remoteUpdatedAt = remoteUpdatedAt
+        self.syncedAt = syncedAt
+        self.publishedAt = publishedAt
+        self.postedInPrefix = postedInPrefix
+        self.sourceTitle = sourceTitle
+        self.brandTitle = brandTitle
+        self.headline = headline
+        self.summary = summary
+        self.metadataLine = metadataLine
+        self.translationLabel = translationLabel
+        self.articleActionsData = articleActionsData
+        self.categoryTitle = categoryTitle
+        self.participantsData = participantsData
+        self.joinedText = joinedText
+    }
+
+    /// Typed feed card kind derived from the stored raw value.
+    var kind: FeedCardRecordKind? {
+        FeedCardRecordKind(rawValue: kindRawValue)
     }
 }
 

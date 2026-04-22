@@ -305,9 +305,30 @@ private enum AppDatabaseMigrationCoordinator {
         let isNavigationStateRestoreEnabled: Bool
     }
 
+    private struct MigrationFeedCardPayload {
+        let id: String
+        let kindRawValue: String
+        let sortOrder: Int
+        let remoteUpdatedAt: Date
+        let syncedAt: Date
+        let publishedAt: Date?
+        let postedInPrefix: String?
+        let sourceTitle: String?
+        let brandTitle: String?
+        let headline: String
+        let summary: String?
+        let metadataLine: String?
+        let translationLabel: String?
+        let articleActionsData: Data?
+        let categoryTitle: String?
+        let participantsData: Data?
+        let joinedText: String?
+    }
+
     private struct CoreDataMigrationPayload {
         let channels: [MigrationChannelPayload]
         let users: [MigrationUserPayload]
+        let feedCards: [MigrationFeedCardPayload]
     }
 
     @available(iOS 17, *)
@@ -322,6 +343,7 @@ private enum AppDatabaseMigrationCoordinator {
                 swiftData: { context in
                     try upsertChannels(payload.channels, in: context)
                     try upsertUsers(payload.users, in: context)
+                    try upsertFeedCards(payload.feedCards, in: context)
                 }
             )
         ) as Void
@@ -335,6 +357,7 @@ private enum AppDatabaseMigrationCoordinator {
                 coreData: { context in
                     let channelRequest = CoreDataChannelEntity.fetchRequest()
                     let userRequest = CoreDataUserEntity.fetchRequest()
+                    let feedCardRequest = CoreDataFeedCardEntity.fetchRequest()
 
                     let channels = try context.fetch(channelRequest).map {
                         MigrationChannelPayload(
@@ -354,7 +377,33 @@ private enum AppDatabaseMigrationCoordinator {
                         )
                     }
 
-                    return CoreDataMigrationPayload(channels: channels, users: users)
+                    let feedCards = try context.fetch(feedCardRequest).map {
+                        MigrationFeedCardPayload(
+                            id: $0.id,
+                            kindRawValue: $0.kindRawValue,
+                            sortOrder: Int($0.sortOrder),
+                            remoteUpdatedAt: $0.remoteUpdatedAt,
+                            syncedAt: $0.syncedAt,
+                            publishedAt: $0.publishedAt,
+                            postedInPrefix: $0.postedInPrefix,
+                            sourceTitle: $0.sourceTitle,
+                            brandTitle: $0.brandTitle,
+                            headline: $0.headline,
+                            summary: $0.summary,
+                            metadataLine: $0.metadataLine,
+                            translationLabel: $0.translationLabel,
+                            articleActionsData: $0.articleActionsData,
+                            categoryTitle: $0.categoryTitle,
+                            participantsData: $0.participantsData,
+                            joinedText: $0.joinedText
+                        )
+                    }
+
+                    return CoreDataMigrationPayload(
+                        channels: channels,
+                        users: users,
+                        feedCards: feedCards
+                    )
                 }
             )
         )
@@ -413,6 +462,56 @@ private enum AppDatabaseMigrationCoordinator {
             }
         }
     }
+
+    @available(iOS 17, *)
+    private static func upsertFeedCards(
+        _ feedCards: [MigrationFeedCardPayload],
+        in context: ModelContext
+    ) throws {
+        for feedCard in feedCards {
+            let descriptor = FetchDescriptor<FeedCardRecord>()
+            if let existing = try context.fetch(descriptor).first(where: { $0.id == feedCard.id }) {
+                existing.kindRawValue = feedCard.kindRawValue
+                existing.sortOrder = feedCard.sortOrder
+                existing.remoteUpdatedAt = feedCard.remoteUpdatedAt
+                existing.syncedAt = feedCard.syncedAt
+                existing.publishedAt = feedCard.publishedAt
+                existing.postedInPrefix = feedCard.postedInPrefix
+                existing.sourceTitle = feedCard.sourceTitle
+                existing.brandTitle = feedCard.brandTitle
+                existing.headline = feedCard.headline
+                existing.summary = feedCard.summary
+                existing.metadataLine = feedCard.metadataLine
+                existing.translationLabel = feedCard.translationLabel
+                existing.articleActionsData = feedCard.articleActionsData
+                existing.categoryTitle = feedCard.categoryTitle
+                existing.participantsData = feedCard.participantsData
+                existing.joinedText = feedCard.joinedText
+            } else {
+                context.insert(
+                    FeedCardRecord(
+                        id: feedCard.id,
+                        kind: FeedCardRecordKind(rawValue: feedCard.kindRawValue) ?? .featuredArticle,
+                        sortOrder: feedCard.sortOrder,
+                        remoteUpdatedAt: feedCard.remoteUpdatedAt,
+                        syncedAt: feedCard.syncedAt,
+                        publishedAt: feedCard.publishedAt,
+                        postedInPrefix: feedCard.postedInPrefix,
+                        sourceTitle: feedCard.sourceTitle,
+                        brandTitle: feedCard.brandTitle,
+                        headline: feedCard.headline,
+                        summary: feedCard.summary,
+                        metadataLine: feedCard.metadataLine,
+                        translationLabel: feedCard.translationLabel,
+                        articleActionsData: feedCard.articleActionsData,
+                        categoryTitle: feedCard.categoryTitle,
+                        participantsData: feedCard.participantsData,
+                        joinedText: feedCard.joinedText
+                    )
+                )
+            }
+        }
+    }
 }
 
 @MainActor
@@ -421,7 +520,8 @@ private enum AppDatabaseContainerFactory {
     static func makeSwiftDataModelContainer(isStoredInMemoryOnly: Bool) throws -> ModelContainer {
         let schema = Schema([
             ChannelRecord.self,
-            UserRecord.self
+            UserRecord.self,
+            FeedCardRecord.self
         ])
 
         let configuration = ModelConfiguration(
@@ -495,7 +595,8 @@ private enum AppDatabaseContainerFactory {
         let model = NSManagedObjectModel()
         model.entities = [
             makeChannelEntityDescription(),
-            makeUserEntityDescription()
+            makeUserEntityDescription(),
+            makeFeedCardEntityDescription()
         ]
         return model
     }
@@ -528,6 +629,33 @@ private enum AppDatabaseContainerFactory {
         return entity
     }
 
+    private static func makeFeedCardEntityDescription() -> NSEntityDescription {
+        let entity = NSEntityDescription()
+        entity.name = CoreDataFeedCardEntity.entityName
+        entity.managedObjectClassName = NSStringFromClass(CoreDataFeedCardEntity.self)
+        entity.properties = [
+            makeStringAttribute(name: "id"),
+            makeStringAttribute(name: "kindRawValue"),
+            makeIntegerAttribute(name: "sortOrder"),
+            makeDateAttribute(name: "remoteUpdatedAt"),
+            makeDateAttribute(name: "syncedAt"),
+            makeDateAttribute(name: "publishedAt", isOptional: true),
+            makeStringAttribute(name: "postedInPrefix", isOptional: true),
+            makeStringAttribute(name: "sourceTitle", isOptional: true),
+            makeStringAttribute(name: "brandTitle", isOptional: true),
+            makeStringAttribute(name: "headline"),
+            makeStringAttribute(name: "summary", isOptional: true),
+            makeStringAttribute(name: "metadataLine", isOptional: true),
+            makeStringAttribute(name: "translationLabel", isOptional: true),
+            makeBinaryDataAttribute(name: "articleActionsData", isOptional: true),
+            makeStringAttribute(name: "categoryTitle", isOptional: true),
+            makeBinaryDataAttribute(name: "participantsData", isOptional: true),
+            makeStringAttribute(name: "joinedText", isOptional: true)
+        ]
+        entity.uniquenessConstraints = [["id"]]
+        return entity
+    }
+
     private static func makeStringAttribute(name: String) -> NSAttributeDescription {
         makeStringAttribute(name: name, isOptional: false)
     }
@@ -544,10 +672,17 @@ private enum AppDatabaseContainerFactory {
     }
 
     private static func makeDateAttribute(name: String) -> NSAttributeDescription {
+        makeDateAttribute(name: name, isOptional: false)
+    }
+
+    private static func makeDateAttribute(
+        name: String,
+        isOptional: Bool
+    ) -> NSAttributeDescription {
         let attribute = NSAttributeDescription()
         attribute.name = name
         attribute.attributeType = .dateAttributeType
-        attribute.isOptional = false
+        attribute.isOptional = isOptional
         return attribute
     }
 
@@ -557,6 +692,25 @@ private enum AppDatabaseContainerFactory {
         attribute.attributeType = .booleanAttributeType
         attribute.isOptional = false
         attribute.defaultValue = true
+        return attribute
+    }
+
+    private static func makeIntegerAttribute(name: String) -> NSAttributeDescription {
+        let attribute = NSAttributeDescription()
+        attribute.name = name
+        attribute.attributeType = .integer64AttributeType
+        attribute.isOptional = false
+        return attribute
+    }
+
+    private static func makeBinaryDataAttribute(
+        name: String,
+        isOptional: Bool
+    ) -> NSAttributeDescription {
+        let attribute = NSAttributeDescription()
+        attribute.name = name
+        attribute.attributeType = .binaryDataAttributeType
+        attribute.isOptional = isOptional
         return attribute
     }
 }
@@ -588,5 +742,35 @@ final class CoreDataUserEntity: NSManagedObject {
     @nonobjc
     static func fetchRequest() -> NSFetchRequest<CoreDataUserEntity> {
         NSFetchRequest<CoreDataUserEntity>(entityName: entityName)
+    }
+}
+
+/// Core Data entity storing a persisted home-feed card snapshot.
+final class CoreDataFeedCardEntity: NSManagedObject {
+    static let entityName = "CoreDataFeedCardEntity"
+
+    @NSManaged var id: String
+    @NSManaged var kindRawValue: String
+    @NSManaged var sortOrder: Int64
+    @NSManaged var remoteUpdatedAt: Date
+    @NSManaged var syncedAt: Date
+    @NSManaged var publishedAt: Date?
+
+    @NSManaged var postedInPrefix: String?
+    @NSManaged var sourceTitle: String?
+    @NSManaged var brandTitle: String?
+    @NSManaged var headline: String
+    @NSManaged var summary: String?
+    @NSManaged var metadataLine: String?
+    @NSManaged var translationLabel: String?
+    @NSManaged var articleActionsData: Data?
+
+    @NSManaged var categoryTitle: String?
+    @NSManaged var participantsData: Data?
+    @NSManaged var joinedText: String?
+
+    @nonobjc
+    static func fetchRequest() -> NSFetchRequest<CoreDataFeedCardEntity> {
+        NSFetchRequest<CoreDataFeedCardEntity>(entityName: entityName)
     }
 }

@@ -274,6 +274,9 @@
 - Feed contract baseline:
   hardcoded feed DTO creation in `StubFeedAPIManager` has been replaced by decoding a project-stored JSON resource from the app target.
   The stub feed JSON now includes 10 cards and already carries `remoteUpdatedAt` / `publishedAt` fields to match the future persistence-backed sync flow.
+- Feed persistence baseline:
+  feed cards now have app-local persistence schema in both SwiftData and Core Data.
+  The schema is intentionally one-record-per-card with `kind`, ordering, and sync metadata plus optional type-specific payload fields, so the next step can implement repository-level sync without introducing a generic cache framework.
 - Verification baseline after the readability-first cycle:
   `./scripts/verify.sh full` is green.
   Package tests pass,

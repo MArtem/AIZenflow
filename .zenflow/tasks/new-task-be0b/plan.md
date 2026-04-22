@@ -287,6 +287,11 @@ This keeps the project locally ready for the moment a real bundle id, Apple capa
 Replaced hardcoded in-code feed DTO construction with a project-stored JSON resource in the app target.
 `StubFeedAPIManager` now decodes `StubFeedResponse.json` into `Decodable` feed DTOs, and the stub contract already includes `remoteUpdatedAt` / `publishedAt` fields so the later persistence and sync layer can build on the same API shape.
 
+### [x] Step: Feed persistence 1 — add storage schema for feed card snapshots
+
+Added app-local persistence schema for feed cards in both SwiftData and Core Data.
+The storage model uses one feed-card record/entity with `kind`, ordering, and sync metadata (`remoteUpdatedAt`, `syncedAt`, `publishedAt`) plus type-specific optional fields, which keeps the schema small now while still allowing future card kinds to be added without redesigning the whole persistence layer.
+
 ### [x] Step: Verification and baseline preservation after readability cycle
 
 Ran `Full` verification through `./scripts/verify.sh full`.
