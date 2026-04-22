@@ -265,6 +265,12 @@ Created a dedicated reusable package product `TchopAppleAuthentication` inside `
 The package now owns normalized Apple auth identity parsing, cancellation detection, and optional credential-state lookup, while app-local session persistence, `AppUser`, and profile UX remain in the app target.
 `LoginViewModel` and the login screen now consume an explicit `appleAuthenticationManager` from the composition root instead of parsing `AuthenticationServices` payloads inline.
 
+### [x] Step: Apple auth profile 1 — replace stub profile with real account summary
+
+Replaced the old profile-tab stub flow with a real account screen in the app layer.
+The screen now shows the current display name, the actual sign-in method (`Sign in with Apple` or `Local account`), a lightweight account identifier hint, the existing navigation-restore preference, and logout.
+This intentionally stayed app-local and did not introduce a new settings module or a package extraction for profile UI.
+
 ### [x] Step: Verification and baseline preservation after readability cycle
 
 Ran `Full` verification through `./scripts/verify.sh full`.

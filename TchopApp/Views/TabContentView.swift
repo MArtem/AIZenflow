@@ -6,6 +6,7 @@ struct TabContentView: View {
     @ObservedObject var coordinator: AppCoordinator
     @ObservedObject var newsFeedViewModel: NewsFeedViewModel
     let currentUser: AppUser?
+    let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
 
     var body: some View {
@@ -32,6 +33,7 @@ struct TabContentView: View {
                 ProfileTabRootView(
                     currentUser: currentUser,
                     router: coordinator.profileRouter,
+                    onNavigationRestoreChange: onNavigationRestoreChange,
                     onLogout: onLogout
                 )
             } else {

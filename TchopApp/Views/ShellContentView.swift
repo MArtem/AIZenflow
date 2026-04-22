@@ -5,6 +5,7 @@ struct ShellContentView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
     let currentUser: AppUser?
+    let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
 
     var body: some View {
@@ -14,6 +15,7 @@ struct ShellContentView: View {
                 coordinator: coordinator,
                 newsFeedViewModel: viewModel.newsFeedViewModel,
                 currentUser: currentUser,
+                onNavigationRestoreChange: onNavigationRestoreChange,
                 onLogout: onLogout
             )
             .safeAreaInset(edge: .top, spacing: 0) {

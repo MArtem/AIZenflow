@@ -5,6 +5,7 @@ struct AppShellView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
     let currentUser: AppUser?
+    let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
     @GestureState private var menuDragOffset: CGFloat = 0
 
@@ -22,6 +23,7 @@ struct AppShellView: View {
                     viewModel: viewModel,
                     coordinator: coordinator,
                     currentUser: currentUser,
+                    onNavigationRestoreChange: onNavigationRestoreChange,
                     onLogout: onLogout
                 )
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)

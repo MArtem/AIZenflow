@@ -261,6 +261,9 @@
 - Apple auth packaging baseline:
   Apple-specific authorization parsing and cancellation semantics now belong to `TchopAppleAuthentication` inside the infrastructure package.
   App-local session persistence, local user creation, and profile/account UX still stay in the app target; no generic multi-provider auth abstraction was introduced.
+- Apple auth account UX baseline:
+  `ProfileTabRootView` is no longer a stub detail launcher.
+  It now acts as the real minimal account screen and shows the sign-in method, a lightweight account identifier hint, the navigation-restore preference, and logout without introducing a separate settings framework.
 - Verification baseline after the readability-first cycle:
   `./scripts/verify.sh full` is green.
   Package tests pass,

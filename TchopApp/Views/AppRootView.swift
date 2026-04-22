@@ -35,6 +35,7 @@ struct AppRootView: View {
                     viewModel: appState.appShellViewModel,
                     coordinator: appState.coordinator,
                     currentUser: appState.currentUser,
+                    onNavigationRestoreChange: appState.setNavigationRestoreEnabled,
                     onLogout: appState.signOut
                 )
                 .accessibilityIdentifier("shell.screen")
