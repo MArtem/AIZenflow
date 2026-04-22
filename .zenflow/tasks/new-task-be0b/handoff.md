@@ -1153,6 +1153,13 @@ Absent:  no tests/build/simulator checks
   If the device currently has a satisfied path, the repository keeps using the current stubbed API request flow and then syncs the result into persistence.
   If the path is unavailable, the repository skips the API call entirely and returns the persisted feed snapshot from the database instead.
   This keeps the online/offline behavior local to the feed repository and intentionally avoids introducing a broader reachability subsystem before future pull-to-refresh requirements are clarified.
+  The next persistence step then closed the first-launch offline gap.
+  `AppDataSeeder` now seeds two pieces independently:
+  the default channel metadata and
+  the initial feed snapshot.
+  The seeded feed snapshot is built from the same stub JSON resource already used by the current API-emulation path,
+  so the app can start offline with a real persisted feed even before any successful refresh has happened.
+  This keeps the bootstrap pragmatic and local to the existing app persistence layer without introducing a bundled database, a second stub contract, or another cache abstraction.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

@@ -965,3 +965,14 @@ Readability-first cycle progress:
   When the path is satisfied, feed refresh still goes through the current stubbed API request and then syncs persistence.
   When the path is unavailable, the repository skips the API path and returns the persisted feed snapshot from the database instead.
 - This keeps the offline/online branching local to the feed repository and avoids introducing a broader reachability framework before the real pull-to-refresh requirements are defined.
+- The next persistence step closed the remaining first-launch offline gap.
+  `AppDataSeeder` no longer seeds only the channel record.
+  It now independently seeds both:
+  the default channel metadata and
+  the initial feed snapshot.
+- The feed seed is built from the same stub JSON resource already used by the current API-emulation path,
+  so the app now has a consistent first local feed snapshot even before the first successful refresh.
+  This keeps the bootstrap path pragmatic:
+  no new cache layer,
+  no new bundled database,
+  and no duplication of a second stub contract file.

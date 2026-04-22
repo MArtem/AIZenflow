@@ -105,6 +105,10 @@ private enum FeedAPIStubFactory {
     static func makeFeedResponse() async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
         try Task.checkCancellation()
+        return try loadFeedResponse()
+    }
+
+    static func loadFeedResponse() throws -> FeedResponseDTO {
         let feedData = try loadStubFeedResponseData()
         return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
     }
