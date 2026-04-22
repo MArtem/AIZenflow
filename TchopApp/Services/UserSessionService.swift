@@ -80,7 +80,7 @@ final class UserSessionService: UserSessionManaging {
 
     /// Restores the active session and clears stale usernames automatically.
     func restoreSession() throws -> AppUser? {
-        guard let userID = activeUserIDForRestore() else {
+        guard let userID = try activeUserIDForRestore() else {
             return nil
         }
 
