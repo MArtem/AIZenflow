@@ -1,19 +1,22 @@
 import AuthenticationServices
 import SwiftUI
+import TchopAppleAuthentication
 
-/// Username-based authentication screen shown before entering the app shell.
+/// Authentication screen shown before entering the app shell.
 struct LoginScreenView: View {
     @StateObject private var viewModel: LoginViewModel
 
     /// Creates a new LoginScreenView instance.
     init(
         onLogin: @escaping (String) throws -> Void,
-        onAppleLogin: @escaping (AppleSignInSessionProfile) throws -> Void
+        onAppleLogin: @escaping (AppleAuthenticationIdentity) throws -> Void,
+        appleAuthenticationManager: any AppleAuthenticationManaging
     ) {
         _viewModel = StateObject(
             wrappedValue: LoginViewModel(
                 onLogin: onLogin,
-                onAppleLogin: onAppleLogin
+                onAppleLogin: onAppleLogin,
+                appleAuthenticationManager: appleAuthenticationManager
             )
         )
     }
@@ -30,7 +33,7 @@ struct LoginScreenView: View {
                 Text(
                     AppLocalization.text(
                         "login.subtitle",
-                        fallback: "Use any username. A new one will be stored locally on first login."
+                        fallback: "Sign in with Apple or use any local username."
                     )
                 )
                     .font(.system(size: 15, weight: .medium))

@@ -1,7 +1,8 @@
 import AuthenticationServices
 import Foundation
+import TchopAppleAuthentication
 
-/// View model backing the simple username-only login screen.
+/// View model backing the local-username and Apple sign-in screen.
 @MainActor
 final class LoginViewModel: ObservableObject {
     /// User-entered username value.
@@ -11,15 +12,18 @@ final class LoginViewModel: ObservableObject {
     @Published private(set) var errorMessage: String?
 
     private let onLogin: (String) throws -> Void
-    private let onAppleLogin: (AppleSignInSessionProfile) throws -> Void
+    private let onAppleLogin: (AppleAuthenticationIdentity) throws -> Void
+    private let appleAuthenticationManager: any AppleAuthenticationManaging
 
     /// Creates a login view model.
     init(
         onLogin: @escaping (String) throws -> Void,
-        onAppleLogin: @escaping (AppleSignInSessionProfile) throws -> Void
+        onAppleLogin: @escaping (AppleAuthenticationIdentity) throws -> Void,
+        appleAuthenticationManager: any AppleAuthenticationManaging
     ) {
         self.onLogin = onLogin
         self.onAppleLogin = onAppleLogin
+        self.appleAuthenticationManager = appleAuthenticationManager
     }
 
     /// Validates the input and attempts to sign in.
@@ -51,23 +55,14 @@ final class LoginViewModel: ObservableObject {
 
     /// Extracts the credential payload and starts the Apple-backed sign-in flow.
     private func handleSuccessfulAppleAuthorization(_ authorization: ASAuthorization) {
-        guard let credential = authorization.credential as? ASAuthorizationAppleIDCredential else {
+        do {
+            try onAppleLogin(appleAuthenticationManager.identity(from: authorization))
+            errorMessage = nil
+        } catch AppleAuthenticationError.invalidCredential {
             errorMessage = AppLocalization.text(
                 "login.apple.error.invalidCredential",
                 fallback: "Unable to read the Apple sign-in credential."
             )
-            return
-        }
-
-        do {
-            try onAppleLogin(
-                AppleSignInSessionProfile(
-                    userID: credential.user,
-                    displayName: makeDisplayName(from: credential.fullName),
-                    email: credential.email
-                )
-            )
-            errorMessage = nil
         } catch {
             errorMessage = AppLocalization.text(
                 "login.apple.error.generic",
@@ -78,7 +73,7 @@ final class LoginViewModel: ObservableObject {
 
     /// Handles Apple authorization failures while keeping user-cancelled flows silent.
     private func handleAppleAuthorizationFailure(_ error: Error) {
-        if let authorizationError = error as? ASAuthorizationError, authorizationError.code == .canceled {
+        if appleAuthenticationManager.isCancellationError(error) {
             errorMessage = nil
             return
         }
@@ -87,16 +82,5 @@ final class LoginViewModel: ObservableObject {
             "login.apple.error.generic",
             fallback: "Unable to sign in with Apple right now."
         )
-    }
-
-    /// Resolves a human-readable display name from Apple credential name components.
-    private func makeDisplayName(from components: PersonNameComponents?) -> String? {
-        guard let components else {
-            return nil
-        }
-
-        let formattedName = PersonNameComponentsFormatter().string(from: components)
-            .trimmingCharacters(in: .whitespacesAndNewlines)
-        return formattedName.isEmpty ? nil : formattedName
     }
 }

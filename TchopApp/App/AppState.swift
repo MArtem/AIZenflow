@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import TchopAppleAuthentication
 import UIKit
 import TchopNavigation
 
@@ -60,8 +61,8 @@ final class AppState: ObservableObject {
     }
 
     /// Signs in with a normalized Apple identity profile and updates the source of truth user state.
-    func signInWithApple(profile: AppleSignInSessionProfile) throws {
-        let signedInUser = try sessionService.signInWithApple(profile: profile)
+    func signInWithApple(identity: AppleAuthenticationIdentity) throws {
+        let signedInUser = try sessionService.signInWithApple(identity: identity)
         activateAuthenticatedUser(signedInUser)
     }
 

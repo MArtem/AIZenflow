@@ -37,6 +37,7 @@ struct TchopApp: App {
         WindowGroup {
             AppRootView(
                 appState: appState,
+                appleAuthenticationManager: container.appleAuthenticationManager,
                 onOpenURL: { url in
                     _ = appState.handleIncomingURL(url)
                 },

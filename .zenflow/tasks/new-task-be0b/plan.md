@@ -259,6 +259,12 @@ Applied a readability-focused refactor to `TchopApp/Repositories/UserRepository.
 The main repository methods now delegate the repeated SwiftData/Core Data branches to small private helpers for fetch, create, and restore-preference update flows, and the repeated Core Data single-record request setup is centralized in one helper.
 This step intentionally kept the logic in the same file and did not introduce any new protocols, services, or generic abstraction layers.
 
+### [x] Step: Apple auth extraction 1 — move Apple auth semantics into infrastructure package
+
+Created a dedicated reusable package product `TchopAppleAuthentication` inside `Packages/TchopInfrastructure`.
+The package now owns normalized Apple auth identity parsing, cancellation detection, and optional credential-state lookup, while app-local session persistence, `AppUser`, and profile UX remain in the app target.
+`LoginViewModel` and the login screen now consume an explicit `appleAuthenticationManager` from the composition root instead of parsing `AuthenticationServices` payloads inline.
+
 ### [x] Step: Verification and baseline preservation after readability cycle
 
 Ran `Full` verification through `./scripts/verify.sh full`.

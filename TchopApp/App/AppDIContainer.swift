@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import TchopAnalytics
+import TchopAppleAuthentication
 import TchopDatabase
 import TchopNavigation
 import TchopNetworking
@@ -34,6 +35,9 @@ final class AppDIContainer: ObservableObject {
 
     /// Service responsible for sign-in and session restoration.
     let sessionService: any UserSessionManaging
+
+    /// Apple auth adapter used by the login UI flow.
+    let appleAuthenticationManager: any AppleAuthenticationManaging
 
     /// Remote UI configuration manager used for server-driven shell tweaks.
     let uiConfigurationManager: any UIConfigurationManaging
@@ -76,6 +80,7 @@ final class AppDIContainer: ObservableObject {
         self.contentRepository = contentServices.contentRepository
         self.userRepository = contentServices.userRepository
         self.sessionService = contentServices.sessionService
+        self.appleAuthenticationManager = AppleAuthenticationManager()
 
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
         self.widgetContentSyncManager = Self.makeWidgetContentSyncManager()

@@ -258,6 +258,9 @@
   When there is a real trade-off between simpler/more readable code and a more complex architectural option, that trade-off should be surfaced to the user explicitly before locking in the direction.
 - Additional collaboration rule refinement:
   questions, objections, implementation ideas, clarifications, and architectural alternatives from the agent are always welcome on this project and should be raised proactively instead of silently assuming defaults.
+- Apple auth packaging baseline:
+  Apple-specific authorization parsing and cancellation semantics now belong to `TchopAppleAuthentication` inside the infrastructure package.
+  App-local session persistence, local user creation, and profile/account UX still stay in the app target; no generic multi-provider auth abstraction was introduced.
 - Verification baseline after the readability-first cycle:
   `./scripts/verify.sh full` is green.
   Package tests pass,

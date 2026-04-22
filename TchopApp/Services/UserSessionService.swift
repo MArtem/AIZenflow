@@ -1,29 +1,5 @@
 import Foundation
-
-/// Lightweight Apple sign-in payload normalized away from Apple framework types.
-struct AppleSignInSessionProfile {
-    /// Stable Apple identity identifier returned by the authorization credential.
-    let userID: String
-
-    /// Preferred human-readable name resolved from the Apple credential, when available.
-    let displayName: String?
-
-    /// Email returned by the Apple credential, when available.
-    let email: String?
-
-    /// Best-effort preferred username used for local profile creation.
-    var preferredUsername: String? {
-        if let displayName, !displayName.isEmpty {
-            return displayName
-        }
-
-        guard let email else {
-            return nil
-        }
-
-        return email.split(separator: "@").first.map(String.init) ?? email
-    }
-}
+import TchopAppleAuthentication
 
 /// Session service contract used by app-level state.
 @MainActor
@@ -32,7 +8,7 @@ protocol UserSessionManaging {
     func signIn(username: String) throws -> AppUser
 
     /// Signs in with a normalized Apple identity payload and persists the active session marker.
-    func signInWithApple(profile: AppleSignInSessionProfile) throws -> AppUser
+    func signInWithApple(identity: AppleAuthenticationIdentity) throws -> AppUser
 
     /// Restores the active user if a valid persisted session exists.
     func restoreSession() throws -> AppUser?
@@ -69,10 +45,10 @@ final class UserSessionService: UserSessionManaging {
     }
 
     /// Signs in with Apple and stores the active user identifier for future restoration.
-    func signInWithApple(profile: AppleSignInSessionProfile) throws -> AppUser {
+    func signInWithApple(identity: AppleAuthenticationIdentity) throws -> AppUser {
         let user = try userRepository.findOrCreateAppleUser(
-            appleUserID: profile.userID,
-            preferredUsername: profile.preferredUsername
+            appleUserID: identity.userID,
+            preferredUsername: identity.preferredUsername
         )
         userDefaults.set(user.id, forKey: Keys.activeUserID)
         return user

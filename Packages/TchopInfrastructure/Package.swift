@@ -66,6 +66,10 @@ let package = Package(
         .library(
             name: "TchopAnalytics",
             targets: ["TchopAnalytics"]
+        ),
+        .library(
+            name: "TchopAppleAuthentication",
+            targets: ["TchopAppleAuthentication"]
         )
     ],
     targets: [
@@ -124,6 +128,9 @@ let package = Package(
         ),
         .target(
             name: "TchopPushNotifications"
+        ),
+        .target(
+            name: "TchopAppleAuthentication"
         ),
         .target(
             name: "TchopAnalytics",
