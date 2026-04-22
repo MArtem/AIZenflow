@@ -33,7 +33,8 @@ struct ShellContentView: View {
 
             if coordinator.selectedTab == .news && viewModel.showsFloatingActionButton {
                 FloatingActionButton()
-                    .padding(.leading, 290)
+                    .frame(maxWidth: .infinity, alignment: .trailing)
+                    .padding(.trailing, 18)
                     .padding(.bottom, 66)
             }
 
