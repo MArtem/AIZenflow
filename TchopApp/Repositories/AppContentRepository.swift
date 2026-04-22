@@ -1,5 +1,6 @@
 import Foundation
 import CoreData
+import Network
 import SwiftData
 import TchopDatabase
 
@@ -20,6 +21,12 @@ protocol NewsFeedRepository {
     func refreshNewsFeedContent() async throws -> NewsFeedContent
 }
 
+/// Lightweight app-local reachability check used by the feed repository.
+protocol NetworkAvailabilityChecking {
+    /// Whether the app currently has a usable internet path.
+    var isInternetAvailable: Bool { get }
+}
+
 /// Combined repository used by the shell to resolve both channel and feed content.
 protocol AppContentRepository: ChannelInfoRepository, NewsFeedRepository {}
 
@@ -28,14 +35,17 @@ protocol AppContentRepository: ChannelInfoRepository, NewsFeedRepository {}
 final class DefaultAppContentRepository: AppContentRepository {
     private let databaseManager: any DatabaseManaging
     private let feedAPIManager: any FeedAPIManaging
+    private let networkAvailabilityChecker: any NetworkAvailabilityChecking
 
     /// Creates a new DefaultAppContentRepository instance.
     init(
         databaseManager: any DatabaseManaging,
-        feedAPIManager: any FeedAPIManaging
+        feedAPIManager: any FeedAPIManaging,
+        networkAvailabilityChecker: any NetworkAvailabilityChecking
     ) {
         self.databaseManager = databaseManager
         self.feedAPIManager = feedAPIManager
+        self.networkAvailabilityChecker = networkAvailabilityChecker
     }
 
     /// Fetches channel data from local persistence.
@@ -51,6 +61,14 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Refreshes feed cards from the feed API, syncs persistence, and rereads the stored snapshot.
     func refreshNewsFeedContent() async throws -> NewsFeedContent {
+        guard networkAvailabilityChecker.isInternetAvailable else {
+            if let persistedContent = try currentNewsFeedContent() {
+                return persistedContent
+            }
+
+            throw RepositoryError.missingPersistedFeed
+        }
+
         let response = try await feedAPIManager.fetchFeed()
         try syncPersistedFeedContent(with: response)
         return try fetchPersistedNewsFeedContent()
@@ -234,6 +252,33 @@ final class DefaultAppContentRepository: AppContentRepository {
 
 private enum RepositoryError: Error {
     case missingChannel
+    case missingPersistedFeed
+}
+
+/// Minimal network availability monitor for choosing between remote and persisted feed paths.
+final class NetworkAvailabilityMonitor: NetworkAvailabilityChecking {
+    private let monitor = NWPathMonitor()
+    private let monitorQueue = DispatchQueue(label: "app.network-availability-monitor")
+    private let stateQueue = DispatchQueue(label: "app.network-availability-state")
+    private var hasSatisfiedPath = false
+
+    /// Whether the app currently has a usable internet path.
+    var isInternetAvailable: Bool {
+        stateQueue.sync { hasSatisfiedPath }
+    }
+
+    init() {
+        monitor.pathUpdateHandler = { [weak self] path in
+            self?.stateQueue.async {
+                self?.hasSatisfiedPath = path.status == .satisfied
+            }
+        }
+        monitor.start(queue: monitorQueue)
+    }
+
+    deinit {
+        monitor.cancel()
+    }
 }
 
 private struct FeedCardPersistenceSnapshot {

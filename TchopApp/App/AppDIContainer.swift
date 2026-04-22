@@ -27,6 +27,9 @@ final class AppDIContainer: ObservableObject {
     /// Feed-specific API abstraction currently backed by stub data.
     let feedAPIManager: any FeedAPIManaging
 
+    /// Lightweight connectivity monitor used by repository runtime decisions.
+    let networkAvailabilityMonitor: any NetworkAvailabilityChecking
+
     /// Repository serving shell and feed content.
     let contentRepository: any AppContentRepository
 
@@ -77,6 +80,7 @@ final class AppDIContainer: ObservableObject {
         )
         self.apiManager = contentServices.apiManager
         self.feedAPIManager = contentServices.feedAPIManager
+        self.networkAvailabilityMonitor = contentServices.networkAvailabilityMonitor
         self.contentRepository = contentServices.contentRepository
         self.userRepository = contentServices.userRepository
         self.sessionService = contentServices.sessionService
@@ -144,20 +148,24 @@ final class AppDIContainer: ObservableObject {
     ) -> (
         apiManager: any APIManaging,
         feedAPIManager: any FeedAPIManaging,
+        networkAvailabilityMonitor: any NetworkAvailabilityChecking,
         contentRepository: any AppContentRepository,
         userRepository: any UserRepository,
         sessionService: any UserSessionManaging
     ) {
         let apiManager = makeAPIManager(analyticsCollector: analyticsCollector)
         let feedAPIManager = makeFeedAPIManager(apiManager: apiManager)
+        let networkAvailabilityMonitor = NetworkAvailabilityMonitor()
         let repositories = makeRepositories(
             databaseManager: databaseManager,
-            feedAPIManager: feedAPIManager
+            feedAPIManager: feedAPIManager,
+            networkAvailabilityChecker: networkAvailabilityMonitor
         )
 
         return (
             apiManager: apiManager,
             feedAPIManager: feedAPIManager,
+            networkAvailabilityMonitor: networkAvailabilityMonitor,
             contentRepository: repositories.contentRepository,
             userRepository: repositories.userRepository,
             sessionService: UserSessionService(userRepository: repositories.userRepository)
@@ -175,7 +183,8 @@ final class AppDIContainer: ObservableObject {
     /// Creates app repositories that sit on top of the shared database and API layer.
     private static func makeRepositories(
         databaseManager: any DatabaseManaging,
-        feedAPIManager: any FeedAPIManaging
+        feedAPIManager: any FeedAPIManaging,
+        networkAvailabilityChecker: any NetworkAvailabilityChecking
     ) -> (
         contentRepository: any AppContentRepository,
         userRepository: any UserRepository
@@ -183,7 +192,8 @@ final class AppDIContainer: ObservableObject {
         (
             contentRepository: DefaultAppContentRepository(
                 databaseManager: databaseManager,
-                feedAPIManager: feedAPIManager
+                feedAPIManager: feedAPIManager,
+                networkAvailabilityChecker: networkAvailabilityChecker
             ),
             userRepository: DefaultUserRepository(databaseManager: databaseManager)
         )

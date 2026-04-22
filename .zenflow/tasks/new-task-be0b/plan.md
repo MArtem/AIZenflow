@@ -960,3 +960,8 @@ Readability-first cycle progress:
   but `AppDIContainer` now resolves the initial feed content from local storage first and falls back to `NewsFeedFixtures` only when the database is empty.
 - `NewsFeedViewModel` now starts from that local snapshot and uses the explicit refresh path for remote updates.
   This gives the home screen a real `local snapshot + remote refresh` bootstrap flow without introducing a second feed state model, cache layer, or coordinator.
+- The next feed step added a minimal internet-availability gate to the repository path.
+  `DefaultAppContentRepository` now receives an app-local `NetworkAvailabilityChecking` dependency backed by `NWPathMonitor`.
+  When the path is satisfied, feed refresh still goes through the current stubbed API request and then syncs persistence.
+  When the path is unavailable, the repository skips the API path and returns the persisted feed snapshot from the database instead.
+- This keeps the offline/online branching local to the feed repository and avoids introducing a broader reachability framework before the real pull-to-refresh requirements are defined.

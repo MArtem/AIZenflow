@@ -1148,6 +1148,11 @@ Absent:  no tests/build/simulator checks
   `AppDIContainer` now resolves the initial home-feed content from local storage first and only falls back to `NewsFeedFixtures` when persistence is still empty.
   `NewsFeedViewModel` therefore starts from the last stored snapshot when available and uses the explicit refresh path for remote updates,
   which gives the screen a real `local snapshot + remote refresh` flow without adding a new cache service, second state machine, or extra coordinator layer.
+  The next feed step then added a minimal online/offline gate without widening the architecture.
+  `DefaultAppContentRepository` now receives an app-local `NetworkAvailabilityChecking` dependency backed by `NWPathMonitor`.
+  If the device currently has a satisfied path, the repository keeps using the current stubbed API request flow and then syncs the result into persistence.
+  If the path is unavailable, the repository skips the API call entirely and returns the persisted feed snapshot from the database instead.
+  This keeps the online/offline behavior local to the feed repository and intentionally avoids introducing a broader reachability subsystem before future pull-to-refresh requirements are clarified.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:
