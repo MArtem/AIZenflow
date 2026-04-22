@@ -257,6 +257,7 @@ private enum AppContentPersistenceMapper {
         }
     }
 
+    @available(iOS 17, *)
     static func makeFeedCardRecord(from snapshot: FeedCardPersistenceSnapshot) -> FeedCardRecord {
         FeedCardRecord(
             id: snapshot.id,
