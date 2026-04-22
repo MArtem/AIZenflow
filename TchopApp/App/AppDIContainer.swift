@@ -225,7 +225,7 @@ final class AppDIContainer: ObservableObject {
     ) -> NewsFeedViewModel {
         let initialContent = resolveInitialNewsFeedContent(from: repository)
 
-        NewsFeedViewModel(
+        return NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: widgetContentSyncManager,
             initialContent: initialContent,
