@@ -264,6 +264,9 @@
 - Apple auth account UX baseline:
   `ProfileTabRootView` is no longer a stub detail launcher.
   It now acts as the real minimal account screen and shows the sign-in method, a lightweight account identifier hint, the navigation-restore preference, and logout without introducing a separate settings framework.
+- Apple auth shell baseline:
+  account presentation semantics are now centralized in app-local `AccountProfileSummary`.
+  Both the profile screen and the side menu reuse the same summary instead of rebuilding Apple/local account copy independently.
 - Verification baseline after the readability-first cycle:
   `./scripts/verify.sh full` is green.
   Package tests pass,

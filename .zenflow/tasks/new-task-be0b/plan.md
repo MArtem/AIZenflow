@@ -271,6 +271,11 @@ Replaced the old profile-tab stub flow with a real account screen in the app lay
 The screen now shows the current display name, the actual sign-in method (`Sign in with Apple` or `Local account`), a lightweight account identifier hint, the existing navigation-restore preference, and logout.
 This intentionally stayed app-local and did not introduce a new settings module or a package extraction for profile UI.
 
+### [x] Step: Apple auth shell 1 — reuse account summary across profile and side menu
+
+Added an app-local `AccountProfileSummary` model as the single presentation source for account initials, sign-in method, and account identifier hint.
+The same summary now drives both the profile screen and the shell side menu, which removes duplicate provider logic from the profile view and makes the authenticated shell visibly account-aware without adding a new UI framework.
+
 ### [x] Step: Verification and baseline preservation after readability cycle
 
 Ran `Full` verification through `./scripts/verify.sh full`.

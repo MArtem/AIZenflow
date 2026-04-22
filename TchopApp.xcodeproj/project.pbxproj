@@ -24,6 +24,7 @@
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
 		A00000390000000000000001 /* ArticleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* ArticleActionView.swift */; };
 		A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* Models/ChannelHeaderInfo.swift */; };
+		A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C2000000000000001 /* AccountProfileSummary.swift */; };
 		A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* Models/NewsFeedModels.swift */; };
 		A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* ViewModels/AppShellViewModel.swift */; };
 		A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000420000000000000001 /* ViewModels/NewsFeedViewModel.swift */; };
@@ -200,6 +201,7 @@
 		A00000560000000000000001 /* StubTabNavigationRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubTabNavigationRootView.swift; sourceTree = "<group>"; };
 		A00000580000000000000001 /* StubTabDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StubTabDetailView.swift; sourceTree = "<group>"; };
 		A000005A0000000000000001 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
+		A000003C2000000000000001 /* AccountProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProfileSummary.swift; sourceTree = "<group>"; };
 		A000005C0000000000000001 /* UserSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionService.swift; sourceTree = "<group>"; };
 		A000005E0000000000000001 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		A00000620000000000000001 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 		A000000A0000000000000002 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A000003C2000000000000001 /* AccountProfileSummary.swift */,
 				A00000220000000000000001 /* AppTab.swift */,
 				A000005A0000000000000001 /* AppUser.swift */,
 				A000003C0000000000000001 /* ChannelHeaderInfo.swift */,
@@ -831,6 +834,7 @@
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
+				A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */,
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
 				A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
 				A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
@@ -893,6 +897,7 @@
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
+				A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */,
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
 				A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
 				A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,

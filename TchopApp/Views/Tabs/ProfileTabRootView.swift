@@ -24,18 +24,20 @@ struct ProfileTabRootView: View {
     }
 
     var body: some View {
+        let accountSummary = AccountProfileSummary(user: currentUser)
+
         NavigationStack(path: pathBinding) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     ProfileHeaderSection(
-                        username: currentUser.username,
-                        userInitials: userInitials,
-                        providerTitle: authenticationSummary.providerTitle
+                        username: accountSummary.displayName,
+                        userInitials: accountSummary.initials,
+                        providerTitle: accountSummary.providerTitle
                     )
                     ProfileAccountCard(
-                        providerTitle: authenticationSummary.providerTitle,
-                        providerDescription: authenticationSummary.providerDescription,
-                        accountIDHint: accountIDHint
+                        providerTitle: accountSummary.providerTitle,
+                        providerDescription: accountSummary.providerDescription,
+                        accountIDHint: accountSummary.accountIDHint
                     )
                     ProfilePreferencesCard(
                         isNavigationRestoreEnabled: navigationRestoreBinding
@@ -67,13 +69,6 @@ struct ProfileTabRootView: View {
         )
     }
 
-    private var userInitials: String {
-        let parts = currentUser.username.split(separator: " ")
-        let letters = parts.prefix(2).compactMap { $0.first }
-        let value = String(letters)
-        return value.isEmpty ? "U" : value.uppercased()
-    }
-
     private var navigationRestoreBinding: Binding<Bool> {
         Binding(
             get: { isNavigationRestoreEnabled },
@@ -95,41 +90,6 @@ struct ProfileTabRootView: View {
         )
     }
 
-    private var authenticationSummary: AccountAuthenticationSummary {
-        AccountAuthenticationSummary(user: currentUser)
-    }
-
-    private var accountIDHint: String {
-        let suffix = String(currentUser.id.suffix(8))
-        return "...\(suffix)"
-    }
-}
-
-private struct AccountAuthenticationSummary {
-    let providerTitle: String
-    let providerDescription: String
-
-    init(user: AppUser) {
-        if user.appleUserID != nil {
-            providerTitle = AppLocalization.text(
-                "profile.provider.apple",
-                fallback: "Sign in with Apple"
-            )
-            providerDescription = AppLocalization.text(
-                "profile.provider.appleDescription",
-                fallback: "This local profile is linked to a stable Apple identity and can be restored through Apple sign-in."
-            )
-        } else {
-            providerTitle = AppLocalization.text(
-                "profile.provider.local",
-                fallback: "Local account"
-            )
-            providerDescription = AppLocalization.text(
-                "profile.provider.localDescription",
-                fallback: "This account currently exists only in local app storage on this device."
-            )
-        }
-    }
 }
 
 private struct ProfileHeaderSection: View {

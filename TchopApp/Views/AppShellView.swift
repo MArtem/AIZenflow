@@ -41,6 +41,7 @@ struct AppShellView: View {
 
                     SideMenuView(
                         channelInfo: viewModel.channelInfo,
+                        accountSummary: currentUser.map(AccountProfileSummary.init(user:)),
                         selectedTab: coordinator.selectedTab,
                         footerText: viewModel.sideMenuFooterText,
                         onSelect: selectTab
