@@ -1141,6 +1141,13 @@ Absent:  no tests/build/simulator checks
   Persisted feed cards now carry `sortOrder`, `remoteUpdatedAt`, `publishedAt`, local `syncedAt`, and serialized action/participant payloads,
   which gives the home feed its first real offline-capable snapshot path while staying compatible with the existing two card types.
   No tests or verification were run for this step because the temporary test freeze remains active and the user did not request an exception.
+  The next feed-runtime step then made the bootstrap semantics explicit without widening the architecture.
+  `NewsFeedRepository` now exposes two separate intents:
+  `currentNewsFeedContent()` for local snapshot bootstrap and
+  `refreshNewsFeedContent()` for remote fetch plus persistence sync.
+  `AppDIContainer` now resolves the initial home-feed content from local storage first and only falls back to `NewsFeedFixtures` when persistence is still empty.
+  `NewsFeedViewModel` therefore starts from the last stored snapshot when available and uses the explicit refresh path for remote updates,
+  which gives the screen a real `local snapshot + remote refresh` flow without adding a new cache service, second state machine, or extra coordinator layer.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

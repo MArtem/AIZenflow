@@ -167,7 +167,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
 
             do {
-                let content = try await repository.fetchNewsFeedContent()
+                let content = try await repository.refreshNewsFeedContent()
                 guard !Task.isCancelled else {
                     return
                 }

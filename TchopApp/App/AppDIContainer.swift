@@ -213,16 +213,29 @@ final class AppDIContainer: ObservableObject {
         repository: any NewsFeedRepository,
         widgetContentSyncManager: any WidgetContentSyncing
     ) -> NewsFeedViewModel {
+        let initialContent = resolveInitialNewsFeedContent(from: repository)
+
         NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: widgetContentSyncManager,
-            initialContent: NewsFeedFixtures.fallbackContent,
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            initialContent: initialContent,
+            loadFailureContent: initialContent,
             loadFailureMessage: AppLocalization.text(
                 "news.error.loadFailed",
                 fallback: "Failed to load feed."
             )
         )
+    }
+
+    /// Resolves the best local feed snapshot for bootstrap and falls back to fixtures only when storage is empty.
+    private static func resolveInitialNewsFeedContent(
+        from repository: any NewsFeedRepository
+    ) -> NewsFeedContent {
+        if let localContent = try? repository.currentNewsFeedContent() {
+            return localContent ?? NewsFeedFixtures.fallbackContent
+        }
+
+        return NewsFeedFixtures.fallbackContent
     }
 
     /// Resolves repository-backed channel info or falls back to local defaults.

@@ -13,8 +13,11 @@ protocol ChannelInfoRepository {
 /// Repository interface for the news feed timeline.
 @MainActor
 protocol NewsFeedRepository {
-    /// Fetches feed content and maps it into presentation models.
-    func fetchNewsFeedContent() async throws -> NewsFeedContent
+    /// Returns the current persisted feed snapshot if one is already available locally.
+    func currentNewsFeedContent() throws -> NewsFeedContent?
+
+    /// Refreshes feed content from the API, syncs persistence, and returns the resulting snapshot.
+    func refreshNewsFeedContent() async throws -> NewsFeedContent
 }
 
 /// Combined repository used by the shell to resolve both channel and feed content.
@@ -40,8 +43,14 @@ final class DefaultAppContentRepository: AppContentRepository {
         try requireChannelInfo(fetchChannelInfoFromCurrentBackend())
     }
 
-    /// Fetches feed cards from the feed API and maps them into view-facing models.
-    func fetchNewsFeedContent() async throws -> NewsFeedContent {
+    /// Returns the current persisted feed snapshot if one is already available locally.
+    func currentNewsFeedContent() throws -> NewsFeedContent? {
+        let content = try fetchPersistedNewsFeedContent()
+        return content.cards.isEmpty ? nil : content
+    }
+
+    /// Refreshes feed cards from the feed API, syncs persistence, and rereads the stored snapshot.
+    func refreshNewsFeedContent() async throws -> NewsFeedContent {
         let response = try await feedAPIManager.fetchFeed()
         try syncPersistedFeedContent(with: response)
         return try fetchPersistedNewsFeedContent()

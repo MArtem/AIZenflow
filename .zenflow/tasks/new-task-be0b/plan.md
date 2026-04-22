@@ -953,3 +953,10 @@ Readability-first cycle progress:
   `sortOrder`, `remoteUpdatedAt`, `publishedAt`, and local `syncedAt` now participate in the stored snapshot,
   and the app now has the first real offline-capable feed path for the home screen.
 - No tests or verification were run for this step because the temporary test freeze is still in effect and the user did not request an exception.
+- The next feed-runtime step kept the architecture local and explicit:
+  `NewsFeedRepository` now exposes `currentNewsFeedContent()` and `refreshNewsFeedContent()`
+  instead of one mixed "fetch" entry point.
+  `DefaultAppContentRepository` uses the same persistence-backed snapshot path as before,
+  but `AppDIContainer` now resolves the initial feed content from local storage first and falls back to `NewsFeedFixtures` only when the database is empty.
+- `NewsFeedViewModel` now starts from that local snapshot and uses the explicit refresh path for remote updates.
+  This gives the home screen a real `local snapshot + remote refresh` bootstrap flow without introducing a second feed state model, cache layer, or coordinator.
