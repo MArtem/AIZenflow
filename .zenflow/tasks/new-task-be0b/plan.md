@@ -276,6 +276,12 @@ This intentionally stayed app-local and did not introduce a new settings module 
 Added an app-local `AccountProfileSummary` model as the single presentation source for account initials, sign-in method, and account identifier hint.
 The same summary now drives both the profile screen and the shell side menu, which removes duplicate provider logic from the profile view and makes the authenticated shell visibly account-aware without adding a new UI framework.
 
+### [x] Step: Apple auth environment 1 — prepare simulator-only local setup as far as possible
+
+Prepared the project-side Apple sign-in environment without pretending simulator-only validation is enough.
+App and widget entitlements now resolve the shared app group from build setting `APP_GROUP_IDENTIFIER`, relevant app/widget targets now expose bundle identifiers through `APP_BUNDLE_IDENTIFIER`, and the login screen explicitly warns that simulator-only Apple auth remains an unreliable signal.
+This keeps the project locally ready for the moment a real bundle id, Apple capability setup, and physical-device validation become available.
+
 ### [x] Step: Verification and baseline preservation after readability cycle
 
 Ran `Full` verification through `./scripts/verify.sh full`.

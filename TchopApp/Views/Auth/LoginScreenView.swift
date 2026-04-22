@@ -50,6 +50,18 @@ struct LoginScreenView: View {
             .frame(height: 52)
             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
 
+#if targetEnvironment(simulator)
+            Text(
+                AppLocalization.text(
+                    "login.apple.simulatorHint",
+                    fallback: "Apple sign-in is prepared in code, but simulator-only validation is unreliable. Real authorization still requires a real bundle id, Apple capability setup, and ideally a physical device."
+                )
+            )
+            .font(.system(size: 13, weight: .medium))
+            .foregroundStyle(AppTheme.textTertiary)
+            .fixedSize(horizontal: false, vertical: true)
+#endif
+
             HStack(spacing: 12) {
                 Rectangle()
                     .fill(AppTheme.borderSubtle)

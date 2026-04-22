@@ -7,6 +7,7 @@ The current code-level integration is already in place, but real authorization d
 ## Current Project State
 - App target bundle id: `com.example.TchopApp`
 - Secondary app target bundle id: `com.example.TchopAppOcean`
+- App and widget entitlements are now prepared to resolve the shared app group from build setting `APP_GROUP_IDENTIFIER`
 - Current entitlement file:
   `TchopApp/TchopApp.entitlements`
 - Current code already includes:
@@ -26,6 +27,16 @@ Current simulator/auth errors like:
 usually point to platform configuration or simulator limitations, not to the basic login-screen wiring.
 
 For real validation, use a properly signed app on a real device.
+
+In the current environment:
+- only simulator is available
+- no App Store distribution exists yet
+- the project can be prepared locally, but not truly validated end-to-end
+
+That means the practical goal right now is:
+- keep code and UX ready
+- remove hardcoded placeholder assumptions from project config
+- make the remaining Apple-side blockers explicit
 
 ## Required Apple Developer Setup
 For each app bundle identifier that should support Apple login:
@@ -53,6 +64,8 @@ If the profile does not include the Apple sign-in capability, runtime auth will 
 ### 1. Replace placeholder bundle identifiers
 Do not keep `com.example.*` identifiers for real Apple sign-in validation.
 Use actual bundle ids that exist in the Apple Developer account.
+
+The project is prepared so these identifiers can be replaced through build settings instead of hunting hardcoded app-group values in entitlement files.
 
 ### 2. Verify Signing & Capabilities
 In Xcode for each app target:
@@ -119,6 +132,7 @@ If Apple login still fails after real signing setup:
 
 ### Check 1. Bundle id
 - confirm app build is not still running under `com.example.*`
+- confirm the target build settings point to the intended real identifier, not just the Xcode General tab copy
 
 ### Check 2. Team and profile
 - confirm Xcode uses the expected Team
@@ -150,3 +164,10 @@ Once real Apple sign-in is verified, the next reasonable product-level follow-up
 - no test work in this phase
 - no verification work in this phase unless explicitly requested later
 - no extra auth abstraction layers unless the project grows into multiple external providers
+
+## What Was Prepared Locally In This Phase
+- Apple auth flow is already implemented in app code
+- Apple-specific credential parsing was extracted into infrastructure package `TchopAppleAuthentication`
+- profile and shell now reflect Apple-vs-local account state
+- the simulator login screen now explicitly warns that simulator-only Apple validation is not a reliable final signal
+- app-group entitlements were prepared for build-setting-based replacement instead of hardcoded `group.com.example...`

@@ -267,6 +267,10 @@
 - Apple auth shell baseline:
   account presentation semantics are now centralized in app-local `AccountProfileSummary`.
   Both the profile screen and the side menu reuse the same summary instead of rebuilding Apple/local account copy independently.
+- Apple auth local-environment baseline:
+  app and widget entitlements no longer hardcode the shared app group directly and now resolve it through build setting `APP_GROUP_IDENTIFIER`.
+  Relevant app and widget targets also expose bundle identifiers through `APP_BUNDLE_IDENTIFIER`, which makes later replacement of `com.example.*` safer and more localized.
+  The login screen now explicitly warns that simulator-only Apple auth is not a reliable final validation signal.
 - Verification baseline after the readability-first cycle:
   `./scripts/verify.sh full` is green.
   Package tests pass,
