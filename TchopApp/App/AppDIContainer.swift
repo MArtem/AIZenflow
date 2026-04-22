@@ -241,8 +241,11 @@ final class AppDIContainer: ObservableObject {
     private static func resolveInitialNewsFeedContent(
         from repository: any NewsFeedRepository
     ) -> NewsFeedContent {
-        if let localContent = try? repository.currentNewsFeedContent() {
-            return localContent ?? NewsFeedFixtures.fallbackContent
+        if
+            let localContent = try? repository.currentNewsFeedContent(),
+            let localContent
+        {
+            return localContent
         }
 
         return NewsFeedFixtures.fallbackContent

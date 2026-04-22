@@ -1,9 +1,22 @@
 import Foundation
 
+/// Origin metadata for the feed content currently shown to the user.
+enum NewsFeedAvailability: Equatable, Sendable {
+    case live
+    case cached(lastSyncedAt: Date?, reason: NewsFeedCacheReason)
+}
+
+/// Reason why the current feed content comes from persisted storage.
+enum NewsFeedCacheReason: Equatable, Sendable {
+    case bootstrap
+    case offline
+}
+
 /// Root presentation model for the news tab feed.
 struct NewsFeedContent: Equatable, Sendable {
     /// Ordered card list shown in the feed.
     let cards: [NewsFeedCard]
+    let availability: NewsFeedAvailability
 
     /// Headline best suited for service consumers such as widgets.
     var primaryServiceHeadline: String? {
@@ -147,7 +160,8 @@ enum NewsFeedFixtures {
                         joinedText: AppLocalization.text("news.fallback.discussion.joinedText", fallback: "+12 joined")
                     )
                 )
-            ]
+            ],
+            availability: .live
         )
     }()
 }

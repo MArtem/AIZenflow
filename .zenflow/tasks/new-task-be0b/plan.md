@@ -976,3 +976,8 @@ Readability-first cycle progress:
   no new cache layer,
   no new bundled database,
   and no duplication of a second stub contract file.
+- The next UX/runtime step then made cached feed visibility explicit without widening the architecture.
+  `NewsFeedContent` now carries lightweight source metadata (`live` vs persisted `cached` with reason and last sync date),
+  `DefaultAppContentRepository` marks bootstrap snapshots as cached and rewrites them to offline-cached when the network gate blocks refresh,
+  and `NewsFeedView` shows a small status line above the cards when the user is seeing saved content.
+- This keeps the stale/offline signal honest for the user while avoiding a second feed state machine, a separate banner service, or extra coordinator/UI policy layers.

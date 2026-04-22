@@ -1160,6 +1160,16 @@ Absent:  no tests/build/simulator checks
   The seeded feed snapshot is built from the same stub JSON resource already used by the current API-emulation path,
   so the app can start offline with a real persisted feed even before any successful refresh has happened.
   This keeps the bootstrap pragmatic and local to the existing app persistence layer without introducing a bundled database, a second stub contract, or another cache abstraction.
+  The latest feed UX/runtime step then made saved-feed visibility explicit without widening the state model.
+  `NewsFeedContent` now carries lightweight availability metadata:
+  `live`, or persisted `cached(lastSyncedAt:reason:)`.
+  `DefaultAppContentRepository` marks locally bootstrapped content as cached with `.bootstrap`,
+  rewrites that reason to `.offline` when connectivity blocks refresh,
+  and `NewsFeedView` now renders a small saved/offline status line above the cards when the user is not looking at live feed data.
+  This was kept intentionally small:
+  no second state machine,
+  no new banner manager,
+  and no broader stale-content framework yet.
 
 ## Model Policy (Quality vs Limits)
 - Default implementation agent:

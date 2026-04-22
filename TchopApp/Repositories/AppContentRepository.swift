@@ -55,7 +55,7 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Returns the current persisted feed snapshot if one is already available locally.
     func currentNewsFeedContent() throws -> NewsFeedContent? {
-        let content = try fetchPersistedNewsFeedContent()
+        let content = try fetchPersistedNewsFeedContent(cacheReason: .bootstrap)
         return content.cards.isEmpty ? nil : content
     }
 
@@ -63,7 +63,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     func refreshNewsFeedContent() async throws -> NewsFeedContent {
         guard networkAvailabilityChecker.isInternetAvailable else {
             if let persistedContent = try currentNewsFeedContent() {
-                return persistedContent
+                return persistedContent.withCacheReason(.offline)
             }
 
             throw RepositoryError.missingPersistedFeed
@@ -71,7 +71,7 @@ final class DefaultAppContentRepository: AppContentRepository {
 
         let response = try await feedAPIManager.fetchFeed()
         try syncPersistedFeedContent(with: response)
-        return try fetchPersistedNewsFeedContent()
+        return try fetchPersistedNewsFeedContent(cacheReason: nil)
     }
 
     /// Resolves channel info using the currently selected persistence backend.
@@ -126,22 +126,30 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Fetches the current persisted feed snapshot using the selected backend.
-    private func fetchPersistedNewsFeedContent() throws -> NewsFeedContent {
-        let cards = try fetchPersistedFeedCardsFromCurrentBackend()
-        return NewsFeedContent(cards: cards)
+    private func fetchPersistedNewsFeedContent(
+        cacheReason: NewsFeedCacheReason?
+    ) throws -> NewsFeedContent {
+        let snapshot = try fetchPersistedFeedSnapshotFromCurrentBackend()
+        return NewsFeedContent(
+            cards: snapshot.cards,
+            availability: makeFeedAvailability(
+                lastSyncedAt: snapshot.lastSyncedAt,
+                cacheReason: cacheReason
+            )
+        )
     }
 
     /// Reads persisted feed cards from the selected backend and maps them into presentation models.
-    private func fetchPersistedFeedCardsFromCurrentBackend() throws -> [NewsFeedCard] {
+    private func fetchPersistedFeedSnapshotFromCurrentBackend() throws -> PersistedNewsFeedSnapshot {
         switch databaseManager.backendKind {
         case .swiftData:
             if #available(iOS 17, *) {
-                return try fetchSwiftDataFeedCards()
+                return try fetchSwiftDataFeedSnapshot()
             }
 
-            return try fetchCoreDataFeedCards()
+            return try fetchCoreDataFeedSnapshot()
         case .coreData:
-            return try fetchCoreDataFeedCards()
+            return try fetchCoreDataFeedSnapshot()
         }
     }
 
@@ -167,25 +175,45 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     @available(iOS 17, *)
     /// Fetches persisted feed cards through the SwiftData backend.
-    private func fetchSwiftDataFeedCards() throws -> [NewsFeedCard] {
+    private func fetchSwiftDataFeedSnapshot() throws -> PersistedNewsFeedSnapshot {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
                 let descriptor = FetchDescriptor<FeedCardRecord>(
                     sortBy: [SortDescriptor(\.sortOrder, order: .forward)]
                 )
-                return try context.fetch(descriptor).compactMap(AppContentMapper.mapFeedCard)
+                let records = try context.fetch(descriptor)
+                return PersistedNewsFeedSnapshot(
+                    cards: records.compactMap(AppContentMapper.mapFeedCard),
+                    lastSyncedAt: records.first?.syncedAt
+                )
             })
         )
     }
 
     /// Fetches persisted feed cards through the Core Data backend.
-    private func fetchCoreDataFeedCards() throws -> [NewsFeedCard] {
+    private func fetchCoreDataFeedSnapshot() throws -> PersistedNewsFeedSnapshot {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
                 let request = Self.makeCoreDataFeedCardFetchRequest()
-                return try context.fetch(request).compactMap(AppContentMapper.mapFeedCard)
+                let records = try context.fetch(request)
+                return PersistedNewsFeedSnapshot(
+                    cards: records.compactMap(AppContentMapper.mapFeedCard),
+                    lastSyncedAt: records.first?.syncedAt
+                )
             })
         )
+    }
+
+    /// Derives visible feed availability from the current source path.
+    private func makeFeedAvailability(
+        lastSyncedAt: Date?,
+        cacheReason: NewsFeedCacheReason?
+    ) -> NewsFeedAvailability {
+        guard let cacheReason else {
+            return .live
+        }
+
+        return .cached(lastSyncedAt: lastSyncedAt, reason: cacheReason)
     }
 
     @available(iOS 17, *)
@@ -253,6 +281,11 @@ final class DefaultAppContentRepository: AppContentRepository {
 private enum RepositoryError: Error {
     case missingChannel
     case missingPersistedFeed
+}
+
+private struct PersistedNewsFeedSnapshot {
+    let cards: [NewsFeedCard]
+    let lastSyncedAt: Date?
 }
 
 /// Minimal network availability monitor for choosing between remote and persisted feed paths.
@@ -442,7 +475,10 @@ private enum AppContentPersistenceMapper {
 
 private enum AppContentMapper {
     static func mapFeedContent(from response: FeedResponseDTO) -> NewsFeedContent {
-        NewsFeedContent(cards: response.cards.map(mapFeedCard))
+        NewsFeedContent(
+            cards: response.cards.map(mapFeedCard),
+            availability: .live
+        )
     }
 
     static func mapFeedCard(_ card: FeedCardDTO) -> NewsFeedCard {
@@ -612,5 +648,18 @@ private enum AppContentMapper {
 
     static func mapChannelInfo(_ channel: CoreDataChannelEntity) -> ChannelHeaderInfo {
         ChannelHeaderInfo(title: channel.title, subtitle: channel.subtitle)
+    }
+}
+
+private extension NewsFeedContent {
+    func withCacheReason(_ reason: NewsFeedCacheReason) -> NewsFeedContent {
+        guard case let .cached(lastSyncedAt, _) = availability else {
+            return self
+        }
+
+        return NewsFeedContent(
+            cards: cards,
+            availability: .cached(lastSyncedAt: lastSyncedAt, reason: reason)
+        )
     }
 }

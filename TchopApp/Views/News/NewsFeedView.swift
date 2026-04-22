@@ -9,6 +9,14 @@ struct NewsFeedView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 16) {
+                if let cachedStatusText {
+                    Text(cachedStatusText)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundStyle(.orange.opacity(0.92))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .accessibilityIdentifier("news.feed.cached-status")
+                }
+
                 if case let .failed(_, errorMessage) = viewModel.state {
                     HStack(alignment: .top, spacing: 12) {
                         Text(errorMessage)
@@ -51,4 +59,41 @@ struct NewsFeedView: View {
             viewModel.refresh()
         }
     }
+
+    private var cachedStatusText: String? {
+        guard case let .cached(lastSyncedAt, reason) = viewModel.state.content.availability else {
+            return nil
+        }
+
+        let baseText: String
+        switch reason {
+        case .bootstrap:
+            baseText = AppLocalization.text(
+                "news.feed.cached.bootstrap",
+                fallback: "Showing saved feed."
+            )
+        case .offline:
+            baseText = AppLocalization.text(
+                "news.feed.cached.offline",
+                fallback: "Offline mode. Showing saved feed."
+            )
+        }
+
+        guard let lastSyncedAt else {
+            return baseText
+        }
+
+        let timestampPrefix = AppLocalization.text(
+            "news.feed.cached.updatedAt",
+            fallback: "Last updated"
+        )
+        return "\(baseText) \(timestampPrefix): \(Self.cachedStatusDateFormatter.string(from: lastSyncedAt))"
+    }
+
+    private static let cachedStatusDateFormatter: DateFormatter = {
+        let formatter = DateFormatter()
+        formatter.dateStyle = .medium
+        formatter.timeStyle = .short
+        return formatter
+    }()
 }
