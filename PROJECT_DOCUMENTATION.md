@@ -1614,6 +1614,13 @@ Lays out:
 - floating action button;
 - bottom tab bar.
 
+Important current policy for the floating action button:
+
+- it is only eligible on the root news feed screen;
+- it is hidden on pushed news-detail routes;
+- it is hidden once the news list is scrolled more than `30pt` away from the top;
+- it reappears when the list returns near the top again.
+
 #### [TabContentView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TabContentView.swift)
 Switches tab root views based on `AppTab`.
 
@@ -1873,6 +1880,36 @@ Flow:
 2. widget sync manager extracts best headline;
 3. it writes shared snapshot;
 4. widget timelines reload.
+
+## 10. Floating Action Button Visibility Flow
+
+Files involved:
+
+- [AppShellView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/AppShellView.swift)
+- [ShellContentView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/ShellContentView.swift)
+- [AppShellViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/AppShellViewModel.swift)
+- [NewsFeedView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift)
+- [NewsTabRootView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/NewsTabRootView.swift)
+
+Flow:
+
+1. `NewsFeedView` observes the hosting `UIScrollView.contentOffset` through a lightweight UIKit bridge.
+2. It reports whether the list is still near the top, using the current threshold of `30pt`.
+3. `AppShellViewModel` stores that shell-facing flag as `isNewsFeedNearTop`.
+4. `ShellContentView` decides whether to render the floating action button.
+
+The button is shown only when all of these are true:
+
+- selected tab is `news`;
+- `newsRouter.path.isEmpty`, meaning the user is on the root feed list and not on a detail route;
+- remote shell configuration still allows the button;
+- `isNewsFeedNearTop == true`.
+
+This split is deliberate:
+
+- the shell owns the button and its final visibility rule;
+- the feed screen owns only the scroll-position signal;
+- route depth comes from the news router, not from feed-view heuristics.
 
 ## 9. Push Notification Flow
 

@@ -28,6 +28,12 @@
   `Medium` = all tests + build on iPhone 17 Pro (iOS 26.0),
   `Low` = build on iPhone 17 Pro (iOS 26.0),
   `Absent` = no tests/build/simulator checks.
+- Current shell/news runtime policy also includes explicit floating-action-button visibility rules:
+  the `+` button is shown only on the root news feed list,
+  hidden on pushed news-detail routes,
+  and hidden once the feed is scrolled more than about `30pt` away from the top.
+  Scroll detection now uses a lightweight UIKit `UIScrollView.contentOffset` observer inside `NewsFeedView`,
+  while final visibility is still decided in `ShellContentView`.
 - If a requested verification run finds a real code/configuration issue, fix it immediately and rerun that same verification level before closing the task.
 - The user may refer to these as `/ios` and `/services` shorthand. Treat them as active instructions for future chats after reading the two rules files.
 

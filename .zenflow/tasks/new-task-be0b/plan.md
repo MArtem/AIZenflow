@@ -1008,3 +1008,13 @@ Readability-first cycle progress:
 - The pull-to-refresh policy is now fixed for this section:
   when the device is online, refresh goes through the API path again and then syncs the database snapshot;
   when the device is offline, refresh intentionally keeps the current persisted snapshot visible and the UI explicitly shows that the feed is being served from offline/saved data.
+- The latest shell/news UI step finalized the floating-action-button visibility policy.
+  The `+` button is now intended to be visible only on the root news feed list,
+  hidden on pushed news-detail routes,
+  and hidden once the user scrolls the feed more than about `30pt` away from the top.
+- The route-depth part is now driven by observing the concrete `newsRouter` in shell composition,
+  while the scroll signal comes from `NewsFeedView` through a lightweight UIKit `UIScrollView.contentOffset` observer rather than a `GeometryReader`-based layout probe.
+- `Low` verification was explicitly requested for this step.
+  The first run failed on a compile error in `NewsFeedView.swift`,
+  that issue was fixed immediately,
+  and the repeated `Low` run finished green with `BUILD SUCCEEDED`.
