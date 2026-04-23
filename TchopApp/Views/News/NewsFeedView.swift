@@ -1,4 +1,5 @@
 import SwiftUI
+import UIKit
 
 /// Main feed list rendering heterogeneous card content.
 struct NewsFeedView: View {
@@ -59,16 +60,16 @@ struct NewsFeedView: View {
                     }
                 }
             }
-            .background(feedTopOffsetReader)
             .frame(maxWidth: .infinity, alignment: .topLeading)
             .padding(.horizontal, 14)
             .padding(.top, 16)
             .padding(.bottom, 120)
         }
-        .coordinateSpace(name: "news.feed.scroll")
-        .onPreferenceChange(NewsFeedScrollOffsetPreferenceKey.self) { offset in
-            onScrollProximityChange(offset >= -Self.floatingActionButtonHideThreshold)
-        }
+        .background(
+            NewsFeedScrollObserver { verticalOffset in
+                onScrollProximityChange(verticalOffset <= Self.floatingActionButtonHideThreshold)
+            }
+        )
         .accessibilityIdentifier("news.feed")
         .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -113,24 +114,70 @@ struct NewsFeedView: View {
         formatter.timeStyle = .short
         return formatter
     }()
+}
 
-    /// Tracks the vertical offset of the actual feed content container inside the scroll view.
-    private var feedTopOffsetReader: some View {
-        GeometryReader { proxy in
-            Color.clear
-                .preference(
-                    key: NewsFeedScrollOffsetPreferenceKey.self,
-                    value: proxy.frame(in: .named("news.feed.scroll")).minY
-                )
+/// Lightweight UIKit bridge that observes the hosting scroll view's content offset without affecting SwiftUI layout.
+private struct NewsFeedScrollObserver: UIViewRepresentable {
+    let onOffsetChange: (CGFloat) -> Void
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(onOffsetChange: onOffsetChange)
+    }
+
+    func makeUIView(context: Context) -> ObserverView {
+        let view = ObserverView()
+        view.isUserInteractionEnabled = false
+        return view
+    }
+
+    func updateUIView(_ uiView: ObserverView, context: Context) {
+        context.coordinator.onOffsetChange = onOffsetChange
+        context.coordinator.attachIfNeeded(to: uiView)
+    }
+
+    final class Coordinator {
+        var onOffsetChange: (CGFloat) -> Void
+        private weak var scrollView: UIScrollView?
+        private var observation: NSKeyValueObservation?
+
+        init(onOffsetChange: @escaping (CGFloat) -> Void) {
+            self.onOffsetChange = onOffsetChange
         }
-        .frame(height: 0)
+
+        func attachIfNeeded(to view: UIView) {
+            DispatchQueue.main.async { [weak self, weak view] in
+                guard let self, let view else {
+                    return
+                }
+
+                guard let scrollView = self.enclosingScrollView(from: view) else {
+                    return
+                }
+
+                guard self.scrollView !== scrollView else {
+                    return
+                }
+
+                self.scrollView = scrollView
+                self.observation = scrollView.observe(\.contentOffset, options: [.initial, .new]) { [weak self] scrollView, _ in
+                    self?.onOffsetChange(max(0, scrollView.contentOffset.y))
+                }
+            }
+        }
+
+        private func enclosingScrollView(from view: UIView) -> UIScrollView? {
+            var currentSuperview = view.superview
+
+            while let currentSuperview {
+                if let scrollView = currentSuperview as? UIScrollView {
+                    return scrollView
+                }
+                currentSuperview = currentSuperview.superview
+            }
+
+            return nil
+        }
     }
 }
 
-private enum NewsFeedScrollOffsetPreferenceKey: PreferenceKey {
-    static var defaultValue: CGFloat = 0
-
-    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
-        value = nextValue()
-    }
-}
+private final class ObserverView: UIView {}

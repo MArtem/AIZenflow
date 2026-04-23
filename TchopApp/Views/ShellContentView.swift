@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopNavigation
 
 /// Layout wrapper combining top chrome, tab content, and overlays.
 struct ShellContentView: View {
@@ -6,6 +7,7 @@ struct ShellContentView: View {
 
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
+    @ObservedObject var newsRouter: TabRouter<NewsRoute>
     let currentUser: AppUser?
     let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
@@ -13,7 +15,7 @@ struct ShellContentView: View {
     /// Whether the shell-level floating action button is allowed for the current tab, route depth and scroll position.
     private var shouldShowFloatingActionButton: Bool {
         coordinator.selectedTab == .news &&
-            coordinator.newsRouter.path.isEmpty &&
+            newsRouter.path.isEmpty &&
             viewModel.showsFloatingActionButton &&
             viewModel.isNewsFeedNearTop
     }

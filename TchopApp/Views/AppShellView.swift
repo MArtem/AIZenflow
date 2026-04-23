@@ -22,6 +22,7 @@ struct AppShellView: View {
                 ShellContentView(
                     viewModel: viewModel,
                     coordinator: coordinator,
+                    newsRouter: coordinator.newsRouter,
                     currentUser: currentUser,
                     onNavigationRestoreChange: onNavigationRestoreChange,
                     onLogout: onLogout
