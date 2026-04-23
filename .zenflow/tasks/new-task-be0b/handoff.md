@@ -266,6 +266,10 @@
   use rollback on failure;
   comment/reply creation and heavy refresh/update actions preserve the current snapshot on failure.
   Offline card-action failures should show an explicit offline/saved-state message, and missing persisted-card failures should surface a stale/out-of-sync message that instructs the user to refresh the feed.
+- Feed card action state baseline:
+  bundled `StubFeedResponse.json` is now treated as initial seed content only, not as the source of truth for every subsequent card action.
+  Card actions persist merged local state back into feed persistence, so likes, comment counts, reply counts, participation state, and display mode no longer reset to the original JSON values after later actions.
+  Display-mode changes now also enter an explicit pending state, which prevents overlapping per-card actions from racing against each other while one save is still in flight.
   Do not choose weak workaround-style fixes, temporary stopgaps, or "quick local" patches when they reduce quality or conflict with the project's standards.
   This applies on every step, including intermediate debugging/fix passes, not only during final cleanup.
 - Additional layout-fix rule:

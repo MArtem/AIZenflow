@@ -116,7 +116,15 @@ final class DefaultAppContentRepository: AppContentRepository {
             updatedArticle = try await feedAPIManager.runFeaturedArticleUpdate(articleID: articleID)
         }
 
-        try persistFeaturedArticle(updatedArticle, articleID: articleID)
+        let mergedState = mergedFeaturedArticleState(
+            from: currentArticle,
+            action: action
+        )
+        try persistFeaturedArticle(
+            updatedArticle,
+            articleID: articleID,
+            state: mergedState
+        )
         return try requirePersistedFeaturedArticle(articleID: articleID)
     }
 
@@ -150,7 +158,15 @@ final class DefaultAppContentRepository: AppContentRepository {
             updatedDiscussion = try await feedAPIManager.runDiscussionUpdate(discussionID: discussionID)
         }
 
-        try persistDiscussion(updatedDiscussion, discussionID: discussionID)
+        let mergedState = mergedDiscussionState(
+            from: currentDiscussion,
+            action: action
+        )
+        try persistDiscussion(
+            updatedDiscussion,
+            discussionID: discussionID,
+            state: mergedState
+        )
         return try requirePersistedDiscussion(discussionID: discussionID)
     }
 
@@ -402,13 +418,18 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// Persists one updated featured article snapshot while keeping feed ordering stable.
     private func persistFeaturedArticle(
         _ article: FeaturedArticleDTO,
-        articleID: String
+        articleID: String,
+        state: FeedCardArticleStatePayload
     ) throws {
         let sortOrder = try persistedSortOrder(for: articleID)
         let snapshot = try AppContentPersistenceMapper.makeFeaturedArticleSnapshot(
             article,
             sortOrder: sortOrder,
-            syncedAt: Date()
+            syncedAt: Date(),
+            persistedState: PersistedCardStateSnapshot(
+                articleStateData: try JSONEncoder().encode(state),
+                discussionStateData: nil
+            )
         )
         try upsertFeedCard(snapshot)
     }
@@ -416,15 +437,92 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// Persists one updated discussion snapshot while keeping feed ordering stable.
     private func persistDiscussion(
         _ discussion: DiscussionDTO,
-        discussionID: String
+        discussionID: String,
+        state: FeedCardDiscussionStatePayload
     ) throws {
         let sortOrder = try persistedSortOrder(for: discussionID)
         let snapshot = try AppContentPersistenceMapper.makeDiscussionSnapshot(
             discussion,
             sortOrder: sortOrder,
-            syncedAt: Date()
+            syncedAt: Date(),
+            persistedState: PersistedCardStateSnapshot(
+                articleStateData: nil,
+                discussionStateData: try JSONEncoder().encode(state)
+            )
         )
         try upsertFeedCard(snapshot)
+    }
+
+    /// Builds the persisted featured article state that should survive one successful card action.
+    private func mergedFeaturedArticleState(
+        from currentArticle: FeaturedArticleCardModel,
+        action: FeaturedArticleCardAction
+    ) -> FeedCardArticleStatePayload {
+        switch action {
+        case .toggleLike:
+            return FeedCardArticleStatePayload(
+                isLiked: !currentArticle.uiState.isLiked,
+                commentCount: currentArticle.commentCount,
+                displayModeRawValue: currentArticle.uiState.displayMode.rawValue
+            )
+        case .addComment:
+            return FeedCardArticleStatePayload(
+                isLiked: currentArticle.uiState.isLiked,
+                commentCount: currentArticle.commentCount + 1,
+                displayModeRawValue: currentArticle.uiState.displayMode.rawValue
+            )
+        case let .setDisplayMode(displayMode):
+            return FeedCardArticleStatePayload(
+                isLiked: currentArticle.uiState.isLiked,
+                commentCount: currentArticle.commentCount,
+                displayModeRawValue: displayMode.rawValue
+            )
+        case .refreshContent, .runLongTask:
+            return FeedCardArticleStatePayload(
+                isLiked: currentArticle.uiState.isLiked,
+                commentCount: currentArticle.commentCount,
+                displayModeRawValue: currentArticle.uiState.displayMode.rawValue
+            )
+        }
+    }
+
+    /// Builds the persisted discussion state that should survive one successful card action.
+    private func mergedDiscussionState(
+        from currentDiscussion: DiscussionCardModel,
+        action: DiscussionCardAction
+    ) -> FeedCardDiscussionStatePayload {
+        switch action {
+        case .toggleParticipation:
+            let isParticipating = !currentDiscussion.uiState.isParticipating
+            let joinedDelta = isParticipating == currentDiscussion.uiState.isParticipating ? 0 : (isParticipating ? 1 : -1)
+            return FeedCardDiscussionStatePayload(
+                isParticipating: isParticipating,
+                replyCount: currentDiscussion.replyCount,
+                joinedCount: max(0, currentDiscussion.joinedCount + joinedDelta),
+                displayModeRawValue: currentDiscussion.uiState.displayMode.rawValue
+            )
+        case .addReply:
+            return FeedCardDiscussionStatePayload(
+                isParticipating: currentDiscussion.uiState.isParticipating,
+                replyCount: currentDiscussion.replyCount + 1,
+                joinedCount: currentDiscussion.joinedCount,
+                displayModeRawValue: currentDiscussion.uiState.displayMode.rawValue
+            )
+        case let .setDisplayMode(displayMode):
+            return FeedCardDiscussionStatePayload(
+                isParticipating: currentDiscussion.uiState.isParticipating,
+                replyCount: currentDiscussion.replyCount,
+                joinedCount: currentDiscussion.joinedCount,
+                displayModeRawValue: displayMode.rawValue
+            )
+        case .refreshContent, .runLongTask:
+            return FeedCardDiscussionStatePayload(
+                isParticipating: currentDiscussion.uiState.isParticipating,
+                replyCount: currentDiscussion.replyCount,
+                joinedCount: currentDiscussion.joinedCount,
+                displayModeRawValue: currentDiscussion.uiState.displayMode.rawValue
+            )
+        }
     }
 
     /// Upserts one feed-card snapshot in the active backend.

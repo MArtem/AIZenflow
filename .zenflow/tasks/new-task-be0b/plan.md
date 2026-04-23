@@ -268,6 +268,13 @@ optimistic actions rollback to the previous persisted snapshot on failure,
 while non-optimistic actions preserve the current persisted snapshot and only clear pending UI state with an inline status message.
 Offline card-action failures now show a saved-state/offline message, and missing persisted-card failures show an out-of-sync/refresh message.
 
+### [x] Step: Preserve per-card state across stub actions
+
+Fixed the main state-loss issue in the stub card-action flow.
+`StubFeedResponse.json` now acts as initial seed content only, while repository action persistence explicitly merges the current persisted card state back into each successful action result before saving it.
+This prevents likes, comment counts, reply counts, participation state, and display mode from resetting when a later action runs.
+Display-mode actions now also use an explicit pending state so they no longer race with other card actions on the same item.
+
 ### [x] Step: Apple auth extraction 1 — move Apple auth semantics into infrastructure package
 
 Created a dedicated reusable package product `TchopAppleAuthentication` inside `Packages/TchopInfrastructure`.

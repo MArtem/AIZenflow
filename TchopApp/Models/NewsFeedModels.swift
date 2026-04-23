@@ -173,6 +173,7 @@ enum FeaturedArticleCardDisplayMode: String, Codable, Equatable, Sendable {
 enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
     case liking
     case addingComment
+    case updatingDisplayMode
     case refreshingContent
     case updatingContent
 
@@ -183,6 +184,8 @@ enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
             return AppLocalization.text("news.featured.pending.like", fallback: "Saving reaction...")
         case .addingComment:
             return AppLocalization.text("news.featured.pending.comment", fallback: "Posting comment...")
+        case .updatingDisplayMode:
+            return AppLocalization.text("news.featured.pending.displayMode", fallback: "Saving layout...")
         case .refreshingContent:
             return AppLocalization.text("news.featured.pending.refresh", fallback: "Refreshing card...")
         case .updatingContent:
@@ -299,6 +302,7 @@ enum DiscussionCardDisplayMode: String, Codable, Equatable, Sendable {
 enum DiscussionCardPendingOperation: Equatable, Sendable {
     case togglingParticipation
     case addingReply
+    case updatingDisplayMode
     case refreshingContent
     case updatingContent
 
@@ -308,6 +312,8 @@ enum DiscussionCardPendingOperation: Equatable, Sendable {
             return AppLocalization.text("news.discussion.pending.participation", fallback: "Saving participation...")
         case .addingReply:
             return AppLocalization.text("news.discussion.pending.reply", fallback: "Posting reply...")
+        case .updatingDisplayMode:
+            return AppLocalization.text("news.discussion.pending.displayMode", fallback: "Saving layout...")
         case .refreshingContent:
             return AppLocalization.text("news.discussion.pending.refresh", fallback: "Refreshing discussion...")
         case .updatingContent:

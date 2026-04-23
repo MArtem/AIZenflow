@@ -326,7 +326,7 @@ final class NewsFeedViewModel: ObservableObject {
                 FeaturedArticleCardUIState(
                     isLiked: $0.isLiked,
                     displayMode: displayMode,
-                    pendingOperation: nil,
+                    pendingOperation: .updatingDisplayMode,
                     inlineStatusMessage: nil
                 )
             }
@@ -770,7 +770,7 @@ final class NewsFeedViewModel: ObservableObject {
                 DiscussionCardUIState(
                     isParticipating: $0.isParticipating,
                     displayMode: displayMode,
-                    pendingOperation: nil,
+                    pendingOperation: .updatingDisplayMode,
                     inlineStatusMessage: nil
                 )
             }
