@@ -51,6 +51,45 @@ In short:
 - app layer = product composition and feature behavior;
 - package layer = reusable infrastructure and shared primitives.
 
+## Dependency Graph At A Glance
+
+This is the shortest useful dependency map for the project.
+Read it top to bottom.
+
+```text
+TchopApp.swift
+  -> AppDIContainer
+    -> AppState
+      -> AppCoordinator
+      -> AppShellViewModel
+        -> NewsFeedViewModel
+          -> NewsFeedRepository
+            -> DefaultAppContentRepository
+              -> FeedAPIManaging
+                -> StubFeedAPIManager
+                  -> APIManager (TchopNetworking)
+              -> DatabaseManaging
+                -> SwiftDataDatabaseManager or CoreDataDatabaseManager
+              -> NetworkAvailabilityChecking
+      -> UserSessionManaging
+        -> UserSessionService
+          -> UserRepository
+            -> DefaultUserRepository
+              -> DatabaseManaging
+      -> DeepLinkManaging
+        -> DeepLinkManager
+      -> NavigationStateManaging
+        -> NavigationStateManager (TchopNavigation)
+      -> WidgetContentSyncing
+        -> FeedHeadlineWidgetSyncManager
+          -> FeedHeadlineWidgetSnapshotManaging (TchopWidgets)
+      -> AppPushNotificationBridging
+        -> AppPushNotificationBridge
+          -> PushNotificationManaging (TchopPushNotifications)
+```
+
+If you are lost in the codebase, come back to this graph first.
+
 ---
 
 ## Targets And What They Do
@@ -1124,6 +1163,427 @@ These keep existing visible content while pending, then replace card content on 
 
 ### Why this file matters
 If you change feed behavior, card action runtime, rollback behavior, or inline status handling, this is the main file.
+
+---
+
+## Feed And Card Subsystem Deep Dive
+
+This section exists because the feed is currently the richest implemented subsystem in the app.
+If a new developer understands this section, they understand most of the real architectural patterns used across the project.
+
+## Feed Subsystem Goals
+
+The current feed implementation is designed to satisfy these goals:
+
+- bootstrap quickly from local persistence;
+- keep working offline;
+- have a clear repository-owned source of truth;
+- support interactive cards in a list;
+- support incremental runtime behavior now without boxing the project into a bad shape later when the real backend arrives.
+
+## Feed Subsystem File Map
+
+Core files:
+
+- [NewsFeedModels.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/NewsFeedModels.swift)
+- [NewsFeedViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift)
+- [AppContentRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/AppContentRepository.swift)
+- [FeedAPIManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/FeedAPIManager.swift)
+- [AppContentRecord.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppContentRecord.swift)
+- [AppDataSeeder.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDataSeeder.swift)
+- [StubFeedResponse.json](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Resources/StubFeedResponse.json)
+- `Views/News/NewsFeedView.swift`
+- `Views/News/FeaturedArticleCard.swift`
+- `Views/News/DiscussionCard.swift`
+- `Views/Tabs/NewsTabRootView.swift`
+
+## Feed Architecture In One Sentence
+
+The feed screen is a storage-backed, repository-orchestrated feature where:
+
+- views render typed presentation models;
+- the screen view model owns runtime UI state;
+- the repository owns API + persistence + mapping;
+- persistence is the local source of truth;
+- the bundled JSON is only the seed/stub contract.
+
+## Current Supported Card Kinds
+
+The feed currently supports two card kinds:
+
+- `featuredArticle`
+- `discussion`
+
+Both kinds follow the same structural pattern:
+
+- DTO from API layer;
+- persisted record payload in local storage;
+- presentation model for the view;
+- typed user actions;
+- screen-owned runtime UI state.
+
+## Feed Read Path
+
+The read path is intentionally storage-backed.
+That is one of the most important design decisions in the current app.
+
+### Initial Bootstrap
+
+1. `AppDIContainer.makeNewsFeedViewModel(...)` asks the repository for `currentNewsFeedContent()`.
+2. If the repository can read persisted feed cards, that becomes the initial content.
+3. If persistence is still empty, the screen falls back to `NewsFeedFixtures.fallbackContent`.
+4. `NewsFeedViewModel` immediately starts its first load.
+
+This means the app prefers:
+
+1. persisted snapshot
+2. fallback fixture
+
+and not:
+
+1. empty UI
+2. wait for network
+
+### Refresh Read Path
+
+The repository refresh path is:
+
+```text
+Feed API DTO
+  -> repository sync into persistence
+    -> persistence reread
+      -> presentation model returned to screen
+```
+
+This is deliberate.
+The screen should not render one code path for "fresh network data" and another for "saved data".
+It always renders a storage-backed presentation model.
+
+## Feed Availability Model
+
+`NewsFeedContent` contains `availability`.
+
+This is how the app tells the UI whether the visible feed is:
+
+- `live`
+- `cached(.bootstrap)`
+- `cached(.offline)`
+
+That availability metadata is important because cached content is not a failure by itself.
+It is a valid state the UI should explain honestly.
+
+## Feed Persistence Model
+
+The feed persistence layer stores a snapshot of each card in `FeedCardRecord` or the Core Data equivalent.
+
+Each persisted card stores:
+
+- stable `id`
+- `kind`
+- `sortOrder`
+- `remoteUpdatedAt`
+- `syncedAt`
+- `publishedAt`
+- card-specific content fields
+- serialized local-state payload for article/discussion-specific persisted preferences
+
+This design keeps feed sync straightforward:
+
+- one ordered collection;
+- one record per card;
+- card-kind-specific payload inside the record.
+
+It is intentionally not a generic CMS engine.
+It is just enough structure for the current product shape.
+
+## JSON Stub Contract
+
+The bundled JSON file is:
+
+- [StubFeedResponse.json](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Resources/StubFeedResponse.json)
+
+This file represents the current stub feed API contract.
+
+Important rule:
+
+- it is the seed contract for initial fetches and seeding;
+- it is not the runtime persisted source of truth after the app starts mutating feed cards.
+
+That distinction matters because otherwise every action would reset local changes back to the original JSON state.
+
+## Feed Seeding
+
+`AppDataSeeder.seedFeedIfNeeded(...)` loads the stub JSON and writes it into the selected backend on first launch.
+
+That means a brand-new app install already has:
+
+- a seeded channel;
+- a seeded feed snapshot.
+
+So offline bootstrap works immediately even before the first manual refresh.
+
+## Feed Screen Ownership
+
+The feed screen has three ownership layers:
+
+### View Layer
+Files:
+
+- `NewsFeedView`
+- `FeaturedArticleCard`
+- `DiscussionCard`
+
+These views:
+
+- render state;
+- emit typed intents upward;
+- do not talk to repositories;
+- do not talk directly to persistence;
+- do not own feature orchestration.
+
+### ViewModel Layer
+File:
+
+- [NewsFeedViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift)
+
+This layer owns:
+
+- visible feed state;
+- per-card pending state;
+- inline status messages;
+- card action start policy;
+- optimistic UI changes;
+- rollback handling.
+
+### Repository Layer
+File:
+
+- [AppContentRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/AppContentRepository.swift)
+
+This layer owns:
+
+- online/offline decision;
+- API calls;
+- persistence sync;
+- persistence reread;
+- mapping between DTO, persisted payload, and presentation model.
+
+## Featured Article Flow
+
+For a featured article card, the stack looks like this:
+
+```text
+FeaturedArticleCard
+  -> NewsFeedViewModel.handleFeaturedArticleAction(...)
+    -> DefaultAppContentRepository.performFeaturedArticleAction(...)
+      -> FeedAPIManaging
+      -> persistence merge + save
+    -> updated FeaturedArticleCardModel
+    -> visible UI update
+```
+
+### Supported Article Actions
+
+- `toggleLike`
+- `addComment`
+- `setDisplayMode(...)`
+- `refreshContent`
+- `runLongTask`
+
+### Action Semantics
+
+#### `toggleLike`
+Optimistic.
+The screen toggles visible `isLiked` immediately, then persists it through the repository.
+
+#### `addComment`
+Additive and serial.
+The screen does not insert fake comments.
+It shows pending UI, then increments persisted count after the repository returns.
+
+Repeated taps queue.
+Each successful operation increments count by one.
+
+#### `setDisplayMode`
+Optimistic local persisted preference.
+This is intentionally not treated as server-owned state yet.
+
+#### `refreshContent`
+Non-optimistic targeted refresh.
+Visible content stays on screen while refresh is running.
+
+#### `runLongTask`
+Simulated long-running rebuild/update of the card.
+The resulting snapshot replaces card content on success.
+
+## Discussion Flow
+
+Discussion cards follow the same pattern.
+
+Supported actions:
+
+- `toggleParticipation`
+- `addReply`
+- `setDisplayMode(...)`
+- `refreshContent`
+- `runLongTask`
+
+The same ownership rules apply:
+
+- view emits typed actions;
+- view model owns runtime state and start policy;
+- repository owns persistence/API merge;
+- persistence owns local saved snapshot.
+
+## Card Runtime State
+
+Article and discussion cards both have runtime UI state structs:
+
+- `FeaturedArticleCardUIState`
+- `DiscussionCardUIState`
+
+These are not the same thing as raw persisted storage.
+
+They combine:
+
+- persisted local state needed for rendering;
+- transient runtime UI state such as pending operation and inline message.
+
+This lets the screen:
+
+- show a loader on only one card;
+- show inline success/failure state on only one card;
+- avoid blocking the entire feed because one card is busy.
+
+## Card Start Policy
+
+The feed view model uses an explicit start policy for card actions.
+
+The decision for a requested action is one of:
+
+- `start`
+- `queue`
+- `ignore`
+
+This exists because card action behavior should be explicit, not accidental.
+
+Examples:
+
+- repeated `addComment` while a comment is already posting -> `queue`
+- selecting the already active display mode -> `ignore`
+- normal like tap while idle -> `start`
+
+## Card Failure Policy
+
+Card action failures do not all behave the same way.
+
+The screen currently distinguishes between:
+
+- actions that should rollback to previous persisted snapshot;
+- actions that should preserve current visible snapshot and only show failure message.
+
+Examples:
+
+- optimistic like/display-mode failure -> rollback
+- comment/reply/refresh/update failure -> preserve visible snapshot and clear pending state
+
+This keeps failure behavior aligned with the semantics of the action instead of treating every card action the same.
+
+## Why Card Views Do Not Have Their Own ViewModels
+
+This is deliberate.
+
+The current project chooses:
+
+- dumb card views;
+- item-level state in screen-owned models;
+- screen-level orchestration.
+
+Not:
+
+- one heavy `ObservableObject` per card.
+
+Why:
+
+- easier to keep list state consistent;
+- easier to keep persistence/repository orchestration centralized;
+- lower lifecycle complexity in a scrolling list;
+- less risk of state divergence between screen and individual item objects.
+
+## Feed Data Flow Example: Like Action
+
+```text
+User taps like
+  -> FeaturedArticleCard emits .toggleLike
+    -> NewsFeedViewModel applies optimistic uiState
+      -> repository reads latest persisted article
+        -> feed API manager returns updated DTO
+          -> repository merges latest persisted state + new DTO
+            -> repository persists article snapshot
+              -> repository returns persisted article model
+                -> NewsFeedViewModel replaces visible card
+```
+
+## Feed Data Flow Example: Comment Action
+
+```text
+User taps comments
+  -> FeaturedArticleCard emits .addComment
+    -> NewsFeedViewModel shows pending state
+      -> repository performs action
+        -> repository persists incremented count
+          -> updated card model returns
+            -> visible count increases by 1
+```
+
+If the user taps again during the same operation:
+
+```text
+Second tap
+  -> start policy says queue
+    -> queued count increments
+      -> first repository result returns
+        -> queued action starts again
+          -> persisted count increments again
+```
+
+## Where Feed Bugs Usually Live
+
+When debugging the feed, check these layers in order:
+
+1. view emitted wrong intent;
+2. view model start policy wrong;
+3. view model optimistic state wrong;
+4. repository merge wrong;
+5. persistence reread wrong;
+6. DTO contract/stub payload wrong;
+7. view rendering wrong.
+
+In practice, most feed regressions in this project tend to be in:
+
+- repository merge policy;
+- card runtime start/rollback policy;
+- persistence mapping between DTO and presentation model.
+
+## What Will Change When The Real Backend Arrives
+
+The intention is not to replace the whole subsystem.
+The goal is to replace the transport layer under the same architecture.
+
+The main expected future changes:
+
+- `StubFeedAPIManager` will be replaced or backed by real transport requests;
+- error types will become richer and backend-specific;
+- targeted partial sync contracts will become more realistic;
+- additional card kinds may appear.
+
+What should not need a full rewrite:
+
+- view ownership model;
+- repository ownership model;
+- storage-backed read path;
+- typed card actions;
+- screen-level runtime state ownership.
 
 ---
 
