@@ -74,9 +74,16 @@ final class NewsFeedViewModel: ObservableObject {
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
+    /// One active task slot per visible article card.
+    ///
+    /// Non-additive actions stay serial per card so the view model always applies
+    /// repository results in a predictable order.
     private var featuredArticleTasks: [String: Task<Void, Never>] = [:]
+    /// One active task slot per visible discussion card.
     private var discussionTasks: [String: Task<Void, Never>] = [:]
+    /// Buffered additive actions that should rerun after the active article task finishes.
     private var queuedFeaturedArticleComments: [String: Int] = [:]
+    /// Buffered additive actions that should rerun after the active discussion task finishes.
     private var queuedDiscussionReplies: [String: Int] = [:]
 
     /// Creates the feed view model and immediately starts the first load.
@@ -204,6 +211,9 @@ final class NewsFeedViewModel: ObservableObject {
     }
 
     /// Applies freshly loaded feed content to published state and side effects.
+    ///
+    /// Any in-flight card actions are cancelled because the screen now has a newer persisted
+    /// snapshot and stale per-card tasks should no longer write back into the visible list.
     private func applyLoadedContent(_ content: NewsFeedContent) {
         cancelFeaturedArticleTasks()
         cancelDiscussionTasks()
@@ -212,6 +222,9 @@ final class NewsFeedViewModel: ObservableObject {
     }
 
     /// Applies the configured fallback state after a failed feed load.
+    ///
+    /// This is a feed-level failure path. Card-level inline errors use a different policy and
+    /// intentionally keep the surrounding feed snapshot visible.
     private func applyLoadFailureState() {
         cancelFeaturedArticleTasks()
         cancelDiscussionTasks()
@@ -220,6 +233,10 @@ final class NewsFeedViewModel: ObservableObject {
     }
 
     /// Applies load policy guards and starts a new request when the transition is allowed.
+    ///
+    /// Initial load, retry and manual refresh intentionally share the same execution path so
+    /// the screen always converges through repository-backed state instead of branching into
+    /// separate ad-hoc loaders.
     private func load(using policy: NewsFeedLoadPolicy) {
         guard shouldStartLoad(for: policy) else {
             return
@@ -234,6 +251,9 @@ final class NewsFeedViewModel: ObservableObject {
     }
 
     /// Starts an optimistic like toggle and then persists the new state through the repository path.
+    ///
+    /// Lightweight actions apply an optimistic screen update first and rely on the failure
+    /// policy to rollback to the previous persisted snapshot if the repository rejects them.
     private func startFeaturedArticleLikeTask(for articleID: String) {
         guard canStartFeaturedArticleAction(for: articleID) else {
             return
@@ -286,7 +306,10 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Starts a comment creation task for one featured article.
+    /// Starts the additive comment action for one article.
+    ///
+    /// Comments are intentionally not optimistic inserts. The UI shows a loader and increments
+    /// the persisted count only after the repository returns the updated card snapshot.
     private func startFeaturedArticleCommentTask(for articleID: String) {
         guard canStartFeaturedArticleAction(for: articleID) else { return }
 
@@ -349,7 +372,10 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Persists a new display mode for one featured article.
+    /// Persists a display-mode preference for one article.
+    ///
+    /// The active layout is updated optimistically because the local persisted preference is
+    /// owned by the app and does not require server-side reconciliation yet.
     private func startFeaturedArticleDisplayModeTask(
         _ displayMode: FeaturedArticleCardDisplayMode,
         for articleID: String
@@ -401,7 +427,10 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Starts a refresh task for one featured article.
+    /// Starts a targeted content refresh for one article card.
+    ///
+    /// This is a non-optimistic operation: the current visible content stays on screen until a
+    /// fresh repository snapshot arrives.
     private func startFeaturedArticleRefreshTask(for articleID: String) {
         guard canStartFeaturedArticleAction(for: articleID) else {
             return
@@ -453,7 +482,7 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Starts a longer update task for one featured article.
+    /// Starts a simulated long-running article update and replaces the card content on success.
     private func startFeaturedArticleUpdateTask(for articleID: String) {
         guard canStartFeaturedArticleAction(for: articleID) else {
             return
@@ -789,7 +818,10 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Starts a reply creation task for one discussion card.
+    /// Starts the additive reply action for one discussion card.
+    ///
+    /// Repeated taps are queued and replayed serially so each successful repository call can
+    /// increment the stored reply count instead of being cancelled by a later tap.
     private func startDiscussionReplyTask(for discussionID: String) {
         guard canStartDiscussionAction(for: discussionID) else { return }
 
@@ -849,7 +881,7 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Persists a new display mode for one discussion card.
+    /// Persists a display-mode preference for one discussion card.
     private func startDiscussionDisplayModeTask(
         _ displayMode: DiscussionCardDisplayMode,
         for discussionID: String
@@ -897,7 +929,7 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Starts a refresh task for one discussion card.
+    /// Starts a targeted refresh for one discussion card without replacing visible content first.
     private func startDiscussionRefreshTask(for discussionID: String) {
         guard canStartDiscussionAction(for: discussionID) else {
             return
@@ -946,7 +978,7 @@ final class NewsFeedViewModel: ObservableObject {
         }
     }
 
-    /// Starts a longer update task for one discussion card.
+    /// Starts a simulated long-running discussion update and applies the refreshed card on success.
     private func startDiscussionUpdateTask(for discussionID: String) {
         guard canStartDiscussionAction(for: discussionID) else {
             return

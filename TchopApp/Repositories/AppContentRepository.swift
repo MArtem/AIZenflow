@@ -72,6 +72,10 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Refreshes feed cards from the feed API when online, or keeps the persisted snapshot visible when offline.
+    ///
+    /// The repository always returns a storage-backed snapshot. Even after a successful fetch,
+    /// the API response is first synchronized into persistence and only then mapped back into
+    /// presentation models.
     func refreshNewsFeedContent() async throws -> NewsFeedContent {
         guard networkAvailabilityChecker.isInternetAvailable else {
             if let persistedContent = try currentNewsFeedContent() {
@@ -94,6 +98,8 @@ final class DefaultAppContentRepository: AppContentRepository {
             throw RepositoryError.offlineCardAction
         }
 
+        // Every action starts from the latest persisted card instead of the bundled JSON seed.
+        // This keeps local changes additive until a real backend becomes the remote source of truth.
         let currentArticle = try requirePersistedFeaturedArticle(articleID: articleID)
         let updatedArticle: FeaturedArticleDTO
 
@@ -116,6 +122,7 @@ final class DefaultAppContentRepository: AppContentRepository {
             updatedArticle = try await feedAPIManager.runFeaturedArticleUpdate(articleID: articleID)
         }
 
+        // Re-read before merging so sequential actions compose on top of the newest stored state.
         let latestPersistedArticle = try persistedFeaturedArticle(articleID: articleID) ?? currentArticle
         let mergedState = mergedFeaturedArticleState(
             from: latestPersistedArticle,
@@ -137,6 +144,7 @@ final class DefaultAppContentRepository: AppContentRepository {
             throw RepositoryError.offlineCardAction
         }
 
+        // Discussion actions follow the same persisted-first rule as article actions.
         let currentDiscussion = try requirePersistedDiscussion(discussionID: discussionID)
         let updatedDiscussion: DiscussionDTO
 
@@ -252,6 +260,9 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Synchronizes the full persisted feed snapshot with the latest API response.
+    ///
+    /// Feed refresh still behaves like a full snapshot replacement, but persisted per-card local
+    /// state is carried forward so card actions do not disappear when the stub feed is refreshed.
     private func syncPersistedFeedContent(with response: FeedResponseDTO) throws {
         let syncedAt = Date()
         let persistedStates = try fetchPersistedCardStateMap()
@@ -274,6 +285,9 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Returns persisted card-local-state blobs keyed by card identifier.
+    ///
+    /// This payload is intentionally separate from the API DTOs so local preferences such as
+    /// liked state or display mode can survive a full feed re-sync.
     private func fetchPersistedCardStateMap() throws -> [String: PersistedCardStateSnapshot] {
         switch databaseManager.backendKind {
         case .swiftData:

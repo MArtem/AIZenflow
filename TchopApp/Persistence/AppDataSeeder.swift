@@ -148,6 +148,10 @@ enum AppDataSeeder {
         ) as Void
     }
 
+    /// Backend-agnostic payload used to seed the first persisted feed snapshot.
+    ///
+    /// The seeder builds this once from the bundled JSON contract and then writes the same
+    /// values into either SwiftData or Core Data so both backends start from identical content.
     private struct FeedSeedPayload {
         let id: String
         let kind: FeedCardRecordKind
@@ -170,6 +174,7 @@ enum AppDataSeeder {
         let discussionStateData: Data?
     }
 
+    /// Maps one decoded feed card into the backend-agnostic seed payload.
     private static func makeFeedSeedPayload(
         _ card: FeedCardDTO,
         sortOrder: Int,

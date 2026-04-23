@@ -56,13 +56,16 @@ final class AppShellViewModel: ObservableObject {
     }
 
     /// Starts the asynchronous shell configuration bootstrap sequence.
+    ///
+    /// The shell first applies cached configuration and then asks for a refreshed snapshot so
+    /// first paint stays fast even when remote configuration is slow or unavailable.
     private func startUIConfigurationLoad() {
         Task {
             await loadUIConfiguration()
         }
     }
 
-    /// Loads uiconfiguration.
+    /// Loads cached and refreshed shell configuration in order.
     private func loadUIConfiguration() async {
         let currentConfiguration = await uiConfigurationManager.currentConfiguration()
         applyShellConfiguration(currentConfiguration)

@@ -84,6 +84,10 @@ final class FeedCardRecord {
     var discussionStateData: Data?
 
     /// Creates a new FeedCardRecord instance.
+    ///
+    /// One record stores both the feed ordering metadata and the card-type-specific payload.
+    /// This keeps snapshot sync straightforward while the project still supports only a small
+    /// set of card kinds.
     init(
         id: String,
         kind: FeedCardRecordKind,

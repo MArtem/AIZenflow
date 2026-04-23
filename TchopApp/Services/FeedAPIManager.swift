@@ -150,6 +150,9 @@ protocol FeedAPIManaging {
 }
 
 /// Stubbed feed API manager used until a real backend contract exists.
+///
+/// The bundled JSON is treated as the seed contract for fetches, while card actions simulate a
+/// successful backend mutation for a single card and let the repository persist the result.
 struct StubFeedAPIManager: FeedAPIManaging {
     private let apiManager: any APIManaging
 
@@ -309,6 +312,9 @@ struct StubFeedAPIManager: FeedAPIManaging {
                 path: path,
                 method: .post,
                 stubResponse: {
+                    // Card actions still start from the current bundled contract because there is
+                    // no real backend yet. The repository merges the returned DTO with the latest
+                    // persisted card state so local changes remain additive across actions.
                     let response = try await FeedAPIStubFactory.makeFeedResponse()
                     guard let article = FeedAPIStubFactory.featuredArticle(in: response, articleID: path.articleID) else {
                         throw FeedAPIStubError.missingCard
@@ -330,6 +336,8 @@ struct StubFeedAPIManager: FeedAPIManaging {
                 path: path,
                 method: .post,
                 stubResponse: {
+                    // See the article mutation note above. The repository owns the persisted
+                    // source of truth until these calls are backed by a real service.
                     let response = try await FeedAPIStubFactory.makeFeedResponse()
                     guard let discussion = FeedAPIStubFactory.discussion(in: response, discussionID: path.articleID) else {
                         throw FeedAPIStubError.missingCard
@@ -344,12 +352,14 @@ struct StubFeedAPIManager: FeedAPIManaging {
 }
 
 enum FeedAPIStubFactory {
+    /// Produces the latest full stub feed contract used by refreshes and initial seeding.
     static func makeFeedResponse() async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
         try Task.checkCancellation()
         return try loadFeedResponse()
     }
 
+    /// Loads the bundled JSON feed synchronously for seed paths that run before async refreshes.
     static func loadFeedResponse() throws -> FeedResponseDTO {
         let feedData = try loadStubFeedResponseData()
         return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)

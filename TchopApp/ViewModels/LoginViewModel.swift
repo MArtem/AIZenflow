@@ -16,6 +16,9 @@ final class LoginViewModel: ObservableObject {
     private let appleAuthenticationManager: any AppleAuthenticationManaging
 
     /// Creates a login view model.
+    ///
+    /// The view model stays intentionally thin: authentication normalization lives in the
+    /// Apple-auth package and session ownership lives in AppState.
     init(
         onLogin: @escaping (String) throws -> Void,
         onAppleLogin: @escaping (AppleAuthenticationIdentity) throws -> Void,

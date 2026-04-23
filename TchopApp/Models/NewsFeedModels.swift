@@ -3,6 +3,7 @@ import Foundation
 /// Origin metadata for the feed content currently shown to the user.
 enum NewsFeedAvailability: Equatable, Sendable {
     case live
+    /// Content restored from local persistence rather than a fresh network-backed refresh.
     case cached(lastSyncedAt: Date?, reason: NewsFeedCacheReason)
 }
 
@@ -149,6 +150,8 @@ struct FeaturedArticleCardUIState: Equatable, Sendable {
     let pendingOperation: FeaturedArticleCardPendingOperation?
     let inlineStatusMessage: String?
 
+    /// When true, the screen should serialize actions for this card and keep the visible
+    /// snapshot stable until the current operation completes.
     /// Whether destructive or network-backed card actions should be temporarily disabled.
     var blocksActions: Bool {
         pendingOperation != nil
@@ -280,6 +283,8 @@ struct DiscussionCardUIState: Equatable, Sendable {
     let pendingOperation: DiscussionCardPendingOperation?
     let inlineStatusMessage: String?
 
+    /// When true, the screen should serialize actions for this card and keep the visible
+    /// snapshot stable until the current operation completes.
     var blocksActions: Bool {
         pendingOperation != nil
     }

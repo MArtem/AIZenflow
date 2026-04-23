@@ -219,6 +219,9 @@ final class AppDIContainer: ObservableObject {
     }
 
     /// Creates the feed view model with app-level bootstrap and fallback content.
+    ///
+    /// The view model starts from the best local snapshot available. Fixtures are only used as
+    /// an emergency fallback when the persisted feed has not been seeded yet or cannot be read.
     private static func makeNewsFeedViewModel(
         repository: any NewsFeedRepository,
         widgetContentSyncManager: any WidgetContentSyncing
@@ -238,6 +241,9 @@ final class AppDIContainer: ObservableObject {
     }
 
     /// Resolves the best local feed snapshot for bootstrap and falls back to fixtures only when storage is empty.
+    ///
+    /// This keeps the home screen aligned with the repository contract: the UI should prefer a
+    /// persisted snapshot over hard-coded content whenever possible.
     private static func resolveInitialNewsFeedContent(
         from repository: any NewsFeedRepository
     ) -> NewsFeedContent {
@@ -249,6 +255,9 @@ final class AppDIContainer: ObservableObject {
     }
 
     /// Resolves repository-backed channel info or falls back to local defaults.
+    ///
+    /// Channel metadata is expected to exist locally after seeding, but the shell still keeps
+    /// a defensive fallback so bootstrap failures do not break the authenticated UI.
     private static func resolveChannelInfo(from repository: any AppContentRepository) -> ChannelHeaderInfo {
         if let channelInfo = try? repository.fetchChannelInfo() {
             return channelInfo

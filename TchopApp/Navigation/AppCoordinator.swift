@@ -146,7 +146,10 @@ final class AppCoordinator: ObservableObject {
         )
     }
 
-    /// Applies transition.
+    /// Applies one tab-local navigation transition.
+    ///
+    /// Equivalence checks keep repeated pushes and replaces idempotent so deep links, restores
+    /// and repeated taps do not accumulate duplicate routes in the stack.
     private func applyTransition<Route: Hashable>(
         route: Route,
         policy: NavigationTransitionPolicy,

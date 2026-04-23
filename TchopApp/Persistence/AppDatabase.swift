@@ -223,6 +223,9 @@ enum AppDatabaseResolutionPlan: Equatable {
 /// Thin runtime policy deciding which app persistence path to use before containers are built.
 enum AppDatabaseRuntimePolicy {
     /// Resolves the database bootstrap plan from configuration and runtime context.
+    ///
+    /// The policy prefers SwiftData when possible, but still honors a previously persisted
+    /// backend choice so the app can migrate legacy Core Data stores in a controlled way.
     static func plan(
         for configuration: AppDatabaseConfiguration,
         context: AppDatabaseRuntimeContext

@@ -26,7 +26,9 @@ final class AppState: ObservableObject {
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let pushNotificationBridge: any AppPushNotificationBridging
     private var navigationBindings: Set<AnyCancellable> = []
+    /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
     private var isApplyingNavigationSnapshot = false
+    /// Deep links received before authentication are buffered and replayed after sign-in.
     private var pendingDeepLinkInput: PendingDeepLinkInput?
 
     /// Creates the app state and attempts to restore the previous user session.
@@ -133,6 +135,9 @@ final class AppState: ObservableObject {
     }
 
     /// Restores navigation if needed.
+    ///
+    /// Restore is user-scoped and opt-in, so this path always checks the active profile before
+    /// touching the coordinator.
     private func restoreNavigationIfNeeded(for user: AppUser) {
         guard let snapshot = resolveRestorableSnapshot(for: user) else {
             return
@@ -222,6 +227,9 @@ final class AppState: ObservableObject {
     }
 
     /// Applies post authentication navigation.
+    ///
+    /// Pending deep links win over snapshot restore so external routing never gets silently
+    /// overwritten by an older persisted tab state.
     private func applyPostAuthenticationNavigation(for user: AppUser) {
         if applyPendingDeepLinkIfNeeded() {
             return
