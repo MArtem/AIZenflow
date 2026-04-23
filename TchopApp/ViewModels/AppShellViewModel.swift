@@ -22,6 +22,9 @@ final class AppShellViewModel: ObservableObject {
     /// Whether the floating action button should be rendered for the active shell.
     @Published private(set) var showsFloatingActionButton: Bool
 
+    /// Whether the news feed list is currently close enough to the top to allow the floating action button.
+    @Published private(set) var isNewsFeedNearTop: Bool
+
     private let uiConfigurationManager: any UIConfigurationManaging
 
     /// Creates the shell view model from repository-backed content.
@@ -40,6 +43,7 @@ final class AppShellViewModel: ObservableObject {
         self.sideMenuFooterText = sideMenuFooterText
         self.newsFeedViewModel = newsFeedViewModel
         self.showsFloatingActionButton = true
+        self.isNewsFeedNearTop = true
         self.uiConfigurationManager = uiConfigurationManager
 
         startUIConfigurationLoad()
@@ -53,6 +57,17 @@ final class AppShellViewModel: ObservableObject {
     /// Closes the side menu explicitly.
     func closeMenu() {
         isMenuOpen = false
+    }
+
+    /// Updates shell runtime visibility state for the news-feed floating action button.
+    ///
+    /// The shell owns the button itself, but the scroll-position signal comes from the news list.
+    func setNewsFeedNearTop(_ isNearTop: Bool) {
+        guard isNewsFeedNearTop != isNearTop else {
+            return
+        }
+
+        isNewsFeedNearTop = isNearTop
     }
 
     /// Starts the asynchronous shell configuration bootstrap sequence.

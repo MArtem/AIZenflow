@@ -10,6 +10,14 @@ struct ShellContentView: View {
     let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
 
+    /// Whether the shell-level floating action button is allowed for the current tab, route depth and scroll position.
+    private var shouldShowFloatingActionButton: Bool {
+        coordinator.selectedTab == .news &&
+            coordinator.newsRouter.path.isEmpty &&
+            viewModel.showsFloatingActionButton &&
+            viewModel.isNewsFeedNearTop
+    }
+
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
@@ -25,6 +33,7 @@ struct ShellContentView: View {
                     selectedTab: coordinator.selectedTab,
                     coordinator: coordinator,
                     newsFeedViewModel: viewModel.newsFeedViewModel,
+                    onNewsFeedScrollProximityChange: viewModel.setNewsFeedNearTop,
                     currentUser: currentUser,
                     onNavigationRestoreChange: onNavigationRestoreChange,
                     onLogout: onLogout
@@ -33,7 +42,7 @@ struct ShellContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
-            if coordinator.selectedTab == .news && viewModel.showsFloatingActionButton {
+            if shouldShowFloatingActionButton {
                 FloatingActionButton()
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing, 18)

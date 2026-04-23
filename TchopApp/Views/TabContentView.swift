@@ -5,6 +5,7 @@ struct TabContentView: View {
     let selectedTab: AppTab
     @ObservedObject var coordinator: AppCoordinator
     @ObservedObject var newsFeedViewModel: NewsFeedViewModel
+    let onNewsFeedScrollProximityChange: (Bool) -> Void
     let currentUser: AppUser?
     let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
@@ -14,7 +15,8 @@ struct TabContentView: View {
         case .news:
             NewsTabRootView(
                 viewModel: newsFeedViewModel,
-                router: coordinator.newsRouter
+                router: coordinator.newsRouter,
+                onFeedScrollProximityChange: onNewsFeedScrollProximityChange
             )
         case .mixes:
             MixesTabRootView(

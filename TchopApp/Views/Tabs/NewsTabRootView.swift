@@ -5,11 +5,14 @@ import TchopNavigation
 struct NewsTabRootView: View {
     @ObservedObject var viewModel: NewsFeedViewModel
     @ObservedObject var router: TabRouter<NewsRoute>
+    /// Forwards list scroll proximity to the shell so it can gate the floating action button.
+    let onFeedScrollProximityChange: (Bool) -> Void
 
     var body: some View {
         NavigationStack(path: pathBinding) {
             NewsFeedView(
                 viewModel: viewModel,
+                onScrollProximityChange: onFeedScrollProximityChange,
                 onFeaturedArticleTap: openFeaturedArticle,
                 onFeaturedArticleAction: handleFeaturedArticleAction,
                 onDiscussionTap: openDiscussion,
