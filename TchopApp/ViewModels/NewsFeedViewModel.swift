@@ -133,7 +133,9 @@ final class NewsFeedViewModel: ObservableObject {
     /// Cleans up any in-flight resources before release.
     deinit {
         loadingTask?.cancel()
-        cancelFeaturedArticleTasks()
+        for task in featuredArticleTasks.values {
+            task.cancel()
+        }
     }
 
     /// Applies freshly loaded feed content to published state and side effects.
