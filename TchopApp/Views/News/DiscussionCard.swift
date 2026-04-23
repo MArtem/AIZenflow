@@ -48,6 +48,7 @@ struct DiscussionCard: View {
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .shadow(color: AppTheme.shadow.opacity(0.5), radius: 6, y: 1)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .buttonStyle(.plain)
     }
 }

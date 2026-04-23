@@ -120,10 +120,12 @@ struct FeaturedArticleCard: View {
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
             .background(AppTheme.surfacePrimary)
             .clipShape(RoundedRectangle(cornerRadius: 12))
             .shadow(color: AppTheme.shadow.opacity(0.35), radius: 6, y: 1)
         }
+        .frame(maxWidth: .infinity, alignment: .leading)
         .buttonStyle(.plain)
     }
 }
