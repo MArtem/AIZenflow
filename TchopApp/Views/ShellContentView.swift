@@ -2,6 +2,8 @@ import SwiftUI
 
 /// Layout wrapper combining top chrome, tab content, and overlays.
 struct ShellContentView: View {
+    private static let floatingActionButtonTabBarSpacing: CGFloat = 15
+
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
     let currentUser: AppUser?
@@ -35,7 +37,10 @@ struct ShellContentView: View {
                 FloatingActionButton()
                     .frame(maxWidth: .infinity, alignment: .trailing)
                     .padding(.trailing, 18)
-                    .padding(.bottom, 66)
+                    .padding(
+                        .bottom,
+                        BottomTabBar.occupiedHeight + Self.floatingActionButtonTabBarSpacing
+                    )
             }
 
             BottomTabBar(selectedTab: coordinator.selectedTab, onSelect: coordinator.selectTab)
