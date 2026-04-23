@@ -16,6 +16,11 @@ struct NewsFeedView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: 16) {
+                NewsFeedScrollObserver { verticalOffset in
+                    onScrollProximityChange(verticalOffset <= Self.floatingActionButtonHideThreshold)
+                }
+                .frame(height: 0)
+
                 if let cachedStatusText {
                     Text(cachedStatusText)
                         .font(.system(size: 12, weight: .medium))
@@ -65,11 +70,6 @@ struct NewsFeedView: View {
             .padding(.top, 16)
             .padding(.bottom, 120)
         }
-        .background(
-            NewsFeedScrollObserver { verticalOffset in
-                onScrollProximityChange(verticalOffset <= Self.floatingActionButtonHideThreshold)
-            }
-        )
         .accessibilityIdentifier("news.feed")
         .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
