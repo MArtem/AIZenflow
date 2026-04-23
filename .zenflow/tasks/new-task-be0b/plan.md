@@ -280,6 +280,7 @@ Display-mode actions now also use an explicit pending state so they no longer ra
 Finished the remaining runtime behavior fix for repeated additive card actions.
 Repository action persistence now recomputes each successful card-action merge from the latest persisted card snapshot instead of the potentially stale snapshot captured before the async API call started.
 On top of that, `NewsFeedViewModel` now drains repeated `addComment` and `addReply` taps as a per-card serial queue instead of cancelling or dropping them, so every tap increments the persisted count once and no later action wipes out previously saved like/reply/display-mode state.
+The same runtime contract now also skips no-op display-mode saves, so selecting an already active layout no longer starts unnecessary async action work.
 
 ### [x] Step: Apple auth extraction 1 — move Apple auth semantics into infrastructure package
 

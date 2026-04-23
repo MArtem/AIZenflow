@@ -333,11 +333,17 @@ final class NewsFeedViewModel: ObservableObject {
         _ displayMode: FeaturedArticleCardDisplayMode,
         for articleID: String
     ) {
-        guard canStartFeaturedArticleAction(for: articleID) else {
+        guard let currentArticle = featuredArticle(withID: articleID),
+              !currentArticle.uiState.blocksActions else {
             return
         }
 
-        let previousArticle = featuredArticle(withID: articleID)
+        // Avoid unnecessary repository writes when the selected layout is already active.
+        guard currentArticle.uiState.displayMode != displayMode else {
+            return
+        }
+
+        let previousArticle = currentArticle
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
                 FeaturedArticleCardUIState(
@@ -829,11 +835,17 @@ final class NewsFeedViewModel: ObservableObject {
         _ displayMode: DiscussionCardDisplayMode,
         for discussionID: String
     ) {
-        guard canStartDiscussionAction(for: discussionID) else {
+        guard let currentDiscussion = discussion(withID: discussionID),
+              !currentDiscussion.uiState.blocksActions else {
             return
         }
 
-        let previousDiscussion = discussion(withID: discussionID)
+        // Avoid unnecessary repository writes when the selected layout is already active.
+        guard currentDiscussion.uiState.displayMode != displayMode else {
+            return
+        }
+
+        let previousDiscussion = currentDiscussion
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 DiscussionCardUIState(
