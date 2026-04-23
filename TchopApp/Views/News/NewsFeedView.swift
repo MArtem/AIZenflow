@@ -7,57 +7,57 @@ struct NewsFeedView: View {
     let onDiscussionTap: (DiscussionCardModel) -> Void
 
     var body: some View {
-        GeometryReader { proxy in
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 16) {
-                    if let cachedStatusText {
-                        Text(cachedStatusText)
-                            .font(.system(size: 12, weight: .medium))
-                            .foregroundStyle(.orange.opacity(0.92))
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack(spacing: 16) {
+                if let cachedStatusText {
+                    Text(cachedStatusText)
+                        .font(.system(size: 12, weight: .medium))
+                        .foregroundStyle(.orange.opacity(0.92))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
+                        .accessibilityIdentifier("news.feed.cached-status")
+                }
+
+                if case let .failed(_, errorMessage) = viewModel.state {
+                    HStack(alignment: .top, spacing: 12) {
+                        Text(errorMessage)
+                            .font(.system(size: 13, weight: .medium))
+                            .foregroundStyle(.red.opacity(0.82))
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .accessibilityIdentifier("news.feed.cached-status")
-                    }
+                            .fixedSize(horizontal: false, vertical: true)
 
-                    if case let .failed(_, errorMessage) = viewModel.state {
-                        HStack(alignment: .top, spacing: 12) {
-                            Text(errorMessage)
-                                .font(.system(size: 13, weight: .medium))
-                                .foregroundStyle(.red.opacity(0.82))
-                                .frame(maxWidth: .infinity, alignment: .leading)
-
-                            Button("Retry") {
-                                viewModel.retry()
-                            }
-                            .font(.system(size: 13, weight: .semibold))
-                            .buttonStyle(.plain)
-                            .foregroundStyle(.primary)
-                            .accessibilityIdentifier("news.feed.retry")
+                        Button("Retry") {
+                            viewModel.retry()
                         }
-                    }
-
-                    ForEach(viewModel.state.content.cards) { card in
-                        switch card {
-                        case let .featuredArticle(article):
-                            FeaturedArticleCard(
-                                article: article,
-                                onTap: { onFeaturedArticleTap(article) }
-                            )
-                        case let .discussion(discussion):
-                            DiscussionCard(
-                                discussion: discussion,
-                                onTap: { onDiscussionTap(discussion) }
-                            )
-                        }
+                        .font(.system(size: 13, weight: .semibold))
+                        .buttonStyle(.plain)
+                        .foregroundStyle(.primary)
+                        .accessibilityIdentifier("news.feed.retry")
                     }
                 }
-                .frame(width: max(proxy.size.width - 28, 0), alignment: .topLeading)
-                .padding(.horizontal, 14)
-                .padding(.top, 16)
-                .padding(.bottom, 120)
+
+                ForEach(viewModel.state.content.cards) { card in
+                    switch card {
+                    case let .featuredArticle(article):
+                        FeaturedArticleCard(
+                            article: article,
+                            onTap: { onFeaturedArticleTap(article) }
+                        )
+                    case let .discussion(discussion):
+                        DiscussionCard(
+                            discussion: discussion,
+                            onTap: { onDiscussionTap(discussion) }
+                        )
+                    }
+                }
             }
-            .clipped()
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .padding(.horizontal, 14)
+            .padding(.top, 16)
+            .padding(.bottom, 120)
         }
         .accessibilityIdentifier("news.feed")
+        .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .refreshable {
             viewModel.refresh()
