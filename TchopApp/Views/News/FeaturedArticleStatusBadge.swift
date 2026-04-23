@@ -1,7 +1,7 @@
 import SwiftUI
 
-/// Inline status badge shown inside the featured article card while local operations are running.
-struct FeaturedArticleStatusBadge: View {
+/// Inline status badge shown inside feed cards while local operations are running.
+struct FeedCardStatusBadge: View {
     let title: String
     let showsProgress: Bool
 

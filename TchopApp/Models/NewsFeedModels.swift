@@ -60,6 +60,7 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
     let summary: String
     let metadataLine: String
     let translationLabel: String
+    let commentCount: Int
     let actions: [ArticleActionItem]
     let uiState: FeaturedArticleCardUIState
 
@@ -90,6 +91,7 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
             summary: summary,
             metadataLine: metadataLine,
             translationLabel: translationLabel,
+            commentCount: commentCount,
             actions: actions,
             uiState: transform(uiState)
         )
@@ -110,6 +112,7 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
             summary: summary ?? self.summary,
             metadataLine: metadataLine ?? self.metadataLine,
             translationLabel: translationLabel,
+            commentCount: commentCount,
             actions: actions,
             uiState: uiState
         )
@@ -133,7 +136,7 @@ enum ArticleActionKind: String, Codable, Equatable, Sendable {
 /// Intent emitted from the featured article card UI.
 enum FeaturedArticleCardAction: Equatable, Sendable {
     case toggleLike
-    case openComments
+    case addComment
     case setDisplayMode(FeaturedArticleCardDisplayMode)
     case refreshContent
     case runLongTask
@@ -161,7 +164,7 @@ struct FeaturedArticleCardUIState: Equatable, Sendable {
 }
 
 /// Visual layout variant currently used to render the featured article card.
-enum FeaturedArticleCardDisplayMode: String, Equatable, Sendable {
+enum FeaturedArticleCardDisplayMode: String, Codable, Equatable, Sendable {
     case expanded
     case compact
 }
@@ -169,6 +172,7 @@ enum FeaturedArticleCardDisplayMode: String, Equatable, Sendable {
 /// Long-running card operation currently visible in the list.
 enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
     case liking
+    case addingComment
     case refreshingContent
     case updatingContent
 
@@ -177,6 +181,8 @@ enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
         switch self {
         case .liking:
             return AppLocalization.text("news.featured.pending.like", fallback: "Saving reaction...")
+        case .addingComment:
+            return AppLocalization.text("news.featured.pending.comment", fallback: "Posting comment...")
         case .refreshingContent:
             return AppLocalization.text("news.featured.pending.refresh", fallback: "Refreshing card...")
         case .updatingContent:
@@ -191,11 +197,18 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
     let categoryTitle: String
     let headline: String
     let participants: [DiscussionParticipant]
-    let joinedText: String
+    let replyCount: Int
+    let joinedCount: Int
+    let uiState: DiscussionCardUIState
 
     /// Headline formatted for service consumers that should not receive multiline text.
     var serviceHeadline: String {
         headline.replacingOccurrences(of: "\n", with: " ")
+    }
+
+    /// User-facing joined label rendered in the discussion card footer.
+    var joinedText: String {
+        "+\(joinedCount) joined"
     }
 
     /// Destination payload used by callers that open discussion details.
@@ -208,6 +221,37 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
             accentLabel: nil
         )
     }
+
+    /// Returns a copy with updated runtime-only discussion UI state.
+    func updatingUIState(_ transform: (DiscussionCardUIState) -> DiscussionCardUIState) -> DiscussionCardModel {
+        DiscussionCardModel(
+            id: id,
+            categoryTitle: categoryTitle,
+            headline: headline,
+            participants: participants,
+            replyCount: replyCount,
+            joinedCount: joinedCount,
+            uiState: transform(uiState)
+        )
+    }
+
+    /// Returns a copy with refreshed discussion content while preserving runtime state.
+    func updatingContent(
+        headline: String? = nil,
+        participants: [DiscussionParticipant]? = nil,
+        replyCount: Int? = nil,
+        joinedCount: Int? = nil
+    ) -> DiscussionCardModel {
+        DiscussionCardModel(
+            id: id,
+            categoryTitle: categoryTitle,
+            headline: headline ?? self.headline,
+            participants: participants ?? self.participants,
+            replyCount: replyCount ?? self.replyCount,
+            joinedCount: joinedCount ?? self.joinedCount,
+            uiState: uiState
+        )
+    }
 }
 
 /// Presentation model describing a participant avatar in a discussion preview.
@@ -215,6 +259,61 @@ struct DiscussionParticipant: Identifiable, Equatable, Sendable {
     let id: String
     let initials: String
     let isHighlighted: Bool
+}
+
+/// Intent emitted from the discussion card UI.
+enum DiscussionCardAction: Equatable, Sendable {
+    case toggleParticipation
+    case addReply
+    case setDisplayMode(DiscussionCardDisplayMode)
+    case refreshContent
+    case runLongTask
+}
+
+/// Runtime-only UI state owned by the screen for a discussion card.
+struct DiscussionCardUIState: Equatable, Sendable {
+    let isParticipating: Bool
+    let displayMode: DiscussionCardDisplayMode
+    let pendingOperation: DiscussionCardPendingOperation?
+    let inlineStatusMessage: String?
+
+    var blocksActions: Bool {
+        pendingOperation != nil
+    }
+
+    static let idle = DiscussionCardUIState(
+        isParticipating: false,
+        displayMode: .expanded,
+        pendingOperation: nil,
+        inlineStatusMessage: nil
+    )
+}
+
+/// Visual layout variant currently used to render the discussion card.
+enum DiscussionCardDisplayMode: String, Codable, Equatable, Sendable {
+    case expanded
+    case compact
+}
+
+/// Long-running card operation currently visible in a discussion card.
+enum DiscussionCardPendingOperation: Equatable, Sendable {
+    case togglingParticipation
+    case addingReply
+    case refreshingContent
+    case updatingContent
+
+    var statusText: String {
+        switch self {
+        case .togglingParticipation:
+            return AppLocalization.text("news.discussion.pending.participation", fallback: "Saving participation...")
+        case .addingReply:
+            return AppLocalization.text("news.discussion.pending.reply", fallback: "Posting reply...")
+        case .refreshingContent:
+            return AppLocalization.text("news.discussion.pending.refresh", fallback: "Refreshing discussion...")
+        case .updatingContent:
+            return AppLocalization.text("news.discussion.pending.update", fallback: "Updating discussion...")
+        }
+    }
 }
 
 /// App-level fallback content used while the real feed is still loading or unavailable.
@@ -232,6 +331,7 @@ enum NewsFeedFixtures {
                         summary: AppLocalization.text("news.fallback.summary", fallback: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem..."),
                         metadataLine: AppLocalization.text("news.fallback.metadataLine", fallback: "by Adorlee Querry · two days ago · read time: 2min"),
                         translationLabel: AppLocalization.text("news.fallback.translationLabel", fallback: "See translation"),
+                        commentCount: 48,
                         actions: [
                             ArticleActionItem(
                                 id: "like",
@@ -259,7 +359,9 @@ enum NewsFeedFixtures {
                             DiscussionParticipant(id: "mattis", initials: "M", isHighlighted: false),
                             DiscussionParticipant(id: "sophia", initials: "S", isHighlighted: false)
                         ],
-                        joinedText: AppLocalization.text("news.fallback.discussion.joinedText", fallback: "+12 joined")
+                        replyCount: 12,
+                        joinedCount: 12,
+                        uiState: .idle
                     )
                 )
             ],

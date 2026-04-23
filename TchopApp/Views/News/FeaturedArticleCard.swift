@@ -52,7 +52,7 @@ struct FeaturedArticleCard: View {
                     .overlay {
                         VStack(spacing: 8) {
                             if let pendingOperation = article.uiState.pendingOperation {
-                                FeaturedArticleStatusBadge(
+                                FeedCardStatusBadge(
                                     title: pendingOperation.statusText,
                                     showsProgress: true
                                 )
@@ -60,7 +60,7 @@ struct FeaturedArticleCard: View {
                                 .padding(.top, 14)
                                 .padding(.horizontal, 14)
                             } else if let inlineStatusMessage = article.uiState.inlineStatusMessage {
-                                FeaturedArticleStatusBadge(
+                                FeedCardStatusBadge(
                                     title: inlineStatusMessage,
                                     showsProgress: false
                                 )
@@ -137,14 +137,27 @@ struct FeaturedArticleCard: View {
                         ArticleActionView(
                             action: action,
                             isActive: action.kind == .like && article.uiState.isLiked,
-                            isLoading: action.kind == .like && article.uiState.pendingOperation == .liking,
-                            isDisabled: article.uiState.blocksActions && article.uiState.pendingOperation != .liking,
+                            isLoading: action.kind == .like
+                                ? article.uiState.pendingOperation == .liking
+                                : article.uiState.pendingOperation == .addingComment,
+                            isDisabled: article.uiState.blocksActions
+                                && !(
+                                    (action.kind == .like && article.uiState.pendingOperation == .liking)
+                                    || (action.kind == .comments && article.uiState.pendingOperation == .addingComment)
+                                ),
+                            title: action.kind == .like
+                                ? (
+                                    article.uiState.isLiked
+                                        ? AppLocalization.text("news.featured.action.liked", fallback: "Liked")
+                                        : action.title
+                                )
+                                : "\(article.commentCount) " + AppLocalization.text("news.featured.action.comments", fallback: "Comments"),
                             onTap: {
                                 switch action.kind {
                                 case .like:
                                     onAction(.toggleLike)
                                 case .comments:
-                                    onAction(.openComments)
+                                    onAction(.addComment)
                                 }
                             }
                         )

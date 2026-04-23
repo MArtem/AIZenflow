@@ -44,6 +44,18 @@ private enum NewsFeedLoadPolicy {
     case retry
 }
 
+/// Whether a failed card action should restore the optimistic snapshot or keep the persisted one on screen.
+private enum CardActionFailureResolution {
+    case rollback
+    case preserveVisibleSnapshot
+}
+
+/// Presentation policy applied after a card action fails.
+private struct CardActionFailurePolicy {
+    let resolution: CardActionFailureResolution
+    let message: String
+}
+
 /// View model responsible for loading and exposing the home feed state.
 @MainActor
 final class NewsFeedViewModel: ObservableObject {
@@ -56,6 +68,7 @@ final class NewsFeedViewModel: ObservableObject {
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
     private var featuredArticleTasks: [String: Task<Void, Never>] = [:]
+    private var discussionTasks: [String: Task<Void, Never>] = [:]
 
     /// Creates the feed view model and immediately starts the first load.
     init(
@@ -107,15 +120,34 @@ final class NewsFeedViewModel: ObservableObject {
     ) {
         switch action {
         case .toggleLike:
-            toggleLike(for: articleID)
+            startFeaturedArticleLikeTask(for: articleID)
+        case .addComment:
+            startFeaturedArticleCommentTask(for: articleID)
         case let .setDisplayMode(displayMode):
-            setDisplayMode(displayMode, for: articleID)
+            startFeaturedArticleDisplayModeTask(displayMode, for: articleID)
         case .refreshContent:
-            startRefreshContentTask(for: articleID)
+            startFeaturedArticleRefreshTask(for: articleID)
         case .runLongTask:
-            startLongUpdateTask(for: articleID)
-        case .openComments:
-            return
+            startFeaturedArticleUpdateTask(for: articleID)
+        }
+    }
+
+    /// Handles a user intent emitted by a discussion card in the visible feed.
+    func handleDiscussionAction(
+        discussionID: String,
+        action: DiscussionCardAction
+    ) {
+        switch action {
+        case .toggleParticipation:
+            startDiscussionParticipationTask(for: discussionID)
+        case .addReply:
+            startDiscussionReplyTask(for: discussionID)
+        case let .setDisplayMode(displayMode):
+            startDiscussionDisplayModeTask(displayMode, for: discussionID)
+        case .refreshContent:
+            startDiscussionRefreshTask(for: discussionID)
+        case .runLongTask:
+            startDiscussionUpdateTask(for: discussionID)
         }
     }
 
@@ -124,6 +156,7 @@ final class NewsFeedViewModel: ObservableObject {
         loadingTask?.cancel()
         loadingTask = nil
         cancelFeaturedArticleTasks()
+        cancelDiscussionTasks()
 
         if case let .loading(content) = state {
             state = .loaded(content)
@@ -136,11 +169,15 @@ final class NewsFeedViewModel: ObservableObject {
         for task in featuredArticleTasks.values {
             task.cancel()
         }
+        for task in discussionTasks.values {
+            task.cancel()
+        }
     }
 
     /// Applies freshly loaded feed content to published state and side effects.
     private func applyLoadedContent(_ content: NewsFeedContent) {
         cancelFeaturedArticleTasks()
+        cancelDiscussionTasks()
         state = .loaded(content)
         widgetContentSyncManager.syncFeed(content: content)
     }
@@ -148,6 +185,7 @@ final class NewsFeedViewModel: ObservableObject {
     /// Applies the configured fallback state after a failed feed load.
     private func applyLoadFailureState() {
         cancelFeaturedArticleTasks()
+        cancelDiscussionTasks()
         state = .failed(content: loadFailureContent, message: loadFailureMessage)
         widgetContentSyncManager.syncFeed(content: loadFailureContent)
     }
@@ -166,25 +204,8 @@ final class NewsFeedViewModel: ObservableObject {
         loadingTask = makeLoadingTask()
     }
 
-    /// Applies a display-mode change without touching persistence-backed article content.
-    private func setDisplayMode(
-        _ displayMode: FeaturedArticleCardDisplayMode,
-        for articleID: String
-    ) {
-        updateFeaturedArticle(articleID: articleID) { article in
-            article.updatingUIState {
-                FeaturedArticleCardUIState(
-                    isLiked: $0.isLiked,
-                    displayMode: displayMode,
-                    pendingOperation: $0.pendingOperation,
-                    inlineStatusMessage: nil
-                )
-            }
-        }
-    }
-
-    /// Performs a lightweight optimistic like toggle with inline progress feedback.
-    private func toggleLike(for articleID: String) {
+    /// Starts an optimistic like toggle and then persists the new state through the repository path.
+    private func startFeaturedArticleLikeTask(for articleID: String) {
         guard canStartFeaturedArticleAction(for: articleID) else {
             return
         }
@@ -205,19 +226,147 @@ final class NewsFeedViewModel: ObservableObject {
         featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
-                try await Task.sleep(for: .milliseconds(450))
+                guard let self else {
+                    return
+                }
+                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                    articleID: articleID,
+                    action: .toggleLike
+                )
                 try Task.checkCancellation()
-                await self?.finishLikeToggle(for: articleID)
+                await MainActor.run {
+                    self.finishFeaturedArticleAction(
+                        updatedArticle,
+                        articleID: articleID,
+                        statusMessage: updatedArticle.uiState.isLiked
+                            ? AppLocalization.text("news.featured.status.liked", fallback: "Reaction saved.")
+                            : AppLocalization.text("news.featured.status.unliked", fallback: "Reaction removed.")
+                    )
+                }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.rollbackFeaturedArticle(articleID: articleID, previousArticle: previousArticle)
+                await MainActor.run {
+                    self?.handleFeaturedArticleFailure(
+                        action: .toggleLike,
+                        articleID: articleID,
+                        previousArticle: previousArticle,
+                        error: error
+                    )
+                }
             }
         }
     }
 
-    /// Starts a simulated card refresh with a card-scoped inline loader.
-    private func startRefreshContentTask(for articleID: String) {
+    /// Starts a comment creation task for one featured article.
+    private func startFeaturedArticleCommentTask(for articleID: String) {
+        guard canStartFeaturedArticleAction(for: articleID) else {
+            return
+        }
+
+        updateFeaturedArticle(articleID: articleID) { article in
+            article.updatingUIState {
+                FeaturedArticleCardUIState(
+                    isLiked: $0.isLiked,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .addingComment,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        featuredArticleTasks[articleID]?.cancel()
+        featuredArticleTasks[articleID] = Task { [weak self] in
+            do {
+                guard let self else {
+                    return
+                }
+                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                    articleID: articleID,
+                    action: .addComment
+                )
+                try Task.checkCancellation()
+                await MainActor.run {
+                    self.finishFeaturedArticleAction(
+                        updatedArticle,
+                        articleID: articleID,
+                        statusMessage: AppLocalization.text(
+                            "news.featured.status.commented",
+                            fallback: "Comment added."
+                        )
+                    )
+                }
+            } catch is CancellationError {
+                return
+            } catch {
+                await MainActor.run {
+                    self?.handleFeaturedArticleFailure(
+                        action: .addComment,
+                        articleID: articleID,
+                        previousArticle: nil,
+                        error: error
+                    )
+                }
+            }
+        }
+    }
+
+    /// Persists a new display mode for one featured article.
+    private func startFeaturedArticleDisplayModeTask(
+        _ displayMode: FeaturedArticleCardDisplayMode,
+        for articleID: String
+    ) {
+        guard canStartFeaturedArticleAction(for: articleID) else {
+            return
+        }
+
+        let previousArticle = featuredArticle(withID: articleID)
+        updateFeaturedArticle(articleID: articleID) { article in
+            article.updatingUIState {
+                FeaturedArticleCardUIState(
+                    isLiked: $0.isLiked,
+                    displayMode: displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        featuredArticleTasks[articleID]?.cancel()
+        featuredArticleTasks[articleID] = Task { [weak self] in
+            do {
+                guard let self else {
+                    return
+                }
+                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                    articleID: articleID,
+                    action: .setDisplayMode(displayMode)
+                )
+                try Task.checkCancellation()
+                await MainActor.run {
+                    self.finishFeaturedArticleAction(
+                        updatedArticle,
+                        articleID: articleID,
+                        statusMessage: nil
+                    )
+                }
+            } catch is CancellationError {
+                return
+            } catch {
+                await MainActor.run {
+                    self?.handleFeaturedArticleFailure(
+                        action: .setDisplayMode(displayMode),
+                        articleID: articleID,
+                        previousArticle: previousArticle,
+                        error: error
+                    )
+                }
+            }
+        }
+    }
+
+    /// Starts a refresh task for one featured article.
+    private func startFeaturedArticleRefreshTask(for articleID: String) {
         guard canStartFeaturedArticleAction(for: articleID) else {
             return
         }
@@ -236,19 +385,41 @@ final class NewsFeedViewModel: ObservableObject {
         featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
-                try await Task.sleep(for: .seconds(1))
+                guard let self else {
+                    return
+                }
+                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                    articleID: articleID,
+                    action: .refreshContent
+                )
                 try Task.checkCancellation()
-                await self?.finishRefreshContent(for: articleID)
+                await MainActor.run {
+                    self.finishFeaturedArticleAction(
+                        updatedArticle,
+                        articleID: articleID,
+                        statusMessage: AppLocalization.text(
+                            "news.featured.status.refreshed",
+                            fallback: "Card refreshed."
+                        )
+                    )
+                }
             } catch is CancellationError {
                 return
             } catch {
-                return
+                await MainActor.run {
+                    self?.handleFeaturedArticleFailure(
+                        action: .refreshContent,
+                        articleID: articleID,
+                        previousArticle: nil,
+                        error: error
+                    )
+                }
             }
         }
     }
 
-    /// Starts a simulated long-running article update with inline loading state.
-    private func startLongUpdateTask(for articleID: String) {
+    /// Starts a longer update task for one featured article.
+    private func startFeaturedArticleUpdateTask(for articleID: String) {
         guard canStartFeaturedArticleAction(for: articleID) else {
             return
         }
@@ -267,19 +438,63 @@ final class NewsFeedViewModel: ObservableObject {
         featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
-                try await Task.sleep(for: .seconds(2))
+                guard let self else {
+                    return
+                }
+                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                    articleID: articleID,
+                    action: .runLongTask
+                )
                 try Task.checkCancellation()
-                await self?.finishLongUpdate(for: articleID)
+                await MainActor.run {
+                    self.finishFeaturedArticleAction(
+                        updatedArticle,
+                        articleID: articleID,
+                        statusMessage: AppLocalization.text(
+                            "news.featured.status.updated",
+                            fallback: "Article updated."
+                        )
+                    )
+                }
             } catch is CancellationError {
                 return
             } catch {
-                return
+                await MainActor.run {
+                    self?.handleFeaturedArticleFailure(
+                        action: .runLongTask,
+                        articleID: articleID,
+                        previousArticle: nil,
+                        error: error
+                    )
+                }
             }
         }
     }
 
-    /// Applies final state after a lightweight like interaction completes.
-    private func finishLikeToggle(for articleID: String) {
+    /// Replaces the visible featured article with the latest persisted snapshot.
+    private func finishFeaturedArticleAction(
+        _ updatedArticle: FeaturedArticleCardModel,
+        articleID: String,
+        statusMessage: String?
+    ) {
+        featuredArticleTasks[articleID] = nil
+        updateFeaturedArticle(articleID: articleID) { _ in
+            updatedArticle.updatingUIState { _ in
+                FeaturedArticleCardUIState(
+                    isLiked: updatedArticle.uiState.isLiked,
+                    displayMode: updatedArticle.uiState.displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: statusMessage
+                )
+            }
+        }
+    }
+
+    /// Marks one featured article action as failed without destroying its persisted content.
+    private func failFeaturedArticleAction(
+        articleID: String,
+        message: String
+    ) {
         featuredArticleTasks[articleID] = nil
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
@@ -287,69 +502,9 @@ final class NewsFeedViewModel: ObservableObject {
                     isLiked: $0.isLiked,
                     displayMode: $0.displayMode,
                     pendingOperation: nil,
-                    inlineStatusMessage: $0.isLiked
-                        ? AppLocalization.text("news.featured.status.liked", fallback: "Reaction saved.")
-                        : AppLocalization.text("news.featured.status.unliked", fallback: "Reaction removed.")
+                    inlineStatusMessage: message
                 )
             }
-        }
-    }
-
-    /// Applies refreshed article text after a card-level refresh operation finishes.
-    private func finishRefreshContent(for articleID: String) {
-        featuredArticleTasks[articleID] = nil
-        updateFeaturedArticle(articleID: articleID) { article in
-            article
-                .updatingContent(
-                    metadataLine: AppLocalization.text(
-                        "news.featured.refresh.metadata",
-                        fallback: "refreshed just now"
-                    )
-                )
-                .updatingUIState {
-                    FeaturedArticleCardUIState(
-                        isLiked: $0.isLiked,
-                        displayMode: $0.displayMode,
-                        pendingOperation: nil,
-                        inlineStatusMessage: AppLocalization.text(
-                            "news.featured.status.refreshed",
-                            fallback: "Card refreshed."
-                        )
-                    )
-                }
-        }
-    }
-
-    /// Applies a simulated full-content replacement after a longer article update task finishes.
-    private func finishLongUpdate(for articleID: String) {
-        featuredArticleTasks[articleID] = nil
-        updateFeaturedArticle(articleID: articleID) { article in
-            article
-                .updatingContent(
-                    headline: AppLocalization.text(
-                        "news.featured.updated.headline",
-                        fallback: "Updated article version ready for review"
-                    ),
-                    summary: AppLocalization.text(
-                        "news.featured.updated.summary",
-                        fallback: "This card now shows a rebuilt content snapshot to simulate a long-running article update finishing directly inside the feed."
-                    ),
-                    metadataLine: AppLocalization.text(
-                        "news.featured.updated.metadata",
-                        fallback: "system update completed just now"
-                    )
-                )
-                .updatingUIState {
-                    FeaturedArticleCardUIState(
-                        isLiked: $0.isLiked,
-                        displayMode: $0.displayMode,
-                        pendingOperation: nil,
-                        inlineStatusMessage: AppLocalization.text(
-                            "news.featured.status.updated",
-                            fallback: "Article updated."
-                        )
-                    )
-                }
         }
     }
 
@@ -357,6 +512,22 @@ final class NewsFeedViewModel: ObservableObject {
     private func rollbackFeaturedArticle(
         articleID: String,
         previousArticle: FeaturedArticleCardModel?
+    ) {
+        rollbackFeaturedArticle(
+            articleID: articleID,
+            previousArticle: previousArticle,
+            message: AppLocalization.text(
+                "news.featured.status.failed",
+                fallback: "Unable to complete this action right now."
+            )
+        )
+    }
+
+    /// Restores the previous article snapshot after a failed optimistic action and shows the supplied status message.
+    private func rollbackFeaturedArticle(
+        articleID: String,
+        previousArticle: FeaturedArticleCardModel?,
+        message: String
     ) {
         featuredArticleTasks[articleID] = nil
         guard let previousArticle else {
@@ -375,10 +546,7 @@ final class NewsFeedViewModel: ObservableObject {
                                 isLiked: $0.isLiked,
                                 displayMode: $0.displayMode,
                                 pendingOperation: nil,
-                                inlineStatusMessage: AppLocalization.text(
-                                    "news.featured.status.failed",
-                                    fallback: "Unable to complete this action right now."
-                                )
+                                inlineStatusMessage: message
                             )
                         }
                     )
@@ -448,6 +616,486 @@ final class NewsFeedViewModel: ObservableObject {
             task.cancel()
         }
         featuredArticleTasks.removeAll()
+    }
+
+    /// Resolves the rollback/preserve policy for a failed featured article action and applies it to the visible card.
+    private func handleFeaturedArticleFailure(
+        action: FeaturedArticleCardAction,
+        articleID: String,
+        previousArticle: FeaturedArticleCardModel?,
+        error: Error
+    ) {
+        let policy = featuredArticleFailurePolicy(for: action, error: error)
+        switch policy.resolution {
+        case .rollback:
+            rollbackFeaturedArticle(
+                articleID: articleID,
+                previousArticle: previousArticle,
+                message: policy.message
+            )
+        case .preserveVisibleSnapshot:
+            failFeaturedArticleAction(articleID: articleID, message: policy.message)
+        }
+    }
+
+    /// Determines how featured article UI should recover from a repository/network failure.
+    private func featuredArticleFailurePolicy(
+        for action: FeaturedArticleCardAction,
+        error: Error
+    ) -> CardActionFailurePolicy {
+        let fallbackMessage = cardActionFailureMessage(for: error)
+        switch action {
+        case .toggleLike, .setDisplayMode:
+            return CardActionFailurePolicy(resolution: .rollback, message: fallbackMessage)
+        case .addComment, .refreshContent, .runLongTask:
+            return CardActionFailurePolicy(resolution: .preserveVisibleSnapshot, message: fallbackMessage)
+        }
+    }
+
+    /// Starts an optimistic participation toggle for one discussion card.
+    private func startDiscussionParticipationTask(for discussionID: String) {
+        guard canStartDiscussionAction(for: discussionID) else {
+            return
+        }
+
+        let previousDiscussion = discussion(withID: discussionID)
+        updateDiscussion(discussionID: discussionID) { discussion in
+            discussion.updatingUIState {
+                DiscussionCardUIState(
+                    isParticipating: !$0.isParticipating,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .togglingParticipation,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        discussionTasks[discussionID]?.cancel()
+        discussionTasks[discussionID] = Task { [weak self] in
+            do {
+                guard let self else {
+                    return
+                }
+                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                    discussionID: discussionID,
+                    action: .toggleParticipation
+                )
+                try Task.checkCancellation()
+                await MainActor.run {
+                    self.finishDiscussionAction(
+                        updatedDiscussion,
+                        discussionID: discussionID,
+                        statusMessage: updatedDiscussion.uiState.isParticipating
+                            ? AppLocalization.text("news.discussion.status.joined", fallback: "Joined discussion.")
+                            : AppLocalization.text("news.discussion.status.left", fallback: "Participation removed.")
+                    )
+                }
+            } catch is CancellationError {
+                return
+            } catch {
+                await MainActor.run {
+                    self?.handleDiscussionFailure(
+                        action: .toggleParticipation,
+                        discussionID: discussionID,
+                        previousDiscussion: previousDiscussion,
+                        error: error
+                    )
+                }
+            }
+        }
+    }
+
+    /// Starts a reply creation task for one discussion card.
+    private func startDiscussionReplyTask(for discussionID: String) {
+        guard canStartDiscussionAction(for: discussionID) else {
+            return
+        }
+
+        updateDiscussion(discussionID: discussionID) { discussion in
+            discussion.updatingUIState {
+                DiscussionCardUIState(
+                    isParticipating: $0.isParticipating,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .addingReply,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        discussionTasks[discussionID]?.cancel()
+        discussionTasks[discussionID] = Task { [weak self] in
+            do {
+                guard let self else {
+                    return
+                }
+                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                    discussionID: discussionID,
+                    action: .addReply
+                )
+                try Task.checkCancellation()
+                await MainActor.run {
+                    self.finishDiscussionAction(
+                        updatedDiscussion,
+                        discussionID: discussionID,
+                        statusMessage: AppLocalization.text("news.discussion.status.replied", fallback: "Reply added.")
+                    )
+                }
+            } catch is CancellationError {
+                return
+            } catch {
+                await MainActor.run {
+                    self?.handleDiscussionFailure(
+                        action: .addReply,
+                        discussionID: discussionID,
+                        previousDiscussion: nil,
+                        error: error
+                    )
+                }
+            }
+        }
+    }
+
+    /// Persists a new display mode for one discussion card.
+    private func startDiscussionDisplayModeTask(
+        _ displayMode: DiscussionCardDisplayMode,
+        for discussionID: String
+    ) {
+        guard canStartDiscussionAction(for: discussionID) else {
+            return
+        }
+
+        let previousDiscussion = discussion(withID: discussionID)
+        updateDiscussion(discussionID: discussionID) { discussion in
+            discussion.updatingUIState {
+                DiscussionCardUIState(
+                    isParticipating: $0.isParticipating,
+                    displayMode: displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        discussionTasks[discussionID]?.cancel()
+        discussionTasks[discussionID] = Task { [weak self] in
+            do {
+                guard let self else {
+                    return
+                }
+                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                    discussionID: discussionID,
+                    action: .setDisplayMode(displayMode)
+                )
+                try Task.checkCancellation()
+                await MainActor.run {
+                    self.finishDiscussionAction(updatedDiscussion, discussionID: discussionID, statusMessage: nil)
+                }
+            } catch is CancellationError {
+                return
+            } catch {
+                await MainActor.run {
+                    self?.handleDiscussionFailure(
+                        action: .setDisplayMode(displayMode),
+                        discussionID: discussionID,
+                        previousDiscussion: previousDiscussion,
+                        error: error
+                    )
+                }
+            }
+        }
+    }
+
+    /// Starts a refresh task for one discussion card.
+    private func startDiscussionRefreshTask(for discussionID: String) {
+        guard canStartDiscussionAction(for: discussionID) else {
+            return
+        }
+
+        updateDiscussion(discussionID: discussionID) { discussion in
+            discussion.updatingUIState {
+                DiscussionCardUIState(
+                    isParticipating: $0.isParticipating,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .refreshingContent,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        discussionTasks[discussionID]?.cancel()
+        discussionTasks[discussionID] = Task { [weak self] in
+            do {
+                guard let self else {
+                    return
+                }
+                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                    discussionID: discussionID,
+                    action: .refreshContent
+                )
+                try Task.checkCancellation()
+                await MainActor.run {
+                    self.finishDiscussionAction(
+                        updatedDiscussion,
+                        discussionID: discussionID,
+                        statusMessage: AppLocalization.text("news.discussion.status.refreshed", fallback: "Discussion refreshed.")
+                    )
+                }
+            } catch is CancellationError {
+                return
+            } catch {
+                await MainActor.run {
+                    self?.handleDiscussionFailure(
+                        action: .refreshContent,
+                        discussionID: discussionID,
+                        previousDiscussion: nil,
+                        error: error
+                    )
+                }
+            }
+        }
+    }
+
+    /// Starts a longer update task for one discussion card.
+    private func startDiscussionUpdateTask(for discussionID: String) {
+        guard canStartDiscussionAction(for: discussionID) else {
+            return
+        }
+
+        updateDiscussion(discussionID: discussionID) { discussion in
+            discussion.updatingUIState {
+                DiscussionCardUIState(
+                    isParticipating: $0.isParticipating,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .updatingContent,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        discussionTasks[discussionID]?.cancel()
+        discussionTasks[discussionID] = Task { [weak self] in
+            do {
+                guard let self else {
+                    return
+                }
+                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                    discussionID: discussionID,
+                    action: .runLongTask
+                )
+                try Task.checkCancellation()
+                await MainActor.run {
+                    self.finishDiscussionAction(
+                        updatedDiscussion,
+                        discussionID: discussionID,
+                        statusMessage: AppLocalization.text("news.discussion.status.updated", fallback: "Discussion updated.")
+                    )
+                }
+            } catch is CancellationError {
+                return
+            } catch {
+                await MainActor.run {
+                    self?.handleDiscussionFailure(
+                        action: .runLongTask,
+                        discussionID: discussionID,
+                        previousDiscussion: nil,
+                        error: error
+                    )
+                }
+            }
+        }
+    }
+
+    /// Replaces the visible discussion card with the latest persisted snapshot.
+    private func finishDiscussionAction(
+        _ updatedDiscussion: DiscussionCardModel,
+        discussionID: String,
+        statusMessage: String?
+    ) {
+        discussionTasks[discussionID] = nil
+        updateDiscussion(discussionID: discussionID) { _ in
+            updatedDiscussion.updatingUIState { _ in
+                DiscussionCardUIState(
+                    isParticipating: updatedDiscussion.uiState.isParticipating,
+                    displayMode: updatedDiscussion.uiState.displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: statusMessage
+                )
+            }
+        }
+    }
+
+    /// Marks one discussion action as failed without destroying its persisted content.
+    private func failDiscussionAction(
+        discussionID: String,
+        message: String
+    ) {
+        discussionTasks[discussionID] = nil
+        updateDiscussion(discussionID: discussionID) { discussion in
+            discussion.updatingUIState {
+                DiscussionCardUIState(
+                    isParticipating: $0.isParticipating,
+                    displayMode: $0.displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: message
+                )
+            }
+        }
+    }
+
+    /// Restores the previous discussion snapshot after a failed optimistic action.
+    private func rollbackDiscussion(
+        discussionID: String,
+        previousDiscussion: DiscussionCardModel?
+    ) {
+        rollbackDiscussion(
+            discussionID: discussionID,
+            previousDiscussion: previousDiscussion,
+            message: AppLocalization.text(
+                "news.discussion.status.failed",
+                fallback: "Unable to complete this action right now."
+            )
+        )
+    }
+
+    /// Restores the previous discussion snapshot after a failed optimistic action and shows the supplied status message.
+    private func rollbackDiscussion(
+        discussionID: String,
+        previousDiscussion: DiscussionCardModel?,
+        message: String
+    ) {
+        discussionTasks[discussionID] = nil
+        guard let previousDiscussion else {
+            return
+        }
+
+        updateVisibleContent { content in
+            NewsFeedContent(
+                cards: content.cards.map {
+                    guard case .discussion = $0, $0.id == discussionID else {
+                        return $0
+                    }
+                    return .discussion(
+                        previousDiscussion.updatingUIState {
+                            DiscussionCardUIState(
+                                isParticipating: $0.isParticipating,
+                                displayMode: $0.displayMode,
+                                pendingOperation: nil,
+                                inlineStatusMessage: message
+                            )
+                        }
+                    )
+                },
+                availability: content.availability
+            )
+        }
+    }
+
+    /// Updates one discussion card inside the currently visible feed content.
+    private func updateDiscussion(
+        discussionID: String,
+        transform: (DiscussionCardModel) -> DiscussionCardModel
+    ) {
+        updateVisibleContent { content in
+            NewsFeedContent(
+                cards: content.cards.map {
+                    guard case let .discussion(discussion) = $0, discussion.id == discussionID else {
+                        return $0
+                    }
+                    return .discussion(transform(discussion))
+                },
+                availability: content.availability
+            )
+        }
+    }
+
+    /// Returns the visible discussion snapshot for a given identifier.
+    private func discussion(withID discussionID: String) -> DiscussionCardModel? {
+        for card in state.content.cards {
+            if case let .discussion(discussion) = card, discussion.id == discussionID {
+                return discussion
+            }
+        }
+
+        return nil
+    }
+
+    /// Whether a new card-level action can start for the target discussion.
+    private func canStartDiscussionAction(for discussionID: String) -> Bool {
+        guard let discussion = discussion(withID: discussionID) else {
+            return false
+        }
+
+        return !discussion.uiState.blocksActions
+    }
+
+    /// Cancels all active discussion tasks and clears the registry.
+    private func cancelDiscussionTasks() {
+        for task in discussionTasks.values {
+            task.cancel()
+        }
+        discussionTasks.removeAll()
+    }
+
+    /// Resolves the rollback/preserve policy for a failed discussion action and applies it to the visible card.
+    private func handleDiscussionFailure(
+        action: DiscussionCardAction,
+        discussionID: String,
+        previousDiscussion: DiscussionCardModel?,
+        error: Error
+    ) {
+        let policy = discussionFailurePolicy(for: action, error: error)
+        switch policy.resolution {
+        case .rollback:
+            rollbackDiscussion(
+                discussionID: discussionID,
+                previousDiscussion: previousDiscussion,
+                message: policy.message
+            )
+        case .preserveVisibleSnapshot:
+            failDiscussionAction(discussionID: discussionID, message: policy.message)
+        }
+    }
+
+    /// Determines how discussion UI should recover from a repository/network failure.
+    private func discussionFailurePolicy(
+        for action: DiscussionCardAction,
+        error: Error
+    ) -> CardActionFailurePolicy {
+        let fallbackMessage = cardActionFailureMessage(for: error)
+        switch action {
+        case .toggleParticipation, .setDisplayMode:
+            return CardActionFailurePolicy(resolution: .rollback, message: fallbackMessage)
+        case .addReply, .refreshContent, .runLongTask:
+            return CardActionFailurePolicy(resolution: .preserveVisibleSnapshot, message: fallbackMessage)
+        }
+    }
+
+    /// Maps repository/network failures into stable user-facing card status text.
+    private func cardActionFailureMessage(for error: Error) -> String {
+        guard let repositoryError = error as? RepositoryError else {
+            return AppLocalization.text(
+                "news.card.status.failed",
+                fallback: "Unable to complete this action right now."
+            )
+        }
+
+        switch repositoryError {
+        case .offlineCardAction:
+            return AppLocalization.text(
+                "news.card.status.offline",
+                fallback: "You're offline. Showing saved state."
+            )
+        case .missingPersistedFeedCard:
+            return AppLocalization.text(
+                "news.card.status.stale",
+                fallback: "Card is out of sync. Refresh the feed."
+            )
+        case .missingChannel, .missingPersistedFeed:
+            return AppLocalization.text(
+                "news.card.status.failed",
+                fallback: "Unable to complete this action right now."
+            )
+        }
     }
 
     /// Evaluates whether the requested load policy is valid in the current runtime state.

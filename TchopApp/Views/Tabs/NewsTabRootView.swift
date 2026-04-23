@@ -12,7 +12,8 @@ struct NewsTabRootView: View {
                 viewModel: viewModel,
                 onFeaturedArticleTap: openFeaturedArticle,
                 onFeaturedArticleAction: handleFeaturedArticleAction,
-                onDiscussionTap: openDiscussion
+                onDiscussionTap: openDiscussion,
+                onDiscussionAction: handleDiscussionAction
             )
             .navigationDestination(for: NewsRoute.self) { route in
                 NewsDestinationView(route: route)
@@ -37,12 +38,15 @@ struct NewsTabRootView: View {
         _ article: FeaturedArticleCardModel,
         _ action: FeaturedArticleCardAction
     ) {
-        switch action {
-        case .openComments:
-            router.push(article.detailRoute)
-        default:
-            viewModel.handleFeaturedArticleAction(articleID: article.id, action: action)
-        }
+        viewModel.handleFeaturedArticleAction(articleID: article.id, action: action)
+    }
+
+    /// Handles discussion card intents and keeps the detail route on the main card tap only.
+    private func handleDiscussionAction(
+        _ discussion: DiscussionCardModel,
+        _ action: DiscussionCardAction
+    ) {
+        viewModel.handleDiscussionAction(discussionID: discussion.id, action: action)
     }
 
     /// Opens discussion.

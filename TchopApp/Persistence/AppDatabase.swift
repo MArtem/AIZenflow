@@ -320,9 +320,11 @@ private enum AppDatabaseMigrationCoordinator {
         let metadataLine: String?
         let translationLabel: String?
         let articleActionsData: Data?
+        let articleStateData: Data?
         let categoryTitle: String?
         let participantsData: Data?
         let joinedText: String?
+        let discussionStateData: Data?
     }
 
     private struct CoreDataMigrationPayload {
@@ -393,9 +395,11 @@ private enum AppDatabaseMigrationCoordinator {
                             metadataLine: $0.metadataLine,
                             translationLabel: $0.translationLabel,
                             articleActionsData: $0.articleActionsData,
+                            articleStateData: $0.articleStateData,
                             categoryTitle: $0.categoryTitle,
                             participantsData: $0.participantsData,
-                            joinedText: $0.joinedText
+                            joinedText: $0.joinedText,
+                            discussionStateData: $0.discussionStateData
                         )
                     }
 
@@ -484,9 +488,11 @@ private enum AppDatabaseMigrationCoordinator {
                 existing.metadataLine = feedCard.metadataLine
                 existing.translationLabel = feedCard.translationLabel
                 existing.articleActionsData = feedCard.articleActionsData
+                existing.articleStateData = feedCard.articleStateData
                 existing.categoryTitle = feedCard.categoryTitle
                 existing.participantsData = feedCard.participantsData
                 existing.joinedText = feedCard.joinedText
+                existing.discussionStateData = feedCard.discussionStateData
             } else {
                 context.insert(
                     FeedCardRecord(
@@ -504,9 +510,11 @@ private enum AppDatabaseMigrationCoordinator {
                         metadataLine: feedCard.metadataLine,
                         translationLabel: feedCard.translationLabel,
                         articleActionsData: feedCard.articleActionsData,
+                        articleStateData: feedCard.articleStateData,
                         categoryTitle: feedCard.categoryTitle,
                         participantsData: feedCard.participantsData,
-                        joinedText: feedCard.joinedText
+                        joinedText: feedCard.joinedText,
+                        discussionStateData: feedCard.discussionStateData
                     )
                 )
             }
@@ -648,9 +656,11 @@ private enum AppDatabaseContainerFactory {
             makeStringAttribute(name: "metadataLine", isOptional: true),
             makeStringAttribute(name: "translationLabel", isOptional: true),
             makeBinaryDataAttribute(name: "articleActionsData", isOptional: true),
+            makeBinaryDataAttribute(name: "articleStateData", isOptional: true),
             makeStringAttribute(name: "categoryTitle", isOptional: true),
             makeBinaryDataAttribute(name: "participantsData", isOptional: true),
-            makeStringAttribute(name: "joinedText", isOptional: true)
+            makeStringAttribute(name: "joinedText", isOptional: true),
+            makeBinaryDataAttribute(name: "discussionStateData", isOptional: true)
         ]
         entity.uniquenessConstraints = [["id"]]
         return entity
@@ -764,10 +774,12 @@ final class CoreDataFeedCardEntity: NSManagedObject {
     @NSManaged var metadataLine: String?
     @NSManaged var translationLabel: String?
     @NSManaged var articleActionsData: Data?
+    @NSManaged var articleStateData: Data?
 
     @NSManaged var categoryTitle: String?
     @NSManaged var participantsData: Data?
     @NSManaged var joinedText: String?
+    @NSManaged var discussionStateData: Data?
 
     @nonobjc
     static func fetchRequest() -> NSFetchRequest<CoreDataFeedCardEntity> {

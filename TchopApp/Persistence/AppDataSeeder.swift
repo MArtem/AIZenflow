@@ -163,9 +163,11 @@ enum AppDataSeeder {
         let metadataLine: String?
         let translationLabel: String?
         let articleActionsData: Data?
+        let articleStateData: Data?
         let categoryTitle: String?
         let participantsData: Data?
         let joinedText: String?
+        let discussionStateData: Data?
     }
 
     private static func makeFeedSeedPayload(
@@ -199,9 +201,17 @@ enum AppDataSeeder {
                         )
                     }
                 ),
+                articleStateData: try JSONEncoder().encode(
+                    FeedCardArticleStatePayload(
+                        isLiked: article.localState.isLiked,
+                        commentCount: article.localState.commentCount,
+                        displayModeRawValue: article.localState.displayMode.rawValue
+                    )
+                ),
                 categoryTitle: nil,
                 participantsData: nil,
-                joinedText: nil
+                joinedText: nil,
+                discussionStateData: nil
             )
         case let .discussion(discussion):
             return FeedSeedPayload(
@@ -219,6 +229,7 @@ enum AppDataSeeder {
                 metadataLine: nil,
                 translationLabel: nil,
                 articleActionsData: nil,
+                articleStateData: nil,
                 categoryTitle: discussion.categoryTitle,
                 participantsData: try JSONEncoder().encode(
                     discussion.participants.map {
@@ -229,7 +240,15 @@ enum AppDataSeeder {
                         )
                     }
                 ),
-                joinedText: discussion.joinedText
+                joinedText: "+\(discussion.localState.joinedCount) joined",
+                discussionStateData: try JSONEncoder().encode(
+                    FeedCardDiscussionStatePayload(
+                        isParticipating: discussion.localState.isParticipating,
+                        replyCount: discussion.localState.replyCount,
+                        joinedCount: discussion.localState.joinedCount,
+                        displayModeRawValue: discussion.localState.displayMode.rawValue
+                    )
+                )
             )
         }
     }
@@ -251,9 +270,11 @@ enum AppDataSeeder {
             metadataLine: payload.metadataLine,
             translationLabel: payload.translationLabel,
             articleActionsData: payload.articleActionsData,
+            articleStateData: payload.articleStateData,
             categoryTitle: payload.categoryTitle,
             participantsData: payload.participantsData,
-            joinedText: payload.joinedText
+            joinedText: payload.joinedText,
+            discussionStateData: payload.discussionStateData
         )
     }
 
@@ -272,8 +293,10 @@ enum AppDataSeeder {
         entity.metadataLine = payload.metadataLine
         entity.translationLabel = payload.translationLabel
         entity.articleActionsData = payload.articleActionsData
+        entity.articleStateData = payload.articleStateData
         entity.categoryTitle = payload.categoryTitle
         entity.participantsData = payload.participantsData
         entity.joinedText = payload.joinedText
+        entity.discussionStateData = payload.discussionStateData
     }
 }

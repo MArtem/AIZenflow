@@ -12,6 +12,11 @@
       "summary": "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem...",
       "metadataLine": "by Adorlee Querry · two days ago · read time: 2min",
       "translationLabel": "See translation",
+      "localState": {
+        "isLiked": false,
+        "commentCount": 48,
+        "displayMode": "expanded"
+      },
       "actions": [
         {
           "id": "article-featured-1-like",
@@ -51,7 +56,12 @@
           "isHighlighted": false
         }
       ],
-      "joinedText": "+12 joined"
+      "localState": {
+        "isParticipating": false,
+        "replyCount": 12,
+        "joinedCount": 12,
+        "displayMode": "expanded"
+      }
     },
     {
       "type": "featuredArticle",
@@ -65,6 +75,11 @@
       "summary": "Vestibulum id ligula porta felis euismod semper. Nulla vitae elit libero, a pharetra augue. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
       "metadataLine": "by Marta Hein · five hours ago · read time: 4min",
       "translationLabel": "See translation",
+      "localState": {
+        "isLiked": true,
+        "commentCount": 16,
+        "displayMode": "compact"
+      },
       "actions": [
         {
           "id": "article-featured-2-like",
@@ -104,7 +119,12 @@
           "isHighlighted": false
         }
       ],
-      "joinedText": "+28 joined"
+      "localState": {
+        "isParticipating": true,
+        "replyCount": 28,
+        "joinedCount": 28,
+        "displayMode": "expanded"
+      }
     },
     {
       "type": "featuredArticle",
@@ -118,6 +138,11 @@
       "summary": "Donec sed odio dui. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Sed posuere consectetur est at lobortis.",
       "metadataLine": "by Nora Bell · today · read time: 3min",
       "translationLabel": "See translation",
+      "localState": {
+        "isLiked": false,
+        "commentCount": 9,
+        "displayMode": "expanded"
+      },
       "actions": [
         {
           "id": "article-featured-3-like",
@@ -157,7 +182,12 @@
           "isHighlighted": false
         }
       ],
-      "joinedText": "+34 joined"
+      "localState": {
+        "isParticipating": false,
+        "replyCount": 34,
+        "joinedCount": 34,
+        "displayMode": "compact"
+      }
     },
     {
       "type": "featuredArticle",
@@ -171,6 +201,11 @@
       "summary": "Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl consectetur et.",
       "metadataLine": "by Simon Crest · today · read time: 5min",
       "translationLabel": "See translation",
+      "localState": {
+        "isLiked": true,
+        "commentCount": 22,
+        "displayMode": "expanded"
+      },
       "actions": [
         {
           "id": "article-featured-4-like",
@@ -210,7 +245,12 @@
           "isHighlighted": false
         }
       ],
-      "joinedText": "+19 joined"
+      "localState": {
+        "isParticipating": true,
+        "replyCount": 19,
+        "joinedCount": 19,
+        "displayMode": "expanded"
+      }
     },
     {
       "type": "featuredArticle",
@@ -224,6 +264,11 @@
       "summary": "Curabitur blandit tempus porttitor. Maecenas faucibus mollis interdum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.",
       "metadataLine": "by Elin Park · today · read time: 6min",
       "translationLabel": "See translation",
+      "localState": {
+        "isLiked": false,
+        "commentCount": 31,
+        "displayMode": "compact"
+      },
       "actions": [
         {
           "id": "article-featured-5-like",
@@ -263,7 +308,12 @@
           "isHighlighted": false
         }
       ],
-      "joinedText": "+41 joined"
+      "localState": {
+        "isParticipating": false,
+        "replyCount": 41,
+        "joinedCount": 41,
+        "displayMode": "expanded"
+      }
     }
   ]
 }

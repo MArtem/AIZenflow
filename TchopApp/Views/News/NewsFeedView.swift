@@ -6,6 +6,7 @@ struct NewsFeedView: View {
     let onFeaturedArticleTap: (FeaturedArticleCardModel) -> Void
     let onFeaturedArticleAction: (FeaturedArticleCardModel, FeaturedArticleCardAction) -> Void
     let onDiscussionTap: (DiscussionCardModel) -> Void
+    let onDiscussionAction: (DiscussionCardModel, DiscussionCardAction) -> Void
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -48,7 +49,8 @@ struct NewsFeedView: View {
                     case let .discussion(discussion):
                         DiscussionCard(
                             discussion: discussion,
-                            onTap: { onDiscussionTap(discussion) }
+                            onTap: { onDiscussionTap(discussion) },
+                            onAction: { onDiscussionAction(discussion, $0) }
                         )
                     }
                 }

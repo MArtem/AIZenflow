@@ -6,6 +6,7 @@ struct ArticleActionView: View {
     let isActive: Bool
     let isLoading: Bool
     let isDisabled: Bool
+    let title: String
     let onTap: () -> Void
 
     var body: some View {
@@ -19,7 +20,7 @@ struct ArticleActionView: View {
                         .font(.system(size: 14, weight: .semibold))
                 }
 
-                Text(action.title)
+                Text(title)
                     .font(.system(size: 13, weight: .semibold))
                     .lineLimit(1)
             }

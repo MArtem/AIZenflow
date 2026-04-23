@@ -259,6 +259,15 @@ Applied a readability-focused refactor to `TchopApp/Repositories/UserRepository.
 The main repository methods now delegate the repeated SwiftData/Core Data branches to small private helpers for fetch, create, and restore-preference update flows, and the repeated Core Data single-record request setup is centralized in one helper.
 This step intentionally kept the logic in the same file and did not introduce any new protocols, services, or generic abstraction layers.
 
+### [x] Step: Fix and harden card action flow baseline
+
+Completed the in-progress card action architecture so the feature layer is no longer left in a half-integrated state.
+`FeaturedArticleCard` and `DiscussionCard` now use repository-backed stub API actions, persist card-local state into the feed snapshot, and build successfully through the app target.
+The screen-level rollback semantics are now explicit and future-backend-safe:
+optimistic actions rollback to the previous persisted snapshot on failure,
+while non-optimistic actions preserve the current persisted snapshot and only clear pending UI state with an inline status message.
+Offline card-action failures now show a saved-state/offline message, and missing persisted-card failures show an out-of-sync/refresh message.
+
 ### [x] Step: Apple auth extraction 1 — move Apple auth semantics into infrastructure package
 
 Created a dedicated reusable package product `TchopAppleAuthentication` inside `Packages/TchopInfrastructure`.

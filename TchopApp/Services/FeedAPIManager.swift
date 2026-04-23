@@ -32,6 +32,18 @@ enum FeedCardDTO: Decodable, Sendable {
     }
 }
 
+extension FeedCardDTO {
+    /// Stable identifier forwarded from the decoded card payload.
+    var id: String {
+        switch self {
+        case let .featuredArticle(article):
+            return article.id
+        case let .discussion(discussion):
+            return discussion.id
+        }
+    }
+}
+
 /// DTO describing the featured article card.
 struct FeaturedArticleDTO: Decodable, Sendable {
     let id: String
@@ -44,6 +56,7 @@ struct FeaturedArticleDTO: Decodable, Sendable {
     let summary: String
     let metadataLine: String
     let translationLabel: String
+    let localState: FeaturedArticleStateDTO
     let actions: [ArticleActionDTO]
 }
 
@@ -63,7 +76,7 @@ struct DiscussionDTO: Decodable, Sendable {
     let categoryTitle: String
     let headline: String
     let participants: [DiscussionParticipantDTO]
-    let joinedText: String
+    let localState: DiscussionStateDTO
 }
 
 /// DTO describing a participant preview inside a discussion card.
@@ -73,10 +86,67 @@ struct DiscussionParticipantDTO: Decodable, Sendable {
     let isHighlighted: Bool
 }
 
+/// Persisted article card state returned by the API contract or stub backend.
+struct FeaturedArticleStateDTO: Decodable, Sendable {
+    let isLiked: Bool
+    let commentCount: Int
+    let displayMode: FeaturedArticleCardDisplayMode
+}
+
+/// Persisted discussion card state returned by the API contract or stub backend.
+struct DiscussionStateDTO: Decodable, Sendable {
+    let isParticipating: Bool
+    let replyCount: Int
+    let joinedCount: Int
+    let displayMode: DiscussionCardDisplayMode
+}
+
 /// API abstraction used by repositories to fetch home feed content.
 protocol FeedAPIManaging {
     /// Fetches the current feed payload.
     func fetchFeed() async throws -> FeedResponseDTO
+
+    /// Persists a like-state change for one featured article and returns the updated card snapshot.
+    func setFeaturedArticleLike(
+        articleID: String,
+        isLiked: Bool
+    ) async throws -> FeaturedArticleDTO
+
+    /// Persists one new comment for the target featured article and returns the updated card snapshot.
+    func addFeaturedArticleComment(articleID: String) async throws -> FeaturedArticleDTO
+
+    /// Persists the preferred display mode for one featured article.
+    func setFeaturedArticleDisplayMode(
+        articleID: String,
+        displayMode: FeaturedArticleCardDisplayMode
+    ) async throws -> FeaturedArticleDTO
+
+    /// Returns a refreshed featured article snapshot.
+    func refreshFeaturedArticle(articleID: String) async throws -> FeaturedArticleDTO
+
+    /// Returns a simulated long-task article update snapshot.
+    func runFeaturedArticleUpdate(articleID: String) async throws -> FeaturedArticleDTO
+
+    /// Persists discussion participation state for one discussion card.
+    func setDiscussionParticipation(
+        discussionID: String,
+        isParticipating: Bool
+    ) async throws -> DiscussionDTO
+
+    /// Persists one new reply for the target discussion card.
+    func addDiscussionReply(discussionID: String) async throws -> DiscussionDTO
+
+    /// Persists the preferred display mode for one discussion card.
+    func setDiscussionDisplayMode(
+        discussionID: String,
+        displayMode: DiscussionCardDisplayMode
+    ) async throws -> DiscussionDTO
+
+    /// Returns a refreshed discussion snapshot.
+    func refreshDiscussion(discussionID: String) async throws -> DiscussionDTO
+
+    /// Returns a simulated long-task discussion update snapshot.
+    func runDiscussionUpdate(discussionID: String) async throws -> DiscussionDTO
 }
 
 /// Stubbed feed API manager used until a real backend contract exists.
@@ -100,6 +170,177 @@ struct StubFeedAPIManager: FeedAPIManaging {
             )
         )
     }
+
+    func setFeaturedArticleLike(
+        articleID: String,
+        isLiked: Bool
+    ) async throws -> FeaturedArticleDTO {
+        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/like") { article in
+            article.withLocalState(
+                FeaturedArticleStateDTO(
+                    isLiked: isLiked,
+                    commentCount: article.localState.commentCount,
+                    displayMode: article.localState.displayMode
+                )
+            )
+        }
+    }
+
+    func addFeaturedArticleComment(articleID: String) async throws -> FeaturedArticleDTO {
+        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/comments") { article in
+            article.withLocalState(
+                FeaturedArticleStateDTO(
+                    isLiked: article.localState.isLiked,
+                    commentCount: article.localState.commentCount + 1,
+                    displayMode: article.localState.displayMode
+                )
+            )
+        }
+    }
+
+    func setFeaturedArticleDisplayMode(
+        articleID: String,
+        displayMode: FeaturedArticleCardDisplayMode
+    ) async throws -> FeaturedArticleDTO {
+        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/display-mode") { article in
+            article.withLocalState(
+                FeaturedArticleStateDTO(
+                    isLiked: article.localState.isLiked,
+                    commentCount: article.localState.commentCount,
+                    displayMode: displayMode
+                )
+            )
+        }
+    }
+
+    func refreshFeaturedArticle(articleID: String) async throws -> FeaturedArticleDTO {
+        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/refresh") { article in
+            article.withContent(
+                metadataLine: "refreshed just now"
+            )
+        }
+    }
+
+    func runFeaturedArticleUpdate(articleID: String) async throws -> FeaturedArticleDTO {
+        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/update") { article in
+            article.withContent(
+                headline: "Updated article version ready for review",
+                summary: "This card now shows a rebuilt content snapshot produced by the stub API to simulate a long-running backend article update finishing inside the feed.",
+                metadataLine: "system update completed just now"
+            )
+        }
+    }
+
+    func setDiscussionParticipation(
+        discussionID: String,
+        isParticipating: Bool
+    ) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/participation") { discussion in
+            let joinedDelta = isParticipating == discussion.localState.isParticipating ? 0 : (isParticipating ? 1 : -1)
+            return discussion.withLocalState(
+                DiscussionStateDTO(
+                    isParticipating: isParticipating,
+                    replyCount: discussion.localState.replyCount,
+                    joinedCount: max(0, discussion.localState.joinedCount + joinedDelta),
+                    displayMode: discussion.localState.displayMode
+                )
+            )
+        }
+    }
+
+    func addDiscussionReply(discussionID: String) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/replies") { discussion in
+            discussion.withLocalState(
+                DiscussionStateDTO(
+                    isParticipating: discussion.localState.isParticipating,
+                    replyCount: discussion.localState.replyCount + 1,
+                    joinedCount: discussion.localState.joinedCount,
+                    displayMode: discussion.localState.displayMode
+                )
+            )
+        }
+    }
+
+    func setDiscussionDisplayMode(
+        discussionID: String,
+        displayMode: DiscussionCardDisplayMode
+    ) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/display-mode") { discussion in
+            discussion.withLocalState(
+                DiscussionStateDTO(
+                    isParticipating: discussion.localState.isParticipating,
+                    replyCount: discussion.localState.replyCount,
+                    joinedCount: discussion.localState.joinedCount,
+                    displayMode: displayMode
+                )
+            )
+        }
+    }
+
+    func refreshDiscussion(discussionID: String) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/refresh") { discussion in
+            discussion.withContent(
+                headline: "Refreshed discussion snapshot with the same thread context"
+            )
+        }
+    }
+
+    func runDiscussionUpdate(discussionID: String) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/update") { discussion in
+            discussion.withContent(
+                headline: "Updated discussion summary ready for participants",
+                participants: Array(discussion.participants.prefix(2)) + [
+                    DiscussionParticipantDTO(
+                        id: "\(discussion.id)-participant-new",
+                        initials: "N",
+                        isHighlighted: true
+                    )
+                ]
+            )
+        }
+    }
+
+    private func performFeaturedArticleMutation(
+        path: String,
+        transform: @escaping (FeaturedArticleDTO) -> FeaturedArticleDTO
+    ) async throws -> FeaturedArticleDTO {
+        try await apiManager.perform(
+            APIRequest(
+                path: path,
+                method: .post,
+                stubResponse: {
+                    let response = try await FeedAPIStubFactory.makeFeedResponse()
+                    guard let article = FeedAPIStubFactory.featuredArticle(in: response, articleID: path.articleID) else {
+                        throw FeedAPIStubError.missingCard
+                    }
+                    try await Task.sleep(for: .milliseconds(180))
+                    try Task.checkCancellation()
+                    return transform(article)
+                }
+            )
+        )
+    }
+
+    private func performDiscussionMutation(
+        path: String,
+        transform: @escaping (DiscussionDTO) -> DiscussionDTO
+    ) async throws -> DiscussionDTO {
+        try await apiManager.perform(
+            APIRequest(
+                path: path,
+                method: .post,
+                stubResponse: {
+                    let response = try await FeedAPIStubFactory.makeFeedResponse()
+                    guard let discussion = FeedAPIStubFactory.discussion(in: response, discussionID: path.articleID) else {
+                        throw FeedAPIStubError.missingCard
+                    }
+                    try await Task.sleep(for: .milliseconds(220))
+                    try Task.checkCancellation()
+                    return transform(discussion)
+                }
+            )
+        )
+    }
 }
 
 enum FeedAPIStubFactory {
@@ -112,6 +353,32 @@ enum FeedAPIStubFactory {
     static func loadFeedResponse() throws -> FeedResponseDTO {
         let feedData = try loadStubFeedResponseData()
         return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
+    }
+
+    static func featuredArticle(
+        in response: FeedResponseDTO,
+        articleID: String
+    ) -> FeaturedArticleDTO? {
+        for card in response.cards {
+            if case let .featuredArticle(article) = card, article.id == articleID {
+                return article
+            }
+        }
+
+        return nil
+    }
+
+    static func discussion(
+        in response: FeedResponseDTO,
+        discussionID: String
+    ) -> DiscussionDTO? {
+        for card in response.cards {
+            if case let .discussion(discussion) = card, discussion.id == discussionID {
+                return discussion
+            }
+        }
+
+        return nil
     }
 
     private static func loadStubFeedResponseData() throws -> Data {
@@ -165,4 +432,80 @@ enum FeedAPIStubFactory {
 
 private enum FeedAPIStubError: Error {
     case missingStubResource
+    case missingCard
+}
+
+private extension FeaturedArticleDTO {
+    func withLocalState(_ localState: FeaturedArticleStateDTO) -> FeaturedArticleDTO {
+        FeaturedArticleDTO(
+            id: id,
+            remoteUpdatedAt: Date(),
+            publishedAt: publishedAt,
+            postedInPrefix: postedInPrefix,
+            sourceTitle: sourceTitle,
+            brandTitle: brandTitle,
+            headline: headline,
+            summary: summary,
+            metadataLine: metadataLine,
+            translationLabel: translationLabel,
+            localState: localState,
+            actions: actions
+        )
+    }
+
+    func withContent(
+        headline: String? = nil,
+        summary: String? = nil,
+        metadataLine: String? = nil
+    ) -> FeaturedArticleDTO {
+        FeaturedArticleDTO(
+            id: id,
+            remoteUpdatedAt: Date(),
+            publishedAt: publishedAt,
+            postedInPrefix: postedInPrefix,
+            sourceTitle: sourceTitle,
+            brandTitle: brandTitle,
+            headline: headline ?? self.headline,
+            summary: summary ?? self.summary,
+            metadataLine: metadataLine ?? self.metadataLine,
+            translationLabel: translationLabel,
+            localState: localState,
+            actions: actions
+        )
+    }
+}
+
+private extension DiscussionDTO {
+    func withLocalState(_ localState: DiscussionStateDTO) -> DiscussionDTO {
+        DiscussionDTO(
+            id: id,
+            remoteUpdatedAt: Date(),
+            publishedAt: publishedAt,
+            categoryTitle: categoryTitle,
+            headline: headline,
+            participants: participants,
+            localState: localState
+        )
+    }
+
+    func withContent(
+        headline: String? = nil,
+        participants: [DiscussionParticipantDTO]? = nil
+    ) -> DiscussionDTO {
+        DiscussionDTO(
+            id: id,
+            remoteUpdatedAt: Date(),
+            publishedAt: publishedAt,
+            categoryTitle: categoryTitle,
+            headline: headline ?? self.headline,
+            participants: participants ?? self.participants,
+            localState: localState
+        )
+    }
+}
+
+private extension String {
+    var articleID: String {
+        split(separator: "/").dropLast().last.map(String.init) ?? self
+    }
 }

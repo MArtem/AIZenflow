@@ -258,6 +258,14 @@
   When there is a real trade-off between simpler/more readable code and a more complex architectural option, that trade-off should be surfaced to the user explicitly before locking in the direction.
 - Additional high-bar execution rule:
   the user's primary priority is high code quality with strict compliance to all established rules, patterns, architecture boundaries, and application structure.
+- Feed card action rollback baseline:
+  optimistic card actions must explicitly rollback to the previous persisted snapshot on failure,
+  while non-optimistic card actions must preserve the currently visible/persisted snapshot and only clear pending UI state with an inline failure message.
+  Current policy is:
+  `FeaturedArticle.toggleLike`, `FeaturedArticle.setDisplayMode`, `Discussion.toggleParticipation`, and `Discussion.setDisplayMode`
+  use rollback on failure;
+  comment/reply creation and heavy refresh/update actions preserve the current snapshot on failure.
+  Offline card-action failures should show an explicit offline/saved-state message, and missing persisted-card failures should surface a stale/out-of-sync message that instructs the user to refresh the feed.
   Do not choose weak workaround-style fixes, temporary stopgaps, or "quick local" patches when they reduce quality or conflict with the project's standards.
   This applies on every step, including intermediate debugging/fix passes, not only during final cleanup.
 - Additional layout-fix rule:

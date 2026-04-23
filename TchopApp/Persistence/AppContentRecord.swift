@@ -15,6 +15,21 @@ struct FeedCardActionPayload: Codable, Equatable, Sendable {
     let title: String
 }
 
+/// Persisted local state stored for featured article cards.
+struct FeedCardArticleStatePayload: Codable, Equatable, Sendable {
+    let isLiked: Bool
+    let commentCount: Int
+    let displayModeRawValue: String
+}
+
+/// Persisted local state stored for discussion cards.
+struct FeedCardDiscussionStatePayload: Codable, Equatable, Sendable {
+    let isParticipating: Bool
+    let replyCount: Int
+    let joinedCount: Int
+    let displayModeRawValue: String
+}
+
 /// Persisted participant payload stored for discussion cards.
 struct FeedCardParticipantPayload: Codable, Equatable, Sendable {
     let id: String
@@ -61,10 +76,12 @@ final class FeedCardRecord {
     var metadataLine: String?
     var translationLabel: String?
     var articleActionsData: Data?
+    var articleStateData: Data?
 
     var categoryTitle: String?
     var participantsData: Data?
     var joinedText: String?
+    var discussionStateData: Data?
 
     /// Creates a new FeedCardRecord instance.
     init(
@@ -82,9 +99,11 @@ final class FeedCardRecord {
         metadataLine: String? = nil,
         translationLabel: String? = nil,
         articleActionsData: Data? = nil,
+        articleStateData: Data? = nil,
         categoryTitle: String? = nil,
         participantsData: Data? = nil,
-        joinedText: String? = nil
+        joinedText: String? = nil,
+        discussionStateData: Data? = nil
     ) {
         self.id = id
         self.kindRawValue = kind.rawValue
@@ -100,9 +119,11 @@ final class FeedCardRecord {
         self.metadataLine = metadataLine
         self.translationLabel = translationLabel
         self.articleActionsData = articleActionsData
+        self.articleStateData = articleStateData
         self.categoryTitle = categoryTitle
         self.participantsData = participantsData
         self.joinedText = joinedText
+        self.discussionStateData = discussionStateData
     }
 
     /// Typed feed card kind derived from the stored raw value.
