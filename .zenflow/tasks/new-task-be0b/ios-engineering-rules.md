@@ -18,6 +18,10 @@ Use this file as the persistent engineering instruction set for this project whe
 - Code must compile and be realistic for production use.
 - Apply SOLID principles consistently across the codebase.
 - Treat the current architecture, layering decisions, and readability-first standards as inherited defaults for all future modules, entities, and files unless an explicit change is agreed.
+- High code quality is the primary priority for this project.
+- Do not trade structural quality, runtime quality, or rule compliance for a fast local fix.
+- Do not introduce temporary-looking workarounds, weak stopgaps, or "just make it work" patches when they conflict with the established architecture, patterns, or performance standards.
+- Even under pressure or when a bug is obvious, the required response is to bring the code back to a high-quality baseline, not to settle for the quickest patch.
 
 ## Architecture Requirements
 - Use MVVM by default.
@@ -80,6 +84,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Any exception where fixed colors are intentional (brand illustration or media content) must be explicitly limited to decorative elements only.
 - UI must always be designed and implemented with explicit focus on avoiding unnecessary re-renders and memory waste.
 - Target state for every screen/component: optimal and stable code without logical/programming errors that can trigger redundant rendering or excess memory usage.
+- In SwiftUI layout work specifically, do not reach for heavy layout tools or broad geometry-based fixes unless they are clearly justified by the problem and remain aligned with the project's performance/readability standards.
+- If a layout bug seems simple, solve it with the simplest correct SwiftUI layout structure first, not with a workaround that only masks the symptom.
 
 ## Project-Specific SwiftUI Structure Rules
 - Do not use computed properties like `private var something: some View` for view composition.
@@ -115,6 +121,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Code must target both high engineering quality and high readability at the same time; "good architecture" is not a justification for code that becomes unnecessarily hard to read or reason about.
 - Favor explicit, unsurprising logic over clever, compressed, or overly abstract implementations.
 - New files and new refactors must inherit the same simplicity-first and no-development-for-its-own-sake rules; do not loosen standards just because the code is newly introduced.
+- New fixes and refactors must also inherit the project's high-bar quality rules in full; do not lower the bar for "temporary", "intermediate", "follow-up", or "verification-only" changes.
+- Before applying a fix, check it against the project's existing rules, structure, and patterns. Compliance with those rules is mandatory on every step, not only on final cleanup.
 - Every method/function/initializer must have a concise comment describing its responsibility.
 - Prefer DocC-compatible `///` comments so behavior is readable directly in code navigation tools.
 - Comment coverage is expected in app code, infrastructure code, and test code.

@@ -256,6 +256,13 @@
   code should be of high engineering quality but still remain easy for a human developer to read, understand, and maintain.
   Architectural quality does not justify unnecessary complexity or reduced clarity.
   When there is a real trade-off between simpler/more readable code and a more complex architectural option, that trade-off should be surfaced to the user explicitly before locking in the direction.
+- Additional high-bar execution rule:
+  the user's primary priority is high code quality with strict compliance to all established rules, patterns, architecture boundaries, and application structure.
+  Do not choose weak workaround-style fixes, temporary stopgaps, or "quick local" patches when they reduce quality or conflict with the project's standards.
+  This applies on every step, including intermediate debugging/fix passes, not only during final cleanup.
+- Additional layout-fix rule:
+  for SwiftUI layout bugs, prefer the simplest structurally correct layout solution first.
+  Do not default to broad geometry/container workarounds or other heavy layout fixes unless they are clearly justified and still meet the project's performance and readability standards.
 - Additional collaboration rule refinement:
   questions, objections, implementation ideas, clarifications, and architectural alternatives from the agent are always welcome on this project and should be raised proactively instead of silently assuming defaults.
 - Apple auth packaging baseline:
