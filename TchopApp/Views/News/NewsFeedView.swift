@@ -7,51 +7,55 @@ struct NewsFeedView: View {
     let onDiscussionTap: (DiscussionCardModel) -> Void
 
     var body: some View {
-        ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 16) {
-                if let cachedStatusText {
-                    Text(cachedStatusText)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(.orange.opacity(0.92))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .accessibilityIdentifier("news.feed.cached-status")
-                }
-
-                if case let .failed(_, errorMessage) = viewModel.state {
-                    HStack(alignment: .top, spacing: 12) {
-                        Text(errorMessage)
-                            .font(.system(size: 13, weight: .medium))
-                            .foregroundStyle(.red.opacity(0.82))
+        GeometryReader { proxy in
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: 16) {
+                    if let cachedStatusText {
+                        Text(cachedStatusText)
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundStyle(.orange.opacity(0.92))
                             .frame(maxWidth: .infinity, alignment: .leading)
+                            .accessibilityIdentifier("news.feed.cached-status")
+                    }
 
-                        Button("Retry") {
-                            viewModel.retry()
+                    if case let .failed(_, errorMessage) = viewModel.state {
+                        HStack(alignment: .top, spacing: 12) {
+                            Text(errorMessage)
+                                .font(.system(size: 13, weight: .medium))
+                                .foregroundStyle(.red.opacity(0.82))
+                                .frame(maxWidth: .infinity, alignment: .leading)
+
+                            Button("Retry") {
+                                viewModel.retry()
+                            }
+                            .font(.system(size: 13, weight: .semibold))
+                            .buttonStyle(.plain)
+                            .foregroundStyle(.primary)
+                            .accessibilityIdentifier("news.feed.retry")
                         }
-                        .font(.system(size: 13, weight: .semibold))
-                        .buttonStyle(.plain)
-                        .foregroundStyle(.primary)
-                        .accessibilityIdentifier("news.feed.retry")
                     }
-                }
 
-                ForEach(viewModel.state.content.cards) { card in
-                    switch card {
-                    case let .featuredArticle(article):
-                        FeaturedArticleCard(
-                            article: article,
-                            onTap: { onFeaturedArticleTap(article) }
-                        )
-                    case let .discussion(discussion):
-                        DiscussionCard(
-                            discussion: discussion,
-                            onTap: { onDiscussionTap(discussion) }
-                        )
+                    ForEach(viewModel.state.content.cards) { card in
+                        switch card {
+                        case let .featuredArticle(article):
+                            FeaturedArticleCard(
+                                article: article,
+                                onTap: { onFeaturedArticleTap(article) }
+                            )
+                        case let .discussion(discussion):
+                            DiscussionCard(
+                                discussion: discussion,
+                                onTap: { onDiscussionTap(discussion) }
+                            )
+                        }
                     }
                 }
+                .frame(width: max(proxy.size.width - 28, 0), alignment: .topLeading)
+                .padding(.horizontal, 14)
+                .padding(.top, 16)
+                .padding(.bottom, 120)
             }
-            .padding(.horizontal, 14)
-            .padding(.top, 16)
-            .padding(.bottom, 120)
+            .clipped()
         }
         .accessibilityIdentifier("news.feed")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
