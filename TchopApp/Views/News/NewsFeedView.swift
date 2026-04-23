@@ -4,6 +4,7 @@ import SwiftUI
 struct NewsFeedView: View {
     @ObservedObject var viewModel: NewsFeedViewModel
     let onFeaturedArticleTap: (FeaturedArticleCardModel) -> Void
+    let onFeaturedArticleAction: (FeaturedArticleCardModel, FeaturedArticleCardAction) -> Void
     let onDiscussionTap: (DiscussionCardModel) -> Void
 
     var body: some View {
@@ -41,7 +42,8 @@ struct NewsFeedView: View {
                     case let .featuredArticle(article):
                         FeaturedArticleCard(
                             article: article,
-                            onTap: { onFeaturedArticleTap(article) }
+                            onTap: { onFeaturedArticleTap(article) },
+                            onAction: { onFeaturedArticleAction(article, $0) }
                         )
                     case let .discussion(discussion):
                         DiscussionCard(

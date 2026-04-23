@@ -11,6 +11,7 @@ struct NewsTabRootView: View {
             NewsFeedView(
                 viewModel: viewModel,
                 onFeaturedArticleTap: openFeaturedArticle,
+                onFeaturedArticleAction: handleFeaturedArticleAction,
                 onDiscussionTap: openDiscussion
             )
             .navigationDestination(for: NewsRoute.self) { route in
@@ -31,9 +32,21 @@ struct NewsTabRootView: View {
         router.push(article.detailRoute)
     }
 
+    /// Handles card-level intents that either mutate local card state or open navigation.
+    private func handleFeaturedArticleAction(
+        _ article: FeaturedArticleCardModel,
+        _ action: FeaturedArticleCardAction
+    ) {
+        switch action {
+        case .openComments:
+            router.push(article.detailRoute)
+        default:
+            viewModel.handleFeaturedArticleAction(articleID: article.id, action: action)
+        }
+    }
+
     /// Opens discussion.
     private func openDiscussion(_ discussion: DiscussionCardModel) {
         router.push(discussion.detailRoute)
     }
-
 }

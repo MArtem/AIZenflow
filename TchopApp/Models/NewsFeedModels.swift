@@ -61,6 +61,7 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
     let metadataLine: String
     let translationLabel: String
     let actions: [ArticleActionItem]
+    let uiState: FeaturedArticleCardUIState
 
     /// Headline formatted for service consumers that should not receive multiline text.
     var serviceHeadline: String {
@@ -77,13 +78,111 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
             accentLabel: translationLabel
         )
     }
+
+    /// Returns a copy with updated runtime-only card UI state.
+    func updatingUIState(_ transform: (FeaturedArticleCardUIState) -> FeaturedArticleCardUIState) -> FeaturedArticleCardModel {
+        FeaturedArticleCardModel(
+            id: id,
+            postedInPrefix: postedInPrefix,
+            sourceTitle: sourceTitle,
+            brandTitle: brandTitle,
+            headline: headline,
+            summary: summary,
+            metadataLine: metadataLine,
+            translationLabel: translationLabel,
+            actions: actions,
+            uiState: transform(uiState)
+        )
+    }
+
+    /// Returns a copy with refreshed article content while keeping runtime state local to the screen.
+    func updatingContent(
+        headline: String? = nil,
+        summary: String? = nil,
+        metadataLine: String? = nil
+    ) -> FeaturedArticleCardModel {
+        FeaturedArticleCardModel(
+            id: id,
+            postedInPrefix: postedInPrefix,
+            sourceTitle: sourceTitle,
+            brandTitle: brandTitle,
+            headline: headline ?? self.headline,
+            summary: summary ?? self.summary,
+            metadataLine: metadataLine ?? self.metadataLine,
+            translationLabel: translationLabel,
+            actions: actions,
+            uiState: uiState
+        )
+    }
 }
 
 /// Presentation model for a single action shown under an article.
 struct ArticleActionItem: Identifiable, Equatable, Sendable {
     let id: String
+    let kind: ArticleActionKind
     let systemName: String
     let title: String
+}
+
+/// Semantic action kind shown under a featured article card.
+enum ArticleActionKind: String, Codable, Equatable, Sendable {
+    case like
+    case comments
+}
+
+/// Intent emitted from the featured article card UI.
+enum FeaturedArticleCardAction: Equatable, Sendable {
+    case toggleLike
+    case openComments
+    case setDisplayMode(FeaturedArticleCardDisplayMode)
+    case refreshContent
+    case runLongTask
+}
+
+/// Runtime-only UI state owned by the screen for a featured article card.
+struct FeaturedArticleCardUIState: Equatable, Sendable {
+    let isLiked: Bool
+    let displayMode: FeaturedArticleCardDisplayMode
+    let pendingOperation: FeaturedArticleCardPendingOperation?
+    let inlineStatusMessage: String?
+
+    /// Whether destructive or network-backed card actions should be temporarily disabled.
+    var blocksActions: Bool {
+        pendingOperation != nil
+    }
+
+    /// Default interaction state for cards loaded from persistence or stub content.
+    static let idle = FeaturedArticleCardUIState(
+        isLiked: false,
+        displayMode: .expanded,
+        pendingOperation: nil,
+        inlineStatusMessage: nil
+    )
+}
+
+/// Visual layout variant currently used to render the featured article card.
+enum FeaturedArticleCardDisplayMode: String, Equatable, Sendable {
+    case expanded
+    case compact
+}
+
+/// Long-running card operation currently visible in the list.
+enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
+    case liking
+    case refreshingContent
+    case updatingContent
+
+    /// User-facing status text for inline progress rendering.
+    var statusText: String {
+        switch self {
+        case .liking:
+            return AppLocalization.text("news.featured.pending.like", fallback: "Saving reaction...")
+        case .refreshingContent:
+            return AppLocalization.text("news.featured.pending.refresh", fallback: "Refreshing card...")
+        case .updatingContent:
+            return AppLocalization.text("news.featured.pending.update", fallback: "Updating article...")
+        }
+    }
 }
 
 /// Presentation model for the discussion preview card.
@@ -136,15 +235,18 @@ enum NewsFeedFixtures {
                         actions: [
                             ArticleActionItem(
                                 id: "like",
+                                kind: .like,
                                 systemName: "hand.thumbsup.fill",
                                 title: AppLocalization.text("news.fallback.action.like", fallback: "Like")
                             ),
                             ArticleActionItem(
                                 id: "comments",
+                                kind: .comments,
                                 systemName: "bubble.left.fill",
                                 title: AppLocalization.text("news.fallback.action.comments", fallback: "48 Comments")
                             )
-                        ]
+                        ],
+                        uiState: .idle
                     )
                 ),
                 .discussion(

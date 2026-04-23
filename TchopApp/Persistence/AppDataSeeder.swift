@@ -193,6 +193,7 @@ enum AppDataSeeder {
                     article.actions.map {
                         FeedCardActionPayload(
                             id: $0.id,
+                            kind: $0.kind,
                             systemName: $0.systemName,
                             title: $0.title
                         )

@@ -50,6 +50,7 @@ struct FeaturedArticleDTO: Decodable, Sendable {
 /// DTO describing a single article action.
 struct ArticleActionDTO: Decodable, Sendable {
     let id: String
+    let kind: ArticleActionKind
     let systemName: String
     let title: String
 }

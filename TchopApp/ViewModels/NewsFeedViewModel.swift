@@ -55,6 +55,7 @@ final class NewsFeedViewModel: ObservableObject {
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
+    private var featuredArticleTasks: [String: Task<Void, Never>] = [:]
 
     /// Creates the feed view model and immediately starts the first load.
     init(
@@ -99,10 +100,30 @@ final class NewsFeedViewModel: ObservableObject {
         load(using: .retry)
     }
 
+    /// Handles a user intent emitted by a featured article card in the visible feed.
+    func handleFeaturedArticleAction(
+        articleID: String,
+        action: FeaturedArticleCardAction
+    ) {
+        switch action {
+        case .toggleLike:
+            toggleLike(for: articleID)
+        case let .setDisplayMode(displayMode):
+            setDisplayMode(displayMode, for: articleID)
+        case .refreshContent:
+            startRefreshContentTask(for: articleID)
+        case .runLongTask:
+            startLongUpdateTask(for: articleID)
+        case .openComments:
+            return
+        }
+    }
+
     /// Cancels the current feed refresh and clears the loading state.
     func cancelLoading() {
         loadingTask?.cancel()
         loadingTask = nil
+        cancelFeaturedArticleTasks()
 
         if case let .loading(content) = state {
             state = .loaded(content)
@@ -112,16 +133,19 @@ final class NewsFeedViewModel: ObservableObject {
     /// Cleans up any in-flight resources before release.
     deinit {
         loadingTask?.cancel()
+        cancelFeaturedArticleTasks()
     }
 
     /// Applies freshly loaded feed content to published state and side effects.
     private func applyLoadedContent(_ content: NewsFeedContent) {
+        cancelFeaturedArticleTasks()
         state = .loaded(content)
         widgetContentSyncManager.syncFeed(content: content)
     }
 
     /// Applies the configured fallback state after a failed feed load.
     private func applyLoadFailureState() {
+        cancelFeaturedArticleTasks()
         state = .failed(content: loadFailureContent, message: loadFailureMessage)
         widgetContentSyncManager.syncFeed(content: loadFailureContent)
     }
@@ -138,6 +162,290 @@ final class NewsFeedViewModel: ObservableObject {
 
         state = .loading(content)
         loadingTask = makeLoadingTask()
+    }
+
+    /// Applies a display-mode change without touching persistence-backed article content.
+    private func setDisplayMode(
+        _ displayMode: FeaturedArticleCardDisplayMode,
+        for articleID: String
+    ) {
+        updateFeaturedArticle(articleID: articleID) { article in
+            article.updatingUIState {
+                FeaturedArticleCardUIState(
+                    isLiked: $0.isLiked,
+                    displayMode: displayMode,
+                    pendingOperation: $0.pendingOperation,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+    }
+
+    /// Performs a lightweight optimistic like toggle with inline progress feedback.
+    private func toggleLike(for articleID: String) {
+        guard canStartFeaturedArticleAction(for: articleID) else {
+            return
+        }
+
+        let previousArticle = featuredArticle(withID: articleID)
+
+        updateFeaturedArticle(articleID: articleID) { article in
+            article.updatingUIState {
+                FeaturedArticleCardUIState(
+                    isLiked: !$0.isLiked,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .liking,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        featuredArticleTasks[articleID]?.cancel()
+        featuredArticleTasks[articleID] = Task { [weak self] in
+            do {
+                try await Task.sleep(for: .milliseconds(450))
+                try Task.checkCancellation()
+                await self?.finishLikeToggle(for: articleID)
+            } catch is CancellationError {
+                return
+            } catch {
+                await self?.rollbackFeaturedArticle(articleID: articleID, previousArticle: previousArticle)
+            }
+        }
+    }
+
+    /// Starts a simulated card refresh with a card-scoped inline loader.
+    private func startRefreshContentTask(for articleID: String) {
+        guard canStartFeaturedArticleAction(for: articleID) else {
+            return
+        }
+
+        updateFeaturedArticle(articleID: articleID) { article in
+            article.updatingUIState {
+                FeaturedArticleCardUIState(
+                    isLiked: $0.isLiked,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .refreshingContent,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        featuredArticleTasks[articleID]?.cancel()
+        featuredArticleTasks[articleID] = Task { [weak self] in
+            do {
+                try await Task.sleep(for: .seconds(1))
+                try Task.checkCancellation()
+                await self?.finishRefreshContent(for: articleID)
+            } catch is CancellationError {
+                return
+            } catch {
+                return
+            }
+        }
+    }
+
+    /// Starts a simulated long-running article update with inline loading state.
+    private func startLongUpdateTask(for articleID: String) {
+        guard canStartFeaturedArticleAction(for: articleID) else {
+            return
+        }
+
+        updateFeaturedArticle(articleID: articleID) { article in
+            article.updatingUIState {
+                FeaturedArticleCardUIState(
+                    isLiked: $0.isLiked,
+                    displayMode: $0.displayMode,
+                    pendingOperation: .updatingContent,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+
+        featuredArticleTasks[articleID]?.cancel()
+        featuredArticleTasks[articleID] = Task { [weak self] in
+            do {
+                try await Task.sleep(for: .seconds(2))
+                try Task.checkCancellation()
+                await self?.finishLongUpdate(for: articleID)
+            } catch is CancellationError {
+                return
+            } catch {
+                return
+            }
+        }
+    }
+
+    /// Applies final state after a lightweight like interaction completes.
+    private func finishLikeToggle(for articleID: String) {
+        featuredArticleTasks[articleID] = nil
+        updateFeaturedArticle(articleID: articleID) { article in
+            article.updatingUIState {
+                FeaturedArticleCardUIState(
+                    isLiked: $0.isLiked,
+                    displayMode: $0.displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: $0.isLiked
+                        ? AppLocalization.text("news.featured.status.liked", fallback: "Reaction saved.")
+                        : AppLocalization.text("news.featured.status.unliked", fallback: "Reaction removed.")
+                )
+            }
+        }
+    }
+
+    /// Applies refreshed article text after a card-level refresh operation finishes.
+    private func finishRefreshContent(for articleID: String) {
+        featuredArticleTasks[articleID] = nil
+        updateFeaturedArticle(articleID: articleID) { article in
+            article
+                .updatingContent(
+                    metadataLine: AppLocalization.text(
+                        "news.featured.refresh.metadata",
+                        fallback: "refreshed just now"
+                    )
+                )
+                .updatingUIState {
+                    FeaturedArticleCardUIState(
+                        isLiked: $0.isLiked,
+                        displayMode: $0.displayMode,
+                        pendingOperation: nil,
+                        inlineStatusMessage: AppLocalization.text(
+                            "news.featured.status.refreshed",
+                            fallback: "Card refreshed."
+                        )
+                    )
+                }
+        }
+    }
+
+    /// Applies a simulated full-content replacement after a longer article update task finishes.
+    private func finishLongUpdate(for articleID: String) {
+        featuredArticleTasks[articleID] = nil
+        updateFeaturedArticle(articleID: articleID) { article in
+            article
+                .updatingContent(
+                    headline: AppLocalization.text(
+                        "news.featured.updated.headline",
+                        fallback: "Updated article version ready for review"
+                    ),
+                    summary: AppLocalization.text(
+                        "news.featured.updated.summary",
+                        fallback: "This card now shows a rebuilt content snapshot to simulate a long-running article update finishing directly inside the feed."
+                    ),
+                    metadataLine: AppLocalization.text(
+                        "news.featured.updated.metadata",
+                        fallback: "system update completed just now"
+                    )
+                )
+                .updatingUIState {
+                    FeaturedArticleCardUIState(
+                        isLiked: $0.isLiked,
+                        displayMode: $0.displayMode,
+                        pendingOperation: nil,
+                        inlineStatusMessage: AppLocalization.text(
+                            "news.featured.status.updated",
+                            fallback: "Article updated."
+                        )
+                    )
+                }
+        }
+    }
+
+    /// Restores the previous article snapshot after a failed optimistic action.
+    private func rollbackFeaturedArticle(
+        articleID: String,
+        previousArticle: FeaturedArticleCardModel?
+    ) {
+        featuredArticleTasks[articleID] = nil
+        guard let previousArticle else {
+            return
+        }
+
+        updateVisibleContent { content in
+            NewsFeedContent(
+                cards: content.cards.map {
+                    guard case .featuredArticle = $0, $0.id == articleID else {
+                        return $0
+                    }
+                    return .featuredArticle(
+                        previousArticle.updatingUIState {
+                            FeaturedArticleCardUIState(
+                                isLiked: $0.isLiked,
+                                displayMode: $0.displayMode,
+                                pendingOperation: nil,
+                                inlineStatusMessage: AppLocalization.text(
+                                    "news.featured.status.failed",
+                                    fallback: "Unable to complete this action right now."
+                                )
+                            )
+                        }
+                    )
+                },
+                availability: content.availability
+            )
+        }
+    }
+
+    /// Updates one featured article card inside the currently visible feed content.
+    private func updateFeaturedArticle(
+        articleID: String,
+        transform: (FeaturedArticleCardModel) -> FeaturedArticleCardModel
+    ) {
+        updateVisibleContent { content in
+            NewsFeedContent(
+                cards: content.cards.map {
+                    guard case let .featuredArticle(article) = $0, article.id == articleID else {
+                        return $0
+                    }
+                    return .featuredArticle(transform(article))
+                },
+                availability: content.availability
+            )
+        }
+    }
+
+    /// Applies a content transformation while preserving the current screen-state case.
+    private func updateVisibleContent(
+        _ transform: (NewsFeedContent) -> NewsFeedContent
+    ) {
+        switch state {
+        case let .loading(content):
+            state = .loading(transform(content))
+        case let .loaded(content):
+            let updatedContent = transform(content)
+            state = .loaded(updatedContent)
+            widgetContentSyncManager.syncFeed(content: updatedContent)
+        case let .failed(content, message):
+            state = .failed(content: transform(content), message: message)
+        }
+    }
+
+    /// Returns the visible featured article snapshot for a given identifier.
+    private func featuredArticle(withID articleID: String) -> FeaturedArticleCardModel? {
+        for card in state.content.cards {
+            if case let .featuredArticle(article) = card, article.id == articleID {
+                return article
+            }
+        }
+
+        return nil
+    }
+
+    /// Whether a new card-level action can start for the target article.
+    private func canStartFeaturedArticleAction(for articleID: String) -> Bool {
+        guard let article = featuredArticle(withID: articleID) else {
+            return false
+        }
+
+        return !article.uiState.blocksActions
+    }
+
+    /// Cancels all active card-level tasks and clears the registry.
+    private func cancelFeaturedArticleTasks() {
+        for task in featuredArticleTasks.values {
+            task.cancel()
+        }
+        featuredArticleTasks.removeAll()
     }
 
     /// Evaluates whether the requested load policy is valid in the current runtime state.

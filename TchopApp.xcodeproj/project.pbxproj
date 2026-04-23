@@ -24,6 +24,7 @@
 		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
 		A00000390000000000000001 /* ArticleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* ArticleActionView.swift */; };
+		A00000391000000000000001 /* FeaturedArticleStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A1000000000000001 /* FeaturedArticleStatusBadge.swift */; };
 		A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* Models/ChannelHeaderInfo.swift */; };
 		A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C2000000000000001 /* AccountProfileSummary.swift */; };
 		A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* Models/NewsFeedModels.swift */; };
@@ -185,6 +186,7 @@
 		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
 		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		A000003A0000000000000001 /* ArticleActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleActionView.swift; sourceTree = "<group>"; };
+		A000003A1000000000000001 /* FeaturedArticleStatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedArticleStatusBadge.swift; sourceTree = "<group>"; };
 		A000003C0000000000000001 /* ChannelHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderInfo.swift; sourceTree = "<group>"; };
 		A000003E0000000000000001 /* NewsFeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModels.swift; sourceTree = "<group>"; };
 		A00000400000000000000001 /* AppShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellViewModel.swift; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 			children = (
 				A00000290000000000000001 /* NewsFeedView.swift */,
 				A000002A0000000000000001 /* FeaturedArticleCard.swift */,
+				A000003A1000000000000001 /* FeaturedArticleStatusBadge.swift */,
 				A000002B0000000000000001 /* DiscussionCard.swift */,
 				A000003A0000000000000001 /* ArticleActionView.swift */,
 			);
@@ -846,6 +849,7 @@
 				A00000350000000000000001 /* ShellContentView.swift in Sources */,
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
+				A00000391000000000000001 /* FeaturedArticleStatusBadge.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
 				A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */,
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
@@ -909,6 +913,7 @@
 				A00000350000000000000001 /* ShellContentView.swift in Sources */,
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
+				A00000391000000000000001 /* FeaturedArticleStatusBadge.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
 				A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */,
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,

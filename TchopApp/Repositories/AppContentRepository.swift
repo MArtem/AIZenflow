@@ -432,6 +432,7 @@ private enum AppContentPersistenceMapper {
                     article.actions.map {
                         FeedCardActionPayload(
                             id: $0.id,
+                            kind: $0.kind,
                             systemName: $0.systemName,
                             title: $0.title
                         )
@@ -500,13 +501,15 @@ private enum AppContentMapper {
             summary: article.summary,
             metadataLine: article.metadataLine,
             translationLabel: article.translationLabel,
-            actions: article.actions.map(mapArticleAction)
+            actions: article.actions.map(mapArticleAction),
+            uiState: .idle
         )
     }
 
     static func mapArticleAction(_ action: ArticleActionDTO) -> ArticleActionItem {
         ArticleActionItem(
             id: action.id,
+            kind: action.kind,
             systemName: action.systemName,
             title: action.title
         )
@@ -568,7 +571,8 @@ private enum AppContentMapper {
             summary: record.summary ?? "",
             metadataLine: record.metadataLine ?? "",
             translationLabel: record.translationLabel ?? "",
-            actions: decodeArticleActions(from: record.articleActionsData)
+            actions: decodeArticleActions(from: record.articleActionsData),
+            uiState: .idle
         )
     }
 
@@ -582,7 +586,8 @@ private enum AppContentMapper {
             summary: record.summary ?? "",
             metadataLine: record.metadataLine ?? "",
             translationLabel: record.translationLabel ?? "",
-            actions: decodeArticleActions(from: record.articleActionsData)
+            actions: decodeArticleActions(from: record.articleActionsData),
+            uiState: .idle
         )
     }
 
@@ -618,6 +623,7 @@ private enum AppContentMapper {
         return payload.map {
             ArticleActionItem(
                 id: $0.id,
+                kind: $0.kind,
                 systemName: $0.systemName,
                 title: $0.title
             )

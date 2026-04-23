@@ -10,6 +10,7 @@ enum FeedCardRecordKind: String, Codable, Sendable {
 /// Persisted action payload stored for featured article cards.
 struct FeedCardActionPayload: Codable, Equatable, Sendable {
     let id: String
+    let kind: ArticleActionKind
     let systemName: String
     let title: String
 }
