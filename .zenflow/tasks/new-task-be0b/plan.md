@@ -275,6 +275,12 @@ Fixed the main state-loss issue in the stub card-action flow.
 This prevents likes, comment counts, reply counts, participation state, and display mode from resetting when a later action runs.
 Display-mode actions now also use an explicit pending state so they no longer race with other card actions on the same item.
 
+### [x] Step: Serialize repeated comment and reply actions without state loss
+
+Finished the remaining runtime behavior fix for repeated additive card actions.
+Repository action persistence now recomputes each successful card-action merge from the latest persisted card snapshot instead of the potentially stale snapshot captured before the async API call started.
+On top of that, `NewsFeedViewModel` now drains repeated `addComment` and `addReply` taps as a per-card serial queue instead of cancelling or dropping them, so every tap increments the persisted count once and no later action wipes out previously saved like/reply/display-mode state.
+
 ### [x] Step: Apple auth extraction 1 — move Apple auth semantics into infrastructure package
 
 Created a dedicated reusable package product `TchopAppleAuthentication` inside `Packages/TchopInfrastructure`.
