@@ -274,6 +274,10 @@
   repeated `FeaturedArticle.addComment` and `Discussion.addReply` taps are drained as an in-memory per-card queue in `NewsFeedViewModel`, and repository merge logic now recalculates from the latest persisted card snapshot after each async action returns.
   This means every repeated tap increments the saved count once instead of being dropped or overwritten by a stale pre-action snapshot.
   Display-mode actions now also short-circuit when the requested layout is already active, avoiding unnecessary persistence/API round-trips for no-op selections.
+  The runtime start policy is now explicit in `NewsFeedViewModel` via a small `CardActionStartDecision` contract:
+  `start` for normal exclusive actions,
+  `queue` only for additive repeated comment/reply taps already in flight,
+  and `ignore` for blocked/no-op actions.
   Do not choose weak workaround-style fixes, temporary stopgaps, or "quick local" patches when they reduce quality or conflict with the project's standards.
   This applies on every step, including intermediate debugging/fix passes, not only during final cleanup.
 - Additional layout-fix rule:

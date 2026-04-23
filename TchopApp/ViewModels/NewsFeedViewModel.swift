@@ -56,6 +56,13 @@ private struct CardActionFailurePolicy {
     let message: String
 }
 
+/// Start decision for one card action after evaluating the current per-card runtime policy.
+private enum CardActionStartDecision {
+    case start
+    case queue
+    case ignore
+}
+
 /// View model responsible for loading and exposing the home feed state.
 @MainActor
 final class NewsFeedViewModel: ObservableObject {
@@ -120,6 +127,16 @@ final class NewsFeedViewModel: ObservableObject {
         articleID: String,
         action: FeaturedArticleCardAction
     ) {
+        switch featuredArticleActionStartDecision(for: action, articleID: articleID) {
+        case .start:
+            break
+        case .queue:
+            queuedFeaturedArticleComments[articleID, default: 0] += 1
+            return
+        case .ignore:
+            return
+        }
+
         switch action {
         case .toggleLike:
             startFeaturedArticleLikeTask(for: articleID)
@@ -139,6 +156,16 @@ final class NewsFeedViewModel: ObservableObject {
         discussionID: String,
         action: DiscussionCardAction
     ) {
+        switch discussionActionStartDecision(for: action, discussionID: discussionID) {
+        case .start:
+            break
+        case .queue:
+            queuedDiscussionReplies[discussionID, default: 0] += 1
+            return
+        case .ignore:
+            return
+        }
+
         switch action {
         case .toggleParticipation:
             startDiscussionParticipationTask(for: discussionID)
@@ -261,13 +288,7 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Starts a comment creation task for one featured article.
     private func startFeaturedArticleCommentTask(for articleID: String) {
-        if enqueueQueuedFeaturedArticleComment(for: articleID) {
-            return
-        }
-
-        guard canStartFeaturedArticleAction(for: articleID) else {
-            return
-        }
+        guard canStartFeaturedArticleAction(for: articleID) else { return }
 
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
@@ -334,14 +355,7 @@ final class NewsFeedViewModel: ObservableObject {
         for articleID: String
     ) {
         guard let currentArticle = featuredArticle(withID: articleID),
-              !currentArticle.uiState.blocksActions else {
-            return
-        }
-
-        // Avoid unnecessary repository writes when the selected layout is already active.
-        guard currentArticle.uiState.displayMode != displayMode else {
-            return
-        }
+              !currentArticle.uiState.blocksActions else { return }
 
         let previousArticle = currentArticle
         updateFeaturedArticle(articleID: articleID) { article in
@@ -633,15 +647,26 @@ final class NewsFeedViewModel: ObservableObject {
         return !article.uiState.blocksActions
     }
 
-    /// Adds one queued comment request while the visible card is already posting a comment.
-    private func enqueueQueuedFeaturedArticleComment(for articleID: String) -> Bool {
-        guard let article = featuredArticle(withID: articleID),
-              article.uiState.pendingOperation == .addingComment else {
-            return false
+    /// Evaluates whether one featured article action should start now, queue behind an additive in-flight action, or be ignored.
+    private func featuredArticleActionStartDecision(
+        for action: FeaturedArticleCardAction,
+        articleID: String
+    ) -> CardActionStartDecision {
+        guard let article = featuredArticle(withID: articleID) else {
+            return .ignore
         }
 
-        queuedFeaturedArticleComments[articleID, default: 0] += 1
-        return true
+        if case let .setDisplayMode(displayMode) = action,
+           article.uiState.displayMode == displayMode {
+            return .ignore
+        }
+
+        switch action {
+        case .addComment where article.uiState.pendingOperation == .addingComment:
+            return .queue
+        default:
+            return article.uiState.blocksActions ? .ignore : .start
+        }
     }
 
     /// Applies one successful intermediate comment result and returns whether another queued request should continue immediately.
@@ -766,13 +791,7 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Starts a reply creation task for one discussion card.
     private func startDiscussionReplyTask(for discussionID: String) {
-        if enqueueQueuedDiscussionReply(for: discussionID) {
-            return
-        }
-
-        guard canStartDiscussionAction(for: discussionID) else {
-            return
-        }
+        guard canStartDiscussionAction(for: discussionID) else { return }
 
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
@@ -836,14 +855,7 @@ final class NewsFeedViewModel: ObservableObject {
         for discussionID: String
     ) {
         guard let currentDiscussion = discussion(withID: discussionID),
-              !currentDiscussion.uiState.blocksActions else {
-            return
-        }
-
-        // Avoid unnecessary repository writes when the selected layout is already active.
-        guard currentDiscussion.uiState.displayMode != displayMode else {
-            return
-        }
+              !currentDiscussion.uiState.blocksActions else { return }
 
         let previousDiscussion = currentDiscussion
         updateDiscussion(discussionID: discussionID) { discussion in
@@ -1109,15 +1121,26 @@ final class NewsFeedViewModel: ObservableObject {
         return !discussion.uiState.blocksActions
     }
 
-    /// Adds one queued reply request while the visible discussion card is already posting a reply.
-    private func enqueueQueuedDiscussionReply(for discussionID: String) -> Bool {
-        guard let discussion = discussion(withID: discussionID),
-              discussion.uiState.pendingOperation == .addingReply else {
-            return false
+    /// Evaluates whether one discussion action should start now, queue behind an additive in-flight action, or be ignored.
+    private func discussionActionStartDecision(
+        for action: DiscussionCardAction,
+        discussionID: String
+    ) -> CardActionStartDecision {
+        guard let discussion = discussion(withID: discussionID) else {
+            return .ignore
         }
 
-        queuedDiscussionReplies[discussionID, default: 0] += 1
-        return true
+        if case let .setDisplayMode(displayMode) = action,
+           discussion.uiState.displayMode == displayMode {
+            return .ignore
+        }
+
+        switch action {
+        case .addReply where discussion.uiState.pendingOperation == .addingReply:
+            return .queue
+        default:
+            return discussion.uiState.blocksActions ? .ignore : .start
+        }
     }
 
     /// Applies one successful intermediate reply result and returns whether another queued request should continue immediately.
