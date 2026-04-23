@@ -166,13 +166,13 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
         }
 
         private func enclosingScrollView(from view: UIView) -> UIScrollView? {
-            var currentSuperview = view.superview
+            var currentSuperview: UIView? = view.superview
 
-            while let currentSuperview {
-                if let scrollView = currentSuperview as? UIScrollView {
+            while let currentView = currentSuperview {
+                if let scrollView = currentView as? UIScrollView {
                     return scrollView
                 }
-                currentSuperview = currentSuperview.superview
+                currentSuperview = currentView.superview
             }
 
             return nil
