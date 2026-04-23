@@ -116,8 +116,9 @@ final class DefaultAppContentRepository: AppContentRepository {
             updatedArticle = try await feedAPIManager.runFeaturedArticleUpdate(articleID: articleID)
         }
 
+        let latestPersistedArticle = try persistedFeaturedArticle(articleID: articleID) ?? currentArticle
         let mergedState = mergedFeaturedArticleState(
-            from: currentArticle,
+            from: latestPersistedArticle,
             action: action
         )
         try persistFeaturedArticle(
@@ -158,8 +159,9 @@ final class DefaultAppContentRepository: AppContentRepository {
             updatedDiscussion = try await feedAPIManager.runDiscussionUpdate(discussionID: discussionID)
         }
 
+        let latestPersistedDiscussion = try persistedDiscussion(discussionID: discussionID) ?? currentDiscussion
         let mergedState = mergedDiscussionState(
-            from: currentDiscussion,
+            from: latestPersistedDiscussion,
             action: action
         )
         try persistDiscussion(

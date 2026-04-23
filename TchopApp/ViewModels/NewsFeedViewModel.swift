@@ -69,6 +69,8 @@ final class NewsFeedViewModel: ObservableObject {
     private var loadingTask: Task<Void, Never>?
     private var featuredArticleTasks: [String: Task<Void, Never>] = [:]
     private var discussionTasks: [String: Task<Void, Never>] = [:]
+    private var queuedFeaturedArticleComments: [String: Int] = [:]
+    private var queuedDiscussionReplies: [String: Int] = [:]
 
     /// Creates the feed view model and immediately starts the first load.
     init(
@@ -223,7 +225,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -260,6 +261,10 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Starts a comment creation task for one featured article.
     private func startFeaturedArticleCommentTask(for articleID: String) {
+        if enqueueQueuedFeaturedArticleComment(for: articleID) {
+            return
+        }
+
         guard canStartFeaturedArticleAction(for: articleID) else {
             return
         }
@@ -275,26 +280,38 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
                 guard let self else {
                     return
                 }
-                let updatedArticle = try await self.repository.performFeaturedArticleAction(
-                    articleID: articleID,
-                    action: .addComment
-                )
-                try Task.checkCancellation()
-                await MainActor.run {
-                    self.finishFeaturedArticleAction(
-                        updatedArticle,
+                while true {
+                    let updatedArticle = try await self.repository.performFeaturedArticleAction(
                         articleID: articleID,
-                        statusMessage: AppLocalization.text(
-                            "news.featured.status.commented",
-                            fallback: "Comment added."
-                        )
+                        action: .addComment
                     )
+                    try Task.checkCancellation()
+
+                    let hasMoreQueuedComments = await MainActor.run {
+                        self.applyFeaturedArticleQueuedCommentProgress(
+                            updatedArticle,
+                            articleID: articleID
+                        )
+                    }
+
+                    if !hasMoreQueuedComments {
+                        await MainActor.run {
+                            self.finishFeaturedArticleAction(
+                                updatedArticle,
+                                articleID: articleID,
+                                statusMessage: AppLocalization.text(
+                                    "news.featured.status.commented",
+                                    fallback: "Comment added."
+                                )
+                            )
+                        }
+                        return
+                    }
                 }
             } catch is CancellationError {
                 return
@@ -332,7 +349,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -382,7 +398,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -435,7 +450,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID]?.cancel()
         featuredArticleTasks[articleID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -478,6 +492,7 @@ final class NewsFeedViewModel: ObservableObject {
         statusMessage: String?
     ) {
         featuredArticleTasks[articleID] = nil
+        queuedFeaturedArticleComments[articleID] = nil
         updateFeaturedArticle(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
                 FeaturedArticleCardUIState(
@@ -496,6 +511,7 @@ final class NewsFeedViewModel: ObservableObject {
         message: String
     ) {
         featuredArticleTasks[articleID] = nil
+        queuedFeaturedArticleComments[articleID] = nil
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
                 FeaturedArticleCardUIState(
@@ -530,6 +546,7 @@ final class NewsFeedViewModel: ObservableObject {
         message: String
     ) {
         featuredArticleTasks[articleID] = nil
+        queuedFeaturedArticleComments[articleID] = nil
         guard let previousArticle else {
             return
         }
@@ -610,12 +627,49 @@ final class NewsFeedViewModel: ObservableObject {
         return !article.uiState.blocksActions
     }
 
+    /// Adds one queued comment request while the visible card is already posting a comment.
+    private func enqueueQueuedFeaturedArticleComment(for articleID: String) -> Bool {
+        guard let article = featuredArticle(withID: articleID),
+              article.uiState.pendingOperation == .addingComment else {
+            return false
+        }
+
+        queuedFeaturedArticleComments[articleID, default: 0] += 1
+        return true
+    }
+
+    /// Applies one successful intermediate comment result and returns whether another queued request should continue immediately.
+    private func applyFeaturedArticleQueuedCommentProgress(
+        _ updatedArticle: FeaturedArticleCardModel,
+        articleID: String
+    ) -> Bool {
+        let remainingQueuedComments = queuedFeaturedArticleComments[articleID] ?? 0
+        guard remainingQueuedComments > 0 else {
+            queuedFeaturedArticleComments[articleID] = nil
+            return false
+        }
+
+        queuedFeaturedArticleComments[articleID] = remainingQueuedComments - 1
+        updateFeaturedArticle(articleID: articleID) { _ in
+            updatedArticle.updatingUIState { _ in
+                FeaturedArticleCardUIState(
+                    isLiked: updatedArticle.uiState.isLiked,
+                    displayMode: updatedArticle.uiState.displayMode,
+                    pendingOperation: .addingComment,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+        return true
+    }
+
     /// Cancels all active card-level tasks and clears the registry.
     private func cancelFeaturedArticleTasks() {
         for task in featuredArticleTasks.values {
             task.cancel()
         }
         featuredArticleTasks.removeAll()
+        queuedFeaturedArticleComments.removeAll()
     }
 
     /// Resolves the rollback/preserve policy for a failed featured article action and applies it to the visible card.
@@ -670,7 +724,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID]?.cancel()
         discussionTasks[discussionID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -707,6 +760,10 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Starts a reply creation task for one discussion card.
     private func startDiscussionReplyTask(for discussionID: String) {
+        if enqueueQueuedDiscussionReply(for: discussionID) {
+            return
+        }
+
         guard canStartDiscussionAction(for: discussionID) else {
             return
         }
@@ -722,23 +779,35 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID]?.cancel()
         discussionTasks[discussionID] = Task { [weak self] in
             do {
                 guard let self else {
                     return
                 }
-                let updatedDiscussion = try await self.repository.performDiscussionAction(
-                    discussionID: discussionID,
-                    action: .addReply
-                )
-                try Task.checkCancellation()
-                await MainActor.run {
-                    self.finishDiscussionAction(
-                        updatedDiscussion,
+                while true {
+                    let updatedDiscussion = try await self.repository.performDiscussionAction(
                         discussionID: discussionID,
-                        statusMessage: AppLocalization.text("news.discussion.status.replied", fallback: "Reply added.")
+                        action: .addReply
                     )
+                    try Task.checkCancellation()
+
+                    let hasMoreQueuedReplies = await MainActor.run {
+                        self.applyDiscussionQueuedReplyProgress(
+                            updatedDiscussion,
+                            discussionID: discussionID
+                        )
+                    }
+
+                    if !hasMoreQueuedReplies {
+                        await MainActor.run {
+                            self.finishDiscussionAction(
+                                updatedDiscussion,
+                                discussionID: discussionID,
+                                statusMessage: AppLocalization.text("news.discussion.status.replied", fallback: "Reply added.")
+                            )
+                        }
+                        return
+                    }
                 }
             } catch is CancellationError {
                 return
@@ -776,7 +845,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID]?.cancel()
         discussionTasks[discussionID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -822,7 +890,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID]?.cancel()
         discussionTasks[discussionID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -872,7 +939,6 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID]?.cancel()
         discussionTasks[discussionID] = Task { [weak self] in
             do {
                 guard let self else {
@@ -912,6 +978,7 @@ final class NewsFeedViewModel: ObservableObject {
         statusMessage: String?
     ) {
         discussionTasks[discussionID] = nil
+        queuedDiscussionReplies[discussionID] = nil
         updateDiscussion(discussionID: discussionID) { _ in
             updatedDiscussion.updatingUIState { _ in
                 DiscussionCardUIState(
@@ -930,6 +997,7 @@ final class NewsFeedViewModel: ObservableObject {
         message: String
     ) {
         discussionTasks[discussionID] = nil
+        queuedDiscussionReplies[discussionID] = nil
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 DiscussionCardUIState(
@@ -964,6 +1032,7 @@ final class NewsFeedViewModel: ObservableObject {
         message: String
     ) {
         discussionTasks[discussionID] = nil
+        queuedDiscussionReplies[discussionID] = nil
         guard let previousDiscussion else {
             return
         }
@@ -1028,12 +1097,49 @@ final class NewsFeedViewModel: ObservableObject {
         return !discussion.uiState.blocksActions
     }
 
+    /// Adds one queued reply request while the visible discussion card is already posting a reply.
+    private func enqueueQueuedDiscussionReply(for discussionID: String) -> Bool {
+        guard let discussion = discussion(withID: discussionID),
+              discussion.uiState.pendingOperation == .addingReply else {
+            return false
+        }
+
+        queuedDiscussionReplies[discussionID, default: 0] += 1
+        return true
+    }
+
+    /// Applies one successful intermediate reply result and returns whether another queued request should continue immediately.
+    private func applyDiscussionQueuedReplyProgress(
+        _ updatedDiscussion: DiscussionCardModel,
+        discussionID: String
+    ) -> Bool {
+        let remainingQueuedReplies = queuedDiscussionReplies[discussionID] ?? 0
+        guard remainingQueuedReplies > 0 else {
+            queuedDiscussionReplies[discussionID] = nil
+            return false
+        }
+
+        queuedDiscussionReplies[discussionID] = remainingQueuedReplies - 1
+        updateDiscussion(discussionID: discussionID) { _ in
+            updatedDiscussion.updatingUIState { _ in
+                DiscussionCardUIState(
+                    isParticipating: updatedDiscussion.uiState.isParticipating,
+                    displayMode: updatedDiscussion.uiState.displayMode,
+                    pendingOperation: .addingReply,
+                    inlineStatusMessage: nil
+                )
+            }
+        }
+        return true
+    }
+
     /// Cancels all active discussion tasks and clears the registry.
     private func cancelDiscussionTasks() {
         for task in discussionTasks.values {
             task.cancel()
         }
         discussionTasks.removeAll()
+        queuedDiscussionReplies.removeAll()
     }
 
     /// Resolves the rollback/preserve policy for a failed discussion action and applies it to the visible card.
