@@ -259,6 +259,276 @@ Applied a readability-focused refactor to `TchopApp/Repositories/UserRepository.
 The main repository methods now delegate the repeated SwiftData/Core Data branches to small private helpers for fetch, create, and restore-preference update flows, and the repeated Core Data single-record request setup is centralized in one helper.
 This step intentionally kept the logic in the same file and did not introduce any new protocols, services, or generic abstraction layers.
 
+### [ ] Step: Real-API readiness plan — maximize auth/network/error foundation before backend exists
+
+Goal: prepare the app as far as possible for a real authenticated backend without waiting for final API endpoints, while preserving the current app/session/feed architecture.
+
+Recommended implementation order:
+
+1. **Introduce a real auth domain in the app layer**
+   - Add app-facing auth models:
+     - `AuthTokenSet` (`accessToken`, `refreshToken`, `expiresAt`, optional `tokenType`, optional `subjectUserID`)
+     - `AuthenticatedSession`
+     - `AuthFailure`
+   - Keep this separate from `AppUser` so local profile persistence and remote auth state do not get conflated.
+   - Critical files:
+     - new `TchopApp/Auth/` folder
+     - `TchopApp/Services/UserSessionService.swift`
+     - `TchopApp/App/AppState.swift`
+
+2. **Add secure token storage now**
+   - Implement a production-grade keychain-backed token store:
+     - `AuthTokenStoring`
+     - `KeychainAuthTokenStore`
+     - optional in-memory test/dummy implementation
+   - Do not use `UserDefaults` for bearer/refresh tokens.
+   - Persist:
+     - token set
+     - token issue/expiry metadata
+     - optional remote session identifier
+   - Keep `UserDefaults` only for non-sensitive local session markers if still needed.
+   - Critical files:
+     - new `Packages/TchopInfrastructure/Sources/TchopSecurity/` or `TchopAuth/`
+     - `TchopApp/App/AppDIContainer.swift`
+
+3. **Implement a real authentication provider for the existing networking package**
+   - Reuse existing infrastructure contracts from `TchopNetworking`:
+     - `APIAuthenticationProviding`
+     - `APIAuthenticationRefreshing`
+     - `APIAuthenticationInterceptor`
+     - `APIAuthorizationRefreshInterceptor`
+   - Add one concrete provider:
+     - `APIAuthProvider`
+   - Responsibilities:
+     - build `Authorization` header from stored access token
+     - refresh token when needed
+     - atomically write refreshed tokens back to secure storage
+     - expose a “no credentials” path cleanly
+   - Critical files:
+     - `Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`
+     - new auth provider implementation in app or new infra auth package
+
+4. **Prepare an auth service/API manager before real endpoints exist**
+   - Add a dedicated auth-facing service layer now:
+     - `AuthenticationAPIManaging`
+     - `DefaultAuthenticationAPIManager`
+   - Even if methods are temporarily stubbed, define the real contract now:
+     - `exchangeAppleIdentity(...)`
+     - `exchangeUsernameLogin(...)` if this flow stays
+     - `refreshSession(using refreshToken:)`
+     - `logout(...)` or `revokeSession(...)`
+   - This prevents feed/content services from becoming the place where auth logic leaks.
+   - Critical files:
+     - new `TchopApp/Services/AuthAPIManager.swift`
+     - `TchopApp/App/AppDIContainer.swift`
+
+5. **Split local app session from remote auth session**
+   - Refactor `UserSessionService` so it no longer means only “active local user in UserDefaults”.
+   - New responsibilities:
+     - create authenticated session after successful backend auth
+     - restore authenticated session on launch
+     - clear auth state on sign-out
+   - Keep user-profile lookup in `UserRepository`, but do not let it be the auth source of truth.
+   - Result:
+     - `AppUser` remains local domain/profile
+     - `AuthTokenSet` becomes remote auth source of truth
+   - Critical files:
+     - `TchopApp/Services/UserSessionService.swift`
+     - `TchopApp/Repositories/UserRepository.swift`
+     - `TchopApp/App/AppState.swift`
+
+6. **Add startup restore policy for real auth**
+   - On app launch:
+     - load stored tokens
+     - if access token is still valid, restore session
+     - if expired but refresh token exists, refresh before entering authenticated shell
+     - if refresh fails, clear tokens and remain signed out
+   - This should live in app/session/auth layer, not in feed repository.
+   - Critical files:
+     - `TchopApp/App/AppState.swift`
+     - `TchopApp/Services/UserSessionService.swift`
+     - auth service/provider files
+
+7. **Wire auth + retry interceptors into DI**
+   - Replace current stub-only API client assembly with a real composition path that can still run against stubs:
+     - `APIMetricsInterceptor`
+     - `APIAuthenticationInterceptor`
+     - `APIAuthorizationRefreshInterceptor`
+     - `APIRetryInterceptor`
+     - optional `APILoggingInterceptor` gated by build/runtime config
+   - Keep `.stub` support, but the client graph should already look like production.
+   - Critical files:
+     - `TchopApp/App/AppDIContainer.swift`
+
+8. **Add environment/config management**
+   - Introduce explicit runtime API environments:
+     - `localStub`
+     - `development`
+     - `staging`
+     - `production`
+   - Store:
+     - base URL
+     - default headers
+     - timeout
+     - logging flags
+     - retry policy toggles
+   - This should sit above `APIConfiguration`, not replace it.
+   - Critical files:
+     - new `TchopApp/App/AppEnvironment.swift`
+     - `TchopApp/App/AppDIContainer.swift`
+
+9. **Prepare a request-header policy layer**
+   - Define what every authenticated request should carry, even before backend exists:
+     - `Authorization`
+     - app version
+     - platform / OS version
+     - locale
+     - optional device identifier policy if product/security allows it
+   - Keep it centralized so repositories and feature API managers never hand-build headers.
+   - Critical files:
+     - auth provider
+     - API environment/config layer
+
+10. **Harden logout and invalid-session semantics**
+    - Define one consistent policy now:
+      - clear tokens
+      - clear active local session marker
+      - clear widget/shared auth-dependent state
+      - optionally keep local cached content or clear it by policy
+    - Also define what happens after irrecoverable 401/refresh failure:
+      - hard logout
+      - user-facing message
+      - navigation reset
+    - Critical files:
+      - `TchopApp/App/AppState.swift`
+      - `TchopApp/Services/UserSessionService.swift`
+      - auth provider / error manager
+
+11. **Prepare feed/content APIs for real backend migration**
+    - Keep `FeedAPIManager` contract, but move stub behavior behind a transport-neutral route layer.
+    - Add request builders for:
+      - fetch feed
+      - card actions
+      - future pagination
+    - The repository contracts can remain mostly stable if request routing is cleaned now.
+    - Critical files:
+      - `TchopApp/Services/FeedAPIManager.swift`
+      - `TchopApp/Repositories/AppContentRepository.swift`
+
+12. **Add a production-grade error package/manager**
+    - Recommended package/module:
+      - `Packages/TchopInfrastructure/Sources/TchopErrors/`
+    - Scope:
+      - cross-layer error classification
+      - feature-safe mapping
+      - user-message generation
+      - recovery policy hints
+      - diagnostics payloads
+    - Core types:
+      - `AppError`
+      - `AppErrorCategory`
+      - `AppErrorSeverity`
+      - `AppRecoverySuggestion`
+      - `AppErrorContext`
+      - `AppErrorPresentable`
+      - `AppErrorLoggingPayload`
+      - `AppErrorMapper`
+      - `AppErrorReporter`
+      - `AppErrorMessageCatalog`
+    - Minimum mapping inputs:
+      - `APIError`
+      - repository/domain errors
+      - auth errors
+      - persistence/bootstrap errors
+    - Output responsibilities:
+      - stable internal category
+      - retryability
+      - auth-expired / logout-required flags
+      - safe user-facing copy
+      - analytics/log payload
+    - This package should become the single place where raw transport/persistence errors stop and app-meaningful errors begin.
+
+13. **Use the error package in three layers**
+    - Networking/auth layer:
+      - map raw `APIError` + refresh failures into auth/network categories
+    - Repository layer:
+      - map repository-specific failures into feature-safe errors
+    - View model/UI layer:
+      - render localized user messages without switch-ing on raw infra errors
+    - Critical files:
+      - `TchopApp/Repositories/AppContentRepository.swift`
+      - `TchopApp/ViewModels/NewsFeedViewModel.swift`
+      - `TchopApp/ViewModels/LoginViewModel.swift`
+      - `TchopApp/App/AppState.swift`
+
+14. **Define concurrency policy for token refresh**
+    - Before real API arrives, implement the production-safe rule:
+      - one refresh in flight
+      - concurrent 401 requests wait for the same refresh result
+      - failure fans out consistently
+    - This is a common failure point and worth solving now.
+    - Best ownership:
+      - inside auth provider / auth session coordinator
+
+15. **Add observability for auth/session/error flows**
+    - Reuse existing metrics direction and extend it:
+      - auth started
+      - auth succeeded
+      - auth failed
+      - token refresh started/succeeded/failed
+      - forced logout reason
+      - retry scheduled because of 401 vs transient 5xx
+    - The error package should expose a clean reporting payload for this.
+
+Recommended delivery phases:
+
+- **Phase A: auth foundation**
+  - token models
+  - keychain store
+  - auth provider
+  - DI wiring
+  - startup restore policy
+
+- **Phase B: production error package**
+  - new `TchopErrors` module
+  - error mapper/reporter/message catalog
+  - integrate into login/session/feed flows
+
+- **Phase C: service cleanup for real backend**
+  - dedicated auth API manager
+  - environment config
+  - feed route cleanup
+  - logout semantics
+
+- **Phase D: hardening**
+  - refresh deduplication
+  - richer diagnostics/observability
+  - test doubles and end-to-end failure scenarios
+
+Critical files expected to change:
+- `TchopApp/App/AppDIContainer.swift`
+- `TchopApp/App/AppState.swift`
+- `TchopApp/Services/UserSessionService.swift`
+- `TchopApp/Services/FeedAPIManager.swift`
+- `TchopApp/Repositories/AppContentRepository.swift`
+- `TchopApp/ViewModels/LoginViewModel.swift`
+- `TchopApp/ViewModels/NewsFeedViewModel.swift`
+- `Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`
+- new auth/security/error package sources under `Packages/TchopInfrastructure/Sources/`
+
+Verification plan once implementation starts:
+- unit tests for:
+  - keychain token store
+  - auth provider header injection
+  - one-shot refresh + retry after 401
+  - refresh deduplication under concurrency
+  - logout after irrecoverable auth failure
+  - error mapping from `APIError`/auth/repository failures into app-facing errors
+- package tests:
+  - `swift test --package-path Packages/TchopInfrastructure`
+- app build/test later when explicitly requested:
+  - `./scripts/verify.sh low`
+
 ### [x] Step: Fix and harden card action flow baseline
 
 Completed the in-progress card action architecture so the feature layer is no longer left in a half-integrated state.
