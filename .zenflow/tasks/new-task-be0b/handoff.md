@@ -1294,6 +1294,11 @@ Absent:  no tests/build/simulator checks
   now receives `AppErrorManaging`,
   uses it for feed-level refresh failures and for non-repository card-action failures,
   while still preserving explicit product messages for app-local `RepositoryError` cases like offline card actions and stale persisted cards.
+- The same shared error pipeline now also covers shell and push-runtime failures:
+  [AppShellViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/AppShellViewModel.swift)
+  now reports UI-configuration refresh failures through `AppErrorManager`,
+  and [AppPushNotificationBridge.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppPushNotificationBridge.swift)
+  now normalizes/report APNs authorization, token, registration, and payload-handling failures through the same manager before asserting in debug.
 - Startup restore cleanup policy is now explicit:
   if an expired token cannot be refreshed during `restoreAuthenticatedSession()`,
   `UserSessionService` clears both local session marker and secure tokens before surfacing failure.

@@ -484,7 +484,8 @@ Real bridge that:
 - persists device token state;
 - persists registration failures;
 - parses remote payloads;
-- forwards them to `TchopPushNotifications`.
+- forwards them to `TchopPushNotifications`;
+- normalizes and reports runtime failures through `AppErrorManager`.
 
 ### Why this file exists
 UIKit lifecycle glue is app-specific.
@@ -1090,7 +1091,8 @@ It owns:
 - channel header info;
 - shell footer text;
 - floating action button visibility;
-- shell UI configuration loading.
+- shell UI configuration loading;
+- shell-level UI configuration failure reporting through `AppErrorManager`.
 
 Important behavior:
 

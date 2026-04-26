@@ -160,7 +160,8 @@ final class AppDIContainer: ObservableObject {
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
         self.widgetContentSyncManager = Self.makeWidgetContentSyncManager()
         self.pushNotificationBridge = Self.makePushNotificationBridge(
-            analyticsCollector: analyticsCollector
+            analyticsCollector: analyticsCollector,
+            errorManager: errorManager
         )
 
         let navigationServices = Self.makeNavigationServices(
@@ -182,6 +183,7 @@ final class AppDIContainer: ObservableObject {
         return AppShellViewModel(
             channelInfo: Self.resolveChannelInfo(from: contentRepository),
             newsFeedViewModel: newsFeedViewModel,
+            errorManager: errorManager,
             uiConfigurationManager: uiConfigurationManager,
         )
     }
@@ -471,7 +473,8 @@ final class AppDIContainer: ObservableObject {
     }
 
     private static func makePushNotificationBridge(
-        analyticsCollector: ProductAnalyticsMemoryCollector
+        analyticsCollector: ProductAnalyticsMemoryCollector,
+        errorManager: any AppErrorManaging
     ) -> any AppPushNotificationBridging {
         let pushNotificationStateStore = UserDefaultsPushNotificationStateStore(
             userDefaults: .standard
@@ -482,7 +485,10 @@ final class AppDIContainer: ObservableObject {
                 collector: analyticsCollector
             )
         )
-        return AppPushNotificationBridge(manager: pushNotificationManager)
+        return AppPushNotificationBridge(
+            manager: pushNotificationManager,
+            errorManager: errorManager
+        )
     }
 
     /// Creates navigation persistence and diagnostics services used by app state.

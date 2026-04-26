@@ -1,4 +1,5 @@
 import Foundation
+import TchopErrors
 import TchopUIConfiguration
 
 /// View model for the authenticated shell.
@@ -26,11 +27,13 @@ final class AppShellViewModel: ObservableObject {
     @Published private(set) var isNewsFeedNearTop: Bool
 
     private let uiConfigurationManager: any UIConfigurationManaging
+    private let errorManager: any AppErrorManaging
 
     /// Creates the shell view model from repository-backed content.
     init(
         channelInfo: ChannelHeaderInfo,
         newsFeedViewModel: NewsFeedViewModel,
+        errorManager: any AppErrorManaging,
         uiConfigurationManager: any UIConfigurationManaging,
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text(
@@ -44,6 +47,7 @@ final class AppShellViewModel: ObservableObject {
         self.newsFeedViewModel = newsFeedViewModel
         self.showsFloatingActionButton = true
         self.isNewsFeedNearTop = true
+        self.errorManager = errorManager
         self.uiConfigurationManager = uiConfigurationManager
 
         startUIConfigurationLoad()
@@ -104,6 +108,15 @@ final class AppShellViewModel: ObservableObject {
 
     /// Handles non-fatal refresh failures after the cached configuration has already been applied.
     private func handleUIConfigurationRefreshFailure(_ error: any Error) {
-        assertionFailure("Failed to fetch UI configuration: \(error)")
+        Task { [errorManager] in
+            let presentation = await errorManager.presentableError(
+                from: error,
+                context: AppErrorContext(
+                    operation: "refreshUIConfiguration",
+                    feature: "appShell"
+                )
+            )
+            assertionFailure("Failed to fetch UI configuration: \(presentation.error.debugDescription)")
+        }
     }
 }

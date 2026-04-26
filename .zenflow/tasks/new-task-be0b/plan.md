@@ -327,6 +327,7 @@ Progress so far in this phase:
 - completed: local-first logout with best-effort remote revoke hook.
 - completed: dedicated auth transport layer with `DefaultAuthenticationAPIManager`, configurable auth endpoint paths, and a separate unauthenticated `APIManager` so auth routes do not recurse through the main authenticated interceptor pipeline.
 - completed: `NewsFeedViewModel` now consumes `AppErrorManaging` for feed-level refresh failures and non-repository card-action failures, while keeping explicit repository-specific UX for offline/stale-card cases.
+- completed: `AppShellViewModel` and `AppPushNotificationBridge` now route runtime failures through `AppErrorManaging` as well, so shell configuration and APNs flows no longer rely only on raw `assertionFailure` text.
    - Critical files:
      - new `TchopApp/Services/AuthAPIManager.swift`
      - `TchopApp/App/AppDIContainer.swift`

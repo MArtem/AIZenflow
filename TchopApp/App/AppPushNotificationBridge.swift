@@ -1,4 +1,5 @@
 import Foundation
+import TchopErrors
 import UIKit
 import UserNotifications
 import TchopPushNotifications
@@ -49,14 +50,17 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
     private let manager: any PushNotificationManaging
     private let notificationCenter: UNUserNotificationCenter
     private let payloadParser: any PushNotificationPayloadParsing
+    private let errorManager: any AppErrorManaging
 
     /// Creates a new AppPushNotificationBridge instance.
     init(
         manager: any PushNotificationManaging,
+        errorManager: any AppErrorManaging,
         notificationCenter: UNUserNotificationCenter = .current(),
         payloadParser: any PushNotificationPayloadParsing = DefaultPushNotificationPayloadParser()
     ) {
         self.manager = manager
+        self.errorManager = errorManager
         self.notificationCenter = notificationCenter
         self.payloadParser = payloadParser
     }
@@ -92,7 +96,10 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
                 isRegistered: application.isRegisteredForRemoteNotifications
             )
         } catch {
-            assertionFailure("Failed to request push notification authorization: \(error)")
+            reportPushFailure(
+                error,
+                operation: "requestAuthorizationAndRegister"
+            )
         }
     }
 
@@ -101,7 +108,10 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         do {
             _ = try await manager.handleDeviceToken(deviceToken)
         } catch {
-            assertionFailure("Failed to persist APNs device token: \(error)")
+            reportPushFailure(
+                error,
+                operation: "handleDeviceToken"
+            )
         }
     }
 
@@ -110,7 +120,10 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         do {
             _ = try await manager.handleRegistrationFailure(error.localizedDescription)
         } catch {
-            assertionFailure("Failed to persist APNs registration error: \(error)")
+            reportPushFailure(
+                error,
+                operation: "handleRegistrationFailure"
+            )
         }
     }
 
@@ -123,7 +136,10 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
             let payload = payloadParser.parse(userInfo: userInfo, source: source)
             _ = try await manager.handleRemoteNotification(payload)
         } catch {
-            assertionFailure("Failed to handle APNs payload: \(error)")
+            reportPushFailure(
+                error,
+                operation: "handleRemoteNotification"
+            )
         }
     }
 
@@ -134,9 +150,29 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         do {
             _ = try await manager.updateAuthorizationStatus(status)
         } catch {
-            assertionFailure("Failed to persist push authorization status: \(error)")
+            reportPushFailure(
+                error,
+                operation: "refreshAuthorizationStatus"
+            )
         }
         return status
+    }
+
+    /// Normalizes and reports push-runtime failures through the shared app error manager.
+    private func reportPushFailure(
+        _ error: Error,
+        operation: String
+    ) {
+        Task { [errorManager] in
+            let presentation = await errorManager.presentableError(
+                from: error,
+                context: AppErrorContext(
+                    operation: operation,
+                    feature: "pushNotifications"
+                )
+            )
+            assertionFailure("Push notification bridge failure: \(presentation.error.debugDescription)")
+        }
     }
 }
 
