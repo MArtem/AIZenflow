@@ -37,13 +37,22 @@ protocol AuthTokenStoring {
 
 /// Contract for auth API calls that mutate or refresh backend session credentials.
 protocol AuthenticationAPIManaging {
+    /// Exchanges a username login flow for backend credentials when that flow is enabled.
+    func signIn(username: String) async throws -> AuthTokenSet
+    /// Exchanges a normalized Apple identity for backend credentials.
+    func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AuthTokenSet
+    /// Uses the long-lived refresh token to obtain a fresh access token set.
     func refreshToken(using refreshToken: String) async throws -> AuthTokenSet
+    /// Invalidates the current backend session when the server supports explicit revoke/logout.
+    func revokeSession(accessToken: String?) async throws
 }
 
 /// Auth-specific failures surfaced by the token/session stack.
 enum AuthenticationSessionError: Error, Equatable {
+    case signInUnavailable
     case missingRefreshToken
     case refreshUnavailable
+    case revokeUnavailable
 }
 
 /// Keychain-backed token store used for production credentials.
@@ -127,6 +136,8 @@ final class KeychainAuthTokenStore: AuthTokenStoring {
 actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
     private let tokenStore: any AuthTokenStoring
     private let authenticationAPIManager: any AuthenticationAPIManaging
+    /// Deduplicates concurrent refresh attempts so parallel 401s wait on the same refresh result.
+    private var refreshTask: Task<AuthTokenSet, Error>?
 
     init(
         tokenStore: any AuthTokenStoring,
@@ -151,6 +162,11 @@ actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
     }
 
     func refreshAuthorizationHeaders() async throws -> [String: String] {
+        if let refreshTask {
+            let refreshedTokenSet = try await refreshTask.value
+            return makeAuthorizationHeaders(from: refreshedTokenSet)
+        }
+
         guard let tokenSet = try tokenStore.loadTokenSet() else {
             throw AuthenticationSessionError.missingRefreshToken
         }
@@ -159,20 +175,45 @@ actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
             throw AuthenticationSessionError.missingRefreshToken
         }
 
-        let refreshedTokenSet = try await authenticationAPIManager.refreshToken(
-            using: tokenSet.refreshToken
-        )
-        try tokenStore.saveTokenSet(refreshedTokenSet)
-        return [
-            "Authorization": "\(refreshedTokenSet.tokenType) \(refreshedTokenSet.accessToken)"
+        let refreshTask = Task {
+            try await authenticationAPIManager.refreshToken(using: tokenSet.refreshToken)
+        }
+        self.refreshTask = refreshTask
+
+        do {
+            let refreshedTokenSet = try await refreshTask.value
+            try tokenStore.saveTokenSet(refreshedTokenSet)
+            self.refreshTask = nil
+            return makeAuthorizationHeaders(from: refreshedTokenSet)
+        } catch {
+            self.refreshTask = nil
+            throw error
+        }
+    }
+
+    private func makeAuthorizationHeaders(from tokenSet: AuthTokenSet) -> [String: String] {
+        [
+            "Authorization": "\(tokenSet.tokenType) \(tokenSet.accessToken)"
         ]
     }
 }
 
 /// Temporary auth API manager used until a real auth backend contract is available.
 struct StubAuthenticationAPIManager: AuthenticationAPIManaging {
+    func signIn(username: String) async throws -> AuthTokenSet {
+        throw AuthenticationSessionError.signInUnavailable
+    }
+
+    func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AuthTokenSet {
+        throw AuthenticationSessionError.signInUnavailable
+    }
+
     func refreshToken(using refreshToken: String) async throws -> AuthTokenSet {
         throw AuthenticationSessionError.refreshUnavailable
+    }
+
+    func revokeSession(accessToken: String?) async throws {
+        throw AuthenticationSessionError.revokeUnavailable
     }
 }
 

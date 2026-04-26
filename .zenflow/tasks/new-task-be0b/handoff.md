@@ -1268,4 +1268,10 @@ Absent:  no tests/build/simulator checks
   now maps username/Apple login failures through `AppErrorManager`,
   and [AppState.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift)
   now reports session-restore failures through the same manager before falling back to signed-out state.
+- Auth foundation was then tightened in [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift):
+  `AuthenticationAPIManaging` now has a real backend-shaped contract surface
+  (`signIn`, `signInWithApple`, `refreshToken`, `revokeSession`)
+  even though the implementation remains stubbed for now,
+  and `SessionAuthenticationProvider` now deduplicates concurrent refresh attempts through a shared in-flight `refreshTask`.
+  That means parallel expired-token requests now have a defined production path instead of each issuing its own refresh once the backend exists.
 - No verification run in this step (user requested explicit command before running checks).

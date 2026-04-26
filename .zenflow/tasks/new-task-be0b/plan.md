@@ -536,6 +536,7 @@ Progress update for this step:
 - added `AppAPIEnvironment` so transport configuration and logging policy are no longer hard-wired in the composition root;
 - upgraded session restore to an async token-aware path that remains backward-compatible when secure credentials are absent.
 - integrated `AppErrorManager` into the first real app-facing flows (`LoginViewModel` and `AppState`) and linked `TchopErrors` into both app targets.
+- expanded the auth API contract to a real backend-shaped surface and added refresh deduplication in `SessionAuthenticationProvider` so concurrent token refresh paths already have sane production semantics.
 
 ### [x] Step: Fix and harden card action flow baseline
 
