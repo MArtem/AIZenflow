@@ -1307,6 +1307,9 @@ Absent:  no tests/build/simulator checks
 - Startup restore cleanup policy is now explicit:
   if an expired token cannot be refreshed during `restoreAuthenticatedSession()`,
   `UserSessionService` clears both local session marker and secure tokens before surfacing failure.
+- `UserSessionService` now also closes two more session edge cases:
+  if backend token exchange succeeds but local `AppUser` creation fails, the just-saved tokens are cleared immediately,
+  and if token restore finds secure credentials without any matching local app user, those stale credentials are removed instead of surviving silently.
 - Logout semantics are also closer to production:
   `signOut()` remains local-first and non-blocking,
   but it now performs best-effort remote session revoke when an auth manager exists and the backend supports it.

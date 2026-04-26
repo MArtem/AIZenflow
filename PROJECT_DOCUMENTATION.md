@@ -904,6 +904,9 @@ Async sign-in entry point.
 When backend auth is available it first exchanges credentials and stores secure tokens.
 When backend auth is still stubbed it intentionally falls back to local-user sign-in so the app remains usable.
 
+Important detail:
+If backend token exchange succeeds but local `AppUser` creation fails, the freshly stored secure tokens are cleared immediately so the app does not keep orphaned backend credentials without a matching local session.
+
 ##### `signInWithApple(identity:)`
 Async Apple sign-in entry point with the same token-first, local-fallback policy.
 
@@ -915,6 +918,8 @@ Applies token-aware restore policy:
 
 - restore local user marker;
 - if no tokens exist, keep the old local-only behavior;
+- if secure-token loading itself fails, clear session and fail restore;
+- if tokens exist but the local app user no longer exists, clear tokens and remain signed out;
 - if access token is expired, try refresh;
 - if refresh fails, clear session and fail restore.
 

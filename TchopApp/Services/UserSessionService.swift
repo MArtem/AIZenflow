@@ -256,6 +256,15 @@ final class UserSessionService: UserSessionManaging {
         if let authenticationAPIManager, let tokenStore {
             let tokenSet = try await authenticationAPIManager.signIn(username: username)
             try tokenStore.saveTokenSet(tokenSet)
+
+            do {
+                let user = try userRepository.findOrCreateUser(username: username)
+                userDefaults.set(user.id, forKey: Keys.activeUserID)
+                return user
+            } catch {
+                try? tokenStore.clearTokenSet()
+                throw error
+            }
         }
 
         let user = try userRepository.findOrCreateUser(username: username)
@@ -271,6 +280,18 @@ final class UserSessionService: UserSessionManaging {
         if let authenticationAPIManager, let tokenStore {
             let tokenSet = try await authenticationAPIManager.signInWithApple(identity: identity)
             try tokenStore.saveTokenSet(tokenSet)
+
+            do {
+                let user = try userRepository.findOrCreateAppleUser(
+                    appleUserID: identity.userID,
+                    preferredUsername: identity.preferredUsername
+                )
+                userDefaults.set(user.id, forKey: Keys.activeUserID)
+                return user
+            } catch {
+                try? tokenStore.clearTokenSet()
+                throw error
+            }
         }
 
         let user = try userRepository.findOrCreateAppleUser(
@@ -288,15 +309,26 @@ final class UserSessionService: UserSessionManaging {
 
     /// Restores the active session and upgrades to token-aware policy when secure credentials exist.
     func restoreAuthenticatedSession() async throws -> AppUser? {
-        guard let restoredUser = try restorePersistedUser() else {
-            return nil
-        }
+        let restoredUser = try restorePersistedUser()
 
         guard let tokenStore else {
             return restoredUser
         }
 
-        guard let tokenSet = try tokenStore.loadTokenSet() else {
+        let tokenSet: AuthTokenSet?
+        do {
+            tokenSet = try tokenStore.loadTokenSet()
+        } catch {
+            signOut()
+            throw error
+        }
+
+        guard let restoredUser else {
+            try? tokenStore.clearTokenSet()
+            return nil
+        }
+
+        guard let tokenSet else {
             return restoredUser
         }
 
