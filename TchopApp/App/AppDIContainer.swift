@@ -64,6 +64,158 @@ struct AppAPIEnvironment {
     }
 }
 
+/// App-local error mapper layered on top of the shared infrastructure mapper.
+///
+/// `TchopErrors` intentionally knows only generic infrastructure failures. This mapper keeps
+/// feature-specific semantics in the app target so repository/session errors can carry stable
+/// categories, retry policy, and recovery hints before a real backend is connected.
+private struct AppRuntimeErrorMapper: AppErrorMapping {
+    private let fallbackMapper: any AppErrorMapping
+
+    init(fallbackMapper: any AppErrorMapping = DefaultAppErrorMapper()) {
+        self.fallbackMapper = fallbackMapper
+    }
+
+    func map(_ error: Error, context: AppErrorContext?) -> AppError {
+        if let authenticationError = error as? AuthenticationSessionError {
+            return mapAuthenticationError(authenticationError, context: context)
+        }
+
+        if let repositoryError = error as? RepositoryError {
+            return mapRepositoryError(repositoryError, context: context)
+        }
+
+        let secureStorageError = error as NSError
+        if secureStorageError.domain == NSOSStatusErrorDomain {
+            return AppError(
+                category: .persistence,
+                severity: .critical,
+                suggestion: .reauthenticate,
+                isRetryable: false,
+                isSessionRecoveryRequired: true,
+                messageKey: "error.persistence.secureStorage",
+                debugDescription: "Secure storage failure: \(secureStorageError.code).",
+                context: context
+            )
+        }
+
+        return fallbackMapper.map(error, context: context)
+    }
+
+    private func mapAuthenticationError(
+        _ error: AuthenticationSessionError,
+        context: AppErrorContext?
+    ) -> AppError {
+        switch error {
+        case .missingRefreshToken:
+            return AppError(
+                category: .authentication,
+                severity: .error,
+                suggestion: .reauthenticate,
+                isRetryable: false,
+                isSessionRecoveryRequired: true,
+                messageKey: "error.auth.refreshMissing",
+                debugDescription: "Refresh was requested without a persisted refresh token.",
+                context: context
+            )
+        }
+    }
+
+    private func mapRepositoryError(
+        _ error: RepositoryError,
+        context: AppErrorContext?
+    ) -> AppError {
+        switch error {
+        case .offlineCardAction:
+            return AppError(
+                category: .network,
+                severity: .warning,
+                suggestion: .checkConnection,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.network.offline",
+                debugDescription: "Card action requires connectivity but the device is offline.",
+                context: context
+            )
+        case .missingPersistedFeed:
+            return AppError(
+                category: .persistence,
+                severity: .warning,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.persistence.feedMissing",
+                debugDescription: "Persisted feed snapshot is unavailable.",
+                context: context
+            )
+        case .missingPersistedFeedCard:
+            return AppError(
+                category: .persistence,
+                severity: .warning,
+                suggestion: .restartFlow,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.persistence.feedCardMissing",
+                debugDescription: "Persisted feed card is unavailable for the requested action.",
+                context: context
+            )
+        case .missingChannel:
+            return AppError(
+                category: .persistence,
+                severity: .error,
+                suggestion: .restartFlow,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.persistence.channelMissing",
+                debugDescription: "Persisted channel bootstrap data is unavailable.",
+                context: context
+            )
+        }
+    }
+}
+
+/// App-local message catalog that keeps user text for domain-specific app failures near the
+/// composition root while still delegating infrastructure keys to the shared package defaults.
+private struct AppRuntimeErrorMessageCatalog: AppErrorMessageCatalog {
+    private let fallbackCatalog: any AppErrorMessageCatalog
+
+    init(fallbackCatalog: any AppErrorMessageCatalog = DefaultAppErrorMessageCatalog()) {
+        self.fallbackCatalog = fallbackCatalog
+    }
+
+    func userMessage(for error: AppError) -> String {
+        switch error.messageKey {
+        case "error.auth.refreshMissing":
+            return AppLocalization.text(
+                "auth.error.refreshMissing",
+                fallback: "Session expired. Please sign in again."
+            )
+        case "error.persistence.secureStorage":
+            return AppLocalization.text(
+                "auth.error.secureStorage",
+                fallback: "Secure session data is unavailable. Please sign in again."
+            )
+        case "error.persistence.feedMissing":
+            return AppLocalization.text(
+                "news.error.savedFeedMissing",
+                fallback: "Saved feed is unavailable. Try refreshing again."
+            )
+        case "error.persistence.feedCardMissing":
+            return AppLocalization.text(
+                "news.error.savedCardMissing",
+                fallback: "Saved card state is unavailable. Refresh the feed."
+            )
+        case "error.persistence.channelMissing":
+            return AppLocalization.text(
+                "shell.error.channelMissing",
+                fallback: "Channel data is unavailable. Restart the app or try again."
+            )
+        default:
+            return fallbackCatalog.userMessage(for: error)
+        }
+    }
+}
+
 /// Composition root for the application.
 ///
 /// The container owns app-wide infrastructure services and constructs feature-level
@@ -158,7 +310,9 @@ final class AppDIContainer: ObservableObject {
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
-        self.widgetContentSyncManager = Self.makeWidgetContentSyncManager()
+        self.widgetContentSyncManager = Self.makeWidgetContentSyncManager(
+            errorManager: errorManager
+        )
         self.pushNotificationBridge = Self.makePushNotificationBridge(
             analyticsCollector: analyticsCollector,
             errorManager: errorManager
@@ -394,7 +548,10 @@ final class AppDIContainer: ObservableObject {
     }
 
     private static func makeErrorManager() -> any AppErrorManaging {
-        AppErrorManager()
+        AppErrorManager(
+            mapper: AppRuntimeErrorMapper(),
+            messageCatalog: AppRuntimeErrorMessageCatalog()
+        )
     }
 
     private static func makeFeedAPIManager(apiManager: any APIManaging) -> any FeedAPIManaging {
@@ -463,13 +620,30 @@ final class AppDIContainer: ObservableObject {
         )
     }
 
-    private static func makeWidgetContentSyncManager() -> any WidgetContentSyncing {
-        let widgetSnapshotManager = try? UserDefaultsFeedHeadlineWidgetSnapshotManager(
-            suiteName: AppGroupConfiguration.widgetsSuiteName
-        )
-        return widgetSnapshotManager.map {
-            FeedHeadlineWidgetSyncManager(snapshotManager: $0)
-        } ?? NoopWidgetContentSyncManager()
+    private static func makeWidgetContentSyncManager(
+        errorManager: any AppErrorManaging
+    ) -> any WidgetContentSyncing {
+        do {
+            let widgetSnapshotManager = try UserDefaultsFeedHeadlineWidgetSnapshotManager(
+                suiteName: AppGroupConfiguration.widgetsSuiteName
+            )
+            return FeedHeadlineWidgetSyncManager(
+                snapshotManager: widgetSnapshotManager,
+                errorManager: errorManager
+            )
+        } catch {
+            Task {
+                let presentation = await errorManager.presentableError(
+                    from: error,
+                    context: AppErrorContext(
+                        operation: "makeWidgetContentSyncManager",
+                        feature: "widgetSync"
+                    )
+                )
+                assertionFailure("Failed to create widget sync manager: \(presentation.error.debugDescription)")
+            }
+            return NoopWidgetContentSyncManager()
+        }
     }
 
     private static func makePushNotificationBridge(

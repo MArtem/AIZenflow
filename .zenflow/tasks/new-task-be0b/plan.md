@@ -328,6 +328,8 @@ Progress so far in this phase:
 - completed: dedicated auth transport layer with `DefaultAuthenticationAPIManager`, configurable auth endpoint paths, and a separate unauthenticated `APIManager` so auth routes do not recurse through the main authenticated interceptor pipeline.
 - completed: `NewsFeedViewModel` now consumes `AppErrorManaging` for feed-level refresh failures and non-repository card-action failures, while keeping explicit repository-specific UX for offline/stale-card cases.
 - completed: `AppShellViewModel` and `AppPushNotificationBridge` now route runtime failures through `AppErrorManaging` as well, so shell configuration and APNs flows no longer rely only on raw `assertionFailure` text.
+- completed: `AppDIContainer` now builds `AppErrorManager` with an app-local mapper/message catalog layered over `TchopErrors`, so `RepositoryError`, `AuthenticationSessionError`, and secure-storage failures no longer degrade to generic `unknown`.
+- completed: widget snapshot sync now uses the same shared error pipeline, and widget-store creation degrades safely to `NoopWidgetContentSyncManager` if app-group widget storage cannot be initialized.
    - Critical files:
      - new `TchopApp/Services/AuthAPIManager.swift`
      - `TchopApp/App/AppDIContainer.swift`

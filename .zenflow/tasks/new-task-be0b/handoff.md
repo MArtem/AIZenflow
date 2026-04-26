@@ -1299,6 +1299,8 @@ Absent:  no tests/build/simulator checks
   now reports UI-configuration refresh failures through `AppErrorManager`,
   and [AppPushNotificationBridge.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppPushNotificationBridge.swift)
   now normalizes/report APNs authorization, token, registration, and payload-handling failures through the same manager before asserting in debug.
+- `AppDIContainer.swift` now builds that manager with an app-local mapper and app-local message catalog layered above the package defaults, so app-specific failures like `RepositoryError`, `AuthenticationSessionError`, and Keychain/secure-storage errors keep stable categories and user-facing messages instead of collapsing into generic `unknown`.
+- `AppWidgetBridge.swift` now uses the same `AppErrorManager` pipeline for widget snapshot save/clear failures, and widget-sync setup in `AppDIContainer` now degrades to `NoopWidgetContentSyncManager` if the app-group-backed snapshot store cannot be created.
 - Startup restore cleanup policy is now explicit:
   if an expired token cannot be refreshed during `restoreAuthenticatedSession()`,
   `UserSessionService` clears both local session marker and secure tokens before surfacing failure.

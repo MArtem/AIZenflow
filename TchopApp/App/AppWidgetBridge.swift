@@ -1,4 +1,5 @@
 import Foundation
+import TchopErrors
 import WidgetKit
 import TchopWidgets
 
@@ -28,10 +29,15 @@ final class NoopWidgetContentSyncManager: WidgetContentSyncing {
 @MainActor
 final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
     private let snapshotManager: any FeedHeadlineWidgetSnapshotManaging
+    private let errorManager: any AppErrorManaging
 
     /// Creates a new FeedHeadlineWidgetSyncManager instance.
-    init(snapshotManager: any FeedHeadlineWidgetSnapshotManaging) {
+    init(
+        snapshotManager: any FeedHeadlineWidgetSnapshotManaging,
+        errorManager: any AppErrorManaging
+    ) {
         self.snapshotManager = snapshotManager
+        self.errorManager = errorManager
     }
 
     /// Synchronizes feed.
@@ -44,7 +50,7 @@ final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
             try snapshotManager.save(FeedHeadlineWidgetSnapshot(headline: headline))
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
-            assertionFailure("Failed to sync feed headline widget snapshot: \(error)")
+            reportWidgetFailure(error, operation: "syncFeed")
         }
     }
 
@@ -54,11 +60,25 @@ final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
             try snapshotManager.clear()
             WidgetCenter.shared.reloadAllTimelines()
         } catch {
-            assertionFailure("Failed to clear feed headline widget snapshot: \(error)")
+            reportWidgetFailure(error, operation: "clearFeed")
         }
     }
 
     private static func resolveHeadline(from content: NewsFeedContent) -> String? {
         content.primaryServiceHeadline
+    }
+
+    /// Normalizes widget-storage failures through the shared app error pipeline before asserting in debug.
+    private func reportWidgetFailure(_ error: Error, operation: String) {
+        Task { [errorManager] in
+            let presentation = await errorManager.presentableError(
+                from: error,
+                context: AppErrorContext(
+                    operation: operation,
+                    feature: "widgetSync"
+                )
+            )
+            assertionFailure("Widget sync failure: \(presentation.error.debugDescription)")
+        }
     }
 }

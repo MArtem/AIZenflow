@@ -337,6 +337,9 @@ If you want to know how the app is wired together, start here.
 - analytics collector;
 - database manager;
 - API manager;
+- auth token store;
+- authentication API manager;
+- app error manager;
 - feed API manager;
 - network monitor;
 - app repositories;
@@ -371,11 +374,21 @@ Creates the selected database backend and runs app-local seeding before feature 
 Builds:
 
 - `APIManager`
+- `DefaultAuthenticationAPIManager`
 - `StubFeedAPIManager`
 - `NetworkAvailabilityMonitor`
 - `DefaultAppContentRepository`
 - `DefaultUserRepository`
 - `UserSessionService`
+
+#### `makeErrorManager()`
+Builds the shared error pipeline for the app target.
+
+Important detail:
+
+- `TchopErrors` provides the reusable infrastructure-level mapper for `APIError` and unknown failures;
+- `AppDIContainer` adds an app-local mapper and app-local message catalog on top of it;
+- that extra layer handles app-specific errors like `RepositoryError`, `AuthenticationSessionError`, and secure-storage failures without pushing those app-only types down into the shared package.
 
 ### Why this file matters
 This file is the answer to:
@@ -463,6 +476,11 @@ App-facing protocol used by the rest of the app.
 
 #### `FeedHeadlineWidgetSyncManager`
 Concrete implementation that writes widget snapshot data and reloads timelines.
+
+Important detail:
+
+- widget snapshot persistence failures now go through `AppErrorManager` before asserting in debug;
+- if the widget snapshot store itself cannot be created in DI, the app falls back to `NoopWidgetContentSyncManager` instead of letting widget setup break the main runtime.
 
 ### Why this file exists
 The app should not directly depend on WidgetKit details everywhere.
@@ -1136,6 +1154,11 @@ Explicit policy for whether a new card action should:
 - one task slot per visible discussion card;
 - queued additive actions for comments/replies;
 - feed-level and non-repository card-level error normalization through `AppErrorManager`.
+
+Important detail:
+
+- repository-specific product policy still stays in the screen for cases like offline card actions and stale persisted cards;
+- everything else is normalized through the shared error pipeline, which now includes an app-local mapper layered above the package default mapper.
 
 ### Important methods
 
