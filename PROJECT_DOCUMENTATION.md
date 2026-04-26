@@ -935,6 +935,11 @@ Its job is to coordinate:
 - secure token lifecycle;
 - backend-session cleanup policy.
 
+Another important detail:
+
+- explicit user logout still goes through `signOut()` and keeps best-effort revoke semantics;
+- startup/session-recovery cleanup now uses internal local-only cleanup helpers, so stale or corrupted restore state does not accidentally trigger remote revoke behavior.
+
 ### [FeedAPIManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/FeedAPIManager.swift)
 This file defines the feed API contract and the current stub implementation.
 

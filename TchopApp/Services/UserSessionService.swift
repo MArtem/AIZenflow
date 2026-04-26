@@ -319,12 +319,12 @@ final class UserSessionService: UserSessionManaging {
         do {
             tokenSet = try tokenStore.loadTokenSet()
         } catch {
-            signOut()
+            clearPersistedSessionState()
             throw error
         }
 
         guard let restoredUser else {
-            try? tokenStore.clearTokenSet()
+            clearSecureCredentials()
             return nil
         }
 
@@ -337,12 +337,12 @@ final class UserSessionService: UserSessionManaging {
         }
 
         guard !tokenSet.refreshToken.isEmpty else {
-            signOut()
+            clearPersistedSessionState()
             return nil
         }
 
         guard let authenticationAPIManager else {
-            signOut()
+            clearPersistedSessionState()
             return nil
         }
 
@@ -353,7 +353,7 @@ final class UserSessionService: UserSessionManaging {
             try tokenStore.saveTokenSet(refreshedTokenSet)
             return restoredUser
         } catch {
-            signOut()
+            clearPersistedSessionState()
             throw error
         }
     }
@@ -396,6 +396,26 @@ final class UserSessionService: UserSessionManaging {
                 // Logout remains local-first and non-blocking; revoke failures are intentionally best-effort.
             }
         }
+    }
+
+    /// Clears only the local app-session marker, without attempting remote revoke.
+    private func clearLocalSessionState() {
+        userDefaults.removeObject(forKey: Keys.activeUserID)
+        userDefaults.removeObject(forKey: Keys.legacyActiveUsername)
+    }
+
+    /// Clears secure credentials without touching user-facing session revoke semantics.
+    private func clearSecureCredentials() {
+        try? tokenStore?.clearTokenSet()
+    }
+
+    /// Clears the locally persisted session state during startup/session-recovery cleanup paths.
+    ///
+    /// This differs from `signOut()`: restore-time corruption or stale local state should not
+    /// trigger a best-effort remote revoke because the app may no longer have coherent credentials.
+    private func clearPersistedSessionState() {
+        clearLocalSessionState()
+        clearSecureCredentials()
     }
 
     /// Resolves the current persisted user identifier and upgrades legacy username-based session storage.

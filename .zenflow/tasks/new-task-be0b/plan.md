@@ -326,6 +326,7 @@ Progress so far in this phase:
 - completed: refresh deduplication in `SessionAuthenticationProvider`;
 - completed: local-first logout with best-effort remote revoke hook.
 - completed: session lifecycle edge cases now clean up stale credentials as well: successful backend token exchange no longer leaves orphaned tokens behind if local user creation fails, and token-only restore state is now cleared when no matching local app user exists.
+- completed: session cleanup semantics are now split more cleanly: explicit `signOut()` keeps best-effort remote revoke, while restore-time corruption/stale-state cleanup uses local-only persisted-state clearing and avoids accidental revoke side effects.
 - completed: dedicated auth transport layer with `DefaultAuthenticationAPIManager`, configurable auth endpoint paths, and a separate unauthenticated `APIManager` so auth routes do not recurse through the main authenticated interceptor pipeline.
 - completed: `NewsFeedViewModel` now consumes `AppErrorManaging` for feed-level refresh failures and non-repository card-action failures, while keeping explicit repository-specific UX for offline/stale-card cases.
 - completed: `AppShellViewModel` and `AppPushNotificationBridge` now route runtime failures through `AppErrorManaging` as well, so shell configuration and APNs flows no longer rely only on raw `assertionFailure` text.
