@@ -298,14 +298,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleFeaturedArticleFailure(
-                        action: .toggleLike,
-                        articleID: articleID,
-                        previousArticle: previousArticle,
-                        error: error
-                    )
-                }
+                await self?.handleFeaturedArticleFailure(
+                    action: .toggleLike,
+                    articleID: articleID,
+                    previousArticle: previousArticle,
+                    error: error
+                )
             }
         }
     }
@@ -364,14 +362,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleFeaturedArticleFailure(
-                        action: .addComment,
-                        articleID: articleID,
-                        previousArticle: nil,
-                        error: error
-                    )
-                }
+                await self?.handleFeaturedArticleFailure(
+                    action: .addComment,
+                    articleID: articleID,
+                    previousArticle: nil,
+                    error: error
+                )
             }
         }
     }
@@ -419,14 +415,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleFeaturedArticleFailure(
-                        action: .setDisplayMode(displayMode),
-                        articleID: articleID,
-                        previousArticle: previousArticle,
-                        error: error
-                    )
-                }
+                await self?.handleFeaturedArticleFailure(
+                    action: .setDisplayMode(displayMode),
+                    articleID: articleID,
+                    previousArticle: previousArticle,
+                    error: error
+                )
             }
         }
     }
@@ -474,14 +468,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleFeaturedArticleFailure(
-                        action: .refreshContent,
-                        articleID: articleID,
-                        previousArticle: nil,
-                        error: error
-                    )
-                }
+                await self?.handleFeaturedArticleFailure(
+                    action: .refreshContent,
+                    articleID: articleID,
+                    previousArticle: nil,
+                    error: error
+                )
             }
         }
     }
@@ -526,14 +518,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleFeaturedArticleFailure(
-                        action: .runLongTask,
-                        articleID: articleID,
-                        previousArticle: nil,
-                        error: error
-                    )
-                }
+                await self?.handleFeaturedArticleFailure(
+                    action: .runLongTask,
+                    articleID: articleID,
+                    previousArticle: nil,
+                    error: error
+                )
             }
         }
     }
@@ -585,10 +575,7 @@ final class NewsFeedViewModel: ObservableObject {
         rollbackFeaturedArticle(
             articleID: articleID,
             previousArticle: previousArticle,
-            message: AppLocalization.text(
-                "news.featured.status.failed",
-                fallback: "Unable to complete this action right now."
-            )
+            message: genericCardActionFailureMessage
         )
     }
 
@@ -810,14 +797,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleDiscussionFailure(
-                        action: .toggleParticipation,
-                        discussionID: discussionID,
-                        previousDiscussion: previousDiscussion,
-                        error: error
-                    )
-                }
+                await self?.handleDiscussionFailure(
+                    action: .toggleParticipation,
+                    discussionID: discussionID,
+                    previousDiscussion: previousDiscussion,
+                    error: error
+                )
             }
         }
     }
@@ -873,14 +858,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleDiscussionFailure(
-                        action: .addReply,
-                        discussionID: discussionID,
-                        previousDiscussion: nil,
-                        error: error
-                    )
-                }
+                await self?.handleDiscussionFailure(
+                    action: .addReply,
+                    discussionID: discussionID,
+                    previousDiscussion: nil,
+                    error: error
+                )
             }
         }
     }
@@ -921,14 +904,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleDiscussionFailure(
-                        action: .setDisplayMode(displayMode),
-                        discussionID: discussionID,
-                        previousDiscussion: previousDiscussion,
-                        error: error
-                    )
-                }
+                await self?.handleDiscussionFailure(
+                    action: .setDisplayMode(displayMode),
+                    discussionID: discussionID,
+                    previousDiscussion: previousDiscussion,
+                    error: error
+                )
             }
         }
     }
@@ -970,14 +951,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleDiscussionFailure(
-                        action: .refreshContent,
-                        discussionID: discussionID,
-                        previousDiscussion: nil,
-                        error: error
-                    )
-                }
+                await self?.handleDiscussionFailure(
+                    action: .refreshContent,
+                    discussionID: discussionID,
+                    previousDiscussion: nil,
+                    error: error
+                )
             }
         }
     }
@@ -1019,14 +998,12 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                await MainActor.run {
-                    await self?.handleDiscussionFailure(
-                        action: .runLongTask,
-                        discussionID: discussionID,
-                        previousDiscussion: nil,
-                        error: error
-                    )
-                }
+                await self?.handleDiscussionFailure(
+                    action: .runLongTask,
+                    discussionID: discussionID,
+                    previousDiscussion: nil,
+                    error: error
+                )
             }
         }
     }
@@ -1078,10 +1055,7 @@ final class NewsFeedViewModel: ObservableObject {
         rollbackDiscussion(
             discussionID: discussionID,
             previousDiscussion: previousDiscussion,
-            message: AppLocalization.text(
-                "news.discussion.status.failed",
-                fallback: "Unable to complete this action right now."
-            )
+            message: genericCardActionFailureMessage
         )
     }
 
@@ -1281,11 +1255,16 @@ final class NewsFeedViewModel: ObservableObject {
                 fallback: "Card is out of sync. Refresh the feed."
             )
         case .missingChannel, .missingPersistedFeed:
-            return AppLocalization.text(
-                "news.card.status.failed",
-                fallback: "Unable to complete this action right now."
-            )
+            return genericCardActionFailureMessage
         }
+    }
+
+    /// Shared fallback used when a card action fails without a more specific product policy.
+    private var genericCardActionFailureMessage: String {
+        AppLocalization.text(
+            "news.card.status.failed",
+            fallback: "Unable to complete this action right now."
+        )
     }
 
     /// Evaluates whether the requested load policy is valid in the current runtime state.
