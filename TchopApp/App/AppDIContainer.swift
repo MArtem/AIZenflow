@@ -85,6 +85,10 @@ private struct AppRuntimeErrorMapper: AppErrorMapping {
             return mapAuthenticationError(authenticationError, context: context)
         }
 
+        if let userRepositoryError = error as? UserRepositoryError {
+            return mapUserRepositoryError(userRepositoryError, context: context)
+        }
+
         if let repositoryError = error as? RepositoryError {
             return mapRepositoryError(repositoryError, context: context)
         }
@@ -228,6 +232,47 @@ private struct AppRuntimeErrorMapper: AppErrorMapping {
             )
         }
     }
+
+    private func mapUserRepositoryError(
+        _ error: UserRepositoryError,
+        context: AppErrorContext?
+    ) -> AppError {
+        switch error {
+        case .invalidUsername:
+            return AppError(
+                category: .validation,
+                severity: .warning,
+                suggestion: .none,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.validation.username",
+                debugDescription: "The provided username is invalid after normalization.",
+                context: context
+            )
+        case .unableToResolveUniqueUsername:
+            return AppError(
+                category: .client,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.client.usernameResolution",
+                debugDescription: "Unable to resolve a unique local username for the account.",
+                context: context
+            )
+        case .userNotFound:
+            return AppError(
+                category: .persistence,
+                severity: .warning,
+                suggestion: .restartFlow,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.persistence.userMissing",
+                debugDescription: "Expected persisted user record is missing.",
+                context: context
+            )
+        }
+    }
 }
 
 /// App-local message catalog that keeps user text for domain-specific app failures near the
@@ -280,6 +325,21 @@ private struct AppRuntimeErrorMessageCatalog: AppErrorMessageCatalog {
             return AppLocalization.text(
                 "app.error.databaseRead",
                 fallback: "Unable to read local data right now. Try again."
+            )
+        case "error.validation.username":
+            return AppLocalization.text(
+                "login.error.invalidUsername",
+                fallback: "Enter a valid username."
+            )
+        case "error.client.usernameResolution":
+            return AppLocalization.text(
+                "login.apple.error.usernameResolution",
+                fallback: "Unable to prepare a local account right now. Please try again."
+            )
+        case "error.persistence.userMissing":
+            return AppLocalization.text(
+                "profile.error.userMissing",
+                fallback: "Account data is unavailable. Sign in again."
             )
         default:
             return fallbackCatalog.userMessage(for: error)

@@ -1313,6 +1313,8 @@ Absent:  no tests/build/simulator checks
 - `UserSessionService` now also distinguishes explicit logout from restore-time cleanup:
   user-triggered `signOut()` still performs local-first best-effort remote revoke,
   but token-corruption / stale-restore cleanup now uses local-only persisted-state clearing so startup recovery does not trigger revoke side effects with incoherent credentials.
+- `UserRepositoryError` is now app-visible instead of file-private and is mapped through the same app-local error catalog:
+  invalid usernames, failed local username resolution for Apple users, and missing persisted-user records now produce stable app-facing error semantics instead of generic fallback handling.
 - Logout semantics are also closer to production:
   `signOut()` remains local-first and non-blocking,
   but it now performs best-effort remote session revoke when an auth manager exists and the backend supports it.

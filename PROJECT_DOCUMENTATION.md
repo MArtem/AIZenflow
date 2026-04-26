@@ -394,7 +394,7 @@ Important detail:
 
 - `TchopErrors` provides the reusable infrastructure-level mapper for `APIError` and unknown failures;
 - `AppDIContainer` adds an app-local mapper and app-local message catalog on top of it;
-- that extra layer handles app-specific errors like `RepositoryError`, `AuthenticationSessionError`, and secure-storage failures without pushing those app-only types down into the shared package.
+- that extra layer handles app-specific errors like `RepositoryError`, `AuthenticationSessionError`, `UserRepositoryError`, database bootstrap failures, and secure-storage failures without pushing those app-only types down into the shared package.
 
 ### Why this file matters
 This file is the answer to:

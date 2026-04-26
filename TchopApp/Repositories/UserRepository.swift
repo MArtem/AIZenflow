@@ -383,7 +383,7 @@ final class DefaultUserRepository: UserRepository {
     }
 }
 
-private enum UserRepositoryError: Error {
+enum UserRepositoryError: Error {
     case userNotFound
     case invalidUsername
     case unableToResolveUniqueUsername
