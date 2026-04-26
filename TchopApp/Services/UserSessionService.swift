@@ -190,6 +190,16 @@ protocol UserSessionManaging {
 
     /// Clears the persisted active session marker.
     func signOut()
+
+    /// Restores a user session while applying auth-token validity policy when credentials exist.
+    func restoreAuthenticatedSession() async throws -> AppUser?
+}
+
+extension UserSessionManaging {
+    /// Default implementation keeps existing local-session behavior for simpler conformers and test doubles.
+    func restoreAuthenticatedSession() async throws -> AppUser? {
+        try restoreSession()
+    }
 }
 
 /// Default session service backed by `UserDefaults` and the user repository.
@@ -203,16 +213,19 @@ final class UserSessionService: UserSessionManaging {
     private let userRepository: any UserRepository
     private let userDefaults: UserDefaults
     private let tokenStore: (any AuthTokenStoring)?
+    private let authenticationAPIManager: (any AuthenticationAPIManaging)?
 
     /// Creates a session service.
     init(
         userRepository: any UserRepository,
         userDefaults: UserDefaults = .standard,
-        tokenStore: (any AuthTokenStoring)? = nil
+        tokenStore: (any AuthTokenStoring)? = nil,
+        authenticationAPIManager: (any AuthenticationAPIManaging)? = nil
     ) {
         self.userRepository = userRepository
         self.userDefaults = userDefaults
         self.tokenStore = tokenStore
+        self.authenticationAPIManager = authenticationAPIManager
     }
 
     /// Signs in and stores the active user identifier for future restoration.
@@ -234,6 +247,46 @@ final class UserSessionService: UserSessionManaging {
 
     /// Restores the active session and clears stale usernames automatically.
     func restoreSession() throws -> AppUser? {
+        try restorePersistedUser()
+    }
+
+    /// Restores the active session and upgrades to token-aware policy when secure credentials exist.
+    func restoreAuthenticatedSession() async throws -> AppUser? {
+        guard let restoredUser = try restorePersistedUser() else {
+            return nil
+        }
+
+        guard let tokenStore else {
+            return restoredUser
+        }
+
+        guard let tokenSet = try tokenStore.loadTokenSet() else {
+            return restoredUser
+        }
+
+        if !tokenSet.isAccessTokenExpired() {
+            return restoredUser
+        }
+
+        guard !tokenSet.refreshToken.isEmpty else {
+            signOut()
+            return nil
+        }
+
+        guard let authenticationAPIManager else {
+            signOut()
+            return nil
+        }
+
+        let refreshedTokenSet = try await authenticationAPIManager.refreshToken(
+            using: tokenSet.refreshToken
+        )
+        try tokenStore.saveTokenSet(refreshedTokenSet)
+        return restoredUser
+    }
+
+    /// Resolves the persisted app user independently from backend auth-token state.
+    private func restorePersistedUser() throws -> AppUser? {
         guard let userID = try activeUserIDForRestore() else {
             return nil
         }

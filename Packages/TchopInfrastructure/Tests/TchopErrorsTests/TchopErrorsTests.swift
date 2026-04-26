@@ -42,4 +42,26 @@ struct TchopErrorsTests {
 
         #expect(message == "Something went wrong. Please try again.")
     }
+
+    @Test
+    func errorManagerReturnsPresentationAndReportsPayload() async {
+        let reporter = MemoryAppErrorReporter()
+        let manager = AppErrorManager(reporter: reporter)
+
+        let presentation = await manager.presentableError(
+            from: APIError.noConnection,
+            context: AppErrorContext(
+                operation: "refreshFeed",
+                feature: "news"
+            )
+        )
+
+        #expect(presentation.error.category == .network)
+        #expect(presentation.userMessage == "No internet connection. Try again when you are back online.")
+
+        let payloads = await reporter.payloads
+        #expect(payloads.count == 1)
+        #expect(payloads.first?.feature == "news")
+        #expect(payloads.first?.operation == "refreshFeed")
+    }
 }

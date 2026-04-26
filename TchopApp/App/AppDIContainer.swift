@@ -9,6 +9,56 @@ import TchopPushNotifications
 import TchopUIConfiguration
 import TchopWidgets
 
+/// Runtime API environment describing transport configuration and diagnostics policy.
+struct AppAPIEnvironment {
+    enum Kind {
+        case localStub
+        case development
+        case staging
+        case production
+    }
+
+    let kind: Kind
+    let apiConfiguration: APIConfiguration
+    let enablesNetworkLogging: Bool
+
+    static let localStub = AppAPIEnvironment(
+        kind: .localStub,
+        apiConfiguration: .stub,
+        enablesNetworkLogging: false
+    )
+
+    static func remote(
+        kind: Kind,
+        baseURL: URL,
+        enablesNetworkLogging: Bool
+    ) -> AppAPIEnvironment {
+        AppAPIEnvironment(
+            kind: kind,
+            apiConfiguration: APIConfiguration(
+                baseURL: baseURL,
+                defaultHeaders: makeDefaultHeaders(),
+                timeoutInterval: 30
+            ),
+            enablesNetworkLogging: enablesNetworkLogging
+        )
+    }
+
+    private static func makeDefaultHeaders() -> [String: String] {
+        var headers = [
+            "Accept": "application/json",
+            "X-Platform": "iOS",
+            "Accept-Language": Locale.preferredLanguages.first ?? Locale.current.identifier
+        ]
+
+        if let bundleVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
+            headers["X-App-Version"] = bundleVersion
+        }
+
+        return headers
+    }
+}
+
 /// Composition root for the application.
 ///
 /// The container owns app-wide infrastructure services and constructs feature-level
@@ -70,7 +120,10 @@ final class AppDIContainer: ObservableObject {
     let databaseBackendKind: AppDatabaseBackendKind
 
     /// Creates the root dependency container and eagerly wires the initial graph.
-    init(databaseConfiguration: AppDatabaseConfiguration = .persistent) {
+    init(
+        databaseConfiguration: AppDatabaseConfiguration = .persistent,
+        apiEnvironment: AppAPIEnvironment = .localStub
+    ) {
         let analyticsCollector = ProductAnalyticsMemoryCollector()
         self.analyticsCollector = analyticsCollector
 
@@ -82,7 +135,8 @@ final class AppDIContainer: ObservableObject {
 
         let contentServices = Self.makeContentServices(
             databaseManager: databaseManager,
-            analyticsCollector: analyticsCollector
+            analyticsCollector: analyticsCollector,
+            apiEnvironment: apiEnvironment
         )
         self.apiManager = contentServices.apiManager
         self.authTokenStore = contentServices.authTokenStore
@@ -152,7 +206,8 @@ final class AppDIContainer: ObservableObject {
     /// Creates the content-facing stack from networking through repositories and session service.
     private static func makeContentServices(
         databaseManager: any DatabaseManaging,
-        analyticsCollector: ProductAnalyticsMemoryCollector
+        analyticsCollector: ProductAnalyticsMemoryCollector,
+        apiEnvironment: AppAPIEnvironment
     ) -> (
         apiManager: any APIManaging,
         authTokenStore: any AuthTokenStoring,
@@ -171,7 +226,8 @@ final class AppDIContainer: ObservableObject {
         )
         let apiManager = makeAPIManager(
             analyticsCollector: analyticsCollector,
-            authenticationProvider: authenticationProvider
+            authenticationProvider: authenticationProvider,
+            apiEnvironment: apiEnvironment
         )
         let feedAPIManager = makeFeedAPIManager(apiManager: apiManager)
         let networkAvailabilityMonitor = NetworkAvailabilityMonitor()
@@ -191,7 +247,8 @@ final class AppDIContainer: ObservableObject {
             userRepository: repositories.userRepository,
             sessionService: UserSessionService(
                 userRepository: repositories.userRepository,
-                tokenStore: authTokenStore
+                tokenStore: authTokenStore,
+                authenticationAPIManager: authenticationAPIManager
             )
         )
     }
@@ -225,24 +282,34 @@ final class AppDIContainer: ObservableObject {
 
     private static func makeAPIManager(
         analyticsCollector: ProductAnalyticsMemoryCollector,
-        authenticationProvider: any APIAuthenticationRefreshing
+        authenticationProvider: any APIAuthenticationRefreshing,
+        apiEnvironment: AppAPIEnvironment
     ) -> any APIManaging {
-        APIManager(
-            configuration: .stub,
-            interceptors: [
-                APIAuthenticationInterceptor(
-                    provider: authenticationProvider
-                ),
-                APIAuthorizationRefreshInterceptor(
-                    provider: authenticationProvider
-                ),
-                APIRetryInterceptor(),
-                APIMetricsInterceptor(
-                    collector: APIAnalyticsMetricsCollector(
-                        collector: analyticsCollector
-                    )
+        var interceptors: [any APIRequestIntercepting] = [
+            APIAuthenticationInterceptor(
+                provider: authenticationProvider
+            ),
+            APIAuthorizationRefreshInterceptor(
+                provider: authenticationProvider
+            ),
+            APIRetryInterceptor(),
+            APIMetricsInterceptor(
+                collector: APIAnalyticsMetricsCollector(
+                    collector: analyticsCollector
                 )
-            ]
+            )
+        ]
+
+        if apiEnvironment.enablesNetworkLogging {
+            interceptors.insert(
+                APILoggingInterceptor(level: .requestAndResponse),
+                at: 0
+            )
+        }
+
+        APIManager(
+            configuration: apiEnvironment.apiConfiguration,
+            interceptors: interceptors
         )
     }
 

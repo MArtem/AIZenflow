@@ -1252,5 +1252,15 @@ Absent:  no tests/build/simulator checks
   error context/logging payloads,
   default message catalog,
   memory reporter,
-  and `APIError -> AppError` mapper.
+  `APIError -> AppError` mapper,
+  and higher-level `AppErrorManager` facade for normalize/report/present flows.
+- Added pragmatic runtime API environment support in [AppDIContainer.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppDIContainer.swift):
+  `AppAPIEnvironment` now owns transport configuration plus network-logging policy,
+  and `APIManager` is no longer hard-wired to `.stub` internally.
+- Session restore is now token-aware in a backward-compatible way:
+  [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift)
+  keeps the current local-user restore behavior when no secure tokens exist,
+  but if tokens are present it now applies expiry/refresh policy before allowing the app to restore the authenticated shell.
+- [AppState.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift) now restores session asynchronously on startup through `restoreAuthenticatedSession()`,
+  which prepares the app for real backend token refresh without changing the current local login UX.
 - No verification run in this step (user requested explicit command before running checks).

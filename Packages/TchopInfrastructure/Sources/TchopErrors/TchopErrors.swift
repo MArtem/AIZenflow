@@ -105,6 +105,11 @@ public protocol AppErrorMessageCatalog: Sendable {
     func userMessage(for error: AppError) -> String
 }
 
+/// Maps arbitrary runtime errors into stable app-facing errors.
+public protocol AppErrorMapping: Sendable {
+    func map(_ error: Error, context: AppErrorContext?) -> AppError
+}
+
 /// Default fallback catalog for app errors when no feature-specific localization is injected.
 public struct DefaultAppErrorMessageCatalog: AppErrorMessageCatalog {
     public init() {}
@@ -146,10 +151,27 @@ public actor MemoryAppErrorReporter: AppErrorReporting {
 }
 
 /// Maps networking failures into stable app-facing error semantics.
-public struct APIErrorAppErrorMapper {
+public struct APIErrorAppErrorMapper: AppErrorMapping {
     public init() {}
 
-    public func map(_ error: APIError, context: AppErrorContext? = nil) -> AppError {
+    public func map(_ error: Error, context: AppErrorContext?) -> AppError {
+        guard let apiError = error as? APIError else {
+            return AppError(
+                category: .unknown,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.unknown",
+                debugDescription: String(describing: error),
+                context: context
+            )
+        }
+
+        return mapAPIError(apiError, context: context)
+    }
+
+    public func mapAPIError(_ error: APIError, context: AppErrorContext? = nil) -> AppError {
         switch error {
         case .requestCancelled:
             return AppError(
@@ -251,5 +273,83 @@ public struct APIErrorAppErrorMapper {
                 context: context
             )
         }
+    }
+}
+
+/// Fallback mapper that normalizes known infrastructure errors and degrades safely for unknown ones.
+public struct DefaultAppErrorMapper: AppErrorMapping {
+    private let apiErrorMapper: APIErrorAppErrorMapper
+
+    public init(apiErrorMapper: APIErrorAppErrorMapper = APIErrorAppErrorMapper()) {
+        self.apiErrorMapper = apiErrorMapper
+    }
+
+    public func map(_ error: Error, context: AppErrorContext?) -> AppError {
+        if error is APIError {
+            return apiErrorMapper.map(error, context: context)
+        }
+
+        return AppError(
+            category: .unknown,
+            severity: .error,
+            suggestion: .retry,
+            isRetryable: true,
+            isSessionRecoveryRequired: false,
+            messageKey: "error.unknown",
+            debugDescription: String(describing: error),
+            context: context
+        )
+    }
+}
+
+/// Presentation-ready error payload returned by the manager for UI-facing consumers.
+public struct AppErrorPresentation: Sendable, Equatable {
+    public let error: AppError
+    public let userMessage: String
+
+    public init(error: AppError, userMessage: String) {
+        self.error = error
+        self.userMessage = userMessage
+    }
+}
+
+/// High-level facade that normalizes, reports, and localizes app errors in one place.
+public protocol AppErrorManaging: Sendable {
+    func presentableError(
+        from error: Error,
+        context: AppErrorContext?
+    ) async -> AppErrorPresentation
+}
+
+/// Default production-ready error manager used by app-facing layers.
+public struct AppErrorManager: AppErrorManaging {
+    private let mapper: any AppErrorMapping
+    private let messageCatalog: any AppErrorMessageCatalog
+    private let reporter: (any AppErrorReporting)?
+
+    public init(
+        mapper: any AppErrorMapping = DefaultAppErrorMapper(),
+        messageCatalog: any AppErrorMessageCatalog = DefaultAppErrorMessageCatalog(),
+        reporter: (any AppErrorReporting)? = nil
+    ) {
+        self.mapper = mapper
+        self.messageCatalog = messageCatalog
+        self.reporter = reporter
+    }
+
+    public func presentableError(
+        from error: Error,
+        context: AppErrorContext? = nil
+    ) async -> AppErrorPresentation {
+        let mappedError = mapper.map(error, context: context)
+
+        if let reporter {
+            await reporter.report(AppErrorLoggingPayload(error: mappedError))
+        }
+
+        return AppErrorPresentation(
+            error: mappedError,
+            userMessage: messageCatalog.userMessage(for: mappedError)
+        )
     }
 }

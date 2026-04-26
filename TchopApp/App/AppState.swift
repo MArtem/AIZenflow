@@ -53,7 +53,9 @@ final class AppState: ObservableObject {
         self.widgetContentSyncManager = widgetContentSyncManager
         self.pushNotificationBridge = pushNotificationBridge
         setupNavigationPersistenceBindings()
-        restoreSession()
+        Task { @MainActor [weak self] in
+            await self?.restoreSession()
+        }
     }
 
     /// Signs in with the provided username and updates the source of truth user state.
@@ -120,9 +122,9 @@ final class AppState: ObservableObject {
     }
 
     /// Restores the previously persisted user session if one exists.
-    private func restoreSession() {
+    private func restoreSession() async {
         do {
-            let restoredUser = try sessionService.restoreSession()
+            let restoredUser = try await sessionService.restoreAuthenticatedSession()
             if let restoredUser {
                 activateAuthenticatedUser(restoredUser)
             } else {
