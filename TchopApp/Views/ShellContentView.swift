@@ -1,5 +1,6 @@
 import SwiftUI
 import TchopNavigation
+import TchopErrors
 
 /// Layout wrapper combining top chrome, tab content, and overlays.
 struct ShellContentView: View {
@@ -8,6 +9,7 @@ struct ShellContentView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
     @ObservedObject var newsRouter: TabRouter<NewsRoute>
+    let errorManager: any AppErrorManaging
     let currentUser: AppUser?
     let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
@@ -35,6 +37,7 @@ struct ShellContentView: View {
                     selectedTab: coordinator.selectedTab,
                     coordinator: coordinator,
                     newsFeedViewModel: viewModel.newsFeedViewModel,
+                    errorManager: errorManager,
                     onNewsFeedScrollProximityChange: viewModel.setNewsFeedNearTop,
                     currentUser: currentUser,
                     onNavigationRestoreChange: onNavigationRestoreChange,

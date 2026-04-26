@@ -1,10 +1,12 @@
 import SwiftUI
+import TchopErrors
 
 /// Hosts tab-level content including top bar, feed, and action affordances.
 struct TabContentView: View {
     let selectedTab: AppTab
     @ObservedObject var coordinator: AppCoordinator
     @ObservedObject var newsFeedViewModel: NewsFeedViewModel
+    let errorManager: any AppErrorManaging
     let onNewsFeedScrollProximityChange: (Bool) -> Void
     let currentUser: AppUser?
     let onNavigationRestoreChange: (Bool) throws -> Void
@@ -35,6 +37,7 @@ struct TabContentView: View {
                 ProfileTabRootView(
                     currentUser: currentUser,
                     router: coordinator.profileRouter,
+                    errorManager: errorManager,
                     onNavigationRestoreChange: onNavigationRestoreChange,
                     onLogout: onLogout
                 )

@@ -1,9 +1,11 @@
 import SwiftUI
+import TchopErrors
 
 /// Root authenticated shell with side menu and tab content container.
 struct AppShellView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
+    let errorManager: any AppErrorManaging
     let currentUser: AppUser?
     let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
@@ -23,6 +25,7 @@ struct AppShellView: View {
                     viewModel: viewModel,
                     coordinator: coordinator,
                     newsRouter: coordinator.newsRouter,
+                    errorManager: errorManager,
                     currentUser: currentUser,
                     onNavigationRestoreChange: onNavigationRestoreChange,
                     onLogout: onLogout

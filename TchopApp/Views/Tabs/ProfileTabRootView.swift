@@ -1,10 +1,12 @@
 import SwiftUI
+import TchopErrors
 import TchopNavigation
 
 /// Root profile-tab screen bound to its dedicated navigation router.
 struct ProfileTabRootView: View {
     let currentUser: AppUser
     @ObservedObject var router: TabRouter<ProfileRoute>
+    let errorManager: any AppErrorManaging
     /// Persists the "restore previous navigation" preference for the currently signed-in user.
     let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
@@ -14,11 +16,13 @@ struct ProfileTabRootView: View {
     init(
         currentUser: AppUser,
         router: TabRouter<ProfileRoute>,
+        errorManager: any AppErrorManaging,
         onNavigationRestoreChange: @escaping (Bool) throws -> Void,
         onLogout: @escaping () -> Void
     ) {
         self.currentUser = currentUser
         self.router = router
+        self.errorManager = errorManager
         self.onNavigationRestoreChange = onNavigationRestoreChange
         self.onLogout = onLogout
         _isNavigationRestoreEnabled = State(initialValue: currentUser.isNavigationStateRestoreEnabled)
@@ -84,13 +88,24 @@ struct ProfileTabRootView: View {
                     errorMessage = nil
                 } catch {
                     isNavigationRestoreEnabled = previousValue
-                    errorMessage = AppLocalization.text(
-                        "profile.restoreNavigationError",
-                        fallback: "Unable to update the restore preference right now."
-                    )
+                    presentNavigationRestoreFailure(error)
                 }
             }
         )
+    }
+
+    /// Normalizes profile-preference persistence failures through the shared app error pipeline.
+    private func presentNavigationRestoreFailure(_ error: Error) {
+        Task { @MainActor [errorManager] in
+            let presentation = await errorManager.presentableError(
+                from: error,
+                context: AppErrorContext(
+                    operation: "updateNavigationRestorePreference",
+                    feature: "profile"
+                )
+            )
+            errorMessage = presentation.userMessage
+        }
     }
 
 }

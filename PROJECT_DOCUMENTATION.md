@@ -1755,6 +1755,11 @@ It shows:
 - restore-navigation setting;
 - logout.
 
+Important detail:
+
+- the restore-navigation preference still updates optimistically in UI;
+- if persistence fails, the toggle is rolled back and the failure message now comes from the shared `AppErrorManager` pipeline instead of a hard-coded fallback string.
+
 ---
 
 ## Runtime Flows In Detail

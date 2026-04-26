@@ -39,6 +39,7 @@ struct AppRootView: View {
                 AppShellView(
                     viewModel: appState.appShellViewModel,
                     coordinator: appState.coordinator,
+                    errorManager: errorManager,
                     currentUser: appState.currentUser,
                     onNavigationRestoreChange: appState.setNavigationRestoreEnabled,
                     onLogout: appState.signOut
