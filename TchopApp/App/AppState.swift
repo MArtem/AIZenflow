@@ -68,6 +68,18 @@ final class AppState: ObservableObject {
         activateAuthenticatedUser(signedInUser)
     }
 
+    /// Signs in with external email/password credentials and updates the authenticated user state.
+    func signIn(email: String, password: String) async throws {
+        let signedInUser = try await sessionService.signIn(email: email, password: password)
+        activateAuthenticatedUser(signedInUser)
+    }
+
+    /// Registers a new external account and updates the authenticated user state.
+    func register(email: String, password: String) async throws {
+        let signedInUser = try await sessionService.register(email: email, password: password)
+        activateAuthenticatedUser(signedInUser)
+    }
+
     /// Signs in with a normalized Apple identity profile and updates the source of truth user state.
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws {
         let signedInUser = try await sessionService.signInWithApple(identity: identity)

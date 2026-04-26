@@ -1319,3 +1319,24 @@ Absent:  no tests/build/simulator checks
   `signOut()` remains local-first and non-blocking,
   but it now performs best-effort remote session revoke when an auth manager exists and the backend supports it.
 - No verification run in this step (user requested explicit command before running checks).
+- A new development-only external auth environment now exists for ReqRes integration.
+  `AppLaunchConfiguration` reads `TCHOP_API_ENV=reqres_demo_auth` and `TCHOP_REQRES_API_KEY`,
+  then builds `AppAPIEnvironment.developmentExternalAuth(...)`.
+  That mode keeps the main app/feed client on `.stub`,
+  but gives the dedicated auth client a real `https://reqres.in` base URL plus `x-api-key`.
+- `AuthenticationAPIManager.swift` now supports `reqResDemo` mode in addition to `localStub` and `remoteBackend`.
+  In that mode:
+  `signIn(email:password:)` hits `/api/login`,
+  `register(email:password:)` hits `/api/register`,
+  and the ReqRes `{ token, id? }` payload is mapped into the app's `AuthTokenSet`.
+  Refresh/revoke stay app-local fallback behavior because ReqRes demo auth does not expose the same lifecycle surface as the production-shaped contract.
+- `LoginScreenView` and `LoginViewModel` now support two presentation/runtime modes through `LoginScreenMode`:
+  `localUsername` keeps username + Apple sign-in,
+  while `reqResDemoExternalAuth` shows email/password plus separate sign-in and register buttons.
+  `AppRootView` receives that mode from `AppDIContainer.loginScreenMode`.
+- `UserSessionService` and `AppState` now have external credential entry points:
+  `signIn(email:password:)`
+  and
+  `register(email:password:)`.
+  For now the local persisted `AppUser` is keyed by email in that environment,
+  which is the smallest stable bridge until a real backend profile payload exists.

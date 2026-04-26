@@ -14,6 +14,7 @@ import TchopWidgets
 struct AppAPIEnvironment {
     enum Kind {
         case localStub
+        case developmentExternalAuth
         case development
         case staging
         case production
@@ -21,15 +22,39 @@ struct AppAPIEnvironment {
 
     let kind: Kind
     let apiConfiguration: APIConfiguration
+    let authenticationAPIConfiguration: APIConfiguration
     let enablesNetworkLogging: Bool
+    let loginScreenMode: LoginScreenMode
     let authenticationEndpointConfiguration: AuthenticationAPIEndpointConfiguration
 
     static let localStub = AppAPIEnvironment(
         kind: .localStub,
         apiConfiguration: .stub,
+        authenticationAPIConfiguration: .stub,
         enablesNetworkLogging: false,
+        loginScreenMode: .localUsername,
         authenticationEndpointConfiguration: .default
     )
+
+    /// Development environment that keeps the app/feed runtime local but proxies login/register
+    /// through ReqRes demo auth using an API key supplied from launch configuration.
+    static func developmentExternalAuth(
+        reqResAPIKey: String,
+        enablesNetworkLogging: Bool = true
+    ) -> AppAPIEnvironment {
+        AppAPIEnvironment(
+            kind: .developmentExternalAuth,
+            apiConfiguration: .stub,
+            authenticationAPIConfiguration: APIConfiguration(
+                baseURL: URL(string: "https://reqres.in")!,
+                defaultHeaders: makeAuthenticationHeaders(apiKey: reqResAPIKey),
+                timeoutInterval: 30
+            ),
+            enablesNetworkLogging: enablesNetworkLogging,
+            loginScreenMode: .reqResDemoExternalAuth,
+            authenticationEndpointConfiguration: .reqResDemo
+        )
+    }
 
     static func remote(
         kind: Kind,
@@ -44,7 +69,13 @@ struct AppAPIEnvironment {
                 defaultHeaders: makeDefaultHeaders(),
                 timeoutInterval: 30
             ),
+            authenticationAPIConfiguration: APIConfiguration(
+                baseURL: baseURL,
+                defaultHeaders: makeDefaultHeaders(),
+                timeoutInterval: 30
+            ),
             enablesNetworkLogging: enablesNetworkLogging,
+            loginScreenMode: .localUsername,
             authenticationEndpointConfiguration: authenticationEndpointConfiguration
         )
     }
@@ -60,6 +91,14 @@ struct AppAPIEnvironment {
             headers["X-App-Version"] = bundleVersion
         }
 
+        return headers
+    }
+
+    private static func makeAuthenticationHeaders(apiKey: String) -> [String: String] {
+        var headers = makeDefaultHeaders()
+        if !apiKey.isEmpty {
+            headers["x-api-key"] = apiKey
+        }
         return headers
     }
 }
@@ -371,6 +410,9 @@ final class AppDIContainer: ObservableObject {
     /// Shared app error manager used by UI/session flows for normalization and reporting.
     let errorManager: any AppErrorManaging
 
+    /// Login UI mode selected by the active auth environment.
+    let loginScreenMode: LoginScreenMode
+
     /// Feed-specific API abstraction currently backed by stub data.
     let feedAPIManager: any FeedAPIManaging
 
@@ -433,6 +475,7 @@ final class AppDIContainer: ObservableObject {
         self.authTokenStore = contentServices.authTokenStore
         self.authenticationAPIManager = contentServices.authenticationAPIManager
         self.errorManager = contentServices.errorManager
+        self.loginScreenMode = apiEnvironment.loginScreenMode
         self.feedAPIManager = contentServices.feedAPIManager
         self.networkAvailabilityMonitor = contentServices.networkAvailabilityMonitor
         self.contentRepository = contentServices.contentRepository
@@ -651,7 +694,7 @@ final class AppDIContainer: ObservableObject {
         apiEnvironment: AppAPIEnvironment
     ) -> any AuthenticationAPIManaging {
         let authAPIManager = APIManager(
-            configuration: apiEnvironment.apiConfiguration,
+            configuration: apiEnvironment.authenticationAPIConfiguration,
             interceptors: makeAuthenticationInterceptors(
                 analyticsCollector: analyticsCollector,
                 apiEnvironment: apiEnvironment
@@ -665,11 +708,17 @@ final class AppDIContainer: ObservableObject {
                 endpointConfiguration: apiEnvironment.authenticationEndpointConfiguration,
                 mode: .localStub
             )
+        case .developmentExternalAuth:
+            return DefaultAuthenticationAPIManager(
+                apiManager: authAPIManager,
+                endpointConfiguration: apiEnvironment.authenticationEndpointConfiguration,
+                mode: .reqResDemo
+            )
         case .development, .staging, .production:
             return DefaultAuthenticationAPIManager(
                 apiManager: authAPIManager,
                 endpointConfiguration: apiEnvironment.authenticationEndpointConfiguration,
-                mode: .remote
+                mode: .remoteBackend
             )
         }
     }

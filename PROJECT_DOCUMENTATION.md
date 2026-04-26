@@ -312,6 +312,12 @@ What it does:
 The important part is that the app does very little itself.
 It delegates almost all real ownership to `AppDIContainer` and `AppState`.
 
+Important detail:
+
+- `AppLaunchConfiguration` now also selects the auth environment;
+- `TCHOP_API_ENV=reqres_demo_auth` switches only the login/register flow to external ReqRes auth;
+- feed/content APIs stay on the local stub runtime in that mode.
+
 ### [AppRootView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/AppRootView.swift)
 This is the root authentication switch.
 
@@ -321,6 +327,11 @@ It decides:
 - existing `currentUser` -> show `AppShellView`
 
 This keeps the root UI split very clear and prevents authentication branching from leaking into feature screens.
+
+Important detail:
+
+- `AppRootView` now also receives `loginScreenMode`;
+- that mode decides whether the login screen renders the local username/Apple contract or the external ReqRes email/password/register contract.
 
 ---
 
@@ -354,7 +365,7 @@ If you want to know how the app is wired together, start here.
 
 ### Key responsibilities
 
-#### `init(databaseConfiguration:)`
+#### `init(databaseConfiguration:apiEnvironment:)`
 Builds the app-wide dependency graph.
 
 #### `makeAppShellViewModel()`
@@ -386,6 +397,13 @@ Builds:
 - `DefaultAppContentRepository`
 - `DefaultUserRepository`
 - `UserSessionService`
+
+Important detail:
+
+- `AppAPIEnvironment` now owns two separate transport configurations:
+  - `apiConfiguration` for the main app/feed runtime
+  - `authenticationAPIConfiguration` for auth-only requests
+- this is what allows the app to run external ReqRes auth without moving the feed off its local stub path.
 
 #### `makeErrorManager()`
 Builds the shared error pipeline for the app target.
@@ -883,14 +901,21 @@ Centralizes auth route naming so backend endpoint renames do not leak through th
 
 #### `DefaultAuthenticationAPIManager`
 Concrete auth service used by the session layer.
-It supports two modes:
+It supports three modes:
 
 - `localStub`: mints synthetic token sets so auth/session flows are exercised even before a real backend exists;
-- `remote`: performs JSON requests through `APIManager`.
+- `remoteBackend`: performs the production-shaped backend auth contract through `APIManager`;
+- `reqResDemo`: sends only login/register over the ReqRes demo surface and keeps refresh/revoke app-local.
 
 Important detail:
 This service intentionally uses a dedicated unauthenticated API client in DI.
 Auth endpoints should not go through the same auth-refresh interceptor chain as the main app client or they risk recursive refresh behavior.
+
+For ReqRes specifically:
+
+- the app uses `/api/login` and `/api/register`;
+- ReqRes now requires `x-api-key` even for those demo endpoints;
+- that key is supplied only through launch configuration and is not hard-coded into the project.
 
 Important protocol:
 
@@ -903,6 +928,14 @@ Important methods:
 Async sign-in entry point.
 When backend auth is available it first exchanges credentials and stores secure tokens.
 When backend auth is still stubbed it intentionally falls back to local-user sign-in so the app remains usable.
+
+##### `signIn(email:password:)`
+Async external-credential sign-in entry point.
+Used only by the ReqRes development-auth environment.
+
+##### `register(email:password:)`
+Async external registration entry point.
+Also used only by the ReqRes development-auth environment.
 
 Important detail:
 If backend token exchange succeeds but local `AppUser` creation fails, the freshly stored secure tokens are cleared immediately so the app does not keep orphaned backend credentials without a matching local session.
@@ -1708,7 +1741,10 @@ Switches tab root views based on `AppTab`.
 ### Auth Views
 
 #### `Views/Auth/LoginScreenView.swift`
-Renders username login and Apple login entry points.
+Renders one of two auth contracts depending on `LoginScreenMode`:
+
+- local username + Apple sign-in;
+- ReqRes demo email/password + register.
 
 ### Menu And Chrome Views
 
@@ -1827,6 +1863,18 @@ Local login:
 8. repository finds or creates user;
 9. service stores active user ID;
 10. `AppState` activates authenticated runtime.
+
+ReqRes external auth:
+
+1. launch env sets `TCHOP_API_ENV=reqres_demo_auth`;
+2. `AppLaunchConfiguration` resolves `AppAPIEnvironment.developmentExternalAuth(...)`;
+3. `AppRootView` receives `loginScreenMode = .reqResDemoExternalAuth`;
+4. `LoginScreenView` renders email/password plus separate sign-in and register actions;
+5. `LoginViewModel` validates credentials locally and starts a single-flight async submission;
+6. `AppState.signIn(email:password:)` or `AppState.register(email:password:)` runs;
+7. `UserSessionService` exchanges credentials through `DefaultAuthenticationAPIManager` in `reqResDemo` mode;
+8. ReqRes token is converted into `AuthTokenSet`, persisted in Keychain, and mirrored to a local `AppUser` keyed by email;
+9. authenticated shell startup stays identical after that point.
 
 Apple login:
 

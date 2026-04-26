@@ -1314,3 +1314,16 @@ Readability-first cycle progress:
   The first run failed on a compile error in `NewsFeedView.swift`,
   that issue was fixed immediately,
   and the repeated `Low` run finished green with `BUILD SUCCEEDED`.
+- Auth integration now also supports a dedicated development-only external environment backed by ReqRes demo auth.
+  `AppLaunchConfiguration` reads `TCHOP_API_ENV=reqres_demo_auth` plus `TCHOP_REQRES_API_KEY`,
+  `AppAPIEnvironment.developmentExternalAuth(...)` keeps the main/feed API on `.stub`,
+  but routes only auth requests through `https://reqres.in` with `x-api-key`.
+- `DefaultAuthenticationAPIManager` now supports a third mode, `reqResDemo`,
+  with real `/api/login` and `/api/register` requests,
+  vendor-local token decoding (`{ token, id? } -> AuthTokenSet`),
+  and app-local refresh/revoke fallback so the session lifecycle does not depend on ReqRes features it does not expose.
+- The login UI/runtime path now has two explicit contracts via `LoginScreenMode`:
+  `localUsername` keeps the old username + Apple flow,
+  while `reqResDemoExternalAuth` renders email/password plus separate sign-in/register actions.
+  `UserSessionService` and `AppState` now have matching `signIn(email:password:)` and `register(email:password:)` paths,
+  using email as the local `AppUser.username` until a richer backend profile contract exists.

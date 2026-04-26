@@ -12,7 +12,8 @@ struct TchopApp: App {
     init() {
         let launchConfiguration = AppLaunchConfiguration()
         let container = AppDIContainer(
-            databaseConfiguration: launchConfiguration.databaseConfiguration
+            databaseConfiguration: launchConfiguration.databaseConfiguration,
+            apiEnvironment: launchConfiguration.apiEnvironment
         )
         let appState = container.makeAppState()
 
@@ -39,6 +40,7 @@ struct TchopApp: App {
         WindowGroup {
             AppRootView(
                 appState: appState,
+                loginScreenMode: container.loginScreenMode,
                 appleAuthenticationManager: container.appleAuthenticationManager,
                 errorManager: container.errorManager,
                 onOpenURL: { url in

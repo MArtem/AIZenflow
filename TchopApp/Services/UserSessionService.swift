@@ -39,6 +39,10 @@ protocol AuthTokenStoring {
 protocol AuthenticationAPIManaging {
     /// Exchanges a username login flow for backend credentials when that flow is enabled.
     func signIn(username: String) async throws -> AuthTokenSet
+    /// Exchanges email/password credentials for backend credentials when that flow is enabled.
+    func signIn(email: String, password: String) async throws -> AuthTokenSet
+    /// Creates a backend account and returns the initial credential set.
+    func register(email: String, password: String) async throws -> AuthTokenSet
     /// Exchanges a normalized Apple identity for backend credentials.
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AuthTokenSet
     /// Uses the long-lived refresh token to obtain a fresh access token set.
@@ -201,6 +205,12 @@ protocol UserSessionManaging {
     /// Signs in with the provided username and persists both backend credentials and the local session marker.
     func signIn(username: String) async throws -> AppUser
 
+    /// Signs in with external email/password credentials and persists both backend credentials and local session state.
+    func signIn(email: String, password: String) async throws -> AppUser
+
+    /// Registers a new external account and persists both backend credentials and local session state.
+    func register(email: String, password: String) async throws -> AppUser
+
     /// Signs in with a normalized Apple identity payload and persists both backend credentials and the local session marker.
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AppUser
 
@@ -270,6 +280,48 @@ final class UserSessionService: UserSessionManaging {
         let user = try userRepository.findOrCreateUser(username: username)
         userDefaults.set(user.id, forKey: Keys.activeUserID)
         return user
+    }
+
+    /// Signs in with external credentials and mirrors the backend identifier locally using the email value.
+    ///
+    /// Until the real backend exposes a richer profile contract, the email acts as the local account
+    /// display name and stable lookup key. This keeps session restoration and profile ownership
+    /// deterministic without introducing a second local user model.
+    func signIn(email: String, password: String) async throws -> AppUser {
+        guard let authenticationAPIManager, let tokenStore else {
+            return try await signIn(username: email)
+        }
+
+        let tokenSet = try await authenticationAPIManager.signIn(email: email, password: password)
+        try tokenStore.saveTokenSet(tokenSet)
+
+        do {
+            let user = try userRepository.findOrCreateUser(username: email)
+            userDefaults.set(user.id, forKey: Keys.activeUserID)
+            return user
+        } catch {
+            try? tokenStore.clearTokenSet()
+            throw error
+        }
+    }
+
+    /// Registers an external account and persists the initial session locally.
+    func register(email: String, password: String) async throws -> AppUser {
+        guard let authenticationAPIManager, let tokenStore else {
+            return try await signIn(username: email)
+        }
+
+        let tokenSet = try await authenticationAPIManager.register(email: email, password: password)
+        try tokenStore.saveTokenSet(tokenSet)
+
+        do {
+            let user = try userRepository.findOrCreateUser(username: email)
+            userDefaults.set(user.id, forKey: Keys.activeUserID)
+            return user
+        } catch {
+            try? tokenStore.clearTokenSet()
+            throw error
+        }
     }
 
     /// Signs in with Apple and stores the active user identifier for future restoration.
