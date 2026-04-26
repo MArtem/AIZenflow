@@ -5,6 +5,7 @@ import TchopNavigation
 struct ProfileTabRootView: View {
     let currentUser: AppUser
     @ObservedObject var router: TabRouter<ProfileRoute>
+    /// Persists the "restore previous navigation" preference for the currently signed-in user.
     let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
     @State private var isNavigationRestoreEnabled: Bool
@@ -62,6 +63,7 @@ struct ProfileTabRootView: View {
         }
     }
 
+    /// Bridges the profile tab router into `NavigationStack` without letting the view own route state.
     private var pathBinding: Binding<[ProfileRoute]> {
         Binding(
             get: { router.path },
@@ -69,6 +71,7 @@ struct ProfileTabRootView: View {
         )
     }
 
+    /// Applies the toggle optimistically, then restores the previous UI value if persistence fails.
     private var navigationRestoreBinding: Binding<Bool> {
         Binding(
             get: { isNavigationRestoreEnabled },
@@ -92,6 +95,7 @@ struct ProfileTabRootView: View {
 
 }
 
+/// Top identity summary shown above the account and preferences cards.
 private struct ProfileHeaderSection: View {
     let username: String
     let userInitials: String
@@ -128,6 +132,7 @@ private struct ProfileHeaderSection: View {
     }
 }
 
+/// Read-only account metadata card for the current signed-in profile.
 private struct ProfileAccountCard: View {
     let providerTitle: String
     let providerDescription: String
@@ -160,6 +165,7 @@ private struct ProfileAccountCard: View {
     }
 }
 
+/// Hosts user preferences that are stored with the signed-in account record.
 private struct ProfilePreferencesCard: View {
     @Binding var isNavigationRestoreEnabled: Bool
 
@@ -199,6 +205,7 @@ private struct ProfilePreferencesCard: View {
     }
 }
 
+/// Session-ending action kept visually separate from informational profile content.
 private struct ProfileLogoutButton: View {
     let onLogout: () -> Void
 
@@ -216,6 +223,7 @@ private struct ProfileLogoutButton: View {
     }
 }
 
+/// Shared card-section title styling for the profile tab.
 private struct ProfileCardTitle: View {
     let title: String
 
@@ -226,6 +234,7 @@ private struct ProfileCardTitle: View {
     }
 }
 
+/// Small label/value row reused inside profile detail cards.
 private struct ProfileDetailRow: View {
     let title: String
     let value: String

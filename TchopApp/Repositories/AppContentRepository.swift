@@ -94,6 +94,8 @@ final class DefaultAppContentRepository: AppContentRepository {
         articleID: String,
         action: FeaturedArticleCardAction
     ) async throws -> FeaturedArticleCardModel {
+        // Card mutations deliberately reuse the same repository boundary as feed refreshes so
+        // persistence, offline policy, and future backend semantics stay aligned in one place.
         guard networkAvailabilityChecker.isInternetAvailable else {
             throw RepositoryError.offlineCardAction
         }
@@ -437,6 +439,8 @@ final class DefaultAppContentRepository: AppContentRepository {
         articleID: String,
         state: FeedCardArticleStatePayload
     ) throws {
+        // The remote DTO may only describe content. Persisted card state is merged separately so
+        // one successful action does not wipe unrelated fields such as like/comment/display mode.
         let sortOrder = try persistedSortOrder(for: articleID)
         let snapshot = try AppContentPersistenceMapper.makeFeaturedArticleSnapshot(
             article,
@@ -724,6 +728,7 @@ private struct PersistedNewsFeedSnapshot {
     let lastSyncedAt: Date?
 }
 
+/// Carries only the state blobs that must survive a later full feed snapshot replacement.
 private struct PersistedCardStateSnapshot {
     let articleStateData: Data?
     let discussionStateData: Data?
@@ -777,6 +782,7 @@ private struct FeedCardPersistenceSnapshot {
     let discussionStateData: Data?
 }
 
+/// Converts between remote DTOs, storage snapshots, and backend-specific persistence records.
 private enum AppContentPersistenceMapper {
     static func makeFeedCardSnapshots(
         from response: FeedResponseDTO,
@@ -892,6 +898,8 @@ private enum AppContentPersistenceMapper {
         syncedAt: Date,
         persistedState: PersistedCardStateSnapshot? = nil
     ) throws -> FeedCardPersistenceSnapshot {
+        // Carry forward the previous interaction-state blob unless the caller explicitly provides a
+        // freshly merged state for this write.
         let articleStateData: Data
         if let persistedArticleStateData = persistedState?.articleStateData {
             articleStateData = persistedArticleStateData
@@ -943,6 +951,8 @@ private enum AppContentPersistenceMapper {
         syncedAt: Date,
         persistedState: PersistedCardStateSnapshot? = nil
     ) throws -> FeedCardPersistenceSnapshot {
+        // Discussion interaction state is preserved the same way so replies, participation, and
+        // display-mode choices survive future remote feed refreshes.
         let discussionStateData: Data
         if let persistedDiscussionStateData = persistedState?.discussionStateData {
             discussionStateData = persistedDiscussionStateData

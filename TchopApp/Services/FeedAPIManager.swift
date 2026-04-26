@@ -217,6 +217,8 @@ struct StubFeedAPIManager: FeedAPIManaging {
     }
 
     func refreshFeaturedArticle(articleID: String) async throws -> FeaturedArticleDTO {
+        // Refresh-like actions mutate content fields rather than local interaction state to mimic a
+        // backend returning a rebuilt card snapshot.
         try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/refresh") { article in
             article.withContent(
                 metadataLine: "refreshed just now"
@@ -307,6 +309,8 @@ struct StubFeedAPIManager: FeedAPIManaging {
         path: String,
         transform: @escaping (FeaturedArticleDTO) -> FeaturedArticleDTO
     ) async throws -> FeaturedArticleDTO {
+        // Even in stub mode this still routes through APIManaging so latency, request handling, and
+        // higher-level networking integration are exercised instead of bypassed.
         try await apiManager.perform(
             APIRequest(
                 path: path,
@@ -365,6 +369,7 @@ enum FeedAPIStubFactory {
         return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
     }
 
+    /// Looks up one article card inside the bundled feed seed.
     static func featuredArticle(
         in response: FeedResponseDTO,
         articleID: String
@@ -378,6 +383,7 @@ enum FeedAPIStubFactory {
         return nil
     }
 
+    /// Looks up one discussion card inside the bundled feed seed.
     static func discussion(
         in response: FeedResponseDTO,
         discussionID: String

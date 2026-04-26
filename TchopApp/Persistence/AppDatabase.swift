@@ -34,6 +34,8 @@ enum AppDatabase {
     static func makeDatabaseManagerOrThrow(
         configuration: AppDatabaseConfiguration = .persistent
     ) throws -> any DatabaseManaging {
+        // Backend resolution stays in the app layer so the app, not the package, owns migration
+        // timing, fallback behavior, and the persisted "last successful backend" preference.
         let runtimeContext = try AppDatabaseRuntimeContext.current(for: configuration)
         let resolutionPlan = try AppDatabaseRuntimePolicy.plan(
             for: configuration,
@@ -92,6 +94,8 @@ enum AppDatabase {
     private static func migrateCoreDataToSwiftDataAndCreateManager(
         configuration: AppDatabaseConfiguration
     ) throws -> any DatabaseManaging {
+        // Keep both managers alive during migration. If importing into SwiftData fails, the app can
+        // continue on Core Data without leaving persistence partially bootstrapped.
         let coreDataManager = try makeCoreDataManager(configuration: configuration)
         let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
 
@@ -279,6 +283,7 @@ enum AppDatabaseSwiftDataAvailability {
 private enum AppDatabaseBackendPreferenceStore {
     private static let key = "app_database_selected_backend_kind"
 
+    /// Loads the last backend that completed bootstrap successfully.
     static func load() -> AppDatabaseBackendKind? {
         guard let rawValue = UserDefaults.standard.string(forKey: key) else {
             return nil
@@ -287,6 +292,7 @@ private enum AppDatabaseBackendPreferenceStore {
         return AppDatabaseBackendKind(rawValue: rawValue)
     }
 
+    /// Persists the stable backend the app should prefer on the next launch.
     static func save(_ backendKind: AppDatabaseBackendKind) {
         UserDefaults.standard.set(backendKind.rawValue, forKey: key)
     }
@@ -294,6 +300,8 @@ private enum AppDatabaseBackendPreferenceStore {
 
 @MainActor
 private enum AppDatabaseMigrationCoordinator {
+    // Migration uses plain value payloads so the read side and write side stay decoupled from each
+    // other's framework-specific record types.
     private struct MigrationChannelPayload {
         let id: String
         let title: String
@@ -341,6 +349,7 @@ private enum AppDatabaseMigrationCoordinator {
         from coreDataManager: CoreDataDatabaseManager,
         to swiftDataManager: SwiftDataDatabaseManager
     ) throws {
+        // Read everything from Core Data first, then perform a single SwiftData write pass.
         let payload = try makeMigrationPayload(from: coreDataManager)
 
         try swiftDataManager.write(
@@ -475,6 +484,8 @@ private enum AppDatabaseMigrationCoordinator {
         _ feedCards: [MigrationFeedCardPayload],
         in context: ModelContext
     ) throws {
+        // Feed cards are keyed by remote id so cached local interaction state survives the backend
+        // switch without changing card identity or ordering.
         for feedCard in feedCards {
             let descriptor = FetchDescriptor<FeedCardRecord>()
             if let existing = try context.fetch(descriptor).first(where: { $0.id == feedCard.id }) {
@@ -529,6 +540,8 @@ private enum AppDatabaseMigrationCoordinator {
 private enum AppDatabaseContainerFactory {
     @available(iOS 17, *)
     static func makeSwiftDataModelContainer(isStoredInMemoryOnly: Bool) throws -> ModelContainer {
+        // The app keeps its schema local so storage changes remain explicit at the app boundary even
+        // though runtime read/write orchestration is delegated to TchopDatabase.
         let schema = Schema([
             ChannelRecord.self,
             UserRecord.self,
@@ -544,6 +557,8 @@ private enum AppDatabaseContainerFactory {
     }
 
     static func makeCoreDataPersistentContainer(isStoredInMemoryOnly: Bool) throws -> NSPersistentContainer {
+        // Core Data is built programmatically so the legacy fallback backend stays self-contained and
+        // does not depend on a separate .xcdatamodel resource.
         let container = NSPersistentContainer(
             name: "TchopAppCoreDataStore",
             managedObjectModel: makeCoreDataManagedObjectModel()
@@ -578,6 +593,8 @@ private enum AppDatabaseContainerFactory {
             return
         }
 
+        // Remove the legacy files only after a successful migration to avoid orphaning the app
+        // without a usable persistent store on the next launch.
         let sqliteURL = try persistentStoreURL()
         let walURL = sqliteURL.deletingPathExtension().appendingPathExtension("sqlite-wal")
         let shmURL = sqliteURL.deletingPathExtension().appendingPathExtension("sqlite-shm")
@@ -589,6 +606,8 @@ private enum AppDatabaseContainerFactory {
     }
 
     static func persistentStoreURL() throws -> URL {
+        // The app owns the exact store location so bootstrap, migration, and purge logic all target
+        // the same files deterministically.
         let applicationSupportDirectory = FileManager.default.urls(
             for: .applicationSupportDirectory,
             in: .userDomainMask
@@ -612,6 +631,7 @@ private enum AppDatabaseContainerFactory {
         return model
     }
 
+    /// Defines the legacy Core Data schema for the shell channel metadata.
     private static func makeChannelEntityDescription() -> NSEntityDescription {
         let entity = NSEntityDescription()
         entity.name = CoreDataChannelEntity.entityName
@@ -625,6 +645,7 @@ private enum AppDatabaseContainerFactory {
         return entity
     }
 
+    /// Defines the legacy Core Data schema for signed-in users and shell-level preferences.
     private static func makeUserEntityDescription() -> NSEntityDescription {
         let entity = NSEntityDescription()
         entity.name = CoreDataUserEntity.entityName
@@ -640,6 +661,7 @@ private enum AppDatabaseContainerFactory {
         return entity
     }
 
+    /// Defines the legacy Core Data schema for cached feed cards and their persisted local state.
     private static func makeFeedCardEntityDescription() -> NSEntityDescription {
         let entity = NSEntityDescription()
         entity.name = CoreDataFeedCardEntity.entityName

@@ -3,14 +3,17 @@ import UIKit
 
 /// Main feed list rendering heterogeneous card content.
 struct NewsFeedView: View {
+    /// The shell-level plus button hides once the user has clearly moved away from the top card.
     private static let floatingActionButtonHideThreshold: CGFloat = 30
 
     @ObservedObject var viewModel: NewsFeedViewModel
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
     let onFeaturedArticleTap: (FeaturedArticleCardModel) -> Void
+    /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
     let onFeaturedArticleAction: (FeaturedArticleCardModel, FeaturedArticleCardAction) -> Void
     let onDiscussionTap: (DiscussionCardModel) -> Void
+    /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
     let onDiscussionAction: (DiscussionCardModel, DiscussionCardAction) -> Void
 
     var body: some View {
@@ -135,6 +138,7 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
         context.coordinator.attachIfNeeded(to: uiView)
     }
 
+    /// Owns the single KVO observation for the enclosing UIKit scroll view.
     final class Coordinator {
         var onOffsetChange: (CGFloat) -> Void
         private weak var scrollView: UIScrollView?
@@ -159,12 +163,15 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
                 }
 
                 self.scrollView = scrollView
+                // KVO keeps this bridge lightweight and avoids layout-driven approaches such as an
+                // outer GeometryReader wrapper around the entire feed.
                 self.observation = scrollView.observe(\.contentOffset, options: [.initial, .new]) { [weak self] scrollView, _ in
                     self?.onOffsetChange(max(0, scrollView.contentOffset.y))
                 }
             }
         }
 
+        /// Walks up the hosting hierarchy until the actual `UIScrollView` is found.
         private func enclosingScrollView(from view: UIView) -> UIScrollView? {
             var currentSuperview: UIView? = view.superview
 
@@ -180,4 +187,5 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
     }
 }
 
+/// Zero-sized host view used only to discover the surrounding UIKit scroll view.
 private final class ObserverView: UIView {}

@@ -2,11 +2,13 @@ import SwiftUI
 import WidgetKit
 import TchopWidgets
 
+/// Widget entry carrying the latest cached feed headline.
 struct FeedHeadlineWidgetEntry: TimelineEntry {
     let date: Date
     let headline: String
 }
 
+/// Reads the snapshot written by the main app and exposes it to WidgetKit.
 struct FeedHeadlineWidgetProvider: TimelineProvider {
     func placeholder(in context: Context) -> FeedHeadlineWidgetEntry {
         FeedHeadlineWidgetEntry(
@@ -16,10 +18,14 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
     }
 
     func getSnapshot(in context: Context, completion: @escaping (FeedHeadlineWidgetEntry) -> Void) {
+        // Snapshots and previews use the same cached-loading path so the widget stays close to the
+        // production rendering behavior.
         completion(loadEntry())
     }
 
     func getTimeline(in context: Context, completion: @escaping (Timeline<FeedHeadlineWidgetEntry>) -> Void) {
+        // The widget is intentionally cheap: render one cached headline and ask WidgetKit to come
+        // back later in case the main app has already written a fresher snapshot.
         let entry = loadEntry()
         let refreshDate = Calendar.current.date(byAdding: .minute, value: 15, to: entry.date) ?? entry.date
         completion(
@@ -31,6 +37,8 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
     }
 
     private func loadEntry() -> FeedHeadlineWidgetEntry {
+        // Keep the widget renderable even when the shared app-group snapshot is unavailable, such
+        // as in previews or before the main app has performed its first sync.
         let headline = (try? snapshotManager.load())?.headline ?? "Parrots help others..."
         return FeedHeadlineWidgetEntry(
             date: Date(),
@@ -38,6 +46,7 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
         )
     }
 
+    /// Uses the shared app-group defaults in production and standard defaults as a safe preview fallback.
     private var snapshotManager: UserDefaultsFeedHeadlineWidgetSnapshotManager {
         (try? UserDefaultsFeedHeadlineWidgetSnapshotManager(
             suiteName: AppGroupConfiguration.widgetsSuiteName
@@ -45,6 +54,7 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
     }
 }
 
+/// Visual presentation for the cached headline snapshot.
 struct FeedHeadlineWidgetEntryView: View {
     let entry: FeedHeadlineWidgetProvider.Entry
 
@@ -77,6 +87,7 @@ struct FeedHeadlineWidgetEntryView: View {
     }
 }
 
+/// Widget declaration surfaced on the user's home screen.
 struct FeedHeadlineWidget: Widget {
     var body: some WidgetConfiguration {
         StaticConfiguration(
