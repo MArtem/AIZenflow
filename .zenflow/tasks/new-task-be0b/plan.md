@@ -535,6 +535,7 @@ Progress update for this step:
 - introduced new `TchopErrors` infrastructure module with app-error taxonomy, default catalog/reporter, `APIError` mapper, and `AppErrorManager` facade + baseline tests;
 - added `AppAPIEnvironment` so transport configuration and logging policy are no longer hard-wired in the composition root;
 - upgraded session restore to an async token-aware path that remains backward-compatible when secure credentials are absent.
+- integrated `AppErrorManager` into the first real app-facing flows (`LoginViewModel` and `AppState`) and linked `TchopErrors` into both app targets.
 
 ### [x] Step: Fix and harden card action flow baseline
 

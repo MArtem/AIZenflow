@@ -1,6 +1,7 @@
 import Combine
 import Foundation
 import TchopAppleAuthentication
+import TchopErrors
 import UIKit
 import TchopNavigation
 
@@ -25,6 +26,7 @@ final class AppState: ObservableObject {
     private let navigationEventReporter: any NavigationEventReporting
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let pushNotificationBridge: any AppPushNotificationBridging
+    private let errorManager: any AppErrorManaging
     private var navigationBindings: Set<AnyCancellable> = []
     /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
     private var isApplyingNavigationSnapshot = false
@@ -41,7 +43,8 @@ final class AppState: ObservableObject {
         deepLinkManager: any DeepLinkManaging,
         navigationEventReporter: any NavigationEventReporting,
         widgetContentSyncManager: any WidgetContentSyncing,
-        pushNotificationBridge: any AppPushNotificationBridging
+        pushNotificationBridge: any AppPushNotificationBridging,
+        errorManager: any AppErrorManaging
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -52,6 +55,7 @@ final class AppState: ObservableObject {
         self.navigationEventReporter = navigationEventReporter
         self.widgetContentSyncManager = widgetContentSyncManager
         self.pushNotificationBridge = pushNotificationBridge
+        self.errorManager = errorManager
         setupNavigationPersistenceBindings()
         Task { @MainActor [weak self] in
             await self?.restoreSession()
@@ -131,7 +135,14 @@ final class AppState: ObservableObject {
                 currentUser = nil
             }
         } catch {
-            assertionFailure("Failed to restore user session: \(error)")
+            let presentation = await errorManager.presentableError(
+                from: error,
+                context: AppErrorContext(
+                    operation: "restoreSession",
+                    feature: "appState"
+                )
+            )
+            assertionFailure("Failed to restore user session: \(presentation.error.debugDescription)")
             currentUser = nil
         }
     }

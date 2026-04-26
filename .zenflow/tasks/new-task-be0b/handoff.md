@@ -1263,4 +1263,9 @@ Absent:  no tests/build/simulator checks
   but if tokens are present it now applies expiry/refresh policy before allowing the app to restore the authenticated shell.
 - [AppState.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift) now restores session asynchronously on startup through `restoreAuthenticatedSession()`,
   which prepares the app for real backend token refresh without changing the current local login UX.
+- `TchopErrors` is now linked into both app targets and minimally integrated into app-facing flows:
+  [LoginViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/LoginViewModel.swift)
+  now maps username/Apple login failures through `AppErrorManager`,
+  and [AppState.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift)
+  now reports session-restore failures through the same manager before falling back to signed-out state.
 - No verification run in this step (user requested explicit command before running checks).

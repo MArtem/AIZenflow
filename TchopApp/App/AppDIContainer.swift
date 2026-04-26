@@ -3,6 +3,7 @@ import SwiftUI
 import TchopAnalytics
 import TchopAppleAuthentication
 import TchopDatabase
+import TchopErrors
 import TchopNavigation
 import TchopNetworking
 import TchopPushNotifications
@@ -80,6 +81,9 @@ final class AppDIContainer: ObservableObject {
     /// Auth API manager responsible for token refresh/session-auth calls.
     let authenticationAPIManager: any AuthenticationAPIManaging
 
+    /// Shared app error manager used by UI/session flows for normalization and reporting.
+    let errorManager: any AppErrorManaging
+
     /// Feed-specific API abstraction currently backed by stub data.
     let feedAPIManager: any FeedAPIManaging
 
@@ -141,6 +145,7 @@ final class AppDIContainer: ObservableObject {
         self.apiManager = contentServices.apiManager
         self.authTokenStore = contentServices.authTokenStore
         self.authenticationAPIManager = contentServices.authenticationAPIManager
+        self.errorManager = contentServices.errorManager
         self.feedAPIManager = contentServices.feedAPIManager
         self.networkAvailabilityMonitor = contentServices.networkAvailabilityMonitor
         self.contentRepository = contentServices.contentRepository
@@ -190,7 +195,8 @@ final class AppDIContainer: ObservableObject {
             deepLinkManager: deepLinkManager,
             navigationEventReporter: navigationEventReporter,
             widgetContentSyncManager: widgetContentSyncManager,
-            pushNotificationBridge: pushNotificationBridge
+            pushNotificationBridge: pushNotificationBridge,
+            errorManager: errorManager
         )
     }
 
@@ -212,6 +218,7 @@ final class AppDIContainer: ObservableObject {
         apiManager: any APIManaging,
         authTokenStore: any AuthTokenStoring,
         authenticationAPIManager: any AuthenticationAPIManaging,
+        errorManager: any AppErrorManaging,
         feedAPIManager: any FeedAPIManaging,
         networkAvailabilityMonitor: any NetworkAvailabilityChecking,
         contentRepository: any AppContentRepository,
@@ -220,6 +227,7 @@ final class AppDIContainer: ObservableObject {
     ) {
         let authTokenStore = makeAuthTokenStore()
         let authenticationAPIManager = makeAuthenticationAPIManager()
+        let errorManager = makeErrorManager()
         let authenticationProvider = SessionAuthenticationProvider(
             tokenStore: authTokenStore,
             authenticationAPIManager: authenticationAPIManager
@@ -241,6 +249,7 @@ final class AppDIContainer: ObservableObject {
             apiManager: apiManager,
             authTokenStore: authTokenStore,
             authenticationAPIManager: authenticationAPIManager,
+            errorManager: errorManager,
             feedAPIManager: feedAPIManager,
             networkAvailabilityMonitor: networkAvailabilityMonitor,
             contentRepository: repositories.contentRepository,
@@ -319,6 +328,10 @@ final class AppDIContainer: ObservableObject {
 
     private static func makeAuthenticationAPIManager() -> any AuthenticationAPIManaging {
         StubAuthenticationAPIManager()
+    }
+
+    private static func makeErrorManager() -> any AppErrorManaging {
+        AppErrorManager()
     }
 
     private static func makeFeedAPIManager(apiManager: any APIManaging) -> any FeedAPIManaging {

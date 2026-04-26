@@ -1,6 +1,7 @@
 import AuthenticationServices
 import SwiftUI
 import TchopAppleAuthentication
+import TchopErrors
 
 /// Authentication screen shown before entering the app shell.
 struct LoginScreenView: View {
@@ -10,13 +11,15 @@ struct LoginScreenView: View {
     init(
         onLogin: @escaping (String) throws -> Void,
         onAppleLogin: @escaping (AppleAuthenticationIdentity) throws -> Void,
-        appleAuthenticationManager: any AppleAuthenticationManaging
+        appleAuthenticationManager: any AppleAuthenticationManaging,
+        errorManager: any AppErrorManaging
     ) {
         _viewModel = StateObject(
             wrappedValue: LoginViewModel(
                 onLogin: onLogin,
                 onAppleLogin: onAppleLogin,
-                appleAuthenticationManager: appleAuthenticationManager
+                appleAuthenticationManager: appleAuthenticationManager,
+                errorManager: errorManager
             )
         )
     }

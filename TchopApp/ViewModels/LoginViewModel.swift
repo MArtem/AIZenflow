@@ -1,6 +1,7 @@
 import AuthenticationServices
 import Foundation
 import TchopAppleAuthentication
+import TchopErrors
 
 /// View model backing the local-username and Apple sign-in screen.
 @MainActor
@@ -14,6 +15,7 @@ final class LoginViewModel: ObservableObject {
     private let onLogin: (String) throws -> Void
     private let onAppleLogin: (AppleAuthenticationIdentity) throws -> Void
     private let appleAuthenticationManager: any AppleAuthenticationManaging
+    private let errorManager: any AppErrorManaging
 
     /// Creates a login view model.
     ///
@@ -22,11 +24,13 @@ final class LoginViewModel: ObservableObject {
     init(
         onLogin: @escaping (String) throws -> Void,
         onAppleLogin: @escaping (AppleAuthenticationIdentity) throws -> Void,
-        appleAuthenticationManager: any AppleAuthenticationManaging
+        appleAuthenticationManager: any AppleAuthenticationManaging,
+        errorManager: any AppErrorManaging
     ) {
         self.onLogin = onLogin
         self.onAppleLogin = onAppleLogin
         self.appleAuthenticationManager = appleAuthenticationManager
+        self.errorManager = errorManager
     }
 
     /// Validates the input and attempts to sign in.
@@ -42,7 +46,13 @@ final class LoginViewModel: ObservableObject {
             try onLogin(normalizedUsername)
             errorMessage = nil
         } catch {
-            errorMessage = AppLocalization.text("login.error.generic", fallback: "Unable to sign in right now.")
+            presentLoginError(
+                error,
+                context: AppErrorContext(
+                    operation: "usernameLogin",
+                    feature: "login"
+                )
+            )
         }
     }
 
@@ -67,9 +77,12 @@ final class LoginViewModel: ObservableObject {
                 fallback: "Unable to read the Apple sign-in credential."
             )
         } catch {
-            errorMessage = AppLocalization.text(
-                "login.apple.error.generic",
-                fallback: "Unable to sign in with Apple right now."
+            presentLoginError(
+                error,
+                context: AppErrorContext(
+                    operation: "appleLogin",
+                    feature: "login"
+                )
             )
         }
     }
@@ -81,9 +94,26 @@ final class LoginViewModel: ObservableObject {
             return
         }
 
-        errorMessage = AppLocalization.text(
-            "login.apple.error.generic",
-            fallback: "Unable to sign in with Apple right now."
+        presentLoginError(
+            error,
+            context: AppErrorContext(
+                operation: "appleAuthorization",
+                feature: "login"
+            )
         )
+    }
+
+    /// Maps and reports login-flow failures through the shared app error manager.
+    private func presentLoginError(
+        _ error: Error,
+        context: AppErrorContext
+    ) {
+        Task { @MainActor [weak self, errorManager] in
+            let presentation = await errorManager.presentableError(
+                from: error,
+                context: context
+            )
+            self?.errorMessage = presentation.userMessage
+        }
     }
 }

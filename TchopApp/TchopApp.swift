@@ -38,6 +38,7 @@ struct TchopApp: App {
             AppRootView(
                 appState: appState,
                 appleAuthenticationManager: container.appleAuthenticationManager,
+                errorManager: container.errorManager,
                 onOpenURL: { url in
                     _ = appState.handleIncomingURL(url)
                 },

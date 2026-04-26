@@ -1,10 +1,12 @@
 import SwiftUI
 import TchopAppleAuthentication
+import TchopErrors
 
 /// Root switch between authentication flow and authenticated shell.
 struct AppRootView: View {
     @ObservedObject var appState: AppState
     let appleAuthenticationManager: any AppleAuthenticationManaging
+    let errorManager: any AppErrorManaging
     let onOpenURL: (URL) -> Void
     let onContinueUserActivity: (NSUserActivity) -> Void
 
@@ -12,11 +14,13 @@ struct AppRootView: View {
     init(
         appState: AppState,
         appleAuthenticationManager: any AppleAuthenticationManaging,
+        errorManager: any AppErrorManaging,
         onOpenURL: @escaping (URL) -> Void = { _ in },
         onContinueUserActivity: @escaping (NSUserActivity) -> Void = { _ in }
     ) {
         self.appState = appState
         self.appleAuthenticationManager = appleAuthenticationManager
+        self.errorManager = errorManager
         self.onOpenURL = onOpenURL
         self.onContinueUserActivity = onContinueUserActivity
     }
@@ -27,7 +31,8 @@ struct AppRootView: View {
                 LoginScreenView(
                     onLogin: appState.signIn,
                     onAppleLogin: appState.signInWithApple(identity:),
-                    appleAuthenticationManager: appleAuthenticationManager
+                    appleAuthenticationManager: appleAuthenticationManager,
+                    errorManager: errorManager
                 )
                     .accessibilityIdentifier("login.screen")
             } else {
