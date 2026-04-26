@@ -1302,6 +1302,8 @@ Absent:  no tests/build/simulator checks
 - `AppDIContainer.swift` now builds that manager with an app-local mapper and app-local message catalog layered above the package defaults, so app-specific failures like `RepositoryError`, `AuthenticationSessionError`, and Keychain/secure-storage errors keep stable categories and user-facing messages instead of collapsing into generic `unknown`.
 - `AppWidgetBridge.swift` now uses the same `AppErrorManager` pipeline for widget snapshot save/clear failures, and widget-sync setup in `AppDIContainer` now degrades to `NoopWidgetContentSyncManager` if the app-group-backed snapshot store cannot be created.
 - `ProfileTabRootView.swift` now also routes restore-navigation preference failures through `AppErrorManager`; the toggle still rolls back optimistically on failure, but the shown message now comes from the shared error pipeline instead of a hard-coded fallback only.
+- Persistence/bootstrap hardening also moved one level deeper:
+  `AppDIContainer` now boots the database through `AppDatabase.makeDatabaseManagerOrThrow(...)` instead of the fatal convenience wrapper, treats missing database manager as an unrecoverable startup failure with normalized persistence diagnostics, and keeps local seeding as a recoverable debug-reported failure path using the same app-local error mapping.
 - Startup restore cleanup policy is now explicit:
   if an expired token cannot be refreshed during `restoreAuthenticatedSession()`,
   `UserSessionService` clears both local session marker and secure tokens before surfacing failure.

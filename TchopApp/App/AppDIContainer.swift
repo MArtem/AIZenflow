@@ -77,6 +77,10 @@ private struct AppRuntimeErrorMapper: AppErrorMapping {
     }
 
     func map(_ error: Error, context: AppErrorContext?) -> AppError {
+        if let databaseError = error as? DatabaseError {
+            return mapDatabaseError(databaseError, context: context)
+        }
+
         if let authenticationError = error as? AuthenticationSessionError {
             return mapAuthenticationError(authenticationError, context: context)
         }
@@ -100,6 +104,58 @@ private struct AppRuntimeErrorMapper: AppErrorMapping {
         }
 
         return fallbackMapper.map(error, context: context)
+    }
+
+    private func mapDatabaseError(
+        _ error: DatabaseError,
+        context: AppErrorContext?
+    ) -> AppError {
+        switch error {
+        case .backendInitializationFailed(let reason), .migrationFailed(let reason):
+            return AppError(
+                category: .persistence,
+                severity: .critical,
+                suggestion: .restartFlow,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.persistence.databaseBootstrap",
+                debugDescription: reason,
+                context: context
+            )
+        case .transactionFailed(let reason), .saveFailed(let reason), .deleteFailed(let reason):
+            return AppError(
+                category: .persistence,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.persistence.databaseWrite",
+                debugDescription: reason,
+                context: context
+            )
+        case .fetchFailed(let reason):
+            return AppError(
+                category: .persistence,
+                severity: .warning,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.persistence.databaseRead",
+                debugDescription: reason,
+                context: context
+            )
+        case .unsupportedOperation(let reason):
+            return AppError(
+                category: .client,
+                severity: .error,
+                suggestion: .none,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.client.unsupportedOperation",
+                debugDescription: reason,
+                context: context
+            )
+        }
     }
 
     private func mapAuthenticationError(
@@ -209,6 +265,21 @@ private struct AppRuntimeErrorMessageCatalog: AppErrorMessageCatalog {
             return AppLocalization.text(
                 "shell.error.channelMissing",
                 fallback: "Channel data is unavailable. Restart the app or try again."
+            )
+        case "error.persistence.databaseBootstrap":
+            return AppLocalization.text(
+                "app.error.databaseBootstrap",
+                fallback: "App data is unavailable. Restart the app and try again."
+            )
+        case "error.persistence.databaseWrite":
+            return AppLocalization.text(
+                "app.error.databaseWrite",
+                fallback: "Unable to save local data right now. Try again."
+            )
+        case "error.persistence.databaseRead":
+            return AppLocalization.text(
+                "app.error.databaseRead",
+                fallback: "Unable to read local data right now. Try again."
             )
         default:
             return fallbackCatalog.userMessage(for: error)
@@ -365,7 +436,20 @@ final class AppDIContainer: ObservableObject {
     private static func makeSeededDatabaseManager(
         configuration: AppDatabaseConfiguration
     ) -> any DatabaseManaging {
-        let databaseManager = AppDatabase.makeDatabaseManager(configuration: configuration)
+        let databaseManager: any DatabaseManaging
+        do {
+            databaseManager = try AppDatabase.makeDatabaseManagerOrThrow(configuration: configuration)
+        } catch {
+            let bootstrapError = AppRuntimeErrorMapper().map(
+                error,
+                context: AppErrorContext(
+                    operation: "makeSeededDatabaseManager",
+                    feature: "bootstrap"
+                )
+            )
+            fatalError("Database bootstrap failed: \(bootstrapError.debugDescription)")
+        }
+
         seedLocalDataIfNeeded(using: databaseManager)
         return databaseManager
     }
@@ -430,7 +514,14 @@ final class AppDIContainer: ObservableObject {
         do {
             try AppDataSeeder.seedIfNeeded(in: databaseManager)
         } catch {
-            assertionFailure("Failed to seed local data: \(error)")
+            let bootstrapError = AppRuntimeErrorMapper().map(
+                error,
+                context: AppErrorContext(
+                    operation: "seedLocalDataIfNeeded",
+                    feature: "bootstrap"
+                )
+            )
+            assertionFailure("Failed to seed local data: \(bootstrapError.debugDescription)")
         }
     }
 

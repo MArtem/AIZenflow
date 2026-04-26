@@ -331,6 +331,7 @@ Progress so far in this phase:
 - completed: `AppDIContainer` now builds `AppErrorManager` with an app-local mapper/message catalog layered over `TchopErrors`, so `RepositoryError`, `AuthenticationSessionError`, and secure-storage failures no longer degrade to generic `unknown`.
 - completed: widget snapshot sync now uses the same shared error pipeline, and widget-store creation degrades safely to `NoopWidgetContentSyncManager` if app-group widget storage cannot be initialized.
 - completed: profile restore-navigation preference failures now also use `AppErrorManager`, so the optimistic toggle rollback keeps shared error semantics instead of a hard-coded fallback-only message.
+- completed: startup persistence/bootstrap paths are now more explicit: `AppDIContainer` uses `AppDatabase.makeDatabaseManagerOrThrow(...)`, unrecoverable database-manager failures crash with normalized persistence diagnostics, and recoverable local-seeding failures now assert with the same mapped error semantics.
    - Critical files:
      - new `TchopApp/Services/AuthAPIManager.swift`
      - `TchopApp/App/AppDIContainer.swift`

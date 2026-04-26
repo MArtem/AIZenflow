@@ -370,6 +370,12 @@ Creates the root app state object.
 #### `makeSeededDatabaseManager(...)`
 Creates the selected database backend and runs app-local seeding before feature graph assembly.
 
+Important detail:
+
+- the container now uses `AppDatabase.makeDatabaseManagerOrThrow(...)` for the real bootstrap path;
+- if the database manager itself cannot be created, startup still treats that as unrecoverable and crashes fast;
+- if local app seeding fails after the database is up, the failure is treated as recoverable and only reported in debug.
+
 #### `makeContentServices(...)`
 Builds:
 
@@ -750,6 +756,12 @@ Important types:
 
 #### `AppDatabase`
 App-level builder for the selected database manager.
+
+Important detail:
+
+- `makeDatabaseManagerOrThrow(...)` is the real bootstrap entry point used by app composition and tests that want explicit failure handling;
+- `makeDatabaseManager(...)` remains only as a thin fatal wrapper for callers that cannot recover from missing persistence at all;
+- even those fatal/assert paths now format database bootstrap failures into stable, semantic debug text instead of raw `String(describing:)`.
 
 Important methods:
 
