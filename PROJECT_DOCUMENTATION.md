@@ -840,7 +840,7 @@ These files define both:
 ## `TchopApp/Services`
 
 ### [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift)
-Owns session marker persistence.
+Owns local session markers, secure auth-token persistence, and the bridge between app users and backend credentials.
 
 Important protocol:
 
@@ -850,21 +850,35 @@ Used by `AppState`.
 Important methods:
 
 ##### `signIn(username:)`
-Finds or creates a local user and stores the active user ID.
+Async sign-in entry point.
+When backend auth is available it first exchanges credentials and stores secure tokens.
+When backend auth is still stubbed it intentionally falls back to local-user sign-in so the app remains usable.
 
 ##### `signInWithApple(identity:)`
-Finds or creates Apple-backed user and stores active user ID.
+Async Apple sign-in entry point with the same token-first, local-fallback policy.
 
 ##### `restoreSession()`
 Restores active session from `UserDefaults`.
 
+##### `restoreAuthenticatedSession()`
+Applies token-aware restore policy:
+
+- restore local user marker;
+- if no tokens exist, keep the old local-only behavior;
+- if access token is expired, try refresh;
+- if refresh fails, clear session and fail restore.
+
 ##### `signOut()`
-Clears session marker.
+Clears local session marker, clears secure tokens, and performs best-effort remote revoke when a backend auth manager exists.
 
 Important detail:
-The service stores only the active user marker.
-It does not own user persistence logic.
+This service still does not own user persistence logic.
 That belongs to `UserRepository`.
+Its job is to coordinate:
+
+- local user identity;
+- secure token lifecycle;
+- backend-session cleanup policy.
 
 ### [FeedAPIManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/FeedAPIManager.swift)
 This file defines the feed API contract and the current stub implementation.
@@ -1733,20 +1747,25 @@ Local login:
 
 1. user enters username;
 2. `LoginViewModel.submit()` validates input;
-3. `AppState.signIn(username:)` runs;
-4. `UserSessionService.signIn(username:)` asks `UserRepository` for user;
-5. repository finds or creates user;
-6. service stores active user ID;
-7. `AppState` activates authenticated runtime.
+3. `LoginViewModel` starts an async sign-in task and blocks duplicate taps;
+4. `AppState.signIn(username:)` runs;
+5. `UserSessionService.signIn(username:)` tries backend token exchange first when available;
+6. if token exchange succeeds, secure credentials are written to keychain-backed storage;
+7. service asks `UserRepository` for local user;
+8. repository finds or creates user;
+9. service stores active user ID;
+10. `AppState` activates authenticated runtime.
 
 Apple login:
 
 1. Apple sheet returns `ASAuthorization`;
 2. `LoginViewModel.handleAppleSignInCompletion(...)` converts it into `AppleAuthenticationIdentity`;
-3. `AppState.signInWithApple(identity:)` runs;
-4. `UserSessionService.signInWithApple(identity:)` resolves Apple-backed user via repository;
-5. service stores active user ID;
-6. `AppState` activates authenticated runtime.
+3. `LoginViewModel` starts the same async single-flight sign-in path;
+4. `AppState.signInWithApple(identity:)` runs;
+5. `UserSessionService.signInWithApple(identity:)` prefers backend token exchange when available;
+6. service resolves Apple-backed user via repository;
+7. service stores active user ID;
+8. `AppState` activates authenticated runtime.
 
 ## 3. Session Restore Flow
 
@@ -1758,10 +1777,13 @@ Files involved:
 Flow:
 
 1. `AppState.restoreSession()` runs on startup.
-2. `UserSessionService.restoreSession()` reads active user marker.
+2. `UserSessionService.restoreAuthenticatedSession()` reads active user marker.
 3. It upgrades old username-based marker if needed.
-4. If persisted user exists, it returns `AppUser`.
-5. `AppState` activates authenticated flow.
+4. If no secure tokens exist, local restore continues as before.
+5. If secure tokens exist and access token is expired, the service tries refresh before restoring the shell.
+6. If refresh succeeds, refreshed tokens are persisted.
+7. If refresh fails, local session and tokens are cleared and the app falls back to signed-out state.
+8. `AppState` activates authenticated flow only after that policy succeeds.
 
 ## 4. Navigation Restore Flow
 

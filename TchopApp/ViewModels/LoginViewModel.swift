@@ -9,11 +9,14 @@ final class LoginViewModel: ObservableObject {
     /// User-entered username value.
     @Published var username = ""
 
+    /// Prevents duplicate submissions while an async sign-in attempt is in flight.
+    @Published private(set) var isSubmitting = false
+
     /// Presentation-ready validation or sign-in error.
     @Published private(set) var errorMessage: String?
 
-    private let onLogin: (String) throws -> Void
-    private let onAppleLogin: (AppleAuthenticationIdentity) throws -> Void
+    private let onLogin: (String) async throws -> Void
+    private let onAppleLogin: (AppleAuthenticationIdentity) async throws -> Void
     private let appleAuthenticationManager: any AppleAuthenticationManaging
     private let errorManager: any AppErrorManaging
 
@@ -22,8 +25,8 @@ final class LoginViewModel: ObservableObject {
     /// The view model stays intentionally thin: authentication normalization lives in the
     /// Apple-auth package and session ownership lives in AppState.
     init(
-        onLogin: @escaping (String) throws -> Void,
-        onAppleLogin: @escaping (AppleAuthenticationIdentity) throws -> Void,
+        onLogin: @escaping (String) async throws -> Void,
+        onAppleLogin: @escaping (AppleAuthenticationIdentity) async throws -> Void,
         appleAuthenticationManager: any AppleAuthenticationManaging,
         errorManager: any AppErrorManaging
     ) {
@@ -42,18 +45,17 @@ final class LoginViewModel: ObservableObject {
             return
         }
 
-        do {
-            try onLogin(normalizedUsername)
-            errorMessage = nil
-        } catch {
-            presentLoginError(
-                error,
-                context: AppErrorContext(
-                    operation: "usernameLogin",
-                    feature: "login"
-                )
-            )
+        guard !isSubmitting else {
+            return
         }
+
+        runSignInTask(
+            operation: { try await onLogin(normalizedUsername) },
+            failureContext: AppErrorContext(
+                operation: "usernameLogin",
+                feature: "login"
+            )
+        )
     }
 
     /// Handles the Sign in with Apple completion result and converts it into the app session payload.
@@ -69,8 +71,17 @@ final class LoginViewModel: ObservableObject {
     /// Extracts the credential payload and starts the Apple-backed sign-in flow.
     private func handleSuccessfulAppleAuthorization(_ authorization: ASAuthorization) {
         do {
-            try onAppleLogin(appleAuthenticationManager.identity(from: authorization))
-            errorMessage = nil
+            let identity = try appleAuthenticationManager.identity(from: authorization)
+            guard !isSubmitting else {
+                return
+            }
+            runSignInTask(
+                operation: { try await onAppleLogin(identity) },
+                failureContext: AppErrorContext(
+                    operation: "appleLogin",
+                    feature: "login"
+                )
+            )
         } catch AppleAuthenticationError.invalidCredential {
             errorMessage = AppLocalization.text(
                 "login.apple.error.invalidCredential",
@@ -114,6 +125,28 @@ final class LoginViewModel: ObservableObject {
                 context: context
             )
             self?.errorMessage = presentation.userMessage
+        }
+    }
+
+    /// Runs a single sign-in operation while keeping the screen responsive and duplicate-safe.
+    private func runSignInTask(
+        operation: @escaping () async throws -> Void,
+        failureContext: AppErrorContext
+    ) {
+        isSubmitting = true
+        errorMessage = nil
+
+        Task { @MainActor [weak self] in
+            defer {
+                self?.isSubmitting = false
+            }
+
+            do {
+                try await operation()
+                self?.errorMessage = nil
+            } catch {
+                self?.presentLoginError(error, context: failureContext)
+            }
         }
     }
 }

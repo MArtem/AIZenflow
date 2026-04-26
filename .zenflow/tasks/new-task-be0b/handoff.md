@@ -1274,4 +1274,16 @@ Absent:  no tests/build/simulator checks
   even though the implementation remains stubbed for now,
   and `SessionAuthenticationProvider` now deduplicates concurrent refresh attempts through a shared in-flight `refreshTask`.
   That means parallel expired-token requests now have a defined production path instead of each issuing its own refresh once the backend exists.
+- The auth/login path is now async end-to-end in the app layer:
+  [AppState.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift),
+  [LoginViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/LoginViewModel.swift),
+  [LoginScreenView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift),
+  and [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift)
+  now use async sign-in operations, single-flight UI submission state, and backend-first token exchange with local fallback while auth endpoints are still stubbed.
+- Startup restore cleanup policy is now explicit:
+  if an expired token cannot be refreshed during `restoreAuthenticatedSession()`,
+  `UserSessionService` clears both local session marker and secure tokens before surfacing failure.
+- Logout semantics are also closer to production:
+  `signOut()` remains local-first and non-blocking,
+  but it now performs best-effort remote session revoke when an auth manager exists and the backend supports it.
 - No verification run in this step (user requested explicit command before running checks).

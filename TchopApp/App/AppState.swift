@@ -63,14 +63,14 @@ final class AppState: ObservableObject {
     }
 
     /// Signs in with the provided username and updates the source of truth user state.
-    func signIn(username: String) throws {
-        let signedInUser = try sessionService.signIn(username: username)
+    func signIn(username: String) async throws {
+        let signedInUser = try await sessionService.signIn(username: username)
         activateAuthenticatedUser(signedInUser)
     }
 
     /// Signs in with a normalized Apple identity profile and updates the source of truth user state.
-    func signInWithApple(identity: AppleAuthenticationIdentity) throws {
-        let signedInUser = try sessionService.signInWithApple(identity: identity)
+    func signInWithApple(identity: AppleAuthenticationIdentity) async throws {
+        let signedInUser = try await sessionService.signInWithApple(identity: identity)
         activateAuthenticatedUser(signedInUser)
     }
 

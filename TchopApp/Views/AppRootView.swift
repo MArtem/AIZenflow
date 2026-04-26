@@ -29,7 +29,7 @@ struct AppRootView: View {
         Group {
             if appState.currentUser == nil {
                 LoginScreenView(
-                    onLogin: appState.signIn,
+                    onLogin: appState.signIn(username:),
                     onAppleLogin: appState.signInWithApple(identity:),
                     appleAuthenticationManager: appleAuthenticationManager,
                     errorManager: errorManager

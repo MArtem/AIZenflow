@@ -318,6 +318,13 @@ Recommended implementation order:
      - `refreshSession(using refreshToken:)`
      - `logout(...)` or `revokeSession(...)`
    - This prevents feed/content services from becoming the place where auth logic leaks.
+
+Progress so far in this phase:
+- completed: app-local auth token model, keychain token store, auth-aware networking provider, DI interceptor wiring, and `TchopErrors` package foundation;
+- completed: async token-aware startup restore in `AppState`/`UserSessionService`;
+- completed: async login path from `LoginScreenView` through `AppState` into `UserSessionService`, with backend-first token exchange and local fallback while auth endpoints remain stubbed;
+- completed: refresh deduplication in `SessionAuthenticationProvider`;
+- completed: local-first logout with best-effort remote revoke hook.
    - Critical files:
      - new `TchopApp/Services/AuthAPIManager.swift`
      - `TchopApp/App/AppDIContainer.swift`

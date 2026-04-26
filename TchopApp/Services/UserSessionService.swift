@@ -220,11 +220,11 @@ struct StubAuthenticationAPIManager: AuthenticationAPIManaging {
 /// Session service contract used by app-level state.
 @MainActor
 protocol UserSessionManaging {
-    /// Signs in with the provided username and persists the active session marker.
-    func signIn(username: String) throws -> AppUser
+    /// Signs in with the provided username and persists both backend credentials and the local session marker.
+    func signIn(username: String) async throws -> AppUser
 
-    /// Signs in with a normalized Apple identity payload and persists the active session marker.
-    func signInWithApple(identity: AppleAuthenticationIdentity) throws -> AppUser
+    /// Signs in with a normalized Apple identity payload and persists both backend credentials and the local session marker.
+    func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AppUser
 
     /// Restores the active user if a valid persisted session exists.
     func restoreSession() throws -> AppUser?
@@ -270,14 +270,39 @@ final class UserSessionService: UserSessionManaging {
     }
 
     /// Signs in and stores the active user identifier for future restoration.
-    func signIn(username: String) throws -> AppUser {
+    ///
+    /// When a backend auth manager is wired, this path persists secure credentials first and only then
+    /// marks the local app user as authenticated. Until real auth endpoints exist the flow falls back
+    /// to local-user creation so the rest of the app can keep moving.
+    func signIn(username: String) async throws -> AppUser {
+        if let authenticationAPIManager, let tokenStore {
+            do {
+                let tokenSet = try await authenticationAPIManager.signIn(username: username)
+                try tokenStore.saveTokenSet(tokenSet)
+            } catch AuthenticationSessionError.signInUnavailable {
+                // Local stub mode intentionally keeps login working before a real backend exists.
+            }
+        }
+
         let user = try userRepository.findOrCreateUser(username: username)
         userDefaults.set(user.id, forKey: Keys.activeUserID)
         return user
     }
 
     /// Signs in with Apple and stores the active user identifier for future restoration.
-    func signInWithApple(identity: AppleAuthenticationIdentity) throws -> AppUser {
+    ///
+    /// The backend token exchange is optional for now, but the method already prefers the production
+    /// path when an auth manager is available so the UI flow does not need another signature change later.
+    func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AppUser {
+        if let authenticationAPIManager, let tokenStore {
+            do {
+                let tokenSet = try await authenticationAPIManager.signInWithApple(identity: identity)
+                try tokenStore.saveTokenSet(tokenSet)
+            } catch AuthenticationSessionError.signInUnavailable {
+                // Local stub mode intentionally keeps Apple-identity normalization reusable without backend auth yet.
+            }
+        }
+
         let user = try userRepository.findOrCreateAppleUser(
             appleUserID: identity.userID,
             preferredUsername: identity.preferredUsername
@@ -319,11 +344,16 @@ final class UserSessionService: UserSessionManaging {
             return nil
         }
 
-        let refreshedTokenSet = try await authenticationAPIManager.refreshToken(
-            using: tokenSet.refreshToken
-        )
-        try tokenStore.saveTokenSet(refreshedTokenSet)
-        return restoredUser
+        do {
+            let refreshedTokenSet = try await authenticationAPIManager.refreshToken(
+                using: tokenSet.refreshToken
+            )
+            try tokenStore.saveTokenSet(refreshedTokenSet)
+            return restoredUser
+        } catch {
+            signOut()
+            throw error
+        }
     }
 
     /// Resolves the persisted app user independently from backend auth-token state.
@@ -342,9 +372,30 @@ final class UserSessionService: UserSessionManaging {
 
     /// Clears the active persisted session.
     func signOut() {
+        let accessToken: String?
+        if let tokenStore {
+            accessToken = try? tokenStore.loadTokenSet()?.accessToken
+        } else {
+            accessToken = nil
+        }
+
         userDefaults.removeObject(forKey: Keys.activeUserID)
         userDefaults.removeObject(forKey: Keys.legacyActiveUsername)
         try? tokenStore?.clearTokenSet()
+
+        guard let authenticationAPIManager else {
+            return
+        }
+
+        Task {
+            do {
+                try await authenticationAPIManager.revokeSession(accessToken: accessToken)
+            } catch AuthenticationSessionError.revokeUnavailable {
+                // Local stub mode has nothing to revoke remotely.
+            } catch {
+                // Logout remains local-first and non-blocking; revoke failures are intentionally best-effort.
+            }
+        }
     }
 
     /// Resolves the current persisted user identifier and upgrades legacy username-based session storage.

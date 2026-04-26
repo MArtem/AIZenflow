@@ -9,8 +9,8 @@ struct LoginScreenView: View {
 
     /// Creates a new LoginScreenView instance.
     init(
-        onLogin: @escaping (String) throws -> Void,
-        onAppleLogin: @escaping (AppleAuthenticationIdentity) throws -> Void,
+        onLogin: @escaping (String) async throws -> Void,
+        onAppleLogin: @escaping (AppleAuthenticationIdentity) async throws -> Void,
         appleAuthenticationManager: any AppleAuthenticationManaging,
         errorManager: any AppErrorManaging
     ) {
@@ -52,6 +52,8 @@ struct LoginScreenView: View {
             .accessibilityIdentifier("login.appleButton")
             .frame(height: 52)
             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .disabled(viewModel.isSubmitting)
+            .opacity(viewModel.isSubmitting ? 0.8 : 1)
 
 #if targetEnvironment(simulator)
             Text(
@@ -91,6 +93,7 @@ struct LoginScreenView: View {
                     .accessibilityIdentifier("login.usernameField")
                     .textInputAutocapitalization(.words)
                     .autocorrectionDisabled()
+                    .disabled(viewModel.isSubmitting)
                     .padding(.horizontal, 16)
                     .padding(.vertical, 14)
                     .background(AppTheme.surfacePrimary)
@@ -108,16 +111,28 @@ struct LoginScreenView: View {
             }
 
             Button(action: viewModel.submit) {
-                Text(AppLocalization.text("login.continueButton", fallback: "Continue with username"))
-                    .font(.system(size: 16, weight: .semibold))
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 15)
-                    .foregroundStyle(.white)
-                    .background(AppTheme.accent)
-                    .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                Group {
+                    if viewModel.isSubmitting {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .tint(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 15)
+                    } else {
+                        Text(AppLocalization.text("login.continueButton", fallback: "Continue with username"))
+                            .font(.system(size: 16, weight: .semibold))
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 15)
+                    }
+                }
+                .foregroundStyle(.white)
+                .background(AppTheme.accent)
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
             }
             .accessibilityIdentifier("login.continueButton")
             .buttonStyle(.plain)
+            .disabled(viewModel.isSubmitting)
+            .opacity(viewModel.isSubmitting ? 0.8 : 1)
 
             Spacer()
         }

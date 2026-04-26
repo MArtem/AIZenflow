@@ -17,7 +17,9 @@ struct TchopApp: App {
         let appState = container.makeAppState()
 
         if launchConfiguration.launchesAuthenticatedSession {
-            try? appState.signIn(username: launchConfiguration.uiTestUsername)
+            Task { @MainActor in
+                try? await appState.signIn(username: launchConfiguration.uiTestUsername)
+            }
         }
 
         if let initialURL = launchConfiguration.initialURL {
