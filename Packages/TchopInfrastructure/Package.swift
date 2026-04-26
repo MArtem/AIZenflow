@@ -70,6 +70,10 @@ let package = Package(
         .library(
             name: "TchopAppleAuthentication",
             targets: ["TchopAppleAuthentication"]
+        ),
+        .library(
+            name: "TchopErrors",
+            targets: ["TchopErrors"]
         )
     ],
     targets: [
@@ -133,6 +137,10 @@ let package = Package(
             name: "TchopAppleAuthentication"
         ),
         .target(
+            name: "TchopErrors",
+            dependencies: ["TchopNetworking"]
+        ),
+        .target(
             name: "TchopAnalytics",
             dependencies: [
                 "TchopNavigation",
@@ -175,6 +183,10 @@ let package = Package(
         .testTarget(
             name: "TchopAnalyticsTests",
             dependencies: ["TchopAnalytics"]
+        ),
+        .testTarget(
+            name: "TchopErrorsTests",
+            dependencies: ["TchopErrors"]
         )
     ]
 )

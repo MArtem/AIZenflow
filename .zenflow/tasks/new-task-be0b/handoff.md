@@ -1222,3 +1222,35 @@ Absent:  no tests/build/simulator checks
   work is about to merge into `main` for medium/large scope tasks.
 - For trivial/small low-risk edits:
   `GPT-5.3 Codex` implementation plus local verification (`xcodebuild ... build` and relevant tests) is sufficient.
+
+## Latest Update
+- Started real-API readiness foundation in code without replacing the current stub business flow.
+- Added auth session primitives in app layer:
+  `AuthTokenSet`,
+  `AuthTokenStoring`,
+  `AuthenticationAPIManaging`,
+  `KeychainAuthTokenStore`,
+  `SessionAuthenticationProvider`,
+  and temporary `StubAuthenticationAPIManager`
+  in [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift).
+- `UserSessionService` now receives optional token store and clears secure auth tokens on `signOut()`.
+- Updated DI composition in [AppDIContainer.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppDIContainer.swift):
+  the app now wires
+  `APIAuthenticationInterceptor`,
+  `APIAuthorizationRefreshInterceptor`,
+  and `APIRetryInterceptor`
+  in addition to metrics, while still using `.stub` API configuration.
+- Added new infrastructure package module `TchopErrors` in
+  [Package.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Package.swift),
+  with source at
+  [TchopErrors.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopErrors/TchopErrors.swift)
+  and baseline tests at
+  [TchopErrorsTests.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopErrorsTests/TchopErrorsTests.swift).
+- `TchopErrors` currently provides:
+  normalized app error taxonomy (`AppErrorCategory`, `AppErrorSeverity`, `AppRecoverySuggestion`),
+  app-facing error payload (`AppError`),
+  error context/logging payloads,
+  default message catalog,
+  memory reporter,
+  and `APIError -> AppError` mapper.
+- No verification run in this step (user requested explicit command before running checks).

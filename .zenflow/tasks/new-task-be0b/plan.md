@@ -529,6 +529,11 @@ Verification plan once implementation starts:
 - app build/test later when explicitly requested:
   - `./scripts/verify.sh low`
 
+Progress update for this step:
+- implemented initial auth foundation in app layer (`AuthTokenSet`, keychain token store, auth provider, stub auth API manager);
+- wired auth/refresh/retry interceptors into app DI while preserving current stub feed behavior;
+- introduced new `TchopErrors` infrastructure module with app-error taxonomy, default catalog/reporter, and `APIError` mapper + baseline tests.
+
 ### [x] Step: Fix and harden card action flow baseline
 
 Completed the in-progress card action architecture so the feature layer is no longer left in a half-integrated state.

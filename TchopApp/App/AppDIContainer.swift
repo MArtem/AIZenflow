@@ -24,6 +24,12 @@ final class AppDIContainer: ObservableObject {
     /// Shared networking client used by feature-specific API managers.
     let apiManager: any APIManaging
 
+    /// Secure token storage used by auth-aware networking and session flows.
+    let authTokenStore: any AuthTokenStoring
+
+    /// Auth API manager responsible for token refresh/session-auth calls.
+    let authenticationAPIManager: any AuthenticationAPIManaging
+
     /// Feed-specific API abstraction currently backed by stub data.
     let feedAPIManager: any FeedAPIManaging
 
@@ -79,6 +85,8 @@ final class AppDIContainer: ObservableObject {
             analyticsCollector: analyticsCollector
         )
         self.apiManager = contentServices.apiManager
+        self.authTokenStore = contentServices.authTokenStore
+        self.authenticationAPIManager = contentServices.authenticationAPIManager
         self.feedAPIManager = contentServices.feedAPIManager
         self.networkAvailabilityMonitor = contentServices.networkAvailabilityMonitor
         self.contentRepository = contentServices.contentRepository
@@ -147,13 +155,24 @@ final class AppDIContainer: ObservableObject {
         analyticsCollector: ProductAnalyticsMemoryCollector
     ) -> (
         apiManager: any APIManaging,
+        authTokenStore: any AuthTokenStoring,
+        authenticationAPIManager: any AuthenticationAPIManaging,
         feedAPIManager: any FeedAPIManaging,
         networkAvailabilityMonitor: any NetworkAvailabilityChecking,
         contentRepository: any AppContentRepository,
         userRepository: any UserRepository,
         sessionService: any UserSessionManaging
     ) {
-        let apiManager = makeAPIManager(analyticsCollector: analyticsCollector)
+        let authTokenStore = makeAuthTokenStore()
+        let authenticationAPIManager = makeAuthenticationAPIManager()
+        let authenticationProvider = SessionAuthenticationProvider(
+            tokenStore: authTokenStore,
+            authenticationAPIManager: authenticationAPIManager
+        )
+        let apiManager = makeAPIManager(
+            analyticsCollector: analyticsCollector,
+            authenticationProvider: authenticationProvider
+        )
         let feedAPIManager = makeFeedAPIManager(apiManager: apiManager)
         let networkAvailabilityMonitor = NetworkAvailabilityMonitor()
         let repositories = makeRepositories(
@@ -164,11 +183,16 @@ final class AppDIContainer: ObservableObject {
 
         return (
             apiManager: apiManager,
+            authTokenStore: authTokenStore,
+            authenticationAPIManager: authenticationAPIManager,
             feedAPIManager: feedAPIManager,
             networkAvailabilityMonitor: networkAvailabilityMonitor,
             contentRepository: repositories.contentRepository,
             userRepository: repositories.userRepository,
-            sessionService: UserSessionService(userRepository: repositories.userRepository)
+            sessionService: UserSessionService(
+                userRepository: repositories.userRepository,
+                tokenStore: authTokenStore
+            )
         )
     }
 
@@ -200,11 +224,19 @@ final class AppDIContainer: ObservableObject {
     }
 
     private static func makeAPIManager(
-        analyticsCollector: ProductAnalyticsMemoryCollector
+        analyticsCollector: ProductAnalyticsMemoryCollector,
+        authenticationProvider: any APIAuthenticationRefreshing
     ) -> any APIManaging {
         APIManager(
             configuration: .stub,
             interceptors: [
+                APIAuthenticationInterceptor(
+                    provider: authenticationProvider
+                ),
+                APIAuthorizationRefreshInterceptor(
+                    provider: authenticationProvider
+                ),
+                APIRetryInterceptor(),
                 APIMetricsInterceptor(
                     collector: APIAnalyticsMetricsCollector(
                         collector: analyticsCollector
@@ -212,6 +244,14 @@ final class AppDIContainer: ObservableObject {
                 )
             ]
         )
+    }
+
+    private static func makeAuthTokenStore() -> any AuthTokenStoring {
+        KeychainAuthTokenStore()
+    }
+
+    private static func makeAuthenticationAPIManager() -> any AuthenticationAPIManaging {
+        StubAuthenticationAPIManager()
     }
 
     private static func makeFeedAPIManager(apiManager: any APIManaging) -> any FeedAPIManaging {
