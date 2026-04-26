@@ -50,7 +50,9 @@ final class LoginViewModel: ObservableObject {
         }
 
         runSignInTask(
-            operation: { try await onLogin(normalizedUsername) },
+            operation: { [self] in
+                try await self.onLogin(normalizedUsername)
+            },
             failureContext: AppErrorContext(
                 operation: "usernameLogin",
                 feature: "login"
@@ -76,7 +78,9 @@ final class LoginViewModel: ObservableObject {
                 return
             }
             runSignInTask(
-                operation: { try await onAppleLogin(identity) },
+                operation: { [self] in
+                    try await self.onAppleLogin(identity)
+                },
                 failureContext: AppErrorContext(
                     operation: "appleLogin",
                     feature: "login"

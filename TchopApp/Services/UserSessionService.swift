@@ -49,10 +49,7 @@ protocol AuthenticationAPIManaging {
 
 /// Auth-specific failures surfaced by the token/session stack.
 enum AuthenticationSessionError: Error, Equatable {
-    case signInUnavailable
     case missingRefreshToken
-    case refreshUnavailable
-    case revokeUnavailable
 }
 
 /// Keychain-backed token store used for production credentials.
@@ -198,25 +195,6 @@ actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
     }
 }
 
-/// Temporary auth API manager used until a real auth backend contract is available.
-struct StubAuthenticationAPIManager: AuthenticationAPIManaging {
-    func signIn(username: String) async throws -> AuthTokenSet {
-        throw AuthenticationSessionError.signInUnavailable
-    }
-
-    func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AuthTokenSet {
-        throw AuthenticationSessionError.signInUnavailable
-    }
-
-    func refreshToken(using refreshToken: String) async throws -> AuthTokenSet {
-        throw AuthenticationSessionError.refreshUnavailable
-    }
-
-    func revokeSession(accessToken: String?) async throws {
-        throw AuthenticationSessionError.revokeUnavailable
-    }
-}
-
 /// Session service contract used by app-level state.
 @MainActor
 protocol UserSessionManaging {
@@ -276,12 +254,8 @@ final class UserSessionService: UserSessionManaging {
     /// to local-user creation so the rest of the app can keep moving.
     func signIn(username: String) async throws -> AppUser {
         if let authenticationAPIManager, let tokenStore {
-            do {
-                let tokenSet = try await authenticationAPIManager.signIn(username: username)
-                try tokenStore.saveTokenSet(tokenSet)
-            } catch AuthenticationSessionError.signInUnavailable {
-                // Local stub mode intentionally keeps login working before a real backend exists.
-            }
+            let tokenSet = try await authenticationAPIManager.signIn(username: username)
+            try tokenStore.saveTokenSet(tokenSet)
         }
 
         let user = try userRepository.findOrCreateUser(username: username)
@@ -295,12 +269,8 @@ final class UserSessionService: UserSessionManaging {
     /// path when an auth manager is available so the UI flow does not need another signature change later.
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AppUser {
         if let authenticationAPIManager, let tokenStore {
-            do {
-                let tokenSet = try await authenticationAPIManager.signInWithApple(identity: identity)
-                try tokenStore.saveTokenSet(tokenSet)
-            } catch AuthenticationSessionError.signInUnavailable {
-                // Local stub mode intentionally keeps Apple-identity normalization reusable without backend auth yet.
-            }
+            let tokenSet = try await authenticationAPIManager.signInWithApple(identity: identity)
+            try tokenStore.saveTokenSet(tokenSet)
         }
 
         let user = try userRepository.findOrCreateAppleUser(
@@ -390,8 +360,6 @@ final class UserSessionService: UserSessionManaging {
         Task {
             do {
                 try await authenticationAPIManager.revokeSession(accessToken: accessToken)
-            } catch AuthenticationSessionError.revokeUnavailable {
-                // Local stub mode has nothing to revoke remotely.
             } catch {
                 // Logout remains local-first and non-blocking; revoke failures are intentionally best-effort.
             }

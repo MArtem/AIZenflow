@@ -45,6 +45,7 @@
 		A00000570000000000000001 /* Views/Tabs/StubTabDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000580000000000000001 /* Views/Tabs/StubTabDetailView.swift */; };
 		A00000590000000000000001 /* Models/AppUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000005A0000000000000001 /* AppUser.swift */; };
 		A000005B0000000000000001 /* Services/UserSessionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000005C0000000000000001 /* UserSessionService.swift */; };
+		J00000010000000000000001 /* Services/AuthenticationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = J00000020000000000000001 /* AuthenticationAPIManager.swift */; };
 		A000005D0000000000000001 /* Repositories/UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000005E0000000000000001 /* UserRepository.swift */; };
 		A00000610000000000000001 /* App/AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000620000000000000001 /* AppState.swift */; };
 		A00000630000000000000001 /* ViewModels/LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000640000000000000001 /* LoginViewModel.swift */; };
@@ -209,6 +210,7 @@
 		A000005A0000000000000001 /* AppUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppUser.swift; sourceTree = "<group>"; };
 		A000003C2000000000000001 /* AccountProfileSummary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountProfileSummary.swift; sourceTree = "<group>"; };
 		A000005C0000000000000001 /* UserSessionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionService.swift; sourceTree = "<group>"; };
+		J00000020000000000000001 /* AuthenticationAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPIManager.swift; sourceTree = "<group>"; };
 		A000005E0000000000000001 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		A00000620000000000000001 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		A00000640000000000000001 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -458,6 +460,7 @@
 		A00000100000000000000002 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				J00000020000000000000001 /* AuthenticationAPIManager.swift */,
 				A000006C0000000000000001 /* FeedAPIManager.swift */,
 				A000005C0000000000000001 /* UserSessionService.swift */,
 			);
@@ -880,6 +883,7 @@
 				A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */,
 				A00000570000000000000001 /* Views/Tabs/StubTabDetailView.swift in Sources */,
 				A00000590000000000000001 /* Models/AppUser.swift in Sources */,
+				J00000010000000000000001 /* Services/AuthenticationAPIManager.swift in Sources */,
 				A000005B0000000000000001 /* Services/UserSessionService.swift in Sources */,
 				A000005D0000000000000001 /* Repositories/UserRepository.swift in Sources */,
 				A00000610000000000000001 /* App/AppState.swift in Sources */,
@@ -944,6 +948,7 @@
 				A00000550000000000000001 /* Views/Tabs/StubTabNavigationRootView.swift in Sources */,
 				A00000570000000000000001 /* Views/Tabs/StubTabDetailView.swift in Sources */,
 				A00000590000000000000001 /* Models/AppUser.swift in Sources */,
+				J00000010000000000000001 /* Services/AuthenticationAPIManager.swift in Sources */,
 				A000005B0000000000000001 /* Services/UserSessionService.swift in Sources */,
 				A000005D0000000000000001 /* Repositories/UserRepository.swift in Sources */,
 				A00000610000000000000001 /* App/AppState.swift in Sources */,

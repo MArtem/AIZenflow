@@ -1,4 +1,5 @@
 import Foundation
+import TchopErrors
 
 /// Explicit runtime state for the news feed screen.
 enum NewsFeedState: Equatable {
@@ -71,6 +72,7 @@ final class NewsFeedViewModel: ObservableObject {
 
     private let repository: any NewsFeedRepository
     private let widgetContentSyncManager: any WidgetContentSyncing
+    private let errorManager: any AppErrorManaging
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
@@ -90,12 +92,14 @@ final class NewsFeedViewModel: ObservableObject {
     init(
         repository: any NewsFeedRepository,
         widgetContentSyncManager: any WidgetContentSyncing,
+        errorManager: any AppErrorManaging,
         initialContent: NewsFeedContent,
         loadFailureContent: NewsFeedContent,
         loadFailureMessage: String
     ) {
         self.repository = repository
         self.widgetContentSyncManager = widgetContentSyncManager
+        self.errorManager = errorManager
         self.state = .loaded(initialContent)
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
@@ -225,10 +229,10 @@ final class NewsFeedViewModel: ObservableObject {
     ///
     /// This is a feed-level failure path. Card-level inline errors use a different policy and
     /// intentionally keep the surrounding feed snapshot visible.
-    private func applyLoadFailureState() {
+    private func applyLoadFailureState(message: String? = nil) {
         cancelFeaturedArticleTasks()
         cancelDiscussionTasks()
-        state = .failed(content: loadFailureContent, message: loadFailureMessage)
+        state = .failed(content: loadFailureContent, message: message ?? loadFailureMessage)
         widgetContentSyncManager.syncFeed(content: loadFailureContent)
     }
 
@@ -295,7 +299,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleFeaturedArticleFailure(
+                    await self?.handleFeaturedArticleFailure(
                         action: .toggleLike,
                         articleID: articleID,
                         previousArticle: previousArticle,
@@ -361,7 +365,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleFeaturedArticleFailure(
+                    await self?.handleFeaturedArticleFailure(
                         action: .addComment,
                         articleID: articleID,
                         previousArticle: nil,
@@ -416,7 +420,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleFeaturedArticleFailure(
+                    await self?.handleFeaturedArticleFailure(
                         action: .setDisplayMode(displayMode),
                         articleID: articleID,
                         previousArticle: previousArticle,
@@ -471,7 +475,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleFeaturedArticleFailure(
+                    await self?.handleFeaturedArticleFailure(
                         action: .refreshContent,
                         articleID: articleID,
                         previousArticle: nil,
@@ -523,7 +527,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleFeaturedArticleFailure(
+                    await self?.handleFeaturedArticleFailure(
                         action: .runLongTask,
                         articleID: articleID,
                         previousArticle: nil,
@@ -738,8 +742,8 @@ final class NewsFeedViewModel: ObservableObject {
         articleID: String,
         previousArticle: FeaturedArticleCardModel?,
         error: Error
-    ) {
-        let policy = featuredArticleFailurePolicy(for: action, error: error)
+    ) async {
+        let policy = await featuredArticleFailurePolicy(for: action, error: error)
         switch policy.resolution {
         case .rollback:
             rollbackFeaturedArticle(
@@ -756,8 +760,8 @@ final class NewsFeedViewModel: ObservableObject {
     private func featuredArticleFailurePolicy(
         for action: FeaturedArticleCardAction,
         error: Error
-    ) -> CardActionFailurePolicy {
-        let fallbackMessage = cardActionFailureMessage(for: error)
+    ) async -> CardActionFailurePolicy {
+        let fallbackMessage = await cardActionFailureMessage(for: error, feature: "featuredArticle")
         switch action {
         case .toggleLike, .setDisplayMode:
             return CardActionFailurePolicy(resolution: .rollback, message: fallbackMessage)
@@ -807,7 +811,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleDiscussionFailure(
+                    await self?.handleDiscussionFailure(
                         action: .toggleParticipation,
                         discussionID: discussionID,
                         previousDiscussion: previousDiscussion,
@@ -870,7 +874,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleDiscussionFailure(
+                    await self?.handleDiscussionFailure(
                         action: .addReply,
                         discussionID: discussionID,
                         previousDiscussion: nil,
@@ -918,7 +922,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleDiscussionFailure(
+                    await self?.handleDiscussionFailure(
                         action: .setDisplayMode(displayMode),
                         discussionID: discussionID,
                         previousDiscussion: previousDiscussion,
@@ -967,7 +971,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleDiscussionFailure(
+                    await self?.handleDiscussionFailure(
                         action: .refreshContent,
                         discussionID: discussionID,
                         previousDiscussion: nil,
@@ -1016,7 +1020,7 @@ final class NewsFeedViewModel: ObservableObject {
                 return
             } catch {
                 await MainActor.run {
-                    self?.handleDiscussionFailure(
+                    await self?.handleDiscussionFailure(
                         action: .runLongTask,
                         discussionID: discussionID,
                         previousDiscussion: nil,
@@ -1215,8 +1219,8 @@ final class NewsFeedViewModel: ObservableObject {
         discussionID: String,
         previousDiscussion: DiscussionCardModel?,
         error: Error
-    ) {
-        let policy = discussionFailurePolicy(for: action, error: error)
+    ) async {
+        let policy = await discussionFailurePolicy(for: action, error: error)
         switch policy.resolution {
         case .rollback:
             rollbackDiscussion(
@@ -1233,8 +1237,8 @@ final class NewsFeedViewModel: ObservableObject {
     private func discussionFailurePolicy(
         for action: DiscussionCardAction,
         error: Error
-    ) -> CardActionFailurePolicy {
-        let fallbackMessage = cardActionFailureMessage(for: error)
+    ) async -> CardActionFailurePolicy {
+        let fallbackMessage = await cardActionFailureMessage(for: error, feature: "discussion")
         switch action {
         case .toggleParticipation, .setDisplayMode:
             return CardActionFailurePolicy(resolution: .rollback, message: fallbackMessage)
@@ -1244,14 +1248,27 @@ final class NewsFeedViewModel: ObservableObject {
     }
 
     /// Maps repository/network failures into stable user-facing card status text.
-    private func cardActionFailureMessage(for error: Error) -> String {
-        guard let repositoryError = error as? RepositoryError else {
-            return AppLocalization.text(
-                "news.card.status.failed",
-                fallback: "Unable to complete this action right now."
-            )
+    private func cardActionFailureMessage(
+        for error: Error,
+        feature: String
+    ) async -> String {
+        if let repositoryError = error as? RepositoryError {
+            return repositoryCardActionFailureMessage(for: repositoryError)
         }
 
+        let presentation = await errorManager.presentableError(
+            from: error,
+            context: AppErrorContext(
+                operation: "cardAction",
+                feature: feature
+            )
+        )
+
+        return presentation.userMessage
+    }
+
+    /// Preserves explicit product messaging for repository-defined offline and stale-card policies.
+    private func repositoryCardActionFailureMessage(for repositoryError: RepositoryError) -> String {
         switch repositoryError {
         case .offlineCardAction:
             return AppLocalization.text(
@@ -1307,8 +1324,25 @@ final class NewsFeedViewModel: ObservableObject {
             } catch is CancellationError {
                 return
             } catch {
-                self.applyLoadFailureState()
+                let failureMessage = await self.feedLoadFailureMessage(for: error)
+                self.applyLoadFailureState(message: failureMessage)
             }
         }
+    }
+
+    /// Maps feed-level refresh failures through the shared app error manager while preserving the local fallback copy.
+    private func feedLoadFailureMessage(for error: Error) async -> String {
+        if error is RepositoryError {
+            return loadFailureMessage
+        }
+
+        let presentation = await errorManager.presentableError(
+            from: error,
+            context: AppErrorContext(
+                operation: "refreshFeed",
+                feature: "newsFeed"
+            )
+        )
+        return presentation.userMessage
     }
 }

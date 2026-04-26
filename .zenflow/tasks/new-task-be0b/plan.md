@@ -325,6 +325,8 @@ Progress so far in this phase:
 - completed: async login path from `LoginScreenView` through `AppState` into `UserSessionService`, with backend-first token exchange and local fallback while auth endpoints remain stubbed;
 - completed: refresh deduplication in `SessionAuthenticationProvider`;
 - completed: local-first logout with best-effort remote revoke hook.
+- completed: dedicated auth transport layer with `DefaultAuthenticationAPIManager`, configurable auth endpoint paths, and a separate unauthenticated `APIManager` so auth routes do not recurse through the main authenticated interceptor pipeline.
+- completed: `NewsFeedViewModel` now consumes `AppErrorManaging` for feed-level refresh failures and non-repository card-action failures, while keeping explicit repository-specific UX for offline/stale-card cases.
    - Critical files:
      - new `TchopApp/Services/AuthAPIManager.swift`
      - `TchopApp/App/AppDIContainer.swift`

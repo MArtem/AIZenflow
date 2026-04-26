@@ -842,6 +842,25 @@ These files define both:
 ### [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift)
 Owns local session markers, secure auth-token persistence, and the bridge between app users and backend credentials.
 
+### [AuthenticationAPIManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/AuthenticationAPIManager.swift)
+Owns backend-shaped auth transport calls.
+
+Important types:
+
+#### `AuthenticationAPIEndpointConfiguration`
+Centralizes auth route naming so backend endpoint renames do not leak through the rest of the app.
+
+#### `DefaultAuthenticationAPIManager`
+Concrete auth service used by the session layer.
+It supports two modes:
+
+- `localStub`: mints synthetic token sets so auth/session flows are exercised even before a real backend exists;
+- `remote`: performs JSON requests through `APIManager`.
+
+Important detail:
+This service intentionally uses a dedicated unauthenticated API client in DI.
+Auth endpoints should not go through the same auth-refresh interceptor chain as the main app client or they risk recursive refresh behavior.
+
 Important protocol:
 
 #### `UserSessionManaging`
@@ -1113,7 +1132,8 @@ Explicit policy for whether a new card action should:
 - feed loading task;
 - one task slot per visible article card;
 - one task slot per visible discussion card;
-- queued additive actions for comments/replies.
+- queued additive actions for comments/replies;
+- feed-level and non-repository card-level error normalization through `AppErrorManager`.
 
 ### Important methods
 

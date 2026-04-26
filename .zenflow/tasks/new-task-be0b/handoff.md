@@ -1231,8 +1231,9 @@ Absent:  no tests/build/simulator checks
   `AuthenticationAPIManaging`,
   `KeychainAuthTokenStore`,
   `SessionAuthenticationProvider`,
-  and temporary `StubAuthenticationAPIManager`
-  in [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift).
+  and later `DefaultAuthenticationAPIManager`
+  across [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift)
+  and [AuthenticationAPIManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/AuthenticationAPIManager.swift).
 - `UserSessionService` now receives optional token store and clears secure auth tokens on `signOut()`.
 - Updated DI composition in [AppDIContainer.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppDIContainer.swift):
   the app now wires
@@ -1280,6 +1281,19 @@ Absent:  no tests/build/simulator checks
   [LoginScreenView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift),
   and [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift)
   now use async sign-in operations, single-flight UI submission state, and backend-first token exchange with local fallback while auth endpoints are still stubbed.
+- Auth transport is now split properly from the main authenticated client:
+  [AuthenticationAPIManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/AuthenticationAPIManager.swift)
+  adds `AuthenticationAPIEndpointConfiguration` plus `DefaultAuthenticationAPIManager`,
+  and [AppDIContainer.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppDIContainer.swift)
+  now builds a dedicated unauthenticated `APIManager` for auth endpoints so refresh/login/revoke calls do not recurse through the main auth-refresh interceptor chain.
+- Local stub auth is no longer a dead fallback-only branch:
+  in `.localStub` environment the auth manager now issues synthetic token sets and supports synthetic refresh/revoke behavior,
+  which means the secure-token/session machinery is exercised during local development before a real backend exists.
+- Feed error handling is now partially normalized through the shared error layer as well:
+  [NewsFeedViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift)
+  now receives `AppErrorManaging`,
+  uses it for feed-level refresh failures and for non-repository card-action failures,
+  while still preserving explicit product messages for app-local `RepositoryError` cases like offline card actions and stale persisted cards.
 - Startup restore cleanup policy is now explicit:
   if an expired token cannot be refreshed during `restoreAuthenticatedSession()`,
   `UserSessionService` clears both local session marker and secure tokens before surfacing failure.

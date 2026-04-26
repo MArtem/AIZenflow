@@ -22,17 +22,20 @@ struct AppAPIEnvironment {
     let kind: Kind
     let apiConfiguration: APIConfiguration
     let enablesNetworkLogging: Bool
+    let authenticationEndpointConfiguration: AuthenticationAPIEndpointConfiguration
 
     static let localStub = AppAPIEnvironment(
         kind: .localStub,
         apiConfiguration: .stub,
-        enablesNetworkLogging: false
+        enablesNetworkLogging: false,
+        authenticationEndpointConfiguration: .default
     )
 
     static func remote(
         kind: Kind,
         baseURL: URL,
-        enablesNetworkLogging: Bool
+        enablesNetworkLogging: Bool,
+        authenticationEndpointConfiguration: AuthenticationAPIEndpointConfiguration = .default
     ) -> AppAPIEnvironment {
         AppAPIEnvironment(
             kind: kind,
@@ -41,7 +44,8 @@ struct AppAPIEnvironment {
                 defaultHeaders: makeDefaultHeaders(),
                 timeoutInterval: 30
             ),
-            enablesNetworkLogging: enablesNetworkLogging
+            enablesNetworkLogging: enablesNetworkLogging,
+            authenticationEndpointConfiguration: authenticationEndpointConfiguration
         )
     }
 
@@ -171,7 +175,8 @@ final class AppDIContainer: ObservableObject {
     func makeAppShellViewModel() -> AppShellViewModel {
         let newsFeedViewModel = Self.makeNewsFeedViewModel(
             repository: contentRepository,
-            widgetContentSyncManager: widgetContentSyncManager
+            widgetContentSyncManager: widgetContentSyncManager,
+            errorManager: errorManager
         )
 
         return AppShellViewModel(
@@ -226,7 +231,10 @@ final class AppDIContainer: ObservableObject {
         sessionService: any UserSessionManaging
     ) {
         let authTokenStore = makeAuthTokenStore()
-        let authenticationAPIManager = makeAuthenticationAPIManager()
+        let authenticationAPIManager = makeAuthenticationAPIManager(
+            analyticsCollector: analyticsCollector,
+            apiEnvironment: apiEnvironment
+        )
         let errorManager = makeErrorManager()
         let authenticationProvider = SessionAuthenticationProvider(
             tokenStore: authTokenStore,
@@ -316,7 +324,7 @@ final class AppDIContainer: ObservableObject {
             )
         }
 
-        APIManager(
+        return APIManager(
             configuration: apiEnvironment.apiConfiguration,
             interceptors: interceptors
         )
@@ -326,8 +334,61 @@ final class AppDIContainer: ObservableObject {
         KeychainAuthTokenStore()
     }
 
-    private static func makeAuthenticationAPIManager() -> any AuthenticationAPIManaging {
-        StubAuthenticationAPIManager()
+    /// Creates the auth-specific API manager on a dedicated unauthenticated transport pipeline.
+    ///
+    /// Auth endpoints should not depend on the main auth-refresh interceptor chain or they risk
+    /// recursive refresh behavior. This client keeps diagnostics and generic retries, but does not
+    /// inject auth headers automatically.
+    private static func makeAuthenticationAPIManager(
+        analyticsCollector: ProductAnalyticsMemoryCollector,
+        apiEnvironment: AppAPIEnvironment
+    ) -> any AuthenticationAPIManaging {
+        let authAPIManager = APIManager(
+            configuration: apiEnvironment.apiConfiguration,
+            interceptors: makeAuthenticationInterceptors(
+                analyticsCollector: analyticsCollector,
+                apiEnvironment: apiEnvironment
+            )
+        )
+
+        switch apiEnvironment.kind {
+        case .localStub:
+            return DefaultAuthenticationAPIManager(
+                apiManager: authAPIManager,
+                endpointConfiguration: apiEnvironment.authenticationEndpointConfiguration,
+                mode: .localStub
+            )
+        case .development, .staging, .production:
+            return DefaultAuthenticationAPIManager(
+                apiManager: authAPIManager,
+                endpointConfiguration: apiEnvironment.authenticationEndpointConfiguration,
+                mode: .remote
+            )
+        }
+    }
+
+    /// Builds the auth-endpoint interceptor pipeline without auth-header injection or refresh recursion.
+    private static func makeAuthenticationInterceptors(
+        analyticsCollector: ProductAnalyticsMemoryCollector,
+        apiEnvironment: AppAPIEnvironment
+    ) -> [any APIRequestIntercepting] {
+        var interceptors: [any APIRequestIntercepting] = [
+            APIRetryInterceptor(),
+            APIMetricsInterceptor(
+                collector: APIAnalyticsMetricsCollector(
+                    collector: analyticsCollector
+                )
+            )
+        ]
+
+        if apiEnvironment.enablesNetworkLogging {
+            interceptors.insert(
+                APILoggingInterceptor(level: .requestAndResponse),
+                at: 0
+            )
+        }
+
+        return interceptors
     }
 
     private static func makeErrorManager() -> any AppErrorManaging {
@@ -344,13 +405,15 @@ final class AppDIContainer: ObservableObject {
     /// an emergency fallback when the persisted feed has not been seeded yet or cannot be read.
     private static func makeNewsFeedViewModel(
         repository: any NewsFeedRepository,
-        widgetContentSyncManager: any WidgetContentSyncing
+        widgetContentSyncManager: any WidgetContentSyncing,
+        errorManager: any AppErrorManaging
     ) -> NewsFeedViewModel {
         let initialContent = resolveInitialNewsFeedContent(from: repository)
 
         return NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: widgetContentSyncManager,
+            errorManager: errorManager,
             initialContent: initialContent,
             loadFailureContent: initialContent,
             loadFailureMessage: AppLocalization.text(
