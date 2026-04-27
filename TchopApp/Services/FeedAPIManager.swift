@@ -106,47 +106,19 @@ protocol FeedAPIManaging {
     /// Fetches the current feed payload.
     func fetchFeed() async throws -> FeedResponseDTO
 
-    /// Persists a like-state change for one featured article and returns the updated card snapshot.
-    func setFeaturedArticleLike(
+    /// Performs one featured article action and returns the updated card snapshot.
+    func performFeaturedArticleAction(
         articleID: String,
-        isLiked: Bool
+        action: FeaturedArticleCardAction,
+        currentState: FeaturedArticleCardUIState
     ) async throws -> FeaturedArticleDTO
 
-    /// Persists one new comment for the target featured article and returns the updated card snapshot.
-    func addFeaturedArticleComment(articleID: String) async throws -> FeaturedArticleDTO
-
-    /// Persists the preferred display mode for one featured article.
-    func setFeaturedArticleDisplayMode(
-        articleID: String,
-        displayMode: FeaturedArticleCardDisplayMode
-    ) async throws -> FeaturedArticleDTO
-
-    /// Returns a refreshed featured article snapshot.
-    func refreshFeaturedArticle(articleID: String) async throws -> FeaturedArticleDTO
-
-    /// Returns a simulated long-task article update snapshot.
-    func runFeaturedArticleUpdate(articleID: String) async throws -> FeaturedArticleDTO
-
-    /// Persists discussion participation state for one discussion card.
-    func setDiscussionParticipation(
+    /// Performs one discussion action and returns the updated card snapshot.
+    func performDiscussionAction(
         discussionID: String,
-        isParticipating: Bool
+        action: DiscussionCardAction,
+        currentState: DiscussionCardUIState
     ) async throws -> DiscussionDTO
-
-    /// Persists one new reply for the target discussion card.
-    func addDiscussionReply(discussionID: String) async throws -> DiscussionDTO
-
-    /// Persists the preferred display mode for one discussion card.
-    func setDiscussionDisplayMode(
-        discussionID: String,
-        displayMode: DiscussionCardDisplayMode
-    ) async throws -> DiscussionDTO
-
-    /// Returns a refreshed discussion snapshot.
-    func refreshDiscussion(discussionID: String) async throws -> DiscussionDTO
-
-    /// Returns a simulated long-task discussion update snapshot.
-    func runDiscussionUpdate(discussionID: String) async throws -> DiscussionDTO
 }
 
 /// Stubbed feed API manager used until a real backend contract exists.
@@ -174,7 +146,48 @@ struct StubFeedAPIManager: FeedAPIManaging {
         )
     }
 
-    func setFeaturedArticleLike(
+    func performFeaturedArticleAction(
+        articleID: String,
+        action: FeaturedArticleCardAction,
+        currentState: FeaturedArticleCardUIState
+    ) async throws -> FeaturedArticleDTO {
+        switch action {
+        case .toggleLike:
+            return try await setFeaturedArticleLike(articleID: articleID, isLiked: !currentState.isLiked)
+        case .addComment:
+            return try await addFeaturedArticleComment(articleID: articleID)
+        case let .setDisplayMode(displayMode):
+            return try await setFeaturedArticleDisplayMode(articleID: articleID, displayMode: displayMode)
+        case .refreshContent:
+            return try await refreshFeaturedArticle(articleID: articleID)
+        case .runLongTask:
+            return try await runFeaturedArticleUpdate(articleID: articleID)
+        }
+    }
+
+    func performDiscussionAction(
+        discussionID: String,
+        action: DiscussionCardAction,
+        currentState: DiscussionCardUIState
+    ) async throws -> DiscussionDTO {
+        switch action {
+        case .toggleParticipation:
+            return try await setDiscussionParticipation(
+                discussionID: discussionID,
+                isParticipating: !currentState.isParticipating
+            )
+        case .addReply:
+            return try await addDiscussionReply(discussionID: discussionID)
+        case let .setDisplayMode(displayMode):
+            return try await setDiscussionDisplayMode(discussionID: discussionID, displayMode: displayMode)
+        case .refreshContent:
+            return try await refreshDiscussion(discussionID: discussionID)
+        case .runLongTask:
+            return try await runDiscussionUpdate(discussionID: discussionID)
+        }
+    }
+
+    private func setFeaturedArticleLike(
         articleID: String,
         isLiked: Bool
     ) async throws -> FeaturedArticleDTO {
@@ -189,7 +202,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func addFeaturedArticleComment(articleID: String) async throws -> FeaturedArticleDTO {
+    private func addFeaturedArticleComment(articleID: String) async throws -> FeaturedArticleDTO {
         try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/comments") { article in
             article.withLocalState(
                 FeaturedArticleStateDTO(
@@ -201,7 +214,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func setFeaturedArticleDisplayMode(
+    private func setFeaturedArticleDisplayMode(
         articleID: String,
         displayMode: FeaturedArticleCardDisplayMode
     ) async throws -> FeaturedArticleDTO {
@@ -216,7 +229,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func refreshFeaturedArticle(articleID: String) async throws -> FeaturedArticleDTO {
+    private func refreshFeaturedArticle(articleID: String) async throws -> FeaturedArticleDTO {
         // Refresh-like actions mutate content fields rather than local interaction state to mimic a
         // backend returning a rebuilt card snapshot.
         try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/refresh") { article in
@@ -226,7 +239,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func runFeaturedArticleUpdate(articleID: String) async throws -> FeaturedArticleDTO {
+    private func runFeaturedArticleUpdate(articleID: String) async throws -> FeaturedArticleDTO {
         try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/update") { article in
             article.withContent(
                 headline: "Updated article version ready for review",
@@ -236,7 +249,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func setDiscussionParticipation(
+    private func setDiscussionParticipation(
         discussionID: String,
         isParticipating: Bool
     ) async throws -> DiscussionDTO {
@@ -253,7 +266,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func addDiscussionReply(discussionID: String) async throws -> DiscussionDTO {
+    private func addDiscussionReply(discussionID: String) async throws -> DiscussionDTO {
         try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/replies") { discussion in
             discussion.withLocalState(
                 DiscussionStateDTO(
@@ -266,7 +279,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func setDiscussionDisplayMode(
+    private func setDiscussionDisplayMode(
         discussionID: String,
         displayMode: DiscussionCardDisplayMode
     ) async throws -> DiscussionDTO {
@@ -282,7 +295,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func refreshDiscussion(discussionID: String) async throws -> DiscussionDTO {
+    private func refreshDiscussion(discussionID: String) async throws -> DiscussionDTO {
         try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/refresh") { discussion in
             discussion.withContent(
                 headline: "Refreshed discussion snapshot with the same thread context"
@@ -290,7 +303,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
         }
     }
 
-    func runDiscussionUpdate(discussionID: String) async throws -> DiscussionDTO {
+    private func runDiscussionUpdate(discussionID: String) async throws -> DiscussionDTO {
         try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/update") { discussion in
             discussion.withContent(
                 headline: "Updated discussion summary ready for participants",

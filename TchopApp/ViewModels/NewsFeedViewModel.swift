@@ -76,17 +76,10 @@ final class NewsFeedViewModel: ObservableObject {
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
-    /// One active task slot per visible article card.
-    ///
-    /// Non-additive actions stay serial per card so the view model always applies
-    /// repository results in a predictable order.
-    private var featuredArticleTasks: [String: Task<Void, Never>] = [:]
-    /// One active task slot per visible discussion card.
-    private var discussionTasks: [String: Task<Void, Never>] = [:]
-    /// Buffered additive actions that should rerun after the active article task finishes.
-    private var queuedFeaturedArticleComments: [String: Int] = [:]
-    /// Buffered additive actions that should rerun after the active discussion task finishes.
-    private var queuedDiscussionReplies: [String: Int] = [:]
+    /// Serializes article actions and queues additive taps per visible card.
+    private let featuredArticleActionCoordinator = NewsFeedCardActionCoordinator()
+    /// Serializes discussion actions and queues additive taps per visible card.
+    private let discussionActionCoordinator = NewsFeedCardActionCoordinator()
 
     /// Creates the feed view model and immediately starts the first load.
     init(
@@ -142,7 +135,7 @@ final class NewsFeedViewModel: ObservableObject {
         case .start:
             break
         case .queue:
-            queuedFeaturedArticleComments[articleID, default: 0] += 1
+            featuredArticleActionCoordinator.queueAdditiveAction(for: articleID)
             return
         case .ignore:
             return
@@ -171,7 +164,7 @@ final class NewsFeedViewModel: ObservableObject {
         case .start:
             break
         case .queue:
-            queuedDiscussionReplies[discussionID, default: 0] += 1
+            discussionActionCoordinator.queueAdditiveAction(for: discussionID)
             return
         case .ignore:
             return
@@ -206,12 +199,6 @@ final class NewsFeedViewModel: ObservableObject {
     /// Cleans up any in-flight resources before release.
     deinit {
         loadingTask?.cancel()
-        for task in featuredArticleTasks.values {
-            task.cancel()
-        }
-        for task in discussionTasks.values {
-            task.cancel()
-        }
     }
 
     /// Applies freshly loaded feed content to published state and side effects.
@@ -276,7 +263,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID] = Task { [weak self] in
+        featuredArticleActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -305,7 +292,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: articleID)
     }
 
     /// Starts the additive comment action for one article.
@@ -326,7 +313,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID] = Task { [weak self] in
+        featuredArticleActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -369,7 +356,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: articleID)
     }
 
     /// Persists a display-mode preference for one article.
@@ -395,7 +382,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID] = Task { [weak self] in
+        featuredArticleActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -422,7 +409,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: articleID)
     }
 
     /// Starts a targeted content refresh for one article card.
@@ -445,7 +432,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID] = Task { [weak self] in
+        featuredArticleActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -475,7 +462,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: articleID)
     }
 
     /// Starts a simulated long-running article update and replaces the card content on success.
@@ -495,7 +482,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        featuredArticleTasks[articleID] = Task { [weak self] in
+        featuredArticleActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -525,7 +512,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: articleID)
     }
 
     /// Replaces the visible featured article with the latest persisted snapshot.
@@ -534,8 +521,7 @@ final class NewsFeedViewModel: ObservableObject {
         articleID: String,
         statusMessage: String?
     ) {
-        featuredArticleTasks[articleID] = nil
-        queuedFeaturedArticleComments[articleID] = nil
+        featuredArticleActionCoordinator.clear(cardID: articleID)
         updateFeaturedArticle(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
                 FeaturedArticleCardUIState(
@@ -553,8 +539,7 @@ final class NewsFeedViewModel: ObservableObject {
         articleID: String,
         message: String
     ) {
-        featuredArticleTasks[articleID] = nil
-        queuedFeaturedArticleComments[articleID] = nil
+        featuredArticleActionCoordinator.clear(cardID: articleID)
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
                 FeaturedArticleCardUIState(
@@ -585,8 +570,7 @@ final class NewsFeedViewModel: ObservableObject {
         previousArticle: FeaturedArticleCardModel?,
         message: String
     ) {
-        featuredArticleTasks[articleID] = nil
-        queuedFeaturedArticleComments[articleID] = nil
+        featuredArticleActionCoordinator.clear(cardID: articleID)
         guard let previousArticle else {
             return
         }
@@ -694,13 +678,10 @@ final class NewsFeedViewModel: ObservableObject {
         _ updatedArticle: FeaturedArticleCardModel,
         articleID: String
     ) -> Bool {
-        let remainingQueuedComments = queuedFeaturedArticleComments[articleID] ?? 0
-        guard remainingQueuedComments > 0 else {
-            queuedFeaturedArticleComments[articleID] = nil
+        guard featuredArticleActionCoordinator.consumeQueuedAdditiveAction(for: articleID) else {
             return false
         }
 
-        queuedFeaturedArticleComments[articleID] = remainingQueuedComments - 1
         updateFeaturedArticle(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
                 FeaturedArticleCardUIState(
@@ -716,11 +697,7 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Cancels all active card-level tasks and clears the registry.
     private func cancelFeaturedArticleTasks() {
-        for task in featuredArticleTasks.values {
-            task.cancel()
-        }
-        featuredArticleTasks.removeAll()
-        queuedFeaturedArticleComments.removeAll()
+        featuredArticleActionCoordinator.cancelAll()
     }
 
     /// Resolves the rollback/preserve policy for a failed featured article action and applies it to the visible card.
@@ -775,7 +752,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID] = Task { [weak self] in
+        discussionActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -804,7 +781,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: discussionID)
     }
 
     /// Starts the additive reply action for one discussion card.
@@ -825,7 +802,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID] = Task { [weak self] in
+        discussionActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -865,7 +842,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: discussionID)
     }
 
     /// Persists a display-mode preference for one discussion card.
@@ -888,7 +865,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID] = Task { [weak self] in
+        discussionActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -911,7 +888,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: discussionID)
     }
 
     /// Starts a targeted refresh for one discussion card without replacing visible content first.
@@ -931,7 +908,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID] = Task { [weak self] in
+        discussionActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -958,7 +935,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: discussionID)
     }
 
     /// Starts a simulated long-running discussion update and applies the refreshed card on success.
@@ -978,7 +955,7 @@ final class NewsFeedViewModel: ObservableObject {
             }
         }
 
-        discussionTasks[discussionID] = Task { [weak self] in
+        discussionActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -1005,7 +982,7 @@ final class NewsFeedViewModel: ObservableObject {
                     error: error
                 )
             }
-        }
+        }, for: discussionID)
     }
 
     /// Replaces the visible discussion card with the latest persisted snapshot.
@@ -1014,8 +991,7 @@ final class NewsFeedViewModel: ObservableObject {
         discussionID: String,
         statusMessage: String?
     ) {
-        discussionTasks[discussionID] = nil
-        queuedDiscussionReplies[discussionID] = nil
+        discussionActionCoordinator.clear(cardID: discussionID)
         updateDiscussion(discussionID: discussionID) { _ in
             updatedDiscussion.updatingUIState { _ in
                 DiscussionCardUIState(
@@ -1033,8 +1009,7 @@ final class NewsFeedViewModel: ObservableObject {
         discussionID: String,
         message: String
     ) {
-        discussionTasks[discussionID] = nil
-        queuedDiscussionReplies[discussionID] = nil
+        discussionActionCoordinator.clear(cardID: discussionID)
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 DiscussionCardUIState(
@@ -1065,8 +1040,7 @@ final class NewsFeedViewModel: ObservableObject {
         previousDiscussion: DiscussionCardModel?,
         message: String
     ) {
-        discussionTasks[discussionID] = nil
-        queuedDiscussionReplies[discussionID] = nil
+        discussionActionCoordinator.clear(cardID: discussionID)
         guard let previousDiscussion else {
             return
         }
@@ -1158,13 +1132,10 @@ final class NewsFeedViewModel: ObservableObject {
         _ updatedDiscussion: DiscussionCardModel,
         discussionID: String
     ) -> Bool {
-        let remainingQueuedReplies = queuedDiscussionReplies[discussionID] ?? 0
-        guard remainingQueuedReplies > 0 else {
-            queuedDiscussionReplies[discussionID] = nil
+        guard discussionActionCoordinator.consumeQueuedAdditiveAction(for: discussionID) else {
             return false
         }
 
-        queuedDiscussionReplies[discussionID] = remainingQueuedReplies - 1
         updateDiscussion(discussionID: discussionID) { _ in
             updatedDiscussion.updatingUIState { _ in
                 DiscussionCardUIState(
@@ -1180,11 +1151,7 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Cancels all active discussion tasks and clears the registry.
     private func cancelDiscussionTasks() {
-        for task in discussionTasks.values {
-            task.cancel()
-        }
-        discussionTasks.removeAll()
-        queuedDiscussionReplies.removeAll()
+        discussionActionCoordinator.cancelAll()
     }
 
     /// Resolves the rollback/preserve policy for a failed discussion action and applies it to the visible card.

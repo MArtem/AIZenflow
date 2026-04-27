@@ -103,26 +103,11 @@ final class DefaultAppContentRepository: AppContentRepository {
         // Every action starts from the latest persisted card instead of the bundled JSON seed.
         // This keeps local changes additive until a real backend becomes the remote source of truth.
         let currentArticle = try requirePersistedFeaturedArticle(articleID: articleID)
-        let updatedArticle: FeaturedArticleDTO
-
-        switch action {
-        case .toggleLike:
-            updatedArticle = try await feedAPIManager.setFeaturedArticleLike(
-                articleID: articleID,
-                isLiked: !currentArticle.uiState.isLiked
-            )
-        case .addComment:
-            updatedArticle = try await feedAPIManager.addFeaturedArticleComment(articleID: articleID)
-        case let .setDisplayMode(displayMode):
-            updatedArticle = try await feedAPIManager.setFeaturedArticleDisplayMode(
-                articleID: articleID,
-                displayMode: displayMode
-            )
-        case .refreshContent:
-            updatedArticle = try await feedAPIManager.refreshFeaturedArticle(articleID: articleID)
-        case .runLongTask:
-            updatedArticle = try await feedAPIManager.runFeaturedArticleUpdate(articleID: articleID)
-        }
+        let updatedArticle = try await feedAPIManager.performFeaturedArticleAction(
+            articleID: articleID,
+            action: action,
+            currentState: currentArticle.uiState
+        )
 
         // Re-read before merging so sequential actions compose on top of the newest stored state.
         let latestPersistedArticle = try persistedFeaturedArticle(articleID: articleID) ?? currentArticle
@@ -148,26 +133,11 @@ final class DefaultAppContentRepository: AppContentRepository {
 
         // Discussion actions follow the same persisted-first rule as article actions.
         let currentDiscussion = try requirePersistedDiscussion(discussionID: discussionID)
-        let updatedDiscussion: DiscussionDTO
-
-        switch action {
-        case .toggleParticipation:
-            updatedDiscussion = try await feedAPIManager.setDiscussionParticipation(
-                discussionID: discussionID,
-                isParticipating: !currentDiscussion.uiState.isParticipating
-            )
-        case .addReply:
-            updatedDiscussion = try await feedAPIManager.addDiscussionReply(discussionID: discussionID)
-        case let .setDisplayMode(displayMode):
-            updatedDiscussion = try await feedAPIManager.setDiscussionDisplayMode(
-                discussionID: discussionID,
-                displayMode: displayMode
-            )
-        case .refreshContent:
-            updatedDiscussion = try await feedAPIManager.refreshDiscussion(discussionID: discussionID)
-        case .runLongTask:
-            updatedDiscussion = try await feedAPIManager.runDiscussionUpdate(discussionID: discussionID)
-        }
+        let updatedDiscussion = try await feedAPIManager.performDiscussionAction(
+            discussionID: discussionID,
+            action: action,
+            currentState: currentDiscussion.uiState
+        )
 
         let latestPersistedDiscussion = try persistedDiscussion(discussionID: discussionID) ?? currentDiscussion
         let mergedState = mergedDiscussionState(

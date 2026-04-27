@@ -30,6 +30,8 @@
 		A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* Models/NewsFeedModels.swift */; };
 		A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* ViewModels/AppShellViewModel.swift */; };
 		A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000420000000000000001 /* ViewModels/NewsFeedViewModel.swift */; };
+		K00000010000000000000001 /* ViewModels/NewsFeedCardActionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000020000000000000001 /* NewsFeedCardActionCoordinator.swift */; };
+		K00000030000000000000001 /* ViewModels/NewsFeedCardActionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000020000000000000001 /* NewsFeedCardActionCoordinator.swift */; };
 		A00000430000000000000001 /* Persistence/AppDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000440000000000000001 /* Persistence/AppDatabase.swift */; };
 		A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000460000000000000001 /* Persistence/AppContentRecord.swift */; };
 		A00000470000000000000001 /* Persistence/AppDataSeeder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000480000000000000001 /* Persistence/AppDataSeeder.swift */; };
@@ -53,6 +55,8 @@
 		A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000680000000000000001 /* LoginScreenView.swift */; };
 		A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006A0000000000000001 /* ProfileTabRootView.swift */; };
 		A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006C0000000000000001 /* FeedAPIManager.swift */; };
+		K00000040000000000000001 /* App/AppErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000050000000000000001 /* AppErrorMapping.swift */; };
+		K00000060000000000000001 /* App/AppErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000050000000000000001 /* AppErrorMapping.swift */; };
 		A00000730000000000000001 /* App/AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000740000000000000001 /* AppDIContainer.swift */; };
 		A000009C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
 		A00000750000000000000001 /* TchopNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* TchopNetworking */; };
@@ -194,6 +198,7 @@
 		A000003E0000000000000001 /* NewsFeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModels.swift; sourceTree = "<group>"; };
 		A00000400000000000000001 /* AppShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellViewModel.swift; sourceTree = "<group>"; };
 		A00000420000000000000001 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
+		K00000020000000000000001 /* NewsFeedCardActionCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedCardActionCoordinator.swift; sourceTree = "<group>"; };
 		A00000440000000000000001 /* AppDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDatabase.swift; sourceTree = "<group>"; };
 		A00000460000000000000001 /* AppContentRecord.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppContentRecord.swift; sourceTree = "<group>"; };
 		A00000480000000000000001 /* AppDataSeeder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDataSeeder.swift; sourceTree = "<group>"; };
@@ -218,6 +223,7 @@
 		A00000680000000000000001 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
 		A000006A0000000000000001 /* ProfileTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabRootView.swift; sourceTree = "<group>"; };
 		A000006C0000000000000001 /* FeedAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIManager.swift; sourceTree = "<group>"; };
+		K00000050000000000000001 /* AppErrorMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorMapping.swift; sourceTree = "<group>"; };
 		A00000740000000000000001 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		A000009D0000000000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		A00000B10000000000000001 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
@@ -379,6 +385,7 @@
 			isa = PBXGroup;
 			children = (
 				A00000400000000000000001 /* AppShellViewModel.swift */,
+				K00000020000000000000001 /* NewsFeedCardActionCoordinator.swift */,
 				A00000420000000000000001 /* NewsFeedViewModel.swift */,
 				A00000640000000000000001 /* LoginViewModel.swift */,
 			);
@@ -409,6 +416,7 @@
 			children = (
 				B00000020000000000000001 /* AppBranding.swift */,
 				A00000740000000000000001 /* AppDIContainer.swift */,
+				K00000050000000000000001 /* AppErrorMapping.swift */,
 				U00000130000000000000001 /* AppLaunchConfiguration.swift */,
 				A00000620000000000000001 /* AppState.swift */,
 				A00000B10000000000000001 /* AppLocalization.swift */,
@@ -864,6 +872,7 @@
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
 				A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
 				A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
+				K00000010000000000000001 /* ViewModels/NewsFeedCardActionCoordinator.swift in Sources */,
 				A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */,
 				A00000430000000000000001 /* Persistence/AppDatabase.swift in Sources */,
 				A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */,
@@ -892,6 +901,7 @@
 				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
 				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
+				K00000040000000000000001 /* App/AppErrorMapping.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000110000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
@@ -929,6 +939,7 @@
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
 				A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
 				A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
+				K00000030000000000000001 /* ViewModels/NewsFeedCardActionCoordinator.swift in Sources */,
 				A00000410000000000000001 /* ViewModels/NewsFeedViewModel.swift in Sources */,
 				A00000430000000000000001 /* Persistence/AppDatabase.swift in Sources */,
 				A00000450000000000000001 /* Persistence/AppContentRecord.swift in Sources */,
@@ -957,6 +968,7 @@
 				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
 				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
+				K00000060000000000000001 /* App/AppErrorMapping.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000120000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
