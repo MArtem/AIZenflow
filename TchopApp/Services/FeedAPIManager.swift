@@ -101,6 +101,18 @@ struct DiscussionStateDTO: Decodable, Sendable {
     let displayMode: DiscussionCardDisplayMode
 }
 
+/// Narrow persisted-state context needed by featured article API actions.
+struct FeaturedArticleActionContext: Sendable {
+    let isLiked: Bool
+    let displayMode: FeaturedArticleCardDisplayMode
+}
+
+/// Narrow persisted-state context needed by discussion API actions.
+struct DiscussionActionContext: Sendable {
+    let isParticipating: Bool
+    let displayMode: DiscussionCardDisplayMode
+}
+
 /// API abstraction used by repositories to fetch home feed content.
 protocol FeedAPIManaging {
     /// Fetches the current feed payload.
@@ -110,14 +122,14 @@ protocol FeedAPIManaging {
     func performFeaturedArticleAction(
         articleID: String,
         action: FeaturedArticleCardAction,
-        currentState: FeaturedArticleCardUIState
+        context: FeaturedArticleActionContext
     ) async throws -> FeaturedArticleDTO
 
     /// Performs one discussion action and returns the updated card snapshot.
     func performDiscussionAction(
         discussionID: String,
         action: DiscussionCardAction,
-        currentState: DiscussionCardUIState
+        context: DiscussionActionContext
     ) async throws -> DiscussionDTO
 }
 
@@ -149,11 +161,11 @@ struct StubFeedAPIManager: FeedAPIManaging {
     func performFeaturedArticleAction(
         articleID: String,
         action: FeaturedArticleCardAction,
-        currentState: FeaturedArticleCardUIState
+        context: FeaturedArticleActionContext
     ) async throws -> FeaturedArticleDTO {
         switch action {
         case .toggleLike:
-            return try await setFeaturedArticleLike(articleID: articleID, isLiked: !currentState.isLiked)
+            return try await setFeaturedArticleLike(articleID: articleID, isLiked: !context.isLiked)
         case .addComment:
             return try await addFeaturedArticleComment(articleID: articleID)
         case let .setDisplayMode(displayMode):
@@ -168,13 +180,13 @@ struct StubFeedAPIManager: FeedAPIManaging {
     func performDiscussionAction(
         discussionID: String,
         action: DiscussionCardAction,
-        currentState: DiscussionCardUIState
+        context: DiscussionActionContext
     ) async throws -> DiscussionDTO {
         switch action {
         case .toggleParticipation:
             return try await setDiscussionParticipation(
                 discussionID: discussionID,
-                isParticipating: !currentState.isParticipating
+                isParticipating: !context.isParticipating
             )
         case .addReply:
             return try await addDiscussionReply(discussionID: discussionID)

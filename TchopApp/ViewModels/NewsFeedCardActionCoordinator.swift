@@ -7,6 +7,12 @@ final class NewsFeedCardActionCoordinator {
     private var queuedAdditiveActions: [String: Int] = [:]
 
     func start(_ task: Task<Void, Never>, for cardID: String) {
+        guard tasks[cardID] == nil else {
+            assertionFailure("Attempted to start a second active card action for \(cardID).")
+            task.cancel()
+            return
+        }
+
         tasks[cardID] = task
     }
 

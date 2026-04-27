@@ -106,7 +106,10 @@ final class DefaultAppContentRepository: AppContentRepository {
         let updatedArticle = try await feedAPIManager.performFeaturedArticleAction(
             articleID: articleID,
             action: action,
-            currentState: currentArticle.uiState
+            context: FeaturedArticleActionContext(
+                isLiked: currentArticle.uiState.isLiked,
+                displayMode: currentArticle.uiState.displayMode
+            )
         )
 
         // Re-read before merging so sequential actions compose on top of the newest stored state.
@@ -136,7 +139,10 @@ final class DefaultAppContentRepository: AppContentRepository {
         let updatedDiscussion = try await feedAPIManager.performDiscussionAction(
             discussionID: discussionID,
             action: action,
-            currentState: currentDiscussion.uiState
+            context: DiscussionActionContext(
+                isParticipating: currentDiscussion.uiState.isParticipating,
+                displayMode: currentDiscussion.uiState.displayMode
+            )
         )
 
         let latestPersistedDiscussion = try persistedDiscussion(discussionID: discussionID) ?? currentDiscussion
