@@ -40,7 +40,7 @@ If you are making architectural changes, read the whole document.
 - reusable infrastructure in `Packages/TchopInfrastructure`;
 - local-first persistence;
 - storage-backed feed rendering;
-- explicit support for local username login and Sign in with Apple;
+- explicit support for default email/password login and Sign in with Apple;
 - widget snapshot sync;
 - deep-link and navigation-state restore support.
 
@@ -1743,7 +1743,7 @@ Switches tab root views based on `AppTab`.
 #### `Views/Auth/LoginScreenView.swift`
 Renders one of two auth contracts depending on `LoginScreenMode`:
 
-- local username + Apple sign-in;
+- default email/password + Apple sign-in;
 - ReqRes demo email/password + register.
 
 ### Menu And Chrome Views
@@ -1851,16 +1851,16 @@ Files involved:
 - [UserSessionService.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift)
 - [UserRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/UserRepository.swift)
 
-Local login:
+Default app login:
 
-1. user enters username;
-2. `LoginViewModel.submit()` validates input;
-3. `LoginViewModel` starts an async sign-in task and blocks duplicate taps;
-4. `AppState.signIn(username:)` runs;
-5. `UserSessionService.signIn(username:)` tries backend token exchange first when available;
-6. if token exchange succeeds, secure credentials are written to keychain-backed storage;
-7. service asks `UserRepository` for local user;
-8. repository finds or creates user;
+1. user enters email and password;
+2. `LoginViewModel` runs debounced inline validation for both fields;
+3. invalid fields get inline messaging plus border/icon feedback;
+4. `LoginViewModel.submit()` revalidates synchronously, enforces submit throttling, and blocks duplicate taps;
+5. `AppState.signIn(email:password:)` runs;
+6. `UserSessionService.signIn(email:password:)` performs backend-shaped credential exchange through the current auth manager;
+7. resulting credentials are written into keychain-backed storage;
+8. service asks `UserRepository` for the local user keyed by email;
 9. service stores active user ID;
 10. `AppState` activates authenticated runtime.
 

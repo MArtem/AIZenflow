@@ -49,7 +49,7 @@ struct AppLaunchConfiguration {
         switch environment["TCHOP_API_ENV"] {
         case "reqres_demo_auth":
             return .developmentExternalAuth(
-                reqResAPIKey: environment["TCHOP_REQRES_API_KEY"] ?? "",
+                reqResAPIKey: environment["TCHOP_REQRES_API_KEY"] ?? "free_user_3Co5h4PffK0RHil0TjwChhqMETj",
                 enablesNetworkLogging: environment["TCHOP_NETWORK_LOGGING"] == "1"
             )
         default:

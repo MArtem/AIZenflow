@@ -36,7 +36,6 @@ struct AppRootView: View {
                     mode: loginScreenMode,
                     onCredentialLogin: appState.signIn(email:password:),
                     onRegister: appState.register(email:password:),
-                    onLogin: appState.signIn(username:),
                     onAppleLogin: appState.signInWithApple(identity:),
                     appleAuthenticationManager: appleAuthenticationManager,
                     errorManager: errorManager

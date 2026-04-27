@@ -32,7 +32,7 @@ struct AppAPIEnvironment {
         apiConfiguration: .stub,
         authenticationAPIConfiguration: .stub,
         enablesNetworkLogging: false,
-        loginScreenMode: .localUsername,
+        loginScreenMode: .defaultAppAuth,
         authenticationEndpointConfiguration: .default
     )
 
@@ -75,7 +75,7 @@ struct AppAPIEnvironment {
                 timeoutInterval: 30
             ),
             enablesNetworkLogging: enablesNetworkLogging,
-            loginScreenMode: .localUsername,
+            loginScreenMode: .defaultAppAuth,
             authenticationEndpointConfiguration: authenticationEndpointConfiguration
         )
     }

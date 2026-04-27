@@ -1323,7 +1323,7 @@ Readability-first cycle progress:
   vendor-local token decoding (`{ token, id? } -> AuthTokenSet`),
   and app-local refresh/revoke fallback so the session lifecycle does not depend on ReqRes features it does not expose.
 - The login UI/runtime path now has two explicit contracts via `LoginScreenMode`:
-  `localUsername` keeps the old username + Apple flow,
+  `defaultAppAuth` keeps the default app email/password + Apple flow,
   while `reqResDemoExternalAuth` renders email/password plus separate sign-in/register actions.
   `UserSessionService` and `AppState` now have matching `signIn(email:password:)` and `register(email:password:)` paths,
   using email as the local `AppUser.username` until a richer backend profile contract exists.

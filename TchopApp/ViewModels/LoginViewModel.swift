@@ -1,104 +1,126 @@
 import AuthenticationServices
+import Combine
 import Foundation
 import TchopAppleAuthentication
 import TchopErrors
 
 /// Login screen behavior selected by the active app environment.
 enum LoginScreenMode {
-    case localUsername
+    case defaultAppAuth
     case reqResDemoExternalAuth
 }
 
-/// View model backing both local username auth and the development-only external ReqRes auth flow.
+/// Validation state for one login form field.
+enum LoginFieldValidationState: Equatable {
+    case untouched
+    case validating
+    case valid(String?)
+    case invalid(String)
+
+    var message: String? {
+        switch self {
+        case .valid(let message):
+            return message
+        case .invalid(let message):
+            return message
+        case .untouched, .validating:
+            return nil
+        }
+    }
+
+    var isInvalid: Bool {
+        if case .invalid = self {
+            return true
+        }
+
+        return false
+    }
+
+    var isValid: Bool {
+        if case .valid = self {
+            return true
+        }
+
+        return false
+    }
+}
+
+/// View model backing the default app login screen and the development-only external ReqRes auth flow.
 @MainActor
 final class LoginViewModel: ObservableObject {
     /// Active login presentation mode selected by the app environment.
     let mode: LoginScreenMode
 
-    /// User-entered username for the local stub flow.
-    @Published var username = ""
-    /// User-entered email for external credential auth.
+    /// User-entered email value.
     @Published var email = ""
-    /// User-entered password for external credential auth.
+
+    /// User-entered password value.
     @Published var password = ""
+
+    /// Toggles secure/plain password field presentation.
+    @Published var isPasswordVisible = false
+
+    /// Debounced email validation state used for inline UI feedback.
+    @Published private(set) var emailValidationState: LoginFieldValidationState = .untouched
+
+    /// Debounced password validation state used for inline UI feedback.
+    @Published private(set) var passwordValidationState: LoginFieldValidationState = .untouched
 
     /// Prevents duplicate submissions while an async sign-in attempt is in flight.
     @Published private(set) var isSubmitting = false
+
+    /// Tracks whether the form is ready for submission under the current mode-specific policy.
+    @Published private(set) var canSubmit = false
 
     /// Presentation-ready validation or sign-in error.
     @Published private(set) var errorMessage: String?
 
     private let onCredentialLogin: (String, String) async throws -> Void
     private let onRegister: (String, String) async throws -> Void
-    private let onLogin: (String) async throws -> Void
     private let onAppleLogin: (AppleAuthenticationIdentity) async throws -> Void
     private let appleAuthenticationManager: any AppleAuthenticationManaging
     private let errorManager: any AppErrorManaging
+    private let submissionThrottleInterval: TimeInterval
+    private var validationCancellables: Set<AnyCancellable> = []
+    private var lastSubmissionDate = Date.distantPast
 
     /// Creates a login view model.
     ///
-    /// The view model stays intentionally thin:
-    /// - environment-specific rendering decisions stay in `mode`
-    /// - session ownership stays in `AppState`
-    /// - vendor-specific auth transport stays below the view model in `UserSessionService`
+    /// The view model owns:
+    /// - form input and validation state
+    /// - single-flight and throttled submission policy
+    ///
+    /// It intentionally does not own:
+    /// - session persistence
+    /// - backend transport specifics
+    /// - Apple credential parsing rules
     init(
         mode: LoginScreenMode,
         onCredentialLogin: @escaping (String, String) async throws -> Void,
         onRegister: @escaping (String, String) async throws -> Void,
-        onLogin: @escaping (String) async throws -> Void,
         onAppleLogin: @escaping (AppleAuthenticationIdentity) async throws -> Void,
         appleAuthenticationManager: any AppleAuthenticationManaging,
-        errorManager: any AppErrorManaging
+        errorManager: any AppErrorManaging,
+        submissionThrottleInterval: TimeInterval = 1
     ) {
         self.mode = mode
         self.onCredentialLogin = onCredentialLogin
         self.onRegister = onRegister
-        self.onLogin = onLogin
         self.onAppleLogin = onAppleLogin
         self.appleAuthenticationManager = appleAuthenticationManager
         self.errorManager = errorManager
+        self.submissionThrottleInterval = submissionThrottleInterval
+
+        bindValidation()
     }
 
-    /// Validates the input and attempts to sign in.
+    /// Starts the primary sign-in flow for the currently active mode.
     func submit() {
-        guard mode == .localUsername else {
+        guard let credentials = validateCredentialsForSubmission() else {
             return
         }
 
-        let normalizedUsername = username.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        guard !normalizedUsername.isEmpty else {
-            errorMessage = AppLocalization.text("login.error.emptyUsername", fallback: "Enter a username.")
-            return
-        }
-
-        guard !isSubmitting else {
-            return
-        }
-
-        runSignInTask(
-            operation: { [self] in
-                try await self.onLogin(normalizedUsername)
-            },
-            failureContext: AppErrorContext(
-                operation: "usernameLogin",
-                feature: "login"
-            )
-        )
-    }
-
-    /// Validates the external-auth credentials and attempts to sign in.
-    func submitCredentialLogin() {
-        guard mode == .reqResDemoExternalAuth else {
-            return
-        }
-
-        let credentials = validatedCredentials()
-        guard let credentials else {
-            return
-        }
-
-        guard !isSubmitting else {
+        guard canStartSubmission() else {
             return
         }
 
@@ -107,24 +129,23 @@ final class LoginViewModel: ObservableObject {
                 try await self.onCredentialLogin(credentials.email, credentials.password)
             },
             failureContext: AppErrorContext(
-                operation: "credentialLogin",
+                operation: mode == .defaultAppAuth ? "defaultCredentialLogin" : "credentialLogin",
                 feature: "login"
             )
         )
     }
 
-    /// Validates the external-auth credentials and attempts to register.
+    /// Starts the ReqRes registration flow.
     func submitRegistration() {
         guard mode == .reqResDemoExternalAuth else {
             return
         }
 
-        let credentials = validatedCredentials()
-        guard let credentials else {
+        guard let credentials = validateCredentialsForSubmission() else {
             return
         }
 
-        guard !isSubmitting else {
+        guard canStartSubmission() else {
             return
         }
 
@@ -139,6 +160,11 @@ final class LoginViewModel: ObservableObject {
         )
     }
 
+    /// Toggles password visibility between secure and plain text.
+    func togglePasswordVisibility() {
+        isPasswordVisible.toggle()
+    }
+
     /// Handles the Sign in with Apple completion result and converts it into the app session payload.
     func handleAppleSignInCompletion(_ result: Result<ASAuthorization, Error>) {
         switch result {
@@ -149,27 +175,202 @@ final class LoginViewModel: ObservableObject {
         }
     }
 
-    /// Validates the external auth form with the minimum constraints required by ReqRes demo auth.
-    private func validatedCredentials() -> (email: String, password: String)? {
-        let normalizedEmail = email.trimmingCharacters(in: .whitespacesAndNewlines)
+    /// Returns the current inline helper text for the email field.
+    var emailHelperText: String? {
+        emailValidationState.message
+    }
+
+    /// Returns the current inline helper text for the password field.
+    var passwordHelperText: String? {
+        passwordValidationState.message
+    }
+
+    /// Describes the current password policy for the active login mode.
+    var passwordGuidanceText: String {
+        switch mode {
+        case .defaultAppAuth:
+            return AppLocalization.text(
+                "login.password.guidance",
+                fallback: "Use at least 8 characters, including letters and numbers."
+            )
+        case .reqResDemoExternalAuth:
+            return AppLocalization.text(
+                "login.external.password.guidance",
+                fallback: "ReqRes demo auth accepts fixture passwords such as pistol."
+            )
+        }
+    }
+
+    private func bindValidation() {
+        $email
+            .dropFirst()
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.emailValidationState = .validating
+                self?.errorMessage = nil
+            })
+            .debounce(for: .milliseconds(250), scheduler: RunLoop.main)
+            .sink { [weak self] email in
+                self?.emailValidationState = self?.validateEmail(email) ?? .untouched
+                self?.refreshCanSubmitState()
+            }
+            .store(in: &validationCancellables)
+
+        $password
+            .dropFirst()
+            .handleEvents(receiveOutput: { [weak self] _ in
+                self?.passwordValidationState = .validating
+                self?.errorMessage = nil
+            })
+            .debounce(for: .milliseconds(250), scheduler: RunLoop.main)
+            .sink { [weak self] password in
+                self?.passwordValidationState = self?.validatePassword(password) ?? .untouched
+                self?.refreshCanSubmitState()
+            }
+            .store(in: &validationCancellables)
+    }
+
+    private func validateCredentialsForSubmission() -> (email: String, password: String)? {
+        let normalizedEmail = normalizedEmail(email)
         let normalizedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        guard !normalizedEmail.isEmpty else {
-            errorMessage = AppLocalization.text("login.error.emptyEmail", fallback: "Enter an email.")
+        let emailState = validateEmail(normalizedEmail)
+        let passwordState = validatePassword(password)
+
+        emailValidationState = emailState
+        passwordValidationState = passwordState
+        refreshCanSubmitState()
+
+        guard emailState.isValid, passwordState.isValid else {
+            errorMessage = AppLocalization.text(
+                "login.error.invalidCredentials",
+                fallback: "Check the highlighted fields and try again."
+            )
             return nil
         }
 
-        guard normalizedEmail.contains("@"), normalizedEmail.contains(".") else {
-            errorMessage = AppLocalization.text("login.error.invalidEmail", fallback: "Enter a valid email.")
-            return nil
+        errorMessage = nil
+        return (normalizedEmail, normalizedPassword)
+    }
+
+    private func validateEmail(_ rawEmail: String) -> LoginFieldValidationState {
+        let normalizedEmail = normalizedEmail(rawEmail)
+        guard !normalizedEmail.isEmpty else {
+            return .invalid(
+                AppLocalization.text("login.error.emptyEmail", fallback: "Enter an email.")
+            )
         }
+
+        guard Self.isValidEmail(normalizedEmail) else {
+            return .invalid(
+                AppLocalization.text("login.error.invalidEmail", fallback: "Enter a valid email address.")
+            )
+        }
+
+        switch mode {
+        case .defaultAppAuth:
+            return .valid(
+                AppLocalization.text("login.email.valid", fallback: "Email looks good.")
+            )
+        case .reqResDemoExternalAuth:
+            return .valid(
+                AppLocalization.text("login.external.email.valid", fallback: "Valid demo email format.")
+            )
+        }
+    }
+
+    private func validatePassword(_ rawPassword: String) -> LoginFieldValidationState {
+        switch mode {
+        case .defaultAppAuth:
+            return validateDefaultPassword(rawPassword)
+        case .reqResDemoExternalAuth:
+            return validateReqResPassword(rawPassword)
+        }
+    }
+
+    private func validateDefaultPassword(_ rawPassword: String) -> LoginFieldValidationState {
+        guard !rawPassword.isEmpty else {
+            return .invalid(
+                AppLocalization.text("login.error.emptyPassword", fallback: "Enter a password.")
+            )
+        }
+
+        guard !rawPassword.contains(where: { $0.isWhitespace }) else {
+            return .invalid(
+                AppLocalization.text("login.error.passwordWhitespace", fallback: "Use a password without spaces.")
+            )
+        }
+
+        guard rawPassword.count >= 8 else {
+            return .invalid(
+                AppLocalization.text("login.error.passwordTooShort", fallback: "Use at least 8 characters.")
+            )
+        }
+
+        let hasLetter = rawPassword.contains(where: { $0.isLetter })
+        let hasDigit = rawPassword.contains(where: { $0.isNumber })
+        let hasSymbol = rawPassword.contains(where: { !$0.isLetter && !$0.isNumber && !$0.isWhitespace })
+
+        guard hasLetter else {
+            return .invalid(
+                AppLocalization.text("login.error.passwordMissingLetter", fallback: "Add at least one letter.")
+            )
+        }
+
+        guard hasDigit else {
+            return .invalid(
+                AppLocalization.text("login.error.passwordMissingDigit", fallback: "Add at least one number.")
+            )
+        }
+
+        if rawPassword.count >= 12 && hasSymbol {
+            return .valid(
+                AppLocalization.text("login.password.strong", fallback: "Strong password.")
+            )
+        }
+
+        return .valid(
+            AppLocalization.text("login.password.valid", fallback: "Password meets the requirements.")
+        )
+    }
+
+    private func validateReqResPassword(_ rawPassword: String) -> LoginFieldValidationState {
+        let normalizedPassword = rawPassword.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard !normalizedPassword.isEmpty else {
-            errorMessage = AppLocalization.text("login.error.emptyPassword", fallback: "Enter a password.")
-            return nil
+            return .invalid(
+                AppLocalization.text("login.error.emptyPassword", fallback: "Enter a password.")
+            )
         }
 
-        return (normalizedEmail, normalizedPassword)
+        return .valid(
+            AppLocalization.text("login.external.password.valid", fallback: "Password provided.")
+        )
+    }
+
+    private func refreshCanSubmitState() {
+        canSubmit = emailValidationState.isValid && passwordValidationState.isValid && !isSubmitting
+    }
+
+    private func canStartSubmission() -> Bool {
+        guard !isSubmitting else {
+            return false
+        }
+
+        let now = Date()
+        guard now.timeIntervalSince(lastSubmissionDate) >= submissionThrottleInterval else {
+            errorMessage = AppLocalization.text(
+                "login.error.throttled",
+                fallback: "Please wait a moment before trying again."
+            )
+            return false
+        }
+
+        lastSubmissionDate = now
+        return true
+    }
+
+    private func normalizedEmail(_ value: String) -> String {
+        value.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
     }
 
     /// Extracts the credential payload and starts the Apple-backed sign-in flow.
@@ -241,10 +442,12 @@ final class LoginViewModel: ObservableObject {
     ) {
         isSubmitting = true
         errorMessage = nil
+        refreshCanSubmitState()
 
         Task { @MainActor [weak self] in
             defer {
                 self?.isSubmitting = false
+                self?.refreshCanSubmitState()
             }
 
             do {
@@ -254,5 +457,13 @@ final class LoginViewModel: ObservableObject {
                 self?.presentLoginError(error, context: failureContext)
             }
         }
+    }
+
+    private static func isValidEmail(_ email: String) -> Bool {
+        let emailPredicate = NSPredicate(
+            format: "SELF MATCHES %@",
+            #"^[A-Z0-9a-z._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"#
+        )
+        return emailPredicate.evaluate(with: email)
     }
 }

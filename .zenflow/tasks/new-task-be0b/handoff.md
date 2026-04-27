@@ -47,7 +47,7 @@
 - MVVM baseline for shell and news feed.
 - SwiftData-backed local content storage with first-launch seeding.
 - Generic tab routers with a shared app coordinator and per-tab navigation stacks.
-- Login screen with username-only sign-in and logout back to auth flow.
+- Login screen with default email/password sign-in, Apple sign-in, and logout back to auth flow.
 
 ## Current Architecture
 - App entry: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/TchopApp.swift`
@@ -1331,7 +1331,7 @@ Absent:  no tests/build/simulator checks
   and the ReqRes `{ token, id? }` payload is mapped into the app's `AuthTokenSet`.
   Refresh/revoke stay app-local fallback behavior because ReqRes demo auth does not expose the same lifecycle surface as the production-shaped contract.
 - `LoginScreenView` and `LoginViewModel` now support two presentation/runtime modes through `LoginScreenMode`:
-  `localUsername` keeps username + Apple sign-in,
+  `defaultAppAuth` keeps the default app email/password + Apple sign-in,
   while `reqResDemoExternalAuth` shows email/password plus separate sign-in and register buttons.
   `AppRootView` receives that mode from `AppDIContainer.loginScreenMode`.
 - `UserSessionService` and `AppState` now have external credential entry points:
