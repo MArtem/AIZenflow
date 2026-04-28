@@ -1,4 +1,5 @@
 import XCTest
+import TchopErrors
 import TchopUIConfiguration
 @testable import TchopApp
 
@@ -17,6 +18,7 @@ final class AppShellViewModelTests: XCTestCase {
         let viewModel = AppShellViewModel(
             channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
             newsFeedViewModel: makeTestNewsFeedViewModel(),
+            errorManager: AppErrorManager(),
             uiConfigurationManager: uiConfigurationManager,
         )
 
@@ -42,6 +44,7 @@ final class AppShellViewModelTests: XCTestCase {
         let viewModel = AppShellViewModel(
             channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
             newsFeedViewModel: makeTestNewsFeedViewModel(),
+            errorManager: AppErrorManager(),
             uiConfigurationManager: uiConfigurationManager,
         )
 
@@ -71,9 +74,10 @@ final class AppShellViewModelTests: XCTestCase {
     /// Creates a lightweight feed view model for shell tests.
     private func makeTestNewsFeedViewModel() -> NewsFeedViewModel {
         NewsFeedViewModel(
-            repository: TestNewsFeedRepository(result: .success(NewsFeedContent(cards: []))),
+            repository: TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [], availability: .live))),
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            initialContent: NewsFeedContent(cards: []),
+            errorManager: AppErrorManager(),
+            initialContent: NewsFeedContent(cards: [], availability: .live),
             loadFailureContent: NewsFeedFixtures.fallbackContent,
             loadFailureMessage: "Failed to load"
         )

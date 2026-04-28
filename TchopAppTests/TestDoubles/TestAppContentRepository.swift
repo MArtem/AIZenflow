@@ -16,8 +16,47 @@ final class TestAppContentRepository: AppContentRepository {
     }
 
     /// Returns an empty feed fixture for tests that do not care about content mapping.
-    func fetchNewsFeedContent() async throws -> NewsFeedContent {
-        NewsFeedContent(cards: [])
+    func currentNewsFeedContent() throws -> NewsFeedContent? {
+        NewsFeedContent(cards: [], availability: .live)
+    }
+
+    /// Returns an empty feed fixture for tests that do not care about content mapping.
+    func refreshNewsFeedContent() async throws -> NewsFeedContent {
+        NewsFeedContent(cards: [], availability: .live)
+    }
+
+    func performFeaturedArticleAction(
+        articleID: String,
+        action: FeaturedArticleCardAction
+    ) async throws -> FeaturedArticleCardModel {
+        FeaturedArticleCardModel(
+            id: articleID,
+            postedInPrefix: "Posted in ",
+            sourceTitle: "Source",
+            brandTitle: "Brand",
+            headline: "Headline",
+            summary: "Summary",
+            metadataLine: "Metadata",
+            translationLabel: "",
+            commentCount: 0,
+            actions: [],
+            uiState: .idle
+        )
+    }
+
+    func performDiscussionAction(
+        discussionID: String,
+        action: DiscussionCardAction
+    ) async throws -> DiscussionCardModel {
+        DiscussionCardModel(
+            id: discussionID,
+            categoryTitle: "Category",
+            headline: "Headline",
+            participants: [],
+            replyCount: 0,
+            joinedCount: 0,
+            uiState: .idle
+        )
     }
 }
 
@@ -29,12 +68,33 @@ struct TestFeedAPIManager: FeedAPIManaging {
     func fetchFeed() async throws -> FeedResponseDTO {
         try result.get()
     }
+
+    func performFeaturedArticleAction(
+        articleID: String,
+        action: FeaturedArticleCardAction,
+        context: FeaturedArticleActionContext
+    ) async throws -> FeaturedArticleDTO {
+        throw TestDatabaseError.fetchFailed
+    }
+
+    func performDiscussionAction(
+        discussionID: String,
+        action: DiscussionCardAction,
+        context: DiscussionActionContext
+    ) async throws -> DiscussionDTO {
+        throw TestDatabaseError.fetchFailed
+    }
 }
 
 /// Test-only error for fixture setup failures.
 enum TestDatabaseError: Error {
     case fetchFailed
     case insertFailed
+}
+
+/// Reachability double that lets repository tests opt into online behavior explicitly.
+struct TestNetworkAvailabilityMonitor: NetworkAvailabilityChecking {
+    let isInternetAvailable: Bool
 }
 
 /// Creates a disposable in-memory database manager for app tests.

@@ -1,52 +1,105 @@
+import AuthenticationServices
 import XCTest
+import TchopAppleAuthentication
+import TchopErrors
 @testable import TchopApp
 
-/// Validates login form state and submission behavior.
+/// Validates login form state and submission behavior for the credential-first login screen.
 @MainActor
 final class LoginViewModelTests: XCTestCase {
-    /// Verifies submit with empty username shows validation error.
-    func testSubmitWithEmptyUsernameShowsValidationError() {
-        let viewModel = LoginViewModel { _ in }
-        viewModel.username = "   "
+    func testSubmitWithEmptyEmailShowsValidationError() {
+        let viewModel = makeViewModel()
+        viewModel.email = "   "
+        viewModel.password = "Password1"
 
         viewModel.submit()
 
         XCTAssertEqual(
             viewModel.errorMessage,
-            AppLocalization.text("login.error.emptyUsername", fallback: "Enter a username.")
+            AppLocalization.text(
+                "login.error.invalidCredentials",
+                fallback: "Check the highlighted fields and try again."
+            )
         )
     }
 
-    /// Verifies submit trims whitespace before login.
     func testSubmitTrimsWhitespaceBeforeLogin() {
-        var capturedUsername: String?
-        let viewModel = LoginViewModel { username in
-            capturedUsername = username
+        let expectation = expectation(description: "credential login called")
+        var capturedEmail: String?
+        var capturedPassword: String?
+
+        let viewModel = makeViewModel { email, password in
+            capturedEmail = email
+            capturedPassword = password
+            expectation.fulfill()
         }
-        viewModel.username = "  alice  "
+        viewModel.email = "  alice@example.com  "
+        viewModel.password = "Password1"
 
         viewModel.submit()
 
-        XCTAssertEqual(capturedUsername, "alice")
+        wait(for: [expectation], timeout: 1)
+        XCTAssertEqual(capturedEmail, "alice@example.com")
+        XCTAssertEqual(capturedPassword, "Password1")
         XCTAssertNil(viewModel.errorMessage)
     }
 
-    /// Verifies submit shows generic error when login fails.
     func testSubmitShowsGenericErrorWhenLoginFails() {
-        let viewModel = LoginViewModel { _ in
+        let expectation = expectation(description: "credential login attempted")
+        let viewModel = makeViewModel { _, _ in
+            defer { expectation.fulfill() }
             throw TestLoginError.failed
         }
-        viewModel.username = "alice"
+        viewModel.email = "alice@example.com"
+        viewModel.password = "Password1"
 
         viewModel.submit()
 
+        wait(for: [expectation], timeout: 1)
+        waitForAsyncStateUpdate()
         XCTAssertEqual(
             viewModel.errorMessage,
             AppLocalization.text("login.error.generic", fallback: "Unable to sign in right now.")
         )
     }
+
+    private func makeViewModel(
+        onCredentialLogin: @escaping (String, String) async throws -> Void = { _, _ in }
+    ) -> LoginViewModel {
+        LoginViewModel(
+            mode: .defaultAppAuth,
+            onCredentialLogin: onCredentialLogin,
+            onRegister: { _, _ in },
+            onAppleLogin: { _ in },
+            appleAuthenticationManager: TestAppleAuthenticationManager(),
+            errorManager: AppErrorManager(),
+            submissionThrottleInterval: 0
+        )
+    }
+
+    private func waitForAsyncStateUpdate() {
+        let expectation = expectation(description: "async state update")
+        Task { @MainActor in
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 1)
+    }
 }
 
 private enum TestLoginError: Error {
     case failed
+}
+
+private struct TestAppleAuthenticationManager: AppleAuthenticationManaging {
+    func identity(from authorization: ASAuthorization) throws -> AppleAuthenticationIdentity {
+        AppleAuthenticationIdentity(userID: "test-user")
+    }
+
+    func isCancellationError(_ error: Error) -> Bool {
+        false
+    }
+
+    func credentialState(for userID: String) async throws -> AppleAuthenticationCredentialState {
+        .authorized
+    }
 }

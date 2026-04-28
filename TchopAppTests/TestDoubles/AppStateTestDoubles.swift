@@ -1,5 +1,6 @@
 import Foundation
 import UIKit
+import TchopAppleAuthentication
 import TchopNavigation
 import TchopPushNotifications
 @testable import TchopApp
@@ -27,12 +28,28 @@ final class TestUserSessionService: UserSessionManaging {
     }
 
     /// Returns the configured sign-in result.
-    func signIn(username: String) throws -> AppUser {
+    func signIn(username: String) async throws -> AppUser {
+        try signInResult.get()
+    }
+
+    func signIn(email: String, password: String) async throws -> AppUser {
+        try signInResult.get()
+    }
+
+    func register(email: String, password: String) async throws -> AppUser {
+        try signInResult.get()
+    }
+
+    func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AppUser {
         try signInResult.get()
     }
 
     /// Returns the configured restore result.
     func restoreSession() throws -> AppUser? {
+        try restoreResult.get()
+    }
+
+    func restoreAuthenticatedSession() async throws -> AppUser? {
         try restoreResult.get()
     }
 
@@ -50,6 +67,10 @@ final class TestUserRepository: UserRepository {
     /// Creates a new TestUserRepository instance.
     init(user: AppUser) {
         self.user = user
+    }
+
+    func findUser(id: String) throws -> AppUser? {
+        user.id == id ? user : nil
     }
 
     /// Returns the seeded user when the username matches exactly.
@@ -73,6 +94,13 @@ final class TestUserRepository: UserRepository {
             createdAt: user.createdAt,
             isNavigationStateRestoreEnabled: isEnabled
         )
+    }
+
+    func findOrCreateAppleUser(
+        appleUserID: String,
+        preferredUsername: String?
+    ) throws -> AppUser {
+        user
     }
 }
 

@@ -30,8 +30,17 @@ final class TestNewsFeedRepository: NewsFeedRepository {
         self.delayNanoseconds = delayNanoseconds
     }
 
+    func currentNewsFeedContent() throws -> NewsFeedContent? {
+        let firstResult = results.first
+        guard case let .success(content) = firstResult else {
+            return nil
+        }
+
+        return content
+    }
+
     /// Returns the configured feed result after the optional delay.
-    func fetchNewsFeedContent() async throws -> NewsFeedContent {
+    func refreshNewsFeedContent() async throws -> NewsFeedContent {
         fetchCallCount += 1
 
         if delayNanoseconds > 0 {
@@ -41,5 +50,19 @@ final class TestNewsFeedRepository: NewsFeedRepository {
         let result = results.count > 1 ? results.removeFirst() : results[0]
 
         return try result.get()
+    }
+
+    func performFeaturedArticleAction(
+        articleID: String,
+        action: FeaturedArticleCardAction
+    ) async throws -> FeaturedArticleCardModel {
+        throw TestNewsFeedError.failed
+    }
+
+    func performDiscussionAction(
+        discussionID: String,
+        action: DiscussionCardAction
+    ) async throws -> DiscussionCardModel {
+        throw TestNewsFeedError.failed
     }
 }

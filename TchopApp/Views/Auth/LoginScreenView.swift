@@ -257,6 +257,7 @@ struct LoginScreenView: View {
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(AppTheme.accent)
                 }
+                .accessibilityIdentifier("login.passwordVisibilityButton")
                 .buttonStyle(.plain)
                 .disabled(viewModel.isSubmitting)
             }

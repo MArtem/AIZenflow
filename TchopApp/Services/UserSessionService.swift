@@ -371,8 +371,11 @@ final class UserSessionService: UserSessionManaging {
         do {
             tokenSet = try tokenStore.loadTokenSet()
         } catch {
+            // Startup restore should degrade to a clean signed-out state if secure storage is
+            // temporarily unavailable or corrupted. Crashing here prevents the user from ever
+            // reaching the login screen that could establish a fresh session.
             clearPersistedSessionState()
-            throw error
+            return nil
         }
 
         guard let restoredUser else {

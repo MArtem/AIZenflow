@@ -1,5 +1,6 @@
 import XCTest
 import TchopDatabase
+import TchopErrors
 @testable import TchopApp
 
 /// Verifies async loading states and error handling for feed view model.
@@ -15,15 +16,19 @@ final class NewsFeedViewModelTests: XCTestCase {
                         categoryTitle: "Discussion",
                         headline: "Loaded from repository",
                         participants: [],
-                        joinedText: "+1 joined"
+                        replyCount: 0,
+                        joinedCount: 1,
+                        uiState: .idle
                     )
                 )
-            ]
+            ],
+            availability: .live
         )
         let repository = TestNewsFeedRepository(result: .success(expectedContent))
         let viewModel = NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            errorManager: AppErrorManager(),
             initialContent: NewsFeedFixtures.fallbackContent,
             loadFailureContent: NewsFeedFixtures.fallbackContent,
             loadFailureMessage: "Failed to load"
@@ -43,6 +48,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         let viewModel = NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            errorManager: AppErrorManager(),
             initialContent: NewsFeedFixtures.fallbackContent,
             loadFailureContent: NewsFeedFixtures.fallbackContent,
             loadFailureMessage: AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
@@ -68,12 +74,13 @@ final class NewsFeedViewModelTests: XCTestCase {
     /// Verifies refresh does not start a second request while one is already running.
     func testRefreshIgnoresDuplicateRequestWhileLoading() async {
         let repository = TestNewsFeedRepository(
-            result: .success(NewsFeedContent(cards: [])),
+            result: .success(NewsFeedContent(cards: [], availability: .live)),
             delayNanoseconds: 200_000_000
         )
         let viewModel = NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            errorManager: AppErrorManager(),
             initialContent: NewsFeedFixtures.fallbackContent,
             loadFailureContent: NewsFeedFixtures.fallbackContent,
             loadFailureMessage: "Failed to load"
@@ -99,10 +106,13 @@ final class NewsFeedViewModelTests: XCTestCase {
                         categoryTitle: "Discussion",
                         headline: "Recovered content",
                         participants: [],
-                        joinedText: "+1 joined"
+                        replyCount: 0,
+                        joinedCount: 1,
+                        uiState: .idle
                     )
                 )
-            ]
+            ],
+            availability: .live
         )
         let repository = TestNewsFeedRepository(
             results: [
@@ -113,6 +123,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         let viewModel = NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            errorManager: AppErrorManager(),
             initialContent: NewsFeedFixtures.fallbackContent,
             loadFailureContent: NewsFeedFixtures.fallbackContent,
             loadFailureMessage: "Failed to load"
@@ -136,10 +147,11 @@ final class NewsFeedViewModelTests: XCTestCase {
 
     /// Verifies retry stays inert while feed is not in failed state.
     func testRetryDoesNothingBeforeFailure() async {
-        let repository = TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [])))
+        let repository = TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [], availability: .live)))
         let viewModel = NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            errorManager: AppErrorManager(),
             initialContent: NewsFeedFixtures.fallbackContent,
             loadFailureContent: NewsFeedFixtures.fallbackContent,
             loadFailureMessage: "Failed to load"
@@ -155,10 +167,11 @@ final class NewsFeedViewModelTests: XCTestCase {
 
     /// Verifies cancel loading stops loading state.
     func testCancelLoadingStopsLoadingState() {
-        let repository = TestNewsFeedRepository(result: .success(.init(cards: [])), delayNanoseconds: 500_000_000)
+        let repository = TestNewsFeedRepository(result: .success(.init(cards: [], availability: .live)), delayNanoseconds: 500_000_000)
         let viewModel = NewsFeedViewModel(
             repository: repository,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            errorManager: AppErrorManager(),
             initialContent: NewsFeedFixtures.fallbackContent,
             loadFailureContent: NewsFeedFixtures.fallbackContent,
             loadFailureMessage: "Failed to load"
@@ -260,7 +273,8 @@ final class AppContentRepositoryTests: XCTestCase {
 
         let repository = DefaultAppContentRepository(
             databaseManager: databaseManager,
-            feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: [])))
+            feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: []))),
+            networkAvailabilityChecker: TestNetworkAvailabilityMonitor(isInternetAvailable: true)
         )
 
         let channel = try repository.fetchChannelInfo()
@@ -273,7 +287,8 @@ final class AppContentRepositoryTests: XCTestCase {
     func testFetchChannelInfoThrowsWhenChannelIsMissing() {
         let repository = DefaultAppContentRepository(
             databaseManager: makeInMemoryAppDatabaseManager(),
-            feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: [])))
+            feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: []))),
+            networkAvailabilityChecker: TestNetworkAvailabilityMonitor(isInternetAvailable: true)
         )
 
         XCTAssertThrowsError(try repository.fetchChannelInfo())
@@ -290,6 +305,8 @@ final class AppContentRepositoryTests: XCTestCase {
                             .featuredArticle(
                                 FeaturedArticleDTO(
                                     id: "article-1",
+                                    remoteUpdatedAt: Date(),
+                                    publishedAt: nil,
                                     postedInPrefix: "Posted in ",
                                     sourceTitle: "Blog",
                                     brandTitle: "Tchop",
@@ -297,9 +314,15 @@ final class AppContentRepositoryTests: XCTestCase {
                                     summary: "Summary",
                                     metadataLine: "Meta",
                                     translationLabel: "Translate",
+                                    localState: FeaturedArticleStateDTO(
+                                        isLiked: false,
+                                        commentCount: 0,
+                                        displayMode: .expanded
+                                    ),
                                     actions: [
                                         ArticleActionDTO(
                                             id: "like",
+                                            kind: .like,
                                             systemName: "hand.thumbsup.fill",
                                             title: "Like"
                                         )
@@ -309,6 +332,8 @@ final class AppContentRepositoryTests: XCTestCase {
                             .discussion(
                                 DiscussionDTO(
                                     id: "discussion-1",
+                                    remoteUpdatedAt: Date(),
+                                    publishedAt: nil,
                                     categoryTitle: "Discussion",
                                     headline: "Headline",
                                     participants: [
@@ -318,16 +343,22 @@ final class AppContentRepositoryTests: XCTestCase {
                                             isHighlighted: true
                                         )
                                     ],
-                                    joinedText: "+1 joined"
+                                    localState: DiscussionStateDTO(
+                                        isParticipating: false,
+                                        replyCount: 0,
+                                        joinedCount: 1,
+                                        displayMode: .expanded
+                                    )
                                 )
                             )
                         ]
                     )
                 )
-            )
+            ),
+            networkAvailabilityChecker: TestNetworkAvailabilityMonitor(isInternetAvailable: true)
         )
 
-        let content = try await repository.fetchNewsFeedContent()
+        let content = try await repository.refreshNewsFeedContent()
 
         XCTAssertEqual(content.cards.count, 2)
     }
