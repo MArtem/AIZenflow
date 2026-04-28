@@ -13,7 +13,8 @@ struct TchopApp: App {
         let launchConfiguration = AppLaunchConfiguration()
         let container = AppDIContainer(
             databaseConfiguration: launchConfiguration.databaseConfiguration,
-            apiEnvironment: launchConfiguration.apiEnvironment
+            apiEnvironment: launchConfiguration.apiEnvironment,
+            isUITesting: launchConfiguration.isUITesting
         )
         let appState = container.makeAppState()
 

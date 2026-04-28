@@ -133,6 +133,27 @@ final class KeychainAuthTokenStore: AuthTokenStoring {
     }
 }
 
+/// In-memory token store used by deterministic UI test flows.
+///
+/// UI-driven API tests should exercise the full auth/request/session chain without depending on
+/// simulator-specific Keychain availability. This store keeps the same contract while removing the
+/// platform storage variable from those tests.
+final class InMemoryAuthTokenStore: AuthTokenStoring {
+    private var tokenSet: AuthTokenSet?
+
+    func loadTokenSet() throws -> AuthTokenSet? {
+        tokenSet
+    }
+
+    func saveTokenSet(_ tokenSet: AuthTokenSet) throws {
+        self.tokenSet = tokenSet
+    }
+
+    func clearTokenSet() throws {
+        tokenSet = nil
+    }
+}
+
 /// Minimal auth provider that integrates secure tokens with the networking interceptors.
 actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
     private let tokenStore: any AuthTokenStoring

@@ -172,7 +172,8 @@ final class AppDIContainer: ObservableObject {
     /// Creates the root dependency container and eagerly wires the initial graph.
     init(
         databaseConfiguration: AppDatabaseConfiguration = .persistent,
-        apiEnvironment: AppAPIEnvironment = .localStub
+        apiEnvironment: AppAPIEnvironment = .localStub,
+        isUITesting: Bool = false
     ) {
         let analyticsCollector = ProductAnalyticsMemoryCollector()
         self.analyticsCollector = analyticsCollector
@@ -186,7 +187,8 @@ final class AppDIContainer: ObservableObject {
         let contentServices = Self.makeContentServices(
             databaseManager: databaseManager,
             analyticsCollector: analyticsCollector,
-            apiEnvironment: apiEnvironment
+            apiEnvironment: apiEnvironment,
+            isUITesting: isUITesting
         )
         self.apiManager = contentServices.apiManager
         self.authTokenStore = contentServices.authTokenStore
@@ -278,7 +280,8 @@ final class AppDIContainer: ObservableObject {
     private static func makeContentServices(
         databaseManager: any DatabaseManaging,
         analyticsCollector: ProductAnalyticsMemoryCollector,
-        apiEnvironment: AppAPIEnvironment
+        apiEnvironment: AppAPIEnvironment,
+        isUITesting: Bool
     ) -> (
         apiManager: any APIManaging,
         authTokenStore: any AuthTokenStoring,
@@ -290,7 +293,7 @@ final class AppDIContainer: ObservableObject {
         userRepository: any UserRepository,
         sessionService: any UserSessionManaging
     ) {
-        let authTokenStore = makeAuthTokenStore()
+        let authTokenStore = makeAuthTokenStore(isUITesting: isUITesting)
         let authenticationAPIManager = makeAuthenticationAPIManager(
             analyticsCollector: analyticsCollector,
             apiEnvironment: apiEnvironment
@@ -397,8 +400,12 @@ final class AppDIContainer: ObservableObject {
         )
     }
 
-    private static func makeAuthTokenStore() -> any AuthTokenStoring {
-        KeychainAuthTokenStore()
+    private static func makeAuthTokenStore(isUITesting: Bool) -> any AuthTokenStoring {
+        if isUITesting {
+            return InMemoryAuthTokenStore()
+        }
+
+        return KeychainAuthTokenStore()
     }
 
     /// Creates the auth-specific API manager on a dedicated unauthenticated transport pipeline.
