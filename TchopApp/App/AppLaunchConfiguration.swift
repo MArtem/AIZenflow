@@ -1,12 +1,49 @@
 import Foundation
 
+/// Launch-time database mode used to steer the app between automatic resolution and
+/// explicit single-backend runs for local development and debugging.
+private enum AppLaunchDatabaseMode {
+    case automatic
+    case swiftDataOnly
+    case coreDataOnly
+
+    /// Maps the launch mode to the backend selection policy consumed by the shared
+    /// database bootstrap contract.
+    var backendSelectionPolicy: AppDatabaseBackendSelectionPolicy {
+        switch self {
+        case .automatic:
+            return .automatic
+        case .swiftDataOnly:
+            return .swiftData
+        case .coreDataOnly:
+            return .coreData
+        }
+    }
+
+    /// Parses development launch values while keeping `automatic` as the safe fallback.
+    static func make(from rawValue: String?) -> Self {
+        switch rawValue?.lowercased() {
+        case "swiftdata", "swift_data", "swiftdataonly":
+            return .swiftDataOnly
+        case "coredata", "core_data", "coredataonly":
+            return .coreDataOnly
+        default:
+            return .automatic
+        }
+    }
+}
+
 /// Launch-time configuration derived from process environment for local testing flows.
+///
+/// This keeps development-only runtime switches centralized in one place so entry points and
+/// composition do not grow ad-hoc environment parsing logic.
 struct AppLaunchConfiguration {
     let isUITesting: Bool
     let launchesAuthenticatedSession: Bool
     let uiTestUsername: String
     let initialURL: URL?
     let apiEnvironment: AppAPIEnvironment
+    private let databaseMode: AppLaunchDatabaseMode
 
     /// Creates a new AppLaunchConfiguration instance.
     ///
@@ -18,18 +55,29 @@ struct AppLaunchConfiguration {
         self.uiTestUsername = environment["TCHOP_UI_TEST_USERNAME"] ?? "ui-test-user"
         self.initialURL = Self.makeInitialURL(environment: environment)
         self.apiEnvironment = Self.makeAPIEnvironment(environment: environment)
+        self.databaseMode = AppLaunchDatabaseMode.make(
+            from: environment["TCHOP_DATABASE_BACKEND"] ?? "automatic"
+        )
     }
 
     /// Returns the database configuration appropriate for the current launch mode.
+    ///
+    /// `TCHOP_DATABASE_BACKEND` supports:
+    /// - `automatic` (default app runtime policy with migration/fallback behavior),
+    /// - `swiftData`,
+    /// - `coreData`.
     var databaseConfiguration: AppDatabaseConfiguration {
         if isUITesting {
             return AppDatabaseConfiguration(
-                backendSelectionPolicy: .automatic,
+                backendSelectionPolicy: databaseMode.backendSelectionPolicy,
                 isStoredInMemoryOnly: true
             )
         }
 
-        return .persistent
+        return AppDatabaseConfiguration(
+            backendSelectionPolicy: databaseMode.backendSelectionPolicy,
+            isStoredInMemoryOnly: false
+        )
     }
 
     /// Builds the optional initial URL used by deterministic launch-driven UI tests.

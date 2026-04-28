@@ -1340,3 +1340,39 @@ Absent:  no tests/build/simulator checks
   `register(email:password:)`.
   For now the local persisted `AppUser` is keyed by email in that environment,
   which is the smallest stable bridge until a real backend profile payload exists.
+- The latest accepted simplification pass changed the feed/runtime baseline in four places:
+  `FeedAPIManaging` now uses unified action entry points
+  (`performFeaturedArticleAction(...)` and `performDiscussionAction(...)`)
+  instead of one public method per card button.
+  The service boundary now takes narrow `FeaturedArticleActionContext` / `DiscussionActionContext` values rather than `FeaturedArticleCardUIState` / `DiscussionCardUIState`.
+- Per-card task-slot and additive-queue bookkeeping was extracted from `NewsFeedViewModel.swift`
+  into [NewsFeedCardActionCoordinator.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedCardActionCoordinator.swift).
+  `NewsFeedViewModel` still owns product policy,
+  while the helper owns only:
+  active task slots,
+  additive queue counters,
+  and cancellation/clear behavior.
+  The coordinator now asserts and cancels the conflicting new task if code attempts to register a second active task for the same card id.
+- App-local error normalization was moved out of [AppDIContainer.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppDIContainer.swift)
+  into [AppErrorMapping.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppErrorMapping.swift).
+  This is a file-layout/readability improvement only;
+  the architectural rule stays the same:
+  `TchopErrors` remains infrastructure-only,
+  and app-specific error semantics remain in the app target.
+- `AppDIContainer` now hides more of its intermediate graph as `private let`.
+  Runtime-facing dependencies that are genuinely needed outside the container are still public,
+  but the container should no longer be treated as a broad dependency grab-bag by future code.
+- Database backend choice is now also launch-configurable through [AppLaunchConfiguration.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppLaunchConfiguration.swift).
+  `TCHOP_DATABASE_BACKEND=automatic` preserves the current app-level multi-backend runtime policy,
+  while `TCHOP_DATABASE_BACKEND=swiftData` and `TCHOP_DATABASE_BACKEND=coreData`
+  force a single concrete backend for targeted local runs.
+  This does not change repository composition:
+  both concrete managers continue to satisfy the same `DatabaseManaging` contract,
+  so the rest of the app remains backend-neutral.
+- Added [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
+  as the root operational document for agent-driven testing workflows.
+  The first defined instruction is `UI-Driven API Testing`:
+  the user supplies a UI action that should trigger a server request,
+  the app must be exercised through the simulator,
+  and the answer must return the full chronological runtime chain through request construction, response handling, decoding, persistence side effects, and final UI result,
+  or the exact failure chain plus error, root cause, and proposed fix.

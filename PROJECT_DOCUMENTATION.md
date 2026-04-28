@@ -149,6 +149,10 @@ Tracks package boundaries, extraction policy, and structural risks.
 #### [APPLE_SIGN_IN_SETUP.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/APPLE_SIGN_IN_SETUP.md)
 Explains local and future production setup for Sign in with Apple.
 
+#### [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
+Operational testing document.
+Defines reusable test instructions, entry points, runtime expectations, and required reporting format for agent-driven app testing tasks.
+
 #### [scripts/verify.sh](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/verify.sh)
 Verification script for requested build and test levels.
 
@@ -317,6 +321,10 @@ Important detail:
 - `AppLaunchConfiguration` now also selects the auth environment;
 - `TCHOP_API_ENV=reqres_demo_auth` switches only the login/register flow to external ReqRes auth;
 - feed/content APIs stay on the local stub runtime in that mode.
+- `AppLaunchConfiguration` also owns the launch-time database backend switch;
+- `TCHOP_DATABASE_BACKEND=automatic` keeps the current app-level automatic resolution path;
+- `TCHOP_DATABASE_BACKEND=swiftData` forces a SwiftData-only boot;
+- `TCHOP_DATABASE_BACKEND=coreData` forces a Core Data-only boot.
 
 ### [AppRootView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/AppRootView.swift)
 This is the root authentication switch.
@@ -362,6 +370,12 @@ If you want to know how the app is wired together, start here.
 - navigation event reporter;
 - widget sync manager;
 - push bridge.
+
+Important detail:
+
+- the container still assembles the full graph in one place;
+- but most intermediate dependencies are now `private let`;
+- only runtime-facing values that are genuinely consumed outside the container remain public.
 
 ### Key responsibilities
 
@@ -411,7 +425,7 @@ Builds the shared error pipeline for the app target.
 Important detail:
 
 - `TchopErrors` provides the reusable infrastructure-level mapper for `APIError` and unknown failures;
-- `AppDIContainer` adds an app-local mapper and app-local message catalog on top of it;
+- `AppDIContainer` now wires an app-local mapper and app-local message catalog from [AppErrorMapping.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppErrorMapping.swift) on top of it;
 - that extra layer handles app-specific errors like `RepositoryError`, `AuthenticationSessionError`, `UserRepositoryError`, database bootstrap failures, and secure-storage failures without pushing those app-only types down into the shared package.
 
 ### Why this file matters
@@ -815,6 +829,14 @@ The chosen plan:
 #### `AppDatabaseRuntimePolicy`
 Decision logic for backend selection.
 
+Important detail:
+
+- automatic mode still owns the current production-like behavior:
+  prefer SwiftData when supported,
+  honor persisted backend history,
+  and migrate legacy Core Data stores in a controlled way;
+- explicit launch-forced modes bypass that automatic decision layer and directly bootstrap one concrete backend through the same `DatabaseManaging` contract.
+
 ### Why this file matters
 This is where app-specific persistence policy lives.
 The generic database mechanics live in the package.
@@ -996,22 +1018,20 @@ Persisted article local state in the contract.
 #### `DiscussionStateDTO`
 Persisted discussion local state in the contract.
 
+#### `FeaturedArticleActionContext`
+Narrow persisted-state context needed for one featured article action.
+
+#### `DiscussionActionContext`
+Narrow persisted-state context needed for one discussion action.
+
 #### `FeedAPIManaging`
 Main protocol consumed by the repository.
 
 Important methods:
 
 - `fetchFeed()`
-- `setFeaturedArticleLike(...)`
-- `addFeaturedArticleComment(...)`
-- `setFeaturedArticleDisplayMode(...)`
-- `refreshFeaturedArticle(...)`
-- `runFeaturedArticleUpdate(...)`
-- `setDiscussionParticipation(...)`
-- `addDiscussionReply(...)`
-- `setDiscussionDisplayMode(...)`
-- `refreshDiscussion(...)`
-- `runDiscussionUpdate(...)`
+- `performFeaturedArticleAction(...)`
+- `performDiscussionAction(...)`
 
 #### `StubFeedAPIManager`
 Current implementation.
@@ -1019,8 +1039,14 @@ Current implementation.
 Important behavior:
 
 - full feed fetch reads bundled JSON;
-- card actions simulate a successful mutation and return an updated DTO;
+- card actions simulate a successful mutation and return an updated DTO through one action entry point per card family;
 - repository then merges and persists that result against the latest stored card state.
+
+Important detail:
+
+- the service no longer exposes one public method per card button;
+- action-specific branching is internal to the stub manager;
+- the API boundary now receives narrow action contexts instead of `UIState` types from the view-model layer.
 
 #### `FeedAPIStubFactory`
 Helper for loading and decoding the bundled JSON contract.
@@ -1205,9 +1231,9 @@ Explicit policy for whether a new card action should:
 
 - current visible feed screen state;
 - feed loading task;
-- one task slot per visible article card;
-- one task slot per visible discussion card;
-- queued additive actions for comments/replies;
+- two `NewsFeedCardActionCoordinator` helpers:
+  - one for featured articles;
+  - one for discussions;
 - feed-level and non-repository card-level error normalization through `AppErrorManager`.
 
 Important detail:
@@ -1231,6 +1257,21 @@ Routes typed discussion card intents.
 
 #### `cancelLoading()`
 Cancels feed loading and card tasks.
+
+### [NewsFeedCardActionCoordinator.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedCardActionCoordinator.swift)
+Small app-local helper extracted from `NewsFeedViewModel`.
+
+It owns:
+
+- one active task slot per card id;
+- queued additive tap counts for repeated comment/reply actions.
+
+Important detail:
+
+- this helper does not own product policy;
+- `NewsFeedViewModel` still decides whether an action should start, queue, or be ignored;
+- the coordinator only owns task-slot bookkeeping and additive queue counters;
+- if code tries to start a second active task for the same card id, the coordinator now asserts and cancels the conflicting new task instead of silently overwriting the slot.
 
 ### Card action model
 

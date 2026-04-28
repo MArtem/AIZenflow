@@ -1327,3 +1327,31 @@ Readability-first cycle progress:
   while `reqResDemoExternalAuth` renders email/password plus separate sign-in/register actions.
   `UserSessionService` and `AppState` now have matching `signIn(email:password:)` and `register(email:password:)` paths,
   using email as the local `AppUser.username` until a richer backend profile contract exists.
+- The latest simplification pass was accepted and should be treated as the new baseline:
+  `FeedAPIManaging` now exposes one action entry point per card family (`performFeaturedArticleAction(...)`, `performDiscussionAction(...)`) instead of one public method per button,
+  with narrow `FeaturedArticleActionContext` / `DiscussionActionContext` payloads rather than view-model `UIState` types.
+- `NewsFeedViewModel` no longer owns raw per-card task dictionaries directly.
+  That bookkeeping now lives in `NewsFeedCardActionCoordinator`,
+  while `NewsFeedViewModel` still owns the start/queue/ignore policy and all product-facing action behavior.
+  The coordinator now asserts and cancels the conflicting new task if code tries to register a second active task for the same card id.
+- App-specific error normalization was also extracted out of `AppDIContainer.swift` into `TchopApp/App/AppErrorMapping.swift`.
+  The architecture did not change:
+  `TchopErrors` remains infrastructure-only,
+  and app-local semantics still stay in the app target.
+- `AppDIContainer` now keeps more of its assembled graph private.
+  This did not change the composition flow,
+  but it reduced the container's accidental service-locator surface and should remain the preferred direction for future cleanup.
+- Database launch selection is now explicit at app startup through `AppLaunchConfiguration`.
+  `TCHOP_DATABASE_BACKEND=automatic` keeps the existing multi-backend runtime policy,
+  while `TCHOP_DATABASE_BACKEND=swiftData` and `TCHOP_DATABASE_BACKEND=coreData`
+  force a single concrete backend for development/debug runs.
+  No new repository contract was introduced for this:
+  both concrete managers already satisfy `DatabaseManaging`,
+  so the app still talks to one backend-neutral interface even when launch forces a specific implementation.
+- Added a new root documentation file, `TESTING_INSTRUCTIONS.md`,
+  as the operational source of truth for agent-driven testing workflows.
+  The first instruction is now `UI-Driven API Testing`:
+  user gives a UI action,
+  the app must be exercised through the simulator,
+  and the returned report must contain the chronological runtime chain from UI event through request, response, decoding, persistence, and final UI result,
+  or through the exact failure point with root-cause analysis and proposed fix.

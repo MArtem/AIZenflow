@@ -252,6 +252,8 @@ enum AppDatabaseRuntimePolicy {
     ///
     /// The policy prefers SwiftData when possible, but still honors a previously persisted
     /// backend choice so the app can migrate legacy Core Data stores in a controlled way.
+    /// Explicit `.swiftData` / `.coreData` launch modes bypass that automatic preference flow
+    /// and force a single backend for targeted development runs.
     static func plan(
         for configuration: AppDatabaseConfiguration,
         context: AppDatabaseRuntimeContext
