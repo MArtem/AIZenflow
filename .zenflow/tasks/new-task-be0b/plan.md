@@ -1122,6 +1122,31 @@ This step exists to remove hanging context and create a clean baseline before an
 
 Investigate and remove the old `NSEntityDescription` duplication warnings still emitted by the package database tests.
 Keep this step behavior-preserving: the goal is cleaner verification and a healthier test harness, not product changes.
+
+### [x] Step: Add lightweight API trace commands
+
+Added two lightweight local API inspection commands and documented them as the preferred default over tests, builds, and simulator runtime when the user only wants request-chain validation.
+
+- `scripts/api_http_trace`
+- `scripts/api_method_trace`
+
+`api_http_trace` performs a real HTTP request and prints request/response details.
+`api_method_trace` prints the static app-method chain and performs the real HTTP call when the method reaches transport.
+Current supported method id: `login.submit`.
+
+### [x] Step: Formalize new screen plus API workflow
+
+Documented the standard delivery flow for future API-backed screens:
+
+1. discovery questions first,
+2. screen/state/API contract definition,
+3. stable trace method id definition,
+4. API integration and mapping,
+5. `api_method_trace` verification,
+6. UI wiring,
+7. optional UI-driven validation only when explicitly requested.
+
+Also documented the mandatory discovery checklist the agent must collect before starting implementation of a new screen or feature.
 Completed by removing ambiguous Core Data subclass-to-entity resolution from `TchopDatabaseTests`.
 The test harness now creates/fetches Core Data entities via explicit `entityName` + `NSManagedObject`, which avoids duplicate `NSEntityDescription` lookup warnings when multiple in-memory models are created during the suite.
 Verification:

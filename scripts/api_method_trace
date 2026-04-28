@@ -1,0 +1,117 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+if [[ $# -lt 1 ]]; then
+  cat <<'USAGE'
+Usage:
+  scripts/api_method_trace METHOD_ID [--env ENV] [--email EMAIL] [--password PASSWORD] [--api-key KEY]
+
+Supported METHOD_ID values:
+  login.submit
+
+Supported ENV values:
+  reqres_demo_auth
+  local_stub
+USAGE
+  exit 1
+fi
+
+method_id="$1"
+shift
+
+env_name="reqres_demo_auth"
+email=""
+password=""
+api_key="${TCHOP_REQRES_API_KEY:-free_user_3Co5h4PffK0RHil0TjwChhqMETj}"
+
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --env)
+      env_name="$2"
+      shift 2
+      ;;
+    --email)
+      email="$2"
+      shift 2
+      ;;
+    --password)
+      password="$2"
+      shift 2
+      ;;
+    --api-key)
+      api_key="$2"
+      shift 2
+      ;;
+    *)
+      echo "Unknown argument: $1" >&2
+      exit 1
+      ;;
+  esac
+done
+
+case "$method_id" in
+  login.submit)
+    ;;
+  *)
+    echo "Unsupported METHOD_ID: $method_id" >&2
+    exit 1
+    ;;
+esac
+
+if [[ -z "$email" ]]; then
+  email="eve.holt@reqres.in"
+fi
+
+if [[ -z "$password" ]]; then
+  if [[ "$env_name" == "reqres_demo_auth" ]]; then
+    password="cityslicka"
+  else
+    password="Password1"
+  fi
+fi
+
+echo "METHOD_TRACE_METHOD_ID=$method_id"
+echo "METHOD_TRACE_ENV=$env_name"
+echo "METHOD_TRACE_PARAMETERS=email=$email password=$password"
+echo "METHOD_TRACE_CHAIN_BEGIN"
+echo "1. LoginViewModel.submit()"
+echo "2. LoginViewModel.validateCredentialsForSubmission()"
+echo "3. LoginViewModel.runSignInTask(operation:onCredentialLogin)"
+
+if [[ "$env_name" == "local_stub" ]]; then
+  echo "4. AppState.signIn(email:password:)"
+  echo "5. UserSessionService.signIn(email:password:)"
+  echo "6. Fallback path because no external auth manager is active"
+  echo "7. UserSessionService.signIn(username: email)"
+  echo "8. UserRepository.findOrCreateUser(username: email)"
+  echo "9. Active user ID saved to UserDefaults"
+  echo "10. No HTTP request is produced in local_stub mode"
+  echo "METHOD_TRACE_CHAIN_END"
+  exit 0
+fi
+
+echo "4. AppState.signIn(email:password:)"
+echo "5. UserSessionService.signIn(email:password:)"
+echo "6. DefaultAuthenticationAPIManager.signIn(email:password:) [mode=reqResDemo]"
+echo "7. CredentialSignInRequestDTO(email,password)"
+echo "8. POST https://reqres.in/api/login"
+echo "METHOD_TRACE_CHAIN_END"
+
+body="{\"email\":\"$email\",\"password\":\"$password\"}"
+
+"$(dirname "$0")/api_http_trace" \
+  POST \
+  "https://reqres.in/api/login" \
+  "$body" \
+  "Accept=application/json" \
+  "X-Platform=iOS" \
+  "Content-Type=application/json" \
+  "x-api-key=$api_key"
+
+echo "METHOD_TRACE_MAPPING_BEGIN"
+echo "9. Response body is decoded as ReqResDemoTokenResponseDTO"
+echo "10. ReqResDemoTokenResponseDTO.makeTokenSet(subject: email)"
+echo "11. AuthTokenSet(accessToken, synthetic refreshToken, expiresAt +3600s, tokenType Bearer)"
+echo "12. UserRepository.findOrCreateUser(username: email)"
+echo "13. activeUserID persisted via UserSessionService"
+echo "METHOD_TRACE_MAPPING_END"

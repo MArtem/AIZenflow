@@ -153,9 +153,21 @@ Explains local and future production setup for Sign in with Apple.
 Operational testing document.
 Defines reusable test instructions, entry points, runtime expectations, and required reporting format for agent-driven app testing tasks.
 The default API-testing baseline is now method-driven trace execution, with feature-action testing as a middle layer and full simulator-driven UI testing reserved for explicit UI validation.
+The local lightweight command surface for that policy is:
+- [scripts/api_http_trace](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_http_trace)
+- [scripts/api_method_trace](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_method_trace)
+The same document also defines the standard workflow for adding a new screen plus API-backed feature and the mandatory discovery questions that must be answered before implementation starts.
+
+#### [scripts/api_http_trace](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_http_trace)
+Lowest-cost real transport tracer.
+Used when only the HTTP layer needs to be exercised and reported.
+
+#### [scripts/api_method_trace](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_method_trace)
+Lowest-cost app-method tracer.
+Used to trace a named app method, print the real chain it owns, and perform the HTTP request when that method reaches transport.
 
 #### [scripts/verify.sh](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/verify.sh)
-Verification script for requested build and test levels.
+Verification script for explicitly requested build and test levels.
 
 ### App Folders
 

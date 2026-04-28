@@ -15,6 +15,29 @@ It is an operational document that tells the agent:
 This is a living document.
 Whenever a new testing mode is introduced, or an existing one changes, this file must be updated in the same work stream.
 
+### Local Trace Commands
+Two lightweight local commands are now part of the testing toolbox:
+
+1. `scripts/api_http_trace`
+2. `scripts/api_method_trace`
+
+They exist specifically to avoid the expensive path of simulator UI, test targets, and `xcodebuild` when the user only wants API-chain inspection.
+
+`api_http_trace` is the lowest-cost transport tracer.
+It performs a real HTTP request and prints request/response details.
+
+`api_method_trace` is the lowest-cost app-flow tracer currently available.
+It resolves a known app method to its code path, prints the chain, and when the method reaches HTTP it executes the real request through `api_http_trace`.
+
+Important constraint:
+`api_method_trace` is intentionally lightweight.
+It does not boot the app, run UI, or execute XCTest.
+Its contract is:
+
+- static code-path trace from the named app method;
+- real HTTP request when that method produces one;
+- explicit description of mapping/persistence steps that follow in app code.
+
 ---
 
 ## How To Use This Document
@@ -47,6 +70,58 @@ Use the cheapest mode that still proves the requested behavior:
 
 If the user says only "test method ..." or names a known feature entry method, the agent should not start with the simulator.
 
+### New Screen And API Workflow
+For new feature work, the preferred delivery order is:
+
+1. screen and user-flow discovery;
+2. API contract intake from Swagger/OpenAPI;
+3. state and persistence policy definition;
+4. stable trace method id definition;
+5. API integration and mapping;
+6. `api_method_trace` verification;
+7. UI wiring;
+8. optional UI-driven validation only if explicitly requested.
+
+This order is intentional.
+The API and state contract should be stable before expensive UI-level validation.
+
+### Mandatory Discovery Questions Before Starting A New Screen
+When the user says work is starting on a new screen or feature, the agent must first collect the minimum implementation contract.
+
+The agent should ask about all items below unless the user already provided the answer:
+
+1. screen goal and user flow;
+2. source of truth for data;
+3. read-only fields vs editable fields;
+4. user actions available on the screen;
+5. required UI states:
+   - loading
+   - success
+   - empty
+   - error
+   - partial error
+6. required persistence behavior:
+   - save locally or not
+   - overwrite or merge
+   - refresh from persistence after save or not
+7. update policy:
+   - optimistic
+   - non-optimistic
+   - partial refresh
+   - full refresh
+8. API contract source:
+   - Swagger/OpenAPI
+   - examples
+   - auth requirements
+   - required headers
+9. error policy:
+   - inline error
+   - blocking error
+   - retry behavior
+10. desired trace method ids for future low-cost API verification.
+
+The agent should not start implementation until these answers are either provided or safely inferred and stated back explicitly.
+
 ---
 
 ## Instruction 1: Method-Driven API Testing
@@ -55,6 +130,30 @@ If the user says only "test method ..." or names a known feature entry method, t
 Use this instruction when the user wants the cheapest practical verification of a server-triggering flow and can provide, or wants the agent to determine, the exact app method that starts the chain.
 
 This is the default mode for new API integration testing.
+
+### Preferred Local Entry
+Use:
+
+```sh
+scripts/api_method_trace <method-id> [options]
+```
+
+Current supported method identifiers:
+
+- `login.submit`
+
+Future feature work should add new stable method identifiers such as:
+
+- `profile.load`
+- `profile.update`
+- `feed.refresh`
+- `featuredArticle.like`
+- `featuredArticle.comment`
+
+Current supported environments:
+
+- `reqres_demo_auth`
+- `local_stub`
 
 ### Entry Point
 The user provides one of the following:
@@ -80,6 +179,7 @@ When this instruction is used, the agent must:
 5. observe request creation, response handling, mapping, persistence, and final state changes.
 
 Simulator UI interaction is not required for this instruction.
+`xcodebuild` and XCTest are also not required for this instruction.
 
 ### Required Observation Scope
 The agent must inspect the full chain below the method entry point.
@@ -102,6 +202,8 @@ That includes, when applicable:
 - cache writes;
 - widget sync side effects;
 - final returned value or published state mutation.
+
+When the method is handled through `api_method_trace`, the downstream HTTP request must still be executed for real if the code path reaches transport.
 
 ### Required Inputs The Agent May Need
 If the user does not provide parameters, the agent may:

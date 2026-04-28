@@ -28,6 +28,32 @@
   `Medium` = all tests + build on iPhone 17 Pro (iOS 26.0),
   `Low` = build on iPhone 17 Pro (iOS 26.0),
   `Absent` = no tests/build/simulator checks.
+- For API inspection tasks, the preferred default is now the lightweight local command path, not XCTest and not `xcodebuild`:
+  - `/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_http_trace`
+  - `/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_method_trace`
+  `api_http_trace` is pure real-HTTP tracing.
+  `api_method_trace` is static app-method-chain tracing plus real HTTP when the path reaches transport.
+  Current supported method id: `login.submit`.
+- For future new-screen work, the implementation workflow is now explicit:
+  1. discovery questions first,
+  2. screen/state/API contract definition,
+  3. stable trace method id definition,
+  4. API integration and mapping,
+  5. `api_method_trace` verification,
+  6. UI wiring,
+  7. optional UI-driven validation only when explicitly requested.
+- When the user says a new screen is starting, do not jump into implementation immediately.
+  First collect the mandatory contract:
+  screen goal,
+  source of truth,
+  editable vs read-only fields,
+  user actions,
+  required UI states,
+  persistence behavior,
+  update policy,
+  API contract/auth headers,
+  error policy,
+  and desired future trace method ids.
 - Current shell/news runtime policy also includes explicit floating-action-button visibility rules:
   the `+` button is shown only on the root news feed list,
   hidden on pushed news-detail routes,

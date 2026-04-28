@@ -84,6 +84,7 @@ final class LoginViewModelTests: XCTestCase {
         }
         wait(for: [expectation], timeout: 1)
     }
+
 }
 
 private enum TestLoginError: Error {
