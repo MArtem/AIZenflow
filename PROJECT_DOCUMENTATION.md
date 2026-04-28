@@ -152,6 +152,7 @@ Explains local and future production setup for Sign in with Apple.
 #### [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
 Operational testing document.
 Defines reusable test instructions, entry points, runtime expectations, and required reporting format for agent-driven app testing tasks.
+The default API-testing baseline is now method-driven trace execution, with feature-action testing as a middle layer and full simulator-driven UI testing reserved for explicit UI validation.
 
 #### [scripts/verify.sh](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/verify.sh)
 Verification script for requested build and test levels.

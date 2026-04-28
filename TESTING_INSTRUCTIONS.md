@@ -28,9 +28,193 @@ Each instruction in this file must contain:
 
 If a request matches one of the instructions below, the agent must follow that instruction rather than improvising a new workflow.
 
+### Default Mode Selection
+API-triggered testing must not default to the most expensive runtime path.
+
+Use the cheapest mode that still proves the requested behavior:
+
+1. `Method-Driven API Testing`
+2. `Feature-Action API Testing`
+3. `UI-Driven API Testing`
+
+`UI-Driven API Testing` is reserved for cases where the user explicitly wants to validate:
+
+- button or gesture wiring;
+- field/input behavior;
+- navigation transitions;
+- visibility or state changes that only exist at the UI layer;
+- or a true end-to-end screen interaction.
+
+If the user says only "test method ..." or names a known feature entry method, the agent should not start with the simulator.
+
 ---
 
-## Instruction 1: UI-Driven API Testing
+## Instruction 1: Method-Driven API Testing
+
+### Purpose
+Use this instruction when the user wants the cheapest practical verification of a server-triggering flow and can provide, or wants the agent to determine, the exact app method that starts the chain.
+
+This is the default mode for new API integration testing.
+
+### Entry Point
+The user provides one of the following:
+
+- an exact method name to invoke;
+- a feature method plus parameters;
+- a method name and permission to choose parameters;
+- a new API contract plus a request to expose and test the launch method.
+
+Examples:
+
+- "Test method `submitRegistration` with these parameters"
+- "Run `refresh()` and choose valid inputs yourself"
+- "I will give you Swagger, add it, then tell me the method to call"
+
+### Required Runtime Behavior
+When this instruction is used, the agent must:
+
+1. identify the exact entry method;
+2. construct the smallest valid runtime graph needed to invoke it;
+3. call the method directly;
+4. let the real downstream chain execute;
+5. observe request creation, response handling, mapping, persistence, and final state changes.
+
+Simulator UI interaction is not required for this instruction.
+
+### Required Observation Scope
+The agent must inspect the full chain below the method entry point.
+
+That includes, when applicable:
+
+- method ownership and caller context;
+- validation logic;
+- view-model or coordinator logic;
+- repository calls;
+- service or API manager calls;
+- request construction;
+- URL, method, body, query, headers;
+- auth headers and token behavior if present;
+- response status and response body;
+- decoding/parsing;
+- DTO creation;
+- mapping into app/domain/presentation models;
+- persistence writes;
+- cache writes;
+- widget sync side effects;
+- final returned value or published state mutation.
+
+### Required Inputs The Agent May Need
+If the user does not provide parameters, the agent may:
+
+- derive valid inputs from code;
+- derive valid inputs from fixtures;
+- derive valid inputs from Swagger/OpenAPI examples;
+- state which inputs were chosen and why.
+
+The agent should ask for extra input only when parameters cannot be safely inferred.
+
+### Required Report Format
+The answer must be returned as a chronological trace starting from the invoked method.
+
+#### Success Case Format
+If the flow succeeds, the agent must return:
+
+1. the exact method invoked;
+2. the parameters used;
+3. the exact chain of runtime calls, step by step;
+4. the request details:
+   - HTTP method
+   - URL/path
+   - query items
+   - headers
+   - request body or encoded payload
+5. the response details:
+   - status code
+   - relevant headers if important
+   - response body summary
+6. parsing and mapping details:
+   - decoded DTO type
+   - mapped app/domain model
+7. persistence details:
+   - whether anything was saved
+   - which repository/method saved it
+   - which backend/store received it
+8. final returned value or observable state result.
+
+#### Failure Case Format
+If the flow fails, the agent must return:
+
+1. the exact method invoked;
+2. the parameters used;
+3. the full runtime chain up to the failure point;
+4. the exact failing layer;
+5. the exact error text, log, exception, or failure signal;
+6. a short explanation of what happened;
+7. the most likely root cause;
+8. the recommended fix;
+9. the proposed implementation direction for that fix.
+
+### Completion Criteria
+This instruction is complete only when the user receives:
+
+- the method entry point used;
+- the parameters used;
+- the chronological runtime trace;
+- the request details;
+- the response details;
+- the mapping/persistence details;
+- and, if applicable, the failure analysis and proposed fix.
+
+---
+
+## Instruction 2: Feature-Action API Testing
+
+### Purpose
+Use this instruction when the user does not name a low-level method, but does name a feature action that is already exposed in the app layer and does not need real UI interaction.
+
+This is a middle ground between direct method invocation and full simulator-driven testing.
+
+### Entry Point
+The user provides one of the following:
+
+- a feature action name;
+- a logical action on a screen model;
+- a known app flow trigger that already maps to one app-layer entry method.
+
+Examples:
+
+- "Test the registration action"
+- "Test featured article like action"
+- "Test feed refresh action"
+
+### Required Runtime Behavior
+When this instruction is used, the agent must:
+
+1. resolve the action to the real app-layer method that owns it;
+2. invoke that action without simulator UI;
+3. let the downstream request chain execute;
+4. observe the same request/response/mapping/persistence path as in method-driven testing.
+
+### Required Report Format
+The report format matches `Method-Driven API Testing`, but must additionally include:
+
+1. the named feature action from the user;
+2. the resolved concrete method that was actually invoked.
+
+### Completion Criteria
+This instruction is complete only when the user receives:
+
+- the feature action they requested;
+- the resolved concrete method;
+- the chronological runtime trace;
+- the request details;
+- the response details;
+- the mapping/persistence details;
+- and, if applicable, the failure analysis and proposed fix.
+
+---
+
+## Instruction 3: UI-Driven API Testing
 
 ### Purpose
 Use this instruction when the user wants to validate a server request that is triggered by a real UI action inside the app.

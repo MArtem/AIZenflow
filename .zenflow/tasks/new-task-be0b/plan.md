@@ -1350,8 +1350,7 @@ Readability-first cycle progress:
   so the app still talks to one backend-neutral interface even when launch forces a specific implementation.
 - Added a new root documentation file, `TESTING_INSTRUCTIONS.md`,
   as the operational source of truth for agent-driven testing workflows.
-  The first instruction is now `UI-Driven API Testing`:
-  user gives a UI action,
-  the app must be exercised through the simulator,
-  and the returned report must contain the chronological runtime chain from UI event through request, response, decoding, persistence, and final UI result,
-  or through the exact failure point with root-cause analysis and proposed fix.
+  The testing contract now has three modes:
+  `Method-Driven API Testing` as the default low-cost baseline,
+  `Feature-Action API Testing` as a middle layer,
+  and `UI-Driven API Testing` only for explicit simulator-level validation of real screen interaction.

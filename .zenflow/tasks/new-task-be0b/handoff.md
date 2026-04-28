@@ -1371,8 +1371,7 @@ Absent:  no tests/build/simulator checks
   so the rest of the app remains backend-neutral.
 - Added [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
   as the root operational document for agent-driven testing workflows.
-  The first defined instruction is `UI-Driven API Testing`:
-  the user supplies a UI action that should trigger a server request,
-  the app must be exercised through the simulator,
-  and the answer must return the full chronological runtime chain through request construction, response handling, decoding, persistence side effects, and final UI result,
-  or the exact failure chain plus error, root cause, and proposed fix.
+  The document now defines three testing modes:
+  `Method-Driven API Testing` as the default cheapest baseline,
+  `Feature-Action API Testing` for app-layer action entry points,
+  and `UI-Driven API Testing` only when real simulator interaction must be validated.
