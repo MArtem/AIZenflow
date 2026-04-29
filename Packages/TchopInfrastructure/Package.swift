@@ -2,6 +2,11 @@
 // Defines reusable infrastructure modules for networking, database, and navigation.
 import PackageDescription
 
+/// Shared strict-concurrency configuration applied across package targets.
+private let strictConcurrencySettings: [SwiftSetting] = [
+    .unsafeFlags(["-strict-concurrency=complete"])
+]
+
 /// Root package manifest describing infrastructure products and targets.
 let package = Package(
     name: "TchopInfrastructure",
@@ -78,18 +83,22 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "TchopNetworking"
+            name: "TchopNetworking",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopDatabaseCore"
+            name: "TchopDatabaseCore",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
             name: "TchopSwiftDataDatabase",
-            dependencies: ["TchopDatabaseCore"]
+            dependencies: ["TchopDatabaseCore"],
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
             name: "TchopCoreDataDatabase",
-            dependencies: ["TchopDatabaseCore"]
+            dependencies: ["TchopDatabaseCore"],
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
             name: "TchopDatabaseComposition",
@@ -97,10 +106,12 @@ let package = Package(
                 "TchopDatabaseCore",
                 "TchopSwiftDataDatabase",
                 "TchopCoreDataDatabase"
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopNavigation"
+            name: "TchopNavigation",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
             name: "TchopDatabase",
@@ -110,35 +121,44 @@ let package = Package(
                 "TchopCoreDataDatabase",
                 "TchopDatabaseComposition",
                 "TchopNavigation"
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
             name: "TchopLocalization",
             resources: [
                 .process("Resources")
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopBranding"
+            name: "TchopBranding",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopUIConfiguration"
+            name: "TchopUIConfiguration",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopCache"
+            name: "TchopCache",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopWidgets"
+            name: "TchopWidgets",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopPushNotifications"
+            name: "TchopPushNotifications",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
-            name: "TchopAppleAuthentication"
+            name: "TchopAppleAuthentication",
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
             name: "TchopErrors",
-            dependencies: ["TchopNetworking"]
+            dependencies: ["TchopNetworking"],
+            swiftSettings: strictConcurrencySettings
         ),
         .target(
             name: "TchopAnalytics",
@@ -146,47 +166,58 @@ let package = Package(
                 "TchopNavigation",
                 "TchopNetworking",
                 "TchopPushNotifications"
-            ]
+            ],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopNetworkingTests",
-            dependencies: ["TchopNetworking"]
+            dependencies: ["TchopNetworking"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopDatabaseTests",
-            dependencies: ["TchopDatabase"]
+            dependencies: ["TchopDatabase"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopLocalizationTests",
-            dependencies: ["TchopLocalization"]
+            dependencies: ["TchopLocalization"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopBrandingTests",
-            dependencies: ["TchopBranding"]
+            dependencies: ["TchopBranding"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopUIConfigurationTests",
-            dependencies: ["TchopUIConfiguration"]
+            dependencies: ["TchopUIConfiguration"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopCacheTests",
-            dependencies: ["TchopCache"]
+            dependencies: ["TchopCache"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopWidgetsTests",
-            dependencies: ["TchopWidgets"]
+            dependencies: ["TchopWidgets"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopPushNotificationsTests",
-            dependencies: ["TchopPushNotifications"]
+            dependencies: ["TchopPushNotifications"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopAnalyticsTests",
-            dependencies: ["TchopAnalytics"]
+            dependencies: ["TchopAnalytics"],
+            swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
             name: "TchopErrorsTests",
-            dependencies: ["TchopErrors"]
+            dependencies: ["TchopErrors"],
+            swiftSettings: strictConcurrencySettings
         )
     ]
 )

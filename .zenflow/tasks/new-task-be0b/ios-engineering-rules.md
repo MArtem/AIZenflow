@@ -59,6 +59,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Use actors when multiple async operations modify shared state.
 - Avoid data races completely.
 - Handle cancellation when needed.
+- `SWIFT_STRICT_CONCURRENCY = complete` is mandatory for this project.
+- New app targets and local package targets must keep strict concurrency enabled, and any violations must be fixed rather than suppressed.
 
 ## Networking
 - Use structured concurrency.

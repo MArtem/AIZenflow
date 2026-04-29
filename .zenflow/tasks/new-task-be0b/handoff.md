@@ -51,6 +51,10 @@
   new screens/components must ship with meaningful accessibility semantics,
   decorative-only visuals should be hidden from accessibility,
   and controls must not depend on color-only communication.
+- Strict concurrency policy is now explicit:
+  `SWIFT_STRICT_CONCURRENCY = complete` must remain enabled,
+  both for Xcode targets and the local infrastructure package,
+  and future concurrency issues should be fixed rather than hidden.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,
@@ -1418,3 +1422,7 @@ Absent:  no tests/build/simulator checks
 - Accessibility baseline was also added across the core UI surface:
   top-bar icon buttons, tab-bar items, side-menu navigation, login controls, feature cards, and profile controls now expose explicit VoiceOver-facing labels/hints/values where needed.
   Decorative artwork such as the brand mark and purely illustrative card art is now hidden from accessibility to reduce reading noise.
+- Strict concurrency is now enabled across the current codebase baseline.
+  `TchopApp.xcodeproj` target configurations now set `SWIFT_STRICT_CONCURRENCY = complete`,
+  and `Packages/TchopInfrastructure/Package.swift` now applies `-strict-concurrency=complete` to package targets and test targets.
+  A `Low` build was rerun after enabling it and completed green without requiring additional source fixes.

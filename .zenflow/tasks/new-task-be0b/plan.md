@@ -1387,3 +1387,6 @@ Readability-first cycle progress:
 - Added accessibility as a persistent product requirement and applied a first app-wide accessibility baseline.
   The persistent iOS rules now require accessibility support by default.
   The current implementation adds VoiceOver semantics to core controls and hides decorative-only visuals from accessibility in the main app surfaces.
+- Added strict concurrency as a persistent project baseline.
+  `SWIFT_STRICT_CONCURRENCY = complete` is now enabled in the Xcode project and mirrored into the local infrastructure package through package-level Swift settings.
+  The follow-up `Low` verification build completed green, so the project currently builds under complete strict concurrency without additional source changes.

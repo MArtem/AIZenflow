@@ -51,6 +51,7 @@ In short:
 
 - app layer = product composition and feature behavior;
 - package layer = reusable infrastructure and shared primitives.
+- concurrency baseline = `SWIFT_STRICT_CONCURRENCY = complete` across the app project and local infrastructure package.
 
 ## Dependency Graph At A Glance
 
