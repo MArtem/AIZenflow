@@ -107,6 +107,7 @@ struct LoginScreenView: View {
                 .background(AppTheme.surfacePrimary)
                 .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
                 .shadow(color: AppTheme.shadow.opacity(0.16), radius: 18, y: 8)
+                .accessibilityHidden(true)
 
             VStack(alignment: .leading, spacing: 8) {
                 Text(titleText)
@@ -129,6 +130,7 @@ struct LoginScreenView: View {
                 viewModel.handleAppleSignInCompletion(result)
             }
             .accessibilityIdentifier("login.appleButton")
+            .accessibilityLabel(AppLocalization.text("accessibility.login.apple", fallback: "Sign in with Apple"))
             .frame(height: 54)
             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
             .disabled(viewModel.isSubmitting)
@@ -208,6 +210,7 @@ struct LoginScreenView: View {
                     text: $viewModel.email
                 )
                 .accessibilityIdentifier("login.emailField")
+                .accessibilityLabel(AppLocalization.text("login.emailLabel", fallback: "Email"))
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .textContentType(.emailAddress)
@@ -258,6 +261,11 @@ struct LoginScreenView: View {
                     .foregroundStyle(AppTheme.accent)
                 }
                 .accessibilityIdentifier("login.passwordVisibilityButton")
+                .accessibilityLabel(
+                    viewModel.isPasswordVisible
+                        ? AppLocalization.text("accessibility.login.hidePassword", fallback: "Hide password")
+                        : AppLocalization.text("accessibility.login.showPassword", fallback: "Show password")
+                )
                 .buttonStyle(.plain)
                 .disabled(viewModel.isSubmitting)
             }
@@ -281,6 +289,7 @@ struct LoginScreenView: View {
                     }
                 }
                 .accessibilityIdentifier("login.passwordField")
+                .accessibilityLabel(AppLocalization.text("login.passwordLabel", fallback: "Password"))
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .textContentType(.password)
@@ -432,6 +441,7 @@ struct LoginScreenView: View {
             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
         }
         .accessibilityIdentifier(identifier)
+        .accessibilityLabel(title)
         .buttonStyle(.plain)
         .disabled(!viewModel.canSubmit || viewModel.isSubmitting)
         .opacity(viewModel.isSubmitting ? 0.88 : 1)
@@ -456,6 +466,7 @@ struct LoginScreenView: View {
                 )
         }
         .accessibilityIdentifier(identifier)
+        .accessibilityLabel(title)
         .buttonStyle(.plain)
         .disabled(viewModel.isSubmitting)
         .opacity(viewModel.isSubmitting ? 0.88 : 1)
@@ -471,9 +482,11 @@ struct LoginScreenView: View {
         case .valid:
             Image(systemName: "checkmark.circle.fill")
                 .foregroundStyle(AppTheme.success)
+                .accessibilityHidden(true)
         case .invalid:
             Image(systemName: "exclamationmark.circle.fill")
                 .foregroundStyle(AppTheme.destructive)
+                .accessibilityHidden(true)
         case .untouched:
             EmptyView()
         }

@@ -29,6 +29,8 @@ struct FeatureTabScaffoldView: View {
                 .background(AppTheme.surfacePrimary.opacity(0.95))
                 .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
                 .shadow(color: AppTheme.shadow.opacity(0.35), radius: 12, y: 6)
+                .accessibilityElement(children: .combine)
+                .accessibilityAddTraits(.isHeader)
 
                 ScrollView(.horizontal, showsIndicators: false) {
                     HStack(spacing: 12) {
@@ -38,6 +40,7 @@ struct FeatureTabScaffoldView: View {
                                     Image(systemName: action.systemImageName)
                                         .font(.system(size: 18, weight: .semibold))
                                         .foregroundStyle(AppTheme.accent)
+                                        .accessibilityHidden(true)
 
                                     Text(action.title)
                                         .font(.system(size: 16, weight: .semibold))
@@ -54,6 +57,8 @@ struct FeatureTabScaffoldView: View {
                                 .shadow(color: AppTheme.shadow.opacity(0.35), radius: 10, y: 4)
                             }
                             .buttonStyle(.plain)
+                            .accessibilityElement(children: .combine)
+                            .accessibilityHint(AppLocalization.text("accessibility.feature.quickActionHint", fallback: "Opens this quick action."))
                         }
                     }
                     .padding(.horizontal, 2)
@@ -79,6 +84,7 @@ struct FeatureTabScaffoldView: View {
                                         Image(systemName: "chevron.right")
                                             .font(.system(size: 12, weight: .bold))
                                             .foregroundStyle(AppTheme.iconSecondary)
+                                            .accessibilityHidden(true)
                                     }
 
                                     Text(item.title)
@@ -101,6 +107,8 @@ struct FeatureTabScaffoldView: View {
                                 .shadow(color: AppTheme.shadow.opacity(0.3), radius: 10, y: 5)
                             }
                             .buttonStyle(.plain)
+                            .accessibilityElement(children: .combine)
+                            .accessibilityHint(AppLocalization.text("accessibility.feature.itemHint", fallback: "Opens this item."))
                         }
                     }
                 }

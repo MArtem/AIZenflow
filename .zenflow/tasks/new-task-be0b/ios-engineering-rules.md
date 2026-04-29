@@ -75,7 +75,11 @@ Use this file as the persistent engineering instruction set for this project whe
 - Avoid heavy computations in `body`.
 - Minimize unnecessary re-renders.
 - Light and dark appearance support is mandatory for every project by default.
+- Accessibility support is mandatory for every project by default.
 - Localization and internationalization support is mandatory for every project by default.
+- New screens and reusable components must expose meaningful accessibility labels, values, hints, and traits where relevant.
+- Decorative-only visuals must be hidden from accessibility when they would add noise instead of meaning.
+- Controls must not rely on color alone to communicate state or affordance.
 - Every new user-facing element (screen, component, text label, error, placeholder, CTA, destination copy) must be added through localization keys, not hardcoded literals.
 - Prefer a centralized localization manager/facade (ideally package-backed) so locale resolution and formatting rules stay consistent and reusable across projects.
 - For multi-target apps, target-specific UI styling must be configured through semantic branding/theme tokens resolved from target metadata or build settings, not through scattered target checks in view code.

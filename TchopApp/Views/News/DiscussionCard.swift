@@ -51,6 +51,7 @@ struct DiscussionCard: View {
                                         )
                                 )
                         }
+                        .accessibilityHidden(true)
 
                         Text(discussion.joinedText)
                             .font(.system(size: 12, weight: .medium))
@@ -61,6 +62,18 @@ struct DiscussionCard: View {
                 .padding(16)
             }
             .buttonStyle(.plain)
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(
+                AppLocalization.text(
+                    "accessibility.news.discussionCard",
+                    fallback: "%@. %@. %@ replies. %@.",
+                    discussion.categoryTitle,
+                    discussion.headline,
+                    String(discussion.replyCount),
+                    discussion.joinedText
+                )
+            )
+            .accessibilityHint(AppLocalization.text("accessibility.news.discussionCardHint", fallback: "Opens discussion details."))
 
             Divider()
                 .overlay(AppTheme.borderSubtle.opacity(0.25))
@@ -142,6 +155,7 @@ struct DiscussionCard: View {
                         .foregroundStyle(AppTheme.discussionTextSecondary)
                 }
                 .disabled(discussion.uiState.blocksActions)
+                .accessibilityLabel(AppLocalization.text("accessibility.news.discussionOptions", fallback: "Discussion options"))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 14)

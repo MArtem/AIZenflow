@@ -28,6 +28,7 @@ struct FeaturedArticleCard: View {
                                 .font(.system(size: 10, weight: .bold))
                                 .foregroundStyle(AppTheme.iconSecondary)
                         }
+                        .accessibilityHidden(true)
                     }
                     .font(.system(size: 13, weight: .semibold))
                     .padding(.horizontal, 14)
@@ -48,6 +49,7 @@ struct FeaturedArticleCard: View {
                             .font(.system(size: article.uiState.displayMode == .expanded ? 120 : 88))
                             .foregroundStyle(.white.opacity(0.18))
                             .padding(18)
+                            .accessibilityHidden(true)
                     }
                     .overlay {
                         VStack(spacing: 8) {
@@ -86,6 +88,7 @@ struct FeaturedArticleCard: View {
                                     .offset(y: 12)
                             }
                             .shadow(color: .black.opacity(0.15), radius: 8, y: 4)
+                            .accessibilityHidden(true)
                         }
                         .padding(.bottom, 18)
                     }
@@ -126,6 +129,17 @@ struct FeaturedArticleCard: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
             }
             .buttonStyle(.plain)
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(
+                AppLocalization.text(
+                    "accessibility.news.featuredCard",
+                    fallback: "%@. %@. %@.",
+                    article.sourceTitle,
+                    article.headline,
+                    article.metadataLine
+                )
+            )
+            .accessibilityHint(AppLocalization.text("accessibility.news.featuredCardHint", fallback: "Opens article details."))
 
             Divider()
                 .overlay(AppTheme.borderSubtle)
@@ -225,6 +239,7 @@ struct FeaturedArticleCard: View {
                             .foregroundStyle(AppTheme.iconSecondary)
                     }
                     .disabled(article.uiState.blocksActions)
+                    .accessibilityLabel(AppLocalization.text("accessibility.news.articleOptions", fallback: "Article options"))
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)

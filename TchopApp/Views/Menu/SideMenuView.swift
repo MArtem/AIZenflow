@@ -24,6 +24,8 @@ struct SideMenuView: View {
                 }
             }
             .padding(.top, 22)
+            .accessibilityElement(children: .combine)
+            .accessibilityAddTraits(.isHeader)
 
             VStack(spacing: 8) {
                 ForEach(AppTab.allCases) { tab in
@@ -61,6 +63,13 @@ struct SideMenuView: View {
                         )
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(tab.title)
+                    .accessibilityValue(
+                        selectedTab == tab
+                            ? AppLocalization.text("accessibility.tab.selected", fallback: "Selected")
+                            : AppLocalization.text("accessibility.tab.notSelected", fallback: "Not selected")
+                    )
+                    .accessibilityHint(AppLocalization.text("accessibility.sideMenu.tabHint", fallback: "Navigates to this section."))
                 }
             }
 
@@ -114,6 +123,15 @@ private struct SideMenuAccountSummaryCard: View {
         .padding(14)
         .background(AppTheme.surfacePrimary)
         .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(
+            AppLocalization.text(
+                "accessibility.sideMenu.account",
+                fallback: "Signed in as %@. %@.",
+                accountSummary.displayName,
+                accountSummary.providerTitle
+            )
+        )
     }
 }
 

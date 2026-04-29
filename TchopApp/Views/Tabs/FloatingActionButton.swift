@@ -13,6 +13,8 @@ struct FloatingActionButton: View {
                 .shadow(color: AppTheme.floatingActionButtonShadow, radius: 10, y: 6)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(AppLocalization.text("accessibility.fab.create", fallback: "Create"))
+        .accessibilityHint(AppLocalization.text("accessibility.fab.createHint", fallback: "Starts a new action."))
     }
 }
 

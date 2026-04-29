@@ -144,6 +144,7 @@ private struct ProfileHeaderSection: View {
             .frame(maxWidth: .infinity)
         }
         .frame(maxWidth: .infinity)
+        .accessibilityElement(children: .combine)
     }
 }
 
@@ -225,6 +226,12 @@ private struct ProfilePreferencesCard: View {
                 }
             }
             .tint(AppTheme.accent)
+            .accessibilityHint(
+                AppLocalization.text(
+                    "accessibility.profile.restoreNavigationHint",
+                    fallback: "Controls whether the app restores the previous tab and destination after sign in."
+                )
+            )
         }
         .padding(20)
         .background(AppTheme.surfacePrimary)
@@ -247,6 +254,7 @@ private struct ProfileLogoutButton: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         }
         .buttonStyle(.plain)
+        .accessibilityHint(AppLocalization.text("accessibility.profile.logoutHint", fallback: "Ends the current session and returns to the login screen."))
     }
 }
 

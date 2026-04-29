@@ -18,6 +18,8 @@ struct TopBarView: View {
                         .frame(width: 32, height: 32)
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(AppLocalization.text("accessibility.topBar.menu", fallback: "Open menu"))
+                .accessibilityHint(AppLocalization.text("accessibility.topBar.menuHint", fallback: "Opens the main navigation menu."))
 
                 Button(action: onChannelTap) {
                     HStack(spacing: 12) {
@@ -41,6 +43,16 @@ struct TopBarView: View {
                     }
                 }
                 .buttonStyle(.plain)
+                .accessibilityElement(children: .combine)
+                .accessibilityLabel(
+                    AppLocalization.text(
+                        "accessibility.topBar.channel",
+                        fallback: "Channel: %@, %@",
+                        channelInfo.title,
+                        channelInfo.subtitle
+                    )
+                )
+                .accessibilityHint(AppLocalization.text("accessibility.topBar.channelHint", fallback: "Opens channel context."))
 
                 Spacer()
 
@@ -50,12 +62,16 @@ struct TopBarView: View {
                             .frame(width: 24, height: 24)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(AppLocalization.text("accessibility.topBar.search", fallback: "Search"))
+                    .accessibilityHint(AppLocalization.text("accessibility.topBar.searchHint", fallback: "Opens search."))
 
                     Button(action: onNotificationsTap) {
                         Image(systemName: "bell")
                             .frame(width: 24, height: 24)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(AppLocalization.text("accessibility.topBar.notifications", fallback: "Notifications"))
+                    .accessibilityHint(AppLocalization.text("accessibility.topBar.notificationsHint", fallback: "Opens notifications."))
                 }
                 .font(.system(size: 18, weight: .regular))
                 .foregroundStyle(AppTheme.iconSecondary)

@@ -1384,3 +1384,6 @@ Readability-first cycle progress:
   every renderable app-side view under `TchopApp/Views` now has at least one `#Preview`,
   and widget rendering is covered in `FeedHeadlineWidget.swift`.
   The persistent iOS rules and onboarding/handoff docs were updated so preview coverage stays mandatory and current.
+- Added accessibility as a persistent product requirement and applied a first app-wide accessibility baseline.
+  The persistent iOS rules now require accessibility support by default.
+  The current implementation adds VoiceOver semantics to core controls and hides decorative-only visuals from accessibility in the main app surfaces.

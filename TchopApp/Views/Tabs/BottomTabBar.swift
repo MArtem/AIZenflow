@@ -27,6 +27,13 @@ struct BottomTabBar: View {
                     )
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(tab.title)
+                .accessibilityValue(
+                    selectedTab == tab
+                        ? AppLocalization.text("accessibility.tab.selected", fallback: "Selected")
+                        : AppLocalization.text("accessibility.tab.notSelected", fallback: "Not selected")
+                )
+                .accessibilityHint(AppLocalization.text("accessibility.tab.switchHint", fallback: "Switches to this tab."))
             }
         }
         .padding(.horizontal, 10)

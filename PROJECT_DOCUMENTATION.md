@@ -40,6 +40,7 @@ If you are making architectural changes, read the whole document.
 - reusable infrastructure in `Packages/TchopInfrastructure`;
 - local-first persistence;
 - storage-backed feed rendering;
+- accessibility as a required product baseline;
 - explicit support for default email/password login and Sign in with Apple;
 - widget snapshot sync;
 - deep-link and navigation-state restore support.

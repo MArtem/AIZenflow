@@ -46,6 +46,11 @@
   every renderable SwiftUI view must have a working preview,
   previews must be updated in the same work stream whenever a view's API/state/UI changes,
   and only non-renderable entry points such as `@main App` / `WidgetBundle` are exempt.
+- Accessibility policy is now explicit:
+  the app must remain usable for people with disabilities,
+  new screens/components must ship with meaningful accessibility semantics,
+  decorative-only visuals should be hidden from accessibility,
+  and controls must not depend on color-only communication.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,
@@ -1410,3 +1415,6 @@ Absent:  no tests/build/simulator checks
   Each renderable app-side view in `TchopApp/Views` now has at least one `#Preview`,
   and [FeedHeadlineWidget.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/FeedHeadlineWidget.swift) now previews both the entry view and supported widget families.
   [TchopWidgetsBundle.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/TchopWidgetsBundle.swift) remains exempt because it is a `WidgetBundle` entry point, not a renderable view.
+- Accessibility baseline was also added across the core UI surface:
+  top-bar icon buttons, tab-bar items, side-menu navigation, login controls, feature cards, and profile controls now expose explicit VoiceOver-facing labels/hints/values where needed.
+  Decorative artwork such as the brand mark and purely illustrative card art is now hidden from accessibility to reduce reading noise.

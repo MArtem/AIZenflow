@@ -25,6 +25,7 @@ struct BrandMarkView: View {
             }
             .rotationEffect(.degrees(-8))
         }
+        .accessibilityHidden(true)
     }
 }
 
