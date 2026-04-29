@@ -113,21 +113,25 @@ struct FeedHeadlineWidget: Widget {
     .frame(width: 170, height: 170)
 }
 
-#Preview(as: .systemSmall) {
-    FeedHeadlineWidget()
-} timeline: {
-    FeedHeadlineWidgetEntry(
-        date: Date(),
-        headline: "Parrots help others in need, study shows for first time"
-    )
-}
+struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
+    static var previews: some View {
+        Group {
+            FeedHeadlineWidgetEntryView(
+                entry: FeedHeadlineWidgetEntry(
+                    date: Date(),
+                    headline: "Parrots help others in need, study shows for first time"
+                )
+            )
+            .previewContext(WidgetPreviewContext(family: .systemSmall))
 
-#Preview(as: .systemMedium) {
-    FeedHeadlineWidget()
-} timeline: {
-    FeedHeadlineWidgetEntry(
-        date: Date(),
-        headline: "Parrots help others in need, study shows for first time"
-    )
+            FeedHeadlineWidgetEntryView(
+                entry: FeedHeadlineWidgetEntry(
+                    date: Date(),
+                    headline: "Parrots help others in need, study shows for first time"
+                )
+            )
+            .previewContext(WidgetPreviewContext(family: .systemMedium))
+        }
+    }
 }
 #endif
