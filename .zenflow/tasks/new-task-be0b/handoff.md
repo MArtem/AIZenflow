@@ -59,6 +59,21 @@
   use `@MainActor` or custom actors for shared mutable state,
   do not model that state with `DispatchQueue`,
   and if a system callback API still forces a dispatch queue entry point, treat that as a narrow technical exception to discuss rather than a general pattern.
+- Project baseline for deployment target assumptions is now explicit:
+  defer to the minimum iOS version defined in the customer-owned Xcode project;
+  do not assume `iOS 17+` by default for this app or for future work unless the project actually moves there.
+- Project baseline for tests is also explicit:
+  keep code testable and preserve recommended test surfaces,
+  but do not write, update, or run tests unless the user explicitly requests that scope.
+- Architecture response style is now explicit:
+  for non-trivial or trade-off-heavy decisions, provide three options and recommend one;
+  for straightforward tasks, do not bloat the response with unnecessary option trees.
+- Protocol-boundary policy is now explicit:
+  use protocols where they provide a real seam for DI, substitution, isolation, or testability,
+  but do not add protocol layers that only increase indirection without real payoff.
+- Screen-state policy is now explicit:
+  data-backed and auth-sensitive screens should model the relevant loading/content/empty/error/offline/unauthorized/refreshing states,
+  while purely static screens do not need the full matrix.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,

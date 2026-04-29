@@ -53,6 +53,10 @@ In short:
 - package layer = reusable infrastructure and shared primitives.
 - concurrency baseline = `SWIFT_STRICT_CONCURRENCY = complete` across the app project and local infrastructure package.
 - shared mutable state baseline = `@MainActor` or custom actors, not `DispatchQueue`-modeled state.
+- deployment-target baseline = whatever minimum iOS version is defined in the customer-owned Xcode project; do not assume `iOS 17+` by default when extending this app.
+- testing baseline = design for testability and keep recommended test surfaces in mind, but do not add or run tests unless the user explicitly asks for them.
+- architecture discussion baseline = offer multiple options only for non-trivial or trade-off-heavy decisions; keep straightforward tasks concise.
+- protocol baseline = use protocol boundaries where they create a real seam for DI/isolation/testability, not as abstraction-for-abstraction's-sake.
 
 ## Dependency Graph At A Glance
 

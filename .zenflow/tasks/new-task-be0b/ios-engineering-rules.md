@@ -11,6 +11,7 @@ Use this file as the persistent engineering instruction set for this project whe
 - Think before answering.
 - Prefer clarity, simplicity, and correctness over cleverness.
 - Avoid overengineering, but design for scalability.
+- Work at Senior/Staff iOS level: optimize not only for "the screen works", but also for architecture, maintainability, scalability, UX, stability, observability, performance, and long-term code ownership cost.
 - Optimize for human readability and unambiguous intent, not just for technical elegance.
 - Code should be easy for another developer to read, reason about, and maintain without rediscovering hidden assumptions.
 - Use modern Swift 5.9+ and SwiftUI best practices.
@@ -22,6 +23,12 @@ Use this file as the persistent engineering instruction set for this project whe
 - Do not trade structural quality, runtime quality, or rule compliance for a fast local fix.
 - Do not introduce temporary-looking workarounds, weak stopgaps, or "just make it work" patches when they conflict with the established architecture, patterns, or performance standards.
 - Even under pressure or when a bug is obvious, the required response is to bring the code back to a high-quality baseline, not to settle for the quickest patch.
+- For non-trivial architectural decisions or trade-off-heavy implementation forks, provide at least three options:
+  a simple/fast path,
+  a balanced production-ready path,
+  and a more scalable long-term path.
+  For simple tasks, do not inflate the answer with unnecessary option trees.
+- Default deployment-target assumptions must come from the current Xcode project or the customer-provided target floor, not from a generic personal preference such as "iOS 17+ by default".
 
 ## Architecture Requirements
 - Use MVVM by default.
@@ -36,7 +43,8 @@ Use this file as the persistent engineering instruction set for this project whe
   - actor-based state isolation
   - Redux/TCA for complex shared state
   - offline-first architecture when relevant
-- Prefer protocol-driven boundaries between services, repositories, managers, and feature layers.
+- Use protocol-driven boundaries when they provide a real seam for dependency injection, substitution, layer isolation, or testability.
+- Do not introduce protocols purely for theoretical abstraction or future-proofing with no practical current benefit.
 - Prefer dependency injection over hidden singletons.
 - Service and manager types should have clear responsibilities and configuration points.
 
@@ -81,6 +89,15 @@ Use this file as the persistent engineering instruction set for this project whe
 - Light and dark appearance support is mandatory for every project by default.
 - Accessibility support is mandatory for every project by default.
 - Localization and internationalization support is mandatory for every project by default.
+- For data-backed or auth-sensitive screens, model the relevant runtime states explicitly when the UX requires them:
+  loading,
+  content,
+  empty,
+  error,
+  offline,
+  unauthorized,
+  refreshing.
+  Do not force this full matrix onto purely static screens.
 - New screens and reusable components must expose meaningful accessibility labels, values, hints, and traits where relevant.
 - Decorative-only visuals must be hidden from accessibility when they would add noise instead of meaning.
 - Controls must not rely on color alone to communicate state or affordance.
@@ -165,6 +182,9 @@ Use this file as the persistent engineering instruction set for this project whe
 ## Additional Persistent Instructions
 - When asked to merge from `main`, merge the latest changes from `main` and resolve conflicts carefully.
 - If any conflict resolution is ambiguous, ask the user before choosing a resolution.
+- Testing is part of the engineering quality contract, but writing, updating, or running tests is not the default operational action for this project.
+- Only add or run tests when the user explicitly requests them for a feature, module, flow, or the whole app.
+- CI/CD, XCTest, XCUITest, snapshot tests, and related quality infrastructure should be treated as available/recommended engineering capabilities, not as automatic default work items.
 - Post-task verification now uses explicit verification levels.
 - Default verification level is `Absent` (`Отсутствует`): do not run tests, builds, or simulator launch checks unless the user explicitly requests one of the levels below after task completion.
 - Supported verification levels:

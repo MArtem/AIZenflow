@@ -1393,3 +1393,10 @@ Readability-first cycle progress:
 - Added a new concurrency-state rule and applied it immediately.
   Shared mutable state should now be modeled with `@MainActor` or custom actors rather than `DispatchQueue`.
   The current codebase moved network reachability state to an actor and replaced `DispatchQueue.main.async` in the news feed scroll observer with an explicit main-actor task hop.
+- Normalized the broader project engineering contract against the user's new Staff-level requirements document.
+  The merged baseline now explicitly says:
+  deployment-target assumptions come from the customer-owned Xcode project rather than a generic `iOS 17+` default,
+  tests remain recommended but are only written/run on explicit user request,
+  three-option architectural breakdowns are required only for non-trivial trade-off-heavy choices,
+  protocol boundaries should exist only when they provide a real seam,
+  and the full screen-state matrix is mandatory for data-backed/auth-sensitive screens rather than every static view.

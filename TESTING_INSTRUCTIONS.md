@@ -15,6 +15,13 @@ It is an operational document that tells the agent:
 This is a living document.
 Whenever a new testing mode is introduced, or an existing one changes, this file must be updated in the same work stream.
 
+Operational baseline:
+
+- do not write tests by default;
+- do not run XCTest/XCUITest by default;
+- use the lightweight local trace commands first when the user asks for API-chain inspection;
+- only move into explicit test writing or explicit test execution when the user asks for that scope directly.
+
 ### Local Trace Commands
 Two lightweight local commands are now part of the testing toolbox:
 
