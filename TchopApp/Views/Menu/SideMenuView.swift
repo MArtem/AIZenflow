@@ -116,3 +116,16 @@ private struct SideMenuAccountSummaryCard: View {
         .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
     }
 }
+
+#if DEBUG
+#Preview("Side Menu") {
+    SideMenuView(
+        channelInfo: ViewPreviewSupport.sampleChannelInfo,
+        accountSummary: ViewPreviewSupport.sampleAccountSummary,
+        selectedTab: .news,
+        footerText: "Select a destination here or from the bottom bar.",
+        onSelect: { _ in }
+    )
+    .frame(width: 320)
+}
+#endif

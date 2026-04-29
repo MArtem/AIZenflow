@@ -101,3 +101,33 @@ struct FeedHeadlineWidget: Widget {
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
+
+#if DEBUG
+#Preview("Widget Entry View") {
+    FeedHeadlineWidgetEntryView(
+        entry: FeedHeadlineWidgetEntry(
+            date: Date(),
+            headline: "Parrots help others in need, study shows for first time"
+        )
+    )
+    .frame(width: 170, height: 170)
+}
+
+#Preview(as: .systemSmall) {
+    FeedHeadlineWidget()
+} timeline: {
+    FeedHeadlineWidgetEntry(
+        date: Date(),
+        headline: "Parrots help others in need, study shows for first time"
+    )
+}
+
+#Preview(as: .systemMedium) {
+    FeedHeadlineWidget()
+} timeline: {
+    FeedHeadlineWidgetEntry(
+        date: Date(),
+        headline: "Parrots help others in need, study shows for first time"
+    )
+}
+#endif

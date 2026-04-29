@@ -57,3 +57,101 @@ struct AppRootView: View {
         .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: onContinueUserActivity)
     }
 }
+
+#if DEBUG
+@MainActor
+enum ViewPreviewSupport {
+    static let sampleUser = AppUser(
+        id: "preview-user-001",
+        username: "Alex Morgan",
+        createdAt: Date(),
+        isNavigationStateRestoreEnabled: true
+    )
+
+    static let sampleChannelInfo = ChannelHeaderInfo(
+        title: "Tchop",
+        subtitle: "Editorial"
+    )
+
+    static let sampleNewsRoute = NewsRoute(
+        destinationID: "preview-news",
+        title: "Preview Article",
+        subtitle: "Our Blog",
+        bodyText: "Preview body content for a destination screen.",
+        accentLabel: "See translation"
+    )
+
+    static let sampleMixesRoute = MixesRoute(
+        title: "Daily Briefing",
+        description: "Preview destination for the mixes tab."
+    )
+
+    static let sampleAccountSummary = AccountProfileSummary(user: sampleUser)
+
+    static var sampleFeaturedArticle: FeaturedArticleCardModel {
+        for card in NewsFeedFixtures.fallbackContent.cards {
+            if case let .featuredArticle(article) = card {
+                return article
+            }
+        }
+
+        fatalError("Missing featured article preview fixture.")
+    }
+
+    static var sampleDiscussion: DiscussionCardModel {
+        for card in NewsFeedFixtures.fallbackContent.cards {
+            if case let .discussion(discussion) = card {
+                return discussion
+            }
+        }
+
+        fatalError("Missing discussion preview fixture.")
+    }
+
+    static func makeLocalContainer() -> AppDIContainer {
+        AppDIContainer(
+            databaseConfiguration: .inMemory,
+            apiEnvironment: .localStub,
+            isUITesting: true
+        )
+    }
+
+    static func makeErrorManager() -> any AppErrorManaging {
+        AppErrorManager(
+            mapper: AppRuntimeErrorMapper(),
+            messageCatalog: AppRuntimeErrorMessageCatalog()
+        )
+    }
+
+    static func makeAppleAuthenticationManager() -> any AppleAuthenticationManaging {
+        AppleAuthenticationManager()
+    }
+
+    static func makeCoordinator(selectedTab: AppTab = .news) -> AppCoordinator {
+        AppCoordinator(selectedTab: selectedTab)
+    }
+
+    static func makeAppState() -> AppState {
+        makeLocalContainer().makeAppState()
+    }
+
+    static func makeNewsFeedViewModel() -> NewsFeedViewModel {
+        makeLocalContainer().makeAppShellViewModel().newsFeedViewModel
+    }
+
+    static func makeShellViewModel() -> AppShellViewModel {
+        makeLocalContainer().makeAppShellViewModel()
+    }
+}
+
+#Preview("App Root - Signed Out") {
+    let container = ViewPreviewSupport.makeLocalContainer()
+
+    return AppRootView(
+        appState: container.makeAppState(),
+        loginScreenMode: container.loginScreenMode,
+        appleAuthenticationManager: container.appleAuthenticationManager,
+        errorManager: container.errorManager
+    )
+}
+#endif

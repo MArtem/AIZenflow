@@ -32,3 +32,19 @@ struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {
         router.push(sampleRoute)
     }
 }
+
+#if DEBUG
+#Preview("Stub Navigation Root") {
+    StubTabNavigationRootView(
+        tab: .mixes,
+        router: TabRouter<MixesRoute>(),
+        sampleRoute: ViewPreviewSupport.sampleMixesRoute,
+        destinationBuilder: { route in
+            StubTabDetailView(
+                title: route.title,
+                description: route.description
+            )
+        }
+    )
+}
+#endif

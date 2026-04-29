@@ -57,3 +57,11 @@ struct MixesTabRootView: View {
         )
     }
 }
+
+#if DEBUG
+#Preview("Mixes Tab Root") {
+    MixesTabRootView(
+        router: TabRouter<MixesRoute>()
+    )
+}
+#endif

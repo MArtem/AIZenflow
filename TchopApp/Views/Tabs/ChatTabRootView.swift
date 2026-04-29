@@ -57,3 +57,11 @@ struct ChatTabRootView: View {
         )
     }
 }
+
+#if DEBUG
+#Preview("Chat Tab Root") {
+    ChatTabRootView(
+        router: TabRouter<ChatRoute>()
+    )
+}
+#endif

@@ -26,3 +26,14 @@ struct FeedCardStatusBadge: View {
         .clipShape(Capsule())
     }
 }
+
+#if DEBUG
+#Preview("Feed Status Badge") {
+    FeedCardStatusBadge(
+        title: "Saving reaction...",
+        showsProgress: true
+    )
+    .padding()
+    .background(AppTheme.canvasBackground)
+}
+#endif

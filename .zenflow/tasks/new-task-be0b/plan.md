@@ -1379,3 +1379,8 @@ Readability-first cycle progress:
   `Method-Driven API Testing` as the default low-cost baseline,
   `Feature-Action API Testing` as a middle layer,
   and `UI-Driven API Testing` only for explicit simulator-level validation of real screen interaction.
+- Added mandatory SwiftUI preview coverage across the current renderable view layer.
+  Shared preview fixtures/helpers now live in `ViewPreviewSupport`,
+  every renderable app-side view under `TchopApp/Views` now has at least one `#Preview`,
+  and widget rendering is covered in `FeedHeadlineWidget.swift`.
+  The persistent iOS rules and onboarding/handoff docs were updated so preview coverage stays mandatory and current.

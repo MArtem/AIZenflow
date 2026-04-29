@@ -236,3 +236,15 @@ struct FeaturedArticleCard: View {
         .shadow(color: AppTheme.shadow.opacity(0.35), radius: 6, y: 1)
     }
 }
+
+#if DEBUG
+#Preview("Featured Article Card") {
+    FeaturedArticleCard(
+        article: ViewPreviewSupport.sampleFeaturedArticle,
+        onTap: {},
+        onAction: { _ in }
+    )
+    .padding()
+    .background(AppTheme.canvasBackground)
+}
+#endif

@@ -63,3 +63,19 @@ struct ShellContentView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
     }
 }
+
+#if DEBUG
+#Preview("Shell Content") {
+    let coordinator = ViewPreviewSupport.makeCoordinator(selectedTab: .news)
+
+    return ShellContentView(
+        viewModel: ViewPreviewSupport.makeShellViewModel(),
+        coordinator: coordinator,
+        newsRouter: coordinator.newsRouter,
+        errorManager: ViewPreviewSupport.makeErrorManager(),
+        currentUser: ViewPreviewSupport.sampleUser,
+        onNavigationRestoreChange: { _ in },
+        onLogout: {}
+    )
+}
+#endif

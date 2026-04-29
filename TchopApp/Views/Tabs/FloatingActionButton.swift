@@ -15,3 +15,11 @@ struct FloatingActionButton: View {
         .buttonStyle(.plain)
     }
 }
+
+#if DEBUG
+#Preview("Floating Action Button") {
+    FloatingActionButton()
+        .padding()
+        .background(AppTheme.canvasBackground)
+}
+#endif

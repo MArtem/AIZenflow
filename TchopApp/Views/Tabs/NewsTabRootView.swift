@@ -57,3 +57,13 @@ struct NewsTabRootView: View {
         router.push(discussion.detailRoute)
     }
 }
+
+#if DEBUG
+#Preview("News Tab Root") {
+    NewsTabRootView(
+        viewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
+        router: TabRouter<NewsRoute>(),
+        onFeedScrollProximityChange: { _ in }
+    )
+}
+#endif

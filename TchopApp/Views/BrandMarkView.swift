@@ -49,3 +49,14 @@ private enum BrandStripe: CaseIterable, Identifiable {
         }
     }
 }
+
+#if DEBUG
+#Preview("Brand Mark") {
+    BrandMarkView(
+        iconSize: 48,
+        cardSize: CGSize(width: 28, height: 34)
+    )
+    .padding()
+    .background(AppTheme.canvasBackground)
+}
+#endif

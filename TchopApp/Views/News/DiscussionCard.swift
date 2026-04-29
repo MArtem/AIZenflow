@@ -183,3 +183,15 @@ struct DiscussionCard: View {
         .foregroundStyle(isActive ? AppTheme.accent : AppTheme.discussionTextSecondary)
     }
 }
+
+#if DEBUG
+#Preview("Discussion Card") {
+    DiscussionCard(
+        discussion: ViewPreviewSupport.sampleDiscussion,
+        onTap: {},
+        onAction: { _ in }
+    )
+    .padding()
+    .background(AppTheme.canvasBackground)
+}
+#endif

@@ -48,3 +48,35 @@ struct TabContentView: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Tab Content - News") {
+    let coordinator = ViewPreviewSupport.makeCoordinator(selectedTab: .news)
+
+    return TabContentView(
+        selectedTab: .news,
+        coordinator: coordinator,
+        newsFeedViewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
+        errorManager: ViewPreviewSupport.makeErrorManager(),
+        onNewsFeedScrollProximityChange: { _ in },
+        currentUser: ViewPreviewSupport.sampleUser,
+        onNavigationRestoreChange: { _ in },
+        onLogout: {}
+    )
+}
+
+#Preview("Tab Content - Profile") {
+    let coordinator = ViewPreviewSupport.makeCoordinator(selectedTab: .profile)
+
+    return TabContentView(
+        selectedTab: .profile,
+        coordinator: coordinator,
+        newsFeedViewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
+        errorManager: ViewPreviewSupport.makeErrorManager(),
+        onNewsFeedScrollProximityChange: { _ in },
+        currentUser: ViewPreviewSupport.sampleUser,
+        onNavigationRestoreChange: { _ in },
+        onLogout: {}
+    )
+}
+#endif

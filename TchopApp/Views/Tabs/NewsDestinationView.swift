@@ -40,3 +40,11 @@ struct NewsDestinationView: View {
             : AppLocalization.text("news.destination.title.article", fallback: "Article")
     }
 }
+
+#if DEBUG
+#Preview("News Destination") {
+    NavigationStack {
+        NewsDestinationView(route: ViewPreviewSupport.sampleNewsRoute)
+    }
+}
+#endif

@@ -125,3 +125,18 @@ struct AppShellView: View {
         viewModel.closeMenu()
     }
 }
+
+#if DEBUG
+#Preview("App Shell") {
+    let coordinator = ViewPreviewSupport.makeCoordinator()
+
+    return AppShellView(
+        viewModel: ViewPreviewSupport.makeShellViewModel(),
+        coordinator: coordinator,
+        errorManager: ViewPreviewSupport.makeErrorManager(),
+        currentUser: ViewPreviewSupport.sampleUser,
+        onNavigationRestoreChange: { _ in },
+        onLogout: {}
+    )
+}
+#endif

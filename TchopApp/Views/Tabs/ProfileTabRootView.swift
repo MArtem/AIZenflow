@@ -147,6 +147,18 @@ private struct ProfileHeaderSection: View {
     }
 }
 
+#if DEBUG
+#Preview("Profile Tab Root") {
+    ProfileTabRootView(
+        currentUser: ViewPreviewSupport.sampleUser,
+        router: TabRouter<ProfileRoute>(),
+        errorManager: ViewPreviewSupport.makeErrorManager(),
+        onNavigationRestoreChange: { _ in },
+        onLogout: {}
+    )
+}
+#endif
+
 /// Read-only account metadata card for the current signed-in profile.
 private struct ProfileAccountCard: View {
     let providerTitle: String

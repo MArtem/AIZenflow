@@ -42,6 +42,10 @@
   5. `api_method_trace` verification,
   6. UI wiring,
   7. optional UI-driven validation only when explicitly requested.
+- Preview policy is now explicit:
+  every renderable SwiftUI view must have a working preview,
+  previews must be updated in the same work stream whenever a view's API/state/UI changes,
+  and only non-renderable entry points such as `@main App` / `WidgetBundle` are exempt.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,
@@ -1401,3 +1405,8 @@ Absent:  no tests/build/simulator checks
   `Method-Driven API Testing` as the default cheapest baseline,
   `Feature-Action API Testing` for app-layer action entry points,
   and `UI-Driven API Testing` only when real simulator interaction must be validated.
+- Preview baseline now exists across the current renderable view layer.
+  Shared preview fixtures/helpers currently live in [AppRootView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/AppRootView.swift) as `ViewPreviewSupport`.
+  Each renderable app-side view in `TchopApp/Views` now has at least one `#Preview`,
+  and [FeedHeadlineWidget.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/FeedHeadlineWidget.swift) now previews both the entry view and supported widget families.
+  [TchopWidgetsBundle.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopWidgetsExtension/TchopWidgetsBundle.swift) remains exempt because it is a `WidgetBundle` entry point, not a renderable view.

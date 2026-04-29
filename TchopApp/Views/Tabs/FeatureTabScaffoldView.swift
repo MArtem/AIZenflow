@@ -112,3 +112,13 @@ struct FeatureTabScaffoldView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
     }
 }
+
+#if DEBUG
+#Preview("Feature Scaffold") {
+    FeatureTabScaffoldView(
+        content: FeatureTabFixtures.mixes,
+        onQuickActionTap: { _ in },
+        onItemTap: { _ in }
+    )
+}
+#endif

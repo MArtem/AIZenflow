@@ -31,3 +31,18 @@ struct ArticleActionView: View {
         .opacity(isDisabled && !isLoading ? 0.55 : 1)
     }
 }
+
+#if DEBUG
+#Preview("Article Action") {
+    ArticleActionView(
+        action: ViewPreviewSupport.sampleFeaturedArticle.actions[0],
+        isActive: true,
+        isLoading: false,
+        isDisabled: false,
+        title: "Liked",
+        onTap: {}
+    )
+    .padding()
+    .background(AppTheme.surfacePrimary)
+}
+#endif

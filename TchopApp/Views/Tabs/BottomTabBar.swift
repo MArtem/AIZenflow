@@ -41,3 +41,13 @@ struct BottomTabBar: View {
         .animation(.easeInOut(duration: 0.2), value: selectedTab)
     }
 }
+
+#if DEBUG
+#Preview("Bottom Tab Bar") {
+    BottomTabBar(
+        selectedTab: .news,
+        onSelect: { _ in }
+    )
+    .background(AppTheme.canvasBackground)
+}
+#endif

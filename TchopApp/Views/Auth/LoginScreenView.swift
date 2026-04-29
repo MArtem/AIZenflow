@@ -525,3 +525,27 @@ struct LoginScreenView: View {
         }
     }
 }
+
+#if DEBUG
+#Preview("Login - Default Auth") {
+    LoginScreenView(
+        mode: .defaultAppAuth,
+        onCredentialLogin: { _, _ in },
+        onRegister: { _, _ in },
+        onAppleLogin: { _ in },
+        appleAuthenticationManager: ViewPreviewSupport.makeAppleAuthenticationManager(),
+        errorManager: ViewPreviewSupport.makeErrorManager()
+    )
+}
+
+#Preview("Login - ReqRes") {
+    LoginScreenView(
+        mode: .reqResDemoExternalAuth,
+        onCredentialLogin: { _, _ in },
+        onRegister: { _, _ in },
+        onAppleLogin: { _ in },
+        appleAuthenticationManager: ViewPreviewSupport.makeAppleAuthenticationManager(),
+        errorManager: ViewPreviewSupport.makeErrorManager()
+    )
+}
+#endif

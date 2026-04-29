@@ -73,3 +73,15 @@ struct TopBarView: View {
         .zIndex(1)
     }
 }
+
+#if DEBUG
+#Preview("Top Bar") {
+    TopBarView(
+        channelInfo: ViewPreviewSupport.sampleChannelInfo,
+        onMenuTap: {},
+        onChannelTap: {},
+        onSearchTap: {},
+        onNotificationsTap: {}
+    )
+}
+#endif

@@ -195,6 +195,8 @@ SwiftUI-facing state and behavior.
 
 #### `TchopApp/Views`
 SwiftUI presentation layer.
+Every renderable view in this folder is expected to keep a working SwiftUI preview.
+Previews may be colocated with the source file or backed by shared preview helpers, but they must be updated whenever a view's API or visible states change.
 
 #### `TchopApp/Resources`
 Bundled feature resources such as the stub feed JSON contract.

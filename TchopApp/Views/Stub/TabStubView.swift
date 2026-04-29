@@ -50,3 +50,12 @@ struct TabStubView: View {
         .background(Color.clear)
     }
 }
+
+#if DEBUG
+#Preview("Tab Stub") {
+    TabStubView(
+        tab: .pinned,
+        onOpenSample: {}
+    )
+}
+#endif

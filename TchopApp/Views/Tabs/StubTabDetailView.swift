@@ -24,3 +24,14 @@ struct StubTabDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
+#if DEBUG
+#Preview("Stub Tab Detail") {
+    NavigationStack {
+        StubTabDetailView(
+            title: "Preview Detail",
+            description: "This preview keeps scaffolded destination copy visible and current."
+        )
+    }
+}
+#endif

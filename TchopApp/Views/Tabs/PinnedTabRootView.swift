@@ -57,3 +57,11 @@ struct PinnedTabRootView: View {
         )
     }
 }
+
+#if DEBUG
+#Preview("Pinned Tab Root") {
+    PinnedTabRootView(
+        router: TabRouter<PinnedRoute>()
+    )
+}
+#endif

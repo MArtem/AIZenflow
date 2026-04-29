@@ -189,3 +189,16 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
 
 /// Zero-sized host view used only to discover the surrounding UIKit scroll view.
 private final class ObserverView: UIView {}
+
+#if DEBUG
+#Preview("News Feed") {
+    NewsFeedView(
+        viewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
+        onScrollProximityChange: { _ in },
+        onFeaturedArticleTap: { _ in },
+        onFeaturedArticleAction: { _, _ in },
+        onDiscussionTap: { _ in },
+        onDiscussionAction: { _, _ in }
+    )
+}
+#endif

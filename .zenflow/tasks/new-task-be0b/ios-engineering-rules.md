@@ -86,6 +86,10 @@ Use this file as the persistent engineering instruction set for this project whe
 - Target state for every screen/component: optimal and stable code without logical/programming errors that can trigger redundant rendering or excess memory usage.
 - In SwiftUI layout work specifically, do not reach for heavy layout tools or broad geometry-based fixes unless they are clearly justified by the problem and remain aligned with the project's performance/readability standards.
 - If a layout bug seems simple, solve it with the simplest correct SwiftUI layout structure first, not with a workaround that only masks the symptom.
+- Every renderable SwiftUI view must have a working SwiftUI preview.
+- Preview coverage may live inline in the same file or in a dedicated preview catalog, but screens and reusable components are not optional.
+- Whenever a view's initializer, state contract, or visual states change, update its previews in the same work stream so they stay current and compilable.
+- Non-renderable entry points such as `@main App` and `WidgetBundle` declarations are not preview targets; their renderable child views/widgets still must be previewed.
 
 ## Project-Specific SwiftUI Structure Rules
 - Do not use computed properties like `private var something: some View` for view composition.
