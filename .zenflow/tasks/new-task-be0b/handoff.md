@@ -55,6 +55,10 @@
   `SWIFT_STRICT_CONCURRENCY = complete` must remain enabled,
   both for Xcode targets and the local infrastructure package,
   and future concurrency issues should be fixed rather than hidden.
+- Shared mutable state policy is now explicit:
+  use `@MainActor` or custom actors for shared mutable state,
+  do not model that state with `DispatchQueue`,
+  and if a system callback API still forces a dispatch queue entry point, treat that as a narrow technical exception to discuss rather than a general pattern.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,
@@ -1426,3 +1430,7 @@ Absent:  no tests/build/simulator checks
   `TchopApp.xcodeproj` target configurations now set `SWIFT_STRICT_CONCURRENCY = complete`,
   and `Packages/TchopInfrastructure/Package.swift` now applies `-strict-concurrency=complete` to package targets and test targets.
   A `Low` build was rerun after enabling it and completed green without requiring additional source fixes.
+- Queue-based shared state was also removed from the current app baseline.
+  `NetworkAvailabilityMonitor` now keeps mutable reachability state in an actor instead of queue-guarded booleans,
+  and the news-feed scroll observer now hops to main actor with `Task { @MainActor ... }` instead of `DispatchQueue.main.async`.
+  The only remaining dispatch queue usage in app code is the narrow `NWPathMonitor.start(queue:)` callback requirement from Apple's API surface.

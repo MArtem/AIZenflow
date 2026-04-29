@@ -36,7 +36,7 @@ protocol NewsFeedRepository {
 /// Lightweight app-local reachability check used by the feed repository.
 protocol NetworkAvailabilityChecking {
     /// Whether the app currently has a usable internet path.
-    var isInternetAvailable: Bool { get }
+    func isInternetAvailable() async -> Bool
 }
 
 /// Combined repository used by the shell to resolve both channel and feed content.
@@ -77,7 +77,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// the API response is first synchronized into persistence and only then mapped back into
     /// presentation models.
     func refreshNewsFeedContent() async throws -> NewsFeedContent {
-        guard networkAvailabilityChecker.isInternetAvailable else {
+        guard await networkAvailabilityChecker.isInternetAvailable() else {
             if let persistedContent = try currentNewsFeedContent() {
                 return persistedContent.withCacheReason(.offline)
             }
@@ -96,7 +96,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     ) async throws -> FeaturedArticleCardModel {
         // Card mutations deliberately reuse the same repository boundary as feed refreshes so
         // persistence, offline policy, and future backend semantics stay aligned in one place.
-        guard networkAvailabilityChecker.isInternetAvailable else {
+        guard await networkAvailabilityChecker.isInternetAvailable() else {
             throw RepositoryError.offlineCardAction
         }
 
@@ -130,7 +130,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         discussionID: String,
         action: DiscussionCardAction
     ) async throws -> DiscussionCardModel {
-        guard networkAvailabilityChecker.isInternetAvailable else {
+        guard await networkAvailabilityChecker.isInternetAvailable() else {
             throw RepositoryError.offlineCardAction
         }
 
@@ -713,19 +713,19 @@ private struct PersistedCardStateSnapshot {
 /// Minimal network availability monitor for choosing between remote and persisted feed paths.
 final class NetworkAvailabilityMonitor: NetworkAvailabilityChecking {
     private let monitor = NWPathMonitor()
+    /// NWPathMonitor still requires a dispatch queue for its system callback delivery API.
     private let monitorQueue = DispatchQueue(label: "app.network-availability-monitor")
-    private let stateQueue = DispatchQueue(label: "app.network-availability-state")
-    private var hasSatisfiedPath = false
+    private let state = NetworkAvailabilityState()
 
     /// Whether the app currently has a usable internet path.
-    var isInternetAvailable: Bool {
-        stateQueue.sync { hasSatisfiedPath }
+    func isInternetAvailable() async -> Bool {
+        await state.isInternetAvailable
     }
 
     init() {
-        monitor.pathUpdateHandler = { [weak self] path in
-            self?.stateQueue.async {
-                self?.hasSatisfiedPath = path.status == .satisfied
+        monitor.pathUpdateHandler = { [state] path in
+            Task {
+                await state.setInternetAvailable(path.status == .satisfied)
             }
         }
         monitor.start(queue: monitorQueue)
@@ -733,6 +733,21 @@ final class NetworkAvailabilityMonitor: NetworkAvailabilityChecking {
 
     deinit {
         monitor.cancel()
+    }
+}
+
+/// Actor-backed reachability state used by `NetworkAvailabilityMonitor`.
+private actor NetworkAvailabilityState {
+    private var hasSatisfiedPath = false
+
+    /// Whether the latest known network path is usable.
+    var isInternetAvailable: Bool {
+        hasSatisfiedPath
+    }
+
+    /// Applies one path-status update from the system monitor.
+    func setInternetAvailable(_ isInternetAvailable: Bool) {
+        hasSatisfiedPath = isInternetAvailable
     }
 }
 

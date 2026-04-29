@@ -1390,3 +1390,6 @@ Readability-first cycle progress:
 - Added strict concurrency as a persistent project baseline.
   `SWIFT_STRICT_CONCURRENCY = complete` is now enabled in the Xcode project and mirrored into the local infrastructure package through package-level Swift settings.
   The follow-up `Low` verification build completed green, so the project currently builds under complete strict concurrency without additional source changes.
+- Added a new concurrency-state rule and applied it immediately.
+  Shared mutable state should now be modeled with `@MainActor` or custom actors rather than `DispatchQueue`.
+  The current codebase moved network reachability state to an actor and replaced `DispatchQueue.main.async` in the news feed scroll observer with an explicit main-actor task hop.

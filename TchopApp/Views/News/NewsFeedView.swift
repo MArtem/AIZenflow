@@ -149,7 +149,7 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
         }
 
         func attachIfNeeded(to view: UIView) {
-            DispatchQueue.main.async { [weak self, weak view] in
+            Task { @MainActor [weak self, weak view] in
                 guard let self, let view else {
                     return
                 }

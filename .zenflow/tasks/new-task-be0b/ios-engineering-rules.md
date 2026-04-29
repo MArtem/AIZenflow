@@ -61,6 +61,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Handle cancellation when needed.
 - `SWIFT_STRICT_CONCURRENCY = complete` is mandatory for this project.
 - New app targets and local package targets must keep strict concurrency enabled, and any violations must be fixed rather than suppressed.
+- Use `@MainActor` or custom actors to model shared mutable state; never use `DispatchQueue` for that purpose.
+- If a system API still forces a dispatch queue callback surface and there is no clean actor-only alternative, stop and discuss that exception with the user instead of normalizing more queue-based state management.
 
 ## Networking
 - Use structured concurrency.
