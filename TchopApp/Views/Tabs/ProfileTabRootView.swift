@@ -31,7 +31,7 @@ struct ProfileTabRootView: View {
     var body: some View {
         NavigationStack(path: pathBinding) {
             ScrollView {
-                VStack(alignment: .leading, spacing: 20) {
+                VStack(alignment: .leading, spacing: AppSpacing.lg) {
                     ProfileHeaderSection(
                         username: viewModel.accountSummary.displayName,
                         userInitials: viewModel.accountSummary.initials,
@@ -50,14 +50,14 @@ struct ProfileTabRootView: View {
                     )
                     if let errorMessage = viewModel.errorMessage {
                         Text(errorMessage)
-                            .font(.system(size: 13, weight: .medium))
-                            .foregroundStyle(Color.red.opacity(0.85))
+                            .font(AppTypography.caption)
+                            .foregroundStyle(AppTheme.destructive.opacity(0.85))
                     }
                     ProfileLogoutButton(onLogout: onLogout)
                 }
-                .padding(.horizontal, 20)
-                .padding(.top, 28)
-                .padding(.bottom, 120)
+                .padding(.horizontal, AppSpacing.cardPadding)
+                .padding(.top, AppSpacing.profileTopInset)
+                .padding(.bottom, AppSpacing.shellBottomInset)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(Color.clear)
@@ -84,26 +84,26 @@ private struct ProfileHeaderSection: View {
     let providerTitle: String
 
     var body: some View {
-        VStack(spacing: 16) {
+        VStack(spacing: AppSpacing.md) {
             Circle()
                 .fill(AppTheme.surfacePrimary)
                 .frame(width: 96, height: 96)
                 .shadow(color: AppTheme.shadow.opacity(0.35), radius: 10, y: 4)
                 .overlay(
                     Text(userInitials)
-                        .font(.system(size: 30, weight: .bold))
+                        .font(AppTypography.featureDisplay)
                         .foregroundStyle(AppTheme.accent)
                 )
 
-            VStack(spacing: 8) {
+            VStack(spacing: AppSpacing.xs) {
                 Text(username)
-                    .font(.system(size: 28, weight: .bold))
+                    .font(AppTypography.profileDisplay)
                     .foregroundStyle(AppTheme.textPrimary)
 
                 Text(providerTitle)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(AppTypography.detailSemibold)
                     .foregroundStyle(AppTheme.accent)
-                    .padding(.horizontal, 12)
+                    .padding(.horizontal, AppSpacing.sm)
                     .padding(.vertical, 6)
                     .background(AppTheme.surfacePrimary)
                     .clipShape(Capsule())
@@ -150,13 +150,13 @@ private struct ProfileAccountCard: View {
             )
 
             Text(providerDescription)
-                .font(.system(size: 14, weight: .medium))
+                .font(AppTypography.detail)
                 .foregroundStyle(AppTheme.textTertiary)
                 .fixedSize(horizontal: false, vertical: true)
         }
-        .padding(20)
+        .padding(AppSpacing.cardPadding)
         .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
     }
 }
 
@@ -173,11 +173,11 @@ private struct ProfilePreferencesCard: View {
             Toggle(isOn: $isNavigationRestoreEnabled) {
                 VStack(alignment: .leading, spacing: 6) {
                     Text(AppLocalization.text("profile.restoreNavigationTitle"))
-                    .font(.system(size: 16, weight: .semibold))
+                    .font(AppTypography.actionTitle)
                     .foregroundStyle(AppTheme.textPrimary)
 
                     Text(AppLocalization.text("profile.restoreNavigationDescription"))
-                    .font(.system(size: 14, weight: .medium))
+                    .font(AppTypography.detail)
                     .foregroundStyle(AppTheme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
                 }
@@ -185,9 +185,9 @@ private struct ProfilePreferencesCard: View {
             .tint(AppTheme.accent)
             .accessibilityHint(AppLocalization.text("accessibility.profile.restoreNavigationHint"))
         }
-        .padding(20)
+        .padding(AppSpacing.cardPadding)
         .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
     }
 }
 
@@ -198,12 +198,12 @@ private struct ProfileLogoutButton: View {
     var body: some View {
         Button(action: onLogout) {
             Text(AppLocalization.text("profile.logout"))
-                .font(.system(size: 16, weight: .semibold))
+                .font(AppTypography.actionTitle)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 15)
                 .foregroundStyle(AppTheme.accent)
                 .background(AppTheme.surfacePrimary)
-                .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .clipShape(RoundedRectangle(cornerRadius: AppRadius.prominentButton, style: .continuous))
         }
         .buttonStyle(.plain)
         .accessibilityHint(AppLocalization.text("accessibility.profile.logoutHint"))
@@ -216,7 +216,7 @@ private struct ProfileCardTitle: View {
 
     var body: some View {
         Text(title)
-            .font(.system(size: 18, weight: .bold))
+            .font(AppTypography.cardTitleBold)
             .foregroundStyle(AppTheme.textPrimary)
     }
 }
@@ -227,13 +227,13 @@ private struct ProfileDetailRow: View {
     let value: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 4) {
+        VStack(alignment: .leading, spacing: AppSpacing.xxs) {
             Text(title)
-                .font(.system(size: 13, weight: .semibold))
+                .font(AppTypography.captionSemibold)
                 .foregroundStyle(AppTheme.textTertiary)
 
             Text(value)
-                .font(.system(size: 15, weight: .medium))
+                .font(AppTypography.body)
                 .foregroundStyle(AppTheme.textPrimary)
                 .textSelection(.enabled)
         }

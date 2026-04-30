@@ -15,9 +15,9 @@ struct BottomTabBar: View {
                 Button(action: { onSelect(tab) }) {
                     VStack(spacing: 6) {
                         Image(systemName: tab.tabIcon)
-                            .font(.system(size: 20, weight: .medium))
+                            .font(AppTypography.shellMenuIcon)
                         Text(tab.title)
-                            .font(.system(size: 11, weight: .medium))
+                            .font(AppTypography.eyebrowStrong)
                     }
                     .frame(maxWidth: .infinity)
                     .foregroundStyle(
@@ -41,7 +41,7 @@ struct BottomTabBar: View {
         .padding(.bottom, 18)
         .frame(height: Self.contentHeight)
         .appGlassChrome(
-            in: RoundedRectangle(cornerRadius: 22, style: .continuous),
+            in: RoundedRectangle(cornerRadius: AppRadius.quickAction, style: .continuous),
             fallbackBackground: AppTheme.surfacePrimary,
             fallbackShadowColor: AppTheme.shadow.opacity(0.4),
             fallbackShadowRadius: 10,

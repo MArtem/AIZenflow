@@ -9,10 +9,10 @@ struct TopBarView: View {
     var onNotificationsTap: () -> Void
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: AppSpacing.sm) {
             Button(action: onMenuTap) {
                 Image(systemName: "line.3.horizontal")
-                    .font(.system(size: 20, weight: .medium))
+                    .font(AppTypography.shellMenuIcon)
                     .foregroundStyle(AppTheme.iconPrimary)
                     .frame(width: 32, height: 32)
             }
@@ -21,21 +21,21 @@ struct TopBarView: View {
             .accessibilityHint(AppLocalization.text("accessibility.topBar.menuHint"))
 
             Button(action: onChannelTap) {
-                HStack(spacing: 12) {
+                HStack(spacing: AppSpacing.sm) {
                     BrandMarkView(iconSize: 48, cardSize: CGSize(width: 28, height: 34))
 
                     VStack(alignment: .leading, spacing: 2) {
                         Text(channelInfo.title)
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(AppTypography.channelTitle)
                             .foregroundStyle(AppTheme.textPrimary)
 
-                        HStack(spacing: 4) {
+                        HStack(spacing: AppSpacing.xxs) {
                             Text(channelInfo.subtitle)
-                                .font(.system(size: 13, weight: .regular))
+                                .font(AppTypography.channelSubtitle)
                                 .foregroundStyle(AppTheme.textTertiary)
 
                             Image(systemName: "chevron.down")
-                                .font(.system(size: 10, weight: .semibold))
+                                .font(AppTypography.microLabel)
                                 .foregroundStyle(AppTheme.textTertiary)
                         }
                     }
@@ -54,7 +54,7 @@ struct TopBarView: View {
 
             Spacer()
 
-            HStack(spacing: 18) {
+            HStack(spacing: AppSpacing.cardSection) {
                 Button(action: onSearchTap) {
                     Image(systemName: "magnifyingglass")
                         .frame(width: 24, height: 24)
@@ -71,20 +71,20 @@ struct TopBarView: View {
                 .accessibilityLabel(AppLocalization.text("accessibility.topBar.notifications"))
                 .accessibilityHint(AppLocalization.text("accessibility.topBar.notificationsHint"))
             }
-            .font(.system(size: 18, weight: .regular))
+            .font(AppTypography.shellIcon)
             .foregroundStyle(AppTheme.iconSecondary)
         }
-        .padding(.horizontal, 16)
+        .padding(.horizontal, AppSpacing.shellHorizontal)
         .padding(.vertical, 14)
         .appGlassChrome(
-            in: RoundedRectangle(cornerRadius: 24, style: .continuous),
+            in: RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous),
             fallbackBackground: AppTheme.surfacePrimary,
             fallbackShadowColor: AppTheme.shadow.opacity(0.25),
             fallbackShadowRadius: 6,
             fallbackShadowY: 2
         )
-        .padding(.horizontal, 16)
-        .padding(.top, 8)
+        .padding(.horizontal, AppSpacing.shellHorizontal)
+        .padding(.top, AppSpacing.xs)
         .zIndex(1)
     }
 }

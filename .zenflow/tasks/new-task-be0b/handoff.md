@@ -1484,3 +1484,6 @@ Absent:  no tests/build/simulator checks
 - The profile screen no longer owns persistence/error side effects directly.
   `ProfileTabRootView` is now declarative and delegates profile-specific state plus the optimistic restore-navigation preference flow to `ProfileTabViewModel`,
   which keeps rollback and shared error mapping out of the SwiftUI view layer.
+- The design-system pass is now underway with a concrete token layer rather than one-off cleanups.
+  `AppTheme.swift` now includes semantic `AppTypography`, `AppSpacing`, `AppRadius`, and `warning` tokens,
+  and core UI surfaces such as login, profile, feed, scaffold, top bar, tab bar, FAB, and app restoring state have started reading from that token layer instead of hard-coded view-local font/padding/radius values.

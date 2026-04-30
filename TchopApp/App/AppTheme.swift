@@ -16,6 +16,10 @@ enum AppTheme {
     static let cardHighlightBorder = AppBranding.theme.card.highlightedBorder
     static let success = AppBranding.theme.status.success
     static let destructive = AppBranding.theme.status.destructive
+    static let warning = dynamicColor(
+        light: UIColor(red: 0.86, green: 0.47, blue: 0.11, alpha: 1),
+        dark: UIColor(red: 1.00, green: 0.73, blue: 0.34, alpha: 1)
+    )
 
     static let canvasBackground = dynamicColor(
         light: UIColor(red: 0.97, green: 0.96, blue: 0.94, alpha: 1),
@@ -102,4 +106,65 @@ enum AppTheme {
             }
         )
     }
+}
+
+/// Shared spacing tokens used by screens, cards, and shell chrome.
+enum AppSpacing {
+    static let xxs: CGFloat = 4
+    static let xs: CGFloat = 8
+    static let sm: CGFloat = 12
+    static let md: CGFloat = 16
+    static let lg: CGFloat = 20
+    static let xl: CGFloat = 24
+    static let xxl: CGFloat = 28
+    static let xxxl: CGFloat = 32
+
+    static let screenHorizontal: CGFloat = 14
+    static let shellHorizontal: CGFloat = 16
+    static let cardPadding: CGFloat = 20
+    static let cardSection: CGFloat = 18
+    static let formSection: CGFloat = 24
+    static let featureSection: CGFloat = 24
+    static let profileTopInset: CGFloat = 28
+    static let loginTopInset: CGFloat = 36
+    static let loginBottomInset: CGFloat = 32
+    static let shellBottomInset: CGFloat = 120
+}
+
+/// Shared corner-radius tokens used across inputs, cards, buttons, and shell chrome.
+enum AppRadius {
+    static let badge: CGFloat = 6
+    static let compactCard: CGFloat = 12
+    static let buttonField: CGFloat = 18
+    static let prominentButton: CGFloat = 20
+    static let quickAction: CGFloat = 22
+    static let card: CGFloat = 24
+    static let featureHero: CGFloat = 28
+}
+
+/// Shared typography tokens used across the app's primary screens.
+enum AppTypography {
+    static let heroDisplay = Font.system(size: 34, weight: .bold)
+    static let featureDisplay = Font.system(size: 30, weight: .bold)
+    static let profileDisplay = Font.system(size: 28, weight: .bold)
+    static let sectionTitle = Font.system(size: 20, weight: .bold)
+    static let cardTitle = Font.system(size: 18, weight: .semibold)
+    static let cardTitleBold = Font.system(size: 18, weight: .bold)
+    static let actionTitle = Font.system(size: 16, weight: .semibold)
+    static let body = Font.system(size: 15, weight: .medium)
+    static let bodySemibold = Font.system(size: 15, weight: .semibold)
+    static let detail = Font.system(size: 14, weight: .medium)
+    static let detailSemibold = Font.system(size: 14, weight: .semibold)
+    static let caption = Font.system(size: 13, weight: .medium)
+    static let captionSemibold = Font.system(size: 13, weight: .semibold)
+    static let label = Font.system(size: 12, weight: .medium)
+    static let labelSemibold = Font.system(size: 12, weight: .semibold)
+    static let eyebrow = Font.system(size: 12, weight: .semibold)
+    static let eyebrowStrong = Font.system(size: 11, weight: .bold)
+    static let microLabel = Font.system(size: 10, weight: .semibold)
+    static let channelTitle = Font.system(size: 16, weight: .semibold)
+    static let channelSubtitle = Font.system(size: 13, weight: .regular)
+    static let shellIcon = Font.system(size: 18, weight: .regular)
+    static let shellMenuIcon = Font.system(size: 20, weight: .medium)
+    static let fabIcon = Font.system(size: 28, weight: .medium)
 }

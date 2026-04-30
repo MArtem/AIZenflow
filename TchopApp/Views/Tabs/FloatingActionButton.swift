@@ -7,7 +7,7 @@ struct FloatingActionButton: View {
 
         Button(action: {}) {
             Image(systemName: "plus")
-                .font(.system(size: 28, weight: .medium))
+                .font(AppTypography.fabIcon)
                 .foregroundStyle(AppTheme.accentOnColor)
                 .frame(width: 56, height: 56)
                 .appGlassChrome(

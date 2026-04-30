@@ -158,6 +158,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Use meaningful naming.
 - Avoid magic numbers when they should be constants.
 - Keep functions small.
+- New UI code should use semantic design tokens first.
+- For app-level styling, prefer `AppTypography`, `AppSpacing`, `AppRadius`, and semantic theme colors over raw `.font(.system...)`, ad-hoc padding numbers, and repeated corner-radius literals.
 - Do not add abstractions, managers, factories, protocols, or package extraction "for future flexibility" unless they provide clear practical benefit for the current project or near-term reusable baseline.
 - If a proposed step mostly increases code size, logic depth, onboarding cost, or indirection while adding little real operational/architectural value, do not do it.
 - Prefer the simplest design that preserves correctness, maintainability, and realistic reuse. Development for its own sake is explicitly disallowed for this project.

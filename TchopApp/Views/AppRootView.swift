@@ -68,11 +68,11 @@ struct AppRootView: View {
                 .controlSize(.large)
 
             Text(AppLocalization.text("app.session.restoring.title"))
-                .font(.system(size: 18, weight: .semibold))
+                .font(AppTypography.cardTitle)
                 .foregroundStyle(AppTheme.textPrimary)
 
             Text(AppLocalization.text("app.session.restoring.subtitle"))
-                .font(.system(size: 14, weight: .medium))
+                .font(AppTypography.detail)
                 .foregroundStyle(AppTheme.textTertiary)
                 .multilineTextAlignment(.center)
                 .fixedSize(horizontal: false, vertical: true)

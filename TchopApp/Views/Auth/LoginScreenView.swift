@@ -46,7 +46,7 @@ struct LoginScreenView: View {
 
     var body: some View {
         ScrollView(showsIndicators: false) {
-            VStack(alignment: .leading, spacing: 24) {
+            VStack(alignment: .leading, spacing: AppSpacing.formSection) {
                 heroSection
 
                 if viewModel.mode == .defaultAppAuth {
@@ -58,7 +58,7 @@ struct LoginScreenView: View {
 
                 if let errorMessage = viewModel.errorMessage {
                     Text(errorMessage)
-                        .font(.system(size: 13, weight: .medium))
+                        .font(AppTypography.caption)
                         .foregroundStyle(AppTheme.destructive)
                         .fixedSize(horizontal: false, vertical: true)
                 }
@@ -69,14 +69,14 @@ struct LoginScreenView: View {
                     Text(
                         AppLocalization.text("login.external.reqresHint")
                     )
-                    .font(.system(size: 12, weight: .medium))
+                    .font(AppTypography.label)
                     .foregroundStyle(AppTheme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
                 }
             }
-            .padding(.horizontal, 24)
-            .padding(.top, 36)
-            .padding(.bottom, 32)
+            .padding(.horizontal, AppSpacing.xl)
+            .padding(.top, AppSpacing.loginTopInset)
+            .padding(.bottom, AppSpacing.loginBottomInset)
         }
         .background(backgroundView)
         .scrollDismissesKeyboard(.interactively)
@@ -98,21 +98,21 @@ struct LoginScreenView: View {
     private var heroSection: some View {
         VStack(alignment: .leading, spacing: 14) {
             Image(systemName: viewModel.mode == .defaultAppAuth ? "person.crop.circle.badge.checkmark" : "network")
-                .font(.system(size: 28, weight: .semibold))
+                .font(AppTypography.profileDisplay)
                 .foregroundStyle(AppTheme.accent)
                 .frame(width: 58, height: 58)
                 .background(AppTheme.surfacePrimary)
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
                 .shadow(color: AppTheme.shadow.opacity(0.16), radius: 18, y: 8)
                 .accessibilityHidden(true)
 
-            VStack(alignment: .leading, spacing: 8) {
+            VStack(alignment: .leading, spacing: AppSpacing.xs) {
                 Text(titleText)
-                    .font(.system(size: 34, weight: .bold))
+                    .font(AppTypography.heroDisplay)
                     .foregroundStyle(AppTheme.textPrimary)
 
                 Text(subtitleText)
-                    .font(.system(size: 15, weight: .medium))
+                    .font(AppTypography.body)
                     .foregroundStyle(AppTheme.textSecondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -129,7 +129,7 @@ struct LoginScreenView: View {
             .accessibilityIdentifier("login.appleButton")
             .accessibilityLabel(AppLocalization.text("accessibility.login.apple"))
             .frame(height: 54)
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
             .disabled(viewModel.isSubmitting)
             .opacity(viewModel.isSubmitting ? 0.85 : 1)
 
@@ -137,7 +137,7 @@ struct LoginScreenView: View {
             Text(
                 AppLocalization.text("login.apple.simulatorHint")
             )
-            .font(.system(size: 12, weight: .medium))
+            .font(AppTypography.label)
             .foregroundStyle(AppTheme.textTertiary)
             .fixedSize(horizontal: false, vertical: true)
 #endif
@@ -145,13 +145,13 @@ struct LoginScreenView: View {
     }
 
     private var divider: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: AppSpacing.sm) {
             Rectangle()
                 .fill(AppTheme.borderSubtle)
                 .frame(height: 1)
 
             Text(AppLocalization.text("login.separator"))
-                .font(.system(size: 13, weight: .semibold))
+                .font(AppTypography.captionSemibold)
                 .foregroundStyle(AppTheme.textTertiary)
 
             Rectangle()
@@ -161,14 +161,14 @@ struct LoginScreenView: View {
     }
 
     private var credentialCard: some View {
-        VStack(alignment: .leading, spacing: 18) {
+        VStack(alignment: .leading, spacing: AppSpacing.cardSection) {
             VStack(alignment: .leading, spacing: 6) {
                 Text(formTitleText)
-                    .font(.system(size: 18, weight: .semibold))
+                    .font(AppTypography.cardTitle)
                     .foregroundStyle(AppTheme.textPrimary)
 
                 Text(formSubtitleText)
-                    .font(.system(size: 13, weight: .medium))
+                    .font(AppTypography.caption)
                     .foregroundStyle(AppTheme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -178,23 +178,23 @@ struct LoginScreenView: View {
                 passwordField
             }
         }
-        .padding(20)
+        .padding(AppSpacing.cardPadding)
         .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
         .overlay(
-            RoundedRectangle(cornerRadius: 24, style: .continuous)
+            RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
                 .stroke(AppTheme.borderSubtle, lineWidth: 1)
         )
         .shadow(color: AppTheme.shadow.opacity(0.12), radius: 18, y: 10)
     }
 
     private var emailField: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
             Text(AppLocalization.text("login.emailLabel"))
-                .font(.system(size: 13, weight: .semibold))
+                .font(AppTypography.captionSemibold)
                 .foregroundStyle(AppTheme.textTertiary)
 
-            HStack(spacing: 12) {
+            HStack(spacing: AppSpacing.sm) {
                 Image(systemName: "envelope")
                     .foregroundStyle(fieldTintColor(for: viewModel.emailValidationState))
                     .frame(width: 18)
@@ -218,12 +218,12 @@ struct LoginScreenView: View {
 
                 validationIcon(for: viewModel.emailValidationState)
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, AppSpacing.md)
             .padding(.vertical, 15)
             .background(AppTheme.surfaceSecondary.opacity(0.55))
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
             .overlay(
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous)
                     .stroke(fieldBorderColor(for: viewModel.emailValidationState), lineWidth: 1.5)
             )
 
@@ -237,10 +237,10 @@ struct LoginScreenView: View {
     }
 
     private var passwordField: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
             HStack {
                 Text(AppLocalization.text("login.passwordLabel"))
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(AppTypography.captionSemibold)
                     .foregroundStyle(AppTheme.textTertiary)
 
                 Spacer()
@@ -251,7 +251,7 @@ struct LoginScreenView: View {
                             ? AppLocalization.text("login.password.hide")
                             : AppLocalization.text("login.password.show")
                     )
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(AppTypography.labelSemibold)
                     .foregroundStyle(AppTheme.accent)
                 }
                 .accessibilityIdentifier("login.passwordVisibilityButton")
@@ -264,7 +264,7 @@ struct LoginScreenView: View {
                 .disabled(viewModel.isSubmitting)
             }
 
-            HStack(spacing: 12) {
+            HStack(spacing: AppSpacing.sm) {
                 Image(systemName: "lock")
                     .foregroundStyle(fieldTintColor(for: viewModel.passwordValidationState))
                     .frame(width: 18)
@@ -296,12 +296,12 @@ struct LoginScreenView: View {
 
                 validationIcon(for: viewModel.passwordValidationState)
             }
-            .padding(.horizontal, 16)
+            .padding(.horizontal, AppSpacing.md)
             .padding(.vertical, 15)
             .background(AppTheme.surfaceSecondary.opacity(0.55))
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
             .overlay(
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
+                RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous)
                     .stroke(fieldBorderColor(for: viewModel.passwordValidationState), lineWidth: 1.5)
             )
 
@@ -313,7 +313,7 @@ struct LoginScreenView: View {
     }
 
     private var actionSection: some View {
-        VStack(spacing: 12) {
+        VStack(spacing: AppSpacing.sm) {
             primaryButton(
                 title: primaryActionTitle,
                 identifier: primaryActionIdentifier,
@@ -409,10 +409,10 @@ struct LoginScreenView: View {
                 } else {
                     HStack(spacing: 10) {
                         Text(title)
-                            .font(.system(size: 16, weight: .semibold))
+                            .font(AppTypography.actionTitle)
 
                         Image(systemName: "arrow.right")
-                            .font(.system(size: 14, weight: .semibold))
+                            .font(AppTypography.detailSemibold)
                     }
                     .frame(maxWidth: .infinity)
                     .padding(.vertical, 16)
@@ -420,7 +420,7 @@ struct LoginScreenView: View {
             }
             .foregroundStyle(AppTheme.accentOnColor)
             .background(viewModel.canSubmit ? AppTheme.accent : AppTheme.textTertiary.opacity(0.45))
-            .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
         }
         .accessibilityIdentifier(identifier)
         .accessibilityLabel(title)
@@ -436,14 +436,14 @@ struct LoginScreenView: View {
     ) -> some View {
         Button(action: action) {
             Text(title)
-                .font(.system(size: 16, weight: .semibold))
+                .font(AppTypography.actionTitle)
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 15)
                 .foregroundStyle(AppTheme.textPrimary)
                 .background(AppTheme.surfacePrimary)
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
                 .overlay(
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                    RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous)
                         .stroke(AppTheme.borderSubtle, lineWidth: 1)
                 )
         }
@@ -476,7 +476,7 @@ struct LoginScreenView: View {
 
     private func helperTextView(_ text: String, color: Color) -> some View {
         Text(text)
-            .font(.system(size: 12, weight: .medium))
+            .font(AppTypography.label)
             .foregroundStyle(color)
             .fixedSize(horizontal: false, vertical: true)
     }

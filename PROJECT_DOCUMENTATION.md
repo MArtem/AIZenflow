@@ -2384,6 +2384,9 @@ The current profile tab now follows the same ownership rule explicitly:
 `ProfileTabRootView` is render-only,
 while `ProfileTabViewModel` owns optimistic preference updates, rollback, and profile-specific error presentation.
 
+The current design-system baseline is also stricter now:
+primary app surfaces should use semantic `AppTypography`, `AppSpacing`, `AppRadius`, and theme colors instead of repeating raw font, padding, and corner-radius values in views.
+
 If you are unsure where a change belongs, ask:
 
 1. is this reusable infrastructure or product-specific behavior?

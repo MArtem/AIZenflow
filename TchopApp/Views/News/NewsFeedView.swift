@@ -18,7 +18,7 @@ struct NewsFeedView: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack(spacing: 16) {
+            LazyVStack(spacing: AppSpacing.md) {
                 NewsFeedScrollObserver { verticalOffset in
                     onScrollProximityChange(verticalOffset <= Self.floatingActionButtonHideThreshold)
                 }
@@ -26,27 +26,27 @@ struct NewsFeedView: View {
 
                 if let cachedStatusText {
                     Text(cachedStatusText)
-                        .font(.system(size: 12, weight: .medium))
-                        .foregroundStyle(.orange.opacity(0.92))
+                        .font(AppTypography.label)
+                        .foregroundStyle(AppTheme.warning.opacity(0.92))
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .fixedSize(horizontal: false, vertical: true)
                         .accessibilityIdentifier("news.feed.cached-status")
                 }
 
                 if case let .failed(_, errorMessage) = viewModel.state {
-                    HStack(alignment: .top, spacing: 12) {
+                    HStack(alignment: .top, spacing: AppSpacing.sm) {
                         Text(errorMessage)
-                            .font(.system(size: 13, weight: .medium))
-                            .foregroundStyle(.red.opacity(0.82))
+                            .font(AppTypography.caption)
+                            .foregroundStyle(AppTheme.destructive.opacity(0.82))
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fixedSize(horizontal: false, vertical: true)
 
                         Button(AppLocalization.text("news.feed.retry")) {
                             viewModel.retry()
                         }
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(AppTypography.captionSemibold)
                         .buttonStyle(.plain)
-                        .foregroundStyle(.primary)
+                        .foregroundStyle(AppTheme.textPrimary)
                         .accessibilityIdentifier("news.feed.retry")
                     }
                 }
@@ -73,9 +73,9 @@ struct NewsFeedView: View {
                 }
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
-            .padding(.horizontal, 14)
-            .padding(.top, 16)
-            .padding(.bottom, 120)
+            .padding(.horizontal, AppSpacing.screenHorizontal)
+            .padding(.top, AppSpacing.md)
+            .padding(.bottom, AppSpacing.shellBottomInset)
         }
         .accessibilityIdentifier("news.feed")
         .clipped()
@@ -108,18 +108,18 @@ struct NewsFeedView: View {
 
     /// Dedicated empty-state surface for a feed that resolved successfully but currently has no cards.
     private var emptyStateView: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
             Text(AppLocalization.text("news.feed.empty.title"))
-                .font(.system(size: 18, weight: .semibold))
+                .font(AppTypography.cardTitle)
                 .foregroundStyle(AppTheme.textPrimary)
 
             Text(AppLocalization.text("news.feed.empty.description"))
-                .font(.system(size: 14, weight: .medium))
+                .font(AppTypography.detail)
                 .foregroundStyle(AppTheme.textTertiary)
                 .fixedSize(horizontal: false, vertical: true)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical, 24)
+        .padding(.vertical, AppSpacing.xl)
         .accessibilityElement(children: .combine)
     }
 

@@ -1428,3 +1428,6 @@ Readability-first cycle progress:
   `ProfileTabRootView` no longer performs optimistic persistence/error work directly.
   That behavior now lives in `ProfileTabViewModel`,
   which owns profile presentation state, restore-navigation preference updates, rollback on failure, and error-message projection through the shared app error pipeline.
+- Started the `Design system pass`.
+  `AppTheme.swift` now also defines shared `AppTypography`, `AppSpacing`, `AppRadius`, and semantic `warning` tokens,
+  and the first tokenization sweep moved login, profile, feed, feature-scaffold, top-bar, tab-bar, FAB, and restoring-root surfaces away from repeated raw font/padding/radius styling.
