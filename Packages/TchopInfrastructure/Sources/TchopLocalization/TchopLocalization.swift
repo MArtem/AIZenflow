@@ -41,14 +41,14 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
     /// Resolves a localized string by key and falls back to the development language bundle before returning the key itself.
     public func localized(_ key: String, localeIdentifier: String? = nil) -> String {
         let missingSentinel = "__missing__\(key)__"
-        let localizedValue = localizedValue(
+        let resolvedLocalizedValue = localizedValue(
             key,
             in: resolvedBundle(localeIdentifier: localeIdentifier),
             missingSentinel: missingSentinel
         )
 
-        if localizedValue != missingSentinel {
-            return localizedValue
+        if resolvedLocalizedValue != missingSentinel {
+            return resolvedLocalizedValue
         }
 
         let developmentLanguageValue = localizedValue(
