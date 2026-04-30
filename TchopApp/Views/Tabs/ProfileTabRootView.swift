@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopErrors
 import TchopNavigation
 
 /// Root profile-tab screen bound to its dedicated navigation router.
