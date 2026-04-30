@@ -12,7 +12,7 @@ struct BrandMarkView: View {
                 .frame(width: iconSize, height: iconSize)
                 .shadow(color: AppTheme.shadow.opacity(0.25), radius: 6, y: 1)
 
-            RoundedRectangle(cornerRadius: 8)
+            RoundedRectangle(cornerRadius: AppRadius.badge)
                 .fill(AppTheme.surfaceSecondary)
                 .frame(width: cardSize.width, height: cardSize.height)
 

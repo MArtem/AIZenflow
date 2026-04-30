@@ -134,6 +134,7 @@ enum AppSpacing {
 /// Shared corner-radius tokens used across inputs, cards, buttons, and shell chrome.
 enum AppRadius {
     static let badge: CGFloat = 6
+    static let menuSelection: CGFloat = 14
     static let compactCard: CGFloat = 12
     static let buttonField: CGFloat = 18
     static let prominentButton: CGFloat = 20
@@ -169,4 +170,16 @@ enum AppTypography {
     static let shellIcon = Font.system(size: 18, weight: .regular)
     static let shellMenuIcon = Font.system(size: 20, weight: .medium)
     static let fabIcon = Font.system(size: 28, weight: .medium)
+
+    static func featuredHeadline(isExpanded: Bool) -> Font {
+        .system(size: isExpanded ? 18 : 16, weight: .bold)
+    }
+
+    static func discussionHeadline(isExpanded: Bool) -> Font {
+        .system(size: isExpanded ? 16 : 15, weight: .bold)
+    }
+
+    static func featuredHeroSymbol(isExpanded: Bool) -> Font {
+        .system(size: isExpanded ? 120 : 88)
+    }
 }

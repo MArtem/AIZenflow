@@ -1487,3 +1487,6 @@ Absent:  no tests/build/simulator checks
 - The design-system pass is now underway with a concrete token layer rather than one-off cleanups.
   `AppTheme.swift` now includes semantic `AppTypography`, `AppSpacing`, `AppRadius`, and `warning` tokens,
   and core UI surfaces such as login, profile, feed, scaffold, side menu, top bar, tab bar, FAB, app restoring state, and current stub/destination screens now read from that token layer instead of hard-coded view-local font/padding/radius values.
+- Feed card internals and the shared brand mark are now part of that same baseline.
+  `FeaturedArticleCard`, `DiscussionCard`, `ArticleActionView`, `FeedCardStatusBadge`, and `BrandMarkView`
+  now reuse shared typography/radius tokens for their structural styling, leaving mostly decorative illustration colors as the remaining non-tokenized visuals in those components.

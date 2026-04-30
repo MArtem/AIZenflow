@@ -1431,3 +1431,6 @@ Readability-first cycle progress:
 - Started the `Design system pass`.
   `AppTheme.swift` now also defines shared `AppTypography`, `AppSpacing`, `AppRadius`, and semantic `warning` tokens,
   and the tokenization sweep has already moved login, profile, feed, feature-scaffold, top-bar, side-menu, tab-bar, FAB, restoring-root, stub, and destination surfaces away from repeated raw font/padding/radius styling.
+- The design-system pass now also covers feed card internals and the shared brand mark.
+  `FeaturedArticleCard`, `DiscussionCard`, `ArticleActionView`, `FeedCardStatusBadge`, and `BrandMarkView`
+  now read typography/radius choices from the shared token layer instead of view-local literals.

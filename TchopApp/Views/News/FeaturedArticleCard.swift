@@ -25,12 +25,12 @@ struct FeaturedArticleCard: View {
                                 .frame(width: 22, height: 22)
 
                             Image(systemName: "chevron.right")
-                                .font(.system(size: 10, weight: .bold))
+                                .font(AppTypography.microLabel)
                                 .foregroundStyle(AppTheme.iconSecondary)
                         }
                         .accessibilityHidden(true)
                     }
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(AppTypography.captionSemibold)
                     .padding(.horizontal, 14)
                     .padding(.vertical, 14)
 
@@ -46,7 +46,7 @@ struct FeaturedArticleCard: View {
                         .frame(height: article.uiState.displayMode == .expanded ? 208 : 156)
 
                         Image(systemName: "pawprint.fill")
-                            .font(.system(size: article.uiState.displayMode == .expanded ? 120 : 88))
+                            .font(AppTypography.featuredHeroSymbol(isExpanded: article.uiState.displayMode == .expanded))
                             .foregroundStyle(.white.opacity(0.18))
                             .padding(18)
                             .accessibilityHidden(true)
@@ -92,33 +92,33 @@ struct FeaturedArticleCard: View {
                         }
                         .padding(.bottom, 18)
                     }
-                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                    .clipShape(RoundedRectangle(cornerRadius: AppRadius.badge))
                     .padding(.horizontal, 14)
 
                     VStack(alignment: .leading, spacing: 10) {
                         Text(article.brandTitle)
-                            .font(.system(size: 12, weight: .semibold))
+                            .font(AppTypography.labelSemibold)
                             .foregroundStyle(Color(red: 0.36, green: 0.53, blue: 0.86))
 
                         Text(article.headline)
-                            .font(.system(size: article.uiState.displayMode == .expanded ? 18 : 16, weight: .bold))
+                            .font(AppTypography.featuredHeadline(isExpanded: article.uiState.displayMode == .expanded))
                             .foregroundStyle(AppTheme.textPrimary)
                             .fixedSize(horizontal: false, vertical: true)
 
                         if article.uiState.displayMode == .expanded {
                             Text(article.summary)
-                                .font(.system(size: 13, weight: .regular))
+                                .font(AppTypography.channelSubtitle)
                                 .foregroundStyle(AppTheme.textSecondary)
                                 .lineSpacing(2)
                         }
 
                         Text(article.metadataLine)
-                            .font(.system(size: 12, weight: .regular))
+                            .font(AppTypography.label)
                             .foregroundStyle(AppTheme.textTertiary)
 
                         if article.uiState.displayMode == .expanded {
                             Text(article.translationLabel)
-                                .font(.system(size: 13, weight: .semibold))
+                                .font(AppTypography.captionSemibold)
                                 .foregroundStyle(AppTheme.accent)
                         }
                     }
@@ -222,7 +222,7 @@ struct FeaturedArticleCard: View {
                         }
                     } label: {
                         Image(systemName: "ellipsis")
-                            .font(.system(size: 18, weight: .semibold))
+                            .font(AppTypography.cardTitle)
                             .foregroundStyle(AppTheme.iconSecondary)
                     }
                     .disabled(article.uiState.blocksActions)
@@ -234,7 +234,7 @@ struct FeaturedArticleCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard))
         .shadow(color: AppTheme.shadow.opacity(0.35), radius: 6, y: 1)
     }
 }

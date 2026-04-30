@@ -23,11 +23,11 @@ struct DiscussionCard: View {
                     }
 
                     Text(discussion.categoryTitle)
-                        .font(.system(size: 13, weight: .semibold))
+                        .font(AppTypography.captionSemibold)
                         .foregroundStyle(AppTheme.discussionTextPrimary.opacity(0.9))
 
                     Text(discussion.headline)
-                        .font(.system(size: discussion.uiState.displayMode == .expanded ? 16 : 15, weight: .bold))
+                        .font(AppTypography.discussionHeadline(isExpanded: discussion.uiState.displayMode == .expanded))
                         .foregroundStyle(AppTheme.discussionTextPrimary)
                         .lineSpacing(2)
                         .lineLimit(discussion.uiState.displayMode == .expanded ? nil : 2)
@@ -43,7 +43,7 @@ struct DiscussionCard: View {
                                 .frame(width: 24, height: 24)
                                 .overlay(
                                     Text(participant.initials)
-                                        .font(.system(size: 11, weight: .bold))
+                                        .font(AppTypography.eyebrowStrong)
                                         .foregroundStyle(
                                             participant.isHighlighted
                                                 ? AppTheme.discussionTextPrimary
@@ -54,7 +54,7 @@ struct DiscussionCard: View {
                         .accessibilityHidden(true)
 
                         Text(discussion.joinedText)
-                            .font(.system(size: 12, weight: .medium))
+                            .font(AppTypography.label)
                             .foregroundStyle(AppTheme.discussionTextSecondary)
                     }
                 }
@@ -150,7 +150,7 @@ struct DiscussionCard: View {
                     }
                 } label: {
                     Image(systemName: "ellipsis")
-                        .font(.system(size: 18, weight: .semibold))
+                        .font(AppTypography.cardTitle)
                         .foregroundStyle(AppTheme.discussionTextSecondary)
                 }
                 .disabled(discussion.uiState.blocksActions)
@@ -161,7 +161,7 @@ struct DiscussionCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(AppTheme.discussionCardSurface)
-        .clipShape(RoundedRectangle(cornerRadius: 12))
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard))
         .shadow(color: AppTheme.shadow.opacity(0.5), radius: 6, y: 1)
     }
 
@@ -186,11 +186,11 @@ struct DiscussionCard: View {
                     .controlSize(.small)
             } else {
                 Image(systemName: systemName)
-                    .font(.system(size: 14, weight: .semibold))
+                    .font(AppTypography.detailSemibold)
             }
 
             Text(title)
-                .font(.system(size: 13, weight: .semibold))
+                .font(AppTypography.captionSemibold)
                 .lineLimit(1)
         }
         .foregroundStyle(isActive ? AppTheme.accent : AppTheme.discussionTextSecondary)

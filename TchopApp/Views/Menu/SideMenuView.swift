@@ -54,7 +54,7 @@ struct SideMenuView: View {
                         .padding(.vertical, 14)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .background(
-                            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                            RoundedRectangle(cornerRadius: AppRadius.menuSelection, style: .continuous)
                                 .fill(
                                     selectedTab == tab
                                         ? AppTheme.selectionFill
