@@ -54,6 +54,8 @@
 		A00000650000000000000001 /* Views/AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000660000000000000001 /* AppRootView.swift */; };
 		A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000680000000000000001 /* LoginScreenView.swift */; };
 		A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006A0000000000000001 /* ProfileTabRootView.swift */; };
+		P00000020000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P00000010000000000000001 /* ProfileTabViewModel.swift */; };
+		P00000030000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P00000010000000000000001 /* ProfileTabViewModel.swift */; };
 		A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006C0000000000000001 /* FeedAPIManager.swift */; };
 		K00000040000000000000001 /* App/AppErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000050000000000000001 /* AppErrorMapping.swift */; };
 		K00000060000000000000001 /* App/AppErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000050000000000000001 /* AppErrorMapping.swift */; };
@@ -248,6 +250,7 @@
 		U00000020000000000000001 /* TchopAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopAppUITests.swift; sourceTree = "<group>"; };
 		U00000040000000000000001 /* TchopAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TchopAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		U00000130000000000000001 /* AppLaunchConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLaunchConfiguration.swift; sourceTree = "<group>"; };
+		P00000010000000000000001 /* ProfileTabViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabViewModel.swift; sourceTree = "<group>"; };
 		A10000020000000000000001 /* AppStateTestDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTestDoubles.swift; sourceTree = "<group>"; };
 		A10000040000000000000001 /* NewsFeedTestDoubles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedTestDoubles.swift; sourceTree = "<group>"; };
 		A10000060000000000000001 /* TestAppContentRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppContentRepository.swift; sourceTree = "<group>"; };
@@ -391,6 +394,7 @@
 				K00000020000000000000001 /* NewsFeedCardActionCoordinator.swift */,
 				A00000420000000000000001 /* NewsFeedViewModel.swift */,
 				A00000640000000000000001 /* LoginViewModel.swift */,
+				P00000010000000000000001 /* ProfileTabViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -904,6 +908,7 @@
 				A00000650000000000000001 /* Views/AppRootView.swift in Sources */,
 				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
+				P00000020000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */,
 				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
 				K00000040000000000000001 /* App/AppErrorMapping.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
@@ -972,6 +977,7 @@
 				A00000650000000000000001 /* Views/AppRootView.swift in Sources */,
 				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
+				P00000030000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */,
 				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
 				K00000060000000000000001 /* App/AppErrorMapping.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,

@@ -1424,3 +1424,7 @@ Readability-first cycle progress:
   New compiler, target, and project warnings should be fixed immediately instead of being deferred into later cleanup.
 - Generalized target-specific Liquid Glass theming.
   Brand-specific glass tinting now lives in extensible semantic `BrandGlassRole` tokens inside the branding layer rather than as a one-off `FloatingActionButton` patch.
+- Completed the `Profile architecture pass`.
+  `ProfileTabRootView` no longer performs optimistic persistence/error work directly.
+  That behavior now lives in `ProfileTabViewModel`,
+  which owns profile presentation state, restore-navigation preference updates, rollback on failure, and error-message projection through the shared app error pipeline.

@@ -1481,3 +1481,6 @@ Absent:  no tests/build/simulator checks
 - Glass branding is no longer a FAB-only special case.
   Target-specific Liquid Glass tinting now resolves through extensible semantic `BrandGlassRole` -> `BrandGlassStyle` theme tokens,
   with the current FAB using the `.floatingActionButton` role as the first consumer.
+- The profile screen no longer owns persistence/error side effects directly.
+  `ProfileTabRootView` is now declarative and delegates profile-specific state plus the optimistic restore-navigation preference flow to `ProfileTabViewModel`,
+  which keeps rollback and shared error mapping out of the SwiftUI view layer.

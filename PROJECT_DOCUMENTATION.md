@@ -2380,6 +2380,10 @@ The shortest correct summary of the project is:
 Authentication, navigation restore, deep links, feed rendering, feed persistence, and card actions are all explicit runtime systems with clear owners.
 The codebase is intentionally organized so new features can be added without collapsing those ownership boundaries.
 
+The current profile tab now follows the same ownership rule explicitly:
+`ProfileTabRootView` is render-only,
+while `ProfileTabViewModel` owns optimistic preference updates, rollback, and profile-specific error presentation.
+
 If you are unsure where a change belongs, ask:
 
 1. is this reusable infrastructure or product-specific behavior?

@@ -1,17 +1,12 @@
 import SwiftUI
-import TchopErrors
 import TchopNavigation
 
 /// Root profile-tab screen bound to its dedicated navigation router.
 struct ProfileTabRootView: View {
     let currentUser: AppUser
     @ObservedObject var router: TabRouter<ProfileRoute>
-    let errorManager: any AppErrorManaging
-    /// Persists the "restore previous navigation" preference for the currently signed-in user.
-    let onNavigationRestoreChange: (Bool) throws -> Void
     let onLogout: () -> Void
-    @State private var isNavigationRestoreEnabled: Bool
-    @State private var errorMessage: String?
+    @StateObject private var viewModel: ProfileTabViewModel
 
     init(
         currentUser: AppUser,
@@ -22,32 +17,37 @@ struct ProfileTabRootView: View {
     ) {
         self.currentUser = currentUser
         self.router = router
-        self.errorManager = errorManager
-        self.onNavigationRestoreChange = onNavigationRestoreChange
         self.onLogout = onLogout
-        _isNavigationRestoreEnabled = State(initialValue: currentUser.isNavigationStateRestoreEnabled)
+        _viewModel = StateObject(
+            wrappedValue: ProfileTabViewModel(
+                currentUser: currentUser,
+                errorManager: errorManager,
+                onNavigationRestoreChange: onNavigationRestoreChange
+            )
+        )
     }
 
     var body: some View {
-        let accountSummary = AccountProfileSummary(user: currentUser)
-
         NavigationStack(path: pathBinding) {
             ScrollView {
                 VStack(alignment: .leading, spacing: 20) {
                     ProfileHeaderSection(
-                        username: accountSummary.displayName,
-                        userInitials: accountSummary.initials,
-                        providerTitle: accountSummary.providerTitle
+                        username: viewModel.accountSummary.displayName,
+                        userInitials: viewModel.accountSummary.initials,
+                        providerTitle: viewModel.accountSummary.providerTitle
                     )
                     ProfileAccountCard(
-                        providerTitle: accountSummary.providerTitle,
-                        providerDescription: accountSummary.providerDescription,
-                        accountIDHint: accountSummary.accountIDHint
+                        providerTitle: viewModel.accountSummary.providerTitle,
+                        providerDescription: viewModel.accountSummary.providerDescription,
+                        accountIDHint: viewModel.accountSummary.accountIDHint
                     )
                     ProfilePreferencesCard(
-                        isNavigationRestoreEnabled: navigationRestoreBinding
+                        isNavigationRestoreEnabled: Binding(
+                            get: { viewModel.isNavigationRestoreEnabled },
+                            set: { viewModel.setNavigationRestoreEnabled($0) }
+                        )
                     )
-                    if let errorMessage {
+                    if let errorMessage = viewModel.errorMessage {
                         Text(errorMessage)
                             .font(.system(size: 13, weight: .medium))
                             .foregroundStyle(Color.red.opacity(0.85))
@@ -61,8 +61,8 @@ struct ProfileTabRootView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(Color.clear)
             .accessibilityIdentifier("profile.root")
-            .onChange(of: currentUser.isNavigationStateRestoreEnabled) { newValue in
-                isNavigationRestoreEnabled = newValue
+            .onChange(of: currentUser) { newValue in
+                viewModel.syncCurrentUser(newValue)
             }
         }
     }
@@ -74,40 +74,6 @@ struct ProfileTabRootView: View {
             set: { router.replacePath(with: $0) }
         )
     }
-
-    /// Applies the toggle optimistically, then restores the previous UI value if persistence fails.
-    private var navigationRestoreBinding: Binding<Bool> {
-        Binding(
-            get: { isNavigationRestoreEnabled },
-            set: { newValue in
-                let previousValue = isNavigationRestoreEnabled
-                isNavigationRestoreEnabled = newValue
-
-                do {
-                    try onNavigationRestoreChange(newValue)
-                    errorMessage = nil
-                } catch {
-                    isNavigationRestoreEnabled = previousValue
-                    presentNavigationRestoreFailure(error)
-                }
-            }
-        )
-    }
-
-    /// Normalizes profile-preference persistence failures through the shared app error pipeline.
-    private func presentNavigationRestoreFailure(_ error: Error) {
-        Task { @MainActor [errorManager] in
-            let presentation = await errorManager.presentableError(
-                from: error,
-                context: AppErrorContext(
-                    operation: "updateNavigationRestorePreference",
-                    feature: "profile"
-                )
-            )
-            errorMessage = presentation.userMessage
-        }
-    }
-
 }
 
 /// Top identity summary shown above the account and preferences cards.
