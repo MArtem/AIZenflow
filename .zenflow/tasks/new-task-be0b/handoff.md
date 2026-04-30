@@ -1459,3 +1459,5 @@ Absent:  no tests/build/simulator checks
   The only remaining dispatch queue usage in app code is the narrow `NWPathMonitor.start(queue:)` callback requirement from Apple's API surface.
 - Liquid Glass support was added to the current shell chrome baseline.
   The app now uses an availability-gated `AppGlass` compatibility layer so [TopBarView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift), [BottomTabBar.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/BottomTabBar.swift), and [FloatingActionButton.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/FloatingActionButton.swift) adopt native SwiftUI Liquid Glass on `iOS 26+`, while older deployment targets preserve the previous themed surfaces and shadows.
+- Warning policy is now explicit:
+  keep the project and targets at a zero-warning baseline, and fix new compiler/project warnings immediately instead of deferring them.

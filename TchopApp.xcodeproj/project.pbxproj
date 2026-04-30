@@ -60,6 +60,7 @@
 		A00000730000000000000001 /* App/AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000740000000000000001 /* AppDIContainer.swift */; };
 		A000009C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
 		Q00000010000000000000001 /* App/AppGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = Q00000020000000000000001 /* AppGlass.swift */; };
+		Q00000030000000000000001 /* App/AppGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = Q00000020000000000000001 /* AppGlass.swift */; };
 		A00000750000000000000001 /* TchopNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* TchopNetworking */; };
 		A00000770000000000000001 /* TchopDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* TchopDatabase */; };
 		A00000B20000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
@@ -978,7 +979,7 @@
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
-				Q00000010000000000000001 /* App/AppGlass.swift in Sources */,
+				Q00000030000000000000001 /* App/AppGlass.swift in Sources */,
 				E00000060000000000000001 /* App/AppPushNotificationBridge.swift in Sources */,
 				E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,

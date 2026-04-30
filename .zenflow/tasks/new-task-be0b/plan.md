@@ -1410,3 +1410,5 @@ Readability-first cycle progress:
   The app now has an explicit root `AppSessionState` (`restoring / signedOut / authenticated`),
   the home feed now resolves into explicit `loading / content / empty / offline / failed` UI states,
   and root/feed localization moved onto a resource-first path with new keyed entries in the localization bundle for those flows.
+- Added a zero-warning baseline rule.
+  New compiler, target, and project warnings should be fixed immediately instead of being deferred into later cleanup.

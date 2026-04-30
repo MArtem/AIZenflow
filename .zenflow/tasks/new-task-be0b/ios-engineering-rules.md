@@ -17,6 +17,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Use modern Swift 5.9+ and SwiftUI best practices.
 - Follow Apple Human Interface Guidelines where UI is involved.
 - Code must compile and be realistic for production use.
+- Keep the project at a zero-warning baseline.
+- Fix new compiler, target, or project warnings as soon as they appear; do not allow warning debt to accumulate.
 - Apply SOLID principles consistently across the codebase.
 - Treat the current architecture, layering decisions, and readability-first standards as inherited defaults for all future modules, entities, and files unless an explicit change is agreed.
 - High code quality is the primary priority for this project.
