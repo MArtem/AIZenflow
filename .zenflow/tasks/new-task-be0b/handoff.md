@@ -1494,3 +1494,5 @@ Absent:  no tests/build/simulator checks
   `AppShellView` now gives the menu-dismiss overlay an explicit accessibility label/hint/identifier,
   hides the passive edge-open strip from accessibility,
   and `NewsFeedView` now formats cached-status timestamps with locale-aware `FormatStyle` instead of a local `DateFormatter`.
+- Package documentation consistency is now also aligned with the project's comment baseline.
+  `TchopDatabase.swift` now documents that it is the umbrella re-export entry point for database contracts, composition, concrete backends, and navigation types consumed by the app target.

@@ -1439,3 +1439,6 @@ Readability-first cycle progress:
   the menu-open edge-strip is hidden from accessibility,
   `FeedCardStatusBadge` now combines its content for VoiceOver,
   and `NewsFeedView` no longer uses a view-local `DateFormatter`, switching cached-status timestamps to modern locale-aware `FormatStyle`.
+- The same pass also closed the remaining package doc-comment inconsistency.
+  `Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
+  now documents its role as the umbrella re-export entry point for the app's database layer.
