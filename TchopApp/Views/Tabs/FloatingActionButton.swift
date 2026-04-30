@@ -6,11 +6,16 @@ struct FloatingActionButton: View {
         Button(action: {}) {
             Image(systemName: "plus")
                 .font(.system(size: 28, weight: .medium))
-                .foregroundStyle(.white)
+                .foregroundStyle(AppTheme.accentOnColor)
                 .frame(width: 56, height: 56)
-                .background(AppTheme.floatingActionButtonFill)
-                .clipShape(Circle())
-                .shadow(color: AppTheme.floatingActionButtonShadow, radius: 10, y: 6)
+                .appGlassChrome(
+                    in: Circle(),
+                    fallbackBackground: AppTheme.floatingActionButtonFill,
+                    fallbackShadowColor: AppTheme.floatingActionButtonShadow,
+                    fallbackShadowRadius: 10,
+                    fallbackShadowY: 6,
+                    interactive: true
+                )
         }
         .buttonStyle(.plain)
         .accessibilityLabel(AppLocalization.text("accessibility.fab.create", fallback: "Create"))

@@ -40,9 +40,13 @@ struct BottomTabBar: View {
         .padding(.top, 10)
         .padding(.bottom, 18)
         .frame(height: Self.contentHeight)
-        .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .shadow(color: AppTheme.shadow.opacity(0.4), radius: 10, y: -1)
+        .appGlassChrome(
+            in: RoundedRectangle(cornerRadius: 22, style: .continuous),
+            fallbackBackground: AppTheme.surfacePrimary,
+            fallbackShadowColor: AppTheme.shadow.opacity(0.4),
+            fallbackShadowRadius: 10,
+            fallbackShadowY: -1
+        )
         .padding(.horizontal, 10)
         .padding(.bottom, Self.bottomSpacing)
         .animation(.easeInOut(duration: 0.2), value: selectedTab)

@@ -115,6 +115,17 @@ Use this file as the persistent engineering instruction set for this project whe
 - Preview coverage may live inline in the same file or in a dedicated preview catalog, but screens and reusable components are not optional.
 - Whenever a view's initializer, state contract, or visual states change, update its previews in the same work stream so they stay current and compilable.
 - Non-renderable entry points such as `@main App` and `WidgetBundle` declarations are not preview targets; their renderable child views/widgets still must be previewed.
+- When the active SDK/runtime supports Liquid Glass, prefer native system adoption first and custom glass only where it improves product chrome or navigation clarity.
+- Good candidates for custom Liquid Glass:
+  floating bars,
+  tab bars,
+  shell/tool chrome,
+  and prominent accessory controls above content.
+- Bad default candidates:
+  dense feed cards,
+  forms,
+  and text-heavy content surfaces where glass would reduce legibility or create visual noise.
+- Any custom Liquid Glass adoption must remain availability-gated and keep a production-quality fallback for older deployment targets.
 
 ## Project-Specific SwiftUI Structure Rules
 - Do not use computed properties like `private var something: some View` for view composition.

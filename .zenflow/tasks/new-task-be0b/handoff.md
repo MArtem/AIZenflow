@@ -74,6 +74,10 @@
 - Screen-state policy is now explicit:
   data-backed and auth-sensitive screens should model the relevant loading/content/empty/error/offline/unauthorized/refreshing states,
   while purely static screens do not need the full matrix.
+- Liquid Glass policy is now explicit:
+  on supported SDK/runtime combinations, prefer native Liquid Glass for shell-level floating chrome and accessory controls,
+  keep availability-gated fallbacks for older iOS versions,
+  and do not spread glass across dense content cards or forms by default.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,
@@ -1449,3 +1453,5 @@ Absent:  no tests/build/simulator checks
   `NetworkAvailabilityMonitor` now keeps mutable reachability state in an actor instead of queue-guarded booleans,
   and the news-feed scroll observer now hops to main actor with `Task { @MainActor ... }` instead of `DispatchQueue.main.async`.
   The only remaining dispatch queue usage in app code is the narrow `NWPathMonitor.start(queue:)` callback requirement from Apple's API surface.
+- Liquid Glass support was added to the current shell chrome baseline.
+  The app now uses an availability-gated `AppGlass` compatibility layer so [TopBarView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift), [BottomTabBar.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/BottomTabBar.swift), and [FloatingActionButton.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/FloatingActionButton.swift) adopt native SwiftUI Liquid Glass on `iOS 26+`, while older deployment targets preserve the previous themed surfaces and shadows.

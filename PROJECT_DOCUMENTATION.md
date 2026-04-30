@@ -57,6 +57,7 @@ In short:
 - testing baseline = design for testability and keep recommended test surfaces in mind, but do not add or run tests unless the user explicitly asks for them.
 - architecture discussion baseline = offer multiple options only for non-trivial or trade-off-heavy decisions; keep straightforward tasks concise.
 - protocol baseline = use protocol boundaries where they create a real seam for DI/isolation/testability, not as abstraction-for-abstraction's-sake.
+- visual chrome baseline = on systems that support Liquid Glass, prefer native glass for shell-level floating chrome and accessory controls with fallback styling for older iOS versions; do not apply glass indiscriminately to dense content cards or forms.
 
 ## Dependency Graph At A Glance
 

@@ -1400,3 +1400,9 @@ Readability-first cycle progress:
   three-option architectural breakdowns are required only for non-trivial trade-off-heavy choices,
   protocol boundaries should exist only when they provide a real seam,
   and the full screen-state matrix is mandatory for data-backed/auth-sensitive screens rather than every static view.
+- Added an explicit Liquid Glass adoption baseline and applied the first production-safe pass.
+  The current rule is:
+  use native Liquid Glass on supported SDK/runtime combinations for shell-level floating chrome and accessory controls,
+  keep an availability-gated fallback for older deployment targets,
+  and avoid spraying glass across dense content cards or forms.
+  The current implementation applies that policy to the top bar, bottom tab bar, and floating action button through a shared compatibility layer.

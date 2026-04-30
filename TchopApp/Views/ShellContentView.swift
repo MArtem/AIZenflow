@@ -47,17 +47,21 @@ struct ShellContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
-            if shouldShowFloatingActionButton {
-                FloatingActionButton()
-                    .frame(maxWidth: .infinity, alignment: .trailing)
-                    .padding(.trailing, 18)
-                    .padding(
-                        .bottom,
-                        BottomTabBar.occupiedHeight + Self.floatingActionButtonTabBarSpacing
-                    )
-            }
+            AppGlassContainer(spacing: 16) {
+                ZStack(alignment: .bottom) {
+                    if shouldShowFloatingActionButton {
+                        FloatingActionButton()
+                            .frame(maxWidth: .infinity, alignment: .trailing)
+                            .padding(.trailing, 18)
+                            .padding(
+                                .bottom,
+                                BottomTabBar.occupiedHeight + Self.floatingActionButtonTabBarSpacing
+                            )
+                    }
 
-            BottomTabBar(selectedTab: coordinator.selectedTab, onSelect: coordinator.selectTab)
+                    BottomTabBar(selectedTab: coordinator.selectedTab, onSelect: coordinator.selectTab)
+                }
+            }
         }
         .accessibilityIdentifier("shell.content")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
