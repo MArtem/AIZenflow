@@ -40,25 +40,8 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
 
     /// Resolves a localized string by key and falls back to the development language bundle before returning the key itself.
     public func localized(_ key: String, localeIdentifier: String? = nil) -> String {
-        let missingSentinel = "__missing__\(key)__"
-        let resolvedLocalizedValue = localizedValue(
-            key,
-            in: resolvedBundle(localeIdentifier: localeIdentifier),
-            missingSentinel: missingSentinel
-        )
-
-        if resolvedLocalizedValue != missingSentinel {
-            return resolvedLocalizedValue
-        }
-
-        let developmentLanguageValue = localizedValue(
-            key,
-            in: developmentLanguageBundle(),
-            missingSentinel: missingSentinel
-        )
-
-        if developmentLanguageValue != missingSentinel {
-            return developmentLanguageValue
+        if let resolvedValue = resolvedLocalizedValue(key, localeIdentifier: localeIdentifier) {
+            return resolvedValue
         }
 
         assertionFailure("Missing localization value for key '\(key)'.")
@@ -78,8 +61,7 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
 
     /// Resolves this operation.
     public func localized(_ key: String, fallback: String, localeIdentifier: String? = nil) -> String {
-        let resolvedValue = localized(key, localeIdentifier: localeIdentifier)
-        return resolvedValue == key ? fallback : resolvedValue
+        resolvedLocalizedValue(key, localeIdentifier: localeIdentifier) ?? fallback
     }
 
     /// Resolves this operation.
@@ -89,10 +71,8 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
         arguments: [CVarArg],
         localeIdentifier: String? = nil
     ) -> String {
-        let format = localized(key, localeIdentifier: localeIdentifier)
         let locale = localeIdentifier.map(Locale.init(identifier:)) ?? .current
-
-        if format == key {
+        guard let format = resolvedLocalizedValue(key, localeIdentifier: localeIdentifier) else {
             return String(format: fallback, locale: locale, arguments: arguments)
         }
 
@@ -135,5 +115,27 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
             value: missingSentinel,
             table: tableName
         )
+    }
+
+    /// Resolves one localized value without asserting, returning `nil` when neither active nor development bundle contain the key.
+    private func resolvedLocalizedValue(_ key: String, localeIdentifier: String?) -> String? {
+        let missingSentinel = "__missing__\(key)__"
+        let localizedValue = localizedValue(
+            key,
+            in: resolvedBundle(localeIdentifier: localeIdentifier),
+            missingSentinel: missingSentinel
+        )
+
+        if localizedValue != missingSentinel {
+            return localizedValue
+        }
+
+        let developmentLanguageValue = localizedValue(
+            key,
+            in: developmentLanguageBundle(),
+            missingSentinel: missingSentinel
+        )
+
+        return developmentLanguageValue == missingSentinel ? nil : developmentLanguageValue
     }
 }
