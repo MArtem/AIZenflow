@@ -34,7 +34,7 @@ protocol NewsFeedRepository {
 }
 
 /// Lightweight app-local reachability check used by the feed repository.
-protocol NetworkAvailabilityChecking {
+protocol NetworkAvailabilityChecking: Sendable {
     /// Whether the app currently has a usable internet path.
     func isInternetAvailable() async -> Bool
 }
@@ -77,6 +77,9 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// the API response is first synchronized into persistence and only then mapped back into
     /// presentation models.
     func refreshNewsFeedContent() async throws -> NewsFeedContent {
+        let networkAvailabilityChecker = self.networkAvailabilityChecker
+        let feedAPIManager = self.feedAPIManager
+
         guard await networkAvailabilityChecker.isInternetAvailable() else {
             if let persistedContent = try currentNewsFeedContent() {
                 return persistedContent.withCacheReason(.offline)
@@ -94,6 +97,9 @@ final class DefaultAppContentRepository: AppContentRepository {
         articleID: String,
         action: FeaturedArticleCardAction
     ) async throws -> FeaturedArticleCardModel {
+        let networkAvailabilityChecker = self.networkAvailabilityChecker
+        let feedAPIManager = self.feedAPIManager
+
         // Card mutations deliberately reuse the same repository boundary as feed refreshes so
         // persistence, offline policy, and future backend semantics stay aligned in one place.
         guard await networkAvailabilityChecker.isInternetAvailable() else {
@@ -130,6 +136,9 @@ final class DefaultAppContentRepository: AppContentRepository {
         discussionID: String,
         action: DiscussionCardAction
     ) async throws -> DiscussionCardModel {
+        let networkAvailabilityChecker = self.networkAvailabilityChecker
+        let feedAPIManager = self.feedAPIManager
+
         guard await networkAvailabilityChecker.isInternetAvailable() else {
             throw RepositoryError.offlineCardAction
         }
@@ -319,10 +328,8 @@ final class DefaultAppContentRepository: AppContentRepository {
     private func fetchSwiftDataFeedSnapshot() throws -> PersistedNewsFeedSnapshot {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
-                let descriptor = FetchDescriptor<FeedCardRecord>(
-                    sortBy: [SortDescriptor(\.sortOrder, order: .forward)]
-                )
-                let records = try context.fetch(descriptor)
+                let records = try Self.fetchAllSwiftDataFeedCardRecords(in: context)
+                    .sorted(by: { $0.sortOrder < $1.sortOrder })
                 return PersistedNewsFeedSnapshot(
                     cards: records.compactMap(AppContentMapper.mapFeedCard),
                     lastSyncedAt: records.first?.syncedAt
@@ -750,6 +757,21 @@ private actor NetworkAvailabilityState {
         hasSatisfiedPath = isInternetAvailable
     }
 }
+
+extension DefaultAppContentRepository {
+    @available(iOS 17, *)
+    /// Fetches the full SwiftData feed-card set for local repository sorting and filtering.
+    ///
+    /// This avoids Swift 6 strict-concurrency warnings from key-path-based `SortDescriptor`
+    /// creation on mutable reference-model records while keeping the repository logic explicit.
+    fileprivate static func fetchAllSwiftDataFeedCardRecords(
+        in context: ModelContext
+    ) throws -> [FeedCardRecord] {
+        try context.fetch(FetchDescriptor<FeedCardRecord>())
+    }
+}
+
+extension NetworkAvailabilityMonitor: @unchecked Sendable {}
 
 private struct FeedCardPersistenceSnapshot {
     let id: String

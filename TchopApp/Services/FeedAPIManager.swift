@@ -114,7 +114,7 @@ struct DiscussionActionContext: Sendable {
 }
 
 /// API abstraction used by repositories to fetch home feed content.
-protocol FeedAPIManaging {
+protocol FeedAPIManaging: Sendable {
     /// Fetches the current feed payload.
     func fetchFeed() async throws -> FeedResponseDTO
 
@@ -137,7 +137,7 @@ protocol FeedAPIManaging {
 ///
 /// The bundled JSON is treated as the seed contract for fetches, while card actions simulate a
 /// successful backend mutation for a single card and let the repository persist the result.
-struct StubFeedAPIManager: FeedAPIManaging {
+struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     private let apiManager: any APIManaging
 
     /// Creates the stub feed API manager with the shared networking client.
