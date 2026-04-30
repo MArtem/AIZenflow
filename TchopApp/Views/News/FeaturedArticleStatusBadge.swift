@@ -6,17 +6,17 @@ struct FeedCardStatusBadge: View {
     let showsProgress: Bool
 
     var body: some View {
-        HStack(spacing: 8) {
+        HStack(spacing: AppSpacing.xs) {
             if showsProgress {
                 ProgressView()
                     .controlSize(.small)
             } else {
                 Image(systemName: "checkmark.circle.fill")
-                    .font(.system(size: 12, weight: .semibold))
+                    .font(AppTypography.labelSemibold)
             }
 
             Text(title)
-                .font(.system(size: 12, weight: .semibold))
+                .font(AppTypography.labelSemibold)
                 .lineLimit(1)
         }
         .foregroundStyle(AppTheme.textPrimary)

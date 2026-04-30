@@ -1486,4 +1486,4 @@ Absent:  no tests/build/simulator checks
   which keeps rollback and shared error mapping out of the SwiftUI view layer.
 - The design-system pass is now underway with a concrete token layer rather than one-off cleanups.
   `AppTheme.swift` now includes semantic `AppTypography`, `AppSpacing`, `AppRadius`, and `warning` tokens,
-  and core UI surfaces such as login, profile, feed, scaffold, top bar, tab bar, FAB, and app restoring state have started reading from that token layer instead of hard-coded view-local font/padding/radius values.
+  and core UI surfaces such as login, profile, feed, scaffold, side menu, top bar, tab bar, FAB, app restoring state, and current stub/destination screens now read from that token layer instead of hard-coded view-local font/padding/radius values.

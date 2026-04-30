@@ -6,20 +6,20 @@ struct StubTabDetailView: View {
     let description: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 18) {
+        VStack(alignment: .leading, spacing: AppSpacing.cardSection) {
             Text(title)
-                .font(.system(size: 28, weight: .bold))
+                .font(AppTypography.profileDisplay)
                 .foregroundStyle(AppTheme.textPrimary)
 
             Text(description)
-                .font(.system(size: 16, weight: .regular))
+                .font(AppTypography.bodyRegular)
                 .foregroundStyle(AppTheme.textSecondary)
                 .lineSpacing(3)
 
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .padding(20)
+        .padding(AppSpacing.cardPadding)
         .background(AppTheme.canvasBackground)
         .navigationBarTitleDisplayMode(.inline)
     }

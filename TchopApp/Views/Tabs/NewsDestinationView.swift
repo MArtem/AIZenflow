@@ -6,28 +6,28 @@ struct NewsDestinationView: View {
 
     var body: some View {
         ScrollView {
-            VStack(alignment: .leading, spacing: 18) {
+            VStack(alignment: .leading, spacing: AppSpacing.cardSection) {
                 Text(route.subtitle)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(AppTypography.captionSemibold)
                     .foregroundStyle(AppTheme.accent)
 
                 Text(route.title)
-                    .font(.system(size: 28, weight: .bold))
+                    .font(AppTypography.profileDisplay)
                     .foregroundStyle(AppTheme.textPrimary)
 
                 Text(route.bodyText)
-                    .font(.system(size: 16, weight: .regular))
+                    .font(AppTypography.bodyRegular)
                     .foregroundStyle(AppTheme.textSecondary)
                     .lineSpacing(3)
 
                 if let accentLabel = route.accentLabel {
                     Text(accentLabel)
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(AppTypography.detailSemibold)
                         .foregroundStyle(AppTheme.accent)
                 }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(20)
+            .padding(AppSpacing.cardPadding)
         }
         .background(AppTheme.canvasBackground)
         .navigationTitle(titleForNavigationBar)

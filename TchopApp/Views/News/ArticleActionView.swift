@@ -17,11 +17,11 @@ struct ArticleActionView: View {
                         .controlSize(.small)
                 } else {
                     Image(systemName: action.systemName)
-                        .font(.system(size: 14, weight: .semibold))
+                        .font(AppTypography.detailSemibold)
                 }
 
                 Text(title)
-                    .font(.system(size: 13, weight: .semibold))
+                    .font(AppTypography.captionSemibold)
                     .lineLimit(1)
             }
             .foregroundStyle(isActive ? AppTheme.accent : AppTheme.textTertiary)

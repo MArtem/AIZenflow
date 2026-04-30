@@ -9,17 +9,17 @@ struct SideMenuView: View {
     var onSelect: (AppTab) -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 24) {
+        VStack(alignment: .leading, spacing: AppSpacing.featureSection) {
             HStack(spacing: 14) {
                 BrandMarkView(iconSize: 54, cardSize: CGSize(width: 30, height: 36))
 
-                VStack(alignment: .leading, spacing: 4) {
+                VStack(alignment: .leading, spacing: AppSpacing.xxs) {
                     Text(channelInfo.title)
-                        .font(.system(size: 22, weight: .bold))
+                        .font(AppTypography.menuTitle)
                         .foregroundStyle(AppTheme.textPrimary)
 
                     Text(channelInfo.subtitle)
-                        .font(.system(size: 14, weight: .medium))
+                        .font(AppTypography.detail)
                         .foregroundStyle(AppTheme.textTertiary)
                 }
             }
@@ -27,22 +27,22 @@ struct SideMenuView: View {
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)
 
-            VStack(spacing: 8) {
+            VStack(spacing: AppSpacing.xs) {
                 ForEach(AppTab.allCases) { tab in
                     Button(action: { onSelect(tab) }) {
                         HStack(spacing: 14) {
                             Image(systemName: tab.menuIcon)
-                                .font(.system(size: 18, weight: .semibold))
+                                .font(AppTypography.cardTitle)
                                 .frame(width: 22)
 
                             Text(tab.title)
-                                .font(.system(size: 16, weight: .semibold))
+                                .font(AppTypography.actionTitle)
 
                             Spacer()
 
                             if selectedTab == tab {
                                 Image(systemName: "checkmark")
-                                    .font(.system(size: 13, weight: .bold))
+                                    .font(AppTypography.captionSemibold)
                             }
                         }
                         .foregroundStyle(
@@ -80,7 +80,7 @@ struct SideMenuView: View {
             }
 
             Text(footerText)
-                .font(.system(size: 13, weight: .medium))
+                .font(AppTypography.caption)
                 .foregroundStyle(AppTheme.textTertiary)
                 .fixedSize(horizontal: false, vertical: true)
                 .padding(.bottom, 26)
@@ -96,24 +96,24 @@ private struct SideMenuAccountSummaryCard: View {
     let accountSummary: AccountProfileSummary
 
     var body: some View {
-        HStack(spacing: 12) {
+        HStack(spacing: AppSpacing.sm) {
             Circle()
                 .fill(AppTheme.surfacePrimary)
                 .frame(width: 42, height: 42)
                 .overlay(
                     Text(accountSummary.initials)
-                        .font(.system(size: 14, weight: .bold))
+                        .font(AppTypography.detailSemibold)
                         .foregroundStyle(AppTheme.accent)
                 )
 
             VStack(alignment: .leading, spacing: 3) {
                 Text(accountSummary.displayName)
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(AppTypography.bodySemibold)
                     .foregroundStyle(AppTheme.textPrimary)
                     .lineLimit(1)
 
                 Text(accountSummary.providerTitle)
-                    .font(.system(size: 13, weight: .medium))
+                    .font(AppTypography.caption)
                     .foregroundStyle(AppTheme.textTertiary)
                     .lineLimit(1)
             }
@@ -122,7 +122,7 @@ private struct SideMenuAccountSummaryCard: View {
         }
         .padding(14)
         .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
         .accessibilityElement(children: .combine)
         .accessibilityLabel(
             AppLocalization.text(
@@ -136,13 +136,13 @@ private struct SideMenuAccountSummaryCard: View {
 
 #if DEBUG
 #Preview("Side Menu") {
-    SideMenuView(
-        channelInfo: ViewPreviewSupport.sampleChannelInfo,
-        accountSummary: ViewPreviewSupport.sampleAccountSummary,
-        selectedTab: .news,
-        footerText: "Select a destination here or from the bottom bar.",
-        onSelect: { _ in }
-    )
+        SideMenuView(
+            channelInfo: ViewPreviewSupport.sampleChannelInfo,
+            accountSummary: ViewPreviewSupport.sampleAccountSummary,
+            selectedTab: .news,
+            footerText: AppLocalization.text("menu.footer"),
+            onSelect: { _ in }
+        )
     .frame(width: 320)
 }
 #endif

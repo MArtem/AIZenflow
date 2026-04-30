@@ -1430,4 +1430,4 @@ Readability-first cycle progress:
   which owns profile presentation state, restore-navigation preference updates, rollback on failure, and error-message projection through the shared app error pipeline.
 - Started the `Design system pass`.
   `AppTheme.swift` now also defines shared `AppTypography`, `AppSpacing`, `AppRadius`, and semantic `warning` tokens,
-  and the first tokenization sweep moved login, profile, feed, feature-scaffold, top-bar, tab-bar, FAB, and restoring-root surfaces away from repeated raw font/padding/radius styling.
+  and the tokenization sweep has already moved login, profile, feed, feature-scaffold, top-bar, side-menu, tab-bar, FAB, restoring-root, stub, and destination surfaces away from repeated raw font/padding/radius styling.

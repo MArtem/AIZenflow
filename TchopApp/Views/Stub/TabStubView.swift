@@ -6,7 +6,7 @@ struct TabStubView: View {
     let onOpenSample: () -> Void
 
     var body: some View {
-        VStack(spacing: 24) {
+        VStack(spacing: AppSpacing.featureSection) {
             Spacer(minLength: 40)
 
             ZStack {
@@ -16,24 +16,24 @@ struct TabStubView: View {
                     .shadow(color: AppTheme.shadow.opacity(0.35), radius: 10, y: 4)
 
                 Image(systemName: tab.menuIcon)
-                    .font(.system(size: 34, weight: .medium))
+                    .font(AppTypography.heroDisplay)
                     .foregroundStyle(AppTheme.accent)
             }
 
             VStack(spacing: 10) {
                 Text(tab.title)
-                    .font(.system(size: 28, weight: .bold))
+                    .font(AppTypography.profileDisplay)
                     .foregroundStyle(AppTheme.textPrimary)
 
                 Text(tab.stubDescription)
-                    .font(.system(size: 15, weight: .medium))
+                    .font(AppTypography.body)
                     .foregroundStyle(AppTheme.textTertiary)
                     .multilineTextAlignment(.center)
             }
 
             Button(action: onOpenSample) {
                 Text(AppLocalization.text("tab.stub.openSampleScreen"))
-                    .font(.system(size: 15, weight: .semibold))
+                    .font(AppTypography.bodySemibold)
                     .foregroundStyle(.white)
                     .padding(.horizontal, 18)
                     .padding(.vertical, 12)
@@ -46,7 +46,7 @@ struct TabStubView: View {
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .padding(.horizontal, 32)
-        .padding(.bottom, 120)
+        .padding(.bottom, AppSpacing.shellBottomInset)
         .background(Color.clear)
     }
 }
