@@ -37,8 +37,8 @@ struct FeaturedArticleCard: View {
                     ZStack(alignment: .bottomTrailing) {
                         LinearGradient(
                             colors: [
-                                Color(red: 0.67, green: 0.77, blue: 0.55),
-                                Color(red: 0.48, green: 0.63, blue: 0.34)
+                                FeaturedArticleArtworkPalette.heroGradientStart,
+                                FeaturedArticleArtworkPalette.heroGradientEnd
                             ],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
@@ -75,15 +75,15 @@ struct FeaturedArticleCard: View {
 
                             ZStack {
                                 Circle()
-                                    .fill(Color(red: 0.43, green: 0.31, blue: 0.19))
+                                    .fill(FeaturedArticleArtworkPalette.illustrationOuterFill)
                                     .frame(width: 76, height: 76)
 
                                 Circle()
-                                    .fill(Color(red: 0.25, green: 0.22, blue: 0.21))
+                                    .fill(FeaturedArticleArtworkPalette.illustrationMiddleFill)
                                     .frame(width: 52, height: 52)
 
                                 Circle()
-                                    .fill(Color(red: 0.94, green: 0.89, blue: 0.81))
+                                    .fill(FeaturedArticleArtworkPalette.illustrationInnerFill)
                                     .frame(width: 16, height: 16)
                                     .offset(y: 12)
                             }
@@ -98,7 +98,7 @@ struct FeaturedArticleCard: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Text(article.brandTitle)
                             .font(AppTypography.labelSemibold)
-                            .foregroundStyle(Color(red: 0.36, green: 0.53, blue: 0.86))
+                            .foregroundStyle(FeaturedArticleArtworkPalette.brandAccent)
 
                         Text(article.headline)
                             .font(AppTypography.featuredHeadline(isExpanded: article.uiState.displayMode == .expanded))
@@ -238,6 +238,15 @@ struct FeaturedArticleCard: View {
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard))
         .shadow(color: AppTheme.shadow.opacity(0.35), radius: 6, y: 1)
     }
+}
+
+private enum FeaturedArticleArtworkPalette {
+    static let heroGradientStart = Color(red: 0.67, green: 0.77, blue: 0.55)
+    static let heroGradientEnd = Color(red: 0.48, green: 0.63, blue: 0.34)
+    static let illustrationOuterFill = Color(red: 0.43, green: 0.31, blue: 0.19)
+    static let illustrationMiddleFill = Color(red: 0.25, green: 0.22, blue: 0.21)
+    static let illustrationInnerFill = Color(red: 0.94, green: 0.89, blue: 0.81)
+    static let brandAccent = Color(red: 0.36, green: 0.53, blue: 0.86)
 }
 
 #if DEBUG

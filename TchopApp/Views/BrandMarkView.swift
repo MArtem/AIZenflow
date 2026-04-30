@@ -40,15 +40,22 @@ private enum BrandStripe: CaseIterable, Identifiable {
     var color: Color {
         switch self {
         case .orange:
-            .orange
+            BrandMarkPalette.orange
         case .blue:
-            .blue
+            BrandMarkPalette.blue
         case .yellow:
-            .yellow
+            BrandMarkPalette.yellow
         case .gray:
-            .gray.opacity(0.8)
+            BrandMarkPalette.gray
         }
     }
+}
+
+private enum BrandMarkPalette {
+    static let orange = Color.orange
+    static let blue = Color.blue
+    static let yellow = Color.yellow
+    static let gray = Color.gray.opacity(0.8)
 }
 
 #if DEBUG
