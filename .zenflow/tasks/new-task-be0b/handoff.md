@@ -78,6 +78,10 @@
   on supported SDK/runtime combinations, prefer native Liquid Glass for shell-level floating chrome and accessory controls,
   keep availability-gated fallbacks for older iOS versions,
   and do not spread glass across dense content cards or forms by default.
+- State/localization foundation has now started materially, not just in planning:
+  the app root uses an explicit `AppSessionState`,
+  the home feed uses explicit `loading / content / empty / offline / failed` states,
+  and the localization path for root/feed state messaging now resolves through resource-first keys instead of ad-hoc inline fallback copy in those surfaces.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,

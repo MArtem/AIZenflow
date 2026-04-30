@@ -499,10 +499,7 @@ final class AppDIContainer: ObservableObject {
             errorManager: errorManager,
             initialContent: initialContent,
             loadFailureContent: initialContent,
-            loadFailureMessage: AppLocalization.text(
-                "news.error.loadFailed",
-                fallback: "Failed to load feed."
-            )
+            loadFailureMessage: AppLocalization.text("news.error.loadFailed")
         )
     }
 

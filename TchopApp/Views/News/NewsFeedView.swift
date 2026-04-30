@@ -41,7 +41,7 @@ struct NewsFeedView: View {
                             .frame(maxWidth: .infinity, alignment: .leading)
                             .fixedSize(horizontal: false, vertical: true)
 
-                        Button("Retry") {
+                        Button(AppLocalization.text("news.feed.retry")) {
                             viewModel.retry()
                         }
                         .font(.system(size: 13, weight: .semibold))
@@ -51,20 +51,24 @@ struct NewsFeedView: View {
                     }
                 }
 
-                ForEach(viewModel.state.content.cards) { card in
-                    switch card {
-                    case let .featuredArticle(article):
-                        FeaturedArticleCard(
-                            article: article,
-                            onTap: { onFeaturedArticleTap(article) },
-                            onAction: { onFeaturedArticleAction(article, $0) }
-                        )
-                    case let .discussion(discussion):
-                        DiscussionCard(
-                            discussion: discussion,
-                            onTap: { onDiscussionTap(discussion) },
-                            onAction: { onDiscussionAction(discussion, $0) }
-                        )
+                if viewModel.state.isEmpty {
+                    emptyStateView
+                } else {
+                    ForEach(viewModel.state.content.cards) { card in
+                        switch card {
+                        case let .featuredArticle(article):
+                            FeaturedArticleCard(
+                                article: article,
+                                onTap: { onFeaturedArticleTap(article) },
+                                onAction: { onFeaturedArticleAction(article, $0) }
+                            )
+                        case let .discussion(discussion):
+                            DiscussionCard(
+                                discussion: discussion,
+                                onTap: { onDiscussionTap(discussion) },
+                                onAction: { onDiscussionAction(discussion, $0) }
+                            )
+                        }
                     }
                 }
             }
@@ -89,26 +93,34 @@ struct NewsFeedView: View {
         let baseText: String
         switch reason {
         case .bootstrap:
-            baseText = AppLocalization.text(
-                "news.feed.cached.bootstrap",
-                fallback: "Showing saved feed."
-            )
+            baseText = AppLocalization.text("news.feed.cached.bootstrap")
         case .offline:
-            baseText = AppLocalization.text(
-                "news.feed.cached.offline",
-                fallback: "Offline mode. Showing saved feed."
-            )
+            baseText = AppLocalization.text("news.feed.cached.offline")
         }
 
         guard let lastSyncedAt else {
             return baseText
         }
 
-        let timestampPrefix = AppLocalization.text(
-            "news.feed.cached.updatedAt",
-            fallback: "Last updated"
-        )
+        let timestampPrefix = AppLocalization.text("news.feed.cached.updatedAt")
         return "\(baseText) \(timestampPrefix): \(Self.cachedStatusDateFormatter.string(from: lastSyncedAt))"
+    }
+
+    /// Dedicated empty-state surface for a feed that resolved successfully but currently has no cards.
+    private var emptyStateView: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text(AppLocalization.text("news.feed.empty.title"))
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(AppLocalization.text("news.feed.empty.description"))
+                .font(.system(size: 14, weight: .medium))
+                .foregroundStyle(AppTheme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, 24)
+        .accessibilityElement(children: .combine)
     }
 
     private static let cachedStatusDateFormatter: DateFormatter = {

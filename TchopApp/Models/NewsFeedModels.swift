@@ -184,15 +184,15 @@ enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
     var statusText: String {
         switch self {
         case .liking:
-            return AppLocalization.text("news.featured.pending.like", fallback: "Saving reaction...")
+            return AppLocalization.text("news.featured.pending.like")
         case .addingComment:
-            return AppLocalization.text("news.featured.pending.comment", fallback: "Posting comment...")
+            return AppLocalization.text("news.featured.pending.comment")
         case .updatingDisplayMode:
-            return AppLocalization.text("news.featured.pending.displayMode", fallback: "Saving layout...")
+            return AppLocalization.text("news.featured.pending.displayMode")
         case .refreshingContent:
-            return AppLocalization.text("news.featured.pending.refresh", fallback: "Refreshing card...")
+            return AppLocalization.text("news.featured.pending.refresh")
         case .updatingContent:
-            return AppLocalization.text("news.featured.pending.update", fallback: "Updating article...")
+            return AppLocalization.text("news.featured.pending.update")
         }
     }
 }
@@ -214,7 +214,7 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
 
     /// User-facing joined label rendered in the discussion card footer.
     var joinedText: String {
-        "+\(joinedCount) joined"
+        AppLocalization.text("news.discussion.joinedCountFormat", joinedCount)
     }
 
     /// Destination payload used by callers that open discussion details.
@@ -314,15 +314,15 @@ enum DiscussionCardPendingOperation: Equatable, Sendable {
     var statusText: String {
         switch self {
         case .togglingParticipation:
-            return AppLocalization.text("news.discussion.pending.participation", fallback: "Saving participation...")
+            return AppLocalization.text("news.discussion.pending.participation")
         case .addingReply:
-            return AppLocalization.text("news.discussion.pending.reply", fallback: "Posting reply...")
+            return AppLocalization.text("news.discussion.pending.reply")
         case .updatingDisplayMode:
-            return AppLocalization.text("news.discussion.pending.displayMode", fallback: "Saving layout...")
+            return AppLocalization.text("news.discussion.pending.displayMode")
         case .refreshingContent:
-            return AppLocalization.text("news.discussion.pending.refresh", fallback: "Refreshing discussion...")
+            return AppLocalization.text("news.discussion.pending.refresh")
         case .updatingContent:
-            return AppLocalization.text("news.discussion.pending.update", fallback: "Updating discussion...")
+            return AppLocalization.text("news.discussion.pending.update")
         }
     }
 }
@@ -335,26 +335,26 @@ enum NewsFeedFixtures {
                 .featuredArticle(
                     FeaturedArticleCardModel(
                         id: "featured-article-fallback",
-                        postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix", fallback: "Posted in "),
-                        sourceTitle: AppLocalization.text("news.fallback.sourceTitle", fallback: "Our Blog"),
-                        brandTitle: AppLocalization.text("news.fallback.brandTitle", fallback: "Tchop"),
-                        headline: AppLocalization.text("news.fallback.headline", fallback: "Parrots help others in need, study\nshows for first time"),
-                        summary: AppLocalization.text("news.fallback.summary", fallback: "Consectetur adipiscing elit. Eget semper at augue amet, facilisis vulputate nec vitae libero. Id scelerisque vestibulum quis faucibus urna sem..."),
-                        metadataLine: AppLocalization.text("news.fallback.metadataLine", fallback: "by Adorlee Querry · two days ago · read time: 2min"),
-                        translationLabel: AppLocalization.text("news.fallback.translationLabel", fallback: "See translation"),
+                        postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
+                        sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
+                        brandTitle: AppLocalization.text("news.fallback.brandTitle"),
+                        headline: AppLocalization.text("news.fallback.headline"),
+                        summary: AppLocalization.text("news.fallback.summary"),
+                        metadataLine: AppLocalization.text("news.fallback.metadataLine"),
+                        translationLabel: AppLocalization.text("news.fallback.translationLabel"),
                         commentCount: 48,
                         actions: [
                             ArticleActionItem(
                                 id: "like",
                                 kind: .like,
                                 systemName: "hand.thumbsup.fill",
-                                title: AppLocalization.text("news.fallback.action.like", fallback: "Like")
+                                title: AppLocalization.text("news.fallback.action.like")
                             ),
                             ArticleActionItem(
                                 id: "comments",
                                 kind: .comments,
                                 systemName: "bubble.left.fill",
-                                title: AppLocalization.text("news.fallback.action.comments", fallback: "48 Comments")
+                                title: AppLocalization.text("news.fallback.action.comments")
                             )
                         ],
                         uiState: .idle
@@ -363,8 +363,8 @@ enum NewsFeedFixtures {
                 .discussion(
                     DiscussionCardModel(
                         id: "discussion-fallback",
-                        categoryTitle: AppLocalization.text("news.fallback.discussion.category", fallback: "Discussion"),
-                        headline: AppLocalization.text("news.fallback.discussion.headline", fallback: "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio"),
+                        categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
+                        headline: AppLocalization.text("news.fallback.discussion.headline"),
                         participants: [
                             DiscussionParticipant(id: "adorlee", initials: "A", isHighlighted: true),
                             DiscussionParticipant(id: "mattis", initials: "M", isHighlighted: false),

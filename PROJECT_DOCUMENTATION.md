@@ -36,6 +36,7 @@ If you are making architectural changes, read the whole document.
 
 - a coordinator-driven shell;
 - app-level state in `AppState`;
+- an explicit root `AppSessionState` for `restoring / signedOut / authenticated`;
 - feature logic in view models and repositories;
 - reusable infrastructure in `Packages/TchopInfrastructure`;
 - local-first persistence;
@@ -58,6 +59,7 @@ In short:
 - architecture discussion baseline = offer multiple options only for non-trivial or trade-off-heavy decisions; keep straightforward tasks concise.
 - protocol baseline = use protocol boundaries where they create a real seam for DI/isolation/testability, not as abstraction-for-abstraction's-sake.
 - visual chrome baseline = on systems that support Liquid Glass, prefer native glass for shell-level floating chrome and accessory controls with fallback styling for older iOS versions; do not apply glass indiscriminately to dense content cards or forms.
+- current feed-state baseline = explicit `loading / content / empty / offline / failed` rendering contract for the home feed instead of a generic loaded/failed split.
 
 ## Dependency Graph At A Glance
 

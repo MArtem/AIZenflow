@@ -31,7 +31,11 @@ struct AppRootView: View {
 
     var body: some View {
         Group {
-            if appState.currentUser == nil {
+            switch appState.sessionState {
+            case .restoring:
+                rootLoadingView
+                    .accessibilityIdentifier("app.restoring")
+            case .signedOut:
                 LoginScreenView(
                     mode: loginScreenMode,
                     onCredentialLogin: appState.signIn(email:password:),
@@ -40,13 +44,13 @@ struct AppRootView: View {
                     appleAuthenticationManager: appleAuthenticationManager,
                     errorManager: errorManager
                 )
-                    .accessibilityIdentifier("login.screen")
-            } else {
+                .accessibilityIdentifier("login.screen")
+            case let .authenticated(currentUser):
                 AppShellView(
                     viewModel: appState.appShellViewModel,
                     coordinator: appState.coordinator,
                     errorManager: errorManager,
-                    currentUser: appState.currentUser,
+                    currentUser: currentUser,
                     onNavigationRestoreChange: appState.setNavigationRestoreEnabled,
                     onLogout: appState.signOut
                 )
@@ -55,6 +59,27 @@ struct AppRootView: View {
         }
         .onOpenURL(perform: onOpenURL)
         .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: onContinueUserActivity)
+    }
+
+    /// Lightweight restoring state shown while the app resolves any persisted authenticated session.
+    private var rootLoadingView: some View {
+        VStack(spacing: 14) {
+            ProgressView()
+                .controlSize(.large)
+
+            Text(AppLocalization.text("app.session.restoring.title"))
+                .font(.system(size: 18, weight: .semibold))
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(AppLocalization.text("app.session.restoring.subtitle"))
+                .font(.system(size: 14, weight: .medium))
+                .foregroundStyle(AppTheme.textTertiary)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .padding(.horizontal, 32)
+        .background(AppTheme.canvasBackground.ignoresSafeArea())
     }
 }
 
@@ -146,9 +171,24 @@ enum ViewPreviewSupport {
 
 #Preview("App Root - Signed Out") {
     let container = ViewPreviewSupport.makeLocalContainer()
+    let appState = container.makeAppState()
+    appState.setPreviewSessionState(.signedOut)
 
     return AppRootView(
-        appState: container.makeAppState(),
+        appState: appState,
+        loginScreenMode: container.loginScreenMode,
+        appleAuthenticationManager: container.appleAuthenticationManager,
+        errorManager: container.errorManager
+    )
+}
+
+#Preview("App Root - Restoring") {
+    let container = ViewPreviewSupport.makeLocalContainer()
+    let appState = container.makeAppState()
+    appState.setPreviewSessionState(.restoring)
+
+    return AppRootView(
+        appState: appState,
         loginScreenMode: container.loginScreenMode,
         appleAuthenticationManager: container.appleAuthenticationManager,
         errorManager: container.errorManager

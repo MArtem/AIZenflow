@@ -5,14 +5,21 @@ import TchopErrors
 import UIKit
 import TchopNavigation
 
+/// Explicit session lifecycle state for the root app flow.
+enum AppSessionState {
+    case restoring
+    case signedOut
+    case authenticated(AppUser)
+}
+
 /// Root app-level state object.
 ///
 /// This type owns authenticated user state and coordinates transitions between
 /// login and the main shell.
 @MainActor
 final class AppState: ObservableObject {
-    /// Currently signed-in user, if any.
-    @Published private(set) var currentUser: AppUser?
+    /// Explicit root session state that drives the auth/shell switch.
+    @Published private(set) var sessionState: AppSessionState = .restoring
 
     /// Shared coordinator for tab selection and per-tab navigation state.
     let coordinator: AppCoordinator
@@ -32,6 +39,15 @@ final class AppState: ObservableObject {
     private var isApplyingNavigationSnapshot = false
     /// Deep links received before authentication are buffered and replayed after sign-in.
     private var pendingDeepLinkInput: PendingDeepLinkInput?
+
+    /// Currently signed-in user, if any.
+    var currentUser: AppUser? {
+        guard case let .authenticated(user) = sessionState else {
+            return nil
+        }
+
+        return user
+    }
 
     /// Creates the app state and attempts to restore the previous user session.
     init(
@@ -96,7 +112,7 @@ final class AppState: ObservableObject {
             userID: currentUser.id,
             isEnabled: isEnabled
         )
-        self.currentUser = updatedUser
+        sessionState = .authenticated(updatedUser)
 
         if isEnabled {
             restoreNavigationIfNeeded(for: updatedUser)
@@ -121,7 +137,7 @@ final class AppState: ObservableObject {
     /// Signs out the current user and resets navigation back to the default app state.
     func signOut() {
         sessionService.signOut()
-        currentUser = nil
+        sessionState = .signedOut
         pendingDeepLinkInput = nil
         resetNavigationToDefaultState()
         appShellViewModel.closeMenu()
@@ -144,7 +160,7 @@ final class AppState: ObservableObject {
             if let restoredUser {
                 activateAuthenticatedUser(restoredUser)
             } else {
-                currentUser = nil
+                sessionState = .signedOut
             }
         } catch {
             let presentation = await errorManager.presentableError(
@@ -155,7 +171,7 @@ final class AppState: ObservableObject {
                 )
             )
             assertionFailure("Failed to restore user session: \(presentation.error.debugDescription)")
-            currentUser = nil
+            sessionState = .signedOut
         }
     }
 
@@ -265,7 +281,7 @@ final class AppState: ObservableObject {
 
     /// Stores the active user and applies the standard authenticated runtime bootstrap flow.
     private func activateAuthenticatedUser(_ user: AppUser) {
-        currentUser = user
+        sessionState = .authenticated(user)
         applyPostAuthenticationNavigation(for: user)
     }
 
@@ -343,3 +359,12 @@ private enum PendingDeepLinkInput {
     case url(URL)
     case userActivity(NSUserActivity)
 }
+
+#if DEBUG
+extension AppState {
+    /// Forces a deterministic preview-only session state without exercising the real restore flow.
+    func setPreviewSessionState(_ sessionState: AppSessionState) {
+        self.sessionState = sessionState
+    }
+}
+#endif

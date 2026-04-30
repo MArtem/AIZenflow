@@ -17,33 +17,69 @@ public protocol LocalizationManaging: Sendable {
 /// Reusable localization manager backed by bundle resources.
 public struct LocalizationManager: LocalizationManaging, Sendable {
     private let tableName: String
+    private let developmentLanguageIdentifier: String
     private let bundleProvider: @Sendable () -> Bundle
 
     /// Creates a localization manager using package resource bundle.
     public init(tableName: String = "Localizable") {
         self.tableName = tableName
+        self.developmentLanguageIdentifier = "en"
         self.bundleProvider = { .module }
     }
 
     /// Creates a localization manager with a custom bundle resolver.
     public init(
         tableName: String = "Localizable",
+        developmentLanguageIdentifier: String = "en",
         bundleProvider: @escaping @Sendable () -> Bundle
     ) {
         self.tableName = tableName
+        self.developmentLanguageIdentifier = developmentLanguageIdentifier
         self.bundleProvider = bundleProvider
+    }
+
+    /// Resolves a localized string by key and falls back to the development language bundle before returning the key itself.
+    public func localized(_ key: String, localeIdentifier: String? = nil) -> String {
+        let missingSentinel = "__missing__\(key)__"
+        let localizedValue = localizedValue(
+            key,
+            in: resolvedBundle(localeIdentifier: localeIdentifier),
+            missingSentinel: missingSentinel
+        )
+
+        if localizedValue != missingSentinel {
+            return localizedValue
+        }
+
+        let developmentLanguageValue = localizedValue(
+            key,
+            in: developmentLanguageBundle(),
+            missingSentinel: missingSentinel
+        )
+
+        if developmentLanguageValue != missingSentinel {
+            return developmentLanguageValue
+        }
+
+        assertionFailure("Missing localization value for key '\(key)'.")
+        return key
+    }
+
+    /// Resolves a localized format string by key and applies arguments using the requested locale.
+    public func localized(
+        _ key: String,
+        arguments: [CVarArg],
+        localeIdentifier: String? = nil
+    ) -> String {
+        let format = localized(key, localeIdentifier: localeIdentifier)
+        let locale = localeIdentifier.map(Locale.init(identifier:)) ?? .current
+        return String(format: format, locale: locale, arguments: arguments)
     }
 
     /// Resolves this operation.
     public func localized(_ key: String, fallback: String, localeIdentifier: String? = nil) -> String {
-        let bundle = resolvedBundle(localeIdentifier: localeIdentifier)
-        return NSLocalizedString(
-            key,
-            tableName: tableName,
-            bundle: bundle,
-            value: fallback,
-            comment: ""
-        )
+        let resolvedValue = localized(key, localeIdentifier: localeIdentifier)
+        return resolvedValue == key ? fallback : resolvedValue
     }
 
     /// Resolves this operation.
@@ -53,12 +89,13 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
         arguments: [CVarArg],
         localeIdentifier: String? = nil
     ) -> String {
-        let format = localized(
-            key,
-            fallback: fallback,
-            localeIdentifier: localeIdentifier
-        )
+        let format = localized(key, localeIdentifier: localeIdentifier)
         let locale = localeIdentifier.map(Locale.init(identifier:)) ?? .current
+
+        if format == key {
+            return String(format: fallback, locale: locale, arguments: arguments)
+        }
+
         return String(format: format, locale: locale, arguments: arguments)
     }
 
@@ -73,5 +110,30 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
             return bundle
         }
         return localizedBundle
+    }
+
+    /// Resolves the development-language bundle used as a stable fallback when a translation is missing.
+    private func developmentLanguageBundle() -> Bundle {
+        let bundle = bundleProvider()
+        guard
+            let bundlePath = bundle.path(forResource: developmentLanguageIdentifier, ofType: "lproj"),
+            let localizedBundle = Bundle(path: bundlePath)
+        else {
+            return bundle
+        }
+        return localizedBundle
+    }
+
+    /// Reads one localized value from a concrete bundle without silently substituting a fallback string.
+    private func localizedValue(
+        _ key: String,
+        in bundle: Bundle,
+        missingSentinel: String
+    ) -> String {
+        bundle.localizedString(
+            forKey: key,
+            value: missingSentinel,
+            table: tableName
+        )
     }
 }

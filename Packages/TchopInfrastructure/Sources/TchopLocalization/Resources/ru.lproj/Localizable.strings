@@ -7,6 +7,36 @@
 "login.error.generic" = "Сейчас не удалось выполнить вход.";
 
 "news.error.loadFailed" = "Не удалось загрузить ленту.";
+"news.feed.retry" = "Повторить";
+"news.feed.cached.bootstrap" = "Показана сохранённая лента.";
+"news.feed.cached.offline" = "Оффлайн-режим. Показана сохранённая лента.";
+"news.feed.cached.updatedAt" = "Обновлено";
+"news.feed.empty.title" = "Пока ничего нет";
+"news.feed.empty.description" = "Лента доступна, но сейчас в ней нет карточек для отображения.";
+"news.card.status.offline" = "Вы офлайн. Показано сохранённое состояние.";
+"news.card.status.stale" = "Карточка рассинхронизирована. Обновите ленту.";
+"news.card.status.failed" = "Сейчас не удалось выполнить это действие.";
+"news.featured.pending.like" = "Сохраняем реакцию...";
+"news.featured.pending.comment" = "Публикуем комментарий...";
+"news.featured.pending.displayMode" = "Сохраняем макет...";
+"news.featured.pending.refresh" = "Обновляем карточку...";
+"news.featured.pending.update" = "Обновляем статью...";
+"news.featured.status.liked" = "Реакция сохранена.";
+"news.featured.status.unliked" = "Реакция удалена.";
+"news.featured.status.commented" = "Комментарий добавлен.";
+"news.featured.status.refreshed" = "Карточка обновлена.";
+"news.featured.status.updated" = "Статья обновлена.";
+"news.discussion.joinedCountFormat" = "+%d присоединились";
+"news.discussion.pending.participation" = "Сохраняем участие...";
+"news.discussion.pending.reply" = "Публикуем ответ...";
+"news.discussion.pending.displayMode" = "Сохраняем макет...";
+"news.discussion.pending.refresh" = "Обновляем обсуждение...";
+"news.discussion.pending.update" = "Обновляем обсуждение...";
+"news.discussion.status.joined" = "Вы присоединились к обсуждению.";
+"news.discussion.status.left" = "Участие отменено.";
+"news.discussion.status.replied" = "Ответ добавлен.";
+"news.discussion.status.refreshed" = "Обсуждение обновлено.";
+"news.discussion.status.updated" = "Обсуждение обновлено.";
 "news.fallback.postedInPrefix" = "Опубликовано в ";
 "news.fallback.sourceTitle" = "Наш блог";
 "news.fallback.brandTitle" = "Tchop";
@@ -141,3 +171,6 @@
 "feature.chat.item.infrastructureSync.title" = "Инфраструктурная синхронизация";
 "feature.chat.item.infrastructureSync.summary" = "Еженедельная синхронизация мобильной, backend и support-команд по зависимостям доставки и надёжности ленты.";
 "feature.chat.item.infrastructureSync.metadata" = "Следующее обновление завтра";
+
+"app.session.restoring.title" = "Восстанавливаем сессию";
+"app.session.restoring.subtitle" = "Проверяем сохранённые учётные данные и подготавливаем оболочку приложения.";

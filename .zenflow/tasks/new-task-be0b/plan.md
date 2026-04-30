@@ -1406,3 +1406,7 @@ Readability-first cycle progress:
   keep an availability-gated fallback for older deployment targets,
   and avoid spraying glass across dense content cards or forms.
   The current implementation applies that policy to the top bar, bottom tab bar, and floating action button through a shared compatibility layer.
+- Started the `State + Localization foundation` pass.
+  The app now has an explicit root `AppSessionState` (`restoring / signedOut / authenticated`),
+  the home feed now resolves into explicit `loading / content / empty / offline / failed` UI states,
+  and root/feed localization moved onto a resource-first path with new keyed entries in the localization bundle for those flows.

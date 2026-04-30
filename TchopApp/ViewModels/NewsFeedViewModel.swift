@@ -4,7 +4,9 @@ import TchopErrors
 /// Explicit runtime state for the news feed screen.
 enum NewsFeedState: Equatable {
     case loading(NewsFeedContent)
-    case loaded(NewsFeedContent)
+    case content(NewsFeedContent)
+    case empty(NewsFeedContent)
+    case offline(NewsFeedContent)
     case failed(content: NewsFeedContent, message: String)
 
     /// Feed content currently available to the UI.
@@ -12,7 +14,11 @@ enum NewsFeedState: Equatable {
         switch self {
         case let .loading(content):
             return content
-        case let .loaded(content):
+        case let .content(content):
+            return content
+        case let .empty(content):
+            return content
+        case let .offline(content):
             return content
         case let .failed(content, _):
             return content
@@ -35,6 +41,24 @@ enum NewsFeedState: Equatable {
         }
 
         return message
+    }
+
+    /// Whether the resolved feed contains no cards.
+    var isEmpty: Bool {
+        if case .empty = self {
+            return true
+        }
+
+        return false
+    }
+
+    /// Whether the feed is currently showing a persisted offline snapshot.
+    var isOffline: Bool {
+        if case .offline = self {
+            return true
+        }
+
+        return false
     }
 }
 
@@ -93,7 +117,7 @@ final class NewsFeedViewModel: ObservableObject {
         self.repository = repository
         self.widgetContentSyncManager = widgetContentSyncManager
         self.errorManager = errorManager
-        self.state = .loaded(initialContent)
+        self.state = Self.resolvedState(for: initialContent)
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
         widgetContentSyncManager.syncFeed(content: initialContent)
@@ -192,7 +216,7 @@ final class NewsFeedViewModel: ObservableObject {
         cancelDiscussionTasks()
 
         if case let .loading(content) = state {
-            state = .loaded(content)
+            state = Self.resolvedState(for: content)
         }
     }
 
@@ -208,7 +232,7 @@ final class NewsFeedViewModel: ObservableObject {
     private func applyLoadedContent(_ content: NewsFeedContent) {
         cancelFeaturedArticleTasks()
         cancelDiscussionTasks()
-        state = .loaded(content)
+        state = Self.resolvedState(for: content)
         widgetContentSyncManager.syncFeed(content: content)
     }
 
@@ -239,6 +263,19 @@ final class NewsFeedViewModel: ObservableObject {
 
         state = .loading(content)
         loadingTask = makeLoadingTask()
+    }
+
+    /// Maps repository-backed content into the explicit feed state used by the screen.
+    private static func resolvedState(for content: NewsFeedContent) -> NewsFeedState {
+        if content.cards.isEmpty {
+            return .empty(content)
+        }
+
+        if case .cached(_, .offline) = content.availability {
+            return .offline(content)
+        }
+
+        return .content(content)
     }
 
     /// Starts an optimistic like toggle and then persists the new state through the repository path.
@@ -278,8 +315,8 @@ final class NewsFeedViewModel: ObservableObject {
                         updatedArticle,
                         articleID: articleID,
                         statusMessage: updatedArticle.uiState.isLiked
-                            ? AppLocalization.text("news.featured.status.liked", fallback: "Reaction saved.")
-                            : AppLocalization.text("news.featured.status.unliked", fallback: "Reaction removed.")
+                            ? AppLocalization.text("news.featured.status.liked")
+                            : AppLocalization.text("news.featured.status.unliked")
                     )
                 }
             } catch is CancellationError {
@@ -337,10 +374,7 @@ final class NewsFeedViewModel: ObservableObject {
                             self.finishFeaturedArticleAction(
                                 updatedArticle,
                                 articleID: articleID,
-                                statusMessage: AppLocalization.text(
-                                    "news.featured.status.commented",
-                                    fallback: "Comment added."
-                                )
+                                statusMessage: AppLocalization.text("news.featured.status.commented")
                             )
                         }
                         return
@@ -446,10 +480,7 @@ final class NewsFeedViewModel: ObservableObject {
                     self.finishFeaturedArticleAction(
                         updatedArticle,
                         articleID: articleID,
-                        statusMessage: AppLocalization.text(
-                            "news.featured.status.refreshed",
-                            fallback: "Card refreshed."
-                        )
+                        statusMessage: AppLocalization.text("news.featured.status.refreshed")
                     )
                 }
             } catch is CancellationError {
@@ -496,10 +527,7 @@ final class NewsFeedViewModel: ObservableObject {
                     self.finishFeaturedArticleAction(
                         updatedArticle,
                         articleID: articleID,
-                        statusMessage: AppLocalization.text(
-                            "news.featured.status.updated",
-                            fallback: "Article updated."
-                        )
+                        statusMessage: AppLocalization.text("news.featured.status.updated")
                     )
                 }
             } catch is CancellationError {
@@ -622,9 +650,9 @@ final class NewsFeedViewModel: ObservableObject {
         switch state {
         case let .loading(content):
             state = .loading(transform(content))
-        case let .loaded(content):
+        case let .content(content), let .empty(content), let .offline(content):
             let updatedContent = transform(content)
-            state = .loaded(updatedContent)
+            state = Self.resolvedState(for: updatedContent)
             widgetContentSyncManager.syncFeed(content: updatedContent)
         case let .failed(content, message):
             state = .failed(content: transform(content), message: message)
@@ -767,8 +795,8 @@ final class NewsFeedViewModel: ObservableObject {
                         updatedDiscussion,
                         discussionID: discussionID,
                         statusMessage: updatedDiscussion.uiState.isParticipating
-                            ? AppLocalization.text("news.discussion.status.joined", fallback: "Joined discussion.")
-                            : AppLocalization.text("news.discussion.status.left", fallback: "Participation removed.")
+                            ? AppLocalization.text("news.discussion.status.joined")
+                            : AppLocalization.text("news.discussion.status.left")
                     )
                 }
             } catch is CancellationError {
@@ -826,7 +854,7 @@ final class NewsFeedViewModel: ObservableObject {
                             self.finishDiscussionAction(
                                 updatedDiscussion,
                                 discussionID: discussionID,
-                                statusMessage: AppLocalization.text("news.discussion.status.replied", fallback: "Reply added.")
+                                statusMessage: AppLocalization.text("news.discussion.status.replied")
                             )
                         }
                         return
@@ -922,7 +950,7 @@ final class NewsFeedViewModel: ObservableObject {
                     self.finishDiscussionAction(
                         updatedDiscussion,
                         discussionID: discussionID,
-                        statusMessage: AppLocalization.text("news.discussion.status.refreshed", fallback: "Discussion refreshed.")
+                        statusMessage: AppLocalization.text("news.discussion.status.refreshed")
                     )
                 }
             } catch is CancellationError {
@@ -969,7 +997,7 @@ final class NewsFeedViewModel: ObservableObject {
                     self.finishDiscussionAction(
                         updatedDiscussion,
                         discussionID: discussionID,
-                        statusMessage: AppLocalization.text("news.discussion.status.updated", fallback: "Discussion updated.")
+                        statusMessage: AppLocalization.text("news.discussion.status.updated")
                     )
                 }
             } catch is CancellationError {
@@ -1212,15 +1240,9 @@ final class NewsFeedViewModel: ObservableObject {
     private func repositoryCardActionFailureMessage(for repositoryError: RepositoryError) -> String {
         switch repositoryError {
         case .offlineCardAction:
-            return AppLocalization.text(
-                "news.card.status.offline",
-                fallback: "You're offline. Showing saved state."
-            )
+            return AppLocalization.text("news.card.status.offline")
         case .missingPersistedFeedCard:
-            return AppLocalization.text(
-                "news.card.status.stale",
-                fallback: "Card is out of sync. Refresh the feed."
-            )
+            return AppLocalization.text("news.card.status.stale")
         case .missingChannel, .missingPersistedFeed:
             return genericCardActionFailureMessage
         }
@@ -1228,10 +1250,7 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Shared fallback used when a card action fails without a more specific product policy.
     private var genericCardActionFailureMessage: String {
-        AppLocalization.text(
-            "news.card.status.failed",
-            fallback: "Unable to complete this action right now."
-        )
+        AppLocalization.text("news.card.status.failed")
     }
 
     /// Evaluates whether the requested load policy is valid in the current runtime state.

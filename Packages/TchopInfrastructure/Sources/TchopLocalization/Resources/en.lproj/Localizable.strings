@@ -7,6 +7,36 @@
 "login.error.generic" = "Unable to sign in right now.";
 
 "news.error.loadFailed" = "Failed to load feed.";
+"news.feed.retry" = "Retry";
+"news.feed.cached.bootstrap" = "Showing saved feed.";
+"news.feed.cached.offline" = "Offline mode. Showing saved feed.";
+"news.feed.cached.updatedAt" = "Last updated";
+"news.feed.empty.title" = "Nothing here yet";
+"news.feed.empty.description" = "The feed is available, but there are currently no cards to show.";
+"news.card.status.offline" = "You're offline. Showing saved state.";
+"news.card.status.stale" = "Card is out of sync. Refresh the feed.";
+"news.card.status.failed" = "Unable to complete this action right now.";
+"news.featured.pending.like" = "Saving reaction...";
+"news.featured.pending.comment" = "Posting comment...";
+"news.featured.pending.displayMode" = "Saving layout...";
+"news.featured.pending.refresh" = "Refreshing card...";
+"news.featured.pending.update" = "Updating article...";
+"news.featured.status.liked" = "Reaction saved.";
+"news.featured.status.unliked" = "Reaction removed.";
+"news.featured.status.commented" = "Comment added.";
+"news.featured.status.refreshed" = "Card refreshed.";
+"news.featured.status.updated" = "Article updated.";
+"news.discussion.joinedCountFormat" = "+%d joined";
+"news.discussion.pending.participation" = "Saving participation...";
+"news.discussion.pending.reply" = "Posting reply...";
+"news.discussion.pending.displayMode" = "Saving layout...";
+"news.discussion.pending.refresh" = "Refreshing discussion...";
+"news.discussion.pending.update" = "Updating discussion...";
+"news.discussion.status.joined" = "Joined discussion.";
+"news.discussion.status.left" = "Participation removed.";
+"news.discussion.status.replied" = "Reply added.";
+"news.discussion.status.refreshed" = "Discussion refreshed.";
+"news.discussion.status.updated" = "Discussion updated.";
 "news.fallback.postedInPrefix" = "Posted in ";
 "news.fallback.sourceTitle" = "Our Blog";
 "news.fallback.brandTitle" = "Tchop";
@@ -141,3 +171,6 @@
 "feature.chat.item.infrastructureSync.title" = "Infrastructure sync";
 "feature.chat.item.infrastructureSync.summary" = "Weekly checkpoint for mobile, backend, and support dependencies tied to feed delivery and reliability.";
 "feature.chat.item.infrastructureSync.metadata" = "Next update tomorrow";
+
+"app.session.restoring.title" = "Restoring session";
+"app.session.restoring.subtitle" = "Checking saved credentials and preparing the app shell.";
