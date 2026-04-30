@@ -3,6 +3,7 @@ import TchopBranding
 import UIKit
 
 /// Semantic color tokens used across app screens in light and dark modes.
+@MainActor
 enum AppTheme {
     static let accent = AppBranding.theme.button.primaryFill
     static let accentOnColor = AppBranding.theme.button.primaryForeground

@@ -6,7 +6,7 @@ import TchopNetworking
 ///
 /// The app can lock its service boundaries now without binding itself to final backend naming.
 /// When real endpoints arrive, most changes should stay inside this configuration and the DTOs below.
-struct AuthenticationAPIEndpointConfiguration {
+struct AuthenticationAPIEndpointConfiguration: Sendable {
     let usernameSignInPath: String
     let credentialSignInPath: String
     let registrationPath: String
@@ -109,21 +109,15 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
     private let apiManager: any APIManaging
     private let endpointConfiguration: AuthenticationAPIEndpointConfiguration
     private let mode: Mode
-    private let jsonEncoder: JSONEncoder
-    private let jsonDecoder: JSONDecoder
 
     init(
         apiManager: any APIManaging,
         endpointConfiguration: AuthenticationAPIEndpointConfiguration = .default,
-        mode: Mode,
-        jsonEncoder: JSONEncoder = JSONEncoder(),
-        jsonDecoder: JSONDecoder = JSONDecoder()
+        mode: Mode
     ) {
         self.apiManager = apiManager
         self.endpointConfiguration = endpointConfiguration
         self.mode = mode
-        self.jsonEncoder = jsonEncoder
-        self.jsonDecoder = jsonDecoder
     }
 
     func signIn(username: String) async throws -> AuthTokenSet {
@@ -260,8 +254,8 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
             path: path,
             method: method,
             headers: ["Content-Type": "application/json"],
-            body: jsonEncoder.encode(payload),
-            jsonDecoder: jsonDecoder
+            body: makeJSONEncoder().encode(payload),
+            jsonDecoder: makeJSONDecoder()
         )
     }
 
@@ -274,8 +268,8 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
             path: path,
             method: .post,
             headers: ["Content-Type": "application/json"],
-            body: jsonEncoder.encode(payload),
-            jsonDecoder: jsonDecoder
+            body: makeJSONEncoder().encode(payload),
+            jsonDecoder: makeJSONDecoder()
         )
     }
 
@@ -289,8 +283,8 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
             path: path,
             method: method,
             headers: ["Content-Type": "application/json"],
-            body: jsonEncoder.encode(payload),
-            jsonDecoder: jsonDecoder
+            body: makeJSONEncoder().encode(payload),
+            jsonDecoder: makeJSONDecoder()
         )
     }
 
@@ -304,5 +298,15 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
             expiresAt: issuedAt.addingTimeInterval(3600),
             tokenType: "Bearer"
         )
+    }
+
+    /// Builds the per-request JSON encoder used for auth payloads.
+    private func makeJSONEncoder() -> JSONEncoder {
+        JSONEncoder()
+    }
+
+    /// Builds the per-request JSON decoder used for auth responses.
+    private func makeJSONDecoder() -> JSONDecoder {
+        JSONDecoder()
     }
 }

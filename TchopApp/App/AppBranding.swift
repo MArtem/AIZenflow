@@ -2,10 +2,7 @@ import Foundation
 import TchopBranding
 
 /// App-facing bridge that resolves the active target branding once from bundle metadata.
+@MainActor
 enum AppBranding {
-    static let themeManager: any BrandThemeManaging = InfoDictionaryBrandThemeManager(bundle: .main)
-
-    static var theme: BrandTheme {
-        themeManager.activeTheme
-    }
+    static let theme: BrandTheme = InfoDictionaryBrandThemeManager(bundle: .main).activeTheme
 }

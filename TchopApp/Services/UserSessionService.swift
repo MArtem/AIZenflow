@@ -29,14 +29,14 @@ struct AuthTokenSet: Codable, Equatable, Sendable {
 }
 
 /// Contract used by auth-aware network layers to persist and restore secure token material.
-protocol AuthTokenStoring {
+protocol AuthTokenStoring: Sendable {
     func loadTokenSet() throws -> AuthTokenSet?
     func saveTokenSet(_ tokenSet: AuthTokenSet) throws
     func clearTokenSet() throws
 }
 
 /// Contract for auth API calls that mutate or refresh backend session credentials.
-protocol AuthenticationAPIManaging {
+protocol AuthenticationAPIManaging: Sendable {
     /// Exchanges a username login flow for backend credentials when that flow is enabled.
     func signIn(username: String) async throws -> AuthTokenSet
     /// Exchanges email/password credentials for backend credentials when that flow is enabled.
@@ -57,7 +57,7 @@ enum AuthenticationSessionError: Error, Equatable {
 }
 
 /// Keychain-backed token store used for production credentials.
-final class KeychainAuthTokenStore: AuthTokenStoring {
+final class KeychainAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
     private let service: String
     private let account: String
     private let encoder = JSONEncoder()
@@ -138,7 +138,7 @@ final class KeychainAuthTokenStore: AuthTokenStoring {
 /// UI-driven API tests should exercise the full auth/request/session chain without depending on
 /// simulator-specific Keychain availability. This store keeps the same contract while removing the
 /// platform storage variable from those tests.
-final class InMemoryAuthTokenStore: AuthTokenStoring {
+final class InMemoryAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
     private var tokenSet: AuthTokenSet?
 
     func loadTokenSet() throws -> AuthTokenSet? {

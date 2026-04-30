@@ -6,7 +6,7 @@ import TchopPushNotifications
 
 /// App-facing abstraction used by the application delegate to forward APNs events.
 @MainActor
-protocol AppPushNotificationBridging: AnyObject {
+protocol AppPushNotificationBridging: AnyObject, Sendable {
     /// Handles start.
     func start(application: UIApplication)
     /// Requests authorization and register.
@@ -16,10 +16,7 @@ protocol AppPushNotificationBridging: AnyObject {
     /// Handles fail to register for remote notifications.
     func didFailToRegisterForRemoteNotifications(error: Error) async
     /// Handles remote notification.
-    func handleRemoteNotification(
-        userInfo: [AnyHashable: Any],
-        source: PushNotificationEventSource
-    ) async
+    func handleRemoteNotification(_ payload: PushNotificationPayload) async
 }
 
 /// No-op implementation used when the app intentionally does not wire real push handling.
@@ -38,10 +35,7 @@ final class NoopPushNotificationBridge: AppPushNotificationBridging {
     func didFailToRegisterForRemoteNotifications(error: Error) async {}
 
     /// Handles remote notification.
-    func handleRemoteNotification(
-        userInfo: [AnyHashable: Any],
-        source: PushNotificationEventSource
-    ) async {}
+    func handleRemoteNotification(_ payload: PushNotificationPayload) async {}
 }
 
 /// App composition bridge that connects system APNs callbacks with the reusable package manager.
@@ -49,20 +43,17 @@ final class NoopPushNotificationBridge: AppPushNotificationBridging {
 final class AppPushNotificationBridge: AppPushNotificationBridging {
     private let manager: any PushNotificationManaging
     private let notificationCenter: UNUserNotificationCenter
-    private let payloadParser: any PushNotificationPayloadParsing
     private let errorManager: any AppErrorManaging
 
     /// Creates a new AppPushNotificationBridge instance.
     init(
         manager: any PushNotificationManaging,
         errorManager: any AppErrorManaging,
-        notificationCenter: UNUserNotificationCenter = .current(),
-        payloadParser: any PushNotificationPayloadParsing = DefaultPushNotificationPayloadParser()
+        notificationCenter: UNUserNotificationCenter = .current()
     ) {
         self.manager = manager
         self.errorManager = errorManager
         self.notificationCenter = notificationCenter
-        self.payloadParser = payloadParser
     }
 
     /// Handles start.
@@ -128,12 +119,8 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
     }
 
     /// Handles remote notification.
-    func handleRemoteNotification(
-        userInfo: [AnyHashable: Any],
-        source: PushNotificationEventSource
-    ) async {
+    func handleRemoteNotification(_ payload: PushNotificationPayload) async {
         do {
-            let payload = payloadParser.parse(userInfo: userInfo, source: source)
             _ = try await manager.handleRemoteNotification(payload)
         } catch {
             reportPushFailure(

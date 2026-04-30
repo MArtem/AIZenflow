@@ -4,15 +4,19 @@ import UserNotifications
 import TchopPushNotifications
 
 /// UIKit lifecycle bridge used to receive APNs callbacks in the SwiftUI app.
-final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+final class TchopApplicationDelegate: NSObject, UIApplicationDelegate {
     weak var pushNotificationBridge: (any AppPushNotificationBridging)?
+    private let payloadParser: any PushNotificationPayloadParsing = DefaultPushNotificationPayloadParser()
+    private let notificationCenterDelegateProxy = TchopUserNotificationCenterDelegateProxy()
 
     /// Handles application.
     func application(
         _ application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil
     ) -> Bool {
-        UNUserNotificationCenter.current().delegate = self
+        notificationCenterDelegateProxy.pushNotificationBridge = pushNotificationBridge
+        notificationCenterDelegateProxy.payloadParser = payloadParser
+        UNUserNotificationCenter.current().delegate = notificationCenterDelegateProxy
         pushNotificationBridge?.start(application: application)
         return true
     }
@@ -43,42 +47,62 @@ final class TchopApplicationDelegate: NSObject, UIApplicationDelegate, UNUserNot
         didReceiveRemoteNotification userInfo: [AnyHashable: Any],
         fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void
     ) {
+        let payload = payloadParser.parse(
+            userInfo: userInfo,
+            source: .backgroundFetch
+        )
         Task {
-            await pushNotificationBridge?.handleRemoteNotification(
-                userInfo: userInfo,
-                source: .backgroundFetch
-            )
+            await pushNotificationBridge?.handleRemoteNotification(payload)
             completionHandler(.newData)
         }
     }
 
-    /// Handles user notification center.
+}
+
+/// Dedicated UNUserNotificationCenterDelegate proxy kept separate from UIApplicationDelegate isolation rules.
+private final class TchopUserNotificationCenterDelegateProxy: NSObject, UNUserNotificationCenterDelegate {
+    weak var pushNotificationBridge: (any AppPushNotificationBridging)?
+    var payloadParser: (any PushNotificationPayloadParsing)?
+
+    /// Handles foreground notification presentation.
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        Task {
-            await pushNotificationBridge?.handleRemoteNotification(
-                userInfo: notification.request.content.userInfo,
-                source: .foreground
-            )
+        guard let payloadParser else {
             completionHandler([.banner, .badge, .sound])
+            return
+        }
+        let payload = payloadParser.parse(
+            userInfo: notification.request.content.userInfo,
+            source: .foreground
+        )
+        let pushNotificationBridge = pushNotificationBridge
+        completionHandler([.banner, .badge, .sound])
+        Task { [pushNotificationBridge, payload] in
+            await pushNotificationBridge?.handleRemoteNotification(payload)
         }
     }
 
-    /// Handles user notification center.
+    /// Handles notification response opens.
     func userNotificationCenter(
         _ center: UNUserNotificationCenter,
         didReceive response: UNNotificationResponse,
         withCompletionHandler completionHandler: @escaping () -> Void
     ) {
-        Task {
-            await pushNotificationBridge?.handleRemoteNotification(
-                userInfo: response.notification.request.content.userInfo,
-                source: .opened
-            )
+        guard let payloadParser else {
             completionHandler()
+            return
+        }
+        let payload = payloadParser.parse(
+            userInfo: response.notification.request.content.userInfo,
+            source: .opened
+        )
+        let pushNotificationBridge = pushNotificationBridge
+        completionHandler()
+        Task { [pushNotificationBridge, payload] in
+            await pushNotificationBridge?.handleRemoteNotification(payload)
         }
     }
 }

@@ -332,7 +332,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
 
     private func performFeaturedArticleMutation(
         path: String,
-        transform: @escaping (FeaturedArticleDTO) -> FeaturedArticleDTO
+        transform: @escaping @Sendable (FeaturedArticleDTO) -> FeaturedArticleDTO
     ) async throws -> FeaturedArticleDTO {
         // Even in stub mode this still routes through APIManaging so latency, request handling, and
         // higher-level networking integration are exercised instead of bypassed.
@@ -358,7 +358,7 @@ struct StubFeedAPIManager: FeedAPIManaging {
 
     private func performDiscussionMutation(
         path: String,
-        transform: @escaping (DiscussionDTO) -> DiscussionDTO
+        transform: @escaping @Sendable (DiscussionDTO) -> DiscussionDTO
     ) async throws -> DiscussionDTO {
         try await apiManager.perform(
             APIRequest(
@@ -442,11 +442,11 @@ enum FeedAPIStubFactory {
             let container = try decoder.singleValueContainer()
             let value = try container.decode(String.self)
 
-            if let date = iso8601DateFormatterWithFractionalSeconds.date(from: value) {
+            if let date = makeISO8601DateFormatter(withFractionalSeconds: true).date(from: value) {
                 return date
             }
 
-            if let date = iso8601DateFormatter.date(from: value) {
+            if let date = makeISO8601DateFormatter(withFractionalSeconds: false).date(from: value) {
                 return date
             }
 
@@ -458,17 +458,13 @@ enum FeedAPIStubFactory {
         return decoder
     }
 
-    private static let iso8601DateFormatterWithFractionalSeconds: ISO8601DateFormatter = {
+    private static func makeISO8601DateFormatter(withFractionalSeconds: Bool) -> ISO8601DateFormatter {
         let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime, .withFractionalSeconds]
+        formatter.formatOptions = withFractionalSeconds
+            ? [.withInternetDateTime, .withFractionalSeconds]
+            : [.withInternetDateTime]
         return formatter
-    }()
-
-    private static let iso8601DateFormatter: ISO8601DateFormatter = {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = [.withInternetDateTime]
-        return formatter
-    }()
+    }
 }
 
 private enum FeedAPIStubError: Error {

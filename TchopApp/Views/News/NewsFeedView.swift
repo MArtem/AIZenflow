@@ -132,8 +132,9 @@ struct NewsFeedView: View {
 }
 
 /// Lightweight UIKit bridge that observes the hosting scroll view's content offset without affecting SwiftUI layout.
+@MainActor
 private struct NewsFeedScrollObserver: UIViewRepresentable {
-    let onOffsetChange: (CGFloat) -> Void
+    let onOffsetChange: @MainActor (CGFloat) -> Void
 
     func makeCoordinator() -> Coordinator {
         Coordinator(onOffsetChange: onOffsetChange)
@@ -151,34 +152,32 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
     }
 
     /// Owns the single KVO observation for the enclosing UIKit scroll view.
+    @MainActor
     final class Coordinator {
-        var onOffsetChange: (CGFloat) -> Void
+        var onOffsetChange: @MainActor (CGFloat) -> Void
         private weak var scrollView: UIScrollView?
         private var observation: NSKeyValueObservation?
 
-        init(onOffsetChange: @escaping (CGFloat) -> Void) {
+        init(onOffsetChange: @escaping @MainActor (CGFloat) -> Void) {
             self.onOffsetChange = onOffsetChange
         }
 
         func attachIfNeeded(to view: UIView) {
-            Task { @MainActor [weak self, weak view] in
-                guard let self, let view else {
-                    return
-                }
+            guard let scrollView = enclosingScrollView(from: view) else {
+                return
+            }
 
-                guard let scrollView = self.enclosingScrollView(from: view) else {
-                    return
-                }
+            guard self.scrollView !== scrollView else {
+                return
+            }
 
-                guard self.scrollView !== scrollView else {
-                    return
-                }
-
-                self.scrollView = scrollView
-                // KVO keeps this bridge lightweight and avoids layout-driven approaches such as an
-                // outer GeometryReader wrapper around the entire feed.
-                self.observation = scrollView.observe(\.contentOffset, options: [.initial, .new]) { [weak self] scrollView, _ in
-                    self?.onOffsetChange(max(0, scrollView.contentOffset.y))
+            self.scrollView = scrollView
+            // KVO keeps this bridge lightweight and avoids layout-driven approaches such as an
+            // outer GeometryReader wrapper around the entire feed.
+            self.observation = scrollView.observe(\.contentOffset, options: [.initial, .new]) { [weak self] _, change in
+                let verticalOffset = max(0, change.newValue?.y ?? 0)
+                MainActor.assumeIsolated {
+                    self?.onOffsetChange(verticalOffset)
                 }
             }
         }
