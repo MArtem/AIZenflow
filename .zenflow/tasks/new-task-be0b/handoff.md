@@ -1490,3 +1490,7 @@ Absent:  no tests/build/simulator checks
 - Feed card internals and the shared brand mark are now part of that same baseline.
   `FeaturedArticleCard`, `DiscussionCard`, `ArticleActionView`, `FeedCardStatusBadge`, and `BrandMarkView`
   now reuse shared typography/radius tokens for their structural styling, leaving mostly decorative illustration colors as the remaining non-tokenized visuals in those components.
+- The next cleanup pass has already started on real UX-quality details rather than style-only polish.
+  `AppShellView` now gives the menu-dismiss overlay an explicit accessibility label/hint/identifier,
+  hides the passive edge-open strip from accessibility,
+  and `NewsFeedView` now formats cached-status timestamps with locale-aware `FormatStyle` instead of a local `DateFormatter`.

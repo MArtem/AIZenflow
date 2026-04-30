@@ -24,6 +24,7 @@ struct FeedCardStatusBadge: View {
         .padding(.vertical, 7)
         .background(.ultraThinMaterial)
         .clipShape(Capsule())
+        .accessibilityElement(children: .combine)
     }
 }
 

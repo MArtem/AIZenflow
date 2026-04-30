@@ -1434,3 +1434,8 @@ Readability-first cycle progress:
 - The design-system pass now also covers feed card internals and the shared brand mark.
   `FeaturedArticleCard`, `DiscussionCard`, `ArticleActionView`, `FeedCardStatusBadge`, and `BrandMarkView`
   now read typography/radius choices from the shared token layer instead of view-local literals.
+- Started the `Accessibility + formatting + docs cleanup` pass.
+  The shell menu dismiss overlay now exposes explicit accessibility semantics,
+  the menu-open edge-strip is hidden from accessibility,
+  `FeedCardStatusBadge` now combines its content for VoiceOver,
+  and `NewsFeedView` no longer uses a view-local `DateFormatter`, switching cached-status timestamps to modern locale-aware `FormatStyle`.

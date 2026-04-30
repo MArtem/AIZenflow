@@ -103,7 +103,7 @@ struct NewsFeedView: View {
         }
 
         let timestampPrefix = AppLocalization.text("news.feed.cached.updatedAt")
-        return "\(baseText) \(timestampPrefix): \(Self.cachedStatusDateFormatter.string(from: lastSyncedAt))"
+        return "\(baseText) \(timestampPrefix): \(lastSyncedAt.formatted(date: .abbreviated, time: .shortened))"
     }
 
     /// Dedicated empty-state surface for a feed that resolved successfully but currently has no cards.
@@ -122,13 +122,6 @@ struct NewsFeedView: View {
         .padding(.vertical, AppSpacing.xl)
         .accessibilityElement(children: .combine)
     }
-
-    private static let cachedStatusDateFormatter: DateFormatter = {
-        let formatter = DateFormatter()
-        formatter.dateStyle = .medium
-        formatter.timeStyle = .short
-        return formatter
-    }()
 }
 
 /// Lightweight UIKit bridge that observes the hosting scroll view's content offset without affecting SwiftUI layout.

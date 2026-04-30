@@ -41,6 +41,9 @@ struct AppShellView: View {
                             .ignoresSafeArea()
                     }
                     .buttonStyle(.plain)
+                    .accessibilityLabel(AppLocalization.text("accessibility.shell.dismissMenu"))
+                    .accessibilityHint(AppLocalization.text("accessibility.shell.dismissMenuHint"))
+                    .accessibilityIdentifier("shell.dismissMenu")
                     .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
 
                     SideMenuView(
@@ -60,6 +63,7 @@ struct AppShellView: View {
                     .frame(width: 24)
                     .contentShape(Rectangle())
                     .ignoresSafeArea()
+                    .accessibilityHidden(true)
                     .gesture(openMenuGesture(menuWidth: menuWidth))
             }
             .gesture(closeMenuGesture(menuWidth: menuWidth))
