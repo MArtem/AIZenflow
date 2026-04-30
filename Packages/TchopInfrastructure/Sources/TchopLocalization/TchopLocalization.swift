@@ -120,14 +120,14 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
     /// Resolves one localized value without asserting, returning `nil` when neither active nor development bundle contain the key.
     private func resolvedLocalizedValue(_ key: String, localeIdentifier: String?) -> String? {
         let missingSentinel = "__missing__\(key)__"
-        let localizedValue = localizedValue(
+        let resolvedLocalizedValue = localizedValue(
             key,
             in: resolvedBundle(localeIdentifier: localeIdentifier),
             missingSentinel: missingSentinel
         )
 
-        if localizedValue != missingSentinel {
-            return localizedValue
+        if resolvedLocalizedValue != missingSentinel {
+            return resolvedLocalizedValue
         }
 
         let developmentLanguageValue = localizedValue(
