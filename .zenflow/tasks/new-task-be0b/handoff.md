@@ -82,6 +82,21 @@
   the app root uses an explicit `AppSessionState`,
   the home feed uses explicit `loading / content / empty / offline / failed` states,
   and the localization path for root/feed state messaging now resolves through resource-first keys instead of ad-hoc inline fallback copy in those surfaces.
+- The same localization hardening has now been extended into the auth and shell-chrome surfaces:
+  `LoginScreenView`,
+  `LoginViewModel`,
+  `TopBarView`,
+  `BottomTabBar`,
+  `SideMenuView`,
+  `FloatingActionButton`,
+  `AppTab`,
+  `AppDataSeeder`,
+  and the default channel/header fallbacks in `AppDIContainer`
+  now use resource-backed keys for their production copy instead of relying on inline fallback literals.
+- Localization completion baseline:
+  app-side `fallback:` usage has been removed from shipped runtime surfaces,
+  every current `AppLocalization` key usage is backed by `en` resources,
+  and `en` / `ru` key catalogs are currently symmetric.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,
@@ -223,6 +238,8 @@
 - Additional persistent localization rule:
   localization and internationalization are mandatory by default;
   every new user-facing element must be wired through localization keys (no hardcoded user-facing literals).
+  Production copy must live in localization resources rather than inline fallback strings in Swift files.
+  Fallback text is reserved for localization infrastructure safety nets or explicitly temporary migration paths, not for normal shipped UI surfaces.
   Prefer centralized manager/facade approach (package-backed where practical) to keep locale handling reusable and consistent.
 - Additional persistent target-branding rule:
   for multi-target apps, target-specific colors and future UI tokens should be resolved through a centralized semantic branding layer,
@@ -1461,3 +1478,6 @@ Absent:  no tests/build/simulator checks
   The app now uses an availability-gated `AppGlass` compatibility layer so [TopBarView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift), [BottomTabBar.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/BottomTabBar.swift), and [FloatingActionButton.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/FloatingActionButton.swift) adopt native SwiftUI Liquid Glass on `iOS 26+`, while older deployment targets preserve the previous themed surfaces and shadows.
 - Warning policy is now explicit:
   keep the project and targets at a zero-warning baseline, and fix new compiler/project warnings immediately instead of deferring them.
+- Glass branding is no longer a FAB-only special case.
+  Target-specific Liquid Glass tinting now resolves through extensible semantic `BrandGlassRole` -> `BrandGlassStyle` theme tokens,
+  with the current FAB using the `.floatingActionButton` role as the first consumer.

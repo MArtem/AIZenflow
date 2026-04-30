@@ -30,6 +30,16 @@ The app-level test coverage was then extended to include `TabRouter`, `AppCoordi
 The same backend-neutral architecture is now also implemented inside the `TchopDatabase` infrastructure module. The package exposes a shared `DatabaseManaging` contract with backend selection policy, `SwiftData` and `Core Data` managers, and backend-neutral read/write operation wrappers. Package tests now validate both backends and the factory selection path, and the full app test suite still passes against the updated package.
 The app layer has now been brought onto that same package contract directly. Repositories and seeders use `DatabaseManaging` from `TchopDatabase`, while `AppDatabase.swift` is reduced to app-specific container construction and hands backend choice to `DatabaseServiceFactory`. In parallel, `TchopNetworking` was extended with typed connectivity errors, an authentication interceptor, upload and download APIs with progress reporting, and an offline queue foundation. Both `swift test --package-path Packages/TchopInfrastructure` and `xcodebuild ... test` pass after these changes.
 
+### [x] Step: State and localization foundation
+
+Started the state/localization modernization pass with the root and feed contracts, then extended it into auth and shell chrome.
+Completed:
+- `AppState` now drives the root flow through explicit `AppSessionState` values instead of an implicit `currentUser == nil` split.
+- `NewsFeedViewModel` / `NewsFeedView` now use explicit `loading / content / empty / offline / failed` feed states.
+- `TchopLocalization` and `AppLocalization` now support resource-first lookups cleanly enough to move production surfaces away from inline fallback copy.
+- Root/feed messaging, login/auth copy, tab/menu/top-bar chrome, floating-action-button accessibility text, default channel metadata, and side-menu/footer text now resolve through localization resources.
+- The remaining localization cleanup has been completed, so production UI copy is now resource-backed across the active app surfaces instead of being sourced from inline Swift fallback strings.
+
 ### [x] Step: Replace stub tabs with feature screens
 
 Continue from the current coordinator-based tab architecture by replacing the generic stub views in `Mixes`, `Pinned`, and `Chat` with concrete SwiftUI feature screens that match the existing visual system and preserve independent navigation stacks.
@@ -1412,3 +1422,5 @@ Readability-first cycle progress:
   and root/feed localization moved onto a resource-first path with new keyed entries in the localization bundle for those flows.
 - Added a zero-warning baseline rule.
   New compiler, target, and project warnings should be fixed immediately instead of being deferred into later cleanup.
+- Generalized target-specific Liquid Glass theming.
+  Brand-specific glass tinting now lives in extensible semantic `BrandGlassRole` tokens inside the branding layer rather than as a one-off `FloatingActionButton` patch.

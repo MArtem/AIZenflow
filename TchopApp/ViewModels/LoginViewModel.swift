@@ -189,15 +189,9 @@ final class LoginViewModel: ObservableObject {
     var passwordGuidanceText: String {
         switch mode {
         case .defaultAppAuth:
-            return AppLocalization.text(
-                "login.password.guidance",
-                fallback: "Use at least 8 characters, including letters and numbers."
-            )
+            return AppLocalization.text("login.password.guidance")
         case .reqResDemoExternalAuth:
-            return AppLocalization.text(
-                "login.external.password.guidance",
-                fallback: "ReqRes demo auth accepts fixture passwords such as pistol."
-            )
+            return AppLocalization.text("login.external.password.guidance")
         }
     }
 
@@ -241,10 +235,7 @@ final class LoginViewModel: ObservableObject {
         refreshCanSubmitState()
 
         guard emailState.isValid, passwordState.isValid else {
-            errorMessage = AppLocalization.text(
-                "login.error.invalidCredentials",
-                fallback: "Check the highlighted fields and try again."
-            )
+            errorMessage = AppLocalization.text("login.error.invalidCredentials")
             return nil
         }
 
@@ -255,26 +246,18 @@ final class LoginViewModel: ObservableObject {
     private func validateEmail(_ rawEmail: String) -> LoginFieldValidationState {
         let normalizedEmail = normalizedEmail(rawEmail)
         guard !normalizedEmail.isEmpty else {
-            return .invalid(
-                AppLocalization.text("login.error.emptyEmail", fallback: "Enter an email.")
-            )
+            return .invalid(AppLocalization.text("login.error.emptyEmail"))
         }
 
         guard Self.isValidEmail(normalizedEmail) else {
-            return .invalid(
-                AppLocalization.text("login.error.invalidEmail", fallback: "Enter a valid email address.")
-            )
+            return .invalid(AppLocalization.text("login.error.invalidEmail"))
         }
 
         switch mode {
         case .defaultAppAuth:
-            return .valid(
-                AppLocalization.text("login.email.valid", fallback: "Email looks good.")
-            )
+            return .valid(AppLocalization.text("login.email.valid"))
         case .reqResDemoExternalAuth:
-            return .valid(
-                AppLocalization.text("login.external.email.valid", fallback: "Valid demo email format.")
-            )
+            return .valid(AppLocalization.text("login.external.email.valid"))
         }
     }
 
@@ -289,21 +272,15 @@ final class LoginViewModel: ObservableObject {
 
     private func validateDefaultPassword(_ rawPassword: String) -> LoginFieldValidationState {
         guard !rawPassword.isEmpty else {
-            return .invalid(
-                AppLocalization.text("login.error.emptyPassword", fallback: "Enter a password.")
-            )
+            return .invalid(AppLocalization.text("login.error.emptyPassword"))
         }
 
         guard !rawPassword.contains(where: { $0.isWhitespace }) else {
-            return .invalid(
-                AppLocalization.text("login.error.passwordWhitespace", fallback: "Use a password without spaces.")
-            )
+            return .invalid(AppLocalization.text("login.error.passwordWhitespace"))
         }
 
         guard rawPassword.count >= 8 else {
-            return .invalid(
-                AppLocalization.text("login.error.passwordTooShort", fallback: "Use at least 8 characters.")
-            )
+            return .invalid(AppLocalization.text("login.error.passwordTooShort"))
         }
 
         let hasLetter = rawPassword.contains(where: { $0.isLetter })
@@ -311,40 +288,28 @@ final class LoginViewModel: ObservableObject {
         let hasSymbol = rawPassword.contains(where: { !$0.isLetter && !$0.isNumber && !$0.isWhitespace })
 
         guard hasLetter else {
-            return .invalid(
-                AppLocalization.text("login.error.passwordMissingLetter", fallback: "Add at least one letter.")
-            )
+            return .invalid(AppLocalization.text("login.error.passwordMissingLetter"))
         }
 
         guard hasDigit else {
-            return .invalid(
-                AppLocalization.text("login.error.passwordMissingDigit", fallback: "Add at least one number.")
-            )
+            return .invalid(AppLocalization.text("login.error.passwordMissingDigit"))
         }
 
         if rawPassword.count >= 12 && hasSymbol {
-            return .valid(
-                AppLocalization.text("login.password.strong", fallback: "Strong password.")
-            )
+            return .valid(AppLocalization.text("login.password.strong"))
         }
 
-        return .valid(
-            AppLocalization.text("login.password.valid", fallback: "Password meets the requirements.")
-        )
+        return .valid(AppLocalization.text("login.password.valid"))
     }
 
     private func validateReqResPassword(_ rawPassword: String) -> LoginFieldValidationState {
         let normalizedPassword = rawPassword.trimmingCharacters(in: .whitespacesAndNewlines)
 
         guard !normalizedPassword.isEmpty else {
-            return .invalid(
-                AppLocalization.text("login.error.emptyPassword", fallback: "Enter a password.")
-            )
+            return .invalid(AppLocalization.text("login.error.emptyPassword"))
         }
 
-        return .valid(
-            AppLocalization.text("login.external.password.valid", fallback: "Password provided.")
-        )
+        return .valid(AppLocalization.text("login.external.password.valid"))
     }
 
     private func refreshCanSubmitState() {
@@ -358,10 +323,7 @@ final class LoginViewModel: ObservableObject {
 
         let now = Date()
         guard now.timeIntervalSince(lastSubmissionDate) >= submissionThrottleInterval else {
-            errorMessage = AppLocalization.text(
-                "login.error.throttled",
-                fallback: "Please wait a moment before trying again."
-            )
+            errorMessage = AppLocalization.text("login.error.throttled")
             return false
         }
 
@@ -390,10 +352,7 @@ final class LoginViewModel: ObservableObject {
                 )
             )
         } catch AppleAuthenticationError.invalidCredential {
-            errorMessage = AppLocalization.text(
-                "login.apple.error.invalidCredential",
-                fallback: "Unable to read the Apple sign-in credential."
-            )
+            errorMessage = AppLocalization.text("login.apple.error.invalidCredential")
         } catch {
             presentLoginError(
                 error,

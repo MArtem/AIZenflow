@@ -90,6 +90,11 @@ enum AppTheme {
         dark: UIColor(red: 0.17, green: 0.18, blue: 0.27, alpha: 1)
     )
 
+    /// Resolves target-specific glass styling for one semantic chrome role.
+    static func glassStyle(for role: BrandGlassRole) -> BrandGlassStyle? {
+        AppBranding.theme.glass.style(for: role)
+    }
+
     private static func dynamicColor(light: UIColor, dark: UIColor) -> Color {
         Color(
             uiColor: UIColor { trait in

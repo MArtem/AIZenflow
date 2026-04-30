@@ -66,14 +66,13 @@ struct DiscussionCard: View {
             .accessibilityLabel(
                 AppLocalization.text(
                     "accessibility.news.discussionCard",
-                    fallback: "%@. %@. %@ replies. %@.",
                     discussion.categoryTitle,
                     discussion.headline,
                     String(discussion.replyCount),
                     discussion.joinedText
                 )
             )
-            .accessibilityHint(AppLocalization.text("accessibility.news.discussionCardHint", fallback: "Opens discussion details."))
+            .accessibilityHint(AppLocalization.text("accessibility.news.discussionCardHint"))
 
             Divider()
                 .overlay(AppTheme.borderSubtle.opacity(0.25))
@@ -84,8 +83,8 @@ struct DiscussionCard: View {
                 } label: {
                     actionLabel(
                         title: discussion.uiState.isParticipating
-                            ? AppLocalization.text("news.discussion.action.joined", fallback: "Joined")
-                            : AppLocalization.text("news.discussion.action.join", fallback: "Join"),
+                            ? AppLocalization.text("news.discussion.action.joined")
+                            : AppLocalization.text("news.discussion.action.join"),
                         systemName: "person.2.fill",
                         isActive: discussion.uiState.isParticipating,
                         isLoading: discussion.uiState.pendingOperation == .togglingParticipation
@@ -100,7 +99,7 @@ struct DiscussionCard: View {
                     onAction(.addReply)
                 } label: {
                     actionLabel(
-                        title: "\(discussion.replyCount) " + AppLocalization.text("news.discussion.action.replies", fallback: "Replies"),
+                        title: "\(discussion.replyCount) " + AppLocalization.text("news.discussion.action.replies"),
                         systemName: "bubble.left.and.bubble.right.fill",
                         isActive: false,
                         isLoading: discussion.uiState.pendingOperation == .addingReply
@@ -116,7 +115,7 @@ struct DiscussionCard: View {
                         onAction(.setDisplayMode(.expanded))
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.expanded", fallback: "Expanded layout"),
+                            AppLocalization.text("news.discussion.menu.expanded"),
                             systemImage: discussion.uiState.displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
                         )
                     }
@@ -125,7 +124,7 @@ struct DiscussionCard: View {
                         onAction(.setDisplayMode(.compact))
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.compact", fallback: "Compact layout"),
+                            AppLocalization.text("news.discussion.menu.compact"),
                             systemImage: discussion.uiState.displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
                         )
                     }
@@ -136,7 +135,7 @@ struct DiscussionCard: View {
                         onAction(.refreshContent)
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.refresh", fallback: "Refresh discussion"),
+                            AppLocalization.text("news.discussion.menu.refresh"),
                             systemImage: "arrow.clockwise"
                         )
                     }
@@ -145,7 +144,7 @@ struct DiscussionCard: View {
                         onAction(.runLongTask)
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.update", fallback: "Run update task"),
+                            AppLocalization.text("news.discussion.menu.update"),
                             systemImage: "wand.and.stars"
                         )
                     }
@@ -155,7 +154,7 @@ struct DiscussionCard: View {
                         .foregroundStyle(AppTheme.discussionTextSecondary)
                 }
                 .disabled(discussion.uiState.blocksActions)
-                .accessibilityLabel(AppLocalization.text("accessibility.news.discussionOptions", fallback: "Discussion options"))
+                .accessibilityLabel(AppLocalization.text("accessibility.news.discussionOptions"))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 14)

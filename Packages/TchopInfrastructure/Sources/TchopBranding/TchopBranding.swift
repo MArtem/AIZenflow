@@ -20,6 +20,50 @@ public enum BrandThemeInfoKey {
     public static let variant = "TchopBrandVariant"
 }
 
+/// Extensible semantic key used to look up target-specific glass styling for chrome elements.
+public struct BrandGlassRole: RawRepresentable, Hashable, Codable, Sendable, ExpressibleByStringLiteral {
+    public let rawValue: String
+
+    /// Creates a new BrandGlassRole instance.
+    public init(rawValue: String) {
+        self.rawValue = rawValue
+    }
+
+    /// Creates a new BrandGlassRole instance from a string literal.
+    public init(stringLiteral value: StringLiteralType) {
+        self.init(rawValue: value)
+    }
+
+    public static let floatingActionButton = BrandGlassRole(rawValue: "shell.floatingActionButton")
+}
+
+/// Target-specific tint and stroke tokens for one glass-backed semantic element.
+public struct BrandGlassStyle {
+    public let tint: Color?
+    public let stroke: Color?
+
+    /// Creates a new BrandGlassStyle instance.
+    public init(tint: Color?, stroke: Color? = nil) {
+        self.tint = tint
+        self.stroke = stroke
+    }
+}
+
+/// Catalog of target-specific glass styles keyed by semantic roles rather than individual view implementations.
+public struct BrandGlassTheme {
+    private let stylesByRole: [BrandGlassRole: BrandGlassStyle]
+
+    /// Creates a new BrandGlassTheme instance.
+    public init(stylesByRole: [BrandGlassRole: BrandGlassStyle] = [:]) {
+        self.stylesByRole = stylesByRole
+    }
+
+    /// Resolves a glass style for the provided semantic role.
+    public func style(for role: BrandGlassRole) -> BrandGlassStyle? {
+        stylesByRole[role]
+    }
+}
+
 /// Semantic color palette that can drive target-specific UI tokens.
 public struct BrandTheme {
     public let variant: BrandVariant
@@ -29,6 +73,7 @@ public struct BrandTheme {
     public let card: BrandCardTheme
     public let navigation: BrandNavigationTheme
     public let status: BrandStatusTheme
+    public let glass: BrandGlassTheme
 
     /// Creates a new BrandTheme instance.
     public init(
@@ -38,7 +83,8 @@ public struct BrandTheme {
         tab: BrandTabTheme,
         card: BrandCardTheme,
         navigation: BrandNavigationTheme,
-        status: BrandStatusTheme
+        status: BrandStatusTheme,
+        glass: BrandGlassTheme = BrandGlassTheme()
     ) {
         self.variant = variant
         self.button = button
@@ -47,6 +93,7 @@ public struct BrandTheme {
         self.card = card
         self.navigation = navigation
         self.status = status
+        self.glass = glass
     }
 
     /// Backward-compatible alias for the primary accent token.
@@ -250,6 +297,16 @@ public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
                         light: BrandColorTokens.classicDestructiveLight,
                         dark: BrandColorTokens.classicDestructiveDark
                     )
+                ),
+                glass: BrandGlassTheme(
+                    stylesByRole: [
+                        .floatingActionButton: BrandGlassStyle(
+                            tint: dynamicColor(
+                                light: BrandColorTokens.classicPrimaryAccentLight,
+                                dark: BrandColorTokens.classicPrimaryAccentDark
+                            )
+                        )
+                    ]
                 )
             )
         case .ocean:
@@ -322,6 +379,16 @@ public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
                         light: BrandColorTokens.oceanDestructiveLight,
                         dark: BrandColorTokens.oceanDestructiveDark
                     )
+                ),
+                glass: BrandGlassTheme(
+                    stylesByRole: [
+                        .floatingActionButton: BrandGlassStyle(
+                            tint: dynamicColor(
+                                light: BrandColorTokens.oceanPrimaryAccentLight,
+                                dark: BrandColorTokens.oceanPrimaryAccentDark
+                            )
+                        )
+                    ]
                 )
             )
         }

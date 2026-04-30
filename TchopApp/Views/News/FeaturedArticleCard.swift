@@ -133,13 +133,12 @@ struct FeaturedArticleCard: View {
             .accessibilityLabel(
                 AppLocalization.text(
                     "accessibility.news.featuredCard",
-                    fallback: "%@. %@. %@.",
                     article.sourceTitle,
                     article.headline,
                     article.metadataLine
                 )
             )
-            .accessibilityHint(AppLocalization.text("accessibility.news.featuredCardHint", fallback: "Opens article details."))
+            .accessibilityHint(AppLocalization.text("accessibility.news.featuredCardHint"))
 
             Divider()
                 .overlay(AppTheme.borderSubtle)
@@ -162,10 +161,10 @@ struct FeaturedArticleCard: View {
                             title: action.kind == .like
                                 ? (
                                     article.uiState.isLiked
-                                        ? AppLocalization.text("news.featured.action.liked", fallback: "Liked")
+                                        ? AppLocalization.text("news.featured.action.liked")
                                         : action.title
                                 )
-                                : "\(article.commentCount) " + AppLocalization.text("news.featured.action.comments", fallback: "Comments"),
+                                : "\(article.commentCount) " + AppLocalization.text("news.featured.action.comments"),
                             onTap: {
                                 switch action.kind {
                                 case .like:
@@ -188,10 +187,7 @@ struct FeaturedArticleCard: View {
                             onAction(.setDisplayMode(.expanded))
                         } label: {
                             Label(
-                                AppLocalization.text(
-                                    "news.featured.menu.expanded",
-                                    fallback: "Expanded layout"
-                                ),
+                                AppLocalization.text("news.featured.menu.expanded"),
                                 systemImage: article.uiState.displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
                             )
                         }
@@ -200,10 +196,7 @@ struct FeaturedArticleCard: View {
                             onAction(.setDisplayMode(.compact))
                         } label: {
                             Label(
-                                AppLocalization.text(
-                                    "news.featured.menu.compact",
-                                    fallback: "Compact layout"
-                                ),
+                                AppLocalization.text("news.featured.menu.compact"),
                                 systemImage: article.uiState.displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
                             )
                         }
@@ -214,10 +207,7 @@ struct FeaturedArticleCard: View {
                             onAction(.refreshContent)
                         } label: {
                             Label(
-                                AppLocalization.text(
-                                    "news.featured.menu.refresh",
-                                    fallback: "Refresh card"
-                                ),
+                                AppLocalization.text("news.featured.menu.refresh"),
                                 systemImage: "arrow.clockwise"
                             )
                         }
@@ -226,10 +216,7 @@ struct FeaturedArticleCard: View {
                             onAction(.runLongTask)
                         } label: {
                             Label(
-                                AppLocalization.text(
-                                    "news.featured.menu.update",
-                                    fallback: "Run update task"
-                                ),
+                                AppLocalization.text("news.featured.menu.update"),
                                 systemImage: "wand.and.stars"
                             )
                         }
@@ -239,7 +226,7 @@ struct FeaturedArticleCard: View {
                             .foregroundStyle(AppTheme.iconSecondary)
                     }
                     .disabled(article.uiState.blocksActions)
-                    .accessibilityLabel(AppLocalization.text("accessibility.news.articleOptions", fallback: "Article options"))
+                    .accessibilityLabel(AppLocalization.text("accessibility.news.articleOptions"))
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)

@@ -527,8 +527,8 @@ final class AppDIContainer: ObservableObject {
         }
 
         return ChannelHeaderInfo(
-            title: AppLocalization.text("channel.default.title", fallback: "Tchop"),
-            subtitle: AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
+            title: AppLocalization.text("channel.default.title"),
+            subtitle: AppLocalization.text("channel.default.subtitle")
         )
     }
 

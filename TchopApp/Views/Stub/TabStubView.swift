@@ -32,7 +32,7 @@ struct TabStubView: View {
             }
 
             Button(action: onOpenSample) {
-                Text(AppLocalization.text("tab.stub.openSampleScreen", fallback: "Open sample screen"))
+                Text(AppLocalization.text("tab.stub.openSampleScreen"))
                     .font(.system(size: 15, weight: .semibold))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 18)

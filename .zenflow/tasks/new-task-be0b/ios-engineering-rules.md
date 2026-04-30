@@ -105,6 +105,8 @@ Use this file as the persistent engineering instruction set for this project whe
 - Controls must not rely on color alone to communicate state or affordance.
 - Every new user-facing element (screen, component, text label, error, placeholder, CTA, destination copy) must be added through localization keys, not hardcoded literals.
 - Prefer a centralized localization manager/facade (ideally package-backed) so locale resolution and formatting rules stay consistent and reusable across projects.
+- Production copy must live in localization resources, not as inline fallback strings inside Swift files.
+- Fallback strings are allowed only as a narrow technical safety net in localization infrastructure or explicitly temporary migration code, not as the source of truth for shipped UI text.
 - For multi-target apps, target-specific UI styling must be configured through semantic branding/theme tokens resolved from target metadata or build settings, not through scattered target checks in view code.
 - Prefer a package-backed branding manager/facade so button colors and future UI tokens can be swapped per target without forking view implementations.
 - New screens and reusable components must use semantic theme tokens (not raw hardcoded RGB values for surface/text states) so both appearances stay readable and consistent.

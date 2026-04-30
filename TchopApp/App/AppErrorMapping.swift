@@ -224,27 +224,27 @@ struct AppRuntimeErrorMessageCatalog: AppErrorMessageCatalog {
     func userMessage(for error: AppError) -> String {
         switch error.messageKey {
         case "error.auth.refreshMissing":
-            return AppLocalization.text("auth.error.refreshMissing", fallback: "Session expired. Please sign in again.")
+            return AppLocalization.text("auth.error.refreshMissing")
         case "error.persistence.secureStorage":
-            return AppLocalization.text("auth.error.secureStorage", fallback: "Secure session data is unavailable. Please sign in again.")
+            return AppLocalization.text("auth.error.secureStorage")
         case "error.persistence.feedMissing":
-            return AppLocalization.text("news.error.savedFeedMissing", fallback: "Saved feed is unavailable. Try refreshing again.")
+            return AppLocalization.text("news.error.savedFeedMissing")
         case "error.persistence.feedCardMissing":
-            return AppLocalization.text("news.error.savedCardMissing", fallback: "Saved card state is unavailable. Refresh the feed.")
+            return AppLocalization.text("news.error.savedCardMissing")
         case "error.persistence.channelMissing":
-            return AppLocalization.text("shell.error.channelMissing", fallback: "Channel data is unavailable. Restart the app or try again.")
+            return AppLocalization.text("shell.error.channelMissing")
         case "error.persistence.databaseBootstrap":
-            return AppLocalization.text("app.error.databaseBootstrap", fallback: "App data is unavailable. Restart the app and try again.")
+            return AppLocalization.text("app.error.databaseBootstrap")
         case "error.persistence.databaseWrite":
-            return AppLocalization.text("app.error.databaseWrite", fallback: "Unable to save local data right now. Try again.")
+            return AppLocalization.text("app.error.databaseWrite")
         case "error.persistence.databaseRead":
-            return AppLocalization.text("app.error.databaseRead", fallback: "Unable to read local data right now. Try again.")
+            return AppLocalization.text("app.error.databaseRead")
         case "error.validation.username":
-            return AppLocalization.text("login.error.invalidUsername", fallback: "Enter a valid username.")
+            return AppLocalization.text("login.error.invalidUsername")
         case "error.client.usernameResolution":
-            return AppLocalization.text("login.apple.error.usernameResolution", fallback: "Unable to prepare a local account right now. Please try again.")
+            return AppLocalization.text("login.apple.error.usernameResolution")
         case "error.persistence.userMissing":
-            return AppLocalization.text("profile.error.userMissing", fallback: "Account data is unavailable. Sign in again.")
+            return AppLocalization.text("profile.error.userMissing")
         default:
             return fallbackCatalog.userMessage(for: error)
         }

@@ -161,9 +161,7 @@ final class DeepLinkManager: DeepLinkManaging {
                 missingTitleReason: "missing-discussion-title",
                 destinationID: "discussion-details",
                 subtitleLocalizationKey: "deeplink.news.discussion.subtitle",
-                subtitleFallback: "Open discussion",
                 bodyLocalizationKey: "deeplink.news.discussion.body",
-                bodyFallback: "Discussion deep link destination.",
                 makeDestination: DeepLinkDestination.newsDiscussion
             )
         }
@@ -178,9 +176,7 @@ final class DeepLinkManager: DeepLinkManaging {
             missingTitleReason: "missing-article-title",
             destinationID: "article-details",
             subtitleLocalizationKey: "deeplink.news.article.subtitle",
-            subtitleFallback: "From deep link",
             bodyLocalizationKey: "deeplink.news.article.body",
-            bodyFallback: "Article deep link destination.",
             makeDestination: DeepLinkDestination.newsArticle
         )
     }
@@ -192,23 +188,15 @@ final class DeepLinkManager: DeepLinkManaging {
         missingTitleReason: String,
         destinationID: String,
         subtitleLocalizationKey: String,
-        subtitleFallback: String,
         bodyLocalizationKey: String,
-        bodyFallback: String,
         makeDestination: (NewsRoute) -> DeepLinkDestination
     ) -> DeepLinkParseResult {
         guard let title = queryValue("title", queryItems) else {
             return .invalidInAppLink(reason: missingTitleReason)
         }
 
-        let subtitle = queryValue("subtitle", queryItems) ?? AppLocalization.text(
-            subtitleLocalizationKey,
-            fallback: subtitleFallback
-        )
-        let body = queryValue("body", queryItems) ?? AppLocalization.text(
-            bodyLocalizationKey,
-            fallback: bodyFallback
-        )
+        let subtitle = queryValue("subtitle", queryItems) ?? AppLocalization.text(subtitleLocalizationKey)
+        let body = queryValue("body", queryItems) ?? AppLocalization.text(bodyLocalizationKey)
         let accentLabel = queryValue("accent", queryItems)
 
         return .resolved(
@@ -239,8 +227,7 @@ final class DeepLinkManager: DeepLinkManaging {
             makeDetail: { title, description in
                 .mixes(MixesRoute(title: title, description: description))
             },
-            descriptionLocalizationKey: "deeplink.mixes.description",
-            descriptionFallback: "Mix detail opened from a deep link."
+            descriptionLocalizationKey: "deeplink.mixes.description"
         )
     }
 
@@ -256,8 +243,7 @@ final class DeepLinkManager: DeepLinkManaging {
             makeDetail: { title, description in
                 .pinned(PinnedRoute(title: title, description: description))
             },
-            descriptionLocalizationKey: "deeplink.pinned.description",
-            descriptionFallback: "Pinned detail opened from a deep link."
+            descriptionLocalizationKey: "deeplink.pinned.description"
         )
     }
 
@@ -273,8 +259,7 @@ final class DeepLinkManager: DeepLinkManaging {
             makeDetail: { title, description in
                 .chat(ChatRoute(title: title, description: description))
             },
-            descriptionLocalizationKey: "deeplink.chat.description",
-            descriptionFallback: "Chat room opened from a deep link."
+            descriptionLocalizationKey: "deeplink.chat.description"
         )
     }
 
@@ -290,8 +275,7 @@ final class DeepLinkManager: DeepLinkManaging {
             makeDetail: { title, description in
                 .profile(ProfileRoute(title: title, description: description))
             },
-            descriptionLocalizationKey: "deeplink.profile.description",
-            descriptionFallback: "Profile detail opened from a deep link."
+            descriptionLocalizationKey: "deeplink.profile.description"
         )
     }
 
@@ -301,17 +285,13 @@ final class DeepLinkManager: DeepLinkManaging {
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy,
         makeDetail: (String, String) -> DeepLinkDestination,
-        descriptionLocalizationKey: String,
-        descriptionFallback: String
+        descriptionLocalizationKey: String
     ) -> DeepLinkParseResult {
         guard let title = queryValue("title", queryItems) else {
             return .resolved(DeepLinkIntent(destination: .tab(tab), policy: .replace))
         }
 
-        let description = queryValue("description", queryItems) ?? AppLocalization.text(
-            descriptionLocalizationKey,
-            fallback: descriptionFallback
-        )
+        let description = queryValue("description", queryItems) ?? AppLocalization.text(descriptionLocalizationKey)
 
         return .resolved(
             DeepLinkIntent(

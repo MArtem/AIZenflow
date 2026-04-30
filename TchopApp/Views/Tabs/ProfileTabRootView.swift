@@ -169,16 +169,16 @@ private struct ProfileAccountCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             ProfileCardTitle(
-                title: AppLocalization.text("profile.accountTitle", fallback: "Account")
+                title: AppLocalization.text("profile.accountTitle")
             )
 
             ProfileDetailRow(
-                title: AppLocalization.text("profile.providerLabel", fallback: "Sign-in method"),
+                title: AppLocalization.text("profile.providerLabel"),
                 value: providerTitle
             )
 
             ProfileDetailRow(
-                title: AppLocalization.text("profile.accountIDLabel", fallback: "Account ID"),
+                title: AppLocalization.text("profile.accountIDLabel"),
                 value: accountIDHint
             )
 
@@ -200,38 +200,23 @@ private struct ProfilePreferencesCard: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
             ProfileCardTitle(
-                title: AppLocalization.text("profile.preferencesTitle", fallback: "Preferences")
+                title: AppLocalization.text("profile.preferencesTitle")
             )
 
             Toggle(isOn: $isNavigationRestoreEnabled) {
                 VStack(alignment: .leading, spacing: 6) {
-                    Text(
-                        AppLocalization.text(
-                            "profile.restoreNavigationTitle",
-                            fallback: "Restore previous navigation state"
-                        )
-                    )
+                    Text(AppLocalization.text("profile.restoreNavigationTitle"))
                     .font(.system(size: 16, weight: .semibold))
                     .foregroundStyle(AppTheme.textPrimary)
 
-                    Text(
-                        AppLocalization.text(
-                            "profile.restoreNavigationDescription",
-                            fallback: "Reopen the last visited tab and nested destination after signing in."
-                        )
-                    )
+                    Text(AppLocalization.text("profile.restoreNavigationDescription"))
                     .font(.system(size: 14, weight: .medium))
                     .foregroundStyle(AppTheme.textTertiary)
                     .fixedSize(horizontal: false, vertical: true)
                 }
             }
             .tint(AppTheme.accent)
-            .accessibilityHint(
-                AppLocalization.text(
-                    "accessibility.profile.restoreNavigationHint",
-                    fallback: "Controls whether the app restores the previous tab and destination after sign in."
-                )
-            )
+            .accessibilityHint(AppLocalization.text("accessibility.profile.restoreNavigationHint"))
         }
         .padding(20)
         .background(AppTheme.surfacePrimary)
@@ -245,7 +230,7 @@ private struct ProfileLogoutButton: View {
 
     var body: some View {
         Button(action: onLogout) {
-            Text(AppLocalization.text("profile.logout", fallback: "Log out"))
+            Text(AppLocalization.text("profile.logout"))
                 .font(.system(size: 16, weight: .semibold))
                 .frame(maxWidth: .infinity)
                 .padding(.vertical, 15)
@@ -254,7 +239,7 @@ private struct ProfileLogoutButton: View {
                 .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         }
         .buttonStyle(.plain)
-        .accessibilityHint(AppLocalization.text("accessibility.profile.logoutHint", fallback: "Ends the current session and returns to the login screen."))
+        .accessibilityHint(AppLocalization.text("accessibility.profile.logoutHint"))
     }
 }
 

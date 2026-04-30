@@ -35,7 +35,6 @@ struct ChatTabRootView: View {
                 title: action.title,
                 description: AppLocalization.text(
                     "chat.route.quickAction.descriptionFormat",
-                    fallback: "%@. This room is modeled as a fast-response collaboration surface around feed activity and team coordination.",
                     action.caption
                 )
             )
@@ -49,7 +48,6 @@ struct ChatTabRootView: View {
                 title: item.title,
                 description: AppLocalization.text(
                     "route.item.descriptionFormat",
-                    fallback: "%@\n\n%@",
                     item.summary,
                     item.metadata
                 )

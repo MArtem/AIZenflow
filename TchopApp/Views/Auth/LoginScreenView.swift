@@ -67,10 +67,7 @@ struct LoginScreenView: View {
 
                 if viewModel.mode == .reqResDemoExternalAuth {
                     Text(
-                        AppLocalization.text(
-                            "login.external.reqresHint",
-                            fallback: "ReqRes demo auth requires a configured x-api-key and fixture credentials such as eve.holt@reqres.in / pistol."
-                        )
+                        AppLocalization.text("login.external.reqresHint")
                     )
                     .font(.system(size: 12, weight: .medium))
                     .foregroundStyle(AppTheme.textTertiary)
@@ -130,7 +127,7 @@ struct LoginScreenView: View {
                 viewModel.handleAppleSignInCompletion(result)
             }
             .accessibilityIdentifier("login.appleButton")
-            .accessibilityLabel(AppLocalization.text("accessibility.login.apple", fallback: "Sign in with Apple"))
+            .accessibilityLabel(AppLocalization.text("accessibility.login.apple"))
             .frame(height: 54)
             .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
             .disabled(viewModel.isSubmitting)
@@ -138,10 +135,7 @@ struct LoginScreenView: View {
 
 #if targetEnvironment(simulator)
             Text(
-                AppLocalization.text(
-                    "login.apple.simulatorHint",
-                    fallback: "Apple sign-in is prepared in code, but simulator-only validation is unreliable. Real authorization still requires a real bundle id, Apple capability setup, and ideally a physical device."
-                )
+                AppLocalization.text("login.apple.simulatorHint")
             )
             .font(.system(size: 12, weight: .medium))
             .foregroundStyle(AppTheme.textTertiary)
@@ -156,7 +150,7 @@ struct LoginScreenView: View {
                 .fill(AppTheme.borderSubtle)
                 .frame(height: 1)
 
-            Text(AppLocalization.text("login.separator", fallback: "or"))
+            Text(AppLocalization.text("login.separator"))
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(AppTheme.textTertiary)
 
@@ -196,7 +190,7 @@ struct LoginScreenView: View {
 
     private var emailField: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Text(AppLocalization.text("login.emailLabel", fallback: "Email"))
+            Text(AppLocalization.text("login.emailLabel"))
                 .font(.system(size: 13, weight: .semibold))
                 .foregroundStyle(AppTheme.textTertiary)
 
@@ -210,7 +204,7 @@ struct LoginScreenView: View {
                     text: $viewModel.email
                 )
                 .accessibilityIdentifier("login.emailField")
-                .accessibilityLabel(AppLocalization.text("login.emailLabel", fallback: "Email"))
+                .accessibilityLabel(AppLocalization.text("login.emailLabel"))
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .textContentType(.emailAddress)
@@ -245,7 +239,7 @@ struct LoginScreenView: View {
     private var passwordField: some View {
         VStack(alignment: .leading, spacing: 8) {
             HStack {
-                Text(AppLocalization.text("login.passwordLabel", fallback: "Password"))
+                Text(AppLocalization.text("login.passwordLabel"))
                     .font(.system(size: 13, weight: .semibold))
                     .foregroundStyle(AppTheme.textTertiary)
 
@@ -254,8 +248,8 @@ struct LoginScreenView: View {
                 Button(action: viewModel.togglePasswordVisibility) {
                     Text(
                         viewModel.isPasswordVisible
-                            ? AppLocalization.text("login.password.hide", fallback: "Hide")
-                            : AppLocalization.text("login.password.show", fallback: "Show")
+                            ? AppLocalization.text("login.password.hide")
+                            : AppLocalization.text("login.password.show")
                     )
                     .font(.system(size: 12, weight: .semibold))
                     .foregroundStyle(AppTheme.accent)
@@ -263,8 +257,8 @@ struct LoginScreenView: View {
                 .accessibilityIdentifier("login.passwordVisibilityButton")
                 .accessibilityLabel(
                     viewModel.isPasswordVisible
-                        ? AppLocalization.text("accessibility.login.hidePassword", fallback: "Hide password")
-                        : AppLocalization.text("accessibility.login.showPassword", fallback: "Show password")
+                        ? AppLocalization.text("accessibility.login.hidePassword")
+                        : AppLocalization.text("accessibility.login.showPassword")
                 )
                 .buttonStyle(.plain)
                 .disabled(viewModel.isSubmitting)
@@ -278,18 +272,18 @@ struct LoginScreenView: View {
                 Group {
                     if viewModel.isPasswordVisible {
                         TextField(
-                            AppLocalization.text("login.passwordPlaceholder", fallback: "Enter password"),
+                            AppLocalization.text("login.passwordPlaceholder"),
                             text: $viewModel.password
                         )
                     } else {
                         SecureField(
-                            AppLocalization.text("login.passwordPlaceholder", fallback: "Enter password"),
+                            AppLocalization.text("login.passwordPlaceholder"),
                             text: $viewModel.password
                         )
                     }
                 }
                 .accessibilityIdentifier("login.passwordField")
-                .accessibilityLabel(AppLocalization.text("login.passwordLabel", fallback: "Password"))
+                .accessibilityLabel(AppLocalization.text("login.passwordLabel"))
                 .textInputAutocapitalization(.never)
                 .autocorrectionDisabled()
                 .textContentType(.password)
@@ -328,7 +322,7 @@ struct LoginScreenView: View {
 
             if viewModel.mode == .reqResDemoExternalAuth {
                 secondaryButton(
-                    title: AppLocalization.text("login.external.registerButton", fallback: "Register with ReqRes"),
+                    title: AppLocalization.text("login.external.registerButton"),
                     identifier: "login.reqresRegisterButton",
                     action: viewModel.submitRegistration
                 )
@@ -339,66 +333,54 @@ struct LoginScreenView: View {
     private var titleText: String {
         switch viewModel.mode {
         case .defaultAppAuth:
-            return AppLocalization.text("login.title", fallback: "Welcome back")
+            return AppLocalization.text("login.title")
         case .reqResDemoExternalAuth:
-            return AppLocalization.text("login.external.title", fallback: "ReqRes Auth")
+            return AppLocalization.text("login.external.title")
         }
     }
 
     private var subtitleText: String {
         switch viewModel.mode {
         case .defaultAppAuth:
-            return AppLocalization.text(
-                "login.subtitle",
-                fallback: "Sign in with your email and password, or continue with Apple if your account is already linked."
-            )
+            return AppLocalization.text("login.subtitle")
         case .reqResDemoExternalAuth:
-            return AppLocalization.text(
-                "login.external.subtitle",
-                fallback: "Development-only external auth backed by ReqRes demo login and registration."
-            )
+            return AppLocalization.text("login.external.subtitle")
         }
     }
 
     private var formTitleText: String {
         switch viewModel.mode {
         case .defaultAppAuth:
-            return AppLocalization.text("login.form.title", fallback: "Sign in with email")
+            return AppLocalization.text("login.form.title")
         case .reqResDemoExternalAuth:
-            return AppLocalization.text("login.external.form.title", fallback: "Use demo credentials")
+            return AppLocalization.text("login.external.form.title")
         }
     }
 
     private var formSubtitleText: String {
         switch viewModel.mode {
         case .defaultAppAuth:
-            return AppLocalization.text(
-                "login.form.subtitle",
-                fallback: "Validation runs as you type and the button unlocks only when the form is ready."
-            )
+            return AppLocalization.text("login.form.subtitle")
         case .reqResDemoExternalAuth:
-            return AppLocalization.text(
-                "login.external.form.subtitle",
-                fallback: "ReqRes accepts fixture accounts only. Use sign in or create a demo account below."
-            )
+            return AppLocalization.text("login.external.form.subtitle")
         }
     }
 
     private var emailPlaceholderText: String {
         switch viewModel.mode {
         case .defaultAppAuth:
-            return AppLocalization.text("login.emailPlaceholder", fallback: "name@company.com")
+            return AppLocalization.text("login.emailPlaceholder")
         case .reqResDemoExternalAuth:
-            return AppLocalization.text("login.external.emailPlaceholder", fallback: "eve.holt@reqres.in")
+            return AppLocalization.text("login.external.emailPlaceholder")
         }
     }
 
     private var primaryActionTitle: String {
         switch viewModel.mode {
         case .defaultAppAuth:
-            return AppLocalization.text("login.continueButton", fallback: "Sign in")
+            return AppLocalization.text("login.continueButton")
         case .reqResDemoExternalAuth:
-            return AppLocalization.text("login.external.signInButton", fallback: "Sign in with ReqRes")
+            return AppLocalization.text("login.external.signInButton")
         }
     }
 

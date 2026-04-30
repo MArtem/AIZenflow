@@ -24,23 +24,11 @@ struct AccountProfileSummary: Equatable {
         accountIDHint = "...\(String(user.id.suffix(8)))"
 
         if user.appleUserID != nil {
-            providerTitle = AppLocalization.text(
-                "profile.provider.apple",
-                fallback: "Sign in with Apple"
-            )
-            providerDescription = AppLocalization.text(
-                "profile.provider.appleDescription",
-                fallback: "This local profile is linked to a stable Apple identity and can be restored through Apple sign-in."
-            )
+            providerTitle = AppLocalization.text("profile.provider.apple")
+            providerDescription = AppLocalization.text("profile.provider.appleDescription")
         } else {
-            providerTitle = AppLocalization.text(
-                "profile.provider.local",
-                fallback: "Local account"
-            )
-            providerDescription = AppLocalization.text(
-                "profile.provider.localDescription",
-                fallback: "This account currently exists only in local app storage on this device."
-            )
+            providerTitle = AppLocalization.text("profile.provider.local")
+            providerDescription = AppLocalization.text("profile.provider.localDescription")
         }
     }
 

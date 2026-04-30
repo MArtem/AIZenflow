@@ -363,10 +363,7 @@ final class DefaultUserRepository: UserRepository {
         preferredUsername: String?
     ) throws -> String {
         let baseUsername = UsernameNormalizer.normalize(preferredUsername ?? "")
-            ?? AppLocalization.text(
-                "login.apple.defaultUsername",
-                fallback: "Apple User"
-            )
+            ?? AppLocalization.text("login.apple.defaultUsername")
 
         if try findUser(username: baseUsername) == nil {
             return baseUsername

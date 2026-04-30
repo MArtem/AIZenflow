@@ -58,7 +58,7 @@ struct FeatureTabScaffoldView: View {
                             }
                             .buttonStyle(.plain)
                             .accessibilityElement(children: .combine)
-                            .accessibilityHint(AppLocalization.text("accessibility.feature.quickActionHint", fallback: "Opens this quick action."))
+                            .accessibilityHint(AppLocalization.text("accessibility.feature.quickActionHint"))
                         }
                     }
                     .padding(.horizontal, 2)
@@ -108,7 +108,7 @@ struct FeatureTabScaffoldView: View {
                             }
                             .buttonStyle(.plain)
                             .accessibilityElement(children: .combine)
-                            .accessibilityHint(AppLocalization.text("accessibility.feature.itemHint", fallback: "Opens this item."))
+                            .accessibilityHint(AppLocalization.text("accessibility.feature.itemHint"))
                         }
                     }
                 }

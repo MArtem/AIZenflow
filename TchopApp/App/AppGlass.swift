@@ -30,6 +30,7 @@ struct AppGlassContainer<Content: View>: View {
 private struct AppGlassChromeModifier<ChromeShape: Shape>: ViewModifier {
     let shape: ChromeShape
     let glassTint: Color?
+    let glassStroke: Color?
     let fallbackBackground: Color
     let fallbackShadowColor: Color
     let fallbackShadowRadius: CGFloat
@@ -52,8 +53,9 @@ private struct AppGlassChromeModifier<ChromeShape: Shape>: ViewModifier {
                     in: shape
                 )
                 .overlay {
-                    if let glassTint {
-                        shape.stroke(glassTint.opacity(interactive ? 0.28 : 0.18), lineWidth: 0.8)
+                    let resolvedStroke = glassStroke ?? glassTint
+                    if let resolvedStroke {
+                        shape.stroke(resolvedStroke.opacity(interactive ? 0.28 : 0.18), lineWidth: 0.8)
                     }
                 }
         } else {
@@ -75,6 +77,7 @@ extension View {
     func appGlassChrome<ChromeShape: Shape>(
         in shape: ChromeShape,
         glassTint: Color? = nil,
+        glassStroke: Color? = nil,
         fallbackBackground: Color,
         fallbackShadowColor: Color = .clear,
         fallbackShadowRadius: CGFloat = 0,
@@ -86,6 +89,7 @@ extension View {
             AppGlassChromeModifier(
                 shape: shape,
                 glassTint: glassTint,
+                glassStroke: glassStroke,
                 fallbackBackground: fallbackBackground,
                 fallbackShadowColor: fallbackShadowColor,
                 fallbackShadowRadius: fallbackShadowRadius,

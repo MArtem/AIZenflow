@@ -66,10 +66,10 @@ struct SideMenuView: View {
                     .accessibilityLabel(tab.title)
                     .accessibilityValue(
                         selectedTab == tab
-                            ? AppLocalization.text("accessibility.tab.selected", fallback: "Selected")
-                            : AppLocalization.text("accessibility.tab.notSelected", fallback: "Not selected")
+                            ? AppLocalization.text("accessibility.tab.selected")
+                            : AppLocalization.text("accessibility.tab.notSelected")
                     )
-                    .accessibilityHint(AppLocalization.text("accessibility.sideMenu.tabHint", fallback: "Navigates to this section."))
+                    .accessibilityHint(AppLocalization.text("accessibility.sideMenu.tabHint"))
                 }
             }
 
@@ -127,7 +127,6 @@ private struct SideMenuAccountSummaryCard: View {
         .accessibilityLabel(
             AppLocalization.text(
                 "accessibility.sideMenu.account",
-                fallback: "Signed in as %@. %@.",
                 accountSummary.displayName,
                 accountSummary.providerTitle
             )

@@ -15,15 +15,15 @@ enum AppTab: String, CaseIterable, Identifiable, Codable {
     var title: String {
         switch self {
         case .news:
-            AppLocalization.text("tab.news.title", fallback: "News")
+            AppLocalization.text("tab.news.title")
         case .mixes:
-            AppLocalization.text("tab.mixes.title", fallback: "Mixes")
+            AppLocalization.text("tab.mixes.title")
         case .pinned:
-            AppLocalization.text("tab.pinned.title", fallback: "Pinned")
+            AppLocalization.text("tab.pinned.title")
         case .chat:
-            AppLocalization.text("tab.chat.title", fallback: "Chat")
+            AppLocalization.text("tab.chat.title")
         case .profile:
-            AppLocalization.text("tab.profile.title", fallback: "Profile")
+            AppLocalization.text("tab.profile.title")
         }
     }
 
@@ -53,15 +53,15 @@ enum AppTab: String, CaseIterable, Identifiable, Codable {
     var stubDescription: String {
         switch self {
         case .news:
-            AppLocalization.text("tab.news.stubDescription", fallback: "Latest stories and channel updates.")
+            AppLocalization.text("tab.news.stubDescription")
         case .mixes:
-            AppLocalization.text("tab.mixes.stubDescription", fallback: "Curated collections and recommended posts.")
+            AppLocalization.text("tab.mixes.stubDescription")
         case .pinned:
-            AppLocalization.text("tab.pinned.stubDescription", fallback: "Saved highlights and priority content.")
+            AppLocalization.text("tab.pinned.stubDescription")
         case .chat:
-            AppLocalization.text("tab.chat.stubDescription", fallback: "Direct messages and team conversations.")
+            AppLocalization.text("tab.chat.stubDescription")
         case .profile:
-            AppLocalization.text("tab.profile.stubDescription", fallback: "Account settings, activity, and preferences.")
+            AppLocalization.text("tab.profile.stubDescription")
         }
     }
 }

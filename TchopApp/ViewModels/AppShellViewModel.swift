@@ -36,10 +36,7 @@ final class AppShellViewModel: ObservableObject {
         errorManager: any AppErrorManaging,
         uiConfigurationManager: any UIConfigurationManaging,
         isMenuOpen: Bool = false,
-        sideMenuFooterText: String = AppLocalization.text(
-            "shell.sideMenu.footer",
-            fallback: "Select a destination here or from the bottom bar. Both stay in sync through the same tab state."
-        )
+        sideMenuFooterText: String = AppLocalization.text("shell.sideMenu.footer")
     ) {
         self.isMenuOpen = isMenuOpen
         self.channelInfo = channelInfo

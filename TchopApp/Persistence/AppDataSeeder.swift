@@ -50,8 +50,8 @@ enum AppDataSeeder {
                         context.insert(
                             ChannelRecord(
                                 id: "primary-channel",
-                                title: AppLocalization.text("channel.default.title", fallback: "Tchop"),
-                                subtitle: AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
+                                title: AppLocalization.text("channel.default.title"),
+                                subtitle: AppLocalization.text("channel.default.subtitle")
                             )
                         )
                     })
@@ -61,8 +61,8 @@ enum AppDataSeeder {
                     DatabaseWriteOperation(coreData: { context in
                         let entity = CoreDataChannelEntity(context: context)
                         entity.id = "primary-channel"
-                        entity.title = AppLocalization.text("channel.default.title", fallback: "Tchop")
-                        entity.subtitle = AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
+                        entity.title = AppLocalization.text("channel.default.title")
+                        entity.subtitle = AppLocalization.text("channel.default.subtitle")
                     })
                 ) as Void
             }
@@ -71,8 +71,8 @@ enum AppDataSeeder {
                 DatabaseWriteOperation(coreData: { context in
                     let entity = CoreDataChannelEntity(context: context)
                     entity.id = "primary-channel"
-                    entity.title = AppLocalization.text("channel.default.title", fallback: "Tchop")
-                    entity.subtitle = AppLocalization.text("channel.default.subtitle", fallback: "New channel name")
+                    entity.title = AppLocalization.text("channel.default.title")
+                    entity.subtitle = AppLocalization.text("channel.default.subtitle")
                 })
             ) as Void
         }

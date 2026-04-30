@@ -3,6 +3,8 @@ import SwiftUI
 /// Floating action button anchored above the bottom tab bar.
 struct FloatingActionButton: View {
     var body: some View {
+        let glassStyle = AppTheme.glassStyle(for: .floatingActionButton)
+
         Button(action: {}) {
             Image(systemName: "plus")
                 .font(.system(size: 28, weight: .medium))
@@ -10,7 +12,8 @@ struct FloatingActionButton: View {
                 .frame(width: 56, height: 56)
                 .appGlassChrome(
                     in: Circle(),
-                    glassTint: AppTheme.floatingActionButtonFill,
+                    glassTint: glassStyle?.tint,
+                    glassStroke: glassStyle?.stroke,
                     fallbackBackground: AppTheme.floatingActionButtonFill,
                     fallbackShadowColor: AppTheme.floatingActionButtonShadow,
                     fallbackShadowRadius: 10,
@@ -19,8 +22,8 @@ struct FloatingActionButton: View {
                 )
         }
         .buttonStyle(.plain)
-        .accessibilityLabel(AppLocalization.text("accessibility.fab.create", fallback: "Create"))
-        .accessibilityHint(AppLocalization.text("accessibility.fab.createHint", fallback: "Starts a new action."))
+        .accessibilityLabel(AppLocalization.text("accessibility.fab.create"))
+        .accessibilityHint(AppLocalization.text("accessibility.fab.createHint"))
     }
 }
 

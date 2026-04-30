@@ -60,7 +60,11 @@ In short:
 - protocol baseline = use protocol boundaries where they create a real seam for DI/isolation/testability, not as abstraction-for-abstraction's-sake.
 - warning baseline = keep app and targets warning-free; new compiler or project warnings must be fixed immediately instead of deferred.
 - visual chrome baseline = on systems that support Liquid Glass, prefer native glass for shell-level floating chrome and accessory controls with fallback styling for older iOS versions; do not apply glass indiscriminately to dense content cards or forms.
+- glass-branding baseline = target-specific glass tinting now resolves through semantic glass-role tokens in the branding layer, so new glass-backed elements can be themed per target without introducing one-off view hardcodes.
 - current feed-state baseline = explicit `loading / content / empty / offline / failed` rendering contract for the home feed instead of a generic loaded/failed split.
+- current auth/nav-localization baseline = login, tab chrome, side menu, top bar, floating action button, and default channel metadata now resolve through resource-backed localization keys instead of relying on inline fallback copy in those surfaces.
+- production-localization baseline = shipped user-facing copy must live in localization resources; inline fallback strings are not the source of truth for UI text.
+- current localization coverage baseline = all active `AppLocalization` key usages are now backed by both `en` and `ru` resource entries, so runtime localization is no longer depending on missing-key fallback behavior in app surfaces.
 
 ## Dependency Graph At A Glance
 

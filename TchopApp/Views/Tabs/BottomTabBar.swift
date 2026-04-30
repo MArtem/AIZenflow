@@ -30,10 +30,10 @@ struct BottomTabBar: View {
                 .accessibilityLabel(tab.title)
                 .accessibilityValue(
                     selectedTab == tab
-                        ? AppLocalization.text("accessibility.tab.selected", fallback: "Selected")
-                        : AppLocalization.text("accessibility.tab.notSelected", fallback: "Not selected")
+                        ? AppLocalization.text("accessibility.tab.selected")
+                        : AppLocalization.text("accessibility.tab.notSelected")
                 )
-                .accessibilityHint(AppLocalization.text("accessibility.tab.switchHint", fallback: "Switches to this tab."))
+                .accessibilityHint(AppLocalization.text("accessibility.tab.switchHint"))
             }
         }
         .padding(.horizontal, 10)
