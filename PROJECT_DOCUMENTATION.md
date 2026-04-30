@@ -52,6 +52,7 @@ In short:
 
 - app layer = product composition and feature behavior;
 - package layer = reusable infrastructure and shared primitives.
+- view-model ownership baseline = feature view models are created in composition/DI/factory/coordinator layers and injected downward; feature views do not construct them in their own initializers.
 - concurrency baseline = `SWIFT_STRICT_CONCURRENCY = complete` across the app project and local infrastructure package.
 - shared mutable state baseline = `@MainActor` or custom actors, not `DispatchQueue`-modeled state.
 - deployment-target baseline = whatever minimum iOS version is defined in the customer-owned Xcode project; do not assume `iOS 17+` by default when extending this app.
@@ -75,6 +76,8 @@ Read it top to bottom.
 TchopApp.swift
   -> AppDIContainer
     -> AppState
+      -> injected LoginViewModel for the signed-out flow
+      -> injected/synchronized ProfileTabViewModel for the authenticated profile flow
       -> AppCoordinator
       -> AppShellViewModel
         -> NewsFeedViewModel

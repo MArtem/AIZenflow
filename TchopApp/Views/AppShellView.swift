@@ -1,13 +1,11 @@
 import SwiftUI
-import TchopErrors
 
 /// Root authenticated shell with side menu and tab content container.
 struct AppShellView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
-    let errorManager: any AppErrorManaging
     let currentUser: AppUser?
-    let onNavigationRestoreChange: (Bool) throws -> Void
+    let profileTabViewModel: ProfileTabViewModel?
     let onLogout: () -> Void
     @GestureState private var menuDragOffset: CGFloat = 0
 
@@ -25,9 +23,8 @@ struct AppShellView: View {
                     viewModel: viewModel,
                     coordinator: coordinator,
                     newsRouter: coordinator.newsRouter,
-                    errorManager: errorManager,
                     currentUser: currentUser,
-                    onNavigationRestoreChange: onNavigationRestoreChange,
+                    profileTabViewModel: profileTabViewModel,
                     onLogout: onLogout
                 )
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -137,9 +134,10 @@ struct AppShellView: View {
     return AppShellView(
         viewModel: ViewPreviewSupport.makeShellViewModel(),
         coordinator: coordinator,
-        errorManager: ViewPreviewSupport.makeErrorManager(),
         currentUser: ViewPreviewSupport.sampleUser,
-        onNavigationRestoreChange: { _ in },
+        profileTabViewModel: ViewPreviewSupport.makeProfileTabViewModel(
+            currentUser: ViewPreviewSupport.sampleUser
+        ),
         onLogout: {}
     )
 }

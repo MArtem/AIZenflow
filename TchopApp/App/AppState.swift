@@ -21,6 +21,9 @@ final class AppState: ObservableObject {
     /// Explicit root session state that drives the auth/shell switch.
     @Published private(set) var sessionState: AppSessionState = .restoring
 
+    /// Profile tab presentation owner injected into the profile screen instead of being created by the view.
+    @Published private(set) var profileTabViewModel: ProfileTabViewModel?
+
     /// Shared coordinator for tab selection and per-tab navigation state.
     let coordinator: AppCoordinator
 
@@ -113,6 +116,7 @@ final class AppState: ObservableObject {
             isEnabled: isEnabled
         )
         sessionState = .authenticated(updatedUser)
+        profileTabViewModel?.syncCurrentUser(updatedUser)
 
         if isEnabled {
             restoreNavigationIfNeeded(for: updatedUser)
@@ -138,6 +142,7 @@ final class AppState: ObservableObject {
     func signOut() {
         sessionService.signOut()
         sessionState = .signedOut
+        profileTabViewModel = nil
         pendingDeepLinkInput = nil
         resetNavigationToDefaultState()
         appShellViewModel.closeMenu()
@@ -282,7 +287,21 @@ final class AppState: ObservableObject {
     /// Stores the active user and applies the standard authenticated runtime bootstrap flow.
     private func activateAuthenticatedUser(_ user: AppUser) {
         sessionState = .authenticated(user)
+        updateProfileTabViewModel(for: user)
         applyPostAuthenticationNavigation(for: user)
+    }
+
+    /// Creates or synchronizes the injected profile view model for the active authenticated user.
+    private func updateProfileTabViewModel(for user: AppUser) {
+        if let profileTabViewModel {
+            profileTabViewModel.syncCurrentUser(user)
+        } else {
+            profileTabViewModel = ProfileTabViewModel(
+                currentUser: user,
+                errorManager: errorManager,
+                onNavigationRestoreChange: setNavigationRestoreEnabled
+            )
+        }
     }
 
     /// Applies pending deep link if needed.
@@ -365,6 +384,12 @@ extension AppState {
     /// Forces a deterministic preview-only session state without exercising the real restore flow.
     func setPreviewSessionState(_ sessionState: AppSessionState) {
         self.sessionState = sessionState
+        switch sessionState {
+        case .restoring, .signedOut:
+            profileTabViewModel = nil
+        case let .authenticated(user):
+            updateProfileTabViewModel(for: user)
+        }
     }
 }
 #endif

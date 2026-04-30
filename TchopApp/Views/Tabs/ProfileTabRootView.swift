@@ -1,32 +1,11 @@
 import SwiftUI
-import TchopErrors
 import TchopNavigation
 
 /// Root profile-tab screen bound to its dedicated navigation router.
 struct ProfileTabRootView: View {
-    let currentUser: AppUser
+    @ObservedObject var viewModel: ProfileTabViewModel
     @ObservedObject var router: TabRouter<ProfileRoute>
     let onLogout: () -> Void
-    @StateObject private var viewModel: ProfileTabViewModel
-
-    init(
-        currentUser: AppUser,
-        router: TabRouter<ProfileRoute>,
-        errorManager: any AppErrorManaging,
-        onNavigationRestoreChange: @escaping (Bool) throws -> Void,
-        onLogout: @escaping () -> Void
-    ) {
-        self.currentUser = currentUser
-        self.router = router
-        self.onLogout = onLogout
-        _viewModel = StateObject(
-            wrappedValue: ProfileTabViewModel(
-                currentUser: currentUser,
-                errorManager: errorManager,
-                onNavigationRestoreChange: onNavigationRestoreChange
-            )
-        )
-    }
 
     var body: some View {
         NavigationStack(path: pathBinding) {
@@ -62,9 +41,6 @@ struct ProfileTabRootView: View {
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
             .background(Color.clear)
             .accessibilityIdentifier("profile.root")
-            .onChange(of: currentUser) { newValue in
-                viewModel.syncCurrentUser(newValue)
-            }
         }
     }
 
@@ -118,10 +94,10 @@ private struct ProfileHeaderSection: View {
 #if DEBUG
 #Preview("Profile Tab Root") {
     ProfileTabRootView(
-        currentUser: ViewPreviewSupport.sampleUser,
+        viewModel: ViewPreviewSupport.makeProfileTabViewModel(
+            currentUser: ViewPreviewSupport.sampleUser
+        ),
         router: TabRouter<ProfileRoute>(),
-        errorManager: ViewPreviewSupport.makeErrorManager(),
-        onNavigationRestoreChange: { _ in },
         onLogout: {}
     )
 }

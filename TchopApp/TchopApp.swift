@@ -6,6 +6,7 @@ import UIKit
 struct TchopApp: App {
     @UIApplicationDelegateAdaptor(TchopApplicationDelegate.self) private var applicationDelegate
     private let container: AppDIContainer
+    private let loginViewModel: LoginViewModel
     @StateObject private var appState: AppState
 
     /// Creates a new TchopApp instance.
@@ -17,6 +18,7 @@ struct TchopApp: App {
             isUITesting: launchConfiguration.isUITesting
         )
         let appState = container.makeAppState()
+        let loginViewModel = container.makeLoginViewModel(appState: appState)
 
         if launchConfiguration.launchesAuthenticatedSession {
             Task { @MainActor in
@@ -29,6 +31,7 @@ struct TchopApp: App {
         }
 
         self.container = container
+        self.loginViewModel = loginViewModel
 
         _appState = StateObject(
             wrappedValue: appState
@@ -41,9 +44,7 @@ struct TchopApp: App {
         WindowGroup {
             AppRootView(
                 appState: appState,
-                loginScreenMode: container.loginScreenMode,
-                appleAuthenticationManager: container.appleAuthenticationManager,
-                errorManager: container.errorManager,
+                loginViewModel: loginViewModel,
                 onOpenURL: { url in
                     _ = appState.handleIncomingURL(url)
                 },

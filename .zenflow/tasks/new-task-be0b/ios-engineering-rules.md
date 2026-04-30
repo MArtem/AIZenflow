@@ -53,6 +53,9 @@ Use this file as the persistent engineering instruction set for this project whe
 ## State Management
 - Single Source of Truth must be explicit.
 - Never store business state inside SwiftUI views.
+- SwiftUI views must not instantiate feature view models internally.
+- Create view models above the view in app composition, DI, factory, or coordinator layers, then inject them downward.
+- `@StateObject` is reserved for true composition roots that own object lifecycle, not for ordinary feature screens constructing their own dependencies in `View` initializers.
 - Prefer:
   - `@StateObject` for root view models
   - `@ObservedObject` for injections

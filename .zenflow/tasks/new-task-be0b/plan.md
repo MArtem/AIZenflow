@@ -40,6 +40,14 @@ Completed:
 - Root/feed messaging, login/auth copy, tab/menu/top-bar chrome, floating-action-button accessibility text, default channel metadata, and side-menu/footer text now resolve through localization resources.
 - The remaining localization cleanup has been completed, so production UI copy is now resource-backed across the active app surfaces instead of being sourced from inline Swift fallback strings.
 
+### [x] Step: Normalize view-model ownership
+
+Aligned SwiftUI ownership style with the project-wide DI/composition rules.
+Completed:
+- `LoginScreenView` no longer creates `LoginViewModel` internally; the view model is now created above the view in app composition and injected downward.
+- `ProfileTabRootView` no longer creates `ProfileTabViewModel` internally; the view model is now owned and synchronized by `AppState` and injected through the authenticated shell composition path.
+- Engineering rules, onboarding documentation, and handoff notes now explicitly state that feature views must not construct their own view models in their initializers.
+
 ### [x] Step: Replace stub tabs with feature screens
 
 Continue from the current coordinator-based tab architecture by replacing the generic stub views in `Mixes`, `Pinned`, and `Chat` with concrete SwiftUI feature screens that match the existing visual system and preserve independent navigation stacks.

@@ -254,6 +254,18 @@ final class AppDIContainer: ObservableObject {
         )
     }
 
+    /// Creates the injected login view model so the login screen never owns view-model construction.
+    func makeLoginViewModel(appState: AppState) -> LoginViewModel {
+        LoginViewModel(
+            mode: loginScreenMode,
+            onCredentialLogin: appState.signIn(email:password:),
+            onRegister: appState.register(email:password:),
+            onAppleLogin: appState.signInWithApple(identity:),
+            appleAuthenticationManager: appleAuthenticationManager,
+            errorManager: errorManager
+        )
+    }
+
     /// Creates the shared database manager and performs local seeding before the graph is assembled.
     private static func makeSeededDatabaseManager(
         configuration: AppDatabaseConfiguration

@@ -1,6 +1,5 @@
 import SwiftUI
 import TchopNavigation
-import TchopErrors
 
 /// Layout wrapper combining top chrome, tab content, and overlays.
 struct ShellContentView: View {
@@ -9,9 +8,8 @@ struct ShellContentView: View {
     @ObservedObject var viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
     @ObservedObject var newsRouter: TabRouter<NewsRoute>
-    let errorManager: any AppErrorManaging
     let currentUser: AppUser?
-    let onNavigationRestoreChange: (Bool) throws -> Void
+    let profileTabViewModel: ProfileTabViewModel?
     let onLogout: () -> Void
 
     /// Whether the shell-level floating action button is allowed for the current tab, route depth and scroll position.
@@ -37,10 +35,9 @@ struct ShellContentView: View {
                     selectedTab: coordinator.selectedTab,
                     coordinator: coordinator,
                     newsFeedViewModel: viewModel.newsFeedViewModel,
-                    errorManager: errorManager,
                     onNewsFeedScrollProximityChange: viewModel.setNewsFeedNearTop,
                     currentUser: currentUser,
-                    onNavigationRestoreChange: onNavigationRestoreChange,
+                    profileTabViewModel: profileTabViewModel,
                     onLogout: onLogout
                 )
                 .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -76,9 +73,10 @@ struct ShellContentView: View {
         viewModel: ViewPreviewSupport.makeShellViewModel(),
         coordinator: coordinator,
         newsRouter: coordinator.newsRouter,
-        errorManager: ViewPreviewSupport.makeErrorManager(),
         currentUser: ViewPreviewSupport.sampleUser,
-        onNavigationRestoreChange: { _ in },
+        profileTabViewModel: ViewPreviewSupport.makeProfileTabViewModel(
+            currentUser: ViewPreviewSupport.sampleUser
+        ),
         onLogout: {}
     )
 }

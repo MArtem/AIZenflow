@@ -71,6 +71,9 @@
 - Protocol-boundary policy is now explicit:
   use protocols where they provide a real seam for DI, substitution, isolation, or testability,
   but do not add protocol layers that only increase indirection without real payoff.
+- View-model ownership policy is now explicit:
+  feature SwiftUI views must not construct their own view models in `init`;
+  view models should be created above the view in DI/composition/factory/coordinator layers and injected downward.
 - Screen-state policy is now explicit:
   data-backed and auth-sensitive screens should model the relevant loading/content/empty/error/offline/unauthorized/refreshing states,
   while purely static screens do not need the full matrix.
@@ -97,6 +100,9 @@
   app-side `fallback:` usage has been removed from shipped runtime surfaces,
   every current `AppLocalization` key usage is backed by `en` resources,
   and `en` / `ru` key catalogs are currently symmetric.
+- View-model injection baseline:
+  `LoginScreenView` and `ProfileTabRootView` no longer create their own view models;
+  login view-model ownership now starts in app composition, while profile view-model ownership is held in `AppState` and synchronized from authenticated user state.
 - When the user says a new screen is starting, do not jump into implementation immediately.
   First collect the mandatory contract:
   screen goal,

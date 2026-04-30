@@ -1,30 +1,21 @@
 import SwiftUI
-import TchopAppleAuthentication
-import TchopErrors
 
 /// Root switch between authentication flow and authenticated shell.
 struct AppRootView: View {
     @ObservedObject var appState: AppState
-    /// Login UI contract selected by the active app environment.
-    let loginScreenMode: LoginScreenMode
-    let appleAuthenticationManager: any AppleAuthenticationManaging
-    let errorManager: any AppErrorManaging
+    @ObservedObject var loginViewModel: LoginViewModel
     let onOpenURL: (URL) -> Void
     let onContinueUserActivity: (NSUserActivity) -> Void
 
     /// Creates a new AppRootView instance.
     init(
         appState: AppState,
-        loginScreenMode: LoginScreenMode,
-        appleAuthenticationManager: any AppleAuthenticationManaging,
-        errorManager: any AppErrorManaging,
+        loginViewModel: LoginViewModel,
         onOpenURL: @escaping (URL) -> Void = { _ in },
         onContinueUserActivity: @escaping (NSUserActivity) -> Void = { _ in }
     ) {
         self.appState = appState
-        self.loginScreenMode = loginScreenMode
-        self.appleAuthenticationManager = appleAuthenticationManager
-        self.errorManager = errorManager
+        self.loginViewModel = loginViewModel
         self.onOpenURL = onOpenURL
         self.onContinueUserActivity = onContinueUserActivity
     }
@@ -37,21 +28,15 @@ struct AppRootView: View {
                     .accessibilityIdentifier("app.restoring")
             case .signedOut:
                 LoginScreenView(
-                    mode: loginScreenMode,
-                    onCredentialLogin: appState.signIn(email:password:),
-                    onRegister: appState.register(email:password:),
-                    onAppleLogin: appState.signInWithApple(identity:),
-                    appleAuthenticationManager: appleAuthenticationManager,
-                    errorManager: errorManager
+                    viewModel: loginViewModel
                 )
                 .accessibilityIdentifier("login.screen")
             case let .authenticated(currentUser):
                 AppShellView(
                     viewModel: appState.appShellViewModel,
                     coordinator: appState.coordinator,
-                    errorManager: errorManager,
                     currentUser: currentUser,
-                    onNavigationRestoreChange: appState.setNavigationRestoreEnabled,
+                    profileTabViewModel: appState.profileTabViewModel,
                     onLogout: appState.signOut
                 )
                 .accessibilityIdentifier("shell.screen")
@@ -167,6 +152,25 @@ enum ViewPreviewSupport {
     static func makeShellViewModel() -> AppShellViewModel {
         makeLocalContainer().makeAppShellViewModel()
     }
+
+    static func makeLoginViewModel(mode: LoginScreenMode = .defaultAppAuth) -> LoginViewModel {
+        LoginViewModel(
+            mode: mode,
+            onCredentialLogin: { _, _ in },
+            onRegister: { _, _ in },
+            onAppleLogin: { _ in },
+            appleAuthenticationManager: makeAppleAuthenticationManager(),
+            errorManager: makeErrorManager()
+        )
+    }
+
+    static func makeProfileTabViewModel(currentUser: AppUser) -> ProfileTabViewModel {
+        ProfileTabViewModel(
+            currentUser: currentUser,
+            errorManager: makeErrorManager(),
+            onNavigationRestoreChange: { _ in }
+        )
+    }
 }
 
 #Preview("App Root - Signed Out") {
@@ -176,9 +180,7 @@ enum ViewPreviewSupport {
 
     return AppRootView(
         appState: appState,
-        loginScreenMode: container.loginScreenMode,
-        appleAuthenticationManager: container.appleAuthenticationManager,
-        errorManager: container.errorManager
+        loginViewModel: ViewPreviewSupport.makeLoginViewModel(mode: container.loginScreenMode)
     )
 }
 
@@ -189,9 +191,7 @@ enum ViewPreviewSupport {
 
     return AppRootView(
         appState: appState,
-        loginScreenMode: container.loginScreenMode,
-        appleAuthenticationManager: container.appleAuthenticationManager,
-        errorManager: container.errorManager
+        loginViewModel: ViewPreviewSupport.makeLoginViewModel(mode: container.loginScreenMode)
     )
 }
 #endif

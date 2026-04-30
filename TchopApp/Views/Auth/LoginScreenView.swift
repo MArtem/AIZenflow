@@ -1,8 +1,5 @@
 import AuthenticationServices
 import SwiftUI
-import TchopAppleAuthentication
-import TchopErrors
-import UIKit
 
 /// Authentication screen shown before entering the app shell.
 ///
@@ -15,33 +12,12 @@ import UIKit
 ///
 /// The ReqRes mode keeps its separate development-only registration action and demo guidance.
 struct LoginScreenView: View {
-    @StateObject private var viewModel: LoginViewModel
+    @ObservedObject var viewModel: LoginViewModel
     @FocusState private var focusedField: Field?
 
     private enum Field {
         case email
         case password
-    }
-
-    /// Creates a new LoginScreenView instance.
-    init(
-        mode: LoginScreenMode,
-        onCredentialLogin: @escaping (String, String) async throws -> Void,
-        onRegister: @escaping (String, String) async throws -> Void,
-        onAppleLogin: @escaping (AppleAuthenticationIdentity) async throws -> Void,
-        appleAuthenticationManager: any AppleAuthenticationManaging,
-        errorManager: any AppErrorManaging
-    ) {
-        _viewModel = StateObject(
-            wrappedValue: LoginViewModel(
-                mode: mode,
-                onCredentialLogin: onCredentialLogin,
-                onRegister: onRegister,
-                onAppleLogin: onAppleLogin,
-                appleAuthenticationManager: appleAuthenticationManager,
-                errorManager: errorManager
-            )
-        )
     }
 
     var body: some View {
@@ -524,23 +500,13 @@ struct LoginScreenView: View {
 #if DEBUG
 #Preview("Login - Default Auth") {
     LoginScreenView(
-        mode: .defaultAppAuth,
-        onCredentialLogin: { _, _ in },
-        onRegister: { _, _ in },
-        onAppleLogin: { _ in },
-        appleAuthenticationManager: ViewPreviewSupport.makeAppleAuthenticationManager(),
-        errorManager: ViewPreviewSupport.makeErrorManager()
+        viewModel: ViewPreviewSupport.makeLoginViewModel(mode: .defaultAppAuth)
     )
 }
 
 #Preview("Login - ReqRes") {
     LoginScreenView(
-        mode: .reqResDemoExternalAuth,
-        onCredentialLogin: { _, _ in },
-        onRegister: { _, _ in },
-        onAppleLogin: { _ in },
-        appleAuthenticationManager: ViewPreviewSupport.makeAppleAuthenticationManager(),
-        errorManager: ViewPreviewSupport.makeErrorManager()
+        viewModel: ViewPreviewSupport.makeLoginViewModel(mode: .reqResDemoExternalAuth)
     )
 }
 #endif

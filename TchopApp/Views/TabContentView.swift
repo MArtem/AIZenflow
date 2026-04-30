@@ -1,15 +1,13 @@
 import SwiftUI
-import TchopErrors
 
 /// Hosts tab-level content including top bar, feed, and action affordances.
 struct TabContentView: View {
     let selectedTab: AppTab
     @ObservedObject var coordinator: AppCoordinator
     @ObservedObject var newsFeedViewModel: NewsFeedViewModel
-    let errorManager: any AppErrorManaging
     let onNewsFeedScrollProximityChange: (Bool) -> Void
     let currentUser: AppUser?
-    let onNavigationRestoreChange: (Bool) throws -> Void
+    let profileTabViewModel: ProfileTabViewModel?
     let onLogout: () -> Void
 
     var body: some View {
@@ -33,12 +31,10 @@ struct TabContentView: View {
                 router: coordinator.chatRouter
             )
         case .profile:
-            if let currentUser {
+            if currentUser != nil, let profileTabViewModel {
                 ProfileTabRootView(
-                    currentUser: currentUser,
+                    viewModel: profileTabViewModel,
                     router: coordinator.profileRouter,
-                    errorManager: errorManager,
-                    onNavigationRestoreChange: onNavigationRestoreChange,
                     onLogout: onLogout
                 )
             } else {
@@ -57,10 +53,11 @@ struct TabContentView: View {
         selectedTab: .news,
         coordinator: coordinator,
         newsFeedViewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
-        errorManager: ViewPreviewSupport.makeErrorManager(),
         onNewsFeedScrollProximityChange: { _ in },
         currentUser: ViewPreviewSupport.sampleUser,
-        onNavigationRestoreChange: { _ in },
+        profileTabViewModel: ViewPreviewSupport.makeProfileTabViewModel(
+            currentUser: ViewPreviewSupport.sampleUser
+        ),
         onLogout: {}
     )
 }
@@ -72,10 +69,11 @@ struct TabContentView: View {
         selectedTab: .profile,
         coordinator: coordinator,
         newsFeedViewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
-        errorManager: ViewPreviewSupport.makeErrorManager(),
         onNewsFeedScrollProximityChange: { _ in },
         currentUser: ViewPreviewSupport.sampleUser,
-        onNavigationRestoreChange: { _ in },
+        profileTabViewModel: ViewPreviewSupport.makeProfileTabViewModel(
+            currentUser: ViewPreviewSupport.sampleUser
+        ),
         onLogout: {}
     )
 }
