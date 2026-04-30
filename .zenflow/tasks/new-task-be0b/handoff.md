@@ -1496,3 +1496,5 @@ Absent:  no tests/build/simulator checks
   and `NewsFeedView` now formats cached-status timestamps with locale-aware `FormatStyle` instead of a local `DateFormatter`.
 - Package documentation consistency is now also aligned with the project's comment baseline.
   `TchopDatabase.swift` now documents that it is the umbrella re-export entry point for database contracts, composition, concrete backends, and navigation types consumed by the app target.
+- Feed action controls are now explicitly accessible rather than passively readable.
+  `ArticleActionView`, featured-article options, and discussion action/menu controls now provide direct VoiceOver labels, hints, and state values so action availability and in-flight work are announced intentionally.

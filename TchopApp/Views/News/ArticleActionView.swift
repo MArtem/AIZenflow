@@ -27,8 +27,23 @@ struct ArticleActionView: View {
             .foregroundStyle(isActive ? AppTheme.accent : AppTheme.textTertiary)
         }
         .buttonStyle(.plain)
+        .accessibilityLabel(title)
+        .accessibilityHint(AppLocalization.text("accessibility.news.cardActionHint"))
+        .accessibilityValue(accessibilityValueText)
         .disabled(isDisabled)
         .opacity(isDisabled && !isLoading ? 0.55 : 1)
+    }
+
+    private var accessibilityValueText: String {
+        if isLoading {
+            return AppLocalization.text("accessibility.news.cardActionLoading")
+        }
+
+        if isActive {
+            return AppLocalization.text("accessibility.news.cardActionActive")
+        }
+
+        return ""
     }
 }
 

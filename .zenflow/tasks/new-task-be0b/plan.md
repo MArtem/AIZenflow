@@ -1442,3 +1442,6 @@ Readability-first cycle progress:
 - The same pass also closed the remaining package doc-comment inconsistency.
   `Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
   now documents its role as the umbrella re-export entry point for the app's database layer.
+- Feed-card controls now also participate in the accessibility baseline explicitly.
+  `ArticleActionView`, the featured-article overflow menu, and the discussion action/menu row
+  now expose explicit labels, hints, and state values (`Active` / `In progress`) instead of relying on incidental system reading order.

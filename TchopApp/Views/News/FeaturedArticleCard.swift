@@ -227,6 +227,7 @@ struct FeaturedArticleCard: View {
                     }
                     .disabled(article.uiState.blocksActions)
                     .accessibilityLabel(AppLocalization.text("accessibility.news.articleOptions"))
+                    .accessibilityHint(AppLocalization.text("accessibility.news.optionsHint"))
                 }
                 .padding(.horizontal, 16)
                 .padding(.vertical, 14)

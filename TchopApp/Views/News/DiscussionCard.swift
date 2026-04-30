@@ -91,6 +91,21 @@ struct DiscussionCard: View {
                     )
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(
+                    discussion.uiState.isParticipating
+                        ? AppLocalization.text("news.discussion.action.joined")
+                        : AppLocalization.text("news.discussion.action.join")
+                )
+                .accessibilityHint(AppLocalization.text("accessibility.news.cardActionHint"))
+                .accessibilityValue(
+                    discussion.uiState.pendingOperation == .togglingParticipation
+                        ? AppLocalization.text("accessibility.news.cardActionLoading")
+                        : (
+                            discussion.uiState.isParticipating
+                                ? AppLocalization.text("accessibility.news.cardActionActive")
+                                : ""
+                        )
+                )
                 .disabled(discussion.uiState.blocksActions && discussion.uiState.pendingOperation != .togglingParticipation)
 
                 Spacer()
@@ -106,6 +121,13 @@ struct DiscussionCard: View {
                     )
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel("\(discussion.replyCount) " + AppLocalization.text("news.discussion.action.replies"))
+                .accessibilityHint(AppLocalization.text("accessibility.news.cardActionHint"))
+                .accessibilityValue(
+                    discussion.uiState.pendingOperation == .addingReply
+                        ? AppLocalization.text("accessibility.news.cardActionLoading")
+                        : ""
+                )
                 .disabled(discussion.uiState.blocksActions && discussion.uiState.pendingOperation != .addingReply)
 
                 Spacer()
@@ -155,6 +177,7 @@ struct DiscussionCard: View {
                 }
                 .disabled(discussion.uiState.blocksActions)
                 .accessibilityLabel(AppLocalization.text("accessibility.news.discussionOptions"))
+                .accessibilityHint(AppLocalization.text("accessibility.news.optionsHint"))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 14)
