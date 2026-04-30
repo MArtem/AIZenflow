@@ -29,6 +29,7 @@ struct AppGlassContainer<Content: View>: View {
 /// Availability-gated custom chrome styling that uses native Liquid Glass on supported systems.
 private struct AppGlassChromeModifier<ChromeShape: Shape>: ViewModifier {
     let shape: ChromeShape
+    let glassTint: Color?
     let fallbackBackground: Color
     let fallbackShadowColor: Color
     let fallbackShadowRadius: CGFloat
@@ -41,10 +42,20 @@ private struct AppGlassChromeModifier<ChromeShape: Shape>: ViewModifier {
     func body(content: Content) -> some View {
         if #available(iOS 26.0, *) {
             content
+                .background {
+                    if let glassTint {
+                        shape.fill(glassTint.opacity(interactive ? 0.26 : 0.14))
+                    }
+                }
                 .glassEffect(
                     interactive ? .regular.interactive() : .regular,
                     in: shape
                 )
+                .overlay {
+                    if let glassTint {
+                        shape.stroke(glassTint.opacity(interactive ? 0.28 : 0.18), lineWidth: 0.8)
+                    }
+                }
         } else {
             content
                 .background(fallbackBackground)
@@ -63,6 +74,7 @@ extension View {
     /// Styles a floating chrome surface with native Liquid Glass on iOS 26 and a themed fallback on older systems.
     func appGlassChrome<ChromeShape: Shape>(
         in shape: ChromeShape,
+        glassTint: Color? = nil,
         fallbackBackground: Color,
         fallbackShadowColor: Color = .clear,
         fallbackShadowRadius: CGFloat = 0,
@@ -73,6 +85,7 @@ extension View {
         modifier(
             AppGlassChromeModifier(
                 shape: shape,
+                glassTint: glassTint,
                 fallbackBackground: fallbackBackground,
                 fallbackShadowColor: fallbackShadowColor,
                 fallbackShadowRadius: fallbackShadowRadius,

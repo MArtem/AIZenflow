@@ -10,6 +10,7 @@ struct FloatingActionButton: View {
                 .frame(width: 56, height: 56)
                 .appGlassChrome(
                     in: Circle(),
+                    glassTint: AppTheme.floatingActionButtonFill,
                     fallbackBackground: AppTheme.floatingActionButtonFill,
                     fallbackShadowColor: AppTheme.floatingActionButtonShadow,
                     fallbackShadowRadius: 10,
