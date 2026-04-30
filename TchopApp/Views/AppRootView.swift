@@ -1,4 +1,6 @@
 import SwiftUI
+import TchopAppleAuthentication
+import TchopErrors
 
 /// Root switch between authentication flow and authenticated shell.
 struct AppRootView: View {
