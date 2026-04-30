@@ -170,13 +170,9 @@ final class DefaultUserRepository: UserRepository {
     private func fetchSwiftDataUser(id: String) throws -> AppUser? {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
-                let descriptor = FetchDescriptor<UserRecord>(
-                    predicate: #Predicate<UserRecord> { record in
-                        record.id == id
-                    }
-                )
-
-                return try context.fetch(descriptor).first.map(PersistenceUserMapper.map)
+                try Self.fetchAllSwiftDataUserRecords(in: context)
+                    .first(where: { $0.id == id })
+                    .map(PersistenceUserMapper.map)
             })
         )
     }
@@ -198,13 +194,9 @@ final class DefaultUserRepository: UserRepository {
     private func fetchSwiftDataUser(username: String) throws -> AppUser? {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
-                let descriptor = FetchDescriptor<UserRecord>(
-                    predicate: #Predicate<UserRecord> { record in
-                        record.username == username
-                    }
-                )
-
-                return try context.fetch(descriptor).first.map(PersistenceUserMapper.map)
+                try Self.fetchAllSwiftDataUserRecords(in: context)
+                    .first(where: { $0.username == username })
+                    .map(PersistenceUserMapper.map)
             })
         )
     }
@@ -214,13 +206,9 @@ final class DefaultUserRepository: UserRepository {
     private func fetchSwiftDataUser(appleUserID: String) throws -> AppUser? {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
-                let descriptor = FetchDescriptor<UserRecord>(
-                    predicate: #Predicate<UserRecord> { record in
-                        record.appleUserID == appleUserID
-                    }
-                )
-
-                return try context.fetch(descriptor).first.map(PersistenceUserMapper.map)
+                try Self.fetchAllSwiftDataUserRecords(in: context)
+                    .first(where: { $0.appleUserID == appleUserID })
+                    .map(PersistenceUserMapper.map)
             })
         )
     }
@@ -297,13 +285,8 @@ final class DefaultUserRepository: UserRepository {
     ) throws -> AppUser {
         try databaseManager.write(
             DatabaseWriteOperation(swiftData: { context in
-                let descriptor = FetchDescriptor<UserRecord>(
-                    predicate: #Predicate<UserRecord> { record in
-                        record.id == userID
-                    }
-                )
-
-                guard let userRecord = try context.fetch(descriptor).first else {
+                guard let userRecord = try Self.fetchAllSwiftDataUserRecords(in: context)
+                    .first(where: { $0.id == userID }) else {
                     throw UserRepositoryError.userNotFound
                 }
 
@@ -342,6 +325,18 @@ final class DefaultUserRepository: UserRepository {
         request.fetchLimit = 1
         request.predicate = predicate
         return request
+    }
+
+    @available(iOS 17, *)
+    /// Fetches the full local SwiftData user set for small-store repository lookups.
+    ///
+    /// The local user table is intentionally tiny, so an in-memory filter is acceptable here.
+    /// This also avoids Swift 6 strict-concurrency warnings caused by `#Predicate` on mutable
+    /// reference-model key paths for `UserRecord`.
+    private static func fetchAllSwiftDataUserRecords(
+        in context: ModelContext
+    ) throws -> [UserRecord] {
+        try context.fetch(FetchDescriptor<UserRecord>())
     }
 
     /// Finds an existing user by Apple identity on the active persistence backend.
