@@ -2387,6 +2387,10 @@ while `ProfileTabViewModel` owns optimistic preference updates, rollback, and pr
 The current design-system baseline is also stricter now:
 primary app surfaces should use semantic `AppTypography`, `AppSpacing`, `AppRadius`, and theme colors instead of repeating raw font, padding, and corner-radius values in views.
 
+The current accessibility/formatting baseline is also explicit:
+interactive surfaces should expose direct VoiceOver semantics where system defaults are ambiguous,
+and user-facing date/time rendering should prefer locale-aware modern formatting APIs over view-local formatter objects.
+
 If you are unsure where a change belongs, ask:
 
 1. is this reusable infrastructure or product-specific behavior?

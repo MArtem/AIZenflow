@@ -136,13 +136,13 @@ private struct SideMenuAccountSummaryCard: View {
 
 #if DEBUG
 #Preview("Side Menu") {
-        SideMenuView(
-            channelInfo: ViewPreviewSupport.sampleChannelInfo,
-            accountSummary: ViewPreviewSupport.sampleAccountSummary,
-            selectedTab: .news,
-            footerText: AppLocalization.text("menu.footer"),
-            onSelect: { _ in }
-        )
+    SideMenuView(
+        channelInfo: ViewPreviewSupport.sampleChannelInfo,
+        accountSummary: ViewPreviewSupport.sampleAccountSummary,
+        selectedTab: .news,
+        footerText: AppLocalization.text("menu.footer"),
+        onSelect: { _ in }
+    )
     .frame(width: 320)
 }
 #endif

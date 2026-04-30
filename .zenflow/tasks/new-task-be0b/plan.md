@@ -1445,3 +1445,5 @@ Readability-first cycle progress:
 - Feed-card controls now also participate in the accessibility baseline explicitly.
   `ArticleActionView`, the featured-article overflow menu, and the discussion action/menu row
   now expose explicit labels, hints, and state values (`Active` / `In progress`) instead of relying on incidental system reading order.
+- The `Accessibility + formatting + docs cleanup` pass is now effectively closed.
+  Shell/menu dismiss semantics, feed status formatting, feed-control accessibility, and package doc consistency have all been normalized to the current project baseline.

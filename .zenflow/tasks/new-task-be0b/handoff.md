@@ -1498,3 +1498,5 @@ Absent:  no tests/build/simulator checks
   `TchopDatabase.swift` now documents that it is the umbrella re-export entry point for database contracts, composition, concrete backends, and navigation types consumed by the app target.
 - Feed action controls are now explicitly accessible rather than passively readable.
   `ArticleActionView`, featured-article options, and discussion action/menu controls now provide direct VoiceOver labels, hints, and state values so action availability and in-flight work are announced intentionally.
+- The accessibility/formatting/docs cleanup pass can now be treated as complete for the current baseline.
+  Shell dismiss semantics, feed-control accessibility, locale-aware cached-status formatting, and the remaining package doc-comment inconsistency have all been closed in the same pass.
