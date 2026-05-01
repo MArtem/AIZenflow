@@ -57,6 +57,14 @@ Completed:
 - `actor` is now the explicit default for shared mutable concurrent state.
 - Documentation now records this as a standing production baseline for future implementation work.
 
+### [x] Step: Formalize app-wide runtime-store baseline
+
+Added a persistent rule for app-wide in-memory data handling.
+Completed:
+- App-wide in-memory data is now defined as a typed runtime-store layer above persisted storage, not as a persistence replacement.
+- The preferred direction for future features is multiple focused domain stores instead of one oversized global state owner.
+- Documentation now records explicit ownership, hydration, mutation, and persistence-policy requirements for each future store.
+
 ### [x] Step: Replace stub tabs with feature screens
 
 Continue from the current coordinator-based tab architecture by replacing the generic stub views in `Mixes`, `Pinned`, and `Chat` with concrete SwiftUI feature screens that match the existing visual system and preserve independent navigation stacks.

@@ -56,6 +56,13 @@ Use this file as the persistent engineering instruction set for this project whe
 - SwiftUI views must not instantiate feature view models internally.
 - Create view models above the view in app composition, DI, factory, or coordinator layers, then inject them downward.
 - `@StateObject` is reserved for true composition roots that own object lifecycle, not for ordinary feature screens constructing their own dependencies in `View` initializers.
+- App-wide in-memory data should live in typed runtime stores grouped by domain instead of one giant catch-all global state object.
+- In-memory stores are a fast runtime snapshot layer above persisted storage, not a replacement for backend, database, Keychain, UserDefaults, or file storage.
+- UI-facing app-wide runtime state should use `@MainActor` observable stores; concurrency-sensitive technical caches should use `actor`.
+- Each store must have explicit ownership, hydration policy, mutation policy, and persistence policy so it does not compete with repository caches or persisted storage as a second source of truth.
+- Large offline datasets, history, drafts, media, and long-lived caches belong in database/cache layers; stores should keep only the current runtime slice or lightweight snapshot needed for app behavior.
+- Prefer multiple focused domain stores such as session/preferences/channels/feature-flags/configuration over a single oversized global state owner.
+- ViewModels and use cases may read stores or subscribe to them, but views should receive prepared view state and should not reach directly into app-wide stores unless that UI context is intentionally global.
 - Prefer:
   - `@StateObject` for root view models
   - `@ObservedObject` for injections
