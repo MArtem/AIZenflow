@@ -4,7 +4,7 @@ import SwiftUI
 struct TabContentView: View {
     let selectedTab: AppTab
     @ObservedObject var coordinator: AppCoordinator
-    @ObservedObject var newsFeedViewModel: NewsFeedViewModel
+    let newsFeedViewModel: NewsFeedViewModel
     let onNewsFeedScrollProximityChange: (Bool) -> Void
     let currentUser: AppUser?
     let profileTabViewModel: ProfileTabViewModel?

@@ -148,6 +148,7 @@ final class AppState {
         profileTabViewModel = nil
         pendingDeepLinkInput = nil
         channelsStore.reset()
+        appShellViewModel.newsFeedViewModel.handleSelectedChannelChange()
         resetNavigationToDefaultState()
         appShellViewModel.closeMenu()
         widgetContentSyncManager.clearFeed()
@@ -307,10 +308,11 @@ final class AppState {
                 preselectedChannelID: AppChannel.defaultChannel.id
             )
         channelsStore.setAvailableChannels(settings.availableChannels)
-        channelsStore.activate(
+        _ = channelsStore.activate(
             for: user.id,
             preferredSelectedChannelID: settings.preselectedChannelID
         )
+        appShellViewModel.newsFeedViewModel.handleSelectedChannelChange()
     }
 
     /// Creates or synchronizes the injected profile view model for the active authenticated user.
@@ -419,6 +421,7 @@ extension AppState {
             sessionStore.setSignedOut()
             syncSessionStateFromStore()
             channelsStore.reset()
+            appShellViewModel.newsFeedViewModel.handleSelectedChannelChange()
             profileTabViewModel = nil
         case let .authenticated(user):
             sessionStore.setAuthenticatedUser(user)

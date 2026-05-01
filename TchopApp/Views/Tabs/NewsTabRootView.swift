@@ -3,7 +3,7 @@ import TchopNavigation
 
 /// Root news-tab container that binds feed and destination navigation.
 struct NewsTabRootView: View {
-    @ObservedObject var viewModel: NewsFeedViewModel
+    let viewModel: NewsFeedViewModel
     @ObservedObject var router: TabRouter<NewsRoute>
     /// Forwards list scroll proximity to the shell so it can gate the floating action button.
     let onFeedScrollProximityChange: (Bool) -> Void

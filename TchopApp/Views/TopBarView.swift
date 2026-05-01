@@ -4,7 +4,7 @@ import SwiftUI
 struct TopBarView: View {
     @State private var isChannelPickerPresented = false
 
-    @ObservedObject var channelsStore: ChannelsStore
+    let channelsStore: ChannelsStore
     let isSearchPresented: Bool
     var onMenuTap: () -> Void
     var onSelectChannel: (String) -> Void

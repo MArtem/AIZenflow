@@ -71,6 +71,19 @@
   do not assume `iOS 17+` by default for this app or for future work unless the project actually moves there.
 - Current project floor is now `iOS 17`, and the active app-layer persistence path is `SwiftData`-only.
   Legacy app-layer `Core Data` / automatic backend-selection code is intentionally commented out, not deleted, so it can be restored quickly if needed.
+- Observation migration is now partially applied in production code, not just documented:
+  `SessionStore`,
+  `AppState`,
+  `AppShellViewModel`,
+  `ProfileTabViewModel`,
+  `ChannelsStore`,
+  and `NewsFeedViewModel`
+  now use Observation-based state.
+  The remaining legacy `ObservableObject` surface is currently concentrated in
+  `LoginViewModel`,
+  `AppCoordinator`,
+  and package navigation types such as `TabRouter`,
+  which still rely on real `Combine` publisher paths.
 - Project baseline for tests is also explicit:
   keep code testable and preserve recommended test surfaces,
   but do not write, update, or run tests unless the user explicitly requests that scope.

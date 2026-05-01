@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Slide-out menu with app-level navigation actions.
 struct SideMenuView: View {
-    @ObservedObject var channelsStore: ChannelsStore
+    let channelsStore: ChannelsStore
     let accountSummary: AccountProfileSummary?
     let selectedTab: AppTab
     let footerText: String

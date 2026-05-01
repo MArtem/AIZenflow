@@ -1,5 +1,5 @@
-import Combine
 import Foundation
+import Observation
 
 /// Persistence contract for the user-scoped selected channel runtime preference.
 protocol ChannelSelectionStoring {
@@ -50,12 +50,13 @@ struct UserDefaultsChannelSelectionStore: ChannelSelectionStoring {
 /// This store keeps the current channel snapshot in memory and persists only the minimal selected
 /// channel preference needed to restore the session quickly on next launch.
 @MainActor
-final class ChannelsStore: ObservableObject {
+@Observable
+final class ChannelsStore {
     /// All channels currently available to the active user session.
-    @Published private(set) var channels: [AppChannel] = []
+    private(set) var channels: [AppChannel] = []
 
     /// Identifier of the active channel currently driving the visible feed context.
-    @Published private(set) var selectedChannelID: String?
+    private(set) var selectedChannelID: String?
 
     private let selectionStore: any ChannelSelectionStoring
     private var activeUserID: String?
@@ -98,7 +99,8 @@ final class ChannelsStore: ObservableObject {
     func activate(
         for userID: String,
         preferredSelectedChannelID: String?
-    ) {
+    ) -> Bool {
+        let previousChannelID = selectedChannelID
         activeUserID = userID
         let persistedChannelID = selectionStore.loadSelectedChannelID(for: userID)
         if let persistedChannelID, channels.contains(where: { $0.id == persistedChannelID }) {
@@ -110,6 +112,7 @@ final class ChannelsStore: ObservableObject {
         }
 
         persistSelectionIfNeeded()
+        return previousChannelID != selectedChannelID
     }
 
     /// Clears the current user context and resets channel selection back to an unauthenticated state.
@@ -119,23 +122,26 @@ final class ChannelsStore: ObservableObject {
     }
 
     /// Applies a new user-selected active channel and persists it when the choice is valid.
-    func selectChannel(id: String?) {
+    @discardableResult
+    func selectChannel(id: String?) -> Bool {
         guard let id else {
+            let previousChannelID = selectedChannelID
             selectedChannelID = channels.first?.id
             persistSelectionIfNeeded()
-            return
+            return previousChannelID != selectedChannelID
         }
 
         guard channels.contains(where: { $0.id == id }) else {
-            return
+            return false
         }
 
         guard selectedChannelID != id else {
-            return
+            return false
         }
 
         selectedChannelID = id
         persistSelectionIfNeeded()
+        return true
     }
 
     /// Restores or defaults the selected channel after the available channel list changes.

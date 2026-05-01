@@ -1,3 +1,4 @@
+import Observation
 import SwiftUI
 import UIKit
 
@@ -6,7 +7,7 @@ struct NewsFeedView: View {
     /// The shell-level plus button hides once the user has clearly moved away from the top card.
     private static let floatingActionButtonHideThreshold: CGFloat = 30
 
-    @ObservedObject var viewModel: NewsFeedViewModel
+    @Bindable var viewModel: NewsFeedViewModel
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
     let onFeaturedArticleTap: (FeaturedArticleCardModel) -> Void

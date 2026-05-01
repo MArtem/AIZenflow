@@ -62,7 +62,9 @@ final class AppShellViewModel {
 
     /// Applies one new active channel choice to the shared runtime store.
     func selectChannel(id: String) {
-        channelsStore.selectChannel(id: id)
+        if channelsStore.selectChannel(id: id) {
+            newsFeedViewModel.handleSelectedChannelChange()
+        }
     }
 
     /// Updates shell runtime visibility state for the news-feed floating action button.

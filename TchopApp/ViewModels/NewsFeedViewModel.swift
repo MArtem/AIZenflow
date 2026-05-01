@@ -1,5 +1,5 @@
-import Combine
 import Foundation
+import Observation
 import TchopErrors
 
 /// Explicit runtime state for the news feed screen.
@@ -91,15 +91,16 @@ private enum CardActionStartDecision {
 
 /// View model responsible for loading and exposing the home feed state.
 @MainActor
-final class NewsFeedViewModel: ObservableObject {
+@Observable
+final class NewsFeedViewModel {
     /// Explicit screen state used by the news feed UI.
-    @Published private(set) var state: NewsFeedState
+    private(set) var state: NewsFeedState
 
     /// Current free-text search query applied to cards from the selected channel only.
-    @Published var searchQuery: String = ""
+    var searchQuery: String = ""
 
     /// Whether the search field for the current channel is currently visible.
-    @Published private(set) var isSearchPresented: Bool = false
+    private(set) var isSearchPresented: Bool = false
 
     private let repository: any NewsFeedRepository
     private let channelsStore: ChannelsStore
@@ -108,7 +109,6 @@ final class NewsFeedViewModel: ObservableObject {
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
-    private var storeBindings: Set<AnyCancellable> = []
     /// Serializes article actions and queues additive taps per visible card.
     private let featuredArticleActionCoordinator = NewsFeedCardActionCoordinator()
     /// Serializes discussion actions and queues additive taps per visible card.
@@ -132,7 +132,6 @@ final class NewsFeedViewModel: ObservableObject {
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
         widgetContentSyncManager.syncFeed(content: initialContent)
-        setupChannelBindings()
         load(using: .initial)
     }
 
@@ -260,7 +259,9 @@ final class NewsFeedViewModel: ObservableObject {
 
     /// Cleans up any in-flight resources before release.
     deinit {
-        loadingTask?.cancel()
+        MainActor.assumeIsolated {
+            loadingTask?.cancel()
+        }
     }
 
     /// Applies freshly loaded feed content to published state and side effects.
@@ -313,19 +314,8 @@ final class NewsFeedViewModel: ObservableObject {
         loadingTask = makeLoadingTask()
     }
 
-    /// Observes app-wide selected-channel changes and reloads the visible feed against the new context.
-    private func setupChannelBindings() {
-        channelsStore.$selectedChannelID
-            .removeDuplicates()
-            .dropFirst()
-            .sink { [weak self] _ in
-                self?.handleSelectedChannelChange()
-            }
-            .store(in: &storeBindings)
-    }
-
     /// Re-resolves the persisted bootstrap snapshot for a newly selected channel before refreshing.
-    private func handleSelectedChannelChange() {
+    func handleSelectedChannelChange() {
         cancelLoading()
         searchQuery = ""
         isSearchPresented = false
