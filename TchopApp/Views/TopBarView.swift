@@ -93,32 +93,61 @@ struct TopBarView: View {
         .zIndex(1)
         .sheet(isPresented: $isChannelPickerPresented) {
             NavigationStack {
-                List(availableChannels) { channel in
-                    Button(action: { handleChannelSelection(channel.id) }) {
-                        HStack(spacing: AppSpacing.sm) {
-                            VStack(alignment: .leading, spacing: AppSpacing.xxs) {
-                                Text(channel.title)
-                                    .font(AppTypography.body)
-                                    .foregroundStyle(AppTheme.textPrimary)
+                ScrollView {
+                    LazyVStack(spacing: AppSpacing.sm) {
+                        ForEach(availableChannels) { channel in
+                            Button(action: { handleChannelSelection(channel.id) }) {
+                                HStack(spacing: AppSpacing.sm) {
+                                    VStack(alignment: .leading, spacing: AppSpacing.xxs) {
+                                        Text(channel.title)
+                                            .font(AppTypography.body)
+                                            .foregroundStyle(AppTheme.textPrimary)
 
-                                Text(channel.subtitle)
-                                    .font(AppTypography.caption)
-                                    .foregroundStyle(AppTheme.textTertiary)
+                                        Text(channel.subtitle)
+                                            .font(AppTypography.caption)
+                                            .foregroundStyle(AppTheme.textTertiary)
+                                    }
+
+                                    Spacer()
+
+                                    if channel.id == selectedChannelID {
+                                        Image(systemName: "checkmark")
+                                            .font(AppTypography.microLabel)
+                                            .foregroundStyle(AppTheme.iconPrimary)
+                                    }
+                                }
+                                .padding(.horizontal, AppSpacing.md)
+                                .padding(.vertical, AppSpacing.sm)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(AppTheme.surfacePrimary)
+                                .clipShape(
+                                    RoundedRectangle(
+                                        cornerRadius: AppRadius.buttonField,
+                                        style: .continuous
+                                    )
+                                )
+                                .overlay(
+                                    RoundedRectangle(
+                                        cornerRadius: AppRadius.buttonField,
+                                        style: .continuous
+                                    )
+                                    .stroke(
+                                        channel.id == selectedChannelID
+                                            ? AppTheme.accent.opacity(0.22)
+                                            : AppTheme.borderSubtle,
+                                        lineWidth: 1
+                                    )
+                                )
                             }
-
-                            Spacer()
-
-                            if channel.id == selectedChannelID {
-                                Image(systemName: "checkmark")
-                                    .font(AppTypography.microLabel)
-                                    .foregroundStyle(AppTheme.iconPrimary)
-                            }
+                            .buttonStyle(.plain)
+                            .accessibilityHint(AppLocalization.text("accessibility.channel.selectHint"))
                         }
-                        .contentShape(Rectangle())
                     }
-                    .buttonStyle(.plain)
-                    .accessibilityHint(AppLocalization.text("accessibility.channel.selectHint"))
+                    .padding(.horizontal, AppSpacing.md)
+                    .padding(.top, AppSpacing.sm)
+                    .padding(.bottom, AppSpacing.xl)
                 }
+                .background(AppTheme.canvasBackground.ignoresSafeArea())
                 .navigationTitle(AppLocalization.text("channels.section.title"))
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {

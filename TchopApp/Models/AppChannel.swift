@@ -29,8 +29,8 @@ struct AppChannel: Identifiable, Equatable, Sendable {
     /// Header presentation model derived from the current channel snapshot.
     var headerInfo: ChannelHeaderInfo {
         ChannelHeaderInfo(
-            title: AppLocalization.text("channel.header.title"),
-            subtitle: title
+            title: title,
+            subtitle: subtitle
         )
     }
 }
