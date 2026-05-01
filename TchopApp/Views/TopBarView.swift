@@ -24,17 +24,11 @@ struct TopBarView: View {
             .accessibilityHint(AppLocalization.text("accessibility.topBar.menuHint"))
 
             Menu {
-                Picker(
-                    AppLocalization.text("channels.section.title"),
-                    selection: Binding(
-                        get: { selectedChannelID ?? availableChannels.first?.id ?? "" },
-                        set: { onSelectChannel($0) }
-                    )
-                ) {
-                    ForEach(availableChannels) { channel in
-                        Text(channel.title)
-                            .tag(channel.id)
+                ForEach(availableChannels) { channel in
+                    Button(action: { onSelectChannel(channel.id) }) {
+                        channelMenuLabel(for: channel)
                     }
+                    .accessibilityHint(AppLocalization.text("accessibility.channel.selectHint"))
                 }
             } label: {
                 HStack(spacing: AppSpacing.sm) {
@@ -101,6 +95,16 @@ struct TopBarView: View {
         .padding(.horizontal, AppSpacing.shellHorizontal)
         .padding(.top, AppSpacing.xs)
         .zIndex(1)
+    }
+
+    /// Builds one explicit menu row for channel selection without relying on picker selection binding.
+    @ViewBuilder
+    private func channelMenuLabel(for channel: AppChannel) -> some View {
+        if channel.id == selectedChannelID {
+            Label(channel.title, systemImage: "checkmark")
+        } else {
+            Text(channel.title)
+        }
     }
 }
 
