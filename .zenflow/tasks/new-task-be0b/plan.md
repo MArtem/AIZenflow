@@ -236,7 +236,11 @@ Completed:
   `ChannelsStore` and `NewsFeedViewModel` now use Observation,
   channel-change reload is now an explicit owner-driven runtime flow instead of a `Combine` subscription bridge,
   and feed search binding now uses `@Bindable`.
-- Left `LoginViewModel`, `AppCoordinator`, and package navigation types on legacy `ObservableObject` for now because they still rely on real `Combine` publisher flows that need a separate refactor.
+- Completed a third Observation pass for auth input state:
+  `LoginViewModel` now uses Observation,
+  the old `Combine`-based debounced validation path was replaced with task-based debounce on the main actor,
+  and `LoginScreenView` now binds through `@Bindable`.
+- Left `AppCoordinator` and package navigation types on legacy `ObservableObject` for now because they still rely on real navigation publisher flows that need a separate refactor.
 - Added tests for persistence reload, connectivity-aware drain policy, and dead-letter transition after retry limit.
 - Post-review hardening applied:
   fixed actor reentrancy race in `drainIfConnected` to preserve items enqueued while drain is in-flight,

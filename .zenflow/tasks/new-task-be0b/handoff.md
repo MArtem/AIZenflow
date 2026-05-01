@@ -77,10 +77,10 @@
   `AppShellViewModel`,
   `ProfileTabViewModel`,
   `ChannelsStore`,
-  and `NewsFeedViewModel`
+  `NewsFeedViewModel`,
+  and `LoginViewModel`
   now use Observation-based state.
   The remaining legacy `ObservableObject` surface is currently concentrated in
-  `LoginViewModel`,
   `AppCoordinator`,
   and package navigation types such as `TabRouter`,
   which still rely on real `Combine` publisher paths.

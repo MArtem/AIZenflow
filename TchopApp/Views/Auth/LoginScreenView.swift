@@ -1,4 +1,5 @@
 import AuthenticationServices
+import Observation
 import SwiftUI
 
 /// Authentication screen shown before entering the app shell.
@@ -12,7 +13,7 @@ import SwiftUI
 ///
 /// The ReqRes mode keeps its separate development-only registration action and demo guidance.
 struct LoginScreenView: View {
-    @ObservedObject var viewModel: LoginViewModel
+    @Bindable var viewModel: LoginViewModel
     @FocusState private var focusedField: Field?
 
     private enum Field {

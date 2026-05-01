@@ -1,6 +1,6 @@
 import AuthenticationServices
-import Combine
 import Foundation
+import Observation
 import TchopAppleAuthentication
 import TchopErrors
 
@@ -47,33 +47,47 @@ enum LoginFieldValidationState: Equatable {
 
 /// View model backing the default app login screen and the development-only external ReqRes auth flow.
 @MainActor
-final class LoginViewModel: ObservableObject {
+@Observable
+final class LoginViewModel {
+    private enum ValidationField {
+        case email
+        case password
+    }
+
     /// Active login presentation mode selected by the app environment.
     let mode: LoginScreenMode
 
     /// User-entered email value.
-    @Published var email = ""
+    var email = "" {
+        didSet {
+            scheduleValidation(for: .email)
+        }
+    }
 
     /// User-entered password value.
-    @Published var password = ""
+    var password = "" {
+        didSet {
+            scheduleValidation(for: .password)
+        }
+    }
 
     /// Toggles secure/plain password field presentation.
-    @Published var isPasswordVisible = false
+    var isPasswordVisible = false
 
     /// Debounced email validation state used for inline UI feedback.
-    @Published private(set) var emailValidationState: LoginFieldValidationState = .untouched
+    private(set) var emailValidationState: LoginFieldValidationState = .untouched
 
     /// Debounced password validation state used for inline UI feedback.
-    @Published private(set) var passwordValidationState: LoginFieldValidationState = .untouched
+    private(set) var passwordValidationState: LoginFieldValidationState = .untouched
 
     /// Prevents duplicate submissions while an async sign-in attempt is in flight.
-    @Published private(set) var isSubmitting = false
+    private(set) var isSubmitting = false
 
     /// Tracks whether the form is ready for submission under the current mode-specific policy.
-    @Published private(set) var canSubmit = false
+    private(set) var canSubmit = false
 
     /// Presentation-ready validation or sign-in error.
-    @Published private(set) var errorMessage: String?
+    private(set) var errorMessage: String?
 
     private let onCredentialLogin: (String, String) async throws -> Void
     private let onRegister: (String, String) async throws -> Void
@@ -81,8 +95,9 @@ final class LoginViewModel: ObservableObject {
     private let appleAuthenticationManager: any AppleAuthenticationManaging
     private let errorManager: any AppErrorManaging
     private let submissionThrottleInterval: TimeInterval
-    private var validationCancellables: Set<AnyCancellable> = []
     private var lastSubmissionDate = Date.distantPast
+    private var emailValidationTask: Task<Void, Never>?
+    private var passwordValidationTask: Task<Void, Never>?
 
     /// Creates a login view model.
     ///
@@ -110,8 +125,6 @@ final class LoginViewModel: ObservableObject {
         self.appleAuthenticationManager = appleAuthenticationManager
         self.errorManager = errorManager
         self.submissionThrottleInterval = submissionThrottleInterval
-
-        bindValidation()
     }
 
     /// Starts the primary sign-in flow for the currently active mode.
@@ -195,32 +208,53 @@ final class LoginViewModel: ObservableObject {
         }
     }
 
-    private func bindValidation() {
-        $email
-            .dropFirst()
-            .handleEvents(receiveOutput: { [weak self] _ in
-                self?.emailValidationState = .validating
-                self?.errorMessage = nil
-            })
-            .debounce(for: .milliseconds(250), scheduler: RunLoop.main)
-            .sink { [weak self] email in
-                self?.emailValidationState = self?.validateEmail(email) ?? .untouched
-                self?.refreshCanSubmitState()
-            }
-            .store(in: &validationCancellables)
+    deinit {
+        MainActor.assumeIsolated {
+            emailValidationTask?.cancel()
+            passwordValidationTask?.cancel()
+        }
+    }
 
-        $password
-            .dropFirst()
-            .handleEvents(receiveOutput: { [weak self] _ in
-                self?.passwordValidationState = .validating
-                self?.errorMessage = nil
-            })
-            .debounce(for: .milliseconds(250), scheduler: RunLoop.main)
-            .sink { [weak self] password in
-                self?.passwordValidationState = self?.validatePassword(password) ?? .untouched
-                self?.refreshCanSubmitState()
+    private func scheduleValidation(for field: ValidationField) {
+        switch field {
+        case .email:
+            emailValidationTask?.cancel()
+            emailValidationState = .validating
+        case .password:
+            passwordValidationTask?.cancel()
+            passwordValidationState = .validating
+        }
+
+        errorMessage = nil
+        refreshCanSubmitState()
+
+        let task = Task { @MainActor [weak self] in
+            do {
+                try await Task.sleep(for: .milliseconds(250))
+            } catch {
+                return
             }
-            .store(in: &validationCancellables)
+
+            guard let self else {
+                return
+            }
+
+            switch field {
+            case .email:
+                self.emailValidationState = self.validateEmail(self.email)
+            case .password:
+                self.passwordValidationState = self.validatePassword(self.password)
+            }
+
+            self.refreshCanSubmitState()
+        }
+
+        switch field {
+        case .email:
+            emailValidationTask = task
+        case .password:
+            passwordValidationTask = task
+        }
     }
 
     private func validateCredentialsForSubmission() -> (email: String, password: String)? {
