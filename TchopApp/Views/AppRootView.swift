@@ -81,22 +81,14 @@ enum ViewPreviewSupport {
     )
 
     static let sampleChannelInfo = ChannelHeaderInfo(
-        title: "Tchop",
-        subtitle: "Editorial"
+        title: AppLocalization.text("channel.header.title"),
+        subtitle: AppChannel.primary.title
     )
 
     static let sampleChannels: [AppChannel] = [
         .primary,
-        AppChannel(
-            id: "product-channel",
-            title: AppLocalization.text("channel.product.title"),
-            subtitle: AppLocalization.text("channel.product.subtitle")
-        ),
-        AppChannel(
-            id: "community-channel",
-            title: AppLocalization.text("channel.community.title"),
-            subtitle: AppLocalization.text("channel.community.subtitle")
-        )
+        .product,
+        .community
     ]
 
     static let sampleNewsRoute = NewsRoute(

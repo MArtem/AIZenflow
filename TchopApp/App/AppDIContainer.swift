@@ -151,6 +151,9 @@ final class AppDIContainer: ObservableObject {
     /// App-wide runtime snapshot of available channels and current selection.
     let channelsStore: ChannelsStore
 
+    /// User-scoped channel settings source resolved during session bootstrap.
+    private let channelSettingsRepository: any UserChannelSettingsRepository
+
     /// Apple auth adapter used by the login UI flow.
     let appleAuthenticationManager: any AppleAuthenticationManaging
 
@@ -210,6 +213,7 @@ final class AppDIContainer: ObservableObject {
         self.channelsStore = ChannelsStore(
             selectionStore: UserDefaultsChannelSelectionStore()
         )
+        self.channelSettingsRepository = LocalUserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
@@ -228,8 +232,7 @@ final class AppDIContainer: ObservableObject {
         self.navigationEventReporter = navigationServices.navigationEventReporter
         self.deepLinkManager = navigationServices.deepLinkManager
 
-        let bootstrapChannels = (try? contentRepository.fetchAvailableChannels()) ?? [AppChannel.primary]
-        channelsStore.setAvailableChannels(bootstrapChannels)
+        channelsStore.setAvailableChannels([.primary, .product, .community])
     }
 
     /// Creates the shell view model used by the authenticated part of the app.
@@ -261,7 +264,7 @@ final class AppDIContainer: ObservableObject {
             channelsStore: channelsStore,
             sessionService: sessionService,
             userRepository: userRepository,
-            channelsRepository: contentRepository,
+            channelSettingsRepository: channelSettingsRepository,
             navigationStateManager: navigationStateManager,
             deepLinkManager: deepLinkManager,
             navigationEventReporter: navigationEventReporter,

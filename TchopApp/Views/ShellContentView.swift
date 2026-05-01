@@ -25,9 +25,12 @@ struct ShellContentView: View {
             VStack(spacing: 0) {
                 TopBarView(
                     channelInfo: viewModel.channelInfo,
+                    availableChannels: viewModel.channels,
+                    selectedChannelID: viewModel.selectedChannelID,
+                    isSearchPresented: viewModel.newsFeedViewModel.isSearchPresented,
                     onMenuTap: viewModel.toggleMenu,
-                    onChannelTap: viewModel.toggleMenu,
-                    onSearchTap: {},
+                    onSelectChannel: handleChannelSelection,
+                    onSearchTap: handleSearchTap,
                     onNotificationsTap: {}
                 )
 
@@ -62,6 +65,21 @@ struct ShellContentView: View {
         }
         .accessibilityIdentifier("shell.content")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
+    }
+
+    /// Applies one selected channel from the top-bar dropdown and keeps the shell on the news tab.
+    private func handleChannelSelection(_ channelID: String) {
+        viewModel.selectChannel(id: channelID)
+        coordinator.selectTab(.news)
+    }
+
+    /// Opens or closes search for the current channel feed.
+    private func handleSearchTap() {
+        if coordinator.selectedTab != .news {
+            coordinator.selectTab(.news)
+        }
+
+        viewModel.newsFeedViewModel.toggleSearchPresentation()
     }
 }
 

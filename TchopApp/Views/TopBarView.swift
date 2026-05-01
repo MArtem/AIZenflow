@@ -3,8 +3,11 @@ import SwiftUI
 /// Reusable top bar with menu trigger and channel metadata.
 struct TopBarView: View {
     let channelInfo: ChannelHeaderInfo
+    let availableChannels: [AppChannel]
+    let selectedChannelID: String?
+    let isSearchPresented: Bool
     var onMenuTap: () -> Void
-    var onChannelTap: () -> Void
+    var onSelectChannel: (String) -> Void
     var onSearchTap: () -> Void
     var onNotificationsTap: () -> Void
 
@@ -20,7 +23,17 @@ struct TopBarView: View {
             .accessibilityLabel(AppLocalization.text("accessibility.topBar.menu"))
             .accessibilityHint(AppLocalization.text("accessibility.topBar.menuHint"))
 
-            Button(action: onChannelTap) {
+            Menu {
+                ForEach(availableChannels) { channel in
+                    Button(action: { onSelectChannel(channel.id) }) {
+                        if selectedChannelID == channel.id {
+                            Label(channel.title, systemImage: "checkmark")
+                        } else {
+                            Text(channel.title)
+                        }
+                    }
+                }
+            } label: {
                 HStack(spacing: AppSpacing.sm) {
                     BrandMarkView(iconSize: 48, cardSize: CGSize(width: 28, height: 34))
 
@@ -41,7 +54,6 @@ struct TopBarView: View {
                     }
                 }
             }
-            .buttonStyle(.plain)
             .accessibilityElement(children: .combine)
             .accessibilityLabel(
                 AppLocalization.text(
@@ -56,7 +68,7 @@ struct TopBarView: View {
 
             HStack(spacing: AppSpacing.cardSection) {
                 Button(action: onSearchTap) {
-                    Image(systemName: "magnifyingglass")
+                    Image(systemName: isSearchPresented ? "xmark.circle.fill" : "magnifyingglass")
                         .frame(width: 24, height: 24)
                 }
                 .buttonStyle(.plain)
@@ -93,8 +105,11 @@ struct TopBarView: View {
 #Preview("Top Bar") {
     TopBarView(
         channelInfo: ViewPreviewSupport.sampleChannelInfo,
+        availableChannels: ViewPreviewSupport.sampleChannels,
+        selectedChannelID: ViewPreviewSupport.sampleChannels.first?.id,
+        isSearchPresented: false,
         onMenuTap: {},
-        onChannelTap: {},
+        onSelectChannel: { _ in },
         onSearchTap: {},
         onNotificationsTap: {}
     )

@@ -21,6 +21,8 @@
 		A000001C0000000000000001 /* TabStubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002C0000000000000001 /* TabStubView.swift */; };
 		A000001D0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A000002E0000000000000001 /* Assets.xcassets */; };
 		A00000D10000000000000001 /* StubFeedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A00000D20000000000000001 /* StubFeedResponse.json */; };
+		S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000030000000000000001 /* StubFeedResponseProductChannel.json */; };
+		S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */; };
 		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
 		A00000390000000000000001 /* ArticleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* ArticleActionView.swift */; };
@@ -69,6 +71,8 @@
 		Q00000030000000000000001 /* App/AppGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = Q00000020000000000000001 /* AppGlass.swift */; };
 		R00000070000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		R00000080000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
+		S00000050000000000000001 /* App/ChannelSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = S00000060000000000000001 /* ChannelSettingsRepository.swift */; };
+		S00000070000000000000001 /* App/ChannelSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = S00000060000000000000001 /* ChannelSettingsRepository.swift */; };
 		A00000750000000000000001 /* TchopNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* TchopNetworking */; };
 		A00000770000000000000001 /* TchopDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* TchopDatabase */; };
 		A00000B20000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
@@ -200,6 +204,8 @@
 		A000002D0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A000002E0000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00000D20000000000000001 /* StubFeedResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponse.json; sourceTree = "<group>"; };
+		S00000030000000000000001 /* StubFeedResponseProductChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseProductChannel.json; sourceTree = "<group>"; };
+		S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseCommunityChannel.json; sourceTree = "<group>"; };
 		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
 		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		A000003A0000000000000001 /* ArticleActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleActionView.swift; sourceTree = "<group>"; };
@@ -240,6 +246,7 @@
 		A000009D0000000000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		Q00000020000000000000001 /* AppGlass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGlass.swift; sourceTree = "<group>"; };
 		R00000090000000000000001 /* ChannelsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsStore.swift; sourceTree = "<group>"; };
+		S00000060000000000000001 /* ChannelSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSettingsRepository.swift; sourceTree = "<group>"; };
 		A00000B10000000000000001 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
 		B00000020000000000000001 /* AppBranding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBranding.swift; sourceTree = "<group>"; };
 		D00000020000000000000001 /* AppWidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWidgetBridge.swift; sourceTree = "<group>"; };
@@ -432,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				B00000020000000000000001 /* AppBranding.swift */,
+				S00000060000000000000001 /* ChannelSettingsRepository.swift */,
 				R00000090000000000000001 /* ChannelsStore.swift */,
 				A00000740000000000000001 /* AppDIContainer.swift */,
 				K00000050000000000000001 /* AppErrorMapping.swift */,
@@ -460,6 +468,8 @@
 			isa = PBXGroup;
 			children = (
 				A00000D20000000000000001 /* StubFeedResponse.json */,
+				S00000030000000000000001 /* StubFeedResponseProductChannel.json */,
+				S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -838,6 +848,8 @@
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
 				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
+				S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */,
+				S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -847,6 +859,8 @@
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
 				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
+				S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */,
+				S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -927,6 +941,7 @@
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000110000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
+				S00000050000000000000001 /* App/ChannelSettingsRepository.swift in Sources */,
 				R00000070000000000000001 /* App/ChannelsStore.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
@@ -999,6 +1014,7 @@
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000120000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
+				S00000070000000000000001 /* App/ChannelSettingsRepository.swift in Sources */,
 				R00000080000000000000001 /* App/ChannelsStore.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,

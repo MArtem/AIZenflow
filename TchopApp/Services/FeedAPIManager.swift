@@ -120,6 +120,7 @@ protocol FeedAPIManaging: Sendable {
 
     /// Performs one featured article action and returns the updated card snapshot.
     func performFeaturedArticleAction(
+        channelID: String,
         articleID: String,
         action: FeaturedArticleCardAction,
         context: FeaturedArticleActionContext
@@ -127,6 +128,7 @@ protocol FeedAPIManaging: Sendable {
 
     /// Performs one discussion action and returns the updated card snapshot.
     func performDiscussionAction(
+        channelID: String,
         discussionID: String,
         action: DiscussionCardAction,
         context: DiscussionActionContext
@@ -152,32 +154,42 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                 path: "feed/\(channelID)",
                 method: .get,
                 stubResponse: {
-                    try await FeedAPIStubFactory.makeFeedResponse()
+                    try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
                 }
             )
         )
     }
 
     func performFeaturedArticleAction(
+        channelID: String,
         articleID: String,
         action: FeaturedArticleCardAction,
         context: FeaturedArticleActionContext
     ) async throws -> FeaturedArticleDTO {
         switch action {
         case .toggleLike:
-            return try await setFeaturedArticleLike(articleID: articleID, isLiked: !context.isLiked)
+            return try await setFeaturedArticleLike(
+                channelID: channelID,
+                articleID: articleID,
+                isLiked: !context.isLiked
+            )
         case .addComment:
-            return try await addFeaturedArticleComment(articleID: articleID)
+            return try await addFeaturedArticleComment(channelID: channelID, articleID: articleID)
         case let .setDisplayMode(displayMode):
-            return try await setFeaturedArticleDisplayMode(articleID: articleID, displayMode: displayMode)
+            return try await setFeaturedArticleDisplayMode(
+                channelID: channelID,
+                articleID: articleID,
+                displayMode: displayMode
+            )
         case .refreshContent:
-            return try await refreshFeaturedArticle(articleID: articleID)
+            return try await refreshFeaturedArticle(channelID: channelID, articleID: articleID)
         case .runLongTask:
-            return try await runFeaturedArticleUpdate(articleID: articleID)
+            return try await runFeaturedArticleUpdate(channelID: channelID, articleID: articleID)
         }
     }
 
     func performDiscussionAction(
+        channelID: String,
         discussionID: String,
         action: DiscussionCardAction,
         context: DiscussionActionContext
@@ -185,25 +197,34 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         switch action {
         case .toggleParticipation:
             return try await setDiscussionParticipation(
+                channelID: channelID,
                 discussionID: discussionID,
                 isParticipating: !context.isParticipating
             )
         case .addReply:
-            return try await addDiscussionReply(discussionID: discussionID)
+            return try await addDiscussionReply(channelID: channelID, discussionID: discussionID)
         case let .setDisplayMode(displayMode):
-            return try await setDiscussionDisplayMode(discussionID: discussionID, displayMode: displayMode)
+            return try await setDiscussionDisplayMode(
+                channelID: channelID,
+                discussionID: discussionID,
+                displayMode: displayMode
+            )
         case .refreshContent:
-            return try await refreshDiscussion(discussionID: discussionID)
+            return try await refreshDiscussion(channelID: channelID, discussionID: discussionID)
         case .runLongTask:
-            return try await runDiscussionUpdate(discussionID: discussionID)
+            return try await runDiscussionUpdate(channelID: channelID, discussionID: discussionID)
         }
     }
 
     private func setFeaturedArticleLike(
+        channelID: String,
         articleID: String,
         isLiked: Bool
     ) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/like") { article in
+        try await performFeaturedArticleMutation(
+            channelID: channelID,
+            path: "feed/articles/\(articleID)/like"
+        ) { article in
             article.withLocalState(
                 FeaturedArticleStateDTO(
                     isLiked: isLiked,
@@ -214,8 +235,14 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func addFeaturedArticleComment(articleID: String) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/comments") { article in
+    private func addFeaturedArticleComment(
+        channelID: String,
+        articleID: String
+    ) async throws -> FeaturedArticleDTO {
+        try await performFeaturedArticleMutation(
+            channelID: channelID,
+            path: "feed/articles/\(articleID)/comments"
+        ) { article in
             article.withLocalState(
                 FeaturedArticleStateDTO(
                     isLiked: article.localState.isLiked,
@@ -227,10 +254,14 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     }
 
     private func setFeaturedArticleDisplayMode(
+        channelID: String,
         articleID: String,
         displayMode: FeaturedArticleCardDisplayMode
     ) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/display-mode") { article in
+        try await performFeaturedArticleMutation(
+            channelID: channelID,
+            path: "feed/articles/\(articleID)/display-mode"
+        ) { article in
             article.withLocalState(
                 FeaturedArticleStateDTO(
                     isLiked: article.localState.isLiked,
@@ -241,18 +272,30 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func refreshFeaturedArticle(articleID: String) async throws -> FeaturedArticleDTO {
+    private func refreshFeaturedArticle(
+        channelID: String,
+        articleID: String
+    ) async throws -> FeaturedArticleDTO {
         // Refresh-like actions mutate content fields rather than local interaction state to mimic a
         // backend returning a rebuilt card snapshot.
-        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/refresh") { article in
+        try await performFeaturedArticleMutation(
+            channelID: channelID,
+            path: "feed/articles/\(articleID)/refresh"
+        ) { article in
             article.withContent(
                 metadataLine: "refreshed just now"
             )
         }
     }
 
-    private func runFeaturedArticleUpdate(articleID: String) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(path: "feed/articles/\(articleID)/update") { article in
+    private func runFeaturedArticleUpdate(
+        channelID: String,
+        articleID: String
+    ) async throws -> FeaturedArticleDTO {
+        try await performFeaturedArticleMutation(
+            channelID: channelID,
+            path: "feed/articles/\(articleID)/update"
+        ) { article in
             article.withContent(
                 headline: "Updated article version ready for review",
                 summary: "This card now shows a rebuilt content snapshot produced by the stub API to simulate a long-running backend article update finishing inside the feed.",
@@ -262,10 +305,14 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     }
 
     private func setDiscussionParticipation(
+        channelID: String,
         discussionID: String,
         isParticipating: Bool
     ) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/participation") { discussion in
+        try await performDiscussionMutation(
+            channelID: channelID,
+            path: "feed/discussions/\(discussionID)/participation"
+        ) { discussion in
             let joinedDelta = isParticipating == discussion.localState.isParticipating ? 0 : (isParticipating ? 1 : -1)
             return discussion.withLocalState(
                 DiscussionStateDTO(
@@ -278,8 +325,14 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func addDiscussionReply(discussionID: String) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/replies") { discussion in
+    private func addDiscussionReply(
+        channelID: String,
+        discussionID: String
+    ) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(
+            channelID: channelID,
+            path: "feed/discussions/\(discussionID)/replies"
+        ) { discussion in
             discussion.withLocalState(
                 DiscussionStateDTO(
                     isParticipating: discussion.localState.isParticipating,
@@ -292,10 +345,14 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     }
 
     private func setDiscussionDisplayMode(
+        channelID: String,
         discussionID: String,
         displayMode: DiscussionCardDisplayMode
     ) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/display-mode") { discussion in
+        try await performDiscussionMutation(
+            channelID: channelID,
+            path: "feed/discussions/\(discussionID)/display-mode"
+        ) { discussion in
             discussion.withLocalState(
                 DiscussionStateDTO(
                     isParticipating: discussion.localState.isParticipating,
@@ -307,16 +364,28 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func refreshDiscussion(discussionID: String) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/refresh") { discussion in
+    private func refreshDiscussion(
+        channelID: String,
+        discussionID: String
+    ) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(
+            channelID: channelID,
+            path: "feed/discussions/\(discussionID)/refresh"
+        ) { discussion in
             discussion.withContent(
                 headline: "Refreshed discussion snapshot with the same thread context"
             )
         }
     }
 
-    private func runDiscussionUpdate(discussionID: String) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(path: "feed/discussions/\(discussionID)/update") { discussion in
+    private func runDiscussionUpdate(
+        channelID: String,
+        discussionID: String
+    ) async throws -> DiscussionDTO {
+        try await performDiscussionMutation(
+            channelID: channelID,
+            path: "feed/discussions/\(discussionID)/update"
+        ) { discussion in
             discussion.withContent(
                 headline: "Updated discussion summary ready for participants",
                 participants: Array(discussion.participants.prefix(2)) + [
@@ -331,6 +400,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     }
 
     private func performFeaturedArticleMutation(
+        channelID: String,
         path: String,
         transform: @escaping @Sendable (FeaturedArticleDTO) -> FeaturedArticleDTO
     ) async throws -> FeaturedArticleDTO {
@@ -344,7 +414,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // Card actions still start from the current bundled contract because there is
                     // no real backend yet. The repository merges the returned DTO with the latest
                     // persisted card state so local changes remain additive across actions.
-                    let response = try await FeedAPIStubFactory.makeFeedResponse()
+                    let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
                     guard let article = FeedAPIStubFactory.featuredArticle(in: response, articleID: path.articleID) else {
                         throw FeedAPIStubError.missingCard
                     }
@@ -357,6 +427,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     }
 
     private func performDiscussionMutation(
+        channelID: String,
         path: String,
         transform: @escaping @Sendable (DiscussionDTO) -> DiscussionDTO
     ) async throws -> DiscussionDTO {
@@ -367,7 +438,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                 stubResponse: {
                     // See the article mutation note above. The repository owns the persisted
                     // source of truth until these calls are backed by a real service.
-                    let response = try await FeedAPIStubFactory.makeFeedResponse()
+                    let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
                     guard let discussion = FeedAPIStubFactory.discussion(in: response, discussionID: path.articleID) else {
                         throw FeedAPIStubError.missingCard
                     }
@@ -382,15 +453,15 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 
 enum FeedAPIStubFactory {
     /// Produces the latest full stub feed contract used by refreshes and initial seeding.
-    static func makeFeedResponse() async throws -> FeedResponseDTO {
+    static func makeFeedResponse(channelID: String) async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
         try Task.checkCancellation()
-        return try loadFeedResponse()
+        return try loadFeedResponse(channelID: channelID)
     }
 
     /// Loads the bundled JSON feed synchronously for seed paths that run before async refreshes.
-    static func loadFeedResponse() throws -> FeedResponseDTO {
-        let feedData = try loadStubFeedResponseData()
+    static func loadFeedResponse(channelID: String = AppChannel.primary.id) throws -> FeedResponseDTO {
+        let feedData = try loadStubFeedResponseData(channelID: channelID)
         return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
     }
 
@@ -435,18 +506,30 @@ enum FeedAPIStubFactory {
         return String(scopedID[range.lowerBound...])
     }
 
-    private static func loadStubFeedResponseData() throws -> Data {
+    private static func loadStubFeedResponseData(channelID: String) throws -> Data {
+        let resourceName = stubResourceName(for: channelID)
         guard
             let responseURL = Bundle.main.url(
-                forResource: "StubFeedResponse",
+                forResource: resourceName,
                 withExtension: "json",
                 subdirectory: "Resources"
-            ) ?? Bundle.main.url(forResource: "StubFeedResponse", withExtension: "json")
+            ) ?? Bundle.main.url(forResource: resourceName, withExtension: "json")
         else {
             throw FeedAPIStubError.missingStubResource
         }
 
         return try Data(contentsOf: responseURL)
+    }
+
+    private static func stubResourceName(for channelID: String) -> String {
+        switch channelID {
+        case AppChannel.product.id:
+            return "StubFeedResponseProductChannel"
+        case AppChannel.community.id:
+            return "StubFeedResponseCommunityChannel"
+        default:
+            return "StubFeedResponse"
+        }
     }
 
     private static func makeJSONDecoder() -> JSONDecoder {

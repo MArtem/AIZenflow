@@ -118,6 +118,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         // This keeps local changes additive until a real backend becomes the remote source of truth.
         let currentArticle = try requirePersistedFeaturedArticle(articleID: articleID)
         let updatedArticle = try await feedAPIManager.performFeaturedArticleAction(
+            channelID: currentArticle.channelID,
             articleID: articleID,
             action: action,
             context: FeaturedArticleActionContext(
@@ -154,6 +155,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         // Discussion actions follow the same persisted-first rule as article actions.
         let currentDiscussion = try requirePersistedDiscussion(discussionID: discussionID)
         let updatedDiscussion = try await feedAPIManager.performDiscussionAction(
+            channelID: currentDiscussion.channelID,
             discussionID: discussionID,
             action: action,
             context: DiscussionActionContext(

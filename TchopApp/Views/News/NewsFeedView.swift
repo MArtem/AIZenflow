@@ -33,6 +33,10 @@ struct NewsFeedView: View {
                         .accessibilityIdentifier("news.feed.cached-status")
                 }
 
+                if viewModel.isSearchPresented {
+                    searchField
+                }
+
                 if case let .failed(_, errorMessage) = viewModel.state {
                     HStack(alignment: .top, spacing: AppSpacing.sm) {
                         Text(errorMessage)
@@ -53,8 +57,10 @@ struct NewsFeedView: View {
 
                 if viewModel.state.isEmpty {
                     emptyStateView
+                } else if viewModel.showsNoSearchResults {
+                    searchEmptyStateView
                 } else {
-                    ForEach(viewModel.state.content.cards) { card in
+                    ForEach(viewModel.visibleContent.cards) { card in
                         switch card {
                         case let .featuredArticle(article):
                             FeaturedArticleCard(
@@ -114,6 +120,54 @@ struct NewsFeedView: View {
                 .foregroundStyle(AppTheme.textPrimary)
 
             Text(AppLocalization.text("news.feed.empty.description"))
+                .font(AppTypography.detail)
+                .foregroundStyle(AppTheme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, AppSpacing.xl)
+        .accessibilityElement(children: .combine)
+    }
+
+    /// Search field bound to the current selected channel feed only.
+    private var searchField: some View {
+        HStack(spacing: AppSpacing.sm) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(AppTheme.textTertiary)
+
+            TextField(
+                AppLocalization.text("news.feed.search.placeholder"),
+                text: $viewModel.searchQuery
+            )
+            .textInputAutocapitalization(.never)
+            .disableAutocorrection(true)
+
+            if !viewModel.searchQuery.isEmpty {
+                Button(action: { viewModel.searchQuery = "" }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(AppTheme.textTertiary)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(AppLocalization.text("news.feed.search.clear"))
+            }
+        }
+        .font(AppTypography.detail)
+        .foregroundStyle(AppTheme.textPrimary)
+        .padding(.horizontal, AppSpacing.md)
+        .padding(.vertical, AppSpacing.sm)
+        .background(AppTheme.surfacePrimary)
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
+        .accessibilityIdentifier("news.feed.search")
+    }
+
+    /// No-results state shown when the current channel contains cards but none match the search query.
+    private var searchEmptyStateView: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
+            Text(AppLocalization.text("news.feed.search.empty.title"))
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(AppLocalization.text("news.feed.search.empty.description"))
                 .font(AppTypography.detail)
                 .foregroundStyle(AppTheme.textTertiary)
                 .fixedSize(horizontal: false, vertical: true)

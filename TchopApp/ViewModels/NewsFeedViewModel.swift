@@ -95,6 +95,12 @@ final class NewsFeedViewModel: ObservableObject {
     /// Explicit screen state used by the news feed UI.
     @Published private(set) var state: NewsFeedState
 
+    /// Current free-text search query applied to cards from the selected channel only.
+    @Published var searchQuery: String = ""
+
+    /// Whether the search field for the current channel is currently visible.
+    @Published private(set) var isSearchPresented: Bool = false
+
     private let repository: any NewsFeedRepository
     private let channelsStore: ChannelsStore
     private let widgetContentSyncManager: any WidgetContentSyncing
@@ -135,6 +141,14 @@ final class NewsFeedViewModel: ObservableObject {
         state.content
     }
 
+    /// Feed content visible after applying the current channel-local search query.
+    var visibleContent: NewsFeedContent {
+        NewsFeedContent(
+            cards: filteredCards(from: state.content.cards, query: searchQuery),
+            availability: state.content.availability
+        )
+    }
+
     /// Whether a feed refresh is currently running.
     var isLoading: Bool {
         state.isLoading
@@ -143,6 +157,14 @@ final class NewsFeedViewModel: ObservableObject {
     /// User-facing error message shown when a refresh fails.
     var errorMessage: String? {
         state.errorMessage
+    }
+
+    /// Whether the active query produced no matches inside the current channel.
+    var showsNoSearchResults: Bool {
+        isSearchPresented &&
+            !trimmedSearchQuery.isEmpty &&
+            visibleContent.cards.isEmpty &&
+            !state.content.cards.isEmpty
     }
 
     /// Starts a user-driven refresh when no feed request is already running.
@@ -154,6 +176,16 @@ final class NewsFeedViewModel: ObservableObject {
     /// Retries feed loading only after a visible failed state.
     func retry() {
         load(using: .retry)
+    }
+
+    /// Opens or closes the current-channel search UI.
+    func toggleSearchPresentation() {
+        if isSearchPresented {
+            isSearchPresented = false
+            searchQuery = ""
+        } else {
+            isSearchPresented = true
+        }
     }
 
     /// Handles a user intent emitted by a featured article card in the visible feed.
@@ -295,6 +327,8 @@ final class NewsFeedViewModel: ObservableObject {
     /// Re-resolves the persisted bootstrap snapshot for a newly selected channel before refreshing.
     private func handleSelectedChannelChange() {
         cancelLoading()
+        searchQuery = ""
+        isSearchPresented = false
 
         guard let channelID = currentChannelID else {
             state = .empty(
@@ -326,6 +360,96 @@ final class NewsFeedViewModel: ObservableObject {
         }
 
         return .content(content)
+    }
+
+    /// Current search query normalized for UI decisions.
+    private var trimmedSearchQuery: String {
+        searchQuery.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+
+    /// Filters visible cards and ranks matches by field priority.
+    private func filteredCards(
+        from cards: [NewsFeedCard],
+        query: String
+    ) -> [NewsFeedCard] {
+        let tokens = normalizedSearchTokens(from: query)
+        guard !tokens.isEmpty else {
+            return cards
+        }
+
+        return cards.enumerated()
+            .compactMap { index, card in
+                guard let score = searchScore(for: card, tokens: tokens) else {
+                    return nil
+                }
+
+                return (card: card, score: score, index: index)
+            }
+            .sorted {
+                if $0.score == $1.score {
+                    return $0.index < $1.index
+                }
+
+                return $0.score > $1.score
+            }
+            .map(\.card)
+    }
+
+    /// Splits one free-text query into normalized tokens.
+    private func normalizedSearchTokens(from query: String) -> [String] {
+        query
+            .folding(options: [.diacriticInsensitive, .caseInsensitive], locale: .current)
+            .split(whereSeparator: \.isWhitespace)
+            .map(String.init)
+            .filter { !$0.isEmpty }
+    }
+
+    /// Returns the best search score for one card or `nil` when the card does not match.
+    private func searchScore(
+        for card: NewsFeedCard,
+        tokens: [String]
+    ) -> Int? {
+        switch card {
+        case let .featuredArticle(article):
+            return prioritizedSearchScore(
+                tokens: tokens,
+                fields: [
+                    (500, article.headline),
+                    (400, article.summary),
+                    (300, article.sourceTitle),
+                    (250, article.brandTitle),
+                    (200, article.metadataLine),
+                    (150, article.translationLabel)
+                ]
+            )
+        case let .discussion(discussion):
+            return prioritizedSearchScore(
+                tokens: tokens,
+                fields: [
+                    (500, discussion.headline),
+                    (300, discussion.categoryTitle),
+                    (120, discussion.participants.map(\.initials).joined(separator: " "))
+                ]
+            )
+        }
+    }
+
+    /// Chooses the highest-priority field that contains all query tokens.
+    private func prioritizedSearchScore(
+        tokens: [String],
+        fields: [(Int, String)]
+    ) -> Int? {
+        for (score, field) in fields {
+            let normalizedField = field.folding(
+                options: [.diacriticInsensitive, .caseInsensitive],
+                locale: .current
+            )
+            if tokens.allSatisfy({ normalizedField.contains($0) }) {
+                return score
+            }
+        }
+
+        return nil
     }
 
     /// Empty feed content used when the selected channel has no persisted snapshot yet.

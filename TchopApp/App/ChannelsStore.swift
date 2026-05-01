@@ -94,16 +94,22 @@ final class ChannelsStore: ObservableObject {
         ensureValidSelection()
     }
 
-    /// Activates the store for one authenticated user and restores that user's saved selection.
-    func activate(for userID: String) {
+    /// Activates the store for one authenticated user and resolves the initial selected channel.
+    func activate(
+        for userID: String,
+        preferredSelectedChannelID: String?
+    ) {
         activeUserID = userID
         let persistedChannelID = selectionStore.loadSelectedChannelID(for: userID)
         if let persistedChannelID, channels.contains(where: { $0.id == persistedChannelID }) {
             selectedChannelID = persistedChannelID
+        } else if let preferredSelectedChannelID, channels.contains(where: { $0.id == preferredSelectedChannelID }) {
+            selectedChannelID = preferredSelectedChannelID
         } else {
             selectedChannelID = channels.first?.id
-            persistSelectionIfNeeded()
         }
+
+        persistSelectionIfNeeded()
     }
 
     /// Clears the current user context and resets channel selection back to an unauthenticated state.

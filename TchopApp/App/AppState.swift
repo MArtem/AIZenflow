@@ -26,7 +26,7 @@ final class AppState: ObservableObject {
     private let channelsStore: ChannelsStore
     private let sessionService: any UserSessionManaging
     private let userRepository: any UserRepository
-    private let channelsRepository: any ChannelsRepository
+    private let channelSettingsRepository: any UserChannelSettingsRepository
     private let navigationStateManager: any NavigationStateManaging
     private let deepLinkManager: any DeepLinkManaging
     private let navigationEventReporter: any NavigationEventReporting
@@ -53,7 +53,7 @@ final class AppState: ObservableObject {
         channelsStore: ChannelsStore,
         sessionService: any UserSessionManaging,
         userRepository: any UserRepository,
-        channelsRepository: any ChannelsRepository,
+        channelSettingsRepository: any UserChannelSettingsRepository,
         navigationStateManager: any NavigationStateManaging,
         deepLinkManager: any DeepLinkManaging,
         navigationEventReporter: any NavigationEventReporting,
@@ -68,7 +68,7 @@ final class AppState: ObservableObject {
         self.sessionState = sessionStore.sessionState
         self.sessionService = sessionService
         self.userRepository = userRepository
-        self.channelsRepository = channelsRepository
+        self.channelSettingsRepository = channelSettingsRepository
         self.navigationStateManager = navigationStateManager
         self.deepLinkManager = deepLinkManager
         self.navigationEventReporter = navigationEventReporter
@@ -296,9 +296,16 @@ final class AppState: ObservableObject {
 
     /// Hydrates the authenticated user's available channels and restores the selected one.
     private func bootstrapChannels(for user: AppUser) {
-        let channels = (try? channelsRepository.fetchAvailableChannels()) ?? [AppChannel.primary]
-        channelsStore.setAvailableChannels(channels)
-        channelsStore.activate(for: user.id)
+        let settings = (try? channelSettingsRepository.loadChannelSettings(for: user))
+            ?? UserChannelSettingsSnapshot(
+                availableChannels: [.primary],
+                preselectedChannelID: AppChannel.primary.id
+            )
+        channelsStore.setAvailableChannels(settings.availableChannels)
+        channelsStore.activate(
+            for: user.id,
+            preferredSelectedChannelID: settings.preselectedChannelID
+        )
     }
 
     /// Creates or synchronizes the injected profile view model for the active authenticated user.

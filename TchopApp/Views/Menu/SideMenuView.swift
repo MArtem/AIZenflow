@@ -3,12 +3,9 @@ import SwiftUI
 /// Slide-out menu with app-level navigation actions.
 struct SideMenuView: View {
     let channelInfo: ChannelHeaderInfo
-    let availableChannels: [AppChannel]
-    let selectedChannelID: String?
     let accountSummary: AccountProfileSummary?
     let selectedTab: AppTab
     let footerText: String
-    var onSelectChannel: (String) -> Void
     var onSelect: (AppTab) -> Void
 
     var body: some View {
@@ -29,60 +26,6 @@ struct SideMenuView: View {
             .padding(.top, 22)
             .accessibilityElement(children: .combine)
             .accessibilityAddTraits(.isHeader)
-
-            VStack(alignment: .leading, spacing: AppSpacing.xs) {
-                Text(AppLocalization.text("channels.section.title"))
-                    .font(AppTypography.captionSemibold)
-                    .foregroundStyle(AppTheme.textTertiary)
-
-                VStack(spacing: AppSpacing.xs) {
-                    ForEach(availableChannels) { channel in
-                        Button(action: { onSelectChannel(channel.id) }) {
-                            HStack(spacing: 12) {
-                                VStack(alignment: .leading, spacing: 4) {
-                                    Text(channel.title)
-                                        .font(AppTypography.actionTitle)
-
-                                    Text(channel.subtitle)
-                                        .font(AppTypography.caption)
-                                        .foregroundStyle(AppTheme.textTertiary)
-                                }
-
-                                Spacer()
-
-                                if selectedChannelID == channel.id {
-                                    Image(systemName: "checkmark.circle.fill")
-                                        .font(AppTypography.captionSemibold)
-                                }
-                            }
-                            .foregroundStyle(
-                                selectedChannelID == channel.id
-                                    ? AppTheme.accent
-                                    : AppTheme.textSecondary
-                            )
-                            .padding(.horizontal, 14)
-                            .padding(.vertical, 14)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .background(
-                                RoundedRectangle(cornerRadius: AppRadius.menuSelection, style: .continuous)
-                                    .fill(
-                                        selectedChannelID == channel.id
-                                            ? AppTheme.selectionFill
-                                            : Color.clear
-                                    )
-                            )
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityLabel(channel.title)
-                        .accessibilityValue(
-                            selectedChannelID == channel.id
-                                ? AppLocalization.text("accessibility.tab.selected")
-                                : AppLocalization.text("accessibility.tab.notSelected")
-                        )
-                        .accessibilityHint(AppLocalization.text("accessibility.channel.selectHint"))
-                    }
-                }
-            }
 
             VStack(spacing: AppSpacing.xs) {
                 ForEach(AppTab.allCases) { tab in
@@ -195,12 +138,9 @@ private struct SideMenuAccountSummaryCard: View {
 #Preview("Side Menu") {
     SideMenuView(
         channelInfo: ViewPreviewSupport.sampleChannelInfo,
-        availableChannels: ViewPreviewSupport.sampleChannels,
-        selectedChannelID: ViewPreviewSupport.sampleChannels.first?.id,
         accountSummary: ViewPreviewSupport.sampleAccountSummary,
         selectedTab: .news,
         footerText: AppLocalization.text("menu.footer"),
-        onSelectChannel: { _ in },
         onSelect: { _ in }
     )
     .frame(width: 320)
