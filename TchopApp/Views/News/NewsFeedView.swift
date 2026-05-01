@@ -24,25 +24,8 @@ struct NewsFeedView: View {
                 }
                 .frame(height: 0)
 
-                if let cachedStatusText {
-                    Text(cachedStatusText)
-                        .font(AppTypography.label)
-                        .foregroundStyle(AppTheme.warning.opacity(0.92))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .accessibilityIdentifier("news.feed.cached-status")
-                }
-
                 if viewModel.isSearchPresented {
                     searchField
-                }
-
-                if case let .failed(_, errorMessage) = viewModel.state {
-                    Text(errorMessage)
-                        .font(AppTypography.caption)
-                        .foregroundStyle(AppTheme.destructive.opacity(0.82))
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .fixedSize(horizontal: false, vertical: true)
                 }
 
                 if viewModel.state.isEmpty {
@@ -79,27 +62,6 @@ struct NewsFeedView: View {
         .refreshable {
             viewModel.refresh()
         }
-    }
-
-    private var cachedStatusText: String? {
-        guard case let .cached(lastSyncedAt, reason) = viewModel.state.content.availability else {
-            return nil
-        }
-
-        let baseText: String
-        switch reason {
-        case .bootstrap:
-            baseText = AppLocalization.text("news.feed.cached.bootstrap")
-        case .offline:
-            baseText = AppLocalization.text("news.feed.cached.offline")
-        }
-
-        guard let lastSyncedAt else {
-            return baseText
-        }
-
-        let timestampPrefix = AppLocalization.text("news.feed.cached.updatedAt")
-        return "\(baseText) \(timestampPrefix): \(lastSyncedAt.formatted(date: .abbreviated, time: .shortened))"
     }
 
     /// Dedicated empty-state surface for a feed that resolved successfully but currently has no cards.
