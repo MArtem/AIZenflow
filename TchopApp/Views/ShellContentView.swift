@@ -1,3 +1,4 @@
+import Observation
 import SwiftUI
 import TchopNavigation
 
@@ -6,8 +7,8 @@ struct ShellContentView: View {
     private static let floatingActionButtonTabBarSpacing: CGFloat = 15
 
     let viewModel: AppShellViewModel
-    @ObservedObject var coordinator: AppCoordinator
-    @ObservedObject var newsRouter: TabRouter<NewsRoute>
+    let coordinator: AppCoordinator
+    @Bindable var newsRouter: TabRouter<NewsRoute>
     let currentUser: AppUser?
     let profileTabViewModel: ProfileTabViewModel?
     let onLogout: () -> Void

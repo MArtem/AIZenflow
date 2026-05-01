@@ -1,12 +1,17 @@
-import Combine
 import Foundation
+import Observation
 import TchopNavigation
 
 /// Coordinator that owns shared tab selection and per-tab routers.
 @MainActor
-final class AppCoordinator: ObservableObject {
+@Observable
+final class AppCoordinator {
     /// Currently selected tab.
-    @Published var selectedTab: AppTab
+    var selectedTab: AppTab {
+        didSet {
+            notifyNavigationChange()
+        }
+    }
 
     /// Router for the news tab stack.
     let newsRouter: TabRouter<NewsRoute>
@@ -23,6 +28,9 @@ final class AppCoordinator: ObservableObject {
     /// Router for the profile tab stack.
     let profileRouter: TabRouter<ProfileRoute>
 
+    @ObservationIgnored
+    var onNavigationChange: (@MainActor () -> Void)?
+
     /// Creates the coordinator with empty navigation stacks.
     init(selectedTab: AppTab = .news) {
         self.selectedTab = selectedTab
@@ -31,6 +39,7 @@ final class AppCoordinator: ObservableObject {
         self.pinnedRouter = TabRouter<PinnedRoute>()
         self.chatRouter = TabRouter<ChatRoute>()
         self.profileRouter = TabRouter<ProfileRoute>()
+        bindRouterChangeCallbacks()
     }
 
     /// Selects the active application tab.
@@ -49,19 +58,6 @@ final class AppCoordinator: ObservableObject {
         for tab in AppTab.allCases {
             popToRoot(for: tab)
         }
-    }
-
-    /// Emits whenever selected tab or any tab stack changes.
-    var navigationChanges: AnyPublisher<Void, Never> {
-        Publishers.MergeMany(
-            $selectedTab.map { _ in () }.eraseToAnyPublisher(),
-            newsRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            mixesRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            pinnedRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            chatRouter.$path.map { _ in () }.eraseToAnyPublisher(),
-            profileRouter.$path.map { _ in () }.eraseToAnyPublisher()
-        )
-        .eraseToAnyPublisher()
     }
 
     /// Creates a serializable snapshot of the current navigation state.
@@ -195,5 +191,22 @@ final class AppCoordinator: ObservableObject {
         pinnedRouter.replacePath(with: snapshot.pinnedPath)
         chatRouter.replacePath(with: snapshot.chatPath)
         profileRouter.replacePath(with: snapshot.profilePath)
+    }
+
+    /// Wires router callbacks back into the coordinator-level navigation observer.
+    private func bindRouterChangeCallbacks() {
+        let callback: @MainActor () -> Void = { [weak self] in
+            self?.notifyNavigationChange()
+        }
+        newsRouter.onPathChange = callback
+        mixesRouter.onPathChange = callback
+        pinnedRouter.onPathChange = callback
+        chatRouter.onPathChange = callback
+        profileRouter.onPathChange = callback
+    }
+
+    /// Reports any meaningful navigation mutation to the persistence owner.
+    private func notifyNavigationChange() {
+        onNavigationChange?()
     }
 }

@@ -1,10 +1,11 @@
+import Observation
 import SwiftUI
 import TchopNavigation
 
 /// Root news-tab container that binds feed and destination navigation.
 struct NewsTabRootView: View {
     let viewModel: NewsFeedViewModel
-    @ObservedObject var router: TabRouter<NewsRoute>
+    @Bindable var router: TabRouter<NewsRoute>
     /// Forwards list scroll proximity to the shell so it can gate the floating action button.
     let onFeedScrollProximityChange: (Bool) -> Void
 
@@ -25,10 +26,7 @@ struct NewsTabRootView: View {
     }
 
     private var pathBinding: Binding<[NewsRoute]> {
-        Binding(
-            get: { router.path },
-            set: { router.replacePath(with: $0) }
-        )
+        $router.path
     }
 
     /// Opens featured article.

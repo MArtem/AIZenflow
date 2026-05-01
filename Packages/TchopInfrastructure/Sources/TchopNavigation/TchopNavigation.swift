@@ -1,5 +1,5 @@
-import Combine
 import Foundation
+import Observation
 
 /// Defines stack mutation policy for navigation transitions.
 public enum NavigationTransitionPolicy: String, Codable, Equatable, Sendable {
@@ -58,9 +58,17 @@ public final class NavigationMemoryEventReporter: NavigationEventReporting {
 
 /// Generic router that stores a typed navigation path for a single stack.
 @MainActor
-public final class TabRouter<Route: Hashable>: ObservableObject {
+@Observable
+public final class TabRouter<Route: Hashable> {
     /// Current navigation path.
-    @Published public var path: [Route]
+    public var path: [Route] {
+        didSet {
+            onPathChange?()
+        }
+    }
+
+    @ObservationIgnored
+    public var onPathChange: (@MainActor () -> Void)?
 
     /// Creates a router with an optional initial path.
     public init(path: [Route] = []) {

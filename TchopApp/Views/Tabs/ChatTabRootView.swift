@@ -1,9 +1,10 @@
+import Observation
 import SwiftUI
 import TchopNavigation
 
 /// Root chat-tab screen bound to its dedicated navigation router.
 struct ChatTabRootView: View {
-    @ObservedObject var router: TabRouter<ChatRoute>
+    @Bindable var router: TabRouter<ChatRoute>
 
     var body: some View {
         NavigationStack(path: pathBinding) {
@@ -22,10 +23,7 @@ struct ChatTabRootView: View {
     }
 
     private var pathBinding: Binding<[ChatRoute]> {
-        Binding(
-            get: { router.path },
-            set: { router.replacePath(with: $0) }
-        )
+        $router.path
     }
 
     /// Opens quick action.

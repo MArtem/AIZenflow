@@ -80,10 +80,9 @@
   `NewsFeedViewModel`,
   and `LoginViewModel`
   now use Observation-based state.
-  The remaining legacy `ObservableObject` surface is currently concentrated in
-  `AppCoordinator`,
-  and package navigation types such as `TabRouter`,
-  which still rely on real `Combine` publisher paths.
+  `AppCoordinator` and package navigation types such as `TabRouter`
+  have now also been migrated,
+  so the app/navigation runtime no longer depends on `ObservableObject`, `@Published`, or a `Combine` publisher bridge.
 - Project baseline for tests is also explicit:
   keep code testable and preserve recommended test surfaces,
   but do not write, update, or run tests unless the user explicitly requests that scope.
@@ -325,8 +324,8 @@
   No-op implementations are still allowed, but they must now be injected explicitly from the composition root or tests instead of being silently created inside feature/runtime types.
   `AppDIContainer` is the single place that assembles package-backed bridges/managers for runtime use and now owns explicit helper factories for API, UI configuration, widget sync, push bridge, and local seeding.
 - Navigation/coordinator baseline:
-  `AppCoordinator` now owns the canonical root-opening behavior for tabs via `showTabRoot(_:)` and also exposes a single `navigationChanges` publisher for snapshot persistence observers.
-  `AppState` no longer knows about every router publisher directly, and `DeepLinkManager` no longer manually resets tab stacks.
+  `AppCoordinator` now owns the canonical root-opening behavior for tabs via `showTabRoot(_:)` and exposes a single `onNavigationChange` callback for snapshot persistence observers.
+  `AppState` no longer knows about router publishers directly, and `DeepLinkManager` no longer manually resets tab stacks.
   Deep links to tab roots now intentionally land on that tab's root screen instead of preserving a stale nested stack from a previous session.
 - Repository/data-flow baseline:
   `DefaultAppContentRepository` is now thinner and delegates DTO/persistence-to-domain mapping to dedicated private mapper helpers instead of mixing orchestration and all mapping logic inside the fetch methods.

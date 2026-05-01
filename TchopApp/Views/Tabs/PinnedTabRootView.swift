@@ -1,9 +1,10 @@
+import Observation
 import SwiftUI
 import TchopNavigation
 
 /// Root pinned-tab screen bound to its dedicated navigation router.
 struct PinnedTabRootView: View {
-    @ObservedObject var router: TabRouter<PinnedRoute>
+    @Bindable var router: TabRouter<PinnedRoute>
 
     var body: some View {
         NavigationStack(path: pathBinding) {
@@ -22,10 +23,7 @@ struct PinnedTabRootView: View {
     }
 
     private var pathBinding: Binding<[PinnedRoute]> {
-        Binding(
-            get: { router.path },
-            set: { router.replacePath(with: $0) }
-        )
+        $router.path
     }
 
     /// Opens quick action.

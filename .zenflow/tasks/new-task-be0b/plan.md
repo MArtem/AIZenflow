@@ -240,7 +240,10 @@ Completed:
   `LoginViewModel` now uses Observation,
   the old `Combine`-based debounced validation path was replaced with task-based debounce on the main actor,
   and `LoginScreenView` now binds through `@Bindable`.
-- Left `AppCoordinator` and package navigation types on legacy `ObservableObject` for now because they still rely on real navigation publisher flows that need a separate refactor.
+- Completed a fourth Observation pass for navigation state:
+  `AppCoordinator` and package `TabRouter` now use Observation,
+  navigation-stack views now bind through `@Bindable`,
+  and snapshot persistence now listens through an explicit `onNavigationChange` callback instead of a `Combine` publisher merge.
 - Added tests for persistence reload, connectivity-aware drain policy, and dead-letter transition after retry limit.
 - Post-review hardening applied:
   fixed actor reentrancy race in `drainIfConnected` to preserve items enqueued while drain is in-flight,

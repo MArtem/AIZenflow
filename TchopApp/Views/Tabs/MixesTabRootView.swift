@@ -1,9 +1,10 @@
+import Observation
 import SwiftUI
 import TchopNavigation
 
 /// Root mixes-tab screen bound to its dedicated navigation router.
 struct MixesTabRootView: View {
-    @ObservedObject var router: TabRouter<MixesRoute>
+    @Bindable var router: TabRouter<MixesRoute>
 
     var body: some View {
         NavigationStack(path: pathBinding) {
@@ -22,10 +23,7 @@ struct MixesTabRootView: View {
     }
 
     private var pathBinding: Binding<[MixesRoute]> {
-        Binding(
-            get: { router.path },
-            set: { router.replacePath(with: $0) }
-        )
+        $router.path
     }
 
     /// Opens quick action.

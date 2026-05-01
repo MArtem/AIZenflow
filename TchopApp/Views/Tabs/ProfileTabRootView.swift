@@ -1,10 +1,11 @@
+import Observation
 import SwiftUI
 import TchopNavigation
 
 /// Root profile-tab screen bound to its dedicated navigation router.
 struct ProfileTabRootView: View {
     let viewModel: ProfileTabViewModel
-    @ObservedObject var router: TabRouter<ProfileRoute>
+    @Bindable var router: TabRouter<ProfileRoute>
     let onLogout: () -> Void
 
     var body: some View {
@@ -46,10 +47,7 @@ struct ProfileTabRootView: View {
 
     /// Bridges the profile tab router into `NavigationStack` without letting the view own route state.
     private var pathBinding: Binding<[ProfileRoute]> {
-        Binding(
-            get: { router.path },
-            set: { router.replacePath(with: $0) }
-        )
+        $router.path
     }
 }
 

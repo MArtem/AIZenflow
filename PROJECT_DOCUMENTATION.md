@@ -615,8 +615,8 @@ Resets the selected tab to its root state and selects it.
 #### `resetAllNavigation()`
 Clears all tab stacks.
 
-#### `navigationChanges`
-Publisher used by `AppState` to persist snapshots.
+#### `onNavigationChange`
+Callback used by `AppState` to persist snapshots without a `Combine` publisher bridge.
 
 #### `makeSnapshot()`
 Builds a serializable `NavigationSnapshot`.

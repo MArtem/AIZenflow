@@ -3,7 +3,7 @@ import SwiftUI
 /// Hosts tab-level content including top bar, feed, and action affordances.
 struct TabContentView: View {
     let selectedTab: AppTab
-    @ObservedObject var coordinator: AppCoordinator
+    let coordinator: AppCoordinator
     let newsFeedViewModel: NewsFeedViewModel
     let onNewsFeedScrollProximityChange: (Bool) -> Void
     let currentUser: AppUser?

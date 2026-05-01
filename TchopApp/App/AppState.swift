@@ -1,4 +1,3 @@
-import Combine
 import Foundation
 import Observation
 import TchopAppleAuthentication
@@ -35,7 +34,6 @@ final class AppState {
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let pushNotificationBridge: any AppPushNotificationBridging
     private let errorManager: any AppErrorManaging
-    private var navigationBindings: Set<AnyCancellable> = []
     /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
     private var isApplyingNavigationSnapshot = false
     /// Deep links received before authentication are buffered and replayed after sign-in.
@@ -340,11 +338,9 @@ final class AppState {
 
     /// Subscribes to coordinator navigation changes and persists snapshots when allowed.
     private func setupNavigationPersistenceBindings() {
-        coordinator.navigationChanges
-            .sink { [weak self] _ in
-                self?.persistNavigationSnapshotIfNeeded()
-            }
-            .store(in: &navigationBindings)
+        coordinator.onNavigationChange = { [weak self] in
+            self?.persistNavigationSnapshotIfNeeded()
+        }
     }
 
     /// Mirrors store-owned session state into the root object already observed by the app tree.

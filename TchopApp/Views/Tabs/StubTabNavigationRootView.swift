@@ -1,10 +1,11 @@
+import Observation
 import SwiftUI
 import TchopNavigation
 
 /// Generic navigation root hosting a typed path with destination builder closure.
 struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {
     let tab: AppTab
-    @ObservedObject var router: TabRouter<Route>
+    @Bindable var router: TabRouter<Route>
     let sampleRoute: Route
     let destinationBuilder: (Route) -> Destination
 
@@ -21,10 +22,7 @@ struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {
     }
 
     private var pathBinding: Binding<[Route]> {
-        Binding(
-            get: { router.path },
-            set: { router.replacePath(with: $0) }
-        )
+        $router.path
     }
 
     /// Opens sample.
