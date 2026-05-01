@@ -31,6 +31,7 @@ Use this file as the persistent engineering instruction set for this project whe
   and a more scalable long-term path.
   For simple tasks, do not inflate the answer with unnecessary option trees.
 - Default deployment-target assumptions must come from the current Xcode project or the customer-provided target floor, not from a generic personal preference such as "iOS 17+ by default".
+- If the active target floor is `iOS 17+`, prefer modern `Observation` framework macros (`@Observable`, `@Bindable`) for new UI-facing state owners unless an existing `Combine`-publisher contract still makes legacy `ObservableObject` the safer choice for that specific type.
 
 ## Architecture Requirements
 - Use MVVM by default.
@@ -49,6 +50,7 @@ Use this file as the persistent engineering instruction set for this project whe
 - Do not introduce protocols purely for theoretical abstraction or future-proofing with no practical current benefit.
 - Prefer dependency injection over hidden singletons.
 - Service and manager types should have clear responsibilities and configuration points.
+- If the active target floor is `iOS 17+`, prefer a SwiftData-first persistence baseline and do not add new Core Data branches unless the user explicitly asks for them.
 
 ## State Management
 - Single Source of Truth must be explicit.
@@ -64,8 +66,9 @@ Use this file as the persistent engineering instruction set for this project whe
 - Prefer multiple focused domain stores such as session/preferences/channels/feature-flags/configuration over a single oversized global state owner.
 - ViewModels and use cases may read stores or subscribe to them, but views should receive prepared view state and should not reach directly into app-wide stores unless that UI context is intentionally global.
 - Prefer:
-  - `@StateObject` for root view models
-  - `@ObservedObject` for injections
+  - `@StateObject` only for legacy `ObservableObject` roots that have not yet migrated
+  - `@ObservedObject` only for legacy injected `ObservableObject` types that have not yet migrated
+  - `@State` ownership plus `@Observable` / plain injected observable references for Observation-based roots and feature composition
   - `@Binding` only for simple direct mutations
 - Avoid unnecessary `@State` duplication.
 - For async UI:
@@ -84,6 +87,7 @@ Use this file as the persistent engineering instruction set for this project whe
 - Do not annotate SwiftUI `View` types with `@MainActor` by default; use method-level isolation only when a specific view-owned imperative path requires it.
 - Prefer type-level `@MainActor` on UI state owners over scattering `MainActor.run` throughout the code.
 - Keep heavy synchronous work out of `@MainActor` types; if shared mutable concurrent state is not UI-bound, prefer `actor`.
+- On `iOS 17+` targets, prefer `Observation`-based UI state owners before introducing new `ObservableObject` / `@Published` surfaces.
 - `SWIFT_STRICT_CONCURRENCY = complete` is mandatory for this project.
 - New app targets and local package targets must keep strict concurrency enabled, and any violations must be fixed rather than suppressed.
 - Use `@MainActor` or custom actors to model shared mutable state; never use `DispatchQueue` for that purpose.

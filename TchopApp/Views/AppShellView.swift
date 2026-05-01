@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Root authenticated shell with side menu and tab content container.
 struct AppShellView: View {
-    @ObservedObject var viewModel: AppShellViewModel
+    let viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
     let currentUser: AppUser?
     let profileTabViewModel: ProfileTabViewModel?

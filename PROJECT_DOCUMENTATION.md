@@ -57,6 +57,8 @@ In short:
 - shared mutable state baseline = `@MainActor` or custom actors, not `DispatchQueue`-modeled state.
 - main-actor baseline = type-level `@MainActor` belongs on UI state owners such as view models, coordinators/routers, and UI-facing observable stores; use cases, repositories, API clients, DTOs, domain models, mappers, and database/infrastructure services should stay off `@MainActor` unless they truly own UI-bound state.
 - deployment-target baseline = whatever minimum iOS version is defined in the customer-owned Xcode project; do not assume `iOS 17+` by default when extending this app.
+- current deployment target = `iOS 17`, so new UI-facing state owners should prefer the `Observation` framework (`@Observable`, `@Bindable`) unless a real legacy `Combine` publisher dependency still blocks that migration for a specific type.
+- current persistence baseline = app-side bootstrap is `SwiftData`-only; legacy `Core Data` / automatic backend-selection code is kept commented in the app layer for quick rollback, not as an active runtime path.
 - testing baseline = design for testability and keep recommended test surfaces in mind, but do not add or run tests unless the user explicitly asks for them.
 - architecture discussion baseline = offer multiple options only for non-trivial or trade-off-heavy decisions; keep straightforward tasks concise.
 - protocol baseline = use protocol boundaries where they create a real seam for DI/isolation/testability, not as abstraction-for-abstraction's-sake.
@@ -90,7 +92,7 @@ TchopApp.swift
                 -> StubFeedAPIManager
                   -> APIManager (TchopNetworking)
               -> DatabaseManaging
-                -> SwiftDataDatabaseManager or CoreDataDatabaseManager
+                -> SwiftDataDatabaseManager
               -> NetworkAvailabilityChecking
       -> UserSessionManaging
         -> UserSessionService
@@ -357,10 +359,8 @@ Important detail:
 - `AppLaunchConfiguration` now also selects the auth environment;
 - `TCHOP_API_ENV=reqres_demo_auth` switches only the login/register flow to external ReqRes auth;
 - feed/content APIs stay on the local stub runtime in that mode.
-- `AppLaunchConfiguration` also owns the launch-time database backend switch;
-- `TCHOP_DATABASE_BACKEND=automatic` keeps the current app-level automatic resolution path;
-- `TCHOP_DATABASE_BACKEND=swiftData` forces a SwiftData-only boot;
-- `TCHOP_DATABASE_BACKEND=coreData` forces a Core Data-only boot.
+- `AppLaunchConfiguration` still owns the launch-time database configuration surface, but the active app baseline is now `SwiftData` only;
+- legacy `automatic` / `coreData` launch branches are intentionally commented out in the app layer for quick restoration, not active in the current runtime.
 
 ### [AppRootView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/AppRootView.swift)
 This is the root authentication switch.

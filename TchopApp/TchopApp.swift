@@ -7,7 +7,7 @@ struct TchopApp: App {
     @UIApplicationDelegateAdaptor(TchopApplicationDelegate.self) private var applicationDelegate
     private let container: AppDIContainer
     private let loginViewModel: LoginViewModel
-    @StateObject private var appState: AppState
+    @State private var appState: AppState
 
     /// Creates a new TchopApp instance.
     init() {
@@ -33,9 +33,7 @@ struct TchopApp: App {
         self.container = container
         self.loginViewModel = loginViewModel
 
-        _appState = StateObject(
-            wrappedValue: appState
-        )
+        _appState = State(initialValue: appState)
 
         applicationDelegate.pushNotificationBridge = container.pushNotificationBridge
     }

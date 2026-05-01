@@ -1,4 +1,5 @@
 import Foundation
+import Observation
 import TchopErrors
 import TchopUIConfiguration
 
@@ -7,9 +8,10 @@ import TchopUIConfiguration
 /// Owns shell-scoped UI state such as the menu visibility and exposes child
 /// feature view models required by the tab content.
 @MainActor
-final class AppShellViewModel: ObservableObject {
+@Observable
+final class AppShellViewModel {
     /// Whether the side menu is currently open.
-    @Published var isMenuOpen: Bool
+    var isMenuOpen: Bool
 
     /// Footer text shown in the side menu.
     let sideMenuFooterText: String
@@ -18,10 +20,10 @@ final class AppShellViewModel: ObservableObject {
     let newsFeedViewModel: NewsFeedViewModel
 
     /// Whether the floating action button should be rendered for the active shell.
-    @Published private(set) var showsFloatingActionButton: Bool
+    private(set) var showsFloatingActionButton: Bool
 
     /// Whether the news feed list is currently close enough to the top to allow the floating action button.
-    @Published private(set) var isNewsFeedNearTop: Bool
+    private(set) var isNewsFeedNearTop: Bool
 
     private let uiConfigurationManager: any UIConfigurationManaging
     private let errorManager: any AppErrorManaging

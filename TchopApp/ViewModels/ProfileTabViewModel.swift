@@ -1,4 +1,5 @@
 import Foundation
+import Observation
 import TchopErrors
 
 /// Presentation owner for the profile tab root screen.
@@ -6,15 +7,16 @@ import TchopErrors
 /// This view model keeps profile-specific UI state and owns the optimistic preference-update
 /// flow so the SwiftUI view stays declarative and does not perform persistence/error work itself.
 @MainActor
-final class ProfileTabViewModel: ObservableObject {
+@Observable
+final class ProfileTabViewModel {
     /// Presentation summary for the currently signed-in user.
-    @Published private(set) var accountSummary: AccountProfileSummary
+    private(set) var accountSummary: AccountProfileSummary
 
     /// UI-facing restore-navigation preference state.
-    @Published private(set) var isNavigationRestoreEnabled: Bool
+    private(set) var isNavigationRestoreEnabled: Bool
 
     /// Presentation-ready error message for profile preference failures.
-    @Published private(set) var errorMessage: String?
+    private(set) var errorMessage: String?
 
     private let errorManager: any AppErrorManaging
     private let onNavigationRestoreChange: (Bool) throws -> Void

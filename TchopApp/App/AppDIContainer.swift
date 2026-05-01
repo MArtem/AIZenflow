@@ -108,7 +108,7 @@ struct AppAPIEnvironment {
 /// The container owns app-wide infrastructure services and constructs feature-level
 /// dependencies for the SwiftUI tree.
 @MainActor
-final class AppDIContainer: ObservableObject {
+final class AppDIContainer {
     /// Shared in-memory analytics sink that app runtime integrations can reuse.
     private let analyticsCollector: ProductAnalyticsMemoryCollector
 

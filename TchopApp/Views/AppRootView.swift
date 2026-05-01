@@ -4,8 +4,8 @@ import TchopErrors
 
 /// Root switch between authentication flow and authenticated shell.
 struct AppRootView: View {
-    @ObservedObject var appState: AppState
-    @ObservedObject var loginViewModel: LoginViewModel
+    let appState: AppState
+    let loginViewModel: LoginViewModel
     let onOpenURL: (URL) -> Void
     let onContinueUserActivity: (NSUserActivity) -> Void
 

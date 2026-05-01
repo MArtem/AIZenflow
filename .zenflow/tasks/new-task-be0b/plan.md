@@ -218,6 +218,21 @@ Completed:
   `APIOfflineQueueStoring`,
   `FileAPIOfflineQueueStore`,
   and `APIPersistedOfflineQueue` with retry attempts, dead-letter capture, and connectivity-gated draining.
+
+### [x] Step: Raise baseline to iOS 17 + SwiftData-only + Observation-first
+
+Moved the active app baseline to `iOS 17`, switched the app-layer persistence bootstrap to `SwiftData` only, and started the incremental Observation migration.
+Completed:
+- Raised all app target deployment settings from `iOS 16.0` to `iOS 17.0`.
+- Kept the old app-layer `Core Data` / automatic backend-selection code commented instead of deleting it so rollback stays cheap.
+- Made `SwiftData` the only active app bootstrap path.
+- Updated project rules and onboarding docs so `iOS 17+` work prefers `@Observable` / `@Bindable` for new UI-facing state owners.
+- Migrated the simple app-side UI owners that do not depend on `Combine` publishers:
+  `SessionStore`,
+  `AppState`,
+  `AppShellViewModel`,
+  and `ProfileTabViewModel`.
+- Left `LoginViewModel`, `NewsFeedViewModel`, `ChannelsStore`, `AppCoordinator`, and package navigation types on legacy `ObservableObject` for now because they still rely on real `Combine` publisher flows that need a separate refactor.
 - Added tests for persistence reload, connectivity-aware drain policy, and dead-letter transition after retry limit.
 - Post-review hardening applied:
   fixed actor reentrancy race in `drainIfConnected` to preserve items enqueued while drain is in-flight,

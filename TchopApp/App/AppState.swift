@@ -1,5 +1,6 @@
 import Combine
 import Foundation
+import Observation
 import TchopAppleAuthentication
 import TchopErrors
 import UIKit
@@ -10,12 +11,13 @@ import TchopNavigation
 /// This type owns authenticated user state and coordinates transitions between
 /// login and the main shell.
 @MainActor
-final class AppState: ObservableObject {
+@Observable
+final class AppState {
     /// Explicit root session state that drives the auth/shell switch.
-    @Published private(set) var sessionState: AppSessionState
+    private(set) var sessionState: AppSessionState
 
     /// Profile tab presentation owner injected into the profile screen instead of being created by the view.
-    @Published private(set) var profileTabViewModel: ProfileTabViewModel?
+    private(set) var profileTabViewModel: ProfileTabViewModel?
 
     /// Shared coordinator for tab selection and per-tab navigation state.
     let coordinator: AppCoordinator
@@ -34,7 +36,6 @@ final class AppState: ObservableObject {
     private let pushNotificationBridge: any AppPushNotificationBridging
     private let errorManager: any AppErrorManaging
     private var navigationBindings: Set<AnyCancellable> = []
-    private var storeBindings: Set<AnyCancellable> = []
     /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
     private var isApplyingNavigationSnapshot = false
     /// Deep links received before authentication are buffered and replayed after sign-in.
@@ -75,7 +76,6 @@ final class AppState: ObservableObject {
         self.widgetContentSyncManager = widgetContentSyncManager
         self.pushNotificationBridge = pushNotificationBridge
         self.errorManager = errorManager
-        setupStoreBindings()
         setupNavigationPersistenceBindings()
         Task { @MainActor [weak self] in
             await self?.restoreSession()
@@ -117,6 +117,7 @@ final class AppState: ObservableObject {
             isEnabled: isEnabled
         )
         sessionStore.setAuthenticatedUser(updatedUser)
+        syncSessionStateFromStore()
         profileTabViewModel?.syncCurrentUser(updatedUser)
 
         if isEnabled {
@@ -143,6 +144,7 @@ final class AppState: ObservableObject {
     func signOut() {
         sessionService.signOut()
         sessionStore.setSignedOut()
+        syncSessionStateFromStore()
         profileTabViewModel = nil
         pendingDeepLinkInput = nil
         channelsStore.reset()
@@ -168,6 +170,7 @@ final class AppState: ObservableObject {
                 activateAuthenticatedUser(restoredUser)
             } else {
                 sessionStore.setSignedOut()
+                syncSessionStateFromStore()
             }
         } catch {
             let presentation = await errorManager.presentableError(
@@ -179,6 +182,7 @@ final class AppState: ObservableObject {
             )
             assertionFailure("Failed to restore user session: \(presentation.error.debugDescription)")
             sessionStore.setSignedOut()
+            syncSessionStateFromStore()
         }
     }
 
@@ -289,6 +293,7 @@ final class AppState: ObservableObject {
     /// Stores the active user and applies the standard authenticated runtime bootstrap flow.
     private func activateAuthenticatedUser(_ user: AppUser) {
         sessionStore.setAuthenticatedUser(user)
+        syncSessionStateFromStore()
         bootstrapChannels(for: user)
         updateProfileTabViewModel(for: user)
         applyPostAuthenticationNavigation(for: user)
@@ -341,12 +346,8 @@ final class AppState: ObservableObject {
     }
 
     /// Mirrors store-owned session state into the root object already observed by the app tree.
-    private func setupStoreBindings() {
-        sessionStore.$sessionState
-            .sink { [weak self] sessionState in
-                self?.sessionState = sessionState
-            }
-            .store(in: &storeBindings)
+    private func syncSessionStateFromStore() {
+        sessionState = sessionStore.sessionState
     }
 
     /// Persists the current navigation snapshot when the active user opted into restore.
@@ -412,13 +413,16 @@ extension AppState {
         switch sessionState {
         case .restoring:
             sessionStore.setRestoring()
+            syncSessionStateFromStore()
             profileTabViewModel = nil
         case .signedOut:
             sessionStore.setSignedOut()
+            syncSessionStateFromStore()
             channelsStore.reset()
             profileTabViewModel = nil
         case let .authenticated(user):
             sessionStore.setAuthenticatedUser(user)
+            syncSessionStateFromStore()
             bootstrapChannels(for: user)
             updateProfileTabViewModel(for: user)
         }

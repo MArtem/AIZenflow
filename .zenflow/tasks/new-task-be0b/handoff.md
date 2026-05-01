@@ -63,9 +63,14 @@
   put type-level `@MainActor` on UI state owners such as view models, coordinators/routers, and UI-facing observable stores;
   do not spread `@MainActor` across use cases, repositories, API clients, DTOs, domain models, mappers, or database/infrastructure services unless they truly own UI-bound state;
   and do not mark SwiftUI `View` types with `@MainActor` by default.
+- Observation policy is now explicit:
+  on `iOS 17+` targets prefer `@Observable` / `@Bindable` for new UI-facing state owners;
+  keep `ObservableObject` / `@Published` only where an existing `Combine` publisher contract still makes the legacy path the safer incremental migration.
 - Project baseline for deployment target assumptions is now explicit:
   defer to the minimum iOS version defined in the customer-owned Xcode project;
   do not assume `iOS 17+` by default for this app or for future work unless the project actually moves there.
+- Current project floor is now `iOS 17`, and the active app-layer persistence path is `SwiftData`-only.
+  Legacy app-layer `Core Data` / automatic backend-selection code is intentionally commented out, not deleted, so it can be restored quickly if needed.
 - Project baseline for tests is also explicit:
   keep code testable and preserve recommended test surfaces,
   but do not write, update, or run tests unless the user explicitly requests that scope.

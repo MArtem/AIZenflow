@@ -34,113 +34,29 @@ enum AppDatabase {
     static func makeDatabaseManagerOrThrow(
         configuration: AppDatabaseConfiguration = .persistent
     ) throws -> any DatabaseManaging {
-        // Backend resolution stays in the app layer so the app, not the package, owns migration
-        // timing, fallback behavior, and the persisted "last successful backend" preference.
-        let runtimeContext = try AppDatabaseRuntimeContext.current(for: configuration)
-        let resolutionPlan = try AppDatabaseRuntimePolicy.plan(
-            for: configuration,
-            context: runtimeContext
-        )
+        /*
+         Legacy automatic backend selection, Core Data bootstrap, and Core Data -> SwiftData
+         migration path are intentionally kept commented for quick rollback.
 
-        return try makeDatabaseManager(
-            for: resolutionPlan,
-            configuration: configuration
-        )
-    }
+         let runtimeContext = try AppDatabaseRuntimeContext.current(for: configuration)
+         let resolutionPlan = try AppDatabaseRuntimePolicy.plan(
+             for: configuration,
+             context: runtimeContext
+         )
 
-    @MainActor
-    private static func makeDatabaseManager(
-        for resolutionPlan: AppDatabaseResolutionPlan,
-        configuration: AppDatabaseConfiguration
-    ) throws -> any DatabaseManaging {
-        switch resolutionPlan {
-        case .useCoreData:
-            let coreDataManager = try makeCoreDataManager(configuration: configuration)
-            persistSelectedBackendIfNeeded(for: resolutionPlan)
-            return coreDataManager
-        case .useSwiftData:
-            guard #available(iOS 17, *) else {
-                throw DatabaseError.backendInitializationFailed(
-                    "SwiftData backend is unavailable on iOS versions below 17."
-                )
-            }
+         return try makeDatabaseManager(
+             for: resolutionPlan,
+             configuration: configuration
+         )
+         */
 
-            let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
-            persistSelectedBackendIfNeeded(for: resolutionPlan)
-            return swiftDataManager
-        case .migrateCoreDataToSwiftData:
-            guard #available(iOS 17, *) else {
-                throw DatabaseError.backendInitializationFailed(
-                    "SwiftData migration is unavailable on iOS versions below 17."
-                )
-            }
-
-            return try migrateCoreDataToSwiftDataAndCreateManager(configuration: configuration)
-        }
-    }
-
-    /// Persists the backend selection when the chosen plan maps to a stable backend.
-    @MainActor
-    private static func persistSelectedBackendIfNeeded(for resolutionPlan: AppDatabaseResolutionPlan) {
-        guard let backendKind = resolutionPlan.persistedBackendKind else {
-            return
-        }
-
-        AppDatabaseBackendPreferenceStore.save(backendKind)
-    }
-
-    @MainActor
-    @available(iOS 17, *)
-    private static func migrateCoreDataToSwiftDataAndCreateManager(
-        configuration: AppDatabaseConfiguration
-    ) throws -> any DatabaseManaging {
-        // Keep both managers alive during migration. If importing into SwiftData fails, the app can
-        // continue on Core Data without leaving persistence partially bootstrapped.
-        let coreDataManager = try makeCoreDataManager(configuration: configuration)
-        let swiftDataManager = try makeSwiftDataManager(configuration: configuration)
-
-        do {
-            try AppDatabaseMigrationCoordinator.migrateCoreDataContent(
-                from: coreDataManager,
-                to: swiftDataManager
-            )
-            try AppDatabaseContainerFactory.purgeCoreDataStoreFilesIfNeeded(
-                isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
-            )
-            AppDatabaseBackendPreferenceStore.save(.swiftData)
-            return swiftDataManager
-        } catch {
-            assertionFailure(
-                "Core Data -> SwiftData migration failed. Keeping Core Data backend. Error: \(bootstrapFailureDebugDescription(for: error))"
-            )
-            AppDatabaseBackendPreferenceStore.save(.coreData)
-            return coreDataManager
-        }
-    }
-
-    @MainActor
-    private static func makeCoreDataManager(
-        configuration: AppDatabaseConfiguration
-    ) throws -> CoreDataDatabaseManager {
-        let manager = try databaseResolver.makeDatabaseManager(
-            configuration: AppDatabaseConfiguration(
-                backendSelectionPolicy: .coreData,
-                isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
-            ),
-            factories: DatabaseManagerFactorySet(makeCoreDataContainer: {
-                try AppDatabaseContainerFactory.makeCoreDataPersistentContainer(
-                    isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
-                )
-            })
-        )
-
-        guard let coreDataManager = manager as? CoreDataDatabaseManager else {
+        guard #available(iOS 17, *) else {
             throw DatabaseError.backendInitializationFailed(
-                "Failed to cast database manager to CoreDataDatabaseManager."
+                "SwiftData backend is unavailable on iOS versions below 17."
             )
         }
 
-        return coreDataManager
+        return try makeSwiftDataManager(configuration: configuration)
     }
 
     @MainActor
@@ -194,6 +110,10 @@ enum AppDatabase {
     }
 
 }
+
+/*
+ Legacy automatic backend resolution and Core Data bootstrap are intentionally commented instead
+ of deleted so the old path can be restored quickly if product/runtime constraints change.
 
 /// Runtime facts that influence automatic app database backend selection.
 struct AppDatabaseRuntimeContext: Equatable {
@@ -563,6 +483,7 @@ private enum AppDatabaseMigrationCoordinator {
         }
     }
 }
+*/
 
 @MainActor
 private enum AppDatabaseContainerFactory {

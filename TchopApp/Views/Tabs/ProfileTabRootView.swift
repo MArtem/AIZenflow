@@ -3,7 +3,7 @@ import TchopNavigation
 
 /// Root profile-tab screen bound to its dedicated navigation router.
 struct ProfileTabRootView: View {
-    @ObservedObject var viewModel: ProfileTabViewModel
+    let viewModel: ProfileTabViewModel
     @ObservedObject var router: TabRouter<ProfileRoute>
     let onLogout: () -> Void
 

@@ -1,5 +1,5 @@
-import Combine
 import Foundation
+import Observation
 
 /// Explicit session lifecycle state shared across the signed-out and authenticated app flows.
 enum AppSessionState: Equatable {
@@ -13,9 +13,10 @@ enum AppSessionState: Equatable {
 /// This store keeps the current session snapshot in memory while persistence remains in the
 /// session service, repository, and secure storage layers.
 @MainActor
-final class SessionStore: ObservableObject {
+@Observable
+final class SessionStore {
     /// Current root session state used by the app root to switch between auth and shell flows.
-    @Published private(set) var sessionState: AppSessionState = .restoring
+    private(set) var sessionState: AppSessionState = .restoring
 
     /// Currently signed-in user, if any.
     var currentUser: AppUser? {

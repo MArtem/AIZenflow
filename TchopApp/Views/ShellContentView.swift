@@ -5,7 +5,7 @@ import TchopNavigation
 struct ShellContentView: View {
     private static let floatingActionButtonTabBarSpacing: CGFloat = 15
 
-    @ObservedObject var viewModel: AppShellViewModel
+    let viewModel: AppShellViewModel
     @ObservedObject var coordinator: AppCoordinator
     @ObservedObject var newsRouter: TabRouter<NewsRoute>
     let currentUser: AppUser?

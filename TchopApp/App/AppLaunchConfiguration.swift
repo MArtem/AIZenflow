@@ -3,33 +3,38 @@ import Foundation
 /// Launch-time database mode used to steer the app between automatic resolution and
 /// explicit single-backend runs for local development and debugging.
 private enum AppLaunchDatabaseMode {
-    case automatic
     case swiftDataOnly
-    case coreDataOnly
+    /*
+     Legacy cases kept commented for quick rollback if Core Data / iOS 16 support must return.
+     case automatic
+     case coreDataOnly
+     */
 
     /// Maps the launch mode to the backend selection policy consumed by the shared
     /// database bootstrap contract.
     var backendSelectionPolicy: AppDatabaseBackendSelectionPolicy {
-        switch self {
-        case .automatic:
-            return .automatic
-        case .swiftDataOnly:
-            return .swiftData
-        case .coreDataOnly:
-            return .coreData
-        }
+        .swiftData
     }
 
-    /// Parses development launch values while keeping `automatic` as the safe fallback.
+    /// Parses development launch values while keeping the active SwiftData-only baseline.
     static func make(from rawValue: String?) -> Self {
-        switch rawValue?.lowercased() {
-        case "swiftdata", "swift_data", "swiftdataonly":
+        let normalizedValue = rawValue?.lowercased()
+        if normalizedValue == "swiftdata" || normalizedValue == "swift_data" || normalizedValue == "swiftdataonly" {
             return .swiftDataOnly
-        case "coredata", "core_data", "coredataonly":
-            return .coreDataOnly
-        default:
-            return .automatic
         }
+
+        /*
+         Legacy parser kept commented for quick rollback if Core Data / automatic selection return.
+         switch rawValue?.lowercased() {
+         case "swiftdata", "swift_data", "swiftdataonly":
+             return .swiftDataOnly
+         case "coredata", "core_data", "coredataonly":
+             return .coreDataOnly
+         default:
+             return .automatic
+         }
+         */
+        return .swiftDataOnly
     }
 }
 
@@ -56,16 +61,16 @@ struct AppLaunchConfiguration {
         self.initialURL = Self.makeInitialURL(environment: environment)
         self.apiEnvironment = Self.makeAPIEnvironment(environment: environment)
         self.databaseMode = AppLaunchDatabaseMode.make(
-            from: environment["TCHOP_DATABASE_BACKEND"] ?? "automatic"
+            from: environment["TCHOP_DATABASE_BACKEND"] ?? "swiftData"
         )
     }
 
     /// Returns the database configuration appropriate for the current launch mode.
     ///
-    /// `TCHOP_DATABASE_BACKEND` supports:
-    /// - `automatic` (default app runtime policy with migration/fallback behavior),
-    /// - `swiftData`,
-    /// - `coreData`.
+    /// `TCHOP_DATABASE_BACKEND` currently keeps only the SwiftData path active.
+    ///
+    /// Legacy `automatic` / `coreData` launch overrides are intentionally commented in the
+    /// implementation so the old runtime-selection path can be restored quickly if needed.
     var databaseConfiguration: AppDatabaseConfiguration {
         if isUITesting {
             return AppDatabaseConfiguration(
