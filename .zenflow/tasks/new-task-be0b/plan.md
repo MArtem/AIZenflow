@@ -65,6 +65,14 @@ Completed:
 - The preferred direction for future features is multiple focused domain stores instead of one oversized global state owner.
 - Documentation now records explicit ownership, hydration, mutation, and persistence-policy requirements for each future store.
 
+### [x] Step: Formalize `@MainActor` placement baseline
+
+Added a persistent concurrency-placement rule for where `@MainActor` belongs.
+Completed:
+- Type-level `@MainActor` is now the default for UI state owners such as view models, coordinators/routers, and UI-facing observable stores.
+- `UseCase`, `Repository`, `APIClient`, `Mapper`, `DTO`, `Domain`, and database/infrastructure services now explicitly stay off `@MainActor` unless they truly own UI-bound state.
+- SwiftUI `View` types are now explicitly excluded from automatic type-level `@MainActor` usage unless a specific imperative path actually requires it.
+
 ### [x] Step: Replace stub tabs with feature screens
 
 Continue from the current coordinator-based tab architecture by replacing the generic stub views in `Mixes`, `Pinned`, and `Chat` with concrete SwiftUI feature screens that match the existing visual system and preserve independent navigation stacks.

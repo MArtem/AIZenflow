@@ -79,6 +79,11 @@ Use this file as the persistent engineering instruction set for this project whe
 - Use actors when multiple async operations modify shared state.
 - Avoid data races completely.
 - Handle cancellation when needed.
+- Mark `ViewModel`, `Coordinator`, `Router`, and UI-facing observable stores with type-level `@MainActor` by default.
+- Do not mark `UseCase`, `Repository`, `APIClient`, `Mapper`, `DTO`, `Domain model`, or database/infrastructure services with `@MainActor` unless they truly own UI-bound state.
+- Do not annotate SwiftUI `View` types with `@MainActor` by default; use method-level isolation only when a specific view-owned imperative path requires it.
+- Prefer type-level `@MainActor` on UI state owners over scattering `MainActor.run` throughout the code.
+- Keep heavy synchronous work out of `@MainActor` types; if shared mutable concurrent state is not UI-bound, prefer `actor`.
 - `SWIFT_STRICT_CONCURRENCY = complete` is mandatory for this project.
 - New app targets and local package targets must keep strict concurrency enabled, and any violations must be fixed rather than suppressed.
 - Use `@MainActor` or custom actors to model shared mutable state; never use `DispatchQueue` for that purpose.

@@ -55,6 +55,7 @@ In short:
 - view-model ownership baseline = feature view models are created in composition/DI/factory/coordinator layers and injected downward; feature views do not construct them in their own initializers.
 - concurrency baseline = `SWIFT_STRICT_CONCURRENCY = complete` across the app project and local infrastructure package.
 - shared mutable state baseline = `@MainActor` or custom actors, not `DispatchQueue`-modeled state.
+- main-actor baseline = type-level `@MainActor` belongs on UI state owners such as view models, coordinators/routers, and UI-facing observable stores; use cases, repositories, API clients, DTOs, domain models, mappers, and database/infrastructure services should stay off `@MainActor` unless they truly own UI-bound state.
 - deployment-target baseline = whatever minimum iOS version is defined in the customer-owned Xcode project; do not assume `iOS 17+` by default when extending this app.
 - testing baseline = design for testability and keep recommended test surfaces in mind, but do not add or run tests unless the user explicitly asks for them.
 - architecture discussion baseline = offer multiple options only for non-trivial or trade-off-heavy decisions; keep straightforward tasks concise.

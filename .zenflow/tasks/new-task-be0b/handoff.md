@@ -59,6 +59,10 @@
   use `@MainActor` or custom actors for shared mutable state,
   do not model that state with `DispatchQueue`,
   and if a system callback API still forces a dispatch queue entry point, treat that as a narrow technical exception to discuss rather than a general pattern.
+- Main-actor placement policy is now explicit:
+  put type-level `@MainActor` on UI state owners such as view models, coordinators/routers, and UI-facing observable stores;
+  do not spread `@MainActor` across use cases, repositories, API clients, DTOs, domain models, mappers, or database/infrastructure services unless they truly own UI-bound state;
+  and do not mark SwiftUI `View` types with `@MainActor` by default.
 - Project baseline for deployment target assumptions is now explicit:
   defer to the minimum iOS version defined in the customer-owned Xcode project;
   do not assume `iOS 17+` by default for this app or for future work unless the project actually moves there.
