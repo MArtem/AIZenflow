@@ -9,86 +9,90 @@ struct SideMenuView: View {
     var onSelect: (AppTab) -> Void
 
     var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.featureSection) {
-            HStack(spacing: 14) {
-                BrandMarkView(iconSize: 54, cardSize: CGSize(width: 30, height: 36))
+        GeometryReader { proxy in
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: AppSpacing.featureSection) {
+                    HStack(spacing: 14) {
+                        BrandMarkView(iconSize: 54, cardSize: CGSize(width: 30, height: 36))
 
-                VStack(alignment: .leading, spacing: AppSpacing.xxs) {
-                    Text(channelInfo.title)
-                        .font(AppTypography.menuTitle)
-                        .foregroundStyle(AppTheme.textPrimary)
+                        VStack(alignment: .leading, spacing: AppSpacing.xxs) {
+                            Text(channelInfo.title)
+                                .font(AppTypography.menuTitle)
+                                .foregroundStyle(AppTheme.textPrimary)
 
-                    Text(channelInfo.subtitle)
-                        .font(AppTypography.detail)
-                        .foregroundStyle(AppTheme.textTertiary)
-                }
-            }
-            .padding(.top, 22)
-            .accessibilityElement(children: .combine)
-            .accessibilityAddTraits(.isHeader)
-
-            VStack(spacing: AppSpacing.xs) {
-                ForEach(AppTab.allCases) { tab in
-                    Button(action: { onSelect(tab) }) {
-                        HStack(spacing: 14) {
-                            Image(systemName: tab.menuIcon)
-                                .font(AppTypography.cardTitle)
-                                .frame(width: 22)
-
-                            Text(tab.title)
-                                .font(AppTypography.actionTitle)
-
-                            Spacer()
-
-                            if selectedTab == tab {
-                                Image(systemName: "checkmark")
-                                    .font(AppTypography.captionSemibold)
-                            }
+                            Text(channelInfo.subtitle)
+                                .font(AppTypography.detail)
+                                .foregroundStyle(AppTheme.textTertiary)
                         }
-                        .foregroundStyle(
-                            selectedTab == tab
-                                ? AppTheme.accent
-                                : AppTheme.textSecondary
-                        )
-                        .padding(.horizontal, 14)
-                        .padding(.vertical, 14)
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .background(
-                            RoundedRectangle(cornerRadius: AppRadius.menuSelection, style: .continuous)
-                                .fill(
-                                    selectedTab == tab
-                                        ? AppTheme.selectionFill
-                                        : Color.clear
-                                )
-                        )
                     }
-                    .buttonStyle(.plain)
-                    .accessibilityLabel(tab.title)
-                    .accessibilityValue(
-                        selectedTab == tab
-                            ? AppLocalization.text("accessibility.tab.selected")
-                            : AppLocalization.text("accessibility.tab.notSelected")
-                    )
-                    .accessibilityHint(AppLocalization.text("accessibility.sideMenu.tabHint"))
+                    .accessibilityElement(children: .combine)
+                    .accessibilityAddTraits(.isHeader)
+
+                    VStack(spacing: AppSpacing.xs) {
+                        ForEach(AppTab.allCases) { tab in
+                            Button(action: { onSelect(tab) }) {
+                                HStack(spacing: 14) {
+                                    Image(systemName: tab.menuIcon)
+                                        .font(AppTypography.cardTitle)
+                                        .frame(width: 22)
+
+                                    Text(tab.title)
+                                        .font(AppTypography.actionTitle)
+
+                                    Spacer()
+
+                                    if selectedTab == tab {
+                                        Image(systemName: "checkmark")
+                                            .font(AppTypography.captionSemibold)
+                                    }
+                                }
+                                .foregroundStyle(
+                                    selectedTab == tab
+                                        ? AppTheme.accent
+                                        : AppTheme.textSecondary
+                                )
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 14)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .background(
+                                    RoundedRectangle(cornerRadius: AppRadius.menuSelection, style: .continuous)
+                                        .fill(
+                                            selectedTab == tab
+                                                ? AppTheme.selectionFill
+                                                : Color.clear
+                                        )
+                                )
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityLabel(tab.title)
+                            .accessibilityValue(
+                                selectedTab == tab
+                                    ? AppLocalization.text("accessibility.tab.selected")
+                                    : AppLocalization.text("accessibility.tab.notSelected")
+                            )
+                            .accessibilityHint(AppLocalization.text("accessibility.sideMenu.tabHint"))
+                        }
+                    }
+
+                    if let accountSummary {
+                        SideMenuAccountSummaryCard(accountSummary: accountSummary)
+                    }
+
+                    Text(footerText)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppTheme.textTertiary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
+                .frame(maxWidth: .infinity, alignment: .topLeading)
+                .padding(.horizontal, 18)
+                .padding(.top, max(22, proxy.safeAreaInsets.top + AppSpacing.sm))
+                .padding(.bottom, max(26, proxy.safeAreaInsets.bottom + AppSpacing.md))
+                .frame(minHeight: proxy.size.height, alignment: .top)
             }
-
-            Spacer()
-
-            if let accountSummary {
-                SideMenuAccountSummaryCard(accountSummary: accountSummary)
-            }
-
-            Text(footerText)
-                .font(AppTypography.caption)
-                .foregroundStyle(AppTheme.textTertiary)
-                .fixedSize(horizontal: false, vertical: true)
-                .padding(.bottom, 26)
+            .background(AppTheme.menuSurface)
+            .shadow(color: AppTheme.shadow.opacity(0.5), radius: 18, x: 4)
+            .ignoresSafeArea()
         }
-        .padding(.horizontal, 18)
-        .background(AppTheme.menuSurface)
-        .shadow(color: AppTheme.shadow.opacity(0.5), radius: 18, x: 4)
-        .ignoresSafeArea()
     }
 
     private var channelInfo: ChannelHeaderInfo {
