@@ -44,7 +44,7 @@ struct AppShellView: View {
                     .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
 
                     SideMenuView(
-                        channelInfo: viewModel.channelInfo,
+                        channelsStore: viewModel.channelsStore,
                         accountSummary: currentUser.map(AccountProfileSummary.init(user:)),
                         selectedTab: coordinator.selectedTab,
                         footerText: viewModel.sideMenuFooterText,

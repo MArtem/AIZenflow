@@ -4,9 +4,7 @@ import SwiftUI
 struct TopBarView: View {
     @State private var isChannelPickerPresented = false
 
-    let channelInfo: ChannelHeaderInfo
-    let availableChannels: [AppChannel]
-    let selectedChannelID: String?
+    @ObservedObject var channelsStore: ChannelsStore
     let isSearchPresented: Bool
     var onMenuTap: () -> Void
     var onSelectChannel: (String) -> Void
@@ -60,7 +58,7 @@ struct TopBarView: View {
 
                 if isChannelPickerPresented {
                     VStack(spacing: AppSpacing.xs) {
-                        ForEach(availableChannels) { channel in
+                        ForEach(channelsStore.channels) { channel in
                             Button(action: { handleChannelSelection(channel.id) }) {
                                 HStack(spacing: AppSpacing.sm) {
                                     VStack(alignment: .leading, spacing: AppSpacing.xxs) {
@@ -75,7 +73,7 @@ struct TopBarView: View {
 
                                     Spacer()
 
-                                    if channel.id == selectedChannelID {
+                                    if channel.id == channelsStore.selectedChannelID {
                                         Image(systemName: "checkmark")
                                             .font(AppTypography.microLabel)
                                             .foregroundStyle(AppTheme.iconPrimary)
@@ -154,6 +152,11 @@ struct TopBarView: View {
         }
     }
 
+    /// Current channel header derived from the source-of-truth channels store.
+    private var channelInfo: ChannelHeaderInfo {
+        channelsStore.selectedChannelHeaderInfo ?? AppChannel.defaultChannel.headerInfo
+    }
+
     /// Applies a new active channel and closes the picker immediately.
     private func handleChannelSelection(_ channelID: String) {
         onSelectChannel(channelID)
@@ -166,9 +169,12 @@ struct TopBarView: View {
 #if DEBUG
 #Preview("Top Bar") {
     TopBarView(
-        channelInfo: ViewPreviewSupport.sampleChannelInfo,
-        availableChannels: ViewPreviewSupport.sampleChannels,
-        selectedChannelID: ViewPreviewSupport.sampleChannels.first?.id,
+        channelsStore: {
+            let store = ChannelsStore(selectionStore: UserDefaultsChannelSelectionStore())
+            store.setAvailableChannels(ViewPreviewSupport.sampleChannels)
+            store.selectChannel(id: ViewPreviewSupport.sampleChannels.first?.id)
+            return store
+        }(),
         isSearchPresented: false,
         onMenuTap: {},
         onSelectChannel: { _ in },

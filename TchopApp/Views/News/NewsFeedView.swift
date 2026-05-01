@@ -38,21 +38,11 @@ struct NewsFeedView: View {
                 }
 
                 if case let .failed(_, errorMessage) = viewModel.state {
-                    HStack(alignment: .top, spacing: AppSpacing.sm) {
-                        Text(errorMessage)
-                            .font(AppTypography.caption)
-                            .foregroundStyle(AppTheme.destructive.opacity(0.82))
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .fixedSize(horizontal: false, vertical: true)
-
-                        Button(AppLocalization.text("news.feed.retry")) {
-                            viewModel.retry()
-                        }
-                        .font(AppTypography.captionSemibold)
-                        .buttonStyle(.plain)
-                        .foregroundStyle(AppTheme.textPrimary)
-                        .accessibilityIdentifier("news.feed.retry")
-                    }
+                    Text(errorMessage)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppTheme.destructive.opacity(0.82))
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
                 if viewModel.state.isEmpty {

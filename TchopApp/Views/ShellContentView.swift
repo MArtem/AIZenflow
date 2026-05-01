@@ -24,9 +24,7 @@ struct ShellContentView: View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
                 TopBarView(
-                    channelInfo: viewModel.channelInfo,
-                    availableChannels: viewModel.channels,
-                    selectedChannelID: viewModel.selectedChannelID,
+                    channelsStore: viewModel.channelsStore,
                     isSearchPresented: viewModel.newsFeedViewModel.isSearchPresented,
                     onMenuTap: viewModel.toggleMenu,
                     onSelectChannel: handleChannelSelection,

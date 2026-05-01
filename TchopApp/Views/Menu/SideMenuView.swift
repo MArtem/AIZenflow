@@ -2,7 +2,7 @@ import SwiftUI
 
 /// Slide-out menu with app-level navigation actions.
 struct SideMenuView: View {
-    let channelInfo: ChannelHeaderInfo
+    @ObservedObject var channelsStore: ChannelsStore
     let accountSummary: AccountProfileSummary?
     let selectedTab: AppTab
     let footerText: String
@@ -90,6 +90,10 @@ struct SideMenuView: View {
         .shadow(color: AppTheme.shadow.opacity(0.5), radius: 18, x: 4)
         .ignoresSafeArea()
     }
+
+    private var channelInfo: ChannelHeaderInfo {
+        channelsStore.selectedChannelHeaderInfo ?? AppChannel.defaultChannel.headerInfo
+    }
 }
 
 private struct SideMenuAccountSummaryCard: View {
@@ -137,7 +141,12 @@ private struct SideMenuAccountSummaryCard: View {
 #if DEBUG
 #Preview("Side Menu") {
     SideMenuView(
-        channelInfo: ViewPreviewSupport.sampleChannelInfo,
+        channelsStore: {
+            let store = ChannelsStore(selectionStore: UserDefaultsChannelSelectionStore())
+            store.setAvailableChannels(ViewPreviewSupport.sampleChannels)
+            store.selectChannel(id: ViewPreviewSupport.sampleChannels.first?.id)
+            return store
+        }(),
         accountSummary: ViewPreviewSupport.sampleAccountSummary,
         selectedTab: .news,
         footerText: AppLocalization.text("menu.footer"),
