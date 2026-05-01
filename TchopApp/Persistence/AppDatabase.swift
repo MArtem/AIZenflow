@@ -576,10 +576,19 @@ private enum AppDatabaseContainerFactory {
             FeedCardRecord.self
         ])
 
-        let configuration = ModelConfiguration(
-            schema: schema,
-            isStoredInMemoryOnly: isStoredInMemoryOnly
-        )
+        let configuration: ModelConfiguration
+        if isStoredInMemoryOnly {
+            configuration = ModelConfiguration(
+                schema: schema,
+                isStoredInMemoryOnly: true
+            )
+        } else {
+            configuration = ModelConfiguration(
+                "TchopAppSwiftDataStore",
+                schema: schema,
+                url: try swiftDataPersistentStoreURL()
+            )
+        }
 
         return try ModelContainer(for: schema, configurations: [configuration])
     }
@@ -649,6 +658,23 @@ private enum AppDatabaseContainerFactory {
         )
 
         return applicationSupportDirectory.appendingPathComponent("TchopApp.sqlite")
+    }
+
+    @available(iOS 17, *)
+    private static func swiftDataPersistentStoreURL() throws -> URL {
+        // SwiftData also uses an app-owned explicit location so schema changes do not depend on
+        // opaque framework-generated file placement across refactors.
+        let applicationSupportDirectory = FileManager.default.urls(
+            for: .applicationSupportDirectory,
+            in: .userDomainMask
+        ).first ?? FileManager.default.temporaryDirectory
+
+        try FileManager.default.createDirectory(
+            at: applicationSupportDirectory,
+            withIntermediateDirectories: true
+        )
+
+        return applicationSupportDirectory.appendingPathComponent("TchopAppSwiftData.store")
     }
 
     private static func makeCoreDataManagedObjectModel() -> NSManagedObjectModel {
