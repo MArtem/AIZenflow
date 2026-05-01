@@ -135,6 +135,11 @@
 "shell.sideMenu.footer" = "Select a destination here or from the bottom bar. Both stay in sync through the same tab state.";
 "channel.default.title" = "Tchop";
 "channel.default.subtitle" = "New channel name";
+"channel.product.title" = "Product";
+"channel.product.subtitle" = "Roadmap & launches";
+"channel.community.title" = "Community";
+"channel.community.subtitle" = "Members & discussions";
+"channels.section.title" = "Channels";
 "shell.error.channelMissing" = "Channel data is unavailable. Restart the app or try again.";
 
 "mixes.route.quickAction.descriptionFormat" = "%@. This mix is positioned as a curated entry point that bundles related stories into one navigable stream.";
@@ -253,6 +258,7 @@
 "accessibility.topBar.menuHint" = "Opens the main navigation menu.";
 "accessibility.topBar.channel" = "Channel: %@, %@";
 "accessibility.topBar.channelHint" = "Opens channel context.";
+"accessibility.channel.selectHint" = "Switches the active channel and reloads the feed.";
 "accessibility.topBar.search" = "Search";
 "accessibility.topBar.searchHint" = "Opens search.";
 "accessibility.topBar.notifications" = "Notifications";

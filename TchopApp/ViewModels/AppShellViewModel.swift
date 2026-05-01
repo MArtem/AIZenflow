@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 import TchopErrors
 import TchopUIConfiguration
@@ -12,13 +13,19 @@ final class AppShellViewModel: ObservableObject {
     @Published var isMenuOpen: Bool
 
     /// Channel information rendered by the fixed top bar.
-    let channelInfo: ChannelHeaderInfo
+    @Published private(set) var channelInfo: ChannelHeaderInfo
 
     /// Footer text shown in the side menu.
     let sideMenuFooterText: String
 
     /// View model for the news feed feature.
     let newsFeedViewModel: NewsFeedViewModel
+
+    /// Channels currently available to the active user session.
+    @Published private(set) var channels: [AppChannel]
+
+    /// Currently selected channel identifier.
+    @Published private(set) var selectedChannelID: String?
 
     /// Whether the floating action button should be rendered for the active shell.
     @Published private(set) var showsFloatingActionButton: Bool
@@ -28,10 +35,12 @@ final class AppShellViewModel: ObservableObject {
 
     private let uiConfigurationManager: any UIConfigurationManaging
     private let errorManager: any AppErrorManaging
+    private let channelsStore: ChannelsStore
+    private var storeBindings: Set<AnyCancellable> = []
 
     /// Creates the shell view model from repository-backed content.
     init(
-        channelInfo: ChannelHeaderInfo,
+        channelsStore: ChannelsStore,
         newsFeedViewModel: NewsFeedViewModel,
         errorManager: any AppErrorManaging,
         uiConfigurationManager: any UIConfigurationManaging,
@@ -39,14 +48,18 @@ final class AppShellViewModel: ObservableObject {
         sideMenuFooterText: String = AppLocalization.text("shell.sideMenu.footer")
     ) {
         self.isMenuOpen = isMenuOpen
-        self.channelInfo = channelInfo
+        self.channelsStore = channelsStore
+        self.channelInfo = channelsStore.selectedChannelHeaderInfo ?? AppChannel.primary.headerInfo
         self.sideMenuFooterText = sideMenuFooterText
         self.newsFeedViewModel = newsFeedViewModel
+        self.channels = channelsStore.channels
+        self.selectedChannelID = channelsStore.selectedChannelID ?? channelsStore.selectedChannel?.id
         self.showsFloatingActionButton = true
         self.isNewsFeedNearTop = true
         self.errorManager = errorManager
         self.uiConfigurationManager = uiConfigurationManager
 
+        setupChannelBindings()
         startUIConfigurationLoad()
     }
 
@@ -58,6 +71,11 @@ final class AppShellViewModel: ObservableObject {
     /// Closes the side menu explicitly.
     func closeMenu() {
         isMenuOpen = false
+    }
+
+    /// Applies one new active channel choice to the shared runtime store.
+    func selectChannel(id: String) {
+        channelsStore.selectChannel(id: id)
     }
 
     /// Updates shell runtime visibility state for the news-feed floating action button.
@@ -115,5 +133,22 @@ final class AppShellViewModel: ObservableObject {
             )
             assertionFailure("Failed to fetch UI configuration: \(presentation.error.debugDescription)")
         }
+    }
+
+    /// Keeps shell chrome in sync with the currently selected app-wide channel.
+    private func setupChannelBindings() {
+        channelsStore.$channels
+            .sink { [weak self] channels in
+                self?.channels = channels
+            }
+            .store(in: &storeBindings)
+
+        channelsStore.$selectedChannelID
+            .removeDuplicates()
+            .sink { [weak self] _ in
+                self?.channelInfo = self?.channelsStore.selectedChannelHeaderInfo ?? AppChannel.primary.headerInfo
+                self?.selectedChannelID = self?.channelsStore.selectedChannelID ?? self?.channelsStore.selectedChannel?.id
+            }
+            .store(in: &storeBindings)
     }
 }

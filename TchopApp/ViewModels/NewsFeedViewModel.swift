@@ -1,3 +1,4 @@
+import Combine
 import Foundation
 import TchopErrors
 
@@ -95,11 +96,13 @@ final class NewsFeedViewModel: ObservableObject {
     @Published private(set) var state: NewsFeedState
 
     private let repository: any NewsFeedRepository
+    private let channelsStore: ChannelsStore
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let errorManager: any AppErrorManaging
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
+    private var storeBindings: Set<AnyCancellable> = []
     /// Serializes article actions and queues additive taps per visible card.
     private let featuredArticleActionCoordinator = NewsFeedCardActionCoordinator()
     /// Serializes discussion actions and queues additive taps per visible card.
@@ -108,6 +111,7 @@ final class NewsFeedViewModel: ObservableObject {
     /// Creates the feed view model and immediately starts the first load.
     init(
         repository: any NewsFeedRepository,
+        channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
         initialContent: NewsFeedContent,
@@ -115,12 +119,14 @@ final class NewsFeedViewModel: ObservableObject {
         loadFailureMessage: String
     ) {
         self.repository = repository
+        self.channelsStore = channelsStore
         self.widgetContentSyncManager = widgetContentSyncManager
         self.errorManager = errorManager
         self.state = Self.resolvedState(for: initialContent)
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
         widgetContentSyncManager.syncFeed(content: initialContent)
+        setupChannelBindings()
         load(using: .initial)
     }
 
@@ -253,6 +259,16 @@ final class NewsFeedViewModel: ObservableObject {
     /// the screen always converges through repository-backed state instead of branching into
     /// separate ad-hoc loaders.
     private func load(using policy: NewsFeedLoadPolicy) {
+        guard currentChannelID != nil else {
+            state = .empty(
+                NewsFeedContent(
+                    cards: [],
+                    availability: .live
+                )
+            )
+            return
+        }
+
         guard shouldStartLoad(for: policy) else {
             return
         }
@@ -263,6 +279,40 @@ final class NewsFeedViewModel: ObservableObject {
 
         state = .loading(content)
         loadingTask = makeLoadingTask()
+    }
+
+    /// Observes app-wide selected-channel changes and reloads the visible feed against the new context.
+    private func setupChannelBindings() {
+        channelsStore.$selectedChannelID
+            .removeDuplicates()
+            .dropFirst()
+            .sink { [weak self] _ in
+                self?.handleSelectedChannelChange()
+            }
+            .store(in: &storeBindings)
+    }
+
+    /// Re-resolves the persisted bootstrap snapshot for a newly selected channel before refreshing.
+    private func handleSelectedChannelChange() {
+        cancelLoading()
+
+        guard let channelID = currentChannelID else {
+            state = .empty(
+                NewsFeedContent(
+                    cards: [],
+                    availability: .live
+                )
+            )
+            return
+        }
+
+        if let persistedContent = (try? repository.currentNewsFeedContent(channelID: channelID)) ?? nil {
+            state = .loading(persistedContent)
+        } else {
+            state = .loading(Self.emptyContent)
+        }
+
+        load(using: .initial)
     }
 
     /// Maps repository-backed content into the explicit feed state used by the screen.
@@ -277,6 +327,12 @@ final class NewsFeedViewModel: ObservableObject {
 
         return .content(content)
     }
+
+    /// Empty feed content used when the selected channel has no persisted snapshot yet.
+    private static let emptyContent = NewsFeedContent(
+        cards: [],
+        availability: .live
+    )
 
     /// Starts an optimistic like toggle and then persists the new state through the repository path.
     ///
@@ -1281,7 +1337,14 @@ final class NewsFeedViewModel: ObservableObject {
             }
 
             do {
-                let content = try await repository.refreshNewsFeedContent()
+                guard let channelID = currentChannelID else {
+                    await MainActor.run {
+                        self.state = .empty(Self.emptyContent)
+                    }
+                    return
+                }
+
+                let content = try await repository.refreshNewsFeedContent(channelID: channelID)
                 guard !Task.isCancelled else {
                     return
                 }
@@ -1309,5 +1372,10 @@ final class NewsFeedViewModel: ObservableObject {
             )
         )
         return presentation.userMessage
+    }
+
+    /// Currently selected channel identifier used for feed queries.
+    private var currentChannelID: String? {
+        channelsStore.selectedChannelID ?? channelsStore.selectedChannel?.id
     }
 }

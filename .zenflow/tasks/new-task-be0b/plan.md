@@ -1472,3 +1472,12 @@ Readability-first cycle progress:
   now expose explicit labels, hints, and state values (`Active` / `In progress`) instead of relying on incidental system reading order.
 - The `Accessibility + formatting + docs cleanup` pass is now effectively closed.
   Shell/menu dismiss semantics, feed status formatting, feed-control accessibility, and package doc consistency have all been normalized to the current project baseline.
+- Started the pre-feature channel foundation refactor.
+  `SessionStore` now owns the authenticated runtime session snapshot,
+  `ChannelsStore` now owns available channels plus selected-channel runtime state,
+  and the feed/content persistence path is being moved to `channelID`-aware contracts before channel selection, create/edit flows, and channel-scoped search are added.
+- Added the first user-facing channel selection flow on top of that foundation.
+  The shell side menu now renders available channels,
+  channel selection updates `ChannelsStore`,
+  returns the shell to the news tab,
+  and causes `NewsFeedViewModel` to reload against the newly selected channel context.

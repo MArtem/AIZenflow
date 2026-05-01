@@ -116,7 +116,7 @@ struct DiscussionActionContext: Sendable {
 /// API abstraction used by repositories to fetch home feed content.
 protocol FeedAPIManaging: Sendable {
     /// Fetches the current feed payload.
-    func fetchFeed() async throws -> FeedResponseDTO
+    func fetchFeed(channelID: String) async throws -> FeedResponseDTO
 
     /// Performs one featured article action and returns the updated card snapshot.
     func performFeaturedArticleAction(
@@ -146,10 +146,10 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     }
 
     /// Returns a stubbed feed payload through the shared API client.
-    func fetchFeed() async throws -> FeedResponseDTO {
+    func fetchFeed(channelID: String) async throws -> FeedResponseDTO {
         try await apiManager.perform(
             APIRequest(
-                path: "feed",
+                path: "feed/\(channelID)",
                 method: .get,
                 stubResponse: {
                     try await FeedAPIStubFactory.makeFeedResponse()
@@ -399,8 +399,10 @@ enum FeedAPIStubFactory {
         in response: FeedResponseDTO,
         articleID: String
     ) -> FeaturedArticleDTO? {
+        let unscopedArticleID = unscopedCardID(articleID, kindPrefix: "article-")
         for card in response.cards {
-            if case let .featuredArticle(article) = card, article.id == articleID {
+            if case let .featuredArticle(article) = card,
+               (article.id == articleID || article.id == unscopedArticleID) {
                 return article
             }
         }
@@ -413,13 +415,24 @@ enum FeedAPIStubFactory {
         in response: FeedResponseDTO,
         discussionID: String
     ) -> DiscussionDTO? {
+        let unscopedDiscussionID = unscopedCardID(discussionID, kindPrefix: "discussion-")
         for card in response.cards {
-            if case let .discussion(discussion) = card, discussion.id == discussionID {
+            if case let .discussion(discussion) = card,
+               (discussion.id == discussionID || discussion.id == unscopedDiscussionID) {
                 return discussion
             }
         }
 
         return nil
+    }
+
+    /// Strips a channel-scoped prefix from persisted card ids before matching them against raw stub payload ids.
+    private static func unscopedCardID(_ scopedID: String, kindPrefix: String) -> String {
+        guard let range = scopedID.range(of: kindPrefix) else {
+            return scopedID
+        }
+
+        return String(scopedID[range.lowerBound...])
     }
 
     private static func loadStubFeedResponseData() throws -> Data {

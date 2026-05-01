@@ -6,6 +6,20 @@ import TchopDatabase
 /// Seeds the local persistence backend with the initial app content.
 @MainActor
 enum AppDataSeeder {
+    private static let seededChannels: [AppChannel] = [
+        .primary,
+        AppChannel(
+            id: "product-channel",
+            title: AppLocalization.text("channel.product.title"),
+            subtitle: AppLocalization.text("channel.product.subtitle")
+        ),
+        AppChannel(
+            id: "community-channel",
+            title: AppLocalization.text("channel.community.title"),
+            subtitle: AppLocalization.text("channel.community.subtitle")
+        )
+    ]
+
     /// Inserts the default channel and the initial feed snapshot on first launch only.
     static func seedIfNeeded(in databaseManager: any DatabaseManaging) throws {
         try seedChannelIfNeeded(in: databaseManager)
@@ -47,32 +61,38 @@ enum AppDataSeeder {
             if #available(iOS 17, *) {
                 _ = try databaseManager.write(
                     DatabaseWriteOperation(swiftData: { context in
-                        context.insert(
-                            ChannelRecord(
-                                id: "primary-channel",
-                                title: AppLocalization.text("channel.default.title"),
-                                subtitle: AppLocalization.text("channel.default.subtitle")
+                        for channel in seededChannels {
+                            context.insert(
+                                ChannelRecord(
+                                    id: channel.id,
+                                    title: channel.title,
+                                    subtitle: channel.subtitle
+                                )
                             )
-                        )
+                        }
                     })
                 ) as Void
             } else {
                 _ = try databaseManager.write(
                     DatabaseWriteOperation(coreData: { context in
-                        let entity = CoreDataChannelEntity(context: context)
-                        entity.id = "primary-channel"
-                        entity.title = AppLocalization.text("channel.default.title")
-                        entity.subtitle = AppLocalization.text("channel.default.subtitle")
+                        for channel in seededChannels {
+                            let entity = CoreDataChannelEntity(context: context)
+                            entity.id = channel.id
+                            entity.title = channel.title
+                            entity.subtitle = channel.subtitle
+                        }
                     })
                 ) as Void
             }
         case .coreData:
             _ = try databaseManager.write(
                 DatabaseWriteOperation(coreData: { context in
-                    let entity = CoreDataChannelEntity(context: context)
-                    entity.id = "primary-channel"
-                    entity.title = AppLocalization.text("channel.default.title")
-                    entity.subtitle = AppLocalization.text("channel.default.subtitle")
+                    for channel in seededChannels {
+                        let entity = CoreDataChannelEntity(context: context)
+                        entity.id = channel.id
+                        entity.title = channel.title
+                        entity.subtitle = channel.subtitle
+                    }
                 })
             ) as Void
         }
@@ -111,9 +131,10 @@ enum AppDataSeeder {
 
         let feedResponse = try FeedAPIStubFactory.loadFeedResponse()
         let syncedAt = Date()
-        let payloads = try feedResponse.cards.enumerated().map { index, card in
-            try makeFeedSeedPayload(card, sortOrder: index, syncedAt: syncedAt)
-        }
+        let payloads = try makeSeedPayloads(
+            from: feedResponse,
+            syncedAt: syncedAt
+        )
 
         switch databaseManager.backendKind {
         case .swiftData:
@@ -154,6 +175,7 @@ enum AppDataSeeder {
     /// values into either SwiftData or Core Data so both backends start from identical content.
     private struct FeedSeedPayload {
         let id: String
+        let channelID: String
         let kind: FeedCardRecordKind
         let sortOrder: Int
         let remoteUpdatedAt: Date
@@ -175,25 +197,52 @@ enum AppDataSeeder {
     }
 
     /// Maps one decoded feed card into the backend-agnostic seed payload.
+    private static func makeSeedPayloads(
+        from response: FeedResponseDTO,
+        syncedAt: Date
+    ) throws -> [FeedSeedPayload] {
+        try seededChannels.enumerated().flatMap { channelIndex, channel in
+            try response.cards.enumerated().map { cardIndex, card in
+                try makeFeedSeedPayload(
+                    card,
+                    channel: channel,
+                    sortOrder: cardIndex,
+                    syncedAt: syncedAt,
+                    channelVariantIndex: channelIndex
+                )
+            }
+        }
+    }
+
     private static func makeFeedSeedPayload(
         _ card: FeedCardDTO,
+        channel: AppChannel,
         sortOrder: Int,
-        syncedAt: Date
+        syncedAt: Date,
+        channelVariantIndex: Int
     ) throws -> FeedSeedPayload {
         switch card {
         case let .featuredArticle(article):
             return FeedSeedPayload(
-                id: article.id,
+                id: "\(channel.id)-\(article.id)",
+                channelID: channel.id,
                 kind: .featuredArticle,
                 sortOrder: sortOrder,
                 remoteUpdatedAt: article.remoteUpdatedAt,
                 syncedAt: syncedAt,
                 publishedAt: article.publishedAt,
                 postedInPrefix: article.postedInPrefix,
-                sourceTitle: article.sourceTitle,
+                sourceTitle: "\(channel.title) • \(article.sourceTitle)",
                 brandTitle: article.brandTitle,
-                headline: article.headline,
-                summary: article.summary,
+                headline: channelDecoratedHeadline(
+                    article.headline,
+                    channel: channel,
+                    variantIndex: channelVariantIndex
+                ),
+                summary: channelDecoratedSummary(
+                    article.summary,
+                    channel: channel
+                ),
                 metadataLine: article.metadataLine,
                 translationLabel: article.translationLabel,
                 articleActionsData: try JSONEncoder().encode(
@@ -220,7 +269,8 @@ enum AppDataSeeder {
             )
         case let .discussion(discussion):
             return FeedSeedPayload(
-                id: discussion.id,
+                id: "\(channel.id)-\(discussion.id)",
+                channelID: channel.id,
                 kind: .discussion,
                 sortOrder: sortOrder,
                 remoteUpdatedAt: discussion.remoteUpdatedAt,
@@ -229,13 +279,17 @@ enum AppDataSeeder {
                 postedInPrefix: nil,
                 sourceTitle: nil,
                 brandTitle: nil,
-                headline: discussion.headline,
+                headline: channelDecoratedHeadline(
+                    discussion.headline,
+                    channel: channel,
+                    variantIndex: channelVariantIndex
+                ),
                 summary: nil,
                 metadataLine: nil,
                 translationLabel: nil,
                 articleActionsData: nil,
                 articleStateData: nil,
-                categoryTitle: discussion.categoryTitle,
+                categoryTitle: "\(channel.title) • \(discussion.categoryTitle)",
                 participantsData: try JSONEncoder().encode(
                     discussion.participants.map {
                         FeedCardParticipantPayload(
@@ -258,10 +312,35 @@ enum AppDataSeeder {
         }
     }
 
+    /// Adds a lightweight channel marker so local seeded channels render visibly different content.
+    private static func channelDecoratedHeadline(
+        _ headline: String,
+        channel: AppChannel,
+        variantIndex: Int
+    ) -> String {
+        switch variantIndex {
+        case 0:
+            return headline
+        case 1:
+            return "\(channel.title): \(headline)"
+        default:
+            return "\(headline) • \(channel.title)"
+        }
+    }
+
+    /// Adds channel-specific context text to seeded summaries without changing the real card shape.
+    private static func channelDecoratedSummary(
+        _ summary: String,
+        channel: AppChannel
+    ) -> String {
+        "\(summary)\n\nChannel context: \(channel.subtitle)"
+    }
+
     @available(iOS 17, *)
     private static func makeFeedCardRecord(from payload: FeedSeedPayload) -> FeedCardRecord {
         FeedCardRecord(
             id: payload.id,
+            channelID: payload.channelID,
             kind: payload.kind,
             sortOrder: payload.sortOrder,
             remoteUpdatedAt: payload.remoteUpdatedAt,
@@ -285,6 +364,7 @@ enum AppDataSeeder {
 
     private static func apply(_ payload: FeedSeedPayload, to entity: CoreDataFeedCardEntity) {
         entity.id = payload.id
+        entity.channelID = payload.channelID
         entity.kindRawValue = payload.kind.rawValue
         entity.sortOrder = Int64(payload.sortOrder)
         entity.remoteUpdatedAt = payload.remoteUpdatedAt

@@ -26,6 +26,8 @@
 		A00000390000000000000001 /* ArticleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* ArticleActionView.swift */; };
 		A00000391000000000000001 /* FeaturedArticleStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A1000000000000001 /* FeaturedArticleStatusBadge.swift */; };
 		A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* Models/ChannelHeaderInfo.swift */; };
+		R00000010000000000000001 /* Models/AppChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000030000000000000001 /* AppChannel.swift */; };
+		R00000020000000000000001 /* Models/AppChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000030000000000000001 /* AppChannel.swift */; };
 		A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C2000000000000001 /* AccountProfileSummary.swift */; };
 		A000003D0000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* Models/NewsFeedModels.swift */; };
 		A000003F0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* ViewModels/AppShellViewModel.swift */; };
@@ -50,6 +52,8 @@
 		J00000010000000000000001 /* Services/AuthenticationAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = J00000020000000000000001 /* AuthenticationAPIManager.swift */; };
 		A000005D0000000000000001 /* Repositories/UserRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000005E0000000000000001 /* UserRepository.swift */; };
 		A00000610000000000000001 /* App/AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000620000000000000001 /* AppState.swift */; };
+		R00000040000000000000001 /* App/SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000060000000000000001 /* SessionStore.swift */; };
+		R00000050000000000000001 /* App/SessionStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000060000000000000001 /* SessionStore.swift */; };
 		A00000630000000000000001 /* ViewModels/LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000640000000000000001 /* LoginViewModel.swift */; };
 		A00000650000000000000001 /* Views/AppRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000660000000000000001 /* AppRootView.swift */; };
 		A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000680000000000000001 /* LoginScreenView.swift */; };
@@ -63,6 +67,8 @@
 		A000009C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
 		Q00000010000000000000001 /* App/AppGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = Q00000020000000000000001 /* AppGlass.swift */; };
 		Q00000030000000000000001 /* App/AppGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = Q00000020000000000000001 /* AppGlass.swift */; };
+		R00000070000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
+		R00000080000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		A00000750000000000000001 /* TchopNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* TchopNetworking */; };
 		A00000770000000000000001 /* TchopDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* TchopDatabase */; };
 		A00000B20000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
@@ -199,6 +205,7 @@
 		A000003A0000000000000001 /* ArticleActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleActionView.swift; sourceTree = "<group>"; };
 		A000003A1000000000000001 /* FeaturedArticleStatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedArticleStatusBadge.swift; sourceTree = "<group>"; };
 		A000003C0000000000000001 /* ChannelHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderInfo.swift; sourceTree = "<group>"; };
+		R00000030000000000000001 /* AppChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppChannel.swift; sourceTree = "<group>"; };
 		A000003E0000000000000001 /* NewsFeedModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedModels.swift; sourceTree = "<group>"; };
 		A00000400000000000000001 /* AppShellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellViewModel.swift; sourceTree = "<group>"; };
 		A00000420000000000000001 /* NewsFeedViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedViewModel.swift; sourceTree = "<group>"; };
@@ -222,6 +229,7 @@
 		J00000020000000000000001 /* AuthenticationAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPIManager.swift; sourceTree = "<group>"; };
 		A000005E0000000000000001 /* UserRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserRepository.swift; sourceTree = "<group>"; };
 		A00000620000000000000001 /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
+		R00000060000000000000001 /* SessionStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionStore.swift; sourceTree = "<group>"; };
 		A00000640000000000000001 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		A00000660000000000000001 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		A00000680000000000000001 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 		A00000740000000000000001 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		A000009D0000000000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
 		Q00000020000000000000001 /* AppGlass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGlass.swift; sourceTree = "<group>"; };
+		R00000090000000000000001 /* ChannelsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsStore.swift; sourceTree = "<group>"; };
 		A00000B10000000000000001 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
 		B00000020000000000000001 /* AppBranding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBranding.swift; sourceTree = "<group>"; };
 		D00000020000000000000001 /* AppWidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWidgetBridge.swift; sourceTree = "<group>"; };
@@ -378,6 +387,7 @@
 			isa = PBXGroup;
 			children = (
 				A000003C2000000000000001 /* AccountProfileSummary.swift */,
+				R00000030000000000000001 /* AppChannel.swift */,
 				A00000220000000000000001 /* AppTab.swift */,
 				A000005A0000000000000001 /* AppUser.swift */,
 				A000003C0000000000000001 /* ChannelHeaderInfo.swift */,
@@ -422,11 +432,13 @@
 			isa = PBXGroup;
 			children = (
 				B00000020000000000000001 /* AppBranding.swift */,
+				R00000090000000000000001 /* ChannelsStore.swift */,
 				A00000740000000000000001 /* AppDIContainer.swift */,
 				K00000050000000000000001 /* AppErrorMapping.swift */,
 				U00000130000000000000001 /* AppLaunchConfiguration.swift */,
 				Q00000020000000000000001 /* AppGlass.swift */,
 				A00000620000000000000001 /* AppState.swift */,
+				R00000060000000000000001 /* SessionStore.swift */,
 				A00000B10000000000000001 /* AppLocalization.swift */,
 				A000009D0000000000000001 /* AppTheme.swift */,
 				E00000080000000000000001 /* AppPushNotificationBridge.swift */,
@@ -875,6 +887,7 @@
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
 				A00000391000000000000001 /* FeaturedArticleStatusBadge.swift in Sources */,
+				R00000010000000000000001 /* Models/AppChannel.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
 				A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */,
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
@@ -914,9 +927,11 @@
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000110000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
+				R00000070000000000000001 /* App/ChannelsStore.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
 				Q00000010000000000000001 /* App/AppGlass.swift in Sources */,
+				R00000040000000000000001 /* App/SessionStore.swift in Sources */,
 				E00000040000000000000001 /* App/AppPushNotificationBridge.swift in Sources */,
 				E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
@@ -944,6 +959,7 @@
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* ArticleActionView.swift in Sources */,
 				A00000391000000000000001 /* FeaturedArticleStatusBadge.swift in Sources */,
+				R00000020000000000000001 /* Models/AppChannel.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
 				A000003C1000000000000001 /* Models/AccountProfileSummary.swift in Sources */,
 				A00000920000000000000001 /* Models/FeatureTabModels.swift in Sources */,
@@ -983,9 +999,11 @@
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000120000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,
 				B00000030000000000000001 /* App/AppBranding.swift in Sources */,
+				R00000080000000000000001 /* App/ChannelsStore.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
 				Q00000030000000000000001 /* App/AppGlass.swift in Sources */,
+				R00000050000000000000001 /* App/SessionStore.swift in Sources */,
 				E00000060000000000000001 /* App/AppPushNotificationBridge.swift in Sources */,
 				E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,

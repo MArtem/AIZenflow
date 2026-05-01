@@ -135,6 +135,11 @@
 "shell.sideMenu.footer" = "Выберите раздел здесь или в нижней панели. Оба источника используют одно состояние вкладок.";
 "channel.default.title" = "Tchop";
 "channel.default.subtitle" = "Название нового канала";
+"channel.product.title" = "Продукт";
+"channel.product.subtitle" = "Дорожная карта и релизы";
+"channel.community.title" = "Сообщество";
+"channel.community.subtitle" = "Участники и обсуждения";
+"channels.section.title" = "Каналы";
 "shell.error.channelMissing" = "Данные канала недоступны. Перезапустите приложение и попробуйте снова.";
 
 "mixes.route.quickAction.descriptionFormat" = "%@. Эта подборка — кураторская точка входа, объединяющая связанные истории в единый поток.";
@@ -253,6 +258,7 @@
 "accessibility.topBar.menuHint" = "Открывает главное меню навигации.";
 "accessibility.topBar.channel" = "Канал: %@, %@";
 "accessibility.topBar.channelHint" = "Открывает контекст канала.";
+"accessibility.channel.selectHint" = "Переключает активный канал и перезагружает ленту.";
 "accessibility.topBar.search" = "Поиск";
 "accessibility.topBar.searchHint" = "Открывает поиск.";
 "accessibility.topBar.notifications" = "Уведомления";

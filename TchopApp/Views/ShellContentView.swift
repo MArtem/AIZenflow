@@ -26,7 +26,7 @@ struct ShellContentView: View {
                 TopBarView(
                     channelInfo: viewModel.channelInfo,
                     onMenuTap: viewModel.toggleMenu,
-                    onChannelTap: {},
+                    onChannelTap: viewModel.toggleMenu,
                     onSearchTap: {},
                     onNotificationsTap: {}
                 )

@@ -45,9 +45,12 @@ struct AppShellView: View {
 
                     SideMenuView(
                         channelInfo: viewModel.channelInfo,
+                        availableChannels: viewModel.channels,
+                        selectedChannelID: viewModel.selectedChannelID,
                         accountSummary: currentUser.map(AccountProfileSummary.init(user:)),
                         selectedTab: coordinator.selectedTab,
                         footerText: viewModel.sideMenuFooterText,
+                        onSelectChannel: selectChannel,
                         onSelect: selectTab
                     )
                     .frame(width: menuWidth, alignment: .topLeading)
@@ -123,6 +126,13 @@ struct AppShellView: View {
     /// Selects tab.
     private func selectTab(_ tab: AppTab) {
         coordinator.selectTab(tab)
+        viewModel.closeMenu()
+    }
+
+    /// Applies a new active channel and returns the shell to the news tab.
+    private func selectChannel(_ channelID: String) {
+        viewModel.selectChannel(id: channelID)
+        coordinator.selectTab(.news)
         viewModel.closeMenu()
     }
 }

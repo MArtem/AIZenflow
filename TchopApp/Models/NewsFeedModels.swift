@@ -54,6 +54,7 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
 /// Presentation model for the featured article card.
 struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
     let id: String
+    let channelID: String
     let postedInPrefix: String
     let sourceTitle: String
     let brandTitle: String
@@ -85,6 +86,7 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
     func updatingUIState(_ transform: (FeaturedArticleCardUIState) -> FeaturedArticleCardUIState) -> FeaturedArticleCardModel {
         FeaturedArticleCardModel(
             id: id,
+            channelID: channelID,
             postedInPrefix: postedInPrefix,
             sourceTitle: sourceTitle,
             brandTitle: brandTitle,
@@ -106,6 +108,7 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
     ) -> FeaturedArticleCardModel {
         FeaturedArticleCardModel(
             id: id,
+            channelID: channelID,
             postedInPrefix: postedInPrefix,
             sourceTitle: sourceTitle,
             brandTitle: brandTitle,
@@ -200,6 +203,7 @@ enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
 /// Presentation model for the discussion preview card.
 struct DiscussionCardModel: Identifiable, Equatable, Sendable {
     let id: String
+    let channelID: String
     let categoryTitle: String
     let headline: String
     let participants: [DiscussionParticipant]
@@ -232,6 +236,7 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
     func updatingUIState(_ transform: (DiscussionCardUIState) -> DiscussionCardUIState) -> DiscussionCardModel {
         DiscussionCardModel(
             id: id,
+            channelID: channelID,
             categoryTitle: categoryTitle,
             headline: headline,
             participants: participants,
@@ -250,6 +255,7 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
     ) -> DiscussionCardModel {
         DiscussionCardModel(
             id: id,
+            channelID: channelID,
             categoryTitle: categoryTitle,
             headline: headline ?? self.headline,
             participants: participants ?? self.participants,
@@ -335,6 +341,7 @@ enum NewsFeedFixtures {
                 .featuredArticle(
                     FeaturedArticleCardModel(
                         id: "featured-article-fallback",
+                        channelID: AppChannel.primary.id,
                         postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
                         sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
                         brandTitle: AppLocalization.text("news.fallback.brandTitle"),
@@ -363,6 +370,7 @@ enum NewsFeedFixtures {
                 .discussion(
                     DiscussionCardModel(
                         id: "discussion-fallback",
+                        channelID: AppChannel.primary.id,
                         categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
                         headline: AppLocalization.text("news.fallback.discussion.headline"),
                         participants: [

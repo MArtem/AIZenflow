@@ -145,6 +145,12 @@ final class AppDIContainer: ObservableObject {
     /// Service responsible for sign-in and session restoration.
     private let sessionService: any UserSessionManaging
 
+    /// App-wide runtime snapshot of the authenticated session.
+    let sessionStore: SessionStore
+
+    /// App-wide runtime snapshot of available channels and current selection.
+    let channelsStore: ChannelsStore
+
     /// Apple auth adapter used by the login UI flow.
     let appleAuthenticationManager: any AppleAuthenticationManaging
 
@@ -200,6 +206,10 @@ final class AppDIContainer: ObservableObject {
         self.contentRepository = contentServices.contentRepository
         self.userRepository = contentServices.userRepository
         self.sessionService = contentServices.sessionService
+        self.sessionStore = SessionStore()
+        self.channelsStore = ChannelsStore(
+            selectionStore: UserDefaultsChannelSelectionStore()
+        )
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
@@ -217,18 +227,22 @@ final class AppDIContainer: ObservableObject {
         self.navigationStateManager = navigationServices.navigationStateManager
         self.navigationEventReporter = navigationServices.navigationEventReporter
         self.deepLinkManager = navigationServices.deepLinkManager
+
+        let bootstrapChannels = (try? contentRepository.fetchAvailableChannels()) ?? [AppChannel.primary]
+        channelsStore.setAvailableChannels(bootstrapChannels)
     }
 
     /// Creates the shell view model used by the authenticated part of the app.
     func makeAppShellViewModel() -> AppShellViewModel {
         let newsFeedViewModel = Self.makeNewsFeedViewModel(
             repository: contentRepository,
+            channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager
         )
 
         return AppShellViewModel(
-            channelInfo: Self.resolveChannelInfo(from: contentRepository),
+            channelsStore: channelsStore,
             newsFeedViewModel: newsFeedViewModel,
             errorManager: errorManager,
             uiConfigurationManager: uiConfigurationManager,
@@ -243,8 +257,11 @@ final class AppDIContainer: ObservableObject {
         return AppState(
             coordinator: coordinator,
             appShellViewModel: appShellViewModel,
+            sessionStore: sessionStore,
+            channelsStore: channelsStore,
             sessionService: sessionService,
             userRepository: userRepository,
+            channelsRepository: contentRepository,
             navigationStateManager: navigationStateManager,
             deepLinkManager: deepLinkManager,
             navigationEventReporter: navigationEventReporter,
@@ -500,13 +517,18 @@ final class AppDIContainer: ObservableObject {
     /// an emergency fallback when the persisted feed has not been seeded yet or cannot be read.
     private static func makeNewsFeedViewModel(
         repository: any NewsFeedRepository,
+        channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging
     ) -> NewsFeedViewModel {
-        let initialContent = resolveInitialNewsFeedContent(from: repository)
+        let initialContent = resolveInitialNewsFeedContent(
+            from: repository,
+            channelsStore: channelsStore
+        )
 
         return NewsFeedViewModel(
             repository: repository,
+            channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
             initialContent: initialContent,
@@ -520,28 +542,15 @@ final class AppDIContainer: ObservableObject {
     /// This keeps the home screen aligned with the repository contract: the UI should prefer a
     /// persisted snapshot over hard-coded content whenever possible.
     private static func resolveInitialNewsFeedContent(
-        from repository: any NewsFeedRepository
+        from repository: any NewsFeedRepository,
+        channelsStore: ChannelsStore
     ) -> NewsFeedContent {
-        if let localContent = try? repository.currentNewsFeedContent() ?? nil {
+        let channelID = channelsStore.selectedChannelID ?? channelsStore.selectedChannel?.id ?? AppChannel.primary.id
+        if let localContent = (try? repository.currentNewsFeedContent(channelID: channelID)) ?? nil {
             return localContent
         }
 
         return NewsFeedFixtures.fallbackContent
-    }
-
-    /// Resolves repository-backed channel info or falls back to local defaults.
-    ///
-    /// Channel metadata is expected to exist locally after seeding, but the shell still keeps
-    /// a defensive fallback so bootstrap failures do not break the authenticated UI.
-    private static func resolveChannelInfo(from repository: any AppContentRepository) -> ChannelHeaderInfo {
-        if let channelInfo = try? repository.fetchChannelInfo() {
-            return channelInfo
-        }
-
-        return ChannelHeaderInfo(
-            title: AppLocalization.text("channel.default.title"),
-            subtitle: AppLocalization.text("channel.default.subtitle")
-        )
     }
 
     private static func makeUIConfigurationManager() -> any UIConfigurationManaging {

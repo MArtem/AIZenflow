@@ -62,6 +62,7 @@ final class ChannelRecord {
 @Model
 final class FeedCardRecord {
     @Attribute(.unique) var id: String
+    var channelID: String
     var kindRawValue: String
     var sortOrder: Int
     var remoteUpdatedAt: Date
@@ -90,6 +91,7 @@ final class FeedCardRecord {
     /// set of card kinds.
     init(
         id: String,
+        channelID: String,
         kind: FeedCardRecordKind,
         sortOrder: Int,
         remoteUpdatedAt: Date,
@@ -110,6 +112,7 @@ final class FeedCardRecord {
         discussionStateData: Data? = nil
     ) {
         self.id = id
+        self.channelID = channelID
         self.kindRawValue = kind.rawValue
         self.sortOrder = sortOrder
         self.remoteUpdatedAt = remoteUpdatedAt

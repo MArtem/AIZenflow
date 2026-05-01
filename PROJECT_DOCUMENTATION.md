@@ -2396,6 +2396,16 @@ The current accessibility/formatting baseline is also explicit:
 interactive surfaces should expose direct VoiceOver semantics where system defaults are ambiguous,
 and user-facing date/time rendering should prefer locale-aware modern formatting APIs over view-local formatter objects.
 
+The app now also has an explicit typed runtime-store foundation for the upcoming multi-channel expansion:
+`SessionStore` owns the authenticated runtime session snapshot,
+`ChannelsStore` owns the available channel snapshot plus selected channel,
+`AppState` now coordinates auth/navigation around those stores instead of being the sole state bucket,
+and feed persistence/repository contracts are now channel-aware through `channelID`-scoped card snapshots.
+The shell now also exposes the first user-facing channel selector through the side menu:
+channel choice updates the shared `ChannelsStore`,
+returns the shell to the news tab,
+and triggers a channel-aware feed reload through `NewsFeedViewModel`.
+
 If you are unsure where a change belongs, ask:
 
 1. is this reusable infrastructure or product-specific behavior?

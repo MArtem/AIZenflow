@@ -342,6 +342,7 @@ private enum AppDatabaseMigrationCoordinator {
 
     private struct MigrationFeedCardPayload {
         let id: String
+        let channelID: String
         let kindRawValue: String
         let sortOrder: Int
         let remoteUpdatedAt: Date
@@ -418,6 +419,7 @@ private enum AppDatabaseMigrationCoordinator {
                     let feedCards = try context.fetch(feedCardRequest).map {
                         MigrationFeedCardPayload(
                             id: $0.id,
+                            channelID: $0.channelID,
                             kindRawValue: $0.kindRawValue,
                             sortOrder: Int($0.sortOrder),
                             remoteUpdatedAt: $0.remoteUpdatedAt,
@@ -513,6 +515,7 @@ private enum AppDatabaseMigrationCoordinator {
         for feedCard in feedCards {
             let descriptor = FetchDescriptor<FeedCardRecord>()
             if let existing = try context.fetch(descriptor).first(where: { $0.id == feedCard.id }) {
+                existing.channelID = feedCard.channelID
                 existing.kindRawValue = feedCard.kindRawValue
                 existing.sortOrder = feedCard.sortOrder
                 existing.remoteUpdatedAt = feedCard.remoteUpdatedAt
@@ -535,6 +538,7 @@ private enum AppDatabaseMigrationCoordinator {
                 context.insert(
                     FeedCardRecord(
                         id: feedCard.id,
+                        channelID: feedCard.channelID,
                         kind: FeedCardRecordKind(rawValue: feedCard.kindRawValue) ?? .featuredArticle,
                         sortOrder: feedCard.sortOrder,
                         remoteUpdatedAt: feedCard.remoteUpdatedAt,
@@ -694,6 +698,7 @@ private enum AppDatabaseContainerFactory {
         entity.managedObjectClassName = NSStringFromClass(CoreDataFeedCardEntity.self)
         entity.properties = [
             makeStringAttribute(name: "id"),
+            makeStringAttribute(name: "channelID"),
             makeStringAttribute(name: "kindRawValue"),
             makeIntegerAttribute(name: "sortOrder"),
             makeDateAttribute(name: "remoteUpdatedAt"),
@@ -811,6 +816,7 @@ final class CoreDataFeedCardEntity: NSManagedObject {
     static let entityName = "CoreDataFeedCardEntity"
 
     @NSManaged var id: String
+    @NSManaged var channelID: String
     @NSManaged var kindRawValue: String
     @NSManaged var sortOrder: Int64
     @NSManaged var remoteUpdatedAt: Date

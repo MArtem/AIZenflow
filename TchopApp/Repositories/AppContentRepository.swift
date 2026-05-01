@@ -4,21 +4,21 @@ import Network
 import SwiftData
 import TchopDatabase
 
-/// Repository interface for fixed channel header information.
+/// Repository interface for channel snapshots available to the current app runtime.
 @MainActor
-protocol ChannelInfoRepository {
-    /// Fetches channel metadata used by the pinned top bar.
-    func fetchChannelInfo() throws -> ChannelHeaderInfo
+protocol ChannelsRepository {
+    /// Fetches all locally available channels for the active runtime.
+    func fetchAvailableChannels() throws -> [AppChannel]
 }
 
 /// Repository interface for the news feed timeline.
 @MainActor
 protocol NewsFeedRepository {
     /// Returns the current persisted feed snapshot if one is already available locally.
-    func currentNewsFeedContent() throws -> NewsFeedContent?
+    func currentNewsFeedContent(channelID: String) throws -> NewsFeedContent?
 
     /// Refreshes feed content from the API when online, otherwise returns the current persisted snapshot marked as offline.
-    func refreshNewsFeedContent() async throws -> NewsFeedContent
+    func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent
 
     /// Persists one featured article card action and returns the updated card snapshot.
     func performFeaturedArticleAction(
@@ -39,8 +39,8 @@ protocol NetworkAvailabilityChecking: Sendable {
     func isInternetAvailable() async -> Bool
 }
 
-/// Combined repository used by the shell to resolve both channel and feed content.
-protocol AppContentRepository: ChannelInfoRepository, NewsFeedRepository {}
+/// Combined repository used by the shell to resolve both channels and feed content.
+protocol AppContentRepository: ChannelsRepository, NewsFeedRepository {}
 
 /// Default app content repository that combines local persistence and API data.
 @MainActor
@@ -61,13 +61,21 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Fetches channel data from local persistence.
-    func fetchChannelInfo() throws -> ChannelHeaderInfo {
-        try requireChannelInfo(fetchChannelInfoFromCurrentBackend())
+    func fetchAvailableChannels() throws -> [AppChannel] {
+        let channels = try fetchChannelsFromCurrentBackend()
+        guard !channels.isEmpty else {
+            throw RepositoryError.missingChannel
+        }
+
+        return channels
     }
 
     /// Returns the current persisted feed snapshot if one is already available locally.
-    func currentNewsFeedContent() throws -> NewsFeedContent? {
-        let content = try fetchPersistedNewsFeedContent(cacheReason: .bootstrap)
+    func currentNewsFeedContent(channelID: String) throws -> NewsFeedContent? {
+        let content = try fetchPersistedNewsFeedContent(
+            channelID: channelID,
+            cacheReason: .bootstrap
+        )
         return content.cards.isEmpty ? nil : content
     }
 
@@ -76,21 +84,21 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// The repository always returns a storage-backed snapshot. Even after a successful fetch,
     /// the API response is first synchronized into persistence and only then mapped back into
     /// presentation models.
-    func refreshNewsFeedContent() async throws -> NewsFeedContent {
+    func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent {
         let networkAvailabilityChecker = self.networkAvailabilityChecker
         let feedAPIManager = self.feedAPIManager
 
         guard await networkAvailabilityChecker.isInternetAvailable() else {
-            if let persistedContent = try currentNewsFeedContent() {
+            if let persistedContent = try currentNewsFeedContent(channelID: channelID) {
                 return persistedContent.withCacheReason(.offline)
             }
 
             throw RepositoryError.missingPersistedFeed
         }
 
-        let response = try await feedAPIManager.fetchFeed()
-        try syncPersistedFeedContent(with: response)
-        return try fetchPersistedNewsFeedContent(cacheReason: nil)
+        let response = try await feedAPIManager.fetchFeed(channelID: channelID)
+        try syncPersistedFeedContent(with: response, channelID: channelID)
+        return try fetchPersistedNewsFeedContent(channelID: channelID, cacheReason: nil)
     }
 
     func performFeaturedArticleAction(
@@ -167,46 +175,37 @@ final class DefaultAppContentRepository: AppContentRepository {
         return try requirePersistedDiscussion(discussionID: discussionID)
     }
 
-    /// Resolves channel info using the currently selected persistence backend.
-    private func fetchChannelInfoFromCurrentBackend() throws -> ChannelHeaderInfo? {
+    /// Resolves channels using the currently selected persistence backend.
+    private func fetchChannelsFromCurrentBackend() throws -> [AppChannel] {
         switch databaseManager.backendKind {
         case .swiftData:
             if #available(iOS 17, *) {
-                return try fetchSwiftDataChannelInfo()
+                return try fetchSwiftDataChannels()
             }
 
-            return try fetchCoreDataChannelInfo()
+            return try fetchCoreDataChannels()
         case .coreData:
-            return try fetchCoreDataChannelInfo()
+            return try fetchCoreDataChannels()
         }
-    }
-
-    /// Converts an optional channel result into a repository-level success or error.
-    private func requireChannelInfo(_ channel: ChannelHeaderInfo?) throws -> ChannelHeaderInfo {
-        guard let channel else {
-            throw RepositoryError.missingChannel
-        }
-
-        return channel
     }
 
     @available(iOS 17, *)
-    /// Fetches channel info through the SwiftData backend.
-    private func fetchSwiftDataChannelInfo() throws -> ChannelHeaderInfo? {
+    /// Fetches channels through the SwiftData backend.
+    private func fetchSwiftDataChannels() throws -> [AppChannel] {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
                 let descriptor = FetchDescriptor<ChannelRecord>()
-                return try context.fetch(descriptor).first.map(AppContentMapper.mapChannelInfo)
+                return try context.fetch(descriptor).map(AppContentMapper.mapChannel)
             })
         )
     }
 
-    /// Fetches channel info through the Core Data backend.
-    private func fetchCoreDataChannelInfo() throws -> ChannelHeaderInfo? {
+    /// Fetches channels through the Core Data backend.
+    private func fetchCoreDataChannels() throws -> [AppChannel] {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
                 let request = Self.makeCoreDataChannelFetchRequest()
-                return try context.fetch(request).first.map(AppContentMapper.mapChannelInfo)
+                return try context.fetch(request).map(AppContentMapper.mapChannel)
             })
         )
     }
@@ -214,15 +213,18 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// Builds a single-record Core Data request for channel metadata.
     private static func makeCoreDataChannelFetchRequest() -> NSFetchRequest<CoreDataChannelEntity> {
         let request = CoreDataChannelEntity.fetchRequest()
-        request.fetchLimit = 1
+        request.sortDescriptors = [
+            NSSortDescriptor(key: "title", ascending: true)
+        ]
         return request
     }
 
     /// Fetches the current persisted feed snapshot using the selected backend.
     private func fetchPersistedNewsFeedContent(
+        channelID: String,
         cacheReason: NewsFeedCacheReason?
     ) throws -> NewsFeedContent {
-        let snapshot = try fetchPersistedFeedSnapshotFromCurrentBackend()
+        let snapshot = try fetchPersistedFeedSnapshotFromCurrentBackend(channelID: channelID)
         return NewsFeedContent(
             cards: snapshot.cards,
             availability: makeFeedAvailability(
@@ -233,16 +235,18 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Reads persisted feed cards from the selected backend and maps them into presentation models.
-    private func fetchPersistedFeedSnapshotFromCurrentBackend() throws -> PersistedNewsFeedSnapshot {
+    private func fetchPersistedFeedSnapshotFromCurrentBackend(
+        channelID: String
+    ) throws -> PersistedNewsFeedSnapshot {
         switch databaseManager.backendKind {
         case .swiftData:
             if #available(iOS 17, *) {
-                return try fetchSwiftDataFeedSnapshot()
+                return try fetchSwiftDataFeedSnapshot(channelID: channelID)
             }
 
-            return try fetchCoreDataFeedSnapshot()
+            return try fetchCoreDataFeedSnapshot(channelID: channelID)
         case .coreData:
-            return try fetchCoreDataFeedSnapshot()
+            return try fetchCoreDataFeedSnapshot(channelID: channelID)
         }
     }
 
@@ -250,11 +254,15 @@ final class DefaultAppContentRepository: AppContentRepository {
     ///
     /// Feed refresh still behaves like a full snapshot replacement, but persisted per-card local
     /// state is carried forward so card actions do not disappear when the stub feed is refreshed.
-    private func syncPersistedFeedContent(with response: FeedResponseDTO) throws {
+    private func syncPersistedFeedContent(
+        with response: FeedResponseDTO,
+        channelID: String
+    ) throws {
         let syncedAt = Date()
-        let persistedStates = try fetchPersistedCardStateMap()
+        let persistedStates = try fetchPersistedCardStateMap(channelID: channelID)
         let snapshots = try AppContentPersistenceMapper.makeFeedCardSnapshots(
             from: response,
+            channelID: channelID,
             syncedAt: syncedAt,
             persistedStates: persistedStates
         )
@@ -262,12 +270,12 @@ final class DefaultAppContentRepository: AppContentRepository {
         switch databaseManager.backendKind {
         case .swiftData:
             if #available(iOS 17, *) {
-                try syncSwiftDataFeedCards(with: snapshots)
+                try syncSwiftDataFeedCards(with: snapshots, channelID: channelID)
             } else {
-                try syncCoreDataFeedCards(with: snapshots)
+                try syncCoreDataFeedCards(with: snapshots, channelID: channelID)
             }
         case .coreData:
-            try syncCoreDataFeedCards(with: snapshots)
+            try syncCoreDataFeedCards(with: snapshots, channelID: channelID)
         }
     }
 
@@ -275,7 +283,9 @@ final class DefaultAppContentRepository: AppContentRepository {
     ///
     /// This payload is intentionally separate from the API DTOs so local preferences such as
     /// liked state or display mode can survive a full feed re-sync.
-    private func fetchPersistedCardStateMap() throws -> [String: PersistedCardStateSnapshot] {
+    private func fetchPersistedCardStateMap(
+        channelID: String
+    ) throws -> [String: PersistedCardStateSnapshot] {
         switch databaseManager.backendKind {
         case .swiftData:
             if #available(iOS 17, *) {
@@ -283,7 +293,9 @@ final class DefaultAppContentRepository: AppContentRepository {
                     DatabaseReadOperation(swiftData: { context in
                         let descriptor = FetchDescriptor<FeedCardRecord>()
                         return Dictionary(
-                            uniqueKeysWithValues: try context.fetch(descriptor).map {
+                            uniqueKeysWithValues: try context.fetch(descriptor)
+                                .filter { $0.channelID == channelID }
+                                .map {
                                 (
                                     $0.id,
                                     PersistedCardStateSnapshot(
@@ -297,17 +309,19 @@ final class DefaultAppContentRepository: AppContentRepository {
                 )
             }
 
-            return try fetchCoreDataCardStateMap()
+            return try fetchCoreDataCardStateMap(channelID: channelID)
         case .coreData:
-            return try fetchCoreDataCardStateMap()
+            return try fetchCoreDataCardStateMap(channelID: channelID)
         }
     }
 
     /// Returns persisted card-local-state blobs from the Core Data backend.
-    private func fetchCoreDataCardStateMap() throws -> [String: PersistedCardStateSnapshot] {
+    private func fetchCoreDataCardStateMap(
+        channelID: String
+    ) throws -> [String: PersistedCardStateSnapshot] {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
-                let request = Self.makeCoreDataFeedCardFetchRequest()
+                let request = Self.makeCoreDataFeedCardFetchRequest(channelID: channelID)
                 return Dictionary(
                     uniqueKeysWithValues: try context.fetch(request).map {
                         (
@@ -325,10 +339,11 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     @available(iOS 17, *)
     /// Fetches persisted feed cards through the SwiftData backend.
-    private func fetchSwiftDataFeedSnapshot() throws -> PersistedNewsFeedSnapshot {
+    private func fetchSwiftDataFeedSnapshot(channelID: String) throws -> PersistedNewsFeedSnapshot {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
                 let records = try Self.fetchAllSwiftDataFeedCardRecords(in: context)
+                    .filter { $0.channelID == channelID }
                     .sorted(by: { $0.sortOrder < $1.sortOrder })
                 return PersistedNewsFeedSnapshot(
                     cards: records.compactMap(AppContentMapper.mapFeedCard),
@@ -339,10 +354,10 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Fetches persisted feed cards through the Core Data backend.
-    private func fetchCoreDataFeedSnapshot() throws -> PersistedNewsFeedSnapshot {
+    private func fetchCoreDataFeedSnapshot(channelID: String) throws -> PersistedNewsFeedSnapshot {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
-                let request = Self.makeCoreDataFeedCardFetchRequest()
+                let request = Self.makeCoreDataFeedCardFetchRequest(channelID: channelID)
                 let records = try context.fetch(request)
                 return PersistedNewsFeedSnapshot(
                     cards: records.compactMap(AppContentMapper.mapFeedCard),
@@ -367,12 +382,15 @@ final class DefaultAppContentRepository: AppContentRepository {
     @available(iOS 17, *)
     /// Performs full-snapshot upsert/delete sync of feed cards in SwiftData.
     private func syncSwiftDataFeedCards(
-        with snapshots: [FeedCardPersistenceSnapshot]
+        with snapshots: [FeedCardPersistenceSnapshot],
+        channelID: String
     ) throws {
         try databaseManager.write(
             DatabaseWriteOperation(swiftData: { context in
                 let descriptor = FetchDescriptor<FeedCardRecord>()
-                let existingRecords = try context.fetch(descriptor)
+                let existingRecords = try context.fetch(descriptor).filter { record in
+                    return record.channelID == channelID
+                }
                 let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
 
                 for record in existingRecords where snapshotsByID[record.id] == nil {
@@ -392,11 +410,12 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Performs full-snapshot upsert/delete sync of feed cards in Core Data.
     private func syncCoreDataFeedCards(
-        with snapshots: [FeedCardPersistenceSnapshot]
+        with snapshots: [FeedCardPersistenceSnapshot],
+        channelID: String
     ) throws {
         try databaseManager.write(
             DatabaseWriteOperation(coreData: { context in
-                let request = Self.makeCoreDataFeedCardFetchRequest()
+                let request = Self.makeCoreDataFeedCardFetchRequest(channelID: channelID)
                 let existingRecords = try context.fetch(request)
                 let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
 
@@ -427,6 +446,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         let sortOrder = try persistedSortOrder(for: articleID)
         let snapshot = try AppContentPersistenceMapper.makeFeaturedArticleSnapshot(
             article,
+            channelID: currentArticle.channelID,
             sortOrder: sortOrder,
             syncedAt: Date(),
             persistedState: PersistedCardStateSnapshot(
@@ -446,6 +466,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         let sortOrder = try persistedSortOrder(for: discussionID)
         let snapshot = try AppContentPersistenceMapper.makeDiscussionSnapshot(
             discussion,
+            channelID: currentDiscussion.channelID,
             sortOrder: sortOrder,
             syncedAt: Date(),
             persistedState: PersistedCardStateSnapshot(
@@ -555,7 +576,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     private func upsertCoreDataFeedCard(_ snapshot: FeedCardPersistenceSnapshot) throws {
         try databaseManager.write(
             DatabaseWriteOperation(coreData: { context in
-                let request = Self.makeCoreDataFeedCardFetchRequest()
+                let request = Self.makeCoreDataFeedCardFetchRequest(channelID: snapshot.channelID)
                 request.fetchLimit = 1
                 request.predicate = NSPredicate(format: "id == %@", snapshot.id)
                 if let existingRecord = try context.fetch(request).first {
@@ -690,8 +711,13 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Builds an ordered Core Data request for persisted feed cards.
-    private static func makeCoreDataFeedCardFetchRequest() -> NSFetchRequest<CoreDataFeedCardEntity> {
+    private static func makeCoreDataFeedCardFetchRequest(
+        channelID: String? = nil
+    ) -> NSFetchRequest<CoreDataFeedCardEntity> {
         let request = CoreDataFeedCardEntity.fetchRequest()
+        if let channelID {
+            request.predicate = NSPredicate(format: "channelID == %@", channelID)
+        }
         request.sortDescriptors = [
             NSSortDescriptor(key: "sortOrder", ascending: true)
         ]
@@ -775,6 +801,7 @@ extension NetworkAvailabilityMonitor: @unchecked Sendable {}
 
 private struct FeedCardPersistenceSnapshot {
     let id: String
+    let channelID: String
     let kind: FeedCardRecordKind
     let sortOrder: Int
     let remoteUpdatedAt: Date
@@ -799,15 +826,18 @@ private struct FeedCardPersistenceSnapshot {
 private enum AppContentPersistenceMapper {
     static func makeFeedCardSnapshots(
         from response: FeedResponseDTO,
+        channelID: String,
         syncedAt: Date,
         persistedStates: [String: PersistedCardStateSnapshot]
     ) throws -> [FeedCardPersistenceSnapshot] {
         try response.cards.enumerated().map { index, card in
+            let scopedCardID = scopedCardID(rawID: card.id, channelID: channelID)
             try makeFeedCardSnapshot(
                 card,
+                channelID: channelID,
                 sortOrder: index,
                 syncedAt: syncedAt,
-                persistedState: persistedStates[card.id]
+                persistedState: persistedStates[scopedCardID]
             )
         }
     }
@@ -816,6 +846,7 @@ private enum AppContentPersistenceMapper {
     static func makeFeedCardRecord(from snapshot: FeedCardPersistenceSnapshot) -> FeedCardRecord {
         FeedCardRecord(
             id: snapshot.id,
+            channelID: snapshot.channelID,
             kind: snapshot.kind,
             sortOrder: snapshot.sortOrder,
             remoteUpdatedAt: snapshot.remoteUpdatedAt,
@@ -839,6 +870,7 @@ private enum AppContentPersistenceMapper {
 
     @available(iOS 17, *)
     static func apply(_ snapshot: FeedCardPersistenceSnapshot, to record: FeedCardRecord) {
+        record.channelID = snapshot.channelID
         record.kindRawValue = snapshot.kind.rawValue
         record.sortOrder = snapshot.sortOrder
         record.remoteUpdatedAt = snapshot.remoteUpdatedAt
@@ -861,6 +893,7 @@ private enum AppContentPersistenceMapper {
 
     static func apply(_ snapshot: FeedCardPersistenceSnapshot, to record: CoreDataFeedCardEntity) {
         record.id = snapshot.id
+        record.channelID = snapshot.channelID
         record.kindRawValue = snapshot.kind.rawValue
         record.sortOrder = Int64(snapshot.sortOrder)
         record.remoteUpdatedAt = snapshot.remoteUpdatedAt
@@ -883,6 +916,7 @@ private enum AppContentPersistenceMapper {
 
     private static func makeFeedCardSnapshot(
         _ card: FeedCardDTO,
+        channelID: String,
         sortOrder: Int,
         syncedAt: Date,
         persistedState: PersistedCardStateSnapshot?
@@ -891,6 +925,7 @@ private enum AppContentPersistenceMapper {
         case let .featuredArticle(article):
             return try makeFeaturedArticleSnapshot(
                 article,
+                channelID: channelID,
                 sortOrder: sortOrder,
                 syncedAt: syncedAt,
                 persistedState: persistedState
@@ -898,6 +933,7 @@ private enum AppContentPersistenceMapper {
         case let .discussion(discussion):
             return try makeDiscussionSnapshot(
                 discussion,
+                channelID: channelID,
                 sortOrder: sortOrder,
                 syncedAt: syncedAt,
                 persistedState: persistedState
@@ -907,6 +943,7 @@ private enum AppContentPersistenceMapper {
 
     static func makeFeaturedArticleSnapshot(
         _ article: FeaturedArticleDTO,
+        channelID: String,
         sortOrder: Int,
         syncedAt: Date,
         persistedState: PersistedCardStateSnapshot? = nil
@@ -927,7 +964,8 @@ private enum AppContentPersistenceMapper {
         }
 
         return FeedCardPersistenceSnapshot(
-            id: article.id,
+            id: scopedCardID(rawID: article.id, channelID: channelID),
+            channelID: channelID,
             kind: .featuredArticle,
             sortOrder: sortOrder,
             remoteUpdatedAt: article.remoteUpdatedAt,
@@ -960,6 +998,7 @@ private enum AppContentPersistenceMapper {
 
     static func makeDiscussionSnapshot(
         _ discussion: DiscussionDTO,
+        channelID: String,
         sortOrder: Int,
         syncedAt: Date,
         persistedState: PersistedCardStateSnapshot? = nil
@@ -983,7 +1022,8 @@ private enum AppContentPersistenceMapper {
             ?? discussion.localState.joinedCount
 
         return FeedCardPersistenceSnapshot(
-            id: discussion.id,
+            id: scopedCardID(rawID: discussion.id, channelID: channelID),
+            channelID: channelID,
             kind: .discussion,
             sortOrder: sortOrder,
             remoteUpdatedAt: discussion.remoteUpdatedAt,
@@ -1034,6 +1074,7 @@ private enum AppContentMapper {
     static func mapFeaturedArticle(_ article: FeaturedArticleDTO) -> FeaturedArticleCardModel {
         FeaturedArticleCardModel(
             id: article.id,
+            channelID: AppChannel.primary.id,
             postedInPrefix: article.postedInPrefix,
             sourceTitle: article.sourceTitle,
             brandTitle: article.brandTitle,
@@ -1064,6 +1105,7 @@ private enum AppContentMapper {
     static func mapDiscussion(_ discussion: DiscussionDTO) -> DiscussionCardModel {
         DiscussionCardModel(
             id: discussion.id,
+            channelID: AppChannel.primary.id,
             categoryTitle: discussion.categoryTitle,
             headline: discussion.headline,
             participants: discussion.participants.map(mapDiscussionParticipant),
@@ -1117,6 +1159,7 @@ private enum AppContentMapper {
     static func mapFeaturedArticle(_ record: FeedCardRecord) -> FeaturedArticleCardModel {
         FeaturedArticleCardModel(
             id: record.id,
+            channelID: record.channelID,
             postedInPrefix: record.postedInPrefix ?? "",
             sourceTitle: record.sourceTitle ?? "",
             brandTitle: record.brandTitle ?? "",
@@ -1133,6 +1176,7 @@ private enum AppContentMapper {
     static func mapFeaturedArticle(_ record: CoreDataFeedCardEntity) -> FeaturedArticleCardModel {
         FeaturedArticleCardModel(
             id: record.id,
+            channelID: record.channelID,
             postedInPrefix: record.postedInPrefix ?? "",
             sourceTitle: record.sourceTitle ?? "",
             brandTitle: record.brandTitle ?? "",
@@ -1150,6 +1194,7 @@ private enum AppContentMapper {
     static func mapDiscussion(_ record: FeedCardRecord) -> DiscussionCardModel {
         DiscussionCardModel(
             id: record.id,
+            channelID: record.channelID,
             categoryTitle: record.categoryTitle ?? "",
             headline: record.headline,
             participants: decodeDiscussionParticipants(from: record.participantsData),
@@ -1162,6 +1207,7 @@ private enum AppContentMapper {
     static func mapDiscussion(_ record: CoreDataFeedCardEntity) -> DiscussionCardModel {
         DiscussionCardModel(
             id: record.id,
+            channelID: record.channelID,
             categoryTitle: record.categoryTitle ?? "",
             headline: record.headline,
             participants: decodeDiscussionParticipants(from: record.participantsData),
@@ -1258,12 +1304,25 @@ private enum AppContentMapper {
     }
 
     @available(iOS 17, *)
-    static func mapChannelInfo(_ channel: ChannelRecord) -> ChannelHeaderInfo {
-        ChannelHeaderInfo(title: channel.title, subtitle: channel.subtitle)
+    static func mapChannel(_ channel: ChannelRecord) -> AppChannel {
+        AppChannel(
+            id: channel.id,
+            title: channel.title,
+            subtitle: channel.subtitle
+        )
     }
 
-    static func mapChannelInfo(_ channel: CoreDataChannelEntity) -> ChannelHeaderInfo {
-        ChannelHeaderInfo(title: channel.title, subtitle: channel.subtitle)
+    static func mapChannel(_ channel: CoreDataChannelEntity) -> AppChannel {
+        AppChannel(
+            id: channel.id,
+            title: channel.title,
+            subtitle: channel.subtitle
+        )
+    }
+
+    /// Builds a persisted card identifier that stays unique across channels while preserving the raw remote id.
+    private static func scopedCardID(rawID: String, channelID: String) -> String {
+        "\(channelID)-\(rawID)"
     }
 }
 
