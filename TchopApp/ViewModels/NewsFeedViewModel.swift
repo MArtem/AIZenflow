@@ -378,7 +378,9 @@ final class NewsFeedViewModel: ObservableObject {
         }
 
         return cards.enumerated()
-            .compactMap { index, card in
+            .compactMap { element -> (card: NewsFeedCard, score: Int, index: Int)? in
+                let (index, card) = element
+
                 guard let score = searchScore(for: card, tokens: tokens) else {
                     return nil
                 }

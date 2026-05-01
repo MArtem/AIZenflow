@@ -46,6 +46,10 @@
 "news.feed.cached.bootstrap" = "Показана сохранённая лента.";
 "news.feed.cached.offline" = "Оффлайн-режим. Показана сохранённая лента.";
 "news.feed.cached.updatedAt" = "Обновлено";
+"news.feed.search.placeholder" = "Поиск в текущем канале";
+"news.feed.search.clear" = "Очистить поиск";
+"news.feed.search.empty.title" = "Совпадения не найдены";
+"news.feed.search.empty.description" = "Попробуйте другой запрос для этого канала.";
 "news.feed.empty.title" = "Пока ничего нет";
 "news.feed.empty.description" = "Лента доступна, но сейчас в ней нет карточек для отображения.";
 "news.card.status.offline" = "Вы офлайн. Показано сохранённое состояние.";
@@ -133,8 +137,9 @@
 "news.destination.title.article" = "Статья";
 
 "shell.sideMenu.footer" = "Выберите раздел здесь или в нижней панели. Оба источника используют одно состояние вкладок.";
-"channel.default.title" = "Tchop";
-"channel.default.subtitle" = "Название нового канала";
+"channel.header.title" = "Tchop";
+"channel.default.title" = "Название нового канала";
+"channel.default.subtitle" = "Основной редакционный поток";
 "channel.product.title" = "Продукт";
 "channel.product.subtitle" = "Дорожная карта и релизы";
 "channel.community.title" = "Сообщество";

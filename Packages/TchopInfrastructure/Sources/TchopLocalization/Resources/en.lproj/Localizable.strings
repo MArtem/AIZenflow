@@ -46,6 +46,10 @@
 "news.feed.cached.bootstrap" = "Showing saved feed.";
 "news.feed.cached.offline" = "Offline mode. Showing saved feed.";
 "news.feed.cached.updatedAt" = "Last updated";
+"news.feed.search.placeholder" = "Search in current channel";
+"news.feed.search.clear" = "Clear search";
+"news.feed.search.empty.title" = "No matches found";
+"news.feed.search.empty.description" = "Try a different query for this channel.";
 "news.feed.empty.title" = "Nothing here yet";
 "news.feed.empty.description" = "The feed is available, but there are currently no cards to show.";
 "news.card.status.offline" = "You're offline. Showing saved state.";
@@ -133,8 +137,9 @@
 "news.destination.title.article" = "Article";
 
 "shell.sideMenu.footer" = "Select a destination here or from the bottom bar. Both stay in sync through the same tab state.";
-"channel.default.title" = "Tchop";
-"channel.default.subtitle" = "New channel name";
+"channel.header.title" = "Tchop";
+"channel.default.title" = "New channel name";
+"channel.default.subtitle" = "Primary editorial stream";
 "channel.product.title" = "Product";
 "channel.product.subtitle" = "Roadmap & launches";
 "channel.community.title" = "Community";

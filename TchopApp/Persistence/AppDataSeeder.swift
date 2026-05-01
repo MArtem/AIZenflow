@@ -188,10 +188,12 @@ enum AppDataSeeder {
     private static func makeSeedPayloads(
         syncedAt: Date
     ) throws -> [FeedSeedPayload] {
-        try seededChannels.flatMap { channel in
+        try seededChannels.flatMap { channel -> [FeedSeedPayload] in
             let response = try FeedAPIStubFactory.loadFeedResponse(channelID: channel.id)
-            try response.cards.enumerated().map { cardIndex, card in
-                try makeFeedSeedPayload(
+            return try response.cards.enumerated().map { element -> FeedSeedPayload in
+                let (cardIndex, card) = element
+
+                return try makeFeedSeedPayload(
                     card,
                     channel: channel,
                     sortOrder: cardIndex,
