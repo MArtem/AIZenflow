@@ -20,7 +20,6 @@ struct LocalUserChannelSettingsRepository: UserChannelSettingsRepository {
         case "eve.holt@reqres.in":
             return UserChannelSettingsSnapshot(
                 availableChannels: [
-                    .primary,
                     .product,
                     .community,
                     .leadership
@@ -30,7 +29,6 @@ struct LocalUserChannelSettingsRepository: UserChannelSettingsRepository {
         case "janet.weaver@reqres.in":
             return UserChannelSettingsSnapshot(
                 availableChannels: [
-                    .primary,
                     .community,
                     .product,
                     .leadership
@@ -40,12 +38,11 @@ struct LocalUserChannelSettingsRepository: UserChannelSettingsRepository {
         default:
             return UserChannelSettingsSnapshot(
                 availableChannels: [
-                    .primary,
                     .product,
                     .community,
                     .leadership
                 ],
-                preselectedChannelID: AppChannel.primary.id
+                preselectedChannelID: AppChannel.defaultChannel.id
             )
         }
     }

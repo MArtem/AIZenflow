@@ -298,8 +298,8 @@ final class AppState: ObservableObject {
     private func bootstrapChannels(for user: AppUser) {
         let settings = (try? channelSettingsRepository.loadChannelSettings(for: user))
             ?? UserChannelSettingsSnapshot(
-                availableChannels: [.primary],
-                preselectedChannelID: AppChannel.primary.id
+                availableChannels: [.product, .community, .leadership],
+                preselectedChannelID: AppChannel.defaultChannel.id
             )
         channelsStore.setAvailableChannels(settings.availableChannels)
         channelsStore.activate(

@@ -47,7 +47,7 @@ final class ChannelRecord {
 
     /// Creates a new ChannelRecord instance.
     init(
-        id: String = "primary-channel",
+        id: String = AppChannel.defaultChannel.id,
         title: String,
         subtitle: String
     ) {

@@ -341,7 +341,7 @@ enum NewsFeedFixtures {
                 .featuredArticle(
                     FeaturedArticleCardModel(
                         id: "featured-article-fallback",
-                        channelID: AppChannel.primary.id,
+            channelID: AppChannel.defaultChannel.id,
                         postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
                         sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
                         brandTitle: AppLocalization.text("news.fallback.brandTitle"),
@@ -370,7 +370,7 @@ enum NewsFeedFixtures {
                 .discussion(
                     DiscussionCardModel(
                         id: "discussion-fallback",
-                        channelID: AppChannel.primary.id,
+            channelID: AppChannel.defaultChannel.id,
                         categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
                         headline: AppLocalization.text("news.fallback.discussion.headline"),
                         participants: [

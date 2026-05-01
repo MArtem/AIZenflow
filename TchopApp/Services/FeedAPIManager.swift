@@ -460,7 +460,7 @@ enum FeedAPIStubFactory {
     }
 
     /// Loads the bundled JSON feed synchronously for seed paths that run before async refreshes.
-    static func loadFeedResponse(channelID: String = AppChannel.primary.id) throws -> FeedResponseDTO {
+    static func loadFeedResponse(channelID: String = AppChannel.defaultChannel.id) throws -> FeedResponseDTO {
         let feedData = try loadStubFeedResponseData(channelID: channelID)
         return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
     }

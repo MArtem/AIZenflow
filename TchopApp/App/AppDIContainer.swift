@@ -232,7 +232,7 @@ final class AppDIContainer: ObservableObject {
         self.navigationEventReporter = navigationServices.navigationEventReporter
         self.deepLinkManager = navigationServices.deepLinkManager
 
-        channelsStore.setAvailableChannels([.primary, .product, .community, .leadership])
+        channelsStore.setAvailableChannels([.product, .community, .leadership])
     }
 
     /// Creates the shell view model used by the authenticated part of the app.
@@ -548,7 +548,7 @@ final class AppDIContainer: ObservableObject {
         from repository: any NewsFeedRepository,
         channelsStore: ChannelsStore
     ) -> NewsFeedContent {
-        let channelID = channelsStore.selectedChannelID ?? channelsStore.selectedChannel?.id ?? AppChannel.primary.id
+        let channelID = channelsStore.selectedChannelID ?? channelsStore.selectedChannel?.id ?? AppChannel.defaultChannel.id
         if let localContent = (try? repository.currentNewsFeedContent(channelID: channelID)) ?? nil {
             return localContent
         }

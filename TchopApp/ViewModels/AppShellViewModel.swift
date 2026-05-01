@@ -49,7 +49,7 @@ final class AppShellViewModel: ObservableObject {
     ) {
         self.isMenuOpen = isMenuOpen
         self.channelsStore = channelsStore
-        self.channelInfo = channelsStore.selectedChannelHeaderInfo ?? AppChannel.primary.headerInfo
+        self.channelInfo = channelsStore.selectedChannelHeaderInfo ?? AppChannel.defaultChannel.headerInfo
         self.sideMenuFooterText = sideMenuFooterText
         self.newsFeedViewModel = newsFeedViewModel
         self.channels = channelsStore.channels
@@ -146,7 +146,7 @@ final class AppShellViewModel: ObservableObject {
         channelsStore.$selectedChannelID
             .removeDuplicates()
             .sink { [weak self] _ in
-                self?.channelInfo = self?.channelsStore.selectedChannelHeaderInfo ?? AppChannel.primary.headerInfo
+                self?.channelInfo = self?.channelsStore.selectedChannelHeaderInfo ?? AppChannel.defaultChannel.headerInfo
                 self?.selectedChannelID = self?.channelsStore.selectedChannelID ?? self?.channelsStore.selectedChannel?.id
             }
             .store(in: &storeBindings)

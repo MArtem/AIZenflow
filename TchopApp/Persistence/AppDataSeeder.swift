@@ -7,7 +7,6 @@ import TchopDatabase
 @MainActor
 enum AppDataSeeder {
     private static let seededChannels: [AppChannel] = [
-        .primary,
         .product,
         .community,
         .leadership

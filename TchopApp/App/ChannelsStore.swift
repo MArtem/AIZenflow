@@ -81,12 +81,12 @@ final class ChannelsStore: ObservableObject {
 
     /// Replaces the available channel snapshot and keeps the active selection valid.
     func setAvailableChannels(_ channels: [AppChannel]) {
+        let preferredOrder = [AppChannel.product.id, AppChannel.community.id, AppChannel.leadership.id]
         self.channels = channels.sorted { lhs, rhs in
-            if lhs.id == AppChannel.primary.id {
-                return true
-            }
-            if rhs.id == AppChannel.primary.id {
-                return false
+            let lhsIndex = preferredOrder.firstIndex(of: lhs.id) ?? .max
+            let rhsIndex = preferredOrder.firstIndex(of: rhs.id) ?? .max
+            if lhsIndex != rhsIndex {
+                return lhsIndex < rhsIndex
             }
 
             return lhs.title.localizedCaseInsensitiveCompare(rhs.title) == .orderedAscending

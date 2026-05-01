@@ -1083,7 +1083,7 @@ private enum AppContentMapper {
     static func mapFeaturedArticle(_ article: FeaturedArticleDTO) -> FeaturedArticleCardModel {
         FeaturedArticleCardModel(
             id: article.id,
-            channelID: AppChannel.primary.id,
+            channelID: AppChannel.defaultChannel.id,
             postedInPrefix: article.postedInPrefix,
             sourceTitle: article.sourceTitle,
             brandTitle: article.brandTitle,
@@ -1114,7 +1114,7 @@ private enum AppContentMapper {
     static func mapDiscussion(_ discussion: DiscussionDTO) -> DiscussionCardModel {
         DiscussionCardModel(
             id: discussion.id,
-            channelID: AppChannel.primary.id,
+            channelID: AppChannel.defaultChannel.id,
             categoryTitle: discussion.categoryTitle,
             headline: discussion.headline,
             participants: discussion.participants.map(mapDiscussionParticipant),

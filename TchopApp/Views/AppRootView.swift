@@ -82,11 +82,10 @@ enum ViewPreviewSupport {
 
     static let sampleChannelInfo = ChannelHeaderInfo(
         title: AppLocalization.text("channel.header.title"),
-        subtitle: AppChannel.primary.title
+        subtitle: AppChannel.defaultChannel.title
     )
 
     static let sampleChannels: [AppChannel] = [
-        .primary,
         .product,
         .community,
         .leadership
