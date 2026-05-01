@@ -443,6 +443,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     ) throws {
         // The remote DTO may only describe content. Persisted card state is merged separately so
         // one successful action does not wipe unrelated fields such as like/comment/display mode.
+        let currentArticle = try requirePersistedFeaturedArticle(articleID: articleID)
         let sortOrder = try persistedSortOrder(for: articleID)
         let snapshot = try AppContentPersistenceMapper.makeFeaturedArticleSnapshot(
             article,
@@ -463,6 +464,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         discussionID: String,
         state: FeedCardDiscussionStatePayload
     ) throws {
+        let currentDiscussion = try requirePersistedDiscussion(discussionID: discussionID)
         let sortOrder = try persistedSortOrder(for: discussionID)
         let snapshot = try AppContentPersistenceMapper.makeDiscussionSnapshot(
             discussion,
@@ -831,13 +833,13 @@ private enum AppContentPersistenceMapper {
         persistedStates: [String: PersistedCardStateSnapshot]
     ) throws -> [FeedCardPersistenceSnapshot] {
         try response.cards.enumerated().map { index, card in
-            let scopedCardID = scopedCardID(rawID: card.id, channelID: channelID)
-            try makeFeedCardSnapshot(
+            let persistedCardID = makeScopedCardID(rawID: card.id, channelID: channelID)
+            return try makeFeedCardSnapshot(
                 card,
                 channelID: channelID,
                 sortOrder: index,
                 syncedAt: syncedAt,
-                persistedState: persistedStates[scopedCardID]
+                persistedState: persistedStates[persistedCardID]
             )
         }
     }
@@ -964,7 +966,7 @@ private enum AppContentPersistenceMapper {
         }
 
         return FeedCardPersistenceSnapshot(
-            id: scopedCardID(rawID: article.id, channelID: channelID),
+            id: makeScopedCardID(rawID: article.id, channelID: channelID),
             channelID: channelID,
             kind: .featuredArticle,
             sortOrder: sortOrder,
@@ -1022,7 +1024,7 @@ private enum AppContentPersistenceMapper {
             ?? discussion.localState.joinedCount
 
         return FeedCardPersistenceSnapshot(
-            id: scopedCardID(rawID: discussion.id, channelID: channelID),
+            id: makeScopedCardID(rawID: discussion.id, channelID: channelID),
             channelID: channelID,
             kind: .discussion,
             sortOrder: sortOrder,
@@ -1051,6 +1053,11 @@ private enum AppContentPersistenceMapper {
             joinedText: "+\(joinedCount) joined",
             discussionStateData: discussionStateData
         )
+    }
+
+    /// Builds a persisted card identifier that stays unique across channels while preserving the raw remote id.
+    private static func makeScopedCardID(rawID: String, channelID: String) -> String {
+        "\(channelID)-\(rawID)"
     }
 }
 
@@ -1320,10 +1327,6 @@ private enum AppContentMapper {
         )
     }
 
-    /// Builds a persisted card identifier that stays unique across channels while preserving the raw remote id.
-    private static func scopedCardID(rawID: String, channelID: String) -> String {
-        "\(channelID)-\(rawID)"
-    }
 }
 
 private extension NewsFeedContent {
