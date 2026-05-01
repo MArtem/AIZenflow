@@ -48,6 +48,15 @@ Completed:
 - `ProfileTabRootView` no longer creates `ProfileTabViewModel` internally; the view model is now owned and synchronized by `AppState` and injected through the authenticated shell composition path.
 - Engineering rules, onboarding documentation, and handoff notes now explicitly state that feature views must not construct their own view models in their initializers.
 
+### [x] Step: Formalize type-selection baseline
+
+Added a persistent rule for choosing between `struct`, `final class`, and `actor`.
+Completed:
+- `struct` is now the default for views, data, state, DTOs, domain models, and stateless operations.
+- `final class` is now the default for lifecycle/identity/dependency owners.
+- `actor` is now the explicit default for shared mutable concurrent state.
+- Documentation now records this as a standing production baseline for future implementation work.
+
 ### [x] Step: Replace stub tabs with feature screens
 
 Continue from the current coordinator-based tab architecture by replacing the generic stub views in `Mixes`, `Pinned`, and `Chat` with concrete SwiftUI feature screens that match the existing visual system and preserve independent navigation stacks.

@@ -60,6 +60,7 @@ In short:
 - architecture discussion baseline = offer multiple options only for non-trivial or trade-off-heavy decisions; keep straightforward tasks concise.
 - protocol baseline = use protocol boundaries where they create a real seam for DI/isolation/testability, not as abstraction-for-abstraction's-sake.
 - warning baseline = keep app and targets warning-free; new compiler or project warnings must be fixed immediately instead of deferred.
+- type-selection baseline = use `struct` by default for views, data, state, DTOs, domain models, and stateless operations; use `final class` for lifecycle/identity/dependency owners; use `actor` for shared mutable concurrent state.
 - visual chrome baseline = on systems that support Liquid Glass, prefer native glass for shell-level floating chrome and accessory controls with fallback styling for older iOS versions; do not apply glass indiscriminately to dense content cards or forms.
 - glass-branding baseline = target-specific glass tinting now resolves through semantic glass-role tokens in the branding layer, so new glass-backed elements can be themed per target without introducing one-off view hardcodes.
 - current feed-state baseline = explicit `loading / content / empty / offline / failed` rendering contract for the home feed instead of a generic loaded/failed split.

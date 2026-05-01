@@ -74,6 +74,10 @@
 - View-model ownership policy is now explicit:
   feature SwiftUI views must not construct their own view models in `init`;
   view models should be created above the view in DI/composition/factory/coordinator layers and injected downward.
+- Type-selection policy is now explicit:
+  use `struct` by default for views, data, state, DTOs, domain models, and stateless operations;
+  use `final class` for lifecycle/identity/dependency owners;
+  use `actor` for shared mutable concurrent state.
 - Screen-state policy is now explicit:
   data-backed and auth-sensitive screens should model the relevant loading/content/empty/error/offline/unauthorized/refreshing states,
   while purely static screens do not need the full matrix.

@@ -161,6 +161,12 @@ Use this file as the persistent engineering instruction set for this project whe
 - Use meaningful naming.
 - Avoid magic numbers when they should be constants.
 - Keep functions small.
+- Use `struct` by default for data, state, SwiftUI views, DTOs, domain models, and stateless operations.
+- Use `final class` for long-living UI/lifecycle/dependency owners such as view models, coordinators, routers, and infrastructure owners that need identity.
+- Use `actor` for shared mutable concurrent state outside main-actor UI ownership.
+- Do not choose reference types "just in case"; prefer value semantics unless identity, lifecycle ownership, observation, or shared mutable state is actually required.
+- For stateless use cases and mappers, prefer `struct` or `enum` over reference types.
+- For repositories and services, choose `struct`, `final class`, or `actor` based on ownership, cache/resource behavior, and concurrency semantics instead of applying one rigid type rule.
 - New UI code should use semantic design tokens first.
 - For app-level styling, prefer `AppTypography`, `AppSpacing`, `AppRadius`, and semantic theme colors over raw `.font(.system...)`, ad-hoc padding numbers, and repeated corner-radius literals.
 - Do not add abstractions, managers, factories, protocols, or package extraction "for future flexibility" unless they provide clear practical benefit for the current project or near-term reusable baseline.
