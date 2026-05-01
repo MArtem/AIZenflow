@@ -2,6 +2,8 @@ import SwiftUI
 
 /// Reusable top bar with menu trigger and channel metadata.
 struct TopBarView: View {
+    @State private var isChannelPickerPresented = false
+
     let channelInfo: ChannelHeaderInfo
     let availableChannels: [AppChannel]
     let selectedChannelID: String?
@@ -23,14 +25,7 @@ struct TopBarView: View {
             .accessibilityLabel(AppLocalization.text("accessibility.topBar.menu"))
             .accessibilityHint(AppLocalization.text("accessibility.topBar.menuHint"))
 
-            Menu {
-                ForEach(availableChannels) { channel in
-                    Button(action: { onSelectChannel(channel.id) }) {
-                        channelMenuLabel(for: channel)
-                    }
-                    .accessibilityHint(AppLocalization.text("accessibility.channel.selectHint"))
-                }
-            } label: {
+            Button(action: presentChannelPicker) {
                 HStack(spacing: AppSpacing.sm) {
                     BrandMarkView(iconSize: 48, cardSize: CGSize(width: 28, height: 34))
 
@@ -51,6 +46,7 @@ struct TopBarView: View {
                     }
                 }
             }
+            .buttonStyle(.plain)
             .accessibilityElement(children: .combine)
             .accessibilityLabel(
                 AppLocalization.text(
@@ -95,16 +91,57 @@ struct TopBarView: View {
         .padding(.horizontal, AppSpacing.shellHorizontal)
         .padding(.top, AppSpacing.xs)
         .zIndex(1)
+        .sheet(isPresented: $isChannelPickerPresented) {
+            NavigationStack {
+                List(availableChannels) { channel in
+                    Button(action: { handleChannelSelection(channel.id) }) {
+                        HStack(spacing: AppSpacing.sm) {
+                            VStack(alignment: .leading, spacing: AppSpacing.xxs) {
+                                Text(channel.title)
+                                    .font(AppTypography.body)
+                                    .foregroundStyle(AppTheme.textPrimary)
+
+                                Text(channel.subtitle)
+                                    .font(AppTypography.caption)
+                                    .foregroundStyle(AppTheme.textTertiary)
+                            }
+
+                            Spacer()
+
+                            if channel.id == selectedChannelID {
+                                Image(systemName: "checkmark")
+                                    .font(AppTypography.microLabel)
+                                    .foregroundStyle(AppTheme.iconPrimary)
+                            }
+                        }
+                        .contentShape(Rectangle())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityHint(AppLocalization.text("accessibility.channel.selectHint"))
+                }
+                .navigationTitle(AppLocalization.text("channels.section.title"))
+                .navigationBarTitleDisplayMode(.inline)
+                .toolbar {
+                    ToolbarItem(placement: .topBarTrailing) {
+                        Button(AppLocalization.text("common.done")) {
+                            isChannelPickerPresented = false
+                        }
+                    }
+                }
+            }
+            .presentationDetents([.medium])
+        }
     }
 
-    /// Builds one explicit menu row for channel selection without relying on picker selection binding.
-    @ViewBuilder
-    private func channelMenuLabel(for channel: AppChannel) -> some View {
-        if channel.id == selectedChannelID {
-            Label(channel.title, systemImage: "checkmark")
-        } else {
-            Text(channel.title)
-        }
+    /// Opens the controlled channel picker sheet.
+    private func presentChannelPicker() {
+        isChannelPickerPresented = true
+    }
+
+    /// Applies a new active channel and closes the picker immediately.
+    private func handleChannelSelection(_ channelID: String) {
+        onSelectChannel(channelID)
+        isChannelPickerPresented = false
     }
 }
 
