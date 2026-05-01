@@ -130,6 +130,10 @@ final class ChannelsStore: ObservableObject {
             return
         }
 
+        guard selectedChannelID != id else {
+            return
+        }
+
         selectedChannelID = id
         persistSelectionIfNeeded()
     }

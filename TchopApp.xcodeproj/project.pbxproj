@@ -23,6 +23,7 @@
 		A00000D10000000000000001 /* StubFeedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A00000D20000000000000001 /* StubFeedResponse.json */; };
 		S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000030000000000000001 /* StubFeedResponseProductChannel.json */; };
 		S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */; };
+		S00000080000000000000001 /* StubFeedResponseLeadershipChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */; };
 		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
 		A00000390000000000000001 /* ArticleActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* ArticleActionView.swift */; };
@@ -206,6 +207,7 @@
 		A00000D20000000000000001 /* StubFeedResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponse.json; sourceTree = "<group>"; };
 		S00000030000000000000001 /* StubFeedResponseProductChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseProductChannel.json; sourceTree = "<group>"; };
 		S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseCommunityChannel.json; sourceTree = "<group>"; };
+		S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseLeadershipChannel.json; sourceTree = "<group>"; };
 		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
 		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		A000003A0000000000000001 /* ArticleActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleActionView.swift; sourceTree = "<group>"; };
@@ -470,6 +472,7 @@
 				A00000D20000000000000001 /* StubFeedResponse.json */,
 				S00000030000000000000001 /* StubFeedResponseProductChannel.json */,
 				S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */,
+				S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
 				S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */,
 				S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */,
+				S00000080000000000000001 /* StubFeedResponseLeadershipChannel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -861,6 +865,7 @@
 				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
 				S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */,
 				S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */,
+				S00000080000000000000001 /* StubFeedResponseLeadershipChannel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

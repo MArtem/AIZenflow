@@ -88,7 +88,8 @@ enum ViewPreviewSupport {
     static let sampleChannels: [AppChannel] = [
         .primary,
         .product,
-        .community
+        .community,
+        .leadership
     ]
 
     static let sampleNewsRoute = NewsRoute(

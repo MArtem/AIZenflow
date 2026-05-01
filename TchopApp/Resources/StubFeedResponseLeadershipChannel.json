@@ -1,0 +1,85 @@
+{
+  "cards": [
+    {
+      "type": "featuredArticle",
+      "id": "article-401",
+      "remoteUpdatedAt": "2026-05-01T08:00:00Z",
+      "publishedAt": "2026-05-01T07:35:00Z",
+      "postedInPrefix": "Posted in ",
+      "sourceTitle": "Executive Update",
+      "brandTitle": "Tchop",
+      "headline": "Leadership memo aligns channel strategy\naround fewer, clearer content streams",
+      "summary": "A leadership-focused update explaining how channel ownership, editorial cadence, and searchability should evolve as the app moves beyond a single feed.",
+      "metadataLine": "by Nina Cole · 25 min ago · read time: 3 min",
+      "translationLabel": "See translation",
+      "localState": {
+        "isLiked": false,
+        "commentCount": 12,
+        "displayMode": "expanded"
+      },
+      "actions": [
+        { "id": "like-401", "kind": "like", "systemName": "heart", "title": "Like" },
+        { "id": "comment-401", "kind": "comment", "systemName": "bubble.left", "title": "12 Comments" }
+      ]
+    },
+    {
+      "type": "discussion",
+      "id": "discussion-402",
+      "remoteUpdatedAt": "2026-05-01T08:15:00Z",
+      "publishedAt": "2026-05-01T08:05:00Z",
+      "categoryTitle": "Leadership Forum",
+      "headline": "Which channel rules should stay fixed\nand which can remain team-specific?",
+      "participants": [
+        { "id": "participant-402-a", "initials": "NC", "isHighlighted": true },
+        { "id": "participant-402-b", "initials": "AM", "isHighlighted": false },
+        { "id": "participant-402-c", "initials": "RK", "isHighlighted": false }
+      ],
+      "localState": {
+        "isParticipating": true,
+        "replyCount": 8,
+        "joinedCount": 21,
+        "displayMode": "expanded"
+      }
+    },
+    {
+      "type": "featuredArticle",
+      "id": "article-403",
+      "remoteUpdatedAt": "2026-05-01T08:25:00Z",
+      "publishedAt": "2026-05-01T08:12:00Z",
+      "postedInPrefix": "Posted in ",
+      "sourceTitle": "Ops Brief",
+      "brandTitle": "Tchop",
+      "headline": "Decision log proposes persistent channel\nselection across login and relaunch",
+      "summary": "The note outlines why channel context should be restored for each user and persisted separately from the heavier feed cache.",
+      "metadataLine": "by Aria Moss · 14 min ago · read time: 2 min",
+      "translationLabel": "See translation",
+      "localState": {
+        "isLiked": true,
+        "commentCount": 6,
+        "displayMode": "compact"
+      },
+      "actions": [
+        { "id": "like-403", "kind": "like", "systemName": "heart", "title": "Like" },
+        { "id": "comment-403", "kind": "comment", "systemName": "bubble.left", "title": "6 Comments" }
+      ]
+    },
+    {
+      "type": "discussion",
+      "id": "discussion-404",
+      "remoteUpdatedAt": "2026-05-01T08:32:00Z",
+      "publishedAt": "2026-05-01T08:20:00Z",
+      "categoryTitle": "Decision Review",
+      "headline": "Search inside one channel first, or keep\na broader cross-channel query from day one?",
+      "participants": [
+        { "id": "participant-404-a", "initials": "TS", "isHighlighted": true },
+        { "id": "participant-404-b", "initials": "OL", "isHighlighted": false }
+      ],
+      "localState": {
+        "isParticipating": false,
+        "replyCount": 5,
+        "joinedCount": 13,
+        "displayMode": "compact"
+      }
+    }
+  ]
+}

@@ -9,7 +9,8 @@ enum AppDataSeeder {
     private static let seededChannels: [AppChannel] = [
         .primary,
         .product,
-        .community
+        .community,
+        .leadership
     ]
 
     /// Inserts the default channel and the initial feed snapshot on first launch only.

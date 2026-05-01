@@ -232,7 +232,7 @@ final class AppDIContainer: ObservableObject {
         self.navigationEventReporter = navigationServices.navigationEventReporter
         self.deepLinkManager = navigationServices.deepLinkManager
 
-        channelsStore.setAvailableChannels([.primary, .product, .community])
+        channelsStore.setAvailableChannels([.primary, .product, .community, .leadership])
     }
 
     /// Creates the shell view model used by the authenticated part of the app.

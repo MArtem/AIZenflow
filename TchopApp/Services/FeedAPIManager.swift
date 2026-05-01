@@ -527,6 +527,8 @@ enum FeedAPIStubFactory {
             return "StubFeedResponseProductChannel"
         case AppChannel.community.id:
             return "StubFeedResponseCommunityChannel"
+        case AppChannel.leadership.id:
+            return "StubFeedResponseLeadershipChannel"
         default:
             return "StubFeedResponse"
         }

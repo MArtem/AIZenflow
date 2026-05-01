@@ -24,6 +24,12 @@ struct AppChannel: Identifiable, Equatable, Sendable {
         subtitle: AppLocalization.text("channel.community.subtitle")
     )
 
+    static let leadership = AppChannel(
+        id: "leadership-channel",
+        title: AppLocalization.text("channel.leadership.title"),
+        subtitle: AppLocalization.text("channel.leadership.subtitle")
+    )
+
     /// Header presentation model derived from the current channel snapshot.
     var headerInfo: ChannelHeaderInfo {
         ChannelHeaderInfo(

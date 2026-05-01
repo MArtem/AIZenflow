@@ -24,13 +24,16 @@ struct TopBarView: View {
             .accessibilityHint(AppLocalization.text("accessibility.topBar.menuHint"))
 
             Menu {
-                ForEach(availableChannels) { channel in
-                    Button(action: { onSelectChannel(channel.id) }) {
-                        if selectedChannelID == channel.id {
-                            Label(channel.title, systemImage: "checkmark")
-                        } else {
-                            Text(channel.title)
-                        }
+                Picker(
+                    AppLocalization.text("channels.section.title"),
+                    selection: Binding(
+                        get: { selectedChannelID ?? availableChannels.first?.id ?? "" },
+                        set: { onSelectChannel($0) }
+                    )
+                ) {
+                    ForEach(availableChannels) { channel in
+                        Text(channel.title)
+                            .tag(channel.id)
                     }
                 }
             } label: {

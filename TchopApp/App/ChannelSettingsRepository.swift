@@ -21,7 +21,9 @@ struct LocalUserChannelSettingsRepository: UserChannelSettingsRepository {
             return UserChannelSettingsSnapshot(
                 availableChannels: [
                     .primary,
-                    .product
+                    .product,
+                    .community,
+                    .leadership
                 ],
                 preselectedChannelID: AppChannel.product.id
             )
@@ -29,7 +31,9 @@ struct LocalUserChannelSettingsRepository: UserChannelSettingsRepository {
             return UserChannelSettingsSnapshot(
                 availableChannels: [
                     .primary,
-                    .community
+                    .community,
+                    .product,
+                    .leadership
                 ],
                 preselectedChannelID: AppChannel.community.id
             )
@@ -38,7 +42,8 @@ struct LocalUserChannelSettingsRepository: UserChannelSettingsRepository {
                 availableChannels: [
                     .primary,
                     .product,
-                    .community
+                    .community,
+                    .leadership
                 ],
                 preselectedChannelID: AppChannel.primary.id
             )
