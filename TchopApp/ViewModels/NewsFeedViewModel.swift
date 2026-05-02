@@ -142,9 +142,10 @@ final class NewsFeedViewModel {
 
     /// Feed content visible after applying the current channel-local search query.
     var visibleContent: NewsFeedContent {
-        NewsFeedContent(
-            cards: filteredCards(from: state.content.cards, query: searchQuery),
-            availability: state.content.availability
+        let scopedContent = state.content.scoped(to: currentChannelID)
+        return NewsFeedContent(
+            cards: filteredCards(from: scopedContent.cards, query: searchQuery),
+            availability: scopedContent.availability
         )
     }
 
@@ -401,43 +402,21 @@ final class NewsFeedViewModel {
         for card: NewsFeedCard,
         tokens: [String]
     ) -> Int? {
-        switch card {
-        case let .featuredArticle(article):
-            return prioritizedSearchScore(
-                tokens: tokens,
-                fields: [
-                    (500, article.headline),
-                    (400, article.summary),
-                    (300, article.sourceTitle),
-                    (250, article.brandTitle),
-                    (200, article.metadataLine),
-                    (150, article.translationLabel)
-                ]
-            )
-        case let .discussion(discussion):
-            return prioritizedSearchScore(
-                tokens: tokens,
-                fields: [
-                    (500, discussion.headline),
-                    (300, discussion.categoryTitle),
-                    (120, discussion.participants.map(\.initials).joined(separator: " "))
-                ]
-            )
-        }
+        prioritizedSearchScore(tokens: tokens, fields: card.searchFields)
     }
 
     /// Chooses the highest-priority field that contains all query tokens.
     private func prioritizedSearchScore(
         tokens: [String],
-        fields: [(Int, String)]
+        fields: [NewsFeedCardSearchField]
     ) -> Int? {
-        for (score, field) in fields {
-            let normalizedField = field.folding(
+        for field in fields {
+            let normalizedField = field.value.folding(
                 options: [.diacriticInsensitive, .caseInsensitive],
                 locale: .current
             )
             if tokens.allSatisfy({ normalizedField.contains($0) }) {
-                return score
+                return field.priority
             }
         }
 
@@ -1492,6 +1471,6 @@ final class NewsFeedViewModel {
 
     /// Currently selected channel identifier used for feed queries.
     private var currentChannelID: String? {
-        channelsStore.selectedChannelID ?? channelsStore.selectedChannel?.id
+        channelsStore.selectionSnapshot.selectedChannelID ?? channelsStore.selectionSnapshot.selectedChannel?.id
     }
 }

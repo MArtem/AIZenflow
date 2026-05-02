@@ -52,6 +52,21 @@ struct UserDefaultsChannelSelectionStore: ChannelSelectionStoring {
 @MainActor
 @Observable
 final class ChannelsStore {
+    /// Stable runtime selection snapshot shared by shell chrome, feed loading and future card flows.
+    struct SelectionSnapshot: Equatable, Sendable {
+        let userID: String?
+        let availableChannels: [AppChannel]
+        let selectedChannelID: String?
+
+        var selectedChannel: AppChannel? {
+            guard let selectedChannelID else {
+                return availableChannels.first
+            }
+
+            return availableChannels.first(where: { $0.id == selectedChannelID }) ?? availableChannels.first
+        }
+    }
+
     /// All channels currently available to the active user session.
     private(set) var channels: [AppChannel] = []
 
@@ -64,6 +79,15 @@ final class ChannelsStore {
     /// Creates the runtime channels store with its selected-channel persistence adapter.
     init(selectionStore: any ChannelSelectionStoring) {
         self.selectionStore = selectionStore
+    }
+
+    /// Current runtime selection snapshot used by other layers that should not reconstruct this state ad hoc.
+    var selectionSnapshot: SelectionSnapshot {
+        SelectionSnapshot(
+            userID: activeUserID,
+            availableChannels: channels,
+            selectedChannelID: selectedChannelID
+        )
     }
 
     /// Currently selected channel derived from the active identifier and available channel list.
@@ -82,10 +106,10 @@ final class ChannelsStore {
 
     /// Replaces the available channel snapshot and keeps the active selection valid.
     func setAvailableChannels(_ channels: [AppChannel]) {
-        let preferredOrder = [AppChannel.product.id, AppChannel.community.id, AppChannel.leadership.id]
+        let preferredOrder = AppChannel.allKnown.map(\.id)
         self.channels = channels.sorted { lhs, rhs in
-            let lhsIndex = preferredOrder.firstIndex(of: lhs.id) ?? .max
-            let rhsIndex = preferredOrder.firstIndex(of: rhs.id) ?? .max
+            let lhsIndex = preferredOrder.firstIndex(of: lhs.id) ?? Int.max
+            let rhsIndex = preferredOrder.firstIndex(of: rhs.id) ?? Int.max
             if lhsIndex != rhsIndex {
                 return lhsIndex < rhsIndex
             }

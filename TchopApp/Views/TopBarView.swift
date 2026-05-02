@@ -154,7 +154,9 @@ struct TopBarView: View {
 
     /// Current channel header derived from the source-of-truth channels store.
     private var channelInfo: ChannelHeaderInfo {
-        channelsStore.selectedChannelHeaderInfo ?? AppChannel.defaultChannel.headerInfo
+        channelsStore.selectionSnapshot.selectedChannel?.headerInfo ??
+            channelsStore.selectionSnapshot.availableChannels.first?.headerInfo ??
+            AppChannel.defaultChannel.headerInfo
     }
 
     /// Applies a new active channel and closes the picker immediately.

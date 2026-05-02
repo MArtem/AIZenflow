@@ -553,7 +553,7 @@ final class AppDIContainer {
             return localContent
         }
 
-        return NewsFeedFixtures.fallbackContent
+        return NewsFeedFixtures.makeFallbackContent(channelID: channelID)
     }
 
     private static func makeUIConfigurationManager() -> any UIConfigurationManaging {

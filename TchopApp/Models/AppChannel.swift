@@ -25,6 +25,11 @@ struct AppChannel: Identifiable, Equatable, Sendable {
     )
 
     static let defaultChannel = product
+    static let allKnown: [AppChannel] = [
+        .product,
+        .community,
+        .leadership
+    ]
 
     /// Header presentation model derived from the current channel snapshot.
     var headerInfo: ChannelHeaderInfo {

@@ -1066,24 +1066,30 @@ private enum AppContentPersistenceMapper {
 private enum AppContentMapper {
     static func mapFeedContent(from response: FeedResponseDTO) -> NewsFeedContent {
         NewsFeedContent(
-            cards: response.cards.map(mapFeedCard),
+            cards: response.cards.map { mapFeedCard($0) },
             availability: .live
         )
     }
 
-    static func mapFeedCard(_ card: FeedCardDTO) -> NewsFeedCard {
+    static func mapFeedCard(
+        _ card: FeedCardDTO,
+        channelID: String = AppChannel.defaultChannel.id
+    ) -> NewsFeedCard {
         switch card {
         case let .featuredArticle(article):
-            return .featuredArticle(mapFeaturedArticle(article))
+            return .featuredArticle(mapFeaturedArticle(article, channelID: channelID))
         case let .discussion(discussion):
-            return .discussion(mapDiscussion(discussion))
+            return .discussion(mapDiscussion(discussion, channelID: channelID))
         }
     }
 
-    static func mapFeaturedArticle(_ article: FeaturedArticleDTO) -> FeaturedArticleCardModel {
+    static func mapFeaturedArticle(
+        _ article: FeaturedArticleDTO,
+        channelID: String = AppChannel.defaultChannel.id
+    ) -> FeaturedArticleCardModel {
         FeaturedArticleCardModel(
             id: article.id,
-            channelID: AppChannel.defaultChannel.id,
+            channelID: channelID,
             postedInPrefix: article.postedInPrefix,
             sourceTitle: article.sourceTitle,
             brandTitle: article.brandTitle,
@@ -1111,10 +1117,13 @@ private enum AppContentMapper {
         )
     }
 
-    static func mapDiscussion(_ discussion: DiscussionDTO) -> DiscussionCardModel {
+    static func mapDiscussion(
+        _ discussion: DiscussionDTO,
+        channelID: String = AppChannel.defaultChannel.id
+    ) -> DiscussionCardModel {
         DiscussionCardModel(
             id: discussion.id,
-            channelID: AppChannel.defaultChannel.id,
+            channelID: channelID,
             categoryTitle: discussion.categoryTitle,
             headline: discussion.headline,
             participants: discussion.participants.map(mapDiscussionParticipant),

@@ -23,6 +23,30 @@ struct NewsFeedContent: Equatable, Sendable {
     var primaryServiceHeadline: String? {
         cards.first?.serviceHeadline
     }
+
+    /// Returns only the cards belonging to the provided channel while preserving availability metadata.
+    func scoped(to channelID: String?) -> NewsFeedContent {
+        guard let channelID else {
+            return NewsFeedContent(cards: [], availability: availability)
+        }
+
+        return NewsFeedContent(
+            cards: cards.filter { $0.channelID == channelID },
+            availability: availability
+        )
+    }
+}
+
+/// Stable feed card categories used by cross-card UI logic such as search and future create/edit flows.
+enum NewsFeedCardKind: String, Equatable, Sendable {
+    case featuredArticle
+    case discussion
+}
+
+/// Search field metadata used to rank card matches without hardcoding search behavior inside each screen.
+struct NewsFeedCardSearchField: Equatable, Sendable {
+    let priority: Int
+    let value: String
 }
 
 /// Feed card variants currently supported by the home timeline.
@@ -40,6 +64,26 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
         }
     }
 
+    /// Stable card category used by generic feed flows.
+    var kind: NewsFeedCardKind {
+        switch self {
+        case .featuredArticle:
+            return .featuredArticle
+        case .discussion:
+            return .discussion
+        }
+    }
+
+    /// Owning channel for the card.
+    var channelID: String {
+        switch self {
+        case let .featuredArticle(card):
+            return card.channelID
+        case let .discussion(card):
+            return card.channelID
+        }
+    }
+
     /// Service-facing headline derived from the underlying card content.
     var serviceHeadline: String {
         switch self {
@@ -47,6 +91,30 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
             return card.serviceHeadline
         case let .discussion(card):
             return card.serviceHeadline
+        }
+    }
+
+    /// Prioritized search fields used by channel-local search ranking.
+    var searchFields: [NewsFeedCardSearchField] {
+        switch self {
+        case let .featuredArticle(article):
+            return [
+                NewsFeedCardSearchField(priority: 500, value: article.headline),
+                NewsFeedCardSearchField(priority: 400, value: article.summary),
+                NewsFeedCardSearchField(priority: 300, value: article.sourceTitle),
+                NewsFeedCardSearchField(priority: 250, value: article.brandTitle),
+                NewsFeedCardSearchField(priority: 200, value: article.metadataLine),
+                NewsFeedCardSearchField(priority: 150, value: article.translationLabel)
+            ]
+        case let .discussion(discussion):
+            return [
+                NewsFeedCardSearchField(priority: 500, value: discussion.headline),
+                NewsFeedCardSearchField(priority: 300, value: discussion.categoryTitle),
+                NewsFeedCardSearchField(
+                    priority: 120,
+                    value: discussion.participants.map(\.initials).joined(separator: " ")
+                )
+            ]
         }
     }
 }
@@ -335,13 +403,15 @@ enum DiscussionCardPendingOperation: Equatable, Sendable {
 
 /// App-level fallback content used while the real feed is still loading or unavailable.
 enum NewsFeedFixtures {
-    static let fallbackContent: NewsFeedContent = {
+    static let fallbackContent = makeFallbackContent(channelID: AppChannel.defaultChannel.id)
+
+    static func makeFallbackContent(channelID: String) -> NewsFeedContent {
         NewsFeedContent(
             cards: [
                 .featuredArticle(
                     FeaturedArticleCardModel(
                         id: "featured-article-fallback",
-            channelID: AppChannel.defaultChannel.id,
+                        channelID: channelID,
                         postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
                         sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
                         brandTitle: AppLocalization.text("news.fallback.brandTitle"),
@@ -370,7 +440,7 @@ enum NewsFeedFixtures {
                 .discussion(
                     DiscussionCardModel(
                         id: "discussion-fallback",
-            channelID: AppChannel.defaultChannel.id,
+                        channelID: channelID,
                         categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
                         headline: AppLocalization.text("news.fallback.discussion.headline"),
                         participants: [
@@ -386,5 +456,5 @@ enum NewsFeedFixtures {
             ],
             availability: .live
         )
-    }()
+    }
 }

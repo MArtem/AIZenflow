@@ -96,7 +96,9 @@ struct SideMenuView: View {
     }
 
     private var channelInfo: ChannelHeaderInfo {
-        channelsStore.selectedChannelHeaderInfo ?? AppChannel.defaultChannel.headerInfo
+        channelsStore.selectionSnapshot.selectedChannel?.headerInfo ??
+            channelsStore.selectionSnapshot.availableChannels.first?.headerInfo ??
+            AppChannel.defaultChannel.headerInfo
     }
 }
 
