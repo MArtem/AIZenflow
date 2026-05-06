@@ -15,6 +15,39 @@ enum ChannelCardMediaKind: String, Equatable, Sendable {
     case pdf
 }
 
+enum ChannelCardMediaContent: Equatable, Sendable {
+    case photos(count: Int)
+    case video
+    case audio
+    case pdf
+
+    var kind: ChannelCardMediaKind {
+        switch self {
+        case .photos:
+            return .photo
+        case .video:
+            return .video
+        case .audio:
+            return .audio
+        case .pdf:
+            return .pdf
+        }
+    }
+
+    var displayTitle: String {
+        switch self {
+        case let .photos(count):
+            return count == 1 ? "1 Photo" : "\(count) Photos"
+        case .video:
+            return "Video"
+        case .audio:
+            return "Audio"
+        case .pdf:
+            return "PDF"
+        }
+    }
+}
+
 enum ChannelCardTextFieldKind: String, CaseIterable, Equatable, Sendable, Identifiable {
     case text
     case headline
@@ -22,6 +55,19 @@ enum ChannelCardTextFieldKind: String, CaseIterable, Equatable, Sendable, Identi
     case source
 
     var id: String { rawValue }
+
+    var sortOrder: Int {
+        switch self {
+        case .text:
+            return 0
+        case .headline:
+            return 1
+        case .subheadline:
+            return 2
+        case .source:
+            return 3
+        }
+    }
 
     var title: String {
         switch self {
@@ -44,8 +90,10 @@ enum ChannelCardTextFieldKind: String, CaseIterable, Equatable, Sendable, Identi
 
 enum FeedComposerInsertion: Equatable, Sendable, Identifiable {
     case photoOrVideo
+    case photo
     case audio
     case pdf
+    case text
     case headline
     case subheadline
     case source
@@ -55,13 +103,22 @@ enum FeedComposerInsertion: Equatable, Sendable, Identifiable {
     var title: String {
         switch self {
         case .photoOrVideo: return "Photo or Video"
+        case .photo: return "Photo"
         case .audio: return "Audio"
         case .pdf: return "PDF"
+        case .text: return "Text"
         case .headline: return "Headline"
         case .subheadline: return "Subheadline"
         case .source: return "Source"
         }
     }
+}
+
+struct ChannelCardTextContent: Equatable, Sendable, Identifiable {
+    let kind: ChannelCardTextFieldKind
+    let text: String
+
+    var id: ChannelCardTextFieldKind { kind }
 }
 
 struct ChannelCardContent: Identifiable, Equatable, Sendable {
@@ -73,19 +130,46 @@ struct ChannelCardContent: Identifiable, Equatable, Sendable {
     let headline: String?
     let subheadline: String?
     let source: String?
-    let mediaKind: ChannelCardMediaKind?
+    let media: ChannelCardMediaContent?
 
-    var orderedTextBlocks: [String] {
-        [text, headline, subheadline, source].compactMap { value in
-            guard let trimmed = value?.trimmingCharacters(in: .whitespacesAndNewlines), !trimmed.isEmpty else {
+    var mediaKind: ChannelCardMediaKind? {
+        media?.kind
+    }
+
+    var orderedTextContent: [ChannelCardTextContent] {
+        ChannelCardTextFieldKind.allCases.compactMap { kind in
+            guard let value = textValue(for: kind) else {
                 return nil
             }
-            return trimmed
+
+            let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+            guard !trimmed.isEmpty else {
+                return nil
+            }
+
+            return ChannelCardTextContent(kind: kind, text: trimmed)
         }
+    }
+
+    var orderedTextBlocks: [String] {
+        orderedTextContent.map(\.text)
     }
 
     var serviceHeadline: String {
         orderedTextBlocks.first ?? kind.rawValue.capitalized
+    }
+
+    private func textValue(for kind: ChannelCardTextFieldKind) -> String? {
+        switch kind {
+        case .text:
+            return text
+        case .headline:
+            return headline
+        case .subheadline:
+            return subheadline
+        case .source:
+            return source
+        }
     }
 }
 

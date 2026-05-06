@@ -29,10 +29,8 @@ final class FeedComposerViewModel {
     var headline: String
     var subheadline: String
     var source: String
-    private(set) var showsHeadlineField: Bool
-    private(set) var showsSubheadlineField: Bool
-    private(set) var showsSourceField: Bool
-    private(set) var mediaKind: ChannelCardMediaKind?
+    private(set) var visibleTextFieldKinds: Set<ChannelCardTextFieldKind>
+    private(set) var media: ChannelCardMediaContent?
     private let channelsStore: ChannelsStore
     private let channelCardStore: ChannelCardStore
 
@@ -48,9 +46,7 @@ final class FeedComposerViewModel {
         self.headline = ""
         self.subheadline = ""
         self.source = ""
-        self.showsHeadlineField = false
-        self.showsSubheadlineField = false
-        self.showsSourceField = false
+        self.visibleTextFieldKinds = [.text]
     }
 
     var availableChannels: [AppChannel] {
@@ -62,29 +58,47 @@ final class FeedComposerViewModel {
     }
 
     var canPublish: Bool {
-        !text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty || mediaKind != nil
+        media != nil || normalized(text) != nil
     }
 
     var availableInsertions: [FeedComposerInsertion] {
         var insertions: [FeedComposerInsertion] = []
 
-        if mediaKind == nil {
+        switch media {
+        case nil:
             insertions.append(.photoOrVideo)
             insertions.append(.audio)
             insertions.append(.pdf)
+        case let .photos(count):
+            if count < 10 {
+                insertions.append(.photo)
+            }
+        case .video, .audio, .pdf:
+            break
         }
 
-        if !showsHeadlineField {
+        if !visibleTextFieldKinds.contains(.text) {
+            insertions.append(.text)
+        }
+        if !visibleTextFieldKinds.contains(.headline) {
             insertions.append(.headline)
         }
-        if !showsSubheadlineField {
+        if !visibleTextFieldKinds.contains(.subheadline) {
             insertions.append(.subheadline)
         }
-        if !showsSourceField {
+        if !visibleTextFieldKinds.contains(.source) {
             insertions.append(.source)
         }
 
         return insertions
+    }
+
+    var orderedVisibleTextFieldKinds: [ChannelCardTextFieldKind] {
+        ChannelCardTextFieldKind.allCases.filter { visibleTextFieldKinds.contains($0) }
+    }
+
+    var showsPhotoToolbarAction: Bool {
+        media == nil || media?.kind == .photo
     }
 
     func selectChannel(id: String) {
@@ -94,35 +108,107 @@ final class FeedComposerViewModel {
     func applyInsertion(_ insertion: FeedComposerInsertion) {
         switch insertion {
         case .photoOrVideo:
-            if mediaKind == nil {
-                mediaKind = .photo
-            }
+            break
+        case .photo:
+            addPhoto()
         case .audio:
-            if mediaKind == nil {
-                mediaKind = .audio
-            }
+            selectMedia(.audio)
         case .pdf:
-            if mediaKind == nil {
-                mediaKind = .pdf
-            }
-        case .headline:
-            showsHeadlineField = true
-        case .subheadline:
-            showsSubheadlineField = true
-        case .source:
-            showsSourceField = true
+            selectMedia(.pdf)
+        case .text, .headline, .subheadline, .source:
+            visibleTextFieldKinds.insert(insertion.textFieldKind)
         }
     }
 
-    @discardableResult
+    func addPhoto() {
+        switch media {
+        case nil:
+            media = .photos(count: 1)
+        case let .photos(count):
+            guard count < 10 else {
+                return
+            }
+            media = .photos(count: count + 1)
+        case .video, .audio, .pdf:
+            return
+        }
+        visibleTextFieldKinds.insert(.text)
+    }
+
+    func selectVideo() {
+        selectMedia(.video)
+    }
+
+    func textValue(for kind: ChannelCardTextFieldKind) -> String {
+        switch kind {
+        case .text:
+            return text
+        case .headline:
+            return headline
+        case .subheadline:
+            return subheadline
+        case .source:
+            return source
+        }
+    }
+
+    func updateText(_ value: String, for kind: ChannelCardTextFieldKind) {
+        switch kind {
+        case .text:
+            text = value
+        case .headline:
+            headline = value
+        case .subheadline:
+            subheadline = value
+        case .source:
+            source = value
+        }
+    }
+
+    func handleBackspaceOnEmptyField(_ kind: ChannelCardTextFieldKind) {
+        guard textValue(for: kind).isEmpty else {
+            return
+        }
+
+        if kind == .text && media == nil {
+            return
+        }
+
+        visibleTextFieldKinds.remove(kind)
+    }
+
+    func removeFieldIfOptionalAndEmpty(_ kind: ChannelCardTextFieldKind) {
+        guard normalized(textValue(for: kind)) == nil else {
+            return
+        }
+
+        if kind == .text && media == nil {
+            return
+        }
+
+        visibleTextFieldKinds.remove(kind)
+    }
+
+    func fieldPlaceholder(for kind: ChannelCardTextFieldKind) -> String {
+        kind.placeholder
+    }
+
+    func fieldIsRequired(_ kind: ChannelCardTextFieldKind) -> Bool {
+        kind == .text && media == nil
+    }
+
+    func fieldSupportsRemoval(_ kind: ChannelCardTextFieldKind) -> Bool {
+        visibleTextFieldKinds.contains(kind) && !(kind == .text && media == nil)
+    }
+
     func publish() -> ChannelCardContent? {
         guard canPublish else {
             return nil
         }
 
         let resolvedKind: ChannelCardKind
-        switch mediaKind {
-        case .photo:
+        switch media {
+        case .photos:
             resolvedKind = .photo
         case .video:
             resolvedKind = .video
@@ -139,19 +225,54 @@ final class FeedComposerViewModel {
             channelID: selectedChannelID,
             createdAt: Date(),
             kind: resolvedKind,
-            text: normalized(text),
-            headline: normalized(headline),
-            subheadline: normalized(subheadline),
-            source: normalized(source),
-            mediaKind: mediaKind
+            text: visibleTextFieldKinds.contains(.text) ? normalized(text) : nil,
+            headline: visibleTextFieldKinds.contains(.headline) ? normalized(headline) : nil,
+            subheadline: visibleTextFieldKinds.contains(.subheadline) ? normalized(subheadline) : nil,
+            source: visibleTextFieldKinds.contains(.source) ? normalized(source) : nil,
+            media: media
         )
         channelCardStore.publish(card)
         return card
     }
 
+    private func selectMedia(_ kind: ChannelCardMediaKind) {
+        guard media == nil else {
+            return
+        }
+
+        switch kind {
+        case .photo:
+            media = .photos(count: 1)
+        case .video:
+            media = .video
+        case .audio:
+            media = .audio
+        case .pdf:
+            media = .pdf
+        }
+        visibleTextFieldKinds.insert(.text)
+    }
+
     private func normalized(_ value: String) -> String? {
         let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? nil : trimmed
+    }
+}
+
+private extension FeedComposerInsertion {
+    var textFieldKind: ChannelCardTextFieldKind {
+        switch self {
+        case .text:
+            return .text
+        case .headline:
+            return .headline
+        case .subheadline:
+            return .subheadline
+        case .source:
+            return .source
+        case .photoOrVideo, .photo, .audio, .pdf:
+            return .text
+        }
     }
 }
 

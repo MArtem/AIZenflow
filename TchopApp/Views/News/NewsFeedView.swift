@@ -208,21 +208,27 @@ private struct ChannelCardPlaceholderView: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.sm) {
-            if let mediaKind = card.mediaKind {
+            if let media = card.media {
                 RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
                     .fill(AppTheme.surfaceSecondary)
-                    .frame(height: 180)
+                    .frame(height: media.kind == .photo ? 220 : 180)
                     .overlay {
-                        Text(mediaKind.rawValue.capitalized)
-                            .font(AppTypography.cardTitle)
-                            .foregroundStyle(AppTheme.textSecondary)
+                        VStack(spacing: AppSpacing.xs) {
+                            Image(systemName: mediaIconName(media))
+                                .font(.system(size: 28, weight: .semibold))
+                                .foregroundStyle(AppTheme.textSecondary)
+
+                            Text(media.displayTitle)
+                                .font(AppTypography.cardTitle)
+                                .foregroundStyle(AppTheme.textSecondary)
+                        }
                     }
             }
 
-            ForEach(Array(card.orderedTextBlocks.enumerated()), id: \.offset) { _, value in
-                Text(value)
-                    .font(AppTypography.body)
-                    .foregroundStyle(AppTheme.textPrimary)
+            ForEach(card.orderedTextContent) { textContent in
+                Text(textContent.text)
+                    .font(font(for: textContent.kind))
+                    .foregroundStyle(color(for: textContent.kind))
                     .fixedSize(horizontal: false, vertical: true)
             }
         }
@@ -230,6 +236,43 @@ private struct ChannelCardPlaceholderView: View {
         .padding(AppSpacing.md)
         .background(AppTheme.surfacePrimary)
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+    }
+
+    private func font(for kind: ChannelCardTextFieldKind) -> Font {
+        switch kind {
+        case .text:
+            return AppTypography.bodyRegular
+        case .headline:
+            return AppTypography.cardTitleBold
+        case .subheadline:
+            return AppTypography.bodySemibold
+        case .source:
+            return AppTypography.captionSemibold
+        }
+    }
+
+    private func color(for kind: ChannelCardTextFieldKind) -> Color {
+        switch kind {
+        case .text, .headline:
+            return AppTheme.textPrimary
+        case .subheadline:
+            return AppTheme.textSecondary
+        case .source:
+            return AppTheme.accent
+        }
+    }
+
+    private func mediaIconName(_ media: ChannelCardMediaContent) -> String {
+        switch media.kind {
+        case .photo:
+            return "photo.on.rectangle.angled"
+        case .video:
+            return "video"
+        case .audio:
+            return "waveform"
+        case .pdf:
+            return "doc.richtext"
+        }
     }
 }
 
