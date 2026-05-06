@@ -36,13 +36,13 @@ struct NewsFeedView: View {
                 } else {
                     ForEach(viewModel.visibleContent.cards) { card in
                         switch card {
-                        case let .featuredArticle(article):
+                        case let .photo(article):
                             FeaturedArticleCard(
                                 article: article,
                                 onTap: { onFeaturedArticleTap(article) },
                                 onAction: { onFeaturedArticleAction(article, $0) }
                             )
-                        case let .discussion(discussion):
+                        case let .text(discussion):
                             DiscussionCard(
                                 discussion: discussion,
                                 onTap: { onDiscussionTap(discussion) },

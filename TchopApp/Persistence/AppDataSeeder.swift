@@ -176,7 +176,7 @@ enum AppDataSeeder {
         syncedAt: Date
     ) throws -> FeedSeedPayload {
         switch card {
-        case let .featuredArticle(article):
+        case let .photo(article):
             return FeedSeedPayload(
                 id: "\(channel.id)-\(article.id)",
                 channelID: channel.id,
@@ -214,7 +214,7 @@ enum AppDataSeeder {
                 joinedText: nil,
                 discussionStateData: nil
             )
-        case let .discussion(discussion):
+        case let .text(discussion):
             return FeedSeedPayload(
                 id: "\(channel.id)-\(discussion.id)",
                 channelID: channel.id,

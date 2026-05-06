@@ -227,16 +227,16 @@ struct NewsFeedCardSearchField: Equatable, Sendable {
 
 /// Feed card variants currently supported by the home timeline.
 enum NewsFeedCard: Identifiable, Equatable, Sendable {
-    case featuredArticle(FeaturedArticleCardModel)
-    case discussion(DiscussionCardModel)
+    case photo(FeaturedArticleCardModel)
+    case text(DiscussionCardModel)
     case channelCard(ChannelCardContent)
 
     /// Stable identity forwarded from the underlying card model.
     var id: String {
         switch self {
-        case let .featuredArticle(card):
+        case let .photo(card):
             return card.id
-        case let .discussion(card):
+        case let .text(card):
             return card.id
         case let .channelCard(card):
             return card.id
@@ -246,10 +246,10 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
     /// Stable card category used by generic feed flows.
     var kind: NewsFeedCardKind {
         switch self {
-        case .featuredArticle:
+        case .photo:
             // The current article design is the photo-card baseline in the final card taxonomy.
             return .photo
-        case .discussion:
+        case .text:
             // The current discussion design is the text-card baseline in the final card taxonomy.
             return .text
         case let .channelCard(card):
@@ -260,9 +260,9 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
     /// Owning channel for the card.
     var channelID: String {
         switch self {
-        case let .featuredArticle(card):
+        case let .photo(card):
             return card.channelID
-        case let .discussion(card):
+        case let .text(card):
             return card.channelID
         case let .channelCard(card):
             return card.channelID
@@ -272,9 +272,9 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
     /// Service-facing headline derived from the underlying card content.
     var serviceHeadline: String {
         switch self {
-        case let .featuredArticle(card):
+        case let .photo(card):
             return card.serviceHeadline
-        case let .discussion(card):
+        case let .text(card):
             return card.serviceHeadline
         case let .channelCard(card):
             return card.serviceHeadline
@@ -284,7 +284,7 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
     /// Prioritized search fields used by channel-local search ranking.
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .featuredArticle(article):
+        case let .photo(article):
             return [
                 NewsFeedCardSearchField(priority: 500, value: article.headline),
                 NewsFeedCardSearchField(priority: 400, value: article.summary),
@@ -293,7 +293,7 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
                 NewsFeedCardSearchField(priority: 200, value: article.metadataLine),
                 NewsFeedCardSearchField(priority: 150, value: article.translationLabel)
             ]
-        case let .discussion(discussion):
+        case let .text(discussion):
             return [
                 NewsFeedCardSearchField(priority: 500, value: discussion.headline),
                 NewsFeedCardSearchField(priority: 300, value: discussion.categoryTitle),
@@ -619,7 +619,7 @@ enum NewsFeedFixtures {
     static func makeFallbackContent(channelID: String) -> NewsFeedContent {
         NewsFeedContent(
             cards: [
-                .featuredArticle(
+                .photo(
                     FeaturedArticleCardModel(
                         id: "featured-article-fallback",
                         channelID: channelID,
@@ -648,7 +648,7 @@ enum NewsFeedFixtures {
                         uiState: .idle
                     )
                 ),
-                .discussion(
+                .text(
                     DiscussionCardModel(
                         id: "discussion-fallback",
                         channelID: channelID,

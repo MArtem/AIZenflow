@@ -8,26 +8,26 @@ struct FeedResponseDTO: Decodable, Sendable {
 
 /// Card payload variants produced by the feed API.
 enum FeedCardDTO: Decodable, Sendable {
-    case featuredArticle(FeaturedArticleDTO)
-    case discussion(DiscussionDTO)
+    case photo(FeaturedArticleDTO)
+    case text(DiscussionDTO)
 
     private enum CodingKeys: String, CodingKey {
         case type
     }
 
     private enum CardType: String, Decodable {
-        case featuredArticle
-        case discussion
+        case photo = "featuredArticle"
+        case text = "discussion"
     }
 
     init(from decoder: any Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
 
         switch try container.decode(CardType.self, forKey: .type) {
-        case .featuredArticle:
-            self = .featuredArticle(try FeaturedArticleDTO(from: decoder))
-        case .discussion:
-            self = .discussion(try DiscussionDTO(from: decoder))
+        case .photo:
+            self = .photo(try FeaturedArticleDTO(from: decoder))
+        case .text:
+            self = .text(try DiscussionDTO(from: decoder))
         }
     }
 }
@@ -36,10 +36,10 @@ extension FeedCardDTO {
     /// Stable identifier forwarded from the decoded card payload.
     var id: String {
         switch self {
-        case let .featuredArticle(article):
+        case let .photo(article):
             return article.id
-        case let .discussion(discussion):
-            return discussion.id
+        case let .text(textCard):
+            return textCard.id
         }
     }
 }
@@ -415,7 +415,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // no real backend yet. The repository merges the returned DTO with the latest
                     // persisted card state so local changes remain additive across actions.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
-                    guard let article = FeedAPIStubFactory.featuredArticle(in: response, articleID: path.articleID) else {
+                    guard let article = FeedAPIStubFactory.photoCard(in: response, articleID: path.articleID) else {
                         throw FeedAPIStubError.missingCard
                     }
                     try await Task.sleep(for: .milliseconds(180))
@@ -439,7 +439,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // See the article mutation note above. The repository owns the persisted
                     // source of truth until these calls are backed by a real service.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
-                    guard let discussion = FeedAPIStubFactory.discussion(in: response, discussionID: path.articleID) else {
+                    guard let discussion = FeedAPIStubFactory.textCard(in: response, discussionID: path.articleID) else {
                         throw FeedAPIStubError.missingCard
                     }
                     try await Task.sleep(for: .milliseconds(220))
@@ -466,13 +466,13 @@ enum FeedAPIStubFactory {
     }
 
     /// Looks up one article card inside the bundled feed seed.
-    static func featuredArticle(
+    static func photoCard(
         in response: FeedResponseDTO,
         articleID: String
     ) -> FeaturedArticleDTO? {
         let unscopedArticleID = unscopedCardID(articleID, kindPrefix: "article-")
         for card in response.cards {
-            if case let .featuredArticle(article) = card,
+            if case let .photo(article) = card,
                (article.id == articleID || article.id == unscopedArticleID) {
                 return article
             }
@@ -482,13 +482,13 @@ enum FeedAPIStubFactory {
     }
 
     /// Looks up one discussion card inside the bundled feed seed.
-    static func discussion(
+    static func textCard(
         in response: FeedResponseDTO,
         discussionID: String
     ) -> DiscussionDTO? {
         let unscopedDiscussionID = unscopedCardID(discussionID, kindPrefix: "discussion-")
         for card in response.cards {
-            if case let .discussion(discussion) = card,
+            if case let .text(discussion) = card,
                (discussion.id == discussionID || discussion.id == unscopedDiscussionID) {
                 return discussion
             }

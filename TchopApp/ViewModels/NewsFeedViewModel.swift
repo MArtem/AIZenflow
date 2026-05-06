@@ -765,10 +765,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case .featuredArticle = $0, $0.id == articleID else {
+                    guard case .photo = $0, $0.id == articleID else {
                         return $0
                     }
-                    return .featuredArticle(
+                    return .photo(
                         previousArticle.updatingUIState {
                             FeaturedArticleCardUIState(
                                 isLiked: $0.isLiked,
@@ -792,10 +792,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case let .featuredArticle(article) = $0, article.id == articleID else {
+                    guard case let .photo(article) = $0, article.id == articleID else {
                         return $0
                     }
-                    return .featuredArticle(transform(article))
+                    return .photo(transform(article))
                 },
                 availability: content.availability
             )
@@ -821,7 +821,7 @@ final class NewsFeedViewModel {
     /// Returns the visible featured article snapshot for a given identifier.
     private func featuredArticle(withID articleID: String) -> FeaturedArticleCardModel? {
         for card in state.content.cards {
-            if case let .featuredArticle(article) = card, article.id == articleID {
+            if case let .photo(article) = card, article.id == articleID {
                 return article
             }
         }
@@ -1235,10 +1235,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case .discussion = $0, $0.id == discussionID else {
+                    guard case .text = $0, $0.id == discussionID else {
                         return $0
                     }
-                    return .discussion(
+                    return .text(
                         previousDiscussion.updatingUIState {
                             DiscussionCardUIState(
                                 isParticipating: $0.isParticipating,
@@ -1262,10 +1262,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case let .discussion(discussion) = $0, discussion.id == discussionID else {
+                    guard case let .text(discussion) = $0, discussion.id == discussionID else {
                         return $0
                     }
-                    return .discussion(transform(discussion))
+                    return .text(transform(discussion))
                 },
                 availability: content.availability
             )
@@ -1275,7 +1275,7 @@ final class NewsFeedViewModel {
     /// Returns the visible discussion snapshot for a given identifier.
     private func discussion(withID discussionID: String) -> DiscussionCardModel? {
         for card in state.content.cards {
-            if case let .discussion(discussion) = card, discussion.id == discussionID {
+            if case let .text(discussion) = card, discussion.id == discussionID {
                 return discussion
             }
         }

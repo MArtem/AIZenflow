@@ -1271,7 +1271,7 @@ private enum AppContentPersistenceMapper {
         persistedState: PersistedCardStateSnapshot?
     ) throws -> FeedCardPersistenceSnapshot {
         switch card {
-        case let .featuredArticle(article):
+        case let .photo(article):
             return try makeFeaturedArticleSnapshot(
                 article,
                 channelID: channelID,
@@ -1279,7 +1279,7 @@ private enum AppContentPersistenceMapper {
                 syncedAt: syncedAt,
                 persistedState: persistedState
             )
-        case let .discussion(discussion):
+        case let .text(discussion):
             return try makeDiscussionSnapshot(
                 discussion,
                 channelID: channelID,
@@ -1523,10 +1523,10 @@ private enum AppContentMapper {
         channelID: String = AppChannel.defaultChannel.id
     ) -> NewsFeedCard {
         switch card {
-        case let .featuredArticle(article):
-            return .featuredArticle(mapFeaturedArticle(article, channelID: channelID))
-        case let .discussion(discussion):
-            return .discussion(mapDiscussion(discussion, channelID: channelID))
+        case let .photo(article):
+            return .photo(mapFeaturedArticle(article, channelID: channelID))
+        case let .text(discussion):
+            return .text(mapDiscussion(discussion, channelID: channelID))
         }
     }
 
@@ -1601,9 +1601,9 @@ private enum AppContentMapper {
 
         switch kind {
         case .photo:
-            return .featuredArticle(mapFeaturedArticle(record))
+            return .photo(mapFeaturedArticle(record))
         case .text:
-            return .discussion(mapDiscussion(record))
+            return .text(mapDiscussion(record))
         }
     }
 
@@ -1614,9 +1614,9 @@ private enum AppContentMapper {
 
         switch kind {
         case .photo:
-            return .featuredArticle(mapFeaturedArticle(record))
+            return .photo(mapFeaturedArticle(record))
         case .text:
-            return .discussion(mapDiscussion(record))
+            return .text(mapDiscussion(record))
         }
     }
 
