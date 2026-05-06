@@ -210,11 +210,13 @@ struct NewsFeedContent: Equatable, Sendable {
     }
 }
 
-/// Stable feed card categories used by cross-card UI logic such as search and future create/edit flows.
+/// Stable feed card categories used by cross-card UI logic such as search and create/edit flows.
 enum NewsFeedCardKind: String, Equatable, Sendable {
-    case featuredArticle
-    case discussion
-    case channelCard
+    case text
+    case photo
+    case video
+    case audio
+    case pdf
 }
 
 /// Search field metadata used to rank card matches without hardcoding search behavior inside each screen.
@@ -245,11 +247,13 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
     var kind: NewsFeedCardKind {
         switch self {
         case .featuredArticle:
-            return .featuredArticle
+            // The current article design is the photo-card baseline in the final card taxonomy.
+            return .photo
         case .discussion:
-            return .discussion
-        case .channelCard:
-            return .channelCard
+            // The current discussion design is the text-card baseline in the final card taxonomy.
+            return .text
+        case let .channelCard(card):
+            return card.kind.feedKind
         }
     }
 
@@ -305,6 +309,23 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
                 NewsFeedCardSearchField(priority: 300, value: card.subheadline ?? ""),
                 NewsFeedCardSearchField(priority: 200, value: card.source ?? "")
             ]
+        }
+    }
+}
+
+private extension ChannelCardKind {
+    var feedKind: NewsFeedCardKind {
+        switch self {
+        case .text:
+            return .text
+        case .photo:
+            return .photo
+        case .video:
+            return .video
+        case .audio:
+            return .audio
+        case .pdf:
+            return .pdf
         }
     }
 }
