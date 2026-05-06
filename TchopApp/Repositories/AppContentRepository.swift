@@ -222,16 +222,11 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Resolves channels using the currently selected persistence backend.
     private func fetchChannelsFromCurrentBackend() throws -> [AppChannel] {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try fetchSwiftDataChannels()
-            }
-
-            return try fetchCoreDataChannels()
-        case .coreData:
-            return try fetchCoreDataChannels()
+        if #available(iOS 17, *) {
+            return try fetchSwiftDataChannels()
         }
+
+        return try fetchCoreDataChannels()
     }
 
     @available(iOS 17, *)
@@ -283,16 +278,11 @@ final class DefaultAppContentRepository: AppContentRepository {
     private func fetchPersistedFeedSnapshotFromCurrentBackend(
         channelID: String
     ) throws -> PersistedNewsFeedSnapshot {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try fetchSwiftDataFeedSnapshot(channelID: channelID)
-            }
-
-            return try fetchCoreDataFeedSnapshot(channelID: channelID)
-        case .coreData:
-            return try fetchCoreDataFeedSnapshot(channelID: channelID)
+        if #available(iOS 17, *) {
+            return try fetchSwiftDataFeedSnapshot(channelID: channelID)
         }
+
+        return try fetchCoreDataFeedSnapshot(channelID: channelID)
     }
 
     /// Synchronizes the full persisted feed snapshot with the latest API response.
@@ -337,33 +327,28 @@ final class DefaultAppContentRepository: AppContentRepository {
     private func fetchPersistedCardStateMap(
         channelID: String
     ) throws -> [String: PersistedCardStateSnapshot] {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try databaseManager.read(
-                    DatabaseReadOperation(swiftData: { context in
-                        let descriptor = FetchDescriptor<FeedCardRecord>()
-                        return Dictionary(
-                            uniqueKeysWithValues: try context.fetch(descriptor)
-                                .filter { $0.channelID == channelID }
-                                .map {
-                                (
-                                    $0.id,
-                                    PersistedCardStateSnapshot(
-                                        articleStateData: $0.articleStateData,
-                                        discussionStateData: $0.discussionStateData
-                                    )
+        if #available(iOS 17, *) {
+            return try databaseManager.read(
+                DatabaseReadOperation(swiftData: { context in
+                    let descriptor = FetchDescriptor<FeedCardRecord>()
+                    return Dictionary(
+                        uniqueKeysWithValues: try context.fetch(descriptor)
+                            .filter { $0.channelID == channelID }
+                            .map {
+                            (
+                                $0.id,
+                                PersistedCardStateSnapshot(
+                                    articleStateData: $0.articleStateData,
+                                    discussionStateData: $0.discussionStateData
                                 )
-                            }
-                        )
-                    })
-                )
-            }
-
-            return try fetchCoreDataCardStateMap(channelID: channelID)
-        case .coreData:
-            return try fetchCoreDataCardStateMap(channelID: channelID)
+                            )
+                        }
+                    )
+                })
+            )
         }
+
+        return try fetchCoreDataCardStateMap(channelID: channelID)
     }
 
     /// Returns persisted card-local-state blobs from the Core Data backend.
@@ -604,25 +589,21 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Upserts one feed-card snapshot in the active backend.
     private func upsertFeedCard(_ snapshot: FeedCardPersistenceSnapshot) throws {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                try databaseManager.write(
-                    DatabaseWriteOperation(swiftData: { context in
-                        let descriptor = FetchDescriptor<FeedCardRecord>()
-                        if let existingRecord = try context.fetch(descriptor).first(where: { $0.id == snapshot.id }) {
-                            AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
-                        } else {
-                            context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
-                        }
-                    })
-                ) as Void
-            } else {
-                try upsertCoreDataFeedCard(snapshot)
-            }
-        case .coreData:
-            try upsertCoreDataFeedCard(snapshot)
+        if #available(iOS 17, *) {
+            try databaseManager.write(
+                DatabaseWriteOperation(swiftData: { context in
+                    let descriptor = FetchDescriptor<FeedCardRecord>()
+                    if let existingRecord = try context.fetch(descriptor).first(where: { $0.id == snapshot.id }) {
+                        AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
+                    } else {
+                        context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
+                    }
+                })
+            ) as Void
+            return
         }
+
+        try upsertCoreDataFeedCard(snapshot)
     }
 
     /// Upserts one feed-card snapshot in the Core Data backend.
@@ -644,24 +625,19 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Returns the persisted sort order for one card identifier.
     private func persistedSortOrder(for cardID: String) throws -> Int {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try databaseManager.read(
-                    DatabaseReadOperation(swiftData: { context in
-                        let descriptor = FetchDescriptor<FeedCardRecord>()
-                        guard let record = try context.fetch(descriptor).first(where: { $0.id == cardID }) else {
-                            throw RepositoryError.missingPersistedFeedCard
-                        }
-                        return record.sortOrder
-                    })
-                )
-            }
-
-            return try persistedCoreDataSortOrder(for: cardID)
-        case .coreData:
-            return try persistedCoreDataSortOrder(for: cardID)
+        if #available(iOS 17, *) {
+            return try databaseManager.read(
+                DatabaseReadOperation(swiftData: { context in
+                    let descriptor = FetchDescriptor<FeedCardRecord>()
+                    guard let record = try context.fetch(descriptor).first(where: { $0.id == cardID }) else {
+                        throw RepositoryError.missingPersistedFeedCard
+                    }
+                    return record.sortOrder
+                })
+            )
         }
+
+        return try persistedCoreDataSortOrder(for: cardID)
     }
 
     /// Returns the persisted sort order for one Core Data feed card.
@@ -699,23 +675,18 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Reads one persisted featured article card from the active backend.
     private func persistedFeaturedArticle(articleID: String) throws -> FeaturedArticleCardModel? {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try databaseManager.read(
-                    DatabaseReadOperation(swiftData: { context in
-                        let descriptor = FetchDescriptor<FeedCardRecord>()
-                        return try context.fetch(descriptor)
-                            .first(where: { $0.id == articleID })
-                            .map(AppContentMapper.mapFeaturedArticle)
-                    })
-                )
-            }
-
-            return try persistedCoreDataFeaturedArticle(articleID: articleID)
-        case .coreData:
-            return try persistedCoreDataFeaturedArticle(articleID: articleID)
+        if #available(iOS 17, *) {
+            return try databaseManager.read(
+                DatabaseReadOperation(swiftData: { context in
+                    let descriptor = FetchDescriptor<FeedCardRecord>()
+                    return try context.fetch(descriptor)
+                        .first(where: { $0.id == articleID })
+                        .map(AppContentMapper.mapFeaturedArticle)
+                })
+            )
         }
+
+        return try persistedCoreDataFeaturedArticle(articleID: articleID)
     }
 
     /// Reads one persisted featured article card from Core Data.
@@ -732,23 +703,18 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Reads one persisted discussion card from the active backend.
     private func persistedDiscussion(discussionID: String) throws -> DiscussionCardModel? {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try databaseManager.read(
-                    DatabaseReadOperation(swiftData: { context in
-                        let descriptor = FetchDescriptor<FeedCardRecord>()
-                        return try context.fetch(descriptor)
-                            .first(where: { $0.id == discussionID })
-                            .map(AppContentMapper.mapDiscussion)
-                    })
-                )
-            }
-
-            return try persistedCoreDataDiscussion(discussionID: discussionID)
-        case .coreData:
-            return try persistedCoreDataDiscussion(discussionID: discussionID)
+        if #available(iOS 17, *) {
+            return try databaseManager.read(
+                DatabaseReadOperation(swiftData: { context in
+                    let descriptor = FetchDescriptor<FeedCardRecord>()
+                    return try context.fetch(descriptor)
+                        .first(where: { $0.id == discussionID })
+                        .map(AppContentMapper.mapDiscussion)
+                })
+            )
         }
+
+        return try persistedCoreDataDiscussion(discussionID: discussionID)
     }
 
     /// Reads one persisted discussion card from Core Data.
