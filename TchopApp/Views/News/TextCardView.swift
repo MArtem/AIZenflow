@@ -1,8 +1,8 @@
 import SwiftUI
 
-/// Card rendering a highlighted discussion preview in the news feed.
+/// Card rendering a text preview in the news feed.
 struct TextCardView: View {
-    let discussion: TextCardModel
+    let text: TextCardModel
     let onTap: () -> Void
     let onAction: (TextCardAction) -> Void
 
@@ -10,27 +10,27 @@ struct TextCardView: View {
         VStack(alignment: .leading, spacing: 0) {
             Button(action: onTap) {
                 VStack(alignment: .leading, spacing: 10) {
-                    if let pendingOperation = discussion.uiState.pendingOperation {
+                    if let pendingOperation = text.uiState.pendingOperation {
                         FeedCardStatusBadge(
                             title: pendingOperation.statusText,
                             showsProgress: true
                         )
-                    } else if let inlineStatusMessage = discussion.uiState.inlineStatusMessage {
+                    } else if let inlineStatusMessage = text.uiState.inlineStatusMessage {
                         FeedCardStatusBadge(
                             title: inlineStatusMessage,
                             showsProgress: false
                         )
                     }
 
-                    Text(discussion.categoryTitle)
+                    Text(text.categoryTitle)
                         .font(AppTypography.captionSemibold)
-                        .foregroundStyle(AppTheme.discussionTextPrimary.opacity(0.9))
+                        .foregroundStyle(AppTheme.textCardTextPrimary.opacity(0.9))
 
-                    Text(discussion.headline)
-                        .font(AppTypography.discussionHeadline(isExpanded: discussion.uiState.displayMode == .expanded))
-                        .foregroundStyle(AppTheme.discussionTextPrimary)
+                    Text(text.headline)
+                        .font(AppTypography.textHeadline(isExpanded: text.uiState.displayMode == .expanded))
+                        .foregroundStyle(AppTheme.textCardTextPrimary)
                         .lineSpacing(2)
-                        .lineLimit(discussion.uiState.displayMode == .expanded ? nil : 2)
+                        .lineLimit(text.uiState.displayMode == .expanded ? nil : 2)
 
                     HStack(spacing: 6) {
                         ForEach(visibleParticipants) { participant in
@@ -38,7 +38,7 @@ struct TextCardView: View {
                                 .fill(
                                     participant.isHighlighted
                                         ? AppTheme.accent
-                                        : AppTheme.discussionParticipantFill
+                                        : AppTheme.textCardParticipantFill
                                 )
                                 .frame(width: 24, height: 24)
                                 .overlay(
@@ -46,16 +46,16 @@ struct TextCardView: View {
                                         .font(AppTypography.eyebrowStrong)
                                         .foregroundStyle(
                                             participant.isHighlighted
-                                                ? AppTheme.discussionTextPrimary
-                                                : AppTheme.discussionParticipantText
+                                                ? AppTheme.textCardTextPrimary
+                                                : AppTheme.textCardParticipantText
                                         )
                                 )
                         }
                         .accessibilityHidden(true)
 
-                        Text(discussion.joinedText)
+                        Text(text.joinedText)
                             .font(AppTypography.label)
-                            .foregroundStyle(AppTheme.discussionTextSecondary)
+                            .foregroundStyle(AppTheme.textCardTextSecondary)
                     }
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
@@ -65,14 +65,14 @@ struct TextCardView: View {
             .accessibilityElement(children: .combine)
             .accessibilityLabel(
                 AppLocalization.text(
-                    "accessibility.news.discussionCard",
-                    discussion.categoryTitle,
-                    discussion.headline,
-                    String(discussion.replyCount),
-                    discussion.joinedText
+                    "accessibility.news.textCard",
+                    text.categoryTitle,
+                    text.headline,
+                    String(text.replyCount),
+                    text.joinedText
                 )
             )
-            .accessibilityHint(AppLocalization.text("accessibility.news.discussionCardHint"))
+            .accessibilityHint(AppLocalization.text("accessibility.news.textCardHint"))
 
             Divider()
                 .overlay(AppTheme.borderSubtle.opacity(0.25))
@@ -82,31 +82,31 @@ struct TextCardView: View {
                     onAction(.toggleParticipation)
                 } label: {
                     actionLabel(
-                        title: discussion.uiState.isParticipating
-                            ? AppLocalization.text("news.discussion.action.joined")
-                            : AppLocalization.text("news.discussion.action.join"),
+                        title: text.uiState.isParticipating
+                            ? AppLocalization.text("news.text.action.joined")
+                            : AppLocalization.text("news.text.action.join"),
                         systemName: "person.2.fill",
-                        isActive: discussion.uiState.isParticipating,
-                        isLoading: discussion.uiState.pendingOperation == .togglingParticipation
+                        isActive: text.uiState.isParticipating,
+                        isLoading: text.uiState.pendingOperation == .togglingParticipation
                     )
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel(
-                    discussion.uiState.isParticipating
-                        ? AppLocalization.text("news.discussion.action.joined")
-                        : AppLocalization.text("news.discussion.action.join")
+                    text.uiState.isParticipating
+                        ? AppLocalization.text("news.text.action.joined")
+                        : AppLocalization.text("news.text.action.join")
                 )
                 .accessibilityHint(AppLocalization.text("accessibility.news.cardActionHint"))
                 .accessibilityValue(
-                    discussion.uiState.pendingOperation == .togglingParticipation
+                    text.uiState.pendingOperation == .togglingParticipation
                         ? AppLocalization.text("accessibility.news.cardActionLoading")
                         : (
-                            discussion.uiState.isParticipating
+                            text.uiState.isParticipating
                                 ? AppLocalization.text("accessibility.news.cardActionActive")
                                 : ""
                         )
                 )
-                .disabled(discussion.uiState.blocksActions && discussion.uiState.pendingOperation != .togglingParticipation)
+                .disabled(text.uiState.blocksActions && text.uiState.pendingOperation != .togglingParticipation)
 
                 Spacer()
 
@@ -114,21 +114,21 @@ struct TextCardView: View {
                     onAction(.addReply)
                 } label: {
                     actionLabel(
-                        title: "\(discussion.replyCount) " + AppLocalization.text("news.discussion.action.replies"),
+                        title: "\(text.replyCount) " + AppLocalization.text("news.text.action.replies"),
                         systemName: "bubble.left.and.bubble.right.fill",
                         isActive: false,
-                        isLoading: discussion.uiState.pendingOperation == .addingReply
+                        isLoading: text.uiState.pendingOperation == .addingReply
                     )
                 }
                 .buttonStyle(.plain)
-                .accessibilityLabel("\(discussion.replyCount) " + AppLocalization.text("news.discussion.action.replies"))
+                .accessibilityLabel("\(text.replyCount) " + AppLocalization.text("news.text.action.replies"))
                 .accessibilityHint(AppLocalization.text("accessibility.news.cardActionHint"))
                 .accessibilityValue(
-                    discussion.uiState.pendingOperation == .addingReply
+                    text.uiState.pendingOperation == .addingReply
                         ? AppLocalization.text("accessibility.news.cardActionLoading")
                         : ""
                 )
-                .disabled(discussion.uiState.blocksActions && discussion.uiState.pendingOperation != .addingReply)
+                .disabled(text.uiState.blocksActions && text.uiState.pendingOperation != .addingReply)
 
                 Spacer()
 
@@ -137,8 +137,8 @@ struct TextCardView: View {
                         onAction(.setDisplayMode(.expanded))
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.expanded"),
-                            systemImage: discussion.uiState.displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
+                            AppLocalization.text("news.text.menu.expanded"),
+                            systemImage: text.uiState.displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
                         )
                     }
 
@@ -146,8 +146,8 @@ struct TextCardView: View {
                         onAction(.setDisplayMode(.compact))
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.compact"),
-                            systemImage: discussion.uiState.displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
+                            AppLocalization.text("news.text.menu.compact"),
+                            systemImage: text.uiState.displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
                         )
                     }
 
@@ -157,7 +157,7 @@ struct TextCardView: View {
                         onAction(.refreshContent)
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.refresh"),
+                            AppLocalization.text("news.text.menu.refresh"),
                             systemImage: "arrow.clockwise"
                         )
                     }
@@ -166,34 +166,34 @@ struct TextCardView: View {
                         onAction(.runLongTask)
                     } label: {
                         Label(
-                            AppLocalization.text("news.discussion.menu.update"),
+                            AppLocalization.text("news.text.menu.update"),
                             systemImage: "wand.and.stars"
                         )
                     }
                 } label: {
                     Image(systemName: "ellipsis")
                         .font(AppTypography.cardTitle)
-                        .foregroundStyle(AppTheme.discussionTextSecondary)
+                        .foregroundStyle(AppTheme.textCardTextSecondary)
                 }
-                .disabled(discussion.uiState.blocksActions)
-                .accessibilityLabel(AppLocalization.text("accessibility.news.discussionOptions"))
+                .disabled(text.uiState.blocksActions)
+                .accessibilityLabel(AppLocalization.text("accessibility.news.textOptions"))
                 .accessibilityHint(AppLocalization.text("accessibility.news.optionsHint"))
             }
             .padding(.horizontal, 16)
             .padding(.vertical, 14)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .background(AppTheme.discussionCardSurface)
+        .background(AppTheme.textCardSurface)
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard))
         .shadow(color: AppTheme.shadow.opacity(0.5), radius: 6, y: 1)
     }
 
     private var visibleParticipants: [TextCardParticipant] {
-        if discussion.uiState.displayMode == .expanded {
-            return discussion.participants
+        if text.uiState.displayMode == .expanded {
+            return text.participants
         }
 
-        return Array(discussion.participants.prefix(2))
+        return Array(text.participants.prefix(2))
     }
 
     @ViewBuilder
@@ -216,14 +216,14 @@ struct TextCardView: View {
                 .font(AppTypography.captionSemibold)
                 .lineLimit(1)
         }
-        .foregroundStyle(isActive ? AppTheme.accent : AppTheme.discussionTextSecondary)
+        .foregroundStyle(isActive ? AppTheme.accent : AppTheme.textCardTextSecondary)
     }
 }
 
 #if DEBUG
-#Preview("Discussion Card") {
+#Preview("Text Card") {
     TextCardView(
-        discussion: ViewPreviewSupport.sampleDiscussion,
+        text: ViewPreviewSupport.sampleTextCard,
         onTap: {},
         onAction: { _ in }
     )

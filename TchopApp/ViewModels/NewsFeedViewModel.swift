@@ -197,7 +197,7 @@ final class NewsFeedViewModel {
     }
 
     /// Handles a user intent emitted by a featured article card in the visible feed.
-    func handleFeaturedArticleAction(
+    func handlePhotoAction(
         articleID: String,
         action: PhotoCardAction
     ) {
@@ -213,20 +213,20 @@ final class NewsFeedViewModel {
 
         switch action {
         case .toggleLike:
-            startFeaturedArticleLikeTask(for: articleID)
+            startPhotoLikeTask(for: articleID)
         case .addComment:
-            startFeaturedArticleCommentTask(for: articleID)
+            startPhotoCommentTask(for: articleID)
         case let .setDisplayMode(displayMode):
-            startFeaturedArticleDisplayModeTask(displayMode, for: articleID)
+            startPhotoDisplayModeTask(displayMode, for: articleID)
         case .refreshContent:
-            startFeaturedArticleRefreshTask(for: articleID)
+            startPhotoRefreshTask(for: articleID)
         case .runLongTask:
-            startFeaturedArticleUpdateTask(for: articleID)
+            startPhotoUpdateTask(for: articleID)
         }
     }
 
     /// Handles a user intent emitted by a discussion card in the visible feed.
-    func handleDiscussionAction(
+    func handleTextAction(
         discussionID: String,
         action: TextCardAction
     ) {
@@ -242,15 +242,15 @@ final class NewsFeedViewModel {
 
         switch action {
         case .toggleParticipation:
-            startDiscussionParticipationTask(for: discussionID)
+            startTextParticipationTask(for: discussionID)
         case .addReply:
-            startDiscussionReplyTask(for: discussionID)
+            startTextReplyTask(for: discussionID)
         case let .setDisplayMode(displayMode):
-            startDiscussionDisplayModeTask(displayMode, for: discussionID)
+            startTextDisplayModeTask(displayMode, for: discussionID)
         case .refreshContent:
-            startDiscussionRefreshTask(for: discussionID)
+            startTextRefreshTask(for: discussionID)
         case .runLongTask:
-            startDiscussionUpdateTask(for: discussionID)
+            startTextUpdateTask(for: discussionID)
         }
     }
 
@@ -258,8 +258,8 @@ final class NewsFeedViewModel {
     func cancelLoading() {
         loadingTask?.cancel()
         loadingTask = nil
-        cancelFeaturedArticleTasks()
-        cancelDiscussionTasks()
+        cancelPhotoTasks()
+        cancelTextTasks()
 
         if case let .loading(content) = state {
             state = Self.resolvedState(for: content)
@@ -278,8 +278,8 @@ final class NewsFeedViewModel {
     /// Any in-flight card actions are cancelled because the screen now has a newer persisted
     /// snapshot and stale per-card tasks should no longer write back into the visible list.
     private func applyLoadedContent(_ content: NewsFeedContent) {
-        cancelFeaturedArticleTasks()
-        cancelDiscussionTasks()
+        cancelPhotoTasks()
+        cancelTextTasks()
         state = Self.resolvedState(for: content)
         widgetContentSyncManager.syncFeed(content: content)
     }
@@ -289,8 +289,8 @@ final class NewsFeedViewModel {
     /// This is a feed-level failure path. Card-level inline errors use a different policy and
     /// intentionally keep the surrounding feed snapshot visible.
     private func applyLoadFailureState(message: String? = nil) {
-        cancelFeaturedArticleTasks()
-        cancelDiscussionTasks()
+        cancelPhotoTasks()
+        cancelTextTasks()
         state = .failed(content: loadFailureContent, message: message ?? loadFailureMessage)
         widgetContentSyncManager.syncFeed(content: loadFailureContent)
     }
@@ -441,14 +441,14 @@ final class NewsFeedViewModel {
     ///
     /// Lightweight actions apply an optimistic screen update first and rely on the failure
     /// policy to rollback to the previous persisted snapshot if the repository rejects them.
-    private func startFeaturedArticleLikeTask(for articleID: String) {
-        guard canStartFeaturedArticleAction(for: articleID) else {
+    private func startPhotoLikeTask(for articleID: String) {
+        guard canStartPhotoAction(for: articleID) else {
             return
         }
 
         let previousArticle = featuredArticle(withID: articleID)
 
-        updateFeaturedArticle(articleID: articleID) { article in
+        updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
                 PhotoCardUIState(
                     isLiked: !$0.isLiked,
@@ -464,24 +464,24 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                let updatedArticle = try await self.repository.performPhotoAction(
                     articleID: articleID,
                     action: .toggleLike
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishFeaturedArticleAction(
+                    self.finishPhotoAction(
                         updatedArticle,
                         articleID: articleID,
                         statusMessage: updatedArticle.uiState.isLiked
-                            ? AppLocalization.text("news.featured.status.liked")
-                            : AppLocalization.text("news.featured.status.unliked")
+                            ? AppLocalization.text("news.photo.status.liked")
+                            : AppLocalization.text("news.photo.status.unliked")
                     )
                 }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleFeaturedArticleFailure(
+                await self?.handlePhotoFailure(
                     action: .toggleLike,
                     articleID: articleID,
                     previousArticle: previousArticle,
@@ -495,10 +495,10 @@ final class NewsFeedViewModel {
     ///
     /// Comments are intentionally not optimistic inserts. The UI shows a loader and increments
     /// the persisted count only after the repository returns the updated card snapshot.
-    private func startFeaturedArticleCommentTask(for articleID: String) {
-        guard canStartFeaturedArticleAction(for: articleID) else { return }
+    private func startPhotoCommentTask(for articleID: String) {
+        guard canStartPhotoAction(for: articleID) else { return }
 
-        updateFeaturedArticle(articleID: articleID) { article in
+        updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
                 PhotoCardUIState(
                     isLiked: $0.isLiked,
@@ -515,14 +515,14 @@ final class NewsFeedViewModel {
                     return
                 }
                 while true {
-                    let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                    let updatedArticle = try await self.repository.performPhotoAction(
                         articleID: articleID,
                         action: .addComment
                     )
                     try Task.checkCancellation()
 
                     let hasMoreQueuedComments = await MainActor.run {
-                        self.applyFeaturedArticleQueuedCommentProgress(
+                        self.applyPhotoQueuedCommentProgress(
                             updatedArticle,
                             articleID: articleID
                         )
@@ -530,10 +530,10 @@ final class NewsFeedViewModel {
 
                     if !hasMoreQueuedComments {
                         await MainActor.run {
-                            self.finishFeaturedArticleAction(
+                            self.finishPhotoAction(
                                 updatedArticle,
                                 articleID: articleID,
-                                statusMessage: AppLocalization.text("news.featured.status.commented")
+                                statusMessage: AppLocalization.text("news.photo.status.commented")
                             )
                         }
                         return
@@ -542,7 +542,7 @@ final class NewsFeedViewModel {
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleFeaturedArticleFailure(
+                await self?.handlePhotoFailure(
                     action: .addComment,
                     articleID: articleID,
                     previousArticle: nil,
@@ -556,7 +556,7 @@ final class NewsFeedViewModel {
     ///
     /// The active layout is updated optimistically because the local persisted preference is
     /// owned by the app and does not require server-side reconciliation yet.
-    private func startFeaturedArticleDisplayModeTask(
+    private func startPhotoDisplayModeTask(
         _ displayMode: PhotoCardDisplayMode,
         for articleID: String
     ) {
@@ -564,7 +564,7 @@ final class NewsFeedViewModel {
               !currentArticle.uiState.blocksActions else { return }
 
         let previousArticle = currentArticle
-        updateFeaturedArticle(articleID: articleID) { article in
+        updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
                 PhotoCardUIState(
                     isLiked: $0.isLiked,
@@ -580,13 +580,13 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                let updatedArticle = try await self.repository.performPhotoAction(
                     articleID: articleID,
                     action: .setDisplayMode(displayMode)
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishFeaturedArticleAction(
+                    self.finishPhotoAction(
                         updatedArticle,
                         articleID: articleID,
                         statusMessage: nil
@@ -595,7 +595,7 @@ final class NewsFeedViewModel {
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleFeaturedArticleFailure(
+                await self?.handlePhotoFailure(
                     action: .setDisplayMode(displayMode),
                     articleID: articleID,
                     previousArticle: previousArticle,
@@ -609,12 +609,12 @@ final class NewsFeedViewModel {
     ///
     /// This is a non-optimistic operation: the current visible content stays on screen until a
     /// fresh repository snapshot arrives.
-    private func startFeaturedArticleRefreshTask(for articleID: String) {
-        guard canStartFeaturedArticleAction(for: articleID) else {
+    private func startPhotoRefreshTask(for articleID: String) {
+        guard canStartPhotoAction(for: articleID) else {
             return
         }
 
-        updateFeaturedArticle(articleID: articleID) { article in
+        updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
                 PhotoCardUIState(
                     isLiked: $0.isLiked,
@@ -630,22 +630,22 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                let updatedArticle = try await self.repository.performPhotoAction(
                     articleID: articleID,
                     action: .refreshContent
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishFeaturedArticleAction(
+                    self.finishPhotoAction(
                         updatedArticle,
                         articleID: articleID,
-                        statusMessage: AppLocalization.text("news.featured.status.refreshed")
+                        statusMessage: AppLocalization.text("news.photo.status.refreshed")
                     )
                 }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleFeaturedArticleFailure(
+                await self?.handlePhotoFailure(
                     action: .refreshContent,
                     articleID: articleID,
                     previousArticle: nil,
@@ -656,12 +656,12 @@ final class NewsFeedViewModel {
     }
 
     /// Starts a simulated long-running article update and replaces the card content on success.
-    private func startFeaturedArticleUpdateTask(for articleID: String) {
-        guard canStartFeaturedArticleAction(for: articleID) else {
+    private func startPhotoUpdateTask(for articleID: String) {
+        guard canStartPhotoAction(for: articleID) else {
             return
         }
 
-        updateFeaturedArticle(articleID: articleID) { article in
+        updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
                 PhotoCardUIState(
                     isLiked: $0.isLiked,
@@ -677,22 +677,22 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedArticle = try await self.repository.performFeaturedArticleAction(
+                let updatedArticle = try await self.repository.performPhotoAction(
                     articleID: articleID,
                     action: .runLongTask
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishFeaturedArticleAction(
+                    self.finishPhotoAction(
                         updatedArticle,
                         articleID: articleID,
-                        statusMessage: AppLocalization.text("news.featured.status.updated")
+                        statusMessage: AppLocalization.text("news.photo.status.updated")
                     )
                 }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleFeaturedArticleFailure(
+                await self?.handlePhotoFailure(
                     action: .runLongTask,
                     articleID: articleID,
                     previousArticle: nil,
@@ -703,13 +703,13 @@ final class NewsFeedViewModel {
     }
 
     /// Replaces the visible featured article with the latest persisted snapshot.
-    private func finishFeaturedArticleAction(
+    private func finishPhotoAction(
         _ updatedArticle: PhotoCardModel,
         articleID: String,
         statusMessage: String?
     ) {
         featuredArticleActionCoordinator.clear(cardID: articleID)
-        updateFeaturedArticle(articleID: articleID) { _ in
+        updatePhoto(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
                 PhotoCardUIState(
                     isLiked: updatedArticle.uiState.isLiked,
@@ -722,12 +722,12 @@ final class NewsFeedViewModel {
     }
 
     /// Marks one featured article action as failed without destroying its persisted content.
-    private func failFeaturedArticleAction(
+    private func failPhotoAction(
         articleID: String,
         message: String
     ) {
         featuredArticleActionCoordinator.clear(cardID: articleID)
-        updateFeaturedArticle(articleID: articleID) { article in
+        updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
                 PhotoCardUIState(
                     isLiked: $0.isLiked,
@@ -740,11 +740,11 @@ final class NewsFeedViewModel {
     }
 
     /// Restores the previous article snapshot after a failed optimistic action.
-    private func rollbackFeaturedArticle(
+    private func rollbackPhoto(
         articleID: String,
         previousArticle: PhotoCardModel?
     ) {
-        rollbackFeaturedArticle(
+        rollbackPhoto(
             articleID: articleID,
             previousArticle: previousArticle,
             message: genericCardActionFailureMessage
@@ -752,7 +752,7 @@ final class NewsFeedViewModel {
     }
 
     /// Restores the previous article snapshot after a failed optimistic action and shows the supplied status message.
-    private func rollbackFeaturedArticle(
+    private func rollbackPhoto(
         articleID: String,
         previousArticle: PhotoCardModel?,
         message: String
@@ -785,7 +785,7 @@ final class NewsFeedViewModel {
     }
 
     /// Updates one featured article card inside the currently visible feed content.
-    private func updateFeaturedArticle(
+    private func updatePhoto(
         articleID: String,
         transform: (PhotoCardModel) -> PhotoCardModel
     ) {
@@ -830,7 +830,7 @@ final class NewsFeedViewModel {
     }
 
     /// Whether a new card-level action can start for the target article.
-    private func canStartFeaturedArticleAction(for articleID: String) -> Bool {
+    private func canStartPhotoAction(for articleID: String) -> Bool {
         guard let article = featuredArticle(withID: articleID) else {
             return false
         }
@@ -861,7 +861,7 @@ final class NewsFeedViewModel {
     }
 
     /// Applies one successful intermediate comment result and returns whether another queued request should continue immediately.
-    private func applyFeaturedArticleQueuedCommentProgress(
+    private func applyPhotoQueuedCommentProgress(
         _ updatedArticle: PhotoCardModel,
         articleID: String
     ) -> Bool {
@@ -869,7 +869,7 @@ final class NewsFeedViewModel {
             return false
         }
 
-        updateFeaturedArticle(articleID: articleID) { _ in
+        updatePhoto(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
                 PhotoCardUIState(
                     isLiked: updatedArticle.uiState.isLiked,
@@ -883,12 +883,12 @@ final class NewsFeedViewModel {
     }
 
     /// Cancels all active card-level tasks and clears the registry.
-    private func cancelFeaturedArticleTasks() {
+    private func cancelPhotoTasks() {
         featuredArticleActionCoordinator.cancelAll()
     }
 
     /// Resolves the rollback/preserve policy for a failed featured article action and applies it to the visible card.
-    private func handleFeaturedArticleFailure(
+    private func handlePhotoFailure(
         action: PhotoCardAction,
         articleID: String,
         previousArticle: PhotoCardModel?,
@@ -897,13 +897,13 @@ final class NewsFeedViewModel {
         let policy = await featuredArticleFailurePolicy(for: action, error: error)
         switch policy.resolution {
         case .rollback:
-            rollbackFeaturedArticle(
+            rollbackPhoto(
                 articleID: articleID,
                 previousArticle: previousArticle,
                 message: policy.message
             )
         case .preserveVisibleSnapshot:
-            failFeaturedArticleAction(articleID: articleID, message: policy.message)
+            failPhotoAction(articleID: articleID, message: policy.message)
         }
     }
 
@@ -922,13 +922,13 @@ final class NewsFeedViewModel {
     }
 
     /// Starts an optimistic participation toggle for one discussion card.
-    private func startDiscussionParticipationTask(for discussionID: String) {
-        guard canStartDiscussionAction(for: discussionID) else {
+    private func startTextParticipationTask(for discussionID: String) {
+        guard canStartTextAction(for: discussionID) else {
             return
         }
 
         let previousDiscussion = discussion(withID: discussionID)
-        updateDiscussion(discussionID: discussionID) { discussion in
+        updateText(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 TextCardUIState(
                     isParticipating: !$0.isParticipating,
@@ -944,24 +944,24 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                let updatedDiscussion = try await self.repository.performTextAction(
                     discussionID: discussionID,
                     action: .toggleParticipation
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishDiscussionAction(
+                    self.finishTextAction(
                         updatedDiscussion,
                         discussionID: discussionID,
                         statusMessage: updatedDiscussion.uiState.isParticipating
-                            ? AppLocalization.text("news.discussion.status.joined")
-                            : AppLocalization.text("news.discussion.status.left")
+                            ? AppLocalization.text("news.text.status.joined")
+                            : AppLocalization.text("news.text.status.left")
                     )
                 }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleDiscussionFailure(
+                await self?.handleTextFailure(
                     action: .toggleParticipation,
                     discussionID: discussionID,
                     previousDiscussion: previousDiscussion,
@@ -975,10 +975,10 @@ final class NewsFeedViewModel {
     ///
     /// Repeated taps are queued and replayed serially so each successful repository call can
     /// increment the stored reply count instead of being cancelled by a later tap.
-    private func startDiscussionReplyTask(for discussionID: String) {
-        guard canStartDiscussionAction(for: discussionID) else { return }
+    private func startTextReplyTask(for discussionID: String) {
+        guard canStartTextAction(for: discussionID) else { return }
 
-        updateDiscussion(discussionID: discussionID) { discussion in
+        updateText(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 TextCardUIState(
                     isParticipating: $0.isParticipating,
@@ -995,14 +995,14 @@ final class NewsFeedViewModel {
                     return
                 }
                 while true {
-                    let updatedDiscussion = try await self.repository.performDiscussionAction(
+                    let updatedDiscussion = try await self.repository.performTextAction(
                         discussionID: discussionID,
                         action: .addReply
                     )
                     try Task.checkCancellation()
 
                     let hasMoreQueuedReplies = await MainActor.run {
-                        self.applyDiscussionQueuedReplyProgress(
+                        self.applyTextQueuedReplyProgress(
                             updatedDiscussion,
                             discussionID: discussionID
                         )
@@ -1010,10 +1010,10 @@ final class NewsFeedViewModel {
 
                     if !hasMoreQueuedReplies {
                         await MainActor.run {
-                            self.finishDiscussionAction(
+                            self.finishTextAction(
                                 updatedDiscussion,
                                 discussionID: discussionID,
-                                statusMessage: AppLocalization.text("news.discussion.status.replied")
+                                statusMessage: AppLocalization.text("news.text.status.replied")
                             )
                         }
                         return
@@ -1022,7 +1022,7 @@ final class NewsFeedViewModel {
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleDiscussionFailure(
+                await self?.handleTextFailure(
                     action: .addReply,
                     discussionID: discussionID,
                     previousDiscussion: nil,
@@ -1033,7 +1033,7 @@ final class NewsFeedViewModel {
     }
 
     /// Persists a display-mode preference for one discussion card.
-    private func startDiscussionDisplayModeTask(
+    private func startTextDisplayModeTask(
         _ displayMode: TextCardDisplayMode,
         for discussionID: String
     ) {
@@ -1041,7 +1041,7 @@ final class NewsFeedViewModel {
               !currentDiscussion.uiState.blocksActions else { return }
 
         let previousDiscussion = currentDiscussion
-        updateDiscussion(discussionID: discussionID) { discussion in
+        updateText(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 TextCardUIState(
                     isParticipating: $0.isParticipating,
@@ -1057,18 +1057,18 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                let updatedDiscussion = try await self.repository.performTextAction(
                     discussionID: discussionID,
                     action: .setDisplayMode(displayMode)
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishDiscussionAction(updatedDiscussion, discussionID: discussionID, statusMessage: nil)
+                    self.finishTextAction(updatedDiscussion, discussionID: discussionID, statusMessage: nil)
                 }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleDiscussionFailure(
+                await self?.handleTextFailure(
                     action: .setDisplayMode(displayMode),
                     discussionID: discussionID,
                     previousDiscussion: previousDiscussion,
@@ -1079,12 +1079,12 @@ final class NewsFeedViewModel {
     }
 
     /// Starts a targeted refresh for one discussion card without replacing visible content first.
-    private func startDiscussionRefreshTask(for discussionID: String) {
-        guard canStartDiscussionAction(for: discussionID) else {
+    private func startTextRefreshTask(for discussionID: String) {
+        guard canStartTextAction(for: discussionID) else {
             return
         }
 
-        updateDiscussion(discussionID: discussionID) { discussion in
+        updateText(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 TextCardUIState(
                     isParticipating: $0.isParticipating,
@@ -1100,22 +1100,22 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                let updatedDiscussion = try await self.repository.performTextAction(
                     discussionID: discussionID,
                     action: .refreshContent
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishDiscussionAction(
+                    self.finishTextAction(
                         updatedDiscussion,
                         discussionID: discussionID,
-                        statusMessage: AppLocalization.text("news.discussion.status.refreshed")
+                        statusMessage: AppLocalization.text("news.text.status.refreshed")
                     )
                 }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleDiscussionFailure(
+                await self?.handleTextFailure(
                     action: .refreshContent,
                     discussionID: discussionID,
                     previousDiscussion: nil,
@@ -1126,12 +1126,12 @@ final class NewsFeedViewModel {
     }
 
     /// Starts a simulated long-running discussion update and applies the refreshed card on success.
-    private func startDiscussionUpdateTask(for discussionID: String) {
-        guard canStartDiscussionAction(for: discussionID) else {
+    private func startTextUpdateTask(for discussionID: String) {
+        guard canStartTextAction(for: discussionID) else {
             return
         }
 
-        updateDiscussion(discussionID: discussionID) { discussion in
+        updateText(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 TextCardUIState(
                     isParticipating: $0.isParticipating,
@@ -1147,22 +1147,22 @@ final class NewsFeedViewModel {
                 guard let self else {
                     return
                 }
-                let updatedDiscussion = try await self.repository.performDiscussionAction(
+                let updatedDiscussion = try await self.repository.performTextAction(
                     discussionID: discussionID,
                     action: .runLongTask
                 )
                 try Task.checkCancellation()
                 await MainActor.run {
-                    self.finishDiscussionAction(
+                    self.finishTextAction(
                         updatedDiscussion,
                         discussionID: discussionID,
-                        statusMessage: AppLocalization.text("news.discussion.status.updated")
+                        statusMessage: AppLocalization.text("news.text.status.updated")
                     )
                 }
             } catch is CancellationError {
                 return
             } catch {
-                await self?.handleDiscussionFailure(
+                await self?.handleTextFailure(
                     action: .runLongTask,
                     discussionID: discussionID,
                     previousDiscussion: nil,
@@ -1173,13 +1173,13 @@ final class NewsFeedViewModel {
     }
 
     /// Replaces the visible discussion card with the latest persisted snapshot.
-    private func finishDiscussionAction(
+    private func finishTextAction(
         _ updatedDiscussion: TextCardModel,
         discussionID: String,
         statusMessage: String?
     ) {
         discussionActionCoordinator.clear(cardID: discussionID)
-        updateDiscussion(discussionID: discussionID) { _ in
+        updateText(discussionID: discussionID) { _ in
             updatedDiscussion.updatingUIState { _ in
                 TextCardUIState(
                     isParticipating: updatedDiscussion.uiState.isParticipating,
@@ -1192,12 +1192,12 @@ final class NewsFeedViewModel {
     }
 
     /// Marks one discussion action as failed without destroying its persisted content.
-    private func failDiscussionAction(
+    private func failTextAction(
         discussionID: String,
         message: String
     ) {
         discussionActionCoordinator.clear(cardID: discussionID)
-        updateDiscussion(discussionID: discussionID) { discussion in
+        updateText(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
                 TextCardUIState(
                     isParticipating: $0.isParticipating,
@@ -1210,11 +1210,11 @@ final class NewsFeedViewModel {
     }
 
     /// Restores the previous discussion snapshot after a failed optimistic action.
-    private func rollbackDiscussion(
+    private func rollbackText(
         discussionID: String,
         previousDiscussion: TextCardModel?
     ) {
-        rollbackDiscussion(
+        rollbackText(
             discussionID: discussionID,
             previousDiscussion: previousDiscussion,
             message: genericCardActionFailureMessage
@@ -1222,7 +1222,7 @@ final class NewsFeedViewModel {
     }
 
     /// Restores the previous discussion snapshot after a failed optimistic action and shows the supplied status message.
-    private func rollbackDiscussion(
+    private func rollbackText(
         discussionID: String,
         previousDiscussion: TextCardModel?,
         message: String
@@ -1255,7 +1255,7 @@ final class NewsFeedViewModel {
     }
 
     /// Updates one discussion card inside the currently visible feed content.
-    private func updateDiscussion(
+    private func updateText(
         discussionID: String,
         transform: (TextCardModel) -> TextCardModel
     ) {
@@ -1284,7 +1284,7 @@ final class NewsFeedViewModel {
     }
 
     /// Whether a new card-level action can start for the target discussion.
-    private func canStartDiscussionAction(for discussionID: String) -> Bool {
+    private func canStartTextAction(for discussionID: String) -> Bool {
         guard let discussion = discussion(withID: discussionID) else {
             return false
         }
@@ -1315,7 +1315,7 @@ final class NewsFeedViewModel {
     }
 
     /// Applies one successful intermediate reply result and returns whether another queued request should continue immediately.
-    private func applyDiscussionQueuedReplyProgress(
+    private func applyTextQueuedReplyProgress(
         _ updatedDiscussion: TextCardModel,
         discussionID: String
     ) -> Bool {
@@ -1323,7 +1323,7 @@ final class NewsFeedViewModel {
             return false
         }
 
-        updateDiscussion(discussionID: discussionID) { _ in
+        updateText(discussionID: discussionID) { _ in
             updatedDiscussion.updatingUIState { _ in
                 TextCardUIState(
                     isParticipating: updatedDiscussion.uiState.isParticipating,
@@ -1337,12 +1337,12 @@ final class NewsFeedViewModel {
     }
 
     /// Cancels all active discussion tasks and clears the registry.
-    private func cancelDiscussionTasks() {
+    private func cancelTextTasks() {
         discussionActionCoordinator.cancelAll()
     }
 
     /// Resolves the rollback/preserve policy for a failed discussion action and applies it to the visible card.
-    private func handleDiscussionFailure(
+    private func handleTextFailure(
         action: TextCardAction,
         discussionID: String,
         previousDiscussion: TextCardModel?,
@@ -1351,13 +1351,13 @@ final class NewsFeedViewModel {
         let policy = await discussionFailurePolicy(for: action, error: error)
         switch policy.resolution {
         case .rollback:
-            rollbackDiscussion(
+            rollbackText(
                 discussionID: discussionID,
                 previousDiscussion: previousDiscussion,
                 message: policy.message
             )
         case .preserveVisibleSnapshot:
-            failDiscussionAction(discussionID: discussionID, message: policy.message)
+            failTextAction(discussionID: discussionID, message: policy.message)
         }
     }
 

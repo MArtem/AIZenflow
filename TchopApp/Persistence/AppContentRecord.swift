@@ -10,7 +10,7 @@ enum FeedCardRecordKind: String, Codable, Sendable {
 /// Persisted action payload stored for featured article cards.
 struct FeedCardActionPayload: Codable, Equatable, Sendable {
     let id: String
-    let kind: ArticleActionKind
+    let kind: PhotoActionKind
     let systemName: String
     let title: String
 }
@@ -23,7 +23,7 @@ struct FeedCardArticleStatePayload: Codable, Equatable, Sendable {
 }
 
 /// Persisted local state stored for discussion cards.
-struct FeedCardDiscussionStatePayload: Codable, Equatable, Sendable {
+struct FeedCardTextStatePayload: Codable, Equatable, Sendable {
     let isParticipating: Bool
     let replyCount: Int
     let joinedCount: Int

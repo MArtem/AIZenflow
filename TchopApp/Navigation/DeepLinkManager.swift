@@ -154,34 +154,34 @@ final class DeepLinkManager: DeepLinkManaging {
         }
 
         let secondSegment = pathSegments[1].lowercased()
-        if secondSegment == "discussion" {
+        if secondSegment == "text" {
             return buildNewsDetailIntent(
                 queryItems: queryItems,
                 transitionPolicy: transitionPolicy,
-                missingTitleReason: "missing-discussion-title",
-                destinationID: "discussion-details",
-                subtitleLocalizationKey: "deeplink.news.discussion.subtitle",
-                bodyLocalizationKey: "deeplink.news.discussion.body",
-                makeDestination: DeepLinkDestination.newsDiscussion
+                missingTitleReason: "missing-text-title",
+                destinationID: "text-details",
+                subtitleLocalizationKey: "deeplink.news.text.subtitle",
+                bodyLocalizationKey: "deeplink.news.text.body",
+                makeDestination: DeepLinkDestination.newsText
             )
         }
 
-        guard secondSegment == "article" else {
+        guard secondSegment == "photo" else {
             return .invalidInAppLink(reason: "unknown-news-destination")
         }
 
         return buildNewsDetailIntent(
             queryItems: queryItems,
             transitionPolicy: transitionPolicy,
-            missingTitleReason: "missing-article-title",
-            destinationID: "article-details",
-            subtitleLocalizationKey: "deeplink.news.article.subtitle",
-            bodyLocalizationKey: "deeplink.news.article.body",
-            makeDestination: DeepLinkDestination.newsArticle
+            missingTitleReason: "missing-photo-title",
+            destinationID: "photo-details",
+            subtitleLocalizationKey: "deeplink.news.photo.subtitle",
+            bodyLocalizationKey: "deeplink.news.photo.body",
+            makeDestination: DeepLinkDestination.newsPhoto
         )
     }
 
-    /// Builds article/discussion detail intents that share the same NewsRoute shape.
+    /// Builds photo/text detail intents that share the same NewsRoute shape.
     private func buildNewsDetailIntent(
         queryItems: [URLQueryItem],
         transitionPolicy: NavigationTransitionPolicy,
@@ -306,9 +306,9 @@ final class DeepLinkManager: DeepLinkManaging {
         switch intent.destination {
         case let .tab(tab):
             coordinator.showTabRoot(tab)
-        case let .newsArticle(route):
+        case let .newsPhoto(route):
             applyNewsDestination(route, coordinator: coordinator, policy: intent.policy)
-        case let .newsDiscussion(route):
+        case let .newsText(route):
             applyNewsDestination(route, coordinator: coordinator, policy: intent.policy)
         case let .mixes(route):
             applyTabDestination(.mixes, coordinator: coordinator) {
@@ -417,8 +417,8 @@ private struct DeepLinkIntent {
 
 private enum DeepLinkDestination {
     case tab(AppTab)
-    case newsArticle(NewsRoute)
-    case newsDiscussion(NewsRoute)
+    case newsPhoto(NewsRoute)
+    case newsText(NewsRoute)
     case mixes(MixesRoute)
     case pinned(PinnedRoute)
     case chat(ChatRoute)
@@ -428,10 +428,10 @@ private enum DeepLinkDestination {
         switch self {
         case let .tab(tab):
             return "tab:\(tab.rawValue)"
-        case .newsArticle:
-            return "news-article"
-        case .newsDiscussion:
-            return "news-discussion"
+        case .newsPhoto:
+            return "news-photo"
+        case .newsText:
+            return "news-text"
         case .mixes:
             return "mixes-detail"
         case .pinned:

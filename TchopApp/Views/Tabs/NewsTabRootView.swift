@@ -14,10 +14,10 @@ struct NewsTabRootView: View {
             NewsFeedView(
                 viewModel: viewModel,
                 onScrollProximityChange: onFeedScrollProximityChange,
-                onFeaturedArticleTap: openFeaturedArticle,
-                onFeaturedArticleAction: handleFeaturedArticleAction,
-                onDiscussionTap: openDiscussion,
-                onDiscussionAction: handleDiscussionAction
+                onPhotoTap: openPhotoCard,
+                onPhotoAction: handlePhotoAction,
+                onTextTap: openTextCard,
+                onTextAction: handleTextAction
             )
             .navigationDestination(for: NewsRoute.self) { route in
                 NewsDestinationView(route: route)
@@ -30,28 +30,28 @@ struct NewsTabRootView: View {
     }
 
     /// Opens featured article.
-    private func openFeaturedArticle(_ article: PhotoCardModel) {
+    private func openPhotoCard(_ article: PhotoCardModel) {
         router.push(article.detailRoute)
     }
 
     /// Handles card-level intents that either mutate local card state or open navigation.
-    private func handleFeaturedArticleAction(
+    private func handlePhotoAction(
         _ article: PhotoCardModel,
         _ action: PhotoCardAction
     ) {
-        viewModel.handleFeaturedArticleAction(articleID: article.id, action: action)
+        viewModel.handlePhotoAction(articleID: article.id, action: action)
     }
 
     /// Handles discussion card intents and keeps the detail route on the main card tap only.
-    private func handleDiscussionAction(
+    private func handleTextAction(
         _ discussion: TextCardModel,
         _ action: TextCardAction
     ) {
-        viewModel.handleDiscussionAction(discussionID: discussion.id, action: action)
+        viewModel.handleTextAction(discussionID: discussion.id, action: action)
     }
 
     /// Opens discussion.
-    private func openDiscussion(_ discussion: TextCardModel) {
+    private func openTextCard(_ discussion: TextCardModel) {
         router.push(discussion.detailRoute)
     }
 }

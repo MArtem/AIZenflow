@@ -69,27 +69,27 @@ enum AppTheme {
         dark: UIColor.black.withAlphaComponent(0.35)
     )
 
-    static let discussionCardSurface = dynamicColor(
+    static let textCardSurface = dynamicColor(
         light: UIColor(red: 0.28, green: 0.27, blue: 0.39, alpha: 1),
         dark: UIColor(red: 0.33, green: 0.32, blue: 0.46, alpha: 1)
     )
 
-    static let discussionTextPrimary = dynamicColor(
+    static let textCardTextPrimary = dynamicColor(
         light: UIColor.white,
         dark: UIColor(red: 0.96, green: 0.96, blue: 0.99, alpha: 1)
     )
 
-    static let discussionTextSecondary = dynamicColor(
+    static let textCardTextSecondary = dynamicColor(
         light: UIColor.white.withAlphaComponent(0.82),
         dark: UIColor(red: 0.86, green: 0.87, blue: 0.93, alpha: 1)
     )
 
-    static let discussionParticipantFill = dynamicColor(
+    static let textCardParticipantFill = dynamicColor(
         light: UIColor.white.withAlphaComponent(0.85),
         dark: UIColor(red: 0.78, green: 0.80, blue: 0.88, alpha: 1)
     )
 
-    static let discussionParticipantText = dynamicColor(
+    static let textCardParticipantText = dynamicColor(
         light: UIColor(red: 0.28, green: 0.29, blue: 0.40, alpha: 1),
         dark: UIColor(red: 0.17, green: 0.18, blue: 0.27, alpha: 1)
     )
@@ -171,15 +171,15 @@ enum AppTypography {
     static let shellMenuIcon = Font.system(size: 20, weight: .medium)
     static let fabIcon = Font.system(size: 28, weight: .medium)
 
-    static func featuredHeadline(isExpanded: Bool) -> Font {
+    static func photoHeadline(isExpanded: Bool) -> Font {
         .system(size: isExpanded ? 18 : 16, weight: .bold)
     }
 
-    static func discussionHeadline(isExpanded: Bool) -> Font {
+    static func textHeadline(isExpanded: Bool) -> Font {
         .system(size: isExpanded ? 16 : 15, weight: .bold)
     }
 
-    static func featuredHeroSymbol(isExpanded: Bool) -> Font {
+    static func photoHeroSymbol(isExpanded: Bool) -> Font {
         .system(size: isExpanded ? 120 : 88)
     }
 }

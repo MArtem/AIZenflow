@@ -342,7 +342,7 @@ struct PhotoCardModel: Identifiable, Equatable, Sendable {
     let metadataLine: String
     let translationLabel: String
     let commentCount: Int
-    let actions: [ArticleActionItem]
+    let actions: [PhotoActionItem]
     let uiState: PhotoCardUIState
 
     /// Headline formatted for service consumers that should not receive multiline text.
@@ -353,7 +353,7 @@ struct PhotoCardModel: Identifiable, Equatable, Sendable {
     /// Destination payload used by callers that open article details.
     var detailRoute: NewsRoute {
         NewsRoute(
-            destinationID: "article-details",
+            destinationID: "photo-details",
             title: serviceHeadline,
             subtitle: sourceTitle,
             bodyText: summary,
@@ -403,15 +403,15 @@ struct PhotoCardModel: Identifiable, Equatable, Sendable {
 }
 
 /// Presentation model for a single action shown under an article.
-struct ArticleActionItem: Identifiable, Equatable, Sendable {
+struct PhotoActionItem: Identifiable, Equatable, Sendable {
     let id: String
-    let kind: ArticleActionKind
+    let kind: PhotoActionKind
     let systemName: String
     let title: String
 }
 
 /// Semantic action kind shown under a featured article card.
-enum ArticleActionKind: String, Codable, Equatable, Sendable {
+enum PhotoActionKind: String, Codable, Equatable, Sendable {
     case like
     case comments
 }
@@ -466,15 +466,15 @@ enum PhotoCardPendingOperation: Equatable, Sendable {
     var statusText: String {
         switch self {
         case .liking:
-            return AppLocalization.text("news.featured.pending.like")
+            return AppLocalization.text("news.photo.pending.like")
         case .addingComment:
-            return AppLocalization.text("news.featured.pending.comment")
+            return AppLocalization.text("news.photo.pending.comment")
         case .updatingDisplayMode:
-            return AppLocalization.text("news.featured.pending.displayMode")
+            return AppLocalization.text("news.photo.pending.displayMode")
         case .refreshingContent:
-            return AppLocalization.text("news.featured.pending.refresh")
+            return AppLocalization.text("news.photo.pending.refresh")
         case .updatingContent:
-            return AppLocalization.text("news.featured.pending.update")
+            return AppLocalization.text("news.photo.pending.update")
         }
     }
 }
@@ -497,13 +497,13 @@ struct TextCardModel: Identifiable, Equatable, Sendable {
 
     /// User-facing joined label rendered in the discussion card footer.
     var joinedText: String {
-        AppLocalization.text("news.discussion.joinedCountFormat", joinedCount)
+        AppLocalization.text("news.text.joinedCountFormat", joinedCount)
     }
 
     /// Destination payload used by callers that open discussion details.
     var detailRoute: NewsRoute {
         NewsRoute(
-            destinationID: "discussion-details",
+            destinationID: "text-details",
             title: categoryTitle,
             subtitle: joinedText,
             bodyText: serviceHeadline,
@@ -599,15 +599,15 @@ enum TextCardPendingOperation: Equatable, Sendable {
     var statusText: String {
         switch self {
         case .togglingParticipation:
-            return AppLocalization.text("news.discussion.pending.participation")
+            return AppLocalization.text("news.text.pending.participation")
         case .addingReply:
-            return AppLocalization.text("news.discussion.pending.reply")
+            return AppLocalization.text("news.text.pending.reply")
         case .updatingDisplayMode:
-            return AppLocalization.text("news.discussion.pending.displayMode")
+            return AppLocalization.text("news.text.pending.displayMode")
         case .refreshingContent:
-            return AppLocalization.text("news.discussion.pending.refresh")
+            return AppLocalization.text("news.text.pending.refresh")
         case .updatingContent:
-            return AppLocalization.text("news.discussion.pending.update")
+            return AppLocalization.text("news.text.pending.update")
         }
     }
 }
@@ -632,13 +632,13 @@ enum NewsFeedFixtures {
                         translationLabel: AppLocalization.text("news.fallback.translationLabel"),
                         commentCount: 48,
                         actions: [
-                            ArticleActionItem(
+                            PhotoActionItem(
                                 id: "like",
                                 kind: .like,
                                 systemName: "hand.thumbsup.fill",
                                 title: AppLocalization.text("news.fallback.action.like")
                             ),
-                            ArticleActionItem(
+                            PhotoActionItem(
                                 id: "comments",
                                 kind: .comments,
                                 systemName: "bubble.left.fill",

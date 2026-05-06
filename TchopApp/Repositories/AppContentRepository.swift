@@ -21,13 +21,13 @@ protocol NewsFeedRepository {
     func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent
 
     /// Persists one featured article card action and returns the updated card snapshot.
-    func performFeaturedArticleAction(
+    func performPhotoAction(
         articleID: String,
         action: PhotoCardAction
     ) async throws -> PhotoCardModel
 
     /// Persists one discussion card action and returns the updated card snapshot.
-    func performDiscussionAction(
+    func performTextAction(
         discussionID: String,
         action: TextCardAction
     ) async throws -> TextCardModel
@@ -108,7 +108,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         return try fetchPersistedNewsFeedContent(channelID: channelID, cacheReason: nil)
     }
 
-    func performFeaturedArticleAction(
+    func performPhotoAction(
         articleID: String,
         action: PhotoCardAction
     ) async throws -> PhotoCardModel {
@@ -118,8 +118,8 @@ final class DefaultAppContentRepository: AppContentRepository {
             throw RepositoryError.offlineCardAction
         }
 
-        let currentArticle = try requirePersistedFeaturedArticle(articleID: articleID)
-        let localStore = try makeFeaturedArticleActionSyncLocalStore(
+        let currentArticle = try requirePersistedPhoto(articleID: articleID)
+        let localStore = try makePhotoActionSyncLocalStore(
             article: currentArticle,
             action: action
         )
@@ -131,10 +131,10 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
 
         await engine.sync(reason: .localMutation)
-        return try requirePersistedFeaturedArticle(articleID: articleID)
+        return try requirePersistedPhoto(articleID: articleID)
     }
 
-    func performDiscussionAction(
+    func performTextAction(
         discussionID: String,
         action: TextCardAction
     ) async throws -> TextCardModel {
@@ -144,8 +144,8 @@ final class DefaultAppContentRepository: AppContentRepository {
             throw RepositoryError.offlineCardAction
         }
 
-        let currentDiscussion = try requirePersistedDiscussion(discussionID: discussionID)
-        let localStore = try makeDiscussionActionSyncLocalStore(
+        let currentDiscussion = try requirePersistedText(discussionID: discussionID)
+        let localStore = try makeTextActionSyncLocalStore(
             discussion: currentDiscussion,
             action: action
         )
@@ -157,17 +157,17 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
 
         await engine.sync(reason: .localMutation)
-        return try requirePersistedDiscussion(discussionID: discussionID)
+        return try requirePersistedText(discussionID: discussionID)
     }
 
-    private func makeFeaturedArticleActionSyncLocalStore(
+    private func makePhotoActionSyncLocalStore(
         article: PhotoCardModel,
         action: PhotoCardAction
     ) throws -> FeedPersistenceSyncLocalStore {
-        let payload = FeaturedArticleActionMutationPayload(
+        let payload = PhotoActionMutationPayload(
             channelID: article.channelID,
             articleID: article.id,
-            actionKind: featuredArticleActionKind(action),
+            actionKind: photoActionKind(action),
             displayModeRawValue: featuredArticleDisplayModeRawValue(action),
             isLiked: article.uiState.isLiked
         )
@@ -190,11 +190,11 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    private func makeDiscussionActionSyncLocalStore(
+    private func makeTextActionSyncLocalStore(
         discussion: TextCardModel,
         action: TextCardAction
     ) throws -> FeedPersistenceSyncLocalStore {
-        let payload = DiscussionActionMutationPayload(
+        let payload = TextActionMutationPayload(
             channelID: discussion.channelID,
             discussionID: discussion.id,
             actionKind: discussionActionKind(action),
@@ -472,16 +472,16 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Persists one updated featured article snapshot while keeping feed ordering stable.
-    private func persistFeaturedArticle(
-        _ article: FeaturedArticleDTO,
+    private func persistPhoto(
+        _ article: PhotoDTO,
         articleID: String,
         state: FeedCardArticleStatePayload
     ) throws {
         // The remote DTO may only describe content. Persisted card state is merged separately so
         // one successful action does not wipe unrelated fields such as like/comment/display mode.
-        let currentArticle = try requirePersistedFeaturedArticle(articleID: articleID)
+        let currentArticle = try requirePersistedPhoto(articleID: articleID)
         let sortOrder = try persistedSortOrder(for: articleID)
-        let snapshot = try AppContentPersistenceMapper.makeFeaturedArticleSnapshot(
+        let snapshot = try AppContentPersistenceMapper.makePhotoSnapshot(
             article,
             channelID: currentArticle.channelID,
             sortOrder: sortOrder,
@@ -495,14 +495,14 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Persists one updated discussion snapshot while keeping feed ordering stable.
-    private func persistDiscussion(
-        _ discussion: DiscussionDTO,
+    private func persistText(
+        _ discussion: TextDTO,
         discussionID: String,
-        state: FeedCardDiscussionStatePayload
+        state: FeedCardTextStatePayload
     ) throws {
-        let currentDiscussion = try requirePersistedDiscussion(discussionID: discussionID)
+        let currentDiscussion = try requirePersistedText(discussionID: discussionID)
         let sortOrder = try persistedSortOrder(for: discussionID)
-        let snapshot = try AppContentPersistenceMapper.makeDiscussionSnapshot(
+        let snapshot = try AppContentPersistenceMapper.makeTextSnapshot(
             discussion,
             channelID: currentDiscussion.channelID,
             sortOrder: sortOrder,
@@ -516,7 +516,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Builds the persisted featured article state that should survive one successful card action.
-    private func mergedFeaturedArticleState(
+    private func mergedPhotoState(
         from currentArticle: PhotoCardModel,
         action: PhotoCardAction
     ) -> FeedCardArticleStatePayload {
@@ -549,36 +549,36 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Builds the persisted discussion state that should survive one successful card action.
-    private func mergedDiscussionState(
+    private func mergedTextState(
         from currentDiscussion: TextCardModel,
         action: TextCardAction
-    ) -> FeedCardDiscussionStatePayload {
+    ) -> FeedCardTextStatePayload {
         switch action {
         case .toggleParticipation:
             let isParticipating = !currentDiscussion.uiState.isParticipating
             let joinedDelta = isParticipating == currentDiscussion.uiState.isParticipating ? 0 : (isParticipating ? 1 : -1)
-            return FeedCardDiscussionStatePayload(
+            return FeedCardTextStatePayload(
                 isParticipating: isParticipating,
                 replyCount: currentDiscussion.replyCount,
                 joinedCount: max(0, currentDiscussion.joinedCount + joinedDelta),
                 displayModeRawValue: currentDiscussion.uiState.displayMode.rawValue
             )
         case .addReply:
-            return FeedCardDiscussionStatePayload(
+            return FeedCardTextStatePayload(
                 isParticipating: currentDiscussion.uiState.isParticipating,
                 replyCount: currentDiscussion.replyCount + 1,
                 joinedCount: currentDiscussion.joinedCount,
                 displayModeRawValue: currentDiscussion.uiState.displayMode.rawValue
             )
         case let .setDisplayMode(displayMode):
-            return FeedCardDiscussionStatePayload(
+            return FeedCardTextStatePayload(
                 isParticipating: currentDiscussion.uiState.isParticipating,
                 replyCount: currentDiscussion.replyCount,
                 joinedCount: currentDiscussion.joinedCount,
                 displayModeRawValue: displayMode.rawValue
             )
         case .refreshContent, .runLongTask:
-            return FeedCardDiscussionStatePayload(
+            return FeedCardTextStatePayload(
                 isParticipating: currentDiscussion.uiState.isParticipating,
                 replyCount: currentDiscussion.replyCount,
                 joinedCount: currentDiscussion.joinedCount,
@@ -656,8 +656,8 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Returns one persisted featured article card or throws when the snapshot is missing.
-    private func requirePersistedFeaturedArticle(articleID: String) throws -> PhotoCardModel {
-        guard let article = try persistedFeaturedArticle(articleID: articleID) else {
+    private func requirePersistedPhoto(articleID: String) throws -> PhotoCardModel {
+        guard let article = try persistedPhoto(articleID: articleID) else {
             throw RepositoryError.missingPersistedFeedCard
         }
 
@@ -665,8 +665,8 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Returns one persisted discussion card or throws when the snapshot is missing.
-    private func requirePersistedDiscussion(discussionID: String) throws -> TextCardModel {
-        guard let discussion = try persistedDiscussion(discussionID: discussionID) else {
+    private func requirePersistedText(discussionID: String) throws -> TextCardModel {
+        guard let discussion = try persistedText(discussionID: discussionID) else {
             throw RepositoryError.missingPersistedFeedCard
         }
 
@@ -674,57 +674,57 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Reads one persisted featured article card from the active backend.
-    private func persistedFeaturedArticle(articleID: String) throws -> PhotoCardModel? {
+    private func persistedPhoto(articleID: String) throws -> PhotoCardModel? {
         if #available(iOS 17, *) {
             return try databaseManager.read(
                 DatabaseReadOperation(swiftData: { context in
                     let descriptor = FetchDescriptor<FeedCardRecord>()
                     return try context.fetch(descriptor)
                         .first(where: { $0.id == articleID })
-                        .map(AppContentMapper.mapFeaturedArticle)
+                        .map(AppContentMapper.mapPhoto)
                 })
             )
         }
 
-        return try persistedCoreDataFeaturedArticle(articleID: articleID)
+        return try persistedCoreDataPhoto(articleID: articleID)
     }
 
     /// Reads one persisted featured article card from Core Data.
-    private func persistedCoreDataFeaturedArticle(articleID: String) throws -> PhotoCardModel? {
+    private func persistedCoreDataPhoto(articleID: String) throws -> PhotoCardModel? {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
                 let request = Self.makeCoreDataFeedCardFetchRequest()
                 request.fetchLimit = 1
                 request.predicate = NSPredicate(format: "id == %@", articleID)
-                return try context.fetch(request).first.map(AppContentMapper.mapFeaturedArticle)
+                return try context.fetch(request).first.map(AppContentMapper.mapPhoto)
             })
         )
     }
 
     /// Reads one persisted discussion card from the active backend.
-    private func persistedDiscussion(discussionID: String) throws -> TextCardModel? {
+    private func persistedText(discussionID: String) throws -> TextCardModel? {
         if #available(iOS 17, *) {
             return try databaseManager.read(
                 DatabaseReadOperation(swiftData: { context in
                     let descriptor = FetchDescriptor<FeedCardRecord>()
                     return try context.fetch(descriptor)
                         .first(where: { $0.id == discussionID })
-                        .map(AppContentMapper.mapDiscussion)
+                        .map(AppContentMapper.mapText)
                 })
             )
         }
 
-        return try persistedCoreDataDiscussion(discussionID: discussionID)
+        return try persistedCoreDataText(discussionID: discussionID)
     }
 
     /// Reads one persisted discussion card from Core Data.
-    private func persistedCoreDataDiscussion(discussionID: String) throws -> TextCardModel? {
+    private func persistedCoreDataText(discussionID: String) throws -> TextCardModel? {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
                 let request = Self.makeCoreDataFeedCardFetchRequest()
                 request.fetchLimit = 1
                 request.predicate = NSPredicate(format: "id == %@", discussionID)
-                return try context.fetch(request).first.map(AppContentMapper.mapDiscussion)
+                return try context.fetch(request).first.map(AppContentMapper.mapText)
             })
         )
     }
@@ -851,7 +851,7 @@ private enum FeedActionMutationKind: String, Codable {
     case text = "discussion"
 }
 
-private struct FeaturedArticleActionMutationPayload: Codable {
+private struct PhotoActionMutationPayload: Codable {
     let channelID: String
     let articleID: String
     let actionKind: String
@@ -859,7 +859,7 @@ private struct FeaturedArticleActionMutationPayload: Codable {
     let isLiked: Bool
 }
 
-private struct DiscussionActionMutationPayload: Codable {
+private struct TextActionMutationPayload: Codable {
     let channelID: String
     let discussionID: String
     let actionKind: String
@@ -1081,18 +1081,18 @@ private actor FeedActionRemoteSyncClient: SyncRemoteClient {
 
             switch envelope.kind {
             case .photo:
-                let payload = try decoder.decode(FeaturedArticleActionMutationPayload.self, from: envelope.payloadData)
+                let payload = try decoder.decode(PhotoActionMutationPayload.self, from: envelope.payloadData)
                 let action = try payload.makeAction()
-                let article = try await feedAPIManager.performFeaturedArticleAction(
+                let article = try await feedAPIManager.performPhotoAction(
                     channelID: payload.channelID,
                     articleID: payload.articleID,
                     action: action,
-                    context: FeaturedArticleActionContext(
+                    context: PhotoActionContext(
                         isLiked: payload.isLiked,
                         displayMode: try payload.makeDisplayMode()
                     )
                 )
-                let snapshot = try AppContentPersistenceMapper.makeFeaturedArticleSnapshot(
+                let snapshot = try AppContentPersistenceMapper.makePhotoSnapshot(
                     article,
                     channelID: payload.channelID,
                     sortOrder: mutation.baseServerRevision ?? 0,
@@ -1118,18 +1118,18 @@ private actor FeedActionRemoteSyncClient: SyncRemoteClient {
                 )
 
             case .text:
-                let payload = try decoder.decode(DiscussionActionMutationPayload.self, from: envelope.payloadData)
+                let payload = try decoder.decode(TextActionMutationPayload.self, from: envelope.payloadData)
                 let action = try payload.makeAction()
-                let discussion = try await feedAPIManager.performDiscussionAction(
+                let discussion = try await feedAPIManager.performTextAction(
                     channelID: payload.channelID,
                     discussionID: payload.discussionID,
                     action: action,
-                    context: DiscussionActionContext(
+                    context: TextActionContext(
                         isParticipating: payload.isParticipating,
                         displayMode: try payload.makeDisplayMode()
                     )
                 )
-                let snapshot = try AppContentPersistenceMapper.makeDiscussionSnapshot(
+                let snapshot = try AppContentPersistenceMapper.makeTextSnapshot(
                     discussion,
                     channelID: payload.channelID,
                     sortOrder: mutation.baseServerRevision ?? 0,
@@ -1272,7 +1272,7 @@ private enum AppContentPersistenceMapper {
     ) throws -> FeedCardPersistenceSnapshot {
         switch card {
         case let .photo(article):
-            return try makeFeaturedArticleSnapshot(
+            return try makePhotoSnapshot(
                 article,
                 channelID: channelID,
                 sortOrder: sortOrder,
@@ -1280,7 +1280,7 @@ private enum AppContentPersistenceMapper {
                 persistedState: persistedState
             )
         case let .text(discussion):
-            return try makeDiscussionSnapshot(
+            return try makeTextSnapshot(
                 discussion,
                 channelID: channelID,
                 sortOrder: sortOrder,
@@ -1290,8 +1290,8 @@ private enum AppContentPersistenceMapper {
         }
     }
 
-    static func makeFeaturedArticleSnapshot(
-        _ article: FeaturedArticleDTO,
+    static func makePhotoSnapshot(
+        _ article: PhotoDTO,
         channelID: String,
         sortOrder: Int,
         syncedAt: Date,
@@ -1345,8 +1345,8 @@ private enum AppContentPersistenceMapper {
         )
     }
 
-    static func makeDiscussionSnapshot(
-        _ discussion: DiscussionDTO,
+    static func makeTextSnapshot(
+        _ discussion: TextDTO,
         channelID: String,
         sortOrder: Int,
         syncedAt: Date,
@@ -1355,11 +1355,11 @@ private enum AppContentPersistenceMapper {
         // Discussion interaction state is preserved the same way so replies, participation, and
         // display-mode choices survive future remote feed refreshes.
         let discussionStateData: Data
-        if let persistedDiscussionStateData = persistedState?.discussionStateData {
-            discussionStateData = persistedDiscussionStateData
+        if let persistedTextStateData = persistedState?.discussionStateData {
+            discussionStateData = persistedTextStateData
         } else {
             discussionStateData = try JSONEncoder().encode(
-                FeedCardDiscussionStatePayload(
+                FeedCardTextStatePayload(
                     isParticipating: discussion.localState.isParticipating,
                     replyCount: discussion.localState.replyCount,
                     joinedCount: discussion.localState.joinedCount,
@@ -1367,7 +1367,7 @@ private enum AppContentPersistenceMapper {
                 )
             )
         }
-        let joinedCount = ((try? JSONDecoder().decode(FeedCardDiscussionStatePayload.self, from: discussionStateData))?.joinedCount)
+        let joinedCount = ((try? JSONDecoder().decode(FeedCardTextStatePayload.self, from: discussionStateData))?.joinedCount)
             ?? discussion.localState.joinedCount
 
         return FeedCardPersistenceSnapshot(
@@ -1408,7 +1408,7 @@ private enum AppContentPersistenceMapper {
     }
 }
 
-private extension FeaturedArticleActionMutationPayload {
+private extension PhotoActionMutationPayload {
     func makeAction() throws -> PhotoCardAction {
         switch actionKind {
         case "toggleLike":
@@ -1436,7 +1436,7 @@ private extension FeaturedArticleActionMutationPayload {
     }
 }
 
-private extension DiscussionActionMutationPayload {
+private extension TextActionMutationPayload {
     func makeAction() throws -> TextCardAction {
         switch actionKind {
         case "toggleParticipation":
@@ -1464,7 +1464,7 @@ private extension DiscussionActionMutationPayload {
     }
 }
 
-private func featuredArticleActionKind(_ action: PhotoCardAction) -> String {
+private func photoActionKind(_ action: PhotoCardAction) -> String {
     switch action {
     case .toggleLike:
         return "toggleLike"
@@ -1524,14 +1524,14 @@ private enum AppContentMapper {
     ) -> NewsFeedCard {
         switch card {
         case let .photo(article):
-            return .photo(mapFeaturedArticle(article, channelID: channelID))
+            return .photo(mapPhoto(article, channelID: channelID))
         case let .text(discussion):
-            return .text(mapDiscussion(discussion, channelID: channelID))
+            return .text(mapText(discussion, channelID: channelID))
         }
     }
 
-    static func mapFeaturedArticle(
-        _ article: FeaturedArticleDTO,
+    static func mapPhoto(
+        _ article: PhotoDTO,
         channelID: String = AppChannel.defaultChannel.id
     ) -> PhotoCardModel {
         PhotoCardModel(
@@ -1555,8 +1555,8 @@ private enum AppContentMapper {
         )
     }
 
-    static func mapArticleAction(_ action: ArticleActionDTO) -> ArticleActionItem {
-        ArticleActionItem(
+    static func mapArticleAction(_ action: PhotoActionDTO) -> PhotoActionItem {
+        PhotoActionItem(
             id: action.id,
             kind: action.kind,
             systemName: action.systemName,
@@ -1564,8 +1564,8 @@ private enum AppContentMapper {
         )
     }
 
-    static func mapDiscussion(
-        _ discussion: DiscussionDTO,
+    static func mapText(
+        _ discussion: TextDTO,
         channelID: String = AppChannel.defaultChannel.id
     ) -> TextCardModel {
         TextCardModel(
@@ -1601,9 +1601,9 @@ private enum AppContentMapper {
 
         switch kind {
         case .photo:
-            return .photo(mapFeaturedArticle(record))
+            return .photo(mapPhoto(record))
         case .text:
-            return .text(mapDiscussion(record))
+            return .text(mapText(record))
         }
     }
 
@@ -1614,14 +1614,14 @@ private enum AppContentMapper {
 
         switch kind {
         case .photo:
-            return .photo(mapFeaturedArticle(record))
+            return .photo(mapPhoto(record))
         case .text:
-            return .text(mapDiscussion(record))
+            return .text(mapText(record))
         }
     }
 
     @available(iOS 17, *)
-    static func mapFeaturedArticle(_ record: FeedCardRecord) -> PhotoCardModel {
+    static func mapPhoto(_ record: FeedCardRecord) -> PhotoCardModel {
         PhotoCardModel(
             id: record.id,
             channelID: record.channelID,
@@ -1632,13 +1632,13 @@ private enum AppContentMapper {
             summary: record.summary ?? "",
             metadataLine: record.metadataLine ?? "",
             translationLabel: record.translationLabel ?? "",
-            commentCount: decodeFeaturedArticleState(from: record.articleStateData).commentCount,
+            commentCount: decodePhotoState(from: record.articleStateData).commentCount,
             actions: decodeArticleActions(from: record.articleActionsData),
-            uiState: decodeFeaturedArticleUIState(from: record.articleStateData)
+            uiState: decodePhotoUIState(from: record.articleStateData)
         )
     }
 
-    static func mapFeaturedArticle(_ record: CoreDataFeedCardEntity) -> PhotoCardModel {
+    static func mapPhoto(_ record: CoreDataFeedCardEntity) -> PhotoCardModel {
         PhotoCardModel(
             id: record.id,
             channelID: record.channelID,
@@ -1649,40 +1649,40 @@ private enum AppContentMapper {
             summary: record.summary ?? "",
             metadataLine: record.metadataLine ?? "",
             translationLabel: record.translationLabel ?? "",
-            commentCount: decodeFeaturedArticleState(from: record.articleStateData).commentCount,
+            commentCount: decodePhotoState(from: record.articleStateData).commentCount,
             actions: decodeArticleActions(from: record.articleActionsData),
-            uiState: decodeFeaturedArticleUIState(from: record.articleStateData)
+            uiState: decodePhotoUIState(from: record.articleStateData)
         )
     }
 
     @available(iOS 17, *)
-    static func mapDiscussion(_ record: FeedCardRecord) -> TextCardModel {
+    static func mapText(_ record: FeedCardRecord) -> TextCardModel {
         TextCardModel(
             id: record.id,
             channelID: record.channelID,
             categoryTitle: record.categoryTitle ?? "",
             headline: record.headline,
             participants: decodeTextCardParticipants(from: record.participantsData),
-            replyCount: decodeDiscussionState(from: record.discussionStateData).replyCount,
-            joinedCount: decodeDiscussionState(from: record.discussionStateData).joinedCount,
-            uiState: decodeDiscussionUIState(from: record.discussionStateData)
+            replyCount: decodeTextState(from: record.discussionStateData).replyCount,
+            joinedCount: decodeTextState(from: record.discussionStateData).joinedCount,
+            uiState: decodeTextUIState(from: record.discussionStateData)
         )
     }
 
-    static func mapDiscussion(_ record: CoreDataFeedCardEntity) -> TextCardModel {
+    static func mapText(_ record: CoreDataFeedCardEntity) -> TextCardModel {
         TextCardModel(
             id: record.id,
             channelID: record.channelID,
             categoryTitle: record.categoryTitle ?? "",
             headline: record.headline,
             participants: decodeTextCardParticipants(from: record.participantsData),
-            replyCount: decodeDiscussionState(from: record.discussionStateData).replyCount,
-            joinedCount: decodeDiscussionState(from: record.discussionStateData).joinedCount,
-            uiState: decodeDiscussionUIState(from: record.discussionStateData)
+            replyCount: decodeTextState(from: record.discussionStateData).replyCount,
+            joinedCount: decodeTextState(from: record.discussionStateData).joinedCount,
+            uiState: decodeTextUIState(from: record.discussionStateData)
         )
     }
 
-    static func decodeArticleActions(from data: Data?) -> [ArticleActionItem] {
+    static func decodeArticleActions(from data: Data?) -> [PhotoActionItem] {
         guard
             let data,
             let payload = try? JSONDecoder().decode([FeedCardActionPayload].self, from: data)
@@ -1691,7 +1691,7 @@ private enum AppContentMapper {
         }
 
         return payload.map {
-            ArticleActionItem(
+            PhotoActionItem(
                 id: $0.id,
                 kind: $0.kind,
                 systemName: $0.systemName,
@@ -1717,8 +1717,8 @@ private enum AppContentMapper {
         }
     }
 
-    static func decodeFeaturedArticleUIState(from data: Data?) -> PhotoCardUIState {
-        let state = decodeFeaturedArticleState(from: data)
+    static func decodePhotoUIState(from data: Data?) -> PhotoCardUIState {
+        let state = decodePhotoState(from: data)
         return PhotoCardUIState(
             isLiked: state.isLiked,
             displayMode: PhotoCardDisplayMode(rawValue: state.displayModeRawValue) ?? .expanded,
@@ -1727,7 +1727,7 @@ private enum AppContentMapper {
         )
     }
 
-    static func decodeFeaturedArticleState(from data: Data?) -> FeedCardArticleStatePayload {
+    static func decodePhotoState(from data: Data?) -> FeedCardArticleStatePayload {
         guard
             let data,
             let payload = try? JSONDecoder().decode(FeedCardArticleStatePayload.self, from: data)
@@ -1742,8 +1742,8 @@ private enum AppContentMapper {
         return payload
     }
 
-    static func decodeDiscussionUIState(from data: Data?) -> TextCardUIState {
-        let state = decodeDiscussionState(from: data)
+    static func decodeTextUIState(from data: Data?) -> TextCardUIState {
+        let state = decodeTextState(from: data)
         return TextCardUIState(
             isParticipating: state.isParticipating,
             displayMode: TextCardDisplayMode(rawValue: state.displayModeRawValue) ?? .expanded,
@@ -1752,12 +1752,12 @@ private enum AppContentMapper {
         )
     }
 
-    static func decodeDiscussionState(from data: Data?) -> FeedCardDiscussionStatePayload {
+    static func decodeTextState(from data: Data?) -> FeedCardTextStatePayload {
         guard
             let data,
-            let payload = try? JSONDecoder().decode(FeedCardDiscussionStatePayload.self, from: data)
+            let payload = try? JSONDecoder().decode(FeedCardTextStatePayload.self, from: data)
         else {
-            return FeedCardDiscussionStatePayload(
+            return FeedCardTextStatePayload(
                 isParticipating: false,
                 replyCount: 0,
                 joinedCount: 0,

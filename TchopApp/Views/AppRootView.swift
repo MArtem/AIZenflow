@@ -106,7 +106,7 @@ enum ViewPreviewSupport {
 
     static let sampleAccountSummary = AccountProfileSummary(user: sampleUser)
 
-    static var sampleFeaturedArticle: PhotoCardModel {
+    static var samplePhotoCard: PhotoCardModel {
         for card in NewsFeedFixtures.fallbackContent.cards {
             if case let .photo(article) = card {
                 return article
@@ -116,7 +116,7 @@ enum ViewPreviewSupport {
         fatalError("Missing featured article preview fixture.")
     }
 
-    static var sampleDiscussion: TextCardModel {
+    static var sampleTextCard: TextCardModel {
         for card in NewsFeedFixtures.fallbackContent.cards {
             if case let .text(discussion) = card {
                 return discussion

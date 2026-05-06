@@ -10,12 +10,12 @@ struct NewsFeedView: View {
     @Bindable var viewModel: NewsFeedViewModel
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
-    let onFeaturedArticleTap: (PhotoCardModel) -> Void
+    let onPhotoTap: (PhotoCardModel) -> Void
     /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
-    let onFeaturedArticleAction: (PhotoCardModel, PhotoCardAction) -> Void
-    let onDiscussionTap: (TextCardModel) -> Void
+    let onPhotoAction: (PhotoCardModel, PhotoCardAction) -> Void
+    let onTextTap: (TextCardModel) -> Void
     /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
-    let onDiscussionAction: (TextCardModel, TextCardAction) -> Void
+    let onTextAction: (TextCardModel, TextCardAction) -> Void
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -38,15 +38,15 @@ struct NewsFeedView: View {
                         switch card {
                         case let .photo(article):
                             PhotoCardView(
-                                article: article,
-                                onTap: { onFeaturedArticleTap(article) },
-                                onAction: { onFeaturedArticleAction(article, $0) }
+                                photo: article,
+                                onTap: { onPhotoTap(article) },
+                                onAction: { onPhotoAction(article, $0) }
                             )
                         case let .text(discussion):
                             TextCardView(
-                                discussion: discussion,
-                                onTap: { onDiscussionTap(discussion) },
-                                onAction: { onDiscussionAction(discussion, $0) }
+                                text: discussion,
+                                onTap: { onTextTap(discussion) },
+                                onAction: { onTextAction(discussion, $0) }
                             )
                         case let .channelCard(channelCard):
                             ChannelCardPlaceholderView(card: channelCard)
@@ -281,10 +281,10 @@ private struct ChannelCardPlaceholderView: View {
     NewsFeedView(
         viewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
         onScrollProximityChange: { _ in },
-        onFeaturedArticleTap: { _ in },
-        onFeaturedArticleAction: { _, _ in },
-        onDiscussionTap: { _ in },
-        onDiscussionAction: { _, _ in }
+        onPhotoTap: { _ in },
+        onPhotoAction: { _, _ in },
+        onTextTap: { _ in },
+        onTextAction: { _, _ in }
     )
 }
 #endif

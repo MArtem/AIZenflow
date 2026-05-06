@@ -244,7 +244,7 @@ enum AppDataSeeder {
                 ),
                 joinedText: "+\(discussion.localState.joinedCount) joined",
                 discussionStateData: try JSONEncoder().encode(
-                    FeedCardDiscussionStatePayload(
+                    FeedCardTextStatePayload(
                         isParticipating: discussion.localState.isParticipating,
                         replyCount: discussion.localState.replyCount,
                         joinedCount: discussion.localState.joinedCount,

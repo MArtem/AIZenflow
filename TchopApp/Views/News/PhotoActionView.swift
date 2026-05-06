@@ -1,8 +1,8 @@
 import SwiftUI
 
-/// Compact action cluster shown under article content cards.
-struct ArticleActionView: View {
-    let action: ArticleActionItem
+/// Compact action cluster shown under photo content cards.
+struct PhotoActionView: View {
+    let action: PhotoActionItem
     let isActive: Bool
     let isLoading: Bool
     let isDisabled: Bool
@@ -48,9 +48,9 @@ struct ArticleActionView: View {
 }
 
 #if DEBUG
-#Preview("Article Action") {
-    ArticleActionView(
-        action: ViewPreviewSupport.sampleFeaturedArticle.actions[0],
+#Preview("Photo Action") {
+    PhotoActionView(
+        action: ViewPreviewSupport.samplePhotoCard.actions[0],
         isActive: true,
         isLoading: false,
         isDisabled: false,

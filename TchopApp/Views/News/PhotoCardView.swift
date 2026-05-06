@@ -1,8 +1,8 @@
 import SwiftUI
 
-/// Primary hero card for the featured article at the top of the feed.
+/// Primary photo card at the top of the feed.
 struct PhotoCardView: View {
-    let article: PhotoCardModel
+    let photo: PhotoCardModel
     let onTap: () -> Void
     let onAction: (PhotoCardAction) -> Void
 
@@ -11,10 +11,10 @@ struct PhotoCardView: View {
             Button(action: onTap) {
                 VStack(alignment: .leading, spacing: 0) {
                     HStack(spacing: 0) {
-                        Text(article.postedInPrefix)
+                        Text(photo.postedInPrefix)
                             .foregroundStyle(AppTheme.textTertiary)
 
-                        Text(article.sourceTitle)
+                        Text(photo.sourceTitle)
                             .foregroundStyle(AppTheme.accent)
 
                         Spacer()
@@ -43,17 +43,17 @@ struct PhotoCardView: View {
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
                         )
-                        .frame(height: article.uiState.displayMode == .expanded ? 208 : 156)
+                        .frame(height: photo.uiState.displayMode == .expanded ? 208 : 156)
 
                         Image(systemName: "pawprint.fill")
-                            .font(AppTypography.featuredHeroSymbol(isExpanded: article.uiState.displayMode == .expanded))
+                            .font(AppTypography.photoHeroSymbol(isExpanded: photo.uiState.displayMode == .expanded))
                             .foregroundStyle(.white.opacity(0.18))
                             .padding(18)
                             .accessibilityHidden(true)
                     }
                     .overlay {
                         VStack(spacing: 8) {
-                            if let pendingOperation = article.uiState.pendingOperation {
+                            if let pendingOperation = photo.uiState.pendingOperation {
                                 FeedCardStatusBadge(
                                     title: pendingOperation.statusText,
                                     showsProgress: true
@@ -61,7 +61,7 @@ struct PhotoCardView: View {
                                 .frame(maxWidth: .infinity, alignment: .leading)
                                 .padding(.top, 14)
                                 .padding(.horizontal, 14)
-                            } else if let inlineStatusMessage = article.uiState.inlineStatusMessage {
+                            } else if let inlineStatusMessage = photo.uiState.inlineStatusMessage {
                                 FeedCardStatusBadge(
                                     title: inlineStatusMessage,
                                     showsProgress: false
@@ -96,28 +96,28 @@ struct PhotoCardView: View {
                     .padding(.horizontal, 14)
 
                     VStack(alignment: .leading, spacing: 10) {
-                        Text(article.brandTitle)
+                        Text(photo.brandTitle)
                             .font(AppTypography.labelSemibold)
                             .foregroundStyle(PhotoCardArtworkPalette.brandAccent)
 
-                        Text(article.headline)
-                            .font(AppTypography.featuredHeadline(isExpanded: article.uiState.displayMode == .expanded))
+                        Text(photo.headline)
+                            .font(AppTypography.photoHeadline(isExpanded: photo.uiState.displayMode == .expanded))
                             .foregroundStyle(AppTheme.textPrimary)
                             .fixedSize(horizontal: false, vertical: true)
 
-                        if article.uiState.displayMode == .expanded {
-                            Text(article.summary)
+                        if photo.uiState.displayMode == .expanded {
+                            Text(photo.summary)
                                 .font(AppTypography.channelSubtitle)
                                 .foregroundStyle(AppTheme.textSecondary)
                                 .lineSpacing(2)
                         }
 
-                        Text(article.metadataLine)
+                        Text(photo.metadataLine)
                             .font(AppTypography.label)
                             .foregroundStyle(AppTheme.textTertiary)
 
-                        if article.uiState.displayMode == .expanded {
-                            Text(article.translationLabel)
+                        if photo.uiState.displayMode == .expanded {
+                            Text(photo.translationLabel)
                                 .font(AppTypography.captionSemibold)
                                 .foregroundStyle(AppTheme.accent)
                         }
@@ -132,39 +132,39 @@ struct PhotoCardView: View {
             .accessibilityElement(children: .combine)
             .accessibilityLabel(
                 AppLocalization.text(
-                    "accessibility.news.featuredCard",
-                    article.sourceTitle,
-                    article.headline,
-                    article.metadataLine
+                    "accessibility.news.photoCard",
+                    photo.sourceTitle,
+                    photo.headline,
+                    photo.metadataLine
                 )
             )
-            .accessibilityHint(AppLocalization.text("accessibility.news.featuredCardHint"))
+            .accessibilityHint(AppLocalization.text("accessibility.news.photoCardHint"))
 
             Divider()
                 .overlay(AppTheme.borderSubtle)
 
             VStack(alignment: .leading, spacing: 0) {
                 HStack {
-                    ForEach(article.actions.indices, id: \.self) { index in
-                        let action = article.actions[index]
-                        ArticleActionView(
+                    ForEach(photo.actions.indices, id: \.self) { index in
+                        let action = photo.actions[index]
+                        PhotoActionView(
                             action: action,
-                            isActive: action.kind == .like && article.uiState.isLiked,
+                            isActive: action.kind == .like && photo.uiState.isLiked,
                             isLoading: action.kind == .like
-                                ? article.uiState.pendingOperation == .liking
-                                : article.uiState.pendingOperation == .addingComment,
-                            isDisabled: article.uiState.blocksActions
+                                ? photo.uiState.pendingOperation == .liking
+                                : photo.uiState.pendingOperation == .addingComment,
+                            isDisabled: photo.uiState.blocksActions
                                 && !(
-                                    (action.kind == .like && article.uiState.pendingOperation == .liking)
-                                    || (action.kind == .comments && article.uiState.pendingOperation == .addingComment)
+                                    (action.kind == .like && photo.uiState.pendingOperation == .liking)
+                                    || (action.kind == .comments && photo.uiState.pendingOperation == .addingComment)
                                 ),
                             title: action.kind == .like
                                 ? (
-                                    article.uiState.isLiked
-                                        ? AppLocalization.text("news.featured.action.liked")
+                                    photo.uiState.isLiked
+                                        ? AppLocalization.text("news.photo.action.liked")
                                         : action.title
                                 )
-                                : "\(article.commentCount) " + AppLocalization.text("news.featured.action.comments"),
+                                : "\(photo.commentCount) " + AppLocalization.text("news.photo.action.comments"),
                             onTap: {
                                 switch action.kind {
                                 case .like:
@@ -175,7 +175,7 @@ struct PhotoCardView: View {
                             }
                         )
 
-                        if index < article.actions.count - 1 {
+                        if index < photo.actions.count - 1 {
                             Spacer()
                         }
                     }
@@ -187,8 +187,8 @@ struct PhotoCardView: View {
                             onAction(.setDisplayMode(.expanded))
                         } label: {
                             Label(
-                                AppLocalization.text("news.featured.menu.expanded"),
-                                systemImage: article.uiState.displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
+                                AppLocalization.text("news.photo.menu.expanded"),
+                                systemImage: photo.uiState.displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
                             )
                         }
 
@@ -196,8 +196,8 @@ struct PhotoCardView: View {
                             onAction(.setDisplayMode(.compact))
                         } label: {
                             Label(
-                                AppLocalization.text("news.featured.menu.compact"),
-                                systemImage: article.uiState.displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
+                                AppLocalization.text("news.photo.menu.compact"),
+                                systemImage: photo.uiState.displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
                             )
                         }
 
@@ -207,7 +207,7 @@ struct PhotoCardView: View {
                             onAction(.refreshContent)
                         } label: {
                             Label(
-                                AppLocalization.text("news.featured.menu.refresh"),
+                                AppLocalization.text("news.photo.menu.refresh"),
                                 systemImage: "arrow.clockwise"
                             )
                         }
@@ -216,7 +216,7 @@ struct PhotoCardView: View {
                             onAction(.runLongTask)
                         } label: {
                             Label(
-                                AppLocalization.text("news.featured.menu.update"),
+                                AppLocalization.text("news.photo.menu.update"),
                                 systemImage: "wand.and.stars"
                             )
                         }
@@ -225,8 +225,8 @@ struct PhotoCardView: View {
                             .font(AppTypography.cardTitle)
                             .foregroundStyle(AppTheme.iconSecondary)
                     }
-                    .disabled(article.uiState.blocksActions)
-                    .accessibilityLabel(AppLocalization.text("accessibility.news.articleOptions"))
+                    .disabled(photo.uiState.blocksActions)
+                    .accessibilityLabel(AppLocalization.text("accessibility.news.photoOptions"))
                     .accessibilityHint(AppLocalization.text("accessibility.news.optionsHint"))
                 }
                 .padding(.horizontal, 16)
@@ -250,9 +250,9 @@ private enum PhotoCardArtworkPalette {
 }
 
 #if DEBUG
-#Preview("Featured Article Card") {
+#Preview("Photo Card") {
     PhotoCardView(
-        article: ViewPreviewSupport.sampleFeaturedArticle,
+        photo: ViewPreviewSupport.samplePhotoCard,
         onTap: {},
         onAction: { _ in }
     )

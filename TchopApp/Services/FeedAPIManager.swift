@@ -8,8 +8,8 @@ struct FeedResponseDTO: Decodable, Sendable {
 
 /// Card payload variants produced by the feed API.
 enum FeedCardDTO: Decodable, Sendable {
-    case photo(FeaturedArticleDTO)
-    case text(DiscussionDTO)
+    case photo(PhotoDTO)
+    case text(TextDTO)
 
     private enum CodingKeys: String, CodingKey {
         case type
@@ -25,9 +25,9 @@ enum FeedCardDTO: Decodable, Sendable {
 
         switch try container.decode(CardType.self, forKey: .type) {
         case .photo:
-            self = .photo(try FeaturedArticleDTO(from: decoder))
+            self = .photo(try PhotoDTO(from: decoder))
         case .text:
-            self = .text(try DiscussionDTO(from: decoder))
+            self = .text(try TextDTO(from: decoder))
         }
     }
 }
@@ -45,7 +45,7 @@ extension FeedCardDTO {
 }
 
 /// DTO describing the featured article card.
-struct FeaturedArticleDTO: Decodable, Sendable {
+struct PhotoDTO: Decodable, Sendable {
     let id: String
     let remoteUpdatedAt: Date
     let publishedAt: Date?
@@ -56,27 +56,27 @@ struct FeaturedArticleDTO: Decodable, Sendable {
     let summary: String
     let metadataLine: String
     let translationLabel: String
-    let localState: FeaturedArticleStateDTO
-    let actions: [ArticleActionDTO]
+    let localState: PhotoStateDTO
+    let actions: [PhotoActionDTO]
 }
 
 /// DTO describing a single article action.
-struct ArticleActionDTO: Decodable, Sendable {
+struct PhotoActionDTO: Decodable, Sendable {
     let id: String
-    let kind: ArticleActionKind
+    let kind: PhotoActionKind
     let systemName: String
     let title: String
 }
 
 /// DTO describing the discussion card.
-struct DiscussionDTO: Decodable, Sendable {
+struct TextDTO: Decodable, Sendable {
     let id: String
     let remoteUpdatedAt: Date
     let publishedAt: Date?
     let categoryTitle: String
     let headline: String
     let participants: [TextCardParticipantDTO]
-    let localState: DiscussionStateDTO
+    let localState: TextStateDTO
 }
 
 /// DTO describing a participant preview inside a discussion card.
@@ -87,14 +87,14 @@ struct TextCardParticipantDTO: Decodable, Sendable {
 }
 
 /// Persisted article card state returned by the API contract or stub backend.
-struct FeaturedArticleStateDTO: Decodable, Sendable {
+struct PhotoStateDTO: Decodable, Sendable {
     let isLiked: Bool
     let commentCount: Int
     let displayMode: PhotoCardDisplayMode
 }
 
 /// Persisted discussion card state returned by the API contract or stub backend.
-struct DiscussionStateDTO: Decodable, Sendable {
+struct TextStateDTO: Decodable, Sendable {
     let isParticipating: Bool
     let replyCount: Int
     let joinedCount: Int
@@ -102,13 +102,13 @@ struct DiscussionStateDTO: Decodable, Sendable {
 }
 
 /// Narrow persisted-state context needed by featured article API actions.
-struct FeaturedArticleActionContext: Sendable {
+struct PhotoActionContext: Sendable {
     let isLiked: Bool
     let displayMode: PhotoCardDisplayMode
 }
 
 /// Narrow persisted-state context needed by discussion API actions.
-struct DiscussionActionContext: Sendable {
+struct TextActionContext: Sendable {
     let isParticipating: Bool
     let displayMode: TextCardDisplayMode
 }
@@ -119,20 +119,20 @@ protocol FeedAPIManaging: Sendable {
     func fetchFeed(channelID: String) async throws -> FeedResponseDTO
 
     /// Performs one featured article action and returns the updated card snapshot.
-    func performFeaturedArticleAction(
+    func performPhotoAction(
         channelID: String,
         articleID: String,
         action: PhotoCardAction,
-        context: FeaturedArticleActionContext
-    ) async throws -> FeaturedArticleDTO
+        context: PhotoActionContext
+    ) async throws -> PhotoDTO
 
     /// Performs one discussion action and returns the updated card snapshot.
-    func performDiscussionAction(
+    func performTextAction(
         channelID: String,
         discussionID: String,
         action: TextCardAction,
-        context: DiscussionActionContext
-    ) async throws -> DiscussionDTO
+        context: TextActionContext
+    ) async throws -> TextDTO
 }
 
 /// Stubbed feed API manager used until a real backend contract exists.
@@ -160,73 +160,73 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         )
     }
 
-    func performFeaturedArticleAction(
+    func performPhotoAction(
         channelID: String,
         articleID: String,
         action: PhotoCardAction,
-        context: FeaturedArticleActionContext
-    ) async throws -> FeaturedArticleDTO {
+        context: PhotoActionContext
+    ) async throws -> PhotoDTO {
         switch action {
         case .toggleLike:
-            return try await setFeaturedArticleLike(
+            return try await setPhotoLike(
                 channelID: channelID,
                 articleID: articleID,
                 isLiked: !context.isLiked
             )
         case .addComment:
-            return try await addFeaturedArticleComment(channelID: channelID, articleID: articleID)
+            return try await addPhotoComment(channelID: channelID, articleID: articleID)
         case let .setDisplayMode(displayMode):
-            return try await setFeaturedArticleDisplayMode(
+            return try await setPhotoDisplayMode(
                 channelID: channelID,
                 articleID: articleID,
                 displayMode: displayMode
             )
         case .refreshContent:
-            return try await refreshFeaturedArticle(channelID: channelID, articleID: articleID)
+            return try await refreshPhoto(channelID: channelID, articleID: articleID)
         case .runLongTask:
-            return try await runFeaturedArticleUpdate(channelID: channelID, articleID: articleID)
+            return try await runPhotoUpdate(channelID: channelID, articleID: articleID)
         }
     }
 
-    func performDiscussionAction(
+    func performTextAction(
         channelID: String,
         discussionID: String,
         action: TextCardAction,
-        context: DiscussionActionContext
-    ) async throws -> DiscussionDTO {
+        context: TextActionContext
+    ) async throws -> TextDTO {
         switch action {
         case .toggleParticipation:
-            return try await setDiscussionParticipation(
+            return try await setTextParticipation(
                 channelID: channelID,
                 discussionID: discussionID,
                 isParticipating: !context.isParticipating
             )
         case .addReply:
-            return try await addDiscussionReply(channelID: channelID, discussionID: discussionID)
+            return try await addTextReply(channelID: channelID, discussionID: discussionID)
         case let .setDisplayMode(displayMode):
-            return try await setDiscussionDisplayMode(
+            return try await setTextDisplayMode(
                 channelID: channelID,
                 discussionID: discussionID,
                 displayMode: displayMode
             )
         case .refreshContent:
-            return try await refreshDiscussion(channelID: channelID, discussionID: discussionID)
+            return try await refreshText(channelID: channelID, discussionID: discussionID)
         case .runLongTask:
-            return try await runDiscussionUpdate(channelID: channelID, discussionID: discussionID)
+            return try await runTextUpdate(channelID: channelID, discussionID: discussionID)
         }
     }
 
-    private func setFeaturedArticleLike(
+    private func setPhotoLike(
         channelID: String,
         articleID: String,
         isLiked: Bool
-    ) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(
+    ) async throws -> PhotoDTO {
+        try await performPhotoMutation(
             channelID: channelID,
             path: "feed/articles/\(articleID)/like"
         ) { article in
             article.withLocalState(
-                FeaturedArticleStateDTO(
+                PhotoStateDTO(
                     isLiked: isLiked,
                     commentCount: article.localState.commentCount,
                     displayMode: article.localState.displayMode
@@ -235,16 +235,16 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func addFeaturedArticleComment(
+    private func addPhotoComment(
         channelID: String,
         articleID: String
-    ) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(
+    ) async throws -> PhotoDTO {
+        try await performPhotoMutation(
             channelID: channelID,
             path: "feed/articles/\(articleID)/comments"
         ) { article in
             article.withLocalState(
-                FeaturedArticleStateDTO(
+                PhotoStateDTO(
                     isLiked: article.localState.isLiked,
                     commentCount: article.localState.commentCount + 1,
                     displayMode: article.localState.displayMode
@@ -253,17 +253,17 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func setFeaturedArticleDisplayMode(
+    private func setPhotoDisplayMode(
         channelID: String,
         articleID: String,
         displayMode: PhotoCardDisplayMode
-    ) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(
+    ) async throws -> PhotoDTO {
+        try await performPhotoMutation(
             channelID: channelID,
             path: "feed/articles/\(articleID)/display-mode"
         ) { article in
             article.withLocalState(
-                FeaturedArticleStateDTO(
+                PhotoStateDTO(
                     isLiked: article.localState.isLiked,
                     commentCount: article.localState.commentCount,
                     displayMode: displayMode
@@ -272,13 +272,13 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func refreshFeaturedArticle(
+    private func refreshPhoto(
         channelID: String,
         articleID: String
-    ) async throws -> FeaturedArticleDTO {
+    ) async throws -> PhotoDTO {
         // Refresh-like actions mutate content fields rather than local interaction state to mimic a
         // backend returning a rebuilt card snapshot.
-        try await performFeaturedArticleMutation(
+        try await performPhotoMutation(
             channelID: channelID,
             path: "feed/articles/\(articleID)/refresh"
         ) { article in
@@ -288,11 +288,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func runFeaturedArticleUpdate(
+    private func runPhotoUpdate(
         channelID: String,
         articleID: String
-    ) async throws -> FeaturedArticleDTO {
-        try await performFeaturedArticleMutation(
+    ) async throws -> PhotoDTO {
+        try await performPhotoMutation(
             channelID: channelID,
             path: "feed/articles/\(articleID)/update"
         ) { article in
@@ -304,18 +304,18 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func setDiscussionParticipation(
+    private func setTextParticipation(
         channelID: String,
         discussionID: String,
         isParticipating: Bool
-    ) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(
+    ) async throws -> TextDTO {
+        try await performTextMutation(
             channelID: channelID,
             path: "feed/discussions/\(discussionID)/participation"
         ) { discussion in
             let joinedDelta = isParticipating == discussion.localState.isParticipating ? 0 : (isParticipating ? 1 : -1)
             return discussion.withLocalState(
-                DiscussionStateDTO(
+                TextStateDTO(
                     isParticipating: isParticipating,
                     replyCount: discussion.localState.replyCount,
                     joinedCount: max(0, discussion.localState.joinedCount + joinedDelta),
@@ -325,16 +325,16 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func addDiscussionReply(
+    private func addTextReply(
         channelID: String,
         discussionID: String
-    ) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(
+    ) async throws -> TextDTO {
+        try await performTextMutation(
             channelID: channelID,
             path: "feed/discussions/\(discussionID)/replies"
         ) { discussion in
             discussion.withLocalState(
-                DiscussionStateDTO(
+                TextStateDTO(
                     isParticipating: discussion.localState.isParticipating,
                     replyCount: discussion.localState.replyCount + 1,
                     joinedCount: discussion.localState.joinedCount,
@@ -344,17 +344,17 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func setDiscussionDisplayMode(
+    private func setTextDisplayMode(
         channelID: String,
         discussionID: String,
         displayMode: TextCardDisplayMode
-    ) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(
+    ) async throws -> TextDTO {
+        try await performTextMutation(
             channelID: channelID,
             path: "feed/discussions/\(discussionID)/display-mode"
         ) { discussion in
             discussion.withLocalState(
-                DiscussionStateDTO(
+                TextStateDTO(
                     isParticipating: discussion.localState.isParticipating,
                     replyCount: discussion.localState.replyCount,
                     joinedCount: discussion.localState.joinedCount,
@@ -364,11 +364,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func refreshDiscussion(
+    private func refreshText(
         channelID: String,
         discussionID: String
-    ) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(
+    ) async throws -> TextDTO {
+        try await performTextMutation(
             channelID: channelID,
             path: "feed/discussions/\(discussionID)/refresh"
         ) { discussion in
@@ -378,11 +378,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func runDiscussionUpdate(
+    private func runTextUpdate(
         channelID: String,
         discussionID: String
-    ) async throws -> DiscussionDTO {
-        try await performDiscussionMutation(
+    ) async throws -> TextDTO {
+        try await performTextMutation(
             channelID: channelID,
             path: "feed/discussions/\(discussionID)/update"
         ) { discussion in
@@ -399,11 +399,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         }
     }
 
-    private func performFeaturedArticleMutation(
+    private func performPhotoMutation(
         channelID: String,
         path: String,
-        transform: @escaping @Sendable (FeaturedArticleDTO) -> FeaturedArticleDTO
-    ) async throws -> FeaturedArticleDTO {
+        transform: @escaping @Sendable (PhotoDTO) -> PhotoDTO
+    ) async throws -> PhotoDTO {
         // Even in stub mode this still routes through APIManaging so latency, request handling, and
         // higher-level networking integration are exercised instead of bypassed.
         try await apiManager.perform(
@@ -426,11 +426,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         )
     }
 
-    private func performDiscussionMutation(
+    private func performTextMutation(
         channelID: String,
         path: String,
-        transform: @escaping @Sendable (DiscussionDTO) -> DiscussionDTO
-    ) async throws -> DiscussionDTO {
+        transform: @escaping @Sendable (TextDTO) -> TextDTO
+    ) async throws -> TextDTO {
         try await apiManager.perform(
             APIRequest(
                 path: path,
@@ -469,7 +469,7 @@ enum FeedAPIStubFactory {
     static func photoCard(
         in response: FeedResponseDTO,
         articleID: String
-    ) -> FeaturedArticleDTO? {
+    ) -> PhotoDTO? {
         let unscopedArticleID = unscopedCardID(articleID, kindPrefix: "article-")
         for card in response.cards {
             if case let .photo(article) = card,
@@ -485,7 +485,7 @@ enum FeedAPIStubFactory {
     static func textCard(
         in response: FeedResponseDTO,
         discussionID: String
-    ) -> DiscussionDTO? {
+    ) -> TextDTO? {
         let unscopedDiscussionID = unscopedCardID(discussionID, kindPrefix: "discussion-")
         for card in response.cards {
             if case let .text(discussion) = card,
@@ -570,9 +570,9 @@ private enum FeedAPIStubError: Error {
     case missingCard
 }
 
-private extension FeaturedArticleDTO {
-    func withLocalState(_ localState: FeaturedArticleStateDTO) -> FeaturedArticleDTO {
-        FeaturedArticleDTO(
+private extension PhotoDTO {
+    func withLocalState(_ localState: PhotoStateDTO) -> PhotoDTO {
+        PhotoDTO(
             id: id,
             remoteUpdatedAt: Date(),
             publishedAt: publishedAt,
@@ -592,8 +592,8 @@ private extension FeaturedArticleDTO {
         headline: String? = nil,
         summary: String? = nil,
         metadataLine: String? = nil
-    ) -> FeaturedArticleDTO {
-        FeaturedArticleDTO(
+    ) -> PhotoDTO {
+        PhotoDTO(
             id: id,
             remoteUpdatedAt: Date(),
             publishedAt: publishedAt,
@@ -610,9 +610,9 @@ private extension FeaturedArticleDTO {
     }
 }
 
-private extension DiscussionDTO {
-    func withLocalState(_ localState: DiscussionStateDTO) -> DiscussionDTO {
-        DiscussionDTO(
+private extension TextDTO {
+    func withLocalState(_ localState: TextStateDTO) -> TextDTO {
+        TextDTO(
             id: id,
             remoteUpdatedAt: Date(),
             publishedAt: publishedAt,
@@ -626,8 +626,8 @@ private extension DiscussionDTO {
     func withContent(
         headline: String? = nil,
         participants: [TextCardParticipantDTO]? = nil
-    ) -> DiscussionDTO {
-        DiscussionDTO(
+    ) -> TextDTO {
+        TextDTO(
             id: id,
             remoteUpdatedAt: Date(),
             publishedAt: publishedAt,
