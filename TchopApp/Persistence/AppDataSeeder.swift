@@ -180,7 +180,7 @@ enum AppDataSeeder {
             return FeedSeedPayload(
                 id: "\(channel.id)-\(article.id)",
                 channelID: channel.id,
-                kind: .featuredArticle,
+                kind: .photo,
                 sortOrder: sortOrder,
                 remoteUpdatedAt: article.remoteUpdatedAt,
                 syncedAt: syncedAt,
@@ -218,7 +218,7 @@ enum AppDataSeeder {
             return FeedSeedPayload(
                 id: "\(channel.id)-\(discussion.id)",
                 channelID: channel.id,
-                kind: .discussion,
+                kind: .text,
                 sortOrder: sortOrder,
                 remoteUpdatedAt: discussion.remoteUpdatedAt,
                 syncedAt: syncedAt,

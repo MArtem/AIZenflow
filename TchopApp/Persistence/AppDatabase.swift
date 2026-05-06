@@ -448,7 +448,7 @@ private enum AppDatabaseMigrationCoordinator {
                     FeedCardRecord(
                         id: feedCard.id,
                         channelID: feedCard.channelID,
-                        kind: FeedCardRecordKind(rawValue: feedCard.kindRawValue) ?? .featuredArticle,
+                        kind: FeedCardRecordKind(rawValue: feedCard.kindRawValue) ?? .photo,
                         sortOrder: feedCard.sortOrder,
                         remoteUpdatedAt: feedCard.remoteUpdatedAt,
                         syncedAt: feedCard.syncedAt,

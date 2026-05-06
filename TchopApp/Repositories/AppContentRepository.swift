@@ -172,7 +172,7 @@ final class DefaultAppContentRepository: AppContentRepository {
             isLiked: article.uiState.isLiked
         )
         let envelope = FeedActionMutationEnvelope(
-            kind: .featuredArticle,
+            kind: .photo,
             payloadData: try JSONEncoder().encode(payload)
         )
         let mutation = SyncMutation(
@@ -202,7 +202,7 @@ final class DefaultAppContentRepository: AppContentRepository {
             isParticipating: discussion.uiState.isParticipating
         )
         let envelope = FeedActionMutationEnvelope(
-            kind: .discussion,
+            kind: .text,
             payloadData: try JSONEncoder().encode(payload)
         )
         let mutation = SyncMutation(
@@ -847,8 +847,8 @@ private struct FeedCardSyncEnvelope: Codable {
 }
 
 private enum FeedActionMutationKind: String, Codable {
-    case featuredArticle
-    case discussion
+    case photo = "featuredArticle"
+    case text = "discussion"
 }
 
 private struct FeaturedArticleActionMutationPayload: Codable {
@@ -1080,7 +1080,7 @@ private actor FeedActionRemoteSyncClient: SyncRemoteClient {
             let envelope = try decoder.decode(FeedActionMutationEnvelope.self, from: payloadData)
 
             switch envelope.kind {
-            case .featuredArticle:
+            case .photo:
                 let payload = try decoder.decode(FeaturedArticleActionMutationPayload.self, from: envelope.payloadData)
                 let action = try payload.makeAction()
                 let article = try await feedAPIManager.performFeaturedArticleAction(
@@ -1117,7 +1117,7 @@ private actor FeedActionRemoteSyncClient: SyncRemoteClient {
                     )
                 )
 
-            case .discussion:
+            case .text:
                 let payload = try decoder.decode(DiscussionActionMutationPayload.self, from: envelope.payloadData)
                 let action = try payload.makeAction()
                 let discussion = try await feedAPIManager.performDiscussionAction(
@@ -1315,7 +1315,7 @@ private enum AppContentPersistenceMapper {
         return FeedCardPersistenceSnapshot(
             id: makeScopedCardID(rawID: article.id, channelID: channelID),
             channelID: channelID,
-            kind: .featuredArticle,
+            kind: .photo,
             sortOrder: sortOrder,
             remoteUpdatedAt: article.remoteUpdatedAt,
             syncedAt: syncedAt,
@@ -1373,7 +1373,7 @@ private enum AppContentPersistenceMapper {
         return FeedCardPersistenceSnapshot(
             id: makeScopedCardID(rawID: discussion.id, channelID: channelID),
             channelID: channelID,
-            kind: .discussion,
+            kind: .text,
             sortOrder: sortOrder,
             remoteUpdatedAt: discussion.remoteUpdatedAt,
             syncedAt: syncedAt,
@@ -1600,9 +1600,9 @@ private enum AppContentMapper {
         }
 
         switch kind {
-        case .featuredArticle:
+        case .photo:
             return .featuredArticle(mapFeaturedArticle(record))
-        case .discussion:
+        case .text:
             return .discussion(mapDiscussion(record))
         }
     }
@@ -1613,9 +1613,9 @@ private enum AppContentMapper {
         }
 
         switch kind {
-        case .featuredArticle:
+        case .photo:
             return .featuredArticle(mapFeaturedArticle(record))
-        case .discussion:
+        case .text:
             return .discussion(mapDiscussion(record))
         }
     }
