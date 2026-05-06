@@ -5,6 +5,9 @@
 - Status: working iOS SwiftUI app built from screenshot, now on MVVM + SwiftData + coordinator-based navigation + login flow + session restoration
 - Last confirmed state: app builds successfully with app-level state, DI environment, tab coordinators, login/logout flow, restored active user session across relaunch, and real feature landing screens for `Mixes`, `Pinned`, and `Chat`
 - Resume point: continue from existing Xcode project, not from scratch
+- After full functional restoration is complete, run a dedicated documentation pass:
+  1. re-check all project docs for consistency, correctness, completeness, and duplication,
+  2. create a separate package/manager guide describing what each reusable package is, what problem it solves, and how to connect/use it in another project.
 
 ## Paths
 - Root: `/Users/Artem/.zenflow/worktrees/new-task-be0b`
