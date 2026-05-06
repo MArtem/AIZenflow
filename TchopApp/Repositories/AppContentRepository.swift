@@ -104,7 +104,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         }
 
         let response = try await feedAPIManager.fetchFeed(channelID: channelID)
-        try syncPersistedFeedContent(with: response, channelID: channelID)
+        try await syncPersistedFeedContent(with: response, channelID: channelID)
         return try fetchPersistedNewsFeedContent(channelID: channelID, cacheReason: nil)
     }
 
@@ -266,26 +266,32 @@ final class DefaultAppContentRepository: AppContentRepository {
     private func syncPersistedFeedContent(
         with response: FeedResponseDTO,
         channelID: String
-    ) throws {
+    ) async throws {
         let syncedAt = Date()
         let persistedStates = try fetchPersistedCardStateMap(channelID: channelID)
-        let snapshots = try AppContentPersistenceMapper.makeFeedCardSnapshots(
-            from: response,
+        let existingCardIDs = Set(
+            try fetchPersistedFeedSnapshotFromCurrentBackend(channelID: channelID).cards.map(\.id)
+        )
+        let localStore = FeedPersistenceSyncLocalStore(
+            databaseManager: databaseManager,
+            channelID: channelID
+        )
+        let remoteClient = FeedRemoteSyncClient(
+            response: response,
             channelID: channelID,
             syncedAt: syncedAt,
-            persistedStates: persistedStates
+            persistedStates: persistedStates,
+            existingCardIDs: existingCardIDs
+        )
+        let statusStore = SyncStatusStore()
+        let engine = SyncEngine(
+            localStore: localStore,
+            remoteClient: remoteClient,
+            statusStore: statusStore,
+            scope: "feed-\(channelID)"
         )
 
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                try syncSwiftDataFeedCards(with: snapshots, channelID: channelID)
-            } else {
-                try syncCoreDataFeedCards(with: snapshots, channelID: channelID)
-            }
-        case .coreData:
-            try syncCoreDataFeedCards(with: snapshots, channelID: channelID)
-        }
+        await engine.sync(reason: .manual)
     }
 
     /// Returns persisted card-local-state blobs keyed by card identifier.
@@ -722,7 +728,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Builds an ordered Core Data request for persisted feed cards.
-    private static func makeCoreDataFeedCardFetchRequest(
+    fileprivate static func makeCoreDataFeedCardFetchRequest(
         channelID: String? = nil
     ) -> NSFetchRequest<CoreDataFeedCardEntity> {
         let request = CoreDataFeedCardEntity.fetchRequest()
@@ -810,7 +816,7 @@ extension DefaultAppContentRepository {
 
 extension NetworkAvailabilityMonitor: @unchecked Sendable {}
 
-private struct FeedCardPersistenceSnapshot {
+private struct FeedCardPersistenceSnapshot: Codable {
     let id: String
     let channelID: String
     let kind: FeedCardRecordKind
@@ -831,6 +837,190 @@ private struct FeedCardPersistenceSnapshot {
     let participantsData: Data?
     let joinedText: String?
     let discussionStateData: Data?
+}
+
+private struct FeedCardSyncEnvelope: Codable {
+    let snapshot: FeedCardPersistenceSnapshot
+}
+
+@MainActor
+private final class FeedPersistenceSyncLocalStore: SyncLocalStore, @unchecked Sendable {
+    private let databaseManager: any DatabaseManaging
+    private let channelID: String
+    private var cursor: SyncCursor?
+
+    init(
+        databaseManager: any DatabaseManaging,
+        channelID: String
+    ) {
+        self.databaseManager = databaseManager
+        self.channelID = channelID
+    }
+
+    func pendingMutations(limit: Int) async throws -> [SyncMutation] {
+        []
+    }
+
+    func pendingMutationsCount() async throws -> Int {
+        0
+    }
+
+    func unresolvedConflictsCount() async throws -> Int {
+        0
+    }
+
+    func markMutationsAsSynced(_ mutationIDs: [UUID]) async throws {}
+
+    func markMutationAsFailed(_ mutationID: UUID, reason: String) async throws {}
+
+    func saveConflict(_ conflict: SyncConflict) async throws {}
+
+    func markConflictResolved(_ conflictID: UUID, resolution: ConflictResolution) async throws {}
+
+    func loadCursor(scope: String) async throws -> SyncCursor? {
+        cursor
+    }
+
+    func saveRemoteChanges(_ changes: [RemoteChange], nextCursor: SyncCursor?) async throws {
+        let decoder = JSONDecoder()
+        var snapshotsByID: [String: FeedCardPersistenceSnapshot] = [:]
+        var deletedCardIDs: Set<String> = []
+
+        for change in changes {
+            switch change.kind {
+            case .created, .updated:
+                guard let payloadData = change.payloadData else {
+                    continue
+                }
+
+                let envelope = try decoder.decode(FeedCardSyncEnvelope.self, from: payloadData)
+                snapshotsByID[envelope.snapshot.id] = envelope.snapshot
+            case .deleted:
+                deletedCardIDs.insert(change.entityID)
+            }
+        }
+
+        let snapshots = snapshotsByID.values.sorted(by: { $0.sortOrder < $1.sortOrder })
+        try applySnapshots(snapshots, deletedCardIDs: deletedCardIDs)
+        cursor = nextCursor
+    }
+
+    func applyResolution(_ resolution: ConflictResolution) async throws {}
+
+    private func applySnapshots(
+        _ snapshots: [FeedCardPersistenceSnapshot],
+        deletedCardIDs: Set<String>
+    ) throws {
+        if #available(iOS 17, *) {
+            try databaseManager.write(
+                DatabaseWriteOperation(swiftData: { context in
+                    let existingRecords = try DefaultAppContentRepository.fetchAllSwiftDataFeedCardRecords(in: context)
+                        .filter { $0.channelID == self.channelID }
+                    let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
+
+                    for record in existingRecords
+                    where snapshotsByID[record.id] == nil || deletedCardIDs.contains(record.id) {
+                        context.delete(record)
+                    }
+
+                    for snapshot in snapshots {
+                        if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
+                            AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
+                        } else {
+                            context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
+                        }
+                    }
+                })
+            ) as Void
+            return
+        }
+
+        try databaseManager.write(
+            DatabaseWriteOperation(coreData: { context in
+                let request = DefaultAppContentRepository.makeCoreDataFeedCardFetchRequest(channelID: self.channelID)
+                let existingRecords = try context.fetch(request)
+                let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
+
+                for record in existingRecords
+                where snapshotsByID[record.id] == nil || deletedCardIDs.contains(record.id) {
+                    context.delete(record)
+                }
+
+                for snapshot in snapshots {
+                    if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
+                        AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
+                    } else {
+                        let record = CoreDataFeedCardEntity(context: context)
+                        AppContentPersistenceMapper.apply(snapshot, to: record)
+                    }
+                }
+            })
+        ) as Void
+    }
+}
+
+private struct FeedRemoteSyncClient: SyncRemoteClient, Sendable {
+    private let response: FeedResponseDTO
+    private let channelID: String
+    private let syncedAt: Date
+    private let persistedStates: [String: PersistedCardStateSnapshot]
+    private let existingCardIDs: Set<String>
+
+    init(
+        response: FeedResponseDTO,
+        channelID: String,
+        syncedAt: Date,
+        persistedStates: [String: PersistedCardStateSnapshot],
+        existingCardIDs: Set<String>
+    ) {
+        self.response = response
+        self.channelID = channelID
+        self.syncedAt = syncedAt
+        self.persistedStates = persistedStates
+        self.existingCardIDs = existingCardIDs
+    }
+
+    func push(_ request: PushRequest) async throws -> PushResponse {
+        PushResponse(results: [])
+    }
+
+    func pull(_ request: PullRequest) async throws -> PullResponse {
+        let snapshots = try AppContentPersistenceMapper.makeFeedCardSnapshots(
+            from: response,
+            channelID: channelID,
+            syncedAt: syncedAt,
+            persistedStates: persistedStates
+        )
+        let encoder = JSONEncoder()
+        let liveCardIDs = Set(snapshots.map(\.id))
+
+        let updatedChanges = try snapshots.map { snapshot in
+            RemoteChange(
+                entityType: "feedCard",
+                entityID: snapshot.id,
+                kind: .updated,
+                serverRevision: snapshot.sortOrder,
+                serverUpdatedAt: snapshot.remoteUpdatedAt,
+                payloadData: try encoder.encode(FeedCardSyncEnvelope(snapshot: snapshot))
+            )
+        }
+        let deletedChanges = existingCardIDs.subtracting(liveCardIDs).map { deletedID in
+            RemoteChange(
+                entityType: "feedCard",
+                entityID: deletedID,
+                kind: .deleted,
+                serverRevision: nil,
+                serverUpdatedAt: syncedAt
+            )
+        }
+
+        return PullResponse(
+            changes: updatedChanges + deletedChanges,
+            nextCursor: SyncCursor(scope: request.cursor?.scope ?? "feed-\(channelID)", value: syncedAt.ISO8601Format()),
+            hasMore: false,
+            serverTime: syncedAt
+        )
+    }
 }
 
 /// Converts between remote DTOs, storage snapshots, and backend-specific persistence records.
