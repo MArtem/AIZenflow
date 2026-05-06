@@ -1,7 +1,7 @@
 import Foundation
 
 /// Route payload for destinations in the news tab.
-struct NewsRoute: Hashable, Identifiable {
+struct NewsRoute: Hashable, Identifiable, Codable {
     let id: UUID
     let destinationID: String
     let title: String
@@ -9,6 +9,7 @@ struct NewsRoute: Hashable, Identifiable {
     let bodyText: String
     let accentLabel: String?
 
+    /// Creates a new NewsRoute instance.
     init(
         id: UUID = UUID(),
         destinationID: String,
@@ -27,11 +28,12 @@ struct NewsRoute: Hashable, Identifiable {
 }
 
 /// Route payload for destinations in the mixes tab.
-struct MixesRoute: Hashable, Identifiable {
+struct MixesRoute: Hashable, Identifiable, Codable {
     let id: UUID
     let title: String
     let description: String
 
+    /// Creates a new MixesRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title
@@ -40,11 +42,12 @@ struct MixesRoute: Hashable, Identifiable {
 }
 
 /// Route payload for destinations in the pinned tab.
-struct PinnedRoute: Hashable, Identifiable {
+struct PinnedRoute: Hashable, Identifiable, Codable {
     let id: UUID
     let title: String
     let description: String
 
+    /// Creates a new PinnedRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title
@@ -53,11 +56,12 @@ struct PinnedRoute: Hashable, Identifiable {
 }
 
 /// Route payload for destinations in the chat tab.
-struct ChatRoute: Hashable, Identifiable {
+struct ChatRoute: Hashable, Identifiable, Codable {
     let id: UUID
     let title: String
     let description: String
 
+    /// Creates a new ChatRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title
@@ -66,11 +70,12 @@ struct ChatRoute: Hashable, Identifiable {
 }
 
 /// Route payload for destinations in the profile tab.
-struct ProfileRoute: Hashable, Identifiable {
+struct ProfileRoute: Hashable, Identifiable, Codable {
     let id: UUID
     let title: String
     let description: String
 
+    /// Creates a new ProfileRoute instance.
     init(id: UUID = UUID(), title: String, description: String) {
         self.id = id
         self.title = title

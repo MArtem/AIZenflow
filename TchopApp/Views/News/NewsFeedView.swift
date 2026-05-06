@@ -1,42 +1,247 @@
+import Observation
 import SwiftUI
+import UIKit
 
+/// Main feed list rendering heterogeneous card content.
 struct NewsFeedView: View {
-    @ObservedObject var viewModel: NewsFeedViewModel
-    let onFeaturedArticleTap: () -> Void
-    let onDiscussionTap: () -> Void
+    /// The shell-level plus button hides once the user has clearly moved away from the top card.
+    private static let floatingActionButtonHideThreshold: CGFloat = 30
+
+    @Bindable var viewModel: NewsFeedViewModel
+    /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
+    let onScrollProximityChange: (Bool) -> Void
+    let onFeaturedArticleTap: (FeaturedArticleCardModel) -> Void
+    /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
+    let onFeaturedArticleAction: (FeaturedArticleCardModel, FeaturedArticleCardAction) -> Void
+    let onDiscussionTap: (DiscussionCardModel) -> Void
+    /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
+    let onDiscussionAction: (DiscussionCardModel, DiscussionCardAction) -> Void
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            VStack(spacing: 16) {
-                if let errorMessage = viewModel.errorMessage {
-                    Text(errorMessage)
-                        .font(.system(size: 13, weight: .medium))
-                        .foregroundStyle(Color.red.opacity(0.82))
-                        .frame(maxWidth: .infinity, alignment: .leading)
+            LazyVStack(spacing: AppSpacing.md) {
+                NewsFeedScrollObserver { verticalOffset in
+                    onScrollProximityChange(verticalOffset <= Self.floatingActionButtonHideThreshold)
+                }
+                .frame(height: 0)
+
+                if viewModel.isSearchPresented {
+                    searchField
                 }
 
-                ForEach(viewModel.content.cards) { card in
-                    switch card {
-                    case let .featuredArticle(article):
-                        FeaturedArticleCard(
-                            article: article,
-                            onTap: onFeaturedArticleTap
-                        )
-                    case let .discussion(discussion):
-                        DiscussionCard(
-                            discussion: discussion,
-                            onTap: onDiscussionTap
-                        )
+                if viewModel.state.isEmpty {
+                    emptyStateView
+                } else if viewModel.showsNoSearchResults {
+                    searchEmptyStateView
+                } else {
+                    ForEach(viewModel.visibleContent.cards) { card in
+                        switch card {
+                        case let .featuredArticle(article):
+                            FeaturedArticleCard(
+                                article: article,
+                                onTap: { onFeaturedArticleTap(article) },
+                                onAction: { onFeaturedArticleAction(article, $0) }
+                            )
+                        case let .discussion(discussion):
+                            DiscussionCard(
+                                discussion: discussion,
+                                onTap: { onDiscussionTap(discussion) },
+                                onAction: { onDiscussionAction(discussion, $0) }
+                            )
+                        case let .channelCard(channelCard):
+                            ChannelCardPlaceholderView(card: channelCard)
+                        }
                     }
                 }
             }
-            .padding(.horizontal, 14)
-            .padding(.top, 16)
-            .padding(.bottom, 120)
+            .frame(maxWidth: .infinity, alignment: .topLeading)
+            .padding(.horizontal, AppSpacing.screenHorizontal)
+            .padding(.top, AppSpacing.md)
+            .padding(.bottom, AppSpacing.shellBottomInset)
         }
+        .accessibilityIdentifier("news.feed")
+        .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .refreshable {
-            viewModel.reload()
+            viewModel.refresh()
+        }
+    }
+
+    /// Dedicated empty-state surface for a feed that resolved successfully but currently has no cards.
+    private var emptyStateView: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
+            Text(AppLocalization.text("news.feed.empty.title"))
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(AppLocalization.text("news.feed.empty.description"))
+                .font(AppTypography.detail)
+                .foregroundStyle(AppTheme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, AppSpacing.xl)
+        .accessibilityElement(children: .combine)
+    }
+
+    /// Search field bound to the current selected channel feed only.
+    private var searchField: some View {
+        HStack(spacing: AppSpacing.sm) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(AppTheme.textTertiary)
+
+            TextField(
+                AppLocalization.text("news.feed.search.placeholder"),
+                text: $viewModel.searchQuery
+            )
+            .textInputAutocapitalization(.never)
+            .disableAutocorrection(true)
+
+            if !viewModel.searchQuery.isEmpty {
+                Button(action: { viewModel.searchQuery = "" }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(AppTheme.textTertiary)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(AppLocalization.text("news.feed.search.clear"))
+            }
+        }
+        .font(AppTypography.detail)
+        .foregroundStyle(AppTheme.textPrimary)
+        .padding(.horizontal, AppSpacing.md)
+        .padding(.vertical, AppSpacing.sm)
+        .background(AppTheme.surfacePrimary)
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
+        .accessibilityIdentifier("news.feed.search")
+    }
+
+    /// No-results state shown when the current channel contains cards but none match the search query.
+    private var searchEmptyStateView: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
+            Text(AppLocalization.text("news.feed.search.empty.title"))
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(AppLocalization.text("news.feed.search.empty.description"))
+                .font(AppTypography.detail)
+                .foregroundStyle(AppTheme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, AppSpacing.xl)
+        .accessibilityElement(children: .combine)
+    }
+}
+
+/// Lightweight UIKit bridge that observes the hosting scroll view's content offset without affecting SwiftUI layout.
+@MainActor
+private struct NewsFeedScrollObserver: UIViewRepresentable {
+    let onOffsetChange: @MainActor (CGFloat) -> Void
+
+    func makeCoordinator() -> Coordinator {
+        Coordinator(onOffsetChange: onOffsetChange)
+    }
+
+    func makeUIView(context: Context) -> ObserverView {
+        let view = ObserverView()
+        view.isUserInteractionEnabled = false
+        return view
+    }
+
+    func updateUIView(_ uiView: ObserverView, context: Context) {
+        context.coordinator.onOffsetChange = onOffsetChange
+        context.coordinator.attachIfNeeded(to: uiView)
+    }
+
+    /// Owns the single KVO observation for the enclosing UIKit scroll view.
+    @MainActor
+    final class Coordinator {
+        var onOffsetChange: @MainActor (CGFloat) -> Void
+        private weak var scrollView: UIScrollView?
+        private var observation: NSKeyValueObservation?
+
+        init(onOffsetChange: @escaping @MainActor (CGFloat) -> Void) {
+            self.onOffsetChange = onOffsetChange
+        }
+
+        func attachIfNeeded(to view: UIView) {
+            guard let scrollView = enclosingScrollView(from: view) else {
+                return
+            }
+
+            guard self.scrollView !== scrollView else {
+                return
+            }
+
+            self.scrollView = scrollView
+            // KVO keeps this bridge lightweight and avoids layout-driven approaches such as an
+            // outer GeometryReader wrapper around the entire feed.
+            self.observation = scrollView.observe(\.contentOffset, options: [.initial, .new]) { [weak self] _, change in
+                let verticalOffset = max(0, change.newValue?.y ?? 0)
+                MainActor.assumeIsolated {
+                    self?.onOffsetChange(verticalOffset)
+                }
+            }
+        }
+
+        /// Walks up the hosting hierarchy until the actual `UIScrollView` is found.
+        private func enclosingScrollView(from view: UIView) -> UIScrollView? {
+            var currentSuperview: UIView? = view.superview
+
+            while let currentView = currentSuperview {
+                if let scrollView = currentView as? UIScrollView {
+                    return scrollView
+                }
+                currentSuperview = currentView.superview
+            }
+
+            return nil
         }
     }
 }
+
+/// Zero-sized host view used only to discover the surrounding UIKit scroll view.
+private final class ObserverView: UIView {}
+
+private struct ChannelCardPlaceholderView: View {
+    let card: ChannelCardContent
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.sm) {
+            if let mediaKind = card.mediaKind {
+                RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                    .fill(AppTheme.surfaceSecondary)
+                    .frame(height: 180)
+                    .overlay {
+                        Text(mediaKind.rawValue.capitalized)
+                            .font(AppTypography.cardTitle)
+                            .foregroundStyle(AppTheme.textSecondary)
+                    }
+            }
+
+            ForEach(Array(card.orderedTextBlocks.enumerated()), id: \.offset) { _, value in
+                Text(value)
+                    .font(AppTypography.body)
+                    .foregroundStyle(AppTheme.textPrimary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(AppSpacing.md)
+        .background(AppTheme.surfacePrimary)
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+    }
+}
+
+#if DEBUG
+#Preview("News Feed") {
+    NewsFeedView(
+        viewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
+        onScrollProximityChange: { _ in },
+        onFeaturedArticleTap: { _ in },
+        onFeaturedArticleAction: { _, _ in },
+        onDiscussionTap: { _ in },
+        onDiscussionAction: { _, _ in }
+    )
+}
+#endif

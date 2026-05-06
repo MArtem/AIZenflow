@@ -1,5 +1,6 @@
 import SwiftUI
 
+/// Compact brand mark icon used in top bar and authentication UI.
 struct BrandMarkView: View {
     var iconSize: CGFloat
     var cardSize: CGSize
@@ -7,12 +8,12 @@ struct BrandMarkView: View {
     var body: some View {
         ZStack {
             Circle()
-                .fill(Color.white)
+                .fill(AppTheme.surfacePrimary)
                 .frame(width: iconSize, height: iconSize)
-                .shadow(color: .black.opacity(0.03), radius: 6, y: 1)
+                .shadow(color: AppTheme.shadow.opacity(0.25), radius: 6, y: 1)
 
-            RoundedRectangle(cornerRadius: 8)
-                .fill(Color(red: 0.97, green: 0.95, blue: 0.92))
+            RoundedRectangle(cornerRadius: AppRadius.badge)
+                .fill(AppTheme.surfaceSecondary)
                 .frame(width: cardSize.width, height: cardSize.height)
 
             VStack(spacing: 2) {
@@ -24,6 +25,7 @@ struct BrandMarkView: View {
             }
             .rotationEffect(.degrees(-8))
         }
+        .accessibilityHidden(true)
     }
 }
 
@@ -38,13 +40,31 @@ private enum BrandStripe: CaseIterable, Identifiable {
     var color: Color {
         switch self {
         case .orange:
-            .orange
+            BrandMarkPalette.orange
         case .blue:
-            .blue
+            BrandMarkPalette.blue
         case .yellow:
-            .yellow
+            BrandMarkPalette.yellow
         case .gray:
-            .gray.opacity(0.8)
+            BrandMarkPalette.gray
         }
     }
 }
+
+private enum BrandMarkPalette {
+    static let orange = Color.orange
+    static let blue = Color.blue
+    static let yellow = Color.yellow
+    static let gray = Color.gray.opacity(0.8)
+}
+
+#if DEBUG
+#Preview("Brand Mark") {
+    BrandMarkView(
+        iconSize: 48,
+        cardSize: CGSize(width: 28, height: 34)
+    )
+    .padding()
+    .background(AppTheme.canvasBackground)
+}
+#endif

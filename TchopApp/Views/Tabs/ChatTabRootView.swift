@@ -1,0 +1,63 @@
+import Observation
+import SwiftUI
+import TchopNavigation
+
+/// Root chat-tab screen bound to its dedicated navigation router.
+struct ChatTabRootView: View {
+    @Bindable var router: TabRouter<ChatRoute>
+
+    var body: some View {
+        NavigationStack(path: pathBinding) {
+            FeatureTabScaffoldView(
+                content: FeatureTabFixtures.chat,
+                onQuickActionTap: openQuickAction,
+                onItemTap: openItem
+            )
+            .navigationDestination(for: ChatRoute.self) { route in
+                StubTabDetailView(
+                    title: route.title,
+                    description: route.description
+                )
+            }
+        }
+    }
+
+    private var pathBinding: Binding<[ChatRoute]> {
+        $router.path
+    }
+
+    /// Opens quick action.
+    private func openQuickAction(_ action: FeatureQuickAction) {
+        router.push(
+            ChatRoute(
+                title: action.title,
+                description: AppLocalization.text(
+                    "chat.route.quickAction.descriptionFormat",
+                    action.caption
+                )
+            )
+        )
+    }
+
+    /// Opens item.
+    private func openItem(_ item: FeatureTabItem) {
+        router.push(
+            ChatRoute(
+                title: item.title,
+                description: AppLocalization.text(
+                    "route.item.descriptionFormat",
+                    item.summary,
+                    item.metadata
+                )
+            )
+        )
+    }
+}
+
+#if DEBUG
+#Preview("Chat Tab Root") {
+    ChatTabRootView(
+        router: TabRouter<ChatRoute>()
+    )
+}
+#endif

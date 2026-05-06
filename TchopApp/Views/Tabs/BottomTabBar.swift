@@ -1,6 +1,11 @@
 import SwiftUI
 
+/// Custom bottom tab bar that drives coordinator tab selection.
 struct BottomTabBar: View {
+    static let contentHeight: CGFloat = 67
+    static let bottomSpacing: CGFloat = 8
+    static let occupiedHeight: CGFloat = contentHeight + bottomSpacing
+
     let selectedTab: AppTab
     var onSelect: (AppTab) -> Void
 
@@ -10,27 +15,50 @@ struct BottomTabBar: View {
                 Button(action: { onSelect(tab) }) {
                     VStack(spacing: 6) {
                         Image(systemName: tab.tabIcon)
-                            .font(.system(size: 20, weight: .medium))
+                            .font(AppTypography.shellMenuIcon)
                         Text(tab.title)
-                            .font(.system(size: 11, weight: .medium))
+                            .font(AppTypography.eyebrowStrong)
                     }
                     .frame(maxWidth: .infinity)
                     .foregroundStyle(
                         selectedTab == tab
-                            ? Color(red: 0.95, green: 0.50, blue: 0.37)
-                            : Color(red: 0.35, green: 0.36, blue: 0.45)
+                            ? AppTheme.accent
+                            : AppTheme.textSecondary
                     )
                 }
                 .buttonStyle(.plain)
+                .accessibilityLabel(tab.title)
+                .accessibilityValue(
+                    selectedTab == tab
+                        ? AppLocalization.text("accessibility.tab.selected")
+                        : AppLocalization.text("accessibility.tab.notSelected")
+                )
+                .accessibilityHint(AppLocalization.text("accessibility.tab.switchHint"))
             }
         }
         .padding(.horizontal, 10)
         .padding(.top, 10)
         .padding(.bottom, 18)
-        .background(Color.white)
-        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .shadow(color: .black.opacity(0.08), radius: 10, y: -1)
+        .frame(height: Self.contentHeight)
+        .appGlassChrome(
+            in: RoundedRectangle(cornerRadius: AppRadius.quickAction, style: .continuous),
+            fallbackBackground: AppTheme.surfacePrimary,
+            fallbackShadowColor: AppTheme.shadow.opacity(0.4),
+            fallbackShadowRadius: 10,
+            fallbackShadowY: -1
+        )
         .padding(.horizontal, 10)
-        .padding(.bottom, 8)
+        .padding(.bottom, Self.bottomSpacing)
+        .animation(.easeInOut(duration: 0.2), value: selectedTab)
     }
 }
+
+#if DEBUG
+#Preview("Bottom Tab Bar") {
+    BottomTabBar(
+        selectedTab: .news,
+        onSelect: { _ in }
+    )
+    .background(AppTheme.canvasBackground)
+}
+#endif

@@ -1,27 +1,41 @@
+import Combine
 import XCTest
+import TchopErrors
+import TchopNavigation
+import TchopUIConfiguration
 @testable import TchopApp
 
+/// Covers app session and navigation restore flows in root state.
 @MainActor
 final class AppStateTests: XCTestCase {
-    func testSignInUpdatesCurrentUser() throws {
+    /// Verifies sign in updates current user.
+    func testSignInUpdatesCurrentUser() async throws {
         let expectedUser = AppUser(id: "user-1", username: "alice", createdAt: Date())
         let sessionService = TestUserSessionService(
             signInResult: .success(expectedUser),
             restoreResult: .success(nil)
         )
         let coordinator = AppCoordinator()
-        let shellViewModel = AppShellViewModel(contentRepository: TestAppContentRepository())
+        let shellViewModel = makeShellViewModel()
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
-            sessionService: sessionService
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: expectedUser),
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
         )
 
-        try state.signIn(username: "alice")
+        try await state.signIn(username: "alice")
 
         XCTAssertEqual(state.currentUser, expectedUser)
     }
 
+    /// Verifies init restores persisted session.
     func testInitRestoresPersistedSession() {
         let restoredUser = AppUser(id: "user-2", username: "restored", createdAt: Date())
         let sessionService = TestUserSessionService(
@@ -30,13 +44,21 @@ final class AppStateTests: XCTestCase {
         )
         let state = AppState(
             coordinator: AppCoordinator(),
-            appShellViewModel: AppShellViewModel(contentRepository: TestAppContentRepository()),
-            sessionService: sessionService
+            appShellViewModel: makeShellViewModel(),
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
         )
 
         XCTAssertEqual(state.currentUser, restoredUser)
     }
 
+    /// Verifies sign out clears user and resets shell state.
     func testSignOutClearsUserAndResetsShellState() {
         let restoredUser = AppUser(id: "user-3", username: "signed-in", createdAt: Date())
         let sessionService = TestUserSessionService(
@@ -54,11 +76,18 @@ final class AppStateTests: XCTestCase {
             )
         )
 
-        let shellViewModel = AppShellViewModel(contentRepository: TestAppContentRepository(), isMenuOpen: true)
+        let shellViewModel = makeShellViewModel(isMenuOpen: true)
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
-            sessionService: sessionService
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
         )
 
         state.signOut()
@@ -69,42 +98,314 @@ final class AppStateTests: XCTestCase {
         XCTAssertFalse(shellViewModel.isMenuOpen)
         XCTAssertEqual(sessionService.signOutCallCount, 1)
     }
+
+    /// Verifies sign out clears widget feed state alongside the in-app session reset.
+    func testSignOutClearsWidgetFeed() {
+        let restoredUser = AppUser(id: "user-widget-clear", username: "signed-in", createdAt: Date())
+        let widgetContentSyncManager = RecordingWidgetContentSyncManager()
+        let state = AppState(
+            coordinator: AppCoordinator(),
+            appShellViewModel: makeShellViewModel(),
+            sessionService: TestUserSessionService(
+                signInResult: .success(restoredUser),
+                restoreResult: .success(restoredUser)
+            ),
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: widgetContentSyncManager,
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
+        )
+
+        state.signOut()
+
+        XCTAssertEqual(widgetContentSyncManager.clearCallCount, 1)
+    }
+
+    /// Verifies app state forwards explicit push authorization requests into the push bridge.
+    func testRequestPushNotificationAuthorizationDelegatesToPushBridge() async {
+        let pushBridge = RecordingPushNotificationBridge()
+        let state = AppState(
+            coordinator: AppCoordinator(),
+            appShellViewModel: makeShellViewModel(),
+            sessionService: TestUserSessionService(
+                signInResult: .failure(TestSessionError.signInUnavailable),
+                restoreResult: .success(nil)
+            ),
+            userRepository: TestUserRepository(
+                user: AppUser(id: "user-push-request", username: "push-user", createdAt: Date())
+            ),
+            navigationStateManager: TestNavigationStateManager(),
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: pushBridge,
+            errorManager: AppErrorManager()
+        )
+
+        state.requestPushNotificationAuthorization()
+        try? await Task.sleep(for: .milliseconds(20))
+
+        XCTAssertEqual(pushBridge.requestAuthorizationAndRegisterCallCount, 1)
+    }
+
+    /// Verifies init restores navigation snapshot when flag enabled.
+    func testInitRestoresNavigationSnapshotWhenFlagEnabled() {
+        let restoredUser = AppUser(
+            id: "user-snapshot-enabled",
+            username: "snapshot-on",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .chat,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [ChatRoute(title: "Room", description: "From snapshot")],
+            profilePath: []
+        )
+        let stateManager = TestNavigationStateManager(seed: [restoredUser.id: snapshot])
+        let sessionService = TestUserSessionService(
+            signInResult: .success(restoredUser),
+            restoreResult: .success(restoredUser)
+        )
+        let coordinator = AppCoordinator()
+
+        _ = AppState(
+            coordinator: coordinator,
+            appShellViewModel: makeShellViewModel(),
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
+        )
+
+        XCTAssertEqual(coordinator.selectedTab, .chat)
+        XCTAssertEqual(coordinator.chatRouter.path.count, 1)
+    }
+
+    /// Verifies init does not restore snapshot when flag disabled.
+    func testInitDoesNotRestoreSnapshotWhenFlagDisabled() {
+        let restoredUser = AppUser(
+            id: "user-snapshot-disabled",
+            username: "snapshot-off",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: false
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .profile,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [],
+            profilePath: [ProfileRoute(title: "Saved", description: "Saved")]
+        )
+        let stateManager = TestNavigationStateManager(seed: [restoredUser.id: snapshot])
+        let sessionService = TestUserSessionService(
+            signInResult: .success(restoredUser),
+            restoreResult: .success(restoredUser)
+        )
+        let coordinator = AppCoordinator(selectedTab: .mixes)
+
+        _ = AppState(
+            coordinator: coordinator,
+            appShellViewModel: makeShellViewModel(),
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
+        )
+
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+    }
+
+    /// Verifies sign in prioritizes pending deep link over snapshot restore.
+    func testSignInPrioritizesPendingDeepLinkOverSnapshotRestore() async throws {
+        let signedInUser = AppUser(
+            id: "user-priority",
+            username: "priority-user",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .profile,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [],
+            profilePath: [ProfileRoute(title: "Snapshot", description: "Should be skipped")]
+        )
+        let stateManager = TestNavigationStateManager(seed: [signedInUser.id: snapshot])
+        let sessionService = TestUserSessionService(
+            signInResult: .success(signedInUser),
+            restoreResult: .success(nil)
+        )
+        let coordinator = AppCoordinator()
+        let state = AppState(
+            coordinator: coordinator,
+            appShellViewModel: makeShellViewModel(),
+            sessionService: sessionService,
+            userRepository: TestUserRepository(user: signedInUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: DeepLinkManager(),
+            navigationEventReporter: NavigationNoopEventReporter(),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
+        )
+
+        XCTAssertTrue(state.handleIncomingURL(URL(string: "tchop://chat?title=Support&description=Urgent")!))
+
+        try await state.signIn(username: signedInUser.username)
+
+        XCTAssertEqual(coordinator.selectedTab, .chat)
+        XCTAssertEqual(coordinator.chatRouter.path.first?.title, "Support")
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+    }
+
+    /// Verifies init migrates and sanitizes snapshot before apply.
+    func testInitMigratesAndSanitizesSnapshotBeforeApply() {
+        let restoredUser = AppUser(
+            id: "user-snapshot-migrate",
+            username: "snapshot-migrate",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+
+        let oversizedChatPath = (0..<25).map { index in
+            ChatRoute(title: "Room \(index)", description: "Description \(index)")
+        }
+        let legacySnapshot = NavigationSnapshot(
+            version: 1,
+            selectedTab: .chat,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: oversizedChatPath,
+            profilePath: []
+        )
+        let stateManager = TestNavigationStateManager(seed: [restoredUser.id: legacySnapshot])
+        let reporter = NavigationMemoryEventReporter()
+
+        _ = AppState(
+            coordinator: AppCoordinator(),
+            appShellViewModel: makeShellViewModel(),
+            sessionService: TestUserSessionService(
+                signInResult: .success(restoredUser),
+                restoreResult: .success(restoredUser)
+            ),
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: reporter,
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
+        )
+
+        let savedSnapshot = stateManager.snapshot(for: restoredUser.id)
+        XCTAssertEqual(savedSnapshot?.version, NavigationSnapshot.supportedVersion)
+        XCTAssertEqual(savedSnapshot?.chatPath.count, NavigationSnapshot.maxRoutesPerTab)
+        XCTAssertTrue(
+            reporter.events.contains(
+                .snapshotRestoreCompleted(
+                    userID: restoredUser.id,
+                    appliedVersion: NavigationSnapshot.supportedVersion,
+                    wasSanitized: true,
+                    wasMigrated: true
+                )
+            )
+        )
+    }
+
+    /// Verifies init drops future snapshot version and resets navigation safely.
+    func testInitDropsFutureSnapshotVersionAndResetsNavigationSafely() {
+        let restoredUser = AppUser(
+            id: "user-snapshot-future",
+            username: "snapshot-future",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let futureSnapshot = NavigationSnapshot(
+            version: NavigationSnapshot.supportedVersion + 1,
+            selectedTab: .profile,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [],
+            profilePath: [ProfileRoute(title: "Future", description: "Unsupported")]
+        )
+        let stateManager = TestNavigationStateManager(seed: [restoredUser.id: futureSnapshot])
+        let coordinator = AppCoordinator(selectedTab: .chat)
+        let reporter = NavigationMemoryEventReporter()
+
+        _ = AppState(
+            coordinator: coordinator,
+            appShellViewModel: makeShellViewModel(),
+            sessionService: TestUserSessionService(
+                signInResult: .success(restoredUser),
+                restoreResult: .success(restoredUser)
+            ),
+            userRepository: TestUserRepository(user: restoredUser),
+            navigationStateManager: stateManager,
+            deepLinkManager: TestDeepLinkManager(),
+            navigationEventReporter: reporter,
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            pushNotificationBridge: NoopPushNotificationBridge(),
+            errorManager: AppErrorManager()
+        )
+
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+        XCTAssertNil(stateManager.snapshot(for: restoredUser.id))
+        XCTAssertTrue(
+            reporter.events.contains(
+                .snapshotRestoreFailed(
+                    userID: restoredUser.id,
+                    reason: "unsupported-future-version-\(futureSnapshot.version)"
+                )
+            )
+        )
+    }
 }
 
 @MainActor
-private final class TestUserSessionService: UserSessionManaging {
-    private let signInResult: Result<AppUser, Error>
-    private let restoreResult: Result<AppUser?, Error>
-
-    private(set) var signOutCallCount = 0
-
-    init(
-        signInResult: Result<AppUser, Error>,
-        restoreResult: Result<AppUser?, Error>
-    ) {
-        self.signInResult = signInResult
-        self.restoreResult = restoreResult
-    }
-
-    func signIn(username: String) throws -> AppUser {
-        try signInResult.get()
-    }
-
-    func restoreSession() throws -> AppUser? {
-        try restoreResult.get()
-    }
-
-    func signOut() {
-        signOutCallCount += 1
-    }
-}
-
-private enum TestSessionError: Error {
-    case signInUnavailable
+/// Creates shell view model.
+private func makeShellViewModel(isMenuOpen: Bool = false) -> AppShellViewModel {
+    AppShellViewModel(
+        channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
+        newsFeedViewModel: NewsFeedViewModel(
+            repository: TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [], availability: .live))),
+            widgetContentSyncManager: NoopWidgetContentSyncManager(),
+            errorManager: AppErrorManager(),
+            initialContent: NewsFeedContent(cards: [], availability: .live),
+            loadFailureContent: NewsFeedFixtures.fallbackContent,
+            loadFailureMessage: "Failed to load"
+        ),
+        errorManager: AppErrorManager(),
+        uiConfigurationManager: UIConfigurationManager(
+            remoteProvider: MockUIConfigurationRemoteProvider(delayNanoseconds: 0)
+        ),
+        isMenuOpen: isMenuOpen
+    )
 }
 
 @MainActor
+/// Verifies generic tab router stack operations.
 final class TabRouterTests: XCTestCase {
+    /// Verifies push append route to path.
     func testPushAppendRouteToPath() {
         let router = TabRouter<NewsRoute>()
 
@@ -120,6 +421,7 @@ final class TabRouterTests: XCTestCase {
         XCTAssertEqual(router.path.count, 1)
     }
 
+    /// Verifies pop removes last route only.
     func testPopRemovesLastRouteOnly() {
         let router = TabRouter<NewsRoute>()
         let firstRoute = NewsRoute(
@@ -141,6 +443,7 @@ final class TabRouterTests: XCTestCase {
         XCTAssertEqual(router.path, [firstRoute])
     }
 
+    /// Verifies pop to root clears entire path.
     func testPopToRootClearsEntirePath() {
         let router = TabRouter<MixesRoute>()
         router.replacePath(
@@ -157,7 +460,11 @@ final class TabRouterTests: XCTestCase {
 }
 
 @MainActor
+/// Verifies coordinator-level tab and stack orchestration behavior.
 final class AppCoordinatorTests: XCTestCase {
+    private var cancellables: Set<AnyCancellable> = []
+
+    /// Verifies select tab does not reset other tab paths.
     func testSelectTabDoesNotResetOtherTabPaths() {
         let coordinator = AppCoordinator()
         coordinator.newsRouter.push(
@@ -179,6 +486,29 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.chatRouter.path.count, 1)
     }
 
+    /// Verifies show tab root selects tab and clears only that tab path.
+    func testShowTabRootSelectsTabAndClearsOnlyThatTabPath() {
+        let coordinator = AppCoordinator(selectedTab: .profile)
+        coordinator.newsRouter.push(
+            NewsRoute(
+                destinationID: "article-1",
+                title: "News",
+                subtitle: "Subtitle",
+                bodyText: "Body"
+            )
+        )
+        coordinator.profileRouter.push(
+            ProfileRoute(title: "Profile", description: "Current profile")
+        )
+
+        coordinator.showTabRoot(.profile)
+
+        XCTAssertEqual(coordinator.selectedTab, .profile)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+        XCTAssertEqual(coordinator.newsRouter.path.count, 1)
+    }
+
+    /// Verifies reset all navigation clears every tab path.
     func testResetAllNavigationClearsEveryTabPath() {
         let coordinator = AppCoordinator(selectedTab: .profile)
         coordinator.newsRouter.push(
@@ -202,5 +532,155 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertTrue(coordinator.chatRouter.path.isEmpty)
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
         XCTAssertEqual(coordinator.selectedTab, .profile)
+    }
+
+    /// Verifies push transition is idempotent for equivalent route.
+    func testPushTransitionIsIdempotentForEquivalentRoute() {
+        let coordinator = AppCoordinator()
+        let route = ChatRoute(title: "Support", description: "Room")
+
+        coordinator.navigateToChat(route, policy: .push)
+        coordinator.navigateToChat(
+            ChatRoute(title: "Support", description: "Room"),
+            policy: .push
+        )
+
+        XCTAssertEqual(coordinator.chatRouter.path.count, 1)
+    }
+
+    /// Verifies replace transition is idempotent for equivalent route.
+    func testReplaceTransitionIsIdempotentForEquivalentRoute() {
+        let coordinator = AppCoordinator()
+        coordinator.navigateToProfile(
+            ProfileRoute(title: "Settings", description: "Manage"),
+            policy: .replace
+        )
+
+        coordinator.navigateToProfile(
+            ProfileRoute(title: "Settings", description: "Manage"),
+            policy: .replace
+        )
+
+        XCTAssertEqual(coordinator.profileRouter.path.count, 1)
+    }
+
+    /// Verifies navigation changes publisher emits for selected tab and path changes.
+    func testNavigationChangesPublisherEmitsForSelectedTabAndPathChanges() {
+        let coordinator = AppCoordinator()
+        var emissionCount = 0
+
+        coordinator.navigationChanges
+            .sink { _ in
+                emissionCount += 1
+            }
+            .store(in: &cancellables)
+
+        coordinator.selectTab(.chat)
+        coordinator.chatRouter.push(ChatRoute(title: "Support", description: "Room"))
+
+        XCTAssertGreaterThanOrEqual(emissionCount, 2)
+    }
+}
+
+@MainActor
+/// Verifies deep/universal link routing into navigation destinations.
+final class DeepLinkManagerTests: XCTestCase {
+    /// Verifies custom scheme discussion link routes to news discussion.
+    func testCustomSchemeDiscussionLinkRoutesToNewsDiscussion() {
+        let coordinator = AppCoordinator()
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "tchop://news/discussion?title=Debate&subtitle=12+joined&body=Body")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertTrue(handled)
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertEqual(coordinator.newsRouter.path.first?.destinationID, "discussion-details")
+        XCTAssertEqual(coordinator.newsRouter.path.first?.title, "Debate")
+    }
+
+    /// Verifies universal link routes to profile detail.
+    func testUniversalLinkRoutesToProfileDetail() {
+        let coordinator = AppCoordinator()
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "https://example.com/profile?title=Settings&description=Manage+profile")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertTrue(handled)
+        XCTAssertEqual(coordinator.selectedTab, .profile)
+        XCTAssertEqual(coordinator.profileRouter.path.first?.title, "Settings")
+    }
+
+    /// Verifies invalid in app link falls back to news root.
+    func testInvalidInAppLinkFallsBackToNewsRoot() {
+        let coordinator = AppCoordinator(selectedTab: .profile)
+        coordinator.profileRouter.push(
+            ProfileRoute(title: "Current", description: "Current profile")
+        )
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "tchop://news/discussion?subtitle=MissingTitle")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertTrue(handled)
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertTrue(coordinator.newsRouter.path.isEmpty)
+    }
+
+    /// Verifies unsupported universal host is rejected.
+    func testUnsupportedUniversalHostIsRejected() {
+        let coordinator = AppCoordinator()
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "https://unknown.example.org/profile?title=Settings")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertFalse(handled)
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+    }
+
+    /// Verifies transition push adds stack entry for deep link.
+    func testTransitionPushAddsStackEntryForDeepLink() {
+        let coordinator = AppCoordinator()
+        let manager = DeepLinkManager()
+
+        _ = manager.handle(
+            url: URL(string: "tchop://chat?title=Room1&description=One&transition=push")!,
+            coordinator: coordinator
+        )
+        _ = manager.handle(
+            url: URL(string: "tchop://chat?title=Room2&description=Two&transition=push")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertEqual(coordinator.chatRouter.path.count, 2)
+    }
+
+    /// Verifies tab root deep link resets existing tab stack.
+    func testTabRootDeepLinkResetsExistingTabStack() {
+        let coordinator = AppCoordinator(selectedTab: .profile)
+        coordinator.profileRouter.push(
+            ProfileRoute(title: "Current", description: "Current profile")
+        )
+        let manager = DeepLinkManager()
+
+        let handled = manager.handle(
+            url: URL(string: "https://example.com/profile")!,
+            coordinator: coordinator
+        )
+
+        XCTAssertTrue(handled)
+        XCTAssertEqual(coordinator.selectedTab, .profile)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
     }
 }

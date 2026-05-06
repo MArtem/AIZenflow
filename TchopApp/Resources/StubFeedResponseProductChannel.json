@@ -1,0 +1,130 @@
+{
+  "cards": [
+    {
+      "type": "featuredArticle",
+      "id": "article-featured-1",
+      "remoteUpdatedAt": "2025-01-16T08:30:00Z",
+      "publishedAt": "2025-01-16T08:00:00Z",
+      "postedInPrefix": "Posted in ",
+      "sourceTitle": "Product",
+      "brandTitle": "Tchop",
+      "headline": "New editor release reduces publish friction\nfor distributed teams",
+      "summary": "A focused release note for the product channel with a narrower product-news scope than the general feed.",
+      "metadataLine": "by Product Team · today · read time: 2min",
+      "translationLabel": "See translation",
+      "localState": {
+        "isLiked": true,
+        "commentCount": 0,
+        "displayMode": "expanded"
+      },
+      "actions": [
+        {
+          "id": "article-featured-1-like",
+          "kind": "like",
+          "systemName": "hand.thumbsup.fill",
+          "title": "Like"
+        },
+        {
+          "id": "article-featured-1-comments",
+          "kind": "comments",
+          "systemName": "bubble.left.fill",
+          "title": "12 Comments"
+        }
+      ]
+    },
+    {
+      "type": "discussion",
+      "id": "discussion-1",
+      "remoteUpdatedAt": "2025-01-16T09:10:00Z",
+      "publishedAt": "2025-01-16T08:45:00Z",
+      "categoryTitle": "Release Discussion",
+      "headline": "Which workflow should be optimized next:\nchannel switching, search, or card creation?",
+      "participants": [
+        {
+          "id": "discussion-1-participant-a",
+          "initials": "A",
+          "isHighlighted": true
+        },
+        {
+          "id": "discussion-1-participant-p",
+          "initials": "P",
+          "isHighlighted": false
+        },
+        {
+          "id": "discussion-1-participant-s",
+          "initials": "S",
+          "isHighlighted": false
+        }
+      ],
+      "localState": {
+        "isParticipating": true,
+        "replyCount": 18,
+        "joinedCount": 18,
+        "displayMode": "expanded"
+      }
+    },
+    {
+      "type": "featuredArticle",
+      "id": "article-featured-2",
+      "remoteUpdatedAt": "2025-01-16T10:05:00Z",
+      "publishedAt": "2025-01-16T09:30:00Z",
+      "postedInPrefix": "Posted in ",
+      "sourceTitle": "Roadmap",
+      "brandTitle": "Tchop",
+      "headline": "Channel-aware card creation enters local\nimplementation phase",
+      "summary": "The product channel highlights implementation-focused roadmap items and changes that affect editors directly.",
+      "metadataLine": "by Roadmap Office · today · read time: 3min",
+      "translationLabel": "See translation",
+      "localState": {
+        "isLiked": false,
+        "commentCount": 0,
+        "displayMode": "compact"
+      },
+      "actions": [
+        {
+          "id": "article-featured-2-like",
+          "kind": "like",
+          "systemName": "hand.thumbsup.fill",
+          "title": "Like"
+        },
+        {
+          "id": "article-featured-2-comments",
+          "kind": "comments",
+          "systemName": "bubble.left.fill",
+          "title": "7 Comments"
+        }
+      ]
+    },
+    {
+      "type": "discussion",
+      "id": "discussion-2",
+      "remoteUpdatedAt": "2025-01-16T11:20:00Z",
+      "publishedAt": "2025-01-16T10:55:00Z",
+      "categoryTitle": "Product Feedback",
+      "headline": "Should channel settings return a server-preselected\nchannel or only memberships and defaults?",
+      "participants": [
+        {
+          "id": "discussion-2-participant-d",
+          "initials": "D",
+          "isHighlighted": true
+        },
+        {
+          "id": "discussion-2-participant-m",
+          "initials": "M",
+          "isHighlighted": false
+        },
+        {
+          "id": "discussion-2-participant-k",
+          "initials": "K",
+          "isHighlighted": false
+        }
+      ],
+      "localState": {
+        "isParticipating": false,
+        "replyCount": 9,
+        "joinedCount": 9,
+        "displayMode": "compact"
+      }
+    }
+  ]
+}
