@@ -45,6 +45,10 @@ let package = Package(
             targets: ["TchopDatabase"]
         ),
         .library(
+            name: "SyncCore",
+            targets: ["SyncCore"]
+        ),
+        .library(
             name: "TchopLocalization",
             targets: ["TchopLocalization"]
         ),
@@ -120,8 +124,13 @@ let package = Package(
                 "TchopSwiftDataDatabase",
                 "TchopCoreDataDatabase",
                 "TchopDatabaseComposition",
-                "TchopNavigation"
+                "TchopNavigation",
+                "SyncCore"
             ],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
+            name: "SyncCore",
             swiftSettings: strictConcurrencySettings
         ),
         .target(

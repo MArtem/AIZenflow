@@ -5,3 +5,4 @@
 @_exported import TchopDatabaseCore
 @_exported import TchopNavigation
 @_exported import TchopSwiftDataDatabase
+@_exported import SyncCore
