@@ -312,16 +312,11 @@ final class DefaultUserRepository: UserRepository {
 
     /// Finds an existing user by Apple identity on the active persistence backend.
     private func findUser(appleUserID: String) throws -> AppUser? {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try fetchSwiftDataUser(appleUserID: appleUserID)
-            }
-
-            return try fetchCoreDataUser(appleUserID: appleUserID)
-        case .coreData:
-            return try fetchCoreDataUser(appleUserID: appleUserID)
+        if #available(iOS 17, *) {
+            return try fetchSwiftDataUser(appleUserID: appleUserID)
         }
+
+        return try fetchCoreDataUser(appleUserID: appleUserID)
     }
 
     /// Resolves a unique username for a new Apple-backed local profile.
