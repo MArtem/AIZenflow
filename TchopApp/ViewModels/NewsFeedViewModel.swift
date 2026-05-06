@@ -1402,7 +1402,7 @@ final class NewsFeedViewModel {
             return AppLocalization.text("news.card.status.offline")
         case .missingPersistedFeedCard:
             return AppLocalization.text("news.card.status.stale")
-        case .missingChannel, .missingPersistedFeed:
+        case .missingChannel, .missingPersistedFeed, .unsupportedCardAction:
             return genericCardActionFailureMessage
         }
     }

@@ -168,6 +168,17 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
                 debugDescription: "Persisted channel bootstrap data is unavailable.",
                 context: context
             )
+        case .unsupportedCardAction:
+            return AppError(
+                category: .client,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.client.unsupportedCardAction",
+                debugDescription: "The requested feed card action cannot be mapped into the current sync contract.",
+                context: context
+            )
         }
     }
 

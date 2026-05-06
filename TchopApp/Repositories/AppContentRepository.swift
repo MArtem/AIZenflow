@@ -113,38 +113,24 @@ final class DefaultAppContentRepository: AppContentRepository {
         action: FeaturedArticleCardAction
     ) async throws -> FeaturedArticleCardModel {
         let networkAvailabilityChecker = self.networkAvailabilityChecker
-        let feedAPIManager = self.feedAPIManager
 
-        // Card mutations deliberately reuse the same repository boundary as feed refreshes so
-        // persistence, offline policy, and future backend semantics stay aligned in one place.
         guard await networkAvailabilityChecker.isInternetAvailable() else {
             throw RepositoryError.offlineCardAction
         }
 
-        // Every action starts from the latest persisted card instead of the bundled JSON seed.
-        // This keeps local changes additive until a real backend becomes the remote source of truth.
         let currentArticle = try requirePersistedFeaturedArticle(articleID: articleID)
-        let updatedArticle = try await feedAPIManager.performFeaturedArticleAction(
-            channelID: currentArticle.channelID,
-            articleID: articleID,
-            action: action,
-            context: FeaturedArticleActionContext(
-                isLiked: currentArticle.uiState.isLiked,
-                displayMode: currentArticle.uiState.displayMode
-            )
-        )
-
-        // Re-read before merging so sequential actions compose on top of the newest stored state.
-        let latestPersistedArticle = try persistedFeaturedArticle(articleID: articleID) ?? currentArticle
-        let mergedState = mergedFeaturedArticleState(
-            from: latestPersistedArticle,
+        let localStore = try makeFeaturedArticleActionSyncLocalStore(
+            article: currentArticle,
             action: action
         )
-        try persistFeaturedArticle(
-            updatedArticle,
-            articleID: articleID,
-            state: mergedState
+        let engine = SyncEngine(
+            localStore: localStore,
+            remoteClient: FeedActionRemoteSyncClient(feedAPIManager: feedAPIManager),
+            statusStore: SyncStatusStore(),
+            scope: "featured-article-\(articleID)"
         )
+
+        await engine.sync(reason: .localMutation)
         return try requirePersistedFeaturedArticle(articleID: articleID)
     }
 
@@ -153,35 +139,85 @@ final class DefaultAppContentRepository: AppContentRepository {
         action: DiscussionCardAction
     ) async throws -> DiscussionCardModel {
         let networkAvailabilityChecker = self.networkAvailabilityChecker
-        let feedAPIManager = self.feedAPIManager
 
         guard await networkAvailabilityChecker.isInternetAvailable() else {
             throw RepositoryError.offlineCardAction
         }
 
-        // Discussion actions follow the same persisted-first rule as article actions.
         let currentDiscussion = try requirePersistedDiscussion(discussionID: discussionID)
-        let updatedDiscussion = try await feedAPIManager.performDiscussionAction(
-            channelID: currentDiscussion.channelID,
-            discussionID: discussionID,
-            action: action,
-            context: DiscussionActionContext(
-                isParticipating: currentDiscussion.uiState.isParticipating,
-                displayMode: currentDiscussion.uiState.displayMode
-            )
-        )
-
-        let latestPersistedDiscussion = try persistedDiscussion(discussionID: discussionID) ?? currentDiscussion
-        let mergedState = mergedDiscussionState(
-            from: latestPersistedDiscussion,
+        let localStore = try makeDiscussionActionSyncLocalStore(
+            discussion: currentDiscussion,
             action: action
         )
-        try persistDiscussion(
-            updatedDiscussion,
-            discussionID: discussionID,
-            state: mergedState
+        let engine = SyncEngine(
+            localStore: localStore,
+            remoteClient: FeedActionRemoteSyncClient(feedAPIManager: feedAPIManager),
+            statusStore: SyncStatusStore(),
+            scope: "discussion-\(discussionID)"
         )
+
+        await engine.sync(reason: .localMutation)
         return try requirePersistedDiscussion(discussionID: discussionID)
+    }
+
+    private func makeFeaturedArticleActionSyncLocalStore(
+        article: FeaturedArticleCardModel,
+        action: FeaturedArticleCardAction
+    ) throws -> FeedPersistenceSyncLocalStore {
+        let payload = FeaturedArticleActionMutationPayload(
+            channelID: article.channelID,
+            articleID: article.id,
+            actionKind: featuredArticleActionKind(action),
+            displayModeRawValue: featuredArticleDisplayModeRawValue(action),
+            isLiked: article.uiState.isLiked
+        )
+        let envelope = FeedActionMutationEnvelope(
+            kind: .featuredArticle,
+            payloadData: try JSONEncoder().encode(payload)
+        )
+        let mutation = SyncMutation(
+            entityType: "feedCard",
+            entityID: article.id,
+            operation: .update,
+            baseServerRevision: try persistedSortOrder(for: article.id),
+            payloadData: try JSONEncoder().encode(envelope)
+        )
+
+        return FeedPersistenceSyncLocalStore(
+            databaseManager: databaseManager,
+            channelID: article.channelID,
+            queuedMutations: [mutation]
+        )
+    }
+
+    private func makeDiscussionActionSyncLocalStore(
+        discussion: DiscussionCardModel,
+        action: DiscussionCardAction
+    ) throws -> FeedPersistenceSyncLocalStore {
+        let payload = DiscussionActionMutationPayload(
+            channelID: discussion.channelID,
+            discussionID: discussion.id,
+            actionKind: discussionActionKind(action),
+            displayModeRawValue: discussionDisplayModeRawValue(action),
+            isParticipating: discussion.uiState.isParticipating
+        )
+        let envelope = FeedActionMutationEnvelope(
+            kind: .discussion,
+            payloadData: try JSONEncoder().encode(payload)
+        )
+        let mutation = SyncMutation(
+            entityType: "feedCard",
+            entityID: discussion.id,
+            operation: .update,
+            baseServerRevision: try persistedSortOrder(for: discussion.id),
+            payloadData: try JSONEncoder().encode(envelope)
+        )
+
+        return FeedPersistenceSyncLocalStore(
+            databaseManager: databaseManager,
+            channelID: discussion.channelID,
+            queuedMutations: [mutation]
+        )
     }
 
     /// Resolves channels using the currently selected persistence backend.
@@ -747,6 +783,7 @@ enum RepositoryError: Error {
     case missingPersistedFeed
     case missingPersistedFeedCard
     case offlineCardAction
+    case unsupportedCardAction
 }
 
 private struct PersistedNewsFeedSnapshot {
@@ -843,33 +880,65 @@ private struct FeedCardSyncEnvelope: Codable {
     let snapshot: FeedCardPersistenceSnapshot
 }
 
+private enum FeedActionMutationKind: String, Codable {
+    case featuredArticle
+    case discussion
+}
+
+private struct FeaturedArticleActionMutationPayload: Codable {
+    let channelID: String
+    let articleID: String
+    let actionKind: String
+    let displayModeRawValue: String?
+    let isLiked: Bool
+}
+
+private struct DiscussionActionMutationPayload: Codable {
+    let channelID: String
+    let discussionID: String
+    let actionKind: String
+    let displayModeRawValue: String?
+    let isParticipating: Bool
+}
+
+private struct FeedActionMutationEnvelope: Codable {
+    let kind: FeedActionMutationKind
+    let payloadData: Data
+}
+
 @MainActor
 private final class FeedPersistenceSyncLocalStore: SyncLocalStore, @unchecked Sendable {
     private let databaseManager: any DatabaseManaging
     private let channelID: String
     private var cursor: SyncCursor?
+    private var queuedMutations: [SyncMutation]
 
     init(
         databaseManager: any DatabaseManaging,
-        channelID: String
+        channelID: String,
+        queuedMutations: [SyncMutation] = []
     ) {
         self.databaseManager = databaseManager
         self.channelID = channelID
+        self.queuedMutations = queuedMutations
     }
 
     func pendingMutations(limit: Int) async throws -> [SyncMutation] {
-        []
+        Array(queuedMutations.prefix(limit))
     }
 
     func pendingMutationsCount() async throws -> Int {
-        0
+        queuedMutations.count
     }
 
     func unresolvedConflictsCount() async throws -> Int {
         0
     }
 
-    func markMutationsAsSynced(_ mutationIDs: [UUID]) async throws {}
+    func markMutationsAsSynced(_ mutationIDs: [UUID]) async throws {
+        let ids = Set(mutationIDs)
+        queuedMutations.removeAll { ids.contains($0.id) }
+    }
 
     func markMutationAsFailed(_ mutationID: UUID, reason: String) async throws {}
 
@@ -1019,6 +1088,119 @@ private struct FeedRemoteSyncClient: SyncRemoteClient, Sendable {
             nextCursor: SyncCursor(scope: request.cursor?.scope ?? "feed-\(channelID)", value: syncedAt.ISO8601Format()),
             hasMore: false,
             serverTime: syncedAt
+        )
+    }
+}
+
+private actor FeedActionRemoteSyncClient: SyncRemoteClient {
+    private let feedAPIManager: any FeedAPIManaging
+    private var pendingChanges: [RemoteChange] = []
+
+    init(feedAPIManager: any FeedAPIManaging) {
+        self.feedAPIManager = feedAPIManager
+    }
+
+    func push(_ request: PushRequest) async throws -> PushResponse {
+        let decoder = JSONDecoder()
+        let encoder = JSONEncoder()
+        var results: [MutationPushResult] = []
+
+        for mutation in request.mutations {
+            guard let payloadData = mutation.payloadData else {
+                results.append(.rejected(mutationID: mutation.id, reason: "Missing mutation payload."))
+                continue
+            }
+
+            let envelope = try decoder.decode(FeedActionMutationEnvelope.self, from: payloadData)
+
+            switch envelope.kind {
+            case .featuredArticle:
+                let payload = try decoder.decode(FeaturedArticleActionMutationPayload.self, from: envelope.payloadData)
+                let action = try payload.makeAction()
+                let article = try await feedAPIManager.performFeaturedArticleAction(
+                    channelID: payload.channelID,
+                    articleID: payload.articleID,
+                    action: action,
+                    context: FeaturedArticleActionContext(
+                        isLiked: payload.isLiked,
+                        displayMode: try payload.makeDisplayMode()
+                    )
+                )
+                let snapshot = try AppContentPersistenceMapper.makeFeaturedArticleSnapshot(
+                    article,
+                    channelID: payload.channelID,
+                    sortOrder: mutation.baseServerRevision ?? 0,
+                    syncedAt: Date()
+                )
+                pendingChanges.append(
+                    RemoteChange(
+                        entityType: "feedCard",
+                        entityID: snapshot.id,
+                        kind: .updated,
+                        serverRevision: snapshot.sortOrder,
+                        serverUpdatedAt: snapshot.remoteUpdatedAt,
+                        payloadData: try encoder.encode(FeedCardSyncEnvelope(snapshot: snapshot))
+                    )
+                )
+                results.append(
+                    .accepted(
+                        mutationID: mutation.id,
+                        entityID: snapshot.id,
+                        serverRevision: snapshot.sortOrder,
+                        serverUpdatedAt: snapshot.remoteUpdatedAt
+                    )
+                )
+
+            case .discussion:
+                let payload = try decoder.decode(DiscussionActionMutationPayload.self, from: envelope.payloadData)
+                let action = try payload.makeAction()
+                let discussion = try await feedAPIManager.performDiscussionAction(
+                    channelID: payload.channelID,
+                    discussionID: payload.discussionID,
+                    action: action,
+                    context: DiscussionActionContext(
+                        isParticipating: payload.isParticipating,
+                        displayMode: try payload.makeDisplayMode()
+                    )
+                )
+                let snapshot = try AppContentPersistenceMapper.makeDiscussionSnapshot(
+                    discussion,
+                    channelID: payload.channelID,
+                    sortOrder: mutation.baseServerRevision ?? 0,
+                    syncedAt: Date()
+                )
+                pendingChanges.append(
+                    RemoteChange(
+                        entityType: "feedCard",
+                        entityID: snapshot.id,
+                        kind: .updated,
+                        serverRevision: snapshot.sortOrder,
+                        serverUpdatedAt: snapshot.remoteUpdatedAt,
+                        payloadData: try encoder.encode(FeedCardSyncEnvelope(snapshot: snapshot))
+                    )
+                )
+                results.append(
+                    .accepted(
+                        mutationID: mutation.id,
+                        entityID: snapshot.id,
+                        serverRevision: snapshot.sortOrder,
+                        serverUpdatedAt: snapshot.remoteUpdatedAt
+                    )
+                )
+            }
+        }
+
+        return PushResponse(results: results)
+    }
+
+    func pull(_ request: PullRequest) async throws -> PullResponse {
+        let changes = pendingChanges
+        pendingChanges = []
+        return PullResponse(
+            changes: changes,
+            nextCursor: SyncCursor(scope: request.cursor?.scope ?? "feed-actions", value: UUID().uuidString),
+            hasMore: false,
+            serverTime: Date()
         )
     }
 }
@@ -1258,6 +1440,108 @@ private enum AppContentPersistenceMapper {
     private static func makeScopedCardID(rawID: String, channelID: String) -> String {
         "\(channelID)-\(rawID)"
     }
+}
+
+private extension FeaturedArticleActionMutationPayload {
+    func makeAction() throws -> FeaturedArticleCardAction {
+        switch actionKind {
+        case "toggleLike":
+            return .toggleLike
+        case "addComment":
+            return .addComment
+        case "setDisplayMode":
+            return .setDisplayMode(try makeDisplayMode())
+        case "refreshContent":
+            return .refreshContent
+        case "runLongTask":
+            return .runLongTask
+        default:
+            throw RepositoryError.unsupportedCardAction
+        }
+    }
+
+    func makeDisplayMode() throws -> FeaturedArticleCardDisplayMode {
+        guard let displayModeRawValue,
+              let displayMode = FeaturedArticleCardDisplayMode(rawValue: displayModeRawValue) else {
+            return .expanded
+        }
+
+        return displayMode
+    }
+}
+
+private extension DiscussionActionMutationPayload {
+    func makeAction() throws -> DiscussionCardAction {
+        switch actionKind {
+        case "toggleParticipation":
+            return .toggleParticipation
+        case "addReply":
+            return .addReply
+        case "setDisplayMode":
+            return .setDisplayMode(try makeDisplayMode())
+        case "refreshContent":
+            return .refreshContent
+        case "runLongTask":
+            return .runLongTask
+        default:
+            throw RepositoryError.unsupportedCardAction
+        }
+    }
+
+    func makeDisplayMode() throws -> DiscussionCardDisplayMode {
+        guard let displayModeRawValue,
+              let displayMode = DiscussionCardDisplayMode(rawValue: displayModeRawValue) else {
+            return .expanded
+        }
+
+        return displayMode
+    }
+}
+
+private func featuredArticleActionKind(_ action: FeaturedArticleCardAction) -> String {
+    switch action {
+    case .toggleLike:
+        return "toggleLike"
+    case .addComment:
+        return "addComment"
+    case .setDisplayMode:
+        return "setDisplayMode"
+    case .refreshContent:
+        return "refreshContent"
+    case .runLongTask:
+        return "runLongTask"
+    }
+}
+
+private func featuredArticleDisplayModeRawValue(_ action: FeaturedArticleCardAction) -> String? {
+    guard case let .setDisplayMode(displayMode) = action else {
+        return nil
+    }
+
+    return displayMode.rawValue
+}
+
+private func discussionActionKind(_ action: DiscussionCardAction) -> String {
+    switch action {
+    case .toggleParticipation:
+        return "toggleParticipation"
+    case .addReply:
+        return "addReply"
+    case .setDisplayMode:
+        return "setDisplayMode"
+    case .refreshContent:
+        return "refreshContent"
+    case .runLongTask:
+        return "runLongTask"
+    }
+}
+
+private func discussionDisplayModeRawValue(_ action: DiscussionCardAction) -> String? {
+    guard case let .setDisplayMode(displayMode) = action else {
+        return nil
+    }
+
+    return displayMode.rawValue
 }
 
 private enum AppContentMapper {
