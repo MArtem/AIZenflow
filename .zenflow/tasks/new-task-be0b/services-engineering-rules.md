@@ -4,7 +4,7 @@ Use this file as the persistent services-layer instruction set for this project 
 
 ## Service Design
 - Apply SOLID principles consistently.
-- Prefer protocol-first design for services and managers.
+- Use protocol boundaries only where they provide a real seam for DI, substitution, isolation, or testability.
 - Keep services focused on one responsibility.
 - Avoid hidden global state and hardcoded dependencies.
 - Prefer dependency injection through the app DI container.
@@ -34,7 +34,7 @@ Use this file as the persistent services-layer instruction set for this project 
 ## Active Service Brief
 - Design production-ready, scalable, maintainable, and performant services.
 - Follow SOLID everywhere in service and infra code.
-- Prefer protocol-driven architecture for routers, clients, interceptors, repositories, managers, and persistence adapters.
+- Do not add protocol layers, adapters, or facades unless they remove a real coupling problem or create a real reuse/testing seam.
 - Keep service and infrastructure code easy for humans to read and reason about; do not hide simple behavior behind needless layers.
 - Public APIs should use async/await only. Avoid completion handlers in public service APIs.
 - Use initializer-based dependency injection. Avoid singletons and hidden shared state.
@@ -46,7 +46,7 @@ Use this file as the persistent services-layer instruction set for this project 
 - All future service, infrastructure, package, and persistence additions inherit these same constraints by default; new modules do not get a looser standard than the existing baseline.
 
 ## Database Service Expectations
-- Keep every operation behind Swift protocols.
+- Keep the reusable database contract backend-neutral, but do not wrap already-good package APIs in extra local protocols without a real reason.
 - Support pluggable backends without changing business logic.
 - Target support for:
   - SwiftData
