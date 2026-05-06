@@ -49,6 +49,25 @@ Do not couple to app:
 - app entity types
 - app migration policy decisions
 
+### `SyncCore`
+Status: reusable.
+
+Owned concerns:
+- sync state machine
+- mutation queue push/pull orchestration
+- cursor-based remote change application
+- conflict lifecycle and resolution contract
+
+Keep reusable:
+- engine/scheduler/status store contracts
+- local/remote adapter protocols
+- conflict primitives and metadata models
+
+Do not couple to app:
+- `FeedCardRecord`/`ChannelRecord` types
+- app DTO mapping rules
+- app-specific API endpoint semantics
+
 ### `TchopSwiftDataDatabase`
 Status: reusable.
 
@@ -212,9 +231,8 @@ Reason:
 
 ### `AppDatabase`
 Reason:
-- contains host-app backend selection policy
-- contains iOS-version-specific upgrade behavior
-- contains concrete app store migration from legacy Core Data content into app SwiftData models
+- active runtime is SwiftData-only bootstrap
+- legacy Core Data selection/migration path is intentionally commented as rollback fallback
 
 ### `DeepLinkManager`
 Reason:

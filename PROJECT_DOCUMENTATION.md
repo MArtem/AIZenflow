@@ -71,6 +71,9 @@ In short:
 - current auth/nav-localization baseline = login, tab chrome, side menu, top bar, floating action button, and default channel metadata now resolve through resource-backed localization keys instead of relying on inline fallback copy in those surfaces.
 - production-localization baseline = shipped user-facing copy must live in localization resources; inline fallback strings are not the source of truth for UI text.
 - current localization coverage baseline = all active `AppLocalization` key usages are now backed by both `en` and `ru` resource entries, so runtime localization is no longer depending on missing-key fallback behavior in app surfaces.
+- implementation-scope baseline = implement only explicitly requested behavior; do not add speculative UI, speculative logic, or extra fallback flows without explicit approval.
+- package-first baseline = reusable managers/packages are the foundation; app code should adapt to package contracts, not wrap them in extra shim layers unless there is a proven seam requirement.
+- navigation lifecycle baseline = do not assume immediate deallocation on pop; prefer `.task` over `.onAppear` for async loading and cancel tasks explicitly.
 
 ## Dependency Graph At A Glance
 
@@ -247,6 +250,7 @@ Main package modules:
 - `TchopPushNotifications`
 - `TchopAnalytics`
 - `TchopAppleAuthentication`
+- `SyncCore`
 
 ---
 

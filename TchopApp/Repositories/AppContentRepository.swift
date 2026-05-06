@@ -58,6 +58,13 @@ final class DefaultAppContentRepository: AppContentRepository {
         self.databaseManager = databaseManager
         self.feedAPIManager = feedAPIManager
         self.networkAvailabilityChecker = networkAvailabilityChecker
+
+        // Active runtime policy is SwiftData-only. Legacy CoreData branches below are preserved
+        // for rollback and migration safety, but are not expected to execute in the current app.
+        precondition(
+            databaseManager.backendKind == .swiftData,
+            "DefaultAppContentRepository expects SwiftData runtime backend."
+        )
     }
 
     /// Fetches channel data from local persistence.

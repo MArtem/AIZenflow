@@ -36,6 +36,12 @@ final class DefaultUserRepository: UserRepository {
     /// Creates a new DefaultUserRepository instance.
     init(databaseManager: any DatabaseManaging) {
         self.databaseManager = databaseManager
+
+        // Active runtime policy is SwiftData-only. CoreData paths are kept as rollback fallback.
+        precondition(
+            databaseManager.backendKind == .swiftData,
+            "DefaultUserRepository expects SwiftData runtime backend."
+        )
     }
 
     /// Finds a persisted user by stable identifier.
