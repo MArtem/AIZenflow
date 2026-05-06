@@ -1,10 +1,10 @@
 import SwiftUI
 
 /// Primary hero card for the featured article at the top of the feed.
-struct FeaturedArticleCard: View {
-    let article: FeaturedArticleCardModel
+struct PhotoCardView: View {
+    let article: PhotoCardModel
     let onTap: () -> Void
-    let onAction: (FeaturedArticleCardAction) -> Void
+    let onAction: (PhotoCardAction) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -37,8 +37,8 @@ struct FeaturedArticleCard: View {
                     ZStack(alignment: .bottomTrailing) {
                         LinearGradient(
                             colors: [
-                                FeaturedArticleArtworkPalette.heroGradientStart,
-                                FeaturedArticleArtworkPalette.heroGradientEnd
+                                PhotoCardArtworkPalette.heroGradientStart,
+                                PhotoCardArtworkPalette.heroGradientEnd
                             ],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
@@ -75,15 +75,15 @@ struct FeaturedArticleCard: View {
 
                             ZStack {
                                 Circle()
-                                    .fill(FeaturedArticleArtworkPalette.illustrationOuterFill)
+                                    .fill(PhotoCardArtworkPalette.illustrationOuterFill)
                                     .frame(width: 76, height: 76)
 
                                 Circle()
-                                    .fill(FeaturedArticleArtworkPalette.illustrationMiddleFill)
+                                    .fill(PhotoCardArtworkPalette.illustrationMiddleFill)
                                     .frame(width: 52, height: 52)
 
                                 Circle()
-                                    .fill(FeaturedArticleArtworkPalette.illustrationInnerFill)
+                                    .fill(PhotoCardArtworkPalette.illustrationInnerFill)
                                     .frame(width: 16, height: 16)
                                     .offset(y: 12)
                             }
@@ -98,7 +98,7 @@ struct FeaturedArticleCard: View {
                     VStack(alignment: .leading, spacing: 10) {
                         Text(article.brandTitle)
                             .font(AppTypography.labelSemibold)
-                            .foregroundStyle(FeaturedArticleArtworkPalette.brandAccent)
+                            .foregroundStyle(PhotoCardArtworkPalette.brandAccent)
 
                         Text(article.headline)
                             .font(AppTypography.featuredHeadline(isExpanded: article.uiState.displayMode == .expanded))
@@ -240,7 +240,7 @@ struct FeaturedArticleCard: View {
     }
 }
 
-private enum FeaturedArticleArtworkPalette {
+private enum PhotoCardArtworkPalette {
     static let heroGradientStart = Color(red: 0.67, green: 0.77, blue: 0.55)
     static let heroGradientEnd = Color(red: 0.48, green: 0.63, blue: 0.34)
     static let illustrationOuterFill = Color(red: 0.43, green: 0.31, blue: 0.19)
@@ -251,7 +251,7 @@ private enum FeaturedArticleArtworkPalette {
 
 #if DEBUG
 #Preview("Featured Article Card") {
-    FeaturedArticleCard(
+    PhotoCardView(
         article: ViewPreviewSupport.sampleFeaturedArticle,
         onTap: {},
         onAction: { _ in }

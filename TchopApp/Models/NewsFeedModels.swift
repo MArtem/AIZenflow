@@ -227,8 +227,8 @@ struct NewsFeedCardSearchField: Equatable, Sendable {
 
 /// Feed card variants currently supported by the home timeline.
 enum NewsFeedCard: Identifiable, Equatable, Sendable {
-    case photo(FeaturedArticleCardModel)
-    case text(DiscussionCardModel)
+    case photo(PhotoCardModel)
+    case text(TextCardModel)
     case channelCard(ChannelCardContent)
 
     /// Stable identity forwarded from the underlying card model.
@@ -331,7 +331,7 @@ private extension ChannelCardKind {
 }
 
 /// Presentation model for the featured article card.
-struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
+struct PhotoCardModel: Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
     let postedInPrefix: String
@@ -343,7 +343,7 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
     let translationLabel: String
     let commentCount: Int
     let actions: [ArticleActionItem]
-    let uiState: FeaturedArticleCardUIState
+    let uiState: PhotoCardUIState
 
     /// Headline formatted for service consumers that should not receive multiline text.
     var serviceHeadline: String {
@@ -362,8 +362,8 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
     }
 
     /// Returns a copy with updated runtime-only card UI state.
-    func updatingUIState(_ transform: (FeaturedArticleCardUIState) -> FeaturedArticleCardUIState) -> FeaturedArticleCardModel {
-        FeaturedArticleCardModel(
+    func updatingUIState(_ transform: (PhotoCardUIState) -> PhotoCardUIState) -> PhotoCardModel {
+        PhotoCardModel(
             id: id,
             channelID: channelID,
             postedInPrefix: postedInPrefix,
@@ -384,8 +384,8 @@ struct FeaturedArticleCardModel: Identifiable, Equatable, Sendable {
         headline: String? = nil,
         summary: String? = nil,
         metadataLine: String? = nil
-    ) -> FeaturedArticleCardModel {
-        FeaturedArticleCardModel(
+    ) -> PhotoCardModel {
+        PhotoCardModel(
             id: id,
             channelID: channelID,
             postedInPrefix: postedInPrefix,
@@ -417,19 +417,19 @@ enum ArticleActionKind: String, Codable, Equatable, Sendable {
 }
 
 /// Intent emitted from the featured article card UI.
-enum FeaturedArticleCardAction: Equatable, Sendable {
+enum PhotoCardAction: Equatable, Sendable {
     case toggleLike
     case addComment
-    case setDisplayMode(FeaturedArticleCardDisplayMode)
+    case setDisplayMode(PhotoCardDisplayMode)
     case refreshContent
     case runLongTask
 }
 
 /// Runtime-only UI state owned by the screen for a featured article card.
-struct FeaturedArticleCardUIState: Equatable, Sendable {
+struct PhotoCardUIState: Equatable, Sendable {
     let isLiked: Bool
-    let displayMode: FeaturedArticleCardDisplayMode
-    let pendingOperation: FeaturedArticleCardPendingOperation?
+    let displayMode: PhotoCardDisplayMode
+    let pendingOperation: PhotoCardPendingOperation?
     let inlineStatusMessage: String?
 
     /// When true, the screen should serialize actions for this card and keep the visible
@@ -440,7 +440,7 @@ struct FeaturedArticleCardUIState: Equatable, Sendable {
     }
 
     /// Default interaction state for cards loaded from persistence or stub content.
-    static let idle = FeaturedArticleCardUIState(
+    static let idle = PhotoCardUIState(
         isLiked: false,
         displayMode: .expanded,
         pendingOperation: nil,
@@ -449,13 +449,13 @@ struct FeaturedArticleCardUIState: Equatable, Sendable {
 }
 
 /// Visual layout variant currently used to render the featured article card.
-enum FeaturedArticleCardDisplayMode: String, Codable, Equatable, Sendable {
+enum PhotoCardDisplayMode: String, Codable, Equatable, Sendable {
     case expanded
     case compact
 }
 
 /// Long-running card operation currently visible in the list.
-enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
+enum PhotoCardPendingOperation: Equatable, Sendable {
     case liking
     case addingComment
     case updatingDisplayMode
@@ -480,15 +480,15 @@ enum FeaturedArticleCardPendingOperation: Equatable, Sendable {
 }
 
 /// Presentation model for the discussion preview card.
-struct DiscussionCardModel: Identifiable, Equatable, Sendable {
+struct TextCardModel: Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
     let categoryTitle: String
     let headline: String
-    let participants: [DiscussionParticipant]
+    let participants: [TextCardParticipant]
     let replyCount: Int
     let joinedCount: Int
-    let uiState: DiscussionCardUIState
+    let uiState: TextCardUIState
 
     /// Headline formatted for service consumers that should not receive multiline text.
     var serviceHeadline: String {
@@ -512,8 +512,8 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
     }
 
     /// Returns a copy with updated runtime-only discussion UI state.
-    func updatingUIState(_ transform: (DiscussionCardUIState) -> DiscussionCardUIState) -> DiscussionCardModel {
-        DiscussionCardModel(
+    func updatingUIState(_ transform: (TextCardUIState) -> TextCardUIState) -> TextCardModel {
+        TextCardModel(
             id: id,
             channelID: channelID,
             categoryTitle: categoryTitle,
@@ -528,11 +528,11 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
     /// Returns a copy with refreshed discussion content while preserving runtime state.
     func updatingContent(
         headline: String? = nil,
-        participants: [DiscussionParticipant]? = nil,
+        participants: [TextCardParticipant]? = nil,
         replyCount: Int? = nil,
         joinedCount: Int? = nil
-    ) -> DiscussionCardModel {
-        DiscussionCardModel(
+    ) -> TextCardModel {
+        TextCardModel(
             id: id,
             channelID: channelID,
             categoryTitle: categoryTitle,
@@ -546,26 +546,26 @@ struct DiscussionCardModel: Identifiable, Equatable, Sendable {
 }
 
 /// Presentation model describing a participant avatar in a discussion preview.
-struct DiscussionParticipant: Identifiable, Equatable, Sendable {
+struct TextCardParticipant: Identifiable, Equatable, Sendable {
     let id: String
     let initials: String
     let isHighlighted: Bool
 }
 
 /// Intent emitted from the discussion card UI.
-enum DiscussionCardAction: Equatable, Sendable {
+enum TextCardAction: Equatable, Sendable {
     case toggleParticipation
     case addReply
-    case setDisplayMode(DiscussionCardDisplayMode)
+    case setDisplayMode(TextCardDisplayMode)
     case refreshContent
     case runLongTask
 }
 
 /// Runtime-only UI state owned by the screen for a discussion card.
-struct DiscussionCardUIState: Equatable, Sendable {
+struct TextCardUIState: Equatable, Sendable {
     let isParticipating: Bool
-    let displayMode: DiscussionCardDisplayMode
-    let pendingOperation: DiscussionCardPendingOperation?
+    let displayMode: TextCardDisplayMode
+    let pendingOperation: TextCardPendingOperation?
     let inlineStatusMessage: String?
 
     /// When true, the screen should serialize actions for this card and keep the visible
@@ -574,7 +574,7 @@ struct DiscussionCardUIState: Equatable, Sendable {
         pendingOperation != nil
     }
 
-    static let idle = DiscussionCardUIState(
+    static let idle = TextCardUIState(
         isParticipating: false,
         displayMode: .expanded,
         pendingOperation: nil,
@@ -583,13 +583,13 @@ struct DiscussionCardUIState: Equatable, Sendable {
 }
 
 /// Visual layout variant currently used to render the discussion card.
-enum DiscussionCardDisplayMode: String, Codable, Equatable, Sendable {
+enum TextCardDisplayMode: String, Codable, Equatable, Sendable {
     case expanded
     case compact
 }
 
 /// Long-running card operation currently visible in a discussion card.
-enum DiscussionCardPendingOperation: Equatable, Sendable {
+enum TextCardPendingOperation: Equatable, Sendable {
     case togglingParticipation
     case addingReply
     case updatingDisplayMode
@@ -620,7 +620,7 @@ enum NewsFeedFixtures {
         NewsFeedContent(
             cards: [
                 .photo(
-                    FeaturedArticleCardModel(
+                    PhotoCardModel(
                         id: "featured-article-fallback",
                         channelID: channelID,
                         postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
@@ -649,15 +649,15 @@ enum NewsFeedFixtures {
                     )
                 ),
                 .text(
-                    DiscussionCardModel(
+                    TextCardModel(
                         id: "discussion-fallback",
                         channelID: channelID,
                         categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
                         headline: AppLocalization.text("news.fallback.discussion.headline"),
                         participants: [
-                            DiscussionParticipant(id: "adorlee", initials: "A", isHighlighted: true),
-                            DiscussionParticipant(id: "mattis", initials: "M", isHighlighted: false),
-                            DiscussionParticipant(id: "sophia", initials: "S", isHighlighted: false)
+                            TextCardParticipant(id: "adorlee", initials: "A", isHighlighted: true),
+                            TextCardParticipant(id: "mattis", initials: "M", isHighlighted: false),
+                            TextCardParticipant(id: "sophia", initials: "S", isHighlighted: false)
                         ],
                         replyCount: 12,
                         joinedCount: 12,

@@ -23,14 +23,14 @@ protocol NewsFeedRepository {
     /// Persists one featured article card action and returns the updated card snapshot.
     func performFeaturedArticleAction(
         articleID: String,
-        action: FeaturedArticleCardAction
-    ) async throws -> FeaturedArticleCardModel
+        action: PhotoCardAction
+    ) async throws -> PhotoCardModel
 
     /// Persists one discussion card action and returns the updated card snapshot.
     func performDiscussionAction(
         discussionID: String,
-        action: DiscussionCardAction
-    ) async throws -> DiscussionCardModel
+        action: TextCardAction
+    ) async throws -> TextCardModel
 }
 
 /// Lightweight app-local reachability check used by the feed repository.
@@ -110,8 +110,8 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     func performFeaturedArticleAction(
         articleID: String,
-        action: FeaturedArticleCardAction
-    ) async throws -> FeaturedArticleCardModel {
+        action: PhotoCardAction
+    ) async throws -> PhotoCardModel {
         let networkAvailabilityChecker = self.networkAvailabilityChecker
 
         guard await networkAvailabilityChecker.isInternetAvailable() else {
@@ -136,8 +136,8 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     func performDiscussionAction(
         discussionID: String,
-        action: DiscussionCardAction
-    ) async throws -> DiscussionCardModel {
+        action: TextCardAction
+    ) async throws -> TextCardModel {
         let networkAvailabilityChecker = self.networkAvailabilityChecker
 
         guard await networkAvailabilityChecker.isInternetAvailable() else {
@@ -161,8 +161,8 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     private func makeFeaturedArticleActionSyncLocalStore(
-        article: FeaturedArticleCardModel,
-        action: FeaturedArticleCardAction
+        article: PhotoCardModel,
+        action: PhotoCardAction
     ) throws -> FeedPersistenceSyncLocalStore {
         let payload = FeaturedArticleActionMutationPayload(
             channelID: article.channelID,
@@ -191,8 +191,8 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     private func makeDiscussionActionSyncLocalStore(
-        discussion: DiscussionCardModel,
-        action: DiscussionCardAction
+        discussion: TextCardModel,
+        action: TextCardAction
     ) throws -> FeedPersistenceSyncLocalStore {
         let payload = DiscussionActionMutationPayload(
             channelID: discussion.channelID,
@@ -517,8 +517,8 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Builds the persisted featured article state that should survive one successful card action.
     private func mergedFeaturedArticleState(
-        from currentArticle: FeaturedArticleCardModel,
-        action: FeaturedArticleCardAction
+        from currentArticle: PhotoCardModel,
+        action: PhotoCardAction
     ) -> FeedCardArticleStatePayload {
         switch action {
         case .toggleLike:
@@ -550,8 +550,8 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Builds the persisted discussion state that should survive one successful card action.
     private func mergedDiscussionState(
-        from currentDiscussion: DiscussionCardModel,
-        action: DiscussionCardAction
+        from currentDiscussion: TextCardModel,
+        action: TextCardAction
     ) -> FeedCardDiscussionStatePayload {
         switch action {
         case .toggleParticipation:
@@ -656,7 +656,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Returns one persisted featured article card or throws when the snapshot is missing.
-    private func requirePersistedFeaturedArticle(articleID: String) throws -> FeaturedArticleCardModel {
+    private func requirePersistedFeaturedArticle(articleID: String) throws -> PhotoCardModel {
         guard let article = try persistedFeaturedArticle(articleID: articleID) else {
             throw RepositoryError.missingPersistedFeedCard
         }
@@ -665,7 +665,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Returns one persisted discussion card or throws when the snapshot is missing.
-    private func requirePersistedDiscussion(discussionID: String) throws -> DiscussionCardModel {
+    private func requirePersistedDiscussion(discussionID: String) throws -> TextCardModel {
         guard let discussion = try persistedDiscussion(discussionID: discussionID) else {
             throw RepositoryError.missingPersistedFeedCard
         }
@@ -674,7 +674,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Reads one persisted featured article card from the active backend.
-    private func persistedFeaturedArticle(articleID: String) throws -> FeaturedArticleCardModel? {
+    private func persistedFeaturedArticle(articleID: String) throws -> PhotoCardModel? {
         if #available(iOS 17, *) {
             return try databaseManager.read(
                 DatabaseReadOperation(swiftData: { context in
@@ -690,7 +690,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Reads one persisted featured article card from Core Data.
-    private func persistedCoreDataFeaturedArticle(articleID: String) throws -> FeaturedArticleCardModel? {
+    private func persistedCoreDataFeaturedArticle(articleID: String) throws -> PhotoCardModel? {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
                 let request = Self.makeCoreDataFeedCardFetchRequest()
@@ -702,7 +702,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Reads one persisted discussion card from the active backend.
-    private func persistedDiscussion(discussionID: String) throws -> DiscussionCardModel? {
+    private func persistedDiscussion(discussionID: String) throws -> TextCardModel? {
         if #available(iOS 17, *) {
             return try databaseManager.read(
                 DatabaseReadOperation(swiftData: { context in
@@ -718,7 +718,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 
     /// Reads one persisted discussion card from Core Data.
-    private func persistedCoreDataDiscussion(discussionID: String) throws -> DiscussionCardModel? {
+    private func persistedCoreDataDiscussion(discussionID: String) throws -> TextCardModel? {
         try databaseManager.read(
             DatabaseReadOperation(coreData: { context in
                 let request = Self.makeCoreDataFeedCardFetchRequest()
@@ -1409,7 +1409,7 @@ private enum AppContentPersistenceMapper {
 }
 
 private extension FeaturedArticleActionMutationPayload {
-    func makeAction() throws -> FeaturedArticleCardAction {
+    func makeAction() throws -> PhotoCardAction {
         switch actionKind {
         case "toggleLike":
             return .toggleLike
@@ -1426,9 +1426,9 @@ private extension FeaturedArticleActionMutationPayload {
         }
     }
 
-    func makeDisplayMode() throws -> FeaturedArticleCardDisplayMode {
+    func makeDisplayMode() throws -> PhotoCardDisplayMode {
         guard let displayModeRawValue,
-              let displayMode = FeaturedArticleCardDisplayMode(rawValue: displayModeRawValue) else {
+              let displayMode = PhotoCardDisplayMode(rawValue: displayModeRawValue) else {
             return .expanded
         }
 
@@ -1437,7 +1437,7 @@ private extension FeaturedArticleActionMutationPayload {
 }
 
 private extension DiscussionActionMutationPayload {
-    func makeAction() throws -> DiscussionCardAction {
+    func makeAction() throws -> TextCardAction {
         switch actionKind {
         case "toggleParticipation":
             return .toggleParticipation
@@ -1454,9 +1454,9 @@ private extension DiscussionActionMutationPayload {
         }
     }
 
-    func makeDisplayMode() throws -> DiscussionCardDisplayMode {
+    func makeDisplayMode() throws -> TextCardDisplayMode {
         guard let displayModeRawValue,
-              let displayMode = DiscussionCardDisplayMode(rawValue: displayModeRawValue) else {
+              let displayMode = TextCardDisplayMode(rawValue: displayModeRawValue) else {
             return .expanded
         }
 
@@ -1464,7 +1464,7 @@ private extension DiscussionActionMutationPayload {
     }
 }
 
-private func featuredArticleActionKind(_ action: FeaturedArticleCardAction) -> String {
+private func featuredArticleActionKind(_ action: PhotoCardAction) -> String {
     switch action {
     case .toggleLike:
         return "toggleLike"
@@ -1479,7 +1479,7 @@ private func featuredArticleActionKind(_ action: FeaturedArticleCardAction) -> S
     }
 }
 
-private func featuredArticleDisplayModeRawValue(_ action: FeaturedArticleCardAction) -> String? {
+private func featuredArticleDisplayModeRawValue(_ action: PhotoCardAction) -> String? {
     guard case let .setDisplayMode(displayMode) = action else {
         return nil
     }
@@ -1487,7 +1487,7 @@ private func featuredArticleDisplayModeRawValue(_ action: FeaturedArticleCardAct
     return displayMode.rawValue
 }
 
-private func discussionActionKind(_ action: DiscussionCardAction) -> String {
+private func discussionActionKind(_ action: TextCardAction) -> String {
     switch action {
     case .toggleParticipation:
         return "toggleParticipation"
@@ -1502,7 +1502,7 @@ private func discussionActionKind(_ action: DiscussionCardAction) -> String {
     }
 }
 
-private func discussionDisplayModeRawValue(_ action: DiscussionCardAction) -> String? {
+private func discussionDisplayModeRawValue(_ action: TextCardAction) -> String? {
     guard case let .setDisplayMode(displayMode) = action else {
         return nil
     }
@@ -1533,8 +1533,8 @@ private enum AppContentMapper {
     static func mapFeaturedArticle(
         _ article: FeaturedArticleDTO,
         channelID: String = AppChannel.defaultChannel.id
-    ) -> FeaturedArticleCardModel {
-        FeaturedArticleCardModel(
+    ) -> PhotoCardModel {
+        PhotoCardModel(
             id: article.id,
             channelID: channelID,
             postedInPrefix: article.postedInPrefix,
@@ -1546,7 +1546,7 @@ private enum AppContentMapper {
             translationLabel: article.translationLabel,
             commentCount: article.localState.commentCount,
             actions: article.actions.map(mapArticleAction),
-            uiState: FeaturedArticleCardUIState(
+            uiState: PhotoCardUIState(
                 isLiked: article.localState.isLiked,
                 displayMode: article.localState.displayMode,
                 pendingOperation: nil,
@@ -1567,16 +1567,16 @@ private enum AppContentMapper {
     static func mapDiscussion(
         _ discussion: DiscussionDTO,
         channelID: String = AppChannel.defaultChannel.id
-    ) -> DiscussionCardModel {
-        DiscussionCardModel(
+    ) -> TextCardModel {
+        TextCardModel(
             id: discussion.id,
             channelID: channelID,
             categoryTitle: discussion.categoryTitle,
             headline: discussion.headline,
-            participants: discussion.participants.map(mapDiscussionParticipant),
+            participants: discussion.participants.map(mapTextCardParticipant),
             replyCount: discussion.localState.replyCount,
             joinedCount: discussion.localState.joinedCount,
-            uiState: DiscussionCardUIState(
+            uiState: TextCardUIState(
                 isParticipating: discussion.localState.isParticipating,
                 displayMode: discussion.localState.displayMode,
                 pendingOperation: nil,
@@ -1585,8 +1585,8 @@ private enum AppContentMapper {
         )
     }
 
-    static func mapDiscussionParticipant(_ participant: DiscussionParticipantDTO) -> DiscussionParticipant {
-        DiscussionParticipant(
+    static func mapTextCardParticipant(_ participant: TextCardParticipantDTO) -> TextCardParticipant {
+        TextCardParticipant(
             id: participant.id,
             initials: participant.initials,
             isHighlighted: participant.isHighlighted
@@ -1621,8 +1621,8 @@ private enum AppContentMapper {
     }
 
     @available(iOS 17, *)
-    static func mapFeaturedArticle(_ record: FeedCardRecord) -> FeaturedArticleCardModel {
-        FeaturedArticleCardModel(
+    static func mapFeaturedArticle(_ record: FeedCardRecord) -> PhotoCardModel {
+        PhotoCardModel(
             id: record.id,
             channelID: record.channelID,
             postedInPrefix: record.postedInPrefix ?? "",
@@ -1638,8 +1638,8 @@ private enum AppContentMapper {
         )
     }
 
-    static func mapFeaturedArticle(_ record: CoreDataFeedCardEntity) -> FeaturedArticleCardModel {
-        FeaturedArticleCardModel(
+    static func mapFeaturedArticle(_ record: CoreDataFeedCardEntity) -> PhotoCardModel {
+        PhotoCardModel(
             id: record.id,
             channelID: record.channelID,
             postedInPrefix: record.postedInPrefix ?? "",
@@ -1656,26 +1656,26 @@ private enum AppContentMapper {
     }
 
     @available(iOS 17, *)
-    static func mapDiscussion(_ record: FeedCardRecord) -> DiscussionCardModel {
-        DiscussionCardModel(
+    static func mapDiscussion(_ record: FeedCardRecord) -> TextCardModel {
+        TextCardModel(
             id: record.id,
             channelID: record.channelID,
             categoryTitle: record.categoryTitle ?? "",
             headline: record.headline,
-            participants: decodeDiscussionParticipants(from: record.participantsData),
+            participants: decodeTextCardParticipants(from: record.participantsData),
             replyCount: decodeDiscussionState(from: record.discussionStateData).replyCount,
             joinedCount: decodeDiscussionState(from: record.discussionStateData).joinedCount,
             uiState: decodeDiscussionUIState(from: record.discussionStateData)
         )
     }
 
-    static func mapDiscussion(_ record: CoreDataFeedCardEntity) -> DiscussionCardModel {
-        DiscussionCardModel(
+    static func mapDiscussion(_ record: CoreDataFeedCardEntity) -> TextCardModel {
+        TextCardModel(
             id: record.id,
             channelID: record.channelID,
             categoryTitle: record.categoryTitle ?? "",
             headline: record.headline,
-            participants: decodeDiscussionParticipants(from: record.participantsData),
+            participants: decodeTextCardParticipants(from: record.participantsData),
             replyCount: decodeDiscussionState(from: record.discussionStateData).replyCount,
             joinedCount: decodeDiscussionState(from: record.discussionStateData).joinedCount,
             uiState: decodeDiscussionUIState(from: record.discussionStateData)
@@ -1700,7 +1700,7 @@ private enum AppContentMapper {
         }
     }
 
-    static func decodeDiscussionParticipants(from data: Data?) -> [DiscussionParticipant] {
+    static func decodeTextCardParticipants(from data: Data?) -> [TextCardParticipant] {
         guard
             let data,
             let payload = try? JSONDecoder().decode([FeedCardParticipantPayload].self, from: data)
@@ -1709,7 +1709,7 @@ private enum AppContentMapper {
         }
 
         return payload.map {
-            DiscussionParticipant(
+            TextCardParticipant(
                 id: $0.id,
                 initials: $0.initials,
                 isHighlighted: $0.isHighlighted
@@ -1717,11 +1717,11 @@ private enum AppContentMapper {
         }
     }
 
-    static func decodeFeaturedArticleUIState(from data: Data?) -> FeaturedArticleCardUIState {
+    static func decodeFeaturedArticleUIState(from data: Data?) -> PhotoCardUIState {
         let state = decodeFeaturedArticleState(from: data)
-        return FeaturedArticleCardUIState(
+        return PhotoCardUIState(
             isLiked: state.isLiked,
-            displayMode: FeaturedArticleCardDisplayMode(rawValue: state.displayModeRawValue) ?? .expanded,
+            displayMode: PhotoCardDisplayMode(rawValue: state.displayModeRawValue) ?? .expanded,
             pendingOperation: nil,
             inlineStatusMessage: nil
         )
@@ -1735,18 +1735,18 @@ private enum AppContentMapper {
             return FeedCardArticleStatePayload(
                 isLiked: false,
                 commentCount: 0,
-                displayModeRawValue: FeaturedArticleCardDisplayMode.expanded.rawValue
+                displayModeRawValue: PhotoCardDisplayMode.expanded.rawValue
             )
         }
 
         return payload
     }
 
-    static func decodeDiscussionUIState(from data: Data?) -> DiscussionCardUIState {
+    static func decodeDiscussionUIState(from data: Data?) -> TextCardUIState {
         let state = decodeDiscussionState(from: data)
-        return DiscussionCardUIState(
+        return TextCardUIState(
             isParticipating: state.isParticipating,
-            displayMode: DiscussionCardDisplayMode(rawValue: state.displayModeRawValue) ?? .expanded,
+            displayMode: TextCardDisplayMode(rawValue: state.displayModeRawValue) ?? .expanded,
             pendingOperation: nil,
             inlineStatusMessage: nil
         )
@@ -1761,7 +1761,7 @@ private enum AppContentMapper {
                 isParticipating: false,
                 replyCount: 0,
                 joinedCount: 0,
-                displayModeRawValue: DiscussionCardDisplayMode.expanded.rawValue
+                displayModeRawValue: TextCardDisplayMode.expanded.rawValue
             )
         }
 

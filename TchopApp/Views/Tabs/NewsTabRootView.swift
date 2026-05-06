@@ -30,28 +30,28 @@ struct NewsTabRootView: View {
     }
 
     /// Opens featured article.
-    private func openFeaturedArticle(_ article: FeaturedArticleCardModel) {
+    private func openFeaturedArticle(_ article: PhotoCardModel) {
         router.push(article.detailRoute)
     }
 
     /// Handles card-level intents that either mutate local card state or open navigation.
     private func handleFeaturedArticleAction(
-        _ article: FeaturedArticleCardModel,
-        _ action: FeaturedArticleCardAction
+        _ article: PhotoCardModel,
+        _ action: PhotoCardAction
     ) {
         viewModel.handleFeaturedArticleAction(articleID: article.id, action: action)
     }
 
     /// Handles discussion card intents and keeps the detail route on the main card tap only.
     private func handleDiscussionAction(
-        _ discussion: DiscussionCardModel,
-        _ action: DiscussionCardAction
+        _ discussion: TextCardModel,
+        _ action: TextCardAction
     ) {
         viewModel.handleDiscussionAction(discussionID: discussion.id, action: action)
     }
 
     /// Opens discussion.
-    private func openDiscussion(_ discussion: DiscussionCardModel) {
+    private func openDiscussion(_ discussion: TextCardModel) {
         router.push(discussion.detailRoute)
     }
 }

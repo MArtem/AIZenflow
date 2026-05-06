@@ -75,12 +75,12 @@ struct DiscussionDTO: Decodable, Sendable {
     let publishedAt: Date?
     let categoryTitle: String
     let headline: String
-    let participants: [DiscussionParticipantDTO]
+    let participants: [TextCardParticipantDTO]
     let localState: DiscussionStateDTO
 }
 
 /// DTO describing a participant preview inside a discussion card.
-struct DiscussionParticipantDTO: Decodable, Sendable {
+struct TextCardParticipantDTO: Decodable, Sendable {
     let id: String
     let initials: String
     let isHighlighted: Bool
@@ -90,7 +90,7 @@ struct DiscussionParticipantDTO: Decodable, Sendable {
 struct FeaturedArticleStateDTO: Decodable, Sendable {
     let isLiked: Bool
     let commentCount: Int
-    let displayMode: FeaturedArticleCardDisplayMode
+    let displayMode: PhotoCardDisplayMode
 }
 
 /// Persisted discussion card state returned by the API contract or stub backend.
@@ -98,19 +98,19 @@ struct DiscussionStateDTO: Decodable, Sendable {
     let isParticipating: Bool
     let replyCount: Int
     let joinedCount: Int
-    let displayMode: DiscussionCardDisplayMode
+    let displayMode: TextCardDisplayMode
 }
 
 /// Narrow persisted-state context needed by featured article API actions.
 struct FeaturedArticleActionContext: Sendable {
     let isLiked: Bool
-    let displayMode: FeaturedArticleCardDisplayMode
+    let displayMode: PhotoCardDisplayMode
 }
 
 /// Narrow persisted-state context needed by discussion API actions.
 struct DiscussionActionContext: Sendable {
     let isParticipating: Bool
-    let displayMode: DiscussionCardDisplayMode
+    let displayMode: TextCardDisplayMode
 }
 
 /// API abstraction used by repositories to fetch home feed content.
@@ -122,7 +122,7 @@ protocol FeedAPIManaging: Sendable {
     func performFeaturedArticleAction(
         channelID: String,
         articleID: String,
-        action: FeaturedArticleCardAction,
+        action: PhotoCardAction,
         context: FeaturedArticleActionContext
     ) async throws -> FeaturedArticleDTO
 
@@ -130,7 +130,7 @@ protocol FeedAPIManaging: Sendable {
     func performDiscussionAction(
         channelID: String,
         discussionID: String,
-        action: DiscussionCardAction,
+        action: TextCardAction,
         context: DiscussionActionContext
     ) async throws -> DiscussionDTO
 }
@@ -163,7 +163,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     func performFeaturedArticleAction(
         channelID: String,
         articleID: String,
-        action: FeaturedArticleCardAction,
+        action: PhotoCardAction,
         context: FeaturedArticleActionContext
     ) async throws -> FeaturedArticleDTO {
         switch action {
@@ -191,7 +191,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     func performDiscussionAction(
         channelID: String,
         discussionID: String,
-        action: DiscussionCardAction,
+        action: TextCardAction,
         context: DiscussionActionContext
     ) async throws -> DiscussionDTO {
         switch action {
@@ -256,7 +256,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     private func setFeaturedArticleDisplayMode(
         channelID: String,
         articleID: String,
-        displayMode: FeaturedArticleCardDisplayMode
+        displayMode: PhotoCardDisplayMode
     ) async throws -> FeaturedArticleDTO {
         try await performFeaturedArticleMutation(
             channelID: channelID,
@@ -347,7 +347,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     private func setDiscussionDisplayMode(
         channelID: String,
         discussionID: String,
-        displayMode: DiscussionCardDisplayMode
+        displayMode: TextCardDisplayMode
     ) async throws -> DiscussionDTO {
         try await performDiscussionMutation(
             channelID: channelID,
@@ -389,7 +389,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
             discussion.withContent(
                 headline: "Updated discussion summary ready for participants",
                 participants: Array(discussion.participants.prefix(2)) + [
-                    DiscussionParticipantDTO(
+                    TextCardParticipantDTO(
                         id: "\(discussion.id)-participant-new",
                         initials: "N",
                         isHighlighted: true
@@ -625,7 +625,7 @@ private extension DiscussionDTO {
 
     func withContent(
         headline: String? = nil,
-        participants: [DiscussionParticipantDTO]? = nil
+        participants: [TextCardParticipantDTO]? = nil
     ) -> DiscussionDTO {
         DiscussionDTO(
             id: id,

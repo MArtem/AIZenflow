@@ -10,12 +10,12 @@ struct NewsFeedView: View {
     @Bindable var viewModel: NewsFeedViewModel
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
-    let onFeaturedArticleTap: (FeaturedArticleCardModel) -> Void
+    let onFeaturedArticleTap: (PhotoCardModel) -> Void
     /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
-    let onFeaturedArticleAction: (FeaturedArticleCardModel, FeaturedArticleCardAction) -> Void
-    let onDiscussionTap: (DiscussionCardModel) -> Void
+    let onFeaturedArticleAction: (PhotoCardModel, PhotoCardAction) -> Void
+    let onDiscussionTap: (TextCardModel) -> Void
     /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
-    let onDiscussionAction: (DiscussionCardModel, DiscussionCardAction) -> Void
+    let onDiscussionAction: (TextCardModel, TextCardAction) -> Void
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -37,13 +37,13 @@ struct NewsFeedView: View {
                     ForEach(viewModel.visibleContent.cards) { card in
                         switch card {
                         case let .photo(article):
-                            FeaturedArticleCard(
+                            PhotoCardView(
                                 article: article,
                                 onTap: { onFeaturedArticleTap(article) },
                                 onAction: { onFeaturedArticleAction(article, $0) }
                             )
                         case let .text(discussion):
-                            DiscussionCard(
+                            TextCardView(
                                 discussion: discussion,
                                 onTap: { onDiscussionTap(discussion) },
                                 onAction: { onDiscussionAction(discussion, $0) }

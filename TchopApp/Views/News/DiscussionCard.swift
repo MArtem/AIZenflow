@@ -1,10 +1,10 @@
 import SwiftUI
 
 /// Card rendering a highlighted discussion preview in the news feed.
-struct DiscussionCard: View {
-    let discussion: DiscussionCardModel
+struct TextCardView: View {
+    let discussion: TextCardModel
     let onTap: () -> Void
-    let onAction: (DiscussionCardAction) -> Void
+    let onAction: (TextCardAction) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -188,7 +188,7 @@ struct DiscussionCard: View {
         .shadow(color: AppTheme.shadow.opacity(0.5), radius: 6, y: 1)
     }
 
-    private var visibleParticipants: [DiscussionParticipant] {
+    private var visibleParticipants: [TextCardParticipant] {
         if discussion.uiState.displayMode == .expanded {
             return discussion.participants
         }
@@ -222,7 +222,7 @@ struct DiscussionCard: View {
 
 #if DEBUG
 #Preview("Discussion Card") {
-    DiscussionCard(
+    TextCardView(
         discussion: ViewPreviewSupport.sampleDiscussion,
         onTap: {},
         onAction: { _ in }

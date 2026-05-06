@@ -199,7 +199,7 @@ final class NewsFeedViewModel {
     /// Handles a user intent emitted by a featured article card in the visible feed.
     func handleFeaturedArticleAction(
         articleID: String,
-        action: FeaturedArticleCardAction
+        action: PhotoCardAction
     ) {
         switch featuredArticleActionStartDecision(for: action, articleID: articleID) {
         case .start:
@@ -228,7 +228,7 @@ final class NewsFeedViewModel {
     /// Handles a user intent emitted by a discussion card in the visible feed.
     func handleDiscussionAction(
         discussionID: String,
-        action: DiscussionCardAction
+        action: TextCardAction
     ) {
         switch discussionActionStartDecision(for: action, discussionID: discussionID) {
         case .start:
@@ -450,7 +450,7 @@ final class NewsFeedViewModel {
 
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: !$0.isLiked,
                     displayMode: $0.displayMode,
                     pendingOperation: .liking,
@@ -500,7 +500,7 @@ final class NewsFeedViewModel {
 
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: $0.isLiked,
                     displayMode: $0.displayMode,
                     pendingOperation: .addingComment,
@@ -557,7 +557,7 @@ final class NewsFeedViewModel {
     /// The active layout is updated optimistically because the local persisted preference is
     /// owned by the app and does not require server-side reconciliation yet.
     private func startFeaturedArticleDisplayModeTask(
-        _ displayMode: FeaturedArticleCardDisplayMode,
+        _ displayMode: PhotoCardDisplayMode,
         for articleID: String
     ) {
         guard let currentArticle = featuredArticle(withID: articleID),
@@ -566,7 +566,7 @@ final class NewsFeedViewModel {
         let previousArticle = currentArticle
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: $0.isLiked,
                     displayMode: displayMode,
                     pendingOperation: .updatingDisplayMode,
@@ -616,7 +616,7 @@ final class NewsFeedViewModel {
 
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: $0.isLiked,
                     displayMode: $0.displayMode,
                     pendingOperation: .refreshingContent,
@@ -663,7 +663,7 @@ final class NewsFeedViewModel {
 
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: $0.isLiked,
                     displayMode: $0.displayMode,
                     pendingOperation: .updatingContent,
@@ -704,14 +704,14 @@ final class NewsFeedViewModel {
 
     /// Replaces the visible featured article with the latest persisted snapshot.
     private func finishFeaturedArticleAction(
-        _ updatedArticle: FeaturedArticleCardModel,
+        _ updatedArticle: PhotoCardModel,
         articleID: String,
         statusMessage: String?
     ) {
         featuredArticleActionCoordinator.clear(cardID: articleID)
         updateFeaturedArticle(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: updatedArticle.uiState.isLiked,
                     displayMode: updatedArticle.uiState.displayMode,
                     pendingOperation: nil,
@@ -729,7 +729,7 @@ final class NewsFeedViewModel {
         featuredArticleActionCoordinator.clear(cardID: articleID)
         updateFeaturedArticle(articleID: articleID) { article in
             article.updatingUIState {
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: $0.isLiked,
                     displayMode: $0.displayMode,
                     pendingOperation: nil,
@@ -742,7 +742,7 @@ final class NewsFeedViewModel {
     /// Restores the previous article snapshot after a failed optimistic action.
     private func rollbackFeaturedArticle(
         articleID: String,
-        previousArticle: FeaturedArticleCardModel?
+        previousArticle: PhotoCardModel?
     ) {
         rollbackFeaturedArticle(
             articleID: articleID,
@@ -754,7 +754,7 @@ final class NewsFeedViewModel {
     /// Restores the previous article snapshot after a failed optimistic action and shows the supplied status message.
     private func rollbackFeaturedArticle(
         articleID: String,
-        previousArticle: FeaturedArticleCardModel?,
+        previousArticle: PhotoCardModel?,
         message: String
     ) {
         featuredArticleActionCoordinator.clear(cardID: articleID)
@@ -770,7 +770,7 @@ final class NewsFeedViewModel {
                     }
                     return .photo(
                         previousArticle.updatingUIState {
-                            FeaturedArticleCardUIState(
+                            PhotoCardUIState(
                                 isLiked: $0.isLiked,
                                 displayMode: $0.displayMode,
                                 pendingOperation: nil,
@@ -787,7 +787,7 @@ final class NewsFeedViewModel {
     /// Updates one featured article card inside the currently visible feed content.
     private func updateFeaturedArticle(
         articleID: String,
-        transform: (FeaturedArticleCardModel) -> FeaturedArticleCardModel
+        transform: (PhotoCardModel) -> PhotoCardModel
     ) {
         updateVisibleContent { content in
             NewsFeedContent(
@@ -819,7 +819,7 @@ final class NewsFeedViewModel {
     }
 
     /// Returns the visible featured article snapshot for a given identifier.
-    private func featuredArticle(withID articleID: String) -> FeaturedArticleCardModel? {
+    private func featuredArticle(withID articleID: String) -> PhotoCardModel? {
         for card in state.content.cards {
             if case let .photo(article) = card, article.id == articleID {
                 return article
@@ -840,7 +840,7 @@ final class NewsFeedViewModel {
 
     /// Evaluates whether one featured article action should start now, queue behind an additive in-flight action, or be ignored.
     private func featuredArticleActionStartDecision(
-        for action: FeaturedArticleCardAction,
+        for action: PhotoCardAction,
         articleID: String
     ) -> CardActionStartDecision {
         guard let article = featuredArticle(withID: articleID) else {
@@ -862,7 +862,7 @@ final class NewsFeedViewModel {
 
     /// Applies one successful intermediate comment result and returns whether another queued request should continue immediately.
     private func applyFeaturedArticleQueuedCommentProgress(
-        _ updatedArticle: FeaturedArticleCardModel,
+        _ updatedArticle: PhotoCardModel,
         articleID: String
     ) -> Bool {
         guard featuredArticleActionCoordinator.consumeQueuedAdditiveAction(for: articleID) else {
@@ -871,7 +871,7 @@ final class NewsFeedViewModel {
 
         updateFeaturedArticle(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
-                FeaturedArticleCardUIState(
+                PhotoCardUIState(
                     isLiked: updatedArticle.uiState.isLiked,
                     displayMode: updatedArticle.uiState.displayMode,
                     pendingOperation: .addingComment,
@@ -889,9 +889,9 @@ final class NewsFeedViewModel {
 
     /// Resolves the rollback/preserve policy for a failed featured article action and applies it to the visible card.
     private func handleFeaturedArticleFailure(
-        action: FeaturedArticleCardAction,
+        action: PhotoCardAction,
         articleID: String,
-        previousArticle: FeaturedArticleCardModel?,
+        previousArticle: PhotoCardModel?,
         error: Error
     ) async {
         let policy = await featuredArticleFailurePolicy(for: action, error: error)
@@ -909,7 +909,7 @@ final class NewsFeedViewModel {
 
     /// Determines how featured article UI should recover from a repository/network failure.
     private func featuredArticleFailurePolicy(
-        for action: FeaturedArticleCardAction,
+        for action: PhotoCardAction,
         error: Error
     ) async -> CardActionFailurePolicy {
         let fallbackMessage = await cardActionFailureMessage(for: error, feature: "featuredArticle")
@@ -930,7 +930,7 @@ final class NewsFeedViewModel {
         let previousDiscussion = discussion(withID: discussionID)
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: !$0.isParticipating,
                     displayMode: $0.displayMode,
                     pendingOperation: .togglingParticipation,
@@ -980,7 +980,7 @@ final class NewsFeedViewModel {
 
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: $0.isParticipating,
                     displayMode: $0.displayMode,
                     pendingOperation: .addingReply,
@@ -1034,7 +1034,7 @@ final class NewsFeedViewModel {
 
     /// Persists a display-mode preference for one discussion card.
     private func startDiscussionDisplayModeTask(
-        _ displayMode: DiscussionCardDisplayMode,
+        _ displayMode: TextCardDisplayMode,
         for discussionID: String
     ) {
         guard let currentDiscussion = discussion(withID: discussionID),
@@ -1043,7 +1043,7 @@ final class NewsFeedViewModel {
         let previousDiscussion = currentDiscussion
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: $0.isParticipating,
                     displayMode: displayMode,
                     pendingOperation: .updatingDisplayMode,
@@ -1086,7 +1086,7 @@ final class NewsFeedViewModel {
 
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: $0.isParticipating,
                     displayMode: $0.displayMode,
                     pendingOperation: .refreshingContent,
@@ -1133,7 +1133,7 @@ final class NewsFeedViewModel {
 
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: $0.isParticipating,
                     displayMode: $0.displayMode,
                     pendingOperation: .updatingContent,
@@ -1174,14 +1174,14 @@ final class NewsFeedViewModel {
 
     /// Replaces the visible discussion card with the latest persisted snapshot.
     private func finishDiscussionAction(
-        _ updatedDiscussion: DiscussionCardModel,
+        _ updatedDiscussion: TextCardModel,
         discussionID: String,
         statusMessage: String?
     ) {
         discussionActionCoordinator.clear(cardID: discussionID)
         updateDiscussion(discussionID: discussionID) { _ in
             updatedDiscussion.updatingUIState { _ in
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: updatedDiscussion.uiState.isParticipating,
                     displayMode: updatedDiscussion.uiState.displayMode,
                     pendingOperation: nil,
@@ -1199,7 +1199,7 @@ final class NewsFeedViewModel {
         discussionActionCoordinator.clear(cardID: discussionID)
         updateDiscussion(discussionID: discussionID) { discussion in
             discussion.updatingUIState {
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: $0.isParticipating,
                     displayMode: $0.displayMode,
                     pendingOperation: nil,
@@ -1212,7 +1212,7 @@ final class NewsFeedViewModel {
     /// Restores the previous discussion snapshot after a failed optimistic action.
     private func rollbackDiscussion(
         discussionID: String,
-        previousDiscussion: DiscussionCardModel?
+        previousDiscussion: TextCardModel?
     ) {
         rollbackDiscussion(
             discussionID: discussionID,
@@ -1224,7 +1224,7 @@ final class NewsFeedViewModel {
     /// Restores the previous discussion snapshot after a failed optimistic action and shows the supplied status message.
     private func rollbackDiscussion(
         discussionID: String,
-        previousDiscussion: DiscussionCardModel?,
+        previousDiscussion: TextCardModel?,
         message: String
     ) {
         discussionActionCoordinator.clear(cardID: discussionID)
@@ -1240,7 +1240,7 @@ final class NewsFeedViewModel {
                     }
                     return .text(
                         previousDiscussion.updatingUIState {
-                            DiscussionCardUIState(
+                            TextCardUIState(
                                 isParticipating: $0.isParticipating,
                                 displayMode: $0.displayMode,
                                 pendingOperation: nil,
@@ -1257,7 +1257,7 @@ final class NewsFeedViewModel {
     /// Updates one discussion card inside the currently visible feed content.
     private func updateDiscussion(
         discussionID: String,
-        transform: (DiscussionCardModel) -> DiscussionCardModel
+        transform: (TextCardModel) -> TextCardModel
     ) {
         updateVisibleContent { content in
             NewsFeedContent(
@@ -1273,7 +1273,7 @@ final class NewsFeedViewModel {
     }
 
     /// Returns the visible discussion snapshot for a given identifier.
-    private func discussion(withID discussionID: String) -> DiscussionCardModel? {
+    private func discussion(withID discussionID: String) -> TextCardModel? {
         for card in state.content.cards {
             if case let .text(discussion) = card, discussion.id == discussionID {
                 return discussion
@@ -1294,7 +1294,7 @@ final class NewsFeedViewModel {
 
     /// Evaluates whether one discussion action should start now, queue behind an additive in-flight action, or be ignored.
     private func discussionActionStartDecision(
-        for action: DiscussionCardAction,
+        for action: TextCardAction,
         discussionID: String
     ) -> CardActionStartDecision {
         guard let discussion = discussion(withID: discussionID) else {
@@ -1316,7 +1316,7 @@ final class NewsFeedViewModel {
 
     /// Applies one successful intermediate reply result and returns whether another queued request should continue immediately.
     private func applyDiscussionQueuedReplyProgress(
-        _ updatedDiscussion: DiscussionCardModel,
+        _ updatedDiscussion: TextCardModel,
         discussionID: String
     ) -> Bool {
         guard discussionActionCoordinator.consumeQueuedAdditiveAction(for: discussionID) else {
@@ -1325,7 +1325,7 @@ final class NewsFeedViewModel {
 
         updateDiscussion(discussionID: discussionID) { _ in
             updatedDiscussion.updatingUIState { _ in
-                DiscussionCardUIState(
+                TextCardUIState(
                     isParticipating: updatedDiscussion.uiState.isParticipating,
                     displayMode: updatedDiscussion.uiState.displayMode,
                     pendingOperation: .addingReply,
@@ -1343,9 +1343,9 @@ final class NewsFeedViewModel {
 
     /// Resolves the rollback/preserve policy for a failed discussion action and applies it to the visible card.
     private func handleDiscussionFailure(
-        action: DiscussionCardAction,
+        action: TextCardAction,
         discussionID: String,
-        previousDiscussion: DiscussionCardModel?,
+        previousDiscussion: TextCardModel?,
         error: Error
     ) async {
         let policy = await discussionFailurePolicy(for: action, error: error)
@@ -1363,7 +1363,7 @@ final class NewsFeedViewModel {
 
     /// Determines how discussion UI should recover from a repository/network failure.
     private func discussionFailurePolicy(
-        for action: DiscussionCardAction,
+        for action: TextCardAction,
         error: Error
     ) async -> CardActionFailurePolicy {
         let fallbackMessage = await cardActionFailureMessage(for: error, feature: "discussion")
