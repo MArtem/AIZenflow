@@ -8,6 +8,8 @@ Use this file as the persistent services-layer instruction set for this project 
 - Keep services focused on one responsibility.
 - Avoid hidden global state and hardcoded dependencies.
 - Prefer dependency injection through the app DI container.
+- Reusable packages and managers are the root layer: if behavior is generic and cross-project reusable, it belongs in the package/manager, not reimplemented in app code.
+- App code should keep only project-specific adaptation: DTO mapping, domain rules, persistence schema details, endpoint specifics, and UI-facing composition.
 
 ## API Services
 - Keep transport concerns separate from feature-specific API managers.

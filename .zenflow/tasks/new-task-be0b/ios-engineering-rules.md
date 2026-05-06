@@ -48,6 +48,7 @@ Use this file as the persistent engineering instruction set for this project whe
   - offline-first architecture when relevant
 - Use protocol-driven boundaries when they provide a real seam for dependency injection, substitution, layer isolation, or testability.
 - Do not introduce protocols purely for theoretical abstraction or future-proofing with no practical current benefit.
+- Treat reusable packages/managers as the architectural root: push generic reusable behavior downward into the package layer, and keep app code focused on project-specific adaptation and composition.
 - Prefer dependency injection over hidden singletons.
 - Service and manager types should have clear responsibilities and configuration points.
 - If the active target floor is `iOS 17+`, prefer a SwiftData-first persistence baseline and do not add new Core Data branches unless the user explicitly asks for them.

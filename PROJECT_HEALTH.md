@@ -8,6 +8,10 @@ It is intended to answer three questions quickly:
 - what should not be extracted into a package unless project constraints change.
 
 ## Reusable Package Inventory
+Global package rule:
+- if a behavior is reusable and not tied to app domain semantics, the package/manager should own it.
+- app code should keep only project-specific mapping, business rules, endpoint semantics, persistence schema choices, and UI-facing composition.
+
 ### `TchopNetworking`
 Status: reusable.
 
@@ -62,6 +66,7 @@ Keep reusable:
 - engine/scheduler/status store contracts
 - local/remote adapter protocols
 - conflict primitives and metadata models
+- any sync behavior that stays entity-agnostic and project-agnostic
 
 Do not couple to app:
 - `FeedCardRecord`/`ChannelRecord` types

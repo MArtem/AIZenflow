@@ -73,6 +73,7 @@ In short:
 - current localization coverage baseline = all active `AppLocalization` key usages are now backed by both `en` and `ru` resource entries, so runtime localization is no longer depending on missing-key fallback behavior in app surfaces.
 - implementation-scope baseline = implement only explicitly requested behavior; do not add speculative UI, speculative logic, or extra fallback flows without explicit approval.
 - package-first baseline = reusable managers/packages are the foundation; app code should adapt to package contracts, not wrap them in extra shim layers unless there is a proven seam requirement.
+- package-ownership baseline = each reusable package/manager should own as much root reusable behavior as it can correctly generalize; app code should keep only project-specific mapping, policy, domain rules, and UI composition.
 - navigation lifecycle baseline = do not assume immediate deallocation on pop; prefer `.task` over `.onAppear` for async loading and cancel tasks explicitly.
 
 ## Dependency Graph At A Glance
