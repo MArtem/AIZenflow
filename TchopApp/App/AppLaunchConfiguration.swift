@@ -1,4 +1,5 @@
 import Foundation
+import TchopDatabase
 
 /// Launch-time database mode used to steer the app between automatic resolution and
 /// explicit single-backend runs for local development and debugging.
@@ -12,7 +13,7 @@ private enum AppLaunchDatabaseMode {
 
     /// Maps the launch mode to the backend selection policy consumed by the shared
     /// database bootstrap contract.
-    var backendSelectionPolicy: AppDatabaseBackendSelectionPolicy {
+    var backendSelectionPolicy: DatabaseBackendSelectionPolicy {
         .swiftData
     }
 
@@ -71,15 +72,15 @@ struct AppLaunchConfiguration {
     ///
     /// Legacy `automatic` / `coreData` launch overrides are intentionally commented in the
     /// implementation so the old runtime-selection path can be restored quickly if needed.
-    var databaseConfiguration: AppDatabaseConfiguration {
+    var databaseConfiguration: DatabaseConfiguration {
         if isUITesting {
-            return AppDatabaseConfiguration(
+            return DatabaseConfiguration(
                 backendSelectionPolicy: databaseMode.backendSelectionPolicy,
                 isStoredInMemoryOnly: true
             )
         }
 
-        return AppDatabaseConfiguration(
+        return DatabaseConfiguration(
             backendSelectionPolicy: databaseMode.backendSelectionPolicy,
             isStoredInMemoryOnly: false
         )

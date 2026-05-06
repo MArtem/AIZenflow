@@ -100,7 +100,7 @@ struct TestNetworkAvailabilityMonitor: NetworkAvailabilityChecking {
 /// Creates a disposable in-memory database manager for app tests.
 @MainActor
 func makeInMemoryAppDatabaseManager(
-    backend: AppDatabaseBackendSelectionPolicy = .coreData
+    backend: DatabaseBackendSelectionPolicy = .swiftData
 ) -> any DatabaseManaging {
     AppDatabase.makeDatabaseManager(
         configuration: DatabaseConfiguration(

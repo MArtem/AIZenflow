@@ -180,7 +180,7 @@ final class AppDIContainer {
 
     /// Creates the root dependency container and eagerly wires the initial graph.
     init(
-        databaseConfiguration: AppDatabaseConfiguration = .persistent,
+        databaseConfiguration: DatabaseConfiguration = .persistent,
         apiEnvironment: AppAPIEnvironment = .localStub,
         isUITesting: Bool = false
     ) {
@@ -290,7 +290,7 @@ final class AppDIContainer {
 
     /// Creates the shared database manager and performs local seeding before the graph is assembled.
     private static func makeSeededDatabaseManager(
-        configuration: AppDatabaseConfiguration
+        configuration: DatabaseConfiguration
     ) -> any DatabaseManaging {
         let databaseManager: any DatabaseManaging
         do {

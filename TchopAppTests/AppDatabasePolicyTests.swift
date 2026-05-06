@@ -7,7 +7,7 @@ final class AppDatabasePolicyTests: XCTestCase {
     /// Verifies automatic policy uses Core Data when SwiftData is unavailable.
     func testAutomaticPolicyUsesCoreDataWhenSwiftDataIsUnavailable() throws {
         let plan = try AppDatabaseRuntimePolicy.plan(
-            for: AppDatabaseConfiguration(
+            for: DatabaseConfiguration(
                 backendSelectionPolicy: .automatic,
                 isStoredInMemoryOnly: false
             ),
@@ -24,7 +24,7 @@ final class AppDatabasePolicyTests: XCTestCase {
     /// Verifies automatic policy prefers SwiftData for fresh installs on supported systems.
     func testAutomaticPolicyUsesSwiftDataForFreshInstall() throws {
         let plan = try AppDatabaseRuntimePolicy.plan(
-            for: AppDatabaseConfiguration(
+            for: DatabaseConfiguration(
                 backendSelectionPolicy: .automatic,
                 isStoredInMemoryOnly: false
             ),
@@ -41,7 +41,7 @@ final class AppDatabasePolicyTests: XCTestCase {
     /// Verifies automatic policy migrates legacy Core Data installs on supported systems.
     func testAutomaticPolicyMigratesLegacyCoreDataInstall() throws {
         let plan = try AppDatabaseRuntimePolicy.plan(
-            for: AppDatabaseConfiguration(
+            for: DatabaseConfiguration(
                 backendSelectionPolicy: .automatic,
                 isStoredInMemoryOnly: false
             ),
@@ -59,7 +59,7 @@ final class AppDatabasePolicyTests: XCTestCase {
     func testExplicitSwiftDataPolicyThrowsWhenSwiftDataIsUnavailable() {
         XCTAssertThrowsError(
             try AppDatabaseRuntimePolicy.plan(
-                for: AppDatabaseConfiguration(
+                for: DatabaseConfiguration(
                     backendSelectionPolicy: .swiftData,
                     isStoredInMemoryOnly: false
                 ),

@@ -3,24 +3,13 @@ import Foundation
 import SwiftData
 import TchopDatabase
 
-/// App-local alias for the active infrastructure backend kind.
-typealias AppDatabaseBackendKind = DatabaseBackendKind
-
-/// App-local alias for infrastructure backend selection policy.
-typealias AppDatabaseBackendSelectionPolicy = DatabaseBackendSelectionPolicy
-
-/// App-local alias for infrastructure database configuration.
-typealias AppDatabaseConfiguration = DatabaseConfiguration
-
 /// Builds app-specific persistence containers and delegates backend selection to the infrastructure package.
 @MainActor
 enum AppDatabase {
-    private static let databaseResolver: any DatabaseManagerResolving = DatabaseManagerResolver()
-
     /// Creates the shared database manager used by the application.
     @MainActor
     static func makeDatabaseManager(
-        configuration: AppDatabaseConfiguration = .persistent
+        configuration: DatabaseConfiguration = .persistent
     ) -> any DatabaseManaging {
         do {
             return try makeDatabaseManagerOrThrow(configuration: configuration)
@@ -32,7 +21,7 @@ enum AppDatabase {
     /// Creates the shared database manager used by the application or throws the underlying bootstrap error.
     @MainActor
     static func makeDatabaseManagerOrThrow(
-        configuration: AppDatabaseConfiguration = .persistent
+        configuration: DatabaseConfiguration = .persistent
     ) throws -> any DatabaseManaging {
         /*
          Legacy automatic backend selection, Core Data bootstrap, and Core Data -> SwiftData
@@ -62,10 +51,10 @@ enum AppDatabase {
     @MainActor
     @available(iOS 17, *)
     private static func makeSwiftDataManager(
-        configuration: AppDatabaseConfiguration
+        configuration: DatabaseConfiguration
     ) throws -> SwiftDataDatabaseManager {
-        let manager = try databaseResolver.makeDatabaseManager(
-            configuration: AppDatabaseConfiguration(
+        let manager = try DatabaseManagerResolver().makeDatabaseManager(
+            configuration: DatabaseConfiguration(
                 backendSelectionPolicy: .swiftData,
                 isStoredInMemoryOnly: configuration.isStoredInMemoryOnly
             ),
