@@ -151,6 +151,9 @@ final class AppDIContainer {
     /// App-wide runtime snapshot of available channels and current selection.
     let channelsStore: ChannelsStore
 
+    /// App-wide runtime store for locally published channel cards.
+    let channelCardStore: ChannelCardStore
+
     /// User-scoped channel settings source resolved during session bootstrap.
     private let channelSettingsRepository: any UserChannelSettingsRepository
 
@@ -175,9 +178,6 @@ final class AppDIContainer {
     /// Bridge that adapts system APNs callbacks into package-backed push state handling.
     let pushNotificationBridge: any AppPushNotificationBridging
 
-    /// Active persistence backend chosen for the current app runtime.
-    private let databaseBackendKind: AppDatabaseBackendKind
-
     /// Creates the root dependency container and eagerly wires the initial graph.
     init(
         databaseConfiguration: AppDatabaseConfiguration = .persistent,
@@ -191,7 +191,6 @@ final class AppDIContainer {
             configuration: databaseConfiguration
         )
         self.databaseManager = databaseManager
-        self.databaseBackendKind = databaseManager.backendKind
 
         let contentServices = Self.makeContentServices(
             databaseManager: databaseManager,
@@ -213,6 +212,7 @@ final class AppDIContainer {
         self.channelsStore = ChannelsStore(
             selectionStore: UserDefaultsChannelSelectionStore()
         )
+        self.channelCardStore = ChannelCardStore()
         self.channelSettingsRepository = LocalUserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
@@ -241,11 +241,13 @@ final class AppDIContainer {
             repository: contentRepository,
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
-            errorManager: errorManager
+            errorManager: errorManager,
+            channelCardStore: channelCardStore
         )
 
         return AppShellViewModel(
             channelsStore: channelsStore,
+            channelCardStore: channelCardStore,
             newsFeedViewModel: newsFeedViewModel,
             errorManager: errorManager,
             uiConfigurationManager: uiConfigurationManager,
@@ -522,7 +524,8 @@ final class AppDIContainer {
         repository: any NewsFeedRepository,
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
-        errorManager: any AppErrorManaging
+        errorManager: any AppErrorManaging,
+        channelCardStore: ChannelCardStore
     ) -> NewsFeedViewModel {
         let initialContent = resolveInitialNewsFeedContent(
             from: repository,
@@ -534,6 +537,7 @@ final class AppDIContainer {
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
+            channelCardStore: channelCardStore,
             initialContent: initialContent,
             loadFailureContent: initialContent,
             loadFailureMessage: AppLocalization.text("news.error.loadFailed")

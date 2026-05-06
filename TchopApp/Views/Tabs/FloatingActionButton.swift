@@ -2,10 +2,12 @@ import SwiftUI
 
 /// Floating action button anchored above the bottom tab bar.
 struct FloatingActionButton: View {
+    let action: () -> Void
+
     var body: some View {
         let glassStyle = AppTheme.glassStyle(for: .floatingActionButton)
 
-        Button(action: {}) {
+        Button(action: action) {
             Image(systemName: "plus")
                 .font(AppTypography.fabIcon)
                 .foregroundStyle(AppTheme.accentOnColor)
@@ -29,7 +31,7 @@ struct FloatingActionButton: View {
 
 #if DEBUG
 #Preview("Floating Action Button") {
-    FloatingActionButton()
+    FloatingActionButton(action: {})
         .padding()
         .background(AppTheme.canvasBackground)
 }
