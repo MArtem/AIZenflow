@@ -46,16 +46,11 @@ final class DefaultUserRepository: UserRepository {
 
     /// Finds a persisted user by stable identifier.
     func findUser(id: String) throws -> AppUser? {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try fetchSwiftDataUser(id: id)
-            }
-
-            return try fetchCoreDataUser(id: id)
-        case .coreData:
-            return try fetchCoreDataUser(id: id)
+        if #available(iOS 17, *) {
+            return try fetchSwiftDataUser(id: id)
         }
+
+        return try fetchCoreDataUser(id: id)
     }
 
     /// Finds a normalized user record in local persistence.
@@ -64,16 +59,11 @@ final class DefaultUserRepository: UserRepository {
             return nil
         }
 
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try fetchSwiftDataUser(username: normalizedUsername)
-            }
-
-            return try fetchCoreDataUser(username: normalizedUsername)
-        case .coreData:
-            return try fetchCoreDataUser(username: normalizedUsername)
+        if #available(iOS 17, *) {
+            return try fetchSwiftDataUser(username: normalizedUsername)
         }
+
+        return try fetchCoreDataUser(username: normalizedUsername)
     }
 
     /// Returns the existing Apple-backed user or creates a new one for the provided Apple identity.
@@ -88,28 +78,19 @@ final class DefaultUserRepository: UserRepository {
         let resolvedUsername = try resolveAvailableUsername(preferredUsername: preferredUsername)
         let createdAt = Date()
 
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try createSwiftDataUser(
-                    username: resolvedUsername,
-                    appleUserID: appleUserID,
-                    createdAt: createdAt
-                )
-            }
-
-            return try createCoreDataUser(
-                username: resolvedUsername,
-                appleUserID: appleUserID,
-                createdAt: createdAt
-            )
-        case .coreData:
-            return try createCoreDataUser(
+        if #available(iOS 17, *) {
+            return try createSwiftDataUser(
                 username: resolvedUsername,
                 appleUserID: appleUserID,
                 createdAt: createdAt
             )
         }
+
+        return try createCoreDataUser(
+            username: resolvedUsername,
+            appleUserID: appleUserID,
+            createdAt: createdAt
+        )
     }
 
     /// Returns the existing user or creates a new one and persists it.
@@ -124,25 +105,17 @@ final class DefaultUserRepository: UserRepository {
 
         let createdAt = Date()
 
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try createSwiftDataUser(
-                    username: normalizedUsername,
-                    createdAt: createdAt
-                )
-            }
-
-            return try createCoreDataUser(
-                username: normalizedUsername,
-                createdAt: createdAt
-            )
-        case .coreData:
-            return try createCoreDataUser(
+        if #available(iOS 17, *) {
+            return try createSwiftDataUser(
                 username: normalizedUsername,
                 createdAt: createdAt
             )
         }
+
+        return try createCoreDataUser(
+            username: normalizedUsername,
+            createdAt: createdAt
+        )
     }
 
     /// Updates restore preference for the provided user identifier.
@@ -150,25 +123,17 @@ final class DefaultUserRepository: UserRepository {
         userID: String,
         isEnabled: Bool
     ) throws -> AppUser {
-        switch databaseManager.backendKind {
-        case .swiftData:
-            if #available(iOS 17, *) {
-                return try updateSwiftDataRestorePreference(
-                    userID: userID,
-                    isEnabled: isEnabled
-                )
-            }
-
-            return try updateCoreDataRestorePreference(
-                userID: userID,
-                isEnabled: isEnabled
-            )
-        case .coreData:
-            return try updateCoreDataRestorePreference(
+        if #available(iOS 17, *) {
+            return try updateSwiftDataRestorePreference(
                 userID: userID,
                 isEnabled: isEnabled
             )
         }
+
+        return try updateCoreDataRestorePreference(
+            userID: userID,
+            isEnabled: isEnabled
+        )
     }
 
     @available(iOS 17, *)
