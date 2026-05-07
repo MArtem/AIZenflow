@@ -151,8 +151,8 @@ final class AppDIContainer {
     /// App-wide runtime snapshot of available channels and current selection.
     let channelsStore: ChannelsStore
 
-    /// App-wide runtime store for locally published channel cards.
-    let channelCardStore: ChannelCardStore
+    /// App-wide runtime store for locally published feed-native cards.
+    let localFeedCardStore: LocalFeedCardStore
 
     /// User-scoped channel settings source resolved during session bootstrap.
     private let channelSettingsRepository: any UserChannelSettingsRepository
@@ -212,7 +212,7 @@ final class AppDIContainer {
         self.channelsStore = ChannelsStore(
             selectionStore: UserDefaultsChannelSelectionStore()
         )
-        self.channelCardStore = ChannelCardStore()
+        self.localFeedCardStore = LocalFeedCardStore()
         self.channelSettingsRepository = LocalUserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
@@ -242,12 +242,12 @@ final class AppDIContainer {
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
-            channelCardStore: channelCardStore
+            localFeedCardStore: localFeedCardStore
         )
 
         return AppShellViewModel(
             channelsStore: channelsStore,
-            channelCardStore: channelCardStore,
+            localFeedCardStore: localFeedCardStore,
             newsFeedViewModel: newsFeedViewModel,
             errorManager: errorManager,
             uiConfigurationManager: uiConfigurationManager,
@@ -525,7 +525,7 @@ final class AppDIContainer {
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
-        channelCardStore: ChannelCardStore
+        localFeedCardStore: LocalFeedCardStore
     ) -> NewsFeedViewModel {
         let initialContent = resolveInitialNewsFeedContent(
             from: repository,
@@ -537,7 +537,7 @@ final class AppDIContainer {
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
-            channelCardStore: channelCardStore,
+            localFeedCardStore: localFeedCardStore,
             initialContent: initialContent,
             loadFailureContent: initialContent,
             loadFailureMessage: AppLocalization.text("news.error.loadFailed")

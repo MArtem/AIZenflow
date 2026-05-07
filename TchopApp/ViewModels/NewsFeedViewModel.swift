@@ -106,7 +106,7 @@ final class NewsFeedViewModel {
     private let channelsStore: ChannelsStore
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let errorManager: any AppErrorManaging
-    private let channelCardStore: ChannelCardStore
+    private let localFeedCardStore: LocalFeedCardStore
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
@@ -121,7 +121,7 @@ final class NewsFeedViewModel {
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
-        channelCardStore: ChannelCardStore = ChannelCardStore(),
+        localFeedCardStore: LocalFeedCardStore = LocalFeedCardStore(),
         initialContent: NewsFeedContent,
         loadFailureContent: NewsFeedContent,
         loadFailureMessage: String
@@ -130,7 +130,7 @@ final class NewsFeedViewModel {
         self.channelsStore = channelsStore
         self.widgetContentSyncManager = widgetContentSyncManager
         self.errorManager = errorManager
-        self.channelCardStore = channelCardStore
+        self.localFeedCardStore = localFeedCardStore
         self.state = Self.resolvedState(for: initialContent)
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
@@ -146,7 +146,7 @@ final class NewsFeedViewModel {
     /// Feed content visible after applying the current channel-local search query.
     var visibleContent: NewsFeedContent {
         let scopedContent = state.content.scoped(to: currentChannelID)
-        let localCards = channelCardStore.cards(for: currentChannelID).map(\.newsFeedCard)
+        let localCards = localFeedCardStore.cards(for: currentChannelID)
         return NewsFeedContent(
             cards: filteredCards(from: localCards + scopedContent.cards, query: searchQuery),
             availability: scopedContent.availability

@@ -74,6 +74,7 @@ Only these fields exist:
 - composer and feed now use matching card-specific visual semantics for non-photo media
 - `video/audio/pdf` were lifted to first-class feed content wrappers instead of flowing through `NewsFeedCard` as raw local draft models
 - published local feed cards now use feed-oriented `LocalFeed*` payload types instead of reusing draft-oriented `ChannelCard*` payload types inside runtime models
+- locally published cards now enter runtime through a feed-native `LocalFeedCardStore` that stores `NewsFeedCard`, not draft-side `ChannelCardContent`
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work

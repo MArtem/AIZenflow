@@ -1169,20 +1169,28 @@ extension ChannelCardContent {
         )
     }
 
-    var newsFeedCard: NewsFeedCard {
-        let localCard = localFeedCardModel
+    var localNewsFeedCard: NewsFeedCard {
+        localFeedCardModel.newsFeedCard
+    }
 
+    var newsFeedCard: NewsFeedCard {
+        localNewsFeedCard
+    }
+}
+
+private extension LocalFeedCardModel {
+    var newsFeedCard: NewsFeedCard {
         switch kind {
         case .text:
-            return .text(.local(localCard))
+            return .text(.local(self))
         case .photo:
-            return .photo(.local(localCard))
+            return .photo(.local(self))
         case .video:
-            return .video(.local(localCard))
+            return .video(.local(self))
         case .audio:
-            return .audio(.local(localCard))
+            return .audio(.local(self))
         case .pdf:
-            return .pdf(.local(localCard))
+            return .pdf(.local(self))
         }
     }
 }

@@ -5,14 +5,14 @@ import TchopUIConfiguration
 
 @MainActor
 @Observable
-final class ChannelCardStore {
-    private(set) var cards: [ChannelCardContent] = []
+final class LocalFeedCardStore {
+    private(set) var cards: [NewsFeedCard] = []
 
-    func publish(_ card: ChannelCardContent) {
+    func publish(_ card: NewsFeedCard) {
         cards.insert(card, at: 0)
     }
 
-    func cards(for channelID: String?) -> [ChannelCardContent] {
+    func cards(for channelID: String?) -> [NewsFeedCard] {
         guard let channelID else {
             return []
         }
@@ -26,15 +26,15 @@ final class ChannelCardStore {
 final class FeedComposerViewModel {
     private(set) var draft: FeedComposerDraft
     private let channelsStore: ChannelsStore
-    private let channelCardStore: ChannelCardStore
+    private let localFeedCardStore: LocalFeedCardStore
 
     init(
         selectedChannelID: String,
         channelsStore: ChannelsStore,
-        channelCardStore: ChannelCardStore
+        localFeedCardStore: LocalFeedCardStore
     ) {
         self.channelsStore = channelsStore
-        self.channelCardStore = channelCardStore
+        self.localFeedCardStore = localFeedCardStore
         self.draft = FeedComposerDraft(selectedChannelID: selectedChannelID)
     }
 
@@ -212,12 +212,13 @@ final class FeedComposerViewModel {
         draft.fieldSupportsRemoval(kind)
     }
 
-    func publish() -> ChannelCardContent? {
+    func publish() -> NewsFeedCard? {
         guard let card = draft.makeCard() else {
             return nil
         }
-        channelCardStore.publish(card)
-        return card
+        let newsFeedCard = card.localNewsFeedCard
+        localFeedCardStore.publish(newsFeedCard)
+        return newsFeedCard
     }
 }
 
@@ -263,13 +264,13 @@ final class AppShellViewModel {
     private let uiConfigurationManager: any UIConfigurationManaging
     private let errorManager: any AppErrorManaging
     let channelsStore: ChannelsStore
-    private let channelCardStore: ChannelCardStore
+    private let localFeedCardStore: LocalFeedCardStore
     private(set) var activeComposer: FeedComposerViewModel?
 
     /// Creates the shell view model from repository-backed content.
     init(
         channelsStore: ChannelsStore,
-        channelCardStore: ChannelCardStore = ChannelCardStore(),
+        localFeedCardStore: LocalFeedCardStore = LocalFeedCardStore(),
         newsFeedViewModel: NewsFeedViewModel,
         errorManager: any AppErrorManaging,
         uiConfigurationManager: any UIConfigurationManaging,
@@ -278,7 +279,7 @@ final class AppShellViewModel {
     ) {
         self.isMenuOpen = isMenuOpen
         self.channelsStore = channelsStore
-        self.channelCardStore = channelCardStore
+        self.localFeedCardStore = localFeedCardStore
         self.sideMenuFooterText = sideMenuFooterText
         self.newsFeedViewModel = newsFeedViewModel
         self.showsFloatingActionButton = true
@@ -314,7 +315,7 @@ final class AppShellViewModel {
         activeComposer = FeedComposerViewModel(
             selectedChannelID: selectedChannelID,
             channelsStore: channelsStore,
-            channelCardStore: channelCardStore
+            localFeedCardStore: localFeedCardStore
         )
     }
 

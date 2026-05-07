@@ -27,6 +27,7 @@
 - composer non-photo media previews now use matching card-specific layouts instead of one generic file preview
 - `video/audio/pdf` feed runtime now uses first-class content wrappers instead of carrying raw local draft models through `NewsFeedCard`
 - published local feed cards now use feed-oriented `LocalFeed*` payload types instead of draft-oriented `ChannelCard*` payload types in runtime models
+- publish path now writes directly into a feed-native `LocalFeedCardStore` as `NewsFeedCard`, instead of storing draft-side `ChannelCardContent`
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
