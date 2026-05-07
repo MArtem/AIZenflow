@@ -25,6 +25,7 @@
 - asset metadata editing exists for photo caption/copyright and file caption/teaser copyright
 - local `video/audio/pdf` feed cards now render through dedicated card-specific layouts instead of a shared generic file preview block
 - composer non-photo media previews now use matching card-specific layouts instead of one generic file preview
+- `video/audio/pdf` feed runtime now uses first-class content wrappers instead of carrying raw local draft models through `NewsFeedCard`
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`

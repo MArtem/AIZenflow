@@ -918,13 +918,109 @@ enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
+enum NewsFeedVideoCardContent: Identifiable, Equatable, Sendable {
+    case local(LocalFeedCardModel)
+
+    var id: String {
+        switch self {
+        case let .local(card):
+            return card.id
+        }
+    }
+
+    var channelID: String {
+        switch self {
+        case let .local(card):
+            return card.channelID
+        }
+    }
+
+    var serviceHeadline: String {
+        switch self {
+        case let .local(card):
+            return card.serviceHeadline
+        }
+    }
+
+    var searchFields: [NewsFeedCardSearchField] {
+        switch self {
+        case let .local(card):
+            return card.searchFields
+        }
+    }
+}
+
+enum NewsFeedAudioCardContent: Identifiable, Equatable, Sendable {
+    case local(LocalFeedCardModel)
+
+    var id: String {
+        switch self {
+        case let .local(card):
+            return card.id
+        }
+    }
+
+    var channelID: String {
+        switch self {
+        case let .local(card):
+            return card.channelID
+        }
+    }
+
+    var serviceHeadline: String {
+        switch self {
+        case let .local(card):
+            return card.serviceHeadline
+        }
+    }
+
+    var searchFields: [NewsFeedCardSearchField] {
+        switch self {
+        case let .local(card):
+            return card.searchFields
+        }
+    }
+}
+
+enum NewsFeedPDFCardContent: Identifiable, Equatable, Sendable {
+    case local(LocalFeedCardModel)
+
+    var id: String {
+        switch self {
+        case let .local(card):
+            return card.id
+        }
+    }
+
+    var channelID: String {
+        switch self {
+        case let .local(card):
+            return card.channelID
+        }
+    }
+
+    var serviceHeadline: String {
+        switch self {
+        case let .local(card):
+            return card.serviceHeadline
+        }
+    }
+
+    var searchFields: [NewsFeedCardSearchField] {
+        switch self {
+        case let .local(card):
+            return card.searchFields
+        }
+    }
+}
+
 /// Feed card variants currently supported by the home timeline.
 enum NewsFeedCard: Identifiable, Equatable, Sendable {
     case photo(NewsFeedPhotoCardContent)
     case text(NewsFeedTextCardContent)
-    case video(LocalFeedCardModel)
-    case audio(LocalFeedCardModel)
-    case pdf(LocalFeedCardModel)
+    case video(NewsFeedVideoCardContent)
+    case audio(NewsFeedAudioCardContent)
+    case pdf(NewsFeedPDFCardContent)
 
     /// Stable identity forwarded from the underlying card model.
     var id: String {
@@ -1029,11 +1125,11 @@ extension ChannelCardContent {
         case .photo:
             return .photo(.local(localCard))
         case .video:
-            return .video(localCard)
+            return .video(.local(localCard))
         case .audio:
-            return .audio(localCard)
+            return .audio(.local(localCard))
         case .pdf:
-            return .pdf(localCard)
+            return .pdf(.local(localCard))
         }
     }
 }

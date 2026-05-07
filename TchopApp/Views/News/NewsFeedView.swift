@@ -41,11 +41,11 @@ struct NewsFeedView: View {
                         case let .text(textCard):
                             textCardView(textCard)
                         case let .video(card):
-                            VideoCardView(card: card)
+                            VideoCardView(content: card)
                         case let .audio(card):
-                            AudioCardView(card: card)
+                            AudioCardView(content: card)
                         case let .pdf(card):
-                            PDFCardView(card: card)
+                            PDFCardView(content: card)
                         }
                     }
                 }
@@ -250,17 +250,20 @@ private struct LocalPhotoCardView: View {
 }
 
 private struct VideoCardView: View {
-    let card: LocalFeedCardModel
+    let content: NewsFeedVideoCardContent
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
-            if let media = card.mediaContent, case let .file(file) = media {
-                LocalVideoMediaView(file: file)
+        switch content {
+        case let .local(card):
+            LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight(for: card)) {
+                if let media = card.mediaContent, case let .file(file) = media {
+                    LocalVideoMediaView(file: file)
+                }
             }
         }
     }
 
-    private var fileMediaPreviewHeight: CGFloat {
+    private func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
@@ -270,17 +273,20 @@ private struct VideoCardView: View {
 }
 
 private struct AudioCardView: View {
-    let card: LocalFeedCardModel
+    let content: NewsFeedAudioCardContent
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
-            if let media = card.mediaContent, case let .file(file) = media {
-                LocalAudioMediaView(file: file)
+        switch content {
+        case let .local(card):
+            LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight(for: card)) {
+                if let media = card.mediaContent, case let .file(file) = media {
+                    LocalAudioMediaView(file: file)
+                }
             }
         }
     }
 
-    private var fileMediaPreviewHeight: CGFloat {
+    private func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
@@ -290,17 +296,20 @@ private struct AudioCardView: View {
 }
 
 private struct PDFCardView: View {
-    let card: LocalFeedCardModel
+    let content: NewsFeedPDFCardContent
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
-            if let media = card.mediaContent, case let .file(file) = media {
-                LocalPDFMediaView(file: file)
+        switch content {
+        case let .local(card):
+            LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight(for: card)) {
+                if let media = card.mediaContent, case let .file(file) = media {
+                    LocalPDFMediaView(file: file)
+                }
             }
         }
     }
 
-    private var fileMediaPreviewHeight: CGFloat {
+    private func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }

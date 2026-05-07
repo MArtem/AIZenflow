@@ -72,6 +72,7 @@ Only these fields exist:
 - feed runtime no longer uses the old generic local media placeholder path for local `photo/video/audio/pdf`
 - local `video/audio/pdf` feed cards now use dedicated card-specific media layouts instead of a shared generic file preview block
 - composer and feed now use matching card-specific visual semantics for non-photo media
+- `video/audio/pdf` were lifted to first-class feed content wrappers instead of flowing through `NewsFeedCard` as raw local draft models
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
