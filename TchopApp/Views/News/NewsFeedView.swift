@@ -36,20 +36,16 @@ struct NewsFeedView: View {
                 } else {
                     ForEach(viewModel.visibleContent.cards) { card in
                         switch card {
-                        case let .photo(article):
-                            PhotoCardView(
-                                photo: article,
-                                onTap: { onPhotoTap(article) },
-                                onAction: { onPhotoAction(article, $0) }
-                            )
-                        case let .text(discussion):
-                            TextCardView(
-                                text: discussion,
-                                onTap: { onTextTap(discussion) },
-                                onAction: { onTextAction(discussion, $0) }
-                            )
-                        case let .channelCard(channelCard):
-                            ChannelCardPlaceholderView(card: channelCard)
+                        case let .photo(photoCard):
+                            photoCardView(photoCard)
+                        case let .text(textCard):
+                            textCardView(textCard)
+                        case let .video(card):
+                            ChannelCardPlaceholderView(card: card)
+                        case let .audio(card):
+                            ChannelCardPlaceholderView(card: card)
+                        case let .pdf(card):
+                            ChannelCardPlaceholderView(card: card)
                         }
                     }
                 }
@@ -130,6 +126,34 @@ struct NewsFeedView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(.vertical, AppSpacing.xl)
         .accessibilityElement(children: .combine)
+    }
+
+    @ViewBuilder
+    private func photoCardView(_ content: NewsFeedPhotoCardContent) -> some View {
+        switch content {
+        case let .remote(card):
+            PhotoCardView(
+                photo: card,
+                onTap: { onPhotoTap(card) },
+                onAction: { onPhotoAction(card, $0) }
+            )
+        case let .local(card):
+            ChannelCardPlaceholderView(card: card)
+        }
+    }
+
+    @ViewBuilder
+    private func textCardView(_ content: NewsFeedTextCardContent) -> some View {
+        switch content {
+        case let .remote(card):
+            TextCardView(
+                text: card,
+                onTap: { onTextTap(card) },
+                onAction: { onTextAction(card, $0) }
+            )
+        case let .local(card):
+            ChannelCardPlaceholderView(card: card)
+        }
     }
 }
 

@@ -146,7 +146,7 @@ final class NewsFeedViewModel {
     /// Feed content visible after applying the current channel-local search query.
     var visibleContent: NewsFeedContent {
         let scopedContent = state.content.scoped(to: currentChannelID)
-        let localCards = channelCardStore.cards(for: currentChannelID).map(NewsFeedCard.channelCard)
+        let localCards = channelCardStore.cards(for: currentChannelID).map(\.newsFeedCard)
         return NewsFeedContent(
             cards: filteredCards(from: localCards + scopedContent.cards, query: searchQuery),
             availability: scopedContent.availability
@@ -765,10 +765,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case .photo = $0, $0.id == articleID else {
+                    guard case .photo(.remote) = $0, $0.id == articleID else {
                         return $0
                     }
-                    return .photo(
+                    return .photo(.remote(
                         previousArticle.updatingUIState {
                             PhotoCardUIState(
                                 isLiked: $0.isLiked,
@@ -777,7 +777,7 @@ final class NewsFeedViewModel {
                                 inlineStatusMessage: message
                             )
                         }
-                    )
+                    ))
                 },
                 availability: content.availability
             )
@@ -792,10 +792,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case let .photo(article) = $0, article.id == articleID else {
+                    guard case let .photo(.remote(article)) = $0, article.id == articleID else {
                         return $0
                     }
-                    return .photo(transform(article))
+                    return .photo(.remote(transform(article)))
                 },
                 availability: content.availability
             )
@@ -821,7 +821,7 @@ final class NewsFeedViewModel {
     /// Returns the visible featured article snapshot for a given identifier.
     private func photoCard(withID articleID: String) -> PhotoCardModel? {
         for card in state.content.cards {
-            if case let .photo(article) = card, article.id == articleID {
+            if case let .photo(.remote(article)) = card, article.id == articleID {
                 return article
             }
         }
@@ -1235,10 +1235,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case .text = $0, $0.id == discussionID else {
+                    guard case .text(.remote) = $0, $0.id == discussionID else {
                         return $0
                     }
-                    return .text(
+                    return .text(.remote(
                         previousDiscussion.updatingUIState {
                             TextCardUIState(
                                 isParticipating: $0.isParticipating,
@@ -1247,7 +1247,7 @@ final class NewsFeedViewModel {
                                 inlineStatusMessage: message
                             )
                         }
-                    )
+                    ))
                 },
                 availability: content.availability
             )
@@ -1262,10 +1262,10 @@ final class NewsFeedViewModel {
         updateVisibleContent { content in
             NewsFeedContent(
                 cards: content.cards.map {
-                    guard case let .text(discussion) = $0, discussion.id == discussionID else {
+                    guard case let .text(.remote(discussion)) = $0, discussion.id == discussionID else {
                         return $0
                     }
-                    return .text(transform(discussion))
+                    return .text(.remote(transform(discussion)))
                 },
                 availability: content.availability
             )
@@ -1275,7 +1275,7 @@ final class NewsFeedViewModel {
     /// Returns the visible discussion snapshot for a given identifier.
     private func discussion(withID discussionID: String) -> TextCardModel? {
         for card in state.content.cards {
-            if case let .text(discussion) = card, discussion.id == discussionID {
+            if case let .text(.remote(discussion)) = card, discussion.id == discussionID {
                 return discussion
             }
         }
@@ -1402,7 +1402,7 @@ final class NewsFeedViewModel {
             return AppLocalization.text("news.card.status.offline")
         case .missingPersistedFeedCard:
             return AppLocalization.text("news.card.status.stale")
-        case .missingChannel, .missingPersistedFeed, .unsupportedCardAction:
+        case .missingChannel, .missingPersistedFeed, .unsupportedCardAction, .unsupportedLocalFeedCardPersistence:
             return genericCardActionFailureMessage
         }
     }

@@ -108,7 +108,7 @@ enum ViewPreviewSupport {
 
     static var samplePhotoCard: PhotoCardModel {
         for card in NewsFeedFixtures.fallbackContent.cards {
-            if case let .photo(article) = card {
+            if case let .photo(.remote(article)) = card {
                 return article
             }
         }
@@ -118,7 +118,7 @@ enum ViewPreviewSupport {
 
     static var sampleTextCard: TextCardModel {
         for card in NewsFeedFixtures.fallbackContent.cards {
-            if case let .text(discussion) = card {
+            if case let .text(.remote(discussion)) = card {
                 return discussion
             }
         }

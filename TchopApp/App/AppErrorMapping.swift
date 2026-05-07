@@ -179,6 +179,17 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
                 debugDescription: "The requested feed card action cannot be mapped into the current sync contract.",
                 context: context
             )
+        case .unsupportedLocalFeedCardPersistence:
+            return AppError(
+                category: .client,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.client.unsupportedCardAction",
+                debugDescription: "The requested local feed card shape is not supported by the current persistence contract.",
+                context: context
+            )
         }
     }
 

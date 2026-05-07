@@ -537,11 +537,109 @@ struct NewsFeedCardSearchField: Equatable, Sendable {
     let value: String
 }
 
+enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
+    case remote(PhotoCardModel)
+    case local(ChannelCardContent)
+
+    var id: String {
+        switch self {
+        case let .remote(card):
+            return card.id
+        case let .local(card):
+            return card.id
+        }
+    }
+
+    var channelID: String {
+        switch self {
+        case let .remote(card):
+            return card.channelID
+        case let .local(card):
+            return card.channelID
+        }
+    }
+
+    var serviceHeadline: String {
+        switch self {
+        case let .remote(card):
+            return card.serviceHeadline
+        case let .local(card):
+            return card.serviceHeadline
+        }
+    }
+
+    var searchFields: [NewsFeedCardSearchField] {
+        switch self {
+        case let .remote(card):
+            return [
+                NewsFeedCardSearchField(priority: 500, value: card.headline),
+                NewsFeedCardSearchField(priority: 400, value: card.summary),
+                NewsFeedCardSearchField(priority: 300, value: card.sourceTitle),
+                NewsFeedCardSearchField(priority: 250, value: card.brandTitle),
+                NewsFeedCardSearchField(priority: 200, value: card.metadataLine),
+                NewsFeedCardSearchField(priority: 150, value: card.translationLabel)
+            ]
+        case let .local(card):
+            return card.localSearchFields
+        }
+    }
+}
+
+enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
+    case remote(TextCardModel)
+    case local(ChannelCardContent)
+
+    var id: String {
+        switch self {
+        case let .remote(card):
+            return card.id
+        case let .local(card):
+            return card.id
+        }
+    }
+
+    var channelID: String {
+        switch self {
+        case let .remote(card):
+            return card.channelID
+        case let .local(card):
+            return card.channelID
+        }
+    }
+
+    var serviceHeadline: String {
+        switch self {
+        case let .remote(card):
+            return card.serviceHeadline
+        case let .local(card):
+            return card.serviceHeadline
+        }
+    }
+
+    var searchFields: [NewsFeedCardSearchField] {
+        switch self {
+        case let .remote(card):
+            return [
+                NewsFeedCardSearchField(priority: 500, value: card.headline),
+                NewsFeedCardSearchField(priority: 300, value: card.categoryTitle),
+                NewsFeedCardSearchField(
+                    priority: 120,
+                    value: card.participants.map(\.initials).joined(separator: " ")
+                )
+            ]
+        case let .local(card):
+            return card.localSearchFields
+        }
+    }
+}
+
 /// Feed card variants currently supported by the home timeline.
 enum NewsFeedCard: Identifiable, Equatable, Sendable {
-    case photo(PhotoCardModel)
-    case text(TextCardModel)
-    case channelCard(ChannelCardContent)
+    case photo(NewsFeedPhotoCardContent)
+    case text(NewsFeedTextCardContent)
+    case video(ChannelCardContent)
+    case audio(ChannelCardContent)
+    case pdf(ChannelCardContent)
 
     /// Stable identity forwarded from the underlying card model.
     var id: String {
@@ -550,7 +648,11 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
             return card.id
         case let .text(card):
             return card.id
-        case let .channelCard(card):
+        case let .video(card):
+            return card.id
+        case let .audio(card):
+            return card.id
+        case let .pdf(card):
             return card.id
         }
     }
@@ -559,13 +661,15 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
     var kind: NewsFeedCardKind {
         switch self {
         case .photo:
-            // The current article design is the photo-card baseline in the final card taxonomy.
             return .photo
         case .text:
-            // The current discussion design is the text-card baseline in the final card taxonomy.
             return .text
-        case let .channelCard(card):
-            return card.kind.feedKind
+        case .video:
+            return .video
+        case .audio:
+            return .audio
+        case .pdf:
+            return .pdf
         }
     }
 
@@ -576,7 +680,11 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
             return card.channelID
         case let .text(card):
             return card.channelID
-        case let .channelCard(card):
+        case let .video(card):
+            return card.channelID
+        case let .audio(card):
+            return card.channelID
+        case let .pdf(card):
             return card.channelID
         }
     }
@@ -588,7 +696,11 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
             return card.serviceHeadline
         case let .text(card):
             return card.serviceHeadline
-        case let .channelCard(card):
+        case let .video(card):
+            return card.serviceHeadline
+        case let .audio(card):
+            return card.serviceHeadline
+        case let .pdf(card):
             return card.serviceHeadline
         }
     }
@@ -596,32 +708,43 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
     /// Prioritized search fields used by channel-local search ranking.
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .photo(article):
-            return [
-                NewsFeedCardSearchField(priority: 500, value: article.headline),
-                NewsFeedCardSearchField(priority: 400, value: article.summary),
-                NewsFeedCardSearchField(priority: 300, value: article.sourceTitle),
-                NewsFeedCardSearchField(priority: 250, value: article.brandTitle),
-                NewsFeedCardSearchField(priority: 200, value: article.metadataLine),
-                NewsFeedCardSearchField(priority: 150, value: article.translationLabel)
-            ]
-        case let .text(discussion):
-            return [
-                NewsFeedCardSearchField(priority: 500, value: discussion.headline),
-                NewsFeedCardSearchField(priority: 300, value: discussion.categoryTitle),
-                NewsFeedCardSearchField(
-                    priority: 120,
-                    value: discussion.participants.map(\.initials).joined(separator: " ")
-                )
-            ]
-        case let .channelCard(card):
-            return [
-                NewsFeedCardSearchField(priority: 500, value: card.text ?? ""),
-                NewsFeedCardSearchField(priority: 400, value: card.headline ?? ""),
-                NewsFeedCardSearchField(priority: 300, value: card.subheadline ?? ""),
-                NewsFeedCardSearchField(priority: 200, value: card.source ?? "")
-            ]
+        case let .photo(card):
+            return card.searchFields
+        case let .text(card):
+            return card.searchFields
+        case let .video(card):
+            return card.localSearchFields
+        case let .audio(card):
+            return card.localSearchFields
+        case let .pdf(card):
+            return card.localSearchFields
         }
+    }
+}
+
+extension ChannelCardContent {
+    var newsFeedCard: NewsFeedCard {
+        switch kind {
+        case .text:
+            return .text(.local(self))
+        case .photo:
+            return .photo(.local(self))
+        case .video:
+            return .video(self)
+        case .audio:
+            return .audio(self)
+        case .pdf:
+            return .pdf(self)
+        }
+    }
+
+    var localSearchFields: [NewsFeedCardSearchField] {
+        [
+            NewsFeedCardSearchField(priority: 500, value: text ?? ""),
+            NewsFeedCardSearchField(priority: 400, value: headline ?? ""),
+            NewsFeedCardSearchField(priority: 300, value: subheadline ?? ""),
+            NewsFeedCardSearchField(priority: 200, value: source ?? "")
+        ]
     }
 }
 
@@ -932,48 +1055,52 @@ enum NewsFeedFixtures {
         NewsFeedContent(
             cards: [
                 .photo(
-                    PhotoCardModel(
-                        id: "featured-article-fallback",
-                        channelID: channelID,
-                        postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
-                        sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
-                        brandTitle: AppLocalization.text("news.fallback.brandTitle"),
-                        headline: AppLocalization.text("news.fallback.headline"),
-                        summary: AppLocalization.text("news.fallback.summary"),
-                        metadataLine: AppLocalization.text("news.fallback.metadataLine"),
-                        translationLabel: AppLocalization.text("news.fallback.translationLabel"),
-                        commentCount: 48,
-                        actions: [
-                            PhotoActionItem(
-                                id: "like",
-                                kind: .like,
-                                systemName: "hand.thumbsup.fill",
-                                title: AppLocalization.text("news.fallback.action.like")
-                            ),
-                            PhotoActionItem(
-                                id: "comments",
-                                kind: .comments,
-                                systemName: "bubble.left.fill",
-                                title: AppLocalization.text("news.fallback.action.comments")
-                            )
-                        ],
-                        uiState: .idle
+                    .remote(
+                        PhotoCardModel(
+                            id: "featured-article-fallback",
+                            channelID: channelID,
+                            postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
+                            sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
+                            brandTitle: AppLocalization.text("news.fallback.brandTitle"),
+                            headline: AppLocalization.text("news.fallback.headline"),
+                            summary: AppLocalization.text("news.fallback.summary"),
+                            metadataLine: AppLocalization.text("news.fallback.metadataLine"),
+                            translationLabel: AppLocalization.text("news.fallback.translationLabel"),
+                            commentCount: 48,
+                            actions: [
+                                PhotoActionItem(
+                                    id: "like",
+                                    kind: .like,
+                                    systemName: "hand.thumbsup.fill",
+                                    title: AppLocalization.text("news.fallback.action.like")
+                                ),
+                                PhotoActionItem(
+                                    id: "comments",
+                                    kind: .comments,
+                                    systemName: "bubble.left.fill",
+                                    title: AppLocalization.text("news.fallback.action.comments")
+                                )
+                            ],
+                            uiState: .idle
+                        )
                     )
                 ),
                 .text(
-                    TextCardModel(
-                        id: "text-fallback",
-                        channelID: channelID,
-                        categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
-                        headline: AppLocalization.text("news.fallback.discussion.headline"),
-                        participants: [
-                            TextCardParticipant(id: "adorlee", initials: "A", isHighlighted: true),
-                            TextCardParticipant(id: "mattis", initials: "M", isHighlighted: false),
-                            TextCardParticipant(id: "sophia", initials: "S", isHighlighted: false)
-                        ],
-                        replyCount: 12,
-                        joinedCount: 12,
-                        uiState: .idle
+                    .remote(
+                        TextCardModel(
+                            id: "text-fallback",
+                            channelID: channelID,
+                            categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
+                            headline: AppLocalization.text("news.fallback.discussion.headline"),
+                            participants: [
+                                TextCardParticipant(id: "adorlee", initials: "A", isHighlighted: true),
+                                TextCardParticipant(id: "mattis", initials: "M", isHighlighted: false),
+                                TextCardParticipant(id: "sophia", initials: "S", isHighlighted: false)
+                            ],
+                            replyCount: 12,
+                            joinedCount: 12,
+                            uiState: .idle
+                        )
                     )
                 )
             ],

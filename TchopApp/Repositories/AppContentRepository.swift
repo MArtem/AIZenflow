@@ -750,6 +750,7 @@ enum RepositoryError: Error {
     case missingPersistedFeedCard
     case offlineCardAction
     case unsupportedCardAction
+    case unsupportedLocalFeedCardPersistence
 }
 
 private struct PersistedNewsFeedSnapshot {
@@ -1524,9 +1525,9 @@ private enum AppContentMapper {
     ) -> NewsFeedCard {
         switch card {
         case let .photo(article):
-            return .photo(mapPhoto(article, channelID: channelID))
+            return .photo(.remote(mapPhoto(article, channelID: channelID)))
         case let .text(discussion):
-            return .text(mapText(discussion, channelID: channelID))
+            return .text(.remote(mapText(discussion, channelID: channelID)))
         }
     }
 
@@ -1601,9 +1602,9 @@ private enum AppContentMapper {
 
         switch kind {
         case .photo:
-            return .photo(mapPhoto(record))
+            return .photo(.remote(mapPhoto(record)))
         case .text:
-            return .text(mapText(record))
+            return .text(.remote(mapText(record)))
         }
     }
 
@@ -1614,9 +1615,9 @@ private enum AppContentMapper {
 
         switch kind {
         case .photo:
-            return .photo(mapPhoto(record))
+            return .photo(.remote(mapPhoto(record)))
         case .text:
-            return .text(mapText(record))
+            return .text(.remote(mapText(record)))
         }
     }
 
