@@ -162,6 +162,8 @@ struct FeedComposerDraft: Equatable, Sendable {
     private(set) var visibleTextFieldKinds: Set<ChannelCardTextFieldKind>
     private(set) var textValues: [ChannelCardTextFieldKind: String]
     private(set) var media: ChannelCardMediaContent?
+    private(set) var isFileCaptionFieldVisible: Bool
+    private(set) var isTeaserCopyrightFieldVisible: Bool
 
     init(selectedChannelID: String) {
         self.selectedChannelID = selectedChannelID
@@ -173,6 +175,8 @@ struct FeedComposerDraft: Equatable, Sendable {
             .source: ""
         ]
         self.media = nil
+        self.isFileCaptionFieldVisible = false
+        self.isTeaserCopyrightFieldVisible = false
     }
 
     var canPublish: Bool {
@@ -295,6 +299,8 @@ struct FeedComposerDraft: Equatable, Sendable {
 
     mutating func removeMedia() {
         media = nil
+        isFileCaptionFieldVisible = false
+        isTeaserCopyrightFieldVisible = false
     }
 
     mutating func removePhoto(id: String) {
@@ -304,6 +310,22 @@ struct FeedComposerDraft: Equatable, Sendable {
 
         let remainingItems = items.filter { $0.id != id }
         media = remainingItems.isEmpty ? nil : .photos(items: remainingItems)
+    }
+
+    mutating func showFileCaptionField() {
+        guard case .file = media else {
+            return
+        }
+
+        isFileCaptionFieldVisible = true
+    }
+
+    mutating func removeFileCaptionFieldIfEmpty() {
+        guard fileCaptionText == nil else {
+            return
+        }
+
+        isFileCaptionFieldVisible = false
     }
 
     mutating func updatePhotoCaption(_ value: String?, id: String) {
@@ -382,6 +404,14 @@ struct FeedComposerDraft: Equatable, Sendable {
         )
     }
 
+    mutating func showTeaserCopyrightField() {
+        guard case let .file(file) = media, file.teaserImage != nil else {
+            return
+        }
+
+        isTeaserCopyrightFieldVisible = true
+    }
+
     mutating func removeTeaserImage() {
         guard case let .file(file) = media else {
             return
@@ -395,6 +425,15 @@ struct FeedComposerDraft: Equatable, Sendable {
                 caption: file.caption
             )
         )
+        isTeaserCopyrightFieldVisible = false
+    }
+
+    mutating func removeTeaserCopyrightFieldIfEmpty() {
+        guard teaserCopyrightText == nil else {
+            return
+        }
+
+        isTeaserCopyrightFieldVisible = false
     }
 
     mutating func updateTeaserCopyright(_ value: String?) {
@@ -422,6 +461,22 @@ struct FeedComposerDraft: Equatable, Sendable {
 
     mutating func updateText(_ value: String, for kind: ChannelCardTextFieldKind) {
         textValues[kind] = value
+    }
+
+    var fileCaptionText: String? {
+        guard case let .file(file) = media else {
+            return nil
+        }
+
+        return file.caption
+    }
+
+    var teaserCopyrightText: String? {
+        guard case let .file(file) = media else {
+            return nil
+        }
+
+        return file.teaserImage?.copyright
     }
 
     mutating func handleBackspaceOnEmptyField(_ kind: ChannelCardTextFieldKind) {
@@ -484,6 +539,9 @@ struct FeedComposerDraft: Equatable, Sendable {
         guard media == nil else {
             return
         }
+
+        isFileCaptionFieldVisible = false
+        isTeaserCopyrightFieldVisible = false
 
         switch kind {
         case .photo:

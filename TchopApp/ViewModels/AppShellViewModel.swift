@@ -68,6 +68,22 @@ final class FeedComposerViewModel {
         draft.showsPhotoToolbarAction
     }
 
+    var isFileCaptionFieldVisible: Bool {
+        draft.isFileCaptionFieldVisible
+    }
+
+    var isTeaserCopyrightFieldVisible: Bool {
+        draft.isTeaserCopyrightFieldVisible
+    }
+
+    var fileCaptionText: String {
+        draft.fileCaptionText ?? ""
+    }
+
+    var teaserCopyrightText: String {
+        draft.teaserCopyrightText ?? ""
+    }
+
     func selectChannel(id: String) {
         draft.selectChannel(id: id)
     }
@@ -104,6 +120,14 @@ final class FeedComposerViewModel {
         draft.updateFileCaption(value)
     }
 
+    func showFileCaptionField() {
+        draft.showFileCaptionField()
+    }
+
+    func removeFileCaptionFieldIfEmpty() {
+        draft.removeFileCaptionFieldIfEmpty()
+    }
+
     func addOrReplaceTeaserImage(displayTitle: String = "Teaser image") {
         draft.addOrReplaceTeaserImage(displayTitle: displayTitle)
     }
@@ -114,6 +138,14 @@ final class FeedComposerViewModel {
 
     func updateTeaserCopyright(_ value: String?) {
         draft.updateTeaserCopyright(value)
+    }
+
+    func showTeaserCopyrightField() {
+        draft.showTeaserCopyrightField()
+    }
+
+    func removeTeaserCopyrightFieldIfEmpty() {
+        draft.removeTeaserCopyrightFieldIfEmpty()
     }
 
     func textValue(for kind: ChannelCardTextFieldKind) -> String {

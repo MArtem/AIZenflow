@@ -38,6 +38,28 @@ private struct FeedComposerView: View {
                                 onFileMediaMoreTap: { showsFileMediaActionSheet = true },
                                 onPhotoMoreTap: { selectedPhotoItemID = $0 }
                             )
+
+                            if viewModel.isFileCaptionFieldVisible {
+                                ComposerTextInputView(
+                                    text: fileCaptionBinding,
+                                    placeholder: "Add caption",
+                                    style: assetMetadataInputStyle(color: AppTheme.textSecondary),
+                                    onDeleteBackwardWhenEmpty: {
+                                        viewModel.removeFileCaptionFieldIfEmpty()
+                                    }
+                                )
+                            }
+
+                            if viewModel.isTeaserCopyrightFieldVisible {
+                                ComposerTextInputView(
+                                    text: teaserCopyrightBinding,
+                                    placeholder: "Add teaser copyright",
+                                    style: assetMetadataInputStyle(color: AppTheme.textTertiary),
+                                    onDeleteBackwardWhenEmpty: {
+                                        viewModel.removeTeaserCopyrightFieldIfEmpty()
+                                    }
+                                )
+                            }
                         }
                     }
                     .padding(.horizontal, AppSpacing.screenHorizontal)
@@ -236,6 +258,17 @@ private struct FeedComposerView: View {
         }
     }
 
+    private func assetMetadataInputStyle(color: Color) -> ComposerTextInputStyle {
+        ComposerTextInputStyle(
+            textFont: AppTypography.captionSemibold,
+            placeholderFont: AppTypography.captionSemibold,
+            uiTextFont: .systemFont(ofSize: 13, weight: .semibold),
+            textColor: color,
+            placeholderColor: AppTheme.textTertiary,
+            minimumHeight: 36
+        )
+    }
+
     private func handleInsertionSelection(_ selectedID: String) {
         guard let insertion = viewModel.availableInsertions.first(where: { $0.id == selectedID }) else {
             return
@@ -271,9 +304,15 @@ private struct FeedComposerView: View {
         }
 
         var items: [ComposerBottomSheetItem] = []
+        if !viewModel.isFileCaptionFieldVisible {
+            items.append(ComposerBottomSheetItem(id: "addCaption", title: "Add caption"))
+        }
         if file.teaserImage == nil {
             items.append(ComposerBottomSheetItem(id: "addTeaser", title: "Add teaser image"))
         } else {
+            if !viewModel.isTeaserCopyrightFieldVisible {
+                items.append(ComposerBottomSheetItem(id: "addTeaserCopyright", title: "Add teaser copyright"))
+            }
             items.append(ComposerBottomSheetItem(id: "replaceTeaser", title: "Replace teaser image"))
             items.append(ComposerBottomSheetItem(id: "removeTeaser", title: "Remove teaser image"))
         }
@@ -283,8 +322,12 @@ private struct FeedComposerView: View {
 
     private func handleFileMediaActionSelection(_ selectedID: String) {
         switch selectedID {
+        case "addCaption":
+            viewModel.showFileCaptionField()
         case "addTeaser", "replaceTeaser":
             viewModel.addOrReplaceTeaserImage()
+        case "addTeaserCopyright":
+            viewModel.showTeaserCopyrightField()
         case "removeTeaser":
             viewModel.removeTeaserImage()
         case "removeMedia":
@@ -292,6 +335,20 @@ private struct FeedComposerView: View {
         default:
             break
         }
+    }
+
+    private var fileCaptionBinding: Binding<String> {
+        Binding(
+            get: { viewModel.fileCaptionText },
+            set: { viewModel.updateFileCaption($0) }
+        )
+    }
+
+    private var teaserCopyrightBinding: Binding<String> {
+        Binding(
+            get: { viewModel.teaserCopyrightText },
+            set: { viewModel.updateTeaserCopyright($0) }
+        )
     }
 
     private func handlePhotoItemActionSelection(_ selectedID: String) {
