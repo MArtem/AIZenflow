@@ -84,6 +84,38 @@ final class FeedComposerViewModel {
         draft.selectVideo()
     }
 
+    func removeMedia() {
+        draft.removeMedia()
+    }
+
+    func removePhoto(id: String) {
+        draft.removePhoto(id: id)
+    }
+
+    func updatePhotoCaption(_ value: String?, id: String) {
+        draft.updatePhotoCaption(value, id: id)
+    }
+
+    func updatePhotoCopyright(_ value: String?, id: String) {
+        draft.updatePhotoCopyright(value, id: id)
+    }
+
+    func updateFileCaption(_ value: String?) {
+        draft.updateFileCaption(value)
+    }
+
+    func addOrReplaceTeaserImage(displayTitle: String = "Teaser image") {
+        draft.addOrReplaceTeaserImage(displayTitle: displayTitle)
+    }
+
+    func removeTeaserImage() {
+        draft.removeTeaserImage()
+    }
+
+    func updateTeaserCopyright(_ value: String?) {
+        draft.updateTeaserCopyright(value)
+    }
+
     func textValue(for kind: ChannelCardTextFieldKind) -> String {
         draft.textValue(for: kind)
     }

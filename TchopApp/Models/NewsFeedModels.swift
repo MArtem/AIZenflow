@@ -293,6 +293,133 @@ struct FeedComposerDraft: Equatable, Sendable {
         selectMedia(.video)
     }
 
+    mutating func removeMedia() {
+        media = nil
+    }
+
+    mutating func removePhoto(id: String) {
+        guard case let .photos(items) = media else {
+            return
+        }
+
+        let remainingItems = items.filter { $0.id != id }
+        media = remainingItems.isEmpty ? nil : .photos(items: remainingItems)
+    }
+
+    mutating func updatePhotoCaption(_ value: String?, id: String) {
+        guard case let .photos(items) = media else {
+            return
+        }
+
+        media = .photos(
+            items: items.map { item in
+                guard item.id == id else {
+                    return item
+                }
+
+                return ChannelCardPhotoItem(
+                    id: item.id,
+                    displayTitle: item.displayTitle,
+                    caption: normalizedOptionalText(value),
+                    copyright: item.copyright
+                )
+            }
+        )
+    }
+
+    mutating func updatePhotoCopyright(_ value: String?, id: String) {
+        guard case let .photos(items) = media else {
+            return
+        }
+
+        media = .photos(
+            items: items.map { item in
+                guard item.id == id else {
+                    return item
+                }
+
+                return ChannelCardPhotoItem(
+                    id: item.id,
+                    displayTitle: item.displayTitle,
+                    caption: item.caption,
+                    copyright: normalizedOptionalText(value)
+                )
+            }
+        )
+    }
+
+    mutating func updateFileCaption(_ value: String?) {
+        guard case let .file(file) = media else {
+            return
+        }
+
+        media = .file(
+            ChannelCardFileMediaContent(
+                kind: file.kind,
+                displayTitle: file.displayTitle,
+                teaserImage: file.teaserImage,
+                caption: normalizedOptionalText(value)
+            )
+        )
+    }
+
+    mutating func addOrReplaceTeaserImage(displayTitle: String = "Teaser image") {
+        guard case let .file(file) = media else {
+            return
+        }
+
+        media = .file(
+            ChannelCardFileMediaContent(
+                kind: file.kind,
+                displayTitle: file.displayTitle,
+                teaserImage: ChannelCardTeaserImageContent(
+                    id: UUID().uuidString,
+                    displayTitle: displayTitle,
+                    copyright: file.teaserImage?.copyright
+                ),
+                caption: file.caption
+            )
+        )
+    }
+
+    mutating func removeTeaserImage() {
+        guard case let .file(file) = media else {
+            return
+        }
+
+        media = .file(
+            ChannelCardFileMediaContent(
+                kind: file.kind,
+                displayTitle: file.displayTitle,
+                teaserImage: nil,
+                caption: file.caption
+            )
+        )
+    }
+
+    mutating func updateTeaserCopyright(_ value: String?) {
+        guard case let .file(file) = media else {
+            return
+        }
+
+        guard let teaserImage = file.teaserImage else {
+            return
+        }
+
+        media = .file(
+            ChannelCardFileMediaContent(
+                kind: file.kind,
+                displayTitle: file.displayTitle,
+                teaserImage: ChannelCardTeaserImageContent(
+                    id: teaserImage.id,
+                    displayTitle: teaserImage.displayTitle,
+                    copyright: normalizedOptionalText(value)
+                ),
+                caption: file.caption
+            )
+        )
+    }
+
     mutating func updateText(_ value: String, for kind: ChannelCardTextFieldKind) {
         textValues[kind] = value
     }
@@ -341,6 +468,15 @@ struct FeedComposerDraft: Equatable, Sendable {
 
     private func normalizedText(for kind: ChannelCardTextFieldKind) -> String? {
         let trimmed = textValue(for: kind).trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
+    }
+
+    private func normalizedOptionalText(_ value: String?) -> String? {
+        guard let value else {
+            return nil
+        }
+
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? nil : trimmed
     }
 
