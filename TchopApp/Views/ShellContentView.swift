@@ -565,11 +565,16 @@ private struct ComposerMediaPreview: View {
                 onTap: onPhotoTap
             )
         case let .file(file):
-            ComposerFileMediaView(
-                file: file,
-                onMoreTap: onFileMediaMoreTap,
-                onTap: onFileMediaTap
-            )
+            switch file.kind {
+            case .photo:
+                EmptyView()
+            case .video:
+                ComposerVideoMediaView(file: file, onMoreTap: onFileMediaMoreTap, onTap: onFileMediaTap)
+            case .audio:
+                ComposerAudioMediaView(file: file, onMoreTap: onFileMediaMoreTap, onTap: onFileMediaTap)
+            case .pdf:
+                ComposerPDFMediaView(file: file, onMoreTap: onFileMediaMoreTap, onTap: onFileMediaTap)
+            }
         }
     }
 }
@@ -635,10 +640,62 @@ private struct ComposerPhotoStripView: View {
     }
 }
 
-private struct ComposerFileMediaView: View {
+private struct ComposerVideoMediaView: View {
     let file: ChannelCardFileMediaContent
     let onMoreTap: () -> Void
     let onTap: () -> Void
+
+    var body: some View {
+        ComposerFileMediaCard(onMoreTap: onMoreTap, onTap: onTap) {
+            ComposerMediaKindBadge(title: "Video")
+            ComposerMediaHeroIcon(systemName: "play.rectangle.fill")
+            ComposerMediaTitleBlock(file: file)
+        }
+    }
+}
+
+private struct ComposerAudioMediaView: View {
+    let file: ChannelCardFileMediaContent
+    let onMoreTap: () -> Void
+    let onTap: () -> Void
+
+    var body: some View {
+        ComposerFileMediaCard(onMoreTap: onMoreTap, onTap: onTap) {
+            ComposerMediaKindBadge(title: "Audio")
+            ComposerMediaHeroIcon(systemName: "waveform.circle.fill")
+            ComposerMediaTitleBlock(file: file)
+        }
+    }
+}
+
+private struct ComposerPDFMediaView: View {
+    let file: ChannelCardFileMediaContent
+    let onMoreTap: () -> Void
+    let onTap: () -> Void
+
+    var body: some View {
+        ComposerFileMediaCard(onMoreTap: onMoreTap, onTap: onTap) {
+            ComposerMediaKindBadge(title: "PDF")
+            ComposerMediaHeroIcon(systemName: "document.fill")
+            ComposerMediaTitleBlock(file: file)
+        }
+    }
+}
+
+private struct ComposerFileMediaCard<Content: View>: View {
+    let onMoreTap: () -> Void
+    let onTap: () -> Void
+    let content: Content
+
+    init(
+        onMoreTap: @escaping () -> Void,
+        onTap: @escaping () -> Void,
+        @ViewBuilder content: () -> Content
+    ) {
+        self.onMoreTap = onMoreTap
+        self.onTap = onTap
+        self.content = content()
+    }
 
     var body: some View {
         RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
@@ -661,41 +718,83 @@ private struct ComposerFileMediaView: View {
                     .padding(.horizontal, AppSpacing.sm)
 
                     Spacer()
-
-                    VStack(spacing: AppSpacing.xs) {
-                        Image(systemName: iconName)
-                            .font(.system(size: 28, weight: .semibold))
-                            .foregroundStyle(AppTheme.textSecondary)
-
-                        Text(file.displayTitle)
-                            .font(AppTypography.cardTitle)
-                            .foregroundStyle(AppTheme.textSecondary)
-
-                        if let caption = file.caption, !caption.isEmpty {
-                            Text(caption)
-                                .font(AppTypography.captionSemibold)
-                                .foregroundStyle(AppTheme.textTertiary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, AppSpacing.md)
-                        }
-                    }
-
+                    content
                     Spacer()
                 }
             }
             .onTapGesture(perform: onTap)
     }
+}
 
-    private var iconName: String {
-        switch file.kind {
-        case .photo:
-            return "photo.on.rectangle.angled"
-        case .video:
-            return "video"
-        case .audio:
-            return "waveform"
-        case .pdf:
-            return "doc.richtext"
+private struct ComposerMediaKindBadge: View {
+    let title: String
+
+    var body: some View {
+        Text(title)
+            .font(AppTypography.label)
+            .foregroundStyle(AppTheme.textPrimary)
+            .padding(.horizontal, AppSpacing.sm)
+            .padding(.vertical, AppSpacing.xxs)
+            .background(AppTheme.surfacePrimary)
+            .clipShape(Capsule())
+    }
+}
+
+private struct ComposerMediaHeroIcon: View {
+    let systemName: String
+
+    var body: some View {
+        Image(systemName: systemName)
+            .font(.system(size: 30, weight: .semibold))
+            .foregroundStyle(AppTheme.textSecondary)
+    }
+}
+
+private struct ComposerMediaTitleBlock: View {
+    let file: ChannelCardFileMediaContent
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xs) {
+            Text(file.displayTitle)
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textSecondary)
+                .multilineTextAlignment(.center)
+
+            if let caption = file.caption, !caption.isEmpty {
+                Text(caption)
+                    .font(AppTypography.captionSemibold)
+                    .foregroundStyle(AppTheme.textTertiary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, AppSpacing.md)
+            }
+        }
+    }
+}
+
+private struct ComposerTeaserPreviewContent: View {
+    let teaserImage: ChannelCardTeaserImageContent
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xs) {
+            Text("Teaser image")
+                .font(AppTypography.label)
+                .foregroundStyle(AppTheme.textTertiary)
+
+            Image(systemName: "photo")
+                .font(.system(size: 24, weight: .semibold))
+                .foregroundStyle(AppTheme.textSecondary)
+
+            Text(teaserImage.displayTitle)
+                .font(AppTypography.captionSemibold)
+                .foregroundStyle(AppTheme.textSecondary)
+
+            if let copyright = teaserImage.copyright, !copyright.isEmpty {
+                Text(copyright)
+                    .font(AppTypography.label)
+                    .foregroundStyle(AppTheme.textTertiary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, AppSpacing.md)
+            }
         }
     }
 }
@@ -727,24 +826,7 @@ private struct ComposerTeaserPreview: View {
 
                     Spacer()
 
-                    VStack(spacing: AppSpacing.xs) {
-                        Image(systemName: "photo")
-                            .font(.system(size: 24, weight: .semibold))
-                            .foregroundStyle(AppTheme.textSecondary)
-
-                        Text(teaserImage.displayTitle)
-                            .font(AppTypography.captionSemibold)
-                            .foregroundStyle(AppTheme.textSecondary)
-
-                        if let copyright = teaserImage.copyright, !copyright.isEmpty {
-                            Text(copyright)
-                                .font(AppTypography.label)
-                                .foregroundStyle(AppTheme.textTertiary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, AppSpacing.md)
-                        }
-                    }
-
+                    ComposerTeaserPreviewContent(teaserImage: teaserImage)
                     Spacer()
                 }
             }
@@ -823,6 +905,8 @@ private struct ComposerFileMediaDetailView: View {
                         .frame(height: 320)
                         .overlay {
                             VStack(spacing: AppSpacing.sm) {
+                                ComposerMediaKindBadge(title: kindTitle)
+
                                 Image(systemName: iconName)
                                     .font(.system(size: 56, weight: .semibold))
                                     .foregroundStyle(Color.white.opacity(0.9))
@@ -852,16 +936,29 @@ private struct ComposerFileMediaDetailView: View {
         }
     }
 
+    private var kindTitle: String {
+        switch file.kind {
+        case .photo:
+            return "Photo"
+        case .video:
+            return "Video"
+        case .audio:
+            return "Audio"
+        case .pdf:
+            return "PDF"
+        }
+    }
+
     private var iconName: String {
         switch file.kind {
         case .photo:
             return "photo.on.rectangle.angled"
         case .video:
-            return "video"
+            return "play.rectangle.fill"
         case .audio:
-            return "waveform"
+            return "waveform.circle.fill"
         case .pdf:
-            return "doc.richtext"
+            return "document.fill"
         }
     }
 }
@@ -881,24 +978,7 @@ private struct ComposerTeaserDetailView: View {
                         .fill(Color.white.opacity(0.08))
                         .frame(height: 280)
                         .overlay {
-                            VStack(spacing: AppSpacing.sm) {
-                                Image(systemName: "photo")
-                                    .font(.system(size: 48, weight: .semibold))
-                                    .foregroundStyle(Color.white.opacity(0.9))
-
-                                Text(teaserImage.displayTitle)
-                                    .font(.system(size: 20, weight: .semibold))
-                                    .foregroundStyle(Color.white)
-                                    .multilineTextAlignment(.center)
-
-                                if let copyright = teaserImage.copyright, !copyright.isEmpty {
-                                    Text(copyright)
-                                        .font(.system(size: 14, weight: .medium))
-                                        .foregroundStyle(Color.white.opacity(0.8))
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, AppSpacing.lg)
-                                }
-                            }
+                            ComposerTeaserPreviewContent(teaserImage: teaserImage)
                             .padding(.horizontal, AppSpacing.lg)
                         }
                         .padding(.top, 80)

@@ -4,8 +4,8 @@
 Finish restoring the lost card/composer/feed functionality with the new 5-type card model and keep docs/package boundaries clean.
 
 ## Active Steps
-1. Align composer and feed render/runtime behavior where gaps remain
-2. Continue removing any remaining preview-only semantics from local card rendering
+1. Align the remaining composer/feed gaps around the shared first-class card contract
+2. Remove any remaining preview-only or draft-only semantics that leak into published local card rendering
 3. After feature restoration, run final documentation consistency pass across docs and local project skills
 
 ## Working Rule

@@ -24,6 +24,7 @@
 - photo/file/teaser action surfaces exist in composer
 - asset metadata editing exists for photo caption/copyright and file caption/teaser copyright
 - local `video/audio/pdf` feed cards now render through dedicated card-specific layouts instead of a shared generic file preview block
+- composer non-photo media previews now use matching card-specific layouts instead of one generic file preview
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`

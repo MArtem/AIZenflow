@@ -58,7 +58,7 @@ Only these fields exist:
 - local published cards now use unified feed runtime semantics instead of the old special-case local branch
 - composer supports:
   - photo strip
-  - file media preview for `video/audio/pdf`
+  - card-specific file media preview for `video/audio/pdf`
   - teaser preview
   - photo fullscreen/detail
   - file media detail
@@ -71,6 +71,7 @@ Only these fields exist:
   - teaser copyright editing
 - feed runtime no longer uses the old generic local media placeholder path for local `photo/video/audio/pdf`
 - local `video/audio/pdf` feed cards now use dedicated card-specific media layouts instead of a shared generic file preview block
+- composer and feed now use matching card-specific visual semantics for non-photo media
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
