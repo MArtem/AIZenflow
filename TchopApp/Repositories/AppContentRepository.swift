@@ -127,7 +127,7 @@ final class DefaultAppContentRepository: AppContentRepository {
             localStore: localStore,
             remoteClient: FeedActionRemoteSyncClient(feedAPIManager: feedAPIManager),
             statusStore: SyncStatusStore(),
-            scope: "featured-article-\(articleID)"
+            scope: "photo-\(articleID)"
         )
 
         await engine.sync(reason: .localMutation)
@@ -153,7 +153,7 @@ final class DefaultAppContentRepository: AppContentRepository {
             localStore: localStore,
             remoteClient: FeedActionRemoteSyncClient(feedAPIManager: feedAPIManager),
             statusStore: SyncStatusStore(),
-            scope: "discussion-\(discussionID)"
+            scope: "text-\(discussionID)"
         )
 
         await engine.sync(reason: .localMutation)
@@ -168,7 +168,7 @@ final class DefaultAppContentRepository: AppContentRepository {
             channelID: article.channelID,
             articleID: article.id,
             actionKind: photoActionKind(action),
-            displayModeRawValue: featuredArticleDisplayModeRawValue(action),
+            displayModeRawValue: photoDisplayModeRawValue(action),
             isLiked: article.uiState.isLiked
         )
         let envelope = FeedActionMutationEnvelope(
@@ -847,8 +847,8 @@ private struct FeedCardSyncEnvelope: Codable {
 }
 
 private enum FeedActionMutationKind: String, Codable {
-    case photo = "featuredArticle"
-    case text = "discussion"
+    case photo = "photo"
+    case text = "text"
 }
 
 private struct PhotoActionMutationPayload: Codable {
@@ -1479,7 +1479,7 @@ private func photoActionKind(_ action: PhotoCardAction) -> String {
     }
 }
 
-private func featuredArticleDisplayModeRawValue(_ action: PhotoCardAction) -> String? {
+private func photoDisplayModeRawValue(_ action: PhotoCardAction) -> String? {
     guard case let .setDisplayMode(displayMode) = action else {
         return nil
     }

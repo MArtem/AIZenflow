@@ -16,8 +16,8 @@ enum FeedCardDTO: Decodable, Sendable {
     }
 
     private enum CardType: String, Decodable {
-        case photo = "featuredArticle"
-        case text = "discussion"
+        case photo = "photo"
+        case text = "text"
     }
 
     init(from decoder: any Decoder) throws {
@@ -465,12 +465,12 @@ enum FeedAPIStubFactory {
         return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
     }
 
-    /// Looks up one article card inside the bundled feed seed.
+    /// Looks up one photo card inside the bundled feed seed.
     static func photoCard(
         in response: FeedResponseDTO,
         articleID: String
     ) -> PhotoDTO? {
-        let unscopedArticleID = unscopedCardID(articleID, kindPrefix: "article-")
+        let unscopedArticleID = unscopedCardID(articleID, kindPrefix: "photo-")
         for card in response.cards {
             if case let .photo(article) = card,
                (article.id == articleID || article.id == unscopedArticleID) {
@@ -481,12 +481,12 @@ enum FeedAPIStubFactory {
         return nil
     }
 
-    /// Looks up one discussion card inside the bundled feed seed.
+    /// Looks up one text card inside the bundled feed seed.
     static func textCard(
         in response: FeedResponseDTO,
         discussionID: String
     ) -> TextDTO? {
-        let unscopedDiscussionID = unscopedCardID(discussionID, kindPrefix: "discussion-")
+        let unscopedDiscussionID = unscopedCardID(discussionID, kindPrefix: "text-")
         for card in response.cards {
             if case let .text(discussion) = card,
                (discussion.id == discussionID || discussion.id == unscopedDiscussionID) {

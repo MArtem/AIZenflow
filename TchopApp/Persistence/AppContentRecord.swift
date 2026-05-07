@@ -3,8 +3,8 @@ import SwiftData
 
 /// Raw feed card kinds supported by the current persistence layer.
 enum FeedCardRecordKind: String, Codable, Sendable {
-    case photo = "featuredArticle"
-    case text = "discussion"
+    case photo = "photo"
+    case text = "text"
 }
 
 /// Persisted action payload stored for featured article cards.

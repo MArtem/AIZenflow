@@ -650,7 +650,7 @@ enum NewsFeedFixtures {
                 ),
                 .text(
                     TextCardModel(
-                        id: "discussion-fallback",
+                        id: "text-fallback",
                         channelID: channelID,
                         categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
                         headline: AppLocalization.text("news.fallback.discussion.headline"),

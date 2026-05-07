@@ -25,7 +25,7 @@ struct TchopPushNotificationsTests {
                     "badge": 3,
                     "sound": "default"
                 ],
-                "route": "tchop://news/discussion/parrots",
+                "route": "tchop://news/text/parrots",
                 "articleID": 42
             ],
             source: .foreground
@@ -35,7 +35,7 @@ struct TchopPushNotificationsTests {
         #expect(payload.body == "Parrots help others in need, study shows for first time")
         #expect(payload.badge == 3)
         #expect(payload.sound == "default")
-        #expect(payload.customData["route"] == "tchop://news/discussion/parrots")
+        #expect(payload.customData["route"] == "tchop://news/text/parrots")
         #expect(payload.customData["articleID"] == "42")
     }
 

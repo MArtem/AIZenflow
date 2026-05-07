@@ -1,8 +1,8 @@
 {
   "cards": [
     {
-      "type": "featuredArticle",
-      "id": "article-featured-1",
+      "type": "photo",
+      "id": "photo-1",
       "remoteUpdatedAt": "2025-01-16T08:30:00Z",
       "publishedAt": "2025-01-16T08:00:00Z",
       "postedInPrefix": "Posted in ",
@@ -19,13 +19,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-1-like",
+          "id": "photo-1-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-1-comments",
+          "id": "photo-1-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "12 Comments"
@@ -33,25 +33,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-1",
+      "type": "text",
+      "id": "text-1",
       "remoteUpdatedAt": "2025-01-16T09:10:00Z",
       "publishedAt": "2025-01-16T08:45:00Z",
       "categoryTitle": "Release Discussion",
       "headline": "Which workflow should be optimized next:\nchannel switching, search, or card creation?",
       "participants": [
         {
-          "id": "discussion-1-participant-a",
+          "id": "text-1-participant-a",
           "initials": "A",
           "isHighlighted": true
         },
         {
-          "id": "discussion-1-participant-p",
+          "id": "text-1-participant-p",
           "initials": "P",
           "isHighlighted": false
         },
         {
-          "id": "discussion-1-participant-s",
+          "id": "text-1-participant-s",
           "initials": "S",
           "isHighlighted": false
         }
@@ -64,8 +64,8 @@
       }
     },
     {
-      "type": "featuredArticle",
-      "id": "article-featured-2",
+      "type": "photo",
+      "id": "photo-2",
       "remoteUpdatedAt": "2025-01-16T10:05:00Z",
       "publishedAt": "2025-01-16T09:30:00Z",
       "postedInPrefix": "Posted in ",
@@ -82,13 +82,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-2-like",
+          "id": "photo-2-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-2-comments",
+          "id": "photo-2-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "7 Comments"
@@ -96,25 +96,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-2",
+      "type": "text",
+      "id": "text-2",
       "remoteUpdatedAt": "2025-01-16T11:20:00Z",
       "publishedAt": "2025-01-16T10:55:00Z",
       "categoryTitle": "Product Feedback",
       "headline": "Should channel settings return a server-preselected\nchannel or only memberships and defaults?",
       "participants": [
         {
-          "id": "discussion-2-participant-d",
+          "id": "text-2-participant-d",
           "initials": "D",
           "isHighlighted": true
         },
         {
-          "id": "discussion-2-participant-m",
+          "id": "text-2-participant-m",
           "initials": "M",
           "isHighlighted": false
         },
         {
-          "id": "discussion-2-participant-k",
+          "id": "text-2-participant-k",
           "initials": "K",
           "isHighlighted": false
         }

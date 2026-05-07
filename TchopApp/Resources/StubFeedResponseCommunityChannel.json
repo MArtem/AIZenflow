@@ -1,25 +1,25 @@
 {
   "cards": [
     {
-      "type": "discussion",
-      "id": "discussion-1",
+      "type": "text",
+      "id": "text-1",
       "remoteUpdatedAt": "2025-01-17T08:20:00Z",
       "publishedAt": "2025-01-17T08:00:00Z",
       "categoryTitle": "Community",
       "headline": "Which channel should host cross-team editorial\nQ&A threads going forward?",
       "participants": [
         {
-          "id": "discussion-1-participant-l",
+          "id": "text-1-participant-l",
           "initials": "L",
           "isHighlighted": true
         },
         {
-          "id": "discussion-1-participant-j",
+          "id": "text-1-participant-j",
           "initials": "J",
           "isHighlighted": false
         },
         {
-          "id": "discussion-1-participant-f",
+          "id": "text-1-participant-f",
           "initials": "F",
           "isHighlighted": false
         }
@@ -32,8 +32,8 @@
       }
     },
     {
-      "type": "featuredArticle",
-      "id": "article-featured-1",
+      "type": "photo",
+      "id": "photo-1",
       "remoteUpdatedAt": "2025-01-17T09:00:00Z",
       "publishedAt": "2025-01-17T08:35:00Z",
       "postedInPrefix": "Posted in ",
@@ -50,13 +50,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-1-like",
+          "id": "photo-1-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-1-comments",
+          "id": "photo-1-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "21 Comments"
@@ -64,25 +64,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-2",
+      "type": "text",
+      "id": "text-2",
       "remoteUpdatedAt": "2025-01-17T10:15:00Z",
       "publishedAt": "2025-01-17T09:45:00Z",
       "categoryTitle": "Ideas",
       "headline": "Should card search rank headline hits above\nsummary and participant matches?",
       "participants": [
         {
-          "id": "discussion-2-participant-s",
+          "id": "text-2-participant-s",
           "initials": "S",
           "isHighlighted": true
         },
         {
-          "id": "discussion-2-participant-r",
+          "id": "text-2-participant-r",
           "initials": "R",
           "isHighlighted": false
         },
         {
-          "id": "discussion-2-participant-a",
+          "id": "text-2-participant-a",
           "initials": "A",
           "isHighlighted": false
         }
@@ -95,8 +95,8 @@
       }
     },
     {
-      "type": "featuredArticle",
-      "id": "article-featured-2",
+      "type": "photo",
+      "id": "photo-2",
       "remoteUpdatedAt": "2025-01-17T11:05:00Z",
       "publishedAt": "2025-01-17T10:40:00Z",
       "postedInPrefix": "Posted in ",
@@ -113,13 +113,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-2-like",
+          "id": "photo-2-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-2-comments",
+          "id": "photo-2-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "11 Comments"

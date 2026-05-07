@@ -1,8 +1,8 @@
 {
   "cards": [
     {
-      "type": "featuredArticle",
-      "id": "article-featured-1",
+      "type": "photo",
+      "id": "photo-1",
       "remoteUpdatedAt": "2025-01-15T08:30:00Z",
       "publishedAt": "2025-01-15T07:45:00Z",
       "postedInPrefix": "Posted in ",
@@ -19,13 +19,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-1-like",
+          "id": "photo-1-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-1-comments",
+          "id": "photo-1-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "48 Comments"
@@ -33,25 +33,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-1",
+      "type": "text",
+      "id": "text-1",
       "remoteUpdatedAt": "2025-01-15T08:35:00Z",
       "publishedAt": "2025-01-15T08:10:00Z",
       "categoryTitle": "Discussion",
       "headline": "Mattis duis volutpat tincidunt\nhabitant amet in sagittis odio",
       "participants": [
         {
-          "id": "discussion-1-participant-a",
+          "id": "text-1-participant-a",
           "initials": "A",
           "isHighlighted": true
         },
         {
-          "id": "discussion-1-participant-m",
+          "id": "text-1-participant-m",
           "initials": "M",
           "isHighlighted": false
         },
         {
-          "id": "discussion-1-participant-s",
+          "id": "text-1-participant-s",
           "initials": "S",
           "isHighlighted": false
         }
@@ -64,8 +64,8 @@
       }
     },
     {
-      "type": "featuredArticle",
-      "id": "article-featured-2",
+      "type": "photo",
+      "id": "photo-2",
       "remoteUpdatedAt": "2025-01-15T09:00:00Z",
       "publishedAt": "2025-01-15T08:40:00Z",
       "postedInPrefix": "Posted in ",
@@ -82,13 +82,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-2-like",
+          "id": "photo-2-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-2-comments",
+          "id": "photo-2-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "16 Comments"
@@ -96,25 +96,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-2",
+      "type": "text",
+      "id": "text-2",
       "remoteUpdatedAt": "2025-01-15T09:05:00Z",
       "publishedAt": "2025-01-15T08:58:00Z",
       "categoryTitle": "Discussion",
       "headline": "What should a truly useful offline\nhome feed remember for users?",
       "participants": [
         {
-          "id": "discussion-2-participant-l",
+          "id": "text-2-participant-l",
           "initials": "L",
           "isHighlighted": true
         },
         {
-          "id": "discussion-2-participant-k",
+          "id": "text-2-participant-k",
           "initials": "K",
           "isHighlighted": false
         },
         {
-          "id": "discussion-2-participant-d",
+          "id": "text-2-participant-d",
           "initials": "D",
           "isHighlighted": false
         }
@@ -127,8 +127,8 @@
       }
     },
     {
-      "type": "featuredArticle",
-      "id": "article-featured-3",
+      "type": "photo",
+      "id": "photo-3",
       "remoteUpdatedAt": "2025-01-15T10:10:00Z",
       "publishedAt": "2025-01-15T09:45:00Z",
       "postedInPrefix": "Posted in ",
@@ -145,13 +145,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-3-like",
+          "id": "photo-3-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-3-comments",
+          "id": "photo-3-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "9 Comments"
@@ -159,25 +159,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-3",
+      "type": "text",
+      "id": "text-3",
       "remoteUpdatedAt": "2025-01-15T10:20:00Z",
       "publishedAt": "2025-01-15T10:00:00Z",
       "categoryTitle": "Discussion",
       "headline": "Should card ordering be purely remote\nor partially local and personalized?",
       "participants": [
         {
-          "id": "discussion-3-participant-r",
+          "id": "text-3-participant-r",
           "initials": "R",
           "isHighlighted": true
         },
         {
-          "id": "discussion-3-participant-j",
+          "id": "text-3-participant-j",
           "initials": "J",
           "isHighlighted": false
         },
         {
-          "id": "discussion-3-participant-p",
+          "id": "text-3-participant-p",
           "initials": "P",
           "isHighlighted": false
         }
@@ -190,8 +190,8 @@
       }
     },
     {
-      "type": "featuredArticle",
-      "id": "article-featured-4",
+      "type": "photo",
+      "id": "photo-4",
       "remoteUpdatedAt": "2025-01-15T11:15:00Z",
       "publishedAt": "2025-01-15T10:55:00Z",
       "postedInPrefix": "Posted in ",
@@ -208,13 +208,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-4-like",
+          "id": "photo-4-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-4-comments",
+          "id": "photo-4-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "22 Comments"
@@ -222,25 +222,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-4",
+      "type": "text",
+      "id": "text-4",
       "remoteUpdatedAt": "2025-01-15T11:25:00Z",
       "publishedAt": "2025-01-15T11:05:00Z",
       "categoryTitle": "Discussion",
       "headline": "How much local persistence is enough\nbefore complexity starts to win?",
       "participants": [
         {
-          "id": "discussion-4-participant-i",
+          "id": "text-4-participant-i",
           "initials": "I",
           "isHighlighted": true
         },
         {
-          "id": "discussion-4-participant-t",
+          "id": "text-4-participant-t",
           "initials": "T",
           "isHighlighted": false
         },
         {
-          "id": "discussion-4-participant-f",
+          "id": "text-4-participant-f",
           "initials": "F",
           "isHighlighted": false
         }
@@ -253,8 +253,8 @@
       }
     },
     {
-      "type": "featuredArticle",
-      "id": "article-featured-5",
+      "type": "photo",
+      "id": "photo-5",
       "remoteUpdatedAt": "2025-01-15T12:10:00Z",
       "publishedAt": "2025-01-15T11:50:00Z",
       "postedInPrefix": "Posted in ",
@@ -271,13 +271,13 @@
       },
       "actions": [
         {
-          "id": "article-featured-5-like",
+          "id": "photo-5-like",
           "kind": "like",
           "systemName": "hand.thumbsup.fill",
           "title": "Like"
         },
         {
-          "id": "article-featured-5-comments",
+          "id": "photo-5-comments",
           "kind": "comments",
           "systemName": "bubble.left.fill",
           "title": "31 Comments"
@@ -285,25 +285,25 @@
       ]
     },
     {
-      "type": "discussion",
-      "id": "discussion-5",
+      "type": "text",
+      "id": "text-5",
       "remoteUpdatedAt": "2025-01-15T12:20:00Z",
       "publishedAt": "2025-01-15T12:00:00Z",
       "categoryTitle": "Discussion",
       "headline": "What should happen when a card disappears\nfrom the next server snapshot?",
       "participants": [
         {
-          "id": "discussion-5-participant-c",
+          "id": "text-5-participant-c",
           "initials": "C",
           "isHighlighted": true
         },
         {
-          "id": "discussion-5-participant-v",
+          "id": "text-5-participant-v",
           "initials": "V",
           "isHighlighted": false
         },
         {
-          "id": "discussion-5-participant-h",
+          "id": "text-5-participant-h",
           "initials": "H",
           "isHighlighted": false
         }

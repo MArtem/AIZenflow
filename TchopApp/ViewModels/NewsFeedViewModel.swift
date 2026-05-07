@@ -111,7 +111,7 @@ final class NewsFeedViewModel {
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
     /// Serializes article actions and queues additive taps per visible card.
-    private let featuredArticleActionCoordinator = NewsFeedCardActionCoordinator()
+    private let photoActionCoordinator = NewsFeedCardActionCoordinator()
     /// Serializes discussion actions and queues additive taps per visible card.
     private let discussionActionCoordinator = NewsFeedCardActionCoordinator()
 
@@ -201,11 +201,11 @@ final class NewsFeedViewModel {
         articleID: String,
         action: PhotoCardAction
     ) {
-        switch featuredArticleActionStartDecision(for: action, articleID: articleID) {
+        switch photoActionStartDecision(for: action, articleID: articleID) {
         case .start:
             break
         case .queue:
-            featuredArticleActionCoordinator.queueAdditiveAction(for: articleID)
+            photoActionCoordinator.queueAdditiveAction(for: articleID)
             return
         case .ignore:
             return
@@ -446,7 +446,7 @@ final class NewsFeedViewModel {
             return
         }
 
-        let previousArticle = featuredArticle(withID: articleID)
+        let previousArticle = photoCard(withID: articleID)
 
         updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
@@ -459,7 +459,7 @@ final class NewsFeedViewModel {
             }
         }
 
-        featuredArticleActionCoordinator.start(Task { [weak self] in
+        photoActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -509,7 +509,7 @@ final class NewsFeedViewModel {
             }
         }
 
-        featuredArticleActionCoordinator.start(Task { [weak self] in
+        photoActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -560,7 +560,7 @@ final class NewsFeedViewModel {
         _ displayMode: PhotoCardDisplayMode,
         for articleID: String
     ) {
-        guard let currentArticle = featuredArticle(withID: articleID),
+        guard let currentArticle = photoCard(withID: articleID),
               !currentArticle.uiState.blocksActions else { return }
 
         let previousArticle = currentArticle
@@ -575,7 +575,7 @@ final class NewsFeedViewModel {
             }
         }
 
-        featuredArticleActionCoordinator.start(Task { [weak self] in
+        photoActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -625,7 +625,7 @@ final class NewsFeedViewModel {
             }
         }
 
-        featuredArticleActionCoordinator.start(Task { [weak self] in
+        photoActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -672,7 +672,7 @@ final class NewsFeedViewModel {
             }
         }
 
-        featuredArticleActionCoordinator.start(Task { [weak self] in
+        photoActionCoordinator.start(Task { [weak self] in
             do {
                 guard let self else {
                     return
@@ -708,7 +708,7 @@ final class NewsFeedViewModel {
         articleID: String,
         statusMessage: String?
     ) {
-        featuredArticleActionCoordinator.clear(cardID: articleID)
+        photoActionCoordinator.clear(cardID: articleID)
         updatePhoto(articleID: articleID) { _ in
             updatedArticle.updatingUIState { _ in
                 PhotoCardUIState(
@@ -726,7 +726,7 @@ final class NewsFeedViewModel {
         articleID: String,
         message: String
     ) {
-        featuredArticleActionCoordinator.clear(cardID: articleID)
+        photoActionCoordinator.clear(cardID: articleID)
         updatePhoto(articleID: articleID) { article in
             article.updatingUIState {
                 PhotoCardUIState(
@@ -757,7 +757,7 @@ final class NewsFeedViewModel {
         previousArticle: PhotoCardModel?,
         message: String
     ) {
-        featuredArticleActionCoordinator.clear(cardID: articleID)
+        photoActionCoordinator.clear(cardID: articleID)
         guard let previousArticle else {
             return
         }
@@ -819,7 +819,7 @@ final class NewsFeedViewModel {
     }
 
     /// Returns the visible featured article snapshot for a given identifier.
-    private func featuredArticle(withID articleID: String) -> PhotoCardModel? {
+    private func photoCard(withID articleID: String) -> PhotoCardModel? {
         for card in state.content.cards {
             if case let .photo(article) = card, article.id == articleID {
                 return article
@@ -831,7 +831,7 @@ final class NewsFeedViewModel {
 
     /// Whether a new card-level action can start for the target article.
     private func canStartPhotoAction(for articleID: String) -> Bool {
-        guard let article = featuredArticle(withID: articleID) else {
+        guard let article = photoCard(withID: articleID) else {
             return false
         }
 
@@ -839,11 +839,11 @@ final class NewsFeedViewModel {
     }
 
     /// Evaluates whether one featured article action should start now, queue behind an additive in-flight action, or be ignored.
-    private func featuredArticleActionStartDecision(
+    private func photoActionStartDecision(
         for action: PhotoCardAction,
         articleID: String
     ) -> CardActionStartDecision {
-        guard let article = featuredArticle(withID: articleID) else {
+        guard let article = photoCard(withID: articleID) else {
             return .ignore
         }
 
@@ -865,7 +865,7 @@ final class NewsFeedViewModel {
         _ updatedArticle: PhotoCardModel,
         articleID: String
     ) -> Bool {
-        guard featuredArticleActionCoordinator.consumeQueuedAdditiveAction(for: articleID) else {
+        guard photoActionCoordinator.consumeQueuedAdditiveAction(for: articleID) else {
             return false
         }
 
@@ -884,7 +884,7 @@ final class NewsFeedViewModel {
 
     /// Cancels all active card-level tasks and clears the registry.
     private func cancelPhotoTasks() {
-        featuredArticleActionCoordinator.cancelAll()
+        photoActionCoordinator.cancelAll()
     }
 
     /// Resolves the rollback/preserve policy for a failed featured article action and applies it to the visible card.
@@ -894,7 +894,7 @@ final class NewsFeedViewModel {
         previousArticle: PhotoCardModel?,
         error: Error
     ) async {
-        let policy = await featuredArticleFailurePolicy(for: action, error: error)
+        let policy = await photoFailurePolicy(for: action, error: error)
         switch policy.resolution {
         case .rollback:
             rollbackPhoto(
@@ -908,11 +908,11 @@ final class NewsFeedViewModel {
     }
 
     /// Determines how featured article UI should recover from a repository/network failure.
-    private func featuredArticleFailurePolicy(
+    private func photoFailurePolicy(
         for action: PhotoCardAction,
         error: Error
     ) async -> CardActionFailurePolicy {
-        let fallbackMessage = await cardActionFailureMessage(for: error, feature: "featuredArticle")
+        let fallbackMessage = await cardActionFailureMessage(for: error, feature: "photo")
         switch action {
         case .toggleLike, .setDisplayMode:
             return CardActionFailurePolicy(resolution: .rollback, message: fallbackMessage)
@@ -1366,7 +1366,7 @@ final class NewsFeedViewModel {
         for action: TextCardAction,
         error: Error
     ) async -> CardActionFailurePolicy {
-        let fallbackMessage = await cardActionFailureMessage(for: error, feature: "discussion")
+        let fallbackMessage = await cardActionFailureMessage(for: error, feature: "text")
         switch action {
         case .toggleParticipation, .setDisplayMode:
             return CardActionFailurePolicy(resolution: .rollback, message: fallbackMessage)
