@@ -13,6 +13,7 @@ Use it for:
 - Do not run tests by default
 - Do not boot simulator UI by default
 - Use the cheapest verification path that proves the requested behavior
+- Do not run `Low` build verification automatically after every step; run it only when the recent change set is large enough, risky enough, or integration-sensitive enough that a compile check is justified by cost
 
 ## Verification Levels
 Verification runs only when the user explicitly asks for them.
