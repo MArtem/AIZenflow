@@ -621,6 +621,14 @@ private struct ComposerPhotoStripView: View {
                                             .multilineTextAlignment(.center)
                                             .padding(.horizontal, AppSpacing.sm)
                                     }
+
+                                    if let copyright = item.copyright, !copyright.isEmpty {
+                                        Text(copyright)
+                                            .font(AppTypography.label)
+                                            .foregroundStyle(AppTheme.textTertiary)
+                                            .multilineTextAlignment(.center)
+                                            .padding(.horizontal, AppSpacing.sm)
+                                    }
                                 }
 
                                 Spacer()
@@ -868,6 +876,14 @@ private struct ComposerPhotoDetailView: View {
                                     Text(caption)
                                         .font(.system(size: max(13, 15 * scale), weight: .medium))
                                         .foregroundStyle(Color.white.opacity(0.8))
+                                        .multilineTextAlignment(.center)
+                                        .padding(.horizontal, AppSpacing.lg)
+                                }
+
+                                if let copyright = item.copyright, !copyright.isEmpty {
+                                    Text(copyright)
+                                        .font(.system(size: max(11, 13 * scale), weight: .medium))
+                                        .foregroundStyle(Color.white.opacity(0.65))
                                         .multilineTextAlignment(.center)
                                         .padding(.horizontal, AppSpacing.lg)
                                 }
