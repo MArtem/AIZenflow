@@ -1,307 +1,151 @@
 # Project Health
 
 ## Purpose
-This document records the current package inventory, separation boundaries, and reuse policy for `TchopApp`.
-It is intended to answer three questions quickly:
-- what is already reusable,
-- what must remain app-specific,
-- what should not be extracted into a package unless project constraints change.
+This document is the package and manager ownership map for `TchopApp`.
+
+Read it when you need to answer:
+- what is reusable
+- what must stay app-specific
+- where new behavior should live
+
+## Root Rule
+- If behavior is reusable and entity-agnostic, the package/manager should own it.
+- App code should keep only project-specific mapping, domain rules, endpoint semantics, persistence schema choices, and UI composition.
+- Do not add extra shim or protocol layers on top of a good reusable package unless there is a real seam requirement.
 
 ## Reusable Package Inventory
-Global package rule:
-- if a behavior is reusable and not tied to app domain semantics, the package/manager should own it.
-- app code should keep only project-specific mapping, business rules, endpoint semantics, persistence schema choices, and UI-facing composition.
-
 ### `TchopNetworking`
-Status: reusable.
-
-Owned concerns:
+Owns:
 - request execution
-- cancellation
 - upload/download
-- retry hooks
-- logging
-- offline queue
-- metrics and diagnostics
+- retry/interceptor flow
+- auth-refresh integration
+- offline queue foundation
+- diagnostics and metrics
 
-Keep reusable:
-- transport contracts
-- interceptors
-- retry policy surfaces
-- diagnostics export/import
-
-Do not couple to app:
-- feed-specific DTOs
-- app bundle identifiers
+Must not know about:
+- app DTOs
 - app localization keys
+- app bundle semantics
 
 ### `TchopDatabaseCore`
-Status: reusable.
-
-Owned concerns:
-- backend-neutral contracts
+Owns:
+- backend-neutral DB contracts
 - migration primitives
-- operation wrappers
-- backend selection types
+- generic operation wrappers
+- backend-selection types
 
-Keep reusable:
-- operation abstractions
-- migration runner
-- backend configuration
-
-Do not couple to app:
-- app entity types
-- app migration policy decisions
-
-### `SyncCore`
-Status: reusable.
-
-Owned concerns:
-- sync state machine
-- mutation queue push/pull orchestration
-- cursor-based remote change application
-- conflict lifecycle and resolution contract
-
-Keep reusable:
-- engine/scheduler/status store contracts
-- local/remote adapter protocols
-- conflict primitives and metadata models
-- any sync behavior that stays entity-agnostic and project-agnostic
-
-Do not couple to app:
-- `FeedCardRecord`/`ChannelRecord` types
-- app DTO mapping rules
-- app-specific API endpoint semantics
+Must not know about:
+- app entities
+- app migration policy
 
 ### `TchopSwiftDataDatabase`
-Status: reusable.
+Owns:
+- SwiftData-backed `DatabaseManaging` implementation
 
-Owned concerns:
-- SwiftData implementation of `DatabaseManaging`
-
-Keep reusable:
-- generic transaction/save behavior
-
-Do not couple to app:
-- `ChannelRecord`
-- `UserRecord`
-- app bootstrap rules
+Must not know about:
+- app schema
+- app bootstrap policy
 
 ### `TchopCoreDataDatabase`
-Status: reusable.
+Owns:
+- Core Data-backed `DatabaseManaging` implementation
 
-Owned concerns:
-- Core Data implementation of `DatabaseManaging`
-
-Keep reusable:
-- generic context-backed read/write behavior
-
-Do not couple to app:
-- app-specific `NSManagedObjectModel`
-- app migration rules
+Must not know about:
+- app model objects
+- app migration policy
 
 ### `TchopDatabaseComposition`
-Status: reusable.
+Owns:
+- DB factory composition
+- backend resolver/factory APIs
 
-Owned concerns:
-- backend factory-set composition
-- backend availability reporting
-- unified resolver surface
+Must not know about:
+- app upgrade policy
+- app runtime rollback decisions
 
-Keep reusable:
-- `DatabaseManagerFactorySet`
-- generic resolver/factory APIs
+### `SyncCore`
+Owns:
+- sync state machine
+- mutation queue orchestration
+- push/pull cycle
+- cursor handling
+- sync status
+- conflict contract
 
-Do not couple to app:
-- user upgrade policy
-- on-disk migration orchestration
+Must not know about:
+- feed/channel/card app models
+- app DTO naming
+- app route or UI semantics
 
 ### `TchopNavigation`
-Status: reusable.
+Owns:
+- generic tab/router primitives
+- navigation snapshot persistence contract
 
-Owned concerns:
-- tab router
-- snapshot persistence contract
-- navigation transition policy
-- navigation observability contracts
-
-Keep reusable:
-- generic routing state
-- event reporting primitives
-
-Do not couple to app:
+Must not know about:
 - `AppTab`
-- app route models
+- app route payloads
 - app URL structure
 
 ### `TchopLocalization`
-Status: reusable.
-
-Owned concerns:
+Owns:
 - localization facade
 - locale override support
 
-Keep reusable:
-- string resolution
-- formatting behavior
-
-Do not couple to app:
-- app-specific keys or copy
+Must not know about:
+- app copy itself
 
 ### `TchopBranding`
-Status: reusable, but still narrow.
+Owns:
+- target-driven branding
+- semantic tokens
 
-Owned concerns:
-- target-driven brand resolution
-- semantic color tokens
-
-Keep reusable:
-- variant resolution
-- theme abstraction
-
-Needs expansion:
-- richer semantic token groups for button, badge, tab, card, navigation, destructive, success states
+Current note:
+- keep extending semantic tokens instead of introducing one-off view-level colors
 
 ### `TchopUIConfiguration`
-Status: reusable, early production baseline.
-
-Owned concerns:
-- current snapshot
-- refresh semantics
-- persisted snapshot store
-
-Keep reusable:
-- current/refresh/store contracts
-- generic snapshot persistence
-- both persisted and in-memory snapshot-store implementations
-
-Needs expansion:
-- versioning
-- TTL / staleness policy
-- refresh throttling
-
-### `TchopCache`
-Status: reusable.
-
-Owned concerns:
-- in-memory cache
-- file-backed cache
-- expiration
-
-Keep reusable:
-- generic Codable cache contracts
-
-Do not couple to app:
-- feature-specific keys and payload conventions
+Owns:
+- configuration snapshot model
+- refresh/store behavior
 
 ### `TchopWidgets`
-Status: reusable within iOS widget/app-group context.
+Owns:
+- widget snapshot primitives
 
-Owned concerns:
-- shared widget snapshot primitives
-
-Keep reusable:
-- widget snapshot store contracts
-
-Do not couple to app:
-- app navigation
+Must not know about:
 - app DI
+- app navigation
 
 ### `TchopPushNotifications`
-Status: reusable.
-
-Owned concerns:
+Owns:
 - APNs state
-- token formatting
+- token handling
 - payload parsing
 - persistent push state
 
-Keep reusable:
-- package-backed manager and parser contracts
-- both persisted and in-memory state-store implementations for host apps with different lifecycle needs
+### `TchopAnalytics`
+Owns:
+- reusable analytics/event primitives
 
-Do not couple to app:
-- `UIApplicationDelegate`
-- `UNUserNotificationCenterDelegate`
-- permission prompt timing policy
+### `TchopAppleAuthentication`
+Owns:
+- Apple auth integration primitives
 
-## App-Specific Modules
-These should remain in `TchopApp` unless the product shape changes significantly.
+## What Must Stay In `TchopApp`
+- app DTO to domain mapping policy
+- app persistence schema and records
+- feature-specific repository composition
+- feed and composer domain contracts
+- app routing and deep-link semantics
+- target-specific UI composition
+- app-specific user/session flows
 
-### `AppState`
-Reason:
-- owns authenticated app lifecycle
-- combines session, deep links, navigation restore, widget cleanup, push authorization entry point
-- strongly tied to `AppUser`, `AppCoordinator`, and app startup rules
+## Current Runtime Notes
+- App runtime is `SwiftData`-first
+- Legacy `Core Data` path exists only as fallback material, not active architecture direction
+- `SyncCore` is now part of the active sync foundation and should absorb reusable sync behavior instead of duplicating sync logic in app repositories
 
-### `AppDatabase`
-Reason:
-- active runtime is SwiftData-only bootstrap
-- legacy Core Data selection/migration path is intentionally commented as rollback fallback
-
-### `DeepLinkManager`
-Reason:
-- parser shape is still tied to app route models and app URL schema
-
-Future direction:
-- keep parser host-app specific, but make routing table more declarative
-
-### Repositories
-`DefaultAppContentRepository`, `DefaultUserRepository`
-
-Reason:
-- map app DTOs and app persistence records into app domain models
-
-### App bridges
-- `AppPushNotificationBridge`
-- `AppWidgetBridge`
-
-Reason:
-- bind reusable package managers into host app lifecycle and feature needs
-
-## Do Not Extract Right Now
-These are tempting, but should stay local for now.
-
-### `UserSessionService`
-Reason:
-- too small
-- current value is in app workflow, not in cross-project abstraction
-
-### Feed feature API/repository models
-Reason:
-- feature-specific
-- not yet proven reusable across products
-
-### `NavigationSnapshot`
-Reason:
-- shape is tied to app route types and app tab model
-- generic persistence already lives in `TchopNavigation`
-
-## Current Structural Risks
-### Large files
-- `TchopNetworking.swift`
-- `AppState.swift`
-- `DeepLinkManager.swift`
-
-### Documentation quality
-Method-level comment coverage now exists, but some comments are still generic and should be refined gradually in high-value files.
-
-### Test organization
-Test doubles are still too spread across large test files.
-They should move toward dedicated `TestDoubles` files/folders.
-
-## Next Improvement Queue
-1. Extract test doubles from large app test files into dedicated `TchopAppTests/TestDoubles/`.
-2. Expand `TchopUIConfiguration` with versioning, TTL/staleness, and throttling.
-3. Expand `TchopBranding` with richer semantic token groups.
-4. Refactor `DeepLinkManager` toward declarative route definitions.
-5. Remove remaining `fatalError`-style app database bootstrap behavior and improve migration tests.
-6. Add snapshot/UI tests for `AppRootView`, `AppShellView`, and `NewsTabRootView`.
-7. Add unified analytics/event model across navigation, push, and networking.
-
-## Reuse Rule of Thumb
-Extract into a package only if all of the following are true:
-- the code has a stable responsibility,
-- it does not require `TchopApp` domain types to make sense,
-- another iOS project could adopt it with low adaptation cost,
-- its API can be described without referencing current screen names or current app flows.
+## Placement Rule
+If a new package or manager rule changes ownership boundaries, update this file.
+If it changes only the current task behavior, update task docs instead.
