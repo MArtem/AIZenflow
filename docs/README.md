@@ -18,11 +18,18 @@ For normal coding work, read in this order:
 3. [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md) if testing or verification is relevant
 4. [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md) if task-resume context is relevant
 5. [ios-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md) and [services-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md) for project overlays
+6. [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md) only when package integration, extraction, or reuse guidance is relevant
 
 Global assistant policies live outside the repo and are not duplicated here:
 - [/Users/Artem/.zenflow/assistant/AGENTS.md](/Users/Artem/.zenflow/assistant/AGENTS.md)
 - [/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md](/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md)
 - [/Users/Artem/.zenflow/assistant/docs/ios-agent-policy.md](/Users/Artem/.zenflow/assistant/docs/ios-agent-policy.md)
+
+Project-local optional skills live in:
+- [.codex/skills/tchop-feed-cards/SKILL.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-feed-cards/SKILL.md)
+- [.codex/skills/tchop-packages/SKILL.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-packages/SKILL.md)
+
+These are not part of the always-on read path. Use them only when the task matches their domain.
 
 ## Canonical Document Roles
 ### [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
@@ -64,6 +71,20 @@ Use dedicated root-level setup docs like this for:
 - third-party auth setup
 - entitlement/capability setup
 - environment configuration that developers may need outside normal coding flow
+
+### [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
+Reusable package and manager usage guide.
+
+Put here:
+- what each reusable package/manager is for
+- how it should be integrated
+- what belongs in package vs app
+- reuse notes for other projects
+
+Do not put here:
+- current task progress
+- global assistant behavior
+- transient debugging notes
 
 ### [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
 Current task resume state.
@@ -110,6 +131,8 @@ Before adding a new rule, skill note, or document, classify it first:
   place it in [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
 - external setup or integration steps:
   create or update a dedicated root-level setup document
+- reusable package or manager usage guide:
+  place it in [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
 - current task status or resume context:
   place it in [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
 - current task next steps:
@@ -120,6 +143,15 @@ Before adding a new rule, skill note, or document, classify it first:
   place it in [services-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md)
 - long obsolete history that should not be read by default:
   place it under `docs/archive/` or `.zenflow/tasks/new-task-be0b/archive/`
+
+## Hierarchy Of Truth
+If multiple sources overlap or conflict, prefer them in this order:
+
+1. global assistant policy
+2. canonical project docs
+3. project overlay rules
+4. current task docs
+5. archives
 
 ## Working Rule
 When you ask to add a new rule, skill note, or document, I should first propose the correct placement using this map, then write it there after alignment.

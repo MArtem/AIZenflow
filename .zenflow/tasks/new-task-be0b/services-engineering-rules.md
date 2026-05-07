@@ -12,8 +12,6 @@ Use it together with:
 - Reusable packages/managers are the foundation. App code adapts to package contracts.
 - Do not add decorative protocols, shims, adapters, or facades when the package surface already fits the job.
 - `SyncCore` is the root sync foundation. App code should keep only project-specific mapping, endpoint semantics, local schema application, and UI-facing policy.
-- `SwiftData` is the active app persistence runtime.
-- Legacy `Core Data` material is fallback/rollback only and should not drive new runtime design.
 - Package changes should move reusable behavior into the package instead of duplicating that behavior in the app layer.
 - App repositories should coordinate app semantics, not reimplement generic package behavior.
 

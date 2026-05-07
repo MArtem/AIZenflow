@@ -23,8 +23,6 @@ Global assistant iOS/model-routing rules live in:
 - Do not create view models inside feature view initializers.
 - Do not use local helper/computed properties or local `@ViewBuilder` functions that return `View`/`some View` inside screens as a convenience abstraction.
 - If screen or component assembly becomes complex, use a dedicated `Builder` or `Factory` type instead of stacking local view-returning helpers.
-- Respect the current `iOS 17` floor and prefer `Observation` for new UI-facing state owners.
-- Treat `.task` as the default async screen lifecycle hook when loading work is involved.
 
 ## Documentation Rule
 When asked to add a new rule or document, first propose placement using:

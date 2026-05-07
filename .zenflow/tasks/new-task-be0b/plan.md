@@ -9,8 +9,7 @@ Finish restoring the lost card/composer/feed functionality with the new 5-type c
 2. Finish teaser detail/action flow
 3. Remove remaining placeholder behavior from composer/media runtime
 4. Align published local card payload and feed render/runtime behavior where gaps remain
-5. After feature restoration, run final documentation consistency pass
-6. Create separate reusable package/manager guide
+5. After feature restoration, run final documentation consistency pass across docs and local project skills
 
 ## Working Rule
 - Keep this file short and current.

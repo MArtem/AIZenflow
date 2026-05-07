@@ -149,3 +149,6 @@ Owns:
 ## Placement Rule
 If a new package or manager rule changes ownership boundaries, update this file.
 If it changes only the current task behavior, update task docs instead.
+
+For hands-on integration guidance and reuse notes, use:
+- [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)

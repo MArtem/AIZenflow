@@ -13,15 +13,6 @@
 4. This file
 5. [plan.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/plan.md)
 
-## Active Baselines
-- `iOS 17`
-- `Observation` for new UI-facing state owners
-- `SwiftData` active runtime
-- legacy `Core Data` only as fallback material
-- package-root rule is active
-- `SyncCore` is active sync foundation
-- do not add speculative UI or logic
-
 ## What Is Already Restored
 - app shell, tabs, menu, auth flow, session restoration
 - package-first infrastructure baseline
@@ -44,10 +35,8 @@
 - per-photo caption/copyright is part of the draft model
 
 ## Current Next Work
-- add detail/action flow for `video/audio/pdf`
-- add detail/action flow for teaser preview
 - continue replacing remaining placeholder behavior with first-class media/runtime behavior
-- after full restoration, do a final docs consistency pass and create a reusable package/manager guide
+- after full restoration, do a final docs consistency pass across the new documentation structure and local project skills
 
 ## Important Files
 - App shell state:
@@ -72,7 +61,7 @@
 ## Post-Restoration Requirement
 After full restoration is complete:
 1. re-check all project docs for consistency, correctness, completeness, and duplication
-2. create a separate package/manager guide for reuse in other projects
+2. re-check the package/manager guide and local project skills for consistency with the final codebase
 
 ## Archive
 Detailed historical handoff logs are preserved only in:
