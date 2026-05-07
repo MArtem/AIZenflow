@@ -157,6 +157,242 @@ enum FeedComposerInsertion: Equatable, Sendable, Identifiable {
     }
 }
 
+struct FeedComposerDraft: Equatable, Sendable {
+    var selectedChannelID: String
+    private(set) var visibleTextFieldKinds: Set<ChannelCardTextFieldKind>
+    private(set) var textValues: [ChannelCardTextFieldKind: String]
+    private(set) var media: ChannelCardMediaContent?
+
+    init(selectedChannelID: String) {
+        self.selectedChannelID = selectedChannelID
+        self.visibleTextFieldKinds = [.text]
+        self.textValues = [
+            .text: "",
+            .headline: "",
+            .subheadline: "",
+            .source: ""
+        ]
+        self.media = nil
+    }
+
+    var canPublish: Bool {
+        media != nil || normalizedText(for: .text) != nil
+    }
+
+    var effectiveKind: ChannelCardKind? {
+        guard canPublish else {
+            return nil
+        }
+
+        switch media?.kind {
+        case .photo:
+            return .photo
+        case .video:
+            return .video
+        case .audio:
+            return .audio
+        case .pdf:
+            return .pdf
+        case nil:
+            return .text
+        }
+    }
+
+    var availableInsertions: [FeedComposerInsertion] {
+        var insertions: [FeedComposerInsertion] = []
+
+        switch media {
+        case nil:
+            insertions.append(.photoOrVideo)
+            insertions.append(.audio)
+            insertions.append(.pdf)
+        case let .photos(items):
+            if items.count < 10 {
+                insertions.append(.photo)
+            }
+        case .file:
+            break
+        }
+
+        if !visibleTextFieldKinds.contains(.text) {
+            insertions.append(.text)
+        }
+        if !visibleTextFieldKinds.contains(.headline) {
+            insertions.append(.headline)
+        }
+        if !visibleTextFieldKinds.contains(.subheadline) {
+            insertions.append(.subheadline)
+        }
+        if !visibleTextFieldKinds.contains(.source) {
+            insertions.append(.source)
+        }
+
+        return insertions
+    }
+
+    var orderedVisibleTextFieldKinds: [ChannelCardTextFieldKind] {
+        ChannelCardTextFieldKind.allCases.filter { visibleTextFieldKinds.contains($0) }
+    }
+
+    var showsPhotoToolbarAction: Bool {
+        media == nil || media?.kind == .photo
+    }
+
+    func textValue(for kind: ChannelCardTextFieldKind) -> String {
+        textValues[kind] ?? ""
+    }
+
+    func fieldPlaceholder(for kind: ChannelCardTextFieldKind) -> String {
+        kind.placeholder
+    }
+
+    func fieldIsRequired(_ kind: ChannelCardTextFieldKind) -> Bool {
+        kind == .text && media == nil
+    }
+
+    func fieldSupportsRemoval(_ kind: ChannelCardTextFieldKind) -> Bool {
+        visibleTextFieldKinds.contains(kind) && !(kind == .text && media == nil)
+    }
+
+    mutating func selectChannel(id: String) {
+        selectedChannelID = id
+    }
+
+    mutating func applyInsertion(_ insertion: FeedComposerInsertion) {
+        switch insertion {
+        case .photoOrVideo:
+            break
+        case .photo:
+            addPhoto()
+        case .audio:
+            selectMedia(.audio)
+        case .pdf:
+            selectMedia(.pdf)
+        case .text, .headline, .subheadline, .source:
+            visibleTextFieldKinds.insert(insertion.textFieldKind)
+        }
+    }
+
+    mutating func addPhoto() {
+        switch media {
+        case nil:
+            media = .photos(items: [makePhotoItem(number: 1)])
+        case let .photos(items):
+            guard items.count < 10 else {
+                return
+            }
+            media = .photos(items: items + [makePhotoItem(number: items.count + 1)])
+        case .file:
+            return
+        }
+
+        visibleTextFieldKinds.insert(.text)
+    }
+
+    mutating func selectVideo() {
+        selectMedia(.video)
+    }
+
+    mutating func updateText(_ value: String, for kind: ChannelCardTextFieldKind) {
+        textValues[kind] = value
+    }
+
+    mutating func handleBackspaceOnEmptyField(_ kind: ChannelCardTextFieldKind) {
+        guard textValue(for: kind).isEmpty else {
+            return
+        }
+
+        if kind == .text && media == nil {
+            return
+        }
+
+        visibleTextFieldKinds.remove(kind)
+    }
+
+    mutating func removeFieldIfOptionalAndEmpty(_ kind: ChannelCardTextFieldKind) {
+        guard normalizedText(for: kind) == nil else {
+            return
+        }
+
+        if kind == .text && media == nil {
+            return
+        }
+
+        visibleTextFieldKinds.remove(kind)
+    }
+
+    func makeCard(id: String = UUID().uuidString, createdAt: Date = Date()) -> ChannelCardContent? {
+        guard let resolvedKind = effectiveKind else {
+            return nil
+        }
+
+        return ChannelCardContent(
+            id: id,
+            channelID: selectedChannelID,
+            createdAt: createdAt,
+            kind: resolvedKind,
+            text: visibleTextFieldKinds.contains(.text) ? normalizedText(for: .text) : nil,
+            headline: visibleTextFieldKinds.contains(.headline) ? normalizedText(for: .headline) : nil,
+            subheadline: visibleTextFieldKinds.contains(.subheadline) ? normalizedText(for: .subheadline) : nil,
+            source: visibleTextFieldKinds.contains(.source) ? normalizedText(for: .source) : nil,
+            media: media
+        )
+    }
+
+    private func normalizedText(for kind: ChannelCardTextFieldKind) -> String? {
+        let trimmed = textValue(for: kind).trimmingCharacters(in: .whitespacesAndNewlines)
+        return trimmed.isEmpty ? nil : trimmed
+    }
+
+    private mutating func selectMedia(_ kind: ChannelCardMediaKind) {
+        guard media == nil else {
+            return
+        }
+
+        switch kind {
+        case .photo:
+            media = .photos(items: [makePhotoItem(number: 1)])
+        case .video:
+            media = .file(makeFileMedia(kind: .video))
+        case .audio:
+            media = .file(makeFileMedia(kind: .audio))
+        case .pdf:
+            media = .file(makeFileMedia(kind: .pdf))
+        }
+
+        visibleTextFieldKinds.insert(.text)
+    }
+
+    private func makePhotoItem(number: Int) -> ChannelCardPhotoItem {
+        ChannelCardPhotoItem(
+            id: UUID().uuidString,
+            displayTitle: "Photo \(number)",
+            caption: nil,
+            copyright: nil
+        )
+    }
+
+    private func makeFileMedia(kind: ChannelCardMediaKind) -> ChannelCardFileMediaContent {
+        let displayTitle = switch kind {
+        case .photo:
+            "Photo"
+        case .video:
+            "Video"
+        case .audio:
+            "Audio"
+        case .pdf:
+            "PDF"
+        }
+
+        return ChannelCardFileMediaContent(
+            kind: kind,
+            displayTitle: displayTitle,
+            teaserImage: nil,
+            caption: nil
+        )
+    }
+}
+
 struct ChannelCardTextContent: Equatable, Sendable, Identifiable {
     let kind: ChannelCardTextFieldKind
     let text: String

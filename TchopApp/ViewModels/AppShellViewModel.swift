@@ -24,13 +24,7 @@ final class ChannelCardStore {
 @MainActor
 @Observable
 final class FeedComposerViewModel {
-    var selectedChannelID: String
-    var text: String
-    var headline: String
-    var subheadline: String
-    var source: String
-    private(set) var visibleTextFieldKinds: Set<ChannelCardTextFieldKind>
-    private(set) var media: ChannelCardMediaContent?
+    private(set) var draft: FeedComposerDraft
     private let channelsStore: ChannelsStore
     private let channelCardStore: ChannelCardStore
 
@@ -39,15 +33,16 @@ final class FeedComposerViewModel {
         channelsStore: ChannelsStore,
         channelCardStore: ChannelCardStore
     ) {
-        self.selectedChannelID = selectedChannelID
         self.channelsStore = channelsStore
         self.channelCardStore = channelCardStore
-        self.text = ""
-        self.headline = ""
-        self.subheadline = ""
-        self.source = ""
-        self.visibleTextFieldKinds = [.text]
+        self.draft = FeedComposerDraft(selectedChannelID: selectedChannelID)
     }
+
+    var selectedChannelID: String { draft.selectedChannelID }
+
+    var media: ChannelCardMediaContent? { draft.media }
+
+    var visibleTextFieldKinds: Set<ChannelCardTextFieldKind> { draft.visibleTextFieldKinds }
 
     var availableChannels: [AppChannel] {
         channelsStore.selectionSnapshot.availableChannels
@@ -58,238 +53,75 @@ final class FeedComposerViewModel {
     }
 
     var canPublish: Bool {
-        media != nil || normalized(text) != nil
+        draft.canPublish
     }
 
     var availableInsertions: [FeedComposerInsertion] {
-        var insertions: [FeedComposerInsertion] = []
-
-        switch media {
-        case nil:
-            insertions.append(.photoOrVideo)
-            insertions.append(.audio)
-            insertions.append(.pdf)
-        case let .photos(items):
-            if items.count < 10 {
-                insertions.append(.photo)
-            }
-        case .file:
-            break
-        }
-
-        if !visibleTextFieldKinds.contains(.text) {
-            insertions.append(.text)
-        }
-        if !visibleTextFieldKinds.contains(.headline) {
-            insertions.append(.headline)
-        }
-        if !visibleTextFieldKinds.contains(.subheadline) {
-            insertions.append(.subheadline)
-        }
-        if !visibleTextFieldKinds.contains(.source) {
-            insertions.append(.source)
-        }
-
-        return insertions
+        draft.availableInsertions
     }
 
     var orderedVisibleTextFieldKinds: [ChannelCardTextFieldKind] {
-        ChannelCardTextFieldKind.allCases.filter { visibleTextFieldKinds.contains($0) }
+        draft.orderedVisibleTextFieldKinds
     }
 
     var showsPhotoToolbarAction: Bool {
-        media == nil || media?.kind == .photo
+        draft.showsPhotoToolbarAction
     }
 
     func selectChannel(id: String) {
-        selectedChannelID = id
+        draft.selectChannel(id: id)
     }
 
     func applyInsertion(_ insertion: FeedComposerInsertion) {
-        switch insertion {
-        case .photoOrVideo:
-            break
-        case .photo:
-            addPhoto()
-        case .audio:
-            selectMedia(.audio)
-        case .pdf:
-            selectMedia(.pdf)
-        case .text, .headline, .subheadline, .source:
-            visibleTextFieldKinds.insert(insertion.textFieldKind)
-        }
+        draft.applyInsertion(insertion)
     }
 
     func addPhoto() {
-        switch media {
-        case nil:
-            media = .photos(items: [makePhotoItem(number: 1)])
-        case let .photos(items):
-            guard items.count < 10 else {
-                return
-            }
-            media = .photos(items: items + [makePhotoItem(number: items.count + 1)])
-        case .file:
-            return
-        }
-        visibleTextFieldKinds.insert(.text)
+        draft.addPhoto()
     }
 
     func selectVideo() {
-        selectMedia(.video)
+        draft.selectVideo()
     }
 
     func textValue(for kind: ChannelCardTextFieldKind) -> String {
-        switch kind {
-        case .text:
-            return text
-        case .headline:
-            return headline
-        case .subheadline:
-            return subheadline
-        case .source:
-            return source
-        }
+        draft.textValue(for: kind)
     }
 
     func updateText(_ value: String, for kind: ChannelCardTextFieldKind) {
-        switch kind {
-        case .text:
-            text = value
-        case .headline:
-            headline = value
-        case .subheadline:
-            subheadline = value
-        case .source:
-            source = value
-        }
+        draft.updateText(value, for: kind)
     }
 
     func handleBackspaceOnEmptyField(_ kind: ChannelCardTextFieldKind) {
-        guard textValue(for: kind).isEmpty else {
-            return
-        }
-
-        if kind == .text && media == nil {
-            return
-        }
-
-        visibleTextFieldKinds.remove(kind)
+        draft.handleBackspaceOnEmptyField(kind)
     }
 
     func removeFieldIfOptionalAndEmpty(_ kind: ChannelCardTextFieldKind) {
-        guard normalized(textValue(for: kind)) == nil else {
-            return
-        }
-
-        if kind == .text && media == nil {
-            return
-        }
-
-        visibleTextFieldKinds.remove(kind)
+        draft.removeFieldIfOptionalAndEmpty(kind)
     }
 
     func fieldPlaceholder(for kind: ChannelCardTextFieldKind) -> String {
-        kind.placeholder
+        draft.fieldPlaceholder(for: kind)
     }
 
     func fieldIsRequired(_ kind: ChannelCardTextFieldKind) -> Bool {
-        kind == .text && media == nil
+        draft.fieldIsRequired(kind)
     }
 
     func fieldSupportsRemoval(_ kind: ChannelCardTextFieldKind) -> Bool {
-        visibleTextFieldKinds.contains(kind) && !(kind == .text && media == nil)
+        draft.fieldSupportsRemoval(kind)
     }
 
     func publish() -> ChannelCardContent? {
-        guard canPublish else {
+        guard let card = draft.makeCard() else {
             return nil
         }
-
-        let resolvedKind: ChannelCardKind
-        switch media {
-        case .photos:
-            resolvedKind = .photo
-        case let .file(file):
-            resolvedKind = switch file.kind {
-            case .photo: .photo
-            case .video: .video
-            case .audio: .audio
-            case .pdf: .pdf
-            }
-        case nil:
-            resolvedKind = .text
-        }
-
-        let card = ChannelCardContent(
-            id: UUID().uuidString,
-            channelID: selectedChannelID,
-            createdAt: Date(),
-            kind: resolvedKind,
-            text: visibleTextFieldKinds.contains(.text) ? normalized(text) : nil,
-            headline: visibleTextFieldKinds.contains(.headline) ? normalized(headline) : nil,
-            subheadline: visibleTextFieldKinds.contains(.subheadline) ? normalized(subheadline) : nil,
-            source: visibleTextFieldKinds.contains(.source) ? normalized(source) : nil,
-            media: media
-        )
         channelCardStore.publish(card)
         return card
     }
-
-    private func selectMedia(_ kind: ChannelCardMediaKind) {
-        guard media == nil else {
-            return
-        }
-
-        switch kind {
-        case .photo:
-            media = .photos(items: [makePhotoItem(number: 1)])
-        case .video:
-            media = .file(makeFileMedia(kind: .video))
-        case .audio:
-            media = .file(makeFileMedia(kind: .audio))
-        case .pdf:
-            media = .file(makeFileMedia(kind: .pdf))
-        }
-        visibleTextFieldKinds.insert(.text)
-    }
-
-    private func makePhotoItem(number: Int) -> ChannelCardPhotoItem {
-        ChannelCardPhotoItem(
-            id: UUID().uuidString,
-            displayTitle: "Photo \(number)",
-            caption: nil,
-            copyright: nil
-        )
-    }
-
-    private func makeFileMedia(kind: ChannelCardMediaKind) -> ChannelCardFileMediaContent {
-        let displayTitle = switch kind {
-        case .photo:
-            "Photo"
-        case .video:
-            "Video"
-        case .audio:
-            "Audio"
-        case .pdf:
-            "PDF"
-        }
-
-        return ChannelCardFileMediaContent(
-            kind: kind,
-            displayTitle: displayTitle,
-            teaserImage: nil,
-            caption: nil
-        )
-    }
-
-    private func normalized(_ value: String) -> String? {
-        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
-        return trimmed.isEmpty ? nil : trimmed
-    }
 }
 
-private extension FeedComposerInsertion {
+extension FeedComposerInsertion {
     var textFieldKind: ChannelCardTextFieldKind {
         switch self {
         case .text:
