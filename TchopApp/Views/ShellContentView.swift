@@ -614,10 +614,6 @@ private struct ComposerPhotoStripView: View {
                                         .font(.system(size: 28, weight: .semibold))
                                         .foregroundStyle(AppTheme.textSecondary)
 
-                                    Text(item.displayTitle)
-                                        .font(AppTypography.cardTitle)
-                                        .foregroundStyle(AppTheme.textSecondary)
-
                                     if let caption = item.caption, !caption.isEmpty {
                                         Text(caption)
                                             .font(AppTypography.captionSemibold)
@@ -755,10 +751,12 @@ private struct ComposerMediaTitleBlock: View {
 
     var body: some View {
         VStack(spacing: AppSpacing.xs) {
-            Text(file.displayTitle)
-                .font(AppTypography.cardTitle)
-                .foregroundStyle(AppTheme.textSecondary)
-                .multilineTextAlignment(.center)
+            if let displayTitle = resolvedDisplayTitle {
+                Text(displayTitle)
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .multilineTextAlignment(.center)
+            }
 
             if let caption = file.caption, !caption.isEmpty {
                 Text(caption)
@@ -767,6 +765,19 @@ private struct ComposerMediaTitleBlock: View {
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, AppSpacing.md)
             }
+        }
+    }
+
+    private var resolvedDisplayTitle: String? {
+        switch file.kind {
+        case .photo:
+            return nil
+        case .video:
+            return file.displayTitle == "Video" ? nil : file.displayTitle
+        case .audio:
+            return file.displayTitle == "Audio" ? nil : file.displayTitle
+        case .pdf:
+            return file.displayTitle == "PDF" ? nil : file.displayTitle
         }
     }
 }
@@ -782,10 +793,6 @@ private struct ComposerTeaserPreviewContent: View {
 
             Image(systemName: "photo")
                 .font(.system(size: 24, weight: .semibold))
-                .foregroundStyle(AppTheme.textSecondary)
-
-            Text(teaserImage.displayTitle)
-                .font(AppTypography.captionSemibold)
                 .foregroundStyle(AppTheme.textSecondary)
 
             if let copyright = teaserImage.copyright, !copyright.isEmpty {
@@ -857,10 +864,6 @@ private struct ComposerPhotoDetailView: View {
                                     .font(.system(size: 56 * scale, weight: .semibold))
                                     .foregroundStyle(Color.white.opacity(0.9))
 
-                                Text(item.displayTitle)
-                                    .font(.system(size: max(18, 22 * scale), weight: .semibold))
-                                    .foregroundStyle(Color.white)
-
                                 if let caption = item.caption, !caption.isEmpty {
                                     Text(caption)
                                         .font(.system(size: max(13, 15 * scale), weight: .medium))
@@ -911,10 +914,12 @@ private struct ComposerFileMediaDetailView: View {
                                     .font(.system(size: 56, weight: .semibold))
                                     .foregroundStyle(Color.white.opacity(0.9))
 
-                                Text(file.displayTitle)
-                                    .font(.system(size: 22, weight: .semibold))
-                                    .foregroundStyle(Color.white)
-                                    .multilineTextAlignment(.center)
+                                if let displayTitle = resolvedDisplayTitle {
+                                    Text(displayTitle)
+                                        .font(.system(size: 22, weight: .semibold))
+                                        .foregroundStyle(Color.white)
+                                        .multilineTextAlignment(.center)
+                                }
 
                                 if let caption = file.caption, !caption.isEmpty {
                                     Text(caption)
@@ -959,6 +964,19 @@ private struct ComposerFileMediaDetailView: View {
             return "waveform.circle.fill"
         case .pdf:
             return "document.fill"
+        }
+    }
+
+    private var resolvedDisplayTitle: String? {
+        switch file.kind {
+        case .photo:
+            return nil
+        case .video:
+            return file.displayTitle == "Video" ? nil : file.displayTitle
+        case .audio:
+            return file.displayTitle == "Audio" ? nil : file.displayTitle
+        case .pdf:
+            return file.displayTitle == "PDF" ? nil : file.displayTitle
         }
     }
 }

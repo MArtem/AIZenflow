@@ -29,6 +29,7 @@
 - published local feed cards now use feed-oriented `LocalFeed*` payload types instead of draft-oriented `ChannelCard*` payload types in runtime models
 - publish path now writes directly into a feed-native `LocalFeedCardStore` as `NewsFeedCard`, instead of storing draft-side `ChannelCardContent`
 - published local feed no longer shows draft-only media labels like `Photo 1` or generic file titles
+- composer preview/detail no longer shows those draft-only media titles either, so this parity gap is closed
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`

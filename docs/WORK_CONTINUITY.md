@@ -76,6 +76,7 @@ Only these fields exist:
 - published local feed cards now use feed-oriented `LocalFeed*` payload types instead of reusing draft-oriented `ChannelCard*` payload types inside runtime models
 - locally published cards now enter runtime through a feed-native `LocalFeedCardStore` that stores `NewsFeedCard`, not draft-side `ChannelCardContent`
 - published local feed no longer renders draft-only media labels such as per-photo placeholder names or generic file titles
+- composer preview/detail now matches that behavior and no longer renders draft-only media titles either
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
