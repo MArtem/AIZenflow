@@ -13,6 +13,7 @@ private struct FeedComposerView: View {
     @State private var showsMediaChoiceSheet = false
     @State private var showsFileMediaActionSheet = false
     @State private var selectedPhotoItemID: String?
+    @State private var showsTeaserActionSheet = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -38,6 +39,13 @@ private struct FeedComposerView: View {
                                 onFileMediaMoreTap: { showsFileMediaActionSheet = true },
                                 onPhotoMoreTap: { selectedPhotoItemID = $0 }
                             )
+
+                            if case let .file(file) = media, let teaserImage = file.teaserImage {
+                                ComposerTeaserPreview(
+                                    teaserImage: teaserImage,
+                                    onMoreTap: { showsTeaserActionSheet = true }
+                                )
+                            }
 
                             ForEach(viewModel.photoItems) { item in
                                 if viewModel.isPhotoCaptionFieldVisible(id: item.id) {
@@ -138,6 +146,14 @@ private struct FeedComposerView: View {
                     items: fileMediaActionItems,
                     onSelect: handleFileMediaActionSelection,
                     onDismiss: { showsFileMediaActionSheet = false }
+                )
+            }
+
+            if showsTeaserActionSheet {
+                ComposerBottomSheet(
+                    items: teaserActionItems,
+                    onSelect: handleTeaserActionSelection,
+                    onDismiss: { showsTeaserActionSheet = false }
                 )
             }
 
@@ -361,6 +377,33 @@ private struct FeedComposerView: View {
         }
     }
 
+    private var teaserActionItems: [ComposerBottomSheetItem] {
+        guard case let .file(file)? = viewModel.media, file.teaserImage != nil else {
+            return []
+        }
+
+        var items: [ComposerBottomSheetItem] = []
+        if !viewModel.isTeaserCopyrightFieldVisible {
+            items.append(ComposerBottomSheetItem(id: "addTeaserCopyright", title: "Add teaser copyright"))
+        }
+        items.append(ComposerBottomSheetItem(id: "replaceTeaser", title: "Replace teaser image"))
+        items.append(ComposerBottomSheetItem(id: "removeTeaser", title: "Remove teaser image"))
+        return items
+    }
+
+    private func handleTeaserActionSelection(_ selectedID: String) {
+        switch selectedID {
+        case "addTeaserCopyright":
+            viewModel.showTeaserCopyrightField()
+        case "replaceTeaser":
+            viewModel.addOrReplaceTeaserImage()
+        case "removeTeaser":
+            viewModel.removeTeaserImage()
+        default:
+            break
+        }
+    }
+
     private var fileCaptionBinding: Binding<String> {
         Binding(
             get: { viewModel.fileCaptionText },
@@ -532,12 +575,6 @@ private struct ComposerFileMediaView: View {
                             .font(AppTypography.cardTitle)
                             .foregroundStyle(AppTheme.textSecondary)
 
-                        if let teaserImage = file.teaserImage {
-                            Text(teaserImage.displayTitle)
-                                .font(AppTypography.captionSemibold)
-                                .foregroundStyle(AppTheme.textTertiary)
-                        }
-
                         if let caption = file.caption, !caption.isEmpty {
                             Text(caption)
                                 .font(AppTypography.captionSemibold)
@@ -563,6 +600,56 @@ private struct ComposerFileMediaView: View {
         case .pdf:
             return "doc.richtext"
         }
+    }
+}
+
+private struct ComposerTeaserPreview: View {
+    let teaserImage: ChannelCardTeaserImageContent
+    let onMoreTap: () -> Void
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+            .fill(AppTheme.surfaceSecondary)
+            .frame(height: 140)
+            .overlay {
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
+
+                        Button(action: onMoreTap) {
+                            Image(systemName: "ellipsis")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundStyle(AppTheme.textSecondary)
+                                .frame(width: 32, height: 32)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .padding(.top, AppSpacing.sm)
+                    .padding(.horizontal, AppSpacing.sm)
+
+                    Spacer()
+
+                    VStack(spacing: AppSpacing.xs) {
+                        Image(systemName: "photo")
+                            .font(.system(size: 24, weight: .semibold))
+                            .foregroundStyle(AppTheme.textSecondary)
+
+                        Text(teaserImage.displayTitle)
+                            .font(AppTypography.captionSemibold)
+                            .foregroundStyle(AppTheme.textSecondary)
+
+                        if let copyright = teaserImage.copyright, !copyright.isEmpty {
+                            Text(copyright)
+                                .font(AppTypography.label)
+                                .foregroundStyle(AppTheme.textTertiary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, AppSpacing.md)
+                        }
+                    }
+
+                    Spacer()
+                }
+            }
     }
 }
 
