@@ -242,12 +242,8 @@ private struct LocalPhotoCardView: View {
 
     var body: some View {
         LocalFeedCardContainer(card: card, mediaHeight: 220) {
-            if let media = card.mediaContent {
-                MediaHeaderView(
-                    iconName: "photo.on.rectangle.angled",
-                    title: media.displayTitle,
-                    subtitle: nil
-                )
+            if case let .photos(items)? = card.mediaContent {
+                LocalPhotoMediaPreview(items: items)
             }
         }
     }
@@ -257,15 +253,19 @@ private struct VideoCardView: View {
     let card: LocalFeedCardModel
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: 180) {
+        LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
             if let media = card.mediaContent, case let .file(file) = media {
-                MediaHeaderView(
-                    iconName: "video",
-                    title: file.displayTitle,
-                    subtitle: file.caption
-                )
+                LocalFileMediaPreview(file: file)
             }
         }
+    }
+
+    private var fileMediaPreviewHeight: CGFloat {
+        guard case let .file(file)? = card.mediaContent else {
+            return 180
+        }
+
+        return file.teaserImage == nil ? 180 : 260
     }
 }
 
@@ -273,15 +273,19 @@ private struct AudioCardView: View {
     let card: LocalFeedCardModel
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: 180) {
+        LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
             if let media = card.mediaContent, case let .file(file) = media {
-                MediaHeaderView(
-                    iconName: "waveform",
-                    title: file.displayTitle,
-                    subtitle: file.caption
-                )
+                LocalFileMediaPreview(file: file)
             }
         }
+    }
+
+    private var fileMediaPreviewHeight: CGFloat {
+        guard case let .file(file)? = card.mediaContent else {
+            return 180
+        }
+
+        return file.teaserImage == nil ? 180 : 260
     }
 }
 
@@ -289,15 +293,19 @@ private struct PDFCardView: View {
     let card: LocalFeedCardModel
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: 180) {
+        LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
             if let media = card.mediaContent, case let .file(file) = media {
-                MediaHeaderView(
-                    iconName: "doc.richtext",
-                    title: file.displayTitle,
-                    subtitle: file.caption
-                )
+                LocalFileMediaPreview(file: file)
             }
         }
+    }
+
+    private var fileMediaPreviewHeight: CGFloat {
+        guard case let .file(file)? = card.mediaContent else {
+            return 180
+        }
+
+        return file.teaserImage == nil ? 180 : 260
     }
 }
 
@@ -363,28 +371,114 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     }
 }
 
-private struct MediaHeaderView: View {
-    let iconName: String
-    let title: String
-    let subtitle: String?
+private struct LocalPhotoMediaPreview: View {
+    let items: [ChannelCardPhotoItem]
 
     var body: some View {
-        VStack(spacing: AppSpacing.xs) {
-            Image(systemName: iconName)
-                .font(.system(size: 28, weight: .semibold))
-                .foregroundStyle(AppTheme.textSecondary)
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: AppSpacing.sm) {
+                ForEach(items) { item in
+                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                        .fill(AppTheme.surfacePrimary)
+                        .frame(width: 152, height: 188)
+                        .overlay {
+                            VStack(spacing: AppSpacing.xs) {
+                                Image(systemName: "photo")
+                                    .font(.system(size: 26, weight: .semibold))
+                                    .foregroundStyle(AppTheme.textSecondary)
 
-            Text(title)
-                .font(AppTypography.cardTitle)
-                .foregroundStyle(AppTheme.textSecondary)
+                                Text(item.displayTitle)
+                                    .font(AppTypography.cardTitle)
+                                    .foregroundStyle(AppTheme.textPrimary)
+                                    .multilineTextAlignment(.center)
 
-            if let subtitle, !subtitle.isEmpty {
-                Text(subtitle)
-                    .font(AppTypography.captionSemibold)
-                    .foregroundStyle(AppTheme.textTertiary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, AppSpacing.md)
+                                if let caption = item.caption, !caption.isEmpty {
+                                    Text(caption)
+                                        .font(AppTypography.captionSemibold)
+                                        .foregroundStyle(AppTheme.textSecondary)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.horizontal, AppSpacing.sm)
+                                }
+
+                                if let copyright = item.copyright, !copyright.isEmpty {
+                                    Text(copyright)
+                                        .font(AppTypography.label)
+                                        .foregroundStyle(AppTheme.textTertiary)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.horizontal, AppSpacing.sm)
+                                }
+                            }
+                            .padding(AppSpacing.sm)
+                        }
+                }
             }
+        }
+    }
+}
+
+private struct LocalFileMediaPreview: View {
+    let file: ChannelCardFileMediaContent
+
+    var body: some View {
+        VStack(spacing: AppSpacing.sm) {
+            VStack(spacing: AppSpacing.xs) {
+                Image(systemName: iconName)
+                    .font(.system(size: 28, weight: .semibold))
+                    .foregroundStyle(AppTheme.textSecondary)
+
+                Text(file.displayTitle)
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppTheme.textPrimary)
+                    .multilineTextAlignment(.center)
+
+                if let caption = file.caption, !caption.isEmpty {
+                    Text(caption)
+                        .font(AppTypography.captionSemibold)
+                        .foregroundStyle(AppTheme.textSecondary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, AppSpacing.md)
+                }
+            }
+            .frame(maxWidth: .infinity)
+
+            if let teaserImage = file.teaserImage {
+                RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                    .fill(AppTheme.surfacePrimary)
+                    .frame(height: 92)
+                    .overlay {
+                        VStack(spacing: AppSpacing.xxs) {
+                            Image(systemName: "photo")
+                                .font(.system(size: 18, weight: .semibold))
+                                .foregroundStyle(AppTheme.textSecondary)
+
+                            Text(teaserImage.displayTitle)
+                                .font(AppTypography.captionSemibold)
+                                .foregroundStyle(AppTheme.textPrimary)
+
+                            if let copyright = teaserImage.copyright, !copyright.isEmpty {
+                                Text(copyright)
+                                    .font(AppTypography.label)
+                                    .foregroundStyle(AppTheme.textTertiary)
+                                    .multilineTextAlignment(.center)
+                                    .padding(.horizontal, AppSpacing.md)
+                            }
+                        }
+                        .padding(AppSpacing.sm)
+                    }
+            }
+        }
+    }
+
+    private var iconName: String {
+        switch file.kind {
+        case .photo:
+            return "photo.on.rectangle.angled"
+        case .video:
+            return "video"
+        case .audio:
+            return "waveform"
+        case .pdf:
+            return "doc.richtext"
         }
     }
 }
