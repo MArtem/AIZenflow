@@ -192,6 +192,10 @@ final class FeedComposerViewModel {
         draft.updateText(value, for: kind)
     }
 
+    func updateSourceURLString(_ value: String?) {
+        draft.updateSourceURLString(value)
+    }
+
     func handleBackspaceOnEmptyField(_ kind: ChannelCardTextFieldKind) {
         draft.handleBackspaceOnEmptyField(kind)
     }

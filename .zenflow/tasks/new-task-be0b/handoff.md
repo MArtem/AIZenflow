@@ -30,6 +30,7 @@
 - publish path now writes directly into a feed-native `LocalFeedCardStore` as `NewsFeedCard`, instead of storing draft-side `ChannelCardContent`
 - published local feed no longer shows draft-only media labels like `Photo 1` or generic file titles
 - composer preview/detail no longer shows those draft-only media titles either, so this parity gap is closed
+- `source` now has hidden separate URL storage and published local feed performs tap-to-open only when the URL exists
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`

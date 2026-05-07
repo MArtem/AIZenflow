@@ -161,6 +161,7 @@ struct FeedComposerDraft: Equatable, Sendable {
     var selectedChannelID: String
     private(set) var visibleTextFieldKinds: Set<ChannelCardTextFieldKind>
     private(set) var textValues: [ChannelCardTextFieldKind: String]
+    private(set) var sourceURLString: String?
     private(set) var media: ChannelCardMediaContent?
     private(set) var isFileCaptionFieldVisible: Bool
     private(set) var isTeaserCopyrightFieldVisible: Bool
@@ -176,6 +177,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             .subheadline: "",
             .source: ""
         ]
+        self.sourceURLString = nil
         self.media = nil
         self.isFileCaptionFieldVisible = false
         self.isTeaserCopyrightFieldVisible = false
@@ -503,6 +505,10 @@ struct FeedComposerDraft: Equatable, Sendable {
         textValues[kind] = value
     }
 
+    mutating func updateSourceURLString(_ value: String?) {
+        sourceURLString = normalizedOptionalText(value)
+    }
+
     var fileCaptionText: String? {
         guard case let .file(file) = media else {
             return nil
@@ -573,6 +579,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             headline: visibleTextFieldKinds.contains(.headline) ? normalizedText(for: .headline) : nil,
             subheadline: visibleTextFieldKinds.contains(.subheadline) ? normalizedText(for: .subheadline) : nil,
             source: visibleTextFieldKinds.contains(.source) ? normalizedText(for: .source) : nil,
+            sourceURLString: visibleTextFieldKinds.contains(.source) ? sourceURLString : nil,
             media: media
         )
     }

@@ -319,6 +319,8 @@ private struct PDFCardView: View {
 }
 
 private struct LocalFeedCardContainer<MediaBody: View>: View {
+    @Environment(\.openURL) private var openURL
+
     let card: LocalFeedCardModel
     let mediaHeight: CGFloat?
     let mediaBody: MediaBody
@@ -343,16 +345,35 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
             }
 
             ForEach(card.orderedTextContent) { textContent in
-                Text(textContent.text)
-                    .font(font(for: textContent.kind))
-                    .foregroundStyle(color(for: textContent.kind))
-                    .fixedSize(horizontal: false, vertical: true)
+                if textContent.kind == .source, let sourceURL = sourceURL {
+                    Button(action: { openURL(sourceURL) }) {
+                        Text(textContent.text)
+                            .font(font(for: textContent.kind))
+                            .foregroundStyle(color(for: textContent.kind))
+                            .fixedSize(horizontal: false, vertical: true)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                    }
+                    .buttonStyle(.plain)
+                } else {
+                    Text(textContent.text)
+                        .font(font(for: textContent.kind))
+                        .foregroundStyle(color(for: textContent.kind))
+                        .fixedSize(horizontal: false, vertical: true)
+                }
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding(AppSpacing.md)
         .background(AppTheme.surfacePrimary)
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+    }
+
+    private var sourceURL: URL? {
+        guard let resourceURLString = card.sourceContent?.resourceURLString else {
+            return nil
+        }
+
+        return URL(string: resourceURLString)
     }
 
     private func font(for kind: LocalFeedTextFieldKind) -> Font {

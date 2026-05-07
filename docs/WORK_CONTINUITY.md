@@ -77,6 +77,7 @@ Only these fields exist:
 - locally published cards now enter runtime through a feed-native `LocalFeedCardStore` that stores `NewsFeedCard`, not draft-side `ChannelCardContent`
 - published local feed no longer renders draft-only media labels such as per-photo placeholder names or generic file titles
 - composer preview/detail now matches that behavior and no longer renders draft-only media titles either
+- `source` now supports hidden separate URL storage in draft/model and published local feed opens it only when a URL is present
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
