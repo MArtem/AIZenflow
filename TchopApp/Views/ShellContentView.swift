@@ -15,6 +15,8 @@ private struct FeedComposerView: View {
     @State private var selectedPhotoItemID: String?
     @State private var showsTeaserActionSheet = false
     @State private var focusedPhotoItemID: String?
+    @State private var showsFileMediaDetail = false
+    @State private var showsTeaserDetail = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -39,13 +41,15 @@ private struct FeedComposerView: View {
                                 media: media,
                                 onFileMediaMoreTap: { showsFileMediaActionSheet = true },
                                 onPhotoMoreTap: { selectedPhotoItemID = $0 },
-                                onPhotoTap: { focusedPhotoItemID = $0 }
+                                onPhotoTap: { focusedPhotoItemID = $0 },
+                                onFileMediaTap: { showsFileMediaDetail = true }
                             )
 
                             if case let .file(file) = media, let teaserImage = file.teaserImage {
                                 ComposerTeaserPreview(
                                     teaserImage: teaserImage,
-                                    onMoreTap: { showsTeaserActionSheet = true }
+                                    onMoreTap: { showsTeaserActionSheet = true },
+                                    onTap: { showsTeaserDetail = true }
                                 )
                             }
 
@@ -186,6 +190,34 @@ private struct FeedComposerView: View {
                         focusedPhotoItemID = nil
                         DispatchQueue.main.async {
                             selectedPhotoItemID = item.id
+                        }
+                    }
+                )
+            }
+        }
+        .fullScreenCover(isPresented: $showsFileMediaDetail) {
+            if let file = focusedFileMedia {
+                ComposerFileMediaDetailView(
+                    file: file,
+                    onClose: { showsFileMediaDetail = false },
+                    onMoreTap: {
+                        showsFileMediaDetail = false
+                        DispatchQueue.main.async {
+                            showsFileMediaActionSheet = true
+                        }
+                    }
+                )
+            }
+        }
+        .fullScreenCover(isPresented: $showsTeaserDetail) {
+            if let teaserImage = focusedTeaserImage {
+                ComposerTeaserDetailView(
+                    teaserImage: teaserImage,
+                    onClose: { showsTeaserDetail = false },
+                    onMoreTap: {
+                        showsTeaserDetail = false
+                        DispatchQueue.main.async {
+                            showsTeaserActionSheet = true
                         }
                     }
                 )
@@ -499,6 +531,22 @@ private struct FeedComposerView: View {
 
         return viewModel.photoItems.first(where: { $0.id == focusedPhotoItemID })
     }
+
+    private var focusedFileMedia: ChannelCardFileMediaContent? {
+        guard case let .file(file)? = viewModel.media else {
+            return nil
+        }
+
+        return file
+    }
+
+    private var focusedTeaserImage: ChannelCardTeaserImageContent? {
+        guard let file = focusedFileMedia else {
+            return nil
+        }
+
+        return file.teaserImage
+    }
 }
 
 private struct ComposerMediaPreview: View {
@@ -506,6 +554,7 @@ private struct ComposerMediaPreview: View {
     let onFileMediaMoreTap: () -> Void
     let onPhotoMoreTap: (String) -> Void
     let onPhotoTap: (String) -> Void
+    let onFileMediaTap: () -> Void
 
     var body: some View {
         switch media {
@@ -516,7 +565,11 @@ private struct ComposerMediaPreview: View {
                 onTap: onPhotoTap
             )
         case let .file(file):
-            ComposerFileMediaView(file: file, onMoreTap: onFileMediaMoreTap)
+            ComposerFileMediaView(
+                file: file,
+                onMoreTap: onFileMediaMoreTap,
+                onTap: onFileMediaTap
+            )
         }
     }
 }
@@ -585,6 +638,7 @@ private struct ComposerPhotoStripView: View {
 private struct ComposerFileMediaView: View {
     let file: ChannelCardFileMediaContent
     let onMoreTap: () -> Void
+    let onTap: () -> Void
 
     var body: some View {
         RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
@@ -629,6 +683,7 @@ private struct ComposerFileMediaView: View {
                     Spacer()
                 }
             }
+            .onTapGesture(perform: onTap)
     }
 
     private var iconName: String {
@@ -648,6 +703,7 @@ private struct ComposerFileMediaView: View {
 private struct ComposerTeaserPreview: View {
     let teaserImage: ChannelCardTeaserImageContent
     let onMoreTap: () -> Void
+    let onTap: () -> Void
 
     var body: some View {
         RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
@@ -692,6 +748,7 @@ private struct ComposerTeaserPreview: View {
                     Spacer()
                 }
             }
+            .onTapGesture(perform: onTap)
     }
 }
 
@@ -745,32 +802,146 @@ private struct ComposerPhotoDetailView: View {
                     }
             )
 
-            HStack {
-                Button(action: onClose) {
-                    Image(systemName: "xmark")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(Color.white)
-                        .frame(width: 36, height: 36)
-                        .background(Color.white.opacity(0.12))
-                        .clipShape(Circle())
-                }
-                .buttonStyle(.plain)
-
-                Spacer()
-
-                Button(action: onMoreTap) {
-                    Image(systemName: "ellipsis")
-                        .font(.system(size: 16, weight: .semibold))
-                        .foregroundStyle(Color.white)
-                        .frame(width: 36, height: 36)
-                        .background(Color.white.opacity(0.12))
-                        .clipShape(Circle())
-                }
-                .buttonStyle(.plain)
-            }
-            .padding(.horizontal, AppSpacing.md)
-            .padding(.top, AppSpacing.lg)
+            ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
         }
+    }
+}
+
+private struct ComposerFileMediaDetailView: View {
+    let file: ChannelCardFileMediaContent
+    let onClose: () -> Void
+    let onMoreTap: () -> Void
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            Color.black.ignoresSafeArea()
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: AppSpacing.md) {
+                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                        .fill(Color.white.opacity(0.08))
+                        .frame(height: 320)
+                        .overlay {
+                            VStack(spacing: AppSpacing.sm) {
+                                Image(systemName: iconName)
+                                    .font(.system(size: 56, weight: .semibold))
+                                    .foregroundStyle(Color.white.opacity(0.9))
+
+                                Text(file.displayTitle)
+                                    .font(.system(size: 22, weight: .semibold))
+                                    .foregroundStyle(Color.white)
+                                    .multilineTextAlignment(.center)
+
+                                if let caption = file.caption, !caption.isEmpty {
+                                    Text(caption)
+                                        .font(.system(size: 15, weight: .medium))
+                                        .foregroundStyle(Color.white.opacity(0.8))
+                                        .multilineTextAlignment(.center)
+                                        .padding(.horizontal, AppSpacing.lg)
+                                }
+                            }
+                            .padding(.horizontal, AppSpacing.lg)
+                        }
+                        .padding(.top, 80)
+                }
+                .padding(.horizontal, AppSpacing.screenHorizontal)
+                .padding(.bottom, 40)
+            }
+
+            ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
+        }
+    }
+
+    private var iconName: String {
+        switch file.kind {
+        case .photo:
+            return "photo.on.rectangle.angled"
+        case .video:
+            return "video"
+        case .audio:
+            return "waveform"
+        case .pdf:
+            return "doc.richtext"
+        }
+    }
+}
+
+private struct ComposerTeaserDetailView: View {
+    let teaserImage: ChannelCardTeaserImageContent
+    let onClose: () -> Void
+    let onMoreTap: () -> Void
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            Color.black.ignoresSafeArea()
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: AppSpacing.md) {
+                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                        .fill(Color.white.opacity(0.08))
+                        .frame(height: 280)
+                        .overlay {
+                            VStack(spacing: AppSpacing.sm) {
+                                Image(systemName: "photo")
+                                    .font(.system(size: 48, weight: .semibold))
+                                    .foregroundStyle(Color.white.opacity(0.9))
+
+                                Text(teaserImage.displayTitle)
+                                    .font(.system(size: 20, weight: .semibold))
+                                    .foregroundStyle(Color.white)
+                                    .multilineTextAlignment(.center)
+
+                                if let copyright = teaserImage.copyright, !copyright.isEmpty {
+                                    Text(copyright)
+                                        .font(.system(size: 14, weight: .medium))
+                                        .foregroundStyle(Color.white.opacity(0.8))
+                                        .multilineTextAlignment(.center)
+                                        .padding(.horizontal, AppSpacing.lg)
+                                }
+                            }
+                            .padding(.horizontal, AppSpacing.lg)
+                        }
+                        .padding(.top, 80)
+                }
+                .padding(.horizontal, AppSpacing.screenHorizontal)
+                .padding(.bottom, 40)
+            }
+
+            ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
+        }
+    }
+}
+
+private struct ComposerDetailTopBar: View {
+    let onClose: () -> Void
+    let onMoreTap: () -> Void
+
+    var body: some View {
+        HStack {
+            Button(action: onClose) {
+                Image(systemName: "xmark")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(Color.white)
+                    .frame(width: 36, height: 36)
+                    .background(Color.white.opacity(0.12))
+                    .clipShape(Circle())
+            }
+            .buttonStyle(.plain)
+
+            Spacer()
+
+            Button(action: onMoreTap) {
+                Image(systemName: "ellipsis")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(Color.white)
+                    .frame(width: 36, height: 36)
+                    .background(Color.white.opacity(0.12))
+                    .clipShape(Circle())
+            }
+            .buttonStyle(.plain)
+        }
+        .padding(.horizontal, AppSpacing.md)
+        .padding(.top, AppSpacing.lg)
     }
 }
 
