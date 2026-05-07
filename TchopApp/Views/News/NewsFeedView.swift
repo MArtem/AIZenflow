@@ -396,11 +396,6 @@ private struct LocalPhotoMediaPreview: View {
                                     .font(.system(size: 26, weight: .semibold))
                                     .foregroundStyle(AppTheme.textSecondary)
 
-                                Text(item.displayTitle)
-                                    .font(AppTypography.cardTitle)
-                                    .foregroundStyle(AppTheme.textPrimary)
-                                    .multilineTextAlignment(.center)
-
                                 if let caption = item.caption, !caption.isEmpty {
                                     Text(caption)
                                         .font(AppTypography.captionSemibold)
@@ -493,10 +488,12 @@ private struct FeedMediaTitleBlock: View {
 
     var body: some View {
         VStack(spacing: AppSpacing.xs) {
-            Text(file.displayTitle)
-                .font(AppTypography.cardTitle)
-                .foregroundStyle(AppTheme.textPrimary)
-                .multilineTextAlignment(.center)
+            if let displayTitle = resolvedDisplayTitle {
+                Text(displayTitle)
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppTheme.textPrimary)
+                    .multilineTextAlignment(.center)
+            }
 
             if let caption = file.caption, !caption.isEmpty {
                 Text(caption)
@@ -507,6 +504,19 @@ private struct FeedMediaTitleBlock: View {
             }
         }
         .frame(maxWidth: .infinity)
+    }
+
+    private var resolvedDisplayTitle: String? {
+        switch file.kind {
+        case .photo:
+            return nil
+        case .video:
+            return file.displayTitle == "Video" ? nil : file.displayTitle
+        case .audio:
+            return file.displayTitle == "Audio" ? nil : file.displayTitle
+        case .pdf:
+            return file.displayTitle == "PDF" ? nil : file.displayTitle
+        }
     }
 }
 
@@ -527,10 +537,6 @@ private struct FeedMediaTeaserBlock: View {
                         Image(systemName: "photo")
                             .font(.system(size: 18, weight: .semibold))
                             .foregroundStyle(AppTheme.textSecondary)
-
-                        Text(teaserImage.displayTitle)
-                            .font(AppTypography.captionSemibold)
-                            .foregroundStyle(AppTheme.textPrimary)
 
                         if let copyright = teaserImage.copyright, !copyright.isEmpty {
                             Text(copyright)

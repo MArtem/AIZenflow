@@ -28,6 +28,7 @@
 - `video/audio/pdf` feed runtime now uses first-class content wrappers instead of carrying raw local draft models through `NewsFeedCard`
 - published local feed cards now use feed-oriented `LocalFeed*` payload types instead of draft-oriented `ChannelCard*` payload types in runtime models
 - publish path now writes directly into a feed-native `LocalFeedCardStore` as `NewsFeedCard`, instead of storing draft-side `ChannelCardContent`
+- published local feed no longer shows draft-only media labels like `Photo 1` or generic file titles
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`

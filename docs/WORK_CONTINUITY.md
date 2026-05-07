@@ -75,6 +75,7 @@ Only these fields exist:
 - `video/audio/pdf` were lifted to first-class feed content wrappers instead of flowing through `NewsFeedCard` as raw local draft models
 - published local feed cards now use feed-oriented `LocalFeed*` payload types instead of reusing draft-oriented `ChannelCard*` payload types inside runtime models
 - locally published cards now enter runtime through a feed-native `LocalFeedCardStore` that stores `NewsFeedCard`, not draft-side `ChannelCardContent`
+- published local feed no longer renders draft-only media labels such as per-photo placeholder names or generic file titles
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
