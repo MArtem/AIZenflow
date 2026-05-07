@@ -355,7 +355,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
     }
 
-    private func font(for kind: ChannelCardTextFieldKind) -> Font {
+    private func font(for kind: LocalFeedTextFieldKind) -> Font {
         switch kind {
         case .text:
             return AppTypography.bodyRegular
@@ -368,7 +368,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         }
     }
 
-    private func color(for kind: ChannelCardTextFieldKind) -> Color {
+    private func color(for kind: LocalFeedTextFieldKind) -> Color {
         switch kind {
         case .text, .headline:
             return AppTheme.textPrimary
@@ -381,7 +381,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
 }
 
 private struct LocalPhotoMediaPreview: View {
-    let items: [ChannelCardPhotoItem]
+    let items: [LocalFeedPhotoItem]
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -426,7 +426,7 @@ private struct LocalPhotoMediaPreview: View {
 }
 
 private struct LocalVideoMediaView: View {
-    let file: ChannelCardFileMediaContent
+    let file: LocalFeedFileMediaContent
 
     var body: some View {
         VStack(spacing: AppSpacing.sm) {
@@ -439,7 +439,7 @@ private struct LocalVideoMediaView: View {
 }
 
 private struct LocalAudioMediaView: View {
-    let file: ChannelCardFileMediaContent
+    let file: LocalFeedFileMediaContent
 
     var body: some View {
         VStack(spacing: AppSpacing.sm) {
@@ -452,7 +452,7 @@ private struct LocalAudioMediaView: View {
 }
 
 private struct LocalPDFMediaView: View {
-    let file: ChannelCardFileMediaContent
+    let file: LocalFeedFileMediaContent
 
     var body: some View {
         VStack(spacing: AppSpacing.sm) {
@@ -489,7 +489,7 @@ private struct FeedMediaHeroIcon: View {
 }
 
 private struct FeedMediaTitleBlock: View {
-    let file: ChannelCardFileMediaContent
+    let file: LocalFeedFileMediaContent
 
     var body: some View {
         VStack(spacing: AppSpacing.xs) {
@@ -511,7 +511,7 @@ private struct FeedMediaTitleBlock: View {
 }
 
 private struct FeedMediaTeaserBlock: View {
-    let teaserImage: ChannelCardTeaserImageContent?
+    let teaserImage: LocalFeedTeaserImageContent?
 
     var body: some View {
         if let teaserImage {

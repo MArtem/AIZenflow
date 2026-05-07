@@ -73,10 +73,11 @@ Only these fields exist:
 - local `video/audio/pdf` feed cards now use dedicated card-specific media layouts instead of a shared generic file preview block
 - composer and feed now use matching card-specific visual semantics for non-photo media
 - `video/audio/pdf` were lifted to first-class feed content wrappers instead of flowing through `NewsFeedCard` as raw local draft models
+- published local feed cards now use feed-oriented `LocalFeed*` payload types instead of reusing draft-oriented `ChannelCard*` payload types inside runtime models
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
-- continue aligning composer and feed render behavior so both speak the same first-class card contract
+- continue aligning composer and feed behavior so published local cards feel fully feed-native instead of draft-derived
 - after feature restoration, run a final consistency pass across docs and local project skills
 
 ## Reopen First

@@ -658,6 +658,59 @@ struct ChannelCardTextContent: Equatable, Sendable, Identifiable {
     var id: ChannelCardTextFieldKind { kind }
 }
 
+struct LocalFeedSourceContent: Equatable, Sendable {
+    let text: String
+    let resourceURLString: String?
+}
+
+struct LocalFeedPhotoItem: Equatable, Sendable, Identifiable {
+    let id: String
+    let displayTitle: String
+    let caption: String?
+    let copyright: String?
+}
+
+struct LocalFeedTeaserImageContent: Equatable, Sendable, Identifiable {
+    let id: String
+    let displayTitle: String
+    let copyright: String?
+}
+
+enum LocalFeedMediaKind: String, Equatable, Sendable {
+    case photo
+    case video
+    case audio
+    case pdf
+}
+
+struct LocalFeedFileMediaContent: Equatable, Sendable {
+    let kind: LocalFeedMediaKind
+    let displayTitle: String
+    let teaserImage: LocalFeedTeaserImageContent?
+    let caption: String?
+}
+
+enum LocalFeedMediaContent: Equatable, Sendable {
+    case photos(items: [LocalFeedPhotoItem])
+    case file(LocalFeedFileMediaContent)
+}
+
+enum LocalFeedTextFieldKind: String, CaseIterable, Equatable, Sendable, Identifiable {
+    case text
+    case headline
+    case subheadline
+    case source
+
+    var id: String { rawValue }
+}
+
+struct LocalFeedTextContent: Equatable, Sendable, Identifiable {
+    let kind: LocalFeedTextFieldKind
+    let text: String
+
+    var id: LocalFeedTextFieldKind { kind }
+}
+
 struct ChannelCardContent: Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
@@ -747,10 +800,10 @@ struct LocalFeedCardModel: Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
     let createdAt: Date
-    let kind: ChannelCardKind
-    let orderedTextContent: [ChannelCardTextContent]
-    let sourceContent: ChannelCardSourceContent?
-    let mediaContent: ChannelCardMediaContent?
+    let kind: NewsFeedCardKind
+    let orderedTextContent: [LocalFeedTextContent]
+    let sourceContent: LocalFeedSourceContent?
+    let mediaContent: LocalFeedMediaContent?
 
     var serviceHeadline: String {
         orderedTextContent.first?.text ?? kind.rawValue.capitalized
@@ -765,7 +818,7 @@ struct LocalFeedCardModel: Identifiable, Equatable, Sendable {
         ]
     }
 
-    func textValue(for kind: ChannelCardTextFieldKind) -> String? {
+    func textValue(for kind: LocalFeedTextFieldKind) -> String? {
         orderedTextContent.first(where: { $0.kind == kind })?.text
     }
 }
@@ -1109,10 +1162,10 @@ extension ChannelCardContent {
             id: id,
             channelID: channelID,
             createdAt: createdAt,
-            kind: kind,
-            orderedTextContent: orderedTextContent,
-            sourceContent: sourceContent,
-            mediaContent: mediaContent
+            kind: kind.feedKind,
+            orderedTextContent: orderedTextContent.map(\.localFeedTextContent),
+            sourceContent: sourceContent?.localFeedSourceContent,
+            mediaContent: mediaContent?.localFeedMediaContent
         )
     }
 
@@ -1131,6 +1184,97 @@ extension ChannelCardContent {
         case .pdf:
             return .pdf(.local(localCard))
         }
+    }
+}
+
+private extension ChannelCardSourceContent {
+    var localFeedSourceContent: LocalFeedSourceContent {
+        LocalFeedSourceContent(
+            text: text,
+            resourceURLString: resourceURLString
+        )
+    }
+}
+
+private extension ChannelCardPhotoItem {
+    var localFeedPhotoItem: LocalFeedPhotoItem {
+        LocalFeedPhotoItem(
+            id: id,
+            displayTitle: displayTitle,
+            caption: caption,
+            copyright: copyright
+        )
+    }
+}
+
+private extension ChannelCardTeaserImageContent {
+    var localFeedTeaserImageContent: LocalFeedTeaserImageContent {
+        LocalFeedTeaserImageContent(
+            id: id,
+            displayTitle: displayTitle,
+            copyright: copyright
+        )
+    }
+}
+
+private extension ChannelCardMediaKind {
+    var localFeedMediaKind: LocalFeedMediaKind {
+        switch self {
+        case .photo:
+            return .photo
+        case .video:
+            return .video
+        case .audio:
+            return .audio
+        case .pdf:
+            return .pdf
+        }
+    }
+}
+
+private extension ChannelCardFileMediaContent {
+    var localFeedFileMediaContent: LocalFeedFileMediaContent {
+        LocalFeedFileMediaContent(
+            kind: kind.localFeedMediaKind,
+            displayTitle: displayTitle,
+            teaserImage: teaserImage?.localFeedTeaserImageContent,
+            caption: caption
+        )
+    }
+}
+
+private extension ChannelCardMediaContent {
+    var localFeedMediaContent: LocalFeedMediaContent {
+        switch self {
+        case let .photos(items):
+            return .photos(items: items.map(\.localFeedPhotoItem))
+        case let .file(file):
+            return .file(file.localFeedFileMediaContent)
+        }
+    }
+}
+
+private extension ChannelCardTextFieldKind {
+    var localFeedTextFieldKind: LocalFeedTextFieldKind {
+        switch self {
+        case .text:
+            return .text
+        case .headline:
+            return .headline
+        case .subheadline:
+            return .subheadline
+        case .source:
+            return .source
+        }
+    }
+}
+
+private extension ChannelCardTextContent {
+    var localFeedTextContent: LocalFeedTextContent {
+        LocalFeedTextContent(
+            kind: kind.localFeedTextFieldKind,
+            text: text
+        )
     }
 }
 

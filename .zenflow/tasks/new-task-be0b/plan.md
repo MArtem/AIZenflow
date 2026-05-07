@@ -5,7 +5,7 @@ Finish restoring the lost card/composer/feed functionality with the new 5-type c
 
 ## Active Steps
 1. Align the remaining composer/feed gaps around the shared first-class card contract
-2. Remove any remaining preview-only or draft-only semantics that leak into published local card rendering
+2. Remove any remaining draft-derived behavior from published local cards, not just draft-derived naming
 3. After feature restoration, run final documentation consistency pass across docs and local project skills
 
 ## Working Rule
