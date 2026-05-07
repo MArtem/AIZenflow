@@ -69,11 +69,11 @@ final class FeedComposerViewModel {
             insertions.append(.photoOrVideo)
             insertions.append(.audio)
             insertions.append(.pdf)
-        case let .photos(count):
-            if count < 10 {
+        case let .photos(items):
+            if items.count < 10 {
                 insertions.append(.photo)
             }
-        case .video, .audio, .pdf:
+        case .file:
             break
         }
 
@@ -123,13 +123,13 @@ final class FeedComposerViewModel {
     func addPhoto() {
         switch media {
         case nil:
-            media = .photos(count: 1)
-        case let .photos(count):
-            guard count < 10 else {
+            media = .photos(items: [makePhotoItem(number: 1)])
+        case let .photos(items):
+            guard items.count < 10 else {
                 return
             }
-            media = .photos(count: count + 1)
-        case .video, .audio, .pdf:
+            media = .photos(items: items + [makePhotoItem(number: items.count + 1)])
+        case .file:
             return
         }
         visibleTextFieldKinds.insert(.text)
@@ -210,12 +210,13 @@ final class FeedComposerViewModel {
         switch media {
         case .photos:
             resolvedKind = .photo
-        case .video:
-            resolvedKind = .video
-        case .audio:
-            resolvedKind = .audio
-        case .pdf:
-            resolvedKind = .pdf
+        case let .file(file):
+            resolvedKind = switch file.kind {
+            case .photo: .photo
+            case .video: .video
+            case .audio: .audio
+            case .pdf: .pdf
+            }
         case nil:
             resolvedKind = .text
         }
@@ -242,15 +243,44 @@ final class FeedComposerViewModel {
 
         switch kind {
         case .photo:
-            media = .photos(count: 1)
+            media = .photos(items: [makePhotoItem(number: 1)])
         case .video:
-            media = .video
+            media = .file(makeFileMedia(kind: .video))
         case .audio:
-            media = .audio
+            media = .file(makeFileMedia(kind: .audio))
         case .pdf:
-            media = .pdf
+            media = .file(makeFileMedia(kind: .pdf))
         }
         visibleTextFieldKinds.insert(.text)
+    }
+
+    private func makePhotoItem(number: Int) -> ChannelCardPhotoItem {
+        ChannelCardPhotoItem(
+            id: UUID().uuidString,
+            displayTitle: "Photo \(number)",
+            caption: nil,
+            copyright: nil
+        )
+    }
+
+    private func makeFileMedia(kind: ChannelCardMediaKind) -> ChannelCardFileMediaContent {
+        let displayTitle = switch kind {
+        case .photo:
+            "Photo"
+        case .video:
+            "Video"
+        case .audio:
+            "Audio"
+        case .pdf:
+            "PDF"
+        }
+
+        return ChannelCardFileMediaContent(
+            kind: kind,
+            displayTitle: displayTitle,
+            teaserImage: nil,
+            caption: nil
+        )
     }
 
     private func normalized(_ value: String) -> String? {

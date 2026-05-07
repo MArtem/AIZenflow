@@ -15,35 +15,78 @@ enum ChannelCardMediaKind: String, Equatable, Sendable {
     case pdf
 }
 
+struct ChannelCardSourceContent: Equatable, Sendable {
+    let text: String
+    let resourceURLString: String?
+}
+
+struct ChannelCardPhotoItem: Equatable, Sendable, Identifiable {
+    let id: String
+    let displayTitle: String
+    let caption: String?
+    let copyright: String?
+}
+
+struct ChannelCardTeaserImageContent: Equatable, Sendable, Identifiable {
+    let id: String
+    let displayTitle: String
+    let copyright: String?
+}
+
+struct ChannelCardFileMediaContent: Equatable, Sendable {
+    let kind: ChannelCardMediaKind
+    let displayTitle: String
+    let teaserImage: ChannelCardTeaserImageContent?
+    let caption: String?
+}
+
 enum ChannelCardMediaContent: Equatable, Sendable {
-    case photos(count: Int)
-    case video
-    case audio
-    case pdf
+    case photos(items: [ChannelCardPhotoItem])
+    case file(ChannelCardFileMediaContent)
 
     var kind: ChannelCardMediaKind {
         switch self {
         case .photos:
             return .photo
-        case .video:
-            return .video
-        case .audio:
-            return .audio
-        case .pdf:
-            return .pdf
+        case let .file(file):
+            return file.kind
         }
     }
 
     var displayTitle: String {
         switch self {
-        case let .photos(count):
+        case let .photos(items):
+            let count = items.count
             return count == 1 ? "1 Photo" : "\(count) Photos"
-        case .video:
-            return "Video"
-        case .audio:
-            return "Audio"
-        case .pdf:
-            return "PDF"
+        case let .file(file):
+            return file.displayTitle
+        }
+    }
+
+    var photoCount: Int {
+        switch self {
+        case let .photos(items):
+            return items.count
+        case .file:
+            return 0
+        }
+    }
+
+    var teaserImage: ChannelCardTeaserImageContent? {
+        switch self {
+        case .photos:
+            return nil
+        case let .file(file):
+            return file.teaserImage
+        }
+    }
+
+    var caption: String? {
+        switch self {
+        case .photos:
+            return nil
+        case let .file(file):
+            return file.caption
         }
     }
 }
@@ -129,8 +172,41 @@ struct ChannelCardContent: Identifiable, Equatable, Sendable {
     let text: String?
     let headline: String?
     let subheadline: String?
-    let source: String?
-    let media: ChannelCardMediaContent?
+    let sourceContent: ChannelCardSourceContent?
+    let mediaContent: ChannelCardMediaContent?
+
+    init(
+        id: String,
+        channelID: String,
+        createdAt: Date,
+        kind: ChannelCardKind,
+        text: String?,
+        headline: String?,
+        subheadline: String?,
+        source: String?,
+        sourceURLString: String? = nil,
+        media: ChannelCardMediaContent?
+    ) {
+        self.id = id
+        self.channelID = channelID
+        self.createdAt = createdAt
+        self.kind = kind
+        self.text = text
+        self.headline = headline
+        self.subheadline = subheadline
+        self.sourceContent = source.map {
+            ChannelCardSourceContent(text: $0, resourceURLString: sourceURLString)
+        }
+        self.mediaContent = media
+    }
+
+    var source: String? {
+        sourceContent?.text
+    }
+
+    var media: ChannelCardMediaContent? {
+        mediaContent
+    }
 
     var mediaKind: ChannelCardMediaKind? {
         media?.kind
@@ -168,7 +244,7 @@ struct ChannelCardContent: Identifiable, Equatable, Sendable {
         case .subheadline:
             return subheadline
         case .source:
-            return source
+            return sourceContent?.text
         }
     }
 }
