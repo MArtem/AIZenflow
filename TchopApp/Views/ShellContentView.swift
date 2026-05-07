@@ -11,6 +11,7 @@ private struct FeedComposerView: View {
     @State private var showsInsertionSheet = false
     @State private var showsChannelSheet = false
     @State private var showsMediaChoiceSheet = false
+    @State private var showsFileMediaActionSheet = false
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -31,7 +32,10 @@ private struct FeedComposerView: View {
                         }
 
                         if let media = viewModel.media {
-                            ComposerMediaPreview(media: media)
+                            ComposerMediaPreview(
+                                media: media,
+                                onFileMediaMoreTap: { showsFileMediaActionSheet = true }
+                            )
                         }
                     }
                     .padding(.horizontal, AppSpacing.screenHorizontal)
@@ -78,6 +82,14 @@ private struct FeedComposerView: View {
                         }
                     },
                     onDismiss: { showsMediaChoiceSheet = false }
+                )
+            }
+
+            if showsFileMediaActionSheet {
+                ComposerBottomSheet(
+                    items: fileMediaActionItems,
+                    onSelect: handleFileMediaActionSelection,
+                    onDismiss: { showsFileMediaActionSheet = false }
                 )
             }
         }
@@ -242,17 +254,47 @@ private struct FeedComposerView: View {
 
         onPublish()
     }
+
+    private var fileMediaActionItems: [ComposerBottomSheetItem] {
+        guard case let .file(file)? = viewModel.media else {
+            return []
+        }
+
+        var items: [ComposerBottomSheetItem] = []
+        if file.teaserImage == nil {
+            items.append(ComposerBottomSheetItem(id: "addTeaser", title: "Add teaser image"))
+        } else {
+            items.append(ComposerBottomSheetItem(id: "replaceTeaser", title: "Replace teaser image"))
+            items.append(ComposerBottomSheetItem(id: "removeTeaser", title: "Remove teaser image"))
+        }
+        items.append(ComposerBottomSheetItem(id: "removeMedia", title: "Remove media"))
+        return items
+    }
+
+    private func handleFileMediaActionSelection(_ selectedID: String) {
+        switch selectedID {
+        case "addTeaser", "replaceTeaser":
+            viewModel.addOrReplaceTeaserImage()
+        case "removeTeaser":
+            viewModel.removeTeaserImage()
+        case "removeMedia":
+            viewModel.removeMedia()
+        default:
+            break
+        }
+    }
 }
 
 private struct ComposerMediaPreview: View {
     let media: ChannelCardMediaContent
+    let onFileMediaMoreTap: () -> Void
 
     var body: some View {
         switch media {
         case let .photos(items):
             ComposerPhotoStripView(items: items)
         case let .file(file):
-            ComposerFileMediaView(file: file)
+            ComposerFileMediaView(file: file, onMoreTap: onFileMediaMoreTap)
         }
     }
 }
@@ -295,34 +337,55 @@ private struct ComposerPhotoStripView: View {
 
 private struct ComposerFileMediaView: View {
     let file: ChannelCardFileMediaContent
+    let onMoreTap: () -> Void
 
     var body: some View {
         RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
             .fill(AppTheme.surfaceSecondary)
             .frame(height: 184)
             .overlay {
-                VStack(spacing: AppSpacing.xs) {
-                    Image(systemName: iconName)
-                        .font(.system(size: 28, weight: .semibold))
-                        .foregroundStyle(AppTheme.textSecondary)
+                VStack(spacing: 0) {
+                    HStack {
+                        Spacer()
 
-                    Text(file.displayTitle)
-                        .font(AppTypography.cardTitle)
-                        .foregroundStyle(AppTheme.textSecondary)
+                        Button(action: onMoreTap) {
+                            Image(systemName: "ellipsis")
+                                .font(.system(size: 16, weight: .semibold))
+                                .foregroundStyle(AppTheme.textSecondary)
+                                .frame(width: 32, height: 32)
+                        }
+                        .buttonStyle(.plain)
+                    }
+                    .padding(.top, AppSpacing.sm)
+                    .padding(.horizontal, AppSpacing.sm)
 
-                    if let teaserImage = file.teaserImage {
-                        Text(teaserImage.displayTitle)
-                            .font(AppTypography.captionSemibold)
-                            .foregroundStyle(AppTheme.textTertiary)
+                    Spacer()
+
+                    VStack(spacing: AppSpacing.xs) {
+                        Image(systemName: iconName)
+                            .font(.system(size: 28, weight: .semibold))
+                            .foregroundStyle(AppTheme.textSecondary)
+
+                        Text(file.displayTitle)
+                            .font(AppTypography.cardTitle)
+                            .foregroundStyle(AppTheme.textSecondary)
+
+                        if let teaserImage = file.teaserImage {
+                            Text(teaserImage.displayTitle)
+                                .font(AppTypography.captionSemibold)
+                                .foregroundStyle(AppTheme.textTertiary)
+                        }
+
+                        if let caption = file.caption, !caption.isEmpty {
+                            Text(caption)
+                                .font(AppTypography.captionSemibold)
+                                .foregroundStyle(AppTheme.textTertiary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, AppSpacing.md)
+                        }
                     }
 
-                    if let caption = file.caption, !caption.isEmpty {
-                        Text(caption)
-                            .font(AppTypography.captionSemibold)
-                            .foregroundStyle(AppTheme.textTertiary)
-                            .multilineTextAlignment(.center)
-                            .padding(.horizontal, AppSpacing.md)
-                    }
+                    Spacer()
                 }
             }
     }
