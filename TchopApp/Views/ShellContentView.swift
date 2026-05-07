@@ -39,6 +39,30 @@ private struct FeedComposerView: View {
                                 onPhotoMoreTap: { selectedPhotoItemID = $0 }
                             )
 
+                            ForEach(viewModel.photoItems) { item in
+                                if viewModel.isPhotoCaptionFieldVisible(id: item.id) {
+                                    ComposerTextInputView(
+                                        text: photoCaptionBinding(for: item.id),
+                                        placeholder: "\(item.displayTitle): add caption",
+                                        style: assetMetadataInputStyle(color: AppTheme.textSecondary),
+                                        onDeleteBackwardWhenEmpty: {
+                                            viewModel.removePhotoCaptionFieldIfEmpty(id: item.id)
+                                        }
+                                    )
+                                }
+
+                                if viewModel.isPhotoCopyrightFieldVisible(id: item.id) {
+                                    ComposerTextInputView(
+                                        text: photoCopyrightBinding(for: item.id),
+                                        placeholder: "\(item.displayTitle): add copyright",
+                                        style: assetMetadataInputStyle(color: AppTheme.textTertiary),
+                                        onDeleteBackwardWhenEmpty: {
+                                            viewModel.removePhotoCopyrightFieldIfEmpty(id: item.id)
+                                        }
+                                    )
+                                }
+                            }
+
                             if viewModel.isFileCaptionFieldVisible {
                                 ComposerTextInputView(
                                     text: fileCaptionBinding,
@@ -119,7 +143,7 @@ private struct FeedComposerView: View {
 
             if selectedPhotoItemID != nil {
                 ComposerBottomSheet(
-                    items: [ComposerBottomSheetItem(id: "removePhoto", title: "Remove photo")],
+                    items: photoItemActionItems,
                     onSelect: handlePhotoItemActionSelection,
                     onDismiss: { selectedPhotoItemID = nil }
                 )
@@ -352,12 +376,52 @@ private struct FeedComposerView: View {
     }
 
     private func handlePhotoItemActionSelection(_ selectedID: String) {
-        guard selectedID == "removePhoto", let selectedPhotoItemID else {
+        guard let selectedPhotoItemID else {
             return
         }
 
-        viewModel.removePhoto(id: selectedPhotoItemID)
+        switch selectedID {
+        case "addPhotoCaption":
+            viewModel.showPhotoCaptionField(id: selectedPhotoItemID)
+        case "addPhotoCopyright":
+            viewModel.showPhotoCopyrightField(id: selectedPhotoItemID)
+        case "removePhoto":
+            viewModel.removePhoto(id: selectedPhotoItemID)
+        default:
+            break
+        }
+
         self.selectedPhotoItemID = nil
+    }
+
+    private var photoItemActionItems: [ComposerBottomSheetItem] {
+        guard let selectedPhotoItemID else {
+            return []
+        }
+
+        var items: [ComposerBottomSheetItem] = []
+        if !viewModel.isPhotoCaptionFieldVisible(id: selectedPhotoItemID) {
+            items.append(ComposerBottomSheetItem(id: "addPhotoCaption", title: "Add caption"))
+        }
+        if !viewModel.isPhotoCopyrightFieldVisible(id: selectedPhotoItemID) {
+            items.append(ComposerBottomSheetItem(id: "addPhotoCopyright", title: "Add copyright"))
+        }
+        items.append(ComposerBottomSheetItem(id: "removePhoto", title: "Remove photo"))
+        return items
+    }
+
+    private func photoCaptionBinding(for photoID: String) -> Binding<String> {
+        Binding(
+            get: { viewModel.photoCaptionText(id: photoID) },
+            set: { viewModel.updatePhotoCaption($0, id: photoID) }
+        )
+    }
+
+    private func photoCopyrightBinding(for photoID: String) -> Binding<String> {
+        Binding(
+            get: { viewModel.photoCopyrightText(id: photoID) },
+            set: { viewModel.updatePhotoCopyright($0, id: photoID) }
+        )
     }
 }
 

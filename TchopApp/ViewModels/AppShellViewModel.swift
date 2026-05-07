@@ -80,6 +80,10 @@ final class FeedComposerViewModel {
         draft.fileCaptionText ?? ""
     }
 
+    var photoItems: [ChannelCardPhotoItem] {
+        draft.photoItems
+    }
+
     var teaserCopyrightText: String {
         draft.teaserCopyrightText ?? ""
     }
@@ -112,8 +116,40 @@ final class FeedComposerViewModel {
         draft.updatePhotoCaption(value, id: id)
     }
 
+    func showPhotoCaptionField(id: String) {
+        draft.showPhotoCaptionField(id: id)
+    }
+
+    func removePhotoCaptionFieldIfEmpty(id: String) {
+        draft.removePhotoCaptionFieldIfEmpty(id: id)
+    }
+
+    func isPhotoCaptionFieldVisible(id: String) -> Bool {
+        draft.visiblePhotoCaptionFieldIDs.contains(id)
+    }
+
+    func photoCaptionText(id: String) -> String {
+        draft.photoCaptionText(id: id) ?? ""
+    }
+
     func updatePhotoCopyright(_ value: String?, id: String) {
         draft.updatePhotoCopyright(value, id: id)
+    }
+
+    func showPhotoCopyrightField(id: String) {
+        draft.showPhotoCopyrightField(id: id)
+    }
+
+    func removePhotoCopyrightFieldIfEmpty(id: String) {
+        draft.removePhotoCopyrightFieldIfEmpty(id: id)
+    }
+
+    func isPhotoCopyrightFieldVisible(id: String) -> Bool {
+        draft.visiblePhotoCopyrightFieldIDs.contains(id)
+    }
+
+    func photoCopyrightText(id: String) -> String {
+        draft.photoCopyrightText(id: id) ?? ""
     }
 
     func updateFileCaption(_ value: String?) {

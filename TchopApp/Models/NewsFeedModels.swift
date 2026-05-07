@@ -164,6 +164,8 @@ struct FeedComposerDraft: Equatable, Sendable {
     private(set) var media: ChannelCardMediaContent?
     private(set) var isFileCaptionFieldVisible: Bool
     private(set) var isTeaserCopyrightFieldVisible: Bool
+    private(set) var visiblePhotoCaptionFieldIDs: Set<String>
+    private(set) var visiblePhotoCopyrightFieldIDs: Set<String>
 
     init(selectedChannelID: String) {
         self.selectedChannelID = selectedChannelID
@@ -177,6 +179,8 @@ struct FeedComposerDraft: Equatable, Sendable {
         self.media = nil
         self.isFileCaptionFieldVisible = false
         self.isTeaserCopyrightFieldVisible = false
+        self.visiblePhotoCaptionFieldIDs = []
+        self.visiblePhotoCopyrightFieldIDs = []
     }
 
     var canPublish: Bool {
@@ -301,6 +305,8 @@ struct FeedComposerDraft: Equatable, Sendable {
         media = nil
         isFileCaptionFieldVisible = false
         isTeaserCopyrightFieldVisible = false
+        visiblePhotoCaptionFieldIDs = []
+        visiblePhotoCopyrightFieldIDs = []
     }
 
     mutating func removePhoto(id: String) {
@@ -309,7 +315,25 @@ struct FeedComposerDraft: Equatable, Sendable {
         }
 
         let remainingItems = items.filter { $0.id != id }
+        visiblePhotoCaptionFieldIDs.remove(id)
+        visiblePhotoCopyrightFieldIDs.remove(id)
         media = remainingItems.isEmpty ? nil : .photos(items: remainingItems)
+    }
+
+    mutating func showPhotoCaptionField(id: String) {
+        guard photoItem(id: id) != nil else {
+            return
+        }
+
+        visiblePhotoCaptionFieldIDs.insert(id)
+    }
+
+    mutating func removePhotoCaptionFieldIfEmpty(id: String) {
+        guard photoCaptionText(id: id) == nil else {
+            return
+        }
+
+        visiblePhotoCaptionFieldIDs.remove(id)
     }
 
     mutating func showFileCaptionField() {
@@ -383,6 +407,22 @@ struct FeedComposerDraft: Equatable, Sendable {
                 caption: normalizedOptionalText(value)
             )
         )
+    }
+
+    mutating func showPhotoCopyrightField(id: String) {
+        guard photoItem(id: id) != nil else {
+            return
+        }
+
+        visiblePhotoCopyrightFieldIDs.insert(id)
+    }
+
+    mutating func removePhotoCopyrightFieldIfEmpty(id: String) {
+        guard photoCopyrightText(id: id) == nil else {
+            return
+        }
+
+        visiblePhotoCopyrightFieldIDs.remove(id)
     }
 
     mutating func addOrReplaceTeaserImage(displayTitle: String = "Teaser image") {
@@ -471,6 +511,22 @@ struct FeedComposerDraft: Equatable, Sendable {
         return file.caption
     }
 
+    var photoItems: [ChannelCardPhotoItem] {
+        guard case let .photos(items) = media else {
+            return []
+        }
+
+        return items
+    }
+
+    func photoCaptionText(id: String) -> String? {
+        photoItem(id: id)?.caption
+    }
+
+    func photoCopyrightText(id: String) -> String? {
+        photoItem(id: id)?.copyright
+    }
+
     var teaserCopyrightText: String? {
         guard case let .file(file) = media else {
             return nil
@@ -533,6 +589,14 @@ struct FeedComposerDraft: Equatable, Sendable {
 
         let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? nil : trimmed
+    }
+
+    private func photoItem(id: String) -> ChannelCardPhotoItem? {
+        guard case let .photos(items) = media else {
+            return nil
+        }
+
+        return items.first(where: { $0.id == id })
     }
 
     private mutating func selectMedia(_ kind: ChannelCardMediaKind) {
