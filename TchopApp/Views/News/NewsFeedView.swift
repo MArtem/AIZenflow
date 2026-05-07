@@ -41,11 +41,11 @@ struct NewsFeedView: View {
                         case let .text(textCard):
                             textCardView(textCard)
                         case let .video(card):
-                            ChannelCardPlaceholderView(card: card)
+                            VideoCardView(card: card)
                         case let .audio(card):
-                            ChannelCardPlaceholderView(card: card)
+                            AudioCardView(card: card)
                         case let .pdf(card):
-                            ChannelCardPlaceholderView(card: card)
+                            PDFCardView(card: card)
                         }
                     }
                 }
@@ -138,7 +138,7 @@ struct NewsFeedView: View {
                 onAction: { onPhotoAction(card, $0) }
             )
         case let .local(card):
-            ChannelCardPlaceholderView(card: card)
+            LocalPhotoCardView(card: card)
         }
     }
 
@@ -152,7 +152,7 @@ struct NewsFeedView: View {
                 onAction: { onTextAction(card, $0) }
             )
         case let .local(card):
-            ChannelCardPlaceholderView(card: card)
+            LocalTextCardView(card: card)
         }
     }
 }
@@ -227,26 +227,102 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
 /// Zero-sized host view used only to discover the surrounding UIKit scroll view.
 private final class ObserverView: UIView {}
 
-private struct ChannelCardPlaceholderView: View {
-    let card: ChannelCardContent
+private struct LocalTextCardView: View {
+    let card: LocalFeedCardModel
+
+    var body: some View {
+        LocalFeedCardContainer(card: card, mediaHeight: nil) {
+            EmptyView()
+        }
+    }
+}
+
+private struct LocalPhotoCardView: View {
+    let card: LocalFeedCardModel
+
+    var body: some View {
+        LocalFeedCardContainer(card: card, mediaHeight: 220) {
+            if let media = card.mediaContent {
+                MediaHeaderView(
+                    iconName: "photo.on.rectangle.angled",
+                    title: media.displayTitle,
+                    subtitle: nil
+                )
+            }
+        }
+    }
+}
+
+private struct VideoCardView: View {
+    let card: LocalFeedCardModel
+
+    var body: some View {
+        LocalFeedCardContainer(card: card, mediaHeight: 180) {
+            if let media = card.mediaContent, case let .file(file) = media {
+                MediaHeaderView(
+                    iconName: "video",
+                    title: file.displayTitle,
+                    subtitle: file.caption
+                )
+            }
+        }
+    }
+}
+
+private struct AudioCardView: View {
+    let card: LocalFeedCardModel
+
+    var body: some View {
+        LocalFeedCardContainer(card: card, mediaHeight: 180) {
+            if let media = card.mediaContent, case let .file(file) = media {
+                MediaHeaderView(
+                    iconName: "waveform",
+                    title: file.displayTitle,
+                    subtitle: file.caption
+                )
+            }
+        }
+    }
+}
+
+private struct PDFCardView: View {
+    let card: LocalFeedCardModel
+
+    var body: some View {
+        LocalFeedCardContainer(card: card, mediaHeight: 180) {
+            if let media = card.mediaContent, case let .file(file) = media {
+                MediaHeaderView(
+                    iconName: "doc.richtext",
+                    title: file.displayTitle,
+                    subtitle: file.caption
+                )
+            }
+        }
+    }
+}
+
+private struct LocalFeedCardContainer<MediaBody: View>: View {
+    let card: LocalFeedCardModel
+    let mediaHeight: CGFloat?
+    let mediaBody: MediaBody
+
+    init(
+        card: LocalFeedCardModel,
+        mediaHeight: CGFloat?,
+        @ViewBuilder mediaBody: () -> MediaBody
+    ) {
+        self.card = card
+        self.mediaHeight = mediaHeight
+        self.mediaBody = mediaBody()
+    }
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.sm) {
-            if let media = card.media {
+            if let mediaHeight {
                 RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
                     .fill(AppTheme.surfaceSecondary)
-                    .frame(height: media.kind == .photo ? 220 : 180)
-                    .overlay {
-                        VStack(spacing: AppSpacing.xs) {
-                            Image(systemName: mediaIconName(media))
-                                .font(.system(size: 28, weight: .semibold))
-                                .foregroundStyle(AppTheme.textSecondary)
-
-                            Text(media.displayTitle)
-                                .font(AppTypography.cardTitle)
-                                .foregroundStyle(AppTheme.textSecondary)
-                        }
-                    }
+                    .frame(height: mediaHeight)
+                    .overlay { mediaBody }
             }
 
             ForEach(card.orderedTextContent) { textContent in
@@ -285,17 +361,30 @@ private struct ChannelCardPlaceholderView: View {
             return AppTheme.accent
         }
     }
+}
 
-    private func mediaIconName(_ media: ChannelCardMediaContent) -> String {
-        switch media.kind {
-        case .photo:
-            return "photo.on.rectangle.angled"
-        case .video:
-            return "video"
-        case .audio:
-            return "waveform"
-        case .pdf:
-            return "doc.richtext"
+private struct MediaHeaderView: View {
+    let iconName: String
+    let title: String
+    let subtitle: String?
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xs) {
+            Image(systemName: iconName)
+                .font(.system(size: 28, weight: .semibold))
+                .foregroundStyle(AppTheme.textSecondary)
+
+            Text(title)
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textSecondary)
+
+            if let subtitle, !subtitle.isEmpty {
+                Text(subtitle)
+                    .font(AppTypography.captionSemibold)
+                    .foregroundStyle(AppTheme.textTertiary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, AppSpacing.md)
+            }
         }
     }
 }

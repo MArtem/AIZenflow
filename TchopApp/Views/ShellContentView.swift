@@ -31,7 +31,7 @@ private struct FeedComposerView: View {
                         }
 
                         if let media = viewModel.media {
-                            ComposerMediaPlaceholderView(media: media)
+                            ComposerMediaPreview(media: media)
                         }
                     }
                     .padding(.horizontal, AppSpacing.screenHorizontal)
@@ -244,28 +244,91 @@ private struct FeedComposerView: View {
     }
 }
 
-private struct ComposerMediaPlaceholderView: View {
+private struct ComposerMediaPreview: View {
     let media: ChannelCardMediaContent
+
+    var body: some View {
+        switch media {
+        case let .photos(items):
+            ComposerPhotoStripView(items: items)
+        case let .file(file):
+            ComposerFileMediaView(file: file)
+        }
+    }
+}
+
+private struct ComposerPhotoStripView: View {
+    let items: [ChannelCardPhotoItem]
+
+    var body: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: AppSpacing.sm) {
+                ForEach(items) { item in
+                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                        .fill(AppTheme.surfaceSecondary)
+                        .frame(width: 184, height: 184)
+                        .overlay {
+                            VStack(spacing: AppSpacing.xs) {
+                                Image(systemName: "photo.on.rectangle.angled")
+                                    .font(.system(size: 28, weight: .semibold))
+                                    .foregroundStyle(AppTheme.textSecondary)
+
+                                Text(item.displayTitle)
+                                    .font(AppTypography.cardTitle)
+                                    .foregroundStyle(AppTheme.textSecondary)
+
+                                if let caption = item.caption, !caption.isEmpty {
+                                    Text(caption)
+                                        .font(AppTypography.captionSemibold)
+                                        .foregroundStyle(AppTheme.textTertiary)
+                                        .multilineTextAlignment(.center)
+                                        .padding(.horizontal, AppSpacing.sm)
+                                }
+                            }
+                        }
+                }
+            }
+            .padding(.vertical, AppSpacing.xxs)
+        }
+    }
+}
+
+private struct ComposerFileMediaView: View {
+    let file: ChannelCardFileMediaContent
 
     var body: some View {
         RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
             .fill(AppTheme.surfaceSecondary)
-            .frame(height: media.kind == .photo ? 220 : 180)
+            .frame(height: 184)
             .overlay {
                 VStack(spacing: AppSpacing.xs) {
                     Image(systemName: iconName)
                         .font(.system(size: 28, weight: .semibold))
                         .foregroundStyle(AppTheme.textSecondary)
 
-                    Text(media.displayTitle)
+                    Text(file.displayTitle)
                         .font(AppTypography.cardTitle)
                         .foregroundStyle(AppTheme.textSecondary)
+
+                    if let teaserImage = file.teaserImage {
+                        Text(teaserImage.displayTitle)
+                            .font(AppTypography.captionSemibold)
+                            .foregroundStyle(AppTheme.textTertiary)
+                    }
+
+                    if let caption = file.caption, !caption.isEmpty {
+                        Text(caption)
+                            .font(AppTypography.captionSemibold)
+                            .foregroundStyle(AppTheme.textTertiary)
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, AppSpacing.md)
+                    }
                 }
             }
     }
 
     private var iconName: String {
-        switch media.kind {
+        switch file.kind {
         case .photo:
             return "photo.on.rectangle.angled"
         case .video:

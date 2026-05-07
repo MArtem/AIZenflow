@@ -485,6 +485,33 @@ struct ChannelCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
+struct LocalFeedCardModel: Identifiable, Equatable, Sendable {
+    let id: String
+    let channelID: String
+    let createdAt: Date
+    let kind: ChannelCardKind
+    let orderedTextContent: [ChannelCardTextContent]
+    let sourceContent: ChannelCardSourceContent?
+    let mediaContent: ChannelCardMediaContent?
+
+    var serviceHeadline: String {
+        orderedTextContent.first?.text ?? kind.rawValue.capitalized
+    }
+
+    var searchFields: [NewsFeedCardSearchField] {
+        [
+            NewsFeedCardSearchField(priority: 500, value: textValue(for: .text) ?? ""),
+            NewsFeedCardSearchField(priority: 400, value: textValue(for: .headline) ?? ""),
+            NewsFeedCardSearchField(priority: 300, value: textValue(for: .subheadline) ?? ""),
+            NewsFeedCardSearchField(priority: 200, value: sourceContent?.text ?? "")
+        ]
+    }
+
+    func textValue(for kind: ChannelCardTextFieldKind) -> String? {
+        orderedTextContent.first(where: { $0.kind == kind })?.text
+    }
+}
+
 /// Origin metadata for the feed content currently shown to the user.
 enum NewsFeedAvailability: Equatable, Sendable {
     case live
@@ -539,7 +566,7 @@ struct NewsFeedCardSearchField: Equatable, Sendable {
 
 enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
     case remote(PhotoCardModel)
-    case local(ChannelCardContent)
+    case local(LocalFeedCardModel)
 
     var id: String {
         switch self {
@@ -580,14 +607,14 @@ enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
                 NewsFeedCardSearchField(priority: 150, value: card.translationLabel)
             ]
         case let .local(card):
-            return card.localSearchFields
+            return card.searchFields
         }
     }
 }
 
 enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
     case remote(TextCardModel)
-    case local(ChannelCardContent)
+    case local(LocalFeedCardModel)
 
     var id: String {
         switch self {
@@ -628,7 +655,7 @@ enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
                 )
             ]
         case let .local(card):
-            return card.localSearchFields
+            return card.searchFields
         }
     }
 }
@@ -637,9 +664,9 @@ enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
 enum NewsFeedCard: Identifiable, Equatable, Sendable {
     case photo(NewsFeedPhotoCardContent)
     case text(NewsFeedTextCardContent)
-    case video(ChannelCardContent)
-    case audio(ChannelCardContent)
-    case pdf(ChannelCardContent)
+    case video(LocalFeedCardModel)
+    case audio(LocalFeedCardModel)
+    case pdf(LocalFeedCardModel)
 
     /// Stable identity forwarded from the underlying card model.
     var id: String {
@@ -713,38 +740,43 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
         case let .text(card):
             return card.searchFields
         case let .video(card):
-            return card.localSearchFields
+            return card.searchFields
         case let .audio(card):
-            return card.localSearchFields
+            return card.searchFields
         case let .pdf(card):
-            return card.localSearchFields
+            return card.searchFields
         }
     }
 }
 
 extension ChannelCardContent {
-    var newsFeedCard: NewsFeedCard {
-        switch kind {
-        case .text:
-            return .text(.local(self))
-        case .photo:
-            return .photo(.local(self))
-        case .video:
-            return .video(self)
-        case .audio:
-            return .audio(self)
-        case .pdf:
-            return .pdf(self)
-        }
+    var localFeedCardModel: LocalFeedCardModel {
+        LocalFeedCardModel(
+            id: id,
+            channelID: channelID,
+            createdAt: createdAt,
+            kind: kind,
+            orderedTextContent: orderedTextContent,
+            sourceContent: sourceContent,
+            mediaContent: mediaContent
+        )
     }
 
-    var localSearchFields: [NewsFeedCardSearchField] {
-        [
-            NewsFeedCardSearchField(priority: 500, value: text ?? ""),
-            NewsFeedCardSearchField(priority: 400, value: headline ?? ""),
-            NewsFeedCardSearchField(priority: 300, value: subheadline ?? ""),
-            NewsFeedCardSearchField(priority: 200, value: source ?? "")
-        ]
+    var newsFeedCard: NewsFeedCard {
+        let localCard = localFeedCardModel
+
+        switch kind {
+        case .text:
+            return .text(.local(localCard))
+        case .photo:
+            return .photo(.local(localCard))
+        case .video:
+            return .video(localCard)
+        case .audio:
+            return .audio(localCard)
+        case .pdf:
+            return .pdf(localCard)
+        }
     }
 }
 
