@@ -12,6 +12,7 @@ private struct FeedComposerView: View {
     @State private var showsChannelSheet = false
     @State private var showsMediaChoiceSheet = false
     @State private var showsFileMediaActionSheet = false
+    @State private var selectedPhotoItemID: String?
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -34,7 +35,8 @@ private struct FeedComposerView: View {
                         if let media = viewModel.media {
                             ComposerMediaPreview(
                                 media: media,
-                                onFileMediaMoreTap: { showsFileMediaActionSheet = true }
+                                onFileMediaMoreTap: { showsFileMediaActionSheet = true },
+                                onPhotoMoreTap: { selectedPhotoItemID = $0 }
                             )
                         }
                     }
@@ -90,6 +92,14 @@ private struct FeedComposerView: View {
                     items: fileMediaActionItems,
                     onSelect: handleFileMediaActionSelection,
                     onDismiss: { showsFileMediaActionSheet = false }
+                )
+            }
+
+            if selectedPhotoItemID != nil {
+                ComposerBottomSheet(
+                    items: [ComposerBottomSheetItem(id: "removePhoto", title: "Remove photo")],
+                    onSelect: handlePhotoItemActionSelection,
+                    onDismiss: { selectedPhotoItemID = nil }
                 )
             }
         }
@@ -283,16 +293,26 @@ private struct FeedComposerView: View {
             break
         }
     }
+
+    private func handlePhotoItemActionSelection(_ selectedID: String) {
+        guard selectedID == "removePhoto", let selectedPhotoItemID else {
+            return
+        }
+
+        viewModel.removePhoto(id: selectedPhotoItemID)
+        self.selectedPhotoItemID = nil
+    }
 }
 
 private struct ComposerMediaPreview: View {
     let media: ChannelCardMediaContent
     let onFileMediaMoreTap: () -> Void
+    let onPhotoMoreTap: (String) -> Void
 
     var body: some View {
         switch media {
         case let .photos(items):
-            ComposerPhotoStripView(items: items)
+            ComposerPhotoStripView(items: items, onMoreTap: onPhotoMoreTap)
         case let .file(file):
             ComposerFileMediaView(file: file, onMoreTap: onFileMediaMoreTap)
         }
@@ -301,6 +321,7 @@ private struct ComposerMediaPreview: View {
 
 private struct ComposerPhotoStripView: View {
     let items: [ChannelCardPhotoItem]
+    let onMoreTap: (String) -> Void
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -310,22 +331,42 @@ private struct ComposerPhotoStripView: View {
                         .fill(AppTheme.surfaceSecondary)
                         .frame(width: 184, height: 184)
                         .overlay {
-                            VStack(spacing: AppSpacing.xs) {
-                                Image(systemName: "photo.on.rectangle.angled")
-                                    .font(.system(size: 28, weight: .semibold))
-                                    .foregroundStyle(AppTheme.textSecondary)
+                            VStack(spacing: 0) {
+                                HStack {
+                                    Spacer()
 
-                                Text(item.displayTitle)
-                                    .font(AppTypography.cardTitle)
-                                    .foregroundStyle(AppTheme.textSecondary)
-
-                                if let caption = item.caption, !caption.isEmpty {
-                                    Text(caption)
-                                        .font(AppTypography.captionSemibold)
-                                        .foregroundStyle(AppTheme.textTertiary)
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, AppSpacing.sm)
+                                    Button(action: { onMoreTap(item.id) }) {
+                                        Image(systemName: "ellipsis")
+                                            .font(.system(size: 16, weight: .semibold))
+                                            .foregroundStyle(AppTheme.textSecondary)
+                                            .frame(width: 32, height: 32)
+                                    }
+                                    .buttonStyle(.plain)
                                 }
+                                .padding(.top, AppSpacing.sm)
+                                .padding(.horizontal, AppSpacing.sm)
+
+                                Spacer()
+
+                                VStack(spacing: AppSpacing.xs) {
+                                    Image(systemName: "photo.on.rectangle.angled")
+                                        .font(.system(size: 28, weight: .semibold))
+                                        .foregroundStyle(AppTheme.textSecondary)
+
+                                    Text(item.displayTitle)
+                                        .font(AppTypography.cardTitle)
+                                        .foregroundStyle(AppTheme.textSecondary)
+
+                                    if let caption = item.caption, !caption.isEmpty {
+                                        Text(caption)
+                                            .font(AppTypography.captionSemibold)
+                                            .foregroundStyle(AppTheme.textTertiary)
+                                            .multilineTextAlignment(.center)
+                                            .padding(.horizontal, AppSpacing.sm)
+                                    }
+                                }
+
+                                Spacer()
                             }
                         }
                 }
