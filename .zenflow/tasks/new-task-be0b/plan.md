@@ -1,12 +1,11 @@
 # Current Plan
 
 ## Goal
-Finish restoring the lost card/composer/feed functionality with the new 5-type card model and keep docs/package boundaries clean.
+Finish the final documentation and package-boundary pass for the restored 5-type card runtime.
 
 ## Active Steps
-1. Finish any remaining composer/feed contract gaps that still require explicit product confirmation
-2. After feature restoration, run final documentation consistency pass across docs and local project skills
-3. Run the final package/manager audit against the finished card runtime
+1. Run final documentation consistency pass across docs and local project skills
+2. Run the final package/manager audit against the finished card runtime
 
 ## Working Rule
 - Keep this file short and current.

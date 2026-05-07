@@ -23,7 +23,7 @@ For the full documentation map, use [docs/README.md](/Users/Artem/.zenflow/workt
 - local-first persistence
 - reusable infrastructure in `Packages/TchopInfrastructure`
 - widget, localization, branding, and push-notification support
-- a feed/composer runtime currently being restored and extended
+- a restored local feed/composer runtime built around `text/photo/video/audio/pdf` cards
 
 The primary separation is:
 - `TchopApp` = product-specific composition, features, UI, app policies

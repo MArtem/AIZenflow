@@ -9,7 +9,7 @@ Use it when:
 - the project needs a git-backed status snapshot instead of `.zenflow`-only task state
 
 ## Current Long-Running Epic
-Restore and complete the new feed/composer/card runtime around the 5-type card model while keeping package-first architecture and docs consistent.
+Finish the final consistency and package-boundary pass for the restored feed/composer/card runtime around the 5-type card model.
 
 ## Stable Baselines That Must Be Preserved
 - Deployment target: `iOS 17`
@@ -82,8 +82,8 @@ Only these fields exist:
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
-- continue aligning composer and feed behavior so published local cards feel fully feed-native instead of draft-derived
-- after feature restoration, run a final consistency pass across docs and local project skills
+- run the final consistency pass across docs and local project skills
+- run the final package/manager audit against the finished card runtime
 
 ## Reopen First
 If work must resume quickly, start with:

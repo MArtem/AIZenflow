@@ -3,7 +3,7 @@
 ## Current Status
 - Project: `TchopApp`
 - State: app builds successfully
-- Current track: restoration of lost card/composer/feed functionality
+- Current track: final consistency pass after restoration of lost card/composer/feed functionality
 - Resume from this worktree, not from scratch
 
 ## Default Resume Read Order
@@ -45,8 +45,8 @@
 - per-photo caption/copyright is part of the draft model
 
 ## Current Next Work
-- continue aligning composer and feed runtime so published local cards feel fully feed-native, not draft-derived
-- after full restoration, do a final docs consistency pass across the new documentation structure and local project skills
+- run the final docs consistency pass across the new documentation structure and local project skills
+- run the final package/manager audit against the finished card runtime
 
 ## Important Files
 - App shell state:
