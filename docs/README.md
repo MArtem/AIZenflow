@@ -19,6 +19,7 @@ For normal coding work, read in this order:
 4. [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md) if task-resume context is relevant
 5. [ios-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md) and [services-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md) for project overlays
 6. [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md) only when package integration, extraction, or reuse guidance is relevant
+7. [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md) when work must survive loss of the current Zenflow task/thread
 
 Global assistant policies live outside the repo and are not duplicated here:
 - [/Users/Artem/.zenflow/assistant/AGENTS.md](/Users/Artem/.zenflow/assistant/AGENTS.md)
@@ -86,6 +87,21 @@ Do not put here:
 - global assistant behavior
 - transient debugging notes
 
+### [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
+Durable repo-level continuity state for long-running work that must survive loss of the current Zenflow task/thread.
+
+Put here:
+- the current long-running epic state
+- what is already restored or completed
+- the current functional contract that must not be rediscovered
+- the next high-value continuation points
+- the key files to reopen first
+
+Do not put here:
+- every small intermediate step
+- temporary speculation
+- global assistant rules
+
 ### [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
 Current task resume state.
 
@@ -133,6 +149,8 @@ Before adding a new rule, skill note, or document, classify it first:
   create or update a dedicated root-level setup document
 - reusable package or manager usage guide:
   place it in [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
+- continuity-critical state that must survive loss of the current Zenflow task:
+  place it in [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
 - current task status or resume context:
   place it in [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
 - current task next steps:
