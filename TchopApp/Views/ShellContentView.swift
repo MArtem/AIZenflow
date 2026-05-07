@@ -14,6 +14,7 @@ private struct FeedComposerView: View {
     @State private var showsFileMediaActionSheet = false
     @State private var selectedPhotoItemID: String?
     @State private var showsTeaserActionSheet = false
+    @State private var focusedPhotoItemID: String?
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -37,7 +38,8 @@ private struct FeedComposerView: View {
                             ComposerMediaPreview(
                                 media: media,
                                 onFileMediaMoreTap: { showsFileMediaActionSheet = true },
-                                onPhotoMoreTap: { selectedPhotoItemID = $0 }
+                                onPhotoMoreTap: { selectedPhotoItemID = $0 },
+                                onPhotoTap: { focusedPhotoItemID = $0 }
                             )
 
                             if case let .file(file) = media, let teaserImage = file.teaserImage {
@@ -166,6 +168,29 @@ private struct FeedComposerView: View {
             }
         }
         .background(AppTheme.surfacePrimary.ignoresSafeArea())
+        .fullScreenCover(
+            isPresented: Binding(
+                get: { focusedPhotoItem != nil },
+                set: { isPresented in
+                    if !isPresented {
+                        focusedPhotoItemID = nil
+                    }
+                }
+            )
+        ) {
+            if let item = focusedPhotoItem {
+                ComposerPhotoDetailView(
+                    item: item,
+                    onClose: { focusedPhotoItemID = nil },
+                    onMoreTap: {
+                        focusedPhotoItemID = nil
+                        DispatchQueue.main.async {
+                            selectedPhotoItemID = item.id
+                        }
+                    }
+                )
+            }
+        }
     }
 
     private var header: some View {
@@ -466,17 +491,30 @@ private struct FeedComposerView: View {
             set: { viewModel.updatePhotoCopyright($0, id: photoID) }
         )
     }
+
+    private var focusedPhotoItem: ChannelCardPhotoItem? {
+        guard let focusedPhotoItemID else {
+            return nil
+        }
+
+        return viewModel.photoItems.first(where: { $0.id == focusedPhotoItemID })
+    }
 }
 
 private struct ComposerMediaPreview: View {
     let media: ChannelCardMediaContent
     let onFileMediaMoreTap: () -> Void
     let onPhotoMoreTap: (String) -> Void
+    let onPhotoTap: (String) -> Void
 
     var body: some View {
         switch media {
         case let .photos(items):
-            ComposerPhotoStripView(items: items, onMoreTap: onPhotoMoreTap)
+            ComposerPhotoStripView(
+                items: items,
+                onMoreTap: onPhotoMoreTap,
+                onTap: onPhotoTap
+            )
         case let .file(file):
             ComposerFileMediaView(file: file, onMoreTap: onFileMediaMoreTap)
         }
@@ -486,6 +524,7 @@ private struct ComposerMediaPreview: View {
 private struct ComposerPhotoStripView: View {
     let items: [ChannelCardPhotoItem]
     let onMoreTap: (String) -> Void
+    let onTap: (String) -> Void
 
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
@@ -532,6 +571,9 @@ private struct ComposerPhotoStripView: View {
 
                                 Spacer()
                             }
+                        }
+                        .onTapGesture {
+                            onTap(item.id)
                         }
                 }
             }
@@ -650,6 +692,85 @@ private struct ComposerTeaserPreview: View {
                     Spacer()
                 }
             }
+    }
+}
+
+private struct ComposerPhotoDetailView: View {
+    let item: ChannelCardPhotoItem
+    let onClose: () -> Void
+    let onMoreTap: () -> Void
+
+    @State private var scale: CGFloat = 1
+    @State private var baseScale: CGFloat = 1
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            Color.black.ignoresSafeArea()
+
+            ScrollView([.horizontal, .vertical], showsIndicators: false) {
+                VStack(spacing: AppSpacing.md) {
+                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                        .fill(Color.white.opacity(0.08))
+                        .frame(width: 320 * scale, height: 480 * scale)
+                        .overlay {
+                            VStack(spacing: AppSpacing.sm) {
+                                Image(systemName: "photo")
+                                    .font(.system(size: 56 * scale, weight: .semibold))
+                                    .foregroundStyle(Color.white.opacity(0.9))
+
+                                Text(item.displayTitle)
+                                    .font(.system(size: max(18, 22 * scale), weight: .semibold))
+                                    .foregroundStyle(Color.white)
+
+                                if let caption = item.caption, !caption.isEmpty {
+                                    Text(caption)
+                                        .font(.system(size: max(13, 15 * scale), weight: .medium))
+                                        .foregroundStyle(Color.white.opacity(0.8))
+                                        .multilineTextAlignment(.center)
+                                        .padding(.horizontal, AppSpacing.lg)
+                                }
+                            }
+                        }
+                        .padding(.vertical, 80)
+                }
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .gesture(
+                MagnifyGesture()
+                    .onChanged { value in
+                        scale = min(max(baseScale * value.magnification, 1), 4)
+                    }
+                    .onEnded { _ in
+                        baseScale = scale
+                    }
+            )
+
+            HStack {
+                Button(action: onClose) {
+                    Image(systemName: "xmark")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(Color.white)
+                        .frame(width: 36, height: 36)
+                        .background(Color.white.opacity(0.12))
+                        .clipShape(Circle())
+                }
+                .buttonStyle(.plain)
+
+                Spacer()
+
+                Button(action: onMoreTap) {
+                    Image(systemName: "ellipsis")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(Color.white)
+                        .frame(width: 36, height: 36)
+                        .background(Color.white.opacity(0.12))
+                        .clipShape(Circle())
+                }
+                .buttonStyle(.plain)
+            }
+            .padding(.horizontal, AppSpacing.md)
+            .padding(.top, AppSpacing.lg)
+        }
     }
 }
 
