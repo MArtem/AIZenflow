@@ -9,7 +9,7 @@ Use it when:
 - the project needs a git-backed status snapshot instead of `.zenflow`-only task state
 
 ## Current Long-Running Epic
-Finish the final consistency and package-boundary pass for the restored feed/composer/card runtime around the 5-type card model.
+Restoration of the feed/composer/card runtime around the 5-type card model is complete. The current durable baseline is the restored runtime plus the final docs and package-boundary pass.
 
 ## Stable Baselines That Must Be Preserved
 - Deployment target: `iOS 17`
@@ -80,10 +80,11 @@ Only these fields exist:
 - `source` now supports hidden separate URL storage in draft/model and published local feed opens it only when a URL is present
 - channel/publish/search contract has been re-checked: composer starts from current feed channel, publish writes to the selected draft channel, local cards are scoped by current channel in feed, and search runs only against cards visible in the current channel
 - documentation was refactored into a canonical map + package guide + local project skills
+- final docs consistency pass was completed across repo docs and local project skills
+- final package/manager audit was completed after the card/runtime restoration and did not reveal new decorative app-local wrapper layers
 
 ## What Still Needs Work
-- run the final consistency pass across docs and local project skills
-- run the final package/manager audit against the finished card runtime
+- no open restoration-critical work is currently recorded in this durable checkpoint
 
 ## Reopen First
 If work must resume quickly, start with:

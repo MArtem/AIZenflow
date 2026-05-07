@@ -1,11 +1,10 @@
 # Current Plan
 
 ## Goal
-Finish the final documentation and package-boundary pass for the restored 5-type card runtime.
+Keep a short task-local snapshot after completing the restoration and final consistency/package-boundary pass for the 5-type card runtime.
 
 ## Active Steps
-1. Run final documentation consistency pass across docs and local project skills
-2. Run the final package/manager audit against the finished card runtime
+1. No active restoration-critical steps are currently open
 
 ## Working Rule
 - Keep this file short and current.

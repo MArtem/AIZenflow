@@ -3,7 +3,7 @@
 ## Current Status
 - Project: `TchopApp`
 - State: app builds successfully
-- Current track: final consistency pass after restoration of lost card/composer/feed functionality
+- Current track: restored card/composer/feed runtime with final consistency and package-boundary pass completed
 - Resume from this worktree, not from scratch
 
 ## Default Resume Read Order
@@ -45,8 +45,7 @@
 - per-photo caption/copyright is part of the draft model
 
 ## Current Next Work
-- run the final docs consistency pass across the new documentation structure and local project skills
-- run the final package/manager audit against the finished card runtime
+- no active restoration-critical work is currently open in this task handoff
 
 ## Important Files
 - App shell state:
@@ -69,9 +68,9 @@
   `BUILD SUCCEEDED`
 
 ## Post-Restoration Requirement
-After full restoration is complete:
-1. re-check all project docs for consistency, correctness, completeness, and duplication
-2. re-check the package/manager guide and local project skills for consistency with the final codebase
+Completed in this worktree:
+1. project docs were re-checked for consistency, correctness, completeness, and duplication
+2. the package/manager guide and local project skills were re-checked against the final codebase
 
 ## Archive
 Detailed historical handoff logs are preserved only in:
