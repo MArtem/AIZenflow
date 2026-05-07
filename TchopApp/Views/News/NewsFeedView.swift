@@ -255,7 +255,7 @@ private struct VideoCardView: View {
     var body: some View {
         LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
             if let media = card.mediaContent, case let .file(file) = media {
-                LocalFileMediaPreview(file: file)
+                LocalVideoMediaView(file: file)
             }
         }
     }
@@ -275,7 +275,7 @@ private struct AudioCardView: View {
     var body: some View {
         LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
             if let media = card.mediaContent, case let .file(file) = media {
-                LocalFileMediaPreview(file: file)
+                LocalAudioMediaView(file: file)
             }
         }
     }
@@ -295,7 +295,7 @@ private struct PDFCardView: View {
     var body: some View {
         LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight) {
             if let media = card.mediaContent, case let .file(file) = media {
-                LocalFileMediaPreview(file: file)
+                LocalPDFMediaView(file: file)
             }
         }
     }
@@ -416,69 +416,123 @@ private struct LocalPhotoMediaPreview: View {
     }
 }
 
-private struct LocalFileMediaPreview: View {
+private struct LocalVideoMediaView: View {
     let file: ChannelCardFileMediaContent
 
     var body: some View {
         VStack(spacing: AppSpacing.sm) {
-            VStack(spacing: AppSpacing.xs) {
-                Image(systemName: iconName)
-                    .font(.system(size: 28, weight: .semibold))
-                    .foregroundStyle(AppTheme.textSecondary)
-
-                Text(file.displayTitle)
-                    .font(AppTypography.cardTitle)
-                    .foregroundStyle(AppTheme.textPrimary)
-                    .multilineTextAlignment(.center)
-
-                if let caption = file.caption, !caption.isEmpty {
-                    Text(caption)
-                        .font(AppTypography.captionSemibold)
-                        .foregroundStyle(AppTheme.textSecondary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, AppSpacing.md)
-                }
-            }
-            .frame(maxWidth: .infinity)
-
-            if let teaserImage = file.teaserImage {
-                RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-                    .fill(AppTheme.surfacePrimary)
-                    .frame(height: 92)
-                    .overlay {
-                        VStack(spacing: AppSpacing.xxs) {
-                            Image(systemName: "photo")
-                                .font(.system(size: 18, weight: .semibold))
-                                .foregroundStyle(AppTheme.textSecondary)
-
-                            Text(teaserImage.displayTitle)
-                                .font(AppTypography.captionSemibold)
-                                .foregroundStyle(AppTheme.textPrimary)
-
-                            if let copyright = teaserImage.copyright, !copyright.isEmpty {
-                                Text(copyright)
-                                    .font(AppTypography.label)
-                                    .foregroundStyle(AppTheme.textTertiary)
-                                    .multilineTextAlignment(.center)
-                                    .padding(.horizontal, AppSpacing.md)
-                            }
-                        }
-                        .padding(AppSpacing.sm)
-                    }
-            }
+            FeedMediaKindBadge(title: "Video")
+            FeedMediaHeroIcon(systemName: "play.rectangle.fill")
+            FeedMediaTitleBlock(file: file)
+            FeedMediaTeaserBlock(teaserImage: file.teaserImage)
         }
     }
+}
 
-    private var iconName: String {
-        switch file.kind {
-        case .photo:
-            return "photo.on.rectangle.angled"
-        case .video:
-            return "video"
-        case .audio:
-            return "waveform"
-        case .pdf:
-            return "doc.richtext"
+private struct LocalAudioMediaView: View {
+    let file: ChannelCardFileMediaContent
+
+    var body: some View {
+        VStack(spacing: AppSpacing.sm) {
+            FeedMediaKindBadge(title: "Audio")
+            FeedMediaHeroIcon(systemName: "waveform.circle.fill")
+            FeedMediaTitleBlock(file: file)
+            FeedMediaTeaserBlock(teaserImage: file.teaserImage)
+        }
+    }
+}
+
+private struct LocalPDFMediaView: View {
+    let file: ChannelCardFileMediaContent
+
+    var body: some View {
+        VStack(spacing: AppSpacing.sm) {
+            FeedMediaKindBadge(title: "PDF")
+            FeedMediaHeroIcon(systemName: "document.fill")
+            FeedMediaTitleBlock(file: file)
+            FeedMediaTeaserBlock(teaserImage: file.teaserImage)
+        }
+    }
+}
+
+private struct FeedMediaKindBadge: View {
+    let title: String
+
+    var body: some View {
+        Text(title)
+            .font(AppTypography.label)
+            .foregroundStyle(AppTheme.textPrimary)
+            .padding(.horizontal, AppSpacing.sm)
+            .padding(.vertical, AppSpacing.xxs)
+            .background(AppTheme.surfacePrimary)
+            .clipShape(Capsule())
+    }
+}
+
+private struct FeedMediaHeroIcon: View {
+    let systemName: String
+
+    var body: some View {
+        Image(systemName: systemName)
+            .font(.system(size: 30, weight: .semibold))
+            .foregroundStyle(AppTheme.textSecondary)
+    }
+}
+
+private struct FeedMediaTitleBlock: View {
+    let file: ChannelCardFileMediaContent
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xs) {
+            Text(file.displayTitle)
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textPrimary)
+                .multilineTextAlignment(.center)
+
+            if let caption = file.caption, !caption.isEmpty {
+                Text(caption)
+                    .font(AppTypography.captionSemibold)
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, AppSpacing.md)
+            }
+        }
+        .frame(maxWidth: .infinity)
+    }
+}
+
+private struct FeedMediaTeaserBlock: View {
+    let teaserImage: ChannelCardTeaserImageContent?
+
+    var body: some View {
+        if let teaserImage {
+            RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                .fill(AppTheme.surfacePrimary)
+                .frame(height: 92)
+                .overlay {
+                    VStack(spacing: AppSpacing.xxs) {
+                        Text("Teaser image")
+                            .font(AppTypography.label)
+                            .foregroundStyle(AppTheme.textTertiary)
+
+                        Image(systemName: "photo")
+                            .font(.system(size: 18, weight: .semibold))
+                            .foregroundStyle(AppTheme.textSecondary)
+
+                        Text(teaserImage.displayTitle)
+                            .font(AppTypography.captionSemibold)
+                            .foregroundStyle(AppTheme.textPrimary)
+
+                        if let copyright = teaserImage.copyright, !copyright.isEmpty {
+                            Text(copyright)
+                                .font(AppTypography.label)
+                                .foregroundStyle(AppTheme.textTertiary)
+                                .multilineTextAlignment(.center)
+                                .padding(.horizontal, AppSpacing.md)
+                        }
+                    }
+                    .padding(AppSpacing.sm)
+                }
         }
     }
 }

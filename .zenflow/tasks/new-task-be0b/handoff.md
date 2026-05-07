@@ -23,6 +23,7 @@
 - photo fullscreen/detail viewer added in composer
 - photo/file/teaser action surfaces exist in composer
 - asset metadata editing exists for photo caption/copyright and file caption/teaser copyright
+- local `video/audio/pdf` feed cards now render through dedicated card-specific layouts instead of a shared generic file preview block
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
@@ -36,7 +37,7 @@
 - per-photo caption/copyright is part of the draft model
 
 ## Current Next Work
-- continue replacing remaining placeholder behavior with first-class media/runtime behavior
+- continue aligning composer and feed runtime so both use the same first-class card semantics
 - after full restoration, do a final docs consistency pass across the new documentation structure and local project skills
 
 ## Important Files

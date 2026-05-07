@@ -70,10 +70,10 @@ Only these fields exist:
   - file caption editing
   - teaser copyright editing
 - feed runtime no longer uses the old generic local media placeholder path for local `photo/video/audio/pdf`
+- local `video/audio/pdf` feed cards now use dedicated card-specific media layouts instead of a shared generic file preview block
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
-- remove remaining stub semantics from `video/audio/pdf` card layouts where they still behave more like previews than finished card-specific renders
 - continue aligning composer and feed render behavior so both speak the same first-class card contract
 - after feature restoration, run a final consistency pass across docs and local project skills
 

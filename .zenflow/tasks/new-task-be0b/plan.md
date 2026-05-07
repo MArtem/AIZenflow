@@ -4,12 +4,9 @@
 Finish restoring the lost card/composer/feed functionality with the new 5-type card model and keep docs/package boundaries clean.
 
 ## Active Steps
-1. Finish detail/action flows for non-photo media:
-   `video`, `audio`, `pdf`
-2. Finish teaser detail/action flow
-3. Remove remaining placeholder behavior from composer/media runtime
-4. Align published local card payload and feed render/runtime behavior where gaps remain
-5. After feature restoration, run final documentation consistency pass across docs and local project skills
+1. Align composer and feed render/runtime behavior where gaps remain
+2. Continue removing any remaining preview-only semantics from local card rendering
+3. After feature restoration, run final documentation consistency pass across docs and local project skills
 
 ## Working Rule
 - Keep this file short and current.
