@@ -4,9 +4,9 @@
 Finish restoring the lost card/composer/feed functionality with the new 5-type card model and keep docs/package boundaries clean.
 
 ## Active Steps
-1. Align the remaining composer/feed gaps around the shared first-class card contract
-2. Remove any remaining draft-derived behavior from published local cards, not just draft-derived naming
-3. After feature restoration, run final documentation consistency pass across docs and local project skills
+1. Finish any remaining composer/feed contract gaps that still require explicit product confirmation
+2. After feature restoration, run final documentation consistency pass across docs and local project skills
+3. Run the final package/manager audit against the finished card runtime
 
 ## Working Rule
 - Keep this file short and current.

@@ -78,6 +78,7 @@ Only these fields exist:
 - published local feed no longer renders draft-only media labels such as per-photo placeholder names or generic file titles
 - composer preview/detail now matches that behavior and no longer renders draft-only media titles either
 - `source` now supports hidden separate URL storage in draft/model and published local feed opens it only when a URL is present
+- channel/publish/search contract has been re-checked: composer starts from current feed channel, publish writes to the selected draft channel, local cards are scoped by current channel in feed, and search runs only against cards visible in the current channel
 - documentation was refactored into a canonical map + package guide + local project skills
 
 ## What Still Needs Work
