@@ -3,6 +3,7 @@ import SwiftUI
 /// Primary photo card at the top of the feed.
 struct PhotoCardView: View {
     let photo: PhotoCardModel
+    let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onAction: (PhotoCardAction) -> Void
 
@@ -140,6 +141,12 @@ struct PhotoCardView: View {
             )
             .accessibilityHint(AppLocalization.text("accessibility.news.photoCardHint"))
 
+            if let translationAction {
+                FeedCardTranslationButton(action: translationAction)
+                    .padding(.horizontal, 14)
+                    .padding(.bottom, 12)
+            }
+
             Divider()
                 .overlay(AppTheme.borderSubtle)
 
@@ -253,6 +260,7 @@ private enum PhotoCardArtworkPalette {
 #Preview("Photo Card") {
     PhotoCardView(
         photo: ViewPreviewSupport.samplePhotoCard,
+        translationAction: nil,
         onTap: {},
         onAction: { _ in }
     )

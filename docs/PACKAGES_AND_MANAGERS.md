@@ -102,6 +102,19 @@ Use for:
 App keeps:
 - actual product copy
 
+### `TchopOnDeviceAI`
+Use for:
+- on-device Foundation Models availability checks
+- reusable local AI task contracts
+- local translation request/response execution
+- future reusable local AI capabilities beyond translation
+
+App keeps:
+- feature-specific field extraction
+- app localization target selection
+- translated-state presentation policy
+- local per-feature persistence of translated snapshots
+
 ### `TchopBranding`
 Use for:
 - semantic brand tokens

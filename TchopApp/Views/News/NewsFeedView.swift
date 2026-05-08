@@ -1,5 +1,6 @@
 import Observation
 import SwiftUI
+import TchopOnDeviceAI
 import UIKit
 
 /// Main feed list rendering heterogeneous card content.
@@ -8,6 +9,7 @@ struct NewsFeedView: View {
     private static let floatingActionButtonHideThreshold: CGFloat = 30
 
     @Bindable var viewModel: NewsFeedViewModel
+    @State private var languageSelectionState: TranslationLanguageSelectionState?
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
     let onPhotoTap: (PhotoCardModel) -> Void
@@ -34,18 +36,18 @@ struct NewsFeedView: View {
                 } else if viewModel.showsNoSearchResults {
                     searchEmptyStateView
                 } else {
-                    ForEach(viewModel.visibleContent.cards) { card in
+                    ForEach(Array(viewModel.visibleContent.cards), id: \.id) { card in
                         switch card {
                         case let .photo(photoCard):
-                            photoCardView(photoCard)
+                            photoCardView(photoCard, feedCard: card)
                         case let .text(textCard):
-                            textCardView(textCard)
-                        case let .video(card):
-                            VideoCardView(content: card)
-                        case let .audio(card):
-                            AudioCardView(content: card)
-                        case let .pdf(card):
-                            PDFCardView(content: card)
+                            textCardView(textCard, feedCard: card)
+                        case let .video(videoCard):
+                            videoCardView(videoCard, feedCard: card)
+                        case let .audio(audioCard):
+                            audioCardView(audioCard, feedCard: card)
+                        case let .pdf(pdfCard):
+                            pdfCardView(pdfCard, feedCard: card)
                         }
                     }
                 }
@@ -60,6 +62,22 @@ struct NewsFeedView: View {
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .refreshable {
             viewModel.refresh()
+        }
+        .confirmationDialog(
+            AppLocalization.text("news.card.translation.languagePicker.title"),
+            isPresented: languageSelectionIsPresented
+        ) {
+            if let languageSelectionState {
+                ForEach(languageSelectionState.languages, id: \.localeIdentifier) { language in
+                    Button(AppLocalization.displayName(for: language.localeIdentifier)) {
+                        startTranslation(for: languageSelectionState.card, targetLanguage: language)
+                    }
+                }
+            }
+
+            Button(AppLocalization.text("common.cancel"), role: .cancel) {
+                languageSelectionState = nil
+            }
         }
     }
 
@@ -129,30 +147,145 @@ struct NewsFeedView: View {
     }
 
     @ViewBuilder
-    private func photoCardView(_ content: NewsFeedPhotoCardContent) -> some View {
+    private func photoCardView(
+        _ content: NewsFeedPhotoCardContent,
+        feedCard: NewsFeedCard
+    ) -> some View {
         switch content {
-        case let .remote(card):
+        case let .remote(photoCard):
             PhotoCardView(
-                photo: card,
-                onTap: { onPhotoTap(card) },
-                onAction: { onPhotoAction(card, $0) }
+                photo: viewModel.translatedPhotoCard(photoCard),
+                translationAction: translationAction(for: feedCard),
+                onTap: { onPhotoTap(photoCard) },
+                onAction: { onPhotoAction(photoCard, $0) }
             )
-        case let .local(card):
-            LocalPhotoCardView(card: card)
+        case let .local(localCard):
+            LocalPhotoCardView(
+                card: viewModel.translatedLocalFeedCard(localCard),
+                translationAction: translationAction(for: feedCard)
+            )
         }
     }
 
     @ViewBuilder
-    private func textCardView(_ content: NewsFeedTextCardContent) -> some View {
+    private func textCardView(
+        _ content: NewsFeedTextCardContent,
+        feedCard: NewsFeedCard
+    ) -> some View {
         switch content {
-        case let .remote(card):
+        case let .remote(textCard):
             TextCardView(
-                text: card,
-                onTap: { onTextTap(card) },
-                onAction: { onTextAction(card, $0) }
+                text: viewModel.translatedTextCard(textCard),
+                translationAction: translationAction(for: feedCard),
+                onTap: { onTextTap(textCard) },
+                onAction: { onTextAction(textCard, $0) }
             )
+        case let .local(localCard):
+            LocalTextCardView(
+                card: viewModel.translatedLocalFeedCard(localCard),
+                translationAction: translationAction(for: feedCard)
+            )
+        }
+    }
+
+    @ViewBuilder
+    private func videoCardView(
+        _ content: NewsFeedVideoCardContent,
+        feedCard: NewsFeedCard
+    ) -> some View {
+        switch content {
         case let .local(card):
-            LocalTextCardView(card: card)
+            VideoCardView(
+                content: .local(viewModel.translatedLocalFeedCard(card)),
+                translationAction: translationAction(for: feedCard)
+            )
+        }
+    }
+
+    @ViewBuilder
+    private func audioCardView(
+        _ content: NewsFeedAudioCardContent,
+        feedCard: NewsFeedCard
+    ) -> some View {
+        switch content {
+        case let .local(card):
+            AudioCardView(
+                content: .local(viewModel.translatedLocalFeedCard(card)),
+                translationAction: translationAction(for: feedCard)
+            )
+        }
+    }
+
+    @ViewBuilder
+    private func pdfCardView(
+        _ content: NewsFeedPDFCardContent,
+        feedCard: NewsFeedCard
+    ) -> some View {
+        switch content {
+        case let .local(card):
+            PDFCardView(
+                content: .local(viewModel.translatedLocalFeedCard(card)),
+                translationAction: translationAction(for: feedCard)
+            )
+        }
+    }
+
+    private var languageSelectionIsPresented: Binding<Bool> {
+        Binding(
+            get: { languageSelectionState != nil },
+            set: { isPresented in
+                if !isPresented {
+                    languageSelectionState = nil
+                }
+            }
+        )
+    }
+
+    private func translationAction(for card: NewsFeedCard) -> FeedCardTranslationAction? {
+        guard viewModel.showsTranslationAction(for: card) else {
+            return nil
+        }
+
+        return FeedCardTranslationAction(
+            title: viewModel.translationActionTitle(for: card.id),
+            isInFlight: viewModel.isTranslationInFlight(card.id),
+            onTap: { handleTranslationTap(for: card) }
+        )
+    }
+
+    private func handleTranslationTap(for card: NewsFeedCard) {
+        guard !viewModel.isTranslationInFlight(card.id) else {
+            return
+        }
+
+        if viewModel.isCardTranslated(card.id) {
+            viewModel.restoreOriginalCardText(cardID: card.id)
+            return
+        }
+
+        let targetLanguages = viewModel.translationTargetLanguages(for: card)
+        guard !targetLanguages.isEmpty else {
+            return
+        }
+
+        if targetLanguages.count == 1, let targetLanguage = targetLanguages.first {
+            startTranslation(for: card, targetLanguage: targetLanguage)
+            return
+        }
+
+        languageSelectionState = TranslationLanguageSelectionState(
+            card: card,
+            languages: targetLanguages
+        )
+    }
+
+    private func startTranslation(
+        for card: NewsFeedCard,
+        targetLanguage: OnDeviceLanguage
+    ) {
+        languageSelectionState = nil
+        Task {
+            await viewModel.performTranslation(for: card, targetLanguage: targetLanguage)
         }
     }
 }
@@ -229,9 +362,10 @@ private final class ObserverView: UIView {}
 
 private struct LocalTextCardView: View {
     let card: LocalFeedCardModel
+    let translationAction: FeedCardTranslationAction?
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: nil) {
+        LocalFeedCardContainer(card: card, mediaHeight: nil, translationAction: translationAction) {
             EmptyView()
         }
     }
@@ -239,9 +373,10 @@ private struct LocalTextCardView: View {
 
 private struct LocalPhotoCardView: View {
     let card: LocalFeedCardModel
+    let translationAction: FeedCardTranslationAction?
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: 220) {
+        LocalFeedCardContainer(card: card, mediaHeight: 220, translationAction: translationAction) {
             if case let .photos(items)? = card.mediaContent {
                 LocalPhotoMediaPreview(items: items)
             }
@@ -251,11 +386,16 @@ private struct LocalPhotoCardView: View {
 
 private struct VideoCardView: View {
     let content: NewsFeedVideoCardContent
+    let translationAction: FeedCardTranslationAction?
 
     var body: some View {
         switch content {
         case let .local(card):
-            LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight(for: card)) {
+            LocalFeedCardContainer(
+                card: card,
+                mediaHeight: fileMediaPreviewHeight(for: card),
+                translationAction: translationAction
+            ) {
                 if let media = card.mediaContent, case let .file(file) = media {
                     LocalVideoMediaView(file: file)
                 }
@@ -274,11 +414,16 @@ private struct VideoCardView: View {
 
 private struct AudioCardView: View {
     let content: NewsFeedAudioCardContent
+    let translationAction: FeedCardTranslationAction?
 
     var body: some View {
         switch content {
         case let .local(card):
-            LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight(for: card)) {
+            LocalFeedCardContainer(
+                card: card,
+                mediaHeight: fileMediaPreviewHeight(for: card),
+                translationAction: translationAction
+            ) {
                 if let media = card.mediaContent, case let .file(file) = media {
                     LocalAudioMediaView(file: file)
                 }
@@ -297,11 +442,16 @@ private struct AudioCardView: View {
 
 private struct PDFCardView: View {
     let content: NewsFeedPDFCardContent
+    let translationAction: FeedCardTranslationAction?
 
     var body: some View {
         switch content {
         case let .local(card):
-            LocalFeedCardContainer(card: card, mediaHeight: fileMediaPreviewHeight(for: card)) {
+            LocalFeedCardContainer(
+                card: card,
+                mediaHeight: fileMediaPreviewHeight(for: card),
+                translationAction: translationAction
+            ) {
                 if let media = card.mediaContent, case let .file(file) = media {
                     LocalPDFMediaView(file: file)
                 }
@@ -323,15 +473,18 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
 
     let card: LocalFeedCardModel
     let mediaHeight: CGFloat?
+    let translationAction: FeedCardTranslationAction?
     let mediaBody: MediaBody
 
     init(
         card: LocalFeedCardModel,
         mediaHeight: CGFloat?,
+        translationAction: FeedCardTranslationAction?,
         @ViewBuilder mediaBody: () -> MediaBody
     ) {
         self.card = card
         self.mediaHeight = mediaHeight
+        self.translationAction = translationAction
         self.mediaBody = mediaBody()
     }
 
@@ -360,6 +513,10 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                         .foregroundStyle(color(for: textContent.kind))
                         .fixedSize(horizontal: false, vertical: true)
                 }
+            }
+
+            if let translationAction {
+                FeedCardTranslationButton(action: translationAction)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -398,6 +555,40 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         case .source:
             return AppTheme.accent
         }
+    }
+}
+
+private struct TranslationLanguageSelectionState {
+    let card: NewsFeedCard
+    let languages: [OnDeviceLanguage]
+}
+
+struct FeedCardTranslationAction {
+    let title: String
+    let isInFlight: Bool
+    let onTap: () -> Void
+}
+
+struct FeedCardTranslationButton: View {
+    let action: FeedCardTranslationAction
+
+    var body: some View {
+        Button(action: action.onTap) {
+            HStack(spacing: AppSpacing.xs) {
+                if action.isInFlight {
+                    ProgressView()
+                        .controlSize(.small)
+                        .tint(AppTheme.accent)
+                }
+
+                Text(action.title)
+                    .font(AppTypography.bodySemibold)
+            }
+            .foregroundStyle(AppTheme.accent)
+        }
+        .buttonStyle(.plain)
+        .disabled(action.isInFlight)
+        .accessibilityLabel(action.title)
     }
 }
 

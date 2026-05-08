@@ -3,6 +3,7 @@ import SwiftUI
 /// Card rendering a text preview in the news feed.
 struct TextCardView: View {
     let text: TextCardModel
+    let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onAction: (TextCardAction) -> Void
 
@@ -73,6 +74,12 @@ struct TextCardView: View {
                 )
             )
             .accessibilityHint(AppLocalization.text("accessibility.news.textCardHint"))
+
+            if let translationAction {
+                FeedCardTranslationButton(action: translationAction)
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 14)
+            }
 
             Divider()
                 .overlay(AppTheme.borderSubtle.opacity(0.25))
@@ -224,6 +231,7 @@ struct TextCardView: View {
 #Preview("Text Card") {
     TextCardView(
         text: ViewPreviewSupport.sampleTextCard,
+        translationAction: nil,
         onTap: {},
         onAction: { _ in }
     )

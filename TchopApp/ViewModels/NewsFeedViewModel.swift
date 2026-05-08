@@ -148,6 +148,7 @@ final class NewsFeedViewModel {
 
     /// Whether the search field for the current channel is currently visible.
     private(set) var isSearchPresented: Bool = false
+    private var translatingCardIDs: Set<String> = []
 
     private let repository: any NewsFeedRepository
     private let channelsStore: ChannelsStore
@@ -210,6 +211,14 @@ final class NewsFeedViewModel {
         AppLocalization.supportedLocaleIdentifiers.count > 1
     }
 
+    func showsTranslationAction(for card: NewsFeedCard) -> Bool {
+        if isCardTranslated(card.id) {
+            return true
+        }
+
+        return supportsCardTranslation && !translationTargetLanguages(for: card).isEmpty
+    }
+
     func translationTargetLanguages(for card: NewsFeedCard) -> [OnDeviceLanguage] {
         guard !card.translationPayload.isEmpty else {
             return []
@@ -236,6 +245,28 @@ final class NewsFeedViewModel {
 
     func isCardTranslated(_ cardID: String) -> Bool {
         cardTranslationStore.snapshot(for: cardID) != nil
+    }
+
+    func isTranslationInFlight(_ cardID: String) -> Bool {
+        translatingCardIDs.contains(cardID)
+    }
+
+    func translationActionTitle(for cardID: String) -> String {
+        isCardTranslated(cardID)
+            ? AppLocalization.text("news.card.translation.original")
+            : AppLocalization.text("news.card.translation.see")
+    }
+
+    func translatedPhotoCard(_ card: PhotoCardModel) -> PhotoCardModel {
+        card.translated(using: cardTranslationStore.snapshot(for: card.id))
+    }
+
+    func translatedTextCard(_ card: TextCardModel) -> TextCardModel {
+        card.translated(using: cardTranslationStore.snapshot(for: card.id))
+    }
+
+    func translatedLocalFeedCard(_ card: LocalFeedCardModel) -> LocalFeedCardModel {
+        card.translated(using: cardTranslationStore.snapshot(for: card.id))
     }
 
     func translatedText(
@@ -301,6 +332,26 @@ final class NewsFeedViewModel {
         )
         cardTranslationStore.save(snapshot)
         state = Self.resolvedState(for: state.content)
+    }
+
+    func performTranslation(
+        for card: NewsFeedCard,
+        targetLanguage: OnDeviceLanguage
+    ) async {
+        guard !translatingCardIDs.contains(card.id) else {
+            return
+        }
+
+        translatingCardIDs.insert(card.id)
+        defer { translatingCardIDs.remove(card.id) }
+
+        do {
+            try await translateCard(card, targetLanguage: targetLanguage)
+        } catch is CancellationError {
+            return
+        } catch {
+            _ = await cardActionFailureMessage(for: error, feature: "translation")
+        }
     }
 
     func restoreOriginalCardText(cardID: String) {

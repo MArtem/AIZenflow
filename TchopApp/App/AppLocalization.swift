@@ -41,4 +41,9 @@ enum AppLocalization {
     static var preferredLocaleIdentifier: String {
         manager.preferredSupportedLocaleIdentifier()
     }
+
+    static func displayName(for localeIdentifier: String) -> String {
+        let preferredLocale = NSLocale(localeIdentifier: preferredLocaleIdentifier)
+        return preferredLocale.displayName(forKey: .identifier, value: localeIdentifier) ?? localeIdentifier
+    }
 }

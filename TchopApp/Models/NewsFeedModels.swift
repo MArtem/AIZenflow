@@ -829,6 +829,31 @@ struct LocalFeedCardModel: Identifiable, Equatable, Sendable {
     func textValue(for kind: LocalFeedTextFieldKind) -> String? {
         orderedTextContent.first(where: { $0.kind == kind })?.text
     }
+
+    func translated(using snapshot: CardTranslationSnapshot?) -> LocalFeedCardModel {
+        guard let snapshot else {
+            return self
+        }
+
+        return LocalFeedCardModel(
+            id: id,
+            channelID: channelID,
+            createdAt: createdAt,
+            kind: kind,
+            orderedTextContent: orderedTextContent.map { textContent in
+                guard let fieldID = textContent.kind.translationFieldID else {
+                    return textContent
+                }
+
+                return LocalFeedTextContent(
+                    kind: textContent.kind,
+                    text: snapshot.text(for: fieldID) ?? textContent.text
+                )
+            },
+            sourceContent: sourceContent,
+            mediaContent: mediaContent
+        )
+    }
 }
 
 enum CardTranslationFieldID: String, Hashable, Codable, Sendable {
@@ -1600,6 +1625,27 @@ struct PhotoCardModel: Identifiable, Equatable, Sendable {
             uiState: uiState
         )
     }
+
+    func translated(using snapshot: CardTranslationSnapshot?) -> PhotoCardModel {
+        guard let snapshot else {
+            return self
+        }
+
+        return PhotoCardModel(
+            id: id,
+            channelID: channelID,
+            postedInPrefix: postedInPrefix,
+            sourceTitle: sourceTitle,
+            brandTitle: snapshot.text(for: .photoBrandTitle) ?? brandTitle,
+            headline: snapshot.text(for: .photoHeadline) ?? headline,
+            summary: snapshot.text(for: .photoSummary) ?? summary,
+            metadataLine: snapshot.text(for: .photoMetadataLine) ?? metadataLine,
+            translationLabel: snapshot.text(for: .photoTranslationLabel) ?? translationLabel,
+            commentCount: commentCount,
+            actions: actions,
+            uiState: uiState
+        )
+    }
 }
 
 /// Presentation model for a single action shown under an article.
@@ -1741,6 +1787,23 @@ struct TextCardModel: Identifiable, Equatable, Sendable {
             participants: participants ?? self.participants,
             replyCount: replyCount ?? self.replyCount,
             joinedCount: joinedCount ?? self.joinedCount,
+            uiState: uiState
+        )
+    }
+
+    func translated(using snapshot: CardTranslationSnapshot?) -> TextCardModel {
+        guard let snapshot else {
+            return self
+        }
+
+        return TextCardModel(
+            id: id,
+            channelID: channelID,
+            categoryTitle: snapshot.text(for: .textCategoryTitle) ?? categoryTitle,
+            headline: snapshot.text(for: .textHeadline) ?? headline,
+            participants: participants,
+            replyCount: replyCount,
+            joinedCount: joinedCount,
             uiState: uiState
         )
     }

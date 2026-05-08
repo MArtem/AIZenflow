@@ -1,10 +1,11 @@
 # Current Plan
 
 ## Goal
-Keep a short task-local snapshot after completing the restoration and final consistency/package-boundary pass for the 5-type card runtime.
+Keep a short task-local snapshot for the active on-device AI rollout after the completed runtime restoration.
 
 ## Active Steps
-1. No active restoration-critical steps are currently open
+1. Feed translation integration is complete
+2. Detail-screen translation integration is pending design
 
 ## Working Rule
 - Keep this file short and current.

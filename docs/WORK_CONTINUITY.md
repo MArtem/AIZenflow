@@ -9,7 +9,12 @@ Use it when:
 - the project needs a git-backed status snapshot instead of `.zenflow`-only task state
 
 ## Current Long-Running Epic
-Restoration of the feed/composer/card runtime around the 5-type card model is complete. The current durable baseline is the restored runtime plus the final docs and package-boundary pass.
+Restoration of the feed/composer/card runtime around the 5-type card model is complete.
+
+The current active epic is reusable on-device AI integration:
+- package root: `TchopOnDeviceAI`
+- first feature: local card text translation through Apple Foundation Models
+- current stage: feed integration completed, detail integration still open
 
 ## Stable Baselines That Must Be Preserved
 - Deployment target: `iOS 17`
@@ -18,6 +23,7 @@ Restoration of the feed/composer/card runtime around the 5-type card model is co
 - `Core Data` is fallback-only material
 - Reusable packages/managers are the root
 - `SyncCore` is the active sync foundation
+- `TchopOnDeviceAI` is the active local AI foundation
 - Do not add speculative UI, logic, or fallback behavior
 
 ## Current Functional Contract
@@ -82,9 +88,20 @@ Only these fields exist:
 - documentation was refactored into a canonical map + package guide + local project skills
 - final docs consistency pass was completed across repo docs and local project skills
 - final package/manager audit was completed after the card/runtime restoration and did not reveal new decorative app-local wrapper layers
+- `TchopOnDeviceAI` package was added as the reusable local AI root
+- app-local translated snapshot persistence was added for cards
+- feed translation flow now works for remote and local feed cards:
+  - translation button appears after the last text block
+  - if two app languages exist, translation goes directly to the other language
+  - if more than two app languages exist, a simple language picker popup is shown
+  - translated cards switch the button label to `See original`
+  - translated state survives refresh/navigation/reopen through local persisted snapshots
+  - button stays hidden when the on-device model is unavailable
+- current app localization baseline now includes `de` in addition to existing locales
 
 ## What Still Needs Work
-- no open restoration-critical work is currently recorded in this durable checkpoint
+- on-device translation is not yet wired into detail screens
+- translated-state UX beyond feed is still open and should not be guessed without design
 
 ## Reopen First
 If work must resume quickly, start with:
@@ -101,6 +118,9 @@ If work must resume quickly, start with:
 - [ShellContentView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/ShellContentView.swift)
 - [NewsFeedView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift)
 - [AppContentRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/AppContentRepository.swift)
+- [NewsFeedViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift)
+- [Package.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Package.swift)
+- [TchopOnDeviceAI.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopOnDeviceAI/TchopOnDeviceAI.swift)
 
 ## Related Durable Context
 - [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
