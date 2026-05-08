@@ -1,7 +1,7 @@
 import Foundation
 
 /// Domain-level channel available to the current signed-in user.
-struct AppChannel: Identifiable, Equatable, Sendable {
+struct AppChannel: Identifiable, Codable, Equatable, Sendable {
     let id: String
     let title: String
     let subtitle: String

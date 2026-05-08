@@ -1,9 +1,11 @@
 import Observation
 import SwiftUI
+#if !APP_EXTENSION
 import TchopNavigation
+#endif
 import UIKit
 
-private struct FeedComposerView: View {
+struct SharedCardComposerView: View {
     @Bindable var viewModel: FeedComposerViewModel
     let onCancel: () -> Void
     let onPublish: () -> Void
@@ -1250,6 +1252,7 @@ private final class DeleteAwareTextView: UITextView {
     }
 }
 
+#if !APP_EXTENSION
 /// Layout wrapper combining top chrome, tab content, and overlays.
 struct ShellContentView: View {
     private static let floatingActionButtonTabBarSpacing: CGFloat = 15
@@ -1323,7 +1326,7 @@ struct ShellContentView: View {
             )
         ) {
             if let composer = viewModel.activeComposer {
-                FeedComposerView(
+                SharedCardComposerView(
                     viewModel: composer,
                     onCancel: viewModel.dismissComposer,
                     onPublish: viewModel.publishComposer
@@ -1363,4 +1366,5 @@ struct ShellContentView: View {
         onLogout: {}
     )
 }
+#endif
 #endif

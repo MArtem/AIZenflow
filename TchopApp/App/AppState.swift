@@ -35,6 +35,7 @@ final class AppState {
     private let pushNotificationBridge: any AppPushNotificationBridging
     private let errorManager: any AppErrorManaging
     private let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
+    private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
     private var isApplyingNavigationSnapshot = false
     /// Deep links received before authentication are buffered and replayed after sign-in.
@@ -60,7 +61,8 @@ final class AppState {
         widgetContentSyncManager: any WidgetContentSyncing,
         pushNotificationBridge: any AppPushNotificationBridging,
         errorManager: any AppErrorManaging,
-        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = nil
+        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = nil,
+        shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = nil
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -77,6 +79,7 @@ final class AppState {
         self.pushNotificationBridge = pushNotificationBridge
         self.errorManager = errorManager
         self.sharedLocalFeedCardSyncManager = sharedLocalFeedCardSyncManager
+        self.shareExtensionSessionContextManager = shareExtensionSessionContextManager
         setupNavigationPersistenceBindings()
         Task { @MainActor [weak self] in
             await self?.restoreSession()
@@ -153,6 +156,7 @@ final class AppState {
         resetNavigationToDefaultState()
         appShellViewModel.closeMenu()
         widgetContentSyncManager.clearFeed()
+        syncShareExtensionSessionContextIfNeeded()
     }
 
     /// Requests push notification authorization and APNs registration on demand.
@@ -169,6 +173,7 @@ final class AppState {
             return
         }
 
+        syncShareExtensionSessionContextIfNeeded()
         syncSharedLocalCardsIfNeeded()
     }
 
@@ -332,8 +337,38 @@ final class AppState {
         sessionStore.setAuthenticatedUser(user)
         syncSessionStateFromStore()
         bootstrapChannels(for: user)
+        syncShareExtensionSessionContextIfNeeded()
         updateProfileTabViewModel(for: user)
         applyPostAuthenticationNavigation(for: user)
+    }
+
+    private func syncShareExtensionSessionContextIfNeeded() {
+        guard let shareExtensionSessionContextManager else {
+            return
+        }
+
+        do {
+            switch sessionState {
+            case .authenticated:
+                let snapshot = channelsStore.selectionSnapshot
+                try shareExtensionSessionContextManager.storeAuthenticatedContext(
+                    availableChannels: snapshot.availableChannels,
+                    selectedChannelID: snapshot.selectedChannelID
+                )
+            case .restoring, .signedOut:
+                try shareExtensionSessionContextManager.storeSignedOutContext()
+            }
+        } catch {
+            Task { @MainActor [errorManager] in
+                _ = await errorManager.presentableError(
+                    from: error,
+                    context: AppErrorContext(
+                        operation: "syncShareExtensionSessionContext",
+                        feature: "shareExtension"
+                    )
+                )
+            }
+        }
     }
 
     /// Hydrates the authenticated user's available channels and restores the selected one.

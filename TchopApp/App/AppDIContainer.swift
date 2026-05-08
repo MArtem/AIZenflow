@@ -158,6 +158,9 @@ final class AppDIContainer {
     /// App-group-backed bridge that syncs extension-published local cards into app runtime.
     let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
 
+    /// App-group-backed bridge that exposes the current auth/channel snapshot to the share extension.
+    let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
+
     /// User-scoped channel settings source resolved during session bootstrap.
     private let channelSettingsRepository: any UserChannelSettingsRepository
 
@@ -220,6 +223,9 @@ final class AppDIContainer {
         self.sharedLocalFeedCardSyncManager = Self.makeSharedLocalFeedCardSyncManager(
             errorManager: errorManager
         )
+        self.shareExtensionSessionContextManager = Self.makeShareExtensionSessionContextManager(
+            errorManager: errorManager
+        )
         self.channelSettingsRepository = LocalUserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
@@ -259,6 +265,7 @@ final class AppDIContainer {
             newsFeedViewModel: newsFeedViewModel,
             errorManager: errorManager,
             uiConfigurationManager: uiConfigurationManager,
+            shareExtensionSessionContextManager: shareExtensionSessionContextManager,
         )
     }
 
@@ -281,7 +288,8 @@ final class AppDIContainer {
             widgetContentSyncManager: widgetContentSyncManager,
             pushNotificationBridge: pushNotificationBridge,
             errorManager: errorManager,
-            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager
+            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager,
+            shareExtensionSessionContextManager: shareExtensionSessionContextManager
         )
     }
 
@@ -572,6 +580,28 @@ final class AppDIContainer {
                     )
                 )
                 assertionFailure("Failed to create shared local feed card sync manager: \(presentation.error.debugDescription)")
+            }
+            return nil
+        }
+    }
+
+    private static func makeShareExtensionSessionContextManager(
+        errorManager: any AppErrorManaging
+    ) -> ShareExtensionSessionContextManager? {
+        do {
+            return try ShareExtensionSessionContextManager(
+                groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
+            )
+        } catch {
+            Task {
+                let presentation = await errorManager.presentableError(
+                    from: error,
+                    context: AppErrorContext(
+                        operation: "makeShareExtensionSessionContextManager",
+                        feature: "shareExtension"
+                    )
+                )
+                assertionFailure("Failed to create share extension session context manager: \(presentation.error.debugDescription)")
             }
             return nil
         }

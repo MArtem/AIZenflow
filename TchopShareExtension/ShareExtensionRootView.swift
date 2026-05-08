@@ -1,79 +1,42 @@
 import SwiftUI
-import TchopShareSupport
-
-struct ShareExtensionImportSummary: Equatable {
-    let textCount: Int
-    let imageCount: Int
-    let videoCount: Int
-    let pdfCount: Int
-    let audioCount: Int
-    let fileCount: Int
-
-    init(items: [ShareImportedItem]) {
-        var textCount = 0
-        var imageCount = 0
-        var videoCount = 0
-        var pdfCount = 0
-        var audioCount = 0
-        var fileCount = 0
-
-        for item in items {
-            switch item {
-            case .text:
-                textCount += 1
-            case let .file(file):
-                switch file.kind {
-                case .image:
-                    imageCount += 1
-                case .video:
-                    videoCount += 1
-                case .pdf:
-                    pdfCount += 1
-                case .audio:
-                    audioCount += 1
-                case .file:
-                    fileCount += 1
-                }
-            }
-        }
-
-        self.textCount = textCount
-        self.imageCount = imageCount
-        self.videoCount = videoCount
-        self.pdfCount = pdfCount
-        self.audioCount = audioCount
-        self.fileCount = fileCount
-    }
-}
 
 struct ShareExtensionRootView: View {
-    enum State: Equatable {
+    enum State {
         case loading
-        case ready(summary: ShareExtensionImportSummary)
+        case signInRequired(message: String)
+        case composer(FeedComposerViewModel)
         case failed(message: String)
     }
 
     let state: State
     let onClose: () -> Void
+    let onOpenApp: () -> Void
+    let onPublish: () -> Void
 
     var body: some View {
-        NavigationStack {
-            VStack(alignment: .leading, spacing: 16) {
-                switch state {
-                case .loading:
-                    ProgressView("Preparing share…")
-                case let .ready(summary):
-                    Text("Share extension scaffold is ready.")
-                        .font(.headline)
-                    ShareExtensionSummaryView(summary: summary)
-                case let .failed(message):
-                    Text(message)
-                        .foregroundStyle(.red)
-                }
+        switch state {
+        case .loading:
+            loadingView
+        case let .signInRequired(message):
+            signInRequiredView(message: message)
+        case let .composer(viewModel):
+            SharedCardComposerView(
+                viewModel: viewModel,
+                onCancel: onClose,
+                onPublish: onPublish
+            )
+        case let .failed(message):
+            failureView(message: message)
+        }
+    }
 
+    private var loadingView: some View {
+        NavigationStack {
+            VStack(spacing: AppSpacing.lg) {
+                ProgressView("Preparing share…")
                 Spacer(minLength: 0)
             }
-            .padding(20)
+            .padding(AppSpacing.xl)
             .navigationTitle("Share")
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
@@ -82,22 +45,51 @@ struct ShareExtensionRootView: View {
             }
         }
     }
-}
 
-private struct ShareExtensionSummaryView: View {
-    let summary: ShareExtensionImportSummary
+    private func signInRequiredView(message: String) -> some View {
+        NavigationStack {
+            VStack(alignment: .leading, spacing: AppSpacing.lg) {
+                Text("Open app to continue")
+                    .font(AppTypography.sectionTitle)
+                    .foregroundStyle(AppTheme.textPrimary)
 
-    var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
-            Text("Imported content")
-                .font(.subheadline.weight(.semibold))
-            Text("Text: \(summary.textCount)")
-            Text("Images: \(summary.imageCount)")
-            Text("Video: \(summary.videoCount)")
-            Text("PDF: \(summary.pdfCount)")
-            Text("Audio: \(summary.audioCount)")
-            Text("Other files: \(summary.fileCount)")
+                Text(message)
+                    .font(AppTypography.bodyRegular)
+                    .foregroundStyle(AppTheme.textSecondary)
+
+                Button("Open app", action: onOpenApp)
+                    .buttonStyle(.borderedProminent)
+
+                Spacer(minLength: 0)
+            }
+            .padding(AppSpacing.xl)
+            .background(AppTheme.surfacePrimary.ignoresSafeArea())
+            .navigationTitle("Share")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close", action: onClose)
+                }
+            }
         }
-        .font(.body)
+    }
+
+    private func failureView(message: String) -> some View {
+        NavigationStack {
+            VStack(alignment: .leading, spacing: AppSpacing.lg) {
+                Text(message)
+                    .font(AppTypography.bodyRegular)
+                    .foregroundStyle(AppTheme.destructive)
+
+                Spacer(minLength: 0)
+            }
+            .padding(AppSpacing.xl)
+            .background(AppTheme.surfacePrimary.ignoresSafeArea())
+            .navigationTitle("Share")
+            .toolbar {
+                ToolbarItem(placement: .cancellationAction) {
+                    Button("Close", action: onClose)
+                }
+            }
+        }
     }
 }

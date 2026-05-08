@@ -1,7 +1,10 @@
 import Foundation
 import Observation
+import TchopShareSupport
+#if !APP_EXTENSION
 import TchopErrors
 import TchopUIConfiguration
+#endif
 
 @MainActor
 @Observable
@@ -228,6 +231,10 @@ final class FeedComposerViewModel {
         draft.updateSourceURLString(value)
     }
 
+    func applyImportedItems(_ items: [ShareImportedItem]) throws {
+        try draft.applyImportedItems(items)
+    }
+
     func handleBackspaceOnEmptyField(_ kind: ChannelCardTextFieldKind) {
         draft.handleBackspaceOnEmptyField(kind)
     }
@@ -276,6 +283,7 @@ extension FeedComposerInsertion {
     }
 }
 
+#if !APP_EXTENSION
 /// View model for the authenticated shell.
 ///
 /// Owns shell-scoped UI state such as the menu visibility and exposes child
@@ -300,6 +308,7 @@ final class AppShellViewModel {
 
     private let uiConfigurationManager: any UIConfigurationManaging
     private let errorManager: any AppErrorManaging
+    private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     let channelsStore: ChannelsStore
     private let localFeedCardStore: LocalFeedCardStore
     private(set) var activeComposer: FeedComposerViewModel?
@@ -315,6 +324,7 @@ final class AppShellViewModel {
         newsFeedViewModel: NewsFeedViewModel,
         errorManager: any AppErrorManaging,
         uiConfigurationManager: any UIConfigurationManaging,
+        shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = nil,
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text("shell.sideMenu.footer")
     ) {
@@ -327,6 +337,7 @@ final class AppShellViewModel {
         self.isNewsFeedNearTop = true
         self.errorManager = errorManager
         self.uiConfigurationManager = uiConfigurationManager
+        self.shareExtensionSessionContextManager = shareExtensionSessionContextManager
 
         startUIConfigurationLoad()
     }
@@ -345,6 +356,7 @@ final class AppShellViewModel {
     func selectChannel(id: String) {
         if channelsStore.selectChannel(id: id) {
             newsFeedViewModel.handleSelectedChannelChange()
+            syncShareExtensionSessionContextIfNeeded()
         }
     }
 
@@ -425,4 +437,30 @@ final class AppShellViewModel {
             assertionFailure("Failed to fetch UI configuration: \(presentation.error.debugDescription)")
         }
     }
+
+    private func syncShareExtensionSessionContextIfNeeded() {
+        guard let shareExtensionSessionContextManager else {
+            return
+        }
+
+        let snapshot = channelsStore.selectionSnapshot
+
+        do {
+            try shareExtensionSessionContextManager.storeAuthenticatedContext(
+                availableChannels: snapshot.availableChannels,
+                selectedChannelID: snapshot.selectedChannelID
+            )
+        } catch {
+            Task { [errorManager] in
+                _ = await errorManager.presentableError(
+                    from: error,
+                    context: AppErrorContext(
+                        operation: "syncShareExtensionSessionContext",
+                        feature: "shareExtension"
+                    )
+                )
+            }
+        }
+    }
 }
+#endif

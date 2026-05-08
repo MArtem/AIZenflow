@@ -101,6 +101,8 @@
 		D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000020000000000000001 /* AppWidgetBridge.swift */; };
 		D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
 		D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */; };
+		D00000032000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
+		D00000033000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
 		D00000050000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
 		D00000070000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
 		D00000071000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
@@ -141,7 +143,37 @@
 		L00000070000000000000001 /* ShareExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000160000000000000001 /* ShareExtensionRootView.swift */; };
 		L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
 		L00000090000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
+		L000000A0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */; };
+		L000000B0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
+		L000000C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
+		L000000D0000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
+		L000000E0000000000000001 /* Models/AppChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000030000000000000001 /* AppChannel.swift */; };
+		L000000F0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* ChannelHeaderInfo.swift */; };
+		L000001A0000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* NewsFeedModels.swift */; };
+		L000001B0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* AppShellViewModel.swift */; };
+		L000001C0000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
+		L000001D0000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
+		L00000410000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
+		L00000430000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* TabRoutes.swift */; };
+		L000001E0000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
+		L000001F0000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
+		L000002A0000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
 		L00000100000000000000001 /* TchopShareOceanExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = L00000140000000000000001 /* TchopShareOceanExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		L000002B0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */; };
+		L000002C0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
+		L000002D0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
+		L000002E0000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
+		L000002F0000000000000001 /* Models/AppChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000030000000000000001 /* AppChannel.swift */; };
+		L00000390000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* ChannelHeaderInfo.swift */; };
+		L000003A00000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* NewsFeedModels.swift */; };
+		L000003B00000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* AppShellViewModel.swift */; };
+		L000003C00000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
+		L000003D00000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
+		L00000420000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
+		L00000440000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* TabRoutes.swift */; };
+		L000003E00000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
+		L000003F00000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
+		L00000400000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -285,6 +317,7 @@
 		D00000020000000000000001 /* AppWidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWidgetBridge.swift; sourceTree = "<group>"; };
 		D00000040000000000000001 /* AppGroupConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupConfiguration.swift; sourceTree = "<group>"; };
 		D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalFeedCardSyncManager.swift; sourceTree = "<group>"; };
+		D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionSessionContextManager.swift; sourceTree = "<group>"; };
 		D000000C0000000000000001 /* FeedHeadlineWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeadlineWidget.swift; sourceTree = "<group>"; };
 		D000000E0000000000000001 /* TchopWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopWidgetsBundle.swift; sourceTree = "<group>"; };
 		D00000130000000000000001 /* TchopApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopApp.entitlements; sourceTree = "<group>"; };
@@ -391,6 +424,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				L00000040000000000000001 /* TchopShareSupport in Frameworks */,
+				L000001E0000000000000001 /* TchopLocalization in Frameworks */,
+				L000001F0000000000000001 /* TchopBranding in Frameworks */,
+				L000002A0000000000000001 /* TchopOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -399,6 +435,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				L00000090000000000000001 /* TchopShareSupport in Frameworks */,
+				L000003E00000000000000001 /* TchopLocalization in Frameworks */,
+				L000003F00000000000000001 /* TchopBranding in Frameworks */,
+				L00000400000000000000001 /* TchopOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -525,6 +564,7 @@
 			children = (
 				D00000040000000000000001 /* AppGroupConfiguration.swift */,
 				D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */,
+				D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -827,6 +867,9 @@
 			name = TchopShareExtension;
 			packageProductDependencies = (
 				D00000061000000000000001 /* TchopShareSupport */,
+				A00000B30000000000000001 /* TchopLocalization */,
+				B000000C0000000000000001 /* TchopBranding */,
+				J10000020000000000000001 /* TchopOnDeviceAI */,
 			);
 			productName = TchopShareExtension;
 			productReference = L00000130000000000000001 /* TchopShareExtension.appex */;
@@ -847,6 +890,9 @@
 			name = TchopShareOceanExtension;
 			packageProductDependencies = (
 				D00000061000000000000001 /* TchopShareSupport */,
+				A00000B30000000000000001 /* TchopLocalization */,
+				B000000C0000000000000001 /* TchopBranding */,
+				J10000020000000000000001 /* TchopOnDeviceAI */,
 			);
 			productName = TchopShareOceanExtension;
 			productReference = L00000140000000000000001 /* TchopShareOceanExtension.appex */;
@@ -1104,6 +1150,7 @@
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 				D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				D00000032000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1178,6 +1225,7 @@
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 				D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				D00000033000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1208,6 +1256,18 @@
 				L00000010000000000000001 /* ShareViewController.swift in Sources */,
 				L00000020000000000000001 /* ShareExtensionRootView.swift in Sources */,
 				L00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
+				L000000A0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				L000000B0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
+				L000000C0000000000000001 /* App/AppTheme.swift in Sources */,
+				L000000D0000000000000001 /* App/AppLocalization.swift in Sources */,
+				L000000E0000000000000001 /* Models/AppChannel.swift in Sources */,
+				L000000F0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
+				L000001A0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
+				L000001B0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
+				L000001C0000000000000001 /* ShellContentView.swift in Sources */,
+				L000001D0000000000000001 /* App/ChannelsStore.swift in Sources */,
+				L00000410000000000000001 /* App/AppBranding.swift in Sources */,
+				L00000430000000000000001 /* Navigation/TabRoutes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1218,6 +1278,18 @@
 				L00000060000000000000001 /* ShareViewController.swift in Sources */,
 				L00000070000000000000001 /* ShareExtensionRootView.swift in Sources */,
 				L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
+				L000002B0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				L000002C0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
+				L000002D0000000000000001 /* App/AppTheme.swift in Sources */,
+				L000002E0000000000000001 /* App/AppLocalization.swift in Sources */,
+				L000002F0000000000000001 /* Models/AppChannel.swift in Sources */,
+				L00000390000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
+				L000003A00000000000000001 /* Models/NewsFeedModels.swift in Sources */,
+				L000003B00000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
+				L000003C00000000000000001 /* ShellContentView.swift in Sources */,
+				L000003D00000000000000001 /* App/ChannelsStore.swift in Sources */,
+				L00000420000000000000001 /* App/AppBranding.swift in Sources */,
+				L00000440000000000000001 /* Navigation/TabRoutes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1383,6 +1455,7 @@
 				APP_BUNDLE_IDENTIFIER = com.example.TchopApp;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_DISPLAY_NAME = TchopApp;
+				APP_URL_SCHEME = tchop;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TchopApp/TchopApp.entitlements;
@@ -1415,6 +1488,7 @@
 				APP_BUNDLE_IDENTIFIER = com.example.TchopApp;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_DISPLAY_NAME = TchopApp;
+				APP_URL_SCHEME = tchop;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TchopApp/TchopApp.entitlements;
@@ -1446,6 +1520,7 @@
 				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_DISPLAY_NAME = "Tchop Ocean";
+				APP_URL_SCHEME = "tchop-ocean";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TchopApp/TchopApp.entitlements;
@@ -1478,6 +1553,7 @@
 				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_DISPLAY_NAME = "Tchop Ocean";
+				APP_URL_SCHEME = "tchop-ocean";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = TchopApp/TchopApp.entitlements;
@@ -1716,6 +1792,7 @@
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopApp.share;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APP_URL_SCHEME = tchop;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1734,6 +1811,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "APP_EXTENSION $(inherited)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1745,6 +1823,7 @@
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopApp.share;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APP_URL_SCHEME = tchop;
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1763,6 +1842,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "APP_EXTENSION $(inherited)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1774,6 +1854,7 @@
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.share;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APP_URL_SCHEME = "tchop-ocean";
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareOceanExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1792,6 +1873,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "APP_EXTENSION $(inherited)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -1803,6 +1885,7 @@
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.share;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APP_URL_SCHEME = "tchop-ocean";
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareOceanExtension.entitlements;
 				CODE_SIGN_STYLE = Automatic;
@@ -1821,6 +1904,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "APP_EXTENSION $(inherited)";
 				SWIFT_STRICT_CONCURRENCY = complete;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
