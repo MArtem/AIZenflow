@@ -20,7 +20,7 @@ struct NewsTabRootView: View {
                 onTextAction: handleTextAction
             )
             .navigationDestination(for: NewsRoute.self) { route in
-                NewsDestinationView(route: route)
+                NewsDestinationView(route: viewModel.translatedRoute(for: route))
             }
         }
     }

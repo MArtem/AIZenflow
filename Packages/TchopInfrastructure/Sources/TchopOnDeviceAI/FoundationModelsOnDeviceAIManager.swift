@@ -1,0 +1,150 @@
+import Foundation
+
+#if canImport(FoundationModels)
+import FoundationModels
+#endif
+
+@available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
+public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unchecked Sendable {
+    private let model: SystemLanguageModel
+
+    public init(
+        model: SystemLanguageModel = .default
+    ) {
+        self.model = model
+    }
+
+    public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
+        let availability = model.availability
+
+        switch availability {
+        case .available:
+            let supportedLanguages = model.supportedLanguages.map {
+                OnDeviceLanguage(localeIdentifier: $0.maximalIdentifier)
+            }
+            let requestedLocale = localeIdentifier.map(Locale.init(identifier:))
+
+            if let requestedLocale, !model.supportsLocale(requestedLocale) {
+                return .unavailable(.unsupportedLocale)
+            }
+
+            return .available(supportedLanguages: Set(supportedLanguages))
+        case let .unavailable(reason):
+            return .unavailable(mapUnavailableReason(reason))
+        }
+    }
+
+    public func translate(_ request: OnDeviceTranslationRequest) async throws -> OnDeviceTranslationResult {
+        guard !request.segments.isEmpty else {
+            throw OnDeviceAIError.emptyRequest
+        }
+
+        let requestedAvailability = translationAvailability(
+            for: request.targetLanguage.localeIdentifier
+        )
+
+        guard case .available = requestedAvailability else {
+            if case let .unavailable(reason) = requestedAvailability {
+                throw OnDeviceAIError.unavailable(reason)
+            }
+            throw OnDeviceAIError.invalidResponse
+        }
+
+        let session = LanguageModelSession(
+            model: model,
+            instructions: {
+                """
+                You translate user-visible card text into the requested target language.
+                Return only translated text.
+                Preserve the incoming segment ids exactly.
+                Preserve segment ordering.
+                Do not omit any segment.
+                Do not translate URLs.
+                Do not add commentary.
+                """
+            }
+        )
+
+        let response = try await session.respond(
+            to: translationPrompt(for: request),
+            generating: GeneratedTranslationResponse.self,
+            includeSchemaInPrompt: true,
+            options: GenerationOptions(
+                sampling: .greedy,
+                maximumResponseTokens: 1_024
+            )
+        )
+
+        let translatedSegments = response.content.segments.map {
+            OnDeviceTranslationSegment(id: $0.id, text: $0.text)
+        }
+
+        guard translatedSegments.count == request.segments.count else {
+            throw OnDeviceAIError.incompleteResponse
+        }
+
+        let requestIDs = request.segments.map(\.id)
+        let responseIDs = translatedSegments.map(\.id)
+        guard requestIDs == responseIDs else {
+            throw OnDeviceAIError.invalidResponse
+        }
+
+        return OnDeviceTranslationResult(
+            targetLanguage: request.targetLanguage,
+            segments: translatedSegments
+        )
+    }
+
+    private func translationPrompt(for request: OnDeviceTranslationRequest) -> String {
+        let sourceLanguageClause: String
+        if let sourceLanguage = request.sourceLanguage?.localeIdentifier {
+            sourceLanguageClause = "Source language locale identifier: \(sourceLanguage).\n"
+        } else {
+            sourceLanguageClause = ""
+        }
+
+        let segmentLines = request.segments.map { segment in
+            """
+            - id: \(segment.id)
+              text: \(segment.text)
+            """
+        }
+        .joined(separator: "\n")
+
+        return """
+        Translate every segment into locale \(request.targetLanguage.localeIdentifier).
+        \(sourceLanguageClause)Return the translated segments with the same ids and in the same order.
+
+        Segments:
+        \(segmentLines)
+        """
+    }
+
+    private func mapUnavailableReason(
+        _ reason: SystemLanguageModel.Availability.UnavailableReason
+    ) -> OnDeviceAIUnavailableReason {
+        switch reason {
+        case .deviceNotEligible:
+            return .deviceNotEligible
+        case .appleIntelligenceNotEnabled:
+            return .appleIntelligenceNotEnabled
+        case .modelNotReady:
+            return .modelNotReady
+        @unknown default:
+            return .modelNotReady
+        }
+    }
+}
+
+@available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
+@Generable
+private struct GeneratedTranslationResponse {
+    let segments: [GeneratedTranslationSegment]
+}
+
+@available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
+@Generable
+private struct GeneratedTranslationSegment {
+    let id: String
+    let text: String
+}

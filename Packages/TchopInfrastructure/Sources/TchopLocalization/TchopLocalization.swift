@@ -38,6 +38,42 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
         self.bundleProvider = bundleProvider
     }
 
+    /// Locale identifiers directly supported by the underlying localization bundle.
+    public var supportedLocaleIdentifiers: [String] {
+        bundleProvider()
+            .localizations
+            .filter { $0 != "Base" }
+            .sorted()
+    }
+
+    /// Preferred locale identifier resolved against the bundle-supported locales.
+    public func preferredSupportedLocaleIdentifier(
+        preferredLocaleIdentifiers: [String] = Locale.preferredLanguages
+    ) -> String {
+        let supportedIdentifiers = supportedLocaleIdentifiers
+        guard !supportedIdentifiers.isEmpty else {
+            return developmentLanguageIdentifier
+        }
+
+        for preferredIdentifier in preferredLocaleIdentifiers {
+            let locale = Locale(identifier: preferredIdentifier)
+            let candidates = [
+                locale.identifier(.bcp47),
+                locale.language.languageCode?.identifier,
+                locale.languageCode
+            ]
+            .compactMap { $0 }
+
+            if let match = candidates.first(where: supportedIdentifiers.contains) {
+                return match
+            }
+        }
+
+        return supportedIdentifiers.contains(developmentLanguageIdentifier)
+            ? developmentLanguageIdentifier
+            : supportedIdentifiers[0]
+    }
+
     /// Resolves a localized string by key and falls back to the development language bundle before returning the key itself.
     public func localized(_ key: String, localeIdentifier: String? = nil) -> String {
         if let resolvedValue = resolvedLocalizedValue(key, localeIdentifier: localeIdentifier) {

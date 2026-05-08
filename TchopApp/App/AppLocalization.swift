@@ -33,4 +33,12 @@ enum AppLocalization {
             localeIdentifier: nil
         )
     }
+
+    static var supportedLocaleIdentifiers: [String] {
+        manager.supportedLocaleIdentifiers
+    }
+
+    static var preferredLocaleIdentifier: String {
+        manager.preferredSupportedLocaleIdentifier()
+    }
 }

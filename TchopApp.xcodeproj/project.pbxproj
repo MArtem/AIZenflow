@@ -127,6 +127,8 @@
 		H00000030000000000000001 /* TchopAppleAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = H00000020000000000000001 /* TchopAppleAuthentication */; };
 		I00000010000000000000001 /* TchopErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* TchopErrors */; };
 		I00000030000000000000001 /* TchopErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* TchopErrors */; };
+		J10000010000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
+		J10000030000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -299,6 +301,7 @@
 				G00000010000000000000001 /* TchopAnalytics in Frameworks */,
 				H00000010000000000000001 /* TchopAppleAuthentication in Frameworks */,
 				I00000010000000000000001 /* TchopErrors in Frameworks */,
+				J10000010000000000000001 /* TchopOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,6 +327,7 @@
 				G00000030000000000000001 /* TchopAnalytics in Frameworks */,
 				H00000030000000000000001 /* TchopAppleAuthentication in Frameworks */,
 				I00000030000000000000001 /* TchopErrors in Frameworks */,
+				J10000030000000000000001 /* TchopOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,6 +658,7 @@
 				G00000020000000000000001 /* TchopAnalytics */,
 				H00000020000000000000001 /* TchopAppleAuthentication */,
 				I00000020000000000000001 /* TchopErrors */,
+				J10000020000000000000001 /* TchopOnDeviceAI */,
 			);
 			productName = TchopApp;
 			productReference = A00000010000000000000001 /* TchopApp.app */;
@@ -686,6 +691,7 @@
 				G00000020000000000000001 /* TchopAnalytics */,
 				H00000020000000000000001 /* TchopAppleAuthentication */,
 				I00000020000000000000001 /* TchopErrors */,
+				J10000020000000000000001 /* TchopOnDeviceAI */,
 			);
 			productName = TchopAppOcean;
 			productReference = B00000010000000000000001 /* TchopAppOcean.app */;
@@ -1147,6 +1153,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
 			productName = TchopErrors;
+		};
+		J10000020000000000000001 /* TchopOnDeviceAI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopOnDeviceAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 

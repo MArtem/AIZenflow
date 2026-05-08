@@ -1,4 +1,5 @@
 import Foundation
+import TchopOnDeviceAI
 
 enum ChannelCardKind: String, Equatable, Sendable {
     case text
@@ -830,6 +831,105 @@ struct LocalFeedCardModel: Identifiable, Equatable, Sendable {
     }
 }
 
+enum CardTranslationFieldID: String, Hashable, Codable, Sendable {
+    case localText
+    case localHeadline
+    case localSubheadline
+    case photoBrandTitle
+    case photoHeadline
+    case photoSummary
+    case photoMetadataLine
+    case photoTranslationLabel
+    case textCategoryTitle
+    case textHeadline
+
+    var sortOrder: Int {
+        switch self {
+        case .localText:
+            return 0
+        case .localHeadline:
+            return 1
+        case .localSubheadline:
+            return 2
+        case .photoBrandTitle:
+            return 10
+        case .photoHeadline:
+            return 11
+        case .photoSummary:
+            return 12
+        case .photoMetadataLine:
+            return 13
+        case .photoTranslationLabel:
+            return 14
+        case .textCategoryTitle:
+            return 20
+        case .textHeadline:
+            return 21
+        }
+    }
+}
+
+struct CardTranslationSnapshot: Equatable, Codable, Sendable {
+    let cardID: String
+    let targetLanguageIdentifier: String
+    let translatedTexts: [CardTranslationFieldID: String]
+
+    func text(for fieldID: CardTranslationFieldID) -> String? {
+        translatedTexts[fieldID]
+    }
+}
+
+struct NewsFeedCardTranslationPayload: Equatable, Sendable {
+    let cardID: String
+    let fields: [CardTranslationFieldID: String]
+
+    var isEmpty: Bool {
+        fields.isEmpty
+    }
+
+    func makeRequest(
+        sourceLanguage: OnDeviceLanguage?,
+        targetLanguage: OnDeviceLanguage
+    ) -> OnDeviceTranslationRequest {
+        let orderedSegments: [OnDeviceTranslationSegment] = fields.keys
+            .sorted(by: { $0.sortOrder < $1.sortOrder })
+            .map { fieldID in
+                OnDeviceTranslationSegment(
+                    id: fieldID.rawValue,
+                    text: fields[fieldID] ?? ""
+                )
+            }
+
+        return OnDeviceTranslationRequest(
+            sourceLanguage: sourceLanguage,
+            targetLanguage: targetLanguage,
+            segments: orderedSegments
+        )
+    }
+
+    static func snapshot(
+        cardID: String,
+        targetLanguageIdentifier: String,
+        result: OnDeviceTranslationResult
+    ) -> CardTranslationSnapshot {
+        let translatedTexts = result.segments.reduce(into: [CardTranslationFieldID: String]()) {
+            partialResult,
+            segment in
+            guard let fieldID = CardTranslationFieldID(rawValue: segment.id) else {
+                return
+            }
+
+            partialResult[fieldID] = segment.text
+        }
+
+        return CardTranslationSnapshot(
+            cardID: cardID,
+            targetLanguageIdentifier: targetLanguageIdentifier,
+            translatedTexts: translatedTexts
+        )
+    }
+}
+
 /// Origin metadata for the feed content currently shown to the user.
 enum NewsFeedAvailability: Equatable, Sendable {
     case live
@@ -1161,6 +1261,21 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
             return card.searchFields
         }
     }
+
+    var translationPayload: NewsFeedCardTranslationPayload {
+        switch self {
+        case let .photo(content):
+            return content.translationPayload
+        case let .text(content):
+            return content.translationPayload
+        case let .video(content):
+            return content.translationPayload
+        case let .audio(content):
+            return content.translationPayload
+        case let .pdf(content):
+            return content.translationPayload
+        }
+    }
 }
 
 extension ChannelCardContent {
@@ -1200,6 +1315,110 @@ private extension LocalFeedCardModel {
             return .pdf(.local(self))
         }
     }
+}
+
+private extension NewsFeedPhotoCardContent {
+    var translationPayload: NewsFeedCardTranslationPayload {
+        switch self {
+        case let .remote(card):
+            var fields: [CardTranslationFieldID: String?] = [:]
+            fields[.photoBrandTitle] = normalizedTranslationText(card.brandTitle)
+            fields[.photoHeadline] = normalizedTranslationText(card.headline)
+            fields[.photoSummary] = normalizedTranslationText(card.summary)
+            fields[.photoMetadataLine] = normalizedTranslationText(card.metadataLine)
+            fields[.photoTranslationLabel] = normalizedTranslationText(card.translationLabel)
+            return NewsFeedCardTranslationPayload(cardID: card.id, fields: fields.compactTranslationFields)
+        case let .local(card):
+            return card.translationPayload
+        }
+    }
+}
+
+private extension NewsFeedTextCardContent {
+    var translationPayload: NewsFeedCardTranslationPayload {
+        switch self {
+        case let .remote(card):
+            var fields: [CardTranslationFieldID: String?] = [:]
+            fields[.textCategoryTitle] = normalizedTranslationText(card.categoryTitle)
+            fields[.textHeadline] = normalizedTranslationText(card.headline)
+            return NewsFeedCardTranslationPayload(cardID: card.id, fields: fields.compactTranslationFields)
+        case let .local(card):
+            return card.translationPayload
+        }
+    }
+}
+
+private extension NewsFeedVideoCardContent {
+    var translationPayload: NewsFeedCardTranslationPayload {
+        switch self {
+        case let .local(card):
+            return card.translationPayload
+        }
+    }
+}
+
+private extension NewsFeedAudioCardContent {
+    var translationPayload: NewsFeedCardTranslationPayload {
+        switch self {
+        case let .local(card):
+            return card.translationPayload
+        }
+    }
+}
+
+private extension NewsFeedPDFCardContent {
+    var translationPayload: NewsFeedCardTranslationPayload {
+        switch self {
+        case let .local(card):
+            return card.translationPayload
+        }
+    }
+}
+
+private extension LocalFeedCardModel {
+    var translationPayload: NewsFeedCardTranslationPayload {
+        let fields = orderedTextContent.reduce(into: [CardTranslationFieldID: String?]()) { partialResult, textContent in
+            guard let fieldID = textContent.kind.translationFieldID else {
+                return
+            }
+
+            partialResult[fieldID] = normalizedTranslationText(textContent.text)
+        }
+
+        return NewsFeedCardTranslationPayload(cardID: id, fields: fields.compactTranslationFields)
+    }
+}
+
+private extension LocalFeedTextFieldKind {
+    var translationFieldID: CardTranslationFieldID? {
+        switch self {
+        case .text:
+            return .localText
+        case .headline:
+            return .localHeadline
+        case .subheadline:
+            return .localSubheadline
+        case .source:
+            return nil
+        }
+    }
+}
+
+private extension Dictionary where Key == CardTranslationFieldID, Value == String? {
+    var compactTranslationFields: [CardTranslationFieldID: String] {
+        reduce(into: [CardTranslationFieldID: String]()) { partialResult, entry in
+            guard let value = entry.value else {
+                return
+            }
+
+            partialResult[entry.key] = value
+        }
+    }
+}
+
+private func normalizedTranslationText(_ value: String) -> String? {
+    let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+    return trimmed.isEmpty ? nil : trimmed
 }
 
 private extension ChannelCardSourceContent {
@@ -1333,6 +1552,7 @@ struct PhotoCardModel: Identifiable, Equatable, Sendable {
     /// Destination payload used by callers that open article details.
     var detailRoute: NewsRoute {
         NewsRoute(
+            cardID: id,
             destinationID: "photo-details",
             title: serviceHeadline,
             subtitle: sourceTitle,
@@ -1483,6 +1703,7 @@ struct TextCardModel: Identifiable, Equatable, Sendable {
     /// Destination payload used by callers that open discussion details.
     var detailRoute: NewsRoute {
         NewsRoute(
+            cardID: id,
             destinationID: "text-details",
             title: categoryTitle,
             subtitle: joinedText,

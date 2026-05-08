@@ -1,6 +1,53 @@
 import Foundation
 import Observation
 import TchopErrors
+import TchopOnDeviceAI
+
+@MainActor
+final class CardTranslationStore {
+    private enum Keys {
+        static let snapshots = "card_translation_snapshots"
+    }
+
+    private let userDefaults: UserDefaults
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
+    private var snapshotsByCardID: [String: CardTranslationSnapshot]
+
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+        if
+            let data = userDefaults.data(forKey: Keys.snapshots),
+            let snapshots = try? decoder.decode([String: CardTranslationSnapshot].self, from: data)
+        {
+            self.snapshotsByCardID = snapshots
+        } else {
+            self.snapshotsByCardID = [:]
+        }
+    }
+
+    func snapshot(for cardID: String) -> CardTranslationSnapshot? {
+        snapshotsByCardID[cardID]
+    }
+
+    func save(_ snapshot: CardTranslationSnapshot) {
+        snapshotsByCardID[snapshot.cardID] = snapshot
+        persist()
+    }
+
+    func remove(cardID: String) {
+        snapshotsByCardID.removeValue(forKey: cardID)
+        persist()
+    }
+
+    private func persist() {
+        guard let data = try? encoder.encode(snapshotsByCardID) else {
+            return
+        }
+
+        userDefaults.set(data, forKey: Keys.snapshots)
+    }
+}
 
 /// Explicit runtime state for the news feed screen.
 enum NewsFeedState: Equatable {
@@ -107,6 +154,8 @@ final class NewsFeedViewModel {
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let errorManager: any AppErrorManaging
     private let localFeedCardStore: LocalFeedCardStore
+    private let onDeviceAIManager: any OnDeviceAIManaging
+    private let cardTranslationStore: CardTranslationStore
     private let loadFailureContent: NewsFeedContent
     private let loadFailureMessage: String
     private var loadingTask: Task<Void, Never>?
@@ -122,6 +171,8 @@ final class NewsFeedViewModel {
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
         localFeedCardStore: LocalFeedCardStore = LocalFeedCardStore(),
+        onDeviceAIManager: any OnDeviceAIManaging = OnDeviceAIManagerFactory.makeDefaultManager(),
+        cardTranslationStore: CardTranslationStore = CardTranslationStore(),
         initialContent: NewsFeedContent,
         loadFailureContent: NewsFeedContent,
         loadFailureMessage: String
@@ -131,6 +182,8 @@ final class NewsFeedViewModel {
         self.widgetContentSyncManager = widgetContentSyncManager
         self.errorManager = errorManager
         self.localFeedCardStore = localFeedCardStore
+        self.onDeviceAIManager = onDeviceAIManager
+        self.cardTranslationStore = cardTranslationStore
         self.state = Self.resolvedState(for: initialContent)
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
@@ -151,6 +204,108 @@ final class NewsFeedViewModel {
             cards: filteredCards(from: localCards + scopedContent.cards, query: searchQuery),
             availability: scopedContent.availability
         )
+    }
+
+    var supportsCardTranslation: Bool {
+        AppLocalization.supportedLocaleIdentifiers.count > 1
+    }
+
+    func translationTargetLanguages(for card: NewsFeedCard) -> [OnDeviceLanguage] {
+        guard !card.translationPayload.isEmpty else {
+            return []
+        }
+
+        guard case let .available(supportedLanguages) = onDeviceAIManager.translationAvailability(
+            for: AppLocalization.preferredLocaleIdentifier
+        ) else {
+            return []
+        }
+
+        let preferredLocaleIdentifier = AppLocalization.preferredLocaleIdentifier
+        return AppLocalization.supportedLocaleIdentifiers
+            .filter { $0 != preferredLocaleIdentifier }
+            .map(OnDeviceLanguage.init(localeIdentifier:))
+            .filter { candidate in
+                supportedLanguages.contains { $0.matches(localeIdentifier: candidate.localeIdentifier) }
+            }
+    }
+
+    func canTranslate(_ card: NewsFeedCard) -> Bool {
+        !isCardTranslated(card.id) && !translationTargetLanguages(for: card).isEmpty
+    }
+
+    func isCardTranslated(_ cardID: String) -> Bool {
+        cardTranslationStore.snapshot(for: cardID) != nil
+    }
+
+    func translatedText(
+        for cardID: String,
+        fieldID: CardTranslationFieldID,
+        originalText: String
+    ) -> String {
+        cardTranslationStore.snapshot(for: cardID)?.text(for: fieldID) ?? originalText
+    }
+
+    func translatedRoute(for route: NewsRoute) -> NewsRoute {
+        guard
+            let cardID = route.cardID,
+            let snapshot = cardTranslationStore.snapshot(for: cardID)
+        else {
+            return route
+        }
+
+        switch route.destinationID {
+        case "photo-details":
+            return NewsRoute(
+                id: route.id,
+                cardID: route.cardID,
+                destinationID: route.destinationID,
+                title: snapshot.text(for: .photoHeadline) ?? route.title,
+                subtitle: route.subtitle,
+                bodyText: snapshot.text(for: .photoSummary) ?? route.bodyText,
+                accentLabel: snapshot.text(for: .photoTranslationLabel) ?? route.accentLabel
+            )
+        case "text-details":
+            return NewsRoute(
+                id: route.id,
+                cardID: route.cardID,
+                destinationID: route.destinationID,
+                title: snapshot.text(for: .textCategoryTitle) ?? route.title,
+                subtitle: route.subtitle,
+                bodyText: snapshot.text(for: .textHeadline) ?? route.bodyText,
+                accentLabel: route.accentLabel
+            )
+        default:
+            return route
+        }
+    }
+
+    func translateCard(
+        _ card: NewsFeedCard,
+        targetLanguage: OnDeviceLanguage
+    ) async throws {
+        let payload = card.translationPayload
+        guard !payload.isEmpty else {
+            return
+        }
+
+        let request = payload.makeRequest(
+            sourceLanguage: OnDeviceLanguage(localeIdentifier: AppLocalization.preferredLocaleIdentifier),
+            targetLanguage: targetLanguage
+        )
+        let result = try await onDeviceAIManager.translate(request)
+        let snapshot = NewsFeedCardTranslationPayload.snapshot(
+            cardID: card.id,
+            targetLanguageIdentifier: targetLanguage.localeIdentifier,
+            result: result
+        )
+        cardTranslationStore.save(snapshot)
+        state = Self.resolvedState(for: state.content)
+    }
+
+    func restoreOriginalCardText(cardID: String) {
+        cardTranslationStore.remove(cardID: cardID)
+        state = Self.resolvedState(for: state.content)
     }
 
     func handleLocalChannelCardsChanged() {

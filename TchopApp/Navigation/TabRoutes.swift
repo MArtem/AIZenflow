@@ -3,6 +3,7 @@ import Foundation
 /// Route payload for destinations in the news tab.
 struct NewsRoute: Hashable, Identifiable, Codable {
     let id: UUID
+    let cardID: String?
     let destinationID: String
     let title: String
     let subtitle: String
@@ -12,6 +13,7 @@ struct NewsRoute: Hashable, Identifiable, Codable {
     /// Creates a new NewsRoute instance.
     init(
         id: UUID = UUID(),
+        cardID: String? = nil,
         destinationID: String,
         title: String,
         subtitle: String,
@@ -19,6 +21,7 @@ struct NewsRoute: Hashable, Identifiable, Codable {
         accentLabel: String? = nil
     ) {
         self.id = id
+        self.cardID = cardID
         self.destinationID = destinationID
         self.title = title
         self.subtitle = subtitle
