@@ -7,6 +7,8 @@ import FoundationModels
 @available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
 public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unchecked Sendable {
     private let model: SystemLanguageModel
+    private let stateLock = NSLock()
+    private var sessionUnavailableReason: OnDeviceAIUnavailableReason?
 
     public init(
         model: SystemLanguageModel = .default
@@ -15,6 +17,10 @@ public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unche
     }
 
     public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
+        if let sessionUnavailableReason = currentSessionUnavailableReason {
+            return .unavailable(sessionUnavailableReason)
+        }
+
         let availability = model.availability
 
         switch availability {
@@ -65,15 +71,25 @@ public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unche
             }
         )
 
-        let response = try await session.respond(
-            to: translationPrompt(for: request),
-            generating: GeneratedTranslationResponse.self,
-            includeSchemaInPrompt: true,
-            options: GenerationOptions(
-                sampling: .greedy,
-                maximumResponseTokens: 1_024
+        let response: LanguageModelSession.Response<GeneratedTranslationResponse>
+        do {
+            response = try await session.respond(
+                to: translationPrompt(for: request),
+                generating: GeneratedTranslationResponse.self,
+                includeSchemaInPrompt: true,
+                options: GenerationOptions(
+                    sampling: .greedy,
+                    maximumResponseTokens: 1_024
+                )
             )
-        )
+        } catch {
+            if isModelCatalogAssetsFailure(error) {
+                markSessionUnavailable(.modelAssetsUnavailable)
+                throw OnDeviceAIError.unavailable(.modelAssetsUnavailable)
+            }
+
+            throw error
+        }
 
         let translatedSegments = response.content.segments.map {
             OnDeviceTranslationSegment(id: $0.id, text: $0.text)
@@ -133,6 +149,47 @@ public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unche
         @unknown default:
             return .modelNotReady
         }
+    }
+
+    private var currentSessionUnavailableReason: OnDeviceAIUnavailableReason? {
+        stateLock.lock()
+        defer { stateLock.unlock() }
+        return sessionUnavailableReason
+    }
+
+    private func markSessionUnavailable(_ reason: OnDeviceAIUnavailableReason) {
+        stateLock.lock()
+        sessionUnavailableReason = reason
+        stateLock.unlock()
+    }
+
+    private func isModelCatalogAssetsFailure(_ error: Error) -> Bool {
+        let nsError = error as NSError
+        if nsError.domain == "com.apple.UnifiedAssetFramework", nsError.code == 5000 {
+            return true
+        }
+
+        if nsError.domain == "ModelManagerServices.ModelManagerError", nsError.code == 1026 {
+            return true
+        }
+
+        if
+            let underlyingError = nsError.userInfo[NSUnderlyingErrorKey] as? NSError,
+            isModelCatalogAssetsFailure(underlyingError)
+        {
+            return true
+        }
+
+        let combinedDescription = [
+            nsError.domain,
+            nsError.localizedDescription,
+            nsError.localizedFailureReason ?? ""
+        ]
+        .joined(separator: " ")
+        .lowercased()
+
+        return combinedDescription.contains("modelcatalog")
+            || combinedDescription.contains("unifiedassetframework")
     }
 }
 

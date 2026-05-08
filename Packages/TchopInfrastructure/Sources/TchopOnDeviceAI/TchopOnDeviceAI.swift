@@ -70,6 +70,7 @@ public enum OnDeviceAIUnavailableReason: Equatable, Sendable {
     case deviceNotEligible
     case appleIntelligenceNotEnabled
     case modelNotReady
+    case modelAssetsUnavailable
     case unsupportedLocale
 }
 

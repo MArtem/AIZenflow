@@ -42,6 +42,7 @@
   - with more than two languages it opens a simple language picker popup
   - translated state survives refresh/navigation/reopen locally
   - button is hidden when the model is unavailable
+  - after a runtime `model catalog` asset failure, the package degrades to unavailable for the current session and the button hides on subsequent renders
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`

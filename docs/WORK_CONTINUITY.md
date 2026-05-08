@@ -97,6 +97,10 @@ Only these fields exist:
   - translated cards switch the button label to `See original`
   - translated state survives refresh/navigation/reopen through local persisted snapshots
   - button stays hidden when the on-device model is unavailable
+- `TchopOnDeviceAI` now contains a session-level circuit breaker:
+  - if runtime translation fails with missing Foundation Model catalog assets
+  - the package marks itself unavailable for the current session
+  - feed buttons hide on subsequent renders instead of allowing repeated dead taps
 - current app localization baseline now includes `de` in addition to existing locales
 
 ## What Still Needs Work
