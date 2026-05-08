@@ -155,6 +155,7 @@ final class NewsFeedViewModel {
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let errorManager: any AppErrorManaging
     private let localFeedCardStore: LocalFeedCardStore
+    private let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
     private let onDeviceAIManager: any OnDeviceAIManaging
     private let cardTranslationStore: CardTranslationStore
     private let loadFailureContent: NewsFeedContent
@@ -172,6 +173,7 @@ final class NewsFeedViewModel {
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
         localFeedCardStore: LocalFeedCardStore = LocalFeedCardStore(),
+        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = nil,
         onDeviceAIManager: any OnDeviceAIManaging = OnDeviceAIManagerFactory.makeDefaultManager(),
         cardTranslationStore: CardTranslationStore = CardTranslationStore(),
         initialContent: NewsFeedContent,
@@ -183,6 +185,7 @@ final class NewsFeedViewModel {
         self.widgetContentSyncManager = widgetContentSyncManager
         self.errorManager = errorManager
         self.localFeedCardStore = localFeedCardStore
+        self.sharedLocalFeedCardSyncManager = sharedLocalFeedCardSyncManager
         self.onDeviceAIManager = onDeviceAIManager
         self.cardTranslationStore = cardTranslationStore
         self.state = Self.resolvedState(for: initialContent)
@@ -384,6 +387,7 @@ final class NewsFeedViewModel {
     /// Starts a user-driven refresh when no feed request is already running.
     /// Online refresh goes through the API path; offline refresh keeps the stored snapshot and updates the UI source metadata.
     func refresh() {
+        syncSharedLocalCardsIfNeeded()
         load(using: .refresh)
     }
 
@@ -552,6 +556,31 @@ final class NewsFeedViewModel {
         }
 
         load(using: .initial)
+    }
+
+    func syncSharedLocalCardsIfNeeded() {
+        guard let sharedLocalFeedCardSyncManager else {
+            return
+        }
+
+        do {
+            let importedCount = try sharedLocalFeedCardSyncManager.syncPendingCards(into: localFeedCardStore)
+            guard importedCount > 0 else {
+                return
+            }
+
+            handleLocalChannelCardsChanged()
+        } catch {
+            Task { @MainActor [errorManager] in
+                _ = await errorManager.presentableError(
+                    from: error,
+                    context: AppErrorContext(
+                        operation: "syncSharedLocalCards",
+                        feature: "newsFeed"
+                    )
+                )
+            }
+        }
     }
 
     /// Maps repository-backed content into the explicit feed state used by the screen.

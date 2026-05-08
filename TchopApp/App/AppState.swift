@@ -34,6 +34,7 @@ final class AppState {
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let pushNotificationBridge: any AppPushNotificationBridging
     private let errorManager: any AppErrorManaging
+    private let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
     /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
     private var isApplyingNavigationSnapshot = false
     /// Deep links received before authentication are buffered and replayed after sign-in.
@@ -58,7 +59,8 @@ final class AppState {
         navigationEventReporter: any NavigationEventReporting,
         widgetContentSyncManager: any WidgetContentSyncing,
         pushNotificationBridge: any AppPushNotificationBridging,
-        errorManager: any AppErrorManaging
+        errorManager: any AppErrorManaging,
+        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = nil
     ) {
         self.coordinator = coordinator
         self.appShellViewModel = appShellViewModel
@@ -74,6 +76,7 @@ final class AppState {
         self.widgetContentSyncManager = widgetContentSyncManager
         self.pushNotificationBridge = pushNotificationBridge
         self.errorManager = errorManager
+        self.sharedLocalFeedCardSyncManager = sharedLocalFeedCardSyncManager
         setupNavigationPersistenceBindings()
         Task { @MainActor [weak self] in
             await self?.restoreSession()
@@ -161,6 +164,14 @@ final class AppState {
         }
     }
 
+    func handleAppDidBecomeActive() {
+        guard case .authenticated = sessionState else {
+            return
+        }
+
+        syncSharedLocalCardsIfNeeded()
+    }
+
     /// Restores the previously persisted user session if one exists.
     private func restoreSession() async {
         do {
@@ -182,6 +193,33 @@ final class AppState {
             assertionFailure("Failed to restore user session: \(presentation.error.debugDescription)")
             sessionStore.setSignedOut()
             syncSessionStateFromStore()
+        }
+    }
+
+    private func syncSharedLocalCardsIfNeeded() {
+        guard let sharedLocalFeedCardSyncManager else {
+            return
+        }
+
+        do {
+            let importedCount = try sharedLocalFeedCardSyncManager.syncPendingCards(
+                into: appShellViewModel.sharedLocalFeedCardStore
+            )
+            guard importedCount > 0 else {
+                return
+            }
+
+            appShellViewModel.newsFeedViewModel.handleLocalChannelCardsChanged()
+        } catch {
+            Task { @MainActor [errorManager] in
+                _ = await errorManager.presentableError(
+                    from: error,
+                    context: AppErrorContext(
+                        operation: "syncSharedLocalCards",
+                        feature: "appState"
+                    )
+                )
+            }
         }
     }
 

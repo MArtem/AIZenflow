@@ -666,44 +666,44 @@ struct ChannelCardTextContent: Equatable, Sendable, Identifiable {
     var id: ChannelCardTextFieldKind { kind }
 }
 
-struct LocalFeedSourceContent: Equatable, Sendable {
+struct LocalFeedSourceContent: Codable, Equatable, Sendable {
     let text: String
     let resourceURLString: String?
 }
 
-struct LocalFeedPhotoItem: Equatable, Sendable, Identifiable {
+struct LocalFeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
     let caption: String?
     let copyright: String?
 }
 
-struct LocalFeedTeaserImageContent: Equatable, Sendable, Identifiable {
+struct LocalFeedTeaserImageContent: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
     let copyright: String?
 }
 
-enum LocalFeedMediaKind: String, Equatable, Sendable {
+enum LocalFeedMediaKind: String, Codable, Equatable, Sendable {
     case photo
     case video
     case audio
     case pdf
 }
 
-struct LocalFeedFileMediaContent: Equatable, Sendable {
+struct LocalFeedFileMediaContent: Codable, Equatable, Sendable {
     let kind: LocalFeedMediaKind
     let displayTitle: String
     let teaserImage: LocalFeedTeaserImageContent?
     let caption: String?
 }
 
-enum LocalFeedMediaContent: Equatable, Sendable {
+enum LocalFeedMediaContent: Codable, Equatable, Sendable {
     case photos(items: [LocalFeedPhotoItem])
     case file(LocalFeedFileMediaContent)
 }
 
-enum LocalFeedTextFieldKind: String, CaseIterable, Equatable, Sendable, Identifiable {
+enum LocalFeedTextFieldKind: String, CaseIterable, Codable, Equatable, Sendable, Identifiable {
     case text
     case headline
     case subheadline
@@ -712,7 +712,7 @@ enum LocalFeedTextFieldKind: String, CaseIterable, Equatable, Sendable, Identifi
     var id: String { rawValue }
 }
 
-struct LocalFeedTextContent: Equatable, Sendable, Identifiable {
+struct LocalFeedTextContent: Codable, Equatable, Sendable, Identifiable {
     let kind: LocalFeedTextFieldKind
     let text: String
 
@@ -804,7 +804,7 @@ struct ChannelCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
-struct LocalFeedCardModel: Identifiable, Equatable, Sendable {
+struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
     let createdAt: Date
@@ -993,7 +993,7 @@ struct NewsFeedContent: Equatable, Sendable {
 }
 
 /// Stable feed card categories used by cross-card UI logic such as search and create/edit flows.
-enum NewsFeedCardKind: String, Equatable, Sendable {
+enum NewsFeedCardKind: String, Codable, Equatable, Sendable {
     case text
     case photo
     case video
@@ -1325,7 +1325,7 @@ extension ChannelCardContent {
     }
 }
 
-private extension LocalFeedCardModel {
+extension LocalFeedCardModel {
     var newsFeedCard: NewsFeedCard {
         switch kind {
         case .text:

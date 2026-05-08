@@ -100,8 +100,11 @@
 		A000009A0000000000000001 /* Views/Tabs/ChatTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009B0000000000000001 /* ChatTabRootView.swift */; };
 		D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000020000000000000001 /* AppWidgetBridge.swift */; };
 		D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
+		D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */; };
 		D00000050000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
 		D00000070000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
+		D00000071000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
+		D00000072000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
 		D00000080000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D00000200000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D00000240000000000000001 /* TchopWidgetsOceanExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -255,6 +258,7 @@
 		B00000020000000000000001 /* AppBranding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBranding.swift; sourceTree = "<group>"; };
 		D00000020000000000000001 /* AppWidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWidgetBridge.swift; sourceTree = "<group>"; };
 		D00000040000000000000001 /* AppGroupConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupConfiguration.swift; sourceTree = "<group>"; };
+		D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalFeedCardSyncManager.swift; sourceTree = "<group>"; };
 		D000000C0000000000000001 /* FeedHeadlineWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeadlineWidget.swift; sourceTree = "<group>"; };
 		D000000E0000000000000001 /* TchopWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopWidgetsBundle.swift; sourceTree = "<group>"; };
 		D00000130000000000000001 /* TchopApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopApp.entitlements; sourceTree = "<group>"; };
@@ -295,6 +299,7 @@
 				A00000770000000000000001 /* TchopDatabase in Frameworks */,
 				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
 				D00000050000000000000001 /* TchopWidgets in Frameworks */,
+				D00000071000000000000001 /* TchopShareSupport in Frameworks */,
 				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
 				E00000010000000000000001 /* TchopPushNotifications in Frameworks */,
 				F00000010000000000000001 /* TchopNavigation in Frameworks */,
@@ -321,6 +326,7 @@
 				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
 				B00000040000000000000001 /* TchopBranding in Frameworks */,
 				D00000070000000000000001 /* TchopWidgets in Frameworks */,
+				D00000072000000000000001 /* TchopShareSupport in Frameworks */,
 				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
 				E00000020000000000000001 /* TchopPushNotifications in Frameworks */,
 				F00000030000000000000001 /* TchopNavigation in Frameworks */,
@@ -466,6 +472,7 @@
 			isa = PBXGroup;
 			children = (
 				D00000040000000000000001 /* AppGroupConfiguration.swift */,
+				D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -652,6 +659,7 @@
 				A00000B30000000000000001 /* TchopLocalization */,
 				B000000C0000000000000001 /* TchopBranding */,
 				D00000060000000000000001 /* TchopWidgets */,
+				D00000061000000000000001 /* TchopShareSupport */,
 				C00000020000000000000001 /* TchopUIConfiguration */,
 				E00000030000000000000001 /* TchopPushNotifications */,
 				F00000020000000000000001 /* TchopNavigation */,
@@ -685,6 +693,7 @@
 				A00000B30000000000000001 /* TchopLocalization */,
 				B000000C0000000000000001 /* TchopBranding */,
 				D00000060000000000000001 /* TchopWidgets */,
+				D00000061000000000000001 /* TchopShareSupport */,
 				C00000020000000000000001 /* TchopUIConfiguration */,
 				E00000030000000000000001 /* TchopPushNotifications */,
 				F00000020000000000000001 /* TchopNavigation */,
@@ -962,6 +971,7 @@
 				E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
+				D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1035,6 +1045,7 @@
 				E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
+				D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1128,6 +1139,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
 			productName = TchopWidgets;
+		};
+		D00000061000000000000001 /* TchopShareSupport */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
+			productName = TchopShareSupport;
 		};
 		E00000030000000000000001 /* TchopPushNotifications */ = {
 			isa = XCSwiftPackageProductDependency;

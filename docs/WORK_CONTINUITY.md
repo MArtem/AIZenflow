@@ -11,10 +11,11 @@ Use it when:
 ## Current Long-Running Epic
 Restoration of the feed/composer/card runtime around the 5-type card model is complete.
 
-The current active epic is reusable on-device AI integration:
-- package root: `TchopOnDeviceAI`
-- first feature: local card text translation through Apple Foundation Models
-- current stage: feed integration completed, detail integration still open
+The current active epic is share-extension foundation:
+- reusable package root: `TchopShareSupport`
+- app-specific bridge: `SharedLocalFeedCardSyncManager`
+- current stage: app-group-backed shared local card sync is wired into app entry and pull-to-refresh
+- next stage: share extension target, intake, and composer wiring
 
 ## Stable Baselines That Must Be Preserved
 - Deployment target: `iOS 17`
@@ -24,6 +25,7 @@ The current active epic is reusable on-device AI integration:
 - Reusable packages/managers are the root
 - `SyncCore` is the active sync foundation
 - `TchopOnDeviceAI` is the active local AI foundation
+- `TchopShareSupport` is the active share-extension storage foundation
 - Do not add speculative UI, logic, or fallback behavior
 
 ## Current Functional Contract
@@ -102,10 +104,19 @@ Only these fields exist:
   - the package marks itself unavailable for the current session
   - feed buttons hide on subsequent renders instead of allowing repeated dead taps
 - current app localization baseline now includes `de` in addition to existing locales
+- `TchopShareSupport` package was added as the reusable app-group JSON storage root for extension/app handoff
+- `SharedLocalFeedCardSyncManager` now syncs extension-published local cards into the app runtime:
+  - app sync happens on app activation
+  - app sync also happens on pull-to-refresh
+  - extension/app are intentionally not coupled through direct shared in-memory runtime
+  - the current local app store remains the visible runtime cache
 
 ## What Still Needs Work
-- on-device translation is not yet wired into detail screens
-- translated-state UX beyond feed is still open and should not be guessed without design
+- share extension target still needs to be added
+- generic share intake/import pipeline still needs to be added
+- app-specific composer reuse between app and extension still needs to be wired
+- unauthenticated extension state should remain an app-specific `Open app` surface and should not be over-assumed
+- on-device translation is still paused at feed-only stage until detail design exists
 
 ## Reopen First
 If work must resume quickly, start with:

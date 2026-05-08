@@ -87,6 +87,10 @@ let package = Package(
         .library(
             name: "TchopOnDeviceAI",
             targets: ["TchopOnDeviceAI"]
+        ),
+        .library(
+            name: "TchopShareSupport",
+            targets: ["TchopShareSupport"]
         )
     ],
     targets: [
@@ -178,6 +182,10 @@ let package = Package(
             swiftSettings: strictConcurrencySettings
         ),
         .target(
+            name: "TchopShareSupport",
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
             name: "TchopAnalytics",
             dependencies: [
                 "TchopNavigation",
@@ -239,6 +247,11 @@ let package = Package(
         .testTarget(
             name: "TchopOnDeviceAITests",
             dependencies: ["TchopOnDeviceAI"],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .testTarget(
+            name: "TchopShareSupportTests",
+            dependencies: ["TchopShareSupport"],
             swiftSettings: strictConcurrencySettings
         )
     ]

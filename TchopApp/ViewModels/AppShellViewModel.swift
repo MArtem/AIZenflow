@@ -9,7 +9,7 @@ final class LocalFeedCardStore {
     private(set) var cards: [NewsFeedCard] = []
 
     func publish(_ card: NewsFeedCard) {
-        cards.insert(card, at: 0)
+        sync([card])
     }
 
     func cards(for channelID: String?) -> [NewsFeedCard] {
@@ -18,6 +18,24 @@ final class LocalFeedCardStore {
         }
 
         return cards.filter { $0.channelID == channelID }
+    }
+
+    func sync(_ localFeedCards: [LocalFeedCardModel]) {
+        sync(localFeedCards.map(\.newsFeedCard))
+    }
+
+    func sync(_ incomingCards: [NewsFeedCard]) {
+        guard !incomingCards.isEmpty else {
+            return
+        }
+
+        let existingIDs = Set(cards.map(\.id))
+        let newCards = incomingCards.filter { !existingIDs.contains($0.id) }
+        guard !newCards.isEmpty else {
+            return
+        }
+
+        cards = newCards + cards
     }
 }
 
@@ -270,6 +288,10 @@ final class AppShellViewModel {
     let channelsStore: ChannelsStore
     private let localFeedCardStore: LocalFeedCardStore
     private(set) var activeComposer: FeedComposerViewModel?
+
+    var sharedLocalFeedCardStore: LocalFeedCardStore {
+        localFeedCardStore
+    }
 
     /// Creates the shell view model from repository-backed content.
     init(

@@ -5,6 +5,7 @@ import UIKit
 @main
 struct TchopApp: App {
     @UIApplicationDelegateAdaptor(TchopApplicationDelegate.self) private var applicationDelegate
+    @Environment(\.scenePhase) private var scenePhase
     private let container: AppDIContainer
     private let loginViewModel: LoginViewModel
     @State private var appState: AppState
@@ -51,6 +52,13 @@ struct TchopApp: App {
                 }
             )
                 .environment(\.diContainer, container)
+                .onChange(of: scenePhase) { _, newPhase in
+                    guard newPhase == .active else {
+                        return
+                    }
+
+                    appState.handleAppDidBecomeActive()
+                }
         }
     }
 }

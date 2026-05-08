@@ -9,6 +9,7 @@ import TchopNetworking
 import TchopPushNotifications
 import TchopUIConfiguration
 import TchopWidgets
+import TchopShareSupport
 
 /// Runtime API environment describing transport configuration and diagnostics policy.
 struct AppAPIEnvironment {
@@ -154,6 +155,9 @@ final class AppDIContainer {
     /// App-wide runtime store for locally published feed-native cards.
     let localFeedCardStore: LocalFeedCardStore
 
+    /// App-group-backed bridge that syncs extension-published local cards into app runtime.
+    let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
+
     /// User-scoped channel settings source resolved during session bootstrap.
     private let channelSettingsRepository: any UserChannelSettingsRepository
 
@@ -213,6 +217,9 @@ final class AppDIContainer {
             selectionStore: UserDefaultsChannelSelectionStore()
         )
         self.localFeedCardStore = LocalFeedCardStore()
+        self.sharedLocalFeedCardSyncManager = Self.makeSharedLocalFeedCardSyncManager(
+            errorManager: errorManager
+        )
         self.channelSettingsRepository = LocalUserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
@@ -242,7 +249,8 @@ final class AppDIContainer {
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
-            localFeedCardStore: localFeedCardStore
+            localFeedCardStore: localFeedCardStore,
+            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager
         )
 
         return AppShellViewModel(
@@ -272,7 +280,8 @@ final class AppDIContainer {
             navigationEventReporter: navigationEventReporter,
             widgetContentSyncManager: widgetContentSyncManager,
             pushNotificationBridge: pushNotificationBridge,
-            errorManager: errorManager
+            errorManager: errorManager,
+            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager
         )
     }
 
@@ -525,7 +534,8 @@ final class AppDIContainer {
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
-        localFeedCardStore: LocalFeedCardStore
+        localFeedCardStore: LocalFeedCardStore,
+        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
     ) -> NewsFeedViewModel {
         let initialContent = resolveInitialNewsFeedContent(
             from: repository,
@@ -538,10 +548,33 @@ final class AppDIContainer {
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
             localFeedCardStore: localFeedCardStore,
+            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager,
             initialContent: initialContent,
             loadFailureContent: initialContent,
             loadFailureMessage: AppLocalization.text("news.error.loadFailed")
         )
+    }
+
+    private static func makeSharedLocalFeedCardSyncManager(
+        errorManager: any AppErrorManaging
+    ) -> SharedLocalFeedCardSyncManager? {
+        do {
+            return try SharedLocalFeedCardSyncManager(
+                groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
+            )
+        } catch {
+            Task {
+                let presentation = await errorManager.presentableError(
+                    from: error,
+                    context: AppErrorContext(
+                        operation: "makeSharedLocalFeedCardSyncManager",
+                        feature: "shareExtension"
+                    )
+                )
+                assertionFailure("Failed to create shared local feed card sync manager: \(presentation.error.debugDescription)")
+            }
+            return nil
+        }
     }
 
     /// Resolves the best local feed snapshot for bootstrap and falls back to fixtures only when storage is empty.

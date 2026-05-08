@@ -1,11 +1,12 @@
 # Current Plan
 
 ## Goal
-Keep a short task-local snapshot for the active on-device AI rollout after the completed runtime restoration.
+Keep a short task-local snapshot for the active share-extension rollout after the completed runtime restoration.
 
 ## Active Steps
-1. Feed translation integration is complete
-2. Detail-screen translation integration is pending design
+1. Shared app-group local card sync foundation is complete
+2. Share extension target and intake flow are pending
+3. Extension composer wiring is pending
 
 ## Working Rule
 - Keep this file short and current.

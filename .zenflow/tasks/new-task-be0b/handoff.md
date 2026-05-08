@@ -3,7 +3,7 @@
 ## Current Status
 - Project: `TchopApp`
 - State: app builds successfully
-- Current track: reusable on-device AI integration is in progress after the completed runtime restoration
+- Current track: share-extension foundation is in progress after the completed runtime restoration
 - Resume from this worktree, not from scratch
 
 ## Default Resume Read Order
@@ -32,17 +32,12 @@
 - composer preview/detail no longer shows those draft-only media titles either, so this parity gap is closed
 - `source` now has hidden separate URL storage and published local feed performs tap-to-open only when the URL exists
 - channel/publish/search contract was re-checked and currently looks aligned with the agreed runtime behavior
-- `TchopOnDeviceAI` package root was added for reusable local Foundation Models usage
-- app-local translated card snapshot persistence now exists
-- feed-level card translation is wired for remote and local cards
-- feed translation behavior currently implemented:
-  - button text is `See translation`
-  - after translation it changes to `See original`
-  - with two app languages it translates directly to the other language
-  - with more than two languages it opens a simple language picker popup
-  - translated state survives refresh/navigation/reopen locally
-  - button is hidden when the model is unavailable
-  - after a runtime `model catalog` asset failure, the package degrades to unavailable for the current session and the button hides on subsequent renders
+- `TchopOnDeviceAI` feed translation integration exists and is currently paused at feed-only stage
+- `TchopShareSupport` package root was added for reusable app-group JSON storage
+- `SharedLocalFeedCardSyncManager` now bridges extension-originated local cards into app runtime through sync points instead of direct live coupling
+- current sync points:
+  - app activation
+  - pull-to-refresh
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
@@ -59,7 +54,9 @@
 - detail-screen translation is still open
 
 ## Current Next Work
-- wire on-device translation into detail screens once detail design is available
+- add share extension target
+- add generic share intake/import flow for text/image/video/pdf/audio
+- wire extension composer to the existing app-specific card contract
 
 ## Important Files
 - App shell state:
@@ -72,10 +69,14 @@
   [NewsFeedView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift)
 - Feed translation orchestration:
   [NewsFeedViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift)
+- Shared extension/app local card sync:
+  [SharedLocalFeedCardSyncManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Shared/SharedLocalFeedCardSyncManager.swift)
 - Feed/persistence/sync orchestration:
   [AppContentRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/AppContentRepository.swift)
 - Local AI package:
   [TchopOnDeviceAI.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopOnDeviceAI/TchopOnDeviceAI.swift)
+- Share support package:
+  [TchopShareSupport.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopShareSupport/TchopShareSupport.swift)
 
 ## Verification Baseline
 - Default verification is not automatic

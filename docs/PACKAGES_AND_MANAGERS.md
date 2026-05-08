@@ -115,6 +115,18 @@ App keeps:
 - translated-state presentation policy
 - local per-feature persistence of translated snapshots
 
+### `TchopShareSupport`
+Use for:
+- app-group-backed shared JSON item storage
+- reusable cross-process handoff primitives for app extensions
+- generic persistence of imported/share-originated payloads keyed by item ID
+
+App keeps:
+- app-specific card draft models
+- app-specific local feed card payloads
+- publish/sync policy between extension storage and app runtime
+- extension lifecycle and authentication gating
+
 ### `TchopBranding`
 Use for:
 - semantic brand tokens
