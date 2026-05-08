@@ -40,6 +40,8 @@
   - app activation
   - pull-to-refresh
 - share extension target scaffolding now exists for both app variants and both app schemes build successfully with the new embedded extensions
+- `FeedComposerViewModel` publish is now injected instead of being hard-wired only to `LocalFeedCardStore`
+- `FeedComposerDraft` now supports imported text/image/video/audio/pdf application with explicit failure for incompatible media mixes
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
@@ -56,8 +58,8 @@
 - detail-screen translation is still open
 
 ## Current Next Work
-- wire extension composer to the existing app-specific card contract
-- wire extension publish into shared local-feed payload storage
+- wire extension composer surface to the existing app-specific card contract
+- connect extension publish closure to shared local-feed payload storage
 - add unauthenticated extension state with `Open app` surface
 
 ## Important Files

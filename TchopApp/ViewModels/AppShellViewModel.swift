@@ -44,15 +44,29 @@ final class LocalFeedCardStore {
 final class FeedComposerViewModel {
     private(set) var draft: FeedComposerDraft
     private let channelsStore: ChannelsStore
-    private let localFeedCardStore: LocalFeedCardStore
+    private let publishAction: @MainActor (LocalFeedCardModel, NewsFeedCard) -> Void
 
-    init(
+    convenience init(
         selectedChannelID: String,
         channelsStore: ChannelsStore,
         localFeedCardStore: LocalFeedCardStore
     ) {
+        self.init(
+            selectedChannelID: selectedChannelID,
+            channelsStore: channelsStore,
+            publishAction: { _, newsFeedCard in
+                localFeedCardStore.publish(newsFeedCard)
+            }
+        )
+    }
+
+    init(
+        selectedChannelID: String,
+        channelsStore: ChannelsStore,
+        publishAction: @escaping @MainActor (LocalFeedCardModel, NewsFeedCard) -> Void
+    ) {
         self.channelsStore = channelsStore
-        self.localFeedCardStore = localFeedCardStore
+        self.publishAction = publishAction
         self.draft = FeedComposerDraft(selectedChannelID: selectedChannelID)
     }
 
@@ -238,8 +252,9 @@ final class FeedComposerViewModel {
         guard let card = draft.makeCard() else {
             return nil
         }
-        let newsFeedCard = card.localNewsFeedCard
-        localFeedCardStore.publish(newsFeedCard)
+        let localFeedCard = card.localFeedCardModel
+        let newsFeedCard = localFeedCard.newsFeedCard
+        publishAction(localFeedCard, newsFeedCard)
         return newsFeedCard
     }
 }

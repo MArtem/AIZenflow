@@ -1,5 +1,6 @@
 import Foundation
 import TchopOnDeviceAI
+import TchopShareSupport
 
 enum ChannelCardKind: String, Equatable, Sendable {
     case text
@@ -156,6 +157,12 @@ enum FeedComposerInsertion: Equatable, Sendable, Identifiable {
         case .source: return "Source"
         }
     }
+}
+
+enum FeedComposerImportError: Error, Equatable, Sendable {
+    case unsupportedMixedMediaAttachments
+    case unsupportedMultipleFileAttachments
+    case incompatibleWithExistingMedia
 }
 
 struct FeedComposerDraft: Equatable, Sendable {
@@ -510,6 +517,15 @@ struct FeedComposerDraft: Equatable, Sendable {
         sourceURLString = normalizedOptionalText(value)
     }
 
+    mutating func applyImportedItems(_ items: [ShareImportedItem]) throws {
+        guard !items.isEmpty else {
+            return
+        }
+
+        applyImportedTextItems(items)
+        try applyImportedFileItems(items)
+    }
+
     var fileCaptionText: String? {
         guard case let .file(file) = media else {
             return nil
@@ -607,6 +623,120 @@ struct FeedComposerDraft: Equatable, Sendable {
         return items.first(where: { $0.id == id })
     }
 
+    private mutating func applyImportedTextItems(_ importedItems: [ShareImportedItem]) {
+        let importedTexts = importedItems.compactMap { item -> String? in
+            guard case let .text(textItem) = item else {
+                return nil
+            }
+
+            let trimmed = textItem.text.trimmingCharacters(in: .whitespacesAndNewlines)
+            return trimmed.isEmpty ? nil : trimmed
+        }
+
+        guard !importedTexts.isEmpty else {
+            return
+        }
+
+        let combinedImportedText = importedTexts.joined(separator: "\n\n")
+        let currentText = normalizedText(for: .text)
+        let mergedText = [currentText, combinedImportedText]
+            .compactMap { $0 }
+            .joined(separator: currentText == nil ? "" : "\n\n")
+
+        visibleTextFieldKinds.insert(.text)
+        textValues[.text] = mergedText
+    }
+
+    private mutating func applyImportedFileItems(_ importedItems: [ShareImportedItem]) throws {
+        let importedFiles = importedItems.compactMap { item -> ShareImportedFileItem? in
+            guard case let .file(fileItem) = item else {
+                return nil
+            }
+
+            return fileItem
+        }
+
+        guard !importedFiles.isEmpty else {
+            return
+        }
+
+        let imageFiles = importedFiles.filter { $0.kind == .image }
+        let nonImageFiles = importedFiles.filter { $0.kind != .image }
+
+        if !imageFiles.isEmpty && !nonImageFiles.isEmpty {
+            throw FeedComposerImportError.unsupportedMixedMediaAttachments
+        }
+
+        if nonImageFiles.count > 1 {
+            throw FeedComposerImportError.unsupportedMultipleFileAttachments
+        }
+
+        if !imageFiles.isEmpty {
+            try applyImportedPhotoFiles(imageFiles)
+            return
+        }
+
+        if let file = nonImageFiles.first {
+            try applyImportedSingleFile(file)
+        }
+    }
+
+    private mutating func applyImportedPhotoFiles(_ files: [ShareImportedFileItem]) throws {
+        switch media {
+        case nil:
+            let items = files.prefix(10).enumerated().map { index, file in
+                makeImportedPhotoItem(file: file, fallbackNumber: index + 1)
+            }
+            media = .photos(items: items)
+            visibleTextFieldKinds.insert(.text)
+        case let .photos(existingItems):
+            let remainingCapacity = max(0, 10 - existingItems.count)
+            guard remainingCapacity > 0 else {
+                return
+            }
+
+            let newItems = files.prefix(remainingCapacity).enumerated().map { index, file in
+                makeImportedPhotoItem(file: file, fallbackNumber: existingItems.count + index + 1)
+            }
+            media = .photos(items: existingItems + newItems)
+            visibleTextFieldKinds.insert(.text)
+        case .file:
+            throw FeedComposerImportError.incompatibleWithExistingMedia
+        }
+    }
+
+    private mutating func applyImportedSingleFile(_ file: ShareImportedFileItem) throws {
+        guard media == nil else {
+            throw FeedComposerImportError.incompatibleWithExistingMedia
+        }
+
+        let mediaKind: ChannelCardMediaKind
+        switch file.kind {
+        case .video:
+            mediaKind = .video
+        case .audio:
+            mediaKind = .audio
+        case .pdf, .file:
+            mediaKind = .pdf
+        case .image:
+            mediaKind = .photo
+        }
+
+        guard mediaKind != .photo else {
+            throw FeedComposerImportError.incompatibleWithExistingMedia
+        }
+
+        media = .file(
+            ChannelCardFileMediaContent(
+                kind: mediaKind,
+                displayTitle: file.originalFilename,
+                teaserImage: nil,
+                caption: nil
+            )
+        )
+        visibleTextFieldKinds.insert(.text)
+    }
+
     private mutating func selectMedia(_ kind: ChannelCardMediaKind) {
         guard media == nil else {
             return
@@ -633,6 +763,21 @@ struct FeedComposerDraft: Equatable, Sendable {
         ChannelCardPhotoItem(
             id: UUID().uuidString,
             displayTitle: "Photo \(number)",
+            caption: nil,
+            copyright: nil
+        )
+    }
+
+    private func makeImportedPhotoItem(
+        file: ShareImportedFileItem,
+        fallbackNumber: Int
+    ) -> ChannelCardPhotoItem {
+        let filename = file.originalFilename.trimmingCharacters(in: .whitespacesAndNewlines)
+        let displayTitle = filename.isEmpty ? "Photo \(fallbackNumber)" : filename
+
+        return ChannelCardPhotoItem(
+            id: UUID().uuidString,
+            displayTitle: displayTitle,
             caption: nil,
             copyright: nil
         )

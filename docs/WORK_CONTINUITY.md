@@ -114,6 +114,14 @@ Only these fields exist:
   - app sync also happens on pull-to-refresh
   - extension/app are intentionally not coupled through direct shared in-memory runtime
   - the current local app store remains the visible runtime cache
+- `FeedComposerViewModel` publish boundary is now generalized:
+  - the same app-specific composer can publish either into app runtime or into extension shared storage
+  - the publish decision is injected as an app-specific closure instead of being hard-wired to one runtime path
+- `FeedComposerDraft` now supports app-specific import of shared content:
+  - imported text is merged into the `text` field
+  - imported image batches map into photo items
+  - one imported video/audio/pdf file maps into the corresponding file-media draft
+  - incompatible imported media mixes fail explicitly instead of silently guessing
 - share extension target scaffolding now exists for both app variants:
   - `TchopShareExtension`
   - `TchopShareOceanExtension`
@@ -125,6 +133,7 @@ Only these fields exist:
 ## What Still Needs Work
 - app-specific composer reuse between app and extension still needs to be wired
 - extension publish path still needs to write app-specific local feed payloads into shared storage
+- extension-side composer surface still needs to be wired on top of the current app-specific composer contract
 - unauthenticated extension state should remain an app-specific `Open app` surface and should not be over-assumed
 - on-device translation is still paused at feed-only stage until detail design exists
 
