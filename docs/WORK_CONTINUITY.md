@@ -11,11 +11,14 @@ Use it when:
 ## Current Long-Running Epic
 Restoration of the feed/composer/card runtime around the 5-type card model is complete.
 
-The current active epic is share-extension foundation:
+The current active epic is share-extension rollout:
 - reusable package root: `TchopShareSupport`
 - app-specific bridge: `SharedLocalFeedCardSyncManager`
-- current stage: app-group-backed shared local card sync is wired into app entry and pull-to-refresh
-- next stage: share extension target, intake, and composer wiring
+- current stage:
+  - app-group-backed shared local card sync is wired into app entry and pull-to-refresh
+  - reusable share-intake importer exists
+  - share extension targets exist for both app variants and the project builds with them
+- next stage: app-specific composer wiring, publish flow, and unauthenticated extension state
 
 ## Stable Baselines That Must Be Preserved
 - Deployment target: `iOS 17`
@@ -105,16 +108,23 @@ Only these fields exist:
   - feed buttons hide on subsequent renders instead of allowing repeated dead taps
 - current app localization baseline now includes `de` in addition to existing locales
 - `TchopShareSupport` package was added as the reusable app-group JSON storage root for extension/app handoff
+- `TchopShareSupport` now also contains a reusable `NSItemProvider`-based share-intake importer for text/image/video/pdf/audio/file payloads
 - `SharedLocalFeedCardSyncManager` now syncs extension-published local cards into the app runtime:
   - app sync happens on app activation
   - app sync also happens on pull-to-refresh
   - extension/app are intentionally not coupled through direct shared in-memory runtime
   - the current local app store remains the visible runtime cache
+- share extension target scaffolding now exists for both app variants:
+  - `TchopShareExtension`
+  - `TchopShareOceanExtension`
+- current scaffold state:
+  - imported content can be loaded inside the extension through the generic share-intake package
+  - project wiring, package linkage, Info.plist, and entitlements are in place
+  - both `TchopApp` and `TchopAppOcean` build successfully with their share extensions embedded
 
 ## What Still Needs Work
-- share extension target still needs to be added
-- generic share intake/import pipeline still needs to be added
 - app-specific composer reuse between app and extension still needs to be wired
+- extension publish path still needs to write app-specific local feed payloads into shared storage
 - unauthenticated extension state should remain an app-specific `Open app` surface and should not be over-assumed
 - on-device translation is still paused at feed-only stage until detail design exists
 
@@ -136,6 +146,10 @@ If work must resume quickly, start with:
 - [NewsFeedViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift)
 - [Package.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Package.swift)
 - [TchopOnDeviceAI.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopOnDeviceAI/TchopOnDeviceAI.swift)
+- [TchopShareSupport.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopShareSupport/TchopShareSupport.swift)
+- [ShareItemImporter.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift)
+- [SharedLocalFeedCardSyncManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Shared/SharedLocalFeedCardSyncManager.swift)
+- [ShareViewController.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopShareExtension/ShareViewController.swift)
 
 ## Related Durable Context
 - [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)

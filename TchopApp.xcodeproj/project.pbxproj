@@ -132,6 +132,16 @@
 		I00000030000000000000001 /* TchopErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* TchopErrors */; };
 		J10000010000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
 		J10000030000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
+		L00000010000000000000001 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000150000000000000001 /* ShareViewController.swift */; };
+		L00000020000000000000001 /* ShareExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000160000000000000001 /* ShareExtensionRootView.swift */; };
+		L00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
+		L00000040000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
+		L00000050000000000000001 /* TchopShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = L00000130000000000000001 /* TchopShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		L00000060000000000000001 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000150000000000000001 /* ShareViewController.swift */; };
+		L00000070000000000000001 /* ShareExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000160000000000000001 /* ShareExtensionRootView.swift */; };
+		L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
+		L00000090000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
+		L00000100000000000000001 /* TchopShareOceanExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = L00000140000000000000001 /* TchopShareOceanExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -142,6 +152,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				D00000080000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */,
+				L00000050000000000000001 /* TchopShareExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -153,6 +164,7 @@
 			dstSubfolderSpec = 13;
 			files = (
 				D00000240000000000000001 /* TchopWidgetsOceanExtension.appex in Embed App Extensions */,
+				L00000100000000000000001 /* TchopShareOceanExtension.appex in Embed App Extensions */,
 			);
 			name = "Embed App Extensions";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -180,6 +192,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = D000002C0000000000000001;
 			remoteInfo = TchopWidgetsOceanExtension;
+		};
+		L00000110000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A000000B0000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = L00000210000000000000001;
+			remoteInfo = TchopShareExtension;
+		};
+		L00000120000000000000001 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A000000B0000000000000001 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = L00000220000000000000001;
+			remoteInfo = TchopShareOceanExtension;
 		};
 		U00000030000000000000001 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -265,6 +291,13 @@
 		D00000140000000000000001 /* TchopWidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopWidgetsExtension.entitlements; sourceTree = "<group>"; };
 		D000001F0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D00000290000000000000001 /* TchopWidgetsOceanExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopWidgetsOceanExtension.entitlements; sourceTree = "<group>"; };
+		L00000130000000000000001 /* TchopShareExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TchopShareExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		L00000140000000000000001 /* TchopShareOceanExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TchopShareOceanExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
+		L00000150000000000000001 /* ShareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareViewController.swift; sourceTree = "<group>"; };
+		L00000160000000000000001 /* ShareExtensionRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionRootView.swift; sourceTree = "<group>"; };
+		L00000170000000000000001 /* TchopShareExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopShareExtension.entitlements; sourceTree = "<group>"; };
+		L00000180000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		L00000190000000000000001 /* TchopShareOceanExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopShareOceanExtension.entitlements; sourceTree = "<group>"; };
 		A00000800000000000000001 /* TchopAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TchopAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A00000820000000000000001 /* AppStateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppStateTests.swift; sourceTree = "<group>"; };
 		A00000840000000000000001 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
@@ -353,6 +386,22 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		L00000340000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				L00000040000000000000001 /* TchopShareSupport in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		L00000370000000000000001 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				L00000090000000000000001 /* TchopShareSupport in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -361,6 +410,7 @@
 			children = (
 				A00000030000000000000001 /* TchopApp */,
 				D00000180000000000000001 /* TchopWidgetsExtension */,
+				L00000230000000000000001 /* TchopShareExtension */,
 				A00000040000000000000001 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -396,6 +446,8 @@
 				B00000010000000000000001 /* TchopAppOcean.app */,
 				D000000A0000000000000001 /* TchopWidgetsExtension.appex */,
 				D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */,
+				L00000130000000000000001 /* TchopShareExtension.appex */,
+				L00000140000000000000001 /* TchopShareOceanExtension.appex */,
 				A00000800000000000000001 /* TchopAppTests.xctest */,
 				U00000040000000000000001 /* TchopAppUITests.xctest */,
 			);
@@ -507,6 +559,18 @@
 				D00000290000000000000001 /* TchopWidgetsOceanExtension.entitlements */,
 			);
 			path = TchopWidgetsExtension;
+			sourceTree = "<group>";
+		};
+		L00000230000000000000001 /* TchopShareExtension */ = {
+			isa = PBXGroup;
+			children = (
+				L00000150000000000000001 /* ShareViewController.swift */,
+				L00000160000000000000001 /* ShareExtensionRootView.swift */,
+				L00000180000000000000001 /* Info.plist */,
+				L00000170000000000000001 /* TchopShareExtension.entitlements */,
+				L00000190000000000000001 /* TchopShareOceanExtension.entitlements */,
+			);
+			path = TchopShareExtension;
 			sourceTree = "<group>";
 		};
 		A00000100000000000000002 /* Services */ = {
@@ -651,6 +715,7 @@
 			);
 			dependencies = (
 				D00000190000000000000001 /* PBXTargetDependency */,
+				L00000240000000000000001 /* PBXTargetDependency */,
 			);
 			name = TchopApp;
 			packageProductDependencies = (
@@ -685,6 +750,7 @@
 			);
 			dependencies = (
 				D00000230000000000000001 /* PBXTargetDependency */,
+				L00000250000000000000001 /* PBXTargetDependency */,
 			);
 			name = TchopAppOcean;
 			packageProductDependencies = (
@@ -744,6 +810,46 @@
 			);
 			productName = TchopWidgetsOceanExtension;
 			productReference = D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		L00000210000000000000001 /* TchopShareExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L00000260000000000000001 /* Build configuration list for PBXNativeTarget "TchopShareExtension" */;
+			buildPhases = (
+				L00000330000000000000001 /* Sources */,
+				L00000340000000000000001 /* Frameworks */,
+				L00000350000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TchopShareExtension;
+			packageProductDependencies = (
+				D00000061000000000000001 /* TchopShareSupport */,
+			);
+			productName = TchopShareExtension;
+			productReference = L00000130000000000000001 /* TchopShareExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
+		L00000220000000000000001 /* TchopShareOceanExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = L00000270000000000000001 /* Build configuration list for PBXNativeTarget "TchopShareOceanExtension" */;
+			buildPhases = (
+				L00000360000000000000001 /* Sources */,
+				L00000370000000000000001 /* Frameworks */,
+				L00000380000000000000001 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = TchopShareOceanExtension;
+			packageProductDependencies = (
+				D00000061000000000000001 /* TchopShareSupport */,
+			);
+			productName = TchopShareOceanExtension;
+			productReference = L00000140000000000000001 /* TchopShareOceanExtension.appex */;
 			productType = "com.apple.product-type.app-extension";
 		};
 		A000008A0000000000000001 /* TchopAppTests */ = {
@@ -830,6 +936,8 @@
 				B00000080000000000000001 /* TchopAppOcean */,
 				D00000160000000000000001 /* TchopWidgetsExtension */,
 				D000002C0000000000000001 /* TchopWidgetsOceanExtension */,
+				L00000210000000000000001 /* TchopShareExtension */,
+				L00000220000000000000001 /* TchopShareOceanExtension */,
 				A000008A0000000000000001 /* TchopAppTests */,
 				U00000060000000000000001 /* TchopAppUITests */,
 			);
@@ -856,6 +964,16 @@
 			isa = PBXTargetDependency;
 			target = D000002C0000000000000001 /* TchopWidgetsOceanExtension */;
 			targetProxy = D00000220000000000000001 /* PBXContainerItemProxy */;
+		};
+		L00000240000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = L00000210000000000000001 /* TchopShareExtension */;
+			targetProxy = L00000110000000000000001 /* PBXContainerItemProxy */;
+		};
+		L00000250000000000000001 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = L00000220000000000000001 /* TchopShareOceanExtension */;
+			targetProxy = L00000120000000000000001 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -892,6 +1010,20 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		D000002E0000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		L00000350000000000000001 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		L00000380000000000000001 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1066,6 +1198,26 @@
 				D00000250000000000000001 /* FeedHeadlineWidget.swift in Sources */,
 				D00000260000000000000001 /* TchopWidgetsBundle.swift in Sources */,
 				D00000270000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		L00000330000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				L00000010000000000000001 /* ShareViewController.swift in Sources */,
+				L00000020000000000000001 /* ShareExtensionRootView.swift in Sources */,
+				L00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		L00000360000000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				L00000060000000000000001 /* ShareViewController.swift in Sources */,
+				L00000070000000000000001 /* ShareExtensionRootView.swift in Sources */,
+				L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1559,6 +1711,122 @@
 			};
 			name = Release;
 		};
+		L00000280000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = com.example.TchopApp.share;
+				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		L00000290000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = com.example.TchopApp.share;
+				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		L00000300000000000000001 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.share;
+				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareOceanExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		L00000310000000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.share;
+				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
+				APPLICATION_EXTENSION_API_ONLY = YES;
+				CODE_SIGN_ENTITLEMENTS = TchopShareExtension/TchopShareOceanExtension.entitlements;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = TchopShareExtension/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "$(APP_BUNDLE_IDENTIFIER)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1603,6 +1871,24 @@
 			buildConfigurations = (
 				D00000300000000000000001 /* Debug */,
 				D00000310000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		L00000260000000000000001 /* Build configuration list for PBXNativeTarget "TchopShareExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				L00000280000000000000001 /* Debug */,
+				L00000290000000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		L00000270000000000000001 /* Build configuration list for PBXNativeTarget "TchopShareOceanExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				L00000300000000000000001 /* Debug */,
+				L00000310000000000000001 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -120,6 +120,7 @@ Use for:
 - app-group-backed shared JSON item storage
 - reusable cross-process handoff primitives for app extensions
 - generic persistence of imported/share-originated payloads keyed by item ID
+- generic `NSItemProvider` intake for text/image/video/pdf/audio/file payloads
 
 App keeps:
 - app-specific card draft models

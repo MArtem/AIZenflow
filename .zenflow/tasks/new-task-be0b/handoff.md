@@ -34,10 +34,12 @@
 - channel/publish/search contract was re-checked and currently looks aligned with the agreed runtime behavior
 - `TchopOnDeviceAI` feed translation integration exists and is currently paused at feed-only stage
 - `TchopShareSupport` package root was added for reusable app-group JSON storage
+- `TchopShareSupport` now also provides generic `NSItemProvider` intake for shared text/files
 - `SharedLocalFeedCardSyncManager` now bridges extension-originated local cards into app runtime through sync points instead of direct live coupling
 - current sync points:
   - app activation
   - pull-to-refresh
+- share extension target scaffolding now exists for both app variants and both app schemes build successfully with the new embedded extensions
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
@@ -54,9 +56,9 @@
 - detail-screen translation is still open
 
 ## Current Next Work
-- add share extension target
-- add generic share intake/import flow for text/image/video/pdf/audio
 - wire extension composer to the existing app-specific card contract
+- wire extension publish into shared local-feed payload storage
+- add unauthenticated extension state with `Open app` surface
 
 ## Important Files
 - App shell state:
@@ -77,6 +79,11 @@
   [TchopOnDeviceAI.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopOnDeviceAI/TchopOnDeviceAI.swift)
 - Share support package:
   [TchopShareSupport.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopShareSupport/TchopShareSupport.swift)
+- Share intake importer:
+  [ShareItemImporter.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift)
+- Share extension scaffold:
+  [ShareViewController.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopShareExtension/ShareViewController.swift)
+  [ShareExtensionRootView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopShareExtension/ShareExtensionRootView.swift)
 
 ## Verification Baseline
 - Default verification is not automatic
@@ -84,6 +91,10 @@
 - Last confirmed command:
   `./scripts/verify.sh low`
 - Last confirmed result:
+  `BUILD SUCCEEDED`
+- Additional confirmed build:
+  `xcodebuild -project TchopApp.xcodeproj -scheme TchopAppOcean -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build`
+- Additional confirmed result:
   `BUILD SUCCEEDED`
 
 ## Post-Restoration Requirement
