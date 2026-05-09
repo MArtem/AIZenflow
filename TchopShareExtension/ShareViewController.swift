@@ -66,7 +66,12 @@ final class ShareViewController: UIViewController {
             let shareExtensionSessionContextManager,
             let sharedLocalFeedCardSyncManager
         else {
-            installRootView(state: .failed(message: "Share extension is unavailable."))
+            installRootView(
+                state: .failed(
+                    title: "Share unavailable",
+                    message: "The share extension couldn't be prepared in this session."
+                )
+            )
             return
         }
 
@@ -92,7 +97,8 @@ final class ShareViewController: UIViewController {
             self.composerViewModel = composerViewModel
             installRootView(state: .composer(composerViewModel))
         } catch {
-            installRootView(state: .failed(message: failureMessage(for: error)))
+            let failure = failurePresentation(for: error)
+            installRootView(state: .failed(title: failure.title, message: failure.message))
         }
     }
 
@@ -144,7 +150,12 @@ final class ShareViewController: UIViewController {
         }
 
         if let publishFailureMessage {
-            installRootView(state: .failed(message: publishFailureMessage))
+            installRootView(
+                state: .failed(
+                    title: "Publish failed",
+                    message: publishFailureMessage
+                )
+            )
             return
         }
 
@@ -174,26 +185,52 @@ final class ShareViewController: UIViewController {
         return inputItems.flatMap { $0.attachments ?? [] }
     }
 
-    private func failureMessage(for error: Error) -> String {
+    private func failurePresentation(for error: Error) -> ShareFailurePresentation {
         switch error {
         case ShareItemImportError.unsupportedProvider:
-            return "This shared content type is not supported."
+            return ShareFailurePresentation(
+                title: "This content can't be shared here",
+                message: "This app can create cards from text, images, video, audio, or PDF content."
+            )
         case ShareItemImportError.unableToDecodeText:
-            return "The shared text couldn't be loaded."
+            return ShareFailurePresentation(
+                title: "Text couldn't be loaded",
+                message: "The shared text wasn't readable in this share session."
+            )
         case ShareItemImportError.unableToLoadFileRepresentation:
-            return "The shared file couldn't be loaded."
+            return ShareFailurePresentation(
+                title: "File couldn't be loaded",
+                message: "The shared file wasn't available to the extension."
+            )
         case FeedComposerImportError.unsupportedMixedMediaAttachments:
-            return "This shared selection mixes media types that can't go into one card."
+            return ShareFailurePresentation(
+                title: "This selection mixes media types",
+                message: "A single card can't start with mixed imported media like image and video together. Share one media type at a time."
+            )
         case FeedComposerImportError.unsupportedMultipleFileAttachments:
-            return "This shared selection includes multiple file attachments that can't go into one card."
+            return ShareFailurePresentation(
+                title: "This selection includes multiple files",
+                message: "A single card can start with one imported video, audio file, or PDF. Share one file at a time."
+            )
         case FeedComposerImportError.incompatibleWithExistingMedia:
-            return "This shared selection can't be combined into one card."
+            return ShareFailurePresentation(
+                title: "This content can't be combined",
+                message: "The imported content doesn't fit the current card media rules. Remove the conflicting media and try again."
+            )
         default:
-            return "Failed to prepare shared content."
+            return ShareFailurePresentation(
+                title: "Share couldn't be prepared",
+                message: "The shared content couldn't be prepared for card creation."
+            )
         }
     }
 }
 
 private enum ShareExtensionError: LocalizedError {
     case cancelled
+}
+
+private struct ShareFailurePresentation {
+    let title: String
+    let message: String
 }

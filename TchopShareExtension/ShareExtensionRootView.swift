@@ -5,7 +5,7 @@ struct ShareExtensionRootView: View {
         case loading
         case signInRequired(message: String)
         case composer(FeedComposerViewModel)
-        case failed(message: String)
+        case failed(title: String, message: String)
     }
 
     let state: State
@@ -25,8 +25,8 @@ struct ShareExtensionRootView: View {
                 onCancel: onClose,
                 onPublish: onPublish
             )
-        case let .failed(message):
-            failureView(message: message)
+        case let .failed(title, message):
+            failureView(title: title, message: message)
         }
     }
 
@@ -73,12 +73,16 @@ struct ShareExtensionRootView: View {
         }
     }
 
-    private func failureView(message: String) -> some View {
+    private func failureView(title: String, message: String) -> some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: AppSpacing.lg) {
+                Text(title)
+                    .font(AppTypography.sectionTitle)
+                    .foregroundStyle(AppTheme.textPrimary)
+
                 Text(message)
                     .font(AppTypography.bodyRegular)
-                    .foregroundStyle(AppTheme.destructive)
+                    .foregroundStyle(AppTheme.textSecondary)
 
                 Spacer(minLength: 0)
             }
