@@ -15,6 +15,21 @@ Use it for:
 - Use the cheapest verification path that proves the requested behavior
 - Do not run `Low` build verification automatically after every step; run it only when the recent change set is large enough, risky enough, or integration-sensitive enough that a compile check is justified by cost
 
+## Quality-First Delivery Rule
+When a feature is moving from prototype/restoration state toward production-ready status, do not rely on the original implementation pass alone.
+
+Run a separate production-hardening pass that checks:
+1. product contract completeness
+2. state and lifecycle correctness
+3. package/app ownership correctness
+4. platform constraints and edge cases
+5. performance and memory risks
+6. persistence/sync implications if relevant
+7. accessibility and interaction semantics
+8. verification strategy and whether targeted tests or review are justified
+
+If required information is missing for one of these checks, ask for it explicitly instead of guessing.
+
 ## Verification Levels
 Verification runs only when the user explicitly asks for them.
 
@@ -80,6 +95,16 @@ For new API-backed screen work, prefer this order:
 5. cheap trace verification
 6. UI wiring
 7. UI-driven verification only if explicitly requested
+
+## Production-Hardening Workflow
+When the user prioritizes final quality over raw speed, use this order before calling a feature production-ready:
+
+1. lock the product contract
+2. implement the minimum correct version
+3. run targeted contract verification
+4. run production-hardening review across architecture, lifecycle, performance, memory, and edge cases
+5. request any missing design/TZ/platform details instead of guessing
+6. run the smallest justified verification that proves the hardened result
 
 ## Reporting Rules
 When verification is run, report:

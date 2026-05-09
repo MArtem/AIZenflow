@@ -17,6 +17,8 @@ Global assistant iOS/model-routing rules live in:
 ## Project-Specific Rules
 - Do not add speculative UI, speculative logic, or fallback flows that were not explicitly requested.
 - Prefer the minimum working implementation that matches the clarified product contract.
+- Optimize for final product correctness over implementation speed. If requirements, state behavior, lifecycle, platform behavior, or ownership are unclear, stop and ask instead of guessing.
+- Treat temporary/prototype code as temporary. Before any feature is treated as production-ready, run a separate production-hardening pass instead of silently carrying prototype assumptions forward.
 - Keep warning baseline at zero.
 - Preserve accessibility semantics for interactive UI and hide decorative-only elements from accessibility.
 - Keep previews updated when a renderable SwiftUI view API or UI contract changes.
