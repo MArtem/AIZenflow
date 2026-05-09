@@ -10,10 +10,12 @@ Use it together with:
 
 ## Project-Specific Rules
 - Reusable packages/managers are the foundation. App code adapts to package contracts.
+- Package/app architecture decisions take priority over implementation speed. If a boundary is wrong, fix the boundary before adding more code on top of it.
 - Do not add decorative protocols, shims, adapters, or facades when the package surface already fits the job.
 - `SyncCore` is the root sync foundation. App code should keep only project-specific mapping, endpoint semantics, local schema application, and UI-facing policy.
 - Package changes should move reusable behavior into the package instead of duplicating that behavior in the app layer.
 - App repositories should coordinate app semantics, not reimplement generic package behavior.
+- When introducing extensions, shared storage, sync bridges, or new managers, resolve ownership and runtime boundaries first. Do not let app code, package code, and extension code drift into an accidental structure that will be expensive to unwind later.
 
 ## Documentation Rule
 When asked to add a new services/package rule, first propose placement using:
