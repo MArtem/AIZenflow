@@ -92,7 +92,7 @@ final class ShareViewController: UIViewController {
             self.composerViewModel = composerViewModel
             installRootView(state: .composer(composerViewModel))
         } catch {
-            installRootView(state: .failed(message: "Failed to prepare shared content."))
+            installRootView(state: .failed(message: failureMessage(for: error)))
         }
     }
 
@@ -160,7 +160,9 @@ final class ShareViewController: UIViewController {
         }
 
         extensionContext?.open(url) { [weak self] _ in
-            self?.extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
+            Task { @MainActor [weak self] in
+                self?.extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
+            }
         }
     }
 
@@ -170,6 +172,25 @@ final class ShareViewController: UIViewController {
         }
 
         return inputItems.flatMap { $0.attachments ?? [] }
+    }
+
+    private func failureMessage(for error: Error) -> String {
+        switch error {
+        case ShareItemImportError.unsupportedProvider:
+            return "This shared content type is not supported."
+        case ShareItemImportError.unableToDecodeText:
+            return "The shared text couldn't be loaded."
+        case ShareItemImportError.unableToLoadFileRepresentation:
+            return "The shared file couldn't be loaded."
+        case FeedComposerImportError.unsupportedMixedMediaAttachments:
+            return "This shared selection mixes media types that can't go into one card."
+        case FeedComposerImportError.unsupportedMultipleFileAttachments:
+            return "This shared selection includes multiple file attachments that can't go into one card."
+        case FeedComposerImportError.incompatibleWithExistingMedia:
+            return "This shared selection can't be combined into one card."
+        default:
+            return "Failed to prepare shared content."
+        }
     }
 }
 

@@ -118,6 +118,10 @@ public final class NSItemProviderShareItemImporter: ShareItemImporting {
             items.append(.file(try await loadFileItem(from: provider, kind: supportedFile)))
         }
 
+        if items.isEmpty {
+            throw ShareItemImportError.unsupportedProvider
+        }
+
         return items
     }
 
