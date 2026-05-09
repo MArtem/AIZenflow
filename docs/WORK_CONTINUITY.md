@@ -134,7 +134,7 @@ Only these fields exist:
 
 ## What Still Needs Work
 - manual runtime validation of share-extension flows is still pending
-- incompatible import combinations currently fail explicitly, but their final product-facing messaging is still open
+- incompatible import combinations currently fail explicitly, but their final product-facing behavior is still open
 - `Open app` from share extension remains best-effort platform behavior and should not be treated as a guaranteed system contract
 - on-device translation is still paused at feed-only stage until detail design exists
 
@@ -160,6 +160,7 @@ If work must resume quickly, start with:
 - [ShareItemImporter.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift)
 - [SharedLocalFeedCardSyncManager.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Shared/SharedLocalFeedCardSyncManager.swift)
 - [ShareViewController.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopShareExtension/ShareViewController.swift)
+- [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
 
 ## Related Durable Context
 - [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)

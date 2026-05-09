@@ -20,6 +20,7 @@ For normal coding work, read in this order:
 5. [ios-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md) and [services-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md) for project overlays
 6. [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md) only when package integration, extraction, or reuse guidance is relevant
 7. [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md) when work must survive loss of the current Zenflow task/thread
+8. [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md) when validating or continuing share-extension rollout
 
 Global assistant policies live outside the repo and are not duplicated here:
 - [/Users/Artem/.zenflow/assistant/AGENTS.md](/Users/Artem/.zenflow/assistant/AGENTS.md)
@@ -102,6 +103,15 @@ Do not put here:
 - temporary speculation
 - global assistant rules
 
+### [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
+Runtime validation matrix for share-extension rollout.
+
+Put here:
+- share flow scenario coverage
+- manual validation checklist
+- explicit unsupported or rejected cases
+- remaining share-extension product decisions
+
 ### [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
 Current task resume state.
 
@@ -151,6 +161,8 @@ Before adding a new rule, skill note, or document, classify it first:
   place it in [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
 - continuity-critical state that must survive loss of the current Zenflow task:
   place it in [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
+- share-extension runtime validation status:
+  place it in [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
 - current task status or resume context:
   place it in [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
 - current task next steps:
