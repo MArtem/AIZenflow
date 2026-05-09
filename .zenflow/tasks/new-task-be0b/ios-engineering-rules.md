@@ -20,6 +20,8 @@ Global assistant iOS/model-routing rules live in:
 - Optimize for final product correctness over implementation speed. If requirements, state behavior, lifecycle, platform behavior, or ownership are unclear, stop and ask instead of guessing.
 - Treat architecture as the highest-cost decision layer. A wrong structural decision is more dangerous than a temporary UI flaw or a local implementation detail because it propagates into multiple dependent layers and becomes expensive to unwind.
 - If architecture, ownership, extension boundaries, persistence shape, or long-lived state flow are unclear, stop and resolve that first. Do not patch over architectural uncertainty with implementation glue.
+- After architecture, the next constant rule is to avoid overengineering. Do not build abstractions, flows, or flexibility that are not justified by the current product contract.
+- Re-check for simplification constantly. If something can be made materially simpler without reducing correctness, maintainability, or product fit, prefer the simpler design.
 - Treat temporary/prototype code as temporary. Before any feature is treated as production-ready, run a separate production-hardening pass instead of silently carrying prototype assumptions forward.
 - Keep warning baseline at zero.
 - Preserve accessibility semantics for interactive UI and hide decorative-only elements from accessibility.
