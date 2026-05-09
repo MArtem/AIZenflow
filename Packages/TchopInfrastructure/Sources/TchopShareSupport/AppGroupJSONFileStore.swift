@@ -1,15 +1,6 @@
 import Foundation
 
-public protocol AppGroupJSONFileManaging {
-    associatedtype Item where Item: Codable & Sendable
-
-    func save(_ item: Item) throws
-    func load() throws -> Item?
-    func clear() throws
-}
-
-public final class AppGroupJSONFileStore<Item>: AppGroupJSONFileManaging
-where Item: Codable & Sendable {
+public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
     private let fileManager: FileManager
     private let fileURL: URL
     private let encoder = JSONEncoder()

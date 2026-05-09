@@ -7,16 +7,10 @@ final class SharedLocalFeedCardSyncManager {
 
     private let store: AppGroupJSONItemDirectoryStore<LocalFeedCardModel>
 
-    init(store: AppGroupJSONItemDirectoryStore<LocalFeedCardModel>) {
-        self.store = store
-    }
-
-    convenience init(groupIdentifier: String) throws {
-        try self.init(
-            store: AppGroupJSONItemDirectoryStore(
-                groupIdentifier: groupIdentifier,
-                directoryName: Self.pendingCardsDirectoryName
-            )
+    init(groupIdentifier: String) throws {
+        self.store = try AppGroupJSONItemDirectoryStore(
+            groupIdentifier: groupIdentifier,
+            directoryName: Self.pendingCardsDirectoryName
         )
     }
 

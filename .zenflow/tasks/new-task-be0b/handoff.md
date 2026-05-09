@@ -3,7 +3,7 @@
 ## Current Status
 - Project: `TchopApp`
 - State: app builds successfully
-- Current track: share-extension foundation is in progress after the completed runtime restoration
+- Current track: runtime architecture/simplification audit of working code after the completed runtime restoration
 - Resume from this worktree, not from scratch
 
 ## Default Resume Read Order
@@ -46,6 +46,7 @@
 - `SharedCardComposerView` was extracted from `ShellContentView.swift` into its own shared app source file and is now used by both app and extension
 - share-extension publish now writes app-specific `LocalFeedCardModel` payloads into app-group storage
 - unauthenticated extension state now shows reason text plus `Open app`
+- latest simplification pass removed decorative package protocols and extra wrapper initializers in the share-support/runtime path
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
@@ -62,9 +63,9 @@
 - detail-screen translation is still open
 
 ## Current Next Work
-- manually validate share-extension runtime flows
-- decide final user-facing behavior for explicitly incompatible imported media combinations
-- keep `Open app` handling as best-effort platform behavior, not a guaranteed contract
+- continue runtime architecture/complexity audit on working code only
+- keep avoiding test-target cleanup until it becomes a dedicated task
+- after the audit, return to manual share-extension runtime validation and remaining product decisions
 
 ## Important Files
 - App shell state:

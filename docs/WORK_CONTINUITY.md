@@ -11,14 +11,24 @@ Use it when:
 ## Current Long-Running Epic
 Restoration of the feed/composer/card runtime around the 5-type card model is complete.
 
-The current active epic is share-extension rollout:
+The current active epic is runtime architecture/simplification audit of the working code:
+- share-extension rollout foundation is complete enough to build and continue later
+- current focus is reducing decorative seams, duplicate paths, and unnecessary indirection in runtime code
+- test-target cleanup is intentionally deferred
+
+The most recent architectural simplification batch:
+- removed duplicated shared-card sync ownership from `AppState` and routed it through `NewsFeedViewModel`
+- removed app-local single-implementation seams around channel selection and local channel settings
+- simplified `TchopShareSupport` by deleting unused public protocols and an unused per-item delete API
+- simplified app-specific share wrappers by removing unused store-injection initializers
+
+The current share-extension status remains:
 - reusable package root: `TchopShareSupport`
 - app-specific bridge: `SharedLocalFeedCardSyncManager`
 - current stage:
   - app-group-backed shared local card sync is wired into app entry and pull-to-refresh
   - reusable share-intake importer exists
   - share extension targets exist for both app variants and the project builds with them
-- next stage: app-specific composer wiring, publish flow, and unauthenticated extension state
 
 ## Stable Baselines That Must Be Preserved
 - Deployment target: `iOS 17`
@@ -137,6 +147,7 @@ Only these fields exist:
 - incompatible import combinations currently fail explicitly, but their final product-facing behavior is still open
 - `Open app` from share extension remains best-effort platform behavior and should not be treated as a guaranteed system contract
 - on-device translation is still paused at feed-only stage until detail design exists
+- runtime architecture/overengineering audit of the working code is still in progress
 
 ## Reopen First
 If work must resume quickly, start with:

@@ -61,11 +61,7 @@ public enum ShareItemImportError: Error, Equatable, Sendable {
     case unableToLoadFileRepresentation(typeIdentifier: String)
 }
 
-public protocol ShareItemImporting {
-    func loadItems(from providers: [NSItemProvider]) async throws -> [ShareImportedItem]
-}
-
-public final class NSItemProviderShareItemImporter: ShareItemImporting {
+public final class NSItemProviderShareItemImporter {
     private static let importedFilesDirectoryName = "share-imported-items"
 
     private let fileManager: FileManager

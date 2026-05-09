@@ -4,16 +4,7 @@ public enum AppGroupJSONItemDirectoryStoreError: Error, Equatable, Sendable {
     case unavailableSharedContainer(groupIdentifier: String)
 }
 
-public protocol AppGroupJSONItemDirectoryManaging {
-    associatedtype Item where Item: Codable & Identifiable & Sendable, Item.ID == String
-
-    func save(_ item: Item) throws
-    func loadAll() throws -> [Item]
-    func remove(id: String) throws
-    func clear() throws
-}
-
-public final class AppGroupJSONItemDirectoryStore<Item>: AppGroupJSONItemDirectoryManaging
+public final class AppGroupJSONItemDirectoryStore<Item>
 where Item: Codable & Identifiable & Sendable, Item.ID == String {
     private let fileManager: FileManager
     private let directoryURL: URL
@@ -58,15 +49,6 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             let data = try Data(contentsOf: fileURL)
             return try decoder.decode(Item.self, from: data)
         }
-    }
-
-    public func remove(id: String) throws {
-        let url = fileURL(for: id)
-        guard fileManager.fileExists(atPath: url.path()) else {
-            return
-        }
-
-        try fileManager.removeItem(at: url)
     }
 
     public func clear() throws {

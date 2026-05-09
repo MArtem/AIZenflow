@@ -14,17 +14,11 @@ final class ShareExtensionSessionContextManager {
 
     private let store: AppGroupJSONFileStore<ShareExtensionSessionContext>
 
-    init(store: AppGroupJSONFileStore<ShareExtensionSessionContext>) {
-        self.store = store
-    }
-
-    convenience init(groupIdentifier: String) throws {
-        try self.init(
-            store: AppGroupJSONFileStore(
-                groupIdentifier: groupIdentifier,
-                directoryName: Self.directoryName,
-                fileName: Self.fileName
-            )
+    init(groupIdentifier: String) throws {
+        self.store = try AppGroupJSONFileStore(
+            groupIdentifier: groupIdentifier,
+            directoryName: Self.directoryName,
+            fileName: Self.fileName
         )
     }
 
