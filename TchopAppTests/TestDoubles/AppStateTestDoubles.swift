@@ -212,10 +212,7 @@ final class RecordingPushNotificationBridge: AppPushNotificationBridging {
     }
 
     /// Tracks remote notification forwarding.
-    func handleRemoteNotification(
-        userInfo: [AnyHashable: Any],
-        source: PushNotificationEventSource
-    ) async {
+    func handleRemoteNotification(_ payload: PushNotificationPayload) async {
         handledRemoteNotificationCount += 1
     }
 }

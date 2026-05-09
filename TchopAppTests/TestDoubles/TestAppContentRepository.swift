@@ -7,30 +7,27 @@ import TchopDatabase
 /// Lightweight in-memory repository used by view-model and state tests.
 @MainActor
 final class TestAppContentRepository: AppContentRepository {
-    /// Returns a fixed channel header fixture.
-    func fetchChannelInfo() throws -> ChannelHeaderInfo {
-        ChannelHeaderInfo(
-            title: "Tchop",
-            subtitle: "New channel name"
-        )
+    func fetchAvailableChannels() throws -> [AppChannel] {
+        [AppChannel.defaultChannel]
     }
 
     /// Returns an empty feed fixture for tests that do not care about content mapping.
-    func currentNewsFeedContent() throws -> NewsFeedContent? {
+    func currentNewsFeedContent(channelID: String) throws -> NewsFeedContent? {
         NewsFeedContent(cards: [], availability: .live)
     }
 
     /// Returns an empty feed fixture for tests that do not care about content mapping.
-    func refreshNewsFeedContent() async throws -> NewsFeedContent {
+    func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent {
         NewsFeedContent(cards: [], availability: .live)
     }
 
-    func performFeaturedArticleAction(
+    func performPhotoAction(
         articleID: String,
-        action: FeaturedArticleCardAction
-    ) async throws -> FeaturedArticleCardModel {
-        FeaturedArticleCardModel(
+        action: PhotoCardAction
+    ) async throws -> PhotoCardModel {
+        PhotoCardModel(
             id: articleID,
+            channelID: AppChannel.defaultChannel.id,
             postedInPrefix: "Posted in ",
             sourceTitle: "Source",
             brandTitle: "Brand",
@@ -44,12 +41,13 @@ final class TestAppContentRepository: AppContentRepository {
         )
     }
 
-    func performDiscussionAction(
+    func performTextAction(
         discussionID: String,
-        action: DiscussionCardAction
-    ) async throws -> DiscussionCardModel {
-        DiscussionCardModel(
+        action: TextCardAction
+    ) async throws -> TextCardModel {
+        TextCardModel(
             id: discussionID,
+            channelID: AppChannel.defaultChannel.id,
             categoryTitle: "Category",
             headline: "Headline",
             participants: [],
@@ -65,23 +63,25 @@ struct TestFeedAPIManager: FeedAPIManaging {
     let result: Result<FeedResponseDTO, Error>
 
     /// Returns the configured feed response fixture.
-    func fetchFeed() async throws -> FeedResponseDTO {
+    func fetchFeed(channelID: String) async throws -> FeedResponseDTO {
         try result.get()
     }
 
-    func performFeaturedArticleAction(
+    func performPhotoAction(
+        channelID: String,
         articleID: String,
-        action: FeaturedArticleCardAction,
-        context: FeaturedArticleActionContext
-    ) async throws -> FeaturedArticleDTO {
+        action: PhotoCardAction,
+        context: PhotoActionContext
+    ) async throws -> PhotoDTO {
         throw TestDatabaseError.fetchFailed
     }
 
-    func performDiscussionAction(
+    func performTextAction(
+        channelID: String,
         discussionID: String,
-        action: DiscussionCardAction,
-        context: DiscussionActionContext
-    ) async throws -> DiscussionDTO {
+        action: TextCardAction,
+        context: TextActionContext
+    ) async throws -> TextDTO {
         throw TestDatabaseError.fetchFailed
     }
 }
@@ -94,7 +94,11 @@ enum TestDatabaseError: Error {
 
 /// Reachability double that lets repository tests opt into online behavior explicitly.
 struct TestNetworkAvailabilityMonitor: NetworkAvailabilityChecking {
-    let isInternetAvailable: Bool
+    let internetAvailable: Bool
+
+    func isInternetAvailable() async -> Bool {
+        internetAvailable
+    }
 }
 
 /// Creates a disposable in-memory database manager for app tests.

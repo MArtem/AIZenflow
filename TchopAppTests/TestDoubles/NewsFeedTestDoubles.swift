@@ -30,7 +30,7 @@ final class TestNewsFeedRepository: NewsFeedRepository {
         self.delayNanoseconds = delayNanoseconds
     }
 
-    func currentNewsFeedContent() throws -> NewsFeedContent? {
+    func currentNewsFeedContent(channelID: String) throws -> NewsFeedContent? {
         let firstResult = results.first
         guard case let .success(content) = firstResult else {
             return nil
@@ -40,7 +40,7 @@ final class TestNewsFeedRepository: NewsFeedRepository {
     }
 
     /// Returns the configured feed result after the optional delay.
-    func refreshNewsFeedContent() async throws -> NewsFeedContent {
+    func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent {
         fetchCallCount += 1
 
         if delayNanoseconds > 0 {
@@ -52,17 +52,17 @@ final class TestNewsFeedRepository: NewsFeedRepository {
         return try result.get()
     }
 
-    func performFeaturedArticleAction(
+    func performPhotoAction(
         articleID: String,
-        action: FeaturedArticleCardAction
-    ) async throws -> FeaturedArticleCardModel {
+        action: PhotoCardAction
+    ) async throws -> PhotoCardModel {
         throw TestNewsFeedError.failed
     }
 
-    func performDiscussionAction(
+    func performTextAction(
         discussionID: String,
-        action: DiscussionCardAction
-    ) async throws -> DiscussionCardModel {
+        action: TextCardAction
+    ) async throws -> TextCardModel {
         throw TestNewsFeedError.failed
     }
 }
