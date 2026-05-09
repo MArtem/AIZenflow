@@ -6,8 +6,8 @@ Keep a short task-local snapshot for the active share-extension rollout after th
 ## Active Steps
 1. Shared app-group local card sync foundation is complete
 2. Share extension targets and generic intake flow are complete
-3. Extension composer wiring and publish path are pending
-4. Unauthenticated extension state is pending
+3. Extension composer wiring, publish path, and unauthenticated state are complete
+4. Next focus is runtime validation and explicit incompatible-import behavior
 
 ## Working Rule
 - Keep this file short and current.

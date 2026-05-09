@@ -42,6 +42,10 @@
 - share extension target scaffolding now exists for both app variants and both app schemes build successfully with the new embedded extensions
 - `FeedComposerViewModel` publish is now injected instead of being hard-wired only to `LocalFeedCardStore`
 - `FeedComposerDraft` now supports imported text/image/video/audio/pdf application with explicit failure for incompatible media mixes
+- the share extension now renders the real shared app-specific composer instead of a summary scaffold
+- `SharedCardComposerView` was extracted from `ShellContentView.swift` into its own shared app source file and is now used by both app and extension
+- share-extension publish now writes app-specific `LocalFeedCardModel` payloads into app-group storage
+- unauthenticated extension state now shows reason text plus `Open app`
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
@@ -58,9 +62,9 @@
 - detail-screen translation is still open
 
 ## Current Next Work
-- wire extension composer surface to the existing app-specific card contract
-- connect extension publish closure to shared local-feed payload storage
-- add unauthenticated extension state with `Open app` surface
+- manually validate share-extension runtime flows
+- decide final user-facing behavior for explicitly incompatible imported media combinations
+- keep `Open app` handling as best-effort platform behavior, not a guaranteed contract
 
 ## Important Files
 - App shell state:
@@ -68,6 +72,7 @@
 - Feed/card/composer models:
   [NewsFeedModels.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/NewsFeedModels.swift)
 - Composer UI:
+  [SharedCardComposerView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Composer/SharedCardComposerView.swift)
   [ShellContentView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/ShellContentView.swift)
 - Feed runtime UI:
   [NewsFeedView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift)

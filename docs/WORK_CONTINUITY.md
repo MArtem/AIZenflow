@@ -125,16 +125,17 @@ Only these fields exist:
 - share extension target scaffolding now exists for both app variants:
   - `TchopShareExtension`
   - `TchopShareOceanExtension`
-- current scaffold state:
-  - imported content can be loaded inside the extension through the generic share-intake package
-  - project wiring, package linkage, Info.plist, and entitlements are in place
-  - both `TchopApp` and `TchopAppOcean` build successfully with their share extensions embedded
+- share extension now uses the real app-specific composer contract instead of a summary scaffold:
+  - `SharedCardComposerView` was extracted into its own app-specific shared source file
+  - the same composer UI is now used by the app and the share extension
+  - extension publish writes `LocalFeedCardModel` payloads into shared app-group storage
+  - unauthenticated extension state now shows `Open app` plus reason text
+  - both `TchopApp` and `TchopAppOcean` build successfully with their embedded share extensions after the shared composer extraction
 
 ## What Still Needs Work
-- app-specific composer reuse between app and extension still needs to be wired
-- extension publish path still needs to write app-specific local feed payloads into shared storage
-- extension-side composer surface still needs to be wired on top of the current app-specific composer contract
-- unauthenticated extension state should remain an app-specific `Open app` surface and should not be over-assumed
+- manual runtime validation of share-extension flows is still pending
+- incompatible import combinations currently fail explicitly, but their final product-facing messaging is still open
+- `Open app` from share extension remains best-effort platform behavior and should not be treated as a guaranteed system contract
 - on-device translation is still paused at feed-only stage until detail design exists
 
 ## Reopen First

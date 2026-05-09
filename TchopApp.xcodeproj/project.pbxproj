@@ -25,6 +25,7 @@
 		S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */; };
 		S00000080000000000000001 /* StubFeedResponseLeadershipChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */; };
 		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
+		M00000010000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = M00000020000000000000001 /* SharedCardComposerView.swift */; };
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
 		A00000390000000000000001 /* PhotoActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* PhotoActionView.swift */; };
 		A00000391000000000000001 /* FeedCardStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A1000000000000001 /* FeedCardStatusBadge.swift */; };
@@ -151,7 +152,7 @@
 		L000000F0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* ChannelHeaderInfo.swift */; };
 		L000001A0000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* NewsFeedModels.swift */; };
 		L000001B0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* AppShellViewModel.swift */; };
-		L000001C0000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
+		L000001C0000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = M00000020000000000000001 /* SharedCardComposerView.swift */; };
 		L000001D0000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		L00000410000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
 		L00000430000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* TabRoutes.swift */; };
@@ -167,7 +168,7 @@
 		L00000390000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* ChannelHeaderInfo.swift */; };
 		L000003A00000000000000001 /* Models/NewsFeedModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003E0000000000000001 /* NewsFeedModels.swift */; };
 		L000003B00000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000400000000000000001 /* AppShellViewModel.swift */; };
-		L000003C00000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
+		L000003C00000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = M00000020000000000000001 /* SharedCardComposerView.swift */; };
 		L000003D00000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		L00000420000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
 		L00000440000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* TabRoutes.swift */; };
@@ -272,6 +273,7 @@
 		S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseCommunityChannel.json; sourceTree = "<group>"; };
 		S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseLeadershipChannel.json; sourceTree = "<group>"; };
 		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
+		M00000020000000000000001 /* SharedCardComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCardComposerView.swift; sourceTree = "<group>"; };
 		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
 		A000003A0000000000000001 /* PhotoActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoActionView.swift; sourceTree = "<group>"; };
 		A000003A1000000000000001 /* FeedCardStatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardStatusBadge.swift; sourceTree = "<group>"; };
@@ -640,6 +642,7 @@
 			children = (
 				A00000660000000000000001 /* AppRootView.swift */,
 				A00000230000000000000001 /* AppShellView.swift */,
+				M00000050000000000000001 /* Composer */,
 				A00000360000000000000001 /* ShellContentView.swift */,
 				A00000380000000000000001 /* TabContentView.swift */,
 				A00000240000000000000001 /* TopBarView.swift */,
@@ -651,6 +654,14 @@
 				A00000090000000000000001 /* Stub */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		M00000050000000000000001 /* Composer */ = {
+			isa = PBXGroup;
+			children = (
+				M00000020000000000000001 /* SharedCardComposerView.swift */,
+			);
+			path = Composer;
 			sourceTree = "<group>";
 		};
 		A00000110000000000000002 /* Auth */ = {
@@ -1096,6 +1107,7 @@
 				A000001B0000000000000001 /* TextCardView.swift in Sources */,
 				A000001C0000000000000001 /* TabStubView.swift in Sources */,
 				A00000350000000000000001 /* ShellContentView.swift in Sources */,
+				M00000010000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */,
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* PhotoActionView.swift in Sources */,
 				A00000391000000000000001 /* FeedCardStatusBadge.swift in Sources */,
@@ -1171,6 +1183,7 @@
 				A000001B0000000000000001 /* TextCardView.swift in Sources */,
 				A000001C0000000000000001 /* TabStubView.swift in Sources */,
 				A00000350000000000000001 /* ShellContentView.swift in Sources */,
+				M00000010000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */,
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
 				A00000390000000000000001 /* PhotoActionView.swift in Sources */,
 				A00000391000000000000001 /* FeedCardStatusBadge.swift in Sources */,
@@ -1264,7 +1277,7 @@
 				L000000F0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
 				L000001A0000000000000001 /* Models/NewsFeedModels.swift in Sources */,
 				L000001B0000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
-				L000001C0000000000000001 /* ShellContentView.swift in Sources */,
+				L000001C0000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */,
 				L000001D0000000000000001 /* App/ChannelsStore.swift in Sources */,
 				L00000410000000000000001 /* App/AppBranding.swift in Sources */,
 				L00000430000000000000001 /* Navigation/TabRoutes.swift in Sources */,
@@ -1286,7 +1299,7 @@
 				L00000390000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
 				L000003A00000000000000001 /* Models/NewsFeedModels.swift in Sources */,
 				L000003B00000000000000001 /* ViewModels/AppShellViewModel.swift in Sources */,
-				L000003C00000000000000001 /* ShellContentView.swift in Sources */,
+				L000003C00000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */,
 				L000003D00000000000000001 /* App/ChannelsStore.swift in Sources */,
 				L00000420000000000000001 /* App/AppBranding.swift in Sources */,
 				L00000440000000000000001 /* Navigation/TabRoutes.swift in Sources */,
