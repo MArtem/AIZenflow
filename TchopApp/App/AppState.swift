@@ -27,14 +27,13 @@ final class AppState {
     private let channelsStore: ChannelsStore
     private let sessionService: any UserSessionManaging
     private let userRepository: any UserRepository
-    private let channelSettingsRepository: any UserChannelSettingsRepository
+    private let channelSettingsRepository: LocalUserChannelSettingsRepository
     private let navigationStateManager: any NavigationStateManaging
     private let deepLinkManager: any DeepLinkManaging
     private let navigationEventReporter: any NavigationEventReporting
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let pushNotificationBridge: any AppPushNotificationBridging
     private let errorManager: any AppErrorManaging
-    private let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
     private var isApplyingNavigationSnapshot = false
@@ -54,14 +53,13 @@ final class AppState {
         channelsStore: ChannelsStore,
         sessionService: any UserSessionManaging,
         userRepository: any UserRepository,
-        channelSettingsRepository: any UserChannelSettingsRepository,
+        channelSettingsRepository: LocalUserChannelSettingsRepository,
         navigationStateManager: any NavigationStateManaging,
         deepLinkManager: any DeepLinkManaging,
         navigationEventReporter: any NavigationEventReporting,
         widgetContentSyncManager: any WidgetContentSyncing,
         pushNotificationBridge: any AppPushNotificationBridging,
         errorManager: any AppErrorManaging,
-        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = nil,
         shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = nil
     ) {
         self.coordinator = coordinator
@@ -78,7 +76,6 @@ final class AppState {
         self.widgetContentSyncManager = widgetContentSyncManager
         self.pushNotificationBridge = pushNotificationBridge
         self.errorManager = errorManager
-        self.sharedLocalFeedCardSyncManager = sharedLocalFeedCardSyncManager
         self.shareExtensionSessionContextManager = shareExtensionSessionContextManager
         setupNavigationPersistenceBindings()
         Task { @MainActor [weak self] in
@@ -174,7 +171,7 @@ final class AppState {
         }
 
         syncShareExtensionSessionContextIfNeeded()
-        syncSharedLocalCardsIfNeeded()
+        appShellViewModel.newsFeedViewModel.syncSharedLocalCardsIfNeeded()
     }
 
     /// Restores the previously persisted user session if one exists.
@@ -198,33 +195,6 @@ final class AppState {
             assertionFailure("Failed to restore user session: \(presentation.error.debugDescription)")
             sessionStore.setSignedOut()
             syncSessionStateFromStore()
-        }
-    }
-
-    private func syncSharedLocalCardsIfNeeded() {
-        guard let sharedLocalFeedCardSyncManager else {
-            return
-        }
-
-        do {
-            let importedCount = try sharedLocalFeedCardSyncManager.syncPendingCards(
-                into: appShellViewModel.sharedLocalFeedCardStore
-            )
-            guard importedCount > 0 else {
-                return
-            }
-
-            appShellViewModel.newsFeedViewModel.handleLocalChannelCardsChanged()
-        } catch {
-            Task { @MainActor [errorManager] in
-                _ = await errorManager.presentableError(
-                    from: error,
-                    context: AppErrorContext(
-                        operation: "syncSharedLocalCards",
-                        feature: "appState"
-                    )
-                )
-            }
         }
     }
 

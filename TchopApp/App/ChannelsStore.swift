@@ -1,17 +1,8 @@
 import Foundation
 import Observation
 
-/// Persistence contract for the user-scoped selected channel runtime preference.
-protocol ChannelSelectionStoring {
-    /// Loads the last selected channel identifier for the provided user.
-    func loadSelectedChannelID(for userID: String) -> String?
-
-    /// Persists the selected channel identifier for the provided user.
-    func saveSelectedChannelID(_ channelID: String?, for userID: String)
-}
-
 /// UserDefaults-backed store for selected-channel persistence.
-struct UserDefaultsChannelSelectionStore: ChannelSelectionStoring {
+struct UserDefaultsChannelSelectionStore {
     private let userDefaults: UserDefaults
     private let keyPrefix: String
 
@@ -73,11 +64,11 @@ final class ChannelsStore {
     /// Identifier of the active channel currently driving the visible feed context.
     private(set) var selectedChannelID: String?
 
-    private let selectionStore: any ChannelSelectionStoring
+    private let selectionStore: UserDefaultsChannelSelectionStore
     private var activeUserID: String?
 
     /// Creates the runtime channels store with its selected-channel persistence adapter.
-    init(selectionStore: any ChannelSelectionStoring) {
+    init(selectionStore: UserDefaultsChannelSelectionStore) {
         self.selectionStore = selectionStore
     }
 
@@ -97,11 +88,6 @@ final class ChannelsStore {
         }
 
         return channels.first(where: { $0.id == selectedChannelID }) ?? channels.first
-    }
-
-    /// Header information derived from the currently selected channel.
-    var selectedChannelHeaderInfo: ChannelHeaderInfo? {
-        selectedChannel?.headerInfo
     }
 
     /// Replaces the available channel snapshot and keeps the active selection valid.

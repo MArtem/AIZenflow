@@ -162,7 +162,7 @@ final class AppDIContainer {
     let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
 
     /// User-scoped channel settings source resolved during session bootstrap.
-    private let channelSettingsRepository: any UserChannelSettingsRepository
+    private let channelSettingsRepository: LocalUserChannelSettingsRepository
 
     /// Apple auth adapter used by the login UI flow.
     let appleAuthenticationManager: any AppleAuthenticationManaging
@@ -288,7 +288,6 @@ final class AppDIContainer {
             widgetContentSyncManager: widgetContentSyncManager,
             pushNotificationBridge: pushNotificationBridge,
             errorManager: errorManager,
-            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager,
             shareExtensionSessionContextManager: shareExtensionSessionContextManager
         )
     }

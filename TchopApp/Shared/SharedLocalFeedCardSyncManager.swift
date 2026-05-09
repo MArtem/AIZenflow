@@ -34,10 +34,7 @@ final class SharedLocalFeedCardSyncManager {
         }
 
         localFeedCardStore.sync(cards)
-
-        for card in cards {
-            try store.remove(id: card.id)
-        }
+        try store.clear()
 
         return cards.count
     }

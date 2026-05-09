@@ -6,15 +6,9 @@ struct UserChannelSettingsSnapshot: Equatable, Sendable {
     let preselectedChannelID: String?
 }
 
-/// Contract for loading the channels/settings snapshot that belongs to the active user.
-@MainActor
-protocol UserChannelSettingsRepository {
-    func loadChannelSettings(for user: AppUser) throws -> UserChannelSettingsSnapshot
-}
-
 /// Local stub implementation that models backend-delivered channel settings until the real API exists.
 @MainActor
-struct LocalUserChannelSettingsRepository: UserChannelSettingsRepository {
+struct LocalUserChannelSettingsRepository {
     func loadChannelSettings(for user: AppUser) throws -> UserChannelSettingsSnapshot {
         switch normalizedUsername(user.username) {
         case "eve.holt@reqres.in":
