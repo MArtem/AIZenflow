@@ -65,7 +65,7 @@
 ## Current Next Work
 - continue runtime architecture/complexity audit on working code only
 - keep avoiding test-target cleanup until it becomes a dedicated task
-- after the audit, return to manual share-extension runtime validation and remaining product decisions
+- after the audit, return to manual share-extension runtime validation
 
 ## Important Files
 - App shell state:

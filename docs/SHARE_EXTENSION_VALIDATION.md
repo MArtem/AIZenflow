@@ -11,7 +11,7 @@ Use it to track:
 ## Current Status
 Infrastructure, build wiring, shared storage, and composer reuse are in place.
 
-What remains is runtime validation plus one explicit product decision for incompatible imports.
+What remains is runtime validation.
 
 ## Validation Matrix
 ### Supported By Current Code
@@ -49,6 +49,8 @@ What remains is runtime validation plus one explicit product decision for incomp
   - current result: explicit failure
 - unsupported provider types
   - current result: explicit failure instead of opening an empty composer
+- generic unknown file types
+  - current result: explicit failure instead of being guessed as `pdf`
 
 ### Still Needs Manual Runtime Validation
 - share text only from a real source app
@@ -64,15 +66,10 @@ What remains is runtime validation plus one explicit product decision for incomp
 - publish from extension, then pull-to-refresh, verify sync still works
 - unauthenticated path and `Open app` behavior on device/simulator
 
-## Open Product Decision
-### Incompatible Imports
-Current behavior is explicit failure.
-
-Still not decided:
-- whether final UX should remain blocking failure
-- or whether final UX should surface a friendlier message with a more guided explanation
-
-No silent guessing should be added here.
+## Product Rule
+- incompatible imports stay explicit failures
+- unsupported or unknown file types stay explicit failures
+- no silent guessing should be added here
 
 ## Current Risk Notes
 - `Open app` from share extension is best-effort and should not be treated as guaranteed platform behavior

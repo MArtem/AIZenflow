@@ -716,7 +716,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             mediaKind = .video
         case .audio:
             mediaKind = .audio
-        case .pdf, .file:
+        case .pdf:
             mediaKind = .pdf
         case .image:
             mediaKind = .photo

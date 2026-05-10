@@ -144,7 +144,7 @@ Only these fields exist:
 
 ## What Still Needs Work
 - manual runtime validation of share-extension flows is still pending
-- incompatible import combinations currently fail explicitly, but their final product-facing behavior is still open
+- incompatible import combinations and unknown file types now fail explicitly by rule
 - `Open app` from share extension remains best-effort platform behavior and should not be treated as a guaranteed system contract
 - on-device translation is still paused at feed-only stage until detail design exists
 - runtime architecture/overengineering audit of the working code is still in progress

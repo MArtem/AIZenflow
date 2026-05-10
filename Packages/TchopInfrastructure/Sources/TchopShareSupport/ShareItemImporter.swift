@@ -6,7 +6,6 @@ public enum ShareImportedFileKind: String, Codable, Equatable, Sendable {
     case video
     case pdf
     case audio
-    case file
 }
 
 public struct ShareImportedTextItem: Codable, Equatable, Identifiable, Sendable {
@@ -207,7 +206,6 @@ private struct SupportedShareFile: Equatable {
         SupportedShareFile(kind: .image, contentType: .image),
         SupportedShareFile(kind: .video, contentType: .movie),
         SupportedShareFile(kind: .pdf, contentType: .pdf),
-        SupportedShareFile(kind: .audio, contentType: .audio),
-        SupportedShareFile(kind: .file, contentType: .data)
+        SupportedShareFile(kind: .audio, contentType: .audio)
     ]
 }

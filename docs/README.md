@@ -110,7 +110,7 @@ Put here:
 - share flow scenario coverage
 - manual validation checklist
 - explicit unsupported or rejected cases
-- remaining share-extension product decisions
+- remaining share-extension runtime validation
 
 ### [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
 Current task resume state.
