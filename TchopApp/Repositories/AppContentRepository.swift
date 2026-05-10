@@ -4,13 +4,6 @@ import Network
 import SwiftData
 import TchopDatabase
 
-/// Repository interface for channel snapshots available to the current app runtime.
-@MainActor
-protocol ChannelsRepository {
-    /// Fetches all locally available channels for the active runtime.
-    func fetchAvailableChannels() throws -> [AppChannel]
-}
-
 /// Repository interface for the news feed timeline.
 @MainActor
 protocol NewsFeedRepository {
@@ -40,7 +33,11 @@ protocol NetworkAvailabilityChecking: Sendable {
 }
 
 /// Combined repository used by the shell to resolve both channels and feed content.
-protocol AppContentRepository: ChannelsRepository, NewsFeedRepository {}
+@MainActor
+protocol AppContentRepository: NewsFeedRepository {
+    /// Fetches all locally available channels for the active runtime.
+    func fetchAvailableChannels() throws -> [AppChannel]
+}
 
 /// Default app content repository that combines local persistence and API data.
 @MainActor

@@ -49,6 +49,7 @@
 - latest simplification pass removed decorative package protocols and extra wrapper initializers in the share-support/runtime path
 - share intake no longer guesses unknown files as `pdf`
 - share-extension session-context payload assembly is now centralized in `ShareExtensionSessionContextManager`
+- decorative `ChannelsRepository` was removed from the app-content repository graph
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
