@@ -318,15 +318,20 @@ final class AppState {
         }
 
         do {
+            let snapshot = channelsStore.selectionSnapshot
             switch sessionState {
             case .authenticated:
-                let snapshot = channelsStore.selectionSnapshot
-                try shareExtensionSessionContextManager.storeAuthenticatedContext(
+                try shareExtensionSessionContextManager.syncContext(
+                    isAuthenticated: true,
                     availableChannels: snapshot.availableChannels,
                     selectedChannelID: snapshot.selectedChannelID
                 )
             case .restoring, .signedOut:
-                try shareExtensionSessionContextManager.storeSignedOutContext()
+                try shareExtensionSessionContextManager.syncContext(
+                    isAuthenticated: false,
+                    availableChannels: snapshot.availableChannels,
+                    selectedChannelID: snapshot.selectedChannelID
+                )
             }
         } catch {
             Task { @MainActor [errorManager] in

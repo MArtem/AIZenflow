@@ -22,25 +22,16 @@ final class ShareExtensionSessionContextManager {
         )
     }
 
-    func storeAuthenticatedContext(
+    func syncContext(
+        isAuthenticated: Bool,
         availableChannels: [AppChannel],
         selectedChannelID: String?
     ) throws {
         try store.save(
             ShareExtensionSessionContext(
-                isAuthenticated: true,
-                availableChannels: availableChannels,
-                selectedChannelID: selectedChannelID
-            )
-        )
-    }
-
-    func storeSignedOutContext() throws {
-        try store.save(
-            ShareExtensionSessionContext(
-                isAuthenticated: false,
-                availableChannels: [],
-                selectedChannelID: nil
+                isAuthenticated: isAuthenticated,
+                availableChannels: isAuthenticated ? availableChannels : [],
+                selectedChannelID: isAuthenticated ? selectedChannelID : nil
             )
         )
     }

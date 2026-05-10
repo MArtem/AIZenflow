@@ -47,6 +47,8 @@
 - share-extension publish now writes app-specific `LocalFeedCardModel` payloads into app-group storage
 - unauthenticated extension state now shows reason text plus `Open app`
 - latest simplification pass removed decorative package protocols and extra wrapper initializers in the share-support/runtime path
+- share intake no longer guesses unknown files as `pdf`
+- share-extension session-context payload assembly is now centralized in `ShareExtensionSessionContextManager`
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`

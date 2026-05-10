@@ -21,6 +21,8 @@ The most recent architectural simplification batch:
 - removed app-local single-implementation seams around channel selection and local channel settings
 - simplified `TchopShareSupport` by deleting unused public protocols and an unused per-item delete API
 - simplified app-specific share wrappers by removing unused store-injection initializers
+- removed generic unknown-file fallback from share intake so unsupported files no longer get guessed as `pdf`
+- centralized share-extension session-context payload building inside `ShareExtensionSessionContextManager`
 
 The current share-extension status remains:
 - reusable package root: `TchopShareSupport`

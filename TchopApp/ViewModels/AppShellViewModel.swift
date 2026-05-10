@@ -446,7 +446,8 @@ final class AppShellViewModel {
         let snapshot = channelsStore.selectionSnapshot
 
         do {
-            try shareExtensionSessionContextManager.storeAuthenticatedContext(
+            try shareExtensionSessionContextManager.syncContext(
+                isAuthenticated: true,
                 availableChannels: snapshot.availableChannels,
                 selectedChannelID: snapshot.selectedChannelID
             )
