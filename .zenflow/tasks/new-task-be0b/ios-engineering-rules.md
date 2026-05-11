@@ -39,6 +39,7 @@ Global assistant iOS/model-routing rules live in:
   - `@ViewBuilder private func foo(...) -> some View`
 - Extract a dedicated `View` type instead.
 - If screen or component assembly becomes complex, use a dedicated `Builder` or `Factory` type instead of stacking local view-returning helpers.
+- Treat unnecessary SwiftUI invalidation/redraw risk as a high-priority concern. Prefer explicit extracted subviews with narrow inputs and clear state ownership so render boundaries stay visible and reviewable.
 
 ## Documentation Rule
 When asked to add a new rule or document, first propose placement using:
