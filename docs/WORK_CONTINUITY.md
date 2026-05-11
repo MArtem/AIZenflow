@@ -15,6 +15,7 @@ The current active epic is runtime architecture/simplification audit of the work
 - share-extension rollout foundation is complete enough to build and continue later
 - current focus is reducing decorative seams, duplicate paths, and unnecessary indirection in runtime code
 - test-target cleanup is intentionally deferred
+- after that audit is complete, the next planned phase is unified `ViewModel` standardization around `@Observable + explicit state container + explicit intent methods`
 
 The most recent architectural simplification batch:
 - removed duplicated shared-card sync ownership from `AppState` and routed it through `NewsFeedViewModel`
@@ -24,6 +25,10 @@ The most recent architectural simplification batch:
 - removed generic unknown-file fallback from share intake so unsupported files no longer get guessed as `pdf`
 - centralized share-extension session-context payload building inside `ShareExtensionSessionContextManager`
 - removed decorative `ChannelsRepository` and folded that single method directly into `AppContentRepository`
+
+Planned two-part sequence:
+1. finish the app-wide architecture/simplification audit first
+2. only then run the `ViewModel` refactor plan, starting from the smallest/lowest-risk models and ending with `NewsFeedViewModel`
 
 The current share-extension status remains:
 - reusable package root: `TchopShareSupport`

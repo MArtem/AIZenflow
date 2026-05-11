@@ -51,6 +51,9 @@
 - share-extension session-context payload assembly is now centralized in `ShareExtensionSessionContextManager`
 - decorative `ChannelsRepository` was removed from the app-content repository graph
 - project-standard view-model pattern is now fixed as `@Observable + explicit state container + explicit intent methods`, not generic `send(action)`
+- chosen sequencing is fixed:
+  - first finish the app-wide architecture/simplification audit
+  - then execute the unified `ViewModel` standardization plan
 
 ## Current Functional Contract
 - card types: `text`, `photo`, `video`, `audio`, `pdf`
@@ -68,7 +71,7 @@
 
 ## Current Next Work
 - continue runtime architecture/complexity audit on working code only
-- plan and then execute a gradual view-model standardization pass toward the chosen unified model pattern
+- keep the saved `ViewModel` standardization plan parked until the simplification audit is complete
 - keep avoiding test-target cleanup until it becomes a dedicated task
 - after the audit, return to manual share-extension runtime validation
 
