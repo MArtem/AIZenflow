@@ -11,11 +11,15 @@ Use it when:
 ## Current Long-Running Epic
 Restoration of the feed/composer/card runtime around the 5-type card model is complete.
 
-The current active epic is runtime architecture/simplification audit of the working code:
+The current active epic is a three-part cleanup/refactor plan over the working code:
 - share-extension rollout foundation is complete enough to build and continue later
 - current focus is reducing decorative seams, duplicate paths, and unnecessary indirection in runtime code
 - test-target cleanup is intentionally deferred
-- after that audit is complete, the next planned phase is unified `ViewModel` standardization around `@Observable + explicit state container + explicit intent methods`
+- after that audit, the next planned phase is SwiftUI view decomposition cleanup:
+  - remove `private var ...: some View` subtrees inside `View` types
+  - remove `@ViewBuilder private func ... -> some View` helpers inside `View` types
+  - replace them with explicit extracted `View`/renderer/builder types
+- after that, run unified `ViewModel` standardization around `@Observable + explicit state container + explicit intent methods`
 
 The most recent architectural simplification batch:
 - removed duplicated shared-card sync ownership from `AppState` and routed it through `NewsFeedViewModel`
@@ -26,9 +30,10 @@ The most recent architectural simplification batch:
 - centralized share-extension session-context payload building inside `ShareExtensionSessionContextManager`
 - removed decorative `ChannelsRepository` and folded that single method directly into `AppContentRepository`
 
-Planned two-part sequence:
+Planned sequence:
 1. finish the app-wide architecture/simplification audit first
-2. only then run the `ViewModel` refactor plan, starting from the smallest/lowest-risk models and ending with `NewsFeedViewModel`
+2. run the SwiftUI view decomposition pass to eliminate view-returning helpers inside `View` types
+3. only then run the `ViewModel` refactor plan, starting from the smallest/lowest-risk models and ending with `NewsFeedViewModel`
 
 The current share-extension status remains:
 - reusable package root: `TchopShareSupport`

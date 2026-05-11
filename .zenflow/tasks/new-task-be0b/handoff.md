@@ -53,6 +53,7 @@
 - project-standard view-model pattern is now fixed as `@Observable + explicit state container + explicit intent methods`, not generic `send(action)`
 - chosen sequencing is fixed:
   - first finish the app-wide architecture/simplification audit
+  - then execute the SwiftUI view decomposition pass that removes view-returning helpers inside `View` types
   - then execute the unified `ViewModel` standardization plan
 
 ## Current Functional Contract
@@ -71,6 +72,7 @@
 
 ## Current Next Work
 - continue runtime architecture/complexity audit on working code only
+- keep the saved SwiftUI view decomposition pass parked until the simplification audit is complete
 - keep the saved `ViewModel` standardization plan parked until the simplification audit is complete
 - keep avoiding test-target cleanup until it becomes a dedicated task
 - after the audit, return to manual share-extension runtime validation
