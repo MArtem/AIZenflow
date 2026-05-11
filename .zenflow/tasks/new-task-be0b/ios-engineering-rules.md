@@ -34,7 +34,10 @@ Global assistant iOS/model-routing rules live in:
 - Preserve accessibility semantics for interactive UI and hide decorative-only elements from accessibility.
 - Keep previews updated when a renderable SwiftUI view API or UI contract changes.
 - Do not create view models inside feature view initializers.
-- Do not use local helper/computed properties or local `@ViewBuilder` functions that return `View`/`some View` inside screens as a convenience abstraction.
+- Inside SwiftUI `View` types, do not create convenience `View` subtrees as:
+  - `private var foo: some View`
+  - `@ViewBuilder private func foo(...) -> some View`
+- Extract a dedicated `View` type instead.
 - If screen or component assembly becomes complex, use a dedicated `Builder` or `Factory` type instead of stacking local view-returning helpers.
 
 ## Documentation Rule
