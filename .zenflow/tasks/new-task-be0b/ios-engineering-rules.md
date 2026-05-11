@@ -23,6 +23,13 @@ Global assistant iOS/model-routing rules live in:
 - After architecture, the next constant rule is to avoid overengineering. Do not build abstractions, flows, or flexibility that are not justified by the current product contract.
 - Re-check for simplification constantly. If something can be made materially simpler without reducing correctness, maintainability, or product fit, prefer the simpler design.
 - Treat temporary/prototype code as temporary. Before any feature is treated as production-ready, run a separate production-hardening pass instead of silently carrying prototype assumptions forward.
+- View models must use one consistent model-level interaction pattern across the project:
+  - `@MainActor`
+  - `@Observable`
+  - one explicit source-of-truth state container per model, either `state: SomeState` or one clearly grouped state object for very small models
+  - public API exposed as explicit intent methods like `refresh()`, `publish()`, `selectChannel(id:)`, `toggleLike(...)`
+  - do not use a project-wide generic `send(action)` dispatcher pattern as the default
+  - action enums are allowed only when they are part of a real domain contract or internal state machine, not as mandatory UI event buses
 - Keep warning baseline at zero.
 - Preserve accessibility semantics for interactive UI and hide decorative-only elements from accessibility.
 - Keep previews updated when a renderable SwiftUI view API or UI contract changes.
