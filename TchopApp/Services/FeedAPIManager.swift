@@ -415,7 +415,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // no real backend yet. The repository merges the returned DTO with the latest
                     // persisted card state so local changes remain additive across actions.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
-                    guard let article = FeedAPIStubFactory.photoCard(in: response, articleID: path.articleID) else {
+                    guard let article = FeedAPIStubFactory.photoCard(in: response, articleID: path.cardID) else {
                         throw FeedAPIStubError.missingCard
                     }
                     try await Task.sleep(for: .milliseconds(180))
@@ -439,7 +439,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // See the article mutation note above. The repository owns the persisted
                     // source of truth until these calls are backed by a real service.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
-                    guard let discussion = FeedAPIStubFactory.textCard(in: response, discussionID: path.articleID) else {
+                    guard let discussion = FeedAPIStubFactory.textCard(in: response, discussionID: path.cardID) else {
                         throw FeedAPIStubError.missingCard
                     }
                     try await Task.sleep(for: .milliseconds(220))
@@ -452,6 +452,9 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 }
 
 enum FeedAPIStubFactory {
+    private static let iso8601WithFractionalSeconds = makeISO8601DateFormatter(withFractionalSeconds: true)
+    private static let iso8601WithoutFractionalSeconds = makeISO8601DateFormatter(withFractionalSeconds: false)
+
     /// Produces the latest full stub feed contract used by refreshes and initial seeding.
     static func makeFeedResponse(channelID: String) async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
@@ -540,11 +543,11 @@ enum FeedAPIStubFactory {
             let container = try decoder.singleValueContainer()
             let value = try container.decode(String.self)
 
-            if let date = makeISO8601DateFormatter(withFractionalSeconds: true).date(from: value) {
+            if let date = iso8601WithFractionalSeconds.date(from: value) {
                 return date
             }
 
-            if let date = makeISO8601DateFormatter(withFractionalSeconds: false).date(from: value) {
+            if let date = iso8601WithoutFractionalSeconds.date(from: value) {
                 return date
             }
 
@@ -640,7 +643,7 @@ private extension TextDTO {
 }
 
 private extension String {
-    var articleID: String {
+    var cardID: String {
         split(separator: "/").dropLast().last.map(String.init) ?? self
     }
 }
