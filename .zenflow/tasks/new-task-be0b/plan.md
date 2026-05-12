@@ -23,6 +23,7 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - short mandatory rules in `docs/AGENT_RULES.md`
   - long reference usage in `docs/IOS_ARCHITECTURE_REFERENCE.md`
   - canonical placement/read-order updated in `docs/README.md`
+- Extended `docs/AGENT_RULES.md` with 8 project-calibrated practical rules for TchopApp runtime work.
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule

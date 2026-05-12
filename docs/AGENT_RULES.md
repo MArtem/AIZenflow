@@ -34,6 +34,16 @@ Do not add abstractions unless they solve a concrete current problem.
 - New Factory/Builder/Adapter layers without real pressure.
 - Spreading business logic across View + ViewModel + Repository accidentally.
 
+## Project-Calibrated Working Rules (TchopApp)
+1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.
+2. Do not introduce app-local wrappers around reusable package APIs when one direct call is enough.
+3. For SwiftUI inside `View`, avoid local view-returning helpers; prefer extracted explicit `View`/builder types.
+4. Treat unnecessary redraw/invalidation risk as high-priority; prefer narrow-input subviews and explicit render boundaries.
+5. Keep share-extension/app boundaries explicit: shared storage + sync point, no hidden runtime coupling.
+6. Keep feed/composer card contract stable (`text/photo/video/audio/pdf`) unless product contract explicitly changes.
+7. ViewModel interaction style must stay explicit (`@MainActor`, `@Observable`, one state container, intent methods).
+8. Before any new abstraction, document one concrete current pain-point it solves in the PR/task notes.
+
 ## Size Heuristic
 - Small UI/bugfix task: minimal focused patch.
 - Architecture/runtime task: use reference guidance to choose boundaries and responsibilities.
