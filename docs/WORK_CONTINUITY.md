@@ -8,6 +8,58 @@ Use it when:
 - a new chat/session needs to resume the same long-running work
 - the project needs a git-backed status snapshot instead of `.zenflow`-only task state
 
+## Chat Transition Rule (Universal)
+- Keep a **universal chat-transition prompt** in this file so context can be restored even if a thread-level handoff is lost.
+- Refresh this prompt whenever architecture/state/phase sequencing changes materially.
+- During normal work, if context size becomes high or phase boundaries are reached, propose opening a new chat and reuse the latest version of this prompt.
+
+### Universal Transition Prompt Template
+```text
+Работаем в проекте `TchopApp` в worktree:
+`/Users/Artem/.zenflow/worktrees/new-task-be0b`
+
+Перед началом прочитай в таком порядке:
+1) docs/README.md
+2) PROJECT_DOCUMENTATION.md
+3) PROJECT_HEALTH.md
+4) docs/WORK_CONTINUITY.md
+5) .zenflow/tasks/new-task-be0b/handoff.md
+6) .zenflow/tasks/new-task-be0b/plan.md
+7) .zenflow/tasks/new-task-be0b/ios-engineering-rules.md
+8) .zenflow/tasks/new-task-be0b/services-engineering-rules.md
+
+Критичные правила:
+- Архитектура — приоритет №1.
+- Сразу после архитектуры проверка на overengineering.
+- Упрощать всё, что можно упростить без потери корректности/поддерживаемости/product fit.
+- Если неясны требования/state flow/ownership/extension boundaries/persistence shape/platform semantics — сначала уточнить, не угадывать.
+- Для SwiftUI внутри `View` запрещены:
+  - `private var foo: some View`
+  - `@ViewBuilder private func foo(...) -> some View`
+  Вместо этого выделять отдельные `View` / renderer / builder / factory types.
+- Unnecessary redraw/invalidation risk считать high-priority.
+- Стандарт ViewModel:
+  - `@MainActor`
+  - `@Observable`
+  - один явный state container
+  - explicit intent methods
+  - без project-wide generic `send(action)` как стандарта.
+
+Текущий рабочий фокус:
+- Runtime-код уже рабочий, идёт 3-фазный cleanup/refactor план:
+  1. Phase 1: runtime architecture/overengineering audit working code
+  2. Phase 2: SwiftUI view decomposition pass (убрать view-returning helpers внутри `View`)
+  3. Phase 3: unified ViewModel standardization pass
+- `TchopAppTests` в этом проходе не трогаем.
+- После фаз вернуться к ручной валидации по `docs/SHARE_EXTENSION_VALIDATION.md`.
+
+Начни с краткого статуса:
+1) какая сейчас active phase
+2) какие файлы смотришь
+3) какой следующий безопасный шаг
+и только потом продолжай изменения.
+```
+
 ## Current Long-Running Epic
 Restoration of the feed/composer/card runtime around the 5-type card model is complete.
 

@@ -97,6 +97,7 @@ Put here:
 - the current functional contract that must not be rediscovered
 - the next high-value continuation points
 - the key files to reopen first
+- the universal chat-transition prompt template for starting a fresh chat safely
 
 Do not put here:
 - every small intermediate step
