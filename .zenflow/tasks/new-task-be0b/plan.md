@@ -59,6 +59,11 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - removed unused full-snapshot sync helpers `syncSwiftDataFeedCards(...)` and `syncCoreDataFeedCards(...)` from `TchopApp/Repositories/AppContentRepository.swift`
   - sync flow already uses `FeedPersistenceSyncLocalStore.applySnapshots(...)`; deleted helpers had no call sites
   - no build run for this deletion-only cleanup
+- Phase 1 SwiftData runtime hardening cleanup:
+  - removed CoreData fallback branching from active mutation/read helpers in `TchopApp/Repositories/AppContentRepository.swift`
+  - simplified `upsertFeedCard`, `persistedSortOrder`, `persistedPhoto`, and `persistedText` to direct SwiftData paths
+  - removed now-unused CoreData-only helper methods that were reachable only via those deleted branches
+  - verification was run here because this step touched active repository logic: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
