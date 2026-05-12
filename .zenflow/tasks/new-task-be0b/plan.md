@@ -31,6 +31,7 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 - Documentation compression pass:
   - rewrote `docs/README.md` into a shorter canonical map with the same placement/hierarchy semantics
   - rewrote `docs/WORK_CONTINUITY.md` into a compact resume artifact with the same phase/baseline/contracts focus
+- Compressed `.zenflow/tasks/new-task-be0b/handoff.md` into a short operational resume artifact aligned with continuity docs.
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
