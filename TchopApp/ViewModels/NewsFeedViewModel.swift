@@ -210,16 +210,13 @@ final class NewsFeedViewModel {
         )
     }
 
-    var supportsCardTranslation: Bool {
-        AppLocalization.supportedLocaleIdentifiers.count > 1
-    }
-
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {
         if isCardTranslated(card.id) {
             return true
         }
 
-        return supportsCardTranslation && !translationTargetLanguages(for: card).isEmpty
+        return AppLocalization.supportedLocaleIdentifiers.count > 1 &&
+            !translationTargetLanguages(for: card).isEmpty
     }
 
     func translationTargetLanguages(for card: NewsFeedCard) -> [OnDeviceLanguage] {

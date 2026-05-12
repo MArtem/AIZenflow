@@ -78,6 +78,9 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 - Phase 1 comment-consistency cleanup:
   - aligned remaining repository comments from “active/backend-specific” wording to explicit SwiftData wording in `TchopApp/Repositories/AppContentRepository.swift`
   - no build run (comment-only change)
+- Phase 1 view-model micro-cleanup:
+  - removed one-use `supportsCardTranslation` computed property from `TchopApp/ViewModels/NewsFeedViewModel.swift` and inlined the condition at call site
+  - no build run (tiny behavior-equivalent simplification)
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
