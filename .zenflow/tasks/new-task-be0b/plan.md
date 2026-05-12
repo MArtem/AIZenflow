@@ -10,6 +10,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 4. Manual share-extension runtime validation remains pending via `./docs/SHARE_EXTENSION_VALIDATION.md`.
 
 ## Current Status
+- Completed audit: `./TchopApp/App/ChannelSettingsRepository.swift` (deduplicated default channel list constant).
+- Completed audit: `./TchopApp/App/ChannelsStore.swift` (removed duplicated selected-channel resolution and reused static preferred channel order).
 - Completed audit: `./TchopApp/Repositories/AppContentRepository.swift` (removed now-unused `upsertFeedCard` helper after earlier dead-code removal).
 - Completed audit: `./TchopApp/ViewModels/NewsFeedViewModel.swift` (removed small runtime duplication: unified card-task cancellation path and simplified search/translation checks).
 - Completed audit: `./TchopApp/Models/NewsFeedModels.swift` (removed minor import-path duplication and unreachable single-file `.image` branch).
@@ -17,7 +19,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed audit: `./TchopApp/Shared/SharedLocalFeedCardSyncManager.swift` (no safe simplifications needed; ownership boundary already minimal).
 - Completed now: removed dead private action-state persistence helpers from `./TchopApp/Repositories/AppContentRepository.swift`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: `./TchopApp/App/ChannelsStore.swift` + `./TchopApp/App/ChannelSettingsRepository.swift` ownership/indirection audit.
+- Next focus: `./TchopApp/App/AppDIContainer.swift` targeted dependency-wiring simplification audit.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule

@@ -43,6 +43,8 @@ struct UserDefaultsChannelSelectionStore {
 @MainActor
 @Observable
 final class ChannelsStore {
+    private static let preferredChannelOrder = AppChannel.allKnown.map(\.id)
+
     /// Stable runtime selection snapshot shared by shell chrome, feed loading and future card flows.
     struct SelectionSnapshot: Equatable, Sendable {
         let userID: String?
@@ -83,19 +85,14 @@ final class ChannelsStore {
 
     /// Currently selected channel derived from the active identifier and available channel list.
     var selectedChannel: AppChannel? {
-        guard let selectedChannelID else {
-            return channels.first
-        }
-
-        return channels.first(where: { $0.id == selectedChannelID }) ?? channels.first
+        selectionSnapshot.selectedChannel
     }
 
     /// Replaces the available channel snapshot and keeps the active selection valid.
     func setAvailableChannels(_ channels: [AppChannel]) {
-        let preferredOrder = AppChannel.allKnown.map(\.id)
         self.channels = channels.sorted { lhs, rhs in
-            let lhsIndex = preferredOrder.firstIndex(of: lhs.id) ?? Int.max
-            let rhsIndex = preferredOrder.firstIndex(of: rhs.id) ?? Int.max
+            let lhsIndex = Self.preferredChannelOrder.firstIndex(of: lhs.id) ?? Int.max
+            let rhsIndex = Self.preferredChannelOrder.firstIndex(of: rhs.id) ?? Int.max
             if lhsIndex != rhsIndex {
                 return lhsIndex < rhsIndex
             }

@@ -9,15 +9,17 @@ struct UserChannelSettingsSnapshot: Equatable, Sendable {
 /// Local stub implementation that models backend-delivered channel settings until the real API exists.
 @MainActor
 struct LocalUserChannelSettingsRepository {
+    private static let defaultAvailableChannels: [AppChannel] = [
+        .product,
+        .community,
+        .leadership
+    ]
+
     func loadChannelSettings(for user: AppUser) throws -> UserChannelSettingsSnapshot {
         switch normalizedUsername(user.username) {
         case "eve.holt@reqres.in":
             return UserChannelSettingsSnapshot(
-                availableChannels: [
-                    .product,
-                    .community,
-                    .leadership
-                ],
+                availableChannels: Self.defaultAvailableChannels,
                 preselectedChannelID: AppChannel.product.id
             )
         case "janet.weaver@reqres.in":
@@ -31,11 +33,7 @@ struct LocalUserChannelSettingsRepository {
             )
         default:
             return UserChannelSettingsSnapshot(
-                availableChannels: [
-                    .product,
-                    .community,
-                    .leadership
-                ],
+                availableChannels: Self.defaultAvailableChannels,
                 preselectedChannelID: AppChannel.defaultChannel.id
             )
         }
