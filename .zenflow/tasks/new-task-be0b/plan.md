@@ -10,11 +10,12 @@ Continue runtime cleanup with safe simplification while preserving current behav
 4. Manual share-extension runtime validation remains pending via `./docs/SHARE_EXTENSION_VALIDATION.md`.
 
 ## Current Status
+- Completed audit: `./TchopApp/Models/NewsFeedModels.swift` (removed minor import-path duplication and unreachable single-file `.image` branch).
 - Completed audit: `./Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift` (no safe simplifications needed; logic already direct and minimal).
 - Completed audit: `./TchopApp/Shared/SharedLocalFeedCardSyncManager.swift` (no safe simplifications needed; ownership boundary already minimal).
 - Completed now: removed dead private action-state persistence helpers from `./TchopApp/Repositories/AppContentRepository.swift`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: `./TchopApp/Models/NewsFeedModels.swift` cleanup of feed/composer runtime duplication.
+- Next focus: `./TchopApp/ViewModels/NewsFeedViewModel.swift` for residual runtime overengineering seams.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule

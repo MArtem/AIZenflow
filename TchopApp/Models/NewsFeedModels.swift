@@ -703,7 +703,6 @@ struct FeedComposerDraft: Equatable, Sendable {
                 makeImportedPhotoItem(file: file, fallbackNumber: index + 1)
             }
             media = .photos(items: items)
-            visibleTextFieldKinds.insert(.text)
         case let .photos(existingItems):
             let remainingCapacity = max(0, 10 - existingItems.count)
             guard remainingCapacity > 0 else {
@@ -714,10 +713,11 @@ struct FeedComposerDraft: Equatable, Sendable {
                 makeImportedPhotoItem(file: file, fallbackNumber: existingItems.count + index + 1)
             }
             media = .photos(items: existingItems + newItems)
-            visibleTextFieldKinds.insert(.text)
         case .file:
             throw FeedComposerImportError.incompatibleWithExistingMedia
         }
+
+        visibleTextFieldKinds.insert(.text)
     }
 
     private mutating func applyImportedSingleFile(_ file: ShareImportedFileItem) throws {
@@ -734,10 +734,6 @@ struct FeedComposerDraft: Equatable, Sendable {
         case .pdf:
             mediaKind = .pdf
         case .image:
-            mediaKind = .photo
-        }
-
-        guard mediaKind != .photo else {
             throw FeedComposerImportError.incompatibleWithExistingMedia
         }
 
