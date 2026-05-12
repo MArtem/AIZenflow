@@ -326,62 +326,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         return .cached(lastSyncedAt: lastSyncedAt, reason: cacheReason)
     }
 
-    @available(iOS 17, *)
-    /// Performs full-snapshot upsert/delete sync of feed cards in SwiftData.
-    private func syncSwiftDataFeedCards(
-        with snapshots: [FeedCardPersistenceSnapshot],
-        channelID: String
-    ) throws {
-        try databaseManager.write(
-            DatabaseWriteOperation(swiftData: { context in
-                let descriptor = FetchDescriptor<FeedCardRecord>()
-                let existingRecords = try context.fetch(descriptor).filter { record in
-                    return record.channelID == channelID
-                }
-                let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
-
-                for record in existingRecords where snapshotsByID[record.id] == nil {
-                    context.delete(record)
-                }
-
-                for snapshot in snapshots {
-                    if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
-                        AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
-                    } else {
-                        context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
-                    }
-                }
-            })
-        ) as Void
-    }
-
-    /// Performs full-snapshot upsert/delete sync of feed cards in Core Data.
-    private func syncCoreDataFeedCards(
-        with snapshots: [FeedCardPersistenceSnapshot],
-        channelID: String
-    ) throws {
-        try databaseManager.write(
-            DatabaseWriteOperation(coreData: { context in
-                let request = Self.makeCoreDataFeedCardFetchRequest(channelID: channelID)
-                let existingRecords = try context.fetch(request)
-                let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
-
-                for record in existingRecords where snapshotsByID[record.id] == nil {
-                    context.delete(record)
-                }
-
-                for snapshot in snapshots {
-                    if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
-                        AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
-                    } else {
-                        let record = CoreDataFeedCardEntity(context: context)
-                        AppContentPersistenceMapper.apply(snapshot, to: record)
-                    }
-                }
-            })
-        ) as Void
-    }
-
     /// Persists one updated featured article snapshot while keeping feed ordering stable.
     private func persistPhoto(
         _ article: PhotoDTO,

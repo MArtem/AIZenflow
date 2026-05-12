@@ -55,6 +55,10 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - removed now-unreachable CoreData-only read helpers `fetchCoreDataCardStateMap(...)` and `fetchCoreDataFeedSnapshot(...)` from `TchopApp/Repositories/AppContentRepository.swift`
   - these methods no longer participated in active runtime after SwiftData-path simplification
   - no build run for this deletion-only cleanup
+- Phase 1 dead-path cleanup (continued):
+  - removed unused full-snapshot sync helpers `syncSwiftDataFeedCards(...)` and `syncCoreDataFeedCards(...)` from `TchopApp/Repositories/AppContentRepository.swift`
+  - sync flow already uses `FeedPersistenceSyncLocalStore.applySnapshots(...)`; deleted helpers had no call sites
+  - no build run for this deletion-only cleanup
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
