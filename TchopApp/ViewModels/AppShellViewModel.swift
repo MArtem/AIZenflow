@@ -266,23 +266,6 @@ final class FeedComposerViewModel {
     }
 }
 
-extension FeedComposerInsertion {
-    var textFieldKind: ChannelCardTextFieldKind {
-        switch self {
-        case .text:
-            return .text
-        case .headline:
-            return .headline
-        case .subheadline:
-            return .subheadline
-        case .source:
-            return .source
-        case .photoOrVideo, .photo, .audio, .pdf:
-            return .text
-        }
-    }
-}
-
 #if !APP_EXTENSION
 /// View model for the authenticated shell.
 ///

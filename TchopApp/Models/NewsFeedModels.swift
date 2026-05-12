@@ -157,6 +157,21 @@ enum FeedComposerInsertion: Equatable, Sendable, Identifiable {
         case .source: return "Source"
         }
     }
+
+    var textFieldKind: ChannelCardTextFieldKind {
+        switch self {
+        case .text:
+            return .text
+        case .headline:
+            return .headline
+        case .subheadline:
+            return .subheadline
+        case .source:
+            return .source
+        case .photoOrVideo, .photo, .audio, .pdf:
+            return .text
+        }
+    }
 }
 
 enum FeedComposerImportError: Error, Equatable, Sendable {
