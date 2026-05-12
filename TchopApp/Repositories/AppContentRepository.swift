@@ -438,7 +438,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         }
     }
 
-    /// Upserts one feed-card snapshot in the active backend.
+    /// Upserts one feed-card snapshot in SwiftData.
     private func upsertFeedCard(_ snapshot: FeedCardPersistenceSnapshot) throws {
         try databaseManager.write(
             DatabaseWriteOperation(swiftData: { context in
@@ -483,7 +483,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         return discussion
     }
 
-    /// Reads one persisted featured article card from the active backend.
+    /// Reads one persisted featured article card from SwiftData.
     private func persistedPhoto(articleID: String) throws -> PhotoCardModel? {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
@@ -495,7 +495,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Reads one persisted discussion card from the active backend.
+    /// Reads one persisted discussion card from SwiftData.
     private func persistedText(discussionID: String) throws -> TextCardModel? {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
@@ -911,7 +911,7 @@ private actor FeedActionRemoteSyncClient: SyncRemoteClient {
     }
 }
 
-/// Converts between remote DTOs, storage snapshots, and backend-specific persistence records.
+/// Converts between remote DTOs, storage snapshots, and SwiftData persistence records.
 private enum AppContentPersistenceMapper {
     static func makeFeedCardSnapshots(
         from response: FeedResponseDTO,

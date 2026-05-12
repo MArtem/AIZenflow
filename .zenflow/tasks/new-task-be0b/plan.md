@@ -75,6 +75,9 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 - Phase 1 annotation cleanup:
   - removed now-decorative `@available(iOS 17, *)` markers from `TchopApp/Repositories/AppContentRepository.swift` after SwiftData-only runtime convergence
   - no build run (annotation-only cleanup without behavior/sig changes)
+- Phase 1 comment-consistency cleanup:
+  - aligned remaining repository comments from “active/backend-specific” wording to explicit SwiftData wording in `TchopApp/Repositories/AppContentRepository.swift`
+  - no build run (comment-only change)
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
