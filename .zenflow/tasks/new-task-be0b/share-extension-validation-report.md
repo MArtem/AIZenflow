@@ -3,47 +3,51 @@
 ## Date
 2026-05-13
 
-## Scope
-Manual runtime validation checklist from `./docs/SHARE_EXTENSION_VALIDATION.md`.
+## Pass Type
+Single uninterrupted pass (automation + static runtime contract verification).
 
-## Execution Status
-- Environment in this pass: CLI-only (no interactive simulator/device session attached).
-- Result: scenarios prepared and normalized for execution; runtime checks pending manual run.
+## Verified In This Pass
+1. Build/runtime preflight:
+   - `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+2. Import/runtime contract consistency reviewed in code:
+   - `./Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift`
+   - `./TchopApp/Models/NewsFeedModels.swift`
+3. Confirmed by code paths:
+   - supported import kinds: `image`, `video`, `audio`, `pdf`, `text`
+   - mixed media (`image + non-image`) => explicit failure
+   - multiple non-image files => explicit failure
+   - incompatible import into existing media draft => explicit failure
+   - unknown/unsupported providers => explicit failure
+   - text merge behavior into `.text` field exists
+   - card kind recalculation path goes through `effectiveKind` / `media` mutations
 
-## Manual Execution Protocol
-Use one source app at a time (Photos/Files/Notes/Safari). For each scenario:
-1. Prepare source content.
-2. Open system Share Sheet -> choose Tchop share extension.
-3. Verify imported draft in composer.
-4. Publish when scenario requires publish.
-5. Re-open main app and verify feed/channel sync behavior.
+## Scenario Status Matrix
+### Runtime scenarios (interactive)
+| ID | Scenario | Status |
+|---|---|---|
+| S1 | share text only from a real source app | Pending interactive run |
+| S2 | share one image | Pending interactive run |
+| S3 | share multiple images | Pending interactive run |
+| S4 | share one video | Pending interactive run |
+| S5 | share one audio file | Pending interactive run |
+| S6 | share one pdf | Pending interactive run |
+| S7 | share text plus image | Pending interactive run |
+| S8 | share text plus video | Pending interactive run |
+| S9 | delete imported primary media and verify card kind recalculates correctly | Pending interactive run |
+| S10 | publish from extension, re-enter app, verify sync into correct channel | Pending interactive run |
+| S11 | publish from extension, pull-to-refresh, verify sync still works | Pending interactive run |
+| S12 | unauthenticated path and `Open app` behavior | Pending interactive run |
 
-## Scenario Matrix
-| ID | Scenario | Expected Result | Status | Notes |
-|---|---|---|---|---|
-| S1 | share text only | text merged into card `text` field | Pending | |
-| S2 | share one image | one photo item created | Pending | |
-| S3 | share multiple images | multiple photo items created | Pending | |
-| S4 | share one video | file media imported, `video` card kind | Pending | |
-| S5 | share one audio file | file media imported, `audio` card kind | Pending | |
-| S6 | share one pdf | file media imported, `pdf` card kind | Pending | |
-| S7 | share text + image | image is primary, text merged into `text` | Pending | |
-| S8 | share text + video | video is primary, text merged into `text` | Pending | |
-| S9 | delete imported primary media | card kind recalculates correctly | Pending | |
-| S10 | publish from extension -> re-enter app | sync to correct channel after activation | Pending | |
-| S11 | publish -> pull-to-refresh | sync still works on refresh | Pending | |
-| S12 | unauthenticated extension state | reason text + `Open app` shown | Pending | |
+### Negative scenarios (interactive)
+| ID | Scenario | Status |
+|---|---|---|
+| N1 | mixed media (`image + video`) | Pending interactive run (code contract matches expected failure) |
+| N2 | multiple file attachments (`video + pdf`) | Pending interactive run (code contract matches expected failure) |
+| N3 | incompatible imported media against existing draft media | Pending interactive run (code contract matches expected failure) |
+| N4 | unsupported provider types | Pending interactive run (code contract matches expected failure) |
+| N5 | unknown file types | Pending interactive run (code contract matches expected failure) |
 
-## Negative/Rejected Behavior (must stay explicit failures)
-| ID | Scenario | Expected Result | Status | Notes |
-|---|---|---|---|---|
-| N1 | mixed media (`image + video`) | explicit failure | Pending | |
-| N2 | multiple files (`video + pdf`) | explicit failure | Pending | |
-| N3 | incompatible media vs existing draft media | explicit failure | Pending | |
-| N4 | unsupported provider type | explicit failure (no empty composer) | Pending | |
-| N5 | unknown generic file type | explicit failure (no pdf guessing) | Pending | |
-
-## Product Rules Snapshot
-- incompatible imports => explicit failures
-- unsupported/unknown file types => explicit failures
-- no silent type guessing
+## Final Assessment Of This Pass
+- Automated and static verification: **PASS**.
+- Interactive runtime verification: **NOT EXECUTED in CLI-only environment**.
+- Product rule alignment (explicit failures, no silent guessing): **PASS by current code contract**.
