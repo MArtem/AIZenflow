@@ -322,20 +322,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         return .cached(lastSyncedAt: lastSyncedAt, reason: cacheReason)
     }
 
-    /// Upserts one feed-card snapshot in SwiftData.
-    private func upsertFeedCard(_ snapshot: FeedCardPersistenceSnapshot) throws {
-        try databaseManager.write(
-            DatabaseWriteOperation(swiftData: { context in
-                let descriptor = FetchDescriptor<FeedCardRecord>()
-                if let existingRecord = try context.fetch(descriptor).first(where: { $0.id == snapshot.id }) {
-                    AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
-                } else {
-                    context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
-                }
-            })
-        ) as Void
-    }
-
     /// Returns the persisted sort order for one card identifier.
     private func persistedSortOrder(for cardID: String) throws -> Int {
         try databaseManager.read(

@@ -211,12 +211,11 @@ final class NewsFeedViewModel {
     }
 
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {
-        if isCardTranslated(card.id) {
-            return true
-        }
-
-        return AppLocalization.supportedLocaleIdentifiers.count > 1 &&
+        isCardTranslated(card.id) ||
+            (
+                AppLocalization.supportedLocaleIdentifiers.count > 1 &&
             !translationTargetLanguages(for: card).isEmpty
+            )
     }
 
     func translationTargetLanguages(for card: NewsFeedCard) -> [OnDeviceLanguage] {
@@ -383,11 +382,9 @@ final class NewsFeedViewModel {
 
     /// Opens or closes the current-channel search UI.
     func toggleSearchPresentation() {
-        if isSearchPresented {
-            isSearchPresented = false
+        isSearchPresented.toggle()
+        if !isSearchPresented {
             searchQuery = ""
-        } else {
-            isSearchPresented = true
         }
     }
 
@@ -453,8 +450,7 @@ final class NewsFeedViewModel {
     func cancelLoading() {
         loadingTask?.cancel()
         loadingTask = nil
-        cancelPhotoTasks()
-        cancelTextTasks()
+        cancelCardActionTasks()
 
         if case let .loading(content) = state {
             state = Self.resolvedState(for: content)
@@ -473,8 +469,7 @@ final class NewsFeedViewModel {
     /// Any in-flight card actions are cancelled because the screen now has a newer persisted
     /// snapshot and stale per-card tasks should no longer write back into the visible list.
     private func applyLoadedContent(_ content: NewsFeedContent) {
-        cancelPhotoTasks()
-        cancelTextTasks()
+        cancelCardActionTasks()
         state = Self.resolvedState(for: content)
         widgetContentSyncManager.syncFeed(content: content)
     }
@@ -484,10 +479,14 @@ final class NewsFeedViewModel {
     /// This is a feed-level failure path. Card-level inline errors use a different policy and
     /// intentionally keep the surrounding feed snapshot visible.
     private func applyLoadFailureState(message: String? = nil) {
-        cancelPhotoTasks()
-        cancelTextTasks()
+        cancelCardActionTasks()
         state = .failed(content: loadFailureContent, message: message ?? loadFailureMessage)
         widgetContentSyncManager.syncFeed(content: loadFailureContent)
+    }
+
+    private func cancelCardActionTasks() {
+        cancelPhotoTasks()
+        cancelTextTasks()
     }
 
     /// Applies load policy guards and starts a new request when the transition is allowed.
