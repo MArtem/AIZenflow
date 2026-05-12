@@ -15,6 +15,9 @@ Global assistant iOS/model-routing rules live in:
 - [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md)
 
 ## Project-Specific Rules
+- For coding-task responses in this task thread, include the active model header at the top:
+  - `Model: GPT-5.3-codex` / `Model: GPT-5.4` / `Model: GPT-5.5`
+  - Follow the canonical model-selection policy in `/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md`.
 - Do not add speculative UI, speculative logic, or fallback flows that were not explicitly requested.
 - Prefer the minimum working implementation that matches the clarified product contract.
 - Optimize for final product correctness over implementation speed. If requirements, state behavior, lifecycle, platform behavior, or ownership are unclear, stop and ask instead of guessing.
