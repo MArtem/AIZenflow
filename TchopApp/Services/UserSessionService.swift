@@ -286,21 +286,16 @@ final class UserSessionService: UserSessionManaging {
     func signIn(username: String) async throws -> AppUser {
         if let authenticationAPIManager, let tokenStore {
             let tokenSet = try await authenticationAPIManager.signIn(username: username)
-            try tokenStore.saveTokenSet(tokenSet)
-
-            do {
-                let user = try userRepository.findOrCreateUser(username: username)
-                userDefaults.set(user.id, forKey: Keys.activeUserID)
-                return user
-            } catch {
-                try? tokenStore.clearTokenSet()
-                throw error
-            }
+            return try completeTokenBackedSignIn(
+                tokenStore: tokenStore,
+                tokenSet: tokenSet,
+                resolveUser: { try userRepository.findOrCreateUser(username: username) }
+            )
         }
 
-        let user = try userRepository.findOrCreateUser(username: username)
-        userDefaults.set(user.id, forKey: Keys.activeUserID)
-        return user
+        return try persistSessionUser {
+            try userRepository.findOrCreateUser(username: username)
+        }
     }
 
     /// Signs in with external credentials and mirrors the backend identifier locally using the email value.
@@ -314,16 +309,11 @@ final class UserSessionService: UserSessionManaging {
         }
 
         let tokenSet = try await authenticationAPIManager.signIn(email: email, password: password)
-        try tokenStore.saveTokenSet(tokenSet)
-
-        do {
-            let user = try userRepository.findOrCreateUser(username: email)
-            userDefaults.set(user.id, forKey: Keys.activeUserID)
-            return user
-        } catch {
-            try? tokenStore.clearTokenSet()
-            throw error
-        }
+        return try completeTokenBackedSignIn(
+            tokenStore: tokenStore,
+            tokenSet: tokenSet,
+            resolveUser: { try userRepository.findOrCreateUser(username: email) }
+        )
     }
 
     /// Registers an external account and persists the initial session locally.
@@ -333,16 +323,11 @@ final class UserSessionService: UserSessionManaging {
         }
 
         let tokenSet = try await authenticationAPIManager.register(email: email, password: password)
-        try tokenStore.saveTokenSet(tokenSet)
-
-        do {
-            let user = try userRepository.findOrCreateUser(username: email)
-            userDefaults.set(user.id, forKey: Keys.activeUserID)
-            return user
-        } catch {
-            try? tokenStore.clearTokenSet()
-            throw error
-        }
+        return try completeTokenBackedSignIn(
+            tokenStore: tokenStore,
+            tokenSet: tokenSet,
+            resolveUser: { try userRepository.findOrCreateUser(username: email) }
+        )
     }
 
     /// Signs in with Apple and stores the active user identifier for future restoration.
@@ -352,27 +337,46 @@ final class UserSessionService: UserSessionManaging {
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AppUser {
         if let authenticationAPIManager, let tokenStore {
             let tokenSet = try await authenticationAPIManager.signInWithApple(identity: identity)
-            try tokenStore.saveTokenSet(tokenSet)
-
-            do {
-                let user = try userRepository.findOrCreateAppleUser(
-                    appleUserID: identity.userID,
-                    preferredUsername: identity.preferredUsername
-                )
-                userDefaults.set(user.id, forKey: Keys.activeUserID)
-                return user
-            } catch {
-                try? tokenStore.clearTokenSet()
-                throw error
-            }
+            return try completeTokenBackedSignIn(
+                tokenStore: tokenStore,
+                tokenSet: tokenSet,
+                resolveUser: {
+                    try userRepository.findOrCreateAppleUser(
+                        appleUserID: identity.userID,
+                        preferredUsername: identity.preferredUsername
+                    )
+                }
+            )
         }
 
-        let user = try userRepository.findOrCreateAppleUser(
-            appleUserID: identity.userID,
-            preferredUsername: identity.preferredUsername
-        )
+        return try persistSessionUser {
+            try userRepository.findOrCreateAppleUser(
+                appleUserID: identity.userID,
+                preferredUsername: identity.preferredUsername
+            )
+        }
+    }
+
+    private func persistSessionUser(
+        _ resolveUser: () throws -> AppUser
+    ) throws -> AppUser {
+        let user = try resolveUser()
         userDefaults.set(user.id, forKey: Keys.activeUserID)
         return user
+    }
+
+    private func completeTokenBackedSignIn(
+        tokenStore: any AuthTokenStoring,
+        tokenSet: AuthTokenSet,
+        resolveUser: () throws -> AppUser
+    ) throws -> AppUser {
+        try tokenStore.saveTokenSet(tokenSet)
+        do {
+            return try persistSessionUser(resolveUser)
+        } catch {
+            try? tokenStore.clearTokenSet()
+            throw error
+        }
     }
 
     /// Restores the active session and clears stale usernames automatically.
