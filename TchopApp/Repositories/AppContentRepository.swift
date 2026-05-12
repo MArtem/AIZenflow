@@ -210,7 +210,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Resolves channels using the currently selected persistence backend.
+    /// Resolves channels through the active SwiftData backend.
     private func fetchChannelsFromCurrentBackend() throws -> [AppChannel] {
         try fetchSwiftDataChannels()
     }
@@ -245,7 +245,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         return request
     }
 
-    /// Fetches the current persisted feed snapshot using the selected backend.
+    /// Fetches the current persisted feed snapshot using the active SwiftData backend.
     private func fetchPersistedNewsFeedContent(
         channelID: String,
         cacheReason: NewsFeedCacheReason?
@@ -260,7 +260,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Reads persisted feed cards from the selected backend and maps them into presentation models.
+    /// Reads persisted feed cards from SwiftData and maps them into presentation models.
     private func fetchPersistedFeedSnapshotFromCurrentBackend(
         channelID: String
     ) throws -> PersistedNewsFeedSnapshot {
