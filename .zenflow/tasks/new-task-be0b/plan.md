@@ -19,6 +19,10 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 - Continuity rule updated: added a universal new-chat transition prompt template in `docs/WORK_CONTINUITY.md` and documented its canonical placement in `docs/README.md`.
 - Response-format rule updated: added explicit active-model header requirement in `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`, aligned with `/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md`.
 - Runtime ownership cleanup: moved `FeedComposerInsertion.textFieldKind` mapping from `AppShellViewModel` layer to `NewsFeedModels` (model layer) to remove decorative cross-layer coupling.
+- Added architecture-guidance docs split:
+  - short mandatory rules in `docs/AGENT_RULES.md`
+  - long reference usage in `docs/IOS_ARCHITECTURE_REFERENCE.md`
+  - canonical placement/read-order updated in `docs/README.md`
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
