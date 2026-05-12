@@ -51,6 +51,10 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - removed `fetchChannelsFromCurrentBackend()` and `fetchPersistedFeedSnapshotFromCurrentBackend()` wrappers in `TchopApp/Repositories/AppContentRepository.swift`
   - call sites now use direct SwiftData read-path methods
   - no build run for this small structural simplification step
+- Phase 1 dead-path cleanup:
+  - removed now-unreachable CoreData-only read helpers `fetchCoreDataCardStateMap(...)` and `fetchCoreDataFeedSnapshot(...)` from `TchopApp/Repositories/AppContentRepository.swift`
+  - these methods no longer participated in active runtime after SwiftData-path simplification
+  - no build run for this deletion-only cleanup
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule

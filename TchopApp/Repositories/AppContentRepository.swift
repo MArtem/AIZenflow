@@ -221,25 +221,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Fetches channels through the Core Data backend.
-    private func fetchCoreDataChannels() throws -> [AppChannel] {
-        try databaseManager.read(
-            DatabaseReadOperation(coreData: { context in
-                let request = Self.makeCoreDataChannelFetchRequest()
-                return try context.fetch(request).map(AppContentMapper.mapChannel)
-            })
-        )
-    }
-
-    /// Builds a single-record Core Data request for channel metadata.
-    private static func makeCoreDataChannelFetchRequest() -> NSFetchRequest<CoreDataChannelEntity> {
-        let request = CoreDataChannelEntity.fetchRequest()
-        request.sortDescriptors = [
-            NSSortDescriptor(key: "title", ascending: true)
-        ]
-        return request
-    }
-
     /// Fetches the current persisted feed snapshot using the active SwiftData backend.
     private func fetchPersistedNewsFeedContent(
         channelID: String,
@@ -317,28 +298,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Returns persisted card-local-state blobs from the Core Data backend.
-    private func fetchCoreDataCardStateMap(
-        channelID: String
-    ) throws -> [String: PersistedCardStateSnapshot] {
-        try databaseManager.read(
-            DatabaseReadOperation(coreData: { context in
-                let request = Self.makeCoreDataFeedCardFetchRequest(channelID: channelID)
-                return Dictionary(
-                    uniqueKeysWithValues: try context.fetch(request).map {
-                        (
-                            $0.id,
-                            PersistedCardStateSnapshot(
-                                articleStateData: $0.articleStateData,
-                                discussionStateData: $0.discussionStateData
-                            )
-                        )
-                    }
-                )
-            })
-        )
-    }
-
     @available(iOS 17, *)
     /// Fetches persisted feed cards through the SwiftData backend.
     private func fetchSwiftDataFeedSnapshot(channelID: String) throws -> PersistedNewsFeedSnapshot {
@@ -347,20 +306,6 @@ final class DefaultAppContentRepository: AppContentRepository {
                 let records = try Self.fetchAllSwiftDataFeedCardRecords(in: context)
                     .filter { $0.channelID == channelID }
                     .sorted(by: { $0.sortOrder < $1.sortOrder })
-                return PersistedNewsFeedSnapshot(
-                    cards: records.compactMap(AppContentMapper.mapFeedCard),
-                    lastSyncedAt: records.first?.syncedAt
-                )
-            })
-        )
-    }
-
-    /// Fetches persisted feed cards through the Core Data backend.
-    private func fetchCoreDataFeedSnapshot(channelID: String) throws -> PersistedNewsFeedSnapshot {
-        try databaseManager.read(
-            DatabaseReadOperation(coreData: { context in
-                let request = Self.makeCoreDataFeedCardFetchRequest(channelID: channelID)
-                let records = try context.fetch(request)
                 return PersistedNewsFeedSnapshot(
                     cards: records.compactMap(AppContentMapper.mapFeedCard),
                     lastSyncedAt: records.first?.syncedAt
