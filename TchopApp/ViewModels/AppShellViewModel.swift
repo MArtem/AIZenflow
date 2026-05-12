@@ -296,10 +296,6 @@ final class AppShellViewModel {
     private let localFeedCardStore: LocalFeedCardStore
     private(set) var activeComposer: FeedComposerViewModel?
 
-    var sharedLocalFeedCardStore: LocalFeedCardStore {
-        localFeedCardStore
-    }
-
     /// Creates the shell view model from repository-backed content.
     init(
         channelsStore: ChannelsStore,

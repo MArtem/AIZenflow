@@ -35,6 +35,9 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 - Final docs polish:
   - removed duplicate SwiftUI/ViewModel rule wording from `docs/WORK_CONTINUITY.md` transition template and delegated to task overlay rule files
   - aligned `docs/AGENT_RULES.md` with overlay-rule ownership to avoid policy drift
+- Phase 1 runtime cleanup:
+  - removed unused decorative `sharedLocalFeedCardStore` passthrough property from `TchopApp/ViewModels/AppShellViewModel.swift`
+  - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
