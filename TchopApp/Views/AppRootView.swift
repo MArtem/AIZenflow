@@ -26,7 +26,7 @@ struct AppRootView: View {
         Group {
             switch appState.sessionState {
             case .restoring:
-                rootLoadingView
+                AppRootLoadingView()
                     .accessibilityIdentifier("app.restoring")
             case .signedOut:
                 LoginScreenView(
@@ -48,8 +48,11 @@ struct AppRootView: View {
         .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: onContinueUserActivity)
     }
 
-    /// Lightweight restoring state shown while the app resolves any persisted authenticated session.
-    private var rootLoadingView: some View {
+}
+
+/// Lightweight restoring state shown while the app resolves any persisted authenticated session.
+private struct AppRootLoadingView: View {
+    var body: some View {
         VStack(spacing: 14) {
             ProgressView()
                 .controlSize(.large)

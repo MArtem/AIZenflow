@@ -28,27 +28,27 @@ struct NewsFeedView: View {
                 .frame(height: 0)
 
                 if viewModel.isSearchPresented {
-                    searchField
+                    NewsFeedSearchFieldView(
+                        searchQuery: $viewModel.searchQuery,
+                        clearLabel: AppLocalization.text("news.feed.search.clear")
+                    )
                 }
 
                 if viewModel.state.isEmpty {
-                    emptyStateView
+                    NewsFeedEmptyStateView()
                 } else if viewModel.showsNoSearchResults {
-                    searchEmptyStateView
+                    NewsFeedSearchEmptyStateView()
                 } else {
                     ForEach(Array(viewModel.visibleContent.cards), id: \.id) { card in
-                        switch card {
-                        case let .photo(photoCard):
-                            photoCardView(photoCard, feedCard: card)
-                        case let .text(textCard):
-                            textCardView(textCard, feedCard: card)
-                        case let .video(videoCard):
-                            videoCardView(videoCard, feedCard: card)
-                        case let .audio(audioCard):
-                            audioCardView(audioCard, feedCard: card)
-                        case let .pdf(pdfCard):
-                            pdfCardView(pdfCard, feedCard: card)
-                        }
+                        NewsFeedCardRendererView(
+                            feedCard: card,
+                            viewModel: viewModel,
+                            translationAction: translationAction(for: card),
+                            onPhotoTap: onPhotoTap,
+                            onPhotoAction: onPhotoAction,
+                            onTextTap: onTextTap,
+                            onTextAction: onTextAction
+                        )
                     }
                 }
             }
@@ -78,155 +78,6 @@ struct NewsFeedView: View {
             Button(AppLocalization.text("common.cancel"), role: .cancel) {
                 languageSelectionState = nil
             }
-        }
-    }
-
-    /// Dedicated empty-state surface for a feed that resolved successfully but currently has no cards.
-    private var emptyStateView: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.xs) {
-            Text(AppLocalization.text("news.feed.empty.title"))
-                .font(AppTypography.cardTitle)
-                .foregroundStyle(AppTheme.textPrimary)
-
-            Text(AppLocalization.text("news.feed.empty.description"))
-                .font(AppTypography.detail)
-                .foregroundStyle(AppTheme.textTertiary)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical, AppSpacing.xl)
-        .accessibilityElement(children: .combine)
-    }
-
-    /// Search field bound to the current selected channel feed only.
-    private var searchField: some View {
-        HStack(spacing: AppSpacing.sm) {
-            Image(systemName: "magnifyingglass")
-                .foregroundStyle(AppTheme.textTertiary)
-
-            TextField(
-                AppLocalization.text("news.feed.search.placeholder"),
-                text: $viewModel.searchQuery
-            )
-            .textInputAutocapitalization(.never)
-            .disableAutocorrection(true)
-
-            if !viewModel.searchQuery.isEmpty {
-                Button(action: { viewModel.searchQuery = "" }) {
-                    Image(systemName: "xmark.circle.fill")
-                        .foregroundStyle(AppTheme.textTertiary)
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel(AppLocalization.text("news.feed.search.clear"))
-            }
-        }
-        .font(AppTypography.detail)
-        .foregroundStyle(AppTheme.textPrimary)
-        .padding(.horizontal, AppSpacing.md)
-        .padding(.vertical, AppSpacing.sm)
-        .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
-        .accessibilityIdentifier("news.feed.search")
-    }
-
-    /// No-results state shown when the current channel contains cards but none match the search query.
-    private var searchEmptyStateView: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.xs) {
-            Text(AppLocalization.text("news.feed.search.empty.title"))
-                .font(AppTypography.cardTitle)
-                .foregroundStyle(AppTheme.textPrimary)
-
-            Text(AppLocalization.text("news.feed.search.empty.description"))
-                .font(AppTypography.detail)
-                .foregroundStyle(AppTheme.textTertiary)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(.vertical, AppSpacing.xl)
-        .accessibilityElement(children: .combine)
-    }
-
-    @ViewBuilder
-    private func photoCardView(
-        _ content: NewsFeedPhotoCardContent,
-        feedCard: NewsFeedCard
-    ) -> some View {
-        switch content {
-        case let .remote(photoCard):
-            PhotoCardView(
-                photo: viewModel.translatedPhotoCard(photoCard),
-                translationAction: translationAction(for: feedCard),
-                onTap: { onPhotoTap(photoCard) },
-                onAction: { onPhotoAction(photoCard, $0) }
-            )
-        case let .local(localCard):
-            LocalPhotoCardView(
-                card: viewModel.translatedLocalFeedCard(localCard),
-                translationAction: translationAction(for: feedCard)
-            )
-        }
-    }
-
-    @ViewBuilder
-    private func textCardView(
-        _ content: NewsFeedTextCardContent,
-        feedCard: NewsFeedCard
-    ) -> some View {
-        switch content {
-        case let .remote(textCard):
-            TextCardView(
-                text: viewModel.translatedTextCard(textCard),
-                translationAction: translationAction(for: feedCard),
-                onTap: { onTextTap(textCard) },
-                onAction: { onTextAction(textCard, $0) }
-            )
-        case let .local(localCard):
-            LocalTextCardView(
-                card: viewModel.translatedLocalFeedCard(localCard),
-                translationAction: translationAction(for: feedCard)
-            )
-        }
-    }
-
-    @ViewBuilder
-    private func videoCardView(
-        _ content: NewsFeedVideoCardContent,
-        feedCard: NewsFeedCard
-    ) -> some View {
-        switch content {
-        case let .local(card):
-            VideoCardView(
-                content: .local(viewModel.translatedLocalFeedCard(card)),
-                translationAction: translationAction(for: feedCard)
-            )
-        }
-    }
-
-    @ViewBuilder
-    private func audioCardView(
-        _ content: NewsFeedAudioCardContent,
-        feedCard: NewsFeedCard
-    ) -> some View {
-        switch content {
-        case let .local(card):
-            AudioCardView(
-                content: .local(viewModel.translatedLocalFeedCard(card)),
-                translationAction: translationAction(for: feedCard)
-            )
-        }
-    }
-
-    @ViewBuilder
-    private func pdfCardView(
-        _ content: NewsFeedPDFCardContent,
-        feedCard: NewsFeedCard
-    ) -> some View {
-        switch content {
-        case let .local(card):
-            PDFCardView(
-                content: .local(viewModel.translatedLocalFeedCard(card)),
-                translationAction: translationAction(for: feedCard)
-            )
         }
     }
 
@@ -286,6 +137,146 @@ struct NewsFeedView: View {
         languageSelectionState = nil
         Task {
             await viewModel.performTranslation(for: card, targetLanguage: targetLanguage)
+        }
+    }
+}
+
+private struct NewsFeedEmptyStateView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
+            Text(AppLocalization.text("news.feed.empty.title"))
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(AppLocalization.text("news.feed.empty.description"))
+                .font(AppTypography.detail)
+                .foregroundStyle(AppTheme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, AppSpacing.xl)
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct NewsFeedSearchEmptyStateView: View {
+    var body: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.xs) {
+            Text(AppLocalization.text("news.feed.search.empty.title"))
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppTheme.textPrimary)
+
+            Text(AppLocalization.text("news.feed.search.empty.description"))
+                .font(AppTypography.detail)
+                .foregroundStyle(AppTheme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.vertical, AppSpacing.xl)
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct NewsFeedSearchFieldView: View {
+    @Binding var searchQuery: String
+    let clearLabel: String
+
+    var body: some View {
+        HStack(spacing: AppSpacing.sm) {
+            Image(systemName: "magnifyingglass")
+                .foregroundStyle(AppTheme.textTertiary)
+
+            TextField(
+                AppLocalization.text("news.feed.search.placeholder"),
+                text: $searchQuery
+            )
+            .textInputAutocapitalization(.never)
+            .disableAutocorrection(true)
+
+            if !searchQuery.isEmpty {
+                Button(action: { searchQuery = "" }) {
+                    Image(systemName: "xmark.circle.fill")
+                        .foregroundStyle(AppTheme.textTertiary)
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(clearLabel)
+            }
+        }
+        .font(AppTypography.detail)
+        .foregroundStyle(AppTheme.textPrimary)
+        .padding(.horizontal, AppSpacing.md)
+        .padding(.vertical, AppSpacing.sm)
+        .background(AppTheme.surfacePrimary)
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
+        .accessibilityIdentifier("news.feed.search")
+    }
+}
+
+private struct NewsFeedCardRendererView: View {
+    let feedCard: NewsFeedCard
+    let viewModel: NewsFeedViewModel
+    let translationAction: FeedCardTranslationAction?
+    let onPhotoTap: (PhotoCardModel) -> Void
+    let onPhotoAction: (PhotoCardModel, PhotoCardAction) -> Void
+    let onTextTap: (TextCardModel) -> Void
+    let onTextAction: (TextCardModel, TextCardAction) -> Void
+
+    var body: some View {
+        switch feedCard {
+        case let .photo(content):
+            switch content {
+            case let .remote(photoCard):
+                PhotoCardView(
+                    photo: viewModel.translatedPhotoCard(photoCard),
+                    translationAction: translationAction,
+                    onTap: { onPhotoTap(photoCard) },
+                    onAction: { onPhotoAction(photoCard, $0) }
+                )
+            case let .local(localCard):
+                LocalPhotoCardView(
+                    card: viewModel.translatedLocalFeedCard(localCard),
+                    translationAction: translationAction
+                )
+            }
+        case let .text(content):
+            switch content {
+            case let .remote(textCard):
+                TextCardView(
+                    text: viewModel.translatedTextCard(textCard),
+                    translationAction: translationAction,
+                    onTap: { onTextTap(textCard) },
+                    onAction: { onTextAction(textCard, $0) }
+                )
+            case let .local(localCard):
+                LocalTextCardView(
+                    card: viewModel.translatedLocalFeedCard(localCard),
+                    translationAction: translationAction
+                )
+            }
+        case let .video(content):
+            switch content {
+            case let .local(card):
+                VideoCardView(
+                    content: .local(viewModel.translatedLocalFeedCard(card)),
+                    translationAction: translationAction
+                )
+            }
+        case let .audio(content):
+            switch content {
+            case let .local(card):
+                AudioCardView(
+                    content: .local(viewModel.translatedLocalFeedCard(card)),
+                    translationAction: translationAction
+                )
+            }
+        case let .pdf(content):
+            switch content {
+            case let .local(card):
+                PDFCardView(
+                    content: .local(viewModel.translatedLocalFeedCard(card)),
+                    translationAction: translationAction
+                )
+            }
         }
     }
 }

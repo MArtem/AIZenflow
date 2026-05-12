@@ -20,7 +20,11 @@ struct SharedCardComposerView: View {
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
-                header
+                SharedCardComposerHeaderView(
+                    selectedChannelTitle: viewModel.selectedChannelTitle,
+                    onCancel: onCancel,
+                    onSelectChannel: { showsChannelSheet = true }
+                )
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading, spacing: AppSpacing.md) {
@@ -105,7 +109,13 @@ struct SharedCardComposerView: View {
                 }
             }
 
-            toolbar
+            SharedCardComposerToolbarView(
+                showsPhotoToolbarAction: viewModel.showsPhotoToolbarAction,
+                canPublish: viewModel.canPublish,
+                onShowInsertionSheet: { showsInsertionSheet = true },
+                onPhotoToolbarTap: handlePhotoToolbarTap,
+                onPublish: publish
+            )
 
             if showsInsertionSheet {
                 ComposerBottomSheet(
@@ -222,88 +232,6 @@ struct SharedCardComposerView: View {
                 )
             }
         }
-    }
-
-    private var header: some View {
-        HStack {
-            Button("Cancel", action: onCancel)
-                .buttonStyle(.plain)
-                .font(AppTypography.bodyRegular)
-                .foregroundStyle(AppTheme.accent)
-
-            Spacer()
-
-            Button(action: { showsChannelSheet = true }) {
-                HStack(spacing: AppSpacing.xs) {
-                    Text("Post in")
-                        .foregroundStyle(AppTheme.textPrimary)
-
-                    Text(viewModel.selectedChannelTitle)
-                        .foregroundStyle(AppTheme.accent)
-
-                    Image(systemName: "chevron.down")
-                        .font(.system(size: 12, weight: .semibold))
-                        .foregroundStyle(AppTheme.accent)
-                }
-                .font(AppTypography.cardTitle)
-            }
-            .buttonStyle(.plain)
-
-            Spacer()
-            Color.clear.frame(width: 52)
-        }
-        .padding(.horizontal, AppSpacing.screenHorizontal)
-        .padding(.vertical, AppSpacing.md)
-        .background(AppTheme.surfacePrimary)
-        .overlay(alignment: .bottom) {
-            Rectangle()
-                .fill(AppTheme.borderSubtle)
-                .frame(height: 1)
-        }
-    }
-
-    private var toolbar: some View {
-        HStack {
-            Button(action: { showsInsertionSheet = true }) {
-                HStack(spacing: AppSpacing.xs) {
-                    Image(systemName: "plus")
-                    Image(systemName: "chevron.down")
-                        .font(.system(size: 12, weight: .semibold))
-                }
-                .font(AppTypography.actionTitle)
-                .foregroundStyle(AppTheme.textPrimary)
-            }
-            .buttonStyle(.plain)
-
-            Spacer()
-
-            if viewModel.showsPhotoToolbarAction {
-                Button(action: handlePhotoToolbarTap) {
-                    Image(systemName: "photo")
-                        .font(AppTypography.actionTitle)
-                        .foregroundStyle(AppTheme.textPrimary)
-                }
-                .buttonStyle(.plain)
-                .padding(.trailing, AppSpacing.lg)
-            }
-
-            Button(action: publish) {
-                Text("Publish")
-                    .font(AppTypography.bodySemibold)
-                    .foregroundStyle(Color.white)
-                    .padding(.horizontal, AppSpacing.lg)
-                    .padding(.vertical, AppSpacing.sm)
-                    .background(
-                        Capsule(style: .continuous)
-                            .fill(AppTheme.accent.opacity(viewModel.canPublish ? 1 : 0.5))
-                    )
-            }
-            .buttonStyle(.plain)
-            .disabled(!viewModel.canPublish)
-        }
-        .padding(.horizontal, AppSpacing.screenHorizontal)
-        .padding(.vertical, AppSpacing.md)
-        .background(AppTheme.surfaceSecondary)
     }
 
     private func binding(for kind: ChannelCardTextFieldKind) -> Binding<String> {
@@ -1111,6 +1039,102 @@ private struct ComposerTextInputStyle {
     let textColor: Color
     let placeholderColor: Color
     let minimumHeight: CGFloat
+}
+
+private struct SharedCardComposerHeaderView: View {
+    let selectedChannelTitle: String
+    let onCancel: () -> Void
+    let onSelectChannel: () -> Void
+
+    var body: some View {
+        HStack {
+            Button("Cancel", action: onCancel)
+                .buttonStyle(.plain)
+                .font(AppTypography.bodyRegular)
+                .foregroundStyle(AppTheme.accent)
+
+            Spacer()
+
+            Button(action: onSelectChannel) {
+                HStack(spacing: AppSpacing.xs) {
+                    Text("Post in")
+                        .foregroundStyle(AppTheme.textPrimary)
+
+                    Text(selectedChannelTitle)
+                        .foregroundStyle(AppTheme.accent)
+
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 12, weight: .semibold))
+                        .foregroundStyle(AppTheme.accent)
+                }
+                .font(AppTypography.cardTitle)
+            }
+            .buttonStyle(.plain)
+
+            Spacer()
+            Color.clear.frame(width: 52)
+        }
+        .padding(.horizontal, AppSpacing.screenHorizontal)
+        .padding(.vertical, AppSpacing.md)
+        .background(AppTheme.surfacePrimary)
+        .overlay(alignment: .bottom) {
+            Rectangle()
+                .fill(AppTheme.borderSubtle)
+                .frame(height: 1)
+        }
+    }
+}
+
+private struct SharedCardComposerToolbarView: View {
+    let showsPhotoToolbarAction: Bool
+    let canPublish: Bool
+    let onShowInsertionSheet: () -> Void
+    let onPhotoToolbarTap: () -> Void
+    let onPublish: () -> Void
+
+    var body: some View {
+        HStack {
+            Button(action: onShowInsertionSheet) {
+                HStack(spacing: AppSpacing.xs) {
+                    Image(systemName: "plus")
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 12, weight: .semibold))
+                }
+                .font(AppTypography.actionTitle)
+                .foregroundStyle(AppTheme.textPrimary)
+            }
+            .buttonStyle(.plain)
+
+            Spacer()
+
+            if showsPhotoToolbarAction {
+                Button(action: onPhotoToolbarTap) {
+                    Image(systemName: "photo")
+                        .font(AppTypography.actionTitle)
+                        .foregroundStyle(AppTheme.textPrimary)
+                }
+                .buttonStyle(.plain)
+                .padding(.trailing, AppSpacing.lg)
+            }
+
+            Button(action: onPublish) {
+                Text("Publish")
+                    .font(AppTypography.bodySemibold)
+                    .foregroundStyle(Color.white)
+                    .padding(.horizontal, AppSpacing.lg)
+                    .padding(.vertical, AppSpacing.sm)
+                    .background(
+                        Capsule(style: .continuous)
+                            .fill(AppTheme.accent.opacity(canPublish ? 1 : 0.5))
+                    )
+            }
+            .buttonStyle(.plain)
+            .disabled(!canPublish)
+        }
+        .padding(.horizontal, AppSpacing.screenHorizontal)
+        .padding(.vertical, AppSpacing.md)
+        .background(AppTheme.surfaceSecondary)
+    }
 }
 
 private struct ComposerTextInputView: View {
