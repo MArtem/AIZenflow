@@ -7,21 +7,14 @@ Complete the 3-phase runtime cleanup/refactor sequence with minimal safe changes
 1. Phase 1: runtime architecture/overengineering audit and safe simplification (working code only, no `TchopAppTests` changes)
 2. Phase 2: SwiftUI view decomposition pass (remove view-returning helpers inside `View`, extract explicit `View`/renderer/builder types)
 3. Phase 3: ViewModel standardization (`@Observable` + explicit state container + explicit intent methods)
-4. After all phases: manual runtime validation via `docs/SHARE_EXTENSION_VALIDATION.md`
+4. After all phases: manual runtime validation via `./docs/SHARE_EXTENSION_VALIDATION.md`
 
 ## Current Phase Status
-- **Phase 1: completed in this pass.**
-- Main result: active repository/runtime path is converged to SwiftData-only with decorative branches, dead helpers, and redundant seams removed.
-- Verification baseline after high-risk refactors: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- **Phase 2: in progress.**
-- **Phase 2: completed in this pass.**
-- Completed in this pass:
-  - `TchopApp/Views/News/NewsFeedView.swift`: removed local `some View` helpers and `@ViewBuilder` card helper funcs; extracted explicit subviews/renderer types.
-  - `TchopApp/Views/Composer/SharedCardComposerView.swift`: extracted header/toolbar into explicit view types.
-  - `TchopApp/Views/AppRootView.swift`: extracted restoring/loading subtree into dedicated view type.
-  - `TchopApp/Views/Auth/LoginScreenView.swift`: removed remaining local `some View` helper patterns by converting helper surfaces/functions away from forbidden signatures.
-  - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next active step: Phase 3 (`ViewModel` standardization pass).
+- **Phase 1:** completed.
+- **Phase 2:** completed.
+- **Phase 3:** in progress.
+- Completed now: `./TchopApp/ViewModels/AppShellViewModel.swift` moved to explicit `State` container with intent-driven mutations preserved.
+- Verification after this change: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
 - Keep this file short and current.
@@ -29,4 +22,4 @@ Complete the 3-phase runtime cleanup/refactor sequence with minimal safe changes
 
 ## Archive
 Detailed historical plans are preserved only in:
-- `.zenflow/tasks/new-task-be0b/archive/plan.legacy.md`
+- `./.zenflow/tasks/new-task-be0b/archive/plan.legacy.md`

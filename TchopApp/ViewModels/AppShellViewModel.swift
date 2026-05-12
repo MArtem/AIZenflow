@@ -274,8 +274,15 @@ final class FeedComposerViewModel {
 @MainActor
 @Observable
 final class AppShellViewModel {
-    /// Whether the side menu is currently open.
-    var isMenuOpen: Bool
+    /// Explicit shell runtime state observed by shell views.
+    struct State {
+        var isMenuOpen: Bool
+        var showsFloatingActionButton: Bool
+        var isNewsFeedNearTop: Bool
+        var activeComposer: FeedComposerViewModel?
+    }
+
+    private(set) var state: State
 
     /// Footer text shown in the side menu.
     let sideMenuFooterText: String
@@ -283,18 +290,16 @@ final class AppShellViewModel {
     /// View model for the news feed feature.
     let newsFeedViewModel: NewsFeedViewModel
 
-    /// Whether the floating action button should be rendered for the active shell.
-    private(set) var showsFloatingActionButton: Bool
-
-    /// Whether the news feed list is currently close enough to the top to allow the floating action button.
-    private(set) var isNewsFeedNearTop: Bool
-
     private let uiConfigurationManager: any UIConfigurationManaging
     private let errorManager: any AppErrorManaging
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     let channelsStore: ChannelsStore
     private let localFeedCardStore: LocalFeedCardStore
-    private(set) var activeComposer: FeedComposerViewModel?
+
+    var isMenuOpen: Bool { state.isMenuOpen }
+    var showsFloatingActionButton: Bool { state.showsFloatingActionButton }
+    var isNewsFeedNearTop: Bool { state.isNewsFeedNearTop }
+    var activeComposer: FeedComposerViewModel? { state.activeComposer }
 
     /// Creates the shell view model from repository-backed content.
     init(
@@ -307,13 +312,16 @@ final class AppShellViewModel {
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text("shell.sideMenu.footer")
     ) {
-        self.isMenuOpen = isMenuOpen
+        self.state = State(
+            isMenuOpen: isMenuOpen,
+            showsFloatingActionButton: true,
+            isNewsFeedNearTop: true,
+            activeComposer: nil
+        )
         self.channelsStore = channelsStore
         self.localFeedCardStore = localFeedCardStore
         self.sideMenuFooterText = sideMenuFooterText
         self.newsFeedViewModel = newsFeedViewModel
-        self.showsFloatingActionButton = true
-        self.isNewsFeedNearTop = true
         self.errorManager = errorManager
         self.uiConfigurationManager = uiConfigurationManager
         self.shareExtensionSessionContextManager = shareExtensionSessionContextManager
@@ -323,12 +331,12 @@ final class AppShellViewModel {
 
     /// Toggles the side menu state.
     func toggleMenu() {
-        isMenuOpen.toggle()
+        state.isMenuOpen.toggle()
     }
 
     /// Closes the side menu explicitly.
     func closeMenu() {
-        isMenuOpen = false
+        state.isMenuOpen = false
     }
 
     /// Applies one new active channel choice to the shared runtime store.
@@ -344,7 +352,7 @@ final class AppShellViewModel {
             ?? channelsStore.selectionSnapshot.selectedChannel?.id
             ?? AppChannel.defaultChannel.id
 
-        activeComposer = FeedComposerViewModel(
+        state.activeComposer = FeedComposerViewModel(
             selectedChannelID: selectedChannelID,
             channelsStore: channelsStore,
             localFeedCardStore: localFeedCardStore
@@ -352,23 +360,23 @@ final class AppShellViewModel {
     }
 
     func dismissComposer() {
-        activeComposer = nil
+        state.activeComposer = nil
     }
 
     func publishComposer() {
         newsFeedViewModel.handleLocalChannelCardsChanged()
-        activeComposer = nil
+        state.activeComposer = nil
     }
 
     /// Updates shell runtime visibility state for the news-feed floating action button.
     ///
     /// The shell owns the button itself, but the scroll-position signal comes from the news list.
     func setNewsFeedNearTop(_ isNearTop: Bool) {
-        guard isNewsFeedNearTop != isNearTop else {
+        guard state.isNewsFeedNearTop != isNearTop else {
             return
         }
 
-        isNewsFeedNearTop = isNearTop
+        state.isNewsFeedNearTop = isNearTop
     }
 
     /// Starts the asynchronous shell configuration bootstrap sequence.
@@ -400,7 +408,7 @@ final class AppShellViewModel {
 
     /// Applies shell-specific UI settings from a full configuration snapshot.
     private func applyShellConfiguration(_ configuration: UIConfigurationSnapshot) {
-        showsFloatingActionButton = configuration.shell.showsFloatingActionButton
+        state.showsFloatingActionButton = configuration.shell.showsFloatingActionButton
     }
 
     /// Handles non-fatal refresh failures after the cached configuration has already been applied.
