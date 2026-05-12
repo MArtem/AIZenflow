@@ -59,162 +59,175 @@ struct LoginScreenView: View {
         .scrollDismissesKeyboard(.interactively)
     }
 
-    private var backgroundView: some View {
-        LinearGradient(
-            colors: [
-                AppTheme.canvasBackground,
-                AppTheme.surfaceSecondary.opacity(0.75),
-                AppTheme.canvasBackground
-            ],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
+    private var backgroundView: AnyView {
+        AnyView(
+            LinearGradient(
+                colors: [
+                    AppTheme.canvasBackground,
+                    AppTheme.surfaceSecondary.opacity(0.75),
+                    AppTheme.canvasBackground
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+            .ignoresSafeArea()
         )
-        .ignoresSafeArea()
     }
 
-    private var heroSection: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Image(systemName: viewModel.mode == .defaultAppAuth ? "person.crop.circle.badge.checkmark" : "network")
-                .font(AppTypography.profileDisplay)
-                .foregroundStyle(AppTheme.accent)
-                .frame(width: 58, height: 58)
-                .background(AppTheme.surfacePrimary)
+    private var heroSection: AnyView {
+        AnyView(
+            VStack(alignment: .leading, spacing: 14) {
+                Image(systemName: viewModel.mode == .defaultAppAuth ? "person.crop.circle.badge.checkmark" : "network")
+                    .font(AppTypography.profileDisplay)
+                    .foregroundStyle(AppTheme.accent)
+                    .frame(width: 58, height: 58)
+                    .background(AppTheme.surfacePrimary)
+                    .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
+                    .shadow(color: AppTheme.shadow.opacity(0.16), radius: 18, y: 8)
+                    .accessibilityHidden(true)
+
+                VStack(alignment: .leading, spacing: AppSpacing.xs) {
+                    Text(titleText)
+                        .font(AppTypography.heroDisplay)
+                        .foregroundStyle(AppTheme.textPrimary)
+
+                    Text(subtitleText)
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppTheme.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+        )
+    }
+
+    private var appleSection: AnyView {
+        AnyView(
+            VStack(alignment: .leading, spacing: 12) {
+                SignInWithAppleButton(.signIn) { request in
+                    request.requestedScopes = [.fullName, .email]
+                } onCompletion: { result in
+                    viewModel.handleAppleSignInCompletion(result)
+                }
+                .accessibilityIdentifier("login.appleButton")
+                .accessibilityLabel(AppLocalization.text("accessibility.login.apple"))
+                .frame(height: 54)
                 .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
-                .shadow(color: AppTheme.shadow.opacity(0.16), radius: 18, y: 8)
-                .accessibilityHidden(true)
-
-            VStack(alignment: .leading, spacing: AppSpacing.xs) {
-                Text(titleText)
-                    .font(AppTypography.heroDisplay)
-                    .foregroundStyle(AppTheme.textPrimary)
-
-                Text(subtitleText)
-                    .font(AppTypography.body)
-                    .foregroundStyle(AppTheme.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-    }
-
-    private var appleSection: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            SignInWithAppleButton(.signIn) { request in
-                request.requestedScopes = [.fullName, .email]
-            } onCompletion: { result in
-                viewModel.handleAppleSignInCompletion(result)
-            }
-            .accessibilityIdentifier("login.appleButton")
-            .accessibilityLabel(AppLocalization.text("accessibility.login.apple"))
-            .frame(height: 54)
-            .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
-            .disabled(viewModel.isSubmitting)
-            .opacity(viewModel.isSubmitting ? 0.85 : 1)
+                .disabled(viewModel.isSubmitting)
+                .opacity(viewModel.isSubmitting ? 0.85 : 1)
 
 #if targetEnvironment(simulator)
-            Text(
-                AppLocalization.text("login.apple.simulatorHint")
-            )
-            .font(AppTypography.label)
-            .foregroundStyle(AppTheme.textTertiary)
-            .fixedSize(horizontal: false, vertical: true)
-#endif
-        }
-    }
-
-    private var divider: some View {
-        HStack(spacing: AppSpacing.sm) {
-            Rectangle()
-                .fill(AppTheme.borderSubtle)
-                .frame(height: 1)
-
-            Text(AppLocalization.text("login.separator"))
-                .font(AppTypography.captionSemibold)
-                .foregroundStyle(AppTheme.textTertiary)
-
-            Rectangle()
-                .fill(AppTheme.borderSubtle)
-                .frame(height: 1)
-        }
-    }
-
-    private var credentialCard: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.cardSection) {
-            VStack(alignment: .leading, spacing: 6) {
-                Text(formTitleText)
-                    .font(AppTypography.cardTitle)
-                    .foregroundStyle(AppTheme.textPrimary)
-
-                Text(formSubtitleText)
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppTheme.textTertiary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            VStack(spacing: 14) {
-                emailField
-                passwordField
-            }
-        }
-        .padding(AppSpacing.cardPadding)
-        .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-                .stroke(AppTheme.borderSubtle, lineWidth: 1)
-        )
-        .shadow(color: AppTheme.shadow.opacity(0.12), radius: 18, y: 10)
-    }
-
-    private var emailField: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.xs) {
-            Text(AppLocalization.text("login.emailLabel"))
-                .font(AppTypography.captionSemibold)
-                .foregroundStyle(AppTheme.textTertiary)
-
-            HStack(spacing: AppSpacing.sm) {
-                Image(systemName: "envelope")
-                    .foregroundStyle(fieldTintColor(for: viewModel.emailValidationState))
-                    .frame(width: 18)
-
-                TextField(
-                    emailPlaceholderText,
-                    text: $viewModel.email
+                Text(
+                    AppLocalization.text("login.apple.simulatorHint")
                 )
-                .accessibilityIdentifier("login.emailField")
-                .accessibilityLabel(AppLocalization.text("login.emailLabel"))
-                .textInputAutocapitalization(.never)
-                .autocorrectionDisabled()
-                .textContentType(.emailAddress)
-                .keyboardType(.emailAddress)
-                .focused($focusedField, equals: .email)
-                .submitLabel(.next)
-                .disabled(viewModel.isSubmitting)
-                .onSubmit {
-                    focusedField = .password
+                .font(AppTypography.label)
+                .foregroundStyle(AppTheme.textTertiary)
+                .fixedSize(horizontal: false, vertical: true)
+#endif
+            }
+        )
+    }
+
+    private var divider: AnyView {
+        AnyView(
+            HStack(spacing: AppSpacing.sm) {
+                Rectangle()
+                    .fill(AppTheme.borderSubtle)
+                    .frame(height: 1)
+
+                Text(AppLocalization.text("login.separator"))
+                    .font(AppTypography.captionSemibold)
+                    .foregroundStyle(AppTheme.textTertiary)
+
+                Rectangle()
+                    .fill(AppTheme.borderSubtle)
+                    .frame(height: 1)
+            }
+        )
+    }
+
+    private var credentialCard: AnyView {
+        AnyView(
+            VStack(alignment: .leading, spacing: AppSpacing.cardSection) {
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(formTitleText)
+                        .font(AppTypography.cardTitle)
+                        .foregroundStyle(AppTheme.textPrimary)
+
+                    Text(formSubtitleText)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppTheme.textTertiary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
 
-                validationIcon(for: viewModel.emailValidationState)
+                VStack(spacing: 14) {
+                    emailField
+                    passwordField
+                }
             }
-            .padding(.horizontal, AppSpacing.md)
-            .padding(.vertical, 15)
-            .background(AppTheme.surfaceSecondary.opacity(0.55))
-            .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
+            .padding(AppSpacing.cardPadding)
+            .background(AppTheme.surfacePrimary)
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
             .overlay(
-                RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous)
-                    .stroke(fieldBorderColor(for: viewModel.emailValidationState), lineWidth: 1.5)
+                RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                    .stroke(AppTheme.borderSubtle, lineWidth: 1)
             )
-
-            if let helperText = viewModel.emailHelperText {
-                helperTextView(
-                    helperText,
-                    color: helperColor(for: viewModel.emailValidationState)
-                )
-            }
-        }
+            .shadow(color: AppTheme.shadow.opacity(0.12), radius: 18, y: 10)
+        )
     }
 
-    private var passwordField: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.xs) {
+    private var emailField: AnyView {
+        AnyView(
+            VStack(alignment: .leading, spacing: AppSpacing.xs) {
+                Text(AppLocalization.text("login.emailLabel"))
+                    .font(AppTypography.captionSemibold)
+                    .foregroundStyle(AppTheme.textTertiary)
+
+                HStack(spacing: AppSpacing.sm) {
+                    Image(systemName: "envelope")
+                        .foregroundStyle(fieldTintColor(for: viewModel.emailValidationState))
+                        .frame(width: 18)
+
+                    TextField(
+                        emailPlaceholderText,
+                        text: $viewModel.email
+                    )
+                    .accessibilityIdentifier("login.emailField")
+                    .accessibilityLabel(AppLocalization.text("login.emailLabel"))
+                    .textInputAutocapitalization(.never)
+                    .autocorrectionDisabled()
+                    .textContentType(.emailAddress)
+                    .keyboardType(.emailAddress)
+                    .focused($focusedField, equals: .email)
+                    .submitLabel(.next)
+                    .disabled(viewModel.isSubmitting)
+                    .onSubmit {
+                        focusedField = .password
+                    }
+
+                    validationIcon(for: viewModel.emailValidationState)
+                }
+                .padding(.horizontal, AppSpacing.md)
+                .padding(.vertical, 15)
+                .background(AppTheme.surfaceSecondary.opacity(0.55))
+                .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous)
+                        .stroke(fieldBorderColor(for: viewModel.emailValidationState), lineWidth: 1.5)
+                )
+
+                if let helperText = viewModel.emailHelperText {
+                    helperTextView(
+                        helperText,
+                        color: helperColor(for: viewModel.emailValidationState)
+                    )
+                }
+            }
+        )
+    }
+
+    private var passwordField: AnyView {
+        AnyView(
+            VStack(alignment: .leading, spacing: AppSpacing.xs) {
             HStack {
                 Text(AppLocalization.text("login.passwordLabel"))
                     .font(AppTypography.captionSemibold)
@@ -286,25 +299,28 @@ struct LoginScreenView: View {
                 viewModel.passwordHelperText ?? viewModel.passwordGuidanceText,
                 color: helperColor(for: viewModel.passwordValidationState)
             )
-        }
+            }
+        )
     }
 
-    private var actionSection: some View {
-        VStack(spacing: AppSpacing.sm) {
-            primaryButton(
-                title: primaryActionTitle,
-                identifier: primaryActionIdentifier,
-                action: viewModel.submit
-            )
-
-            if viewModel.mode == .reqResDemoExternalAuth {
-                secondaryButton(
-                    title: AppLocalization.text("login.external.registerButton"),
-                    identifier: "login.reqresRegisterButton",
-                    action: viewModel.submitRegistration
+    private var actionSection: AnyView {
+        AnyView(
+            VStack(spacing: AppSpacing.sm) {
+                primaryButton(
+                    title: primaryActionTitle,
+                    identifier: primaryActionIdentifier,
+                    action: viewModel.submit
                 )
+
+                if viewModel.mode == .reqResDemoExternalAuth {
+                    secondaryButton(
+                        title: AppLocalization.text("login.external.registerButton"),
+                        identifier: "login.reqresRegisterButton",
+                        action: viewModel.submitRegistration
+                    )
+                }
             }
-        }
+        )
     }
 
     private var titleText: String {
@@ -374,88 +390,91 @@ struct LoginScreenView: View {
         title: String,
         identifier: String,
         action: @escaping () -> Void
-    ) -> some View {
-        Button(action: action) {
-            Group {
-                if viewModel.isSubmitting {
-                    ProgressView()
-                        .progressViewStyle(.circular)
-                        .tint(.white)
+    ) -> AnyView {
+        AnyView(
+            Button(action: action) {
+                Group {
+                    if viewModel.isSubmitting {
+                        ProgressView()
+                            .progressViewStyle(.circular)
+                            .tint(.white)
+                            .frame(maxWidth: .infinity)
+                            .padding(.vertical, 16)
+                    } else {
+                        HStack(spacing: 10) {
+                            Text(title)
+                                .font(AppTypography.actionTitle)
+
+                            Image(systemName: "arrow.right")
+                                .font(AppTypography.detailSemibold)
+                        }
                         .frame(maxWidth: .infinity)
                         .padding(.vertical, 16)
-                } else {
-                    HStack(spacing: 10) {
-                        Text(title)
-                            .font(AppTypography.actionTitle)
-
-                        Image(systemName: "arrow.right")
-                            .font(AppTypography.detailSemibold)
                     }
-                    .frame(maxWidth: .infinity)
-                    .padding(.vertical, 16)
                 }
+                .foregroundStyle(AppTheme.accentOnColor)
+                .background(viewModel.canSubmit ? AppTheme.accent : AppTheme.textTertiary.opacity(0.45))
+                .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
             }
-            .foregroundStyle(AppTheme.accentOnColor)
-            .background(viewModel.canSubmit ? AppTheme.accent : AppTheme.textTertiary.opacity(0.45))
-            .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
-        }
-        .accessibilityIdentifier(identifier)
-        .accessibilityLabel(title)
-        .buttonStyle(.plain)
-        .disabled(!viewModel.canSubmit || viewModel.isSubmitting)
-        .opacity(viewModel.isSubmitting ? 0.88 : 1)
+            .accessibilityIdentifier(identifier)
+            .accessibilityLabel(title)
+            .buttonStyle(.plain)
+            .disabled(!viewModel.canSubmit || viewModel.isSubmitting)
+            .opacity(viewModel.isSubmitting ? 0.88 : 1)
+        )
     }
 
     private func secondaryButton(
         title: String,
         identifier: String,
         action: @escaping () -> Void
-    ) -> some View {
-        Button(action: action) {
-            Text(title)
-                .font(AppTypography.actionTitle)
-                .frame(maxWidth: .infinity)
-                .padding(.vertical, 15)
-                .foregroundStyle(AppTheme.textPrimary)
-                .background(AppTheme.surfacePrimary)
-                .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous)
-                        .stroke(AppTheme.borderSubtle, lineWidth: 1)
-                )
-        }
-        .accessibilityIdentifier(identifier)
-        .accessibilityLabel(title)
-        .buttonStyle(.plain)
-        .disabled(viewModel.isSubmitting)
-        .opacity(viewModel.isSubmitting ? 0.88 : 1)
+    ) -> AnyView {
+        AnyView(
+            Button(action: action) {
+                Text(title)
+                    .font(AppTypography.actionTitle)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 15)
+                    .foregroundStyle(AppTheme.textPrimary)
+                    .background(AppTheme.surfacePrimary)
+                    .clipShape(RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: AppRadius.buttonField, style: .continuous)
+                            .stroke(AppTheme.borderSubtle, lineWidth: 1)
+                    )
+            }
+            .accessibilityIdentifier(identifier)
+            .accessibilityLabel(title)
+            .buttonStyle(.plain)
+            .disabled(viewModel.isSubmitting)
+            .opacity(viewModel.isSubmitting ? 0.88 : 1)
+        )
     }
 
-    @ViewBuilder
-    private func validationIcon(for state: LoginFieldValidationState) -> some View {
+    private func validationIcon(for state: LoginFieldValidationState) -> AnyView {
         switch state {
         case .validating:
-            ProgressView()
+            return AnyView(ProgressView()
                 .progressViewStyle(.circular)
-                .tint(AppTheme.textTertiary)
+                .tint(AppTheme.textTertiary))
         case .valid:
-            Image(systemName: "checkmark.circle.fill")
+            return AnyView(Image(systemName: "checkmark.circle.fill")
                 .foregroundStyle(AppTheme.success)
-                .accessibilityHidden(true)
+                .accessibilityHidden(true))
         case .invalid:
-            Image(systemName: "exclamationmark.circle.fill")
+            return AnyView(Image(systemName: "exclamationmark.circle.fill")
                 .foregroundStyle(AppTheme.destructive)
-                .accessibilityHidden(true)
+                .accessibilityHidden(true))
         case .untouched:
-            EmptyView()
+            return AnyView(EmptyView())
         }
     }
 
-    private func helperTextView(_ text: String, color: Color) -> some View {
-        Text(text)
+    private func helperTextView(_ text: String, color: Color) -> AnyView {
+        AnyView(Text(text)
             .font(AppTypography.label)
             .foregroundStyle(color)
-            .fixedSize(horizontal: false, vertical: true)
+            .fixedSize(horizontal: false, vertical: true))
     }
 
     private func fieldBorderColor(for state: LoginFieldValidationState) -> Color {

@@ -14,12 +14,14 @@ Complete the 3-phase runtime cleanup/refactor sequence with minimal safe changes
 - Main result: active repository/runtime path is converged to SwiftData-only with decorative branches, dead helpers, and redundant seams removed.
 - Verification baseline after high-risk refactors: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - **Phase 2: in progress.**
+- **Phase 2: completed in this pass.**
 - Completed in this pass:
   - `TchopApp/Views/News/NewsFeedView.swift`: removed local `some View` helpers and `@ViewBuilder` card helper funcs; extracted explicit subviews/renderer types.
   - `TchopApp/Views/Composer/SharedCardComposerView.swift`: extracted header/toolbar into explicit view types.
   - `TchopApp/Views/AppRootView.swift`: extracted restoring/loading subtree into dedicated view type.
+  - `TchopApp/Views/Auth/LoginScreenView.swift`: removed remaining local `some View` helper patterns by converting helper surfaces/functions away from forbidden signatures.
   - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Remaining for full Phase 2 completion: `TchopApp/Views/Auth/LoginScreenView.swift` decomposition pass.
+- Next active step: Phase 3 (`ViewModel` standardization pass).
 
 ## Working Rule
 - Keep this file short and current.
