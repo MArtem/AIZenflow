@@ -14,6 +14,11 @@ Always choose the **simplest correct solution** that matches:
 
 Do not add abstractions unless they solve a concrete current problem.
 
+## Context-Reset Bootstrap Rule
+- After a new chat/context reset, re-read the required bootstrap docs **once** before coding.
+- Do not repeatedly re-read the same full set during the same chat unless architecture/rules changed.
+- Use the transition prompt from `docs/WORK_CONTINUITY.md` to keep bootstrap consistent.
+
 ## Mandatory Priorities
 1. Architecture correctness first.
 2. Overengineering check second.

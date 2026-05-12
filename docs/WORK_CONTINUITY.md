@@ -12,6 +12,7 @@ Use it when:
 - Keep a **universal chat-transition prompt** in this file so context can be restored even if a thread-level handoff is lost.
 - Refresh this prompt whenever architecture/state/phase sequencing changes materially.
 - During normal work, if context size becomes high or phase boundaries are reached, propose opening a new chat and reuse the latest version of this prompt.
+- After a chat reset, re-read the bootstrap docs **once per new chat**, then proceed without repeated full re-reads.
 
 ### Universal Transition Prompt Template
 ```text
@@ -27,6 +28,10 @@ Use it when:
 6) .zenflow/tasks/new-task-be0b/plan.md
 7) .zenflow/tasks/new-task-be0b/ios-engineering-rules.md
 8) .zenflow/tasks/new-task-be0b/services-engineering-rules.md
+
+Правило после очистки контекста:
+- Этот список читается один раз в начале нового чата.
+- Повторно полностью перечитывать только если изменились архитектурные правила/фаза/контракты.
 
 Критичные правила:
 - Архитектура — приоритет №1.

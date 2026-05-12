@@ -24,6 +24,19 @@ For normal coding work, read in this order:
 9. [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md) when work must survive loss of the current Zenflow task/thread
 10. [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md) when validating or continuing share-extension rollout
 
+## One-Time Bootstrap After Chat Reset
+When a new chat starts after context loss/cleanup, do one bootstrap pass **once**:
+1. [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md)
+2. [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
+3. [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
+4. [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
+5. current task docs (`handoff.md`, `plan.md`, task rules)
+
+Then continue implementation without re-reading the whole stack repeatedly unless:
+- architecture/rules changed,
+- task switched to a different domain,
+- or continuity uncertainty appears.
+
 Global assistant policies live outside the repo and are not duplicated here:
 - [/Users/Artem/.zenflow/assistant/AGENTS.md](/Users/Artem/.zenflow/assistant/AGENTS.md)
 - [/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md](/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md)
