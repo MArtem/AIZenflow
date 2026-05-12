@@ -511,19 +511,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Builds an ordered Core Data request for persisted feed cards.
-    fileprivate static func makeCoreDataFeedCardFetchRequest(
-        channelID: String? = nil
-    ) -> NSFetchRequest<CoreDataFeedCardEntity> {
-        let request = CoreDataFeedCardEntity.fetchRequest()
-        if let channelID {
-            request.predicate = NSPredicate(format: "channelID == %@", channelID)
-        }
-        request.sortDescriptors = [
-            NSSortDescriptor(key: "sortOrder", ascending: true)
-        ]
-        return request
-    }
 }
 
 enum RepositoryError: Error {
@@ -729,34 +716,10 @@ private final class FeedPersistenceSyncLocalStore: SyncLocalStore, @unchecked Se
         _ snapshots: [FeedCardPersistenceSnapshot],
         deletedCardIDs: Set<String>
     ) throws {
-        if #available(iOS 17, *) {
-            try databaseManager.write(
-                DatabaseWriteOperation(swiftData: { context in
-                    let existingRecords = try DefaultAppContentRepository.fetchAllSwiftDataFeedCardRecords(in: context)
-                        .filter { $0.channelID == self.channelID }
-                    let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
-
-                    for record in existingRecords
-                    where snapshotsByID[record.id] == nil || deletedCardIDs.contains(record.id) {
-                        context.delete(record)
-                    }
-
-                    for snapshot in snapshots {
-                        if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
-                            AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
-                        } else {
-                            context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
-                        }
-                    }
-                })
-            ) as Void
-            return
-        }
-
         try databaseManager.write(
-            DatabaseWriteOperation(coreData: { context in
-                let request = DefaultAppContentRepository.makeCoreDataFeedCardFetchRequest(channelID: self.channelID)
-                let existingRecords = try context.fetch(request)
+            DatabaseWriteOperation(swiftData: { context in
+                let existingRecords = try DefaultAppContentRepository.fetchAllSwiftDataFeedCardRecords(in: context)
+                    .filter { $0.channelID == self.channelID }
                 let snapshotsByID = Dictionary(uniqueKeysWithValues: snapshots.map { ($0.id, $0) })
 
                 for record in existingRecords
@@ -768,8 +731,7 @@ private final class FeedPersistenceSyncLocalStore: SyncLocalStore, @unchecked Se
                     if let existingRecord = existingRecords.first(where: { $0.id == snapshot.id }) {
                         AppContentPersistenceMapper.apply(snapshot, to: existingRecord)
                     } else {
-                        let record = CoreDataFeedCardEntity(context: context)
-                        AppContentPersistenceMapper.apply(snapshot, to: record)
+                        context.insert(AppContentPersistenceMapper.makeFeedCardRecord(from: snapshot))
                     }
                 }
             })

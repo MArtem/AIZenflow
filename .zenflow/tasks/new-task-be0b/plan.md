@@ -64,6 +64,10 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - simplified `upsertFeedCard`, `persistedSortOrder`, `persistedPhoto`, and `persistedText` to direct SwiftData paths
   - removed now-unused CoreData-only helper methods that were reachable only via those deleted branches
   - verification was run here because this step touched active repository logic: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
+- Phase 1 sync-path simplification:
+  - in `FeedPersistenceSyncLocalStore.applySnapshots(...)`, removed legacy `#available` and CoreData branch; kept one direct SwiftData write path
+  - removed now-unused local CoreData fetch-request helper from `DefaultAppContentRepository`
+  - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
