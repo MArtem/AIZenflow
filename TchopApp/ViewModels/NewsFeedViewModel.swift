@@ -1050,11 +1050,7 @@ final class NewsFeedViewModel {
 
     /// Whether a new card-level action can start for the target article.
     private func canStartPhotoAction(for articleID: String) -> Bool {
-        guard let article = photoCard(withID: articleID) else {
-            return false
-        }
-
-        return !article.uiState.blocksActions
+        photoCard(withID: articleID)?.uiState.blocksActions == false
     }
 
     /// Evaluates whether one featured article action should start now, queue behind an additive in-flight action, or be ignored.
@@ -1504,11 +1500,7 @@ final class NewsFeedViewModel {
 
     /// Whether a new card-level action can start for the target discussion.
     private func canStartTextAction(for discussionID: String) -> Bool {
-        guard let discussion = discussion(withID: discussionID) else {
-            return false
-        }
-
-        return !discussion.uiState.blocksActions
+        discussion(withID: discussionID)?.uiState.blocksActions == false
     }
 
     /// Evaluates whether one discussion action should start now, queue behind an additive in-flight action, or be ignored.
