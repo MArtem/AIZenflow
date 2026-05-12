@@ -38,6 +38,9 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 - Phase 1 runtime cleanup:
   - removed unused decorative `sharedLocalFeedCardStore` passthrough property from `TchopApp/ViewModels/AppShellViewModel.swift`
   - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
+- Phase 1 runtime cleanup (no-build safe pass):
+  - removed unused translation helpers `canTranslate(_:)` and `translatedText(...)` from `TchopApp/ViewModels/NewsFeedViewModel.swift`
+  - build was intentionally not run for this tiny isolated deletion-only cleanup per the verification policy reminder
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule

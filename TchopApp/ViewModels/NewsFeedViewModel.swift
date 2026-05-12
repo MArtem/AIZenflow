@@ -242,10 +242,6 @@ final class NewsFeedViewModel {
             }
     }
 
-    func canTranslate(_ card: NewsFeedCard) -> Bool {
-        !isCardTranslated(card.id) && !translationTargetLanguages(for: card).isEmpty
-    }
-
     func isCardTranslated(_ cardID: String) -> Bool {
         cardTranslationStore.snapshot(for: cardID) != nil
     }
@@ -270,14 +266,6 @@ final class NewsFeedViewModel {
 
     func translatedLocalFeedCard(_ card: LocalFeedCardModel) -> LocalFeedCardModel {
         card.translated(using: cardTranslationStore.snapshot(for: card.id))
-    }
-
-    func translatedText(
-        for cardID: String,
-        fieldID: CardTranslationFieldID,
-        originalText: String
-    ) -> String {
-        cardTranslationStore.snapshot(for: cardID)?.text(for: fieldID) ?? originalText
     }
 
     func translatedRoute(for route: NewsRoute) -> NewsRoute {
