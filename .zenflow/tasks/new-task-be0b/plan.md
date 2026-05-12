@@ -18,7 +18,8 @@ Complete the 3-phase runtime cleanup/refactor sequence with minimal safe changes
   - `./TchopApp/ViewModels/LoginViewModel.swift`: explicit `State` container added; intent methods preserved.
   - `./TchopApp/ViewModels/ProfileTabViewModel.swift`: explicit `State` container added; optimistic preference intent preserved.
 - Verification after this pass: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next active step: manual runtime validation via `./docs/SHARE_EXTENSION_VALIDATION.md`.
+- Phase 4: manual runtime validation is pending interactive simulator/device execution.
+- Tracking file: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule
 - Keep this file short and current.
