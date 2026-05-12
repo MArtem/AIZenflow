@@ -12,9 +12,13 @@ Complete the 3-phase runtime cleanup/refactor sequence with minimal safe changes
 ## Current Phase Status
 - **Phase 1:** completed.
 - **Phase 2:** completed.
-- **Phase 3:** in progress.
-- Completed now: `./TchopApp/ViewModels/AppShellViewModel.swift` moved to explicit `State` container with intent-driven mutations preserved.
-- Verification after this change: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- **Phase 3:** completed.
+- Completed now:
+  - `./TchopApp/ViewModels/AppShellViewModel.swift`: explicit `State` container with intent-driven mutations preserved.
+  - `./TchopApp/ViewModels/LoginViewModel.swift`: explicit `State` container added; intent methods preserved.
+  - `./TchopApp/ViewModels/ProfileTabViewModel.swift`: explicit `State` container added; optimistic preference intent preserved.
+- Verification after this pass: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Next active step: manual runtime validation via `./docs/SHARE_EXTENSION_VALIDATION.md`.
 
 ## Working Rule
 - Keep this file short and current.

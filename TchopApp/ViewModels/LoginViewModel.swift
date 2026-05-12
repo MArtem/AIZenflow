@@ -54,40 +54,75 @@ final class LoginViewModel {
         case password
     }
 
+    struct State {
+        var email: String = ""
+        var password: String = ""
+        var isPasswordVisible: Bool = false
+        var emailValidationState: LoginFieldValidationState = .untouched
+        var passwordValidationState: LoginFieldValidationState = .untouched
+        var isSubmitting: Bool = false
+        var canSubmit: Bool = false
+        var errorMessage: String?
+    }
+
+    private(set) var state = State()
+
     /// Active login presentation mode selected by the app environment.
     let mode: LoginScreenMode
 
     /// User-entered email value.
-    var email = "" {
-        didSet {
+    var email: String {
+        get { state.email }
+        set {
+            state.email = newValue
             scheduleValidation(for: .email)
         }
     }
 
     /// User-entered password value.
-    var password = "" {
-        didSet {
+    var password: String {
+        get { state.password }
+        set {
+            state.password = newValue
             scheduleValidation(for: .password)
         }
     }
 
     /// Toggles secure/plain password field presentation.
-    var isPasswordVisible = false
+    var isPasswordVisible: Bool {
+        get { state.isPasswordVisible }
+        set { state.isPasswordVisible = newValue }
+    }
 
     /// Debounced email validation state used for inline UI feedback.
-    private(set) var emailValidationState: LoginFieldValidationState = .untouched
+    private(set) var emailValidationState: LoginFieldValidationState {
+        get { state.emailValidationState }
+        set { state.emailValidationState = newValue }
+    }
 
     /// Debounced password validation state used for inline UI feedback.
-    private(set) var passwordValidationState: LoginFieldValidationState = .untouched
+    private(set) var passwordValidationState: LoginFieldValidationState {
+        get { state.passwordValidationState }
+        set { state.passwordValidationState = newValue }
+    }
 
     /// Prevents duplicate submissions while an async sign-in attempt is in flight.
-    private(set) var isSubmitting = false
+    private(set) var isSubmitting: Bool {
+        get { state.isSubmitting }
+        set { state.isSubmitting = newValue }
+    }
 
     /// Tracks whether the form is ready for submission under the current mode-specific policy.
-    private(set) var canSubmit = false
+    private(set) var canSubmit: Bool {
+        get { state.canSubmit }
+        set { state.canSubmit = newValue }
+    }
 
     /// Presentation-ready validation or sign-in error.
-    private(set) var errorMessage: String?
+    private(set) var errorMessage: String? {
+        get { state.errorMessage }
+        set { state.errorMessage = newValue }
+    }
 
     private let onCredentialLogin: (String, String) async throws -> Void
     private let onRegister: (String, String) async throws -> Void

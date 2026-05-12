@@ -9,14 +9,22 @@ import TchopErrors
 @MainActor
 @Observable
 final class ProfileTabViewModel {
+    struct State {
+        var accountSummary: AccountProfileSummary
+        var isNavigationRestoreEnabled: Bool
+        var errorMessage: String?
+    }
+
+    private(set) var state: State
+
     /// Presentation summary for the currently signed-in user.
-    private(set) var accountSummary: AccountProfileSummary
+    var accountSummary: AccountProfileSummary { state.accountSummary }
 
     /// UI-facing restore-navigation preference state.
-    private(set) var isNavigationRestoreEnabled: Bool
+    var isNavigationRestoreEnabled: Bool { state.isNavigationRestoreEnabled }
 
     /// Presentation-ready error message for profile preference failures.
-    private(set) var errorMessage: String?
+    var errorMessage: String? { state.errorMessage }
 
     private let errorManager: any AppErrorManaging
     private let onNavigationRestoreChange: (Bool) throws -> Void
@@ -27,28 +35,31 @@ final class ProfileTabViewModel {
         errorManager: any AppErrorManaging,
         onNavigationRestoreChange: @escaping (Bool) throws -> Void
     ) {
-        self.accountSummary = AccountProfileSummary(user: currentUser)
-        self.isNavigationRestoreEnabled = currentUser.isNavigationStateRestoreEnabled
+        self.state = State(
+            accountSummary: AccountProfileSummary(user: currentUser),
+            isNavigationRestoreEnabled: currentUser.isNavigationStateRestoreEnabled,
+            errorMessage: nil
+        )
         self.errorManager = errorManager
         self.onNavigationRestoreChange = onNavigationRestoreChange
     }
 
     /// Synchronizes presentation state when the signed-in user snapshot changes upstream.
     func syncCurrentUser(_ currentUser: AppUser) {
-        accountSummary = AccountProfileSummary(user: currentUser)
-        isNavigationRestoreEnabled = currentUser.isNavigationStateRestoreEnabled
+        state.accountSummary = AccountProfileSummary(user: currentUser)
+        state.isNavigationRestoreEnabled = currentUser.isNavigationStateRestoreEnabled
     }
 
     /// Applies the restore-navigation preference with optimistic UI and rollback on failure.
     func setNavigationRestoreEnabled(_ isEnabled: Bool) {
-        let previousValue = isNavigationRestoreEnabled
-        isNavigationRestoreEnabled = isEnabled
+        let previousValue = state.isNavigationRestoreEnabled
+        state.isNavigationRestoreEnabled = isEnabled
 
         do {
             try onNavigationRestoreChange(isEnabled)
-            errorMessage = nil
+            state.errorMessage = nil
         } catch {
-            isNavigationRestoreEnabled = previousValue
+            state.isNavigationRestoreEnabled = previousValue
             presentNavigationRestoreFailure(error)
         }
     }
@@ -63,7 +74,7 @@ final class ProfileTabViewModel {
                     feature: "profile"
                 )
             )
-            self?.errorMessage = presentation.userMessage
+            self?.state.errorMessage = presentation.userMessage
         }
     }
 }
