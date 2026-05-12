@@ -68,6 +68,10 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - in `FeedPersistenceSyncLocalStore.applySnapshots(...)`, removed legacy `#available` and CoreData branch; kept one direct SwiftData write path
   - removed now-unused local CoreData fetch-request helper from `DefaultAppContentRepository`
   - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
+- Phase 1 mapper/infra dead-path cleanup:
+  - removed unused CoreData-specific mapper overloads from `AppContentPersistenceMapper` and `AppContentMapper` in `TchopApp/Repositories/AppContentRepository.swift`
+  - removed stale `CoreData` import and aligned repository runtime comment to SwiftData-only policy
+  - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule

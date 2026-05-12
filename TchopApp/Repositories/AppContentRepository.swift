@@ -1,5 +1,4 @@
 import Foundation
-import CoreData
 import Network
 import SwiftData
 import TchopDatabase
@@ -56,8 +55,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         self.feedAPIManager = feedAPIManager
         self.networkAvailabilityChecker = networkAvailabilityChecker
 
-        // Active runtime policy is SwiftData-only. Legacy CoreData branches below are preserved
-        // for rollback and migration safety, but are not expected to execute in the current app.
+        // Active runtime policy is SwiftData-only.
         precondition(
             databaseManager.backendKind == .swiftData,
             "DefaultAppContentRepository expects SwiftData runtime backend."
@@ -985,29 +983,6 @@ private enum AppContentPersistenceMapper {
         record.discussionStateData = snapshot.discussionStateData
     }
 
-    static func apply(_ snapshot: FeedCardPersistenceSnapshot, to record: CoreDataFeedCardEntity) {
-        record.id = snapshot.id
-        record.channelID = snapshot.channelID
-        record.kindRawValue = snapshot.kind.rawValue
-        record.sortOrder = Int64(snapshot.sortOrder)
-        record.remoteUpdatedAt = snapshot.remoteUpdatedAt
-        record.syncedAt = snapshot.syncedAt
-        record.publishedAt = snapshot.publishedAt
-        record.postedInPrefix = snapshot.postedInPrefix
-        record.sourceTitle = snapshot.sourceTitle
-        record.brandTitle = snapshot.brandTitle
-        record.headline = snapshot.headline
-        record.summary = snapshot.summary
-        record.metadataLine = snapshot.metadataLine
-        record.translationLabel = snapshot.translationLabel
-        record.articleActionsData = snapshot.articleActionsData
-        record.articleStateData = snapshot.articleStateData
-        record.categoryTitle = snapshot.categoryTitle
-        record.participantsData = snapshot.participantsData
-        record.joinedText = snapshot.joinedText
-        record.discussionStateData = snapshot.discussionStateData
-    }
-
     private static func makeFeedCardSnapshot(
         _ card: FeedCardDTO,
         channelID: String,
@@ -1352,19 +1327,6 @@ private enum AppContentMapper {
         }
     }
 
-    static func mapFeedCard(_ record: CoreDataFeedCardEntity) -> NewsFeedCard? {
-        guard let kind = FeedCardRecordKind(rawValue: record.kindRawValue) else {
-            return nil
-        }
-
-        switch kind {
-        case .photo:
-            return .photo(.remote(mapPhoto(record)))
-        case .text:
-            return .text(.remote(mapText(record)))
-        }
-    }
-
     @available(iOS 17, *)
     static func mapPhoto(_ record: FeedCardRecord) -> PhotoCardModel {
         PhotoCardModel(
@@ -1383,38 +1345,8 @@ private enum AppContentMapper {
         )
     }
 
-    static func mapPhoto(_ record: CoreDataFeedCardEntity) -> PhotoCardModel {
-        PhotoCardModel(
-            id: record.id,
-            channelID: record.channelID,
-            postedInPrefix: record.postedInPrefix ?? "",
-            sourceTitle: record.sourceTitle ?? "",
-            brandTitle: record.brandTitle ?? "",
-            headline: record.headline,
-            summary: record.summary ?? "",
-            metadataLine: record.metadataLine ?? "",
-            translationLabel: record.translationLabel ?? "",
-            commentCount: decodePhotoState(from: record.articleStateData).commentCount,
-            actions: decodeArticleActions(from: record.articleActionsData),
-            uiState: decodePhotoUIState(from: record.articleStateData)
-        )
-    }
-
     @available(iOS 17, *)
     static func mapText(_ record: FeedCardRecord) -> TextCardModel {
-        TextCardModel(
-            id: record.id,
-            channelID: record.channelID,
-            categoryTitle: record.categoryTitle ?? "",
-            headline: record.headline,
-            participants: decodeTextCardParticipants(from: record.participantsData),
-            replyCount: decodeTextState(from: record.discussionStateData).replyCount,
-            joinedCount: decodeTextState(from: record.discussionStateData).joinedCount,
-            uiState: decodeTextUIState(from: record.discussionStateData)
-        )
-    }
-
-    static func mapText(_ record: CoreDataFeedCardEntity) -> TextCardModel {
         TextCardModel(
             id: record.id,
             channelID: record.channelID,
@@ -1515,14 +1447,6 @@ private enum AppContentMapper {
 
     @available(iOS 17, *)
     static func mapChannel(_ channel: ChannelRecord) -> AppChannel {
-        AppChannel(
-            id: channel.id,
-            title: channel.title,
-            subtitle: channel.subtitle
-        )
-    }
-
-    static func mapChannel(_ channel: CoreDataChannelEntity) -> AppChannel {
         AppChannel(
             id: channel.id,
             title: channel.title,
