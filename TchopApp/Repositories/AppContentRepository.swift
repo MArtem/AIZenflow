@@ -66,7 +66,7 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Fetches channel data from local persistence.
     func fetchAvailableChannels() throws -> [AppChannel] {
-        let channels = try fetchChannelsFromCurrentBackend()
+        let channels = try fetchSwiftDataChannels()
         guard !channels.isEmpty else {
             throw RepositoryError.missingChannel
         }
@@ -210,11 +210,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    /// Resolves channels through the active SwiftData backend.
-    private func fetchChannelsFromCurrentBackend() throws -> [AppChannel] {
-        try fetchSwiftDataChannels()
-    }
-
     @available(iOS 17, *)
     /// Fetches channels through the SwiftData backend.
     private func fetchSwiftDataChannels() throws -> [AppChannel] {
@@ -250,7 +245,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         channelID: String,
         cacheReason: NewsFeedCacheReason?
     ) throws -> NewsFeedContent {
-        let snapshot = try fetchPersistedFeedSnapshotFromCurrentBackend(channelID: channelID)
+        let snapshot = try fetchSwiftDataFeedSnapshot(channelID: channelID)
         return NewsFeedContent(
             cards: snapshot.cards,
             availability: makeFeedAvailability(
@@ -258,13 +253,6 @@ final class DefaultAppContentRepository: AppContentRepository {
                 cacheReason: cacheReason
             )
         )
-    }
-
-    /// Reads persisted feed cards from SwiftData and maps them into presentation models.
-    private func fetchPersistedFeedSnapshotFromCurrentBackend(
-        channelID: String
-    ) throws -> PersistedNewsFeedSnapshot {
-        try fetchSwiftDataFeedSnapshot(channelID: channelID)
     }
 
     /// Synchronizes the full persisted feed snapshot with the latest API response.
@@ -278,7 +266,7 @@ final class DefaultAppContentRepository: AppContentRepository {
         let syncedAt = Date()
         let persistedStates = try fetchPersistedCardStateMap(channelID: channelID)
         let existingCardIDs = Set(
-            try fetchPersistedFeedSnapshotFromCurrentBackend(channelID: channelID).cards.map(\.id)
+            try fetchSwiftDataFeedSnapshot(channelID: channelID).cards.map(\.id)
         )
         let localStore = FeedPersistenceSyncLocalStore(
             databaseManager: databaseManager,
