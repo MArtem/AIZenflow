@@ -42,11 +42,11 @@ Do not add abstractions unless they solve a concrete current problem.
 ## Project-Calibrated Working Rules (TchopApp)
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.
 2. Do not introduce app-local wrappers around reusable package APIs when one direct call is enough.
-3. For SwiftUI inside `View`, avoid local view-returning helpers; prefer extracted explicit `View`/builder types.
+3. SwiftUI composition details are governed by `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`; do not duplicate conflicting local style rules.
 4. Treat unnecessary redraw/invalidation risk as high-priority; prefer narrow-input subviews and explicit render boundaries.
 5. Keep share-extension/app boundaries explicit: shared storage + sync point, no hidden runtime coupling.
 6. Keep feed/composer card contract stable (`text/photo/video/audio/pdf`) unless product contract explicitly changes.
-7. ViewModel interaction style must stay explicit (`@MainActor`, `@Observable`, one state container, intent methods).
+7. ViewModel interaction style must follow `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md` (`@MainActor`, `@Observable`, explicit state + intents, no generic `send(action)` default).
 8. Before any new abstraction, document one concrete current pain-point it solves in the PR/task notes.
 
 ## Size Heuristic

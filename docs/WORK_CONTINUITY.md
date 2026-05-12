@@ -31,8 +31,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Архитектура — приоритет №1.
 - После архитектуры всегда проверка на overengineering.
 - Не угадывать state flow/ownership/boundaries; если неясно — сначала уточнить.
-- Для SwiftUI внутри `View` запрещены view-returning helpers (`private var ...: some View`, `@ViewBuilder private func ... -> some View`).
-- ViewModel standard: `@MainActor`, `@Observable`, один state container, explicit intent methods, без generic `send(action)` как стандарта.
+- Точные iOS/SwiftUI/ViewModel правила брать из `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`.
+- Точные services/package rules брать из `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`.
 
 Текущий фокус:
 1) Phase 1: runtime architecture/overengineering audit

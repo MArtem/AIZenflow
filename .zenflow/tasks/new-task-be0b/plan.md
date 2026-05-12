@@ -32,6 +32,9 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - rewrote `docs/README.md` into a shorter canonical map with the same placement/hierarchy semantics
   - rewrote `docs/WORK_CONTINUITY.md` into a compact resume artifact with the same phase/baseline/contracts focus
 - Compressed `.zenflow/tasks/new-task-be0b/handoff.md` into a short operational resume artifact aligned with continuity docs.
+- Final docs polish:
+  - removed duplicate SwiftUI/ViewModel rule wording from `docs/WORK_CONTINUITY.md` transition template and delegated to task overlay rule files
+  - aligned `docs/AGENT_RULES.md` with overlay-rule ownership to avoid policy drift
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
