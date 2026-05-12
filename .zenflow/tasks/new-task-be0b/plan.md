@@ -10,6 +10,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 4. Manual share-extension runtime validation remains pending via `./docs/SHARE_EXTENSION_VALIDATION.md`.
 
 ## Current Status
+- Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
 - Completed audit: `./TchopApp/Services/UserSessionService.swift` safe-pass (deduplicated token-backed sign-in flow via shared session persistence helpers).
 - Completed audit: `./TchopApp/Persistence/AppDatabase.swift` safe-pass (removed unused non-throwing bootstrap wrapper and dead debug-description helper).
 - Completed audit: `./TchopApp/Services/FeedAPIManager.swift` safe-pass (cached ISO8601 formatters and clarified mutation-path id parsing naming).
@@ -27,7 +28,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed audit: `./TchopApp/Shared/SharedLocalFeedCardSyncManager.swift` (no safe simplifications needed; ownership boundary already minimal).
 - Completed now: removed dead private action-state persistence helpers from `./TchopApp/Repositories/AppContentRepository.swift`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: `./TchopApp/Navigation/DeepLinkManager.swift` routing-rule simplification audit.
+- Next focus: checkpoint and prepare consolidated cleanup summary/next-batch priorities.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule
