@@ -208,7 +208,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    @available(iOS 17, *)
     /// Fetches channels through the SwiftData backend.
     private func fetchSwiftDataChannels() throws -> [AppChannel] {
         try databaseManager.read(
@@ -296,7 +295,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         )
     }
 
-    @available(iOS 17, *)
     /// Fetches persisted feed cards through the SwiftData backend.
     private func fetchSwiftDataFeedSnapshot(channelID: String) throws -> PersistedNewsFeedSnapshot {
         try databaseManager.read(
@@ -573,7 +571,6 @@ private actor NetworkAvailabilityState {
 }
 
 extension DefaultAppContentRepository {
-    @available(iOS 17, *)
     /// Fetches the full SwiftData feed-card set for local repository sorting and filtering.
     ///
     /// This avoids Swift 6 strict-concurrency warnings from key-path-based `SortDescriptor`
@@ -934,7 +931,6 @@ private enum AppContentPersistenceMapper {
         }
     }
 
-    @available(iOS 17, *)
     static func makeFeedCardRecord(from snapshot: FeedCardPersistenceSnapshot) -> FeedCardRecord {
         FeedCardRecord(
             id: snapshot.id,
@@ -960,7 +956,6 @@ private enum AppContentPersistenceMapper {
         )
     }
 
-    @available(iOS 17, *)
     static func apply(_ snapshot: FeedCardPersistenceSnapshot, to record: FeedCardRecord) {
         record.channelID = snapshot.channelID
         record.kindRawValue = snapshot.kind.rawValue
@@ -1313,7 +1308,6 @@ private enum AppContentMapper {
         )
     }
 
-    @available(iOS 17, *)
     static func mapFeedCard(_ record: FeedCardRecord) -> NewsFeedCard? {
         guard let kind = record.kind else {
             return nil
@@ -1327,7 +1321,6 @@ private enum AppContentMapper {
         }
     }
 
-    @available(iOS 17, *)
     static func mapPhoto(_ record: FeedCardRecord) -> PhotoCardModel {
         PhotoCardModel(
             id: record.id,
@@ -1345,7 +1338,6 @@ private enum AppContentMapper {
         )
     }
 
-    @available(iOS 17, *)
     static func mapText(_ record: FeedCardRecord) -> TextCardModel {
         TextCardModel(
             id: record.id,
@@ -1445,7 +1437,6 @@ private enum AppContentMapper {
         return payload
     }
 
-    @available(iOS 17, *)
     static func mapChannel(_ channel: ChannelRecord) -> AppChannel {
         AppChannel(
             id: channel.id,

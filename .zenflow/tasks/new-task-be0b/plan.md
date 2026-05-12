@@ -72,6 +72,9 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - removed unused CoreData-specific mapper overloads from `AppContentPersistenceMapper` and `AppContentMapper` in `TchopApp/Repositories/AppContentRepository.swift`
   - removed stale `CoreData` import and aligned repository runtime comment to SwiftData-only policy
   - verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`
+- Phase 1 annotation cleanup:
+  - removed now-decorative `@available(iOS 17, *)` markers from `TchopApp/Repositories/AppContentRepository.swift` after SwiftData-only runtime convergence
+  - no build run (annotation-only cleanup without behavior/sig changes)
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
