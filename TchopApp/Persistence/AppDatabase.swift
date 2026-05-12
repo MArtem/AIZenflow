@@ -6,18 +6,6 @@ import TchopDatabase
 /// Builds app-specific persistence containers and delegates backend selection to the infrastructure package.
 @MainActor
 enum AppDatabase {
-    /// Creates the shared database manager used by the application.
-    @MainActor
-    static func makeDatabaseManager(
-        configuration: DatabaseConfiguration = .persistent
-    ) -> any DatabaseManaging {
-        do {
-            return try makeDatabaseManagerOrThrow(configuration: configuration)
-        } catch {
-            fatalError("Failed to create database manager: \(bootstrapFailureDebugDescription(for: error))")
-        }
-    }
-
     /// Creates the shared database manager used by the application or throws the underlying bootstrap error.
     @MainActor
     static func makeDatabaseManagerOrThrow(
@@ -75,29 +63,6 @@ enum AppDatabase {
 
         return swiftDataManager
     }
-
-    /// Formats bootstrap-stage persistence failures into stable debug text for crash/assert paths.
-    ///
-    /// App startup cannot recover when the database manager itself fails to initialize, but the
-    /// failure still benefits from consistent, semantically meaningful logging rather than raw
-    /// `String(describing:)` output.
-    private static func bootstrapFailureDebugDescription(for error: Error) -> String {
-        if let databaseError = error as? DatabaseError {
-            switch databaseError {
-            case .backendInitializationFailed(let reason),
-                 .migrationFailed(let reason),
-                 .fetchFailed(let reason),
-                 .saveFailed(let reason),
-                 .deleteFailed(let reason),
-                 .transactionFailed(let reason),
-                 .unsupportedOperation(let reason):
-                return reason
-            }
-        }
-
-        return String(describing: error)
-    }
-
 }
 
 /*
