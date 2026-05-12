@@ -60,11 +60,9 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
     func start(application: UIApplication) {
         Task {
             let status = await refreshAuthorizationStatus()
-            if status == .authorized || status == .provisional || status == .ephemeral {
+            if status.supportsRemoteRegistration {
                 application.registerForRemoteNotifications()
-                _ = try? await manager.updateRemoteRegistration(
-                    isRegistered: application.isRegisteredForRemoteNotifications
-                )
+                await syncRemoteRegistration(application: application)
             }
         }
     }
@@ -83,9 +81,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
             }
 
             application.registerForRemoteNotifications()
-            _ = try await manager.updateRemoteRegistration(
-                isRegistered: application.isRegisteredForRemoteNotifications
-            )
+            await syncRemoteRegistration(application: application)
         } catch {
             reportPushFailure(
                 error,
@@ -145,6 +141,20 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
         return status
     }
 
+    /// Persists the current app-level APNs registration state through the shared push manager.
+    private func syncRemoteRegistration(application: UIApplication) async {
+        do {
+            _ = try await manager.updateRemoteRegistration(
+                isRegistered: application.isRegisteredForRemoteNotifications
+            )
+        } catch {
+            reportPushFailure(
+                error,
+                operation: "updateRemoteRegistration"
+            )
+        }
+    }
+
     /// Normalizes and reports push-runtime failures through the shared app error manager.
     private func reportPushFailure(
         _ error: Error,
@@ -164,6 +174,15 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
 }
 
 extension PushNotificationAuthorizationStatus {
+    var supportsRemoteRegistration: Bool {
+        switch self {
+        case .authorized, .provisional, .ephemeral:
+            return true
+        case .notDetermined, .denied:
+            return false
+        }
+    }
+
     /// Creates a new AppPushNotificationBridge instance.
     init(_ status: UNAuthorizationStatus) {
         switch status {
