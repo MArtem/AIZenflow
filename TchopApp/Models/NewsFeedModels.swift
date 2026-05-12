@@ -420,18 +420,15 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     mutating func updateFileCaption(_ value: String?) {
-        guard case let .file(file) = media else {
-            return
-        }
-
-        media = .file(
+        let normalizedCaption = normalizedOptionalText(value)
+        updateFileMedia { file in
             ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
                 teaserImage: file.teaserImage,
-                caption: normalizedOptionalText(value)
+                caption: normalizedCaption
             )
-        )
+        }
     }
 
     mutating func showPhotoCopyrightField(id: String) {
@@ -451,11 +448,7 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     mutating func addOrReplaceTeaserImage(displayTitle: String = "Teaser image") {
-        guard case let .file(file) = media else {
-            return
-        }
-
-        media = .file(
+        updateFileMedia { file in
             ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
@@ -466,7 +459,7 @@ struct FeedComposerDraft: Equatable, Sendable {
                 ),
                 caption: file.caption
             )
-        )
+        }
     }
 
     mutating func showTeaserCopyrightField() {
@@ -478,18 +471,14 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     mutating func removeTeaserImage() {
-        guard case let .file(file) = media else {
-            return
-        }
-
-        media = .file(
+        updateFileMedia { file in
             ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
                 teaserImage: nil,
                 caption: file.caption
             )
-        )
+        }
         isTeaserCopyrightFieldVisible = false
     }
 
@@ -502,26 +491,23 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     mutating func updateTeaserCopyright(_ value: String?) {
-        guard case let .file(file) = media else {
-            return
-        }
+        let normalizedCopyright = normalizedOptionalText(value)
+        updateFileMedia { file in
+            guard let teaserImage = file.teaserImage else {
+                return file
+            }
 
-        guard let teaserImage = file.teaserImage else {
-            return
-        }
-
-        media = .file(
-            ChannelCardFileMediaContent(
+            return ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
                 teaserImage: ChannelCardTeaserImageContent(
                     id: teaserImage.id,
                     displayTitle: teaserImage.displayTitle,
-                    copyright: normalizedOptionalText(value)
+                    copyright: normalizedCopyright
                 ),
                 caption: file.caption
             )
-        )
+        }
     }
 
     mutating func updateText(_ value: String, for kind: ChannelCardTextFieldKind) {
@@ -812,6 +798,16 @@ struct FeedComposerDraft: Equatable, Sendable {
             teaserImage: nil,
             caption: nil
         )
+    }
+
+    private mutating func updateFileMedia(
+        _ transform: (ChannelCardFileMediaContent) -> ChannelCardFileMediaContent
+    ) {
+        guard case let .file(file) = media else {
+            return
+        }
+
+        media = .file(transform(file))
     }
 }
 
