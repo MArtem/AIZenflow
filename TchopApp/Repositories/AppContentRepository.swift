@@ -89,9 +89,6 @@ final class DefaultAppContentRepository: AppContentRepository {
     /// the API response is first synchronized into persistence and only then mapped back into
     /// presentation models.
     func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent {
-        let networkAvailabilityChecker = self.networkAvailabilityChecker
-        let feedAPIManager = self.feedAPIManager
-
         guard await networkAvailabilityChecker.isInternetAvailable() else {
             if let persistedContent = try currentNewsFeedContent(channelID: channelID) {
                 return persistedContent.withCacheReason(.offline)
@@ -109,8 +106,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         articleID: String,
         action: PhotoCardAction
     ) async throws -> PhotoCardModel {
-        let networkAvailabilityChecker = self.networkAvailabilityChecker
-
         guard await networkAvailabilityChecker.isInternetAvailable() else {
             throw RepositoryError.offlineCardAction
         }
@@ -135,8 +130,6 @@ final class DefaultAppContentRepository: AppContentRepository {
         discussionID: String,
         action: TextCardAction
     ) async throws -> TextCardModel {
-        let networkAvailabilityChecker = self.networkAvailabilityChecker
-
         guard await networkAvailabilityChecker.isInternetAvailable() else {
             throw RepositoryError.offlineCardAction
         }

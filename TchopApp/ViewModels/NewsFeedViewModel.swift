@@ -549,7 +549,7 @@ final class NewsFeedViewModel {
             return
         }
 
-        if let persistedContent = (try? repository.currentNewsFeedContent(channelID: channelID)) ?? nil {
+        if let persistedContent = try? repository.currentNewsFeedContent(channelID: channelID) {
             state = .loading(persistedContent)
         } else {
             state = .loading(Self.emptyContent)

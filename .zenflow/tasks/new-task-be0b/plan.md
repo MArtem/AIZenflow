@@ -12,6 +12,12 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 5. Phase 3: after Phase 2 finishes, execute the saved `ViewModel` standardization plan toward `@Observable + explicit state container + explicit intent methods`
 6. After all three phases, return to runtime validation against the share matrix in `docs/SHARE_EXTENSION_VALIDATION.md`
 
+
+## Current Phase Status
+- Phase 1 is in progress.
+- Latest safe simplification pass: removed redundant local alias indirection in repository runtime methods and one redundant optional unwrap path in feed loading state transition.
+- Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.
