@@ -212,11 +212,7 @@ final class DefaultAppContentRepository: AppContentRepository {
 
     /// Resolves channels using the currently selected persistence backend.
     private func fetchChannelsFromCurrentBackend() throws -> [AppChannel] {
-        if #available(iOS 17, *) {
-            return try fetchSwiftDataChannels()
-        }
-
-        return try fetchCoreDataChannels()
+        try fetchSwiftDataChannels()
     }
 
     @available(iOS 17, *)
@@ -268,11 +264,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     private func fetchPersistedFeedSnapshotFromCurrentBackend(
         channelID: String
     ) throws -> PersistedNewsFeedSnapshot {
-        if #available(iOS 17, *) {
-            return try fetchSwiftDataFeedSnapshot(channelID: channelID)
-        }
-
-        return try fetchCoreDataFeedSnapshot(channelID: channelID)
+        try fetchSwiftDataFeedSnapshot(channelID: channelID)
     }
 
     /// Synchronizes the full persisted feed snapshot with the latest API response.
@@ -317,14 +309,13 @@ final class DefaultAppContentRepository: AppContentRepository {
     private func fetchPersistedCardStateMap(
         channelID: String
     ) throws -> [String: PersistedCardStateSnapshot] {
-        if #available(iOS 17, *) {
-            return try databaseManager.read(
-                DatabaseReadOperation(swiftData: { context in
-                    let descriptor = FetchDescriptor<FeedCardRecord>()
-                    return Dictionary(
-                        uniqueKeysWithValues: try context.fetch(descriptor)
-                            .filter { $0.channelID == channelID }
-                            .map {
+        try databaseManager.read(
+            DatabaseReadOperation(swiftData: { context in
+                let descriptor = FetchDescriptor<FeedCardRecord>()
+                return Dictionary(
+                    uniqueKeysWithValues: try context.fetch(descriptor)
+                        .filter { $0.channelID == channelID }
+                        .map {
                             (
                                 $0.id,
                                 PersistedCardStateSnapshot(
@@ -333,12 +324,9 @@ final class DefaultAppContentRepository: AppContentRepository {
                                 )
                             )
                         }
-                    )
-                })
-            )
-        }
-
-        return try fetchCoreDataCardStateMap(channelID: channelID)
+                )
+            })
+        )
     }
 
     /// Returns persisted card-local-state blobs from the Core Data backend.

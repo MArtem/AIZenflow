@@ -41,6 +41,10 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
 - Phase 1 runtime cleanup (no-build safe pass):
   - removed unused translation helpers `canTranslate(_:)` and `translatedText(...)` from `TchopApp/ViewModels/NewsFeedViewModel.swift`
   - build was intentionally not run for this tiny isolated deletion-only cleanup per the verification policy reminder
+- Phase 1 runtime cleanup (SwiftData-only simplification):
+  - in `TchopApp/Repositories/AppContentRepository.swift`, removed runtime `#available(iOS 17, *)` branch indirection in three read paths
+  - channel fetch, persisted feed snapshot fetch, and persisted card-state map now resolve directly through the active SwiftData runtime path
+  - no build run in this step (policy: run only when verification is necessary)
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
