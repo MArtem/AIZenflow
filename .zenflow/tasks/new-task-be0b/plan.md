@@ -28,6 +28,9 @@ Keep a short task-local snapshot for the active three-part cleanup/refactor plan
   - added one-time post-reset bootstrap rule in `docs/README.md`
   - added same rule to `docs/WORK_CONTINUITY.md` and transition prompt template
   - added context-reset bootstrap requirement in `docs/AGENT_RULES.md`
+- Documentation compression pass:
+  - rewrote `docs/README.md` into a shorter canonical map with the same placement/hierarchy semantics
+  - rewrote `docs/WORK_CONTINUITY.md` into a compact resume artifact with the same phase/baseline/contracts focus
 - Next target in Phase 1: continue runtime-only audit for decorative seams in feed/composer/repository ownership without touching tests.
 
 ## Working Rule
