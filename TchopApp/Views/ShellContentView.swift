@@ -22,6 +22,17 @@ struct ShellContentView: View {
             viewModel.isNewsFeedNearTop
     }
 
+    private var composerIsPresented: Binding<Bool> {
+        Binding(
+            get: { viewModel.activeComposer != nil },
+            set: { isPresented in
+                if !isPresented {
+                    viewModel.dismissComposer()
+                }
+            }
+        )
+    }
+
     var body: some View {
         ZStack(alignment: .bottom) {
             VStack(spacing: 0) {
@@ -47,34 +58,16 @@ struct ShellContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
-            AppGlassContainer(spacing: 16) {
-                ZStack(alignment: .bottom) {
-                    if shouldShowFloatingActionButton {
-                        FloatingActionButton(action: viewModel.presentComposer)
-                            .frame(maxWidth: .infinity, alignment: .trailing)
-                            .padding(.trailing, 18)
-                            .padding(
-                                .bottom,
-                                BottomTabBar.occupiedHeight + Self.floatingActionButtonTabBarSpacing
-                            )
-                    }
-
-                    BottomTabBar(selectedTab: coordinator.selectedTab, onSelect: coordinator.selectTab)
-                }
-            }
+            ShellBottomChromeView(
+                selectedTab: coordinator.selectedTab,
+                shouldShowFloatingActionButton: shouldShowFloatingActionButton,
+                onFloatingActionTap: viewModel.presentComposer,
+                onSelectTab: coordinator.selectTab
+            )
         }
         .accessibilityIdentifier("shell.content")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .sheet(
-            isPresented: Binding(
-                get: { viewModel.activeComposer != nil },
-                set: { isPresented in
-                    if !isPresented {
-                        viewModel.dismissComposer()
-                    }
-                }
-            )
-        ) {
+        .sheet(isPresented: composerIsPresented) {
             if let composer = viewModel.activeComposer {
                 SharedCardComposerView(
                     viewModel: composer,
@@ -98,6 +91,33 @@ struct ShellContentView: View {
         }
 
         viewModel.newsFeedViewModel.toggleSearchPresentation()
+    }
+}
+
+private struct ShellBottomChromeView: View {
+    private static let floatingActionButtonTabBarSpacing: CGFloat = 15
+
+    let selectedTab: AppTab
+    let shouldShowFloatingActionButton: Bool
+    let onFloatingActionTap: () -> Void
+    let onSelectTab: (AppTab) -> Void
+
+    var body: some View {
+        AppGlassContainer(spacing: 16) {
+            ZStack(alignment: .bottom) {
+                if shouldShowFloatingActionButton {
+                    FloatingActionButton(action: onFloatingActionTap)
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                        .padding(.trailing, 18)
+                        .padding(
+                            .bottom,
+                            BottomTabBar.occupiedHeight + Self.floatingActionButtonTabBarSpacing
+                        )
+                }
+
+                BottomTabBar(selectedTab: selectedTab, onSelect: onSelectTab)
+            }
+        }
     }
 }
 

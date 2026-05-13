@@ -35,7 +35,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Auth/LoginScreenView.swift` safe decomposition pass (replaced decorative `AnyView` sections with explicit subviews and centralized login field appearance helpers without changing auth behavior).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: continue Phase 2 with the next high-impact SwiftUI container after login/feed/composer coverage.
+- Completed now: shell/container SwiftUI pass across `./TchopApp/Views/TopBarView.swift`, `./TchopApp/Views/Menu/SideMenuView.swift`, `./TchopApp/Views/ShellContentView.swift`, and `./TchopApp/Views/TabContentView.swift` (extracted local subviews, reduced repeated chrome/menu wiring, and kept runtime behavior unchanged).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Next focus: continue Phase 2 with the next high-impact SwiftUI container outside the completed feed/composer/auth/shell surface.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule

@@ -12,67 +12,8 @@ struct SideMenuView: View {
         GeometryReader { proxy in
             ScrollView(.vertical, showsIndicators: false) {
                 VStack(alignment: .leading, spacing: AppSpacing.featureSection) {
-                    HStack(spacing: 14) {
-                        BrandMarkView(iconSize: 54, cardSize: CGSize(width: 30, height: 36))
-
-                        VStack(alignment: .leading, spacing: AppSpacing.xxs) {
-                            Text(channelInfo.title)
-                                .font(AppTypography.menuTitle)
-                                .foregroundStyle(AppTheme.textPrimary)
-
-                            Text(channelInfo.subtitle)
-                                .font(AppTypography.detail)
-                                .foregroundStyle(AppTheme.textTertiary)
-                        }
-                    }
-                    .accessibilityElement(children: .combine)
-                    .accessibilityAddTraits(.isHeader)
-
-                    VStack(spacing: AppSpacing.xs) {
-                        ForEach(AppTab.allCases) { tab in
-                            Button(action: { onSelect(tab) }) {
-                                HStack(spacing: 14) {
-                                    Image(systemName: tab.menuIcon)
-                                        .font(AppTypography.cardTitle)
-                                        .frame(width: 22)
-
-                                    Text(tab.title)
-                                        .font(AppTypography.actionTitle)
-
-                                    Spacer()
-
-                                    if selectedTab == tab {
-                                        Image(systemName: "checkmark")
-                                            .font(AppTypography.captionSemibold)
-                                    }
-                                }
-                                .foregroundStyle(
-                                    selectedTab == tab
-                                        ? AppTheme.accent
-                                        : AppTheme.textSecondary
-                                )
-                                .padding(.horizontal, 14)
-                                .padding(.vertical, 14)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .background(
-                                    RoundedRectangle(cornerRadius: AppRadius.menuSelection, style: .continuous)
-                                        .fill(
-                                            selectedTab == tab
-                                                ? AppTheme.selectionFill
-                                                : Color.clear
-                                        )
-                                )
-                            }
-                            .buttonStyle(.plain)
-                            .accessibilityLabel(tab.title)
-                            .accessibilityValue(
-                                selectedTab == tab
-                                    ? AppLocalization.text("accessibility.tab.selected")
-                                    : AppLocalization.text("accessibility.tab.notSelected")
-                            )
-                            .accessibilityHint(AppLocalization.text("accessibility.sideMenu.tabHint"))
-                        }
-                    }
+                    SideMenuHeaderView(channelInfo: channelInfo)
+                    SideMenuTabListView(selectedTab: selectedTab, onSelect: onSelect)
 
                     if let accountSummary {
                         SideMenuAccountSummaryCard(accountSummary: accountSummary)
@@ -99,6 +40,95 @@ struct SideMenuView: View {
         channelsStore.selectionSnapshot.selectedChannel?.headerInfo ??
             channelsStore.selectionSnapshot.availableChannels.first?.headerInfo ??
             AppChannel.defaultChannel.headerInfo
+    }
+}
+
+private struct SideMenuHeaderView: View {
+    let channelInfo: ChannelHeaderInfo
+
+    var body: some View {
+        HStack(spacing: 14) {
+            BrandMarkView(iconSize: 54, cardSize: CGSize(width: 30, height: 36))
+
+            VStack(alignment: .leading, spacing: AppSpacing.xxs) {
+                Text(channelInfo.title)
+                    .font(AppTypography.menuTitle)
+                    .foregroundStyle(AppTheme.textPrimary)
+
+                Text(channelInfo.subtitle)
+                    .font(AppTypography.detail)
+                    .foregroundStyle(AppTheme.textTertiary)
+            }
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityAddTraits(.isHeader)
+    }
+}
+
+private struct SideMenuTabListView: View {
+    let selectedTab: AppTab
+    let onSelect: (AppTab) -> Void
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xs) {
+            ForEach(AppTab.allCases) { tab in
+                SideMenuTabRowView(
+                    tab: tab,
+                    isSelected: selectedTab == tab,
+                    onTap: { onSelect(tab) }
+                )
+            }
+        }
+    }
+}
+
+private struct SideMenuTabRowView: View {
+    let tab: AppTab
+    let isSelected: Bool
+    let onTap: () -> Void
+
+    var body: some View {
+        Button(action: onTap) {
+            HStack(spacing: 14) {
+                Image(systemName: tab.menuIcon)
+                    .font(AppTypography.cardTitle)
+                    .frame(width: 22)
+
+                Text(tab.title)
+                    .font(AppTypography.actionTitle)
+
+                Spacer()
+
+                if isSelected {
+                    Image(systemName: "checkmark")
+                        .font(AppTypography.captionSemibold)
+                }
+            }
+            .foregroundStyle(
+                isSelected
+                    ? AppTheme.accent
+                    : AppTheme.textSecondary
+            )
+            .padding(.horizontal, 14)
+            .padding(.vertical, 14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(
+                RoundedRectangle(cornerRadius: AppRadius.menuSelection, style: .continuous)
+                    .fill(
+                        isSelected
+                            ? AppTheme.selectionFill
+                            : Color.clear
+                    )
+            )
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(tab.title)
+        .accessibilityValue(
+            isSelected
+                ? AppLocalization.text("accessibility.tab.selected")
+                : AppLocalization.text("accessibility.tab.notSelected")
+        )
+        .accessibilityHint(AppLocalization.text("accessibility.sideMenu.tabHint"))
     }
 }
 

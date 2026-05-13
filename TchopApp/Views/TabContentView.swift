@@ -1,4 +1,5 @@
 import SwiftUI
+import TchopNavigation
 
 /// Hosts tab-level content including top bar, feed, and action affordances.
 struct TabContentView: View {
@@ -31,16 +32,32 @@ struct TabContentView: View {
                 router: coordinator.chatRouter
             )
         case .profile:
-            if currentUser != nil, let profileTabViewModel {
-                ProfileTabRootView(
-                    viewModel: profileTabViewModel,
-                    router: coordinator.profileRouter,
-                    onLogout: onLogout
-                )
-            } else {
-                ProgressView()
-                    .frame(maxWidth: .infinity, maxHeight: .infinity)
-            }
+            TabContentProfileView(
+                currentUser: currentUser,
+                profileTabViewModel: profileTabViewModel,
+                router: coordinator.profileRouter,
+                onLogout: onLogout
+            )
+        }
+    }
+}
+
+private struct TabContentProfileView: View {
+    let currentUser: AppUser?
+    let profileTabViewModel: ProfileTabViewModel?
+    let router: TabRouter<ProfileRoute>
+    let onLogout: () -> Void
+
+    var body: some View {
+        if currentUser != nil, let profileTabViewModel {
+            ProfileTabRootView(
+                viewModel: profileTabViewModel,
+                router: router,
+                onLogout: onLogout
+            )
+        } else {
+            ProgressView()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
         }
     }
 }
