@@ -8,6 +8,12 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - When context gets large or phase boundary is reached, propose new chat proactively.
 - After reset, run bootstrap read **once per new chat**.
 
+## Working Mode Rule (Low Resource)
+- When the user has already approved a clear implementation plan, the assistant may batch multiple consecutive plan steps into one larger execution block instead of reporting after each small step.
+- Choose batch size based on overall efficiency, code quality, architectural safety, and minimizing unnecessary builds/context churn.
+- Report back after a meaningful block is complete, or earlier only if a blocker, ambiguity, or architecture-risk decision appears.
+- If the user creates a separate new task, treat it as an independent unit and provide a completion report for that task specifically.
+
 ### Universal Transition Prompt Template
 ```text
 Работаем в проекте `TchopApp` в worktree:

@@ -33,7 +33,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` safe decomposition pass (extracted repeated media surfaces/items and unified repeated file-media presentation logic without changing composer rules).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: continue Phase 2 with the next high-impact SwiftUI screen outside the completed feed/composer pair.
+- Completed now: `./TchopApp/Views/Auth/LoginScreenView.swift` safe decomposition pass (replaced decorative `AnyView` sections with explicit subviews and centralized login field appearance helpers without changing auth behavior).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Next focus: continue Phase 2 with the next high-impact SwiftUI container after login/feed/composer coverage.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule
