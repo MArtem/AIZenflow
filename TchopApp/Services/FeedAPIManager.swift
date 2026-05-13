@@ -473,7 +473,7 @@ enum FeedAPIStubFactory {
         in response: FeedResponseDTO,
         articleID: String
     ) -> PhotoDTO? {
-        let unscopedArticleID = unscopedCardID(articleID, kindPrefix: "photo-")
+        let unscopedArticleID = unscopedCardID(articleID)
         for card in response.cards {
             if case let .photo(article) = card,
                (article.id == articleID || article.id == unscopedArticleID) {
@@ -489,7 +489,7 @@ enum FeedAPIStubFactory {
         in response: FeedResponseDTO,
         discussionID: String
     ) -> TextDTO? {
-        let unscopedDiscussionID = unscopedCardID(discussionID, kindPrefix: "text-")
+        let unscopedDiscussionID = unscopedCardID(discussionID)
         for card in response.cards {
             if case let .text(discussion) = card,
                (discussion.id == discussionID || discussion.id == unscopedDiscussionID) {
@@ -500,13 +500,18 @@ enum FeedAPIStubFactory {
         return nil
     }
 
-    /// Strips a channel-scoped prefix from persisted card ids before matching them against raw stub payload ids.
-    private static func unscopedCardID(_ scopedID: String, kindPrefix: String) -> String {
-        guard let range = scopedID.range(of: kindPrefix) else {
+    /// Strips the channel-scoped `<channelID>-` prefix from persisted card ids.
+    private static func unscopedCardID(_ scopedID: String) -> String {
+        guard let separatorIndex = scopedID.firstIndex(of: "-") else {
             return scopedID
         }
 
-        return String(scopedID[range.lowerBound...])
+        let nextIndex = scopedID.index(after: separatorIndex)
+        guard nextIndex < scopedID.endIndex else {
+            return scopedID
+        }
+
+        return String(scopedID[nextIndex...])
     }
 
     private static func loadStubFeedResponseData(channelID: String) throws -> Data {

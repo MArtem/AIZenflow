@@ -29,6 +29,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Package review 19 — `./Packages/TchopInfrastructure/Sources/TchopAppleAuthentication`
 ### [x] Step: Package architecture pass 2 — cross-package reusable-surface tightening
 ### [x] Step: UI bugfix pass — restore card action/menu responsiveness for feed cards
+### [x] Step: UI bugfix pass 2 — restore optimistic card mutations for scoped ids across channels
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -84,6 +85,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift` (`FeedHeadlineWidgetSnapshotManaging` is now `Sendable`; concrete manager marked `@unchecked Sendable`).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/ViewModels/NewsFeedViewModel.swift` UI bugfix pass (card action cancellation now clears per-card coordinator/task state and resets pending operation for photo/text cards to avoid stuck non-responsive action bars and menu actions).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Services/FeedAPIManager.swift` bugfix pass (fixed scoped-card id unwrapping for stub mutation lookup so photo/text actions resolve the real card id across channels, including leadership `article-*` ids).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
