@@ -1028,16 +1028,9 @@ private struct SharedCardComposerHeaderView: View {
 
     var body: some View {
         HStack {
-            Button("Cancel", action: onCancel)
-                .buttonStyle(.plain)
-                .font(AppTypography.bodyRegular)
-                .foregroundStyle(AppTheme.accent)
-
-            Spacer()
-
             Button(action: onSelectChannel) {
                 HStack(spacing: AppSpacing.xs) {
-                    Text("Post in")
+                    Text("Post in:")
                         .foregroundStyle(AppTheme.textPrimary)
 
                     Text(selectedChannelTitle)
@@ -1052,7 +1045,11 @@ private struct SharedCardComposerHeaderView: View {
             .buttonStyle(.plain)
 
             Spacer()
-            Color.clear.frame(width: 52)
+
+            Button("Cancel", action: onCancel)
+                .buttonStyle(.plain)
+                .font(AppTypography.bodyRegular)
+                .foregroundStyle(AppTheme.accent)
         }
         .padding(.horizontal, AppSpacing.screenHorizontal)
         .padding(.vertical, AppSpacing.md)
@@ -1087,15 +1084,21 @@ private struct SharedCardComposerToolbarView: View {
 
             Spacer()
 
-            if showsPhotoToolbarAction {
-                Button(action: onPhotoToolbarTap) {
-                    Image(systemName: "photo")
-                        .font(AppTypography.actionTitle)
-                        .foregroundStyle(AppTheme.textPrimary)
+            HStack(spacing: 40) {
+                if showsPhotoToolbarAction {
+                    Button(action: onPhotoToolbarTap) {
+                        Image(systemName: "photo")
+                            .font(AppTypography.actionTitle)
+                            .foregroundStyle(AppTheme.textPrimary)
+                    }
+                    .buttonStyle(.plain)
                 }
-                .buttonStyle(.plain)
-                .padding(.trailing, AppSpacing.lg)
+
+                Image(systemName: "calendar")
+                    .font(AppTypography.actionTitle)
+                    .foregroundStyle(AppTheme.textTertiary)
             }
+            .padding(.trailing, AppSpacing.lg)
 
             Button(action: onPublish) {
                 Text("Publish")
