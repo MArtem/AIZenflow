@@ -6,8 +6,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ## Active Steps
 ### [x] Step: Phase 3 batch 1 — ViewModel safe cleanup (`./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/ViewModels/NewsFeedViewModel.swift`)
 ### [x] Step: Phase 3 batch 2 — remaining non-view cleanup candidates
-### [ ] Step: Keep tests untouched (`./TchopAppTests`)
-### [ ] Step: Manual share-extension runtime validation (`./docs/SHARE_EXTENSION_VALIDATION.md`)
+### [x] Step: Keep tests untouched (`./TchopAppTests`) — skipped by request (tests remain untouched)
+### [x] Step: Manual share-extension runtime validation (`./docs/SHARE_EXTENSION_VALIDATION.md`) — skipped by request
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
