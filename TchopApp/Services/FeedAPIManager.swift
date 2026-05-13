@@ -415,7 +415,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // no real backend yet. The repository merges the returned DTO with the latest
                     // persisted card state so local changes remain additive across actions.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
-                    guard let article = FeedAPIStubFactory.photoCard(in: response, articleID: path.cardID) else {
+                    guard let article = FeedAPIStubFactory.photoCard(
+                        in: response,
+                        channelID: channelID,
+                        articleID: path.cardID
+                    ) else {
                         #if DEBUG
                         assertionFailure(
                             "Stub photo mutation card lookup failed. channelID=\(channelID), path=\(path), cardID=\(path.cardID)"
@@ -444,7 +448,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // See the article mutation note above. The repository owns the persisted
                     // source of truth until these calls are backed by a real service.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
-                    guard let discussion = FeedAPIStubFactory.textCard(in: response, discussionID: path.cardID) else {
+                    guard let discussion = FeedAPIStubFactory.textCard(
+                        in: response,
+                        channelID: channelID,
+                        discussionID: path.cardID
+                    ) else {
                         #if DEBUG
                         assertionFailure(
                             "Stub text mutation card lookup failed. channelID=\(channelID), path=\(path), cardID=\(path.cardID)"
@@ -481,9 +489,10 @@ enum FeedAPIStubFactory {
     /// Looks up one photo card inside the bundled feed seed.
     static func photoCard(
         in response: FeedResponseDTO,
+        channelID: String,
         articleID: String
     ) -> PhotoDTO? {
-        let unscopedArticleID = unscopedCardID(articleID)
+        let unscopedArticleID = unscopedCardID(articleID, channelID: channelID)
         for card in response.cards {
             if case let .photo(article) = card,
                (article.id == articleID || article.id == unscopedArticleID) {
@@ -497,9 +506,10 @@ enum FeedAPIStubFactory {
     /// Looks up one text card inside the bundled feed seed.
     static func textCard(
         in response: FeedResponseDTO,
+        channelID: String,
         discussionID: String
     ) -> TextDTO? {
-        let unscopedDiscussionID = unscopedCardID(discussionID)
+        let unscopedDiscussionID = unscopedCardID(discussionID, channelID: channelID)
         for card in response.cards {
             if case let .text(discussion) = card,
                (discussion.id == discussionID || discussion.id == unscopedDiscussionID) {
@@ -511,7 +521,12 @@ enum FeedAPIStubFactory {
     }
 
     /// Strips the channel-scoped `<channelID>-` prefix from persisted card ids.
-    private static func unscopedCardID(_ scopedID: String) -> String {
+    private static func unscopedCardID(_ scopedID: String, channelID: String) -> String {
+        let scopedPrefix = "\(channelID)-"
+        if scopedID.hasPrefix(scopedPrefix) {
+            return String(scopedID.dropFirst(scopedPrefix.count))
+        }
+
         guard let separatorIndex = scopedID.firstIndex(of: "-") else {
             return scopedID
         }
