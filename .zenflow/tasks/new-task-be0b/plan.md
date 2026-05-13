@@ -29,7 +29,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: removed dead private action-state persistence helpers from `./TchopApp/Repositories/AppContentRepository.swift`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Checkpoint: Phase 1 runtime cleanup is complete and aligned with `./.zenflow/tasks/new-task-be0b/handoff.md`.
-- Next focus: Phase 2 SwiftUI view decomposition checkpoint, starting with `./TchopApp/Views/News/NewsFeedView.swift`.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` safe decomposition pass (extracted content-section rendering and unified repeated local file-card wrappers without changing feed behavior).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Next focus: continue Phase 2 with the next high-impact SwiftUI screen after `./TchopApp/Views/News/NewsFeedView.swift`.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule

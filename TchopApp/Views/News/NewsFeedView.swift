@@ -34,23 +34,14 @@ struct NewsFeedView: View {
                     )
                 }
 
-                if viewModel.state.isEmpty {
-                    NewsFeedEmptyStateView()
-                } else if viewModel.showsNoSearchResults {
-                    NewsFeedSearchEmptyStateView()
-                } else {
-                    ForEach(Array(viewModel.visibleContent.cards), id: \.id) { card in
-                        NewsFeedCardRendererView(
-                            feedCard: card,
-                            viewModel: viewModel,
-                            translationAction: translationAction(for: card),
-                            onPhotoTap: onPhotoTap,
-                            onPhotoAction: onPhotoAction,
-                            onTextTap: onTextTap,
-                            onTextAction: onTextAction
-                        )
-                    }
-                }
+                NewsFeedContentSectionView(
+                    viewModel: viewModel,
+                    translationActionProvider: translationAction(for:),
+                    onPhotoTap: onPhotoTap,
+                    onPhotoAction: onPhotoAction,
+                    onTextTap: onTextTap,
+                    onTextAction: onTextAction
+                )
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
             .padding(.horizontal, AppSpacing.screenHorizontal)
@@ -137,6 +128,35 @@ struct NewsFeedView: View {
         languageSelectionState = nil
         Task {
             await viewModel.performTranslation(for: card, targetLanguage: targetLanguage)
+        }
+    }
+}
+
+private struct NewsFeedContentSectionView: View {
+    let viewModel: NewsFeedViewModel
+    let translationActionProvider: (NewsFeedCard) -> FeedCardTranslationAction?
+    let onPhotoTap: (PhotoCardModel) -> Void
+    let onPhotoAction: (PhotoCardModel, PhotoCardAction) -> Void
+    let onTextTap: (TextCardModel) -> Void
+    let onTextAction: (TextCardModel, TextCardAction) -> Void
+
+    var body: some View {
+        if viewModel.state.isEmpty {
+            NewsFeedEmptyStateView()
+        } else if viewModel.showsNoSearchResults {
+            NewsFeedSearchEmptyStateView()
+        } else {
+            ForEach(Array(viewModel.visibleContent.cards), id: \.id) { card in
+                NewsFeedCardRendererView(
+                    feedCard: card,
+                    viewModel: viewModel,
+                    translationAction: translationActionProvider(card),
+                    onPhotoTap: onPhotoTap,
+                    onPhotoAction: onPhotoAction,
+                    onTextTap: onTextTap,
+                    onTextAction: onTextAction
+                )
+            }
         }
     }
 }
@@ -382,19 +402,16 @@ private struct VideoCardView: View {
     var body: some View {
         switch content {
         case let .local(card):
-            LocalFeedCardContainer(
+            LocalFileCardView(
                 card: card,
-                mediaHeight: fileMediaPreviewHeight(for: card),
-                translationAction: translationAction
-            ) {
-                if let media = card.mediaContent, case let .file(file) = media {
-                    LocalVideoMediaView(file: file)
-                }
-            }
+                mediaHeight: Self.fileMediaPreviewHeight(for: card),
+                translationAction: translationAction,
+                preview: { file in AnyView(LocalVideoMediaView(file: file)) }
+            )
         }
     }
 
-    private func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
+    private static func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
@@ -410,19 +427,16 @@ private struct AudioCardView: View {
     var body: some View {
         switch content {
         case let .local(card):
-            LocalFeedCardContainer(
+            LocalFileCardView(
                 card: card,
-                mediaHeight: fileMediaPreviewHeight(for: card),
-                translationAction: translationAction
-            ) {
-                if let media = card.mediaContent, case let .file(file) = media {
-                    LocalAudioMediaView(file: file)
-                }
-            }
+                mediaHeight: Self.fileMediaPreviewHeight(for: card),
+                translationAction: translationAction,
+                preview: { file in AnyView(LocalAudioMediaView(file: file)) }
+            )
         }
     }
 
-    private func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
+    private static func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
@@ -438,24 +452,48 @@ private struct PDFCardView: View {
     var body: some View {
         switch content {
         case let .local(card):
-            LocalFeedCardContainer(
+            LocalFileCardView(
                 card: card,
-                mediaHeight: fileMediaPreviewHeight(for: card),
-                translationAction: translationAction
-            ) {
-                if let media = card.mediaContent, case let .file(file) = media {
-                    LocalPDFMediaView(file: file)
-                }
-            }
+                mediaHeight: Self.fileMediaPreviewHeight(for: card),
+                translationAction: translationAction,
+                preview: { file in AnyView(LocalPDFMediaView(file: file)) }
+            )
         }
     }
 
-    private func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
+    private static func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
 
         return file.teaserImage == nil ? 180 : 260
+    }
+}
+
+private struct LocalFileCardView: View {
+    let card: LocalFeedCardModel
+    let mediaHeight: CGFloat
+    let translationAction: FeedCardTranslationAction?
+    let preview: (LocalFeedFileMediaContent) -> AnyView
+
+    var body: some View {
+        LocalFeedCardContainer(
+            card: card,
+            mediaHeight: mediaHeight,
+            translationAction: translationAction
+        ) {
+            if let fileContent = fileContent {
+                preview(fileContent)
+            }
+        }
+    }
+
+    private var fileContent: LocalFeedFileMediaContent? {
+        guard case let .file(file)? = card.mediaContent else {
+            return nil
+        }
+
+        return file
     }
 }
 
