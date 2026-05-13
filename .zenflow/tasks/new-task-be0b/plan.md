@@ -27,6 +27,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Package review 17 — `./Packages/TchopInfrastructure/Sources/TchopWidgets`
 ### [x] Step: Package review 18 — `./Packages/TchopInfrastructure/Sources/TchopAnalytics`
 ### [x] Step: Package review 19 — `./Packages/TchopInfrastructure/Sources/TchopAppleAuthentication`
+### [x] Step: Package architecture pass 2 — cross-package reusable-surface tightening
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -76,6 +77,10 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./Packages/TchopInfrastructure/Sources/TchopCoreDataDatabase/TchopCoreDataDatabase.swift` (deduplicated write and batch-write transaction path via shared helper).
 - Completed now: `./Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift` (reused persistent encoder/decoder in UserDefaults snapshot store).
 - Completed now: `./Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift` (reused persistent encoder/decoder in UserDefaults snapshot manager).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: second architecture pass across all packages (`./Packages/TchopInfrastructure/Sources/*`) with emphasis on reusable surface strictness and portability.
+- Completed now: `./Packages/TchopInfrastructure/Sources/TchopAppleAuthentication/TchopAppleAuthentication.swift` (`AppleAuthenticationManaging` is now `Sendable`).
+- Completed now: `./Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift` (`FeedHeadlineWidgetSnapshotManaging` is now `Sendable`; concrete manager marked `@unchecked Sendable`).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule

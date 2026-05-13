@@ -19,7 +19,7 @@ public struct FeedHeadlineWidgetSnapshot: Codable, Equatable, Sendable {
 }
 
 /// Shared persistence contract used by the app and widget extension.
-public protocol FeedHeadlineWidgetSnapshotManaging {
+public protocol FeedHeadlineWidgetSnapshotManaging: Sendable {
     /// Saves this operation.
     func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws
     /// Loads this operation.
@@ -34,7 +34,10 @@ public enum FeedHeadlineWidgetSnapshotStoreError: Error {
 }
 
 /// UserDefaults-backed manager that persists widget snapshots in app-group storage.
-public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWidgetSnapshotManaging {
+public final class UserDefaultsFeedHeadlineWidgetSnapshotManager:
+    @unchecked Sendable,
+    FeedHeadlineWidgetSnapshotManaging
+{
     private let userDefaults: UserDefaults
     private let snapshotKey: String
     private let encoder = JSONEncoder()

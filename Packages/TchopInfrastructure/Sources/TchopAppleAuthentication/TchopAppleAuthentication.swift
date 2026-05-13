@@ -52,7 +52,7 @@ public enum AppleAuthenticationError: Error, Equatable {
 }
 
 /// Contract for normalizing Apple authorization results and querying credential state.
-public protocol AppleAuthenticationManaging {
+public protocol AppleAuthenticationManaging: Sendable {
     /// Extracts a normalized identity from an Apple authorization payload.
     func identity(from authorization: ASAuthorization) throws -> AppleAuthenticationIdentity
 
