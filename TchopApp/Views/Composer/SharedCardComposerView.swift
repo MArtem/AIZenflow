@@ -515,59 +515,52 @@ private struct ComposerPhotoStripView: View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack(spacing: AppSpacing.sm) {
                 ForEach(items) { item in
-                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-                        .fill(AppTheme.surfaceSecondary)
-                        .frame(width: 184, height: 184)
-                        .overlay {
-                            VStack(spacing: 0) {
-                                HStack {
-                                    Spacer()
-
-                                    Button(action: { onMoreTap(item.id) }) {
-                                        Image(systemName: "ellipsis")
-                                            .font(.system(size: 16, weight: .semibold))
-                                            .foregroundStyle(AppTheme.textSecondary)
-                                            .frame(width: 32, height: 32)
-                                    }
-                                    .buttonStyle(.plain)
-                                }
-                                .padding(.top, AppSpacing.sm)
-                                .padding(.horizontal, AppSpacing.sm)
-
-                                Spacer()
-
-                                VStack(spacing: AppSpacing.xs) {
-                                    Image(systemName: "photo.on.rectangle.angled")
-                                        .font(.system(size: 28, weight: .semibold))
-                                        .foregroundStyle(AppTheme.textSecondary)
-
-                                    if let caption = item.caption, !caption.isEmpty {
-                                        Text(caption)
-                                            .font(AppTypography.captionSemibold)
-                                            .foregroundStyle(AppTheme.textTertiary)
-                                            .multilineTextAlignment(.center)
-                                            .padding(.horizontal, AppSpacing.sm)
-                                    }
-
-                                    if let copyright = item.copyright, !copyright.isEmpty {
-                                        Text(copyright)
-                                            .font(AppTypography.label)
-                                            .foregroundStyle(AppTheme.textTertiary)
-                                            .multilineTextAlignment(.center)
-                                            .padding(.horizontal, AppSpacing.sm)
-                                    }
-                                }
-
-                                Spacer()
-                            }
-                        }
-                        .onTapGesture {
-                            onTap(item.id)
-                        }
+                    ComposerPhotoStripItemView(
+                        item: item,
+                        onMoreTap: { onMoreTap(item.id) },
+                        onTap: { onTap(item.id) }
+                    )
                 }
             }
             .padding(.vertical, AppSpacing.xxs)
         }
+    }
+}
+
+private struct ComposerPhotoStripItemView: View {
+    let item: ChannelCardPhotoItem
+    let onMoreTap: () -> Void
+    let onTap: () -> Void
+
+    var body: some View {
+        ComposerInteractiveMediaSurface(
+            height: 184,
+            onMoreTap: onMoreTap,
+            onTap: onTap
+        ) {
+            VStack(spacing: AppSpacing.xs) {
+                Image(systemName: "photo.on.rectangle.angled")
+                    .font(.system(size: 28, weight: .semibold))
+                    .foregroundStyle(AppTheme.textSecondary)
+
+                if let caption = item.caption, !caption.isEmpty {
+                    Text(caption)
+                        .font(AppTypography.captionSemibold)
+                        .foregroundStyle(AppTheme.textTertiary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, AppSpacing.sm)
+                }
+
+                if let copyright = item.copyright, !copyright.isEmpty {
+                    Text(copyright)
+                        .font(AppTypography.label)
+                        .foregroundStyle(AppTheme.textTertiary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, AppSpacing.sm)
+                }
+            }
+        }
+        .frame(width: 184)
     }
 }
 
@@ -577,11 +570,7 @@ private struct ComposerVideoMediaView: View {
     let onTap: () -> Void
 
     var body: some View {
-        ComposerFileMediaCard(onMoreTap: onMoreTap, onTap: onTap) {
-            ComposerMediaKindBadge(title: "Video")
-            ComposerMediaHeroIcon(systemName: "play.rectangle.fill")
-            ComposerMediaTitleBlock(file: file)
-        }
+        ComposerFileMediaPreviewView(file: file, onMoreTap: onMoreTap, onTap: onTap)
     }
 }
 
@@ -591,11 +580,7 @@ private struct ComposerAudioMediaView: View {
     let onTap: () -> Void
 
     var body: some View {
-        ComposerFileMediaCard(onMoreTap: onMoreTap, onTap: onTap) {
-            ComposerMediaKindBadge(title: "Audio")
-            ComposerMediaHeroIcon(systemName: "waveform.circle.fill")
-            ComposerMediaTitleBlock(file: file)
-        }
+        ComposerFileMediaPreviewView(file: file, onMoreTap: onMoreTap, onTap: onTap)
     }
 }
 
@@ -605,55 +590,78 @@ private struct ComposerPDFMediaView: View {
     let onTap: () -> Void
 
     var body: some View {
-        ComposerFileMediaCard(onMoreTap: onMoreTap, onTap: onTap) {
-            ComposerMediaKindBadge(title: "PDF")
-            ComposerMediaHeroIcon(systemName: "document.fill")
-            ComposerMediaTitleBlock(file: file)
-        }
+        ComposerFileMediaPreviewView(file: file, onMoreTap: onMoreTap, onTap: onTap)
     }
 }
 
-private struct ComposerFileMediaCard<Content: View>: View {
+private struct ComposerInteractiveMediaSurface<Content: View>: View {
+    let height: CGFloat
     let onMoreTap: () -> Void
     let onTap: () -> Void
     let content: Content
 
     init(
+        height: CGFloat,
         onMoreTap: @escaping () -> Void,
         onTap: @escaping () -> Void,
         @ViewBuilder content: () -> Content
     ) {
+        self.height = height
         self.onMoreTap = onMoreTap
         self.onTap = onTap
         self.content = content()
     }
 
     var body: some View {
-        RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-            .fill(AppTheme.surfaceSecondary)
-            .frame(height: 184)
-            .overlay {
-                VStack(spacing: 0) {
-                    HStack {
-                        Spacer()
+        Button(action: onTap) {
+            RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                .fill(AppTheme.surfaceSecondary)
+                .frame(height: height)
+                .overlay {
+                    VStack(spacing: 0) {
+                        HStack {
+                            Spacer()
 
-                        Button(action: onMoreTap) {
-                            Image(systemName: "ellipsis")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundStyle(AppTheme.textSecondary)
-                                .frame(width: 32, height: 32)
+                            Button(action: onMoreTap) {
+                                Image(systemName: "ellipsis")
+                                    .font(.system(size: 16, weight: .semibold))
+                                    .foregroundStyle(AppTheme.textSecondary)
+                                    .frame(width: 32, height: 32)
+                            }
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
-                    }
-                    .padding(.top, AppSpacing.sm)
-                    .padding(.horizontal, AppSpacing.sm)
+                        .padding(.top, AppSpacing.sm)
+                        .padding(.horizontal, AppSpacing.sm)
 
-                    Spacer()
-                    content
-                    Spacer()
+                        Spacer()
+                        content
+                        Spacer()
+                    }
                 }
-            }
-            .onTapGesture(perform: onTap)
+        }
+        .buttonStyle(.plain)
+    }
+}
+
+private struct ComposerFileMediaPreviewView: View {
+    let file: ChannelCardFileMediaContent
+    let onMoreTap: () -> Void
+    let onTap: () -> Void
+
+    private var presentation: ComposerFileMediaPresentation {
+        ComposerFileMediaPresentation(file: file)
+    }
+
+    var body: some View {
+        ComposerInteractiveMediaSurface(
+            height: 184,
+            onMoreTap: onMoreTap,
+            onTap: onTap
+        ) {
+            ComposerMediaKindBadge(title: presentation.kindTitle)
+            ComposerMediaHeroIcon(systemName: presentation.iconName)
+            ComposerMediaTitleBlock(presentation: presentation)
+        }
     }
 }
 
@@ -682,37 +690,24 @@ private struct ComposerMediaHeroIcon: View {
 }
 
 private struct ComposerMediaTitleBlock: View {
-    let file: ChannelCardFileMediaContent
+    let presentation: ComposerFileMediaPresentation
 
     var body: some View {
         VStack(spacing: AppSpacing.xs) {
-            if let displayTitle = resolvedDisplayTitle {
+            if let displayTitle = presentation.resolvedDisplayTitle {
                 Text(displayTitle)
                     .font(AppTypography.cardTitle)
                     .foregroundStyle(AppTheme.textSecondary)
                     .multilineTextAlignment(.center)
             }
 
-            if let caption = file.caption, !caption.isEmpty {
+            if let caption = presentation.file.caption, !caption.isEmpty {
                 Text(caption)
                     .font(AppTypography.captionSemibold)
                     .foregroundStyle(AppTheme.textTertiary)
                     .multilineTextAlignment(.center)
                     .padding(.horizontal, AppSpacing.md)
             }
-        }
-    }
-
-    private var resolvedDisplayTitle: String? {
-        switch file.kind {
-        case .photo:
-            return nil
-        case .video:
-            return file.displayTitle == "Video" ? nil : file.displayTitle
-        case .audio:
-            return file.displayTitle == "Audio" ? nil : file.displayTitle
-        case .pdf:
-            return file.displayTitle == "PDF" ? nil : file.displayTitle
         }
     }
 }
@@ -747,32 +742,13 @@ private struct ComposerTeaserPreview: View {
     let onTap: () -> Void
 
     var body: some View {
-        RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-            .fill(AppTheme.surfaceSecondary)
-            .frame(height: 140)
-            .overlay {
-                VStack(spacing: 0) {
-                    HStack {
-                        Spacer()
-
-                        Button(action: onMoreTap) {
-                            Image(systemName: "ellipsis")
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundStyle(AppTheme.textSecondary)
-                                .frame(width: 32, height: 32)
-                        }
-                        .buttonStyle(.plain)
-                    }
-                    .padding(.top, AppSpacing.sm)
-                    .padding(.horizontal, AppSpacing.sm)
-
-                    Spacer()
-
-                    ComposerTeaserPreviewContent(teaserImage: teaserImage)
-                    Spacer()
-                }
-            }
-            .onTapGesture(perform: onTap)
+        ComposerInteractiveMediaSurface(
+            height: 140,
+            onMoreTap: onMoreTap,
+            onTap: onTap
+        ) {
+            ComposerTeaserPreviewContent(teaserImage: teaserImage)
+        }
     }
 }
 
@@ -840,6 +816,10 @@ private struct ComposerFileMediaDetailView: View {
     let onClose: () -> Void
     let onMoreTap: () -> Void
 
+    private var presentation: ComposerFileMediaPresentation {
+        ComposerFileMediaPresentation(file: file)
+    }
+
     var body: some View {
         ZStack(alignment: .top) {
             Color.black.ignoresSafeArea()
@@ -851,13 +831,13 @@ private struct ComposerFileMediaDetailView: View {
                         .frame(height: 320)
                         .overlay {
                             VStack(spacing: AppSpacing.sm) {
-                                ComposerMediaKindBadge(title: kindTitle)
+                                ComposerMediaKindBadge(title: presentation.kindTitle)
 
-                                Image(systemName: iconName)
+                                Image(systemName: presentation.iconName)
                                     .font(.system(size: 56, weight: .semibold))
                                     .foregroundStyle(Color.white.opacity(0.9))
 
-                                if let displayTitle = resolvedDisplayTitle {
+                                if let displayTitle = presentation.resolvedDisplayTitle {
                                     Text(displayTitle)
                                         .font(.system(size: 22, weight: .semibold))
                                         .foregroundStyle(Color.white)
@@ -883,8 +863,12 @@ private struct ComposerFileMediaDetailView: View {
             ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
         }
     }
+}
 
-    private var kindTitle: String {
+private struct ComposerFileMediaPresentation {
+    let file: ChannelCardFileMediaContent
+
+    var kindTitle: String {
         switch file.kind {
         case .photo:
             return "Photo"
@@ -897,7 +881,7 @@ private struct ComposerFileMediaDetailView: View {
         }
     }
 
-    private var iconName: String {
+    var iconName: String {
         switch file.kind {
         case .photo:
             return "photo.on.rectangle.angled"
@@ -910,16 +894,12 @@ private struct ComposerFileMediaDetailView: View {
         }
     }
 
-    private var resolvedDisplayTitle: String? {
+    var resolvedDisplayTitle: String? {
         switch file.kind {
         case .photo:
             return nil
-        case .video:
-            return file.displayTitle == "Video" ? nil : file.displayTitle
-        case .audio:
-            return file.displayTitle == "Audio" ? nil : file.displayTitle
-        case .pdf:
-            return file.displayTitle == "PDF" ? nil : file.displayTitle
+        case .video, .audio, .pdf:
+            return file.displayTitle == kindTitle ? nil : file.displayTitle
         }
     }
 }
