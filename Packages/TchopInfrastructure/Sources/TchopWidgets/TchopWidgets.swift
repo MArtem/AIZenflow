@@ -37,6 +37,8 @@ public enum FeedHeadlineWidgetSnapshotStoreError: Error {
 public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWidgetSnapshotManaging {
     private let userDefaults: UserDefaults
     private let snapshotKey: String
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
 
     /// Creates a new UserDefaultsFeedHeadlineWidgetSnapshotManager instance.
     public init(
@@ -61,7 +63,7 @@ public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWi
 
     /// Saves this operation.
     public func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws {
-        let data = try JSONEncoder().encode(snapshot)
+        let data = try encoder.encode(snapshot)
         userDefaults.set(data, forKey: snapshotKey)
     }
 
@@ -71,7 +73,7 @@ public final class UserDefaultsFeedHeadlineWidgetSnapshotManager: FeedHeadlineWi
             return nil
         }
 
-        return try JSONDecoder().decode(FeedHeadlineWidgetSnapshot.self, from: data)
+        return try decoder.decode(FeedHeadlineWidgetSnapshot.self, from: data)
     }
 
     /// Clears this operation.

@@ -38,23 +38,10 @@ public final class SwiftDataDatabaseManager: DatabaseManaging {
 
     /// Writes this operation.
     public func write<Result>(_ operation: DatabaseWriteOperation<Result>) throws -> Result {
-        guard let swiftDataOperation = operation.swiftData else {
-            throw DatabaseError.unsupportedOperation(
-                "Missing SwiftData implementation for write operation."
-            )
-        }
-
-        do {
-            let result = try swiftDataOperation(modelContext)
-            try modelContext.save()
-            return result
-        } catch let databaseError as DatabaseError {
-            modelContext.rollback()
-            throw databaseError
-        } catch {
-            modelContext.rollback()
-            throw DatabaseError.transactionFailed(String(describing: error))
-        }
+        try performWrite(
+            operation.swiftData,
+            missingOperationMessage: "Missing SwiftData implementation for write operation."
+        )
     }
 
     /// Rolls back this operation.
@@ -64,10 +51,18 @@ public final class SwiftDataDatabaseManager: DatabaseManaging {
 
     /// Writes batch.
     public func writeBatch<Result>(_ operation: DatabaseBatchWriteOperation<Result>) throws -> Result {
-        guard let swiftDataOperation = operation.swiftData else {
-            throw DatabaseError.unsupportedOperation(
-                "Missing SwiftData implementation for batch write operation."
-            )
+        try performWrite(
+            operation.swiftData,
+            missingOperationMessage: "Missing SwiftData implementation for batch write operation."
+        )
+    }
+
+    private func performWrite<Result>(
+        _ operation: (@MainActor (Any) throws -> Result)?,
+        missingOperationMessage: String
+    ) throws -> Result {
+        guard let swiftDataOperation = operation else {
+            throw DatabaseError.unsupportedOperation(missingOperationMessage)
         }
 
         do {

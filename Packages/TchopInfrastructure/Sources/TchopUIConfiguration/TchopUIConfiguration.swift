@@ -114,6 +114,8 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
 {
     private let userDefaults: UserDefaults
     private let storageKey: String
+    private let encoder = JSONEncoder()
+    private let decoder = JSONDecoder()
 
     /// Creates a new UserDefaultsUIConfigurationSnapshotStore instance.
     public init(
@@ -138,7 +140,7 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
 
     /// Saves this operation.
     public func save(_ snapshot: UIConfigurationSnapshot) throws {
-        let data = try JSONEncoder().encode(snapshot)
+        let data = try encoder.encode(snapshot)
         userDefaults.set(data, forKey: storageKey)
     }
 
@@ -148,7 +150,7 @@ public final class UserDefaultsUIConfigurationSnapshotStore:
             return nil
         }
 
-        return try JSONDecoder().decode(UIConfigurationSnapshot.self, from: data)
+        return try decoder.decode(UIConfigurationSnapshot.self, from: data)
     }
 
     /// Clears this operation.
