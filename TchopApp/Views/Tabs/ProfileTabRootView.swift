@@ -23,16 +23,9 @@ struct ProfileTabRootView: View {
                         accountIDHint: viewModel.accountSummary.accountIDHint
                     )
                     ProfilePreferencesCard(
-                        isNavigationRestoreEnabled: Binding(
-                            get: { viewModel.isNavigationRestoreEnabled },
-                            set: { viewModel.setNavigationRestoreEnabled($0) }
-                        )
+                        isNavigationRestoreEnabled: navigationRestoreBinding
                     )
-                    if let errorMessage = viewModel.errorMessage {
-                        Text(errorMessage)
-                            .font(AppTypography.caption)
-                            .foregroundStyle(AppTheme.destructive.opacity(0.85))
-                    }
+                    ProfileErrorMessageView(message: viewModel.errorMessage)
                     ProfileLogoutButton(onLogout: onLogout)
                 }
                 .padding(.horizontal, AppSpacing.cardPadding)
@@ -48,6 +41,14 @@ struct ProfileTabRootView: View {
     /// Bridges the profile tab router into `NavigationStack` without letting the view own route state.
     private var pathBinding: Binding<[ProfileRoute]> {
         $router.path
+    }
+
+    /// Bridges profile preference toggles to the view model without storing local state.
+    private var navigationRestoreBinding: Binding<Bool> {
+        Binding(
+            get: { viewModel.isNavigationRestoreEnabled },
+            set: { viewModel.setNavigationRestoreEnabled($0) }
+        )
     }
 }
 
@@ -181,6 +182,18 @@ private struct ProfileLogoutButton: View {
         }
         .buttonStyle(.plain)
         .accessibilityHint(AppLocalization.text("accessibility.profile.logoutHint"))
+    }
+}
+
+private struct ProfileErrorMessageView: View {
+    let message: String?
+
+    var body: some View {
+        if let message {
+            Text(message)
+                .font(AppTypography.caption)
+                .foregroundStyle(AppTheme.destructive.opacity(0.85))
+        }
     }
 }
 

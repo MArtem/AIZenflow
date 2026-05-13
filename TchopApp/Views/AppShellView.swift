@@ -2,6 +2,11 @@ import SwiftUI
 
 /// Root authenticated shell with side menu and tab content container.
 struct AppShellView: View {
+    fileprivate static let menuAnimation = Animation.spring(response: 0.28, dampingFraction: 0.88)
+    fileprivate static let menuEdgeActivationWidth: CGFloat = 28
+    fileprivate static let menuDismissOverlayWidth: CGFloat = 24
+    fileprivate static let menuDragThresholdRatio: CGFloat = 0.22
+
     let viewModel: AppShellViewModel
     let coordinator: AppCoordinator
     let currentUser: AppUser?
@@ -11,9 +16,7 @@ struct AppShellView: View {
 
     var body: some View {
         GeometryReader { proxy in
-            let menuWidth = min(proxy.size.width * 0.78, 320)
-            let menuOffset = currentMenuOffset(menuWidth: menuWidth)
-            let menuVisibility = currentMenuVisibility(menuWidth: menuWidth)
+            let menuMetrics = menuMetrics(for: proxy.size.width)
 
             ZStack(alignment: .leading) {
                 AppTheme.canvasBackground
@@ -30,18 +33,14 @@ struct AppShellView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
                     .disabled(viewModel.isMenuOpen)
                     .blur(radius: viewModel.isMenuOpen ? 1.5 : 0)
-                    .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
+                    .animation(Self.menuAnimation, value: viewModel.isMenuOpen)
 
                 if viewModel.isMenuOpen || menuDragOffset > 0 {
-                    Button(action: viewModel.closeMenu) {
-                        Color.black.opacity(0.22 * menuVisibility)
-                            .ignoresSafeArea()
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityLabel(AppLocalization.text("accessibility.shell.dismissMenu"))
-                    .accessibilityHint(AppLocalization.text("accessibility.shell.dismissMenuHint"))
-                    .accessibilityIdentifier("shell.dismissMenu")
-                    .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
+                    ShellMenuDismissOverlay(
+                        visibility: menuMetrics.visibility,
+                        onDismiss: viewModel.closeMenu
+                    )
+                    .animation(Self.menuAnimation, value: viewModel.isMenuOpen)
 
                     SideMenuView(
                         channelsStore: viewModel.channelsStore,
@@ -50,21 +49,28 @@ struct AppShellView: View {
                         footerText: viewModel.sideMenuFooterText,
                         onSelect: selectTab
                     )
-                    .frame(width: menuWidth, alignment: .topLeading)
+                    .frame(width: menuMetrics.width, alignment: .topLeading)
                     .frame(maxHeight: .infinity, alignment: .topLeading)
-                    .offset(x: menuOffset)
-                    .animation(.spring(response: 0.28, dampingFraction: 0.88), value: viewModel.isMenuOpen)
+                    .offset(x: menuMetrics.offset)
+                    .animation(Self.menuAnimation, value: viewModel.isMenuOpen)
                 }
 
-                Color.clear
-                    .frame(width: 24)
-                    .contentShape(Rectangle())
-                    .ignoresSafeArea()
-                    .accessibilityHidden(true)
-                    .gesture(openMenuGesture(menuWidth: menuWidth))
+                ShellMenuEdgeGestureZone(
+                    openGesture: openMenuGesture(menuWidth: menuMetrics.width)
+                )
             }
-            .gesture(closeMenuGesture(menuWidth: menuWidth))
+            .gesture(closeMenuGesture(menuWidth: menuMetrics.width))
         }
+    }
+
+    /// Computes the current menu layout derived from width and gesture state.
+    private func menuMetrics(for availableWidth: CGFloat) -> ShellMenuMetrics {
+        let menuWidth = min(availableWidth * 0.78, 320)
+        return ShellMenuMetrics(
+            width: menuWidth,
+            offset: currentMenuOffset(menuWidth: menuWidth),
+            visibility: currentMenuVisibility(menuWidth: menuWidth)
+        )
     }
 
     /// Returns menu offset.
@@ -92,12 +98,12 @@ struct AppShellView: View {
     private func openMenuGesture(menuWidth: CGFloat) -> some Gesture {
         DragGesture(minimumDistance: 12)
             .updating($menuDragOffset) { value, state, _ in
-                guard !viewModel.isMenuOpen, value.startLocation.x < 28 else { return }
+                guard !viewModel.isMenuOpen, value.startLocation.x < Self.menuEdgeActivationWidth else { return }
                 state = max(0, min(value.translation.width, menuWidth))
             }
             .onEnded { value in
-                guard !viewModel.isMenuOpen, value.startLocation.x < 28 else { return }
-                if value.translation.width > menuWidth * 0.22 {
+                guard !viewModel.isMenuOpen, value.startLocation.x < Self.menuEdgeActivationWidth else { return }
+                if value.translation.width > menuWidth * Self.menuDragThresholdRatio {
                     withAnimation {
                         viewModel.toggleMenu()
                     }
@@ -114,7 +120,7 @@ struct AppShellView: View {
             }
             .onEnded { value in
                 guard viewModel.isMenuOpen else { return }
-                if value.translation.width < -(menuWidth * 0.22) {
+                if value.translation.width < -(menuWidth * Self.menuDragThresholdRatio) {
                     viewModel.closeMenu()
                 }
             }
@@ -124,6 +130,41 @@ struct AppShellView: View {
     private func selectTab(_ tab: AppTab) {
         coordinator.selectTab(tab)
         viewModel.closeMenu()
+    }
+}
+
+private struct ShellMenuMetrics {
+    let width: CGFloat
+    let offset: CGFloat
+    let visibility: CGFloat
+}
+
+private struct ShellMenuDismissOverlay: View {
+    let visibility: CGFloat
+    let onDismiss: () -> Void
+
+    var body: some View {
+        Button(action: onDismiss) {
+            Color.black.opacity(0.22 * visibility)
+                .ignoresSafeArea()
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(AppLocalization.text("accessibility.shell.dismissMenu"))
+        .accessibilityHint(AppLocalization.text("accessibility.shell.dismissMenuHint"))
+        .accessibilityIdentifier("shell.dismissMenu")
+    }
+}
+
+private struct ShellMenuEdgeGestureZone<OpenGesture: Gesture>: View {
+    let openGesture: OpenGesture
+
+    var body: some View {
+        Color.clear
+            .frame(width: AppShellView.menuDismissOverlayWidth)
+            .contentShape(Rectangle())
+            .ignoresSafeArea()
+            .accessibilityHidden(true)
+            .gesture(openGesture)
     }
 }
 

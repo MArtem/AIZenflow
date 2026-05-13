@@ -24,28 +24,33 @@ struct AppRootView: View {
 
     var body: some View {
         Group {
-            switch appState.sessionState {
-            case .restoring:
-                AppRootLoadingView()
-                    .accessibilityIdentifier("app.restoring")
-            case .signedOut:
-                LoginScreenView(
-                    viewModel: loginViewModel
-                )
-                .accessibilityIdentifier("login.screen")
-            case let .authenticated(currentUser):
-                AppShellView(
-                    viewModel: appState.appShellViewModel,
-                    coordinator: appState.coordinator,
-                    currentUser: currentUser,
-                    profileTabViewModel: appState.profileTabViewModel,
-                    onLogout: appState.signOut
-                )
-                .accessibilityIdentifier("shell.screen")
-            }
+            sessionContent
         }
         .onOpenURL(perform: onOpenURL)
         .onContinueUserActivity(NSUserActivityTypeBrowsingWeb, perform: onContinueUserActivity)
+    }
+
+    @ViewBuilder
+    private var sessionContent: some View {
+        switch appState.sessionState {
+        case .restoring:
+            AppRootLoadingView()
+                .accessibilityIdentifier("app.restoring")
+        case .signedOut:
+            LoginScreenView(
+                viewModel: loginViewModel
+            )
+            .accessibilityIdentifier("login.screen")
+        case let .authenticated(currentUser):
+            AppShellView(
+                viewModel: appState.appShellViewModel,
+                coordinator: appState.coordinator,
+                currentUser: currentUser,
+                profileTabViewModel: appState.profileTabViewModel,
+                onLogout: appState.signOut
+            )
+            .accessibilityIdentifier("shell.screen")
+        }
     }
 
 }

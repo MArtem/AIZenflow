@@ -37,7 +37,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: shell/container SwiftUI pass across `./TchopApp/Views/TopBarView.swift`, `./TchopApp/Views/Menu/SideMenuView.swift`, `./TchopApp/Views/ShellContentView.swift`, and `./TchopApp/Views/TabContentView.swift` (extracted local subviews, reduced repeated chrome/menu wiring, and kept runtime behavior unchanged).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: continue Phase 2 with the next high-impact SwiftUI container outside the completed feed/composer/auth/shell surface.
+- Completed now: root/profile SwiftUI pass across `./TchopApp/Views/AppRootView.swift`, `./TchopApp/Views/AppShellView.swift`, and `./TchopApp/Views/Tabs/ProfileTabRootView.swift` (extracted session/menu helpers, centralized repeated menu constants, and isolated profile binding/error rendering without changing behavior).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Next focus: continue Phase 2 with the next high-impact SwiftUI container outside the completed feed/composer/auth/shell/root/profile surface.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule
