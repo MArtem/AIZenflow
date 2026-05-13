@@ -67,7 +67,7 @@ struct ShellContentView: View {
         }
         .accessibilityIdentifier("shell.content")
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottom)
-        .sheet(isPresented: composerIsPresented) {
+        .fullScreenCover(isPresented: composerIsPresented) {
             if let composer = viewModel.activeComposer {
                 SharedCardComposerView(
                     viewModel: composer,

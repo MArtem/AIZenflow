@@ -1081,42 +1081,48 @@ private struct SharedCardComposerToolbarView: View {
                 .foregroundStyle(AppTheme.textPrimary)
             }
             .buttonStyle(.plain)
+            .frame(width: 46, height: 24, alignment: .leading)
 
             Spacer()
 
-            HStack(spacing: 40) {
-                if showsPhotoToolbarAction {
-                    Button(action: onPhotoToolbarTap) {
-                        Image(systemName: "photo")
-                            .font(AppTypography.actionTitle)
-                            .foregroundStyle(AppTheme.textPrimary)
+            HStack(spacing: 24) {
+                HStack(spacing: 40) {
+                    if showsPhotoToolbarAction {
+                        Button(action: onPhotoToolbarTap) {
+                            Image(systemName: "photo")
+                                .font(AppTypography.actionTitle)
+                                .foregroundStyle(AppTheme.textPrimary)
+                        }
+                        .buttonStyle(.plain)
                     }
-                    .buttonStyle(.plain)
+
+                    Image(systemName: "calendar")
+                        .font(AppTypography.actionTitle)
+                        .foregroundStyle(AppTheme.textTertiary)
                 }
 
-                Image(systemName: "calendar")
-                    .font(AppTypography.actionTitle)
-                    .foregroundStyle(AppTheme.textTertiary)
+                Button(action: onPublish) {
+                    Text("Publish")
+                        .font(AppTypography.bodySemibold)
+                        .foregroundStyle(Color.white)
+                        .frame(width: 95, height: 38)
+                        .background(
+                            Capsule(style: .continuous)
+                                .fill(AppTheme.accent.opacity(canPublish ? 1 : 0.5))
+                        )
+                }
+                .buttonStyle(.plain)
+                .disabled(!canPublish)
             }
-            .padding(.trailing, AppSpacing.lg)
-
-            Button(action: onPublish) {
-                Text("Publish")
-                    .font(AppTypography.bodySemibold)
-                    .foregroundStyle(Color.white)
-                    .padding(.horizontal, AppSpacing.lg)
-                    .padding(.vertical, AppSpacing.sm)
-                    .background(
-                        Capsule(style: .continuous)
-                            .fill(AppTheme.accent.opacity(canPublish ? 1 : 0.5))
-                    )
-            }
-            .buttonStyle(.plain)
-            .disabled(!canPublish)
         }
-        .padding(.horizontal, AppSpacing.screenHorizontal)
-        .padding(.vertical, AppSpacing.md)
+        .padding(.horizontal, 16)
+        .frame(height: 58)
         .background(AppTheme.surfaceSecondary)
+        .overlay(alignment: .top) {
+            Rectangle()
+                .fill(AppTheme.borderSubtle)
+                .frame(height: 1)
+        }
     }
 }
 
