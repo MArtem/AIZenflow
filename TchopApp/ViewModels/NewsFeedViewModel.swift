@@ -692,6 +692,9 @@ final class NewsFeedViewModel {
                     )
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledPhotoAction(articleID: articleID)
+                }
                 return
             } catch {
                 await self?.handlePhotoFailure(
@@ -753,6 +756,9 @@ final class NewsFeedViewModel {
                     }
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledPhotoAction(articleID: articleID)
+                }
                 return
             } catch {
                 await self?.handlePhotoFailure(
@@ -806,6 +812,9 @@ final class NewsFeedViewModel {
                     )
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledPhotoAction(articleID: articleID)
+                }
                 return
             } catch {
                 await self?.handlePhotoFailure(
@@ -856,6 +865,9 @@ final class NewsFeedViewModel {
                     )
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledPhotoAction(articleID: articleID)
+                }
                 return
             } catch {
                 await self?.handlePhotoFailure(
@@ -903,6 +915,9 @@ final class NewsFeedViewModel {
                     )
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledPhotoAction(articleID: articleID)
+                }
                 return
             } catch {
                 await self?.handlePhotoFailure(
@@ -947,6 +962,21 @@ final class NewsFeedViewModel {
                     displayMode: $0.displayMode,
                     pendingOperation: nil,
                     inlineStatusMessage: message
+                )
+            }
+        }
+    }
+
+    /// Clears per-card in-flight state when the action task is cancelled before completion.
+    private func clearCancelledPhotoAction(articleID: String) {
+        photoActionCoordinator.clear(cardID: articleID)
+        updatePhoto(articleID: articleID) { article in
+            article.updatingUIState {
+                PhotoCardUIState(
+                    isLiked: $0.isLiked,
+                    displayMode: $0.displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: $0.inlineStatusMessage
                 )
             }
         }
@@ -1168,6 +1198,9 @@ final class NewsFeedViewModel {
                     )
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledTextAction(discussionID: discussionID)
+                }
                 return
             } catch {
                 await self?.handleTextFailure(
@@ -1229,6 +1262,9 @@ final class NewsFeedViewModel {
                     }
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledTextAction(discussionID: discussionID)
+                }
                 return
             } catch {
                 await self?.handleTextFailure(
@@ -1275,6 +1311,9 @@ final class NewsFeedViewModel {
                     self.finishTextAction(updatedDiscussion, discussionID: discussionID, statusMessage: nil)
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledTextAction(discussionID: discussionID)
+                }
                 return
             } catch {
                 await self?.handleTextFailure(
@@ -1322,6 +1361,9 @@ final class NewsFeedViewModel {
                     )
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledTextAction(discussionID: discussionID)
+                }
                 return
             } catch {
                 await self?.handleTextFailure(
@@ -1369,6 +1411,9 @@ final class NewsFeedViewModel {
                     )
                 }
             } catch is CancellationError {
+                await MainActor.run {
+                    self?.clearCancelledTextAction(discussionID: discussionID)
+                }
                 return
             } catch {
                 await self?.handleTextFailure(
@@ -1413,6 +1458,21 @@ final class NewsFeedViewModel {
                     displayMode: $0.displayMode,
                     pendingOperation: nil,
                     inlineStatusMessage: message
+                )
+            }
+        }
+    }
+
+    /// Clears per-card in-flight state when the action task is cancelled before completion.
+    private func clearCancelledTextAction(discussionID: String) {
+        discussionActionCoordinator.clear(cardID: discussionID)
+        updateText(discussionID: discussionID) { discussion in
+            discussion.updatingUIState {
+                TextCardUIState(
+                    isParticipating: $0.isParticipating,
+                    displayMode: $0.displayMode,
+                    pendingOperation: nil,
+                    inlineStatusMessage: $0.inlineStatusMessage
                 )
             }
         }
