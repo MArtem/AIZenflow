@@ -5,7 +5,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 
 ## Active Steps
 ### [x] Step: Phase 3 batch 1 — ViewModel safe cleanup (`./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/ViewModels/NewsFeedViewModel.swift`)
-### [ ] Step: Phase 3 batch 2 — remaining non-view cleanup candidates
+### [x] Step: Phase 3 batch 2 — remaining non-view cleanup candidates
 ### [ ] Step: Keep tests untouched (`./TchopAppTests`)
 ### [ ] Step: Manual share-extension runtime validation (`./docs/SHARE_EXTENSION_VALIDATION.md`)
 
@@ -47,6 +47,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 - Completed now: `./TchopApp/ViewModels/AppShellViewModel.swift` (deduplicated selected channel resolution for composer initialization via shared computed property).
 - Completed now: `./TchopApp/ViewModels/NewsFeedViewModel.swift` (unified repeated empty-state transitions via shared helper without behavior changes).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/ViewModels/AppShellViewModel.swift` (removed residual duplication in composer publish flow by reusing `dismissComposer()`).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule

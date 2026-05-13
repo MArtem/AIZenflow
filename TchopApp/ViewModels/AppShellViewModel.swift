@@ -366,7 +366,7 @@ final class AppShellViewModel {
 
     func publishComposer() {
         newsFeedViewModel.handleLocalChannelCardsChanged()
-        state.activeComposer = nil
+        dismissComposer()
     }
 
     /// Updates shell runtime visibility state for the news-feed floating action button.
