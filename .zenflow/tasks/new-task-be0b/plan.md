@@ -35,6 +35,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI bugfix pass 4 — preserve full local action state across sequential card actions
 ### [x] Step: UI pass — align empty composer screen chrome/toolbar with provided design
 ### [x] Step: UI pass 2 — enforce full-screen composer presentation and toolbar spacing polish
+### [x] Step: UI pass 3 — fine-tune add/photo/calendar spacing to latest screenshot
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -102,6 +103,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` empty-screen UI pass (header order and labels aligned to design; bottom toolbar updated to single `+ + chevron` action, clickable photo action, and non-clickable calendar icon; publish disabled behavior preserved via existing `canPublish` gating).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/ShellContentView.swift` + `./TchopApp/Views/Composer/SharedCardComposerView.swift` full-screen/pixel pass (composer presentation switched from sheet to fullScreenCover; toolbar height/paddings/top-divider/icon-group spacing and publish sizing tightened to match provided screenshot direction).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` spacing pass (explicit tuned constants for `+`/chevron gap, add-to-media spacing, and photo/calendar spacing to align with latest cropped reference).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule

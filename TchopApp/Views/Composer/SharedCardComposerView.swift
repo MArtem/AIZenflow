@@ -1063,6 +1063,12 @@ private struct SharedCardComposerHeaderView: View {
 }
 
 private struct SharedCardComposerToolbarView: View {
+    private enum Layout {
+        static let addChevronSpacing: CGFloat = 8
+        static let addToMediaSpacing: CGFloat = 36
+        static let mediaIconSpacing: CGFloat = 40
+    }
+
     let showsPhotoToolbarAction: Bool
     let canPublish: Bool
     let onShowInsertionSheet: () -> Void
@@ -1072,7 +1078,7 @@ private struct SharedCardComposerToolbarView: View {
     var body: some View {
         HStack {
             Button(action: onShowInsertionSheet) {
-                HStack(spacing: AppSpacing.xs) {
+                HStack(spacing: Layout.addChevronSpacing) {
                     Image(systemName: "plus")
                     Image(systemName: "chevron.down")
                         .font(.system(size: 12, weight: .semibold))
@@ -1083,10 +1089,10 @@ private struct SharedCardComposerToolbarView: View {
             .buttonStyle(.plain)
             .frame(width: 46, height: 24, alignment: .leading)
 
-            Spacer()
+            Spacer(minLength: Layout.addToMediaSpacing)
 
             HStack(spacing: 24) {
-                HStack(spacing: 40) {
+                HStack(spacing: Layout.mediaIconSpacing) {
                     if showsPhotoToolbarAction {
                         Button(action: onPhotoToolbarTap) {
                             Image(systemName: "photo")
@@ -1114,6 +1120,7 @@ private struct SharedCardComposerToolbarView: View {
                 .buttonStyle(.plain)
                 .disabled(!canPublish)
             }
+            .frame(maxWidth: .infinity, alignment: .leading)
         }
         .padding(.horizontal, 16)
         .frame(height: 58)
