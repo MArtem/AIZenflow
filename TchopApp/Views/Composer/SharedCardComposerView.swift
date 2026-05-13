@@ -105,7 +105,7 @@ struct SharedCardComposerView: View {
                     }
                     .padding(.horizontal, AppSpacing.screenHorizontal)
                     .padding(.top, AppSpacing.lg)
-                    .padding(.bottom, 104)
+                    .padding(.bottom, 116)
                 }
             }
 
@@ -1069,7 +1069,8 @@ private struct SharedCardComposerToolbarView: View {
         static let mediaClusterWidth: CGFloat = 86
         static let leadingClusterSpacing: CGFloat = 20
         static let mediaIconSpacing: CGFloat = 40
-        static let toolbarVerticalPadding: CGFloat = 10
+        static let toolbarHeight: CGFloat = 70
+        static let toolbarTopPadding: CGFloat = 10
     }
 
     let showsPhotoToolbarAction: Bool
@@ -1129,9 +1130,10 @@ private struct SharedCardComposerToolbarView: View {
             .disabled(!canPublish)
         }
         .padding(.horizontal, 16)
-        .padding(.vertical, Layout.toolbarVerticalPadding)
-        .frame(height: 58)
+        .padding(.top, Layout.toolbarTopPadding)
+        .frame(height: Layout.toolbarHeight, alignment: .top)
         .background(AppTheme.surfaceSecondary)
+        .ignoresSafeArea(.container, edges: .bottom)
         .overlay(alignment: .top) {
             Rectangle()
                 .fill(AppTheme.borderSubtle)
