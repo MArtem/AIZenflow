@@ -104,17 +104,10 @@ public struct DatabaseReadOperation<Result> {
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
-        self.swiftData = swiftData.map { swiftDataOperation in
-            { @MainActor context in
-                guard let modelContext = context as? ModelContext else {
-                    throw DatabaseError.unsupportedOperation(
-                        "Invalid SwiftData context for read operation."
-                    )
-                }
-
-                return try swiftDataOperation(modelContext)
-            }
-        }
+        self.swiftData = makeSwiftDataOperation(
+            swiftData,
+            invalidContextMessage: "Invalid SwiftData context for read operation."
+        )
         self.coreData = coreData
     }
 }
@@ -138,17 +131,10 @@ public struct DatabaseWriteOperation<Result> {
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
-        self.swiftData = swiftData.map { swiftDataOperation in
-            { @MainActor context in
-                guard let modelContext = context as? ModelContext else {
-                    throw DatabaseError.unsupportedOperation(
-                        "Invalid SwiftData context for write operation."
-                    )
-                }
-
-                return try swiftDataOperation(modelContext)
-            }
-        }
+        self.swiftData = makeSwiftDataOperation(
+            swiftData,
+            invalidContextMessage: "Invalid SwiftData context for write operation."
+        )
         self.coreData = coreData
     }
 }
@@ -172,18 +158,27 @@ public struct DatabaseBatchWriteOperation<Result> {
         swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
         coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
     ) {
-        self.swiftData = swiftData.map { swiftDataOperation in
-            { @MainActor context in
-                guard let modelContext = context as? ModelContext else {
-                    throw DatabaseError.unsupportedOperation(
-                        "Invalid SwiftData context for batch write operation."
-                    )
-                }
-
-                return try swiftDataOperation(modelContext)
-            }
-        }
+        self.swiftData = makeSwiftDataOperation(
+            swiftData,
+            invalidContextMessage: "Invalid SwiftData context for batch write operation."
+        )
         self.coreData = coreData
+    }
+}
+
+@available(iOS 17, macOS 14, *)
+private func makeSwiftDataOperation<Result>(
+    _ operation: (@MainActor (ModelContext) throws -> Result)?,
+    invalidContextMessage: String
+) -> (@MainActor (Any) throws -> Result)? {
+    operation.map { swiftDataOperation in
+        { @MainActor context in
+            guard let modelContext = context as? ModelContext else {
+                throw DatabaseError.unsupportedOperation(invalidContextMessage)
+            }
+
+            return try swiftDataOperation(modelContext)
+        }
     }
 }
 

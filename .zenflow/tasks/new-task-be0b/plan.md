@@ -8,6 +8,25 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Phase 3 batch 2 — remaining non-view cleanup candidates
 ### [x] Step: Keep tests untouched (`./TchopAppTests`) — skipped by request (tests remain untouched)
 ### [x] Step: Manual share-extension runtime validation (`./docs/SHARE_EXTENSION_VALIDATION.md`) — skipped by request
+### [x] Step: Package review 1 — `./Packages/TchopInfrastructure/Sources/TchopDatabaseCore`
+### [ ] Step: Package review 2 — `./Packages/TchopInfrastructure/Sources/TchopDatabaseComposition`
+### [ ] Step: Package review 3 — `./Packages/TchopInfrastructure/Sources/TchopSwiftDataDatabase`
+### [ ] Step: Package review 4 — `./Packages/TchopInfrastructure/Sources/TchopCoreDataDatabase`
+### [ ] Step: Package review 5 — `./Packages/TchopInfrastructure/Sources/TchopDatabase`
+### [ ] Step: Package review 6 — `./Packages/TchopInfrastructure/Sources/TchopNetworking`
+### [ ] Step: Package review 7 — `./Packages/TchopInfrastructure/Sources/TchopErrors`
+### [ ] Step: Package review 8 — `./Packages/TchopInfrastructure/Sources/TchopCache`
+### [ ] Step: Package review 9 — `./Packages/TchopInfrastructure/Sources/SyncCore`
+### [ ] Step: Package review 10 — `./Packages/TchopInfrastructure/Sources/TchopNavigation`
+### [ ] Step: Package review 11 — `./Packages/TchopInfrastructure/Sources/TchopLocalization`
+### [ ] Step: Package review 12 — `./Packages/TchopInfrastructure/Sources/TchopUIConfiguration`
+### [ ] Step: Package review 13 — `./Packages/TchopInfrastructure/Sources/TchopPushNotifications`
+### [ ] Step: Package review 14 — `./Packages/TchopInfrastructure/Sources/TchopOnDeviceAI`
+### [ ] Step: Package review 15 — `./Packages/TchopInfrastructure/Sources/TchopShareSupport`
+### [ ] Step: Package review 16 — `./Packages/TchopInfrastructure/Sources/TchopBranding`
+### [ ] Step: Package review 17 — `./Packages/TchopInfrastructure/Sources/TchopWidgets`
+### [ ] Step: Package review 18 — `./Packages/TchopInfrastructure/Sources/TchopAnalytics`
+### [ ] Step: Package review 19 — `./Packages/TchopInfrastructure/Sources/TchopAppleAuthentication`
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -49,6 +68,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/ViewModels/NewsFeedViewModel.swift` (unified repeated empty-state transitions via shared helper without behavior changes).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/ViewModels/AppShellViewModel.swift` (removed residual duplication in composer publish flow by reusing `dismissComposer()`).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./Packages/TchopInfrastructure/Sources/TchopDatabaseCore/TchopDatabaseCore.swift` (removed repeated SwiftData operation wrapping by extracting one shared helper, behavior unchanged).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
