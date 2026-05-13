@@ -416,6 +416,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // persisted card state so local changes remain additive across actions.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
                     guard let article = FeedAPIStubFactory.photoCard(in: response, articleID: path.cardID) else {
+                        #if DEBUG
+                        assertionFailure(
+                            "Stub photo mutation card lookup failed. channelID=\(channelID), path=\(path), cardID=\(path.cardID)"
+                        )
+                        #endif
                         throw FeedAPIStubError.missingCard
                     }
                     try await Task.sleep(for: .milliseconds(180))
@@ -440,6 +445,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                     // source of truth until these calls are backed by a real service.
                     let response = try await FeedAPIStubFactory.makeFeedResponse(channelID: channelID)
                     guard let discussion = FeedAPIStubFactory.textCard(in: response, discussionID: path.cardID) else {
+                        #if DEBUG
+                        assertionFailure(
+                            "Stub text mutation card lookup failed. channelID=\(channelID), path=\(path), cardID=\(path.cardID)"
+                        )
+                        #endif
                         throw FeedAPIStubError.missingCard
                     }
                     try await Task.sleep(for: .milliseconds(220))
