@@ -300,6 +300,11 @@ final class AppShellViewModel {
     var showsFloatingActionButton: Bool { state.showsFloatingActionButton }
     var isNewsFeedNearTop: Bool { state.isNewsFeedNearTop }
     var activeComposer: FeedComposerViewModel? { state.activeComposer }
+    private var selectedChannelIDForComposer: String {
+        channelsStore.selectionSnapshot.selectedChannelID
+            ?? channelsStore.selectionSnapshot.selectedChannel?.id
+            ?? AppChannel.defaultChannel.id
+    }
 
     /// Creates the shell view model from repository-backed content.
     init(
@@ -348,12 +353,8 @@ final class AppShellViewModel {
     }
 
     func presentComposer() {
-        let selectedChannelID = channelsStore.selectionSnapshot.selectedChannelID
-            ?? channelsStore.selectionSnapshot.selectedChannel?.id
-            ?? AppChannel.defaultChannel.id
-
         state.activeComposer = FeedComposerViewModel(
-            selectedChannelID: selectedChannelID,
+            selectedChannelID: selectedChannelIDForComposer,
             channelsStore: channelsStore,
             localFeedCardStore: localFeedCardStore
         )

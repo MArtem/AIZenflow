@@ -4,10 +4,10 @@
 Continue runtime cleanup with safe simplification while preserving current behavior.
 
 ## Active Steps
-1. Runtime cleanup audit: `./TchopApp/Repositories/AppContentRepository.swift`.
-2. Runtime cleanup audit: app/package sync ownership around shared feed-card sync.
-3. Keep tests untouched (`./TchopAppTests`).
-4. Manual share-extension runtime validation remains pending via `./docs/SHARE_EXTENSION_VALIDATION.md`.
+### [x] Step: Phase 3 batch 1 — ViewModel safe cleanup (`./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/ViewModels/NewsFeedViewModel.swift`)
+### [ ] Step: Phase 3 batch 2 — remaining non-view cleanup candidates
+### [ ] Step: Keep tests untouched (`./TchopAppTests`)
+### [ ] Step: Manual share-extension runtime validation (`./docs/SHARE_EXTENSION_VALIDATION.md`)
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -45,6 +45,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Next focus: checkpoint Phase 2 coverage, summarize remaining non-view cleanup candidates, and leave manual share-extension validation pending.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
+- Completed now: `./TchopApp/ViewModels/AppShellViewModel.swift` (deduplicated selected channel resolution for composer initialization via shared computed property).
+- Completed now: `./TchopApp/ViewModels/NewsFeedViewModel.swift` (unified repeated empty-state transitions via shared helper without behavior changes).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
 - Keep this file short and current.

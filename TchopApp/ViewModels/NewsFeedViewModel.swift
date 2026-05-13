@@ -496,12 +496,7 @@ final class NewsFeedViewModel {
     /// separate ad-hoc loaders.
     private func load(using policy: NewsFeedLoadPolicy) {
         guard currentChannelID != nil else {
-            state = .empty(
-                NewsFeedContent(
-                    cards: [],
-                    availability: .live
-                )
-            )
+            setEmptyState()
             return
         }
 
@@ -524,12 +519,7 @@ final class NewsFeedViewModel {
         isSearchPresented = false
 
         guard let channelID = currentChannelID else {
-            state = .empty(
-                NewsFeedContent(
-                    cards: [],
-                    availability: .live
-                )
-            )
+            setEmptyState()
             return
         }
 
@@ -565,6 +555,10 @@ final class NewsFeedViewModel {
                 )
             }
         }
+    }
+
+    private func setEmptyState() {
+        state = .empty(Self.emptyContent)
     }
 
     /// Maps repository-backed content into the explicit feed state used by the screen.
@@ -1653,7 +1647,7 @@ final class NewsFeedViewModel {
             do {
                 guard let channelID = currentChannelID else {
                     await MainActor.run {
-                        self.state = .empty(Self.emptyContent)
+                        self.setEmptyState()
                     }
                     return
                 }
