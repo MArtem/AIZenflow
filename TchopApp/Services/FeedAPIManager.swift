@@ -104,12 +104,15 @@ struct TextStateDTO: Decodable, Sendable {
 /// Narrow persisted-state context needed by featured article API actions.
 struct PhotoActionContext: Sendable {
     let isLiked: Bool
+    let commentCount: Int
     let displayMode: PhotoCardDisplayMode
 }
 
 /// Narrow persisted-state context needed by discussion API actions.
 struct TextActionContext: Sendable {
     let isParticipating: Bool
+    let replyCount: Int
+    let joinedCount: Int
     let displayMode: TextCardDisplayMode
 }
 
@@ -171,20 +174,21 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
             return try await setPhotoLike(
                 channelID: channelID,
                 articleID: articleID,
-                isLiked: !context.isLiked
+                context: context
             )
         case .addComment:
-            return try await addPhotoComment(channelID: channelID, articleID: articleID)
+            return try await addPhotoComment(channelID: channelID, articleID: articleID, context: context)
         case let .setDisplayMode(displayMode):
             return try await setPhotoDisplayMode(
                 channelID: channelID,
                 articleID: articleID,
+                context: context,
                 displayMode: displayMode
             )
         case .refreshContent:
-            return try await refreshPhoto(channelID: channelID, articleID: articleID)
+            return try await refreshPhoto(channelID: channelID, articleID: articleID, context: context)
         case .runLongTask:
-            return try await runPhotoUpdate(channelID: channelID, articleID: articleID)
+            return try await runPhotoUpdate(channelID: channelID, articleID: articleID, context: context)
         }
     }
 
@@ -199,27 +203,28 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
             return try await setTextParticipation(
                 channelID: channelID,
                 discussionID: discussionID,
-                isParticipating: !context.isParticipating
+                context: context
             )
         case .addReply:
-            return try await addTextReply(channelID: channelID, discussionID: discussionID)
+            return try await addTextReply(channelID: channelID, discussionID: discussionID, context: context)
         case let .setDisplayMode(displayMode):
             return try await setTextDisplayMode(
                 channelID: channelID,
                 discussionID: discussionID,
+                context: context,
                 displayMode: displayMode
             )
         case .refreshContent:
-            return try await refreshText(channelID: channelID, discussionID: discussionID)
+            return try await refreshText(channelID: channelID, discussionID: discussionID, context: context)
         case .runLongTask:
-            return try await runTextUpdate(channelID: channelID, discussionID: discussionID)
+            return try await runTextUpdate(channelID: channelID, discussionID: discussionID, context: context)
         }
     }
 
     private func setPhotoLike(
         channelID: String,
         articleID: String,
-        isLiked: Bool
+        context: PhotoActionContext
     ) async throws -> PhotoDTO {
         try await performPhotoMutation(
             channelID: channelID,
@@ -227,9 +232,9 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         ) { article in
             article.withLocalState(
                 PhotoStateDTO(
-                    isLiked: isLiked,
-                    commentCount: article.localState.commentCount,
-                    displayMode: article.localState.displayMode
+                    isLiked: !context.isLiked,
+                    commentCount: context.commentCount,
+                    displayMode: context.displayMode
                 )
             )
         }
@@ -237,7 +242,8 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 
     private func addPhotoComment(
         channelID: String,
-        articleID: String
+        articleID: String,
+        context: PhotoActionContext
     ) async throws -> PhotoDTO {
         try await performPhotoMutation(
             channelID: channelID,
@@ -245,9 +251,9 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         ) { article in
             article.withLocalState(
                 PhotoStateDTO(
-                    isLiked: article.localState.isLiked,
-                    commentCount: article.localState.commentCount + 1,
-                    displayMode: article.localState.displayMode
+                    isLiked: context.isLiked,
+                    commentCount: context.commentCount + 1,
+                    displayMode: context.displayMode
                 )
             )
         }
@@ -256,6 +262,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     private func setPhotoDisplayMode(
         channelID: String,
         articleID: String,
+        context: PhotoActionContext,
         displayMode: PhotoCardDisplayMode
     ) async throws -> PhotoDTO {
         try await performPhotoMutation(
@@ -264,8 +271,8 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         ) { article in
             article.withLocalState(
                 PhotoStateDTO(
-                    isLiked: article.localState.isLiked,
-                    commentCount: article.localState.commentCount,
+                    isLiked: context.isLiked,
+                    commentCount: context.commentCount,
                     displayMode: displayMode
                 )
             )
@@ -274,7 +281,8 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 
     private func refreshPhoto(
         channelID: String,
-        articleID: String
+        articleID: String,
+        context: PhotoActionContext
     ) async throws -> PhotoDTO {
         // Refresh-like actions mutate content fields rather than local interaction state to mimic a
         // backend returning a rebuilt card snapshot.
@@ -285,12 +293,20 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
             article.withContent(
                 metadataLine: "refreshed just now"
             )
+            .withLocalState(
+                PhotoStateDTO(
+                    isLiked: context.isLiked,
+                    commentCount: context.commentCount,
+                    displayMode: context.displayMode
+                )
+            )
         }
     }
 
     private func runPhotoUpdate(
         channelID: String,
-        articleID: String
+        articleID: String,
+        context: PhotoActionContext
     ) async throws -> PhotoDTO {
         try await performPhotoMutation(
             channelID: channelID,
@@ -301,25 +317,33 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                 summary: "This card now shows a rebuilt content snapshot produced by the stub API to simulate a long-running backend article update finishing inside the feed.",
                 metadataLine: "system update completed just now"
             )
+            .withLocalState(
+                PhotoStateDTO(
+                    isLiked: context.isLiked,
+                    commentCount: context.commentCount,
+                    displayMode: context.displayMode
+                )
+            )
         }
     }
 
     private func setTextParticipation(
         channelID: String,
         discussionID: String,
-        isParticipating: Bool
+        context: TextActionContext
     ) async throws -> TextDTO {
         try await performTextMutation(
             channelID: channelID,
             path: "feed/discussions/\(discussionID)/participation"
         ) { discussion in
-            let joinedDelta = isParticipating == discussion.localState.isParticipating ? 0 : (isParticipating ? 1 : -1)
+            let nextParticipation = !context.isParticipating
+            let joinedDelta = nextParticipation == context.isParticipating ? 0 : (nextParticipation ? 1 : -1)
             return discussion.withLocalState(
                 TextStateDTO(
-                    isParticipating: isParticipating,
-                    replyCount: discussion.localState.replyCount,
-                    joinedCount: max(0, discussion.localState.joinedCount + joinedDelta),
-                    displayMode: discussion.localState.displayMode
+                    isParticipating: nextParticipation,
+                    replyCount: context.replyCount,
+                    joinedCount: max(0, context.joinedCount + joinedDelta),
+                    displayMode: context.displayMode
                 )
             )
         }
@@ -327,7 +351,8 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 
     private func addTextReply(
         channelID: String,
-        discussionID: String
+        discussionID: String,
+        context: TextActionContext
     ) async throws -> TextDTO {
         try await performTextMutation(
             channelID: channelID,
@@ -335,10 +360,10 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         ) { discussion in
             discussion.withLocalState(
                 TextStateDTO(
-                    isParticipating: discussion.localState.isParticipating,
-                    replyCount: discussion.localState.replyCount + 1,
-                    joinedCount: discussion.localState.joinedCount,
-                    displayMode: discussion.localState.displayMode
+                    isParticipating: context.isParticipating,
+                    replyCount: context.replyCount + 1,
+                    joinedCount: context.joinedCount,
+                    displayMode: context.displayMode
                 )
             )
         }
@@ -347,6 +372,7 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     private func setTextDisplayMode(
         channelID: String,
         discussionID: String,
+        context: TextActionContext,
         displayMode: TextCardDisplayMode
     ) async throws -> TextDTO {
         try await performTextMutation(
@@ -355,9 +381,9 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
         ) { discussion in
             discussion.withLocalState(
                 TextStateDTO(
-                    isParticipating: discussion.localState.isParticipating,
-                    replyCount: discussion.localState.replyCount,
-                    joinedCount: discussion.localState.joinedCount,
+                    isParticipating: context.isParticipating,
+                    replyCount: context.replyCount,
+                    joinedCount: context.joinedCount,
                     displayMode: displayMode
                 )
             )
@@ -366,7 +392,8 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 
     private func refreshText(
         channelID: String,
-        discussionID: String
+        discussionID: String,
+        context: TextActionContext
     ) async throws -> TextDTO {
         try await performTextMutation(
             channelID: channelID,
@@ -375,12 +402,21 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
             discussion.withContent(
                 headline: "Refreshed discussion snapshot with the same thread context"
             )
+            .withLocalState(
+                TextStateDTO(
+                    isParticipating: context.isParticipating,
+                    replyCount: context.replyCount,
+                    joinedCount: context.joinedCount,
+                    displayMode: context.displayMode
+                )
+            )
         }
     }
 
     private func runTextUpdate(
         channelID: String,
-        discussionID: String
+        discussionID: String,
+        context: TextActionContext
     ) async throws -> TextDTO {
         try await performTextMutation(
             channelID: channelID,
@@ -395,6 +431,14 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
                         isHighlighted: true
                     )
                 ]
+            )
+            .withLocalState(
+                TextStateDTO(
+                    isParticipating: context.isParticipating,
+                    replyCount: context.replyCount,
+                    joinedCount: context.joinedCount,
+                    displayMode: context.displayMode
+                )
             )
         }
     }

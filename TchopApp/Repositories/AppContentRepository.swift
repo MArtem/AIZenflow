@@ -157,7 +157,8 @@ final class DefaultAppContentRepository: AppContentRepository {
             articleID: article.id,
             actionKind: photoActionKind(action),
             displayModeRawValue: photoDisplayModeRawValue(action),
-            isLiked: article.uiState.isLiked
+            isLiked: article.uiState.isLiked,
+            commentCount: article.commentCount
         )
         let envelope = FeedActionMutationEnvelope(
             kind: .photo,
@@ -187,7 +188,9 @@ final class DefaultAppContentRepository: AppContentRepository {
             discussionID: discussion.id,
             actionKind: discussionActionKind(action),
             displayModeRawValue: discussionDisplayModeRawValue(action),
-            isParticipating: discussion.uiState.isParticipating
+            isParticipating: discussion.uiState.isParticipating,
+            replyCount: discussion.replyCount,
+            joinedCount: discussion.joinedCount
         )
         let envelope = FeedActionMutationEnvelope(
             kind: .text,
@@ -492,6 +495,7 @@ private struct PhotoActionMutationPayload: Codable {
     let actionKind: String
     let displayModeRawValue: String?
     let isLiked: Bool
+    let commentCount: Int?
 }
 
 private struct TextActionMutationPayload: Codable {
@@ -500,6 +504,8 @@ private struct TextActionMutationPayload: Codable {
     let actionKind: String
     let displayModeRawValue: String?
     let isParticipating: Bool
+    let replyCount: Int?
+    let joinedCount: Int?
 }
 
 private struct FeedActionMutationEnvelope: Codable {
@@ -699,6 +705,7 @@ private actor FeedActionRemoteSyncClient: SyncRemoteClient {
                     action: action,
                     context: PhotoActionContext(
                         isLiked: payload.isLiked,
+                        commentCount: payload.commentCount ?? 0,
                         displayMode: try payload.makeDisplayMode()
                     )
                 )
@@ -736,6 +743,8 @@ private actor FeedActionRemoteSyncClient: SyncRemoteClient {
                     action: action,
                     context: TextActionContext(
                         isParticipating: payload.isParticipating,
+                        replyCount: payload.replyCount ?? 0,
+                        joinedCount: payload.joinedCount ?? 0,
                         displayMode: try payload.makeDisplayMode()
                     )
                 )

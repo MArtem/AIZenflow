@@ -32,6 +32,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI bugfix pass 2 — restore optimistic card mutations for scoped ids across channels
 ### [x] Step: UI diagnostics pass — add focused debug assertions for card-action lookup failures
 ### [x] Step: UI bugfix pass 3 — fix scoped-id unwrapping for hyphenated channel ids
+### [x] Step: UI bugfix pass 4 — preserve full local action state across sequential card actions
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -93,6 +94,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Services/FeedAPIManager.swift` diagnostics pass (added DEBUG assertion failures with channel/path/card id context when stub card lookup fails for photo/text mutation routes).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Services/FeedAPIManager.swift` follow-up fix (card lookup now removes exact `<channelID>-` prefix before fallback unscoping, fixing actions for hyphenated channels like `leadership-channel`).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Services/FeedAPIManager.swift` + `./TchopApp/Repositories/AppContentRepository.swift` follow-up fix (action mutation context now carries full local card state, so like/comment/display-mode/reply actions no longer reset each other; refresh/update now preserve local interaction state).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
