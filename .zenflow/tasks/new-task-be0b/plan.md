@@ -36,6 +36,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass — align empty composer screen chrome/toolbar with provided design
 ### [x] Step: UI pass 2 — enforce full-screen composer presentation and toolbar spacing polish
 ### [x] Step: UI pass 3 — fine-tune add/photo/calendar spacing to latest screenshot
+### [x] Step: UI pass 4 — pin Publish button to right edge and align toolbar spacing to reference
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -106,6 +107,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` spacing pass (explicit tuned constants for `+`/chevron gap, add-to-media spacing, and photo/calendar spacing to align with latest cropped reference).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` toolbar alignment pass (locked left tool cluster to fixed reference width and pinned `Publish` to the right edge with fixed size/offset behavior).
 
 ## Working Rule
 - Keep this file short and current.

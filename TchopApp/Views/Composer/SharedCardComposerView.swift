@@ -1064,9 +1064,12 @@ private struct SharedCardComposerHeaderView: View {
 
 private struct SharedCardComposerToolbarView: View {
     private enum Layout {
-        static let addChevronSpacing: CGFloat = 8
-        static let addToMediaSpacing: CGFloat = 36
+        static let leadingClusterWidth: CGFloat = 152
+        static let plusClusterWidth: CGFloat = 46
+        static let mediaClusterWidth: CGFloat = 86
+        static let leadingClusterSpacing: CGFloat = 20
         static let mediaIconSpacing: CGFloat = 40
+        static let toolbarVerticalPadding: CGFloat = 10
     }
 
     let showsPhotoToolbarAction: Bool
@@ -1076,22 +1079,22 @@ private struct SharedCardComposerToolbarView: View {
     let onPublish: () -> Void
 
     var body: some View {
-        HStack {
-            Button(action: onShowInsertionSheet) {
-                HStack(spacing: Layout.addChevronSpacing) {
-                    Image(systemName: "plus")
-                    Image(systemName: "chevron.down")
-                        .font(.system(size: 12, weight: .semibold))
+        HStack(spacing: 0) {
+            HStack(spacing: Layout.leadingClusterSpacing) {
+                Button(action: onShowInsertionSheet) {
+                    HStack(spacing: 0) {
+                        Image(systemName: "plus")
+                            .font(AppTypography.actionTitle)
+
+                        Image(systemName: "chevron.down")
+                            .font(.system(size: 22, weight: .regular))
+                            .foregroundStyle(AppTheme.textTertiary)
+                    }
+                    .foregroundStyle(AppTheme.textPrimary)
                 }
-                .font(AppTypography.actionTitle)
-                .foregroundStyle(AppTheme.textPrimary)
-            }
-            .buttonStyle(.plain)
-            .frame(width: 46, height: 24, alignment: .leading)
+                .buttonStyle(.plain)
+                .frame(width: Layout.plusClusterWidth, height: 24, alignment: .leading)
 
-            Spacer(minLength: Layout.addToMediaSpacing)
-
-            HStack(spacing: 24) {
                 HStack(spacing: Layout.mediaIconSpacing) {
                     if showsPhotoToolbarAction {
                         Button(action: onPhotoToolbarTap) {
@@ -1104,25 +1107,29 @@ private struct SharedCardComposerToolbarView: View {
 
                     Image(systemName: "calendar")
                         .font(AppTypography.actionTitle)
-                        .foregroundStyle(AppTheme.textTertiary)
+                        .foregroundStyle(AppTheme.textPrimary)
                 }
-
-                Button(action: onPublish) {
-                    Text("Publish")
-                        .font(AppTypography.bodySemibold)
-                        .foregroundStyle(Color.white)
-                        .frame(width: 95, height: 38)
-                        .background(
-                            Capsule(style: .continuous)
-                                .fill(AppTheme.accent.opacity(canPublish ? 1 : 0.5))
-                        )
-                }
-                .buttonStyle(.plain)
-                .disabled(!canPublish)
+                .frame(width: Layout.mediaClusterWidth, alignment: .leading)
             }
-            .frame(maxWidth: .infinity, alignment: .leading)
+            .frame(width: Layout.leadingClusterWidth, alignment: .leading)
+
+            Spacer(minLength: 0)
+
+            Button(action: onPublish) {
+                Text("Publish")
+                    .font(AppTypography.bodySemibold)
+                    .foregroundStyle(Color.white)
+                    .frame(width: 95, height: 38)
+                    .background(
+                        Capsule(style: .continuous)
+                            .fill(AppTheme.accent.opacity(canPublish ? 1 : 0.5))
+                    )
+            }
+            .buttonStyle(.plain)
+            .disabled(!canPublish)
         }
         .padding(.horizontal, 16)
+        .padding(.vertical, Layout.toolbarVerticalPadding)
         .frame(height: 58)
         .background(AppTheme.surfaceSecondary)
         .overlay(alignment: .top) {
