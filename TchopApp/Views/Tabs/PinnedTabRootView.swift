@@ -7,49 +7,40 @@ struct PinnedTabRootView: View {
     @Bindable var router: TabRouter<PinnedRoute>
 
     var body: some View {
-        NavigationStack(path: pathBinding) {
-            FeatureTabScaffoldView(
-                content: FeatureTabFixtures.pinned,
-                onQuickActionTap: openQuickAction,
-                onItemTap: openItem
-            )
-            .navigationDestination(for: PinnedRoute.self) { route in
-                StubTabDetailView(
-                    title: route.title,
-                    description: route.description
-                )
-            }
-        }
+        FeatureTabNavigationRootView(
+            content: FeatureTabFixtures.pinned,
+            router: router,
+            makeQuickActionRoute: makeQuickActionRoute,
+            makeItemRoute: makeItemRoute,
+            destinationBuilder: destinationView
+        )
     }
 
-    private var pathBinding: Binding<[PinnedRoute]> {
-        $router.path
-    }
-
-    /// Opens quick action.
-    private func openQuickAction(_ action: FeatureQuickAction) {
-        router.push(
-            PinnedRoute(
-                title: action.title,
-                description: AppLocalization.text(
-                    "pinned.route.quickAction.descriptionFormat",
-                    action.caption
-                )
+    private func makeQuickActionRoute(_ action: FeatureQuickAction) -> PinnedRoute {
+        PinnedRoute(
+            title: action.title,
+            description: AppLocalization.text(
+                "pinned.route.quickAction.descriptionFormat",
+                action.caption
             )
         )
     }
 
-    /// Opens item.
-    private func openItem(_ item: FeatureTabItem) {
-        router.push(
-            PinnedRoute(
-                title: item.title,
-                description: AppLocalization.text(
-                    "route.item.descriptionFormat",
-                    item.summary,
-                    item.metadata
-                )
+    private func makeItemRoute(_ item: FeatureTabItem) -> PinnedRoute {
+        PinnedRoute(
+            title: item.title,
+            description: AppLocalization.text(
+                "route.item.descriptionFormat",
+                item.summary,
+                item.metadata
             )
+        )
+    }
+
+    private func destinationView(_ route: PinnedRoute) -> StubTabDetailView {
+        StubTabDetailView(
+            title: route.title,
+            description: route.description
         )
     }
 }

@@ -41,7 +41,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: visual/card SwiftUI pass across `./TchopApp/Views/News/PhotoCardView.swift`, `./TchopApp/Views/News/TextCardView.swift`, and `./TchopApp/Views/Tabs/FeatureTabScaffoldView.swift` (extracted local hero/content/action sections, reduced repeated card wiring, and kept card behavior unchanged).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: continue Phase 2 with the next remaining high-impact SwiftUI surface after feed/composer/auth/shell/root/profile/card coverage.
+- Completed now: remaining small-surface SwiftUI pass across `./TchopApp/Views/Tabs/FeatureTabScaffoldView.swift`, `./TchopApp/Views/Tabs/MixesTabRootView.swift`, `./TchopApp/Views/Tabs/PinnedTabRootView.swift`, `./TchopApp/Views/Tabs/ChatTabRootView.swift`, `./TchopApp/Views/Tabs/BottomTabBar.swift`, `./TchopApp/Views/BrandMarkView.swift`, and `./TchopApp/Views/Stub/TabStubView.swift` (consolidated repeated feature-tab navigation wiring and extracted residual local view sections without changing behavior).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Next focus: checkpoint Phase 2 coverage, summarize remaining non-view cleanup candidates, and leave manual share-extension validation pending.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule

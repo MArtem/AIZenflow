@@ -16,16 +16,22 @@ struct BrandMarkView: View {
                 .fill(AppTheme.surfaceSecondary)
                 .frame(width: cardSize.width, height: cardSize.height)
 
-            VStack(spacing: 2) {
-                ForEach(BrandStripe.allCases) { stripe in
-                    Capsule()
-                        .fill(stripe.color)
-                        .frame(width: 18, height: 4)
-                }
-            }
-            .rotationEffect(.degrees(-8))
+            BrandMarkStripesView()
         }
         .accessibilityHidden(true)
+    }
+}
+
+private struct BrandMarkStripesView: View {
+    var body: some View {
+        VStack(spacing: 2) {
+            ForEach(BrandStripe.allCases) { stripe in
+                Capsule()
+                    .fill(stripe.color)
+                    .frame(width: 18, height: 4)
+            }
+        }
+        .rotationEffect(.degrees(-8))
     }
 }
 

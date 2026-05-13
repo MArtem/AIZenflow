@@ -9,16 +9,7 @@ struct TabStubView: View {
         VStack(spacing: AppSpacing.featureSection) {
             Spacer(minLength: 40)
 
-            ZStack {
-                Circle()
-                    .fill(AppTheme.surfacePrimary)
-                    .frame(width: 96, height: 96)
-                    .shadow(color: AppTheme.shadow.opacity(0.35), radius: 10, y: 4)
-
-                Image(systemName: tab.menuIcon)
-                    .font(AppTypography.heroDisplay)
-                    .foregroundStyle(AppTheme.accent)
-            }
+            TabStubHeroView(tab: tab)
 
             VStack(spacing: 10) {
                 Text(tab.title)
@@ -31,16 +22,7 @@ struct TabStubView: View {
                     .multilineTextAlignment(.center)
             }
 
-            Button(action: onOpenSample) {
-                Text(AppLocalization.text("tab.stub.openSampleScreen"))
-                    .font(AppTypography.bodySemibold)
-                    .foregroundStyle(.white)
-                    .padding(.horizontal, 18)
-                    .padding(.vertical, 12)
-                    .background(AppTheme.accent)
-                    .clipShape(Capsule())
-            }
-            .buttonStyle(.plain)
+            TabStubActionButton(onTap: onOpenSample)
 
             Spacer()
         }
@@ -48,6 +30,40 @@ struct TabStubView: View {
         .padding(.horizontal, 32)
         .padding(.bottom, AppSpacing.shellBottomInset)
         .background(Color.clear)
+    }
+}
+
+private struct TabStubHeroView: View {
+    let tab: AppTab
+
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(AppTheme.surfacePrimary)
+                .frame(width: 96, height: 96)
+                .shadow(color: AppTheme.shadow.opacity(0.35), radius: 10, y: 4)
+
+            Image(systemName: tab.menuIcon)
+                .font(AppTypography.heroDisplay)
+                .foregroundStyle(AppTheme.accent)
+        }
+    }
+}
+
+private struct TabStubActionButton: View {
+    let onTap: () -> Void
+
+    var body: some View {
+        Button(action: onTap) {
+            Text(AppLocalization.text("tab.stub.openSampleScreen"))
+                .font(AppTypography.bodySemibold)
+                .foregroundStyle(.white)
+                .padding(.horizontal, 18)
+                .padding(.vertical, 12)
+                .background(AppTheme.accent)
+                .clipShape(Capsule())
+        }
+        .buttonStyle(.plain)
     }
 }
 

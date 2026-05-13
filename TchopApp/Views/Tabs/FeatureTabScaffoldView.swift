@@ -1,4 +1,6 @@
+import Observation
 import SwiftUI
+import TchopNavigation
 
 /// Shared scaffold for non-news tabs with list sections and quick actions.
 struct FeatureTabScaffoldView: View {
@@ -28,6 +30,40 @@ struct FeatureTabScaffoldView: View {
             .padding(.bottom, AppSpacing.shellBottomInset)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+    }
+}
+
+/// Generic navigation root for feature tabs that share the same scaffold and typed router setup.
+struct FeatureTabNavigationRootView<Route: Hashable>: View {
+    let content: FeatureTabContent
+    @Bindable var router: TabRouter<Route>
+    let makeQuickActionRoute: (FeatureQuickAction) -> Route
+    let makeItemRoute: (FeatureTabItem) -> Route
+    let destinationBuilder: (Route) -> StubTabDetailView
+
+    var body: some View {
+        NavigationStack(path: pathBinding) {
+            FeatureTabScaffoldView(
+                content: content,
+                onQuickActionTap: openQuickAction,
+                onItemTap: openItem
+            )
+            .navigationDestination(for: Route.self) { route in
+                destinationBuilder(route)
+            }
+        }
+    }
+
+    private var pathBinding: Binding<[Route]> {
+        $router.path
+    }
+
+    private func openQuickAction(_ action: FeatureQuickAction) {
+        router.push(makeQuickActionRoute(action))
+    }
+
+    private func openItem(_ item: FeatureTabItem) {
+        router.push(makeItemRoute(item))
     }
 }
 

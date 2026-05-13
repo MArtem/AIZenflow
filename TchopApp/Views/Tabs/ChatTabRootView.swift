@@ -7,49 +7,40 @@ struct ChatTabRootView: View {
     @Bindable var router: TabRouter<ChatRoute>
 
     var body: some View {
-        NavigationStack(path: pathBinding) {
-            FeatureTabScaffoldView(
-                content: FeatureTabFixtures.chat,
-                onQuickActionTap: openQuickAction,
-                onItemTap: openItem
-            )
-            .navigationDestination(for: ChatRoute.self) { route in
-                StubTabDetailView(
-                    title: route.title,
-                    description: route.description
-                )
-            }
-        }
+        FeatureTabNavigationRootView(
+            content: FeatureTabFixtures.chat,
+            router: router,
+            makeQuickActionRoute: makeQuickActionRoute,
+            makeItemRoute: makeItemRoute,
+            destinationBuilder: destinationView
+        )
     }
 
-    private var pathBinding: Binding<[ChatRoute]> {
-        $router.path
-    }
-
-    /// Opens quick action.
-    private func openQuickAction(_ action: FeatureQuickAction) {
-        router.push(
-            ChatRoute(
-                title: action.title,
-                description: AppLocalization.text(
-                    "chat.route.quickAction.descriptionFormat",
-                    action.caption
-                )
+    private func makeQuickActionRoute(_ action: FeatureQuickAction) -> ChatRoute {
+        ChatRoute(
+            title: action.title,
+            description: AppLocalization.text(
+                "chat.route.quickAction.descriptionFormat",
+                action.caption
             )
         )
     }
 
-    /// Opens item.
-    private func openItem(_ item: FeatureTabItem) {
-        router.push(
-            ChatRoute(
-                title: item.title,
-                description: AppLocalization.text(
-                    "route.item.descriptionFormat",
-                    item.summary,
-                    item.metadata
-                )
+    private func makeItemRoute(_ item: FeatureTabItem) -> ChatRoute {
+        ChatRoute(
+            title: item.title,
+            description: AppLocalization.text(
+                "route.item.descriptionFormat",
+                item.summary,
+                item.metadata
             )
+        )
+    }
+
+    private func destinationView(_ route: ChatRoute) -> StubTabDetailView {
+        StubTabDetailView(
+            title: route.title,
+            description: route.description
         )
     }
 }
