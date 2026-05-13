@@ -28,7 +28,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed audit: `./TchopApp/Shared/SharedLocalFeedCardSyncManager.swift` (no safe simplifications needed; ownership boundary already minimal).
 - Completed now: removed dead private action-state persistence helpers from `./TchopApp/Repositories/AppContentRepository.swift`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Next focus: checkpoint and prepare consolidated cleanup summary/next-batch priorities.
+- Checkpoint: Phase 1 runtime cleanup is complete and aligned with `./.zenflow/tasks/new-task-be0b/handoff.md`.
+- Next focus: Phase 2 SwiftUI view decomposition checkpoint, starting with `./TchopApp/Views/News/NewsFeedView.swift`.
 - Interactive share validation tracker: `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`.
 
 ## Working Rule
