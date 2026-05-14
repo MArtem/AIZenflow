@@ -264,7 +264,15 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     var orderedVisibleTextFieldKinds: [ChannelCardTextFieldKind] {
-        ChannelCardTextFieldKind.allCases.filter { visibleTextFieldKinds.contains($0) }
+        [.headline, .subheadline, .text, .source].filter { visibleTextFieldKinds.contains($0) }
+    }
+
+    var orderedVisiblePrimaryTextFieldKinds: [ChannelCardTextFieldKind] {
+        orderedVisibleTextFieldKinds.filter { $0 != .source }
+    }
+
+    var isSourceFieldVisible: Bool {
+        visibleTextFieldKinds.contains(.source)
     }
 
     var showsPhotoToolbarAction: Bool {

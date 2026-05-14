@@ -99,6 +99,14 @@ final class FeedComposerViewModel {
         draft.orderedVisibleTextFieldKinds
     }
 
+    var orderedVisiblePrimaryTextFieldKinds: [ChannelCardTextFieldKind] {
+        draft.orderedVisiblePrimaryTextFieldKinds
+    }
+
+    var isSourceFieldVisible: Bool {
+        draft.isSourceFieldVisible
+    }
+
     var showsPhotoToolbarAction: Bool {
         draft.showsPhotoToolbarAction
     }

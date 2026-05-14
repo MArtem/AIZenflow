@@ -28,7 +28,7 @@ struct SharedCardComposerView: View {
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading, spacing: AppSpacing.md) {
-                        ForEach(viewModel.orderedVisibleTextFieldKinds) { kind in
+                        ForEach(viewModel.orderedVisiblePrimaryTextFieldKinds) { kind in
                             ComposerTextInputView(
                                 text: binding(for: kind),
                                 placeholder: viewModel.fieldPlaceholder(for: kind),
@@ -101,6 +101,17 @@ struct SharedCardComposerView: View {
                                     }
                                 )
                             }
+                        }
+
+                        if viewModel.isSourceFieldVisible {
+                            ComposerTextInputView(
+                                text: binding(for: .source),
+                                placeholder: viewModel.fieldPlaceholder(for: .source),
+                                style: textInputStyle(for: .source),
+                                onDeleteBackwardWhenEmpty: {
+                                    viewModel.handleBackspaceOnEmptyField(.source)
+                                }
+                            )
                         }
                     }
                     .padding(.horizontal, AppSpacing.screenHorizontal)
