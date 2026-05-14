@@ -972,22 +972,36 @@ private struct ComposerBottomSheetItem: Identifiable {
 }
 
 private struct ComposerBottomSheet: View {
+    private enum Layout {
+        static let overlayOpacity: CGFloat = 0.42
+        static let horizontalInset: CGFloat = 20
+        static let bottomInset: CGFloat = 56
+        static let cornerRadius: CGFloat = 32
+        static let handleWidth: CGFloat = 48
+        static let handleHeight: CGFloat = 5
+        static let handleTopPadding: CGFloat = 16
+        static let handleBottomPadding: CGFloat = 14
+        static let rowHeight: CGFloat = 50
+        static let rowHorizontalPadding: CGFloat = AppSpacing.screenHorizontal
+    }
+
     let items: [ComposerBottomSheetItem]
     let onSelect: (String) -> Void
     let onDismiss: () -> Void
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            Color.black.opacity(0.45)
+            Color.black.opacity(Layout.overlayOpacity)
                 .ignoresSafeArea()
                 .onTapGesture(perform: onDismiss)
 
             VStack(alignment: .leading, spacing: 0) {
                 Capsule(style: .continuous)
-                    .fill(AppTheme.textTertiary.opacity(0.35))
-                    .frame(width: 50, height: 5)
+                    .fill(AppTheme.textTertiary.opacity(0.28))
+                    .frame(width: Layout.handleWidth, height: Layout.handleHeight)
                     .frame(maxWidth: .infinity)
-                    .padding(.vertical, AppSpacing.md)
+                    .padding(.top, Layout.handleTopPadding)
+                    .padding(.bottom, Layout.handleBottomPadding)
 
                 ForEach(items) { item in
                     Button {
@@ -995,19 +1009,19 @@ private struct ComposerBottomSheet: View {
                         onDismiss()
                     } label: {
                         Text(item.title)
-                            .font(AppTypography.cardTitle)
+                            .font(AppTypography.cardTitleBold)
                             .foregroundStyle(AppTheme.textPrimary)
                             .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, AppSpacing.screenHorizontal)
-                            .padding(.vertical, AppSpacing.md)
+                            .padding(.horizontal, Layout.rowHorizontalPadding)
+                            .frame(height: Layout.rowHeight, alignment: .center)
                     }
                     .buttonStyle(.plain)
                 }
             }
             .background(AppTheme.surfacePrimary)
-            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .padding(.horizontal, 8)
-            .padding(.bottom, 24)
+            .clipShape(RoundedRectangle(cornerRadius: Layout.cornerRadius, style: .continuous))
+            .padding(.horizontal, Layout.horizontalInset)
+            .padding(.bottom, Layout.bottomInset)
         }
     }
 }
