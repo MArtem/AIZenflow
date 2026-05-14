@@ -48,6 +48,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 11 — match placeholder copy for Source/Headline/Sub Heading
 ### [x] Step: UI pass 12 — tighten composer text-field vertical spacing to match reference
 ### [x] Step: UI pass 13 — apply exact composer text-field spacing values
+### [x] Step: UI pass 14 — remove empty text-field reserved height causing large Source gap
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -138,6 +139,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` text-field spacing pass (reduced composer stack spacing and compacted optional text-field minimum heights so placeholder rows sit closer to the provided reference).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` exact-spacing pass (replaced uniform `ForEach` text-field layout with explicit field order and spacing: Headline→Sub Heading 8pt, Sub Heading→Text 16pt, Text/content→Source 8pt).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` text-field height correction (reduced empty primary text field minimum height from 120pt to one-line height so `Source` no longer sits below a reserved blank text area; dynamic growth for real text remains).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.

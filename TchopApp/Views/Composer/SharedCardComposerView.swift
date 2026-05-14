@@ -285,7 +285,7 @@ struct SharedCardComposerView: View {
                 uiTextFont: .systemFont(ofSize: 24, weight: .regular),
                 textColor: AppTheme.textPrimary,
                 placeholderColor: AppTheme.textTertiary,
-                minimumHeight: 120
+                minimumHeight: 46
             )
         case .headline:
             return ComposerTextInputStyle(
