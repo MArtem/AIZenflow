@@ -52,6 +52,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 15 — enforce composer text wrapping and 200-character field limit
 ### [x] Step: UI pass 16 — focus newly inserted fields and recover focus after field deletion
 ### [x] Step: UI pass 17 — focus primary text field when composer opens
+### [x] Step: Simulator media setup — add image/pdf/audio fixtures for composer and share/import validation
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -151,6 +152,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` initial-focus pass (composer now focuses the primary `.text` field on appear, falling back to the first available text field when `.text` is unavailable).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: simulator media setup for booted iPhone 17 Pro (iOS 26.0): imported two JPEGs into Photos and copied JPEG/PDF/MP3 fixtures into Files app Documents, simulator Downloads, TchopApp Documents, and the app group under `TchopTestAssets` for composer/share-extension validation.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
