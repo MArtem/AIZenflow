@@ -27,7 +27,7 @@ struct SharedCardComposerView: View {
                 )
 
                 ScrollView(.vertical, showsIndicators: false) {
-                    VStack(alignment: .leading, spacing: AppSpacing.md) {
+                    VStack(alignment: .leading, spacing: AppSpacing.xs) {
                         ForEach(viewModel.orderedVisiblePrimaryTextFieldKinds) { kind in
                             ComposerTextInputView(
                                 text: binding(for: kind),
@@ -268,7 +268,7 @@ struct SharedCardComposerView: View {
                 uiTextFont: .systemFont(ofSize: 18, weight: .bold),
                 textColor: AppTheme.textPrimary,
                 placeholderColor: AppTheme.textSecondary,
-                minimumHeight: 44
+                minimumHeight: 32
             )
         case .subheadline:
             return ComposerTextInputStyle(
@@ -277,7 +277,7 @@ struct SharedCardComposerView: View {
                 uiTextFont: .systemFont(ofSize: 15, weight: .semibold),
                 textColor: AppTheme.textSecondary,
                 placeholderColor: AppTheme.textTertiary,
-                minimumHeight: 40
+                minimumHeight: 30
             )
         case .source:
             return ComposerTextInputStyle(
@@ -286,7 +286,7 @@ struct SharedCardComposerView: View {
                 uiTextFont: .systemFont(ofSize: 13, weight: .semibold),
                 textColor: AppTheme.accent,
                 placeholderColor: AppTheme.textTertiary,
-                minimumHeight: 36
+                minimumHeight: 28
             )
         }
     }
