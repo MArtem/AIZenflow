@@ -181,6 +181,8 @@ enum FeedComposerImportError: Error, Equatable, Sendable {
 }
 
 struct FeedComposerDraft: Equatable, Sendable {
+    private static let maximumTextFieldCharacterCount = 200
+
     var selectedChannelID: String
     private(set) var visibleTextFieldKinds: Set<ChannelCardTextFieldKind>
     private(set) var textValues: [ChannelCardTextFieldKind: String]
@@ -519,7 +521,7 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     mutating func updateText(_ value: String, for kind: ChannelCardTextFieldKind) {
-        textValues[kind] = value
+        textValues[kind] = Self.limitedTextFieldValue(value)
     }
 
     mutating func updateSourceURLString(_ value: String?) {
@@ -653,7 +655,11 @@ struct FeedComposerDraft: Equatable, Sendable {
             .joined(separator: currentText == nil ? "" : "\n\n")
 
         visibleTextFieldKinds.insert(.text)
-        textValues[.text] = mergedText
+        textValues[.text] = Self.limitedTextFieldValue(mergedText)
+    }
+
+    private static func limitedTextFieldValue(_ value: String) -> String {
+        String(value.prefix(maximumTextFieldCharacterCount))
     }
 
     private mutating func applyImportedFileItems(_ importedItems: [ShareImportedItem]) throws {

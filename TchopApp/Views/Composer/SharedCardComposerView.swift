@@ -143,6 +143,7 @@ struct SharedCardComposerView: View {
                     .padding(.horizontal, AppSpacing.screenHorizontal)
                     .padding(.top, AppSpacing.lg)
                     .padding(.bottom, 116)
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 }
             }
 
@@ -1149,6 +1150,7 @@ private struct ComposerBottomSheet: View {
 }
 
 private struct ComposerTextInputStyle {
+    static let maximumCharacterCount = 200
     static let textInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
 
     let textFont: Font
@@ -1318,8 +1320,10 @@ private struct ComposerTextInputView: View {
                 font: style.uiTextFont,
                 textColor: UIColor(style.textColor),
                 minimumHeight: style.minimumHeight,
+                maximumCharacterCount: ComposerTextInputStyle.maximumCharacterCount,
                 onDeleteBackwardWhenEmpty: onDeleteBackwardWhenEmpty
             )
+            .frame(maxWidth: .infinity, alignment: .leading)
             .frame(height: max(style.minimumHeight, dynamicHeight))
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -1332,13 +1336,15 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
     let font: UIFont
     let textColor: UIColor
     let minimumHeight: CGFloat
+    let maximumCharacterCount: Int
     let onDeleteBackwardWhenEmpty: () -> Void
 
     func makeCoordinator() -> Coordinator {
         Coordinator(
             text: $text,
             dynamicHeight: $dynamicHeight,
-            minimumHeight: minimumHeight
+            minimumHeight: minimumHeight,
+            maximumCharacterCount: maximumCharacterCount
         )
     }
 
@@ -1348,10 +1354,15 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         textView.backgroundColor = .clear
         textView.textContainerInset = ComposerTextInputStyle.textInsets
         textView.textContainer.lineFragmentPadding = 0
+        textView.textContainer.lineBreakMode = .byCharWrapping
+        textView.textContainer.widthTracksTextView = true
         textView.isScrollEnabled = false
+        textView.showsHorizontalScrollIndicator = false
         textView.autocorrectionType = .no
         textView.autocapitalizationType = .sentences
         textView.returnKeyType = .default
+        textView.setContentHuggingPriority(.defaultLow, for: .horizontal)
+        textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         textView.font = font
         textView.textColor = textColor
         textView.onDeleteBackwardWhenEmpty = onDeleteBackwardWhenEmpty
@@ -1361,8 +1372,14 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: DeleteAwareTextView, context: Context) {
-        if uiView.text != text {
-            uiView.text = text
+        let limitedText = String(text.prefix(maximumCharacterCount))
+        if text != limitedText {
+            DispatchQueue.main.async {
+                self.text = limitedText
+            }
+        }
+        if uiView.text != limitedText {
+            uiView.text = limitedText
         }
         uiView.font = font
         uiView.textColor = textColor
@@ -1374,15 +1391,46 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         @Binding private var text: String
         @Binding private var dynamicHeight: CGFloat
         private let minimumHeight: CGFloat
+        private let maximumCharacterCount: Int
 
         init(
             text: Binding<String>,
             dynamicHeight: Binding<CGFloat>,
-            minimumHeight: CGFloat
+            minimumHeight: CGFloat,
+            maximumCharacterCount: Int
         ) {
             self._text = text
             self._dynamicHeight = dynamicHeight
             self.minimumHeight = minimumHeight
+            self.maximumCharacterCount = maximumCharacterCount
+        }
+
+        func textView(
+            _ textView: UITextView,
+            shouldChangeTextIn range: NSRange,
+            replacementText replacementText: String
+        ) -> Bool {
+            guard let currentText = textView.text,
+                  let stringRange = Range(range, in: currentText) else {
+                return false
+            }
+
+            let replacedCharacterCount = currentText[stringRange].count
+            let availableCharacterCount = maximumCharacterCount - currentText.count + replacedCharacterCount
+            guard availableCharacterCount > 0 else {
+                return replacementText.isEmpty
+            }
+
+            if replacementText.count <= availableCharacterCount {
+                return true
+            }
+
+            let allowedReplacement = String(replacementText.prefix(availableCharacterCount))
+            let limitedText = currentText.replacingCharacters(in: stringRange, with: allowedReplacement)
+            textView.text = limitedText
+            text = limitedText
+            recalculateHeight(for: textView)
+            return false
         }
 
         func textViewDidChange(_ textView: UITextView) {
