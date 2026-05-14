@@ -226,6 +226,9 @@ struct SharedCardComposerView: View {
             }
         }
         .background(AppTheme.surfacePrimary.ignoresSafeArea())
+        .onAppear {
+            focusInitialTextField()
+        }
         .fullScreenCover(
             isPresented: Binding(
                 get: { focusedPhotoItem != nil },
@@ -457,6 +460,14 @@ struct SharedCardComposerView: View {
         DispatchQueue.main.async {
             focusedTextFieldKind = kind
         }
+    }
+
+    private func focusInitialTextField() {
+        let preferredField: ChannelCardTextFieldKind? = viewModel.visibleTextFieldKinds.contains(.text)
+            ? .text
+            : firstAvailableTextFieldKind
+
+        focusTextField(preferredField)
     }
 
     private var firstAvailableTextFieldKind: ChannelCardTextFieldKind? {
