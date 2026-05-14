@@ -42,6 +42,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 5 — extend empty composer toolbar background to full-screen bottom reference
 ### [x] Step: UI pass 7 — align composer `+` popup bottom-sheet layout/styling to reference
 ### [x] Step: UI pass 8 — pixel-tighten composer `+` popup sheet geometry/spacing to latest reference
+### [x] Step: Continuity docs pass — enforce full docs/rules reread rule in context-transfer prompt
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -123,6 +124,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` add-popup UI pass (bottom-sheet overlay, container width/bottom position, corner radius, handle sizing, row height, and row typography aligned to the supplied reference without adding logic).
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` add-popup pixel pass 2 (retuned overlay opacity, corner radius, side/bottom insets, handle paddings, and row metrics for tighter parity with the latest popup reference).
+- Completed now: `./docs/WORK_CONTINUITY.md` continuity-rule pass (context-transfer template now explicitly mandates adding the rule to reread the full актуальный набор docs/rules for the active worktree + task context).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 

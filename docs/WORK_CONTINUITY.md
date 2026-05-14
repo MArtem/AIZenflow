@@ -7,6 +7,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Keep and update a universal transition prompt here.
 - When context gets large or phase boundary is reached, propose new chat proactively.
 - After reset, run bootstrap read **once per new chat**.
+- Every context-transfer prompt must explicitly include this rule:
+  **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
 ## Working Mode Rule (Low Resource)
 - When the user has already approved a clear implementation plan, the assistant may batch multiple consecutive plan steps into one larger execution block instead of reporting after each small step.
@@ -32,6 +34,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
 - Повторно перечитывать полностью только если изменились архитектурные правила/фаза/контракты.
+- При любом переносе контекста обязательно явно добавить в промпт правило:
+  **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
 Критичные правила:
 - Архитектура — приоритет №1.
