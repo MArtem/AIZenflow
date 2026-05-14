@@ -28,15 +28,41 @@ struct SharedCardComposerView: View {
 
                 ScrollView(.vertical, showsIndicators: false) {
                     VStack(alignment: .leading, spacing: AppSpacing.xs) {
-                        ForEach(viewModel.orderedVisiblePrimaryTextFieldKinds) { kind in
-                            ComposerTextInputView(
-                                text: binding(for: kind),
-                                placeholder: viewModel.fieldPlaceholder(for: kind),
-                                style: textInputStyle(for: kind),
-                                onDeleteBackwardWhenEmpty: {
-                                    viewModel.handleBackspaceOnEmptyField(kind)
-                                }
-                            )
+                        VStack(alignment: .leading, spacing: 0) {
+                            if viewModel.visibleTextFieldKinds.contains(.headline) {
+                                ComposerTextInputView(
+                                    text: binding(for: .headline),
+                                    placeholder: viewModel.fieldPlaceholder(for: .headline),
+                                    style: textInputStyle(for: .headline),
+                                    onDeleteBackwardWhenEmpty: {
+                                        viewModel.handleBackspaceOnEmptyField(.headline)
+                                    }
+                                )
+                            }
+
+                            if viewModel.visibleTextFieldKinds.contains(.subheadline) {
+                                ComposerTextInputView(
+                                    text: binding(for: .subheadline),
+                                    placeholder: viewModel.fieldPlaceholder(for: .subheadline),
+                                    style: textInputStyle(for: .subheadline),
+                                    onDeleteBackwardWhenEmpty: {
+                                        viewModel.handleBackspaceOnEmptyField(.subheadline)
+                                    }
+                                )
+                                .padding(.top, subheadlineTopPadding)
+                            }
+
+                            if viewModel.visibleTextFieldKinds.contains(.text) {
+                                ComposerTextInputView(
+                                    text: binding(for: .text),
+                                    placeholder: viewModel.fieldPlaceholder(for: .text),
+                                    style: textInputStyle(for: .text),
+                                    onDeleteBackwardWhenEmpty: {
+                                        viewModel.handleBackspaceOnEmptyField(.text)
+                                    }
+                                )
+                                .padding(.top, textTopPadding)
+                            }
                         }
 
                         if let media = viewModel.media {
@@ -390,6 +416,19 @@ struct SharedCardComposerView: View {
         }
 
         onPublish()
+    }
+
+    private var subheadlineTopPadding: CGFloat {
+        viewModel.visibleTextFieldKinds.contains(.headline) ? 8 : 0
+    }
+
+    private var textTopPadding: CGFloat {
+        if viewModel.visibleTextFieldKinds.contains(.headline)
+            || viewModel.visibleTextFieldKinds.contains(.subheadline) {
+            return 16
+        }
+
+        return 0
     }
 
     private var fileMediaActionItems: [ComposerBottomSheetItem] {

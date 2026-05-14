@@ -47,6 +47,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 10 — reorder composer text fields and keep source at the bottom
 ### [x] Step: UI pass 11 — match placeholder copy for Source/Headline/Sub Heading
 ### [x] Step: UI pass 12 — tighten composer text-field vertical spacing to match reference
+### [x] Step: UI pass 13 — apply exact composer text-field spacing values
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -135,6 +136,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Models/NewsFeedModels.swift` placeholder-copy pass (removed `Add` prefix from `Source`, `Headline`, and `Sub Heading` placeholders to match the provided design copy).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` text-field spacing pass (reduced composer stack spacing and compacted optional text-field minimum heights so placeholder rows sit closer to the provided reference).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` exact-spacing pass (replaced uniform `ForEach` text-field layout with explicit field order and spacing: Headline→Sub Heading 8pt, Sub Heading→Text 16pt, Text/content→Source 8pt).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
