@@ -119,9 +119,7 @@ struct SharedCardComposerView: View {
 
             if showsInsertionSheet {
                 ComposerBottomSheet(
-                    items: viewModel.availableInsertions.map { insertion in
-                        ComposerBottomSheetItem(id: insertion.id, title: insertion.title)
-                    },
+                    items: insertionSheetItems,
                     onSelect: handleInsertionSelection,
                     onDismiss: { showsInsertionSheet = false }
                 )
@@ -294,6 +292,10 @@ struct SharedCardComposerView: View {
     }
 
     private func handleInsertionSelection(_ selectedID: String) {
+        if selectedID == "schedule" {
+            return
+        }
+
         guard let insertion = viewModel.availableInsertions.first(where: { $0.id == selectedID }) else {
             return
         }
@@ -303,6 +305,63 @@ struct SharedCardComposerView: View {
             showsMediaChoiceSheet = true
         default:
             viewModel.applyInsertion(insertion)
+        }
+    }
+
+    private var insertionSheetItems: [ComposerBottomSheetItem] {
+        let mapped = viewModel.availableInsertions.map { insertion in
+            ComposerBottomSheetItem(
+                id: insertion.id,
+                title: insertionSheetTitle(for: insertion),
+                systemImageName: insertionSheetIcon(for: insertion)
+            )
+        }
+
+        var items: [ComposerBottomSheetItem] = []
+        for item in mapped {
+            items.append(item)
+            if item.id == FeedComposerInsertion.pdf.id {
+                items.append(
+                    ComposerBottomSheetItem(
+                        id: "schedule",
+                        title: "Schedule",
+                        systemImageName: "calendar"
+                    )
+                )
+            }
+        }
+        return items
+    }
+
+    private func insertionSheetTitle(for insertion: FeedComposerInsertion) -> String {
+        switch insertion {
+        case .pdf:
+            return "PDF file"
+        case .subheadline:
+            return "Sub heading"
+        default:
+            return insertion.title
+        }
+    }
+
+    private func insertionSheetIcon(for insertion: FeedComposerInsertion) -> String {
+        switch insertion {
+        case .photoOrVideo:
+            return "photo.on.rectangle"
+        case .photo:
+            return "photo"
+        case .audio:
+            return "music.note"
+        case .pdf:
+            return "doc.text"
+        case .text:
+            return "calendar"
+        case .headline:
+            return "textformat.size"
+        case .subheadline:
+            return "textformat"
+        case .source:
+            return "globe"
         }
     }
 
@@ -969,6 +1028,7 @@ private struct ComposerDetailTopBar: View {
 private struct ComposerBottomSheetItem: Identifiable {
     let id: String
     let title: String
+    var systemImageName: String?
 }
 
 private struct ComposerBottomSheet: View {
@@ -981,8 +1041,11 @@ private struct ComposerBottomSheet: View {
         static let handleHeight: CGFloat = 5
         static let handleTopPadding: CGFloat = 14
         static let handleBottomPadding: CGFloat = 18
-        static let rowHeight: CGFloat = 52
+        static let rowHeight: CGFloat = 68
         static let rowHorizontalPadding: CGFloat = 28
+        static let iconSize: CGFloat = 18
+        static let iconWidth: CGFloat = 28
+        static let rowSpacing: CGFloat = 18
     }
 
     let items: [ComposerBottomSheetItem]
@@ -1008,12 +1071,21 @@ private struct ComposerBottomSheet: View {
                         onSelect(item.id)
                         onDismiss()
                     } label: {
-                        Text(item.title)
-                            .font(AppTypography.cardTitleBold)
-                            .foregroundStyle(AppTheme.textPrimary)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal, Layout.rowHorizontalPadding)
-                            .frame(height: Layout.rowHeight, alignment: .center)
+                        HStack(spacing: Layout.rowSpacing) {
+                            if let icon = item.systemImageName {
+                                Image(systemName: icon)
+                                    .font(.system(size: Layout.iconSize, weight: .regular))
+                                    .foregroundStyle(AppTheme.textPrimary)
+                                    .frame(width: Layout.iconWidth, alignment: .leading)
+                            }
+
+                            Text(item.title)
+                                .font(.system(size: 18, weight: .regular))
+                                .foregroundStyle(AppTheme.textPrimary)
+                        }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, Layout.rowHorizontalPadding)
+                        .frame(height: Layout.rowHeight, alignment: .center)
                     }
                     .buttonStyle(.plain)
                 }
