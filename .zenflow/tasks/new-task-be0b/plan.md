@@ -38,6 +38,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 3 — fine-tune add/photo/calendar spacing to latest screenshot
 ### [x] Step: UI pass 4 — pin Publish button to right edge and align toolbar spacing to reference
 ### [x] Step: UI pass 5 — align entered text origin with placeholder origin in composer text view
+### [x] Step: UI pass 6 — match entered body text size/alignment with placeholder in primary composer field
 ### [x] Step: UI pass 5 — extend empty composer toolbar background to full-screen bottom reference
 
 ## Current Status
@@ -115,6 +116,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` text-origin pass (placeholder and typed text now share the same top-leading inset source so entered text starts at the same visual origin as placeholder).
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` typography/alignment correction (primary composer text field now uses 24pt input font to match placeholder scale and cursor baseline expectations).
 
 ## Working Rule
 - Keep this file short and current.

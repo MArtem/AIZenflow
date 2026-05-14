@@ -245,9 +245,9 @@ struct SharedCardComposerView: View {
         switch kind {
         case .text:
             return ComposerTextInputStyle(
-                textFont: .system(size: 16, weight: .regular),
+                textFont: .system(size: 24, weight: .regular),
                 placeholderFont: .system(size: 24, weight: .regular),
-                uiTextFont: .systemFont(ofSize: 16, weight: .regular),
+                uiTextFont: .systemFont(ofSize: 24, weight: .regular),
                 textColor: AppTheme.textPrimary,
                 placeholderColor: AppTheme.textTertiary,
                 minimumHeight: 120
