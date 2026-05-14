@@ -37,6 +37,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 2 — enforce full-screen composer presentation and toolbar spacing polish
 ### [x] Step: UI pass 3 — fine-tune add/photo/calendar spacing to latest screenshot
 ### [x] Step: UI pass 4 — pin Publish button to right edge and align toolbar spacing to reference
+### [x] Step: UI pass 5 — align entered text origin with placeholder origin in composer text view
 ### [x] Step: UI pass 5 — extend empty composer toolbar background to full-screen bottom reference
 
 ## Current Status
@@ -112,6 +113,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` toolbar alignment pass (locked left tool cluster to fixed reference width and pinned `Publish` to the right edge with fixed size/offset behavior).
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` empty-screen layout pass (kept the tuned left cluster and right-pinned `Publish`, extended the toolbar chrome through the bottom safe area, and increased content bottom inset to match the taller reference bar).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` text-origin pass (placeholder and typed text now share the same top-leading inset source so entered text starts at the same visual origin as placeholder).
 
 ## Working Rule
 - Keep this file short and current.

@@ -1013,6 +1013,8 @@ private struct ComposerBottomSheet: View {
 }
 
 private struct ComposerTextInputStyle {
+    static let textInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+
     let textFont: Font
     let placeholderFont: Font
     let uiTextFont: UIFont
@@ -1169,8 +1171,8 @@ private struct ComposerTextInputView: View {
                 Text(placeholder)
                     .font(style.placeholderFont)
                     .foregroundStyle(style.placeholderColor)
-                    .padding(.top, 8)
-                    .padding(.horizontal, 5)
+                    .padding(.top, ComposerTextInputStyle.textInsets.top)
+                    .padding(.leading, ComposerTextInputStyle.textInsets.left)
                     .allowsHitTesting(false)
             }
 
@@ -1208,7 +1210,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         let textView = DeleteAwareTextView()
         textView.delegate = context.coordinator
         textView.backgroundColor = .clear
-        textView.textContainerInset = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+        textView.textContainerInset = ComposerTextInputStyle.textInsets
         textView.textContainer.lineFragmentPadding = 0
         textView.isScrollEnabled = false
         textView.autocorrectionType = .no
