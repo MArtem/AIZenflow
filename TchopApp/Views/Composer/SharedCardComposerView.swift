@@ -16,6 +16,7 @@ struct SharedCardComposerView: View {
     @State private var focusedPhotoItemID: String?
     @State private var showsFileMediaDetail = false
     @State private var showsTeaserDetail = false
+    @State private var focusedTextFieldKind: ChannelCardTextFieldKind?
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -34,8 +35,10 @@ struct SharedCardComposerView: View {
                                     text: binding(for: .headline),
                                     placeholder: viewModel.fieldPlaceholder(for: .headline),
                                     style: textInputStyle(for: .headline),
+                                    isFocused: focusedTextFieldKind == .headline,
+                                    onFocus: { focusedTextFieldKind = .headline },
                                     onDeleteBackwardWhenEmpty: {
-                                        viewModel.handleBackspaceOnEmptyField(.headline)
+                                        handleTextFieldBackspaceWhenEmpty(.headline)
                                     }
                                 )
                             }
@@ -45,8 +48,10 @@ struct SharedCardComposerView: View {
                                     text: binding(for: .subheadline),
                                     placeholder: viewModel.fieldPlaceholder(for: .subheadline),
                                     style: textInputStyle(for: .subheadline),
+                                    isFocused: focusedTextFieldKind == .subheadline,
+                                    onFocus: { focusedTextFieldKind = .subheadline },
                                     onDeleteBackwardWhenEmpty: {
-                                        viewModel.handleBackspaceOnEmptyField(.subheadline)
+                                        handleTextFieldBackspaceWhenEmpty(.subheadline)
                                     }
                                 )
                                 .padding(.top, subheadlineTopPadding)
@@ -57,8 +62,10 @@ struct SharedCardComposerView: View {
                                     text: binding(for: .text),
                                     placeholder: viewModel.fieldPlaceholder(for: .text),
                                     style: textInputStyle(for: .text),
+                                    isFocused: focusedTextFieldKind == .text,
+                                    onFocus: { focusedTextFieldKind = .text },
                                     onDeleteBackwardWhenEmpty: {
-                                        viewModel.handleBackspaceOnEmptyField(.text)
+                                        handleTextFieldBackspaceWhenEmpty(.text)
                                     }
                                 )
                                 .padding(.top, textTopPadding)
@@ -134,8 +141,10 @@ struct SharedCardComposerView: View {
                                 text: binding(for: .source),
                                 placeholder: viewModel.fieldPlaceholder(for: .source),
                                 style: textInputStyle(for: .source),
+                                isFocused: focusedTextFieldKind == .source,
+                                onFocus: { focusedTextFieldKind = .source },
                                 onDeleteBackwardWhenEmpty: {
-                                    viewModel.handleBackspaceOnEmptyField(.source)
+                                    handleTextFieldBackspaceWhenEmpty(.source)
                                 }
                             )
                         }
@@ -341,6 +350,9 @@ struct SharedCardComposerView: View {
         switch insertion {
         case .photoOrVideo:
             showsMediaChoiceSheet = true
+        case .text, .headline, .subheadline, .source:
+            viewModel.applyInsertion(insertion)
+            focusTextField(insertion.textFieldKind)
         default:
             viewModel.applyInsertion(insertion)
         }
@@ -430,6 +442,27 @@ struct SharedCardComposerView: View {
         }
 
         return 0
+    }
+
+    private func handleTextFieldBackspaceWhenEmpty(_ kind: ChannelCardTextFieldKind) {
+        let wasFocusedFieldRemoved = viewModel.fieldSupportsRemoval(kind)
+        viewModel.handleBackspaceOnEmptyField(kind)
+
+        if wasFocusedFieldRemoved {
+            focusTextField(firstAvailableTextFieldKind)
+        }
+    }
+
+    private func focusTextField(_ kind: ChannelCardTextFieldKind?) {
+        DispatchQueue.main.async {
+            focusedTextFieldKind = kind
+        }
+    }
+
+    private var firstAvailableTextFieldKind: ChannelCardTextFieldKind? {
+        [.headline, .subheadline, .text, .source].first {
+            viewModel.visibleTextFieldKinds.contains($0)
+        }
     }
 
     private var fileMediaActionItems: [ComposerBottomSheetItem] {
@@ -1286,6 +1319,8 @@ private struct ComposerTextInputView: View {
     @Binding var text: String
     let placeholder: String
     let style: ComposerTextInputStyle
+    let isFocused: Bool
+    let onFocus: () -> Void
     let onDeleteBackwardWhenEmpty: () -> Void
 
     @State private var dynamicHeight: CGFloat
@@ -1294,11 +1329,15 @@ private struct ComposerTextInputView: View {
         text: Binding<String>,
         placeholder: String,
         style: ComposerTextInputStyle,
+        isFocused: Bool = false,
+        onFocus: @escaping () -> Void = {},
         onDeleteBackwardWhenEmpty: @escaping () -> Void
     ) {
         self._text = text
         self.placeholder = placeholder
         self.style = style
+        self.isFocused = isFocused
+        self.onFocus = onFocus
         self.onDeleteBackwardWhenEmpty = onDeleteBackwardWhenEmpty
         self._dynamicHeight = State(initialValue: style.minimumHeight)
     }
@@ -1321,6 +1360,8 @@ private struct ComposerTextInputView: View {
                 textColor: UIColor(style.textColor),
                 minimumHeight: style.minimumHeight,
                 maximumCharacterCount: ComposerTextInputStyle.maximumCharacterCount,
+                isFocused: isFocused,
+                onFocus: onFocus,
                 onDeleteBackwardWhenEmpty: onDeleteBackwardWhenEmpty
             )
             .frame(maxWidth: .infinity, alignment: .leading)
@@ -1337,6 +1378,8 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
     let textColor: UIColor
     let minimumHeight: CGFloat
     let maximumCharacterCount: Int
+    let isFocused: Bool
+    let onFocus: () -> Void
     let onDeleteBackwardWhenEmpty: () -> Void
 
     func makeCoordinator() -> Coordinator {
@@ -1344,7 +1387,8 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
             text: $text,
             dynamicHeight: $dynamicHeight,
             minimumHeight: minimumHeight,
-            maximumCharacterCount: maximumCharacterCount
+            maximumCharacterCount: maximumCharacterCount,
+            onFocus: onFocus
         )
     }
 
@@ -1372,6 +1416,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: DeleteAwareTextView, context: Context) {
+        context.coordinator.onFocus = onFocus
         let limitedText = String(text.prefix(maximumCharacterCount))
         if text != limitedText {
             DispatchQueue.main.async {
@@ -1384,6 +1429,11 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         uiView.font = font
         uiView.textColor = textColor
         uiView.onDeleteBackwardWhenEmpty = onDeleteBackwardWhenEmpty
+        if isFocused && !uiView.isFirstResponder {
+            DispatchQueue.main.async {
+                uiView.becomeFirstResponder()
+            }
+        }
         context.coordinator.recalculateHeight(for: uiView)
     }
 
@@ -1392,17 +1442,20 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         @Binding private var dynamicHeight: CGFloat
         private let minimumHeight: CGFloat
         private let maximumCharacterCount: Int
+        var onFocus: () -> Void
 
         init(
             text: Binding<String>,
             dynamicHeight: Binding<CGFloat>,
             minimumHeight: CGFloat,
-            maximumCharacterCount: Int
+            maximumCharacterCount: Int,
+            onFocus: @escaping () -> Void
         ) {
             self._text = text
             self._dynamicHeight = dynamicHeight
             self.minimumHeight = minimumHeight
             self.maximumCharacterCount = maximumCharacterCount
+            self.onFocus = onFocus
         }
 
         func textView(
@@ -1436,6 +1489,10 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         func textViewDidChange(_ textView: UITextView) {
             text = textView.text
             recalculateHeight(for: textView)
+        }
+
+        func textViewDidBeginEditing(_ textView: UITextView) {
+            onFocus()
         }
 
         func recalculateHeight(for textView: UITextView) {

@@ -50,6 +50,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 13 — apply exact composer text-field spacing values
 ### [x] Step: UI pass 14 — remove empty text-field reserved height causing large Source gap
 ### [x] Step: UI pass 15 — enforce composer text wrapping and 200-character field limit
+### [x] Step: UI pass 16 — focus newly inserted fields and recover focus after field deletion
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -144,6 +145,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` text-field height correction (reduced empty primary text field minimum height from 120pt to one-line height so `Source` no longer sits below a reserved blank text area; dynamic growth for real text remains).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: composer text input wrapping/limit pass across `./TchopApp/Views/Composer/SharedCardComposerView.swift` and `./TchopApp/Models/NewsFeedModels.swift` (text views are constrained to available width, wrap instead of expanding horizontally, and all composer text inputs are limited to 200 characters including paste/programmatic draft updates).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` focus-management pass (newly inserted composer text fields become first responder; after removing an optional text field focus moves to the first visible composer text field instead of disappearing).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
