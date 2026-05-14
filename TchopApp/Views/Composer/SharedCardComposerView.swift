@@ -973,16 +973,16 @@ private struct ComposerBottomSheetItem: Identifiable {
 
 private struct ComposerBottomSheet: View {
     private enum Layout {
-        static let overlayOpacity: CGFloat = 0.42
-        static let horizontalInset: CGFloat = 20
-        static let bottomInset: CGFloat = 56
-        static let cornerRadius: CGFloat = 32
+        static let overlayOpacity: CGFloat = 0.38
+        static let horizontalInset: CGFloat = 22
+        static let bottomInset: CGFloat = 18
+        static let cornerRadius: CGFloat = 26
         static let handleWidth: CGFloat = 48
         static let handleHeight: CGFloat = 5
-        static let handleTopPadding: CGFloat = 16
-        static let handleBottomPadding: CGFloat = 14
-        static let rowHeight: CGFloat = 50
-        static let rowHorizontalPadding: CGFloat = AppSpacing.screenHorizontal
+        static let handleTopPadding: CGFloat = 14
+        static let handleBottomPadding: CGFloat = 18
+        static let rowHeight: CGFloat = 52
+        static let rowHorizontalPadding: CGFloat = 28
     }
 
     let items: [ComposerBottomSheetItem]

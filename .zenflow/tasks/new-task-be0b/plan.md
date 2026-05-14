@@ -41,6 +41,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 6 — match entered body text size/alignment with placeholder in primary composer field
 ### [x] Step: UI pass 5 — extend empty composer toolbar background to full-screen bottom reference
 ### [x] Step: UI pass 7 — align composer `+` popup bottom-sheet layout/styling to reference
+### [x] Step: UI pass 8 — pixel-tighten composer `+` popup sheet geometry/spacing to latest reference
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -121,6 +122,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` typography/alignment correction (primary composer text field now uses 24pt input font to match placeholder scale and cursor baseline expectations).
 
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` add-popup UI pass (bottom-sheet overlay, container width/bottom position, corner radius, handle sizing, row height, and row typography aligned to the supplied reference without adding logic).
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` add-popup pixel pass 2 (retuned overlay opacity, corner radius, side/bottom insets, handle paddings, and row metrics for tighter parity with the latest popup reference).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
