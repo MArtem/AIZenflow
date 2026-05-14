@@ -45,6 +45,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Continuity docs pass — enforce full docs/rules reread rule in context-transfer prompt
 ### [x] Step: UI pass 9 — restore `+` popup icons/labels/count/typography to match latest provided reference
 ### [x] Step: UI pass 10 — reorder composer text fields and keep source at the bottom
+### [x] Step: UI pass 11 — match placeholder copy for Source/Headline/Sub Heading
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -129,6 +130,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./docs/WORK_CONTINUITY.md` continuity-rule pass (context-transfer template now explicitly mandates adding the rule to reread the full актуальный набор docs/rules for the active worktree + task context).
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` popup parity pass (restored icon rows, `Schedule`, `PDF file`, and `Sub heading` labels, and adjusted row typography/spacing to match the latest target screenshot).
 - Completed now: composer text-field ordering pass across `./TchopApp/Models/NewsFeedModels.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, and `./TchopApp/Views/Composer/SharedCardComposerView.swift` (`headline/subheadline/text` render before content, while `source` renders as the final field regardless of added media/content).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Models/NewsFeedModels.swift` placeholder-copy pass (removed `Add` prefix from `Source`, `Headline`, and `Sub Heading` placeholders to match the provided design copy).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.

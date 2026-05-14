@@ -126,9 +126,9 @@ enum ChannelCardTextFieldKind: String, CaseIterable, Equatable, Sendable, Identi
     var placeholder: String {
         switch self {
         case .text: return "Enter card text..."
-        case .headline: return "Add headline"
-        case .subheadline: return "Add subheadline"
-        case .source: return "Add source"
+        case .headline: return "Headline"
+        case .subheadline: return "Sub Heading"
+        case .source: return "Source"
         }
     }
 }
