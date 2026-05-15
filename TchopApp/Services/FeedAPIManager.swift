@@ -514,9 +514,6 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 }
 
 enum FeedAPIStubFactory {
-    private static let iso8601WithFractionalSeconds = makeISO8601DateFormatter(withFractionalSeconds: true)
-    private static let iso8601WithoutFractionalSeconds = makeISO8601DateFormatter(withFractionalSeconds: false)
-
     /// Produces the latest full stub feed contract used by refreshes and initial seeding.
     static func makeFeedResponse(channelID: String) async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
@@ -617,11 +614,11 @@ enum FeedAPIStubFactory {
             let container = try decoder.singleValueContainer()
             let value = try container.decode(String.self)
 
-            if let date = iso8601WithFractionalSeconds.date(from: value) {
+            if let date = makeISO8601DateFormatter(withFractionalSeconds: true).date(from: value) {
                 return date
             }
 
-            if let date = iso8601WithoutFractionalSeconds.date(from: value) {
+            if let date = makeISO8601DateFormatter(withFractionalSeconds: false).date(from: value) {
                 return date
             }
 

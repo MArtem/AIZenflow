@@ -219,7 +219,9 @@ final class AppDIContainer {
         self.channelsStore = ChannelsStore(
             selectionStore: UserDefaultsChannelSelectionStore()
         )
-        self.localFeedCardStore = LocalFeedCardStore()
+        self.localFeedCardStore = LocalFeedCardStore(
+            repository: LocalFeedCardRepository(databaseManager: databaseManager)
+        )
         self.sharedLocalFeedCardSyncManager = Self.makeSharedLocalFeedCardSyncManager(
             errorManager: errorManager
         )

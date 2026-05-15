@@ -58,7 +58,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Composer audio Files visibility fix — expose app documents and include MP3 content type
 ### [x] Step: Composer file importer completion fix — keep media kind until Audio/PDF import applies
 ### [x] Step: Composer media detail pass — render/play selected video/audio/pdf draft files
-### [x] Step: Local feed persistence pass — keep created cards after app restart
+### [x] Step: Local feed SwiftData persistence pass — keep created cards after app restart
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -174,8 +174,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` media detail pass (draft video now uses `VideoPlayer`, draft audio has an `AVPlayer` play/pause control, and draft PDF renders through `PDFKit.PDFView` when selected media has a real file URL).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
-- Completed now: `./TchopApp/ViewModels/AppShellViewModel.swift` local feed persistence pass (created/imported `LocalFeedCardModel` entries are saved to `UserDefaults` and rehydrated into feed cards when the app starts).
-- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: local feed SwiftData persistence pass across `./TchopApp/Persistence/AppContentRecord.swift`, `./TchopApp/Persistence/AppDatabase.swift`, `./TchopApp/Repositories/AppContentRepository.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/App/AppDIContainer.swift`, and `./TchopApp/Shared/SharedLocalFeedCardSyncManager.swift` (created/imported `LocalFeedCardModel` entries are saved in SwiftData and rehydrated into feed cards when the app starts; share-extension pending cards are cleared only after database persistence succeeds).
+- Completed now: `./TchopApp/Services/FeedAPIManager.swift` warning cleanup (removed shared non-Sendable `ISO8601DateFormatter` statics from the stub decoder path).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` with no warning/error output from the final filtered check.
 
 ## Working Rule
 - Keep this file short and current.

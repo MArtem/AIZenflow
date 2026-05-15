@@ -7,6 +7,13 @@ enum FeedCardRecordKind: String, Codable, Sendable {
     case text = "text"
 }
 
+/// Sync state for locally created feed cards that are persisted before backend support exists.
+enum LocalFeedCardRecordSyncState: String, Codable, Sendable {
+    case pendingCreate
+    case synced
+    case failed
+}
+
 /// Persisted action payload stored for featured article cards.
 struct FeedCardActionPayload: Codable, Equatable, Sendable {
     let id: String
@@ -136,6 +143,44 @@ final class FeedCardRecord {
     /// Typed feed card kind derived from the stored raw value.
     var kind: FeedCardRecordKind? {
         FeedCardRecordKind(rawValue: kindRawValue)
+    }
+}
+
+/// SwiftData record storing the full local feed-card payload created from composer/share flows.
+@available(iOS 17, *)
+@Model
+final class LocalFeedCardRecord {
+    @Attribute(.unique) var id: String
+    var channelID: String
+    var kindRawValue: String
+    var createdAt: Date
+    var payloadData: Data
+    var serverID: String?
+    var syncStateRawValue: String
+    var lastSyncAttemptAt: Date?
+
+    init(
+        id: String,
+        channelID: String,
+        kindRawValue: String,
+        createdAt: Date,
+        payloadData: Data,
+        serverID: String? = nil,
+        syncState: LocalFeedCardRecordSyncState = .pendingCreate,
+        lastSyncAttemptAt: Date? = nil
+    ) {
+        self.id = id
+        self.channelID = channelID
+        self.kindRawValue = kindRawValue
+        self.createdAt = createdAt
+        self.payloadData = payloadData
+        self.serverID = serverID
+        self.syncStateRawValue = syncState.rawValue
+        self.lastSyncAttemptAt = lastSyncAttemptAt
+    }
+
+    var syncState: LocalFeedCardRecordSyncState? {
+        LocalFeedCardRecordSyncState(rawValue: syncStateRawValue)
     }
 }
 

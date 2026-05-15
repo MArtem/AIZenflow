@@ -27,7 +27,7 @@ final class SharedLocalFeedCardSyncManager {
             return 0
         }
 
-        localFeedCardStore.sync(cards)
+        try localFeedCardStore.sync(cards)
         try store.clear()
 
         return cards.count

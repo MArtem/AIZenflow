@@ -38,6 +38,81 @@ protocol AppContentRepository: NewsFeedRepository {
     func fetchAvailableChannels() throws -> [AppChannel]
 }
 
+/// Persists locally created feed cards in the app SwiftData store.
+@MainActor
+struct LocalFeedCardRepository: LocalFeedCardPersisting {
+    private let databaseManager: any DatabaseManaging
+
+    init(databaseManager: any DatabaseManaging) {
+        self.databaseManager = databaseManager
+
+        precondition(
+            databaseManager.backendKind == .swiftData,
+            "LocalFeedCardRepository expects SwiftData runtime backend."
+        )
+    }
+
+    func loadCards() throws -> [LocalFeedCardModel] {
+        try databaseManager.read(
+            DatabaseReadOperation(swiftData: { context in
+                let records = try context.fetch(FetchDescriptor<LocalFeedCardRecord>())
+                    .sorted(by: { $0.createdAt > $1.createdAt })
+                return try records.map(Self.decodeCard)
+            })
+        )
+    }
+
+    func saveCards(_ cards: [LocalFeedCardModel]) throws {
+        guard !cards.isEmpty else {
+            return
+        }
+
+        try databaseManager.write(
+            DatabaseWriteOperation(swiftData: { context in
+                let existingRecords = try context.fetch(FetchDescriptor<LocalFeedCardRecord>())
+
+                for card in cards {
+                    let payloadData = try JSONEncoder().encode(card)
+
+                    if let existingRecord = existingRecords.first(where: { $0.id == card.id }) {
+                        Self.apply(card, payloadData: payloadData, to: existingRecord)
+                    } else {
+                        context.insert(Self.makeRecord(from: card, payloadData: payloadData))
+                    }
+                }
+            })
+        ) as Void
+    }
+
+    private static func decodeCard(from record: LocalFeedCardRecord) throws -> LocalFeedCardModel {
+        try JSONDecoder().decode(LocalFeedCardModel.self, from: record.payloadData)
+    }
+
+    private static func makeRecord(
+        from card: LocalFeedCardModel,
+        payloadData: Data
+    ) -> LocalFeedCardRecord {
+        LocalFeedCardRecord(
+            id: card.id,
+            channelID: card.channelID,
+            kindRawValue: card.kind.rawValue,
+            createdAt: card.createdAt,
+            payloadData: payloadData
+        )
+    }
+
+    private static func apply(
+        _ card: LocalFeedCardModel,
+        payloadData: Data,
+        to record: LocalFeedCardRecord
+    ) {
+        record.channelID = card.channelID
+        record.kindRawValue = card.kind.rawValue
+        record.createdAt = card.createdAt
+        record.payloadData = payloadData
+    }
+}
+
 /// Default app content repository that combines local persistence and API data.
 @MainActor
 final class DefaultAppContentRepository: AppContentRepository {
