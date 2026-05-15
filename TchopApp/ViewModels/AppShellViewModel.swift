@@ -9,7 +9,23 @@ import TchopUIConfiguration
 @MainActor
 @Observable
 final class LocalFeedCardStore {
+    private static let persistenceKey = "tchop.localFeedCards.v1"
+
     private(set) var cards: [NewsFeedCard] = []
+
+    private let userDefaults: UserDefaults
+    private var persistedLocalCards: [LocalFeedCardModel]
+    private var transientCards: [NewsFeedCard] = []
+
+    init(userDefaults: UserDefaults = .standard) {
+        self.userDefaults = userDefaults
+        self.persistedLocalCards = Self.loadPersistedCards(from: userDefaults)
+        refreshCards()
+    }
+
+    func publish(_ card: LocalFeedCardModel) {
+        sync([card])
+    }
 
     func publish(_ card: NewsFeedCard) {
         sync([card])
@@ -24,7 +40,19 @@ final class LocalFeedCardStore {
     }
 
     func sync(_ localFeedCards: [LocalFeedCardModel]) {
-        sync(localFeedCards.map(\.newsFeedCard))
+        guard !localFeedCards.isEmpty else {
+            return
+        }
+
+        let existingIDs = Set(persistedLocalCards.map(\.id))
+        let newCards = localFeedCards.filter { !existingIDs.contains($0.id) }
+        guard !newCards.isEmpty else {
+            return
+        }
+
+        persistedLocalCards = newCards + persistedLocalCards
+        persistLocalCards()
+        refreshCards()
     }
 
     func sync(_ incomingCards: [NewsFeedCard]) {
@@ -32,13 +60,40 @@ final class LocalFeedCardStore {
             return
         }
 
-        let existingIDs = Set(cards.map(\.id))
+        let existingIDs = Set((persistedLocalCards.map(\.id) + transientCards.map(\.id)))
         let newCards = incomingCards.filter { !existingIDs.contains($0.id) }
         guard !newCards.isEmpty else {
             return
         }
 
-        cards = newCards + cards
+        transientCards = newCards + transientCards
+        refreshCards()
+    }
+
+    private func refreshCards() {
+        cards = persistedLocalCards.map(\.newsFeedCard) + transientCards
+    }
+
+    private func persistLocalCards() {
+        do {
+            let data = try JSONEncoder().encode(persistedLocalCards)
+            userDefaults.set(data, forKey: Self.persistenceKey)
+        } catch {
+            assertionFailure("Failed to persist local feed cards: \(error)")
+        }
+    }
+
+    private static func loadPersistedCards(from userDefaults: UserDefaults) -> [LocalFeedCardModel] {
+        guard let data = userDefaults.data(forKey: persistenceKey) else {
+            return []
+        }
+
+        do {
+            return try JSONDecoder().decode([LocalFeedCardModel].self, from: data)
+        } catch {
+            assertionFailure("Failed to load persisted local feed cards: \(error)")
+            return []
+        }
     }
 }
 
@@ -57,8 +112,8 @@ final class FeedComposerViewModel {
         self.init(
             selectedChannelID: selectedChannelID,
             channelsStore: channelsStore,
-            publishAction: { _, newsFeedCard in
-                localFeedCardStore.publish(newsFeedCard)
+            publishAction: { localFeedCard, _ in
+                localFeedCardStore.publish(localFeedCard)
             }
         )
     }
