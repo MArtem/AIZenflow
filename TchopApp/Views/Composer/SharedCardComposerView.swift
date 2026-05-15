@@ -1,5 +1,7 @@
+import AVKit
 import CoreTransferable
 import Observation
+import PDFKit
 import PhotosUI
 import SwiftUI
 import UIKit
@@ -1304,43 +1306,235 @@ private struct ComposerFileMediaDetailView: View {
         ZStack(alignment: .top) {
             Color.black.ignoresSafeArea()
 
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: AppSpacing.md) {
-                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-                        .fill(Color.white.opacity(0.08))
-                        .frame(height: 320)
-                        .overlay {
-                            VStack(spacing: AppSpacing.sm) {
-                                ComposerMediaKindBadge(title: presentation.kindTitle)
-
-                                Image(systemName: presentation.iconName)
-                                    .font(.system(size: 56, weight: .semibold))
-                                    .foregroundStyle(Color.white.opacity(0.9))
-
-                                if let displayTitle = presentation.resolvedDisplayTitle {
-                                    Text(displayTitle)
-                                        .font(.system(size: 22, weight: .semibold))
-                                        .foregroundStyle(Color.white)
-                                        .multilineTextAlignment(.center)
-                                }
-
-                                if let caption = file.caption, !caption.isEmpty {
-                                    Text(caption)
-                                        .font(.system(size: 15, weight: .medium))
-                                        .foregroundStyle(Color.white.opacity(0.8))
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, AppSpacing.lg)
-                                }
-                            }
-                            .padding(.horizontal, AppSpacing.lg)
-                        }
-                        .padding(.top, 80)
-                }
-                .padding(.horizontal, AppSpacing.screenHorizontal)
-                .padding(.bottom, 40)
+            if let fileURL = file.fileURL {
+                ComposerResolvedFileMediaDetail(file: file, fileURL: fileURL, presentation: presentation)
+            } else {
+                ComposerPlaceholderFileMediaDetail(file: file, presentation: presentation)
             }
 
             ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
+        }
+    }
+}
+
+private struct ComposerResolvedFileMediaDetail: View {
+    let file: ChannelCardFileMediaContent
+    let fileURL: URL
+    let presentation: ComposerFileMediaPresentation
+
+    var body: some View {
+        switch file.kind {
+        case .photo:
+            ComposerPlaceholderFileMediaDetail(file: file, presentation: presentation)
+        case .video:
+            ComposerVideoDetailPlayer(file: file, fileURL: fileURL, presentation: presentation)
+        case .audio:
+            ComposerAudioDetailPlayer(file: file, fileURL: fileURL, presentation: presentation)
+        case .pdf:
+            ComposerPDFDetailView(file: file, fileURL: fileURL, presentation: presentation)
+        }
+    }
+}
+
+private struct ComposerPlaceholderFileMediaDetail: View {
+    let file: ChannelCardFileMediaContent
+    let presentation: ComposerFileMediaPresentation
+
+    var body: some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            VStack(spacing: AppSpacing.md) {
+                ComposerFileMediaInfoCard(file: file, presentation: presentation)
+                    .padding(.top, 80)
+            }
+            .padding(.horizontal, AppSpacing.screenHorizontal)
+            .padding(.bottom, 40)
+        }
+    }
+}
+
+private struct ComposerFileMediaInfoCard: View {
+    let file: ChannelCardFileMediaContent
+    let presentation: ComposerFileMediaPresentation
+
+    var body: some View {
+        RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+            .fill(Color.white.opacity(0.08))
+            .frame(height: 320)
+            .overlay {
+                VStack(spacing: AppSpacing.sm) {
+                    ComposerMediaKindBadge(title: presentation.kindTitle)
+
+                    Image(systemName: presentation.iconName)
+                        .font(.system(size: 56, weight: .semibold))
+                        .foregroundStyle(Color.white.opacity(0.9))
+
+                    if let displayTitle = presentation.resolvedDisplayTitle {
+                        Text(displayTitle)
+                            .font(.system(size: 22, weight: .semibold))
+                            .foregroundStyle(Color.white)
+                            .multilineTextAlignment(.center)
+                    }
+
+                    if let caption = file.caption, !caption.isEmpty {
+                        Text(caption)
+                            .font(.system(size: 15, weight: .medium))
+                            .foregroundStyle(Color.white.opacity(0.8))
+                            .multilineTextAlignment(.center)
+                            .padding(.horizontal, AppSpacing.lg)
+                    }
+                }
+                .padding(.horizontal, AppSpacing.lg)
+            }
+    }
+}
+
+private struct ComposerVideoDetailPlayer: View {
+    let file: ChannelCardFileMediaContent
+    let fileURL: URL
+    let presentation: ComposerFileMediaPresentation
+
+    @State private var player: AVPlayer
+
+    init(file: ChannelCardFileMediaContent, fileURL: URL, presentation: ComposerFileMediaPresentation) {
+        self.file = file
+        self.fileURL = fileURL
+        self.presentation = presentation
+        self._player = State(initialValue: AVPlayer(url: fileURL))
+    }
+
+    var body: some View {
+        VStack(spacing: AppSpacing.md) {
+            VideoPlayer(player: player)
+                .frame(maxWidth: .infinity)
+                .frame(height: 320)
+                .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+
+            ComposerFileMediaMetadata(file: file, presentation: presentation)
+        }
+        .padding(.horizontal, AppSpacing.screenHorizontal)
+        .padding(.top, 80)
+        .padding(.bottom, 40)
+        .onDisappear {
+            player.pause()
+        }
+    }
+}
+
+private struct ComposerAudioDetailPlayer: View {
+    let file: ChannelCardFileMediaContent
+    let fileURL: URL
+    let presentation: ComposerFileMediaPresentation
+
+    @State private var player: AVPlayer
+    @State private var isPlaying = false
+
+    init(file: ChannelCardFileMediaContent, fileURL: URL, presentation: ComposerFileMediaPresentation) {
+        self.file = file
+        self.fileURL = fileURL
+        self.presentation = presentation
+        self._player = State(initialValue: AVPlayer(url: fileURL))
+    }
+
+    var body: some View {
+        VStack(spacing: AppSpacing.md) {
+            RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                .fill(Color.white.opacity(0.08))
+                .frame(height: 240)
+                .overlay {
+                    VStack(spacing: AppSpacing.md) {
+                        ComposerMediaKindBadge(title: presentation.kindTitle)
+
+                        Button(action: togglePlayback) {
+                            Image(systemName: isPlaying ? "pause.circle.fill" : "play.circle.fill")
+                                .font(.system(size: 72, weight: .semibold))
+                                .foregroundStyle(Color.white)
+                        }
+                        .buttonStyle(.plain)
+
+                        ComposerFileMediaMetadata(file: file, presentation: presentation)
+                    }
+                    .padding(.horizontal, AppSpacing.lg)
+                }
+        }
+        .padding(.horizontal, AppSpacing.screenHorizontal)
+        .padding(.top, 80)
+        .padding(.bottom, 40)
+        .onDisappear {
+            player.pause()
+            isPlaying = false
+        }
+    }
+
+    private func togglePlayback() {
+        if isPlaying {
+            player.pause()
+        } else {
+            player.play()
+        }
+        isPlaying.toggle()
+    }
+}
+
+private struct ComposerPDFDetailView: View {
+    let file: ChannelCardFileMediaContent
+    let fileURL: URL
+    let presentation: ComposerFileMediaPresentation
+
+    var body: some View {
+        VStack(spacing: AppSpacing.md) {
+            ComposerPDFView(fileURL: fileURL)
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+
+            ComposerFileMediaMetadata(file: file, presentation: presentation)
+        }
+        .padding(.horizontal, AppSpacing.screenHorizontal)
+        .padding(.top, 80)
+        .padding(.bottom, 40)
+    }
+}
+
+private struct ComposerPDFView: UIViewRepresentable {
+    let fileURL: URL
+
+    func makeUIView(context: Context) -> PDFView {
+        let pdfView = PDFView()
+        pdfView.autoScales = true
+        pdfView.displayMode = .singlePageContinuous
+        pdfView.displayDirection = .vertical
+        pdfView.backgroundColor = .black
+        pdfView.document = PDFDocument(url: fileURL)
+        return pdfView
+    }
+
+    func updateUIView(_ pdfView: PDFView, context: Context) {
+        if pdfView.document?.documentURL != fileURL {
+            pdfView.document = PDFDocument(url: fileURL)
+        }
+    }
+}
+
+private struct ComposerFileMediaMetadata: View {
+    let file: ChannelCardFileMediaContent
+    let presentation: ComposerFileMediaPresentation
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xs) {
+            ComposerMediaKindBadge(title: presentation.kindTitle)
+
+            if let displayTitle = presentation.resolvedDisplayTitle {
+                Text(displayTitle)
+                    .font(.system(size: 18, weight: .semibold))
+                    .foregroundStyle(Color.white)
+                    .multilineTextAlignment(.center)
+            }
+
+            if let caption = file.caption, !caption.isEmpty {
+                Text(caption)
+                    .font(.system(size: 15, weight: .medium))
+                    .foregroundStyle(Color.white.opacity(0.8))
+                    .multilineTextAlignment(.center)
+            }
         }
     }
 }

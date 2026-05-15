@@ -57,6 +57,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Composer media picker pass — select real photo/video/audio/pdf files into draft cards
 ### [x] Step: Composer audio Files visibility fix — expose app documents and include MP3 content type
 ### [x] Step: Composer file importer completion fix — keep media kind until Audio/PDF import applies
+### [x] Step: Composer media detail pass — render/play selected video/audio/pdf draft files
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -168,6 +169,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file importer completion fix (separated Files picker presentation state from selected media kind so Audio/PDF selection completion still knows which draft media to attach after the picker dismisses).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` media detail pass (draft video now uses `VideoPlayer`, draft audio has an `AVPlayer` play/pause control, and draft PDF renders through `PDFKit.PDFView` when selected media has a real file URL).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
