@@ -106,6 +106,7 @@ struct SharedCardComposerView: View {
                                         text: photoCaptionBinding(for: item.id),
                                         placeholder: "\(item.displayTitle): add caption",
                                         style: assetMetadataInputStyle(color: AppTheme.textSecondary),
+                                        onFocus: clearFocusedTextField,
                                         onDeleteBackwardWhenEmpty: {
                                             viewModel.removePhotoCaptionFieldIfEmpty(id: item.id)
                                         }
@@ -117,6 +118,7 @@ struct SharedCardComposerView: View {
                                         text: photoCopyrightBinding(for: item.id),
                                         placeholder: "\(item.displayTitle): add copyright",
                                         style: assetMetadataInputStyle(color: AppTheme.textTertiary),
+                                        onFocus: clearFocusedTextField,
                                         onDeleteBackwardWhenEmpty: {
                                             viewModel.removePhotoCopyrightFieldIfEmpty(id: item.id)
                                         }
@@ -129,6 +131,7 @@ struct SharedCardComposerView: View {
                                     text: fileCaptionBinding,
                                     placeholder: "Add caption",
                                     style: assetMetadataInputStyle(color: AppTheme.textSecondary),
+                                    onFocus: clearFocusedTextField,
                                     onDeleteBackwardWhenEmpty: {
                                         viewModel.removeFileCaptionFieldIfEmpty()
                                     }
@@ -140,6 +143,7 @@ struct SharedCardComposerView: View {
                                     text: teaserCopyrightBinding,
                                     placeholder: "Add teaser copyright",
                                     style: assetMetadataInputStyle(color: AppTheme.textTertiary),
+                                    onFocus: clearFocusedTextField,
                                     onDeleteBackwardWhenEmpty: {
                                         viewModel.removeTeaserCopyrightFieldIfEmpty()
                                     }
@@ -643,6 +647,10 @@ struct SharedCardComposerView: View {
         DispatchQueue.main.async {
             focusedTextFieldKind = kind
         }
+    }
+
+    private func clearFocusedTextField() {
+        focusedTextFieldKind = nil
     }
 
     private func focusInitialTextField() {

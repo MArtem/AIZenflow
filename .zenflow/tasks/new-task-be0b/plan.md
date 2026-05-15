@@ -59,6 +59,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Composer file importer completion fix — keep media kind until Audio/PDF import applies
 ### [x] Step: Composer media detail pass — render/play selected video/audio/pdf draft files
 ### [x] Step: Local feed SwiftData persistence pass — keep created cards after app restart
+### [x] Step: Composer media metadata focus fix — keep cursor in caption/copyright fields while typing
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -177,6 +178,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: local feed SwiftData persistence pass across `./TchopApp/Persistence/AppContentRecord.swift`, `./TchopApp/Persistence/AppDatabase.swift`, `./TchopApp/Repositories/AppContentRepository.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/App/AppDIContainer.swift`, and `./TchopApp/Shared/SharedLocalFeedCardSyncManager.swift` (created/imported `LocalFeedCardModel` entries are saved in SwiftData and rehydrated into feed cards when the app starts; share-extension pending cards are cleared only after database persistence succeeds).
 - Completed now: `./TchopApp/Services/FeedAPIManager.swift` warning cleanup (removed shared non-Sendable `ISO8601DateFormatter` statics from the stub decoder path).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` with no warning/error output from the final filtered check.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` media metadata focus fix (photo/file caption and copyright fields clear the primary text focus when editing starts, so SwiftUI updates no longer move the cursor back to the main text field after each character).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (only AppIntents metadata extraction warning from tooling).
 
 ## Working Rule
 - Keep this file short and current.
