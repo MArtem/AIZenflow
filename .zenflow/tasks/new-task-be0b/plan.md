@@ -56,6 +56,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Simulator media setup 2 — add MP4 fixture for video validation
 ### [x] Step: Composer media picker pass — select real photo/video/audio/pdf files into draft cards
 ### [x] Step: Composer audio Files visibility fix — expose app documents and include MP3 content type
+### [x] Step: Composer file importer completion fix — keep media kind until Audio/PDF import applies
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -164,6 +165,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 - Completed now: `./TchopApp/Info.plist` and `./TchopApp/Views/Composer/SharedCardComposerView.swift` audio picker visibility fix (enabled app Documents visibility in Files with in-place document opening and added explicit MP3 content-type support to the audio importer filter).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file importer completion fix (separated Files picker presentation state from selected media kind so Audio/PDF selection completion still knows which draft media to attach after the picker dismisses).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule

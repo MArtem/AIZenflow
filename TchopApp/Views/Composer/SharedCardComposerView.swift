@@ -24,6 +24,7 @@ struct SharedCardComposerView: View {
     @State private var showsVideoPicker = false
     @State private var selectedPhotoPickerItem: PhotosPickerItem?
     @State private var selectedVideoPickerItem: PhotosPickerItem?
+    @State private var showsFileImporter = false
     @State private var fileImportKind: ChannelCardMediaKind?
 
     var body: some View {
@@ -339,11 +340,9 @@ struct SharedCardComposerView: View {
 
     private var fileImporterPresentation: Binding<Bool> {
         Binding(
-            get: { fileImportKind != nil },
+            get: { showsFileImporter },
             set: { isPresented in
-                if !isPresented {
-                    fileImportKind = nil
-                }
+                showsFileImporter = isPresented
             }
         )
     }
@@ -437,8 +436,10 @@ struct SharedCardComposerView: View {
             showsMediaChoiceSheet = true
         case .audio:
             fileImportKind = .audio
+            showsFileImporter = true
         case .pdf:
             fileImportKind = .pdf
+            showsFileImporter = true
         case .text, .headline, .subheadline, .source:
             viewModel.applyInsertion(insertion)
             focusTextField(insertion.textFieldKind)
@@ -569,6 +570,7 @@ struct SharedCardComposerView: View {
 
         defer {
             fileImportKind = nil
+            showsFileImporter = false
         }
 
         guard case let .success(urls) = result, let sourceURL = urls.first else {
