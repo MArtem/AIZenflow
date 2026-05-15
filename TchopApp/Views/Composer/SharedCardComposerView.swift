@@ -351,7 +351,7 @@ struct SharedCardComposerView: View {
     private var fileImporterAllowedContentTypes: [UTType] {
         switch fileImportKind {
         case .audio:
-            return [.audio]
+            return audioImporterContentTypes
         case .pdf:
             return [.pdf]
         case .video:
@@ -361,6 +361,14 @@ struct SharedCardComposerView: View {
         case nil:
             return [.item]
         }
+    }
+
+    private var audioImporterContentTypes: [UTType] {
+        var contentTypes: [UTType] = [.audio]
+        if let mp3Type = UTType(filenameExtension: "mp3"), !contentTypes.contains(mp3Type) {
+            contentTypes.append(mp3Type)
+        }
+        return contentTypes
     }
 
     private func textInputStyle(for kind: ChannelCardTextFieldKind) -> ComposerTextInputStyle {
