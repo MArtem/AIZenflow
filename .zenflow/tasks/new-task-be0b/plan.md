@@ -54,6 +54,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 17 — focus primary text field when composer opens
 ### [x] Step: Simulator media setup — add image/pdf/audio fixtures for composer and share/import validation
 ### [x] Step: Simulator media setup 2 — add MP4 fixture for video validation
+### [x] Step: Composer media picker pass — select real photo/video/audio/pdf files into draft cards
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -156,6 +157,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: simulator media setup for booted iPhone 17 Pro (iOS 26.0): imported two JPEGs into Photos and copied JPEG/PDF/MP3 fixtures into Files app Documents, simulator Downloads, TchopApp Documents, and the app group under `TchopTestAssets` for composer/share-extension validation.
 - Completed now: simulator MP4 setup for booted iPhone 17 Pro (iOS 26.0): imported `1vcgc.mp4` into Photos via `simctl addmedia` and copied it into Files app Documents, simulator Downloads, TchopApp Documents, and the app group under `TchopTestAssets`.
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, and `./TchopApp/Models/NewsFeedModels.swift` composer media picker pass (Photo/Video now open Photos picker, Audio/PDF open Files importer, selected files are copied into app storage and attached to draft media; picked photos render from the real image in composer/detail previews).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule

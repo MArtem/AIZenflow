@@ -25,6 +25,7 @@ struct ChannelCardSourceContent: Equatable, Sendable {
 struct ChannelCardPhotoItem: Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
+    let fileURL: URL?
     let caption: String?
     let copyright: String?
 }
@@ -38,6 +39,7 @@ struct ChannelCardTeaserImageContent: Equatable, Sendable, Identifiable {
 struct ChannelCardFileMediaContent: Equatable, Sendable {
     let kind: ChannelCardMediaKind
     let displayTitle: String
+    let fileURL: URL?
     let teaserImage: ChannelCardTeaserImageContent?
     let caption: String?
 }
@@ -308,23 +310,31 @@ struct FeedComposerDraft: Equatable, Sendable {
         case .photo:
             addPhoto()
         case .audio:
-            selectMedia(.audio)
+            selectMedia(.audio, displayTitle: nil, fileURL: nil)
         case .pdf:
-            selectMedia(.pdf)
+            selectMedia(.pdf, displayTitle: nil, fileURL: nil)
         case .text, .headline, .subheadline, .source:
             visibleTextFieldKinds.insert(insertion.textFieldKind)
         }
     }
 
     mutating func addPhoto() {
+        addPickedPhoto(displayTitle: nil, fileURL: nil)
+    }
+
+    mutating func addPickedPhoto(displayTitle: String?, fileURL: URL?) {
         switch media {
         case nil:
-            media = .photos(items: [makePhotoItem(number: 1)])
+            media = .photos(items: [makePhotoItem(number: 1, displayTitle: displayTitle, fileURL: fileURL)])
         case let .photos(items):
             guard items.count < 10 else {
                 return
             }
-            media = .photos(items: items + [makePhotoItem(number: items.count + 1)])
+            media = .photos(
+                items: items + [
+                    makePhotoItem(number: items.count + 1, displayTitle: displayTitle, fileURL: fileURL)
+                ]
+            )
         case .file:
             return
         }
@@ -333,7 +343,11 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     mutating func selectVideo() {
-        selectMedia(.video)
+        selectMedia(.video, displayTitle: nil, fileURL: nil)
+    }
+
+    mutating func selectPickedFile(kind: ChannelCardMediaKind, displayTitle: String, fileURL: URL?) {
+        selectMedia(kind, displayTitle: displayTitle, fileURL: fileURL)
     }
 
     mutating func removeMedia() {
@@ -401,6 +415,7 @@ struct FeedComposerDraft: Equatable, Sendable {
                 return ChannelCardPhotoItem(
                     id: item.id,
                     displayTitle: item.displayTitle,
+                    fileURL: item.fileURL,
                     caption: normalizedOptionalText(value),
                     copyright: item.copyright
                 )
@@ -422,6 +437,7 @@ struct FeedComposerDraft: Equatable, Sendable {
                 return ChannelCardPhotoItem(
                     id: item.id,
                     displayTitle: item.displayTitle,
+                    fileURL: item.fileURL,
                     caption: item.caption,
                     copyright: normalizedOptionalText(value)
                 )
@@ -435,6 +451,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
+                fileURL: file.fileURL,
                 teaserImage: file.teaserImage,
                 caption: normalizedCaption
             )
@@ -462,6 +479,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
+                fileURL: file.fileURL,
                 teaserImage: ChannelCardTeaserImageContent(
                     id: UUID().uuidString,
                     displayTitle: displayTitle,
@@ -485,6 +503,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
+                fileURL: file.fileURL,
                 teaserImage: nil,
                 caption: file.caption
             )
@@ -510,6 +529,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             return ChannelCardFileMediaContent(
                 kind: file.kind,
                 displayTitle: file.displayTitle,
+                fileURL: file.fileURL,
                 teaserImage: ChannelCardTeaserImageContent(
                     id: teaserImage.id,
                     displayTitle: teaserImage.displayTitle,
@@ -741,6 +761,7 @@ struct FeedComposerDraft: Equatable, Sendable {
             ChannelCardFileMediaContent(
                 kind: mediaKind,
                 displayTitle: file.originalFilename,
+                fileURL: file.fileURL,
                 teaserImage: nil,
                 caption: nil
             )
@@ -748,7 +769,11 @@ struct FeedComposerDraft: Equatable, Sendable {
         visibleTextFieldKinds.insert(.text)
     }
 
-    private mutating func selectMedia(_ kind: ChannelCardMediaKind) {
+    private mutating func selectMedia(
+        _ kind: ChannelCardMediaKind,
+        displayTitle: String?,
+        fileURL: URL?
+    ) {
         guard media == nil else {
             return
         }
@@ -758,22 +783,27 @@ struct FeedComposerDraft: Equatable, Sendable {
 
         switch kind {
         case .photo:
-            media = .photos(items: [makePhotoItem(number: 1)])
+            media = .photos(items: [makePhotoItem(number: 1, displayTitle: displayTitle, fileURL: fileURL)])
         case .video:
-            media = .file(makeFileMedia(kind: .video))
+            media = .file(makeFileMedia(kind: .video, displayTitle: displayTitle, fileURL: fileURL))
         case .audio:
-            media = .file(makeFileMedia(kind: .audio))
+            media = .file(makeFileMedia(kind: .audio, displayTitle: displayTitle, fileURL: fileURL))
         case .pdf:
-            media = .file(makeFileMedia(kind: .pdf))
+            media = .file(makeFileMedia(kind: .pdf, displayTitle: displayTitle, fileURL: fileURL))
         }
 
         visibleTextFieldKinds.insert(.text)
     }
 
-    private func makePhotoItem(number: Int) -> ChannelCardPhotoItem {
+    private func makePhotoItem(
+        number: Int,
+        displayTitle: String? = nil,
+        fileURL: URL? = nil
+    ) -> ChannelCardPhotoItem {
         ChannelCardPhotoItem(
             id: UUID().uuidString,
-            displayTitle: "Photo \(number)",
+            displayTitle: normalizedDisplayTitle(displayTitle, fallback: "Photo \(number)"),
+            fileURL: fileURL,
             caption: nil,
             copyright: nil
         )
@@ -789,13 +819,18 @@ struct FeedComposerDraft: Equatable, Sendable {
         return ChannelCardPhotoItem(
             id: UUID().uuidString,
             displayTitle: displayTitle,
+            fileURL: file.fileURL,
             caption: nil,
             copyright: nil
         )
     }
 
-    private func makeFileMedia(kind: ChannelCardMediaKind) -> ChannelCardFileMediaContent {
-        let displayTitle = switch kind {
+    private func makeFileMedia(
+        kind: ChannelCardMediaKind,
+        displayTitle: String? = nil,
+        fileURL: URL? = nil
+    ) -> ChannelCardFileMediaContent {
+        let fallbackTitle = switch kind {
         case .photo:
             "Photo"
         case .video:
@@ -808,10 +843,16 @@ struct FeedComposerDraft: Equatable, Sendable {
 
         return ChannelCardFileMediaContent(
             kind: kind,
-            displayTitle: displayTitle,
+            displayTitle: normalizedDisplayTitle(displayTitle, fallback: fallbackTitle),
+            fileURL: fileURL,
             teaserImage: nil,
             caption: nil
         )
+    }
+
+    private func normalizedDisplayTitle(_ displayTitle: String?, fallback: String) -> String {
+        let trimmedTitle = displayTitle?.trimmingCharacters(in: .whitespacesAndNewlines) ?? ""
+        return trimmedTitle.isEmpty ? fallback : trimmedTitle
     }
 
     private mutating func updateFileMedia(

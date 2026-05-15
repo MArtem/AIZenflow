@@ -1,6 +1,9 @@
+import CoreTransferable
 import Observation
+import PhotosUI
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
 
 struct SharedCardComposerView: View {
     @Bindable var viewModel: FeedComposerViewModel
@@ -17,6 +20,11 @@ struct SharedCardComposerView: View {
     @State private var showsFileMediaDetail = false
     @State private var showsTeaserDetail = false
     @State private var focusedTextFieldKind: ChannelCardTextFieldKind?
+    @State private var showsPhotoPicker = false
+    @State private var showsVideoPicker = false
+    @State private var selectedPhotoPickerItem: PhotosPickerItem?
+    @State private var selectedVideoPickerItem: PhotosPickerItem?
+    @State private var fileImportKind: ChannelCardMediaKind?
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -192,9 +200,9 @@ struct SharedCardComposerView: View {
                     ],
                     onSelect: { selectedID in
                         if selectedID == "photo" {
-                            viewModel.addPhoto()
+                            showsPhotoPicker = true
                         } else if selectedID == "video" {
-                            viewModel.selectVideo()
+                            showsVideoPicker = true
                         }
                     },
                     onDismiss: { showsMediaChoiceSheet = false }
@@ -280,6 +288,28 @@ struct SharedCardComposerView: View {
                 )
             }
         }
+        .photosPicker(
+            isPresented: photoPickerPresentation,
+            selection: $selectedPhotoPickerItem,
+            matching: .images
+        )
+        .photosPicker(
+            isPresented: videoPickerPresentation,
+            selection: $selectedVideoPickerItem,
+            matching: .videos
+        )
+        .fileImporter(
+            isPresented: fileImporterPresentation,
+            allowedContentTypes: fileImporterAllowedContentTypes,
+            allowsMultipleSelection: false,
+            onCompletion: handleFileImporterCompletion
+        )
+        .onChange(of: selectedPhotoPickerItem) { _, newItem in
+            handlePhotosPickerSelection(newItem, kind: .photo)
+        }
+        .onChange(of: selectedVideoPickerItem) { _, newItem in
+            handlePhotosPickerSelection(newItem, kind: .video)
+        }
     }
 
     private func binding(for kind: ChannelCardTextFieldKind) -> Binding<String> {
@@ -287,6 +317,50 @@ struct SharedCardComposerView: View {
             get: { viewModel.textValue(for: kind) },
             set: { viewModel.updateText($0, for: kind) }
         )
+    }
+
+    private var photoPickerPresentation: Binding<Bool> {
+        Binding(
+            get: { showsPhotoPicker },
+            set: { isPresented in
+                showsPhotoPicker = isPresented
+            }
+        )
+    }
+
+    private var videoPickerPresentation: Binding<Bool> {
+        Binding(
+            get: { showsVideoPicker },
+            set: { isPresented in
+                showsVideoPicker = isPresented
+            }
+        )
+    }
+
+    private var fileImporterPresentation: Binding<Bool> {
+        Binding(
+            get: { fileImportKind != nil },
+            set: { isPresented in
+                if !isPresented {
+                    fileImportKind = nil
+                }
+            }
+        )
+    }
+
+    private var fileImporterAllowedContentTypes: [UTType] {
+        switch fileImportKind {
+        case .audio:
+            return [.audio]
+        case .pdf:
+            return [.pdf]
+        case .video:
+            return [.movie]
+        case .photo:
+            return [.image]
+        case nil:
+            return [.item]
+        }
     }
 
     private func textInputStyle(for kind: ChannelCardTextFieldKind) -> ComposerTextInputStyle {
@@ -353,6 +427,10 @@ struct SharedCardComposerView: View {
         switch insertion {
         case .photoOrVideo:
             showsMediaChoiceSheet = true
+        case .audio:
+            fileImportKind = .audio
+        case .pdf:
+            fileImportKind = .pdf
         case .text, .headline, .subheadline, .source:
             viewModel.applyInsertion(insertion)
             focusTextField(insertion.textFieldKind)
@@ -422,8 +500,101 @@ struct SharedCardComposerView: View {
         if viewModel.media == nil {
             showsMediaChoiceSheet = true
         } else {
-            viewModel.addPhoto()
+            showsPhotoPicker = true
         }
+    }
+
+    private func handlePhotosPickerSelection(_ item: PhotosPickerItem?, kind: ChannelCardMediaKind) {
+        guard let item else {
+            return
+        }
+
+        Task { @MainActor in
+            defer {
+                if kind == .photo {
+                    selectedPhotoPickerItem = nil
+                    showsPhotoPicker = false
+                } else if kind == .video {
+                    selectedVideoPickerItem = nil
+                    showsVideoPicker = false
+                }
+            }
+
+            let fileExtension = photoLibraryFileExtension(for: item, kind: kind)
+            let fallbackTitle = kind == .photo ? "Photo.\(fileExtension)" : "Video.\(fileExtension)"
+            if kind == .video,
+               let pickedVideo = try? await item.loadTransferable(type: ComposerPickedVideo.self) {
+                viewModel.selectPickedFile(
+                    kind: .video,
+                    displayTitle: pickedVideo.fileURL.lastPathComponent,
+                    fileURL: pickedVideo.fileURL
+                )
+                return
+            }
+
+            guard let data = try? await item.loadTransferable(type: Data.self) else {
+                return
+            }
+
+            guard let fileURL = try? ComposerPickedMediaStorage.save(
+                data: data,
+                suggestedFilename: fallbackTitle
+            ) else {
+                return
+            }
+
+            switch kind {
+            case .photo:
+                viewModel.addPickedPhoto(displayTitle: fileURL.lastPathComponent, fileURL: fileURL)
+            case .video:
+                viewModel.selectPickedFile(kind: .video, displayTitle: fileURL.lastPathComponent, fileURL: fileURL)
+            case .audio, .pdf:
+                return
+            }
+        }
+    }
+
+    private func handleFileImporterCompletion(_ result: Result<[URL], Error>) {
+        guard let kind = fileImportKind else {
+            return
+        }
+
+        defer {
+            fileImportKind = nil
+        }
+
+        guard case let .success(urls) = result, let sourceURL = urls.first else {
+            return
+        }
+
+        let hasScopedAccess = sourceURL.startAccessingSecurityScopedResource()
+        defer {
+            if hasScopedAccess {
+                sourceURL.stopAccessingSecurityScopedResource()
+            }
+        }
+
+        guard let fileURL = try? ComposerPickedMediaStorage.copyFile(from: sourceURL) else {
+            return
+        }
+
+        viewModel.selectPickedFile(
+            kind: kind,
+            displayTitle: sourceURL.lastPathComponent,
+            fileURL: fileURL
+        )
+    }
+
+    private func photoLibraryFileExtension(
+        for item: PhotosPickerItem,
+        kind: ChannelCardMediaKind
+    ) -> String {
+        let supportedExtensions = item.supportedContentTypes.compactMap(\.preferredFilenameExtension)
+        if let fileExtension = supportedExtensions.first(where: { !$0.isEmpty }) {
+            return fileExtension
+        }
+
+        return kind == .video ? "mp4" : "jpg"
     }
 
     private func publish() {
@@ -630,6 +801,64 @@ struct SharedCardComposerView: View {
     }
 }
 
+private enum ComposerPickedMediaStorage {
+    static func save(data: Data, suggestedFilename: String) throws -> URL {
+        let destinationURL = try uniqueDestinationURL(suggestedFilename: suggestedFilename)
+        try data.write(to: destinationURL, options: .atomic)
+        return destinationURL
+    }
+
+    static func copyFile(from sourceURL: URL) throws -> URL {
+        let destinationURL = try uniqueDestinationURL(suggestedFilename: sourceURL.lastPathComponent)
+        if FileManager.default.fileExists(atPath: destinationURL.path) {
+            try FileManager.default.removeItem(at: destinationURL)
+        }
+        try FileManager.default.copyItem(at: sourceURL, to: destinationURL)
+        return destinationURL
+    }
+
+    private static func uniqueDestinationURL(suggestedFilename: String) throws -> URL {
+        let directoryURL = try mediaDirectoryURL()
+        let sanitizedFilename = sanitizedFilename(suggestedFilename)
+        let uniqueFilename = "\(UUID().uuidString)-\(sanitizedFilename)"
+        return directoryURL.appendingPathComponent(uniqueFilename, isDirectory: false)
+    }
+
+    private static func mediaDirectoryURL() throws -> URL {
+        let baseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+        let directoryURL = baseURL.appendingPathComponent("TchopComposerMedia", isDirectory: true)
+        try FileManager.default.createDirectory(
+            at: directoryURL,
+            withIntermediateDirectories: true
+        )
+        return directoryURL
+    }
+
+    private static func sanitizedFilename(_ filename: String) -> String {
+        let fallbackFilename = "media"
+        let trimmedFilename = filename.trimmingCharacters(in: .whitespacesAndNewlines)
+        let candidate = trimmedFilename.isEmpty ? fallbackFilename : trimmedFilename
+        let invalidCharacters = CharacterSet(charactersIn: "/\\:")
+
+        return candidate
+            .components(separatedBy: invalidCharacters)
+            .joined(separator: "-")
+    }
+}
+
+private struct ComposerPickedVideo: Transferable {
+    let fileURL: URL
+
+    static var transferRepresentation: some TransferRepresentation {
+        FileRepresentation(contentType: .movie) { video in
+            SentTransferredFile(video.fileURL)
+        } importing: { receivedFile in
+            let fileURL = try ComposerPickedMediaStorage.copyFile(from: receivedFile.file)
+            return ComposerPickedVideo(fileURL: fileURL)
+        }
+    }
+}
+
 private struct ComposerMediaPreview: View {
     let media: ChannelCardMediaContent
     let onFileMediaMoreTap: () -> Void
@@ -692,29 +921,81 @@ private struct ComposerPhotoStripItemView: View {
             onMoreTap: onMoreTap,
             onTap: onTap
         ) {
+            ComposerPhotoPreviewContent(item: item)
+        }
+        .frame(width: 184)
+    }
+}
+
+private struct ComposerPhotoPreviewContent: View {
+    let item: ChannelCardPhotoItem
+
+    private var image: UIImage? {
+        guard let fileURL = item.fileURL else {
+            return nil
+        }
+
+        return UIImage(contentsOfFile: fileURL.path)
+    }
+
+    var body: some View {
+        if let image {
+            ZStack(alignment: .bottom) {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: 184, height: 184)
+                    .clipped()
+
+                photoMetadataOverlay
+            }
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+        } else {
             VStack(spacing: AppSpacing.xs) {
                 Image(systemName: "photo.on.rectangle.angled")
                     .font(.system(size: 28, weight: .semibold))
                     .foregroundStyle(AppTheme.textSecondary)
 
-                if let caption = item.caption, !caption.isEmpty {
-                    Text(caption)
-                        .font(AppTypography.captionSemibold)
-                        .foregroundStyle(AppTheme.textTertiary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, AppSpacing.sm)
-                }
-
-                if let copyright = item.copyright, !copyright.isEmpty {
-                    Text(copyright)
-                        .font(AppTypography.label)
-                        .foregroundStyle(AppTheme.textTertiary)
-                        .multilineTextAlignment(.center)
-                        .padding(.horizontal, AppSpacing.sm)
-                }
+                photoMetadataText
             }
         }
-        .frame(width: 184)
+    }
+
+    @ViewBuilder
+    private var photoMetadataOverlay: some View {
+        if hasMetadata {
+            VStack(spacing: AppSpacing.xxs) {
+                photoMetadataText
+            }
+            .padding(AppSpacing.sm)
+            .frame(maxWidth: .infinity)
+            .background(.black.opacity(0.38))
+        }
+    }
+
+    @ViewBuilder
+    private var photoMetadataText: some View {
+        if let caption = item.caption, !caption.isEmpty {
+            Text(caption)
+                .font(AppTypography.captionSemibold)
+                .foregroundStyle(AppTheme.textTertiary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, AppSpacing.sm)
+        }
+
+        if let copyright = item.copyright, !copyright.isEmpty {
+            Text(copyright)
+                .font(AppTypography.label)
+                .foregroundStyle(AppTheme.textTertiary)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, AppSpacing.sm)
+        }
+    }
+
+    private var hasMetadata: Bool {
+        let hasCaption = item.caption?.isEmpty == false
+        let hasCopyright = item.copyright?.isEmpty == false
+        return hasCaption || hasCopyright
     }
 }
 
@@ -914,6 +1195,14 @@ private struct ComposerPhotoDetailView: View {
     @State private var scale: CGFloat = 1
     @State private var baseScale: CGFloat = 1
 
+    private var image: UIImage? {
+        guard let fileURL = item.fileURL else {
+            return nil
+        }
+
+        return UIImage(contentsOfFile: fileURL.path)
+    }
+
     var body: some View {
         ZStack(alignment: .top) {
             Color.black.ignoresSafeArea()
@@ -924,27 +1213,7 @@ private struct ComposerPhotoDetailView: View {
                         .fill(Color.white.opacity(0.08))
                         .frame(width: 320 * scale, height: 480 * scale)
                         .overlay {
-                            VStack(spacing: AppSpacing.sm) {
-                                Image(systemName: "photo")
-                                    .font(.system(size: 56 * scale, weight: .semibold))
-                                    .foregroundStyle(Color.white.opacity(0.9))
-
-                                if let caption = item.caption, !caption.isEmpty {
-                                    Text(caption)
-                                        .font(.system(size: max(13, 15 * scale), weight: .medium))
-                                        .foregroundStyle(Color.white.opacity(0.8))
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, AppSpacing.lg)
-                                }
-
-                                if let copyright = item.copyright, !copyright.isEmpty {
-                                    Text(copyright)
-                                        .font(.system(size: max(11, 13 * scale), weight: .medium))
-                                        .foregroundStyle(Color.white.opacity(0.65))
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, AppSpacing.lg)
-                                }
-                            }
+                            ComposerPhotoDetailContent(item: item, image: image, scale: scale)
                         }
                         .padding(.vertical, 80)
                 }
@@ -962,6 +1231,53 @@ private struct ComposerPhotoDetailView: View {
 
             ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
         }
+    }
+}
+
+private struct ComposerPhotoDetailContent: View {
+    let item: ChannelCardPhotoItem
+    let image: UIImage?
+    let scale: CGFloat
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            if let image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+            } else {
+                Image(systemName: "photo")
+                    .font(.system(size: 56 * scale, weight: .semibold))
+                    .foregroundStyle(Color.white.opacity(0.9))
+            }
+
+            if hasMetadata {
+                VStack(spacing: AppSpacing.sm) {
+                    if let caption = item.caption, !caption.isEmpty {
+                        Text(caption)
+                            .font(.system(size: max(13, 15 * scale), weight: .medium))
+                            .foregroundStyle(Color.white.opacity(0.8))
+                            .multilineTextAlignment(.center)
+                    }
+
+                    if let copyright = item.copyright, !copyright.isEmpty {
+                        Text(copyright)
+                            .font(.system(size: max(11, 13 * scale), weight: .medium))
+                            .foregroundStyle(Color.white.opacity(0.65))
+                            .multilineTextAlignment(.center)
+                    }
+                }
+                .padding(AppSpacing.lg)
+                .frame(maxWidth: .infinity)
+                .background(Color.black.opacity(0.42))
+            }
+        }
+    }
+
+    private var hasMetadata: Bool {
+        let hasCaption = item.caption?.isEmpty == false
+        let hasCopyright = item.copyright?.isEmpty == false
+        return hasCaption || hasCopyright
     }
 }
 
@@ -1472,7 +1788,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         func textView(
             _ textView: UITextView,
             shouldChangeTextIn range: NSRange,
-            replacementText replacementText: String
+            replacementText: String
         ) -> Bool {
             guard let currentText = textView.text,
                   let stringRange = Range(range, in: currentText) else {

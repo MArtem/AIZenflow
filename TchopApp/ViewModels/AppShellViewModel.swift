@@ -143,8 +143,16 @@ final class FeedComposerViewModel {
         draft.addPhoto()
     }
 
+    func addPickedPhoto(displayTitle: String?, fileURL: URL?) {
+        draft.addPickedPhoto(displayTitle: displayTitle, fileURL: fileURL)
+    }
+
     func selectVideo() {
         draft.selectVideo()
+    }
+
+    func selectPickedFile(kind: ChannelCardMediaKind, displayTitle: String, fileURL: URL?) {
+        draft.selectPickedFile(kind: kind, displayTitle: displayTitle, fileURL: fileURL)
     }
 
     func removeMedia() {
