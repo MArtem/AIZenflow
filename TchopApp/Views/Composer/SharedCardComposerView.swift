@@ -915,17 +915,14 @@ private struct ComposerPhotoStripView: View {
     let onTap: (String) -> Void
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: AppSpacing.sm) {
-                ForEach(items) { item in
-                    ComposerPhotoStripItemView(
-                        item: item,
-                        onMoreTap: { onMoreTap(item.id) },
-                        onTap: { onTap(item.id) }
-                    )
-                }
+        VStack(spacing: 10) {
+            ForEach(items) { item in
+                ComposerPhotoStripItemView(
+                    item: item,
+                    onMoreTap: { onMoreTap(item.id) },
+                    onTap: { onTap(item.id) }
+                )
             }
-            .padding(.vertical, AppSpacing.xxs)
         }
     }
 }
@@ -936,14 +933,30 @@ private struct ComposerPhotoStripItemView: View {
     let onTap: () -> Void
 
     var body: some View {
-        ComposerInteractiveMediaSurface(
-            height: 184,
-            onMoreTap: onMoreTap,
-            onTap: onTap
-        ) {
-            ComposerPhotoPreviewContent(item: item)
+        ZStack(alignment: .topTrailing) {
+            Button(action: onTap) {
+                ComposerPhotoPreviewContent(item: item)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 240)
+                    .contentShape(RoundedRectangle(cornerRadius: AppRadius.compactCard, style: .continuous))
+            }
+            .buttonStyle(.plain)
+
+            Button(action: onMoreTap) {
+                Image(systemName: "ellipsis")
+                    .font(.system(size: 16, weight: .semibold))
+                    .foregroundStyle(AppTheme.textSecondary)
+                    .frame(width: 36, height: 36)
+                    .background(.white.opacity(0.78))
+                    .clipShape(Circle())
+            }
+            .buttonStyle(.plain)
+            .frame(width: 56, height: 56)
+            .contentShape(Circle())
+            .padding(.top, 8)
+            .padding(.trailing, 8)
+            .zIndex(1)
         }
-        .frame(width: 184)
     }
 }
 
@@ -964,12 +977,13 @@ private struct ComposerPhotoPreviewContent: View {
                 Image(uiImage: image)
                     .resizable()
                     .scaledToFill()
-                    .frame(width: 184, height: 184)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: 240)
                     .clipped()
 
                 photoMetadataOverlay
             }
-            .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard, style: .continuous))
         } else {
             VStack(spacing: AppSpacing.xs) {
                 Image(systemName: "photo.on.rectangle.angled")
@@ -978,6 +992,10 @@ private struct ComposerPhotoPreviewContent: View {
 
                 photoMetadataText
             }
+            .frame(maxWidth: .infinity)
+            .frame(height: 240)
+            .background(AppTheme.surfaceSecondary)
+            .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard, style: .continuous))
         }
     }
 

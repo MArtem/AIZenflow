@@ -62,6 +62,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Local feed SwiftData persistence pass — keep created cards after app restart
 ### [x] Step: Composer media metadata focus fix — keep cursor in caption/copyright fields while typing
 ### [x] Step: Composer photo actions fullscreen menu — match image `...` actions reference
+### [x] Step: Composer draft photo layout pass — full-width fixed-height images and reliable `...` hit target
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -186,6 +187,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (existing share-extension concurrency warnings plus AppIntents tooling warning).
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` media detail action cleanup (draft-level `...` controls remain on photo/video/audio/PDF items; fullscreen media/teaser detail previews now show only close navigation and no `...` actions).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (existing share-extension concurrency warnings plus AppIntents/tooling messages).
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` draft photo layout pass (photo draft items now render full-width at fixed 240pt height with 10pt vertical spacing; the `...` button is a separate top overlay with circular background, larger hit target, and higher z-order so it handles taps before the image preview).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
 - Keep this file short and current.
