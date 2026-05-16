@@ -196,6 +196,15 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` photo metadata spacing pass (copyright and caption fields are grouped per photo item with an explicit 8pt vertical gap).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` photo metadata compact input pass (removed internal text-view vertical insets and reduced metadata input minimum height so the visible copyright-to-caption gap can actually match the requested compact 8pt spacing instead of being inflated by field chrome).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` metadata height stabilization pass (empty metadata `UITextView` height is now clamped to compact bounds during layout settle, so copyright/caption placeholders no longer get inflated vertical space and the visual gap stays near the intended 8pt).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` metadata compact-height pass 2 (reduced metadata input minimum height from 18pt to 16pt to remove residual vertical air and keep copyright/caption spacing tighter against the 8pt target).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

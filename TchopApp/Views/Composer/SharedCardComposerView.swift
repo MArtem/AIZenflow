@@ -432,7 +432,8 @@ struct SharedCardComposerView: View {
             uiTextFont: .systemFont(ofSize: 13, weight: .semibold),
             textColor: color,
             placeholderColor: AppTheme.textTertiary,
-            minimumHeight: 36
+            minimumHeight: 16,
+            textInsets: .zero
         )
     }
 
@@ -1921,7 +1922,7 @@ private struct ComposerBottomSheet: View {
 
 private struct ComposerTextInputStyle {
     static let maximumCharacterCount = 200
-    static let textInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
+    static let defaultTextInsets = UIEdgeInsets(top: 8, left: 0, bottom: 8, right: 0)
 
     let textFont: Font
     let placeholderFont: Font
@@ -1929,6 +1930,7 @@ private struct ComposerTextInputStyle {
     let textColor: Color
     let placeholderColor: Color
     let minimumHeight: CGFloat
+    var textInsets = Self.defaultTextInsets
 }
 
 private struct SharedCardComposerHeaderView: View {
@@ -2085,8 +2087,8 @@ private struct ComposerTextInputView: View {
                 Text(placeholder)
                     .font(style.placeholderFont)
                     .foregroundStyle(style.placeholderColor)
-                    .padding(.top, ComposerTextInputStyle.textInsets.top)
-                    .padding(.leading, ComposerTextInputStyle.textInsets.left)
+                    .padding(.top, style.textInsets.top)
+                    .padding(.leading, style.textInsets.left)
                     .allowsHitTesting(false)
             }
 
@@ -2096,6 +2098,7 @@ private struct ComposerTextInputView: View {
                 font: style.uiTextFont,
                 textColor: UIColor(style.textColor),
                 minimumHeight: style.minimumHeight,
+                textInsets: style.textInsets,
                 maximumCharacterCount: ComposerTextInputStyle.maximumCharacterCount,
                 isFocused: isFocused,
                 onFocus: onFocus,
@@ -2114,6 +2117,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
     let font: UIFont
     let textColor: UIColor
     let minimumHeight: CGFloat
+    let textInsets: UIEdgeInsets
     let maximumCharacterCount: Int
     let isFocused: Bool
     let onFocus: () -> Void
@@ -2133,7 +2137,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         let textView = DeleteAwareTextView()
         textView.delegate = context.coordinator
         textView.backgroundColor = .clear
-        textView.textContainerInset = ComposerTextInputStyle.textInsets
+        textView.textContainerInset = textInsets
         textView.textContainer.lineFragmentPadding = 0
         textView.textContainer.lineBreakMode = .byCharWrapping
         textView.textContainer.widthTracksTextView = true
@@ -2165,6 +2169,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         }
         uiView.font = font
         uiView.textColor = textColor
+        uiView.textContainerInset = textInsets
         uiView.onDeleteBackwardWhenEmpty = onDeleteBackwardWhenEmpty
         if isFocused && !uiView.isFirstResponder {
             DispatchQueue.main.async {
@@ -2237,7 +2242,16 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
                 CGSize(width: textView.bounds.width, height: .greatestFiniteMagnitude)
             ).height
 
-            let resolvedHeight = max(minimumHeight, fittedHeight)
+            // UITextView can report an inflated empty-state height while layout is settling.
+            // Keep empty placeholders visually compact, but preserve dynamic growth once user types.
+            let effectiveHeight: CGFloat
+            if textView.text.isEmpty {
+                effectiveHeight = min(fittedHeight, minimumHeight + 2)
+            } else {
+                effectiveHeight = fittedHeight
+            }
+
+            let resolvedHeight = max(minimumHeight, effectiveHeight)
             if dynamicHeight != resolvedHeight {
                 DispatchQueue.main.async {
                     self.dynamicHeight = resolvedHeight
