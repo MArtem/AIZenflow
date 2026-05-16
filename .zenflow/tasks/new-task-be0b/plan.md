@@ -205,6 +205,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` metadata compact-height pass 2 (reduced metadata input minimum height from 18pt to 16pt to remove residual vertical air and keep copyright/caption spacing tighter against the 8pt target).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
+- Completed now: composer channel picker full-screen pass across `./TchopApp/Views/Composer/SharedCardComposerView.swift` and localization resources (channel selection now opens as a full-screen screen with localized `Post it`, `Done`, `Your Mixes`, current-channel checkmark, same-channel reselection support, and immediate draft channel application on selection).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

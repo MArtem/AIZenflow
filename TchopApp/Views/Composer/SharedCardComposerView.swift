@@ -195,18 +195,6 @@ struct SharedCardComposerView: View {
                 )
             }
 
-            if showsChannelSheet {
-                ComposerBottomSheet(
-                    items: viewModel.availableChannels.map { channel in
-                        ComposerBottomSheetItem(id: channel.id, title: channel.title)
-                    },
-                    onSelect: { selectedID in
-                        viewModel.selectChannel(id: selectedID)
-                    },
-                    onDismiss: { showsChannelSheet = false }
-                )
-            }
-
             if showsMediaChoiceSheet {
                 ComposerBottomSheet(
                     items: [
@@ -244,6 +232,17 @@ struct SharedCardComposerView: View {
         .background(AppTheme.surfacePrimary.ignoresSafeArea())
         .onAppear {
             focusInitialTextField()
+        }
+        .fullScreenCover(isPresented: $showsChannelSheet) {
+            ComposerChannelSelectionView(
+                channels: viewModel.availableChannels,
+                selectedChannelID: viewModel.selectedChannelID,
+                onDone: { showsChannelSheet = false },
+                onSelect: { selectedID in
+                    viewModel.selectChannel(id: selectedID)
+                    showsChannelSheet = false
+                }
+            )
         }
         .fullScreenCover(
             isPresented: Binding(
@@ -1686,6 +1685,141 @@ private struct ComposerBottomSheetItem: Identifiable {
     var systemImageName: String?
 }
 
+private enum ComposerChannelSelectionLayout {
+    static let background = Color(red: 0.969, green: 0.969, blue: 0.969)
+    static let sectionBackground = Color.white
+    static let titleColor = Color(red: 0.29, green: 0.29, blue: 0.38)
+    static let accentColor = Color(red: 1.0, green: 0.42, blue: 0.33)
+    static let sectionHeaderColor = Color(red: 0.47, green: 0.47, blue: 0.52)
+    static let rowTextColor = Color(red: 0.13, green: 0.13, blue: 0.15)
+    static let dividerColor = Color.black.opacity(0.08)
+    static let horizontalInset: CGFloat = 26
+    static let sectionTopPadding: CGFloat = 34
+    static let sectionHeaderHorizontalPadding: CGFloat = 32
+    static let sectionHeaderBottomPadding: CGFloat = 16
+    static let sectionCornerRadius: CGFloat = 24
+    static let rowHeight: CGFloat = 88
+    static let rowHorizontalPadding: CGFloat = 32
+    static let headerHeight: CGFloat = 58
+    static let titleFontSize: CGFloat = 30
+    static let doneFontSize: CGFloat = 27
+    static let sectionHeaderFontSize: CGFloat = 26
+    static let rowFontSize: CGFloat = 30
+    static let checkFontSize: CGFloat = 20
+}
+
+private struct ComposerChannelSelectionView: View {
+    let channels: [AppChannel]
+    let selectedChannelID: String
+    let onDone: () -> Void
+    let onSelect: (String) -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            header
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(alignment: .leading, spacing: 0) {
+                    Text(AppLocalization.text("composer.channelPicker.section.yourMixes"))
+                        .font(.system(size: ComposerChannelSelectionLayout.sectionHeaderFontSize, weight: .regular))
+                        .foregroundStyle(ComposerChannelSelectionLayout.sectionHeaderColor)
+                        .padding(.horizontal, ComposerChannelSelectionLayout.sectionHeaderHorizontalPadding)
+                        .padding(.bottom, ComposerChannelSelectionLayout.sectionHeaderBottomPadding)
+
+                    VStack(spacing: 0) {
+                        ForEach(channels.indices, id: \.self) { index in
+                            let channel = channels[index]
+                            ComposerChannelSelectionRow(
+                                title: channel.title,
+                                isSelected: channel.id == selectedChannelID,
+                                showsDivider: index < channels.count - 1,
+                                action: { onSelect(channel.id) }
+                            )
+                        }
+                    }
+                    .background(ComposerChannelSelectionLayout.sectionBackground)
+                    .clipShape(
+                        RoundedRectangle(
+                            cornerRadius: ComposerChannelSelectionLayout.sectionCornerRadius,
+                            style: .continuous
+                        )
+                    )
+                    .padding(.horizontal, ComposerChannelSelectionLayout.horizontalInset)
+                }
+                .padding(.top, ComposerChannelSelectionLayout.sectionTopPadding)
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+        }
+        .background(ComposerChannelSelectionLayout.background.ignoresSafeArea())
+    }
+
+    private var header: some View {
+        ZStack {
+            Text(AppLocalization.text("composer.channelPicker.title"))
+                .font(.system(size: ComposerChannelSelectionLayout.titleFontSize, weight: .bold))
+                .foregroundStyle(ComposerChannelSelectionLayout.titleColor)
+
+            HStack {
+                Spacer()
+
+                Button(action: onDone) {
+                    Text(AppLocalization.text("common.done"))
+                        .font(.system(size: ComposerChannelSelectionLayout.doneFontSize, weight: .regular))
+                        .foregroundStyle(ComposerChannelSelectionLayout.accentColor)
+                }
+                .buttonStyle(.plain)
+            }
+            .padding(.horizontal, ComposerChannelSelectionLayout.horizontalInset)
+        }
+        .frame(height: ComposerChannelSelectionLayout.headerHeight)
+        .background(Color.white.ignoresSafeArea(edges: .top))
+        .overlay(alignment: .bottom) {
+            Rectangle()
+                .fill(ComposerChannelSelectionLayout.dividerColor)
+                .frame(height: 1)
+        }
+    }
+}
+
+private struct ComposerChannelSelectionRow: View {
+    let title: String
+    let isSelected: Bool
+    let showsDivider: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: AppSpacing.sm) {
+                Text(title)
+                    .font(.system(size: ComposerChannelSelectionLayout.rowFontSize, weight: .regular))
+                    .foregroundStyle(ComposerChannelSelectionLayout.rowTextColor)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.75)
+
+                Spacer(minLength: 0)
+
+                if isSelected {
+                    Image(systemName: "checkmark")
+                        .font(.system(size: ComposerChannelSelectionLayout.checkFontSize, weight: .regular))
+                        .foregroundStyle(ComposerChannelSelectionLayout.accentColor)
+                }
+            }
+            .padding(.horizontal, ComposerChannelSelectionLayout.rowHorizontalPadding)
+            .frame(height: ComposerChannelSelectionLayout.rowHeight)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .overlay(alignment: .bottom) {
+            if showsDivider {
+                Rectangle()
+                    .fill(ComposerChannelSelectionLayout.dividerColor)
+                    .padding(.leading, ComposerChannelSelectionLayout.rowHorizontalPadding)
+                    .frame(height: 1)
+            }
+        }
+    }
+}
+
 private enum ComposerPhotoActionsLayout {
     static let background = Color(red: 0.969, green: 0.969, blue: 0.969)
     static let sectionBackground = Color.white
@@ -1942,7 +2076,7 @@ private struct SharedCardComposerHeaderView: View {
         HStack {
             Button(action: onSelectChannel) {
                 HStack(spacing: AppSpacing.xs) {
-                    Text("Post in:")
+                    Text(AppLocalization.text("composer.header.postIn"))
                         .foregroundStyle(AppTheme.textPrimary)
 
                     Text(selectedChannelTitle)
@@ -1958,7 +2092,7 @@ private struct SharedCardComposerHeaderView: View {
 
             Spacer()
 
-            Button("Cancel", action: onCancel)
+            Button(AppLocalization.text("common.cancel"), action: onCancel)
                 .buttonStyle(.plain)
                 .font(AppTypography.bodyRegular)
                 .foregroundStyle(AppTheme.accent)
