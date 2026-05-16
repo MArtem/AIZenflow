@@ -102,28 +102,35 @@ struct SharedCardComposerView: View {
                             }
 
                             ForEach(viewModel.photoItems) { item in
-                                if viewModel.isPhotoCopyrightFieldVisible(id: item.id) {
-                                    ComposerTextInputView(
-                                        text: photoCopyrightBinding(for: item.id),
-                                        placeholder: "© Copyright text",
-                                        style: assetMetadataInputStyle(color: AppTheme.textTertiary),
-                                        onFocus: clearFocusedTextField,
-                                        onDeleteBackwardWhenEmpty: {
-                                            viewModel.removePhotoCopyrightFieldIfEmpty(id: item.id)
-                                        }
-                                    )
-                                }
+                                let showsCopyright = viewModel.isPhotoCopyrightFieldVisible(id: item.id)
+                                let showsCaption = viewModel.isPhotoCaptionFieldVisible(id: item.id)
 
-                                if viewModel.isPhotoCaptionFieldVisible(id: item.id) {
-                                    ComposerTextInputView(
-                                        text: photoCaptionBinding(for: item.id),
-                                        placeholder: "Write a caption...",
-                                        style: assetMetadataInputStyle(color: AppTheme.textSecondary),
-                                        onFocus: clearFocusedTextField,
-                                        onDeleteBackwardWhenEmpty: {
-                                            viewModel.removePhotoCaptionFieldIfEmpty(id: item.id)
+                                if showsCopyright || showsCaption {
+                                    VStack(alignment: .leading, spacing: 8) {
+                                        if showsCopyright {
+                                            ComposerTextInputView(
+                                                text: photoCopyrightBinding(for: item.id),
+                                                placeholder: "© Copyright text",
+                                                style: assetMetadataInputStyle(color: AppTheme.textTertiary),
+                                                onFocus: clearFocusedTextField,
+                                                onDeleteBackwardWhenEmpty: {
+                                                    viewModel.removePhotoCopyrightFieldIfEmpty(id: item.id)
+                                                }
+                                            )
                                         }
-                                    )
+
+                                        if showsCaption {
+                                            ComposerTextInputView(
+                                                text: photoCaptionBinding(for: item.id),
+                                                placeholder: "Write a caption...",
+                                                style: assetMetadataInputStyle(color: AppTheme.textSecondary),
+                                                onFocus: clearFocusedTextField,
+                                                onDeleteBackwardWhenEmpty: {
+                                                    viewModel.removePhotoCaptionFieldIfEmpty(id: item.id)
+                                                }
+                                            )
+                                        }
+                                    }
                                 }
                             }
 
