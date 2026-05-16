@@ -1693,7 +1693,7 @@ private enum ComposerChannelSelectionLayout {
     static let sectionHeaderColor = Color(red: 0.47, green: 0.47, blue: 0.52)
     static let rowTextColor = Color(red: 0.13, green: 0.13, blue: 0.15)
     static let dividerColor = Color.black.opacity(0.08)
-    static let horizontalInset: CGFloat = 26
+    static let horizontalInset: CGFloat = 16
     static let sectionTopPadding: CGFloat = 34
     static let sectionHeaderHorizontalPadding: CGFloat = 32
     static let sectionHeaderBottomPadding: CGFloat = 16

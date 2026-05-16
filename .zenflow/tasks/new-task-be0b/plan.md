@@ -213,6 +213,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` channel picker row-height correction (channel rows are now fixed at 44pt).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` channel picker horizontal inset correction (channel picker menu left/right inset is now 16pt).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
 - Keep this file short and current.
