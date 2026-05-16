@@ -212,14 +212,6 @@ struct SharedCardComposerView: View {
                 )
             }
 
-            if showsFileMediaActionSheet {
-                ComposerBottomSheet(
-                    items: fileMediaActionItems,
-                    onSelect: handleFileMediaActionSelection,
-                    onDismiss: { showsFileMediaActionSheet = false }
-                )
-            }
-
             if showsTeaserActionSheet {
                 ComposerBottomSheet(
                     items: teaserActionItems,
@@ -260,6 +252,15 @@ struct SharedCardComposerView: View {
                 onReplace: { handlePhotoItemActionSelection("replacePhoto") },
                 onCaption: { handlePhotoItemActionSelection("addPhotoCaption") },
                 onCopyright: { handlePhotoItemActionSelection("addPhotoCopyright") }
+            )
+        }
+        .fullScreenCover(isPresented: $showsFileMediaActionSheet) {
+            ComposerFileMediaActionsView(
+                onBack: { showsFileMediaActionSheet = false },
+                onDelete: { handleFileMediaActionSelection("removeMedia") },
+                onReplace: { handleFileMediaActionSelection("replaceMedia") },
+                onCaption: { handleFileMediaActionSelection("addCaption") },
+                onTeaserImage: { handleFileMediaActionSelection("addTeaser") }
             )
         }
         .fullScreenCover(
@@ -709,6 +710,9 @@ struct SharedCardComposerView: View {
         switch selectedID {
         case "addCaption":
             viewModel.showFileCaptionField()
+        case "replaceMedia":
+            replaceCurrentFileMedia()
+            return
         case "addTeaser", "replaceTeaser":
             viewModel.addOrReplaceTeaserImage()
         case "addTeaserCopyright":
@@ -719,6 +723,29 @@ struct SharedCardComposerView: View {
             viewModel.removeMedia()
         default:
             break
+        }
+
+        showsFileMediaActionSheet = false
+    }
+
+    private func replaceCurrentFileMedia() {
+        guard case let .file(file)? = viewModel.media else {
+            showsFileMediaActionSheet = false
+            return
+        }
+
+        showsFileMediaActionSheet = false
+
+        DispatchQueue.main.async {
+            switch file.kind {
+            case .photo:
+                break
+            case .video:
+                showsVideoPicker = true
+            case .audio, .pdf:
+                fileImportKind = file.kind
+                showsFileImporter = true
+            }
         }
     }
 
@@ -2043,6 +2070,99 @@ private struct ComposerPhotoActionsView: View {
                             iconColor: ComposerPhotoActionsLayout.iconColor,
                             showsDivider: false,
                             action: onCopyright
+                        )
+                    }
+                }
+                .padding(.horizontal, ComposerPhotoActionsLayout.horizontalInset)
+                .padding(.top, ComposerPhotoActionsLayout.topPadding)
+            }
+        }
+        .background(ComposerPhotoActionsLayout.background.ignoresSafeArea())
+    }
+
+    private var header: some View {
+        VStack(spacing: 0) {
+            ZStack {
+                Text("Actions")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(ComposerPhotoActionsLayout.titleColor)
+
+                HStack {
+                    Button(action: onBack) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: ComposerPhotoActionsLayout.backIconSize, weight: .semibold))
+                            Text("Back")
+                                .font(.system(size: 17, weight: .regular))
+                        }
+                        .foregroundStyle(ComposerPhotoActionsLayout.accentColor)
+                    }
+                    .buttonStyle(.plain)
+
+                    Spacer()
+                }
+                .padding(.horizontal, 20)
+            }
+            .frame(height: 54)
+
+            Rectangle()
+                .fill(ComposerPhotoActionsLayout.dividerColor)
+                .frame(height: 1)
+        }
+        .background(Color.white)
+    }
+}
+
+private struct ComposerFileMediaActionsView: View {
+    let onBack: () -> Void
+    let onDelete: () -> Void
+    let onReplace: () -> Void
+    let onCaption: () -> Void
+    let onTeaserImage: () -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            header
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: ComposerPhotoActionsLayout.sectionSpacing) {
+                    ComposerPhotoActionsSection {
+                        ComposerPhotoActionRow(
+                            title: "Delete",
+                            systemImageName: "trash",
+                            titleColor: ComposerPhotoActionsLayout.destructiveColor,
+                            iconColor: AppTheme.textPrimary,
+                            showsDivider: true,
+                            action: onDelete
+                        )
+
+                        ComposerPhotoActionRow(
+                            title: "Replace",
+                            systemImageName: "arrow.triangle.2.circlepath",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: false,
+                            action: onReplace
+                        )
+                    }
+
+                    ComposerPhotoActionsSection {
+                        ComposerPhotoActionRow(
+                            title: "Caption",
+                            systemImageName: "line.3.horizontal",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: true,
+                            action: onCaption
+                        )
+
+                        ComposerPhotoActionRow(
+                            title: "Teaser image",
+                            systemImageName: "photo",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: false,
+                            action: onTeaserImage
                         )
                     }
                 }

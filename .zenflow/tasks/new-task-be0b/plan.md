@@ -224,6 +224,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run for this constants/layout-only adjustment.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft `...` visible-inset correction (removed the 56pt wrapper that centered the 28pt visual button, so the visible button now sits at the requested 16pt top/trailing inset).
 - Verification: skipped by request; no build run for this constants/layout-only adjustment.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media actions menu pass (audio/video/pdf `...` now opens a fullscreen Actions screen matching the photo actions layout, with Delete/Replace and Caption/Teaser image sections).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
