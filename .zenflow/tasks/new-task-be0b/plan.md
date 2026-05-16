@@ -218,6 +218,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft layout pass (audio/video/pdf draft media rows now use the 92pt card treatment with 16pt side layout, 60pt media placeholder, per-kind icons, filename title, size subtitle, audio duration prefix, and draft-level circular `...` action while fullscreen detail remains action-free).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft sizing correction (`...` visual button is now 28x28, filename and size/duration text are 16pt).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule
 - Keep this file short and current.

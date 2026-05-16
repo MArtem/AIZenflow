@@ -1223,11 +1223,11 @@ private enum ComposerFileMediaDraftRowLayout {
     static let moreButtonTrailingPadding: CGFloat = 16
     static let contentSpacing: CGFloat = 24
     static let textSpacing: CGFloat = 4
-    static let moreButtonSize: CGFloat = 48
+    static let moreButtonSize: CGFloat = 28
     static let moreButtonHitSize: CGFloat = 56
-    static let moreIconSize: CGFloat = 20
-    static let titleFontSize: CGFloat = 24
-    static let subtitleFontSize: CGFloat = 22
+    static let moreIconSize: CGFloat = 14
+    static let titleFontSize: CGFloat = 16
+    static let subtitleFontSize: CGFloat = 16
     static let cardBackground = Color.white
     static let iconBackground = Color(red: 0.96, green: 0.96, blue: 0.98)
     static let moreButtonBackground = Color(red: 0.95, green: 0.95, blue: 0.97)
