@@ -211,6 +211,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` channel picker typography correction (title 18pt, section header 12pt, Done 16pt, and channel rows 16pt per latest instruction).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` channel picker row-height correction (channel rows are now fixed at 44pt).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.
