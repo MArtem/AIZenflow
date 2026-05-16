@@ -102,26 +102,26 @@ struct SharedCardComposerView: View {
                             }
 
                             ForEach(viewModel.photoItems) { item in
-                                if viewModel.isPhotoCaptionFieldVisible(id: item.id) {
-                                    ComposerTextInputView(
-                                        text: photoCaptionBinding(for: item.id),
-                                        placeholder: "\(item.displayTitle): add caption",
-                                        style: assetMetadataInputStyle(color: AppTheme.textSecondary),
-                                        onFocus: clearFocusedTextField,
-                                        onDeleteBackwardWhenEmpty: {
-                                            viewModel.removePhotoCaptionFieldIfEmpty(id: item.id)
-                                        }
-                                    )
-                                }
-
                                 if viewModel.isPhotoCopyrightFieldVisible(id: item.id) {
                                     ComposerTextInputView(
                                         text: photoCopyrightBinding(for: item.id),
-                                        placeholder: "\(item.displayTitle): add copyright",
+                                        placeholder: "© Copyright text",
                                         style: assetMetadataInputStyle(color: AppTheme.textTertiary),
                                         onFocus: clearFocusedTextField,
                                         onDeleteBackwardWhenEmpty: {
                                             viewModel.removePhotoCopyrightFieldIfEmpty(id: item.id)
+                                        }
+                                    )
+                                }
+
+                                if viewModel.isPhotoCaptionFieldVisible(id: item.id) {
+                                    ComposerTextInputView(
+                                        text: photoCaptionBinding(for: item.id),
+                                        placeholder: "Write a caption...",
+                                        style: assetMetadataInputStyle(color: AppTheme.textSecondary),
+                                        onFocus: clearFocusedTextField,
+                                        onDeleteBackwardWhenEmpty: {
+                                            viewModel.removePhotoCaptionFieldIfEmpty(id: item.id)
                                         }
                                     )
                                 }
@@ -792,8 +792,28 @@ struct SharedCardComposerView: View {
     private func photoCopyrightBinding(for photoID: String) -> Binding<String> {
         Binding(
             get: { viewModel.photoCopyrightText(id: photoID) },
-            set: { viewModel.updatePhotoCopyright($0, id: photoID) }
+            set: { viewModel.updatePhotoCopyright(normalizedCopyrightInput($0), id: photoID) }
         )
+    }
+
+    private func normalizedCopyrightInput(_ value: String) -> String {
+        guard !value.isEmpty else {
+            return value
+        }
+
+        if value.hasPrefix("© ") {
+            return value
+        }
+
+        if value == "©" {
+            return "© "
+        }
+
+        if value.hasPrefix("©") {
+            return "© " + value.dropFirst().trimmingCharacters(in: .whitespaces)
+        }
+
+        return "© " + value
     }
 
     private var focusedPhotoItem: ChannelCardPhotoItem? {
@@ -1013,17 +1033,17 @@ private struct ComposerPhotoPreviewContent: View {
 
     @ViewBuilder
     private var photoMetadataText: some View {
-        if let caption = item.caption, !caption.isEmpty {
-            Text(caption)
-                .font(AppTypography.captionSemibold)
+        if let copyright = item.copyright, !copyright.isEmpty {
+            Text(copyright)
+                .font(AppTypography.label)
                 .foregroundStyle(AppTheme.textTertiary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, AppSpacing.sm)
         }
 
-        if let copyright = item.copyright, !copyright.isEmpty {
-            Text(copyright)
-                .font(AppTypography.label)
+        if let caption = item.caption, !caption.isEmpty {
+            Text(caption)
+                .font(AppTypography.captionSemibold)
                 .foregroundStyle(AppTheme.textTertiary)
                 .multilineTextAlignment(.center)
                 .padding(.horizontal, AppSpacing.sm)
@@ -1290,17 +1310,17 @@ private struct ComposerPhotoDetailContent: View {
 
             if hasMetadata {
                 VStack(spacing: AppSpacing.sm) {
-                    if let caption = item.caption, !caption.isEmpty {
-                        Text(caption)
-                            .font(.system(size: max(13, 15 * scale), weight: .medium))
-                            .foregroundStyle(Color.white.opacity(0.8))
-                            .multilineTextAlignment(.center)
-                    }
-
                     if let copyright = item.copyright, !copyright.isEmpty {
                         Text(copyright)
                             .font(.system(size: max(11, 13 * scale), weight: .medium))
                             .foregroundStyle(Color.white.opacity(0.65))
+                            .multilineTextAlignment(.center)
+                    }
+
+                    if let caption = item.caption, !caption.isEmpty {
+                        Text(caption)
+                            .font(.system(size: max(13, 15 * scale), weight: .medium))
+                            .foregroundStyle(Color.white.opacity(0.8))
                             .multilineTextAlignment(.center)
                     }
                 }
