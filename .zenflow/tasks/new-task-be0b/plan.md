@@ -65,6 +65,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Composer draft photo layout pass — full-width fixed-height images and reliable `...` hit target
 ### [x] Step: Composer photo metadata copy/order pass — copyright placeholder, caption placeholder, copyright-first order
 ### [x] Step: Composer photo metadata spacing pass — set copyright-to-caption gap to 8pt
+### [x] Step: Composer file media draft layout pass — match audio/video/pdf draft rows
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -214,6 +215,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` channel picker row-height correction (channel rows are now fixed at 44pt).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` channel picker horizontal inset correction (channel picker menu left/right inset is now 16pt).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft layout pass (audio/video/pdf draft media rows now use the 92pt card treatment with 16pt side layout, 60pt media placeholder, per-kind icons, filename title, size subtitle, audio duration prefix, and draft-level circular `...` action while fullscreen detail remains action-free).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
 ## Working Rule

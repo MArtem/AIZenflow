@@ -1153,15 +1153,128 @@ private struct ComposerFileMediaPreviewView: View {
     }
 
     var body: some View {
-        ComposerInteractiveMediaSurface(
-            height: 184,
-            onMoreTap: onMoreTap,
-            onTap: onTap
-        ) {
-            ComposerMediaKindBadge(title: presentation.kindTitle)
-            ComposerMediaHeroIcon(systemName: presentation.iconName)
-            ComposerMediaTitleBlock(presentation: presentation)
+        ZStack(alignment: .trailing) {
+            Button(action: onTap) {
+                HStack(spacing: ComposerFileMediaDraftRowLayout.contentSpacing) {
+                    ComposerFileMediaDraftIcon(kind: file.kind)
+
+                    VStack(alignment: .leading, spacing: ComposerFileMediaDraftRowLayout.textSpacing) {
+                        Text(presentation.fileRowTitle)
+                            .font(.system(size: ComposerFileMediaDraftRowLayout.titleFontSize, weight: .bold))
+                            .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+                            .lineLimit(1)
+                            .truncationMode(.middle)
+
+                        if let subtitle = presentation.fileRowSubtitle {
+                            Text(subtitle)
+                                .font(.system(size: ComposerFileMediaDraftRowLayout.subtitleFontSize, weight: .regular))
+                                .foregroundStyle(ComposerFileMediaDraftRowLayout.subtitleColor)
+                                .lineLimit(1)
+                        }
+                    }
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                    Spacer(minLength: ComposerFileMediaDraftRowLayout.moreButtonHitSize)
+                }
+                .padding(.leading, ComposerFileMediaDraftRowLayout.contentHorizontalPadding)
+                .padding(.trailing, ComposerFileMediaDraftRowLayout.trailingReservedPadding)
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .frame(height: ComposerFileMediaDraftRowLayout.rowHeight)
+                .background(ComposerFileMediaDraftRowLayout.cardBackground)
+                .clipShape(RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous))
+                .overlay {
+                    RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous)
+                        .stroke(ComposerFileMediaDraftRowLayout.borderColor, lineWidth: 1)
+                }
+                .contentShape(RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous))
+            }
+            .buttonStyle(.plain)
+
+            Button(action: onMoreTap) {
+                Image(systemName: "ellipsis")
+                    .font(.system(size: ComposerFileMediaDraftRowLayout.moreIconSize, weight: .bold))
+                    .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+                    .frame(
+                        width: ComposerFileMediaDraftRowLayout.moreButtonSize,
+                        height: ComposerFileMediaDraftRowLayout.moreButtonSize
+                    )
+                    .background(ComposerFileMediaDraftRowLayout.moreButtonBackground)
+                    .clipShape(Circle())
+            }
+            .buttonStyle(.plain)
+            .frame(
+                width: ComposerFileMediaDraftRowLayout.moreButtonHitSize,
+                height: ComposerFileMediaDraftRowLayout.moreButtonHitSize
+            )
+            .contentShape(Circle())
+            .padding(.trailing, ComposerFileMediaDraftRowLayout.moreButtonTrailingPadding)
+            .zIndex(1)
         }
+    }
+}
+
+private enum ComposerFileMediaDraftRowLayout {
+    static let rowHeight: CGFloat = 92
+    static let iconSize: CGFloat = 60
+    static let iconCornerRadius: CGFloat = 16
+    static let cornerRadius: CGFloat = 16
+    static let contentHorizontalPadding: CGFloat = 16
+    static let trailingReservedPadding: CGFloat = 72
+    static let moreButtonTrailingPadding: CGFloat = 16
+    static let contentSpacing: CGFloat = 24
+    static let textSpacing: CGFloat = 4
+    static let moreButtonSize: CGFloat = 48
+    static let moreButtonHitSize: CGFloat = 56
+    static let moreIconSize: CGFloat = 20
+    static let titleFontSize: CGFloat = 24
+    static let subtitleFontSize: CGFloat = 22
+    static let cardBackground = Color.white
+    static let iconBackground = Color(red: 0.96, green: 0.96, blue: 0.98)
+    static let moreButtonBackground = Color(red: 0.95, green: 0.95, blue: 0.97)
+    static let borderColor = Color.black.opacity(0.10)
+    static let titleColor = Color(red: 0.27, green: 0.27, blue: 0.38)
+    static let subtitleColor = Color(red: 0.44, green: 0.44, blue: 0.46)
+}
+
+private struct ComposerFileMediaDraftIcon: View {
+    let kind: ChannelCardMediaKind
+
+    var body: some View {
+        ZStack {
+            RoundedRectangle(
+                cornerRadius: ComposerFileMediaDraftRowLayout.iconCornerRadius,
+                style: .continuous
+            )
+            .fill(ComposerFileMediaDraftRowLayout.iconBackground)
+
+            switch kind {
+            case .photo:
+                Image(systemName: "photo")
+                    .font(.system(size: 26, weight: .medium))
+                    .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+            case .video:
+                Image(systemName: "video")
+                    .font(.system(size: 28, weight: .medium))
+                    .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+            case .audio:
+                Image(systemName: "music.note")
+                    .font(.system(size: 28, weight: .medium))
+                    .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+            case .pdf:
+                ZStack {
+                    Image(systemName: "doc")
+                        .font(.system(size: 32, weight: .medium))
+                    Text("PDF")
+                        .font(.system(size: 8, weight: .bold))
+                        .offset(y: 2)
+                }
+                .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+            }
+        }
+        .frame(
+            width: ComposerFileMediaDraftRowLayout.iconSize,
+            height: ComposerFileMediaDraftRowLayout.iconSize
+        )
     }
 }
 
@@ -1626,6 +1739,48 @@ private struct ComposerFileMediaPresentation {
         case .video, .audio, .pdf:
             return file.displayTitle == kindTitle ? nil : file.displayTitle
         }
+    }
+
+    var fileRowTitle: String {
+        file.displayTitle
+    }
+
+    var fileRowSubtitle: String? {
+        let sizeText = formattedFileSize
+
+        if file.kind == .audio,
+           let durationText = formattedAudioDuration {
+            return [durationText, sizeText].compactMap { $0 }.joined(separator: ", ")
+        }
+
+        return sizeText
+    }
+
+    private var formattedFileSize: String? {
+        guard let fileURL = file.fileURL,
+              let resourceValues = try? fileURL.resourceValues(forKeys: [.fileSizeKey]),
+              let fileSize = resourceValues.fileSize else {
+            return nil
+        }
+
+        let megabytes = Double(fileSize) / 1_000_000
+        return String(format: "%.1f Mb", megabytes)
+    }
+
+    private var formattedAudioDuration: String? {
+        guard file.kind == .audio,
+              let fileURL = file.fileURL else {
+            return nil
+        }
+
+        guard let seconds = (try? AVAudioPlayer(contentsOf: fileURL))?.duration,
+              seconds.isFinite,
+              seconds > 0 else {
+            return nil
+        }
+
+        let roundedSeconds = Int(seconds.rounded())
+        return String(format: "%d:%02d", roundedSeconds / 60, roundedSeconds % 60)
     }
 }
 
