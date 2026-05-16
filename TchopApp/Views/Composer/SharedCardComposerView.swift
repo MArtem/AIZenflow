@@ -269,13 +269,7 @@ struct SharedCardComposerView: View {
             if let item = focusedPhotoItem {
                 ComposerPhotoDetailView(
                     item: item,
-                    onClose: { focusedPhotoItemID = nil },
-                    onMoreTap: {
-                        focusedPhotoItemID = nil
-                        DispatchQueue.main.async {
-                            selectedPhotoItemID = item.id
-                        }
-                    }
+                    onClose: { focusedPhotoItemID = nil }
                 )
             }
         }
@@ -283,13 +277,7 @@ struct SharedCardComposerView: View {
             if let file = focusedFileMedia {
                 ComposerFileMediaDetailView(
                     file: file,
-                    onClose: { showsFileMediaDetail = false },
-                    onMoreTap: {
-                        showsFileMediaDetail = false
-                        DispatchQueue.main.async {
-                            showsFileMediaActionSheet = true
-                        }
-                    }
+                    onClose: { showsFileMediaDetail = false }
                 )
             }
         }
@@ -297,13 +285,7 @@ struct SharedCardComposerView: View {
             if let teaserImage = focusedTeaserImage {
                 ComposerTeaserDetailView(
                     teaserImage: teaserImage,
-                    onClose: { showsTeaserDetail = false },
-                    onMoreTap: {
-                        showsTeaserDetail = false
-                        DispatchQueue.main.async {
-                            showsTeaserActionSheet = true
-                        }
-                    }
+                    onClose: { showsTeaserDetail = false }
                 )
             }
         }
@@ -1228,7 +1210,6 @@ private struct ComposerTeaserPreview: View {
 private struct ComposerPhotoDetailView: View {
     let item: ChannelCardPhotoItem
     let onClose: () -> Void
-    let onMoreTap: () -> Void
 
     @State private var scale: CGFloat = 1
     @State private var baseScale: CGFloat = 1
@@ -1267,7 +1248,7 @@ private struct ComposerPhotoDetailView: View {
                     }
             )
 
-            ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
+            ComposerDetailTopBar(onClose: onClose)
         }
     }
 }
@@ -1322,7 +1303,6 @@ private struct ComposerPhotoDetailContent: View {
 private struct ComposerFileMediaDetailView: View {
     let file: ChannelCardFileMediaContent
     let onClose: () -> Void
-    let onMoreTap: () -> Void
 
     private var presentation: ComposerFileMediaPresentation {
         ComposerFileMediaPresentation(file: file)
@@ -1338,7 +1318,7 @@ private struct ComposerFileMediaDetailView: View {
                 ComposerPlaceholderFileMediaDetail(file: file, presentation: presentation)
             }
 
-            ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
+            ComposerDetailTopBar(onClose: onClose)
         }
     }
 }
@@ -1607,7 +1587,6 @@ private struct ComposerFileMediaPresentation {
 private struct ComposerTeaserDetailView: View {
     let teaserImage: ChannelCardTeaserImageContent
     let onClose: () -> Void
-    let onMoreTap: () -> Void
 
     var body: some View {
         ZStack(alignment: .top) {
@@ -1628,14 +1607,13 @@ private struct ComposerTeaserDetailView: View {
                 .padding(.bottom, 40)
             }
 
-            ComposerDetailTopBar(onClose: onClose, onMoreTap: onMoreTap)
+            ComposerDetailTopBar(onClose: onClose)
         }
     }
 }
 
 private struct ComposerDetailTopBar: View {
     let onClose: () -> Void
-    let onMoreTap: () -> Void
 
     var body: some View {
         HStack {
@@ -1650,16 +1628,6 @@ private struct ComposerDetailTopBar: View {
             .buttonStyle(.plain)
 
             Spacer()
-
-            Button(action: onMoreTap) {
-                Image(systemName: "ellipsis")
-                    .font(.system(size: 16, weight: .semibold))
-                    .foregroundStyle(Color.white)
-                    .frame(width: 36, height: 36)
-                    .background(Color.white.opacity(0.12))
-                    .clipShape(Circle())
-            }
-            .buttonStyle(.plain)
         }
         .padding(.horizontal, AppSpacing.md)
         .padding(.top, AppSpacing.lg)

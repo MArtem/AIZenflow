@@ -41,6 +41,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: UI pass 6 — match entered body text size/alignment with placeholder in primary composer field
 ### [x] Step: UI pass 5 — extend empty composer toolbar background to full-screen bottom reference
 ### [x] Step: UI pass 7 — align composer `+` popup bottom-sheet layout/styling to reference
+### [x] Step: Composer media detail actions cleanup — remove fullscreen preview `...` controls
 ### [x] Step: UI pass 8 — pixel-tighten composer `+` popup sheet geometry/spacing to latest reference
 ### [x] Step: Continuity docs pass — enforce full docs/rules reread rule in context-transfer prompt
 ### [x] Step: UI pass 9 — restore `+` popup icons/labels/count/typography to match latest provided reference
@@ -183,6 +184,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (only AppIntents metadata extraction warning from tooling).
 - Completed now: composer photo-only actions menu pass across `./TchopApp/Views/Composer/SharedCardComposerView.swift`, `./TchopApp/Models/NewsFeedModels.swift`, and `./TchopApp/ViewModels/AppShellViewModel.swift` (photo `...` now opens a fullscreen Actions screen with Back navigation, two grouped sections, Delete/Replace/Caption/Copyright text rows with icons/colors, and Replace swaps the selected draft image through Photos picker while preserving item metadata).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (existing share-extension concurrency warnings plus AppIntents tooling warning).
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` media detail action cleanup (draft-level `...` controls remain on photo/video/audio/PDF items; fullscreen media/teaser detail previews now show only close navigation and no `...` actions).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (existing share-extension concurrency warnings plus AppIntents/tooling messages).
 
 ## Working Rule
 - Keep this file short and current.
