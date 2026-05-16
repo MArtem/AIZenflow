@@ -1202,10 +1202,6 @@ private struct ComposerFileMediaPreviewView: View {
                     .clipShape(Circle())
             }
             .buttonStyle(.plain)
-            .frame(
-                width: ComposerFileMediaDraftRowLayout.moreButtonHitSize,
-                height: ComposerFileMediaDraftRowLayout.moreButtonHitSize
-            )
             .contentShape(Circle())
             .padding(.top, ComposerFileMediaDraftRowLayout.contentVerticalPadding)
             .padding(.trailing, ComposerFileMediaDraftRowLayout.moreButtonTrailingPadding)

@@ -222,6 +222,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft `...` placement correction (button is now pinned to the top-right with the same 16pt inset as the content placeholder).
 - Verification: skipped by request; no build run for this constants/layout-only adjustment.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft `...` visible-inset correction (removed the 56pt wrapper that centered the 28pt visual button, so the visible button now sits at the requested 16pt top/trailing inset).
+- Verification: skipped by request; no build run for this constants/layout-only adjustment.
 
 ## Working Rule
 - Keep this file short and current.
