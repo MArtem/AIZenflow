@@ -208,6 +208,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: composer channel picker full-screen pass across `./TchopApp/Views/Composer/SharedCardComposerView.swift` and localization resources (channel selection now opens as a full-screen screen with localized `Post it`, `Done`, `Your Mixes`, current-channel checkmark, same-channel reselection support, and immediate draft channel application on selection).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` channel picker typography correction (title 18pt, section header 12pt, Done 16pt, and channel rows 16pt per latest instruction).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

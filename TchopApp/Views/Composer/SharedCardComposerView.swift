@@ -1701,10 +1701,10 @@ private enum ComposerChannelSelectionLayout {
     static let rowHeight: CGFloat = 88
     static let rowHorizontalPadding: CGFloat = 32
     static let headerHeight: CGFloat = 58
-    static let titleFontSize: CGFloat = 30
-    static let doneFontSize: CGFloat = 27
-    static let sectionHeaderFontSize: CGFloat = 26
-    static let rowFontSize: CGFloat = 30
+    static let titleFontSize: CGFloat = 18
+    static let doneFontSize: CGFloat = 16
+    static let sectionHeaderFontSize: CGFloat = 12
+    static let rowFontSize: CGFloat = 16
     static let checkFontSize: CGFloat = 20
 }
 
