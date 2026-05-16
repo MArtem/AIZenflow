@@ -1153,7 +1153,7 @@ private struct ComposerFileMediaPreviewView: View {
     }
 
     var body: some View {
-        ZStack(alignment: .trailing) {
+        ZStack(alignment: .topTrailing) {
             Button(action: onTap) {
                 HStack(spacing: ComposerFileMediaDraftRowLayout.contentSpacing) {
                     ComposerFileMediaDraftIcon(kind: file.kind)
@@ -1207,6 +1207,7 @@ private struct ComposerFileMediaPreviewView: View {
                 height: ComposerFileMediaDraftRowLayout.moreButtonHitSize
             )
             .contentShape(Circle())
+            .padding(.top, ComposerFileMediaDraftRowLayout.contentVerticalPadding)
             .padding(.trailing, ComposerFileMediaDraftRowLayout.moreButtonTrailingPadding)
             .zIndex(1)
         }
@@ -1219,6 +1220,7 @@ private enum ComposerFileMediaDraftRowLayout {
     static let iconCornerRadius: CGFloat = 16
     static let cornerRadius: CGFloat = 16
     static let contentHorizontalPadding: CGFloat = 16
+    static let contentVerticalPadding: CGFloat = 16
     static let trailingReservedPadding: CGFloat = 72
     static let moreButtonTrailingPadding: CGFloat = 16
     static let contentSpacing: CGFloat = 24

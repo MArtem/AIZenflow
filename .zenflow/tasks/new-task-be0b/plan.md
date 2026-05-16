@@ -220,6 +220,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft sizing correction (`...` visual button is now 28x28, filename and size/duration text are 16pt).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media draft `...` placement correction (button is now pinned to the top-right with the same 16pt inset as the content placeholder).
+- Verification: skipped by request; no build run for this constants/layout-only adjustment.
 
 ## Working Rule
 - Keep this file short and current.
