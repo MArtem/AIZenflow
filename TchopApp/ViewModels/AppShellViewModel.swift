@@ -204,6 +204,10 @@ final class FeedComposerViewModel {
         draft.removePhoto(id: id)
     }
 
+    func replacePickedPhoto(id: String, displayTitle: String?, fileURL: URL?) {
+        draft.replacePickedPhoto(id: id, displayTitle: displayTitle, fileURL: fileURL)
+    }
+
     func updatePhotoCaption(_ value: String?, id: String) {
         draft.updatePhotoCaption(value, id: id)
     }

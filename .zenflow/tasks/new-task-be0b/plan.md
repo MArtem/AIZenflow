@@ -60,6 +60,7 @@ Continue runtime cleanup with safe simplification while preserving current behav
 ### [x] Step: Composer media detail pass — render/play selected video/audio/pdf draft files
 ### [x] Step: Local feed SwiftData persistence pass — keep created cards after app restart
 ### [x] Step: Composer media metadata focus fix — keep cursor in caption/copyright fields while typing
+### [x] Step: Composer photo actions fullscreen menu — match image `...` actions reference
 
 ## Current Status
 - Completed audit: `./TchopApp/Navigation/DeepLinkManager.swift` safe-pass (removed decorative route-definition table and switched to direct root-segment dispatch).
@@ -180,6 +181,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` with no warning/error output from the final filtered check.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` media metadata focus fix (photo/file caption and copyright fields clear the primary text focus when editing starts, so SwiftUI updates no longer move the cursor back to the main text field after each character).
 - Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (only AppIntents metadata extraction warning from tooling).
+- Completed now: composer photo-only actions menu pass across `./TchopApp/Views/Composer/SharedCardComposerView.swift`, `./TchopApp/Models/NewsFeedModels.swift`, and `./TchopApp/ViewModels/AppShellViewModel.swift` (photo `...` now opens a fullscreen Actions screen with Back navigation, two grouped sections, Delete/Replace/Caption/Copyright text rows with icons/colors, and Replace swaps the selected draft image through Photos picker while preserving item metadata).
+- Verification: `./scripts/verify.sh low` => `BUILD SUCCEEDED` (existing share-extension concurrency warnings plus AppIntents tooling warning).
 
 ## Working Rule
 - Keep this file short and current.

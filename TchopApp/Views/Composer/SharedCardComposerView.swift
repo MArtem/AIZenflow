@@ -22,6 +22,7 @@ struct SharedCardComposerView: View {
     @State private var showsFileMediaDetail = false
     @State private var showsTeaserDetail = false
     @State private var focusedTextFieldKind: ChannelCardTextFieldKind?
+    @State private var replacingPhotoItemID: String?
     @State private var showsPhotoPicker = false
     @State private var showsVideoPicker = false
     @State private var selectedPhotoPickerItem: PhotosPickerItem?
@@ -232,17 +233,28 @@ struct SharedCardComposerView: View {
                 )
             }
 
-            if selectedPhotoItemID != nil {
-                ComposerBottomSheet(
-                    items: photoItemActionItems,
-                    onSelect: handlePhotoItemActionSelection,
-                    onDismiss: { selectedPhotoItemID = nil }
-                )
-            }
         }
         .background(AppTheme.surfacePrimary.ignoresSafeArea())
         .onAppear {
             focusInitialTextField()
+        }
+        .fullScreenCover(
+            isPresented: Binding(
+                get: { selectedPhotoItemID != nil },
+                set: { isPresented in
+                    if !isPresented {
+                        selectedPhotoItemID = nil
+                    }
+                }
+            )
+        ) {
+            ComposerPhotoActionsView(
+                onBack: { selectedPhotoItemID = nil },
+                onDelete: { handlePhotoItemActionSelection("removePhoto") },
+                onReplace: { handlePhotoItemActionSelection("replacePhoto") },
+                onCaption: { handlePhotoItemActionSelection("addPhotoCaption") },
+                onCopyright: { handlePhotoItemActionSelection("addPhotoCopyright") }
+            )
         }
         .fullScreenCover(
             isPresented: Binding(
@@ -331,6 +343,13 @@ struct SharedCardComposerView: View {
             get: { showsPhotoPicker },
             set: { isPresented in
                 showsPhotoPicker = isPresented
+                if !isPresented {
+                    DispatchQueue.main.async {
+                        if selectedPhotoPickerItem == nil {
+                            replacingPhotoItemID = nil
+                        }
+                    }
+                }
             }
         )
     }
@@ -560,7 +579,15 @@ struct SharedCardComposerView: View {
 
             switch kind {
             case .photo:
-                viewModel.addPickedPhoto(displayTitle: fileURL.lastPathComponent, fileURL: fileURL)
+                if let replacingPhotoItemID {
+                    viewModel.replacePickedPhoto(
+                        id: replacingPhotoItemID,
+                        displayTitle: fileURL.lastPathComponent,
+                        fileURL: fileURL
+                    )
+                } else {
+                    viewModel.addPickedPhoto(displayTitle: fileURL.lastPathComponent, fileURL: fileURL)
+                }
             case .video:
                 viewModel.selectPickedFile(kind: .video, displayTitle: fileURL.lastPathComponent, fileURL: fileURL)
             case .audio, .pdf:
@@ -753,6 +780,13 @@ struct SharedCardComposerView: View {
         }
 
         switch selectedID {
+        case "replacePhoto":
+            replacingPhotoItemID = selectedPhotoItemID
+            self.selectedPhotoItemID = nil
+            DispatchQueue.main.async {
+                showsPhotoPicker = true
+            }
+            return
         case "addPhotoCaption":
             viewModel.showPhotoCaptionField(id: selectedPhotoItemID)
         case "addPhotoCopyright":
@@ -764,22 +798,6 @@ struct SharedCardComposerView: View {
         }
 
         self.selectedPhotoItemID = nil
-    }
-
-    private var photoItemActionItems: [ComposerBottomSheetItem] {
-        guard let selectedPhotoItemID else {
-            return []
-        }
-
-        var items: [ComposerBottomSheetItem] = []
-        if !viewModel.isPhotoCaptionFieldVisible(id: selectedPhotoItemID) {
-            items.append(ComposerBottomSheetItem(id: "addPhotoCaption", title: "Add caption"))
-        }
-        if !viewModel.isPhotoCopyrightFieldVisible(id: selectedPhotoItemID) {
-            items.append(ComposerBottomSheetItem(id: "addPhotoCopyright", title: "Add copyright"))
-        }
-        items.append(ComposerBottomSheetItem(id: "removePhoto", title: "Remove photo"))
-        return items
     }
 
     private func photoCaptionBinding(for photoID: String) -> Binding<String> {
@@ -1652,6 +1670,173 @@ private struct ComposerBottomSheetItem: Identifiable {
     let id: String
     let title: String
     var systemImageName: String?
+}
+
+private enum ComposerPhotoActionsLayout {
+    static let background = Color(red: 0.969, green: 0.969, blue: 0.969)
+    static let sectionBackground = Color.white
+    static let titleColor = Color(red: 0.29, green: 0.29, blue: 0.38)
+    static let accentColor = Color(red: 1.0, green: 0.42, blue: 0.33)
+    static let destructiveColor = Color(red: 1.0, green: 0.25, blue: 0.34)
+    static let iconColor = Color(red: 0.29, green: 0.29, blue: 0.38)
+    static let dividerColor = Color.black.opacity(0.08)
+    static let horizontalInset: CGFloat = 16
+    static let topPadding: CGFloat = 34
+    static let sectionSpacing: CGFloat = 32
+    static let sectionCornerRadius: CGFloat = 14
+    static let rowHeight: CGFloat = 44
+    static let rowHorizontalPadding: CGFloat = 34
+    static let rowSpacing: CGFloat = 18
+    static let iconWidth: CGFloat = 22
+    static let iconSize: CGFloat = 20
+    static let backIconSize: CGFloat = 19
+}
+
+private struct ComposerPhotoActionsView: View {
+    let onBack: () -> Void
+    let onDelete: () -> Void
+    let onReplace: () -> Void
+    let onCaption: () -> Void
+    let onCopyright: () -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            header
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: ComposerPhotoActionsLayout.sectionSpacing) {
+                    ComposerPhotoActionsSection {
+                        ComposerPhotoActionRow(
+                            title: "Delete",
+                            systemImageName: "trash",
+                            titleColor: ComposerPhotoActionsLayout.destructiveColor,
+                            iconColor: AppTheme.textPrimary,
+                            showsDivider: true,
+                            action: onDelete
+                        )
+
+                        ComposerPhotoActionRow(
+                            title: "Replace",
+                            systemImageName: "arrow.triangle.2.circlepath",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: false,
+                            action: onReplace
+                        )
+                    }
+
+                    ComposerPhotoActionsSection {
+                        ComposerPhotoActionRow(
+                            title: "Caption",
+                            systemImageName: "line.3.horizontal",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: true,
+                            action: onCaption
+                        )
+
+                        ComposerPhotoActionRow(
+                            title: "Copyright text",
+                            systemImageName: "c.circle",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: false,
+                            action: onCopyright
+                        )
+                    }
+                }
+                .padding(.horizontal, ComposerPhotoActionsLayout.horizontalInset)
+                .padding(.top, ComposerPhotoActionsLayout.topPadding)
+            }
+        }
+        .background(ComposerPhotoActionsLayout.background.ignoresSafeArea())
+    }
+
+    private var header: some View {
+        VStack(spacing: 0) {
+            ZStack {
+                Text("Actions")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(ComposerPhotoActionsLayout.titleColor)
+
+                HStack {
+                    Button(action: onBack) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: ComposerPhotoActionsLayout.backIconSize, weight: .semibold))
+                            Text("Back")
+                                .font(.system(size: 17, weight: .regular))
+                        }
+                        .foregroundStyle(ComposerPhotoActionsLayout.accentColor)
+                    }
+                    .buttonStyle(.plain)
+
+                    Spacer()
+                }
+                .padding(.horizontal, 20)
+            }
+            .frame(height: 54)
+
+            Rectangle()
+                .fill(ComposerPhotoActionsLayout.dividerColor)
+                .frame(height: 1)
+        }
+        .background(Color.white)
+    }
+}
+
+private struct ComposerPhotoActionsSection<Content: View>: View {
+    @ViewBuilder let content: Content
+
+    var body: some View {
+        VStack(spacing: 0) {
+            content
+        }
+        .background(ComposerPhotoActionsLayout.sectionBackground)
+        .clipShape(
+            RoundedRectangle(
+                cornerRadius: ComposerPhotoActionsLayout.sectionCornerRadius,
+                style: .continuous
+            )
+        )
+    }
+}
+
+private struct ComposerPhotoActionRow: View {
+    let title: String
+    let systemImageName: String
+    let titleColor: Color
+    let iconColor: Color
+    let showsDivider: Bool
+    let action: () -> Void
+
+    var body: some View {
+        Button(action: action) {
+            HStack(spacing: ComposerPhotoActionsLayout.rowSpacing) {
+                Image(systemName: systemImageName)
+                    .font(.system(size: ComposerPhotoActionsLayout.iconSize, weight: .medium))
+                    .foregroundStyle(iconColor)
+                    .frame(width: ComposerPhotoActionsLayout.iconWidth, alignment: .center)
+
+                Text(title)
+                    .font(.system(size: 17, weight: .regular))
+                    .foregroundStyle(titleColor)
+
+                Spacer(minLength: 0)
+            }
+            .padding(.horizontal, ComposerPhotoActionsLayout.rowHorizontalPadding)
+            .frame(height: ComposerPhotoActionsLayout.rowHeight)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .overlay(alignment: .bottom) {
+            if showsDivider {
+                Rectangle()
+                    .fill(ComposerPhotoActionsLayout.dividerColor)
+                    .frame(height: 1)
+            }
+        }
+    }
 }
 
 private struct ComposerBottomSheet: View {

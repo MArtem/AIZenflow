@@ -369,6 +369,28 @@ struct FeedComposerDraft: Equatable, Sendable {
         media = remainingItems.isEmpty ? nil : .photos(items: remainingItems)
     }
 
+    mutating func replacePickedPhoto(id: String, displayTitle: String?, fileURL: URL?) {
+        guard case let .photos(items) = media else {
+            return
+        }
+
+        media = .photos(
+            items: items.map { item in
+                guard item.id == id else {
+                    return item
+                }
+
+                return ChannelCardPhotoItem(
+                    id: item.id,
+                    displayTitle: normalizedDisplayTitle(displayTitle, fallback: item.displayTitle),
+                    fileURL: fileURL,
+                    caption: item.caption,
+                    copyright: item.copyright
+                )
+            }
+        )
+    }
+
     mutating func showPhotoCaptionField(id: String) {
         guard photoItem(id: id) != nil else {
             return
