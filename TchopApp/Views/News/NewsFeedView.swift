@@ -247,13 +247,6 @@ private struct NewsFeedCardRendererView: View {
         switch feedCard {
         case let .photo(content):
             switch content {
-            case let .remote(photoCard):
-                PhotoCardView(
-                    photo: viewModel.translatedPhotoCard(photoCard),
-                    translationAction: translationAction,
-                    onTap: { onPhotoTap(photoCard) },
-                    onAction: { onPhotoAction(photoCard, $0) }
-                )
             case let .local(localCard):
                 LocalPhotoCardView(
                     card: viewModel.translatedLocalFeedCard(localCard),
@@ -262,16 +255,11 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
                     onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
                 )
+            case .remote:
+                EmptyView()
             }
         case let .text(content):
             switch content {
-            case let .remote(textCard):
-                TextCardView(
-                    text: viewModel.translatedTextCard(textCard),
-                    translationAction: translationAction,
-                    onTap: { onTextTap(textCard) },
-                    onAction: { onTextAction(textCard, $0) }
-                )
             case let .local(localCard):
                 LocalTextCardView(
                     card: viewModel.translatedLocalFeedCard(localCard),
@@ -280,6 +268,8 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
                     onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
                 )
+            case .remote:
+                EmptyView()
             }
         case let .video(content):
             switch content {

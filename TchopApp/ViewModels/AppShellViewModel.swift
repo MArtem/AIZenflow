@@ -19,7 +19,6 @@ final class LocalFeedCardStore {
 
     private let repository: (any LocalFeedCardPersisting)?
     private var persistedLocalCards: [LocalFeedCardModel]
-    private var transientCards: [NewsFeedCard] = []
 
     init(repository: (any LocalFeedCardPersisting)? = nil) {
         self.repository = repository
@@ -33,10 +32,6 @@ final class LocalFeedCardStore {
         } catch {
             assertionFailure("Failed to persist local feed card: \(error)")
         }
-    }
-
-    func publish(_ card: NewsFeedCard) {
-        sync([card])
     }
 
     func cards(for channelID: String?) -> [NewsFeedCard] {
@@ -63,21 +58,6 @@ final class LocalFeedCardStore {
         refreshCards()
     }
 
-    func sync(_ incomingCards: [NewsFeedCard]) {
-        guard !incomingCards.isEmpty else {
-            return
-        }
-
-        let existingIDs = Set((persistedLocalCards.map(\.id) + transientCards.map(\.id)))
-        let newCards = incomingCards.filter { !existingIDs.contains($0.id) }
-        guard !newCards.isEmpty else {
-            return
-        }
-
-        transientCards = newCards + transientCards
-        refreshCards()
-    }
-
     func updatePersistedCard(
         id: String,
         transform: (LocalFeedCardModel) -> LocalFeedCardModel
@@ -97,7 +77,7 @@ final class LocalFeedCardStore {
     }
 
     private func refreshCards() {
-        cards = persistedLocalCards.map(\.newsFeedCard) + transientCards
+        cards = persistedLocalCards.map(\.newsFeedCard)
     }
 }
 

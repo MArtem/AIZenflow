@@ -191,8 +191,8 @@ final class NewsFeedViewModel {
         self.state = Self.resolvedState(for: initialContent)
         self.loadFailureContent = loadFailureContent
         self.loadFailureMessage = loadFailureMessage
-        widgetContentSyncManager.syncFeed(content: initialContent)
-        load(using: .initial)
+        widgetContentSyncManager.syncFeed(content: Self.emptyContent)
+        state = .empty(Self.emptyContent)
     }
 
     /// Current feed content shown by the news screen.
@@ -425,12 +425,12 @@ final class NewsFeedViewModel {
     /// Online refresh goes through the API path; offline refresh keeps the stored snapshot and updates the UI source metadata.
     func refresh() {
         syncSharedLocalCardsIfNeeded()
-        load(using: .refresh)
+        handleLocalChannelCardsChanged()
     }
 
     /// Retries feed loading only after a visible failed state.
     func retry() {
-        load(using: .retry)
+        handleLocalChannelCardsChanged()
     }
 
     /// Opens or closes the current-channel search UI.
@@ -571,18 +571,11 @@ final class NewsFeedViewModel {
         searchQuery = ""
         isSearchPresented = false
 
-        guard let channelID = currentChannelID else {
+        guard currentChannelID != nil else {
             setEmptyState()
             return
         }
-
-        if let persistedContent = try? repository.currentNewsFeedContent(channelID: channelID) {
-            state = .loading(persistedContent)
-        } else {
-            state = .loading(Self.emptyContent)
-        }
-
-        load(using: .initial)
+        handleLocalChannelCardsChanged()
     }
 
     func syncSharedLocalCardsIfNeeded() {
