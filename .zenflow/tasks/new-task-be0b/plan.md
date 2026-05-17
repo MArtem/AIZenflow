@@ -283,6 +283,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact media fit correction follow-up (reverted the failed separated metadata layout; feed media previews keep the caption/copyright overlay stable while the image surface uses aspect-fit resizing inside the resized compact cell).
 - Verification: skipped by request; no build run per current instruction.
 
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` feed media fill tuning (image-backed feed media previews now fill the full card media frame in every display mode, removing side empty areas while preserving the existing bottom metadata overlay).
+- Verification: skipped by request; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

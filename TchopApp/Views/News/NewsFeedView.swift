@@ -941,7 +941,7 @@ private struct LocalImageMediaFrame: View {
         if let image {
             Image(uiImage: image)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             AppTheme.surfaceSecondary
@@ -1108,7 +1108,7 @@ private struct LocalImageLikeMediaFrame: View {
         if let image {
             Image(uiImage: image)
                 .resizable()
-                .scaledToFit()
+                .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             AppTheme.surfaceSecondary
