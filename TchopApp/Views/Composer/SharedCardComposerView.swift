@@ -96,6 +96,13 @@ struct SharedCardComposerView: View {
                                 onFileCaptionDeleteBackwardWhenEmpty: {
                                     viewModel.removeFileCaptionFieldIfEmpty()
                                 },
+                                showsTeaserCopyrightField: viewModel.isTeaserCopyrightFieldVisible,
+                                teaserCopyrightText: teaserCopyrightBinding,
+                                teaserCopyrightInputStyle: assetMetadataInputStyle(color: AppTheme.textTertiary),
+                                onTeaserCopyrightFocus: clearFocusedTextField,
+                                onTeaserCopyrightDeleteBackwardWhenEmpty: {
+                                    viewModel.removeTeaserCopyrightFieldIfEmpty()
+                                },
                                 onTeaserMoreTap: { showsTeaserActionSheet = true },
                                 onTeaserTap: { showsTeaserDetail = true },
                                 onFileMediaMoreTap: { showsFileMediaActionSheet = true },
@@ -137,17 +144,6 @@ struct SharedCardComposerView: View {
                                 }
                             }
 
-                            if viewModel.isTeaserCopyrightFieldVisible {
-                                ComposerTextInputView(
-                                    text: teaserCopyrightBinding,
-                                    placeholder: "Add teaser copyright",
-                                    style: assetMetadataInputStyle(color: AppTheme.textTertiary),
-                                    onFocus: clearFocusedTextField,
-                                    onDeleteBackwardWhenEmpty: {
-                                        viewModel.removeTeaserCopyrightFieldIfEmpty()
-                                    }
-                                )
-                            }
                         }
 
                         if viewModel.isSourceFieldVisible {
@@ -203,14 +199,6 @@ struct SharedCardComposerView: View {
                 )
             }
 
-            if showsTeaserActionSheet {
-                ComposerBottomSheet(
-                    items: teaserActionItems,
-                    onSelect: handleTeaserActionSelection,
-                    onDismiss: { showsTeaserActionSheet = false }
-                )
-            }
-
         }
         .background(AppTheme.surfacePrimary.ignoresSafeArea())
         .onAppear {
@@ -252,6 +240,14 @@ struct SharedCardComposerView: View {
                 onReplace: { handleFileMediaActionSelection("replaceMedia") },
                 onCaption: { handleFileMediaActionSelection("addCaption") },
                 onTeaserImage: { handleFileMediaActionSelection("addTeaser") }
+            )
+        }
+        .fullScreenCover(isPresented: $showsTeaserActionSheet) {
+            ComposerTeaserImageActionsView(
+                onBack: { showsTeaserActionSheet = false },
+                onDelete: { handleTeaserActionSelection("removeTeaser") },
+                onReplace: { handleTeaserActionSelection("replaceTeaser") },
+                onCopyright: { handleTeaserActionSelection("addTeaserCopyright") }
             )
         }
         .fullScreenCover(
@@ -815,6 +811,8 @@ struct SharedCardComposerView: View {
         default:
             break
         }
+
+        showsTeaserActionSheet = false
     }
 
     private var fileCaptionBinding: Binding<String> {
@@ -827,7 +825,7 @@ struct SharedCardComposerView: View {
     private var teaserCopyrightBinding: Binding<String> {
         Binding(
             get: { viewModel.teaserCopyrightText },
-            set: { viewModel.updateTeaserCopyright($0) }
+            set: { viewModel.updateTeaserCopyright(normalizedCopyrightInput($0)) }
         )
     }
 
@@ -981,6 +979,11 @@ private struct ComposerMediaPreview: View {
     let fileCaptionInputStyle: ComposerTextInputStyle
     let onFileCaptionFocus: () -> Void
     let onFileCaptionDeleteBackwardWhenEmpty: () -> Void
+    let showsTeaserCopyrightField: Bool
+    @Binding var teaserCopyrightText: String
+    let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let onTeaserCopyrightFocus: () -> Void
+    let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
     let onTeaserTap: () -> Void
     let onFileMediaMoreTap: () -> Void
@@ -1008,6 +1011,11 @@ private struct ComposerMediaPreview: View {
                     captionInputStyle: fileCaptionInputStyle,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    showsTeaserCopyrightField: showsTeaserCopyrightField,
+                    teaserCopyrightText: $teaserCopyrightText,
+                    teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+                    onTeaserCopyrightFocus: onTeaserCopyrightFocus,
+                    onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
                     onTeaserMoreTap: onTeaserMoreTap,
                     onTeaserTap: onTeaserTap,
                     onMoreTap: onFileMediaMoreTap,
@@ -1021,6 +1029,11 @@ private struct ComposerMediaPreview: View {
                     captionInputStyle: fileCaptionInputStyle,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    showsTeaserCopyrightField: showsTeaserCopyrightField,
+                    teaserCopyrightText: $teaserCopyrightText,
+                    teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+                    onTeaserCopyrightFocus: onTeaserCopyrightFocus,
+                    onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
                     onTeaserMoreTap: onTeaserMoreTap,
                     onTeaserTap: onTeaserTap,
                     onMoreTap: onFileMediaMoreTap,
@@ -1034,6 +1047,11 @@ private struct ComposerMediaPreview: View {
                     captionInputStyle: fileCaptionInputStyle,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    showsTeaserCopyrightField: showsTeaserCopyrightField,
+                    teaserCopyrightText: $teaserCopyrightText,
+                    teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+                    onTeaserCopyrightFocus: onTeaserCopyrightFocus,
+                    onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
                     onTeaserMoreTap: onTeaserMoreTap,
                     onTeaserTap: onTeaserTap,
                     onMoreTap: onFileMediaMoreTap,
@@ -1179,6 +1197,11 @@ private struct ComposerVideoMediaView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let showsTeaserCopyrightField: Bool
+    @Binding var teaserCopyrightText: String
+    let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let onTeaserCopyrightFocus: () -> Void
+    let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
     let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
@@ -1192,6 +1215,11 @@ private struct ComposerVideoMediaView: View {
             captionInputStyle: captionInputStyle,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            showsTeaserCopyrightField: showsTeaserCopyrightField,
+            teaserCopyrightText: $teaserCopyrightText,
+            teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+            onTeaserCopyrightFocus: onTeaserCopyrightFocus,
+            onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
             onTeaserMoreTap: onTeaserMoreTap,
             onTeaserTap: onTeaserTap,
             onMoreTap: onMoreTap,
@@ -1207,6 +1235,11 @@ private struct ComposerAudioMediaView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let showsTeaserCopyrightField: Bool
+    @Binding var teaserCopyrightText: String
+    let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let onTeaserCopyrightFocus: () -> Void
+    let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
     let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
@@ -1220,6 +1253,11 @@ private struct ComposerAudioMediaView: View {
             captionInputStyle: captionInputStyle,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            showsTeaserCopyrightField: showsTeaserCopyrightField,
+            teaserCopyrightText: $teaserCopyrightText,
+            teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+            onTeaserCopyrightFocus: onTeaserCopyrightFocus,
+            onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
             onTeaserMoreTap: onTeaserMoreTap,
             onTeaserTap: onTeaserTap,
             onMoreTap: onMoreTap,
@@ -1235,6 +1273,11 @@ private struct ComposerPDFMediaView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let showsTeaserCopyrightField: Bool
+    @Binding var teaserCopyrightText: String
+    let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let onTeaserCopyrightFocus: () -> Void
+    let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
     let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
@@ -1248,6 +1291,11 @@ private struct ComposerPDFMediaView: View {
             captionInputStyle: captionInputStyle,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            showsTeaserCopyrightField: showsTeaserCopyrightField,
+            teaserCopyrightText: $teaserCopyrightText,
+            teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+            onTeaserCopyrightFocus: onTeaserCopyrightFocus,
+            onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
             onTeaserMoreTap: onTeaserMoreTap,
             onTeaserTap: onTeaserTap,
             onMoreTap: onMoreTap,
@@ -1312,6 +1360,11 @@ private struct ComposerFileMediaPreviewView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let showsTeaserCopyrightField: Bool
+    @Binding var teaserCopyrightText: String
+    let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let onTeaserCopyrightFocus: () -> Void
+    let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
     let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
@@ -1332,7 +1385,22 @@ private struct ComposerFileMediaPreviewView: View {
                     )
                     .padding(.horizontal, ComposerFileMediaDraftRowLayout.contentHorizontalPadding)
                     .padding(.top, ComposerFileMediaDraftRowLayout.contentVerticalPadding)
-                    .padding(.bottom, ComposerFileMediaDraftRowLayout.teaserBottomPadding)
+
+                    if showsTeaserCopyrightField || !teaserCopyrightText.isEmpty {
+                        ComposerTextInputView(
+                            text: $teaserCopyrightText,
+                            placeholder: "© Copyright text",
+                            style: teaserCopyrightInputStyle,
+                            onFocus: onTeaserCopyrightFocus,
+                            onDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty
+                        )
+                        .padding(.horizontal, ComposerFileMediaDraftRowLayout.contentHorizontalPadding)
+                        .padding(.top, ComposerFileMediaDraftRowLayout.teaserCopyrightTopPadding)
+                        .transition(.opacity.combined(with: .move(edge: .top)))
+                    }
+
+                    Color.clear
+                        .frame(height: ComposerFileMediaDraftRowLayout.teaserBottomPadding)
                 }
 
                 ZStack(alignment: .topTrailing) {
@@ -1368,6 +1436,8 @@ private struct ComposerFileMediaPreviewView: View {
         }
         .animation(.easeInOut(duration: 0.18), value: showsCaptionField)
         .animation(.easeInOut(duration: 0.18), value: captionText)
+        .animation(.easeInOut(duration: 0.18), value: showsTeaserCopyrightField)
+        .animation(.easeInOut(duration: 0.18), value: teaserCopyrightText)
     }
 
     private var fileSummaryRow: some View {
@@ -1432,6 +1502,7 @@ private enum ComposerFileMediaDraftRowLayout {
     static let textSpacing: CGFloat = 4
     static let teaserHeight: CGFloat = 240
     static let teaserCornerRadius: CGFloat = 14
+    static let teaserCopyrightTopPadding: CGFloat = 8
     static let teaserBottomPadding: CGFloat = 16
     static let captionBottomPadding: CGFloat = 16
     static let moreButtonSize: CGFloat = 28
@@ -2440,6 +2511,89 @@ private struct ComposerFileMediaActionsView: View {
                             iconColor: ComposerPhotoActionsLayout.iconColor,
                             showsDivider: false,
                             action: onTeaserImage
+                        )
+                    }
+                }
+                .padding(.horizontal, ComposerPhotoActionsLayout.horizontalInset)
+                .padding(.top, ComposerPhotoActionsLayout.topPadding)
+            }
+        }
+        .background(ComposerPhotoActionsLayout.background.ignoresSafeArea())
+    }
+
+    private var header: some View {
+        VStack(spacing: 0) {
+            ZStack {
+                Text("Actions")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(ComposerPhotoActionsLayout.titleColor)
+
+                HStack {
+                    Button(action: onBack) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "chevron.left")
+                                .font(.system(size: ComposerPhotoActionsLayout.backIconSize, weight: .semibold))
+                            Text("Back")
+                                .font(.system(size: 17, weight: .regular))
+                        }
+                        .foregroundStyle(ComposerPhotoActionsLayout.accentColor)
+                    }
+                    .buttonStyle(.plain)
+
+                    Spacer()
+                }
+                .padding(.horizontal, 20)
+            }
+            .frame(height: 54)
+
+            Rectangle()
+                .fill(ComposerPhotoActionsLayout.dividerColor)
+                .frame(height: 1)
+        }
+        .background(Color.white)
+    }
+}
+
+private struct ComposerTeaserImageActionsView: View {
+    let onBack: () -> Void
+    let onDelete: () -> Void
+    let onReplace: () -> Void
+    let onCopyright: () -> Void
+
+    var body: some View {
+        VStack(spacing: 0) {
+            header
+
+            ScrollView(.vertical, showsIndicators: false) {
+                VStack(spacing: ComposerPhotoActionsLayout.sectionSpacing) {
+                    ComposerPhotoActionsSection {
+                        ComposerPhotoActionRow(
+                            title: "Delete",
+                            systemImageName: "trash",
+                            titleColor: ComposerPhotoActionsLayout.destructiveColor,
+                            iconColor: AppTheme.textPrimary,
+                            showsDivider: true,
+                            action: onDelete
+                        )
+
+                        ComposerPhotoActionRow(
+                            title: "Replace",
+                            systemImageName: "arrow.triangle.2.circlepath",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: false,
+                            action: onReplace
+                        )
+                    }
+
+                    ComposerPhotoActionsSection {
+                        ComposerPhotoActionRow(
+                            title: "Copyright text",
+                            systemImageName: "c.circle",
+                            titleColor: AppTheme.textPrimary,
+                            iconColor: ComposerPhotoActionsLayout.iconColor,
+                            showsDivider: false,
+                            action: onCopyright
                         )
                     }
                 }

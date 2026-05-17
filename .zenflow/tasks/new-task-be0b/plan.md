@@ -230,6 +230,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: file media teaser image picker pass across `./TchopApp/Models/NewsFeedModels.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, and `./TchopApp/Views/Composer/SharedCardComposerView.swift` (`Teaser image` opens the Photos picker, selected images are saved into composer media storage, and the teaser image renders inside the audio/video/pdf media cell above the file row with its own `...` action).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` teaser image actions/copyright pass (teaser image `...` now opens a fullscreen Actions menu for only the teaser image, with Delete/Replace/Copyright text; teaser copyright renders under the teaser image inside the media cell and expands the full media-cell height).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
