@@ -273,6 +273,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact-visibility rebalance (restored visible full/compact size difference for cards by re-enabling compact media-height reduction with a softer delta to preserve text-below-media layout stability).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact media clipping fix (media preview overlay is now constrained and clipped to the resolved media frame, so compact images cannot visually bleed into the text section below).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

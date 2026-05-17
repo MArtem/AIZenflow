@@ -609,7 +609,12 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                     Rectangle()
                         .fill(AppTheme.surfaceSecondary)
                         .frame(height: resolvedMediaHeight)
-                        .overlay { mediaBody }
+                        .overlay {
+                            mediaBody
+                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .clipped()
+                        }
+                        .clipped()
                 }
 
                 if !card.orderedTextContent.isEmpty {
