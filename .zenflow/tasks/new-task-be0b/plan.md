@@ -253,6 +253,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/ViewModels/NewsFeedViewModel.swift` local-only lifecycle pass (disabled initial/refresh/retry remote feed loading path for news feed runtime; refresh/channel-switch now re-resolve only local persisted cards and shared-local sync input).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: preview/bootstrap cleanup pass across `./TchopApp/Models/NewsFeedModels.swift` and `./TchopApp/Views/AppRootView.swift` (fallback fixtures now emit local feed cards instead of remote JSON card models; preview sample photo/text models are now constructed directly and no longer depend on remote fixture traversal).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

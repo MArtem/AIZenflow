@@ -2195,51 +2195,44 @@ enum NewsFeedFixtures {
         NewsFeedContent(
             cards: [
                 .photo(
-                    .remote(
-                        PhotoCardModel(
+                    .local(
+                        LocalFeedCardModel(
                             id: "featured-article-fallback",
                             channelID: channelID,
-                            postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
-                            sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
-                            brandTitle: AppLocalization.text("news.fallback.brandTitle"),
-                            headline: AppLocalization.text("news.fallback.headline"),
-                            summary: AppLocalization.text("news.fallback.summary"),
-                            metadataLine: AppLocalization.text("news.fallback.metadataLine"),
-                            translationLabel: AppLocalization.text("news.fallback.translationLabel"),
-                            commentCount: 48,
-                            actions: [
-                                PhotoActionItem(
-                                    id: "like",
-                                    kind: .like,
-                                    systemName: "hand.thumbsup.fill",
-                                    title: AppLocalization.text("news.fallback.action.like")
-                                ),
-                                PhotoActionItem(
-                                    id: "comments",
-                                    kind: .comments,
-                                    systemName: "bubble.left.fill",
-                                    title: AppLocalization.text("news.fallback.action.comments")
+                            createdAt: Date(),
+                            kind: .photo,
+                            orderedTextContent: [
+                                LocalFeedTextContent(
+                                    kind: .text,
+                                    text: AppLocalization.text("news.fallback.headline")
                                 )
                             ],
-                            uiState: .idle
+                            sourceContent: nil,
+                            mediaContent: nil,
+                            isLiked: false,
+                            commentsCount: 0,
+                            displayMode: .expanded
                         )
                     )
                 ),
                 .text(
-                    .remote(
-                        TextCardModel(
+                    .local(
+                        LocalFeedCardModel(
                             id: "text-fallback",
                             channelID: channelID,
-                            categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
-                            headline: AppLocalization.text("news.fallback.discussion.headline"),
-                            participants: [
-                                TextCardParticipant(id: "adorlee", initials: "A", isHighlighted: true),
-                                TextCardParticipant(id: "mattis", initials: "M", isHighlighted: false),
-                                TextCardParticipant(id: "sophia", initials: "S", isHighlighted: false)
+                            createdAt: Date(),
+                            kind: .text,
+                            orderedTextContent: [
+                                LocalFeedTextContent(
+                                    kind: .text,
+                                    text: AppLocalization.text("news.fallback.discussion.headline")
+                                )
                             ],
-                            replyCount: 12,
-                            joinedCount: 12,
-                            uiState: .idle
+                            sourceContent: nil,
+                            mediaContent: nil,
+                            isLiked: false,
+                            commentsCount: 0,
+                            displayMode: .expanded
                         )
                     )
                 )
