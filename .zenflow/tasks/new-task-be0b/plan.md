@@ -269,6 +269,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` tap-routing stabilization pass (replaced the top card-content `Button` wrapper with explicit content-area `onTapGesture` to prevent toolbar action taps from being captured by the detail-open tap target on media-only cards).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact text-layout stabilization (compact media height reduction is now applied only for media-only cards; cards with visible text keep full media height so all text blocks remain below media with stable spacing).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

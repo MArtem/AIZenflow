@@ -686,6 +686,10 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         case .expanded:
             return mediaHeight
         case .compact:
+            // Keep text-bearing cards stable: compact media shrink applies only to media-only cards.
+            guard card.orderedTextContent.isEmpty else {
+                return mediaHeight
+            }
             return max(156, mediaHeight - 64)
         }
     }
