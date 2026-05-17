@@ -202,11 +202,10 @@ final class NewsFeedViewModel {
 
     /// Feed content visible after applying the current channel-local search query.
     var visibleContent: NewsFeedContent {
-        let scopedContent = state.content.scoped(to: currentChannelID)
         let localCards = localFeedCardStore.cards(for: currentChannelID)
         return NewsFeedContent(
-            cards: filteredCards(from: localCards + scopedContent.cards, query: searchQuery),
-            availability: scopedContent.availability
+            cards: filteredCards(from: localCards, query: searchQuery),
+            availability: .live
         )
     }
 
@@ -419,7 +418,7 @@ final class NewsFeedViewModel {
         isSearchPresented &&
             !trimmedSearchQuery.isEmpty &&
             visibleContent.cards.isEmpty &&
-            !state.content.cards.isEmpty
+            !localFeedCardStore.cards(for: currentChannelID).isEmpty
     }
 
     /// Starts a user-driven refresh when no feed request is already running.

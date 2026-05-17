@@ -1107,7 +1107,7 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
         mediaContent = try container.decodeIfPresent(LocalFeedMediaContent.self, forKey: .mediaContent)
         isLiked = try container.decodeIfPresent(Bool.self, forKey: .isLiked) ?? false
         commentsCount = try container.decodeIfPresent(Int.self, forKey: .commentsCount) ?? 0
-        displayMode = try container.decodeIfPresent(LocalFeedCardDisplayMode.self, forKey: .displayMode) ?? .compact
+        displayMode = try container.decodeIfPresent(LocalFeedCardDisplayMode.self, forKey: .displayMode) ?? .expanded
     }
 
     var serviceHeadline: String {
@@ -1620,7 +1620,7 @@ extension ChannelCardContent {
             mediaContent: mediaContent?.localFeedMediaContent,
             isLiked: false,
             commentsCount: 0,
-            displayMode: .compact
+            displayMode: .expanded
         )
     }
 

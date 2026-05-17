@@ -143,7 +143,7 @@ private struct NewsFeedContentSectionView: View {
     let onTextAction: (TextCardModel, TextCardAction) -> Void
 
     var body: some View {
-        if viewModel.state.isEmpty {
+        if viewModel.visibleContent.cards.isEmpty && !viewModel.showsNoSearchResults {
             NewsFeedEmptyStateView()
         } else if viewModel.showsNoSearchResults {
             NewsFeedSearchEmptyStateView()

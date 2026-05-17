@@ -246,6 +246,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: local feed persistence follow-up across `./TchopApp/Models/NewsFeedModels.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/ViewModels/NewsFeedViewModel.swift`, and `./TchopApp/Views/News/NewsFeedView.swift` (like state, comments count, and local card display mode are now persisted in SwiftData via `LocalFeedCardModel` and updated through `LocalFeedCardStore`; local feed action bar now reads persisted values instead of transient view-only state; backward-compatible decode defaults added for older local-card payloads).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: local-only feed surface pass across `./TchopApp/ViewModels/NewsFeedViewModel.swift` and `./TchopApp/Views/News/NewsFeedView.swift` (visible feed list now renders only locally created/persisted cards from app flow; JSON/API card list is excluded from runtime feed output path; empty/no-results gating is now based on local feed content).
+- Completed now: `./TchopApp/Models/NewsFeedModels.swift` media-visibility persistence default fix (legacy-decoded local cards now default to `.expanded` display mode so persisted media remains fully visible after restart when no prior display-mode value exists).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
