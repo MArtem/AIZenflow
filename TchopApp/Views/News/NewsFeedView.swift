@@ -508,6 +508,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     let mediaBody: MediaBody
     @State private var isLiked = false
     @State private var commentsCount = 0
+    @State private var localDisplayMode: LocalFeedDisplayMode = .compact
 
     init(
         card: LocalFeedCardModel,
@@ -523,10 +524,10 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            if let mediaHeight {
+            if let resolvedMediaHeight = resolvedMediaHeight {
                 Rectangle()
                     .fill(AppTheme.surfaceSecondary)
-                    .frame(height: mediaHeight)
+                    .frame(height: resolvedMediaHeight)
                     .overlay { mediaBody }
             }
 
@@ -555,7 +556,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                     }
                 }
                 .padding(.horizontal, 14)
-                .padding(.top, 14)
+                .padding(.top, 20)
                 .padding(.bottom, 12)
             }
 
@@ -566,8 +567,12 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
             LocalFeedActionBar(
                 isLiked: isLiked,
                 commentsCount: commentsCount,
+                displayMode: localDisplayMode,
                 onLikeTap: { isLiked.toggle() },
-                onCommentsTap: { commentsCount += 1 }
+                onCommentsTap: { commentsCount += 1 },
+                onSetDisplayMode: { localDisplayMode = $0 },
+                onRefreshCard: {},
+                onRunUpdateTask: {}
             )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -578,6 +583,19 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
 
     private var hasVisibleTextContent: Bool {
         !card.orderedTextContent.isEmpty
+    }
+
+    private var resolvedMediaHeight: CGFloat? {
+        guard let mediaHeight else {
+            return nil
+        }
+
+        switch localDisplayMode {
+        case .expanded:
+            return mediaHeight
+        case .compact:
+            return max(156, mediaHeight - 64)
+        }
     }
 
     private var sourceURL: URL? {
@@ -613,11 +631,20 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     }
 }
 
+private enum LocalFeedDisplayMode {
+    case expanded
+    case compact
+}
+
 private struct LocalFeedActionBar: View {
     let isLiked: Bool
     let commentsCount: Int
+    let displayMode: LocalFeedDisplayMode
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedDisplayMode) -> Void
+    let onRefreshCard: () -> Void
+    let onRunUpdateTask: () -> Void
 
     var body: some View {
         HStack {
@@ -646,9 +673,41 @@ private struct LocalFeedActionBar: View {
 
             Menu {
                 Button {
-                    // Local published cards do not yet expose additional runtime actions.
+                    onSetDisplayMode(.expanded)
                 } label: {
-                    Label(AppLocalization.text("common.done"), systemImage: "checkmark")
+                    Label(
+                        AppLocalization.text("news.photo.menu.expanded"),
+                        systemImage: displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
+                    )
+                }
+
+                Button {
+                    onSetDisplayMode(.compact)
+                } label: {
+                    Label(
+                        AppLocalization.text("news.photo.menu.compact"),
+                        systemImage: displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
+                    )
+                }
+
+                Divider()
+
+                Button {
+                    onRefreshCard()
+                } label: {
+                    Label(
+                        AppLocalization.text("news.photo.menu.refresh"),
+                        systemImage: "arrow.clockwise"
+                    )
+                }
+
+                Button {
+                    onRunUpdateTask()
+                } label: {
+                    Label(
+                        AppLocalization.text("news.photo.menu.update"),
+                        systemImage: "wand.and.stars"
+                    )
                 }
             } label: {
                 Image(systemName: "ellipsis")
@@ -729,7 +788,11 @@ private struct LocalImageMediaFrame: View {
             return nil
         }
 
-        return URL(string: fileURLString)
+        if let url = URL(string: fileURLString), url.scheme != nil {
+            return url
+        }
+
+        return URL(fileURLWithPath: fileURLString)
     }
 
     var body: some View {
@@ -977,7 +1040,11 @@ private extension LocalFeedFileMediaContent {
             return nil
         }
 
-        return URL(string: fileURLString)
+        if let url = URL(string: fileURLString), url.scheme != nil {
+            return url
+        }
+
+        return URL(fileURLWithPath: fileURLString)
     }
 }
 
