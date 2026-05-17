@@ -941,7 +941,6 @@ private struct LocalImageMediaFrame: View {
         if let image {
             Image(uiImage: image)
                 .resizable()
-                .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             AppTheme.surfaceSecondary
@@ -1108,7 +1107,6 @@ private struct LocalImageLikeMediaFrame: View {
         if let image {
             Image(uiImage: image)
                 .resizable()
-                .scaledToFill()
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else {
             AppTheme.surfaceSecondary
@@ -1126,6 +1124,8 @@ private struct LocalImageLikeMediaFrame: View {
 }
 
 private struct LocalMediaMetadataBar: View {
+    private static let height: CGFloat = 56
+
     let caption: String?
     let copyright: String?
 
@@ -1136,7 +1136,8 @@ private struct LocalMediaMetadataBar: View {
                     .font(AppTypography.label)
                     .foregroundStyle(Color.white.opacity(0.8))
                     .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
             }
 
             if let caption, !caption.isEmpty {
@@ -1144,11 +1145,13 @@ private struct LocalMediaMetadataBar: View {
                     .font(AppTypography.captionSemibold)
                     .foregroundStyle(Color.white.opacity(0.92))
                     .multilineTextAlignment(.center)
-                    .fixedSize(horizontal: false, vertical: true)
+                    .lineLimit(1)
+                    .truncationMode(.tail)
             }
         }
-        .padding(AppSpacing.sm)
+        .padding(.horizontal, AppSpacing.sm)
         .frame(maxWidth: .infinity)
+        .frame(height: Self.height)
         .background(Color.black.opacity(0.38))
     }
 }

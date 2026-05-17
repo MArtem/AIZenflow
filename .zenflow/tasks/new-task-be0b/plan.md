@@ -286,6 +286,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` feed media fill tuning (image-backed feed media previews now fill the full card media frame in every display mode, removing side empty areas while preserving the existing bottom metadata overlay).
 - Verification: skipped by request; no build run per current instruction.
 
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` non-cropped media fill correction (feed image-backed previews now stretch to the current media frame without aspect crop/side gaps, while the caption/copyright overlay has a fixed 56pt height pinned to the bottom of the media area).
+- Verification: skipped by request; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.
