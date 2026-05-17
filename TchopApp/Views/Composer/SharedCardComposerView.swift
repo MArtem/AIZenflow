@@ -87,6 +87,13 @@ struct SharedCardComposerView: View {
                         if let media = viewModel.media {
                             ComposerMediaPreview(
                                 media: media,
+                                showsFileCaptionField: viewModel.isFileCaptionFieldVisible,
+                                fileCaptionText: fileCaptionBinding,
+                                fileCaptionInputStyle: assetMetadataInputStyle(color: AppTheme.textSecondary),
+                                onFileCaptionFocus: clearFocusedTextField,
+                                onFileCaptionDeleteBackwardWhenEmpty: {
+                                    viewModel.removeFileCaptionFieldIfEmpty()
+                                },
                                 onFileMediaMoreTap: { showsFileMediaActionSheet = true },
                                 onPhotoMoreTap: { selectedPhotoItemID = $0 },
                                 onPhotoTap: { focusedPhotoItemID = $0 },
@@ -132,18 +139,6 @@ struct SharedCardComposerView: View {
                                         }
                                     }
                                 }
-                            }
-
-                            if viewModel.isFileCaptionFieldVisible {
-                                ComposerTextInputView(
-                                    text: fileCaptionBinding,
-                                    placeholder: "Add caption",
-                                    style: assetMetadataInputStyle(color: AppTheme.textSecondary),
-                                    onFocus: clearFocusedTextField,
-                                    onDeleteBackwardWhenEmpty: {
-                                        viewModel.removeFileCaptionFieldIfEmpty()
-                                    }
-                                )
                             }
 
                             if viewModel.isTeaserCopyrightFieldVisible {
@@ -935,6 +930,11 @@ private struct ComposerPickedVideo: Transferable {
 
 private struct ComposerMediaPreview: View {
     let media: ChannelCardMediaContent
+    let showsFileCaptionField: Bool
+    @Binding var fileCaptionText: String
+    let fileCaptionInputStyle: ComposerTextInputStyle
+    let onFileCaptionFocus: () -> Void
+    let onFileCaptionDeleteBackwardWhenEmpty: () -> Void
     let onFileMediaMoreTap: () -> Void
     let onPhotoMoreTap: (String) -> Void
     let onPhotoTap: (String) -> Void
@@ -953,11 +953,38 @@ private struct ComposerMediaPreview: View {
             case .photo:
                 EmptyView()
             case .video:
-                ComposerVideoMediaView(file: file, onMoreTap: onFileMediaMoreTap, onTap: onFileMediaTap)
+                ComposerVideoMediaView(
+                    file: file,
+                    showsCaptionField: showsFileCaptionField,
+                    captionText: $fileCaptionText,
+                    captionInputStyle: fileCaptionInputStyle,
+                    onCaptionFocus: onFileCaptionFocus,
+                    onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    onMoreTap: onFileMediaMoreTap,
+                    onTap: onFileMediaTap
+                )
             case .audio:
-                ComposerAudioMediaView(file: file, onMoreTap: onFileMediaMoreTap, onTap: onFileMediaTap)
+                ComposerAudioMediaView(
+                    file: file,
+                    showsCaptionField: showsFileCaptionField,
+                    captionText: $fileCaptionText,
+                    captionInputStyle: fileCaptionInputStyle,
+                    onCaptionFocus: onFileCaptionFocus,
+                    onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    onMoreTap: onFileMediaMoreTap,
+                    onTap: onFileMediaTap
+                )
             case .pdf:
-                ComposerPDFMediaView(file: file, onMoreTap: onFileMediaMoreTap, onTap: onFileMediaTap)
+                ComposerPDFMediaView(
+                    file: file,
+                    showsCaptionField: showsFileCaptionField,
+                    captionText: $fileCaptionText,
+                    captionInputStyle: fileCaptionInputStyle,
+                    onCaptionFocus: onFileCaptionFocus,
+                    onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    onMoreTap: onFileMediaMoreTap,
+                    onTap: onFileMediaTap
+                )
             }
         }
     }
@@ -1093,31 +1120,73 @@ private struct ComposerPhotoPreviewContent: View {
 
 private struct ComposerVideoMediaView: View {
     let file: ChannelCardFileMediaContent
+    let showsCaptionField: Bool
+    @Binding var captionText: String
+    let captionInputStyle: ComposerTextInputStyle
+    let onCaptionFocus: () -> Void
+    let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
     var body: some View {
-        ComposerFileMediaPreviewView(file: file, onMoreTap: onMoreTap, onTap: onTap)
+        ComposerFileMediaPreviewView(
+            file: file,
+            showsCaptionField: showsCaptionField,
+            captionText: $captionText,
+            captionInputStyle: captionInputStyle,
+            onCaptionFocus: onCaptionFocus,
+            onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            onMoreTap: onMoreTap,
+            onTap: onTap
+        )
     }
 }
 
 private struct ComposerAudioMediaView: View {
     let file: ChannelCardFileMediaContent
+    let showsCaptionField: Bool
+    @Binding var captionText: String
+    let captionInputStyle: ComposerTextInputStyle
+    let onCaptionFocus: () -> Void
+    let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
     var body: some View {
-        ComposerFileMediaPreviewView(file: file, onMoreTap: onMoreTap, onTap: onTap)
+        ComposerFileMediaPreviewView(
+            file: file,
+            showsCaptionField: showsCaptionField,
+            captionText: $captionText,
+            captionInputStyle: captionInputStyle,
+            onCaptionFocus: onCaptionFocus,
+            onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            onMoreTap: onMoreTap,
+            onTap: onTap
+        )
     }
 }
 
 private struct ComposerPDFMediaView: View {
     let file: ChannelCardFileMediaContent
+    let showsCaptionField: Bool
+    @Binding var captionText: String
+    let captionInputStyle: ComposerTextInputStyle
+    let onCaptionFocus: () -> Void
+    let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
     var body: some View {
-        ComposerFileMediaPreviewView(file: file, onMoreTap: onMoreTap, onTap: onTap)
+        ComposerFileMediaPreviewView(
+            file: file,
+            showsCaptionField: showsCaptionField,
+            captionText: $captionText,
+            captionInputStyle: captionInputStyle,
+            onCaptionFocus: onCaptionFocus,
+            onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            onMoreTap: onMoreTap,
+            onTap: onTap
+        )
     }
 }
 
@@ -1172,6 +1241,11 @@ private struct ComposerInteractiveMediaSurface<Content: View>: View {
 
 private struct ComposerFileMediaPreviewView: View {
     let file: ChannelCardFileMediaContent
+    let showsCaptionField: Bool
+    @Binding var captionText: String
+    let captionInputStyle: ComposerTextInputStyle
+    let onCaptionFocus: () -> Void
+    let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
@@ -1181,41 +1255,32 @@ private struct ComposerFileMediaPreviewView: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            Button(action: onTap) {
-                HStack(spacing: ComposerFileMediaDraftRowLayout.contentSpacing) {
-                    ComposerFileMediaDraftIcon(kind: file.kind)
-
-                    VStack(alignment: .leading, spacing: ComposerFileMediaDraftRowLayout.textSpacing) {
-                        Text(presentation.fileRowTitle)
-                            .font(.system(size: ComposerFileMediaDraftRowLayout.titleFontSize, weight: .bold))
-                            .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
-                            .lineLimit(1)
-                            .truncationMode(.middle)
-
-                        if let subtitle = presentation.fileRowSubtitle {
-                            Text(subtitle)
-                                .font(.system(size: ComposerFileMediaDraftRowLayout.subtitleFontSize, weight: .regular))
-                                .foregroundStyle(ComposerFileMediaDraftRowLayout.subtitleColor)
-                                .lineLimit(1)
-                        }
-                    }
-                    .frame(maxWidth: .infinity, alignment: .leading)
-
-                    Spacer(minLength: ComposerFileMediaDraftRowLayout.moreButtonHitSize)
+            VStack(alignment: .leading, spacing: 0) {
+                Button(action: onTap) {
+                    fileSummaryRow
                 }
-                .padding(.leading, ComposerFileMediaDraftRowLayout.contentHorizontalPadding)
-                .padding(.trailing, ComposerFileMediaDraftRowLayout.trailingReservedPadding)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .frame(height: ComposerFileMediaDraftRowLayout.rowHeight)
-                .background(ComposerFileMediaDraftRowLayout.cardBackground)
-                .clipShape(RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous))
-                .overlay {
-                    RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous)
-                        .stroke(ComposerFileMediaDraftRowLayout.borderColor, lineWidth: 1)
+                .buttonStyle(.plain)
+
+                if showsCaptionField || !captionText.isEmpty {
+                    ComposerTextInputView(
+                        text: $captionText,
+                        placeholder: "Add caption",
+                        style: captionInputStyle,
+                        onFocus: onCaptionFocus,
+                        onDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty
+                    )
+                    .padding(.horizontal, ComposerFileMediaDraftRowLayout.contentHorizontalPadding)
+                    .padding(.bottom, ComposerFileMediaDraftRowLayout.captionBottomPadding)
+                    .transition(.opacity.combined(with: .move(edge: .top)))
                 }
-                .contentShape(RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous))
             }
-            .buttonStyle(.plain)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .background(ComposerFileMediaDraftRowLayout.cardBackground)
+            .clipShape(RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous))
+            .overlay {
+                RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous)
+                    .stroke(ComposerFileMediaDraftRowLayout.borderColor, lineWidth: 1)
+            }
 
             Button(action: onMoreTap) {
                 Image(systemName: "ellipsis")
@@ -1234,6 +1299,37 @@ private struct ComposerFileMediaPreviewView: View {
             .padding(.trailing, ComposerFileMediaDraftRowLayout.moreButtonTrailingPadding)
             .zIndex(1)
         }
+        .animation(.easeInOut(duration: 0.18), value: showsCaptionField)
+        .animation(.easeInOut(duration: 0.18), value: captionText)
+    }
+
+    private var fileSummaryRow: some View {
+        HStack(spacing: ComposerFileMediaDraftRowLayout.contentSpacing) {
+            ComposerFileMediaDraftIcon(kind: file.kind)
+
+            VStack(alignment: .leading, spacing: ComposerFileMediaDraftRowLayout.textSpacing) {
+                Text(presentation.fileRowTitle)
+                    .font(.system(size: ComposerFileMediaDraftRowLayout.titleFontSize, weight: .bold))
+                    .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+                    .lineLimit(1)
+                    .truncationMode(.middle)
+
+                if let subtitle = presentation.fileRowSubtitle {
+                    Text(subtitle)
+                        .font(.system(size: ComposerFileMediaDraftRowLayout.subtitleFontSize, weight: .regular))
+                        .foregroundStyle(ComposerFileMediaDraftRowLayout.subtitleColor)
+                        .lineLimit(1)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+
+            Spacer(minLength: ComposerFileMediaDraftRowLayout.moreButtonHitSize)
+        }
+        .padding(.leading, ComposerFileMediaDraftRowLayout.contentHorizontalPadding)
+        .padding(.trailing, ComposerFileMediaDraftRowLayout.trailingReservedPadding)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(height: ComposerFileMediaDraftRowLayout.rowHeight)
+        .contentShape(RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous))
     }
 }
 
@@ -1248,6 +1344,7 @@ private enum ComposerFileMediaDraftRowLayout {
     static let moreButtonTrailingPadding: CGFloat = 16
     static let contentSpacing: CGFloat = 24
     static let textSpacing: CGFloat = 4
+    static let captionBottomPadding: CGFloat = 16
     static let moreButtonSize: CGFloat = 28
     static let moreButtonHitSize: CGFloat = 56
     static let moreIconSize: CGFloat = 14

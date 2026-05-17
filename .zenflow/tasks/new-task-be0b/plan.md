@@ -226,6 +226,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run for this constants/layout-only adjustment.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media actions menu pass (audio/video/pdf `...` now opens a fullscreen Actions screen matching the photo actions layout, with Delete/Replace and Caption/Teaser image sections).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media inline caption pass (audio/video/pdf caption input now lives inside the media cell border, expands/collapses the cell height with multiline text, and uses smooth layout animation instead of a separate field below the cell).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
