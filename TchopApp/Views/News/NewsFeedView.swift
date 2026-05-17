@@ -695,7 +695,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     private var noTextBottomSpacerHeight: CGFloat {
         switch card.displayMode {
         case .expanded:
-            return 40
+            return 30
         case .compact:
             return 60
         }

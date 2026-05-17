@@ -263,6 +263,10 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` toolbar hit-testing/compact-spacing follow-up (card tap area is now clipped/content-shaped so toolbar taps are not swallowed by card-detail tap; action bar hit surface is raised above media content; no-text compact mode spacer increased further to prevent bottom controls overlapping media content).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` no-text spacer normalization pass (full/compact media-only cards now use the same bottom spacer value so media-to-toolbar offset is visually identical, matching compact-mode reference).
+- Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` no-text spacer tuning follow-up (set mode-specific spacer to requested values: expanded `30`, compact `60`).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
