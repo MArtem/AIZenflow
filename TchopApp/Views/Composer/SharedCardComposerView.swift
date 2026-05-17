@@ -25,8 +25,10 @@ struct SharedCardComposerView: View {
     @State private var replacingPhotoItemID: String?
     @State private var showsPhotoPicker = false
     @State private var showsVideoPicker = false
+    @State private var showsTeaserImagePicker = false
     @State private var selectedPhotoPickerItem: PhotosPickerItem?
     @State private var selectedVideoPickerItem: PhotosPickerItem?
+    @State private var selectedTeaserPickerItem: PhotosPickerItem?
     @State private var showsFileImporter = false
     @State private var fileImportKind: ChannelCardMediaKind?
 
@@ -94,19 +96,13 @@ struct SharedCardComposerView: View {
                                 onFileCaptionDeleteBackwardWhenEmpty: {
                                     viewModel.removeFileCaptionFieldIfEmpty()
                                 },
+                                onTeaserMoreTap: { showsTeaserActionSheet = true },
+                                onTeaserTap: { showsTeaserDetail = true },
                                 onFileMediaMoreTap: { showsFileMediaActionSheet = true },
                                 onPhotoMoreTap: { selectedPhotoItemID = $0 },
                                 onPhotoTap: { focusedPhotoItemID = $0 },
                                 onFileMediaTap: { showsFileMediaDetail = true }
                             )
-
-                            if case let .file(file) = media, let teaserImage = file.teaserImage {
-                                ComposerTeaserPreview(
-                                    teaserImage: teaserImage,
-                                    onMoreTap: { showsTeaserActionSheet = true },
-                                    onTap: { showsTeaserDetail = true }
-                                )
-                            }
 
                             ForEach(viewModel.photoItems) { item in
                                 let showsCopyright = viewModel.isPhotoCopyrightFieldVisible(id: item.id)
@@ -301,6 +297,11 @@ struct SharedCardComposerView: View {
             selection: $selectedVideoPickerItem,
             matching: .videos
         )
+        .photosPicker(
+            isPresented: $showsTeaserImagePicker,
+            selection: $selectedTeaserPickerItem,
+            matching: .images
+        )
         .fileImporter(
             isPresented: fileImporterPresentation,
             allowedContentTypes: fileImporterAllowedContentTypes,
@@ -312,6 +313,9 @@ struct SharedCardComposerView: View {
         }
         .onChange(of: selectedVideoPickerItem) { _, newItem in
             handlePhotosPickerSelection(newItem, kind: .video)
+        }
+        .onChange(of: selectedTeaserPickerItem) { _, newItem in
+            handleTeaserImagePickerSelection(newItem)
         }
     }
 
@@ -581,6 +585,37 @@ struct SharedCardComposerView: View {
         }
     }
 
+    private func handleTeaserImagePickerSelection(_ item: PhotosPickerItem?) {
+        guard let item else {
+            return
+        }
+
+        Task { @MainActor in
+            defer {
+                selectedTeaserPickerItem = nil
+                showsTeaserImagePicker = false
+            }
+
+            guard let data = try? await item.loadTransferable(type: Data.self) else {
+                return
+            }
+
+            let fileExtension = photoLibraryFileExtension(for: item, kind: .photo)
+            let fallbackTitle = "Teaser image.\(fileExtension)"
+            guard let fileURL = try? ComposerPickedMediaStorage.save(
+                data: data,
+                suggestedFilename: fallbackTitle
+            ) else {
+                return
+            }
+
+            viewModel.addOrReplaceTeaserImage(
+                displayTitle: fileURL.lastPathComponent,
+                fileURL: fileURL
+            )
+        }
+    }
+
     private func handleFileImporterCompletion(_ result: Result<[URL], Error>) {
         guard let kind = fileImportKind else {
             return
@@ -709,7 +744,8 @@ struct SharedCardComposerView: View {
             replaceCurrentFileMedia()
             return
         case "addTeaser", "replaceTeaser":
-            viewModel.addOrReplaceTeaserImage()
+            presentTeaserImagePicker()
+            return
         case "addTeaserCopyright":
             viewModel.showTeaserCopyrightField()
         case "removeTeaser":
@@ -721,6 +757,15 @@ struct SharedCardComposerView: View {
         }
 
         showsFileMediaActionSheet = false
+    }
+
+    private func presentTeaserImagePicker() {
+        showsFileMediaActionSheet = false
+        showsTeaserActionSheet = false
+
+        DispatchQueue.main.async {
+            showsTeaserImagePicker = true
+        }
     }
 
     private func replaceCurrentFileMedia() {
@@ -763,7 +808,8 @@ struct SharedCardComposerView: View {
         case "addTeaserCopyright":
             viewModel.showTeaserCopyrightField()
         case "replaceTeaser":
-            viewModel.addOrReplaceTeaserImage()
+            presentTeaserImagePicker()
+            return
         case "removeTeaser":
             viewModel.removeTeaserImage()
         default:
@@ -935,6 +981,8 @@ private struct ComposerMediaPreview: View {
     let fileCaptionInputStyle: ComposerTextInputStyle
     let onFileCaptionFocus: () -> Void
     let onFileCaptionDeleteBackwardWhenEmpty: () -> Void
+    let onTeaserMoreTap: () -> Void
+    let onTeaserTap: () -> Void
     let onFileMediaMoreTap: () -> Void
     let onPhotoMoreTap: (String) -> Void
     let onPhotoTap: (String) -> Void
@@ -960,6 +1008,8 @@ private struct ComposerMediaPreview: View {
                     captionInputStyle: fileCaptionInputStyle,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    onTeaserMoreTap: onTeaserMoreTap,
+                    onTeaserTap: onTeaserTap,
                     onMoreTap: onFileMediaMoreTap,
                     onTap: onFileMediaTap
                 )
@@ -971,6 +1021,8 @@ private struct ComposerMediaPreview: View {
                     captionInputStyle: fileCaptionInputStyle,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    onTeaserMoreTap: onTeaserMoreTap,
+                    onTeaserTap: onTeaserTap,
                     onMoreTap: onFileMediaMoreTap,
                     onTap: onFileMediaTap
                 )
@@ -982,6 +1034,8 @@ private struct ComposerMediaPreview: View {
                     captionInputStyle: fileCaptionInputStyle,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
+                    onTeaserMoreTap: onTeaserMoreTap,
+                    onTeaserTap: onTeaserTap,
                     onMoreTap: onFileMediaMoreTap,
                     onTap: onFileMediaTap
                 )
@@ -1125,6 +1179,8 @@ private struct ComposerVideoMediaView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let onTeaserMoreTap: () -> Void
+    let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
@@ -1136,6 +1192,8 @@ private struct ComposerVideoMediaView: View {
             captionInputStyle: captionInputStyle,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            onTeaserMoreTap: onTeaserMoreTap,
+            onTeaserTap: onTeaserTap,
             onMoreTap: onMoreTap,
             onTap: onTap
         )
@@ -1149,6 +1207,8 @@ private struct ComposerAudioMediaView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let onTeaserMoreTap: () -> Void
+    let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
@@ -1160,6 +1220,8 @@ private struct ComposerAudioMediaView: View {
             captionInputStyle: captionInputStyle,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            onTeaserMoreTap: onTeaserMoreTap,
+            onTeaserTap: onTeaserTap,
             onMoreTap: onMoreTap,
             onTap: onTap
         )
@@ -1173,6 +1235,8 @@ private struct ComposerPDFMediaView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let onTeaserMoreTap: () -> Void
+    let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
@@ -1184,6 +1248,8 @@ private struct ComposerPDFMediaView: View {
             captionInputStyle: captionInputStyle,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
+            onTeaserMoreTap: onTeaserMoreTap,
+            onTeaserTap: onTeaserTap,
             onMoreTap: onMoreTap,
             onTap: onTap
         )
@@ -1246,6 +1312,8 @@ private struct ComposerFileMediaPreviewView: View {
     let captionInputStyle: ComposerTextInputStyle
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
+    let onTeaserMoreTap: () -> Void
+    let onTeaserTap: () -> Void
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
@@ -1256,10 +1324,25 @@ private struct ComposerFileMediaPreviewView: View {
     var body: some View {
         ZStack(alignment: .topTrailing) {
             VStack(alignment: .leading, spacing: 0) {
-                Button(action: onTap) {
-                    fileSummaryRow
+                if let teaserImage = file.teaserImage {
+                    ComposerFileMediaInlineTeaserView(
+                        teaserImage: teaserImage,
+                        onMoreTap: onTeaserMoreTap,
+                        onTap: onTeaserTap
+                    )
+                    .padding(.horizontal, ComposerFileMediaDraftRowLayout.contentHorizontalPadding)
+                    .padding(.top, ComposerFileMediaDraftRowLayout.contentVerticalPadding)
+                    .padding(.bottom, ComposerFileMediaDraftRowLayout.teaserBottomPadding)
                 }
-                .buttonStyle(.plain)
+
+                ZStack(alignment: .topTrailing) {
+                    Button(action: onTap) {
+                        fileSummaryRow
+                    }
+                    .buttonStyle(.plain)
+
+                    fileMoreButton
+                }
 
                 if showsCaptionField || !captionText.isEmpty {
                     ComposerTextInputView(
@@ -1282,22 +1365,6 @@ private struct ComposerFileMediaPreviewView: View {
                     .stroke(ComposerFileMediaDraftRowLayout.borderColor, lineWidth: 1)
             }
 
-            Button(action: onMoreTap) {
-                Image(systemName: "ellipsis")
-                    .font(.system(size: ComposerFileMediaDraftRowLayout.moreIconSize, weight: .bold))
-                    .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
-                    .frame(
-                        width: ComposerFileMediaDraftRowLayout.moreButtonSize,
-                        height: ComposerFileMediaDraftRowLayout.moreButtonSize
-                    )
-                    .background(ComposerFileMediaDraftRowLayout.moreButtonBackground)
-                    .clipShape(Circle())
-            }
-            .buttonStyle(.plain)
-            .contentShape(Circle())
-            .padding(.top, ComposerFileMediaDraftRowLayout.contentVerticalPadding)
-            .padding(.trailing, ComposerFileMediaDraftRowLayout.moreButtonTrailingPadding)
-            .zIndex(1)
         }
         .animation(.easeInOut(duration: 0.18), value: showsCaptionField)
         .animation(.easeInOut(duration: 0.18), value: captionText)
@@ -1331,6 +1398,25 @@ private struct ComposerFileMediaPreviewView: View {
         .frame(height: ComposerFileMediaDraftRowLayout.rowHeight)
         .contentShape(RoundedRectangle(cornerRadius: ComposerFileMediaDraftRowLayout.cornerRadius, style: .continuous))
     }
+
+    private var fileMoreButton: some View {
+        Button(action: onMoreTap) {
+            Image(systemName: "ellipsis")
+                .font(.system(size: ComposerFileMediaDraftRowLayout.moreIconSize, weight: .bold))
+                .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+                .frame(
+                    width: ComposerFileMediaDraftRowLayout.moreButtonSize,
+                    height: ComposerFileMediaDraftRowLayout.moreButtonSize
+                )
+                .background(ComposerFileMediaDraftRowLayout.moreButtonBackground)
+                .clipShape(Circle())
+        }
+        .buttonStyle(.plain)
+        .contentShape(Circle())
+        .padding(.top, ComposerFileMediaDraftRowLayout.contentVerticalPadding)
+        .padding(.trailing, ComposerFileMediaDraftRowLayout.moreButtonTrailingPadding)
+        .zIndex(1)
+    }
 }
 
 private enum ComposerFileMediaDraftRowLayout {
@@ -1344,6 +1430,9 @@ private enum ComposerFileMediaDraftRowLayout {
     static let moreButtonTrailingPadding: CGFloat = 16
     static let contentSpacing: CGFloat = 24
     static let textSpacing: CGFloat = 4
+    static let teaserHeight: CGFloat = 240
+    static let teaserCornerRadius: CGFloat = 14
+    static let teaserBottomPadding: CGFloat = 16
     static let captionBottomPadding: CGFloat = 16
     static let moreButtonSize: CGFloat = 28
     static let moreButtonHitSize: CGFloat = 56
@@ -1356,6 +1445,71 @@ private enum ComposerFileMediaDraftRowLayout {
     static let borderColor = Color.black.opacity(0.10)
     static let titleColor = Color(red: 0.27, green: 0.27, blue: 0.38)
     static let subtitleColor = Color(red: 0.44, green: 0.44, blue: 0.46)
+}
+
+private struct ComposerFileMediaInlineTeaserView: View {
+    let teaserImage: ChannelCardTeaserImageContent
+    let onMoreTap: () -> Void
+    let onTap: () -> Void
+
+    private var image: UIImage? {
+        guard let fileURL = teaserImage.fileURL else {
+            return nil
+        }
+
+        return UIImage(contentsOfFile: fileURL.path)
+    }
+
+    var body: some View {
+        ZStack(alignment: .topTrailing) {
+            Button(action: onTap) {
+                Group {
+                    if let image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .scaledToFill()
+                    } else {
+                        ComposerTeaserPreviewContent(teaserImage: teaserImage)
+                            .frame(maxWidth: .infinity, maxHeight: .infinity)
+                            .background(AppTheme.surfaceSecondary)
+                    }
+                }
+                .frame(maxWidth: .infinity)
+                .frame(height: ComposerFileMediaDraftRowLayout.teaserHeight)
+                .clipped()
+                .clipShape(
+                    RoundedRectangle(
+                        cornerRadius: ComposerFileMediaDraftRowLayout.teaserCornerRadius,
+                        style: .continuous
+                    )
+                )
+                .contentShape(
+                    RoundedRectangle(
+                        cornerRadius: ComposerFileMediaDraftRowLayout.teaserCornerRadius,
+                        style: .continuous
+                    )
+                )
+            }
+            .buttonStyle(.plain)
+
+            Button(action: onMoreTap) {
+                Image(systemName: "ellipsis")
+                    .font(.system(size: ComposerFileMediaDraftRowLayout.moreIconSize, weight: .bold))
+                    .foregroundStyle(ComposerFileMediaDraftRowLayout.titleColor)
+                    .frame(
+                        width: ComposerFileMediaDraftRowLayout.moreButtonSize,
+                        height: ComposerFileMediaDraftRowLayout.moreButtonSize
+                    )
+                    .background(ComposerFileMediaDraftRowLayout.moreButtonBackground)
+                    .clipShape(Circle())
+            }
+            .buttonStyle(.plain)
+            .contentShape(Circle())
+            .padding(.top, ComposerFileMediaDraftRowLayout.contentVerticalPadding)
+            .padding(.trailing, ComposerFileMediaDraftRowLayout.moreButtonTrailingPadding)
+            .zIndex(1)
+        }
+    }
 }
 
 private struct ComposerFileMediaDraftIcon: View {
@@ -1450,22 +1604,48 @@ private struct ComposerMediaTitleBlock: View {
 private struct ComposerTeaserPreviewContent: View {
     let teaserImage: ChannelCardTeaserImageContent
 
+    private var image: UIImage? {
+        guard let fileURL = teaserImage.fileURL else {
+            return nil
+        }
+
+        return UIImage(contentsOfFile: fileURL.path)
+    }
+
     var body: some View {
-        VStack(spacing: AppSpacing.xs) {
-            Text("Teaser image")
-                .font(AppTypography.label)
-                .foregroundStyle(AppTheme.textTertiary)
+        if let image {
+            ZStack(alignment: .bottom) {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
 
-            Image(systemName: "photo")
-                .font(.system(size: 24, weight: .semibold))
-                .foregroundStyle(AppTheme.textSecondary)
-
-            if let copyright = teaserImage.copyright, !copyright.isEmpty {
-                Text(copyright)
+                if let copyright = teaserImage.copyright, !copyright.isEmpty {
+                    Text(copyright)
+                        .font(AppTypography.label)
+                        .foregroundStyle(Color.white.opacity(0.8))
+                        .multilineTextAlignment(.center)
+                        .padding(AppSpacing.md)
+                        .frame(maxWidth: .infinity)
+                        .background(Color.black.opacity(0.38))
+                }
+            }
+        } else {
+            VStack(spacing: AppSpacing.xs) {
+                Text("Teaser image")
                     .font(AppTypography.label)
                     .foregroundStyle(AppTheme.textTertiary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, AppSpacing.md)
+
+                Image(systemName: "photo")
+                    .font(.system(size: 24, weight: .semibold))
+                    .foregroundStyle(AppTheme.textSecondary)
+
+                if let copyright = teaserImage.copyright, !copyright.isEmpty {
+                    Text(copyright)
+                        .font(AppTypography.label)
+                        .foregroundStyle(AppTheme.textTertiary)
+                        .multilineTextAlignment(.center)
+                        .padding(.horizontal, AppSpacing.md)
+                }
             }
         }
     }

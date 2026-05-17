@@ -33,6 +33,7 @@ struct ChannelCardPhotoItem: Equatable, Sendable, Identifiable {
 struct ChannelCardTeaserImageContent: Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
+    let fileURL: URL?
     let copyright: String?
 }
 
@@ -496,7 +497,7 @@ struct FeedComposerDraft: Equatable, Sendable {
         visiblePhotoCopyrightFieldIDs.remove(id)
     }
 
-    mutating func addOrReplaceTeaserImage(displayTitle: String = "Teaser image") {
+    mutating func addOrReplaceTeaserImage(displayTitle: String = "Teaser image", fileURL: URL? = nil) {
         updateFileMedia { file in
             ChannelCardFileMediaContent(
                 kind: file.kind,
@@ -505,6 +506,7 @@ struct FeedComposerDraft: Equatable, Sendable {
                 teaserImage: ChannelCardTeaserImageContent(
                     id: UUID().uuidString,
                     displayTitle: displayTitle,
+                    fileURL: fileURL,
                     copyright: file.teaserImage?.copyright
                 ),
                 caption: file.caption
@@ -555,6 +557,7 @@ struct FeedComposerDraft: Equatable, Sendable {
                 teaserImage: ChannelCardTeaserImageContent(
                     id: teaserImage.id,
                     displayTitle: teaserImage.displayTitle,
+                    fileURL: teaserImage.fileURL,
                     copyright: normalizedCopyright
                 ),
                 caption: file.caption
@@ -910,6 +913,7 @@ struct LocalFeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
 struct LocalFeedTeaserImageContent: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
+    let fileURLString: String?
     let copyright: String?
 }
 
@@ -1700,6 +1704,7 @@ private extension ChannelCardTeaserImageContent {
         LocalFeedTeaserImageContent(
             id: id,
             displayTitle: displayTitle,
+            fileURLString: fileURL?.absoluteString,
             copyright: copyright
         )
     }

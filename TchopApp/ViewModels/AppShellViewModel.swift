@@ -260,8 +260,8 @@ final class FeedComposerViewModel {
         draft.removeFileCaptionFieldIfEmpty()
     }
 
-    func addOrReplaceTeaserImage(displayTitle: String = "Teaser image") {
-        draft.addOrReplaceTeaserImage(displayTitle: displayTitle)
+    func addOrReplaceTeaserImage(displayTitle: String = "Teaser image", fileURL: URL? = nil) {
+        draft.addOrReplaceTeaserImage(displayTitle: displayTitle, fileURL: fileURL)
     }
 
     func removeTeaserImage() {

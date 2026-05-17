@@ -228,6 +228,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` file media inline caption pass (audio/video/pdf caption input now lives inside the media cell border, expands/collapses the cell height with multiline text, and uses smooth layout animation instead of a separate field below the cell).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: file media teaser image picker pass across `./TchopApp/Models/NewsFeedModels.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, and `./TchopApp/Views/Composer/SharedCardComposerView.swift` (`Teaser image` opens the Photos picker, selected images are saved into composer media storage, and the teaser image renders inside the audio/video/pdf media cell above the file row with its own `...` action).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
