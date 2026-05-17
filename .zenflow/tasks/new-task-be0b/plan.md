@@ -240,6 +240,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` local feed interaction/layout follow-up (local feed footer controls are now interactive with localized labels and a working options menu trigger; text/translation block remains rendered as a dedicated section under media inside card body, not inside the media frame).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` runtime localization crash fix (removed missing key usage `news.photo.action.like` from local feed footer and reused existing localized key set to avoid debug-time `assertionFailure` in `AppLocalization.localized`).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

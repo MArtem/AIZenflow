@@ -625,9 +625,7 @@ private struct LocalFeedActionBar: View {
                 HStack(spacing: AppSpacing.xs) {
                     Image(systemName: "hand.thumbsup.fill")
                     Text(
-                        isLiked
-                            ? AppLocalization.text("news.photo.action.liked")
-                            : AppLocalization.text("news.photo.action.like")
+                        AppLocalization.text("news.photo.action.liked")
                     )
                 }
                 .foregroundStyle(isLiked ? AppTheme.accent : AppTheme.iconSecondary)
