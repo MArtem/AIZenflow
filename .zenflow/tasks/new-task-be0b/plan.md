@@ -232,6 +232,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/Composer/SharedCardComposerView.swift` teaser image actions/copyright pass (teaser image `...` now opens a fullscreen Actions menu for only the teaser image, with Delete/Replace/Copyright text; teaser copyright renders under the teaser image inside the media cell and expands the full media-cell height).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: feed local media rendering pass across `./TchopApp/Models/NewsFeedModels.swift` and `./TchopApp/Views/News/NewsFeedView.swift` (locally published photo/video/audio/pdf cards now carry file URLs into local feed models; feed media renders first with real photo/teaser images, video thumbnails with play overlay, PDF first-page thumbnails, audio placeholders, and caption/copyright overlays in the media frame).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

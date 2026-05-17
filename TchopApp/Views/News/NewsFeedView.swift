@@ -1,4 +1,6 @@
+import AVFoundation
 import Observation
+import PDFKit
 import SwiftUI
 import TchopOnDeviceAI
 import UIKit
@@ -416,7 +418,7 @@ private struct VideoCardView: View {
             return 180
         }
 
-        return file.teaserImage == nil ? 180 : 260
+        return file.teaserImage == nil ? 220 : 456
     }
 }
 
@@ -441,7 +443,7 @@ private struct AudioCardView: View {
             return 180
         }
 
-        return file.teaserImage == nil ? 180 : 260
+        return file.teaserImage == nil ? 220 : 456
     }
 }
 
@@ -466,7 +468,7 @@ private struct PDFCardView: View {
             return 180
         }
 
-        return file.teaserImage == nil ? 180 : 260
+        return file.teaserImage == nil ? 220 : 456
     }
 }
 
@@ -625,39 +627,83 @@ private struct LocalPhotoMediaPreview: View {
     let items: [LocalFeedPhotoItem]
 
     var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: AppSpacing.sm) {
-                ForEach(items) { item in
-                    RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-                        .fill(AppTheme.surfacePrimary)
-                        .frame(width: 152, height: 188)
-                        .overlay {
-                            VStack(spacing: AppSpacing.xs) {
-                                Image(systemName: "photo")
-                                    .font(.system(size: 26, weight: .semibold))
-                                    .foregroundStyle(AppTheme.textSecondary)
+        if let item = items.first {
+            LocalImageMediaFrame(
+                fileURLString: item.fileURLString,
+                fallbackSystemImage: "photo",
+                caption: item.caption,
+                copyright: item.copyright
+            )
+        }
+    }
+}
 
-                                if let caption = item.caption, !caption.isEmpty {
-                                    Text(caption)
-                                        .font(AppTypography.captionSemibold)
-                                        .foregroundStyle(AppTheme.textSecondary)
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, AppSpacing.sm)
-                                }
+private struct LocalImageMediaFrame: View {
+    let fileURLString: String?
+    let fallbackSystemImage: String
+    let caption: String?
+    let copyright: String?
 
-                                if let copyright = item.copyright, !copyright.isEmpty {
-                                    Text(copyright)
-                                        .font(AppTypography.label)
-                                        .foregroundStyle(AppTheme.textTertiary)
-                                        .multilineTextAlignment(.center)
-                                        .padding(.horizontal, AppSpacing.sm)
-                                }
-                            }
-                            .padding(AppSpacing.sm)
-                        }
+    private var image: UIImage? {
+        guard let fileURL = resolvedFileURL else {
+            return nil
+        }
+
+        return UIImage(contentsOfFile: fileURL.path)
+    }
+
+    private var resolvedFileURL: URL? {
+        guard let fileURLString else {
+            return nil
+        }
+
+        return URL(string: fileURLString)
+    }
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            if let image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+            } else {
+                AppTheme.surfaceSecondary
+                    .overlay {
+                        Image(systemName: fallbackSystemImage)
+                            .font(.system(size: 32, weight: .semibold))
+                            .foregroundStyle(AppTheme.textSecondary)
+                    }
+            }
+
+            if hasMetadata {
+                VStack(spacing: AppSpacing.xxs) {
+                    if let copyright, !copyright.isEmpty {
+                        Text(copyright)
+                            .font(AppTypography.label)
+                            .foregroundStyle(Color.white.opacity(0.8))
+                            .multilineTextAlignment(.center)
+                    }
+
+                    if let caption, !caption.isEmpty {
+                        Text(caption)
+                            .font(AppTypography.captionSemibold)
+                            .foregroundStyle(Color.white.opacity(0.92))
+                            .multilineTextAlignment(.center)
+                    }
                 }
+                .padding(AppSpacing.sm)
+                .frame(maxWidth: .infinity)
+                .background(Color.black.opacity(0.38))
             }
         }
+        .frame(maxWidth: .infinity)
+        .frame(maxHeight: .infinity)
+        .clipped()
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.badge, style: .continuous))
+    }
+
+    private var hasMetadata: Bool {
+        caption?.isEmpty == false || copyright?.isEmpty == false
     }
 }
 
@@ -665,11 +711,8 @@ private struct LocalVideoMediaView: View {
     let file: LocalFeedFileMediaContent
 
     var body: some View {
-        VStack(spacing: AppSpacing.sm) {
-            FeedMediaKindBadge(title: "Video")
-            FeedMediaHeroIcon(systemName: "play.rectangle.fill")
-            FeedMediaTitleBlock(file: file)
-            FeedMediaTeaserBlock(teaserImage: file.teaserImage)
+        LocalFileMediaStackView(file: file) {
+            LocalVideoPreviewFrame(file: file)
         }
     }
 }
@@ -678,11 +721,8 @@ private struct LocalAudioMediaView: View {
     let file: LocalFeedFileMediaContent
 
     var body: some View {
-        VStack(spacing: AppSpacing.sm) {
-            FeedMediaKindBadge(title: "Audio")
-            FeedMediaHeroIcon(systemName: "waveform.circle.fill")
-            FeedMediaTitleBlock(file: file)
-            FeedMediaTeaserBlock(teaserImage: file.teaserImage)
+        LocalFileMediaStackView(file: file) {
+            LocalAudioPreviewFrame(file: file)
         }
     }
 }
@@ -691,73 +731,156 @@ private struct LocalPDFMediaView: View {
     let file: LocalFeedFileMediaContent
 
     var body: some View {
-        VStack(spacing: AppSpacing.sm) {
-            FeedMediaKindBadge(title: "PDF")
-            FeedMediaHeroIcon(systemName: "document.fill")
-            FeedMediaTitleBlock(file: file)
-            FeedMediaTeaserBlock(teaserImage: file.teaserImage)
+        LocalFileMediaStackView(file: file) {
+            LocalPDFPreviewFrame(file: file)
         }
     }
 }
 
-private struct FeedMediaKindBadge: View {
-    let title: String
+private struct LocalFileMediaStackView<MediaPreview: View>: View {
+    let file: LocalFeedFileMediaContent
+    let mediaPreview: MediaPreview
+
+    init(file: LocalFeedFileMediaContent, @ViewBuilder mediaPreview: () -> MediaPreview) {
+        self.file = file
+        self.mediaPreview = mediaPreview()
+    }
 
     var body: some View {
-        Text(title)
-            .font(AppTypography.label)
-            .foregroundStyle(AppTheme.textPrimary)
-            .padding(.horizontal, AppSpacing.sm)
-            .padding(.vertical, AppSpacing.xxs)
-            .background(AppTheme.surfacePrimary)
-            .clipShape(Capsule())
+        VStack(spacing: AppSpacing.sm) {
+            if file.teaserImage != nil {
+                FeedMediaTeaserBlock(teaserImage: file.teaserImage)
+                    .frame(height: 220)
+                mediaPreview
+                    .frame(height: 220)
+            } else {
+                mediaPreview
+                    .frame(maxHeight: .infinity)
+            }
+        }
     }
 }
 
-private struct FeedMediaHeroIcon: View {
-    let systemName: String
+private struct LocalVideoPreviewFrame: View {
+    let file: LocalFeedFileMediaContent
+
+    private var thumbnail: UIImage? {
+        guard let fileURL = file.fileURL else {
+            return nil
+        }
+
+        let asset = AVURLAsset(url: fileURL)
+        let generator = AVAssetImageGenerator(asset: asset)
+        generator.appliesPreferredTrackTransform = true
+        guard let cgImage = try? generator.copyCGImage(at: .zero, actualTime: nil) else {
+            return nil
+        }
+
+        return UIImage(cgImage: cgImage)
+    }
 
     var body: some View {
-        Image(systemName: systemName)
-            .font(.system(size: 30, weight: .semibold))
-            .foregroundStyle(AppTheme.textSecondary)
+        ZStack {
+            LocalImageLikeMediaFrame(
+                image: thumbnail,
+                fallbackSystemImage: "video",
+                caption: file.caption,
+                copyright: nil
+            )
+
+            Image(systemName: "play.circle.fill")
+                .font(.system(size: 54, weight: .semibold))
+                .foregroundStyle(Color.white.opacity(0.92))
+                .shadow(color: .black.opacity(0.25), radius: 8, x: 0, y: 2)
+        }
     }
 }
 
-private struct FeedMediaTitleBlock: View {
+private struct LocalAudioPreviewFrame: View {
     let file: LocalFeedFileMediaContent
 
     var body: some View {
-        VStack(spacing: AppSpacing.xs) {
-            if let displayTitle = resolvedDisplayTitle {
-                Text(displayTitle)
-                    .font(AppTypography.cardTitle)
-                    .foregroundStyle(AppTheme.textPrimary)
-                    .multilineTextAlignment(.center)
-            }
+        LocalImageLikeMediaFrame(
+            image: nil,
+            fallbackSystemImage: "music.note",
+            caption: file.caption,
+            copyright: nil
+        )
+    }
+}
 
-            if let caption = file.caption, !caption.isEmpty {
-                Text(caption)
-                    .font(AppTypography.captionSemibold)
-                    .foregroundStyle(AppTheme.textSecondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal, AppSpacing.md)
-            }
+private struct LocalPDFPreviewFrame: View {
+    let file: LocalFeedFileMediaContent
+
+    private var thumbnail: UIImage? {
+        guard let fileURL = file.fileURL,
+              let document = PDFDocument(url: fileURL),
+              let page = document.page(at: 0) else {
+            return nil
         }
-        .frame(maxWidth: .infinity)
+
+        return page.thumbnail(of: CGSize(width: 640, height: 420), for: .mediaBox)
     }
 
-    private var resolvedDisplayTitle: String? {
-        switch file.kind {
-        case .photo:
-            return nil
-        case .video:
-            return file.displayTitle == "Video" ? nil : file.displayTitle
-        case .audio:
-            return file.displayTitle == "Audio" ? nil : file.displayTitle
-        case .pdf:
-            return file.displayTitle == "PDF" ? nil : file.displayTitle
+    var body: some View {
+        LocalImageLikeMediaFrame(
+            image: thumbnail,
+            fallbackSystemImage: "doc.text",
+            caption: file.caption,
+            copyright: nil
+        )
+    }
+}
+
+private struct LocalImageLikeMediaFrame: View {
+    let image: UIImage?
+    let fallbackSystemImage: String
+    let caption: String?
+    let copyright: String?
+
+    var body: some View {
+        ZStack(alignment: .bottom) {
+            if let image {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFill()
+            } else {
+                AppTheme.surfaceSecondary
+                    .overlay {
+                        Image(systemName: fallbackSystemImage)
+                            .font(.system(size: 42, weight: .semibold))
+                            .foregroundStyle(AppTheme.textSecondary)
+                    }
+            }
+
+            if hasMetadata {
+                VStack(spacing: AppSpacing.xxs) {
+                    if let copyright, !copyright.isEmpty {
+                        Text(copyright)
+                            .font(AppTypography.label)
+                            .foregroundStyle(Color.white.opacity(0.8))
+                            .multilineTextAlignment(.center)
+                    }
+
+                    if let caption, !caption.isEmpty {
+                        Text(caption)
+                            .font(AppTypography.captionSemibold)
+                            .foregroundStyle(Color.white.opacity(0.92))
+                            .multilineTextAlignment(.center)
+                    }
+                }
+                .padding(AppSpacing.sm)
+                .frame(maxWidth: .infinity)
+                .background(Color.black.opacity(0.38))
+            }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clipped()
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.badge, style: .continuous))
+    }
+
+    private var hasMetadata: Bool {
+        caption?.isEmpty == false || copyright?.isEmpty == false
     }
 }
 
@@ -766,30 +889,23 @@ private struct FeedMediaTeaserBlock: View {
 
     var body: some View {
         if let teaserImage {
-            RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
-                .fill(AppTheme.surfacePrimary)
-                .frame(height: 92)
-                .overlay {
-                    VStack(spacing: AppSpacing.xxs) {
-                        Text("Teaser image")
-                            .font(AppTypography.label)
-                            .foregroundStyle(AppTheme.textTertiary)
-
-                        Image(systemName: "photo")
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundStyle(AppTheme.textSecondary)
-
-                        if let copyright = teaserImage.copyright, !copyright.isEmpty {
-                            Text(copyright)
-                                .font(AppTypography.label)
-                                .foregroundStyle(AppTheme.textTertiary)
-                                .multilineTextAlignment(.center)
-                                .padding(.horizontal, AppSpacing.md)
-                        }
-                    }
-                    .padding(AppSpacing.sm)
-                }
+            LocalImageMediaFrame(
+                fileURLString: teaserImage.fileURLString,
+                fallbackSystemImage: "photo",
+                caption: nil,
+                copyright: teaserImage.copyright
+            )
         }
+    }
+}
+
+private extension LocalFeedFileMediaContent {
+    var fileURL: URL? {
+        guard let fileURLString else {
+            return nil
+        }
+
+        return URL(string: fileURLString)
     }
 }
 

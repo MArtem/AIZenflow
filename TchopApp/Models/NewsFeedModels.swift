@@ -906,6 +906,7 @@ struct LocalFeedSourceContent: Codable, Equatable, Sendable {
 struct LocalFeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
+    let fileURLString: String?
     let caption: String?
     let copyright: String?
 }
@@ -927,6 +928,7 @@ enum LocalFeedMediaKind: String, Codable, Equatable, Sendable {
 struct LocalFeedFileMediaContent: Codable, Equatable, Sendable {
     let kind: LocalFeedMediaKind
     let displayTitle: String
+    let fileURLString: String?
     let teaserImage: LocalFeedTeaserImageContent?
     let caption: String?
 }
@@ -1693,6 +1695,7 @@ private extension ChannelCardPhotoItem {
         LocalFeedPhotoItem(
             id: id,
             displayTitle: displayTitle,
+            fileURLString: fileURL?.absoluteString,
             caption: caption,
             copyright: copyright
         )
@@ -1730,6 +1733,7 @@ private extension ChannelCardFileMediaContent {
         LocalFeedFileMediaContent(
             kind: kind.localFeedMediaKind,
             displayTitle: displayTitle,
+            fileURLString: fileURL?.absoluteString,
             teaserImage: teaserImage?.localFeedTeaserImageContent,
             caption: caption
         )
