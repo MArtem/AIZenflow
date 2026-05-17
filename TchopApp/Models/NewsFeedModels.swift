@@ -1648,6 +1648,25 @@ extension LocalFeedCardModel {
             return .pdf(.local(self))
         }
     }
+
+    var detailRoute: NewsRoute {
+        let titleText = textValue(for: .headline)
+            ?? textValue(for: .text)
+            ?? serviceHeadline
+        let bodyText = textValue(for: .text)
+            ?? textValue(for: .subheadline)
+            ?? titleText
+        let subtitleText = sourceContent?.text ?? AppLocalization.text("news.fallback.sourceTitle")
+
+        return NewsRoute(
+            cardID: id,
+            destinationID: kind == .text ? "text-details" : "photo-details",
+            title: titleText,
+            subtitle: subtitleText,
+            bodyText: bodyText,
+            accentLabel: nil
+        )
+    }
 }
 
 private extension NewsFeedPhotoCardContent {

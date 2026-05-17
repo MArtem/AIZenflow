@@ -255,6 +255,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: preview/bootstrap cleanup pass across `./TchopApp/Models/NewsFeedModels.swift` and `./TchopApp/Views/AppRootView.swift` (fallback fixtures now emit local feed cards instead of remote JSON card models; preview sample photo/text models are now constructed directly and no longer depend on remote fixture traversal).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: local feed no-text/detail/media pass across `./TchopApp/Models/NewsFeedModels.swift`, `./TchopApp/Views/News/NewsFeedView.swift`, and `./TchopApp/Views/Tabs/NewsTabRootView.swift` (no-text cards now keep explicit media-to-action spacing with visible divider; local card body is tappable and now opens detail via a local `NewsRoute`; local image loading now retries decoded/raw persisted paths to improve post-restart media restoration reliability).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

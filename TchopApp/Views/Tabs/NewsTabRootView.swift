@@ -17,7 +17,8 @@ struct NewsTabRootView: View {
                 onPhotoTap: openPhotoCard,
                 onPhotoAction: handlePhotoAction,
                 onTextTap: openTextCard,
-                onTextAction: handleTextAction
+                onTextAction: handleTextAction,
+                onLocalCardTap: openLocalCard
             )
             .navigationDestination(for: NewsRoute.self) { route in
                 NewsDestinationView(route: viewModel.translatedRoute(for: route))
@@ -53,6 +54,10 @@ struct NewsTabRootView: View {
     /// Opens discussion.
     private func openTextCard(_ discussion: TextCardModel) {
         router.push(discussion.detailRoute)
+    }
+
+    private func openLocalCard(_ route: NewsRoute) {
+        router.push(route)
     }
 }
 
