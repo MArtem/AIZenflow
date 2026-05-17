@@ -271,6 +271,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact text-layout stabilization (compact media height reduction is now applied only for media-only cards; cards with visible text keep full media height so all text blocks remain below media with stable spacing).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact-visibility rebalance (restored visible full/compact size difference for cards by re-enabling compact media-height reduction with a softer delta to preserve text-below-media layout stability).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
