@@ -439,7 +439,7 @@ struct FeedComposerDraft: Equatable, Sendable {
                     id: item.id,
                     displayTitle: item.displayTitle,
                     fileURL: item.fileURL,
-                    caption: normalizedOptionalText(value),
+                    caption: normalizedOptionalEditableText(value),
                     copyright: item.copyright
                 )
             }
@@ -462,14 +462,14 @@ struct FeedComposerDraft: Equatable, Sendable {
                     displayTitle: item.displayTitle,
                     fileURL: item.fileURL,
                     caption: item.caption,
-                    copyright: normalizedOptionalText(value)
+                    copyright: normalizedOptionalEditableText(value)
                 )
             }
         )
     }
 
     mutating func updateFileCaption(_ value: String?) {
-        let normalizedCaption = normalizedOptionalText(value)
+        let normalizedCaption = normalizedOptionalEditableText(value)
         updateFileMedia { file in
             ChannelCardFileMediaContent(
                 kind: file.kind,
@@ -544,7 +544,7 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     mutating func updateTeaserCopyright(_ value: String?) {
-        let normalizedCopyright = normalizedOptionalText(value)
+        let normalizedCopyright = normalizedOptionalEditableText(value)
         updateFileMedia { file in
             guard let teaserImage = file.teaserImage else {
                 return file
@@ -669,6 +669,14 @@ struct FeedComposerDraft: Equatable, Sendable {
 
         let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
         return trimmed.isEmpty ? nil : trimmed
+    }
+
+    private func normalizedOptionalEditableText(_ value: String?) -> String? {
+        guard let value else {
+            return nil
+        }
+
+        return value.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? nil : value
     }
 
     private func photoItem(id: String) -> ChannelCardPhotoItem? {

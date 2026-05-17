@@ -7,6 +7,13 @@ import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
 
+private enum ComposerMetadataFocusTarget: Equatable {
+    case photoCaption(String)
+    case photoCopyright(String)
+    case fileCaption
+    case teaserCopyright
+}
+
 struct SharedCardComposerView: View {
     @Bindable var viewModel: FeedComposerViewModel
     let onCancel: () -> Void
@@ -22,6 +29,7 @@ struct SharedCardComposerView: View {
     @State private var showsFileMediaDetail = false
     @State private var showsTeaserDetail = false
     @State private var focusedTextFieldKind: ChannelCardTextFieldKind?
+    @State private var focusedMetadataField: ComposerMetadataFocusTarget?
     @State private var replacingPhotoItemID: String?
     @State private var showsPhotoPicker = false
     @State private var showsVideoPicker = false
@@ -50,7 +58,7 @@ struct SharedCardComposerView: View {
                                     placeholder: viewModel.fieldPlaceholder(for: .headline),
                                     style: textInputStyle(for: .headline),
                                     isFocused: focusedTextFieldKind == .headline,
-                                    onFocus: { focusedTextFieldKind = .headline },
+                                    onFocus: { setFocusedTextField(.headline) },
                                     onDeleteBackwardWhenEmpty: {
                                         handleTextFieldBackspaceWhenEmpty(.headline)
                                     }
@@ -63,7 +71,7 @@ struct SharedCardComposerView: View {
                                     placeholder: viewModel.fieldPlaceholder(for: .subheadline),
                                     style: textInputStyle(for: .subheadline),
                                     isFocused: focusedTextFieldKind == .subheadline,
-                                    onFocus: { focusedTextFieldKind = .subheadline },
+                                    onFocus: { setFocusedTextField(.subheadline) },
                                     onDeleteBackwardWhenEmpty: {
                                         handleTextFieldBackspaceWhenEmpty(.subheadline)
                                     }
@@ -77,7 +85,7 @@ struct SharedCardComposerView: View {
                                     placeholder: viewModel.fieldPlaceholder(for: .text),
                                     style: textInputStyle(for: .text),
                                     isFocused: focusedTextFieldKind == .text,
-                                    onFocus: { focusedTextFieldKind = .text },
+                                    onFocus: { setFocusedTextField(.text) },
                                     onDeleteBackwardWhenEmpty: {
                                         handleTextFieldBackspaceWhenEmpty(.text)
                                     }
@@ -92,14 +100,16 @@ struct SharedCardComposerView: View {
                                 showsFileCaptionField: viewModel.isFileCaptionFieldVisible,
                                 fileCaptionText: fileCaptionBinding,
                                 fileCaptionInputStyle: assetMetadataInputStyle(color: AppTheme.textSecondary),
-                                onFileCaptionFocus: clearFocusedTextField,
+                                isFileCaptionFocused: focusedMetadataField == .fileCaption,
+                                onFileCaptionFocus: { focusMetadataField(.fileCaption) },
                                 onFileCaptionDeleteBackwardWhenEmpty: {
                                     viewModel.removeFileCaptionFieldIfEmpty()
                                 },
                                 showsTeaserCopyrightField: viewModel.isTeaserCopyrightFieldVisible,
                                 teaserCopyrightText: teaserCopyrightBinding,
                                 teaserCopyrightInputStyle: assetMetadataInputStyle(color: AppTheme.textTertiary),
-                                onTeaserCopyrightFocus: clearFocusedTextField,
+                                isTeaserCopyrightFocused: focusedMetadataField == .teaserCopyright,
+                                onTeaserCopyrightFocus: { focusMetadataField(.teaserCopyright) },
                                 onTeaserCopyrightDeleteBackwardWhenEmpty: {
                                     viewModel.removeTeaserCopyrightFieldIfEmpty()
                                 },
@@ -122,7 +132,8 @@ struct SharedCardComposerView: View {
                                                 text: photoCopyrightBinding(for: item.id),
                                                 placeholder: "© Copyright text",
                                                 style: assetMetadataInputStyle(color: AppTheme.textTertiary),
-                                                onFocus: clearFocusedTextField,
+                                                isFocused: focusedMetadataField == .photoCopyright(item.id),
+                                                onFocus: { focusMetadataField(.photoCopyright(item.id)) },
                                                 onDeleteBackwardWhenEmpty: {
                                                     viewModel.removePhotoCopyrightFieldIfEmpty(id: item.id)
                                                 }
@@ -134,7 +145,8 @@ struct SharedCardComposerView: View {
                                                 text: photoCaptionBinding(for: item.id),
                                                 placeholder: "Write a caption...",
                                                 style: assetMetadataInputStyle(color: AppTheme.textSecondary),
-                                                onFocus: clearFocusedTextField,
+                                                isFocused: focusedMetadataField == .photoCaption(item.id),
+                                                onFocus: { focusMetadataField(.photoCaption(item.id)) },
                                                 onDeleteBackwardWhenEmpty: {
                                                     viewModel.removePhotoCaptionFieldIfEmpty(id: item.id)
                                                 }
@@ -152,7 +164,7 @@ struct SharedCardComposerView: View {
                                 placeholder: viewModel.fieldPlaceholder(for: .source),
                                 style: textInputStyle(for: .source),
                                 isFocused: focusedTextFieldKind == .source,
-                                onFocus: { focusedTextFieldKind = .source },
+                                onFocus: { setFocusedTextField(.source) },
                                 onDeleteBackwardWhenEmpty: {
                                     handleTextFieldBackspaceWhenEmpty(.source)
                                 }
@@ -688,7 +700,19 @@ struct SharedCardComposerView: View {
 
     private func focusTextField(_ kind: ChannelCardTextFieldKind?) {
         DispatchQueue.main.async {
-            focusedTextFieldKind = kind
+            setFocusedTextField(kind)
+        }
+    }
+
+    private func setFocusedTextField(_ kind: ChannelCardTextFieldKind?) {
+        focusedMetadataField = nil
+        focusedTextFieldKind = kind
+    }
+
+    private func focusMetadataField(_ target: ComposerMetadataFocusTarget) {
+        DispatchQueue.main.async {
+            focusedTextFieldKind = nil
+            focusedMetadataField = target
         }
     }
 
@@ -736,6 +760,7 @@ struct SharedCardComposerView: View {
         switch selectedID {
         case "addCaption":
             viewModel.showFileCaptionField()
+            focusMetadataField(.fileCaption)
         case "replaceMedia":
             replaceCurrentFileMedia()
             return
@@ -744,6 +769,7 @@ struct SharedCardComposerView: View {
             return
         case "addTeaserCopyright":
             viewModel.showTeaserCopyrightField()
+            focusMetadataField(.teaserCopyright)
         case "removeTeaser":
             viewModel.removeTeaserImage()
         case "removeMedia":
@@ -803,6 +829,7 @@ struct SharedCardComposerView: View {
         switch selectedID {
         case "addTeaserCopyright":
             viewModel.showTeaserCopyrightField()
+            focusMetadataField(.teaserCopyright)
         case "replaceTeaser":
             presentTeaserImagePicker()
             return
@@ -844,8 +871,10 @@ struct SharedCardComposerView: View {
             return
         case "addPhotoCaption":
             viewModel.showPhotoCaptionField(id: selectedPhotoItemID)
+            focusMetadataField(.photoCaption(selectedPhotoItemID))
         case "addPhotoCopyright":
             viewModel.showPhotoCopyrightField(id: selectedPhotoItemID)
+            focusMetadataField(.photoCopyright(selectedPhotoItemID))
         case "removePhoto":
             viewModel.removePhoto(id: selectedPhotoItemID)
         default:
@@ -977,11 +1006,13 @@ private struct ComposerMediaPreview: View {
     let showsFileCaptionField: Bool
     @Binding var fileCaptionText: String
     let fileCaptionInputStyle: ComposerTextInputStyle
+    let isFileCaptionFocused: Bool
     let onFileCaptionFocus: () -> Void
     let onFileCaptionDeleteBackwardWhenEmpty: () -> Void
     let showsTeaserCopyrightField: Bool
     @Binding var teaserCopyrightText: String
     let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let isTeaserCopyrightFocused: Bool
     let onTeaserCopyrightFocus: () -> Void
     let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
@@ -1009,11 +1040,13 @@ private struct ComposerMediaPreview: View {
                     showsCaptionField: showsFileCaptionField,
                     captionText: $fileCaptionText,
                     captionInputStyle: fileCaptionInputStyle,
+                    isCaptionFocused: isFileCaptionFocused,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
                     showsTeaserCopyrightField: showsTeaserCopyrightField,
                     teaserCopyrightText: $teaserCopyrightText,
                     teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+                    isTeaserCopyrightFocused: isTeaserCopyrightFocused,
                     onTeaserCopyrightFocus: onTeaserCopyrightFocus,
                     onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
                     onTeaserMoreTap: onTeaserMoreTap,
@@ -1027,11 +1060,13 @@ private struct ComposerMediaPreview: View {
                     showsCaptionField: showsFileCaptionField,
                     captionText: $fileCaptionText,
                     captionInputStyle: fileCaptionInputStyle,
+                    isCaptionFocused: isFileCaptionFocused,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
                     showsTeaserCopyrightField: showsTeaserCopyrightField,
                     teaserCopyrightText: $teaserCopyrightText,
                     teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+                    isTeaserCopyrightFocused: isTeaserCopyrightFocused,
                     onTeaserCopyrightFocus: onTeaserCopyrightFocus,
                     onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
                     onTeaserMoreTap: onTeaserMoreTap,
@@ -1045,11 +1080,13 @@ private struct ComposerMediaPreview: View {
                     showsCaptionField: showsFileCaptionField,
                     captionText: $fileCaptionText,
                     captionInputStyle: fileCaptionInputStyle,
+                    isCaptionFocused: isFileCaptionFocused,
                     onCaptionFocus: onFileCaptionFocus,
                     onCaptionDeleteBackwardWhenEmpty: onFileCaptionDeleteBackwardWhenEmpty,
                     showsTeaserCopyrightField: showsTeaserCopyrightField,
                     teaserCopyrightText: $teaserCopyrightText,
                     teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+                    isTeaserCopyrightFocused: isTeaserCopyrightFocused,
                     onTeaserCopyrightFocus: onTeaserCopyrightFocus,
                     onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
                     onTeaserMoreTap: onTeaserMoreTap,
@@ -1195,11 +1232,13 @@ private struct ComposerVideoMediaView: View {
     let showsCaptionField: Bool
     @Binding var captionText: String
     let captionInputStyle: ComposerTextInputStyle
+    let isCaptionFocused: Bool
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let showsTeaserCopyrightField: Bool
     @Binding var teaserCopyrightText: String
     let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let isTeaserCopyrightFocused: Bool
     let onTeaserCopyrightFocus: () -> Void
     let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
@@ -1213,11 +1252,13 @@ private struct ComposerVideoMediaView: View {
             showsCaptionField: showsCaptionField,
             captionText: $captionText,
             captionInputStyle: captionInputStyle,
+            isCaptionFocused: isCaptionFocused,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
             showsTeaserCopyrightField: showsTeaserCopyrightField,
             teaserCopyrightText: $teaserCopyrightText,
             teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+            isTeaserCopyrightFocused: isTeaserCopyrightFocused,
             onTeaserCopyrightFocus: onTeaserCopyrightFocus,
             onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
             onTeaserMoreTap: onTeaserMoreTap,
@@ -1233,11 +1274,13 @@ private struct ComposerAudioMediaView: View {
     let showsCaptionField: Bool
     @Binding var captionText: String
     let captionInputStyle: ComposerTextInputStyle
+    let isCaptionFocused: Bool
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let showsTeaserCopyrightField: Bool
     @Binding var teaserCopyrightText: String
     let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let isTeaserCopyrightFocused: Bool
     let onTeaserCopyrightFocus: () -> Void
     let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
@@ -1251,11 +1294,13 @@ private struct ComposerAudioMediaView: View {
             showsCaptionField: showsCaptionField,
             captionText: $captionText,
             captionInputStyle: captionInputStyle,
+            isCaptionFocused: isCaptionFocused,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
             showsTeaserCopyrightField: showsTeaserCopyrightField,
             teaserCopyrightText: $teaserCopyrightText,
             teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+            isTeaserCopyrightFocused: isTeaserCopyrightFocused,
             onTeaserCopyrightFocus: onTeaserCopyrightFocus,
             onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
             onTeaserMoreTap: onTeaserMoreTap,
@@ -1271,11 +1316,13 @@ private struct ComposerPDFMediaView: View {
     let showsCaptionField: Bool
     @Binding var captionText: String
     let captionInputStyle: ComposerTextInputStyle
+    let isCaptionFocused: Bool
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let showsTeaserCopyrightField: Bool
     @Binding var teaserCopyrightText: String
     let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let isTeaserCopyrightFocused: Bool
     let onTeaserCopyrightFocus: () -> Void
     let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
@@ -1289,11 +1336,13 @@ private struct ComposerPDFMediaView: View {
             showsCaptionField: showsCaptionField,
             captionText: $captionText,
             captionInputStyle: captionInputStyle,
+            isCaptionFocused: isCaptionFocused,
             onCaptionFocus: onCaptionFocus,
             onCaptionDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty,
             showsTeaserCopyrightField: showsTeaserCopyrightField,
             teaserCopyrightText: $teaserCopyrightText,
             teaserCopyrightInputStyle: teaserCopyrightInputStyle,
+            isTeaserCopyrightFocused: isTeaserCopyrightFocused,
             onTeaserCopyrightFocus: onTeaserCopyrightFocus,
             onTeaserCopyrightDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty,
             onTeaserMoreTap: onTeaserMoreTap,
@@ -1358,11 +1407,13 @@ private struct ComposerFileMediaPreviewView: View {
     let showsCaptionField: Bool
     @Binding var captionText: String
     let captionInputStyle: ComposerTextInputStyle
+    let isCaptionFocused: Bool
     let onCaptionFocus: () -> Void
     let onCaptionDeleteBackwardWhenEmpty: () -> Void
     let showsTeaserCopyrightField: Bool
     @Binding var teaserCopyrightText: String
     let teaserCopyrightInputStyle: ComposerTextInputStyle
+    let isTeaserCopyrightFocused: Bool
     let onTeaserCopyrightFocus: () -> Void
     let onTeaserCopyrightDeleteBackwardWhenEmpty: () -> Void
     let onTeaserMoreTap: () -> Void
@@ -1391,6 +1442,7 @@ private struct ComposerFileMediaPreviewView: View {
                             text: $teaserCopyrightText,
                             placeholder: "© Copyright text",
                             style: teaserCopyrightInputStyle,
+                            isFocused: isTeaserCopyrightFocused,
                             onFocus: onTeaserCopyrightFocus,
                             onDeleteBackwardWhenEmpty: onTeaserCopyrightDeleteBackwardWhenEmpty
                         )
@@ -1417,6 +1469,7 @@ private struct ComposerFileMediaPreviewView: View {
                         text: $captionText,
                         placeholder: "Add caption",
                         style: captionInputStyle,
+                        isFocused: isCaptionFocused,
                         onFocus: onCaptionFocus,
                         onDeleteBackwardWhenEmpty: onCaptionDeleteBackwardWhenEmpty
                     )

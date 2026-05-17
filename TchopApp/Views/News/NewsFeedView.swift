@@ -520,40 +520,57 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.sm) {
+        VStack(alignment: .leading, spacing: 0) {
             if let mediaHeight {
-                RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                Rectangle()
                     .fill(AppTheme.surfaceSecondary)
                     .frame(height: mediaHeight)
                     .overlay { mediaBody }
             }
 
-            ForEach(card.orderedTextContent) { textContent in
-                if textContent.kind == .source, let sourceURL = sourceURL {
-                    Button(action: { openURL(sourceURL) }) {
-                        Text(textContent.text)
-                            .font(font(for: textContent.kind))
-                            .foregroundStyle(color(for: textContent.kind))
-                            .fixedSize(horizontal: false, vertical: true)
-                            .frame(maxWidth: .infinity, alignment: .leading)
+            if !card.orderedTextContent.isEmpty {
+                VStack(alignment: .leading, spacing: AppSpacing.sm) {
+                    ForEach(card.orderedTextContent) { textContent in
+                        if textContent.kind == .source, let sourceURL = sourceURL {
+                            Button(action: { openURL(sourceURL) }) {
+                                Text(textContent.text)
+                                    .font(font(for: textContent.kind))
+                                    .foregroundStyle(color(for: textContent.kind))
+                                    .fixedSize(horizontal: false, vertical: true)
+                                    .frame(maxWidth: .infinity, alignment: .leading)
+                            }
+                            .buttonStyle(.plain)
+                        } else {
+                            Text(textContent.text)
+                                .font(font(for: textContent.kind))
+                                .foregroundStyle(color(for: textContent.kind))
+                                .fixedSize(horizontal: false, vertical: true)
+                        }
                     }
-                    .buttonStyle(.plain)
-                } else {
-                    Text(textContent.text)
-                        .font(font(for: textContent.kind))
-                        .foregroundStyle(color(for: textContent.kind))
-                        .fixedSize(horizontal: false, vertical: true)
+
+                    if let translationAction, hasVisibleTextContent {
+                        FeedCardTranslationButton(action: translationAction)
+                    }
                 }
+                .padding(.horizontal, 14)
+                .padding(.top, 14)
+                .padding(.bottom, 12)
             }
 
-            if let translationAction {
-                FeedCardTranslationButton(action: translationAction)
-            }
+            Divider()
+                .overlay(AppTheme.borderSubtle)
+                .padding(.horizontal, 14)
+
+            LocalFeedActionBar()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .padding(AppSpacing.md)
         .background(AppTheme.surfacePrimary)
-        .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard, style: .continuous))
+        .shadow(color: AppTheme.shadow.opacity(0.35), radius: 6, y: 1)
+    }
+
+    private var hasVisibleTextContent: Bool {
+        !card.orderedTextContent.isEmpty
     }
 
     private var sourceURL: URL? {
@@ -567,7 +584,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     private func font(for kind: LocalFeedTextFieldKind) -> Font {
         switch kind {
         case .text:
-            return AppTypography.bodyRegular
+            return .system(size: 24, weight: .regular)
         case .headline:
             return AppTypography.cardTitleBold
         case .subheadline:
@@ -586,6 +603,32 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         case .source:
             return AppTheme.accent
         }
+    }
+}
+
+private struct LocalFeedActionBar: View {
+    var body: some View {
+        HStack {
+            HStack(spacing: AppSpacing.xs) {
+                Image(systemName: "hand.thumbsup.fill")
+                Text("Like")
+            }
+
+            Spacer()
+
+            HStack(spacing: AppSpacing.xs) {
+                Image(systemName: "bubble.left.fill")
+                Text("Comments")
+            }
+
+            Spacer()
+
+            Image(systemName: "ellipsis")
+        }
+        .font(AppTypography.bodySemibold)
+        .foregroundStyle(AppTheme.iconSecondary)
+        .padding(.horizontal, 16)
+        .padding(.vertical, 14)
     }
 }
 
