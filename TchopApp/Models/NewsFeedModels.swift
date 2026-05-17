@@ -1055,6 +1055,60 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
     let orderedTextContent: [LocalFeedTextContent]
     let sourceContent: LocalFeedSourceContent?
     let mediaContent: LocalFeedMediaContent?
+    let isLiked: Bool
+    let commentsCount: Int
+    let displayMode: LocalFeedCardDisplayMode
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case channelID
+        case createdAt
+        case kind
+        case orderedTextContent
+        case sourceContent
+        case mediaContent
+        case isLiked
+        case commentsCount
+        case displayMode
+    }
+
+    init(
+        id: String,
+        channelID: String,
+        createdAt: Date,
+        kind: NewsFeedCardKind,
+        orderedTextContent: [LocalFeedTextContent],
+        sourceContent: LocalFeedSourceContent?,
+        mediaContent: LocalFeedMediaContent?,
+        isLiked: Bool,
+        commentsCount: Int,
+        displayMode: LocalFeedCardDisplayMode
+    ) {
+        self.id = id
+        self.channelID = channelID
+        self.createdAt = createdAt
+        self.kind = kind
+        self.orderedTextContent = orderedTextContent
+        self.sourceContent = sourceContent
+        self.mediaContent = mediaContent
+        self.isLiked = isLiked
+        self.commentsCount = commentsCount
+        self.displayMode = displayMode
+    }
+
+    init(from decoder: any Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(String.self, forKey: .id)
+        channelID = try container.decode(String.self, forKey: .channelID)
+        createdAt = try container.decode(Date.self, forKey: .createdAt)
+        kind = try container.decode(NewsFeedCardKind.self, forKey: .kind)
+        orderedTextContent = try container.decode([LocalFeedTextContent].self, forKey: .orderedTextContent)
+        sourceContent = try container.decodeIfPresent(LocalFeedSourceContent.self, forKey: .sourceContent)
+        mediaContent = try container.decodeIfPresent(LocalFeedMediaContent.self, forKey: .mediaContent)
+        isLiked = try container.decodeIfPresent(Bool.self, forKey: .isLiked) ?? false
+        commentsCount = try container.decodeIfPresent(Int.self, forKey: .commentsCount) ?? 0
+        displayMode = try container.decodeIfPresent(LocalFeedCardDisplayMode.self, forKey: .displayMode) ?? .compact
+    }
 
     var serviceHeadline: String {
         orderedTextContent.first?.text ?? kind.rawValue.capitalized
@@ -1094,9 +1148,17 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
                 )
             },
             sourceContent: sourceContent,
-            mediaContent: mediaContent
+            mediaContent: mediaContent,
+            isLiked: isLiked,
+            commentsCount: commentsCount,
+            displayMode: displayMode
         )
     }
+}
+
+enum LocalFeedCardDisplayMode: String, Codable, Equatable, Sendable {
+    case expanded
+    case compact
 }
 
 enum CardTranslationFieldID: String, Hashable, Codable, Sendable {
@@ -1555,7 +1617,10 @@ extension ChannelCardContent {
             kind: kind.feedKind,
             orderedTextContent: orderedTextContent.map(\.localFeedTextContent),
             sourceContent: sourceContent?.localFeedSourceContent,
-            mediaContent: mediaContent?.localFeedMediaContent
+            mediaContent: mediaContent?.localFeedMediaContent,
+            isLiked: false,
+            commentsCount: 0,
+            displayMode: .compact
         )
     }
 

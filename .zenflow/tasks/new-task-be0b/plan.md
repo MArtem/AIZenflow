@@ -244,6 +244,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` local feed parity pass (`...` menu now matches the reference action set with working taps for expanded/compact selection; media-to-text top spacing increased to 20pt; persisted media URL restore now accepts both `file://` URLs and plain file paths so post-restart image loading remains self-contained from DB payload).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: local feed persistence follow-up across `./TchopApp/Models/NewsFeedModels.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/ViewModels/NewsFeedViewModel.swift`, and `./TchopApp/Views/News/NewsFeedView.swift` (like state, comments count, and local card display mode are now persisted in SwiftData via `LocalFeedCardModel` and updated through `LocalFeedCardStore`; local feed action bar now reads persisted values instead of transient view-only state; backward-compatible decode defaults added for older local-card payloads).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

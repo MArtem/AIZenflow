@@ -78,6 +78,24 @@ final class LocalFeedCardStore {
         refreshCards()
     }
 
+    func updatePersistedCard(
+        id: String,
+        transform: (LocalFeedCardModel) -> LocalFeedCardModel
+    ) {
+        guard let index = persistedLocalCards.firstIndex(where: { $0.id == id }) else {
+            return
+        }
+
+        let updatedCard = transform(persistedLocalCards[index])
+        do {
+            try repository?.saveCards([updatedCard])
+            persistedLocalCards[index] = updatedCard
+            refreshCards()
+        } catch {
+            assertionFailure("Failed to update persisted local feed card: \(error)")
+        }
+    }
+
     private func refreshCards() {
         cards = persistedLocalCards.map(\.newsFeedCard) + transientCards
     }

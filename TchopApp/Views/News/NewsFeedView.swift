@@ -257,7 +257,10 @@ private struct NewsFeedCardRendererView: View {
             case let .local(localCard):
                 LocalPhotoCardView(
                     card: viewModel.translatedLocalFeedCard(localCard),
-                    translationAction: translationAction
+                    translationAction: translationAction,
+                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: localCard.id) },
+                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
+                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
                 )
             }
         case let .text(content):
@@ -272,7 +275,10 @@ private struct NewsFeedCardRendererView: View {
             case let .local(localCard):
                 LocalTextCardView(
                     card: viewModel.translatedLocalFeedCard(localCard),
-                    translationAction: translationAction
+                    translationAction: translationAction,
+                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: localCard.id) },
+                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
+                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
                 )
             }
         case let .video(content):
@@ -280,7 +286,10 @@ private struct NewsFeedCardRendererView: View {
             case let .local(card):
                 VideoCardView(
                     content: .local(viewModel.translatedLocalFeedCard(card)),
-                    translationAction: translationAction
+                    translationAction: translationAction,
+                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: card.id) },
+                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: card.id) },
+                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: card.id, displayMode: $0) }
                 )
             }
         case let .audio(content):
@@ -288,7 +297,10 @@ private struct NewsFeedCardRendererView: View {
             case let .local(card):
                 AudioCardView(
                     content: .local(viewModel.translatedLocalFeedCard(card)),
-                    translationAction: translationAction
+                    translationAction: translationAction,
+                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: card.id) },
+                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: card.id) },
+                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: card.id, displayMode: $0) }
                 )
             }
         case let .pdf(content):
@@ -296,7 +308,10 @@ private struct NewsFeedCardRendererView: View {
             case let .local(card):
                 PDFCardView(
                     content: .local(viewModel.translatedLocalFeedCard(card)),
-                    translationAction: translationAction
+                    translationAction: translationAction,
+                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: card.id) },
+                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: card.id) },
+                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: card.id, displayMode: $0) }
                 )
             }
         }
@@ -376,9 +391,19 @@ private final class ObserverView: UIView {}
 private struct LocalTextCardView: View {
     let card: LocalFeedCardModel
     let translationAction: FeedCardTranslationAction?
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: nil, translationAction: translationAction) {
+        LocalFeedCardContainer(
+            card: card,
+            mediaHeight: nil,
+            translationAction: translationAction,
+            onLikeTap: onLikeTap,
+            onCommentsTap: onCommentsTap,
+            onSetDisplayMode: onSetDisplayMode
+        ) {
             EmptyView()
         }
     }
@@ -387,9 +412,19 @@ private struct LocalTextCardView: View {
 private struct LocalPhotoCardView: View {
     let card: LocalFeedCardModel
     let translationAction: FeedCardTranslationAction?
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
 
     var body: some View {
-        LocalFeedCardContainer(card: card, mediaHeight: 220, translationAction: translationAction) {
+        LocalFeedCardContainer(
+            card: card,
+            mediaHeight: 220,
+            translationAction: translationAction,
+            onLikeTap: onLikeTap,
+            onCommentsTap: onCommentsTap,
+            onSetDisplayMode: onSetDisplayMode
+        ) {
             if case let .photos(items)? = card.mediaContent {
                 LocalPhotoMediaPreview(items: items)
             }
@@ -400,6 +435,9 @@ private struct LocalPhotoCardView: View {
 private struct VideoCardView: View {
     let content: NewsFeedVideoCardContent
     let translationAction: FeedCardTranslationAction?
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
 
     var body: some View {
         switch content {
@@ -408,6 +446,9 @@ private struct VideoCardView: View {
                 card: card,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
+                onLikeTap: onLikeTap,
+                onCommentsTap: onCommentsTap,
+                onSetDisplayMode: onSetDisplayMode,
                 preview: { file in AnyView(LocalVideoMediaView(file: file)) }
             )
         }
@@ -425,6 +466,9 @@ private struct VideoCardView: View {
 private struct AudioCardView: View {
     let content: NewsFeedAudioCardContent
     let translationAction: FeedCardTranslationAction?
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
 
     var body: some View {
         switch content {
@@ -433,6 +477,9 @@ private struct AudioCardView: View {
                 card: card,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
+                onLikeTap: onLikeTap,
+                onCommentsTap: onCommentsTap,
+                onSetDisplayMode: onSetDisplayMode,
                 preview: { file in AnyView(LocalAudioMediaView(file: file)) }
             )
         }
@@ -450,6 +497,9 @@ private struct AudioCardView: View {
 private struct PDFCardView: View {
     let content: NewsFeedPDFCardContent
     let translationAction: FeedCardTranslationAction?
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
 
     var body: some View {
         switch content {
@@ -458,6 +508,9 @@ private struct PDFCardView: View {
                 card: card,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
+                onLikeTap: onLikeTap,
+                onCommentsTap: onCommentsTap,
+                onSetDisplayMode: onSetDisplayMode,
                 preview: { file in AnyView(LocalPDFMediaView(file: file)) }
             )
         }
@@ -476,13 +529,19 @@ private struct LocalFileCardView: View {
     let card: LocalFeedCardModel
     let mediaHeight: CGFloat
     let translationAction: FeedCardTranslationAction?
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
     let preview: (LocalFeedFileMediaContent) -> AnyView
 
     var body: some View {
         LocalFeedCardContainer(
             card: card,
             mediaHeight: mediaHeight,
-            translationAction: translationAction
+            translationAction: translationAction,
+            onLikeTap: onLikeTap,
+            onCommentsTap: onCommentsTap,
+            onSetDisplayMode: onSetDisplayMode
         ) {
             if let fileContent = fileContent {
                 preview(fileContent)
@@ -505,20 +564,26 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     let card: LocalFeedCardModel
     let mediaHeight: CGFloat?
     let translationAction: FeedCardTranslationAction?
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
     let mediaBody: MediaBody
-    @State private var isLiked = false
-    @State private var commentsCount = 0
-    @State private var localDisplayMode: LocalFeedDisplayMode = .compact
 
     init(
         card: LocalFeedCardModel,
         mediaHeight: CGFloat?,
         translationAction: FeedCardTranslationAction?,
+        onLikeTap: @escaping () -> Void,
+        onCommentsTap: @escaping () -> Void,
+        onSetDisplayMode: @escaping (LocalFeedCardDisplayMode) -> Void,
         @ViewBuilder mediaBody: () -> MediaBody
     ) {
         self.card = card
         self.mediaHeight = mediaHeight
         self.translationAction = translationAction
+        self.onLikeTap = onLikeTap
+        self.onCommentsTap = onCommentsTap
+        self.onSetDisplayMode = onSetDisplayMode
         self.mediaBody = mediaBody()
     }
 
@@ -565,12 +630,12 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                 .padding(.horizontal, 14)
 
             LocalFeedActionBar(
-                isLiked: isLiked,
-                commentsCount: commentsCount,
-                displayMode: localDisplayMode,
-                onLikeTap: { isLiked.toggle() },
-                onCommentsTap: { commentsCount += 1 },
-                onSetDisplayMode: { localDisplayMode = $0 },
+                isLiked: card.isLiked,
+                commentsCount: card.commentsCount,
+                displayMode: card.displayMode,
+                onLikeTap: onLikeTap,
+                onCommentsTap: onCommentsTap,
+                onSetDisplayMode: onSetDisplayMode,
                 onRefreshCard: {},
                 onRunUpdateTask: {}
             )
@@ -590,7 +655,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
             return nil
         }
 
-        switch localDisplayMode {
+        switch card.displayMode {
         case .expanded:
             return mediaHeight
         case .compact:
@@ -631,18 +696,13 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     }
 }
 
-private enum LocalFeedDisplayMode {
-    case expanded
-    case compact
-}
-
 private struct LocalFeedActionBar: View {
     let isLiked: Bool
     let commentsCount: Int
-    let displayMode: LocalFeedDisplayMode
+    let displayMode: LocalFeedCardDisplayMode
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedDisplayMode) -> Void
+    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
     let onRefreshCard: () -> Void
     let onRunUpdateTask: () -> Void
 

@@ -264,6 +264,60 @@ final class NewsFeedViewModel {
         card.translated(using: cardTranslationStore.snapshot(for: card.id))
     }
 
+    func toggleLocalCardLike(cardID: String) {
+        localFeedCardStore.updatePersistedCard(id: cardID) { card in
+            LocalFeedCardModel(
+                id: card.id,
+                channelID: card.channelID,
+                createdAt: card.createdAt,
+                kind: card.kind,
+                orderedTextContent: card.orderedTextContent,
+                sourceContent: card.sourceContent,
+                mediaContent: card.mediaContent,
+                isLiked: !card.isLiked,
+                commentsCount: card.commentsCount,
+                displayMode: card.displayMode
+            )
+        }
+        handleLocalChannelCardsChanged()
+    }
+
+    func incrementLocalCardComments(cardID: String) {
+        localFeedCardStore.updatePersistedCard(id: cardID) { card in
+            LocalFeedCardModel(
+                id: card.id,
+                channelID: card.channelID,
+                createdAt: card.createdAt,
+                kind: card.kind,
+                orderedTextContent: card.orderedTextContent,
+                sourceContent: card.sourceContent,
+                mediaContent: card.mediaContent,
+                isLiked: card.isLiked,
+                commentsCount: card.commentsCount + 1,
+                displayMode: card.displayMode
+            )
+        }
+        handleLocalChannelCardsChanged()
+    }
+
+    func setLocalCardDisplayMode(cardID: String, displayMode: LocalFeedCardDisplayMode) {
+        localFeedCardStore.updatePersistedCard(id: cardID) { card in
+            LocalFeedCardModel(
+                id: card.id,
+                channelID: card.channelID,
+                createdAt: card.createdAt,
+                kind: card.kind,
+                orderedTextContent: card.orderedTextContent,
+                sourceContent: card.sourceContent,
+                mediaContent: card.mediaContent,
+                isLiked: card.isLiked,
+                commentsCount: card.commentsCount,
+                displayMode: displayMode
+            )
+        }
+        handleLocalChannelCardsChanged()
+    }
+
     func translatedRoute(for route: NewsRoute) -> NewsRoute {
         guard
             let cardID = route.cardID,
