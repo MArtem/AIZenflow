@@ -642,7 +642,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                         .padding(.bottom, 12)
                     } else if resolvedMediaHeight != nil {
                         Color.clear
-                            .frame(height: 20)
+                            .frame(height: 40)
                     }
                 }
             }
@@ -881,15 +881,7 @@ private struct LocalImageMediaFrame: View {
     }
 
     private var resolvedFileURL: URL? {
-        guard let fileURLString else {
-            return nil
-        }
-
-        if let url = URL(string: fileURLString), url.scheme != nil {
-            return url
-        }
-
-        return URL(fileURLWithPath: fileURLString)
+        LocalComposerMediaPathResolver.resolve(fileURLString: fileURLString)
     }
 
     var body: some View {
@@ -1133,15 +1125,43 @@ private struct FeedMediaTeaserBlock: View {
 
 private extension LocalFeedFileMediaContent {
     var fileURL: URL? {
-        guard let fileURLString else {
+        LocalComposerMediaPathResolver.resolve(fileURLString: fileURLString)
+    }
+}
+
+private enum LocalComposerMediaPathResolver {
+    private static let mediaDirectoryName = "TchopComposerMedia"
+
+    static func resolve(fileURLString: String?) -> URL? {
+        guard let fileURLString, !fileURLString.isEmpty else {
             return nil
         }
 
         if let url = URL(string: fileURLString), url.scheme != nil {
-            return url
+            if FileManager.default.fileExists(atPath: url.path) {
+                return url
+            }
         }
 
-        return URL(fileURLWithPath: fileURLString)
+        if FileManager.default.fileExists(atPath: fileURLString) {
+            return URL(fileURLWithPath: fileURLString)
+        }
+
+        // Fallback for persisted absolute paths that become stale across app container changes.
+        let filename = URL(fileURLWithPath: fileURLString).lastPathComponent
+        guard !filename.isEmpty else {
+            return nil
+        }
+
+        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
+            return nil
+        }
+
+        let candidateURL = documentsURL
+            .appendingPathComponent(mediaDirectoryName, isDirectory: true)
+            .appendingPathComponent(filename, isDirectory: false)
+
+        return FileManager.default.fileExists(atPath: candidateURL.path) ? candidateURL : nil
     }
 }
 

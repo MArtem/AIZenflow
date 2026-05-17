@@ -259,6 +259,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: compile-fix follow-up across `./TchopApp/Views/Tabs/NewsTabRootView.swift` and `./TchopApp/Views/News/NewsFeedView.swift` (aligned `NewsFeedView` call-site argument order so `onLocalCardTap` precedes `onTextAction`, matching the current initializer signature).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` no-text/media-restore follow-up (increased no-text spacer before divider/actions by +20 for media-only cards; added resilient media path resolver that falls back to `Documents/TchopComposerMedia/<filename>` when persisted absolute sandbox paths become stale after relaunch).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
