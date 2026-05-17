@@ -289,6 +289,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` non-cropped media fill correction (feed image-backed previews now stretch to the current media frame without aspect crop/side gaps, while the caption/copyright overlay has a fixed 56pt height pinned to the bottom of the media area).
 - Verification: skipped by request; no build run per current instruction.
 
+- Completed now: feed/composer local-card cleanup across `./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/ViewModels/NewsFeedViewModel.swift`, `./TchopApp/Models/NewsFeedModels.swift`, and `./TchopApp/Views/Composer/SharedCardComposerView.swift` (removed redundant publish conversion/return path, deleted unused `ChannelCardContent` feed-card wrappers, and collapsed repeated local interaction-state copy code into one model helper + one view-model update path).
+- Verification: skipped by request; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

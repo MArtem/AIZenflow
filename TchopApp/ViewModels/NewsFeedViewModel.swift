@@ -264,56 +264,28 @@ final class NewsFeedViewModel {
     }
 
     func toggleLocalCardLike(cardID: String) {
-        localFeedCardStore.updatePersistedCard(id: cardID) { card in
-            LocalFeedCardModel(
-                id: card.id,
-                channelID: card.channelID,
-                createdAt: card.createdAt,
-                kind: card.kind,
-                orderedTextContent: card.orderedTextContent,
-                sourceContent: card.sourceContent,
-                mediaContent: card.mediaContent,
-                isLiked: !card.isLiked,
-                commentsCount: card.commentsCount,
-                displayMode: card.displayMode
-            )
+        updateLocalCard(cardID: cardID) { card in
+            card.replacingInteractionState(isLiked: !card.isLiked)
         }
-        handleLocalChannelCardsChanged()
     }
 
     func incrementLocalCardComments(cardID: String) {
-        localFeedCardStore.updatePersistedCard(id: cardID) { card in
-            LocalFeedCardModel(
-                id: card.id,
-                channelID: card.channelID,
-                createdAt: card.createdAt,
-                kind: card.kind,
-                orderedTextContent: card.orderedTextContent,
-                sourceContent: card.sourceContent,
-                mediaContent: card.mediaContent,
-                isLiked: card.isLiked,
-                commentsCount: card.commentsCount + 1,
-                displayMode: card.displayMode
-            )
+        updateLocalCard(cardID: cardID) { card in
+            card.replacingInteractionState(commentsCount: card.commentsCount + 1)
         }
-        handleLocalChannelCardsChanged()
     }
 
     func setLocalCardDisplayMode(cardID: String, displayMode: LocalFeedCardDisplayMode) {
-        localFeedCardStore.updatePersistedCard(id: cardID) { card in
-            LocalFeedCardModel(
-                id: card.id,
-                channelID: card.channelID,
-                createdAt: card.createdAt,
-                kind: card.kind,
-                orderedTextContent: card.orderedTextContent,
-                sourceContent: card.sourceContent,
-                mediaContent: card.mediaContent,
-                isLiked: card.isLiked,
-                commentsCount: card.commentsCount,
-                displayMode: displayMode
-            )
+        updateLocalCard(cardID: cardID) { card in
+            card.replacingInteractionState(displayMode: displayMode)
         }
+    }
+
+    private func updateLocalCard(
+        cardID: String,
+        transform: (LocalFeedCardModel) -> LocalFeedCardModel
+    ) {
+        localFeedCardStore.updatePersistedCard(id: cardID, transform: transform)
         handleLocalChannelCardsChanged()
     }
 

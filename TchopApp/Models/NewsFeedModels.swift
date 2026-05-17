@@ -1154,6 +1154,25 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
             displayMode: displayMode
         )
     }
+
+    func replacingInteractionState(
+        isLiked: Bool? = nil,
+        commentsCount: Int? = nil,
+        displayMode: LocalFeedCardDisplayMode? = nil
+    ) -> LocalFeedCardModel {
+        LocalFeedCardModel(
+            id: id,
+            channelID: channelID,
+            createdAt: createdAt,
+            kind: kind,
+            orderedTextContent: orderedTextContent,
+            sourceContent: sourceContent,
+            mediaContent: mediaContent,
+            isLiked: isLiked ?? self.isLiked,
+            commentsCount: commentsCount ?? self.commentsCount,
+            displayMode: displayMode ?? self.displayMode
+        )
+    }
 }
 
 enum LocalFeedCardDisplayMode: String, Codable, Equatable, Sendable {
@@ -1622,14 +1641,6 @@ extension ChannelCardContent {
             commentsCount: 0,
             displayMode: .expanded
         )
-    }
-
-    var localNewsFeedCard: NewsFeedCard {
-        localFeedCardModel.newsFeedCard
-    }
-
-    var newsFeedCard: NewsFeedCard {
-        localNewsFeedCard
     }
 }
 

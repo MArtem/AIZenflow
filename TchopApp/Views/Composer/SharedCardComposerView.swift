@@ -669,7 +669,7 @@ struct SharedCardComposerView: View {
     }
 
     private func publish() {
-        guard viewModel.publish() != nil else {
+        guard viewModel.publish() else {
             return
         }
 

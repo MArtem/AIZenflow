@@ -86,7 +86,7 @@ final class LocalFeedCardStore {
 final class FeedComposerViewModel {
     private(set) var draft: FeedComposerDraft
     private let channelsStore: ChannelsStore
-    private let publishAction: @MainActor (LocalFeedCardModel, NewsFeedCard) -> Void
+    private let publishAction: @MainActor (LocalFeedCardModel) -> Void
 
     convenience init(
         selectedChannelID: String,
@@ -96,16 +96,14 @@ final class FeedComposerViewModel {
         self.init(
             selectedChannelID: selectedChannelID,
             channelsStore: channelsStore,
-            publishAction: { localFeedCard, _ in
-                localFeedCardStore.publish(localFeedCard)
-            }
+            publishAction: localFeedCardStore.publish
         )
     }
 
     init(
         selectedChannelID: String,
         channelsStore: ChannelsStore,
-        publishAction: @escaping @MainActor (LocalFeedCardModel, NewsFeedCard) -> Void
+        publishAction: @escaping @MainActor (LocalFeedCardModel) -> Void
     ) {
         self.channelsStore = channelsStore
         self.publishAction = publishAction
@@ -314,14 +312,12 @@ final class FeedComposerViewModel {
         draft.fieldSupportsRemoval(kind)
     }
 
-    func publish() -> NewsFeedCard? {
+    func publish() -> Bool {
         guard let card = draft.makeCard() else {
-            return nil
+            return false
         }
-        let localFeedCard = card.localFeedCardModel
-        let newsFeedCard = localFeedCard.newsFeedCard
-        publishAction(localFeedCard, newsFeedCard)
-        return newsFeedCard
+        publishAction(card.localFeedCardModel)
+        return true
     }
 }
 
