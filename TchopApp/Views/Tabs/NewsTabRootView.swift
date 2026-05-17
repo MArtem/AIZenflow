@@ -17,8 +17,8 @@ struct NewsTabRootView: View {
                 onPhotoTap: openPhotoCard,
                 onPhotoAction: handlePhotoAction,
                 onTextTap: openTextCard,
-                onTextAction: handleTextAction,
-                onLocalCardTap: openLocalCard
+                onLocalCardTap: openLocalCard,
+                onTextAction: handleTextAction
             )
             .navigationDestination(for: NewsRoute.self) { route in
                 NewsDestinationView(route: viewModel.translatedRoute(for: route))

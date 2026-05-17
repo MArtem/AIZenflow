@@ -1153,8 +1153,8 @@ private extension LocalFeedFileMediaContent {
         onPhotoTap: { _ in },
         onPhotoAction: { _, _ in },
         onTextTap: { _ in },
-        onTextAction: { _, _ in },
-        onLocalCardTap: { _ in }
+        onLocalCardTap: { _ in },
+        onTextAction: { _, _ in }
     )
 }
 #endif
