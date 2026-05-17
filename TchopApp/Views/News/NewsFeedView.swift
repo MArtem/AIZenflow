@@ -506,6 +506,8 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     let mediaHeight: CGFloat?
     let translationAction: FeedCardTranslationAction?
     let mediaBody: MediaBody
+    @State private var isLiked = false
+    @State private var commentsCount = 0
 
     init(
         card: LocalFeedCardModel,
@@ -561,7 +563,12 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                 .overlay(AppTheme.borderSubtle)
                 .padding(.horizontal, 14)
 
-            LocalFeedActionBar()
+            LocalFeedActionBar(
+                isLiked: isLiked,
+                commentsCount: commentsCount,
+                onLikeTap: { isLiked.toggle() },
+                onCommentsTap: { commentsCount += 1 }
+            )
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(AppTheme.surfacePrimary)
@@ -607,23 +614,47 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
 }
 
 private struct LocalFeedActionBar: View {
+    let isLiked: Bool
+    let commentsCount: Int
+    let onLikeTap: () -> Void
+    let onCommentsTap: () -> Void
+
     var body: some View {
         HStack {
-            HStack(spacing: AppSpacing.xs) {
-                Image(systemName: "hand.thumbsup.fill")
-                Text("Like")
+            Button(action: onLikeTap) {
+                HStack(spacing: AppSpacing.xs) {
+                    Image(systemName: "hand.thumbsup.fill")
+                    Text(
+                        isLiked
+                            ? AppLocalization.text("news.photo.action.liked")
+                            : AppLocalization.text("news.photo.action.like")
+                    )
+                }
+                .foregroundStyle(isLiked ? AppTheme.accent : AppTheme.iconSecondary)
             }
+            .buttonStyle(.plain)
 
             Spacer()
 
-            HStack(spacing: AppSpacing.xs) {
-                Image(systemName: "bubble.left.fill")
-                Text("Comments")
+            Button(action: onCommentsTap) {
+                HStack(spacing: AppSpacing.xs) {
+                    Image(systemName: "bubble.left.fill")
+                    Text("\(commentsCount) " + AppLocalization.text("news.photo.action.comments"))
+                }
             }
+            .buttonStyle(.plain)
 
             Spacer()
 
-            Image(systemName: "ellipsis")
+            Menu {
+                Button {
+                    // Local published cards do not yet expose additional runtime actions.
+                } label: {
+                    Label(AppLocalization.text("common.done"), systemImage: "checkmark")
+                }
+            } label: {
+                Image(systemName: "ellipsis")
+            }
         }
         .font(AppTypography.bodySemibold)
         .foregroundStyle(AppTheme.iconSecondary)

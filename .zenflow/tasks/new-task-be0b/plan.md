@@ -238,6 +238,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` local feed card shell alignment pass (Composer-created local cards now use the remote-card style shell with media flush at the top, draft-order text section, translation only when text exists, divider, and Like/Comments/`...` footer).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` local feed interaction/layout follow-up (local feed footer controls are now interactive with localized labels and a working options menu trigger; text/translation block remains rendered as a dedicated section under media inside card body, not inside the media frame).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
