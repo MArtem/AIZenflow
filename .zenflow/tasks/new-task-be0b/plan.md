@@ -267,6 +267,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` no-text spacer tuning follow-up (set mode-specific spacer to requested values: expanded `30`, compact `60`).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` tap-routing stabilization pass (replaced the top card-content `Button` wrapper with explicit content-area `onTapGesture` to prevent toolbar action taps from being captured by the detail-open tap target on media-only cards).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.

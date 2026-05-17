@@ -604,49 +604,47 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Button(action: onTap) {
-                VStack(alignment: .leading, spacing: 0) {
-                    if let resolvedMediaHeight = resolvedMediaHeight {
-                        Rectangle()
-                            .fill(AppTheme.surfaceSecondary)
-                            .frame(height: resolvedMediaHeight)
-                            .overlay { mediaBody }
-                    }
+            VStack(alignment: .leading, spacing: 0) {
+                if let resolvedMediaHeight = resolvedMediaHeight {
+                    Rectangle()
+                        .fill(AppTheme.surfaceSecondary)
+                        .frame(height: resolvedMediaHeight)
+                        .overlay { mediaBody }
+                }
 
-                    if !card.orderedTextContent.isEmpty {
-                        VStack(alignment: .leading, spacing: AppSpacing.sm) {
-                            ForEach(card.orderedTextContent) { textContent in
-                                if textContent.kind == .source, let sourceURL = sourceURL {
-                                    Button(action: { openURL(sourceURL) }) {
-                                        Text(textContent.text)
-                                            .font(font(for: textContent.kind))
-                                            .foregroundStyle(color(for: textContent.kind))
-                                            .fixedSize(horizontal: false, vertical: true)
-                                            .frame(maxWidth: .infinity, alignment: .leading)
-                                    }
-                                    .buttonStyle(.plain)
-                                } else {
+                if !card.orderedTextContent.isEmpty {
+                    VStack(alignment: .leading, spacing: AppSpacing.sm) {
+                        ForEach(card.orderedTextContent) { textContent in
+                            if textContent.kind == .source, let sourceURL = sourceURL {
+                                Button(action: { openURL(sourceURL) }) {
                                     Text(textContent.text)
                                         .font(font(for: textContent.kind))
                                         .foregroundStyle(color(for: textContent.kind))
                                         .fixedSize(horizontal: false, vertical: true)
+                                        .frame(maxWidth: .infinity, alignment: .leading)
                                 }
-                            }
-
-                            if let translationAction, hasVisibleTextContent {
-                                FeedCardTranslationButton(action: translationAction)
+                                .buttonStyle(.plain)
+                            } else {
+                                Text(textContent.text)
+                                    .font(font(for: textContent.kind))
+                                    .foregroundStyle(color(for: textContent.kind))
+                                    .fixedSize(horizontal: false, vertical: true)
                             }
                         }
-                        .padding(.horizontal, 14)
-                        .padding(.top, 20)
-                        .padding(.bottom, 12)
-                    } else if resolvedMediaHeight != nil {
-                        Color.clear
-                            .frame(height: noTextBottomSpacerHeight)
+
+                        if let translationAction, hasVisibleTextContent {
+                            FeedCardTranslationButton(action: translationAction)
+                        }
                     }
+                    .padding(.horizontal, 14)
+                    .padding(.top, 20)
+                    .padding(.bottom, 12)
+                } else if resolvedMediaHeight != nil {
+                    Color.clear
+                        .frame(height: noTextBottomSpacerHeight)
                 }
             }
-            .buttonStyle(.plain)
+            .onTapGesture(perform: onTap)
             .contentShape(Rectangle())
             .clipped()
             .zIndex(0)
