@@ -642,11 +642,14 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                         .padding(.bottom, 12)
                     } else if resolvedMediaHeight != nil {
                         Color.clear
-                            .frame(height: 40)
+                            .frame(height: noTextBottomSpacerHeight)
                     }
                 }
             }
             .buttonStyle(.plain)
+            .contentShape(Rectangle())
+            .clipped()
+            .zIndex(0)
 
             Divider()
                 .overlay(AppTheme.borderSubtle)
@@ -662,6 +665,9 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                 onRefreshCard: {},
                 onRunUpdateTask: {}
             )
+            .background(AppTheme.surfacePrimary)
+            .contentShape(Rectangle())
+            .zIndex(1)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(AppTheme.surfacePrimary)
@@ -683,6 +689,15 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
             return mediaHeight
         case .compact:
             return max(156, mediaHeight - 64)
+        }
+    }
+
+    private var noTextBottomSpacerHeight: CGFloat {
+        switch card.displayMode {
+        case .expanded:
+            return 40
+        case .compact:
+            return 60
         }
     }
 

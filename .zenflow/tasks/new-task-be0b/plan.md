@@ -261,6 +261,8 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` no-text/media-restore follow-up (increased no-text spacer before divider/actions by +20 for media-only cards; added resilient media path resolver that falls back to `Documents/TchopComposerMedia/<filename>` when persisted absolute sandbox paths become stale after relaunch).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` toolbar hit-testing/compact-spacing follow-up (card tap area is now clipped/content-shaped so toolbar taps are not swallowed by card-detail tap; action bar hit surface is raised above media content; no-text compact mode spacer increased further to prevent bottom controls overlapping media content).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
