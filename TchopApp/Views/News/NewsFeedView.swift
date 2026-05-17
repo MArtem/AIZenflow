@@ -923,47 +923,34 @@ private struct LocalImageMediaFrame: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            if let image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-            } else {
-                AppTheme.surfaceSecondary
-                    .overlay {
-                        Image(systemName: fallbackSystemImage)
-                            .font(.system(size: 32, weight: .semibold))
-                            .foregroundStyle(AppTheme.textSecondary)
-                    }
-            }
+            imageSurface
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             if hasMetadata {
-                VStack(spacing: AppSpacing.xxs) {
-                    if let copyright, !copyright.isEmpty {
-                        Text(copyright)
-                            .font(AppTypography.label)
-                            .foregroundStyle(Color.white.opacity(0.8))
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-
-                    if let caption, !caption.isEmpty {
-                        Text(caption)
-                            .font(AppTypography.captionSemibold)
-                            .foregroundStyle(Color.white.opacity(0.92))
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-                .layoutPriority(1)
-                .padding(AppSpacing.sm)
-                .frame(maxWidth: .infinity)
-                .background(Color.black.opacity(0.38))
+                LocalMediaMetadataBar(caption: caption, copyright: copyright)
             }
         }
         .frame(maxWidth: .infinity)
         .frame(maxHeight: .infinity)
         .clipped()
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.badge, style: .continuous))
+    }
+
+    @ViewBuilder
+    private var imageSurface: some View {
+        if let image {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else {
+            AppTheme.surfaceSecondary
+                .overlay {
+                    Image(systemName: fallbackSystemImage)
+                        .font(.system(size: 32, weight: .semibold))
+                        .foregroundStyle(AppTheme.textSecondary)
+                }
+        }
     }
 
     private var hasMetadata: Bool {
@@ -1104,41 +1091,11 @@ private struct LocalImageLikeMediaFrame: View {
 
     var body: some View {
         ZStack(alignment: .bottom) {
-            if let image {
-                Image(uiImage: image)
-                    .resizable()
-                    .scaledToFill()
-            } else {
-                AppTheme.surfaceSecondary
-                    .overlay {
-                        Image(systemName: fallbackSystemImage)
-                            .font(.system(size: 42, weight: .semibold))
-                            .foregroundStyle(AppTheme.textSecondary)
-                    }
-            }
+            imageSurface
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             if hasMetadata {
-                VStack(spacing: AppSpacing.xxs) {
-                    if let copyright, !copyright.isEmpty {
-                        Text(copyright)
-                            .font(AppTypography.label)
-                            .foregroundStyle(Color.white.opacity(0.8))
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-
-                    if let caption, !caption.isEmpty {
-                        Text(caption)
-                            .font(AppTypography.captionSemibold)
-                            .foregroundStyle(Color.white.opacity(0.92))
-                            .multilineTextAlignment(.center)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-                .layoutPriority(1)
-                .padding(AppSpacing.sm)
-                .frame(maxWidth: .infinity)
-                .background(Color.black.opacity(0.38))
+                LocalMediaMetadataBar(caption: caption, copyright: copyright)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -1146,8 +1103,53 @@ private struct LocalImageLikeMediaFrame: View {
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.badge, style: .continuous))
     }
 
+    @ViewBuilder
+    private var imageSurface: some View {
+        if let image {
+            Image(uiImage: image)
+                .resizable()
+                .scaledToFit()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+        } else {
+            AppTheme.surfaceSecondary
+                .overlay {
+                    Image(systemName: fallbackSystemImage)
+                        .font(.system(size: 42, weight: .semibold))
+                        .foregroundStyle(AppTheme.textSecondary)
+                }
+        }
+    }
+
     private var hasMetadata: Bool {
         caption?.isEmpty == false || copyright?.isEmpty == false
+    }
+}
+
+private struct LocalMediaMetadataBar: View {
+    let caption: String?
+    let copyright: String?
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xxs) {
+            if let copyright, !copyright.isEmpty {
+                Text(copyright)
+                    .font(AppTypography.label)
+                    .foregroundStyle(Color.white.opacity(0.8))
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            if let caption, !caption.isEmpty {
+                Text(caption)
+                    .font(AppTypography.captionSemibold)
+                    .foregroundStyle(Color.white.opacity(0.92))
+                    .multilineTextAlignment(.center)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+        .padding(AppSpacing.sm)
+        .frame(maxWidth: .infinity)
+        .background(Color.black.opacity(0.38))
     }
 }
 

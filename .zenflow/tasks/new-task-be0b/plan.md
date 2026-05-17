@@ -280,6 +280,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact metadata height tuning (compact mode now uses a less aggressive media-height reduction when caption/copyright metadata is present, preserving the full metadata block while still keeping a visible compact/expanded size difference).
 - Verification: skipped by request; no build run per current instruction.
 
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact media fit correction follow-up (reverted the failed separated metadata layout; feed media previews keep the caption/copyright overlay stable while the image surface uses aspect-fit resizing inside the resized compact cell).
+- Verification: skipped by request; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.
