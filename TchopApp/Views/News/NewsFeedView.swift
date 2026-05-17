@@ -611,7 +611,8 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                         .frame(height: resolvedMediaHeight)
                         .overlay {
                             mediaBody
-                                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                                .frame(maxWidth: .infinity)
+                                .frame(height: resolvedMediaHeight, alignment: .center)
                                 .clipped()
                         }
                         .clipped()
@@ -691,8 +692,25 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         case .expanded:
             return mediaHeight
         case .compact:
-            // Keep compact mode visible while avoiding aggressive collapse that can hurt text layout.
+            if hasMediaMetadata {
+                return max(200, mediaHeight - 20)
+            }
+
             return max(180, mediaHeight - 40)
+        }
+    }
+
+    private var hasMediaMetadata: Bool {
+        switch card.mediaContent {
+        case let .photos(items):
+            return items.contains {
+                $0.caption?.isEmpty == false || $0.copyright?.isEmpty == false
+            }
+        case let .file(file):
+            return file.caption?.isEmpty == false ||
+                file.teaserImage?.copyright?.isEmpty == false
+        case nil:
+            return false
         }
     }
 
@@ -925,6 +943,7 @@ private struct LocalImageMediaFrame: View {
                             .font(AppTypography.label)
                             .foregroundStyle(Color.white.opacity(0.8))
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
 
                     if let caption, !caption.isEmpty {
@@ -932,8 +951,10 @@ private struct LocalImageMediaFrame: View {
                             .font(AppTypography.captionSemibold)
                             .foregroundStyle(Color.white.opacity(0.92))
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 }
+                .layoutPriority(1)
                 .padding(AppSpacing.sm)
                 .frame(maxWidth: .infinity)
                 .background(Color.black.opacity(0.38))
@@ -1103,6 +1124,7 @@ private struct LocalImageLikeMediaFrame: View {
                             .font(AppTypography.label)
                             .foregroundStyle(Color.white.opacity(0.8))
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
 
                     if let caption, !caption.isEmpty {
@@ -1110,8 +1132,10 @@ private struct LocalImageLikeMediaFrame: View {
                             .font(AppTypography.captionSemibold)
                             .foregroundStyle(Color.white.opacity(0.92))
                             .multilineTextAlignment(.center)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 }
+                .layoutPriority(1)
                 .padding(AppSpacing.sm)
                 .frame(maxWidth: .infinity)
                 .background(Color.black.opacity(0.38))

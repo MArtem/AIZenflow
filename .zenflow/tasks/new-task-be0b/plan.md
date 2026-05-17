@@ -275,6 +275,10 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Verification: skipped by request; no build run per current instruction.
 - Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact media clipping fix (media preview overlay is now constrained and clipped to the resolved media frame, so compact images cannot visually bleed into the text section below).
 - Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact metadata overlay fix (media preview now receives the exact resolved frame height before clipping, and caption/copyright overlay text keeps its intrinsic vertical size so the metadata block stays pinned to the image bottom without being cut by compact mode).
+- Verification: skipped by request; no build run per current instruction.
+- Completed now: `./TchopApp/Views/News/NewsFeedView.swift` compact metadata height tuning (compact mode now uses a less aggressive media-height reduction when caption/copyright metadata is present, preserving the full metadata block while still keeping a visible compact/expanded size difference).
+- Verification: skipped by request; no build run per current instruction.
 
 ## Working Rule
 - Keep this file short and current.
