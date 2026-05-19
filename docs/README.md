@@ -11,11 +11,14 @@ Entry point for project docs: what to read first and where to place new informat
 ## Default Read Order
 1. [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
 2. [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
-3. [docs/AGENT_RULES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/AGENT_RULES.md)
-4. [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
-5. Task docs: [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md), [plan.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/plan.md), task rules
-6. Optional by task scope:
+3. [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
+4. [docs/AGENT_RULES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/AGENT_RULES.md)
+5. [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
+6. Task docs: [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md), [plan.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/plan.md), task rules
+7. Optional by task scope:
    - [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
+   - [docs/UI_PIXEL_PERFECT_WORKFLOW.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/UI_PIXEL_PERFECT_WORKFLOW.md)
+   - [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
    - [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
    - [docs/IOS_ARCHITECTURE_REFERENCE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/IOS_ARCHITECTURE_REFERENCE.md)
    - [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
@@ -26,8 +29,9 @@ On new chat/context reset, read once:
 2. `PROJECT_DOCUMENTATION.md`
 3. `PROJECT_HEALTH.md`
 4. `docs/WORK_CONTINUITY.md`
-5. `docs/AGENT_RULES.md`
-6. current task docs (`handoff.md`, `plan.md`, task rules)
+5. `docs/CURRENT_USER_OVERRIDES.md`
+6. `docs/AGENT_RULES.md`
+7. current task docs (`handoff.md`, `plan.md`, task rules)
 
 Re-read full stack if architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
 
@@ -40,6 +44,9 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
 - [docs/AGENT_RULES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/AGENT_RULES.md)
 - [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
+- [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
+- [docs/UI_PIXEL_PERFECT_WORKFLOW.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/UI_PIXEL_PERFECT_WORKFLOW.md)
+- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
 - [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
 - [docs/IOS_ARCHITECTURE_REFERENCE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/IOS_ARCHITECTURE_REFERENCE.md)
 - [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
@@ -63,6 +70,9 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **PROJECT_HEALTH.md**: package/manager ownership boundaries.
 - **TESTING_INSTRUCTIONS.md**: verification workflow and levels.
 - **docs/AGENT_RULES.md**: short mandatory implementation guardrails.
+- **docs/CURRENT_USER_OVERRIDES.md**: current task/user overrides that must be applied before general defaults.
+- **docs/UI_PIXEL_PERFECT_WORKFLOW.md**: UI/design implementation workflow from screenshots/Figma/PDF/CSS.
+- **docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md**: local feed card persistence and media durability contract.
 - **docs/IOS_ARCHITECTURE_REFERENCE.md**: architecture handbook pointer + usage notes (guidance, not mandate).
 - **docs/PACKAGES_AND_MANAGERS.md**: reusable package/manager integration guide.
 - **docs/WORK_CONTINUITY.md**: durable resume state and universal transition prompt.
@@ -77,6 +87,9 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **Package/manager ownership** → `PROJECT_HEALTH.md`
 - **Verification workflow** → `TESTING_INSTRUCTIONS.md`
 - **Short implementation guardrails** → `docs/AGENT_RULES.md`
+- **Current task/user overrides** → `docs/CURRENT_USER_OVERRIDES.md`
+- **UI/design workflow** → `docs/UI_PIXEL_PERFECT_WORKFLOW.md`
+- **Local feed persistence rules** → `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - **Architecture-reference usage notes** → `docs/IOS_ARCHITECTURE_REFERENCE.md`
 - **Package integration/reuse guide** → `docs/PACKAGES_AND_MANAGERS.md`
 - **Durable continuity + transition prompt** → `docs/WORK_CONTINUITY.md`

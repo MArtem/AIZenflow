@@ -67,3 +67,46 @@ If a field is absent, order still stays fixed for the remaining fields.
 - Publish writes to the selected draft channel.
 - Local published cards appear only in their own channel feed scope.
 - Search applies only to cards visible in the current channel, including local published cards.
+
+## Published Feed Rendering Rules
+- Media renders first when present.
+- Text fields render below media in strict order:
+  1. `text`
+  2. `headline`
+  3. `subheadline`
+  4. `source`
+- Missing fields are skipped without changing the order of remaining fields.
+- If a card has media but no text fields, preserve correct spacing before the action toolbar and keep the divider visible.
+- Translation action appears only when there is visible translatable text.
+- The action toolbar belongs to the card, not to the media frame, and must remain tappable without opening card details.
+
+## Published Media Rendering Rules
+### Photo
+- Photo media fills the published card media frame.
+- Photo caption and copyright, when present, belong to a semi-transparent metadata area pinned to the bottom of the media frame.
+- The metadata area must not change size because of full/compact display mode.
+
+### Video
+- Video renders as media at the top of the card.
+- The feed preview uses the video thumbnail/first frame when available.
+- A play affordance may appear over the video preview.
+- Video caption belongs to the media metadata area.
+- If a teaser image exists, it renders above the video content inside the media card structure.
+
+### PDF
+- PDF renders as media at the top of the card.
+- The feed preview uses a PDF page preview when available.
+- PDF caption belongs to the media metadata area.
+- If a teaser image exists, it renders above the PDF content inside the media card structure.
+
+### Audio
+- Audio renders as media at the top of the card.
+- If no teaser image exists, audio uses an audio placeholder/preview.
+- Audio caption belongs to the media metadata area.
+- If a teaser image exists, it renders above the audio content inside the media card structure.
+
+## Display Mode Rules
+- `expanded` and `compact` change the media/card presentation size, not the semantic content order.
+- Switching display mode must not move text fields into the media frame.
+- Switching display mode must not change the size of the caption/copyright metadata area.
+- Switching display mode must preserve like/comment/display-mode state after restart.

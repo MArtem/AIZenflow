@@ -20,6 +20,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - Use the transition prompt from `docs/WORK_CONTINUITY.md` to keep bootstrap consistent.
 - If the user asks to refresh documentation state, re-read the active documentation set from `docs/README.md` and treat that read as the new current baseline.
 - For every context-transfer prompt, include the rule to **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Apply `docs/CURRENT_USER_OVERRIDES.md` before general project defaults.
 
 ## Prompt Preset Rule
 - Reusable prompt presets live in `docs/agent-prompts/`.
@@ -56,6 +57,8 @@ Do not add abstractions unless they solve a concrete current problem.
 6. Keep feed/composer card contract stable (`text/photo/video/audio/pdf`) unless product contract explicitly changes.
 7. ViewModel interaction style must follow `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md` (`@MainActor`, `@Observable`, explicit state + intents, no generic `send(action)` default).
 8. Before any new abstraction, document one concrete current pain-point it solves in the PR/task notes.
+9. UI/design tasks must follow `docs/UI_PIXEL_PERFECT_WORKFLOW.md`.
+10. Local feed/card persistence work must follow `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
 
 ## Size Heuristic
 - Small UI/bugfix task: minimal focused patch.

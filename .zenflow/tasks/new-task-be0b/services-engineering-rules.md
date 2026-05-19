@@ -7,6 +7,8 @@ Use it together with:
 - [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
 - [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
 - [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md)
+- [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
+- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
 
 ## Project-Specific Rules
 - Reusable packages/managers are the foundation. App code adapts to package contracts.

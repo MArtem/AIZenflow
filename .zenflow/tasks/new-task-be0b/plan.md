@@ -298,6 +298,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: imported prompt preset archive into `./docs/agent-prompts/` (converted 20 RTF prompts to markdown, added preset index/project override rules, linked presets from active docs/read-order, and recorded conflict notes for tests/protocols/actions/model routing).
 - Verification: docs-only; no build run per current instruction.
 
+- Completed now: documentation refactor pass (added `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, and `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`; expanded feed-card rendering/display-mode contract; linked new docs through read orders/rules in `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, task handoff, and task engineering rules).
+- Verification: docs-only; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

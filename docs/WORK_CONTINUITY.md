@@ -26,12 +26,14 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 1) docs/README.md
 2) PROJECT_DOCUMENTATION.md
 3) PROJECT_HEALTH.md
-4) docs/WORK_CONTINUITY.md
-5) .zenflow/tasks/new-task-be0b/handoff.md
-6) .zenflow/tasks/new-task-be0b/plan.md
-7) .zenflow/tasks/new-task-be0b/ios-engineering-rules.md
-8) .zenflow/tasks/new-task-be0b/services-engineering-rules.md
-9) docs/agent-prompts/README.md
+4) docs/CURRENT_USER_OVERRIDES.md
+5) docs/AGENT_RULES.md
+6) docs/WORK_CONTINUITY.md
+7) .zenflow/tasks/new-task-be0b/handoff.md
+8) .zenflow/tasks/new-task-be0b/plan.md
+9) .zenflow/tasks/new-task-be0b/ios-engineering-rules.md
+10) .zenflow/tasks/new-task-be0b/services-engineering-rules.md
+11) docs/agent-prompts/README.md
 
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
@@ -48,6 +50,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Не угадывать state flow/ownership/boundaries; если неясно — сначала уточнить.
 - Точные iOS/SwiftUI/ViewModel правила брать из `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`.
 - Точные services/package rules брать из `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`.
+- Точные UI/design правила брать из `docs/UI_PIXEL_PERFECT_WORKFLOW.md`.
+- Точные local feed/card persistence правила брать из `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
 
 Текущий фокус:
 1) Phase 1: runtime architecture/overengineering audit

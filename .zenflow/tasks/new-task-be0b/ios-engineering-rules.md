@@ -13,12 +13,15 @@ Global assistant iOS/model-routing rules live in:
 - [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
 - [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
 - [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md)
+- [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
+- [docs/UI_PIXEL_PERFECT_WORKFLOW.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/UI_PIXEL_PERFECT_WORKFLOW.md)
 
 ## Project-Specific Rules
 - For coding-task responses in this task thread, include the active model header at the top:
   - `Model: GPT-5.3-codex` / `Model: GPT-5.4` / `Model: GPT-5.5`
   - Follow the canonical model-selection policy in `/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md`.
 - Current user override for this worktree/task: use and report `GPT-5.5` for all work unless the user explicitly changes the model again. This task-local override wins over cheaper-model defaults in the general model-routing policy.
+- Current user override for this worktree/task: do not run builds, tests, or simulator UI unless the user explicitly asks.
 - Do not add speculative UI, speculative logic, or fallback flows that were not explicitly requested.
 - Prefer the minimum working implementation that matches the clarified product contract.
 - Optimize for final product correctness over implementation speed. If requirements, state behavior, lifecycle, platform behavior, or ownership are unclear, stop and ask instead of guessing.
