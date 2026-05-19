@@ -13,7 +13,14 @@ Use this priority order:
 3. existing `TchopApp` design tokens and nearby app patterns
 4. reasonable platform default only if not visible and not specified
 
+If the user explicitly provides a value such as spacing, size, radius, font size, or hex color, that value wins over an existing token.
+
 If a screenshot and current design tokens conflict, follow the screenshot for that specific UI unless the user says to preserve tokens.
+
+When an explicit value exposes that the existing token is not universal:
+- use the explicit local value when the need is one-off or screen-specific
+- consider creating a new semantic token only when the same value/meaning repeats or clearly belongs to the design system
+- do not pollute the token space with one-off values
 
 ## When To Ask Before Coding
 Ask before implementation if any of these are unclear:
@@ -28,6 +35,7 @@ Ask before implementation if any of these are unclear:
 - Do not add extra UI states, actions, menus, or fallbacks.
 - Use `AppTheme`, `AppSpacing`, `AppTypography`, `AppRadius`, and `AppLocalization` where they match the design.
 - Literal values are allowed for pixel-specific tuning when the user gives exact px values or the screenshot requires local precision.
+- Literal values should stay local unless there is clear repeated semantic reuse.
 - Preserve accessibility semantics for interactive UI.
 - Avoid heavy computation or formatting inside SwiftUI `body`.
 - Avoid screen-level `private var some View` and `@ViewBuilder private func` helpers; extract dedicated `View` types.

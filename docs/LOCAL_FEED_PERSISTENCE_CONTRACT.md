@@ -44,6 +44,37 @@ Future backend/API sync should be additive:
 - offline feed uses DB snapshot
 - remote refresh must not destroy local-only cards or local interaction state
 
+## Sync State Direction
+Backend sync is expected and should be designed as a real product-grade flow, not as an afterthought.
+
+The local feed schema should be ready to represent sync state when backend integration arrives.
+Expected state concepts may include:
+- `localOnly`: created locally and not scheduled/uploaded yet
+- `syncPending`: queued for upload/sync
+- `syncing`: currently being sent or reconciled
+- `synced`: accepted by backend and linked to remote identity/version
+- `syncFailed`: failed but retained locally with retry/error context
+
+Do not hardcode this exact enum until the backend contract is known, but avoid designs that would make these states hard to add.
+
+Persisted cards should be able to carry future sync metadata such as:
+- remote id
+- remote version/revision
+- last synced date
+- pending mutation id
+- last sync error category/message
+- conflict marker or resolution policy
+
+## Recommended Sync Shape
+For future backend integration, prefer this direction:
+1. Persist local card and durable media first.
+2. Create an outbound mutation record for backend sync.
+3. Let `SyncCore` own mutation queue mechanics, retry, and status transitions.
+4. Keep app-specific card mapping, media upload semantics, endpoint payloads, and UI policy in `TchopApp`.
+5. Merge backend responses into the same local card record instead of replacing it with a separate remote-only object.
+6. Preserve local interaction state unless backend explicitly owns and returns a newer authoritative value.
+7. Treat media upload as part of sync: upload durable local files, then persist remote asset references when accepted.
+
 ## Sync Ownership
 - Generic sync mechanics belong in `SyncCore`.
 - App-specific feed/card mapping, schema, endpoint semantics, and UI-facing policy stay in `TchopApp`.

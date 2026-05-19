@@ -34,6 +34,7 @@ Every working response must start with:
 - `git diff --check` or read-only/static documentation checks are allowed when useful.
 - Do not touch `./TchopAppTests` unless the user explicitly asks.
 - Low-resource mode: minimum reading, minimum commands, one meaningful verification only when requested or explicitly justified.
+- Be capable of strong test strategy and test implementation, but do not spend time/resources on tests until the user explicitly opens that phase.
 
 ### Implementation Style
 - No speculative UI.

@@ -301,6 +301,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: documentation refactor pass (added `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, and `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`; expanded feed-card rendering/display-mode contract; linked new docs through read orders/rules in `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, task handoff, and task engineering rules).
 - Verification: docs-only; no build run per current instruction.
 
+- Completed now: incorporated user documentation clarifications into `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`, and `./docs/CURRENT_USER_OVERRIDES.md` (explicit values can override tokens without token pollution; metadata height remains design/current-implementation driven; backend sync state is expected and schema should stay ready for local-first queued sync; tests remain opt-in until user opens that phase).
+- Verification: docs-only; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.
