@@ -292,6 +292,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: feed/composer local-card cleanup across `./TchopApp/ViewModels/AppShellViewModel.swift`, `./TchopApp/ViewModels/NewsFeedViewModel.swift`, `./TchopApp/Models/NewsFeedModels.swift`, and `./TchopApp/Views/Composer/SharedCardComposerView.swift` (removed redundant publish conversion/return path, deleted unused `ChannelCardContent` feed-card wrappers, and collapsed repeated local interaction-state copy code into one model helper + one view-model update path).
 - Verification: skipped by request; no build run per current instruction.
 
+- Completed now: documentation/rules refresh across `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, `./.zenflow/tasks/new-task-be0b/handoff.md`, and `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md` (active docs index made explicit, context-transfer prompt rule preserved, doc-refresh rule added, and current `GPT-5.5` task override recorded).
+- Verification: docs-only; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

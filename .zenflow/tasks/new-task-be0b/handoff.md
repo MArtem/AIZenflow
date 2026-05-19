@@ -11,8 +11,16 @@
 2. `PROJECT_DOCUMENTATION.md`
 3. `PROJECT_HEALTH.md`
 4. `docs/WORK_CONTINUITY.md`
-5. this file
-6. `.zenflow/tasks/new-task-be0b/plan.md`
+5. `docs/AGENT_RULES.md`
+6. this file
+7. `.zenflow/tasks/new-task-be0b/plan.md`
+8. `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
+9. `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
+
+If this handoff is used in a context-transfer prompt, include the explicit rule:
+**"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
+
+Current model override: use `GPT-5.5` for this worktree/task unless the user explicitly changes the model again.
 
 ## What Is Completed
 - Phase 1 runtime simplification pass over active runtime/repository code.

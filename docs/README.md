@@ -5,6 +5,8 @@ Entry point for project docs: what to read first and where to place new informat
 
 - Read active docs first.
 - Use archives only when active docs are insufficient.
+- Documentation is not optional: before substantive work, confirm the active docs/rules needed for the current task are loaded and use them as the source of truth.
+- After any chat/context reset, run the bootstrap read before coding or changing docs.
 
 ## Default Read Order
 1. [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
@@ -24,9 +26,36 @@ On new chat/context reset, read once:
 2. `PROJECT_DOCUMENTATION.md`
 3. `PROJECT_HEALTH.md`
 4. `docs/WORK_CONTINUITY.md`
-5. current task docs (`handoff.md`, `plan.md`, task rules)
+5. `docs/AGENT_RULES.md`
+6. current task docs (`handoff.md`, `plan.md`, task rules)
 
-Re-read full stack only if architecture/rules/phase changed or continuity is unclear.
+Re-read full stack if architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
+
+## Mandatory Active Documentation Index
+For the current `new-task-be0b` worktree/task, the active documentation set is:
+
+### Project docs
+- [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
+- [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
+- [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
+- [docs/AGENT_RULES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/AGENT_RULES.md)
+- [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
+- [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
+- [docs/IOS_ARCHITECTURE_REFERENCE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/IOS_ARCHITECTURE_REFERENCE.md)
+- [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
+
+### Task docs
+- [.zenflow/tasks/new-task-be0b/handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
+- [.zenflow/tasks/new-task-be0b/plan.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/plan.md)
+- [.zenflow/tasks/new-task-be0b/ios-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md)
+- [.zenflow/tasks/new-task-be0b/services-engineering-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md)
+- [.zenflow/tasks/new-task-be0b/share-extension-validation-report.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/share-extension-validation-report.md)
+
+### Skills
+- [.codex/skills/tchop-feed-cards/SKILL.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-feed-cards/SKILL.md)
+- [.codex/skills/tchop-feed-cards/references/feed-card-contract.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
+- [.codex/skills/tchop-packages/SKILL.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-packages/SKILL.md)
+- [.codex/skills/tchop-packages/references/package-rules.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-packages/references/package-rules.md)
 
 ## Canonical Document Roles
 - **PROJECT_DOCUMENTATION.md**: stable app architecture and runtime baseline.
@@ -55,8 +84,9 @@ Re-read full stack only if architecture/rules/phase changed or continuity is unc
 - **Obsolete history** → `docs/archive/` or `.zenflow/tasks/.../archive/`
 
 ## Hierarchy Of Truth
-1. Global assistant policy
-2. Canonical project docs
-3. Task overlay rules
-4. Current task docs
-5. Archives
+1. Current explicit user instruction for this worktree/task
+2. Global assistant policy
+3. Canonical project docs
+4. Task overlay rules
+5. Current task docs
+6. Archives

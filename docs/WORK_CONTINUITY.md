@@ -7,6 +7,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Keep and update a universal transition prompt here.
 - When context gets large or phase boundary is reached, propose new chat proactively.
 - After reset, run bootstrap read **once per new chat**.
+- If the user asks to refresh docs/rules state, re-read the active documentation set listed in `docs/README.md` before continuing.
 - Every context-transfer prompt must explicitly include this rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
@@ -36,8 +37,10 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Повторно перечитывать полностью только если изменились архитектурные правила/фаза/контракты.
 - При любом переносе контекста обязательно явно добавить в промпт правило:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
+- Если пользователь просит обновить состояние документации/правил, перечитать активный набор документации из `docs/README.md` перед продолжением.
 
 Критичные правила:
+- Для текущего worktree/task использовать `GPT-5.5`, пока пользователь явно не изменит модель.
 - Архитектура — приоритет №1.
 - После архитектуры всегда проверка на overengineering.
 - Не угадывать state flow/ownership/boundaries; если неясно — сначала уточнить.

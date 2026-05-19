@@ -18,6 +18,8 @@ Do not add abstractions unless they solve a concrete current problem.
 - After a new chat/context reset, re-read the required bootstrap docs **once** before coding.
 - Do not repeatedly re-read the same full set during the same chat unless architecture/rules changed.
 - Use the transition prompt from `docs/WORK_CONTINUITY.md` to keep bootstrap consistent.
+- If the user asks to refresh documentation state, re-read the active documentation set from `docs/README.md` and treat that read as the new current baseline.
+- For every context-transfer prompt, include the rule to **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 
 ## Mandatory Priorities
 1. Architecture correctness first.
