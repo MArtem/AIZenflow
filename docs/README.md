@@ -51,6 +51,8 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - [docs/IOS_ARCHITECTURE_REFERENCE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/IOS_ARCHITECTURE_REFERENCE.md)
 - [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
 - [docs/agent-prompts/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/agent-prompts/README.md)
+- [docs/knowledge/global/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/global/README.md)
+- [docs/knowledge/TchopApp/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/TchopApp/README.md)
 
 ### Task docs
 - [.zenflow/tasks/new-task-be0b/handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
@@ -78,6 +80,8 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **docs/WORK_CONTINUITY.md**: durable resume state and universal transition prompt.
 - **docs/SHARE_EXTENSION_VALIDATION.md**: share-extension validation matrix.
 - **docs/agent-prompts/README.md**: imported prompt preset index and project-specific conflict rules.
+- **docs/knowledge/global/**: reusable cross-project rules and prompt presets.
+- **docs/knowledge/TchopApp/**: project-specific TchopApp rules/contracts/context.
 - **.zenflow/tasks/.../handoff.md**: current task status/resume context.
 - **.zenflow/tasks/.../plan.md**: current execution plan only.
 - **task overlay rules** (`ios-engineering-rules.md`, `services-engineering-rules.md`): local constraints for this task.
@@ -95,6 +99,8 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **Durable continuity + transition prompt** → `docs/WORK_CONTINUITY.md`
 - **Share-extension validation status** → `docs/SHARE_EXTENSION_VALIDATION.md`
 - **Reusable prompt presets** → `docs/agent-prompts/`
+- **Reusable cross-project knowledge** → `docs/knowledge/global/`
+- **Project-specific knowledge** → `docs/knowledge/<ProjectName>/`
 - **Current task state** → `handoff.md`
 - **Current task plan/steps** → `plan.md`
 - **Obsolete history** → `docs/archive/` or `.zenflow/tasks/.../archive/`

@@ -25,6 +25,8 @@ No open implementation step is currently queued in this plan.
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/agent-prompts/README.md`
 - `./.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
+- `./docs/knowledge/global/README.md`
+- `./docs/knowledge/TchopApp/README.md`
 
 ## Verification Status
 - This latest cleanup is docs-only.
@@ -32,6 +34,7 @@ No open implementation step is currently queued in this plan.
 
 ## Archive
 Detailed historical plan/log entries were moved out of the active plan to reduce context cost.
+Global reusable knowledge and TchopApp-specific knowledge are now split under `./docs/knowledge/`.
 
 Use archives only when historical detail is needed:
 - `./.zenflow/tasks/new-task-be0b/archive/plan.before-cleanup-2026-05-20.md`

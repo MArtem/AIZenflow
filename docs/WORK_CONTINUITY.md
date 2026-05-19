@@ -34,6 +34,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 9) .zenflow/tasks/new-task-be0b/ios-engineering-rules.md
 10) .zenflow/tasks/new-task-be0b/services-engineering-rules.md
 11) docs/agent-prompts/README.md
+12) docs/knowledge/global/README.md
+13) docs/knowledge/TchopApp/README.md
 
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
@@ -52,6 +54,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Точные services/package rules брать из `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`.
 - Точные UI/design правила брать из `docs/UI_PIXEL_PERFECT_WORKFLOW.md`.
 - Точные local feed/card persistence правила брать из `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
+- Глобальные reusable правила/промпты брать из `docs/knowledge/global/`.
+- TchopApp-specific правила/контракты/пути брать из `docs/knowledge/TchopApp/`.
 
 Текущий фокус:
 1) Phase 1: runtime architecture/overengineering audit

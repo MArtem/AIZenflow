@@ -28,6 +28,11 @@ Do not add abstractions unless they solve a concrete current problem.
 - Imported prompts are workflow templates, not authority over project/task rules.
 - If a preset conflicts with active docs, task rules, or explicit user instruction, follow the higher-priority project/task/user rule.
 
+## Global vs Project Knowledge Rule
+- Reusable cross-project rules and prompts live in `docs/knowledge/global/`.
+- TchopApp-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/TchopApp/` or in the canonical docs indexed there.
+- When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
+
 ## Mandatory Priorities
 1. Architecture correctness first.
 2. Overengineering check second.
