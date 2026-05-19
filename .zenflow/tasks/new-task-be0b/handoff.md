@@ -16,6 +16,7 @@
 7. `.zenflow/tasks/new-task-be0b/plan.md`
 8. `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 9. `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
+10. `docs/agent-prompts/README.md`
 
 If this handoff is used in a context-transfer prompt, include the explicit rule:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

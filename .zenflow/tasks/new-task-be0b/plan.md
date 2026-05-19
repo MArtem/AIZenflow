@@ -295,6 +295,9 @@ Continue runtime cleanup with safe simplification while preserving current behav
 - Completed now: documentation/rules refresh across `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, `./.zenflow/tasks/new-task-be0b/handoff.md`, and `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md` (active docs index made explicit, context-transfer prompt rule preserved, doc-refresh rule added, and current `GPT-5.5` task override recorded).
 - Verification: docs-only; no build run per current instruction.
 
+- Completed now: imported prompt preset archive into `./docs/agent-prompts/` (converted 20 RTF prompts to markdown, added preset index/project override rules, linked presets from active docs/read-order, and recorded conflict notes for tests/protocols/actions/model routing).
+- Verification: docs-only; no build run per current instruction.
+
 ## Working Rule
 - Keep this file short and current.
 - Do not use it as a history log.

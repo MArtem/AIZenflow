@@ -31,6 +31,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 6) .zenflow/tasks/new-task-be0b/plan.md
 7) .zenflow/tasks/new-task-be0b/ios-engineering-rules.md
 8) .zenflow/tasks/new-task-be0b/services-engineering-rules.md
+9) docs/agent-prompts/README.md
 
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
@@ -38,6 +39,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - При любом переносе контекста обязательно явно добавить в промпт правило:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 - Если пользователь просит обновить состояние документации/правил, перечитать активный набор документации из `docs/README.md` перед продолжением.
+- Для задач, похожих на feature generation / UI from design / refactoring / code review / ADR / tests / CI-debug / compile errors / signing / flaky tests, открыть релевантный prompt preset из `docs/agent-prompts/` и применить его только после project/task/user overrides.
 
 Критичные правила:
 - Для текущего worktree/task использовать `GPT-5.5`, пока пользователь явно не изменит модель.

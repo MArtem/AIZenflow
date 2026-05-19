@@ -21,6 +21,12 @@ Do not add abstractions unless they solve a concrete current problem.
 - If the user asks to refresh documentation state, re-read the active documentation set from `docs/README.md` and treat that read as the new current baseline.
 - For every context-transfer prompt, include the rule to **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 
+## Prompt Preset Rule
+- Reusable prompt presets live in `docs/agent-prompts/`.
+- Before using an imported prompt preset, read `docs/agent-prompts/README.md` and apply its project overrides.
+- Imported prompts are workflow templates, not authority over project/task rules.
+- If a preset conflicts with active docs, task rules, or explicit user instruction, follow the higher-priority project/task/user rule.
+
 ## Mandatory Priorities
 1. Architecture correctness first.
 2. Overengineering check second.
