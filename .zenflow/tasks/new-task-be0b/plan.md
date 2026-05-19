@@ -27,6 +27,7 @@ No open implementation step is currently queued in this plan.
 - `./.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/TchopApp/README.md`
+- `./PROJECT_DOCUMENTATION.md`
 
 ## Verification Status
 - This latest cleanup is docs-only.
