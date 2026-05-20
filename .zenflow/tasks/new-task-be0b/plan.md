@@ -84,3 +84,11 @@ Use archives only when historical detail is needed:
   - removed legacy UI-only remote card views/models from `./TchopApp/Views/News/PhotoCardView.swift`, `./TchopApp/Views/News/TextCardView.swift`, `./TchopApp/Views/News/PhotoActionView.swift`, `./TchopApp/Models/NewsFeedModels.swift`, and related preview samples/project references.
   - fixed share-extension publish/concurrency warnings by aligning `./TchopShareExtension/ShareViewController.swift` with boolean `publish()` and marking `NSItemProviderShareItemImporter` main-actor isolated in `./Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift`.
 - Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and final `./scripts/verify.sh low` all succeeded; no tests/simulator UI run.
+
+- Completed now: static end-to-end review of local-created feed card flow:
+  - verified app composer publish path writes `ChannelCardContent.localFeedCardModel` into `LocalFeedCardStore`, then persists via `LocalFeedCardRepository`/SwiftData `LocalFeedCardRecord`.
+  - verified feed visibility is channel-scoped through `NewsFeedViewModel.visibleContent` and all five local card kinds render through `NewsFeedView` local card branches.
+  - verified like/comment/display-mode mutations update `LocalFeedCardStore.updatePersistedCard` and re-save the full `LocalFeedCardModel` payload, preserving state across restart.
+  - verified share extension publishes pending local cards through `SharedLocalFeedCardSyncManager` and app refresh pulls them into the same `LocalFeedCardStore` path.
+  - applied one contract fix in `./TchopApp/Models/NewsFeedModels.swift`: composer visible text fields now use canonical order `text`, `headline`, `subheadline`, `source`, matching published feed/local card ordering.
+- Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests/simulator UI run.

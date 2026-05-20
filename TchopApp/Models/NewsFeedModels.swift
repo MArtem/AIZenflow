@@ -269,7 +269,7 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 
     var orderedVisibleTextFieldKinds: [ChannelCardTextFieldKind] {
-        [.headline, .subheadline, .text, .source].filter { visibleTextFieldKinds.contains($0) }
+        ChannelCardTextFieldKind.allCases.filter { visibleTextFieldKinds.contains($0) }
     }
 
     var orderedVisiblePrimaryTextFieldKinds: [ChannelCardTextFieldKind] {
