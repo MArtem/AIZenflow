@@ -253,7 +253,6 @@ final class AppDIContainer {
     /// Creates the shell view model used by the authenticated part of the app.
     func makeAppShellViewModel() -> AppShellViewModel {
         let newsFeedViewModel = Self.makeNewsFeedViewModel(
-            repository: contentRepository,
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
@@ -536,25 +535,18 @@ final class AppDIContainer {
 
     /// Creates the feed view model for the local-created card runtime.
     private static func makeNewsFeedViewModel(
-        repository: any NewsFeedRepository,
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
         localFeedCardStore: LocalFeedCardStore,
         sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
     ) -> NewsFeedViewModel {
-        let emptyContent = NewsFeedContent(cards: [], availability: .live)
-
         return NewsFeedViewModel(
-            repository: repository,
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
             localFeedCardStore: localFeedCardStore,
-            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager,
-            initialContent: emptyContent,
-            loadFailureContent: emptyContent,
-            loadFailureMessage: AppLocalization.text("news.error.loadFailed")
+            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager
         )
     }
 

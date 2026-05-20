@@ -51,6 +51,12 @@ No open implementation step is currently queued in this plan.
   - removed bundled `StubFeedResponse*.json` resources from `./TchopApp/Resources` and from `./TchopApp.xcodeproj/project.pbxproj`.
 - Verification: `git diff --check` only; no build/test/simulator run per current instruction.
 
+- Completed now: removed the now-unused remote feed loading/action dependency from `./TchopApp/ViewModels/NewsFeedViewModel.swift` and app composition:
+  - `NewsFeedViewModel` no longer depends on `NewsFeedRepository`, bootstrap content, load-failure content, loading tasks, or remote photo/text action coordinators.
+  - `./TchopApp/App/AppDIContainer.swift` creates the feed VM directly from channel/widget/error/local-card dependencies.
+  - `./TchopApp/Repositories/AppContentRepository.swift` no longer exposes a `NewsFeedRepository` protocol surface to app composition; channel resolution remains the active repository contract.
+- Verification: `git diff --check` only; no build/test/simulator run per current instruction.
+
 ## Verification Status
 - This latest cleanup is code + localization only.
 - No build/test/simulator verification was run.

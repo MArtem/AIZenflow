@@ -3,37 +3,15 @@ import Network
 import SwiftData
 import TchopDatabase
 
-/// Repository interface for the news feed timeline.
-@MainActor
-protocol NewsFeedRepository {
-    /// Returns the current persisted feed snapshot if one is already available locally.
-    func currentNewsFeedContent(channelID: String) throws -> NewsFeedContent?
-
-    /// Refreshes feed content from the API when online, otherwise returns the current persisted snapshot marked as offline.
-    func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent
-
-    /// Persists one featured article card action and returns the updated card snapshot.
-    func performPhotoAction(
-        articleID: String,
-        action: PhotoCardAction
-    ) async throws -> PhotoCardModel
-
-    /// Persists one discussion card action and returns the updated card snapshot.
-    func performTextAction(
-        discussionID: String,
-        action: TextCardAction
-    ) async throws -> TextCardModel
-}
-
 /// Lightweight app-local reachability check used by the feed repository.
 protocol NetworkAvailabilityChecking: Sendable {
     /// Whether the app currently has a usable internet path.
     func isInternetAvailable() async -> Bool
 }
 
-/// Combined repository used by the shell to resolve both channels and feed content.
+/// Repository used by app composition to resolve locally available channels.
 @MainActor
-protocol AppContentRepository: NewsFeedRepository {
+protocol AppContentRepository {
     /// Fetches all locally available channels for the active runtime.
     func fetchAvailableChannels() throws -> [AppChannel]
 }
@@ -113,7 +91,7 @@ struct LocalFeedCardRepository: LocalFeedCardPersisting {
     }
 }
 
-/// Default app content repository that combines local persistence and API data.
+/// Default app content repository for local channel persistence and legacy feed helpers.
 @MainActor
 final class DefaultAppContentRepository: AppContentRepository {
     private let databaseManager: any DatabaseManaging
