@@ -1,13 +1,109 @@
+# macOS / Finder
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon?
+._*
+
+# Xcode user/workspace state
+xcuserdata/
+*.xcuserstate
+*.xccheckout
+*.xcscmblueprint
+*.moved-aside
+*.xcuserdatad
+
+# Xcode / Swift build artifacts
 DerivedData/
 .build/
 build/
 dist/
+*.xcarchive
+*.dSYM
+*.dSYM.zip
+*.ipa
+*.app
+*.appex
+*.framework.dSYM.zip
+
+# SwiftPM / compiler local state
+.swiftpm/xcode/package.xcworkspace/xcuserdata/
+.swiftpm/configuration/registries.json
+.swiftpm/configuration/security.json
+
+# Caches / temporary files
 .cache/
-node_modules/
+.tmp/
+tmp/
+.temp/
+temp/
+
+# Logs / reports
 *.log
-*.xcuserstate
-*.xccheckout
-*.xcscmblueprint
-xcuserdata/
-*.moved-aside
-.DS_Store
+*.trace
+*.xcresult
+*.resultbundle
+
+# Node / web tooling if ever present
+node_modules/
+
+# Environment files / local config
+.env
+.env.*
+!.env.example
+!.env.sample
+*.local
+*.local.*
+
+# Secrets / credentials directories
+secrets/
+secret/
+private/
+private_keys/
+keys/
+certs/
+certificates/
+credentials/
+
+# Apple signing / provisioning / App Store Connect secrets
+*.p8
+AuthKey_*.p8
+*.p12
+*.cer
+*.certSigningRequest
+*.mobileprovision
+*.provisionprofile
+*.developerprofile
+app_store_connect_api_key*.json
+AppStoreConnectAPIKey*.json
+
+# Private keys / tokens / service credentials
+*.pem
+*.key
+*.private
+*_private_key*
+*private-key*
+*deploy_key*
+*id_rsa*
+*id_dsa*
+*id_ecdsa*
+*id_ed25519*
+*.token
+*.secret
+*service-account*.json
+*service_account*.json
+
+# Fastlane local secrets and generated output
+fastlane/.env
+fastlane/.env.*
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/
+fastlane/test_output/
+
+# CI/CD local secret material
+.ci-secrets/
+.circleci/secrets/
+.jenkins/secrets/
+bitrise.secrets.yml
+bitrise.secrets.yaml
