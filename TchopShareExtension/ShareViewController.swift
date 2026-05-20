@@ -123,7 +123,7 @@ final class ShareViewController: UIViewController {
         let viewModel = FeedComposerViewModel(
             selectedChannelID: selectedChannelID,
             channelsStore: channelsStore,
-            publishAction: { [weak self] localFeedCard, _ in
+            publishAction: { [weak self] localFeedCard in
                 guard let self else {
                     return
                 }

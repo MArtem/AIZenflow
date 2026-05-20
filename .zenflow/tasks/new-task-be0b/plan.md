@@ -32,6 +32,9 @@ No open implementation step is currently queued in this plan.
 - Completed now: hardened `./.gitignore` for privacy/CI signing safety (added iOS build artifacts, local env files, Apple signing/provisioning files, private keys/tokens/service-account patterns, Fastlane generated secrets/output, and CI secret material; verified tracked secret-like path scan returned empty and docs remain unignored).
 - Verification: static git-ignore checks only; no build run per current instruction.
 
+- Completed now: whole-project static review pass across app/packages/extensions using updated docs/prompts; applied one minimal compile-safety fix in `./TchopShareExtension/ShareViewController.swift` to align share-extension composer publish callback with the current `FeedComposerViewModel` one-argument `publishAction` signature.
+- Verification: static review/grep checks only; no build run per current instruction.
+
 ## Verification Status
 - This latest cleanup is docs-only.
 - No build/test/simulator verification was run.
