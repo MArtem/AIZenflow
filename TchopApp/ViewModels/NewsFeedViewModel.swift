@@ -172,7 +172,7 @@ final class NewsFeedViewModel {
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
-        localFeedCardStore: LocalFeedCardStore = LocalFeedCardStore(),
+        localFeedCardStore: LocalFeedCardStore,
         sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = nil,
         onDeviceAIManager: any OnDeviceAIManaging = OnDeviceAIManagerFactory.makeDefaultManager(),
         cardTranslationStore: CardTranslationStore = CardTranslationStore(),

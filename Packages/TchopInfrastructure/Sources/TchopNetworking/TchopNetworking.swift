@@ -440,7 +440,7 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
     public init(
         level: APILogLevel,
         redaction: RedactionConfiguration = .init(),
-        logger: @escaping @Sendable (String) -> Void = { print($0) }
+        logger: @escaping @Sendable (String) -> Void = { _ in }
     ) {
         self.level = level
         self.redaction = redaction

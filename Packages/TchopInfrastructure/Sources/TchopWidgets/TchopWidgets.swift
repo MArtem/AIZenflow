@@ -1,4 +1,15 @@
 import Foundation
+import TchopLocalization
+
+/// Localized copy used by widget extensions without depending on app targets.
+public enum TchopWidgetLocalization {
+    private static let manager = LocalizationManager()
+
+    /// Resolves plain localized text using shared package resources.
+    public static func text(_ key: String) -> String {
+        manager.localized(key, localeIdentifier: nil)
+    }
+}
 
 /// Stable identifiers shared between the app and widget extension.
 public enum FeedHeadlineWidgetConstants {

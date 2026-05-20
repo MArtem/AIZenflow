@@ -33,14 +33,14 @@ struct ShareExtensionRootView: View {
     private var loadingView: some View {
         NavigationStack {
             VStack(spacing: AppSpacing.lg) {
-                ProgressView("Preparing share…")
+                ProgressView(AppLocalization.text("shareExtension.loading.preparing"))
                 Spacer(minLength: 0)
             }
             .padding(AppSpacing.xl)
-            .navigationTitle("Share")
+            .navigationTitle(AppLocalization.text("shareExtension.navigation.title"))
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close", action: onClose)
+                    Button(AppLocalization.text("common.close"), action: onClose)
                 }
             }
         }
@@ -49,7 +49,7 @@ struct ShareExtensionRootView: View {
     private func signInRequiredView(message: String) -> some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: AppSpacing.lg) {
-                Text("Open app to continue")
+                Text(AppLocalization.text("shareExtension.signInRequired.title"))
                     .font(AppTypography.sectionTitle)
                     .foregroundStyle(AppTheme.textPrimary)
 
@@ -57,17 +57,17 @@ struct ShareExtensionRootView: View {
                     .font(AppTypography.bodyRegular)
                     .foregroundStyle(AppTheme.textSecondary)
 
-                Button("Open app", action: onOpenApp)
+                Button(AppLocalization.text("shareExtension.openApp"), action: onOpenApp)
                     .buttonStyle(.borderedProminent)
 
                 Spacer(minLength: 0)
             }
             .padding(AppSpacing.xl)
             .background(AppTheme.surfacePrimary.ignoresSafeArea())
-            .navigationTitle("Share")
+            .navigationTitle(AppLocalization.text("shareExtension.navigation.title"))
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close", action: onClose)
+                    Button(AppLocalization.text("common.close"), action: onClose)
                 }
             }
         }
@@ -88,10 +88,10 @@ struct ShareExtensionRootView: View {
             }
             .padding(AppSpacing.xl)
             .background(AppTheme.surfacePrimary.ignoresSafeArea())
-            .navigationTitle("Share")
+            .navigationTitle(AppLocalization.text("shareExtension.navigation.title"))
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
-                    Button("Close", action: onClose)
+                    Button(AppLocalization.text("common.close"), action: onClose)
                 }
             }
         }

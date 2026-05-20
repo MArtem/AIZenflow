@@ -13,7 +13,7 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
     func placeholder(in context: Context) -> FeedHeadlineWidgetEntry {
         FeedHeadlineWidgetEntry(
             date: Date(),
-            headline: "Parrots help others..."
+            headline: TchopWidgetLocalization.text("widget.feedHeadline.placeholder")
         )
     }
 
@@ -39,7 +39,8 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
     private func loadEntry() -> FeedHeadlineWidgetEntry {
         // Keep the widget renderable even when the shared app-group snapshot is unavailable, such
         // as in previews or before the main app has performed its first sync.
-        let headline = (try? snapshotManager.load())?.headline ?? "Parrots help others..."
+        let headline = (try? snapshotManager.load())?.headline
+            ?? TchopWidgetLocalization.text("widget.feedHeadline.placeholder")
         return FeedHeadlineWidgetEntry(
             date: Date(),
             headline: headline
@@ -70,7 +71,7 @@ struct FeedHeadlineWidgetEntryView: View {
             )
 
             VStack(alignment: .leading, spacing: 10) {
-                Text("Feed")
+                Text(TchopWidgetLocalization.text("widget.feed.label"))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.white.opacity(0.8))
 
@@ -96,8 +97,8 @@ struct FeedHeadlineWidget: Widget {
         ) { entry in
             FeedHeadlineWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Feed Headline")
-        .description("Shows the title of the first card on the feed screen.")
+        .configurationDisplayName(TchopWidgetLocalization.text("widget.feedHeadline.displayName"))
+        .description(TchopWidgetLocalization.text("widget.feedHeadline.description"))
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
@@ -107,7 +108,7 @@ struct FeedHeadlineWidget: Widget {
     FeedHeadlineWidgetEntryView(
         entry: FeedHeadlineWidgetEntry(
             date: Date(),
-            headline: "Parrots help others in need, study shows for first time"
+            headline: TchopWidgetLocalization.text("widget.feedHeadline.preview")
         )
     )
     .frame(width: 170, height: 170)
@@ -119,7 +120,7 @@ struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
             FeedHeadlineWidgetEntryView(
                 entry: FeedHeadlineWidgetEntry(
                     date: Date(),
-                    headline: "Parrots help others in need, study shows for first time"
+                    headline: TchopWidgetLocalization.text("widget.feedHeadline.preview")
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
@@ -127,7 +128,7 @@ struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
             FeedHeadlineWidgetEntryView(
                 entry: FeedHeadlineWidgetEntry(
                     date: Date(),
-                    headline: "Parrots help others in need, study shows for first time"
+                    headline: TchopWidgetLocalization.text("widget.feedHeadline.preview")
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemMedium))

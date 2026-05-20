@@ -35,8 +35,15 @@ No open implementation step is currently queued in this plan.
 - Completed now: whole-project static review pass across app/packages/extensions using updated docs/prompts; applied one minimal compile-safety fix in `./TchopShareExtension/ShareViewController.swift` to align share-extension composer publish callback with the current `FeedComposerViewModel` one-argument `publishAction` signature.
 - Verification: static review/grep checks only; no build run per current instruction.
 
+- Completed now: consistency cleanup batch from review findings:
+  - made `./TchopApp/ViewModels/AppShellViewModel.swift` require an explicit `LocalFeedCardPersisting` repository for `LocalFeedCardStore`, preventing accidental memory-only production feed persistence.
+  - removed the matching default in `./TchopApp/ViewModels/NewsFeedViewModel.swift` so feed runtime receives the same explicit store from app composition.
+  - changed `./Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift` logging interceptor default logger from `print` to no-op.
+  - localized visible share/widget extension strings through shared localization resources in `./Packages/TchopInfrastructure`.
+- Verification: `git diff --check` only; no build/test/simulator run per current instruction.
+
 ## Verification Status
-- This latest cleanup is docs-only.
+- This latest cleanup is code + localization only.
 - No build/test/simulator verification was run.
 
 ## Archive

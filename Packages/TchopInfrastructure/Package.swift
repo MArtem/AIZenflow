@@ -162,6 +162,7 @@ let package = Package(
         ),
         .target(
             name: "TchopWidgets",
+            dependencies: ["TchopLocalization"],
             swiftSettings: strictConcurrencySettings
         ),
         .target(

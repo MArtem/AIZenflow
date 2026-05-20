@@ -17,12 +17,12 @@ protocol LocalFeedCardPersisting {
 final class LocalFeedCardStore {
     private(set) var cards: [NewsFeedCard] = []
 
-    private let repository: (any LocalFeedCardPersisting)?
+    private let repository: any LocalFeedCardPersisting
     private var persistedLocalCards: [LocalFeedCardModel]
 
-    init(repository: (any LocalFeedCardPersisting)? = nil) {
+    init(repository: any LocalFeedCardPersisting) {
         self.repository = repository
-        self.persistedLocalCards = (try? repository?.loadCards()) ?? []
+        self.persistedLocalCards = (try? repository.loadCards()) ?? []
         refreshCards()
     }
 
@@ -53,7 +53,7 @@ final class LocalFeedCardStore {
             return
         }
 
-        try repository?.saveCards(newCards)
+        try repository.saveCards(newCards)
         persistedLocalCards = newCards + persistedLocalCards
         refreshCards()
     }
@@ -68,7 +68,7 @@ final class LocalFeedCardStore {
 
         let updatedCard = transform(persistedLocalCards[index])
         do {
-            try repository?.saveCards([updatedCard])
+            try repository.saveCards([updatedCard])
             persistedLocalCards[index] = updatedCard
             refreshCards()
         } catch {
@@ -364,7 +364,7 @@ final class AppShellViewModel {
     /// Creates the shell view model from repository-backed content.
     init(
         channelsStore: ChannelsStore,
-        localFeedCardStore: LocalFeedCardStore = LocalFeedCardStore(),
+        localFeedCardStore: LocalFeedCardStore,
         newsFeedViewModel: NewsFeedViewModel,
         errorManager: any AppErrorManaging,
         uiConfigurationManager: any UIConfigurationManaging,
