@@ -36,15 +36,17 @@ Current model override: use `GPT-5.5` for this worktree/task unless the user exp
 - No changes in `TchopAppTests`.
 
 ## Next Work
-1. Phase 3: remaining non-view cleanup / ViewModel standardization pass
-2. After phases: manual validation via `docs/SHARE_EXTENSION_VALIDATION.md`
+1. Static UX edge-case review follow-up only if new issues appear.
+2. Manual simulator validation via `docs/SHARE_EXTENSION_VALIDATION.md` when explicitly requested.
 
 ## Key Files for Next Step
+- `TchopApp/Models/NewsFeedModels.swift`
 - `TchopApp/ViewModels/AppShellViewModel.swift`
 - `TchopApp/ViewModels/NewsFeedViewModel.swift`
-- `TchopApp/Views/Tabs/StubTabNavigationRootView.swift`
-- `TchopApp/Views/Tabs/StubTabDetailView.swift`
-- `TchopApp/Views/News/PhotoActionView.swift`
+- `TchopApp/Views/News/NewsFeedView.swift`
+- `TchopApp/Views/Composer/SharedCardComposerView.swift`
+- `TchopApp/Shared/SharedLocalFeedCardSyncManager.swift`
+- `TchopShareExtension/ShareViewController.swift`
 
 ## Verification Baseline
 - Command: `./scripts/verify.sh low`

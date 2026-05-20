@@ -105,10 +105,11 @@ TchopApp.swift
 
 AppShellViewModel
   -> NewsFeedViewModel
-    -> AppContentRepository
-      -> FeedAPIManager
-      -> TchopDatabase
-      -> SyncCore
+    -> LocalFeedCardStore
+      -> LocalFeedCardRepository
+        -> TchopDatabase / SwiftData
+    -> SharedLocalFeedCardSyncManager
+      -> TchopShareSupport app-group storage
 ```
 
 Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md) for package boundaries and manager ownership.

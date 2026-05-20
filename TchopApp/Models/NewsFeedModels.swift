@@ -1635,7 +1635,7 @@ extension LocalFeedCardModel {
         let bodyText = textValue(for: .text)
             ?? textValue(for: .subheadline)
             ?? titleText
-        let subtitleText = sourceContent?.text ?? AppLocalization.text("news.fallback.sourceTitle")
+        let subtitleText = sourceContent?.text ?? AppLocalization.text("news.local.sourceFallback")
 
         return NewsRoute(
             cardID: id,

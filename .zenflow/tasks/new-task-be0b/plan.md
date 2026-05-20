@@ -57,9 +57,16 @@ No open implementation step is currently queued in this plan.
   - `./TchopApp/Repositories/AppContentRepository.swift` no longer exposes a `NewsFeedRepository` protocol surface to app composition; channel resolution remains the active repository contract.
 - Verification: `git diff --check` only; no build/test/simulator run per current instruction.
 
+
+- Completed now: executed requested steps 1, 2, and 4 after build-backed cleanup:
+  - step 1 legacy localization/resource cleanup: removed unused `news.fallback.*`, `news.photo.pending.*`, and `news.text.pending.*` localization keys from active English/Russian resources; added active `news.local.sourceFallback` in English/Russian/German and switched local card source fallback to that key in `./TchopApp/Models/NewsFeedModels.swift`.
+  - step 2 static UX edge-case review: verified empty-feed state, channel-scoped search filtering, source-only translation suppression, source URL tap gating, media-only spacing/action bar behavior, and action toolbar isolation from card-detail tap handling.
+  - step 4 context/package cleanup: refreshed active documentation/handoff references so they no longer point at removed remote/stub feed runtime files such as `FeedAPIManager`, `PhotoActionView`, `PhotoCardView`, or `TextCardView`.
+- Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests or simulator UI run.
+
 ## Verification Status
-- This latest cleanup is code + localization only.
-- No build/test/simulator verification was run.
+- Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
+- Build was run by explicit user request; tests and simulator UI were not run.
 
 ## Archive
 Detailed historical plan/log entries were moved out of the active plan to reduce context cost.
