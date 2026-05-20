@@ -1,7 +1,7 @@
 import Foundation
 import SwiftData
 
-/// Raw feed card kinds supported by the current persistence layer.
+/// Legacy remote feed-card kinds retained for SwiftData migration/backward compatibility.
 enum FeedCardRecordKind: String, Codable, Sendable {
     case photo = "photo"
     case text = "text"
@@ -34,7 +34,7 @@ final class ChannelRecord {
     }
 }
 
-/// SwiftData record storing a persisted home-feed card snapshot.
+/// Legacy SwiftData record for remote home-feed snapshots retained for migration/backward compatibility.
 @available(iOS 17, *)
 @Model
 final class FeedCardRecord {
@@ -61,11 +61,10 @@ final class FeedCardRecord {
     var joinedText: String?
     var discussionStateData: Data?
 
-    /// Creates a new FeedCardRecord instance.
+    /// Creates a legacy remote feed-card record.
     ///
-    /// One record stores both the feed ordering metadata and the card-type-specific payload.
-    /// This keeps snapshot sync straightforward while the project still supports only a small
-    /// set of card kinds.
+    /// Active feed runtime uses `LocalFeedCardRecord`; this shape remains in the schema so
+    /// existing stores and Core Data migration payloads can still be opened safely.
     init(
         id: String,
         channelID: String,

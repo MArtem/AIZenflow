@@ -16,14 +16,11 @@
 		A00000170000000000000001 /* FloatingActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000270000000000000001 /* FloatingActionButton.swift */; };
 		A00000180000000000000001 /* SideMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000280000000000000001 /* SideMenuView.swift */; };
 		A00000190000000000000001 /* NewsFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000290000000000000001 /* NewsFeedView.swift */; };
-		A000001A0000000000000001 /* PhotoCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002A0000000000000001 /* PhotoCardView.swift */; };
-		A000001B0000000000000001 /* TextCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002B0000000000000001 /* TextCardView.swift */; };
 		A000001C0000000000000001 /* TabStubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002C0000000000000001 /* TabStubView.swift */; };
 		A000001D0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A000002E0000000000000001 /* Assets.xcassets */; };
 		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
 		M00000010000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = M00000020000000000000001 /* SharedCardComposerView.swift */; };
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
-		A00000390000000000000001 /* PhotoActionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A0000000000000001 /* PhotoActionView.swift */; };
 		A00000391000000000000001 /* FeedCardStatusBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003A1000000000000001 /* FeedCardStatusBadge.swift */; };
 		A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000003C0000000000000001 /* Models/ChannelHeaderInfo.swift */; };
 		R00000010000000000000001 /* Models/AppChannel.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000030000000000000001 /* AppChannel.swift */; };
@@ -258,15 +255,12 @@
 		A00000270000000000000001 /* FloatingActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingActionButton.swift; sourceTree = "<group>"; };
 		A00000280000000000000001 /* SideMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuView.swift; sourceTree = "<group>"; };
 		A00000290000000000000001 /* NewsFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsFeedView.swift; sourceTree = "<group>"; };
-		A000002A0000000000000001 /* PhotoCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoCardView.swift; sourceTree = "<group>"; };
-		A000002B0000000000000001 /* TextCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextCardView.swift; sourceTree = "<group>"; };
 		A000002C0000000000000001 /* TabStubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStubView.swift; sourceTree = "<group>"; };
 		A000002D0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A000002E0000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
 		M00000020000000000000001 /* SharedCardComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCardComposerView.swift; sourceTree = "<group>"; };
 		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
-		A000003A0000000000000001 /* PhotoActionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoActionView.swift; sourceTree = "<group>"; };
 		A000003A1000000000000001 /* FeedCardStatusBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedCardStatusBadge.swift; sourceTree = "<group>"; };
 		A000003C0000000000000001 /* ChannelHeaderInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelHeaderInfo.swift; sourceTree = "<group>"; };
 		R00000030000000000000001 /* AppChannel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppChannel.swift; sourceTree = "<group>"; };
@@ -669,10 +663,7 @@
 			isa = PBXGroup;
 			children = (
 				A00000290000000000000001 /* NewsFeedView.swift */,
-				A000002A0000000000000001 /* PhotoCardView.swift */,
 				A000003A1000000000000001 /* FeedCardStatusBadge.swift */,
-				A000002B0000000000000001 /* TextCardView.swift */,
-				A000003A0000000000000001 /* PhotoActionView.swift */,
 			);
 			path = News;
 			sourceTree = "<group>";
@@ -1080,13 +1071,10 @@
 				A00000170000000000000001 /* FloatingActionButton.swift in Sources */,
 				A00000180000000000000001 /* SideMenuView.swift in Sources */,
 				A00000190000000000000001 /* NewsFeedView.swift in Sources */,
-				A000001A0000000000000001 /* PhotoCardView.swift in Sources */,
-				A000001B0000000000000001 /* TextCardView.swift in Sources */,
 				A000001C0000000000000001 /* TabStubView.swift in Sources */,
 				A00000350000000000000001 /* ShellContentView.swift in Sources */,
 				M00000010000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */,
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
-				A00000390000000000000001 /* PhotoActionView.swift in Sources */,
 				A00000391000000000000001 /* FeedCardStatusBadge.swift in Sources */,
 				R00000010000000000000001 /* Models/AppChannel.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,
@@ -1155,13 +1143,10 @@
 				A00000170000000000000001 /* FloatingActionButton.swift in Sources */,
 				A00000180000000000000001 /* SideMenuView.swift in Sources */,
 				A00000190000000000000001 /* NewsFeedView.swift in Sources */,
-				A000001A0000000000000001 /* PhotoCardView.swift in Sources */,
-				A000001B0000000000000001 /* TextCardView.swift in Sources */,
 				A000001C0000000000000001 /* TabStubView.swift in Sources */,
 				A00000350000000000000001 /* ShellContentView.swift in Sources */,
 				M00000010000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */,
 				A00000370000000000000001 /* TabContentView.swift in Sources */,
-				A00000390000000000000001 /* PhotoActionView.swift in Sources */,
 				A00000391000000000000001 /* FeedCardStatusBadge.swift in Sources */,
 				R00000020000000000000001 /* Models/AppChannel.swift in Sources */,
 				A000003B0000000000000001 /* Models/ChannelHeaderInfo.swift in Sources */,

@@ -114,52 +114,6 @@ enum ViewPreviewSupport {
 
     static let sampleAccountSummary = AccountProfileSummary(user: sampleUser)
 
-    static var samplePhotoCard: PhotoCardModel {
-        PhotoCardModel(
-            id: "preview-photo",
-            channelID: AppChannel.defaultChannel.id,
-            postedInPrefix: AppLocalization.text("news.fallback.postedInPrefix"),
-            sourceTitle: AppLocalization.text("news.fallback.sourceTitle"),
-            brandTitle: AppLocalization.text("news.fallback.brandTitle"),
-            headline: AppLocalization.text("news.fallback.headline"),
-            summary: AppLocalization.text("news.fallback.summary"),
-            metadataLine: AppLocalization.text("news.fallback.metadataLine"),
-            translationLabel: AppLocalization.text("news.fallback.translationLabel"),
-            commentCount: 0,
-            actions: [
-                PhotoActionItem(
-                    id: "like",
-                    kind: .like,
-                    systemName: "hand.thumbsup.fill",
-                    title: AppLocalization.text("news.fallback.action.like")
-                ),
-                PhotoActionItem(
-                    id: "comments",
-                    kind: .comments,
-                    systemName: "bubble.left.fill",
-                    title: AppLocalization.text("news.fallback.action.comments")
-                )
-            ],
-            uiState: .idle
-        )
-    }
-
-    static var sampleTextCard: TextCardModel {
-        TextCardModel(
-            id: "preview-text",
-            channelID: AppChannel.defaultChannel.id,
-            categoryTitle: AppLocalization.text("news.fallback.discussion.category"),
-            headline: AppLocalization.text("news.fallback.discussion.headline"),
-            participants: [
-                TextCardParticipant(id: "preview-a", initials: "A", isHighlighted: true),
-                TextCardParticipant(id: "preview-m", initials: "M", isHighlighted: false)
-            ],
-            replyCount: 0,
-            joinedCount: 0,
-            uiState: .idle
-        )
-    }
-
     static func makeLocalContainer() -> AppDIContainer {
         AppDIContainer(
             databaseConfiguration: .inMemory,

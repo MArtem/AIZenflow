@@ -60,6 +60,7 @@ public enum ShareItemImportError: Error, Equatable, Sendable {
     case unableToLoadFileRepresentation(typeIdentifier: String)
 }
 
+@MainActor
 public final class NSItemProviderShareItemImporter {
     private static let importedFilesDirectoryName = "share-imported-items"
 

@@ -88,7 +88,8 @@ final class ShareViewController: UIViewController {
                 return
             }
 
-            let importedItems = try await importer.loadItems(from: inputItemProviders)
+            let itemProviders = inputItemProviders
+            let importedItems = try await importer.loadItems(from: itemProviders)
             let composerViewModel = try makeComposerViewModel(
                 sessionContext: sessionContext,
                 importedItems: importedItems,
@@ -145,7 +146,7 @@ final class ShareViewController: UIViewController {
         }
 
         publishFailureMessage = nil
-        guard composerViewModel.publish() != nil else {
+        guard composerViewModel.publish() else {
             return
         }
 

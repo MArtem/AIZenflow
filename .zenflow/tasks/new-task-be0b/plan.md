@@ -76,3 +76,11 @@ Use archives only when historical detail is needed:
   - removed `NewsFeedPhotoCardContent.remote` / `NewsFeedTextCardContent.remote` cases and matching renderer no-op branches; feed card variants now carry local published cards only.
   - removed unused legacy remote feed action/state payload structs while leaving `FeedCardRecord` schema in place for migration/backward-compatibility safety.
 - Verification: `git diff --check` and `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` only; no build/test/simulator run per current instruction.
+
+- Completed now: build-backed follow-up cleanup across the three requested checks:
+  - initial `./scripts/verify.sh low` succeeded before further cleanup.
+  - static compile-surface review found no remaining `FeedAPIManager`, `FeedAPIManaging`, `StubFeed`, `NewsFeedRepository`, or `.remote(...)` feed-card runtime references.
+  - persistence leftovers review kept `FeedCardRecord` in the SwiftData schema for migration/backward-compatibility safety and clarified comments in `./TchopApp/Persistence/AppContentRecord.swift`; active runtime remains `LocalFeedCardRecord`.
+  - removed legacy UI-only remote card views/models from `./TchopApp/Views/News/PhotoCardView.swift`, `./TchopApp/Views/News/TextCardView.swift`, `./TchopApp/Views/News/PhotoActionView.swift`, `./TchopApp/Models/NewsFeedModels.swift`, and related preview samples/project references.
+  - fixed share-extension publish/concurrency warnings by aligning `./TchopShareExtension/ShareViewController.swift` with boolean `publish()` and marking `NSItemProviderShareItemImporter` main-actor isolated in `./Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift`.
+- Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and final `./scripts/verify.sh low` all succeeded; no tests/simulator UI run.
