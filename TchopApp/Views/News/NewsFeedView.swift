@@ -14,13 +14,7 @@ struct NewsFeedView: View {
     @State private var languageSelectionState: TranslationLanguageSelectionState?
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
-    let onPhotoTap: (PhotoCardModel) -> Void
-    /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
-    let onPhotoAction: (PhotoCardModel, PhotoCardAction) -> Void
-    let onTextTap: (TextCardModel) -> Void
     let onLocalCardTap: (NewsRoute) -> Void
-    /// Card actions stay outside the card view so the screen view model remains the owner of state changes.
-    let onTextAction: (TextCardModel, TextCardAction) -> Void
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -40,10 +34,6 @@ struct NewsFeedView: View {
                 NewsFeedContentSectionView(
                     viewModel: viewModel,
                     translationActionProvider: translationAction(for:),
-                    onPhotoTap: onPhotoTap,
-                    onPhotoAction: onPhotoAction,
-                    onTextTap: onTextTap,
-                    onTextAction: onTextAction,
                     onLocalCardTap: onLocalCardTap
                 )
             }
@@ -139,10 +129,6 @@ struct NewsFeedView: View {
 private struct NewsFeedContentSectionView: View {
     let viewModel: NewsFeedViewModel
     let translationActionProvider: (NewsFeedCard) -> FeedCardTranslationAction?
-    let onPhotoTap: (PhotoCardModel) -> Void
-    let onPhotoAction: (PhotoCardModel, PhotoCardAction) -> Void
-    let onTextTap: (TextCardModel) -> Void
-    let onTextAction: (TextCardModel, TextCardAction) -> Void
     let onLocalCardTap: (NewsRoute) -> Void
 
     var body: some View {
@@ -156,10 +142,6 @@ private struct NewsFeedContentSectionView: View {
                     feedCard: card,
                     viewModel: viewModel,
                     translationAction: translationActionProvider(card),
-                    onPhotoTap: onPhotoTap,
-                    onPhotoAction: onPhotoAction,
-                    onTextTap: onTextTap,
-                    onTextAction: onTextAction,
                     onLocalCardTap: onLocalCardTap
                 )
             }
@@ -242,10 +224,6 @@ private struct NewsFeedCardRendererView: View {
     let feedCard: NewsFeedCard
     let viewModel: NewsFeedViewModel
     let translationAction: FeedCardTranslationAction?
-    let onPhotoTap: (PhotoCardModel) -> Void
-    let onPhotoAction: (PhotoCardModel, PhotoCardAction) -> Void
-    let onTextTap: (TextCardModel) -> Void
-    let onTextAction: (TextCardModel, TextCardAction) -> Void
     let onLocalCardTap: (NewsRoute) -> Void
 
     var body: some View {
@@ -1218,11 +1196,7 @@ private enum LocalComposerMediaPathResolver {
     NewsFeedView(
         viewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
         onScrollProximityChange: { _ in },
-        onPhotoTap: { _ in },
-        onPhotoAction: { _, _ in },
-        onTextTap: { _ in },
-        onLocalCardTap: { _ in },
-        onTextAction: { _, _ in }
+        onLocalCardTap: { _ in }
     )
 }
 #endif

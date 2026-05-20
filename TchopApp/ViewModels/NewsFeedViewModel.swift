@@ -251,14 +251,6 @@ final class NewsFeedViewModel {
             : AppLocalization.text("news.card.translation.see")
     }
 
-    func translatedPhotoCard(_ card: PhotoCardModel) -> PhotoCardModel {
-        card.translated(using: cardTranslationStore.snapshot(for: card.id))
-    }
-
-    func translatedTextCard(_ card: TextCardModel) -> TextCardModel {
-        card.translated(using: cardTranslationStore.snapshot(for: card.id))
-    }
-
     func translatedLocalFeedCard(_ card: LocalFeedCardModel) -> LocalFeedCardModel {
         card.translated(using: cardTranslationStore.snapshot(for: card.id))
     }
@@ -410,64 +402,6 @@ final class NewsFeedViewModel {
         isSearchPresented.toggle()
         if !isSearchPresented {
             searchQuery = ""
-        }
-    }
-
-    /// Handles a user intent emitted by a featured article card in the visible feed.
-    func handlePhotoAction(
-        articleID: String,
-        action: PhotoCardAction
-    ) {
-        switch photoActionStartDecision(for: action, articleID: articleID) {
-        case .start:
-            break
-        case .queue:
-            photoActionCoordinator.queueAdditiveAction(for: articleID)
-            return
-        case .ignore:
-            return
-        }
-
-        switch action {
-        case .toggleLike:
-            startPhotoLikeTask(for: articleID)
-        case .addComment:
-            startPhotoCommentTask(for: articleID)
-        case let .setDisplayMode(displayMode):
-            startPhotoDisplayModeTask(displayMode, for: articleID)
-        case .refreshContent:
-            startPhotoRefreshTask(for: articleID)
-        case .runLongTask:
-            startPhotoUpdateTask(for: articleID)
-        }
-    }
-
-    /// Handles a user intent emitted by a discussion card in the visible feed.
-    func handleTextAction(
-        discussionID: String,
-        action: TextCardAction
-    ) {
-        switch discussionActionStartDecision(for: action, discussionID: discussionID) {
-        case .start:
-            break
-        case .queue:
-            discussionActionCoordinator.queueAdditiveAction(for: discussionID)
-            return
-        case .ignore:
-            return
-        }
-
-        switch action {
-        case .toggleParticipation:
-            startTextParticipationTask(for: discussionID)
-        case .addReply:
-            startTextReplyTask(for: discussionID)
-        case let .setDisplayMode(displayMode):
-            startTextDisplayModeTask(displayMode, for: discussionID)
-        case .refreshContent:
-            startTextRefreshTask(for: discussionID)
-        case .runLongTask:
-            startTextUpdateTask(for: discussionID)
         }
     }
 

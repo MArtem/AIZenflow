@@ -42,6 +42,15 @@ No open implementation step is currently queued in this plan.
   - localized visible share/widget extension strings through shared localization resources in `./Packages/TchopInfrastructure`.
 - Verification: `git diff --check` only; no build/test/simulator run per current instruction.
 
+- Completed now: local-feed runtime cleanup pass:
+  - removed `PhotoCardModel`/`TextCardModel` callback plumbing from `./TchopApp/Views/News/NewsFeedView.swift` and `./TchopApp/Views/Tabs/NewsTabRootView.swift`; feed taps/actions now go through local published cards only.
+  - removed unused remote-card translation/action entry points from `./TchopApp/ViewModels/NewsFeedViewModel.swift`.
+  - stopped app bootstrap from resolving fixture fallback feed content in `./TchopApp/App/AppDIContainer.swift`.
+  - stopped seeding JSON-backed feed snapshots in `./TchopApp/Persistence/AppDataSeeder.swift`; seeding now only creates default channels.
+  - changed `./TchopApp/Services/FeedAPIManager.swift` stub feed fetches to return an empty payload until a real backend contract exists.
+  - removed bundled `StubFeedResponse*.json` resources from `./TchopApp/Resources` and from `./TchopApp.xcodeproj/project.pbxproj`.
+- Verification: `git diff --check` only; no build/test/simulator run per current instruction.
+
 ## Verification Status
 - This latest cleanup is code + localization only.
 - No build/test/simulator verification was run.

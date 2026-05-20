@@ -20,10 +20,6 @@
 		A000001B0000000000000001 /* TextCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002B0000000000000001 /* TextCardView.swift */; };
 		A000001C0000000000000001 /* TabStubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000002C0000000000000001 /* TabStubView.swift */; };
 		A000001D0000000000000001 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A000002E0000000000000001 /* Assets.xcassets */; };
-		A00000D10000000000000001 /* StubFeedResponse.json in Resources */ = {isa = PBXBuildFile; fileRef = A00000D20000000000000001 /* StubFeedResponse.json */; };
-		S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000030000000000000001 /* StubFeedResponseProductChannel.json */; };
-		S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */; };
-		S00000080000000000000001 /* StubFeedResponseLeadershipChannel.json in Resources */ = {isa = PBXBuildFile; fileRef = S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */; };
 		A00000350000000000000001 /* ShellContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000360000000000000001 /* ShellContentView.swift */; };
 		M00000010000000000000001 /* Views/Composer/SharedCardComposerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = M00000020000000000000001 /* SharedCardComposerView.swift */; };
 		A00000370000000000000001 /* TabContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000380000000000000001 /* TabContentView.swift */; };
@@ -268,10 +264,6 @@
 		A000002C0000000000000001 /* TabStubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabStubView.swift; sourceTree = "<group>"; };
 		A000002D0000000000000001 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A000002E0000000000000001 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		A00000D20000000000000001 /* StubFeedResponse.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponse.json; sourceTree = "<group>"; };
-		S00000030000000000000001 /* StubFeedResponseProductChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseProductChannel.json; sourceTree = "<group>"; };
-		S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseCommunityChannel.json; sourceTree = "<group>"; };
-		S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = StubFeedResponseLeadershipChannel.json; sourceTree = "<group>"; };
 		A00000360000000000000001 /* ShellContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShellContentView.swift; sourceTree = "<group>"; };
 		M00000020000000000000001 /* SharedCardComposerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedCardComposerView.swift; sourceTree = "<group>"; };
 		A00000380000000000000001 /* TabContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabContentView.swift; sourceTree = "<group>"; };
@@ -574,10 +566,6 @@
 		A00000D00000000000000001 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				A00000D20000000000000001 /* StubFeedResponse.json */,
-				S00000030000000000000001 /* StubFeedResponseProductChannel.json */,
-				S00000040000000000000001 /* StubFeedResponseCommunityChannel.json */,
-				S00000090000000000000001 /* StubFeedResponseLeadershipChannel.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -1040,10 +1028,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
-				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
-				S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */,
-				S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */,
-				S00000080000000000000001 /* StubFeedResponseLeadershipChannel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1052,10 +1036,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
-				A00000D10000000000000001 /* StubFeedResponse.json in Resources */,
-				S00000010000000000000001 /* StubFeedResponseProductChannel.json in Resources */,
-				S00000020000000000000001 /* StubFeedResponseCommunityChannel.json in Resources */,
-				S00000080000000000000001 /* StubFeedResponseLeadershipChannel.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

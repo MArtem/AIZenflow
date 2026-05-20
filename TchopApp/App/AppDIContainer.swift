@@ -534,10 +534,7 @@ final class AppDIContainer {
         StubFeedAPIManager(apiManager: apiManager)
     }
 
-    /// Creates the feed view model with app-level bootstrap and fallback content.
-    ///
-    /// The view model starts from the best local snapshot available. Fixtures are only used as
-    /// an emergency fallback when the persisted feed has not been seeded yet or cannot be read.
+    /// Creates the feed view model for the local-created card runtime.
     private static func makeNewsFeedViewModel(
         repository: any NewsFeedRepository,
         channelsStore: ChannelsStore,
@@ -546,10 +543,7 @@ final class AppDIContainer {
         localFeedCardStore: LocalFeedCardStore,
         sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
     ) -> NewsFeedViewModel {
-        let initialContent = resolveInitialNewsFeedContent(
-            from: repository,
-            channelsStore: channelsStore
-        )
+        let emptyContent = NewsFeedContent(cards: [], availability: .live)
 
         return NewsFeedViewModel(
             repository: repository,
@@ -558,8 +552,8 @@ final class AppDIContainer {
             errorManager: errorManager,
             localFeedCardStore: localFeedCardStore,
             sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager,
-            initialContent: initialContent,
-            loadFailureContent: initialContent,
+            initialContent: emptyContent,
+            loadFailureContent: emptyContent,
             loadFailureMessage: AppLocalization.text("news.error.loadFailed")
         )
     }
@@ -606,22 +600,6 @@ final class AppDIContainer {
             }
             return nil
         }
-    }
-
-    /// Resolves the best local feed snapshot for bootstrap and falls back to fixtures only when storage is empty.
-    ///
-    /// This keeps the home screen aligned with the repository contract: the UI should prefer a
-    /// persisted snapshot over hard-coded content whenever possible.
-    private static func resolveInitialNewsFeedContent(
-        from repository: any NewsFeedRepository,
-        channelsStore: ChannelsStore
-    ) -> NewsFeedContent {
-        let channelID = channelsStore.selectedChannelID ?? channelsStore.selectedChannel?.id ?? AppChannel.defaultChannel.id
-        if let localContent = (try? repository.currentNewsFeedContent(channelID: channelID)) ?? nil {
-            return localContent
-        }
-
-        return NewsFeedFixtures.makeFallbackContent(channelID: channelID)
     }
 
     private static func makeUIConfigurationManager() -> any UIConfigurationManaging {

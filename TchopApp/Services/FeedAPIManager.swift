@@ -140,8 +140,8 @@ protocol FeedAPIManaging: Sendable {
 
 /// Stubbed feed API manager used until a real backend contract exists.
 ///
-/// The bundled JSON is treated as the seed contract for fetches, while card actions simulate a
-/// successful backend mutation for a single card and let the repository persist the result.
+/// Local-created cards are the only active feed content until a real backend contract replaces
+/// this stub. Fetches therefore return an empty payload.
 struct StubFeedAPIManager: FeedAPIManaging, Sendable {
     private let apiManager: any APIManaging
 
@@ -514,17 +514,11 @@ struct StubFeedAPIManager: FeedAPIManaging, Sendable {
 }
 
 enum FeedAPIStubFactory {
-    /// Produces the latest full stub feed contract used by refreshes and initial seeding.
+    /// Produces an empty feed response while local-created cards remain the only active runtime content.
     static func makeFeedResponse(channelID: String) async throws -> FeedResponseDTO {
         try await Task.sleep(for: .milliseconds(120))
         try Task.checkCancellation()
-        return try loadFeedResponse(channelID: channelID)
-    }
-
-    /// Loads the bundled JSON feed synchronously for seed paths that run before async refreshes.
-    static func loadFeedResponse(channelID: String = AppChannel.defaultChannel.id) throws -> FeedResponseDTO {
-        let feedData = try loadStubFeedResponseData(channelID: channelID)
-        return try makeJSONDecoder().decode(FeedResponseDTO.self, from: feedData)
+        return FeedResponseDTO(cards: [])
     }
 
     /// Looks up one photo card inside the bundled feed seed.
@@ -580,67 +574,9 @@ enum FeedAPIStubFactory {
         return String(scopedID[nextIndex...])
     }
 
-    private static func loadStubFeedResponseData(channelID: String) throws -> Data {
-        let resourceName = stubResourceName(for: channelID)
-        guard
-            let responseURL = Bundle.main.url(
-                forResource: resourceName,
-                withExtension: "json",
-                subdirectory: "Resources"
-            ) ?? Bundle.main.url(forResource: resourceName, withExtension: "json")
-        else {
-            throw FeedAPIStubError.missingStubResource
-        }
-
-        return try Data(contentsOf: responseURL)
-    }
-
-    private static func stubResourceName(for channelID: String) -> String {
-        switch channelID {
-        case AppChannel.product.id:
-            return "StubFeedResponseProductChannel"
-        case AppChannel.community.id:
-            return "StubFeedResponseCommunityChannel"
-        case AppChannel.leadership.id:
-            return "StubFeedResponseLeadershipChannel"
-        default:
-            return "StubFeedResponse"
-        }
-    }
-
-    private static func makeJSONDecoder() -> JSONDecoder {
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = .custom { decoder in
-            let container = try decoder.singleValueContainer()
-            let value = try container.decode(String.self)
-
-            if let date = makeISO8601DateFormatter(withFractionalSeconds: true).date(from: value) {
-                return date
-            }
-
-            if let date = makeISO8601DateFormatter(withFractionalSeconds: false).date(from: value) {
-                return date
-            }
-
-            throw DecodingError.dataCorruptedError(
-                in: container,
-                debugDescription: "Unsupported ISO8601 date value: \(value)"
-            )
-        }
-        return decoder
-    }
-
-    private static func makeISO8601DateFormatter(withFractionalSeconds: Bool) -> ISO8601DateFormatter {
-        let formatter = ISO8601DateFormatter()
-        formatter.formatOptions = withFractionalSeconds
-            ? [.withInternetDateTime, .withFractionalSeconds]
-            : [.withInternetDateTime]
-        return formatter
-    }
 }
 
 private enum FeedAPIStubError: Error {
-    case missingStubResource
     case missingCard
 }
 
