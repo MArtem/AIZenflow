@@ -68,3 +68,11 @@ Global reusable knowledge and TchopApp-specific knowledge are now split under `.
 Use archives only when historical detail is needed:
 - `./.zenflow/tasks/new-task-be0b/archive/plan.before-cleanup-2026-05-20.md`
 - `./.zenflow/tasks/new-task-be0b/archive/plan.legacy.md`
+
+- Completed now: removed legacy remote/stub feed runtime surface from app/feed composition:
+  - simplified `./TchopApp/Repositories/AppContentRepository.swift` to channel resolution plus local feed-card SwiftData persistence only; removed remote feed refresh/action sync helpers and network reachability dependency.
+  - removed unused `FeedAPIManager` stub/DTO/action helper runtime and its Xcode project source references.
+  - removed app DI wiring for `FeedAPIManaging` and `NetworkAvailabilityChecking`.
+  - removed `NewsFeedPhotoCardContent.remote` / `NewsFeedTextCardContent.remote` cases and matching renderer no-op branches; feed card variants now carry local published cards only.
+  - removed unused legacy remote feed action/state payload structs while leaving `FeedCardRecord` schema in place for migration/backward-compatibility safety.
+- Verification: `git diff --check` and `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` only; no build/test/simulator run per current instruction.

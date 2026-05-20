@@ -60,7 +60,6 @@
 		A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006A0000000000000001 /* ProfileTabRootView.swift */; };
 		P00000020000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P00000010000000000000001 /* ProfileTabViewModel.swift */; };
 		P00000030000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = P00000010000000000000001 /* ProfileTabViewModel.swift */; };
-		A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000006C0000000000000001 /* FeedAPIManager.swift */; };
 		K00000040000000000000001 /* App/AppErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000050000000000000001 /* AppErrorMapping.swift */; };
 		K00000060000000000000001 /* App/AppErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000050000000000000001 /* AppErrorMapping.swift */; };
 		A00000730000000000000001 /* App/AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000740000000000000001 /* AppDIContainer.swift */; };
@@ -299,7 +298,6 @@
 		A00000660000000000000001 /* AppRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRootView.swift; sourceTree = "<group>"; };
 		A00000680000000000000001 /* LoginScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreenView.swift; sourceTree = "<group>"; };
 		A000006A0000000000000001 /* ProfileTabRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTabRootView.swift; sourceTree = "<group>"; };
-		A000006C0000000000000001 /* FeedAPIManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedAPIManager.swift; sourceTree = "<group>"; };
 		K00000050000000000000001 /* AppErrorMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorMapping.swift; sourceTree = "<group>"; };
 		A00000740000000000000001 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		A000009D0000000000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
@@ -607,7 +605,6 @@
 			isa = PBXGroup;
 			children = (
 				J00000020000000000000001 /* AuthenticationAPIManager.swift */,
-				A000006C0000000000000001 /* FeedAPIManager.swift */,
 				A000005C0000000000000001 /* UserSessionService.swift */,
 			);
 			path = Services;
@@ -1126,7 +1123,6 @@
 				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
 				P00000020000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */,
-				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
 				K00000040000000000000001 /* App/AppErrorMapping.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000110000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,
@@ -1202,7 +1198,6 @@
 				A00000670000000000000001 /* Views/Auth/LoginScreenView.swift in Sources */,
 				A00000690000000000000001 /* Views/Tabs/ProfileTabRootView.swift in Sources */,
 				P00000030000000000000001 /* ViewModels/ProfileTabViewModel.swift in Sources */,
-				A000006B0000000000000001 /* Services/FeedAPIManager.swift in Sources */,
 				K00000060000000000000001 /* App/AppErrorMapping.swift in Sources */,
 				A00000730000000000000001 /* App/AppDIContainer.swift in Sources */,
 				U00000120000000000000001 /* App/AppLaunchConfiguration.swift in Sources */,

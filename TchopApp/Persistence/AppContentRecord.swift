@@ -14,36 +14,6 @@ enum LocalFeedCardRecordSyncState: String, Codable, Sendable {
     case failed
 }
 
-/// Persisted action payload stored for featured article cards.
-struct FeedCardActionPayload: Codable, Equatable, Sendable {
-    let id: String
-    let kind: PhotoActionKind
-    let systemName: String
-    let title: String
-}
-
-/// Persisted local state stored for featured article cards.
-struct FeedCardArticleStatePayload: Codable, Equatable, Sendable {
-    let isLiked: Bool
-    let commentCount: Int
-    let displayModeRawValue: String
-}
-
-/// Persisted local state stored for discussion cards.
-struct FeedCardTextStatePayload: Codable, Equatable, Sendable {
-    let isParticipating: Bool
-    let replyCount: Int
-    let joinedCount: Int
-    let displayModeRawValue: String
-}
-
-/// Persisted participant payload stored for discussion cards.
-struct FeedCardParticipantPayload: Codable, Equatable, Sendable {
-    let id: String
-    let initials: String
-    let isHighlighted: Bool
-}
-
 /// SwiftData record storing the pinned channel header metadata.
 @available(iOS 17, *)
 @Model

@@ -131,11 +131,6 @@ final class AppDIContainer {
     /// Login UI mode selected by the active auth environment.
     let loginScreenMode: LoginScreenMode
 
-    /// Feed-specific API abstraction currently backed by stub data.
-    private let feedAPIManager: any FeedAPIManaging
-
-    /// Lightweight connectivity monitor used by repository runtime decisions.
-    private let networkAvailabilityMonitor: any NetworkAvailabilityChecking
 
     /// Repository serving shell and feed content.
     private let contentRepository: any AppContentRepository
@@ -210,8 +205,6 @@ final class AppDIContainer {
         self.authenticationAPIManager = contentServices.authenticationAPIManager
         self.errorManager = contentServices.errorManager
         self.loginScreenMode = apiEnvironment.loginScreenMode
-        self.feedAPIManager = contentServices.feedAPIManager
-        self.networkAvailabilityMonitor = contentServices.networkAvailabilityMonitor
         self.contentRepository = contentServices.contentRepository
         self.userRepository = contentServices.userRepository
         self.sessionService = contentServices.sessionService
@@ -338,8 +331,6 @@ final class AppDIContainer {
         authTokenStore: any AuthTokenStoring,
         authenticationAPIManager: any AuthenticationAPIManaging,
         errorManager: any AppErrorManaging,
-        feedAPIManager: any FeedAPIManaging,
-        networkAvailabilityMonitor: any NetworkAvailabilityChecking,
         contentRepository: any AppContentRepository,
         userRepository: any UserRepository,
         sessionService: any UserSessionManaging
@@ -359,21 +350,13 @@ final class AppDIContainer {
             authenticationProvider: authenticationProvider,
             apiEnvironment: apiEnvironment
         )
-        let feedAPIManager = makeFeedAPIManager(apiManager: apiManager)
-        let networkAvailabilityMonitor = NetworkAvailabilityMonitor()
-        let repositories = makeRepositories(
-            databaseManager: databaseManager,
-            feedAPIManager: feedAPIManager,
-            networkAvailabilityChecker: networkAvailabilityMonitor
-        )
+        let repositories = makeRepositories(databaseManager: databaseManager)
 
         return (
             apiManager: apiManager,
             authTokenStore: authTokenStore,
             authenticationAPIManager: authenticationAPIManager,
             errorManager: errorManager,
-            feedAPIManager: feedAPIManager,
-            networkAvailabilityMonitor: networkAvailabilityMonitor,
             contentRepository: repositories.contentRepository,
             userRepository: repositories.userRepository,
             sessionService: UserSessionService(
@@ -401,18 +384,14 @@ final class AppDIContainer {
 
     /// Creates app repositories that sit on top of the shared database and API layer.
     private static func makeRepositories(
-        databaseManager: any DatabaseManaging,
-        feedAPIManager: any FeedAPIManaging,
-        networkAvailabilityChecker: any NetworkAvailabilityChecking
+        databaseManager: any DatabaseManaging
     ) -> (
         contentRepository: any AppContentRepository,
         userRepository: any UserRepository
     ) {
         (
             contentRepository: DefaultAppContentRepository(
-                databaseManager: databaseManager,
-                feedAPIManager: feedAPIManager,
-                networkAvailabilityChecker: networkAvailabilityChecker
+                databaseManager: databaseManager
             ),
             userRepository: DefaultUserRepository(databaseManager: databaseManager)
         )
@@ -527,10 +506,6 @@ final class AppDIContainer {
             mapper: AppRuntimeErrorMapper(),
             messageCatalog: AppRuntimeErrorMessageCatalog()
         )
-    }
-
-    private static func makeFeedAPIManager(apiManager: any APIManaging) -> any FeedAPIManaging {
-        StubFeedAPIManager(apiManager: apiManager)
     }
 
     /// Creates the feed view model for the local-created card runtime.

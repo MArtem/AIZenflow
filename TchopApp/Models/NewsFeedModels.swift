@@ -1332,13 +1332,10 @@ struct NewsFeedCardSearchField: Equatable, Sendable {
 }
 
 enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
-    case remote(PhotoCardModel)
     case local(LocalFeedCardModel)
 
     var id: String {
         switch self {
-        case let .remote(card):
-            return card.id
         case let .local(card):
             return card.id
         }
@@ -1346,8 +1343,6 @@ enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
 
     var channelID: String {
         switch self {
-        case let .remote(card):
-            return card.channelID
         case let .local(card):
             return card.channelID
         }
@@ -1355,8 +1350,6 @@ enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
 
     var serviceHeadline: String {
         switch self {
-        case let .remote(card):
-            return card.serviceHeadline
         case let .local(card):
             return card.serviceHeadline
         }
@@ -1364,15 +1357,6 @@ enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
 
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .remote(card):
-            return [
-                NewsFeedCardSearchField(priority: 500, value: card.headline),
-                NewsFeedCardSearchField(priority: 400, value: card.summary),
-                NewsFeedCardSearchField(priority: 300, value: card.sourceTitle),
-                NewsFeedCardSearchField(priority: 250, value: card.brandTitle),
-                NewsFeedCardSearchField(priority: 200, value: card.metadataLine),
-                NewsFeedCardSearchField(priority: 150, value: card.translationLabel)
-            ]
         case let .local(card):
             return card.searchFields
         }
@@ -1380,13 +1364,10 @@ enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
 }
 
 enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
-    case remote(TextCardModel)
     case local(LocalFeedCardModel)
 
     var id: String {
         switch self {
-        case let .remote(card):
-            return card.id
         case let .local(card):
             return card.id
         }
@@ -1394,8 +1375,6 @@ enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
 
     var channelID: String {
         switch self {
-        case let .remote(card):
-            return card.channelID
         case let .local(card):
             return card.channelID
         }
@@ -1403,8 +1382,6 @@ enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
 
     var serviceHeadline: String {
         switch self {
-        case let .remote(card):
-            return card.serviceHeadline
         case let .local(card):
             return card.serviceHeadline
         }
@@ -1412,15 +1389,6 @@ enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
 
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .remote(card):
-            return [
-                NewsFeedCardSearchField(priority: 500, value: card.headline),
-                NewsFeedCardSearchField(priority: 300, value: card.categoryTitle),
-                NewsFeedCardSearchField(
-                    priority: 120,
-                    value: card.participants.map(\.initials).joined(separator: " ")
-                )
-            ]
         case let .local(card):
             return card.searchFields
         }
@@ -1683,14 +1651,6 @@ extension LocalFeedCardModel {
 private extension NewsFeedPhotoCardContent {
     var translationPayload: NewsFeedCardTranslationPayload {
         switch self {
-        case let .remote(card):
-            var fields: [CardTranslationFieldID: String?] = [:]
-            fields[.photoBrandTitle] = normalizedTranslationText(card.brandTitle)
-            fields[.photoHeadline] = normalizedTranslationText(card.headline)
-            fields[.photoSummary] = normalizedTranslationText(card.summary)
-            fields[.photoMetadataLine] = normalizedTranslationText(card.metadataLine)
-            fields[.photoTranslationLabel] = normalizedTranslationText(card.translationLabel)
-            return NewsFeedCardTranslationPayload(cardID: card.id, fields: fields.compactTranslationFields)
         case let .local(card):
             return card.translationPayload
         }
@@ -1700,11 +1660,6 @@ private extension NewsFeedPhotoCardContent {
 private extension NewsFeedTextCardContent {
     var translationPayload: NewsFeedCardTranslationPayload {
         switch self {
-        case let .remote(card):
-            var fields: [CardTranslationFieldID: String?] = [:]
-            fields[.textCategoryTitle] = normalizedTranslationText(card.categoryTitle)
-            fields[.textHeadline] = normalizedTranslationText(card.headline)
-            return NewsFeedCardTranslationPayload(cardID: card.id, fields: fields.compactTranslationFields)
         case let .local(card):
             return card.translationPayload
         }

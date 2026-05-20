@@ -124,39 +124,6 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
         context: AppErrorContext?
     ) -> AppError {
         switch error {
-        case .offlineCardAction:
-            return AppError(
-                category: .network,
-                severity: .warning,
-                suggestion: .checkConnection,
-                isRetryable: true,
-                isSessionRecoveryRequired: false,
-                messageKey: "error.network.offline",
-                debugDescription: "Card action requires connectivity but the device is offline.",
-                context: context
-            )
-        case .missingPersistedFeed:
-            return AppError(
-                category: .persistence,
-                severity: .warning,
-                suggestion: .retry,
-                isRetryable: true,
-                isSessionRecoveryRequired: false,
-                messageKey: "error.persistence.feedMissing",
-                debugDescription: "Persisted feed snapshot is unavailable.",
-                context: context
-            )
-        case .missingPersistedFeedCard:
-            return AppError(
-                category: .persistence,
-                severity: .warning,
-                suggestion: .restartFlow,
-                isRetryable: false,
-                isSessionRecoveryRequired: false,
-                messageKey: "error.persistence.feedCardMissing",
-                debugDescription: "Persisted feed card is unavailable for the requested action.",
-                context: context
-            )
         case .missingChannel:
             return AppError(
                 category: .persistence,
@@ -166,17 +133,6 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
                 isSessionRecoveryRequired: false,
                 messageKey: "error.persistence.channelMissing",
                 debugDescription: "Persisted channel bootstrap data is unavailable.",
-                context: context
-            )
-        case .unsupportedCardAction:
-            return AppError(
-                category: .client,
-                severity: .error,
-                suggestion: .retry,
-                isRetryable: false,
-                isSessionRecoveryRequired: false,
-                messageKey: "error.client.unsupportedCardAction",
-                debugDescription: "The requested feed card action cannot be mapped into the current sync contract.",
                 context: context
             )
         case .unsupportedLocalFeedCardPersistence:

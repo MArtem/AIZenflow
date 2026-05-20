@@ -239,8 +239,6 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
                     onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
                 )
-            case .remote:
-                EmptyView()
             }
         case let .text(content):
             switch content {
@@ -253,8 +251,6 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
                     onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
                 )
-            case .remote:
-                EmptyView()
             }
         case let .video(content):
             switch content {
