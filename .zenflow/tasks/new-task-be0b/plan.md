@@ -9,7 +9,66 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Current user overrides are canonical for this task and live in `./docs/CURRENT_USER_OVERRIDES.md`.
 
 ## Active Steps
-No open implementation step is currently queued in this plan.
+### [ ] Step: Full Read-Only Production Audit — setup and evidence map
+- Scope: `./TchopApp`, `./TchopShareExtension`, `./TchopWidgetExtension`, `./Packages`, `./docs`, `./.codex/skills/tchop-feed-cards`.
+- Explicitly exclude `./TchopAppTests`.
+- Read-only only: no code/docs/rules changes during audit except updating this task plan/status after the audit report is produced.
+- Reconfirm active rules before audit: docs index, project docs, user overrides, agent rules, continuity docs, task handoff/plan, feed-card contract, package rules, SwiftUI review references.
+- Build/test policy during audit: no build required for read-only findings; build only after later remediation blocks.
+- Output artifact target: audit findings should be written/summarized in task context before any implementation plan is executed.
+
+### [ ] Step: Full Read-Only Production Audit — Block A app state/session/auth
+- Inspect app state/session/auth runtime for fake/local/demo naming, placeholder production behavior, mixed UI/domain state, and duplicate state owners.
+- Candidate files: `./TchopApp/App/AppState.swift`, `./TchopApp/Services/UserSessionService.swift`, `./TchopApp/Models/AccountProfileSummary.swift`, `./TchopApp/Views/AppRootView.swift`.
+- Also grep wider app/extensions/packages scope for `fake`, `demo`, `stub`, `mock`, `sample`, `placeholder`, `local`, `session`, `token`, `auth`, and user/profile fallback behavior.
+- Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
+
+### [ ] Step: Full Read-Only Production Audit — Block B persistence/database ownership
+- Inspect SwiftData/database lifecycle ownership, repository boundaries, fetch-all/save-all patterns, DTO leakage into UI, schema leftovers after `Local*` removal, and main-thread I/O risk.
+- Candidate files: `./TchopApp/Persistence/AppDatabase.swift`, `./TchopApp/Persistence/AppContentRecord.swift`, `./TchopApp/Repositories/AppContentRepository.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`.
+- Also inspect package database contracts under `./Packages/TchopInfrastructure` where app/database boundaries are involved.
+- Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
+
+### [ ] Step: Full Read-Only Production Audit — Block C navigation/menu/root composition
+- Inspect root composition, coordinator/deep-link ownership, tab/menu state, repeated VM creation, side effects in SwiftUI `body`, and UI implementation details leaking into navigation decisions.
+- Candidate files: `./TchopApp/Views/AppRootView.swift`, `./TchopApp/Navigation/DeepLinkManager.swift`, `./TchopApp/Views/Tabs/NewsTabRootView.swift`.
+- Also inspect app DI/root shell wiring where navigation and session state meet.
+- Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
+
+### [ ] Step: Full Read-Only Production Audit — Block D packages/infrastructure boundaries
+- Inspect whether app-specific logic leaked into packages, whether app code adds decorative wrappers over package APIs, whether package APIs force bad app patterns, and whether infrastructure has concurrency/sendability risks.
+- Candidate areas: `./Packages/TchopInfrastructure/Sources/TchopShareSupport`, `./Packages/TchopInfrastructure/Sources/TchopCache`, `./Packages/TchopInfrastructure/Sources/TchopNetworking`.
+- Also inspect `SyncCore`, database, localization, widgets, auth, analytics, and package references touched by app runtime.
+- Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
+
+### [ ] Step: Full Read-Only Production Audit — Block E UI rendering/performance rules across project
+- Inspect all SwiftUI files outside `./TchopAppTests` for hot-path work: sync file/image/media work in `body`, heavy repeated shadows/blur/masks, unstable identity, broad observable dependencies, `AnyView`, computed maps/sorts/filters in render paths, side effects in `body`, and unnecessary layout invalidation.
+- Scope includes `./TchopApp/**/*.swift`, `./TchopShareExtension/**/*.swift`, `./TchopWidgetExtension/**/*.swift`, and package SwiftUI views if present.
+- Special attention: repeated lists/scrolls, cards, menus, root shell, composer, share extension UI, widget rendering.
+- Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
+
+### [ ] Step: Full Read-Only Production Audit — rules/checklist hardening proposal
+- Prepare proposed permanent docs/rules updates, but do not apply them until user approves after audit.
+- Candidate docs: `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, optional new `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`.
+- Include mandatory quality gates: UI hot path, state ownership, DB access pattern, networking boundary, concurrency, memory/cache, naming/domain purity, persistence migration risk, verification scope, and no speculative abstractions.
+- Include forbidden-pattern stop list: `Local*` domain/UI split without storage-only meaning, sync media/file work in render path, unqualified `ForEach(Array(...))`, whole VM into repeated rows, fetch-all for single update without proof, silent stub/demo/local fallback, production UI backed by stub JSON.
+
+### [ ] Step: Full Read-Only Production Audit — final report and remediation plan proposal
+- Produce the audit report before making implementation changes.
+- Report format:
+  1. P0-P3 findings list.
+  2. affected files.
+  3. why each finding is a problem.
+  4. correct target state.
+  5. recommended fix order.
+  6. which remediation blocks require build.
+  7. which blocks require simulator UI or Instruments.
+- Severity policy:
+  - P0: core flow broken, data loss/corruption risk, severe jank/crash/security issue.
+  - P1: architecture/runtime error that will reliably cause bugs or high rewrite cost as the app grows.
+  - P2: incorrect implementation pattern that should be fixed before new feature work in the affected area.
+  - P3: consistency/cleanup/docs/rules issue that should be scheduled but does not block current core behavior.
+- After the user approves the remediation plan, implement fixes in coherent blocks; after each block update `./.zenflow/tasks/new-task-be0b/plan.md`, run `git diff --check`, run `plutil` if project files changed, and run build when the block is implementation-level.
 
 ## Current Working Baseline
 - Use `GPT-5.5` for this worktree/task unless the user explicitly changes the model.
