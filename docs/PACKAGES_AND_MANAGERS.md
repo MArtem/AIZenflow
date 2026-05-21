@@ -125,7 +125,7 @@ Use for:
 App keeps:
 - app-specific card draft models
 - app-specific shared composer UI and card rules reused between app and extension
-- app-specific local feed card payloads
+- app-specific feed card payloads
 - publish/sync policy between extension storage and app runtime
 - extension lifecycle and authentication gating
 

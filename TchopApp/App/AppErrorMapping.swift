@@ -135,7 +135,7 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
                 debugDescription: "Persisted channel bootstrap data is unavailable.",
                 context: context
             )
-        case .unsupportedLocalFeedCardPersistence:
+        case .unsupportedFeedCardPersistence:
             return AppError(
                 category: .client,
                 severity: .error,
@@ -143,7 +143,7 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
                 isRetryable: false,
                 isSessionRecoveryRequired: false,
                 messageKey: "error.client.unsupportedCardAction",
-                debugDescription: "The requested local feed card shape is not supported by the current persistence contract.",
+                debugDescription: "The requested feed card shape is not supported by the current persistence contract.",
                 context: context
             )
         }

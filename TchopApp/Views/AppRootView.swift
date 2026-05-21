@@ -114,7 +114,7 @@ enum ViewPreviewSupport {
 
     static let sampleAccountSummary = AccountProfileSummary(user: sampleUser)
 
-    static func makeLocalContainer() -> AppDIContainer {
+    static func makePreviewContainer() -> AppDIContainer {
         AppDIContainer(
             databaseConfiguration: .inMemory,
             apiEnvironment: .localStub,
@@ -138,15 +138,15 @@ enum ViewPreviewSupport {
     }
 
     static func makeAppState() -> AppState {
-        makeLocalContainer().makeAppState()
+        makePreviewContainer().makeAppState()
     }
 
     static func makeNewsFeedViewModel() -> NewsFeedViewModel {
-        makeLocalContainer().makeAppShellViewModel().newsFeedViewModel
+        makePreviewContainer().makeAppShellViewModel().newsFeedViewModel
     }
 
     static func makeShellViewModel() -> AppShellViewModel {
-        makeLocalContainer().makeAppShellViewModel()
+        makePreviewContainer().makeAppShellViewModel()
     }
 
     static func makeLoginViewModel(mode: LoginScreenMode = .defaultAppAuth) -> LoginViewModel {
@@ -170,7 +170,7 @@ enum ViewPreviewSupport {
 }
 
 #Preview("App Root - Signed Out") {
-    let container = ViewPreviewSupport.makeLocalContainer()
+    let container = ViewPreviewSupport.makePreviewContainer()
     let appState = container.makeAppState()
     appState.setPreviewSessionState(.signedOut)
 
@@ -181,7 +181,7 @@ enum ViewPreviewSupport {
 }
 
 #Preview("App Root - Restoring") {
-    let container = ViewPreviewSupport.makeLocalContainer()
+    let container = ViewPreviewSupport.makePreviewContainer()
     let appState = container.makeAppState()
     appState.setPreviewSessionState(.restoring)
 

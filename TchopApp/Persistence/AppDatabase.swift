@@ -448,8 +448,7 @@ private enum AppDatabaseContainerFactory {
         let schema = Schema([
             ChannelRecord.self,
             UserRecord.self,
-            FeedCardRecord.self,
-            LocalFeedCardRecord.self
+            FeedCardRecord.self
         ])
 
         let configuration: ModelConfiguration

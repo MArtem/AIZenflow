@@ -479,7 +479,7 @@ final class UserSessionService: UserSessionManaging {
     }
 
     /// Clears only the local app-session marker, without attempting remote revoke.
-    private func clearLocalSessionState() {
+    private func clearSessionState() {
         userDefaults.removeObject(forKey: Keys.activeUserID)
         userDefaults.removeObject(forKey: Keys.legacyActiveUsername)
     }
@@ -494,7 +494,7 @@ final class UserSessionService: UserSessionManaging {
     /// This differs from `signOut()`: restore-time corruption or stale local state should not
     /// trigger a best-effort remote revoke because the app may no longer have coherent credentials.
     private func clearPersistedSessionState() {
-        clearLocalSessionState()
+        clearSessionState()
         clearSecureCredentials()
     }
 

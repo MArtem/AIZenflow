@@ -2,10 +2,10 @@ import Foundation
 import TchopShareSupport
 
 @MainActor
-final class SharedLocalFeedCardSyncManager {
+final class SharedFeedCardSyncManager {
     private static let pendingCardsDirectoryName = "share-extension-published-cards"
 
-    private let store: AppGroupJSONItemDirectoryStore<LocalFeedCardModel>
+    private let store: AppGroupJSONItemDirectoryStore<FeedCard>
 
     init(groupIdentifier: String) throws {
         self.store = try AppGroupJSONItemDirectoryStore(
@@ -14,12 +14,12 @@ final class SharedLocalFeedCardSyncManager {
         )
     }
 
-    func publishImportedCard(_ card: LocalFeedCardModel) throws {
+    func publishImportedCard(_ card: FeedCard) throws {
         try store.save(card)
     }
 
     @discardableResult
-    func syncPendingCards(into localFeedCardStore: LocalFeedCardStore) throws -> Int {
+    func syncPendingCards(into feedCardStore: FeedCardStore) throws -> Int {
         let cards = try store.loadAll()
             .sorted { $0.createdAt > $1.createdAt }
 
@@ -27,7 +27,7 @@ final class SharedLocalFeedCardSyncManager {
             return 0
         }
 
-        try localFeedCardStore.sync(cards)
+        try feedCardStore.sync(cards)
         try store.clear()
 
         return cards.count

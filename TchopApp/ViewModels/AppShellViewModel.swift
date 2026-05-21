@@ -7,30 +7,30 @@ import TchopUIConfiguration
 #endif
 
 @MainActor
-protocol LocalFeedCardPersisting {
-    func loadCards() throws -> [LocalFeedCardModel]
-    func saveCards(_ cards: [LocalFeedCardModel]) throws
+protocol FeedCardPersisting {
+    func loadCards() throws -> [FeedCard]
+    func saveCards(_ cards: [FeedCard]) throws
 }
 
 @MainActor
 @Observable
-final class LocalFeedCardStore {
+final class FeedCardStore {
     private(set) var cards: [NewsFeedCard] = []
 
-    private let repository: any LocalFeedCardPersisting
-    private var persistedLocalCards: [LocalFeedCardModel]
+    private let repository: any FeedCardPersisting
+    private var persistedCards: [FeedCard]
 
-    init(repository: any LocalFeedCardPersisting) {
+    init(repository: any FeedCardPersisting) {
         self.repository = repository
-        self.persistedLocalCards = (try? repository.loadCards()) ?? []
+        self.persistedCards = (try? repository.loadCards()) ?? []
         refreshCards()
     }
 
-    func publish(_ card: LocalFeedCardModel) {
+    func publish(_ card: FeedCard) {
         do {
             try sync([card])
         } catch {
-            assertionFailure("Failed to persist local feed card: \(error)")
+            assertionFailure("Failed to persist feed card: \(error)")
         }
     }
 
@@ -42,42 +42,42 @@ final class LocalFeedCardStore {
         return cards.filter { $0.channelID == channelID }
     }
 
-    func sync(_ localFeedCards: [LocalFeedCardModel]) throws {
-        guard !localFeedCards.isEmpty else {
+    func sync(_ feedCards: [FeedCard]) throws {
+        guard !feedCards.isEmpty else {
             return
         }
 
-        let existingIDs = Set(persistedLocalCards.map(\.id))
-        let newCards = localFeedCards.filter { !existingIDs.contains($0.id) }
+        let existingIDs = Set(persistedCards.map(\.id))
+        let newCards = feedCards.filter { !existingIDs.contains($0.id) }
         guard !newCards.isEmpty else {
             return
         }
 
         try repository.saveCards(newCards)
-        persistedLocalCards = newCards + persistedLocalCards
+        persistedCards = newCards + persistedCards
         refreshCards()
     }
 
     func updatePersistedCard(
         id: String,
-        transform: (LocalFeedCardModel) -> LocalFeedCardModel
+        transform: (FeedCard) -> FeedCard
     ) {
-        guard let index = persistedLocalCards.firstIndex(where: { $0.id == id }) else {
+        guard let index = persistedCards.firstIndex(where: { $0.id == id }) else {
             return
         }
 
-        let updatedCard = transform(persistedLocalCards[index])
+        let updatedCard = transform(persistedCards[index])
         do {
             try repository.saveCards([updatedCard])
-            persistedLocalCards[index] = updatedCard
+            persistedCards[index] = updatedCard
             refreshCards()
         } catch {
-            assertionFailure("Failed to update persisted local feed card: \(error)")
+            assertionFailure("Failed to update persisted feed card: \(error)")
         }
     }
 
     private func refreshCards() {
-        cards = persistedLocalCards.map(\.newsFeedCard)
+        cards = persistedCards.map(\.newsFeedCard)
     }
 }
 
@@ -86,24 +86,24 @@ final class LocalFeedCardStore {
 final class FeedComposerViewModel {
     private(set) var draft: FeedComposerDraft
     private let channelsStore: ChannelsStore
-    private let publishAction: @MainActor (LocalFeedCardModel) -> Void
+    private let publishAction: @MainActor (FeedCard) -> Void
 
     convenience init(
         selectedChannelID: String,
         channelsStore: ChannelsStore,
-        localFeedCardStore: LocalFeedCardStore
+        feedCardStore: FeedCardStore
     ) {
         self.init(
             selectedChannelID: selectedChannelID,
             channelsStore: channelsStore,
-            publishAction: localFeedCardStore.publish
+            publishAction: feedCardStore.publish
         )
     }
 
     init(
         selectedChannelID: String,
         channelsStore: ChannelsStore,
-        publishAction: @escaping @MainActor (LocalFeedCardModel) -> Void
+        publishAction: @escaping @MainActor (FeedCard) -> Void
     ) {
         self.channelsStore = channelsStore
         self.publishAction = publishAction
@@ -316,7 +316,7 @@ final class FeedComposerViewModel {
         guard let card = draft.makeCard() else {
             return false
         }
-        publishAction(card.localFeedCardModel)
+        publishAction(card.feedCardModel)
         return true
     }
 }
@@ -349,7 +349,7 @@ final class AppShellViewModel {
     private let errorManager: any AppErrorManaging
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     let channelsStore: ChannelsStore
-    private let localFeedCardStore: LocalFeedCardStore
+    private let feedCardStore: FeedCardStore
 
     var isMenuOpen: Bool { state.isMenuOpen }
     var showsFloatingActionButton: Bool { state.showsFloatingActionButton }
@@ -364,7 +364,7 @@ final class AppShellViewModel {
     /// Creates the shell view model from repository-backed content.
     init(
         channelsStore: ChannelsStore,
-        localFeedCardStore: LocalFeedCardStore,
+        feedCardStore: FeedCardStore,
         newsFeedViewModel: NewsFeedViewModel,
         errorManager: any AppErrorManaging,
         uiConfigurationManager: any UIConfigurationManaging,
@@ -379,7 +379,7 @@ final class AppShellViewModel {
             activeComposer: nil
         )
         self.channelsStore = channelsStore
-        self.localFeedCardStore = localFeedCardStore
+        self.feedCardStore = feedCardStore
         self.sideMenuFooterText = sideMenuFooterText
         self.newsFeedViewModel = newsFeedViewModel
         self.errorManager = errorManager
@@ -411,7 +411,7 @@ final class AppShellViewModel {
         state.activeComposer = FeedComposerViewModel(
             selectedChannelID: selectedChannelIDForComposer,
             channelsStore: channelsStore,
-            localFeedCardStore: localFeedCardStore
+            feedCardStore: feedCardStore
         )
     }
 
@@ -420,7 +420,7 @@ final class AppShellViewModel {
     }
 
     func publishComposer() {
-        newsFeedViewModel.handleLocalChannelCardsChanged()
+        newsFeedViewModel.handleChannelCardsChanged()
         dismissComposer()
     }
 

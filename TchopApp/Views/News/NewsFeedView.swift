@@ -1,4 +1,5 @@
 import AVFoundation
+import ImageIO
 import Observation
 import PDFKit
 import SwiftUI
@@ -14,7 +15,7 @@ struct NewsFeedView: View {
     @State private var languageSelectionState: TranslationLanguageSelectionState?
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
-    let onLocalCardTap: (NewsRoute) -> Void
+    let onCardTap: (NewsRoute) -> Void
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
@@ -32,9 +33,14 @@ struct NewsFeedView: View {
                 }
 
                 NewsFeedContentSectionView(
-                    viewModel: viewModel,
+                    visibleContent: viewModel.visibleContent,
+                    showsNoSearchResults: viewModel.showsNoSearchResults,
+                    translatedCardProvider: viewModel.translatedFeedCard,
                     translationActionProvider: translationAction(for:),
-                    onLocalCardTap: onLocalCardTap
+                    onCardTap: onCardTap,
+                    onLikeTap: viewModel.toggleFeedCardLike,
+                    onCommentsTap: viewModel.incrementFeedCardComments,
+                    onSetDisplayMode: viewModel.setFeedCardDisplayMode
                 )
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
@@ -127,22 +133,30 @@ struct NewsFeedView: View {
 }
 
 private struct NewsFeedContentSectionView: View {
-    let viewModel: NewsFeedViewModel
+    let visibleContent: NewsFeedContent
+    let showsNoSearchResults: Bool
+    let translatedCardProvider: (FeedCard) -> FeedCard
     let translationActionProvider: (NewsFeedCard) -> FeedCardTranslationAction?
-    let onLocalCardTap: (NewsRoute) -> Void
+    let onCardTap: (NewsRoute) -> Void
+    let onLikeTap: (String) -> Void
+    let onCommentsTap: (String) -> Void
+    let onSetDisplayMode: (String, FeedCardDisplayMode) -> Void
 
     var body: some View {
-        if viewModel.visibleContent.cards.isEmpty && !viewModel.showsNoSearchResults {
+        if visibleContent.cards.isEmpty && !showsNoSearchResults {
             NewsFeedEmptyStateView()
-        } else if viewModel.showsNoSearchResults {
+        } else if showsNoSearchResults {
             NewsFeedSearchEmptyStateView()
         } else {
-            ForEach(Array(viewModel.visibleContent.cards), id: \.id) { card in
+            ForEach(visibleContent.cards, id: \.id) { card in
                 NewsFeedCardRendererView(
                     feedCard: card,
-                    viewModel: viewModel,
+                    translatedCardProvider: translatedCardProvider,
                     translationAction: translationActionProvider(card),
-                    onLocalCardTap: onLocalCardTap
+                    onCardTap: onCardTap,
+                    onLikeTap: onLikeTap,
+                    onCommentsTap: onCommentsTap,
+                    onSetDisplayMode: onSetDisplayMode
                 )
             }
         }
@@ -222,70 +236,73 @@ private struct NewsFeedSearchFieldView: View {
 
 private struct NewsFeedCardRendererView: View {
     let feedCard: NewsFeedCard
-    let viewModel: NewsFeedViewModel
+    let translatedCardProvider: (FeedCard) -> FeedCard
     let translationAction: FeedCardTranslationAction?
-    let onLocalCardTap: (NewsRoute) -> Void
+    let onCardTap: (NewsRoute) -> Void
+    let onLikeTap: (String) -> Void
+    let onCommentsTap: (String) -> Void
+    let onSetDisplayMode: (String, FeedCardDisplayMode) -> Void
 
     var body: some View {
         switch feedCard {
         case let .photo(content):
             switch content {
-            case let .local(localCard):
-                LocalPhotoCardView(
-                    card: viewModel.translatedLocalFeedCard(localCard),
+            case let .card(card):
+                FeedPhotoCardView(
+                    card: translatedCardProvider(card),
                     translationAction: translationAction,
-                    onTap: { onLocalCardTap(localCard.detailRoute) },
-                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: localCard.id) },
-                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
-                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
+                    onTap: { onCardTap(card.detailRoute) },
+                    onLikeTap: { onLikeTap(card.id) },
+                    onCommentsTap: { onCommentsTap(card.id) },
+                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
             }
         case let .text(content):
             switch content {
-            case let .local(localCard):
-                LocalTextCardView(
-                    card: viewModel.translatedLocalFeedCard(localCard),
+            case let .card(card):
+                FeedTextCardView(
+                    card: translatedCardProvider(card),
                     translationAction: translationAction,
-                    onTap: { onLocalCardTap(localCard.detailRoute) },
-                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: localCard.id) },
-                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: localCard.id) },
-                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: localCard.id, displayMode: $0) }
+                    onTap: { onCardTap(card.detailRoute) },
+                    onLikeTap: { onLikeTap(card.id) },
+                    onCommentsTap: { onCommentsTap(card.id) },
+                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
             }
         case let .video(content):
             switch content {
-            case let .local(card):
+            case let .card(card):
                 VideoCardView(
-                    content: .local(viewModel.translatedLocalFeedCard(card)),
+                    content: .card(translatedCardProvider(card)),
                     translationAction: translationAction,
-                    onTap: { onLocalCardTap(card.detailRoute) },
-                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: card.id) },
-                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: card.id) },
-                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: card.id, displayMode: $0) }
+                    onTap: { onCardTap(card.detailRoute) },
+                    onLikeTap: { onLikeTap(card.id) },
+                    onCommentsTap: { onCommentsTap(card.id) },
+                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
             }
         case let .audio(content):
             switch content {
-            case let .local(card):
+            case let .card(card):
                 AudioCardView(
-                    content: .local(viewModel.translatedLocalFeedCard(card)),
+                    content: .card(translatedCardProvider(card)),
                     translationAction: translationAction,
-                    onTap: { onLocalCardTap(card.detailRoute) },
-                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: card.id) },
-                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: card.id) },
-                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: card.id, displayMode: $0) }
+                    onTap: { onCardTap(card.detailRoute) },
+                    onLikeTap: { onLikeTap(card.id) },
+                    onCommentsTap: { onCommentsTap(card.id) },
+                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
             }
         case let .pdf(content):
             switch content {
-            case let .local(card):
+            case let .card(card):
                 PDFCardView(
-                    content: .local(viewModel.translatedLocalFeedCard(card)),
+                    content: .card(translatedCardProvider(card)),
                     translationAction: translationAction,
-                    onTap: { onLocalCardTap(card.detailRoute) },
-                    onLikeTap: { viewModel.toggleLocalCardLike(cardID: card.id) },
-                    onCommentsTap: { viewModel.incrementLocalCardComments(cardID: card.id) },
-                    onSetDisplayMode: { viewModel.setLocalCardDisplayMode(cardID: card.id, displayMode: $0) }
+                    onTap: { onCardTap(card.detailRoute) },
+                    onLikeTap: { onLikeTap(card.id) },
+                    onCommentsTap: { onCommentsTap(card.id) },
+                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
             }
         }
@@ -362,16 +379,16 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
 /// Zero-sized host view used only to discover the surrounding UIKit scroll view.
 private final class ObserverView: UIView {}
 
-private struct LocalTextCardView: View {
-    let card: LocalFeedCardModel
+private struct FeedTextCardView: View {
+    let card: FeedCard
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
 
     var body: some View {
-        LocalFeedCardContainer(
+        FeedCardContainer(
             card: card,
             mediaHeight: nil,
             translationAction: translationAction,
@@ -385,16 +402,16 @@ private struct LocalTextCardView: View {
     }
 }
 
-private struct LocalPhotoCardView: View {
-    let card: LocalFeedCardModel
+private struct FeedPhotoCardView: View {
+    let card: FeedCard
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
 
     var body: some View {
-        LocalFeedCardContainer(
+        FeedCardContainer(
             card: card,
             mediaHeight: 220,
             translationAction: translationAction,
@@ -404,7 +421,7 @@ private struct LocalPhotoCardView: View {
             onSetDisplayMode: onSetDisplayMode
         ) {
             if case let .photos(items)? = card.mediaContent {
-                LocalPhotoMediaPreview(items: items)
+                FeedPhotoMediaPreview(items: items)
             }
         }
     }
@@ -416,12 +433,12 @@ private struct VideoCardView: View {
     let onTap: () -> Void
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
 
     var body: some View {
         switch content {
-        case let .local(card):
-            LocalFileCardView(
+        case let .card(card):
+            FeedFileCardView(
                 card: card,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
@@ -429,12 +446,12 @@ private struct VideoCardView: View {
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
                 onSetDisplayMode: onSetDisplayMode,
-                preview: { file in AnyView(LocalVideoMediaView(file: file)) }
+                preview: { file in AnyView(FeedVideoMediaView(file: file)) }
             )
         }
     }
 
-    private static func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
+    private static func fileMediaPreviewHeight(for card: FeedCard) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
@@ -449,12 +466,12 @@ private struct AudioCardView: View {
     let onTap: () -> Void
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
 
     var body: some View {
         switch content {
-        case let .local(card):
-            LocalFileCardView(
+        case let .card(card):
+            FeedFileCardView(
                 card: card,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
@@ -462,12 +479,12 @@ private struct AudioCardView: View {
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
                 onSetDisplayMode: onSetDisplayMode,
-                preview: { file in AnyView(LocalAudioMediaView(file: file)) }
+                preview: { file in AnyView(FeedAudioMediaView(file: file)) }
             )
         }
     }
 
-    private static func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
+    private static func fileMediaPreviewHeight(for card: FeedCard) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
@@ -482,12 +499,12 @@ private struct PDFCardView: View {
     let onTap: () -> Void
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
 
     var body: some View {
         switch content {
-        case let .local(card):
-            LocalFileCardView(
+        case let .card(card):
+            FeedFileCardView(
                 card: card,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
@@ -495,12 +512,12 @@ private struct PDFCardView: View {
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
                 onSetDisplayMode: onSetDisplayMode,
-                preview: { file in AnyView(LocalPDFMediaView(file: file)) }
+                preview: { file in AnyView(FeedPDFMediaView(file: file)) }
             )
         }
     }
 
-    private static func fileMediaPreviewHeight(for card: LocalFeedCardModel) -> CGFloat {
+    private static func fileMediaPreviewHeight(for card: FeedCard) -> CGFloat {
         guard case let .file(file)? = card.mediaContent else {
             return 180
         }
@@ -509,18 +526,18 @@ private struct PDFCardView: View {
     }
 }
 
-private struct LocalFileCardView: View {
-    let card: LocalFeedCardModel
+private struct FeedFileCardView: View {
+    let card: FeedCard
     let mediaHeight: CGFloat
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
-    let preview: (LocalFeedFileMediaContent) -> AnyView
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
+    let preview: (FeedFileMediaContent) -> AnyView
 
     var body: some View {
-        LocalFeedCardContainer(
+        FeedCardContainer(
             card: card,
             mediaHeight: mediaHeight,
             translationAction: translationAction,
@@ -535,7 +552,7 @@ private struct LocalFileCardView: View {
         }
     }
 
-    private var fileContent: LocalFeedFileMediaContent? {
+    private var fileContent: FeedFileMediaContent? {
         guard case let .file(file)? = card.mediaContent else {
             return nil
         }
@@ -544,26 +561,26 @@ private struct LocalFileCardView: View {
     }
 }
 
-private struct LocalFeedCardContainer<MediaBody: View>: View {
+private struct FeedCardContainer<MediaBody: View>: View {
     @Environment(\.openURL) private var openURL
 
-    let card: LocalFeedCardModel
+    let card: FeedCard
     let mediaHeight: CGFloat?
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
     let mediaBody: MediaBody
 
     init(
-        card: LocalFeedCardModel,
+        card: FeedCard,
         mediaHeight: CGFloat?,
         translationAction: FeedCardTranslationAction?,
         onTap: @escaping () -> Void,
         onLikeTap: @escaping () -> Void,
         onCommentsTap: @escaping () -> Void,
-        onSetDisplayMode: @escaping (LocalFeedCardDisplayMode) -> Void,
+        onSetDisplayMode: @escaping (FeedCardDisplayMode) -> Void,
         @ViewBuilder mediaBody: () -> MediaBody
     ) {
         self.card = card
@@ -633,7 +650,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
                 .overlay(AppTheme.borderSubtle)
                 .padding(.horizontal, 14)
 
-            LocalFeedActionBar(
+            FeedActionBar(
                 isLiked: card.isLiked,
                 commentsCount: card.commentsCount,
                 displayMode: card.displayMode,
@@ -705,7 +722,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         return URL(string: resourceURLString)
     }
 
-    private func font(for kind: LocalFeedTextFieldKind) -> Font {
+    private func font(for kind: FeedTextFieldKind) -> Font {
         switch kind {
         case .text:
             return .system(size: 24, weight: .regular)
@@ -718,7 +735,7 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
         }
     }
 
-    private func color(for kind: LocalFeedTextFieldKind) -> Color {
+    private func color(for kind: FeedTextFieldKind) -> Color {
         switch kind {
         case .text, .headline:
             return AppTheme.textPrimary
@@ -730,13 +747,13 @@ private struct LocalFeedCardContainer<MediaBody: View>: View {
     }
 }
 
-private struct LocalFeedActionBar: View {
+private struct FeedActionBar: View {
     let isLiked: Bool
     let commentsCount: Int
-    let displayMode: LocalFeedCardDisplayMode
+    let displayMode: FeedCardDisplayMode
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
-    let onSetDisplayMode: (LocalFeedCardDisplayMode) -> Void
+    let onSetDisplayMode: (FeedCardDisplayMode) -> Void
     let onRefreshCard: () -> Void
     let onRunUpdateTask: () -> Void
 
@@ -848,14 +865,16 @@ struct FeedCardTranslationButton: View {
     }
 }
 
-private struct LocalPhotoMediaPreview: View {
-    let items: [LocalFeedPhotoItem]
+private struct FeedPhotoMediaPreview: View {
+    let items: [FeedPhotoItem]
 
     var body: some View {
         if let item = items.first {
-            LocalImageMediaFrame(
+            FeedAsyncMediaFrame(
                 fileURLString: item.fileURLString,
+                previewKind: .image,
                 fallbackSystemImage: "photo",
+                fallbackIconSize: 32,
                 caption: item.caption,
                 copyright: item.copyright
             )
@@ -863,109 +882,72 @@ private struct LocalPhotoMediaPreview: View {
     }
 }
 
-private struct LocalImageMediaFrame: View {
+private struct FeedAsyncMediaFrame: View {
     let fileURLString: String?
+    let previewKind: FeedMediaPreviewKind
     let fallbackSystemImage: String
+    let fallbackIconSize: CGFloat
     let caption: String?
     let copyright: String?
 
-    private var image: UIImage? {
-        guard let fileURL = resolvedFileURL else {
-            return nil
-        }
+    @State private var image: UIImage?
 
-        if let image = UIImage(contentsOfFile: fileURL.path) {
-            return image
-        }
-
-        if let decodedPath = fileURL.path.removingPercentEncoding,
-           let image = UIImage(contentsOfFile: decodedPath) {
-            return image
-        }
-
-        if let fileURLString,
-           let image = UIImage(contentsOfFile: fileURLString) {
-            return image
-        }
-
-        return nil
-    }
-
-    private var resolvedFileURL: URL? {
-        LocalComposerMediaPathResolver.resolve(fileURLString: fileURLString)
+    private var requestID: String {
+        "\(previewKind.rawValue)|\(fileURLString ?? "")"
     }
 
     var body: some View {
-        ZStack(alignment: .bottom) {
-            imageSurface
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-
-            if hasMetadata {
-                LocalMediaMetadataBar(caption: caption, copyright: copyright)
-            }
-        }
-        .frame(maxWidth: .infinity)
-        .frame(maxHeight: .infinity)
-        .clipped()
-        .clipShape(RoundedRectangle(cornerRadius: AppRadius.badge, style: .continuous))
-    }
-
-    @ViewBuilder
-    private var imageSurface: some View {
-        if let image {
-            Image(uiImage: image)
-                .resizable()
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
-        } else {
-            AppTheme.surfaceSecondary
-                .overlay {
-                    Image(systemName: fallbackSystemImage)
-                        .font(.system(size: 32, weight: .semibold))
-                        .foregroundStyle(AppTheme.textSecondary)
-                }
-        }
-    }
-
-    private var hasMetadata: Bool {
-        caption?.isEmpty == false || copyright?.isEmpty == false
-    }
-}
-
-private struct LocalVideoMediaView: View {
-    let file: LocalFeedFileMediaContent
-
-    var body: some View {
-        LocalFileMediaStackView(file: file) {
-            LocalVideoPreviewFrame(file: file)
+        FeedImageLikeMediaFrame(
+            image: image,
+            fallbackSystemImage: fallbackSystemImage,
+            fallbackIconSize: fallbackIconSize,
+            caption: caption,
+            copyright: copyright
+        )
+        .task(id: requestID) {
+            image = await FeedMediaPreviewLoader.preview(
+                fileURLString: fileURLString,
+                kind: previewKind
+            )
         }
     }
 }
 
-private struct LocalAudioMediaView: View {
-    let file: LocalFeedFileMediaContent
+private struct FeedVideoMediaView: View {
+    let file: FeedFileMediaContent
 
     var body: some View {
-        LocalFileMediaStackView(file: file) {
-            LocalAudioPreviewFrame(file: file)
+        FeedFileMediaStackView(file: file) {
+            FeedVideoPreviewFrame(file: file)
         }
     }
 }
 
-private struct LocalPDFMediaView: View {
-    let file: LocalFeedFileMediaContent
+private struct FeedAudioMediaView: View {
+    let file: FeedFileMediaContent
 
     var body: some View {
-        LocalFileMediaStackView(file: file) {
-            LocalPDFPreviewFrame(file: file)
+        FeedFileMediaStackView(file: file) {
+            FeedAudioPreviewFrame(file: file)
         }
     }
 }
 
-private struct LocalFileMediaStackView<MediaPreview: View>: View {
-    let file: LocalFeedFileMediaContent
+private struct FeedPDFMediaView: View {
+    let file: FeedFileMediaContent
+
+    var body: some View {
+        FeedFileMediaStackView(file: file) {
+            FeedPDFPreviewFrame(file: file)
+        }
+    }
+}
+
+private struct FeedFileMediaStackView<MediaPreview: View>: View {
+    let file: FeedFileMediaContent
     let mediaPreview: MediaPreview
 
-    init(file: LocalFeedFileMediaContent, @ViewBuilder mediaPreview: () -> MediaPreview) {
+    init(file: FeedFileMediaContent, @ViewBuilder mediaPreview: () -> MediaPreview) {
         self.file = file
         self.mediaPreview = mediaPreview()
     }
@@ -985,29 +967,16 @@ private struct LocalFileMediaStackView<MediaPreview: View>: View {
     }
 }
 
-private struct LocalVideoPreviewFrame: View {
-    let file: LocalFeedFileMediaContent
-
-    private var thumbnail: UIImage? {
-        guard let fileURL = file.fileURL else {
-            return nil
-        }
-
-        let asset = AVURLAsset(url: fileURL)
-        let generator = AVAssetImageGenerator(asset: asset)
-        generator.appliesPreferredTrackTransform = true
-        guard let cgImage = try? generator.copyCGImage(at: .zero, actualTime: nil) else {
-            return nil
-        }
-
-        return UIImage(cgImage: cgImage)
-    }
+private struct FeedVideoPreviewFrame: View {
+    let file: FeedFileMediaContent
 
     var body: some View {
         ZStack {
-            LocalImageLikeMediaFrame(
-                image: thumbnail,
+            FeedAsyncMediaFrame(
+                fileURLString: file.fileURLString,
+                previewKind: .video,
                 fallbackSystemImage: "video",
+                fallbackIconSize: 42,
                 caption: file.caption,
                 copyright: nil
             )
@@ -1020,11 +989,11 @@ private struct LocalVideoPreviewFrame: View {
     }
 }
 
-private struct LocalAudioPreviewFrame: View {
-    let file: LocalFeedFileMediaContent
+private struct FeedAudioPreviewFrame: View {
+    let file: FeedFileMediaContent
 
     var body: some View {
-        LocalImageLikeMediaFrame(
+        FeedImageLikeMediaFrame(
             image: nil,
             fallbackSystemImage: "music.note",
             caption: file.caption,
@@ -1033,32 +1002,25 @@ private struct LocalAudioPreviewFrame: View {
     }
 }
 
-private struct LocalPDFPreviewFrame: View {
-    let file: LocalFeedFileMediaContent
-
-    private var thumbnail: UIImage? {
-        guard let fileURL = file.fileURL,
-              let document = PDFDocument(url: fileURL),
-              let page = document.page(at: 0) else {
-            return nil
-        }
-
-        return page.thumbnail(of: CGSize(width: 640, height: 420), for: .mediaBox)
-    }
+private struct FeedPDFPreviewFrame: View {
+    let file: FeedFileMediaContent
 
     var body: some View {
-        LocalImageLikeMediaFrame(
-            image: thumbnail,
+        FeedAsyncMediaFrame(
+            fileURLString: file.fileURLString,
+            previewKind: .pdf,
             fallbackSystemImage: "doc.text",
+            fallbackIconSize: 42,
             caption: file.caption,
             copyright: nil
         )
     }
 }
 
-private struct LocalImageLikeMediaFrame: View {
+private struct FeedImageLikeMediaFrame: View {
     let image: UIImage?
     let fallbackSystemImage: String
+    var fallbackIconSize: CGFloat = 42
     let caption: String?
     let copyright: String?
 
@@ -1068,7 +1030,7 @@ private struct LocalImageLikeMediaFrame: View {
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
 
             if hasMetadata {
-                LocalMediaMetadataBar(caption: caption, copyright: copyright)
+                FeedMediaMetadataBar(caption: caption, copyright: copyright)
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -1086,7 +1048,7 @@ private struct LocalImageLikeMediaFrame: View {
             AppTheme.surfaceSecondary
                 .overlay {
                     Image(systemName: fallbackSystemImage)
-                        .font(.system(size: 42, weight: .semibold))
+                        .font(.system(size: fallbackIconSize, weight: .semibold))
                         .foregroundStyle(AppTheme.textSecondary)
                 }
         }
@@ -1097,7 +1059,7 @@ private struct LocalImageLikeMediaFrame: View {
     }
 }
 
-private struct LocalMediaMetadataBar: View {
+private struct FeedMediaMetadataBar: View {
     private static let height: CGFloat = 56
 
     let caption: String?
@@ -1131,13 +1093,15 @@ private struct LocalMediaMetadataBar: View {
 }
 
 private struct FeedMediaTeaserBlock: View {
-    let teaserImage: LocalFeedTeaserImageContent?
+    let teaserImage: FeedTeaserImageContent?
 
     var body: some View {
         if let teaserImage {
-            LocalImageMediaFrame(
+            FeedAsyncMediaFrame(
                 fileURLString: teaserImage.fileURLString,
+                previewKind: .image,
                 fallbackSystemImage: "photo",
+                fallbackIconSize: 32,
                 caption: nil,
                 copyright: teaserImage.copyright
             )
@@ -1145,13 +1109,107 @@ private struct FeedMediaTeaserBlock: View {
     }
 }
 
-private extension LocalFeedFileMediaContent {
-    var fileURL: URL? {
-        LocalComposerMediaPathResolver.resolve(fileURLString: fileURLString)
+
+private enum FeedMediaPreviewKind: String, Hashable, Sendable {
+    case image
+    case video
+    case pdf
+}
+
+@MainActor
+private final class FeedMediaPreviewMemoryCache {
+    static let shared = FeedMediaPreviewMemoryCache()
+
+    private let cache = NSCache<NSString, UIImage>()
+
+    private init() {
+        cache.countLimit = 160
+    }
+
+    func image(for key: String) -> UIImage? {
+        cache.object(forKey: key as NSString)
+    }
+
+    func setImage(_ image: UIImage, for key: String) {
+        cache.setObject(image, forKey: key as NSString)
     }
 }
 
-private enum LocalComposerMediaPathResolver {
+private enum FeedMediaPreviewLoader {
+    static func preview(fileURLString: String?, kind: FeedMediaPreviewKind) async -> UIImage? {
+        guard let fileURLString, !fileURLString.isEmpty else {
+            return nil
+        }
+
+        let cacheKey = "\(kind.rawValue)|\(fileURLString)"
+        if let cachedImage = await FeedMediaPreviewMemoryCache.shared.image(for: cacheKey) {
+            return cachedImage
+        }
+
+        let image = await Task.detached(priority: .utility) {
+            guard let fileURL = ComposerMediaPathResolver.resolve(fileURLString: fileURLString) else {
+                return nil as UIImage?
+            }
+
+            switch kind {
+            case .image:
+                return downsampledImage(at: fileURL, maxPixelSize: 1200)
+            case .video:
+                return videoThumbnail(at: fileURL)
+            case .pdf:
+                return pdfThumbnail(at: fileURL)
+            }
+        }.value
+
+        if let image {
+            await FeedMediaPreviewMemoryCache.shared.setImage(image, for: cacheKey)
+        }
+
+        return image
+    }
+
+    private static func downsampledImage(at url: URL, maxPixelSize: CGFloat) -> UIImage? {
+        let options = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithURL(url as CFURL, options) else {
+            return nil
+        }
+
+        let thumbnailOptions = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxPixelSize
+        ] as CFDictionary
+
+        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(source, 0, thumbnailOptions) else {
+            return nil
+        }
+
+        return UIImage(cgImage: cgImage)
+    }
+
+    private static func videoThumbnail(at url: URL) -> UIImage? {
+        let asset = AVURLAsset(url: url)
+        let generator = AVAssetImageGenerator(asset: asset)
+        generator.appliesPreferredTrackTransform = true
+        guard let cgImage = try? generator.copyCGImage(at: .zero, actualTime: nil) else {
+            return nil
+        }
+
+        return UIImage(cgImage: cgImage)
+    }
+
+    private static func pdfThumbnail(at url: URL) -> UIImage? {
+        guard let document = PDFDocument(url: url),
+              let page = document.page(at: 0) else {
+            return nil
+        }
+
+        return page.thumbnail(of: CGSize(width: 640, height: 420), for: .mediaBox)
+    }
+}
+
+private enum ComposerMediaPathResolver {
     private static let mediaDirectoryName = "TchopComposerMedia"
 
     static func resolve(fileURLString: String?) -> URL? {
@@ -1192,7 +1250,7 @@ private enum LocalComposerMediaPathResolver {
     NewsFeedView(
         viewModel: ViewPreviewSupport.makeNewsFeedViewModel(),
         onScrollProximityChange: { _ in },
-        onLocalCardTap: { _ in }
+        onCardTap: { _ in }
     )
 }
 #endif

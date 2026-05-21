@@ -14,7 +14,7 @@ A card published from the app composer must be self-contained enough to survive 
 - `Core Data` is fallback-only historical material, not the active design direction.
 
 ## Published Card Persistence
-A published local card must persist:
+A published feed card must persist:
 - card id
 - channel id
 - created date
@@ -67,11 +67,11 @@ Persisted cards should be able to carry future sync metadata such as:
 
 ## Recommended Sync Shape
 For future backend integration, prefer this direction:
-1. Persist local card and durable media first.
+1. Persist feed card and durable media first.
 2. Create an outbound mutation record for backend sync.
 3. Let `SyncCore` own mutation queue mechanics, retry, and status transitions.
 4. Keep app-specific card mapping, media upload semantics, endpoint payloads, and UI policy in `TchopApp`.
-5. Merge backend responses into the same local card record instead of replacing it with a separate remote-only object.
+5. Merge backend responses into the same feed card record instead of replacing it with a separate remote-only object.
 6. Preserve local interaction state unless backend explicitly owns and returns a newer authoritative value.
 7. Treat media upload as part of sync: upload durable local files, then persist remote asset references when accepted.
 

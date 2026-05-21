@@ -27,8 +27,8 @@ struct AccountProfileSummary: Equatable {
             providerTitle = AppLocalization.text("profile.provider.apple")
             providerDescription = AppLocalization.text("profile.provider.appleDescription")
         } else {
-            providerTitle = AppLocalization.text("profile.provider.local")
-            providerDescription = AppLocalization.text("profile.provider.localDescription")
+            providerTitle = AppLocalization.text("profile.provider.device")
+            providerDescription = AppLocalization.text("profile.provider.deviceDescription")
         }
     }
 

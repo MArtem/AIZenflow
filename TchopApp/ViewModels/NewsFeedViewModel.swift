@@ -116,9 +116,16 @@ enum NewsFeedState: Equatable {
 final class NewsFeedViewModel {
     /// Explicit screen state used by the news feed UI.
     private(set) var state: NewsFeedState
+    /// Feed content visible after applying current channel and search state.
+    private(set) var visibleContent = NewsFeedContent(cards: [], availability: .live)
+    private var hasCardsInCurrentChannel = false
 
     /// Current free-text search query applied to cards from the selected channel only.
-    var searchQuery: String = ""
+    var searchQuery: String = "" {
+        didSet {
+            refreshVisibleContent()
+        }
+    }
 
     /// Whether the search field for the current channel is currently visible.
     private(set) var isSearchPresented: Bool = false
@@ -127,8 +134,8 @@ final class NewsFeedViewModel {
     private let channelsStore: ChannelsStore
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let errorManager: any AppErrorManaging
-    private let localFeedCardStore: LocalFeedCardStore
-    private let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
+    private let feedCardStore: FeedCardStore
+    private let sharedFeedCardSyncManager: SharedFeedCardSyncManager?
     private let onDeviceAIManager: any OnDeviceAIManaging
     private let cardTranslationStore: CardTranslationStore
 
@@ -137,34 +144,26 @@ final class NewsFeedViewModel {
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
-        localFeedCardStore: LocalFeedCardStore,
-        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = nil,
+        feedCardStore: FeedCardStore,
+        sharedFeedCardSyncManager: SharedFeedCardSyncManager? = nil,
         onDeviceAIManager: any OnDeviceAIManaging = OnDeviceAIManagerFactory.makeDefaultManager(),
         cardTranslationStore: CardTranslationStore = CardTranslationStore()
     ) {
         self.channelsStore = channelsStore
         self.widgetContentSyncManager = widgetContentSyncManager
         self.errorManager = errorManager
-        self.localFeedCardStore = localFeedCardStore
-        self.sharedLocalFeedCardSyncManager = sharedLocalFeedCardSyncManager
+        self.feedCardStore = feedCardStore
+        self.sharedFeedCardSyncManager = sharedFeedCardSyncManager
         self.onDeviceAIManager = onDeviceAIManager
         self.cardTranslationStore = cardTranslationStore
         self.state = .empty(Self.emptyContent)
-        widgetContentSyncManager.syncFeed(content: Self.emptyContent)
+        refreshVisibleContent()
+        widgetContentSyncManager.syncFeed(content: visibleContent)
     }
 
     /// Current feed content shown by the news screen.
     var content: NewsFeedContent {
         state.content
-    }
-
-    /// Feed content visible after applying the current channel-local search query.
-    var visibleContent: NewsFeedContent {
-        let localCards = localFeedCardStore.cards(for: currentChannelID)
-        return NewsFeedContent(
-            cards: filteredCards(from: localCards, query: searchQuery),
-            availability: .live
-        )
     }
 
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {
@@ -209,34 +208,34 @@ final class NewsFeedViewModel {
             : AppLocalization.text("news.card.translation.see")
     }
 
-    func translatedLocalFeedCard(_ card: LocalFeedCardModel) -> LocalFeedCardModel {
+    func translatedFeedCard(_ card: FeedCard) -> FeedCard {
         card.translated(using: cardTranslationStore.snapshot(for: card.id))
     }
 
-    func toggleLocalCardLike(cardID: String) {
-        updateLocalCard(cardID: cardID) { card in
+    func toggleFeedCardLike(cardID: String) {
+        updateFeedCard(cardID: cardID) { card in
             card.replacingInteractionState(isLiked: !card.isLiked)
         }
     }
 
-    func incrementLocalCardComments(cardID: String) {
-        updateLocalCard(cardID: cardID) { card in
+    func incrementFeedCardComments(cardID: String) {
+        updateFeedCard(cardID: cardID) { card in
             card.replacingInteractionState(commentsCount: card.commentsCount + 1)
         }
     }
 
-    func setLocalCardDisplayMode(cardID: String, displayMode: LocalFeedCardDisplayMode) {
-        updateLocalCard(cardID: cardID) { card in
+    func setFeedCardDisplayMode(cardID: String, displayMode: FeedCardDisplayMode) {
+        updateFeedCard(cardID: cardID) { card in
             card.replacingInteractionState(displayMode: displayMode)
         }
     }
 
-    private func updateLocalCard(
+    private func updateFeedCard(
         cardID: String,
-        transform: (LocalFeedCardModel) -> LocalFeedCardModel
+        transform: (FeedCard) -> FeedCard
     ) {
-        localFeedCardStore.updatePersistedCard(id: cardID, transform: transform)
-        handleLocalChannelCardsChanged()
+        feedCardStore.updatePersistedCard(id: cardID, transform: transform)
+        handleChannelCardsChanged()
     }
 
     func translatedRoute(for route: NewsRoute) -> NewsRoute {
@@ -293,7 +292,7 @@ final class NewsFeedViewModel {
             result: result
         )
         cardTranslationStore.save(snapshot)
-        state = Self.resolvedState(for: state.content)
+        refreshVisibleContent()
     }
 
     func performTranslation(
@@ -324,11 +323,11 @@ final class NewsFeedViewModel {
 
     func restoreOriginalCardText(cardID: String) {
         cardTranslationStore.remove(cardID: cardID)
-        state = Self.resolvedState(for: state.content)
+        refreshVisibleContent()
     }
 
-    func handleLocalChannelCardsChanged() {
-        state = Self.resolvedState(for: state.content)
+    func handleChannelCardsChanged() {
+        refreshVisibleContent()
     }
 
     /// Whether a feed refresh is currently running.
@@ -346,19 +345,19 @@ final class NewsFeedViewModel {
         isSearchPresented &&
             !trimmedSearchQuery.isEmpty &&
             visibleContent.cards.isEmpty &&
-            !localFeedCardStore.cards(for: currentChannelID).isEmpty
+            hasCardsInCurrentChannel
     }
 
     /// Starts a user-driven refresh when no feed request is already running.
     /// Online refresh goes through the API path; offline refresh keeps the stored snapshot and updates the UI source metadata.
     func refresh() {
-        syncSharedLocalCardsIfNeeded()
-        handleLocalChannelCardsChanged()
+        syncSharedFeedCardsIfNeeded()
+        handleChannelCardsChanged()
     }
 
     /// Retries feed loading only after a visible failed state.
     func retry() {
-        handleLocalChannelCardsChanged()
+        handleChannelCardsChanged()
     }
 
     /// Opens or closes the current-channel search UI.
@@ -369,7 +368,7 @@ final class NewsFeedViewModel {
         }
     }
 
-    /// Re-resolves local cards for a newly selected channel.
+    /// Re-resolves feed cards for a newly selected channel.
     func handleSelectedChannelChange() {
         searchQuery = ""
         isSearchPresented = false
@@ -378,27 +377,27 @@ final class NewsFeedViewModel {
             setEmptyState()
             return
         }
-        handleLocalChannelCardsChanged()
+        handleChannelCardsChanged()
     }
 
-    func syncSharedLocalCardsIfNeeded() {
-        guard let sharedLocalFeedCardSyncManager else {
+    func syncSharedFeedCardsIfNeeded() {
+        guard let sharedFeedCardSyncManager else {
             return
         }
 
         do {
-            let importedCount = try sharedLocalFeedCardSyncManager.syncPendingCards(into: localFeedCardStore)
+            let importedCount = try sharedFeedCardSyncManager.syncPendingCards(into: feedCardStore)
             guard importedCount > 0 else {
                 return
             }
 
-            handleLocalChannelCardsChanged()
+            handleChannelCardsChanged()
         } catch {
             Task { @MainActor [errorManager] in
                 _ = await errorManager.presentableError(
                     from: error,
                     context: AppErrorContext(
-                        operation: "syncSharedLocalCards",
+                        operation: "syncSharedFeedCards",
                         feature: "newsFeed"
                     )
                 )
@@ -407,7 +406,19 @@ final class NewsFeedViewModel {
     }
 
     private func setEmptyState() {
+        hasCardsInCurrentChannel = false
+        visibleContent = Self.emptyContent
         state = .empty(Self.emptyContent)
+    }
+
+    private func refreshVisibleContent() {
+        let channelCards = feedCardStore.cards(for: currentChannelID)
+        hasCardsInCurrentChannel = !channelCards.isEmpty
+        visibleContent = NewsFeedContent(
+            cards: filteredCards(from: channelCards, query: searchQuery),
+            availability: .live
+        )
+        state = Self.resolvedState(for: visibleContent)
     }
 
     /// Maps local feed content into the explicit feed state used by the screen.

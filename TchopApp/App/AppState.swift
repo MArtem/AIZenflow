@@ -27,7 +27,7 @@ final class AppState {
     private let channelsStore: ChannelsStore
     private let sessionService: any UserSessionManaging
     private let userRepository: any UserRepository
-    private let channelSettingsRepository: LocalUserChannelSettingsRepository
+    private let channelSettingsRepository: UserChannelSettingsRepository
     private let navigationStateManager: any NavigationStateManaging
     private let deepLinkManager: any DeepLinkManaging
     private let navigationEventReporter: any NavigationEventReporting
@@ -53,7 +53,7 @@ final class AppState {
         channelsStore: ChannelsStore,
         sessionService: any UserSessionManaging,
         userRepository: any UserRepository,
-        channelSettingsRepository: LocalUserChannelSettingsRepository,
+        channelSettingsRepository: UserChannelSettingsRepository,
         navigationStateManager: any NavigationStateManaging,
         deepLinkManager: any DeepLinkManaging,
         navigationEventReporter: any NavigationEventReporting,
@@ -171,7 +171,7 @@ final class AppState {
         }
 
         syncShareExtensionSessionContextIfNeeded()
-        appShellViewModel.newsFeedViewModel.syncSharedLocalCardsIfNeeded()
+        appShellViewModel.newsFeedViewModel.syncSharedFeedCardsIfNeeded()
     }
 
     /// Restores the previously persisted user session if one exists.

@@ -89,7 +89,7 @@ Canonical contracts:
 Current product baseline:
 - card kinds: `text`, `photo`, `video`, `audio`, `pdf`
 - text render order: `text`, `headline`, `subheadline`, `source`
-- local cards must persist through SwiftData and durable media references
+- feed cards must persist through SwiftData and durable media references
 - future backend/API sync should merge into local-first records instead of creating permanent local-vs-remote split behavior
 
 ## Dependency Map
@@ -105,10 +105,10 @@ TchopApp.swift
 
 AppShellViewModel
   -> NewsFeedViewModel
-    -> LocalFeedCardStore
-      -> LocalFeedCardRepository
+    -> FeedCardStore
+      -> FeedCardRepository
         -> TchopDatabase / SwiftData
-    -> SharedLocalFeedCardSyncManager
+    -> SharedFeedCardSyncManager
       -> TchopShareSupport app-group storage
 ```
 

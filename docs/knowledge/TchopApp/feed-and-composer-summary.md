@@ -15,7 +15,7 @@
 
 ## Runtime Direction
 - Locally created cards should converge with future API cards into the same feed-card semantics.
-- Published local cards must persist through SwiftData and durable media files.
+- Published feed cards must persist through SwiftData and durable media files.
 - Feed rendering should not maintain permanent local-vs-remote split behavior unless product requires it.
 
 ## Canonical Detailed Contracts

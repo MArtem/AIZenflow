@@ -9,7 +9,7 @@ final class ShareViewController: UIViewController {
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = try? ShareExtensionSessionContextManager(
         groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
     )
-    private let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager? = try? SharedLocalFeedCardSyncManager(
+    private let sharedFeedCardSyncManager: SharedFeedCardSyncManager? = try? SharedFeedCardSyncManager(
         groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
     )
 
@@ -64,7 +64,7 @@ final class ShareViewController: UIViewController {
         guard
             let importer,
             let shareExtensionSessionContextManager,
-            let sharedLocalFeedCardSyncManager
+            let sharedFeedCardSyncManager
         else {
             installRootView(
                 state: .failed(
@@ -93,7 +93,7 @@ final class ShareViewController: UIViewController {
             let composerViewModel = try makeComposerViewModel(
                 sessionContext: sessionContext,
                 importedItems: importedItems,
-                sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager
+                sharedFeedCardSyncManager: sharedFeedCardSyncManager
             )
             self.composerViewModel = composerViewModel
             installRootView(state: .composer(composerViewModel))
@@ -106,7 +106,7 @@ final class ShareViewController: UIViewController {
     private func makeComposerViewModel(
         sessionContext: ShareExtensionSessionContext,
         importedItems: [ShareImportedItem],
-        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager
+        sharedFeedCardSyncManager: SharedFeedCardSyncManager
     ) throws -> FeedComposerViewModel {
         let channelsStore = ChannelsStore(
             selectionStore: UserDefaultsChannelSelectionStore(
@@ -124,13 +124,13 @@ final class ShareViewController: UIViewController {
         let viewModel = FeedComposerViewModel(
             selectedChannelID: selectedChannelID,
             channelsStore: channelsStore,
-            publishAction: { [weak self] localFeedCard in
+            publishAction: { [weak self] feedCard in
                 guard let self else {
                     return
                 }
 
                 do {
-                    try sharedLocalFeedCardSyncManager.publishImportedCard(localFeedCard)
+                    try sharedFeedCardSyncManager.publishImportedCard(feedCard)
                 } catch {
                     self.publishFailureMessage = "Failed to publish shared card."
                 }

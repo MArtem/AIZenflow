@@ -1,14 +1,8 @@
 import Foundation
 import SwiftData
 
-/// Legacy remote feed-card kinds retained for SwiftData migration/backward compatibility.
-enum FeedCardRecordKind: String, Codable, Sendable {
-    case photo = "photo"
-    case text = "text"
-}
-
-/// Sync state for locally created feed cards that are persisted before backend support exists.
-enum LocalFeedCardRecordSyncState: String, Codable, Sendable {
+/// Sync state for feed cards that are persisted before backend support exists.
+enum FeedCardRecordSyncState: String, Codable, Sendable {
     case pendingCreate
     case synced
     case failed
@@ -34,91 +28,10 @@ final class ChannelRecord {
     }
 }
 
-/// Legacy SwiftData record for remote home-feed snapshots retained for migration/backward compatibility.
+/// SwiftData record storing the full feed-card payload created from composer/share/API flows.
 @available(iOS 17, *)
 @Model
 final class FeedCardRecord {
-    @Attribute(.unique) var id: String
-    var channelID: String
-    var kindRawValue: String
-    var sortOrder: Int
-    var remoteUpdatedAt: Date
-    var syncedAt: Date
-    var publishedAt: Date?
-
-    var postedInPrefix: String?
-    var sourceTitle: String?
-    var brandTitle: String?
-    var headline: String
-    var summary: String?
-    var metadataLine: String?
-    var translationLabel: String?
-    var articleActionsData: Data?
-    var articleStateData: Data?
-
-    var categoryTitle: String?
-    var participantsData: Data?
-    var joinedText: String?
-    var discussionStateData: Data?
-
-    /// Creates a legacy remote feed-card record.
-    ///
-    /// Active feed runtime uses `LocalFeedCardRecord`; this shape remains in the schema so
-    /// existing stores and Core Data migration payloads can still be opened safely.
-    init(
-        id: String,
-        channelID: String,
-        kind: FeedCardRecordKind,
-        sortOrder: Int,
-        remoteUpdatedAt: Date,
-        syncedAt: Date,
-        publishedAt: Date? = nil,
-        postedInPrefix: String? = nil,
-        sourceTitle: String? = nil,
-        brandTitle: String? = nil,
-        headline: String,
-        summary: String? = nil,
-        metadataLine: String? = nil,
-        translationLabel: String? = nil,
-        articleActionsData: Data? = nil,
-        articleStateData: Data? = nil,
-        categoryTitle: String? = nil,
-        participantsData: Data? = nil,
-        joinedText: String? = nil,
-        discussionStateData: Data? = nil
-    ) {
-        self.id = id
-        self.channelID = channelID
-        self.kindRawValue = kind.rawValue
-        self.sortOrder = sortOrder
-        self.remoteUpdatedAt = remoteUpdatedAt
-        self.syncedAt = syncedAt
-        self.publishedAt = publishedAt
-        self.postedInPrefix = postedInPrefix
-        self.sourceTitle = sourceTitle
-        self.brandTitle = brandTitle
-        self.headline = headline
-        self.summary = summary
-        self.metadataLine = metadataLine
-        self.translationLabel = translationLabel
-        self.articleActionsData = articleActionsData
-        self.articleStateData = articleStateData
-        self.categoryTitle = categoryTitle
-        self.participantsData = participantsData
-        self.joinedText = joinedText
-        self.discussionStateData = discussionStateData
-    }
-
-    /// Typed feed card kind derived from the stored raw value.
-    var kind: FeedCardRecordKind? {
-        FeedCardRecordKind(rawValue: kindRawValue)
-    }
-}
-
-/// SwiftData record storing the full local feed-card payload created from composer/share flows.
-@available(iOS 17, *)
-@Model
-final class LocalFeedCardRecord {
     @Attribute(.unique) var id: String
     var channelID: String
     var kindRawValue: String
@@ -135,7 +48,7 @@ final class LocalFeedCardRecord {
         createdAt: Date,
         payloadData: Data,
         serverID: String? = nil,
-        syncState: LocalFeedCardRecordSyncState = .pendingCreate,
+        syncState: FeedCardRecordSyncState = .pendingCreate,
         lastSyncAttemptAt: Date? = nil
     ) {
         self.id = id
@@ -148,8 +61,8 @@ final class LocalFeedCardRecord {
         self.lastSyncAttemptAt = lastSyncAttemptAt
     }
 
-    var syncState: LocalFeedCardRecordSyncState? {
-        LocalFeedCardRecordSyncState(rawValue: syncStateRawValue)
+    var syncState: FeedCardRecordSyncState? {
+        FeedCardRecordSyncState(rawValue: syncStateRawValue)
     }
 }
 

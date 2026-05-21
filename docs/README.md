@@ -76,7 +76,7 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **docs/AGENT_RULES.md**: short mandatory implementation guardrails.
 - **docs/CURRENT_USER_OVERRIDES.md**: current task/user overrides that must be applied before general defaults.
 - **docs/UI_PIXEL_PERFECT_WORKFLOW.md**: UI/design implementation workflow from screenshots/Figma/PDF/CSS.
-- **docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md**: local feed card persistence and media durability contract.
+- **docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md**: feed card persistence and media durability contract.
 - **docs/IOS_ARCHITECTURE_REFERENCE.md**: architecture handbook pointer + usage notes (guidance, not mandate).
 - **docs/PRODUCTION_QUALITY_GATES.md**: mandatory broad production-quality review gates for implementation/review work.
 - **docs/PACKAGES_AND_MANAGERS.md**: reusable package/manager integration guide.

@@ -101,7 +101,7 @@ Current epic: 3-phase cleanup/refactor over working runtime code (tests are inte
 - Source URL behavior, channel/publish/search contract, and translation feed-stage are implemented.
 - Share extension foundation is wired:
   - reusable storage/import in `TchopShareSupport`
-  - app bridge in `SharedLocalFeedCardSyncManager`
+  - app bridge in `SharedFeedCardSyncManager`
   - sync points on activation + pull-to-refresh
   - shared composer reused by app and extension
 
@@ -124,6 +124,6 @@ Current epic: 3-phase cleanup/refactor over working runtime code (tests are inte
 - `TchopApp/Views/News/NewsFeedView.swift`
 - `TchopApp/Views/Composer/SharedCardComposerView.swift`
 - `TchopApp/Repositories/AppContentRepository.swift`
-- `TchopApp/Shared/SharedLocalFeedCardSyncManager.swift`
+- `TchopApp/Shared/SharedFeedCardSyncManager.swift`
 - `Packages/TchopInfrastructure/Sources/TchopShareSupport/TchopShareSupport.swift`
 - `Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift`

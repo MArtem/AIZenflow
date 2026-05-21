@@ -906,12 +906,12 @@ struct ChannelCardTextContent: Equatable, Sendable, Identifiable {
     var id: ChannelCardTextFieldKind { kind }
 }
 
-struct LocalFeedSourceContent: Codable, Equatable, Sendable {
+struct FeedSourceContent: Codable, Equatable, Sendable {
     let text: String
     let resourceURLString: String?
 }
 
-struct LocalFeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
+struct FeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
     let fileURLString: String?
@@ -919,34 +919,34 @@ struct LocalFeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
     let copyright: String?
 }
 
-struct LocalFeedTeaserImageContent: Codable, Equatable, Sendable, Identifiable {
+struct FeedTeaserImageContent: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
     let fileURLString: String?
     let copyright: String?
 }
 
-enum LocalFeedMediaKind: String, Codable, Equatable, Sendable {
+enum FeedMediaKind: String, Codable, Equatable, Sendable {
     case photo
     case video
     case audio
     case pdf
 }
 
-struct LocalFeedFileMediaContent: Codable, Equatable, Sendable {
-    let kind: LocalFeedMediaKind
+struct FeedFileMediaContent: Codable, Equatable, Sendable {
+    let kind: FeedMediaKind
     let displayTitle: String
     let fileURLString: String?
-    let teaserImage: LocalFeedTeaserImageContent?
+    let teaserImage: FeedTeaserImageContent?
     let caption: String?
 }
 
-enum LocalFeedMediaContent: Codable, Equatable, Sendable {
-    case photos(items: [LocalFeedPhotoItem])
-    case file(LocalFeedFileMediaContent)
+enum FeedMediaContent: Codable, Equatable, Sendable {
+    case photos(items: [FeedPhotoItem])
+    case file(FeedFileMediaContent)
 }
 
-enum LocalFeedTextFieldKind: String, CaseIterable, Codable, Equatable, Sendable, Identifiable {
+enum FeedTextFieldKind: String, CaseIterable, Codable, Equatable, Sendable, Identifiable {
     case text
     case headline
     case subheadline
@@ -955,11 +955,11 @@ enum LocalFeedTextFieldKind: String, CaseIterable, Codable, Equatable, Sendable,
     var id: String { rawValue }
 }
 
-struct LocalFeedTextContent: Codable, Equatable, Sendable, Identifiable {
-    let kind: LocalFeedTextFieldKind
+struct FeedTextContent: Codable, Equatable, Sendable, Identifiable {
+    let kind: FeedTextFieldKind
     let text: String
 
-    var id: LocalFeedTextFieldKind { kind }
+    var id: FeedTextFieldKind { kind }
 }
 
 struct ChannelCardContent: Identifiable, Equatable, Sendable {
@@ -1047,17 +1047,17 @@ struct ChannelCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
-struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
+struct FeedCard: Codable, Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
     let createdAt: Date
     let kind: NewsFeedCardKind
-    let orderedTextContent: [LocalFeedTextContent]
-    let sourceContent: LocalFeedSourceContent?
-    let mediaContent: LocalFeedMediaContent?
+    let orderedTextContent: [FeedTextContent]
+    let sourceContent: FeedSourceContent?
+    let mediaContent: FeedMediaContent?
     let isLiked: Bool
     let commentsCount: Int
-    let displayMode: LocalFeedCardDisplayMode
+    let displayMode: FeedCardDisplayMode
 
     private enum CodingKeys: String, CodingKey {
         case id
@@ -1077,12 +1077,12 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
         channelID: String,
         createdAt: Date,
         kind: NewsFeedCardKind,
-        orderedTextContent: [LocalFeedTextContent],
-        sourceContent: LocalFeedSourceContent?,
-        mediaContent: LocalFeedMediaContent?,
+        orderedTextContent: [FeedTextContent],
+        sourceContent: FeedSourceContent?,
+        mediaContent: FeedMediaContent?,
         isLiked: Bool,
         commentsCount: Int,
-        displayMode: LocalFeedCardDisplayMode
+        displayMode: FeedCardDisplayMode
     ) {
         self.id = id
         self.channelID = channelID
@@ -1102,12 +1102,12 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
         channelID = try container.decode(String.self, forKey: .channelID)
         createdAt = try container.decode(Date.self, forKey: .createdAt)
         kind = try container.decode(NewsFeedCardKind.self, forKey: .kind)
-        orderedTextContent = try container.decode([LocalFeedTextContent].self, forKey: .orderedTextContent)
-        sourceContent = try container.decodeIfPresent(LocalFeedSourceContent.self, forKey: .sourceContent)
-        mediaContent = try container.decodeIfPresent(LocalFeedMediaContent.self, forKey: .mediaContent)
+        orderedTextContent = try container.decode([FeedTextContent].self, forKey: .orderedTextContent)
+        sourceContent = try container.decodeIfPresent(FeedSourceContent.self, forKey: .sourceContent)
+        mediaContent = try container.decodeIfPresent(FeedMediaContent.self, forKey: .mediaContent)
         isLiked = try container.decodeIfPresent(Bool.self, forKey: .isLiked) ?? false
         commentsCount = try container.decodeIfPresent(Int.self, forKey: .commentsCount) ?? 0
-        displayMode = try container.decodeIfPresent(LocalFeedCardDisplayMode.self, forKey: .displayMode) ?? .expanded
+        displayMode = try container.decodeIfPresent(FeedCardDisplayMode.self, forKey: .displayMode) ?? .expanded
     }
 
     var serviceHeadline: String {
@@ -1123,16 +1123,16 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
         ]
     }
 
-    func textValue(for kind: LocalFeedTextFieldKind) -> String? {
+    func textValue(for kind: FeedTextFieldKind) -> String? {
         orderedTextContent.first(where: { $0.kind == kind })?.text
     }
 
-    func translated(using snapshot: CardTranslationSnapshot?) -> LocalFeedCardModel {
+    func translated(using snapshot: CardTranslationSnapshot?) -> FeedCard {
         guard let snapshot else {
             return self
         }
 
-        return LocalFeedCardModel(
+        return FeedCard(
             id: id,
             channelID: channelID,
             createdAt: createdAt,
@@ -1142,7 +1142,7 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
                     return textContent
                 }
 
-                return LocalFeedTextContent(
+                return FeedTextContent(
                     kind: textContent.kind,
                     text: snapshot.text(for: fieldID) ?? textContent.text
                 )
@@ -1158,9 +1158,9 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
     func replacingInteractionState(
         isLiked: Bool? = nil,
         commentsCount: Int? = nil,
-        displayMode: LocalFeedCardDisplayMode? = nil
-    ) -> LocalFeedCardModel {
-        LocalFeedCardModel(
+        displayMode: FeedCardDisplayMode? = nil
+    ) -> FeedCard {
+        FeedCard(
             id: id,
             channelID: channelID,
             createdAt: createdAt,
@@ -1175,15 +1175,15 @@ struct LocalFeedCardModel: Codable, Identifiable, Equatable, Sendable {
     }
 }
 
-enum LocalFeedCardDisplayMode: String, Codable, Equatable, Sendable {
+enum FeedCardDisplayMode: String, Codable, Equatable, Sendable {
     case expanded
     case compact
 }
 
 enum CardTranslationFieldID: String, Hashable, Codable, Sendable {
-    case localText
-    case localHeadline
-    case localSubheadline
+    case text
+    case headline
+    case subheadline
     case photoBrandTitle
     case photoHeadline
     case photoSummary
@@ -1194,11 +1194,11 @@ enum CardTranslationFieldID: String, Hashable, Codable, Sendable {
 
     var sortOrder: Int {
         switch self {
-        case .localText:
+        case .text:
             return 0
-        case .localHeadline:
+        case .headline:
             return 1
-        case .localSubheadline:
+        case .subheadline:
             return 2
         case .photoBrandTitle:
             return 10
@@ -1332,160 +1332,160 @@ struct NewsFeedCardSearchField: Equatable, Sendable {
 }
 
 enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
-    case local(LocalFeedCardModel)
+    case card(FeedCard)
 
     var id: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.id
         }
     }
 
     var channelID: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.channelID
         }
     }
 
     var serviceHeadline: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.serviceHeadline
         }
     }
 
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.searchFields
         }
     }
 }
 
 enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
-    case local(LocalFeedCardModel)
+    case card(FeedCard)
 
     var id: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.id
         }
     }
 
     var channelID: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.channelID
         }
     }
 
     var serviceHeadline: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.serviceHeadline
         }
     }
 
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.searchFields
         }
     }
 }
 
 enum NewsFeedVideoCardContent: Identifiable, Equatable, Sendable {
-    case local(LocalFeedCardModel)
+    case card(FeedCard)
 
     var id: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.id
         }
     }
 
     var channelID: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.channelID
         }
     }
 
     var serviceHeadline: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.serviceHeadline
         }
     }
 
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.searchFields
         }
     }
 }
 
 enum NewsFeedAudioCardContent: Identifiable, Equatable, Sendable {
-    case local(LocalFeedCardModel)
+    case card(FeedCard)
 
     var id: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.id
         }
     }
 
     var channelID: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.channelID
         }
     }
 
     var serviceHeadline: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.serviceHeadline
         }
     }
 
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.searchFields
         }
     }
 }
 
 enum NewsFeedPDFCardContent: Identifiable, Equatable, Sendable {
-    case local(LocalFeedCardModel)
+    case card(FeedCard)
 
     var id: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.id
         }
     }
 
     var channelID: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.channelID
         }
     }
 
     var serviceHeadline: String {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.serviceHeadline
         }
     }
 
     var searchFields: [NewsFeedCardSearchField] {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.searchFields
         }
     }
@@ -1596,15 +1596,15 @@ enum NewsFeedCard: Identifiable, Equatable, Sendable {
 }
 
 extension ChannelCardContent {
-    var localFeedCardModel: LocalFeedCardModel {
-        LocalFeedCardModel(
+    var feedCardModel: FeedCard {
+        FeedCard(
             id: id,
             channelID: channelID,
             createdAt: createdAt,
             kind: kind.feedKind,
-            orderedTextContent: orderedTextContent.map(\.localFeedTextContent),
-            sourceContent: sourceContent?.localFeedSourceContent,
-            mediaContent: mediaContent?.localFeedMediaContent,
+            orderedTextContent: orderedTextContent.map(\.feedTextContent),
+            sourceContent: sourceContent?.feedSourceContent,
+            mediaContent: mediaContent?.feedMediaContent,
             isLiked: false,
             commentsCount: 0,
             displayMode: .expanded
@@ -1612,19 +1612,19 @@ extension ChannelCardContent {
     }
 }
 
-extension LocalFeedCardModel {
+extension FeedCard {
     var newsFeedCard: NewsFeedCard {
         switch kind {
         case .text:
-            return .text(.local(self))
+            return .text(.card(self))
         case .photo:
-            return .photo(.local(self))
+            return .photo(.card(self))
         case .video:
-            return .video(.local(self))
+            return .video(.card(self))
         case .audio:
-            return .audio(.local(self))
+            return .audio(.card(self))
         case .pdf:
-            return .pdf(.local(self))
+            return .pdf(.card(self))
         }
     }
 
@@ -1635,7 +1635,7 @@ extension LocalFeedCardModel {
         let bodyText = textValue(for: .text)
             ?? textValue(for: .subheadline)
             ?? titleText
-        let subtitleText = sourceContent?.text ?? AppLocalization.text("news.local.sourceFallback")
+        let subtitleText = sourceContent?.text ?? AppLocalization.text("news.feed.sourceFallback")
 
         return NewsRoute(
             cardID: id,
@@ -1651,7 +1651,7 @@ extension LocalFeedCardModel {
 private extension NewsFeedPhotoCardContent {
     var translationPayload: NewsFeedCardTranslationPayload {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.translationPayload
         }
     }
@@ -1660,7 +1660,7 @@ private extension NewsFeedPhotoCardContent {
 private extension NewsFeedTextCardContent {
     var translationPayload: NewsFeedCardTranslationPayload {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.translationPayload
         }
     }
@@ -1669,7 +1669,7 @@ private extension NewsFeedTextCardContent {
 private extension NewsFeedVideoCardContent {
     var translationPayload: NewsFeedCardTranslationPayload {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.translationPayload
         }
     }
@@ -1678,7 +1678,7 @@ private extension NewsFeedVideoCardContent {
 private extension NewsFeedAudioCardContent {
     var translationPayload: NewsFeedCardTranslationPayload {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.translationPayload
         }
     }
@@ -1687,13 +1687,13 @@ private extension NewsFeedAudioCardContent {
 private extension NewsFeedPDFCardContent {
     var translationPayload: NewsFeedCardTranslationPayload {
         switch self {
-        case let .local(card):
+        case let .card(card):
             return card.translationPayload
         }
     }
 }
 
-private extension LocalFeedCardModel {
+private extension FeedCard {
     var translationPayload: NewsFeedCardTranslationPayload {
         let fields = orderedTextContent.reduce(into: [CardTranslationFieldID: String?]()) { partialResult, textContent in
             guard let fieldID = textContent.kind.translationFieldID else {
@@ -1707,15 +1707,15 @@ private extension LocalFeedCardModel {
     }
 }
 
-private extension LocalFeedTextFieldKind {
+private extension FeedTextFieldKind {
     var translationFieldID: CardTranslationFieldID? {
         switch self {
         case .text:
-            return .localText
+            return .text
         case .headline:
-            return .localHeadline
+            return .headline
         case .subheadline:
-            return .localSubheadline
+            return .subheadline
         case .source:
             return nil
         }
@@ -1740,8 +1740,8 @@ private func normalizedTranslationText(_ value: String) -> String? {
 }
 
 private extension ChannelCardSourceContent {
-    var localFeedSourceContent: LocalFeedSourceContent {
-        LocalFeedSourceContent(
+    var feedSourceContent: FeedSourceContent {
+        FeedSourceContent(
             text: text,
             resourceURLString: resourceURLString
         )
@@ -1749,8 +1749,8 @@ private extension ChannelCardSourceContent {
 }
 
 private extension ChannelCardPhotoItem {
-    var localFeedPhotoItem: LocalFeedPhotoItem {
-        LocalFeedPhotoItem(
+    var feedPhotoItem: FeedPhotoItem {
+        FeedPhotoItem(
             id: id,
             displayTitle: displayTitle,
             fileURLString: fileURL?.absoluteString,
@@ -1761,8 +1761,8 @@ private extension ChannelCardPhotoItem {
 }
 
 private extension ChannelCardTeaserImageContent {
-    var localFeedTeaserImageContent: LocalFeedTeaserImageContent {
-        LocalFeedTeaserImageContent(
+    var feedTeaserImageContent: FeedTeaserImageContent {
+        FeedTeaserImageContent(
             id: id,
             displayTitle: displayTitle,
             fileURLString: fileURL?.absoluteString,
@@ -1772,7 +1772,7 @@ private extension ChannelCardTeaserImageContent {
 }
 
 private extension ChannelCardMediaKind {
-    var localFeedMediaKind: LocalFeedMediaKind {
+    var feedMediaKind: FeedMediaKind {
         switch self {
         case .photo:
             return .photo
@@ -1787,30 +1787,30 @@ private extension ChannelCardMediaKind {
 }
 
 private extension ChannelCardFileMediaContent {
-    var localFeedFileMediaContent: LocalFeedFileMediaContent {
-        LocalFeedFileMediaContent(
-            kind: kind.localFeedMediaKind,
+    var feedFileMediaContent: FeedFileMediaContent {
+        FeedFileMediaContent(
+            kind: kind.feedMediaKind,
             displayTitle: displayTitle,
             fileURLString: fileURL?.absoluteString,
-            teaserImage: teaserImage?.localFeedTeaserImageContent,
+            teaserImage: teaserImage?.feedTeaserImageContent,
             caption: caption
         )
     }
 }
 
 private extension ChannelCardMediaContent {
-    var localFeedMediaContent: LocalFeedMediaContent {
+    var feedMediaContent: FeedMediaContent {
         switch self {
         case let .photos(items):
-            return .photos(items: items.map(\.localFeedPhotoItem))
+            return .photos(items: items.map(\.feedPhotoItem))
         case let .file(file):
-            return .file(file.localFeedFileMediaContent)
+            return .file(file.feedFileMediaContent)
         }
     }
 }
 
 private extension ChannelCardTextFieldKind {
-    var localFeedTextFieldKind: LocalFeedTextFieldKind {
+    var feedTextFieldKind: FeedTextFieldKind {
         switch self {
         case .text:
             return .text
@@ -1825,9 +1825,9 @@ private extension ChannelCardTextFieldKind {
 }
 
 private extension ChannelCardTextContent {
-    var localFeedTextContent: LocalFeedTextContent {
-        LocalFeedTextContent(
-            kind: kind.localFeedTextFieldKind,
+    var feedTextContent: FeedTextContent {
+        FeedTextContent(
+            kind: kind.feedTextFieldKind,
             text: text
         )
     }

@@ -148,16 +148,16 @@ final class AppDIContainer {
     let channelsStore: ChannelsStore
 
     /// App-wide runtime store for locally published feed-native cards.
-    let localFeedCardStore: LocalFeedCardStore
+    let feedCardStore: FeedCardStore
 
-    /// App-group-backed bridge that syncs extension-published local cards into app runtime.
-    let sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
+    /// App-group-backed bridge that syncs extension-published feed cards into app runtime.
+    let sharedFeedCardSyncManager: SharedFeedCardSyncManager?
 
     /// App-group-backed bridge that exposes the current auth/channel snapshot to the share extension.
     let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
 
     /// User-scoped channel settings source resolved during session bootstrap.
-    private let channelSettingsRepository: LocalUserChannelSettingsRepository
+    private let channelSettingsRepository: UserChannelSettingsRepository
 
     /// Apple auth adapter used by the login UI flow.
     let appleAuthenticationManager: any AppleAuthenticationManaging
@@ -212,16 +212,16 @@ final class AppDIContainer {
         self.channelsStore = ChannelsStore(
             selectionStore: UserDefaultsChannelSelectionStore()
         )
-        self.localFeedCardStore = LocalFeedCardStore(
-            repository: LocalFeedCardRepository(databaseManager: databaseManager)
+        self.feedCardStore = FeedCardStore(
+            repository: FeedCardRepository(databaseManager: databaseManager)
         )
-        self.sharedLocalFeedCardSyncManager = Self.makeSharedLocalFeedCardSyncManager(
+        self.sharedFeedCardSyncManager = Self.makeSharedFeedCardSyncManager(
             errorManager: errorManager
         )
         self.shareExtensionSessionContextManager = Self.makeShareExtensionSessionContextManager(
             errorManager: errorManager
         )
-        self.channelSettingsRepository = LocalUserChannelSettingsRepository()
+        self.channelSettingsRepository = UserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
         self.uiConfigurationManager = Self.makeUIConfigurationManager()
@@ -249,13 +249,13 @@ final class AppDIContainer {
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
-            localFeedCardStore: localFeedCardStore,
-            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager
+            feedCardStore: feedCardStore,
+            sharedFeedCardSyncManager: sharedFeedCardSyncManager
         )
 
         return AppShellViewModel(
             channelsStore: channelsStore,
-            localFeedCardStore: localFeedCardStore,
+            feedCardStore: feedCardStore,
             newsFeedViewModel: newsFeedViewModel,
             errorManager: errorManager,
             uiConfigurationManager: uiConfigurationManager,
@@ -316,7 +316,7 @@ final class AppDIContainer {
             fatalError("Database bootstrap failed: \(bootstrapError.debugDescription)")
         }
 
-        seedLocalDataIfNeeded(using: databaseManager)
+        seedAppDataIfNeeded(using: databaseManager)
         return databaseManager
     }
 
@@ -367,14 +367,14 @@ final class AppDIContainer {
         )
     }
 
-    private static func seedLocalDataIfNeeded(using databaseManager: any DatabaseManaging) {
+    private static func seedAppDataIfNeeded(using databaseManager: any DatabaseManaging) {
         do {
             try AppDataSeeder.seedIfNeeded(in: databaseManager)
         } catch {
             let bootstrapError = AppRuntimeErrorMapper().map(
                 error,
                 context: AppErrorContext(
-                    operation: "seedLocalDataIfNeeded",
+                    operation: "seedAppDataIfNeeded",
                     feature: "bootstrap"
                 )
             )
@@ -513,23 +513,23 @@ final class AppDIContainer {
         channelsStore: ChannelsStore,
         widgetContentSyncManager: any WidgetContentSyncing,
         errorManager: any AppErrorManaging,
-        localFeedCardStore: LocalFeedCardStore,
-        sharedLocalFeedCardSyncManager: SharedLocalFeedCardSyncManager?
+        feedCardStore: FeedCardStore,
+        sharedFeedCardSyncManager: SharedFeedCardSyncManager?
     ) -> NewsFeedViewModel {
         return NewsFeedViewModel(
             channelsStore: channelsStore,
             widgetContentSyncManager: widgetContentSyncManager,
             errorManager: errorManager,
-            localFeedCardStore: localFeedCardStore,
-            sharedLocalFeedCardSyncManager: sharedLocalFeedCardSyncManager
+            feedCardStore: feedCardStore,
+            sharedFeedCardSyncManager: sharedFeedCardSyncManager
         )
     }
 
-    private static func makeSharedLocalFeedCardSyncManager(
+    private static func makeSharedFeedCardSyncManager(
         errorManager: any AppErrorManaging
-    ) -> SharedLocalFeedCardSyncManager? {
+    ) -> SharedFeedCardSyncManager? {
         do {
-            return try SharedLocalFeedCardSyncManager(
+            return try SharedFeedCardSyncManager(
                 groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
             )
         } catch {
@@ -537,11 +537,11 @@ final class AppDIContainer {
                 let presentation = await errorManager.presentableError(
                     from: error,
                     context: AppErrorContext(
-                        operation: "makeSharedLocalFeedCardSyncManager",
+                        operation: "makeSharedFeedCardSyncManager",
                         feature: "shareExtension"
                     )
                 )
-                assertionFailure("Failed to create shared local feed card sync manager: \(presentation.error.debugDescription)")
+                assertionFailure("Failed to create shared feed card sync manager: \(presentation.error.debugDescription)")
             }
             return nil
         }

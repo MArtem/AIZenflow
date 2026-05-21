@@ -14,7 +14,7 @@ struct NewsTabRootView: View {
             NewsFeedView(
                 viewModel: viewModel,
                 onScrollProximityChange: onFeedScrollProximityChange,
-                onLocalCardTap: openLocalCard
+                onCardTap: openCard
             )
             .navigationDestination(for: NewsRoute.self) { route in
                 NewsDestinationView(route: viewModel.translatedRoute(for: route))
@@ -26,7 +26,7 @@ struct NewsTabRootView: View {
         $router.path
     }
 
-    private func openLocalCard(_ route: NewsRoute) {
+    private func openCard(_ route: NewsRoute) {
         router.push(route)
     }
 }

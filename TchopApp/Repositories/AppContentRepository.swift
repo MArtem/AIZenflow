@@ -11,7 +11,7 @@ protocol AppContentRepository {
 
 /// Persists locally created feed cards in the app SwiftData store.
 @MainActor
-struct LocalFeedCardRepository: LocalFeedCardPersisting {
+struct FeedCardRepository: FeedCardPersisting {
     private let databaseManager: any DatabaseManaging
 
     init(databaseManager: any DatabaseManaging) {
@@ -19,28 +19,28 @@ struct LocalFeedCardRepository: LocalFeedCardPersisting {
 
         precondition(
             databaseManager.backendKind == .swiftData,
-            "LocalFeedCardRepository expects SwiftData runtime backend."
+            "FeedCardRepository expects SwiftData runtime backend."
         )
     }
 
-    func loadCards() throws -> [LocalFeedCardModel] {
+    func loadCards() throws -> [FeedCard] {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
-                let records = try context.fetch(FetchDescriptor<LocalFeedCardRecord>())
+                let records = try context.fetch(FetchDescriptor<FeedCardRecord>())
                     .sorted(by: { $0.createdAt > $1.createdAt })
                 return try records.map(Self.decodeCard)
             })
         )
     }
 
-    func saveCards(_ cards: [LocalFeedCardModel]) throws {
+    func saveCards(_ cards: [FeedCard]) throws {
         guard !cards.isEmpty else {
             return
         }
 
         try databaseManager.write(
             DatabaseWriteOperation(swiftData: { context in
-                let existingRecords = try context.fetch(FetchDescriptor<LocalFeedCardRecord>())
+                let existingRecords = try context.fetch(FetchDescriptor<FeedCardRecord>())
 
                 for card in cards {
                     let payloadData = try JSONEncoder().encode(card)
@@ -55,15 +55,15 @@ struct LocalFeedCardRepository: LocalFeedCardPersisting {
         ) as Void
     }
 
-    private static func decodeCard(from record: LocalFeedCardRecord) throws -> LocalFeedCardModel {
-        try JSONDecoder().decode(LocalFeedCardModel.self, from: record.payloadData)
+    private static func decodeCard(from record: FeedCardRecord) throws -> FeedCard {
+        try JSONDecoder().decode(FeedCard.self, from: record.payloadData)
     }
 
     private static func makeRecord(
-        from card: LocalFeedCardModel,
+        from card: FeedCard,
         payloadData: Data
-    ) -> LocalFeedCardRecord {
-        LocalFeedCardRecord(
+    ) -> FeedCardRecord {
+        FeedCardRecord(
             id: card.id,
             channelID: card.channelID,
             kindRawValue: card.kind.rawValue,
@@ -73,9 +73,9 @@ struct LocalFeedCardRepository: LocalFeedCardPersisting {
     }
 
     private static func apply(
-        _ card: LocalFeedCardModel,
+        _ card: FeedCard,
         payloadData: Data,
-        to record: LocalFeedCardRecord
+        to record: FeedCardRecord
     ) {
         record.channelID = card.channelID
         record.kindRawValue = card.kind.rawValue
@@ -123,7 +123,7 @@ final class DefaultAppContentRepository: AppContentRepository {
 
 enum RepositoryError: Error {
     case missingChannel
-    case unsupportedLocalFeedCardPersistence
+    case unsupportedFeedCardPersistence
 }
 
 private enum AppContentMapper {

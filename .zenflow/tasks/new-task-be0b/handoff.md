@@ -45,7 +45,7 @@ Current model override: use `GPT-5.5` for this worktree/task unless the user exp
 - `TchopApp/ViewModels/NewsFeedViewModel.swift`
 - `TchopApp/Views/News/NewsFeedView.swift`
 - `TchopApp/Views/Composer/SharedCardComposerView.swift`
-- `TchopApp/Shared/SharedLocalFeedCardSyncManager.swift`
+- `TchopApp/Shared/SharedFeedCardSyncManager.swift`
 - `TchopShareExtension/ShareViewController.swift`
 
 ## Verification Baseline

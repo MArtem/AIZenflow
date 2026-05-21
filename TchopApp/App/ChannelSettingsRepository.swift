@@ -8,7 +8,7 @@ struct UserChannelSettingsSnapshot: Equatable, Sendable {
 
 /// Local stub implementation that models backend-delivered channel settings until the real API exists.
 @MainActor
-struct LocalUserChannelSettingsRepository {
+struct UserChannelSettingsRepository {
     private static let defaultAvailableChannels: [AppChannel] = [
         .product,
         .community,

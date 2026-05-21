@@ -93,7 +93,7 @@
 		A000009A0000000000000001 /* Views/Tabs/ChatTabRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009B0000000000000001 /* ChatTabRootView.swift */; };
 		D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000020000000000000001 /* AppWidgetBridge.swift */; };
 		D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
-		D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */; };
+		D00000031000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedFeedCardSyncManager.swift */; };
 		D00000032000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
 		D00000033000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
 		D00000050000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
@@ -136,7 +136,7 @@
 		L00000070000000000000001 /* ShareExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000160000000000000001 /* ShareExtensionRootView.swift */; };
 		L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
 		L00000090000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
-		L000000A0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */; };
+		L000000A0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedFeedCardSyncManager.swift */; };
 		L000000B0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
 		L000000C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
 		L000000D0000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
@@ -152,7 +152,7 @@
 		L000001F0000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
 		L000002A0000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
 		L00000100000000000000001 /* TchopShareOceanExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = L00000140000000000000001 /* TchopShareOceanExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		L000002B0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */; };
+		L000002B0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedFeedCardSyncManager.swift */; };
 		L000002C0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
 		L000002D0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
 		L000002E0000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
@@ -302,7 +302,7 @@
 		B00000020000000000000001 /* AppBranding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppBranding.swift; sourceTree = "<group>"; };
 		D00000020000000000000001 /* AppWidgetBridge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppWidgetBridge.swift; sourceTree = "<group>"; };
 		D00000040000000000000001 /* AppGroupConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupConfiguration.swift; sourceTree = "<group>"; };
-		D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedLocalFeedCardSyncManager.swift; sourceTree = "<group>"; };
+		D00000041000000000000001 /* SharedFeedCardSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFeedCardSyncManager.swift; sourceTree = "<group>"; };
 		D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionSessionContextManager.swift; sourceTree = "<group>"; };
 		D000000C0000000000000001 /* FeedHeadlineWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeadlineWidget.swift; sourceTree = "<group>"; };
 		D000000E0000000000000001 /* TchopWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopWidgetsBundle.swift; sourceTree = "<group>"; };
@@ -549,7 +549,7 @@
 			isa = PBXGroup;
 			children = (
 				D00000040000000000000001 /* AppGroupConfiguration.swift */,
-				D00000041000000000000001 /* SharedLocalFeedCardSyncManager.swift */,
+				D00000041000000000000001 /* SharedFeedCardSyncManager.swift */,
 				D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */,
 			);
 			path = Shared;
@@ -1125,7 +1125,7 @@
 				E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
-				D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				D00000031000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				D00000032000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1197,7 +1197,7 @@
 				E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
 				D00000010000000000000001 /* App/AppWidgetBridge.swift in Sources */,
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
-				D00000031000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				D00000031000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				D00000033000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1229,7 +1229,7 @@
 				L00000010000000000000001 /* ShareViewController.swift in Sources */,
 				L00000020000000000000001 /* ShareExtensionRootView.swift in Sources */,
 				L00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
-				L000000A0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				L000000A0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				L000000B0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
 				L000000C0000000000000001 /* App/AppTheme.swift in Sources */,
 				L000000D0000000000000001 /* App/AppLocalization.swift in Sources */,
@@ -1251,7 +1251,7 @@
 				L00000060000000000000001 /* ShareViewController.swift in Sources */,
 				L00000070000000000000001 /* ShareExtensionRootView.swift in Sources */,
 				L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
-				L000002B0000000000000001 /* Shared/SharedLocalFeedCardSyncManager.swift in Sources */,
+				L000002B0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				L000002C0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
 				L000002D0000000000000001 /* App/AppTheme.swift in Sources */,
 				L000002E0000000000000001 /* App/AppLocalization.swift in Sources */,
