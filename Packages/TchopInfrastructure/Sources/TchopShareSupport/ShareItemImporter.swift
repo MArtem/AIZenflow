@@ -121,6 +121,17 @@ public final class NSItemProviderShareItemImporter {
         return items
     }
 
+    private static func copyImportedFile(from sourceURL: URL, to destinationURL: URL) async throws {
+        try await Task.detached(priority: .utility) {
+            let fileManager = FileManager.default
+            if fileManager.fileExists(atPath: destinationURL.path) {
+                try fileManager.removeItem(at: destinationURL)
+            }
+
+            try fileManager.copyItem(at: sourceURL, to: destinationURL)
+        }.value
+    }
+
     private func loadTextItem(from provider: NSItemProvider) async throws -> ShareImportedTextItem {
         let item: NSSecureCoding? = try await withCheckedThrowingContinuation {
             (continuation: CheckedContinuation<NSSecureCoding?, Error>) in
@@ -174,11 +185,7 @@ public final class NSItemProviderShareItemImporter {
             .appendingPathComponent(UUID().uuidString)
             .appendingPathExtension(sourceURL.pathExtension)
 
-        if fileManager.fileExists(atPath: destinationURL.path) {
-            try fileManager.removeItem(at: destinationURL)
-        }
-
-        try fileManager.copyItem(at: sourceURL, to: destinationURL)
+        try await Self.copyImportedFile(from: sourceURL, to: destinationURL)
 
         return ShareImportedFileItem(
             kind: kind.kind,

@@ -10,6 +10,7 @@ import TchopUIConfiguration
 protocol FeedCardPersisting {
     func loadCards() throws -> [FeedCard]
     func saveCards(_ cards: [FeedCard]) throws
+    func saveCard(_ card: FeedCard) throws
 }
 
 @MainActor
@@ -55,7 +56,7 @@ final class FeedCardStore {
 
         try repository.saveCards(newCards)
         persistedCards = newCards + persistedCards
-        refreshCards()
+        cards = newCards.map(\.newsFeedCard) + cards
     }
 
     func updatePersistedCard(
@@ -68,9 +69,9 @@ final class FeedCardStore {
 
         let updatedCard = transform(persistedCards[index])
         do {
-            try repository.saveCards([updatedCard])
+            try repository.saveCard(updatedCard)
             persistedCards[index] = updatedCard
-            refreshCards()
+            cards[index] = updatedCard.newsFeedCard
         } catch {
             assertionFailure("Failed to update persisted feed card: \(error)")
         }

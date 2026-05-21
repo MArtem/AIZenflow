@@ -567,7 +567,7 @@ struct SharedCardComposerView: View {
                 return
             }
 
-            guard let fileURL = try? ComposerPickedMediaStorage.save(
+            guard let fileURL = try? await ComposerPickedMediaStorage.save(
                 data: data,
                 suggestedFilename: fallbackTitle
             ) else {
@@ -610,7 +610,7 @@ struct SharedCardComposerView: View {
 
             let fileExtension = photoLibraryFileExtension(for: item, kind: .photo)
             let fallbackTitle = "Teaser image.\(fileExtension)"
-            guard let fileURL = try? ComposerPickedMediaStorage.save(
+            guard let fileURL = try? await ComposerPickedMediaStorage.save(
                 data: data,
                 suggestedFilename: fallbackTitle
             ) else {
@@ -638,22 +638,24 @@ struct SharedCardComposerView: View {
             return
         }
 
-        let hasScopedAccess = sourceURL.startAccessingSecurityScopedResource()
-        defer {
-            if hasScopedAccess {
-                sourceURL.stopAccessingSecurityScopedResource()
+        Task { @MainActor in
+            let hasScopedAccess = sourceURL.startAccessingSecurityScopedResource()
+            defer {
+                if hasScopedAccess {
+                    sourceURL.stopAccessingSecurityScopedResource()
+                }
             }
-        }
 
-        guard let fileURL = try? ComposerPickedMediaStorage.copyFile(from: sourceURL) else {
-            return
-        }
+            guard let fileURL = try? await ComposerPickedMediaStorage.copyFile(from: sourceURL) else {
+                return
+            }
 
-        viewModel.selectPickedFile(
-            kind: kind,
-            displayTitle: sourceURL.lastPathComponent,
-            fileURL: fileURL
-        )
+            viewModel.selectPickedFile(
+                kind: kind,
+                displayTitle: sourceURL.lastPathComponent,
+                fileURL: fileURL
+            )
+        }
     }
 
     private func photoLibraryFileExtension(
@@ -944,19 +946,38 @@ struct SharedCardComposerView: View {
 }
 
 private enum ComposerPickedMediaStorage {
-    static func save(data: Data, suggestedFilename: String) throws -> URL {
+    static func save(data: Data, suggestedFilename: String) async throws -> URL {
         let destinationURL = try uniqueDestinationURL(suggestedFilename: suggestedFilename)
-        try data.write(to: destinationURL, options: .atomic)
+        try await Task.detached(priority: .utility) {
+            try data.write(to: destinationURL, options: .atomic)
+        }.value
         return destinationURL
     }
 
-    static func copyFile(from sourceURL: URL) throws -> URL {
+    static func copyFile(from sourceURL: URL) async throws -> URL {
         let destinationURL = try uniqueDestinationURL(suggestedFilename: sourceURL.lastPathComponent)
-        if FileManager.default.fileExists(atPath: destinationURL.path) {
-            try FileManager.default.removeItem(at: destinationURL)
-        }
-        try FileManager.default.copyItem(at: sourceURL, to: destinationURL)
+        try await copyFileSync(from: sourceURL, to: destinationURL)
         return destinationURL
+    }
+
+    static func copyFileForTransferRepresentation(from sourceURL: URL) throws -> URL {
+        let destinationURL = try uniqueDestinationURL(suggestedFilename: sourceURL.lastPathComponent)
+        try copyFileSyncForTransferRepresentation(from: sourceURL, to: destinationURL)
+        return destinationURL
+    }
+
+    private static func copyFileSync(from sourceURL: URL, to destinationURL: URL) async throws {
+        try await Task.detached(priority: .utility) {
+            try copyFileSyncForTransferRepresentation(from: sourceURL, to: destinationURL)
+        }.value
+    }
+
+    private static func copyFileSyncForTransferRepresentation(from sourceURL: URL, to destinationURL: URL) throws {
+        let fileManager = FileManager.default
+        if fileManager.fileExists(atPath: destinationURL.path) {
+            try fileManager.removeItem(at: destinationURL)
+        }
+        try fileManager.copyItem(at: sourceURL, to: destinationURL)
     }
 
     private static func uniqueDestinationURL(suggestedFilename: String) throws -> URL {
@@ -995,7 +1016,7 @@ private struct ComposerPickedVideo: Transferable {
         FileRepresentation(contentType: .movie) { video in
             SentTransferredFile(video.fileURL)
         } importing: { receivedFile in
-            let fileURL = try ComposerPickedMediaStorage.copyFile(from: receivedFile.file)
+            let fileURL = try ComposerPickedMediaStorage.copyFileForTransferRepresentation(from: receivedFile.file)
             return ComposerPickedVideo(fileURL: fileURL)
         }
     }

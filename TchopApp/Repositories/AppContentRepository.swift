@@ -38,18 +38,21 @@ struct FeedCardRepository: FeedCardPersisting {
             return
         }
 
+        for card in cards {
+            try saveCard(card)
+        }
+    }
+
+    func saveCard(_ card: FeedCard) throws {
         try databaseManager.write(
             DatabaseWriteOperation(swiftData: { context in
+                let payloadData = try JSONEncoder().encode(card)
                 let existingRecords = try context.fetch(FetchDescriptor<FeedCardRecord>())
 
-                for card in cards {
-                    let payloadData = try JSONEncoder().encode(card)
-
-                    if let existingRecord = existingRecords.first(where: { $0.id == card.id }) {
-                        Self.apply(card, payloadData: payloadData, to: existingRecord)
-                    } else {
-                        context.insert(Self.makeRecord(from: card, payloadData: payloadData))
-                    }
+                if let existingRecord = existingRecords.first(where: { $0.id == card.id }) {
+                    Self.apply(card, payloadData: payloadData, to: existingRecord)
+                } else {
+                    context.insert(Self.makeRecord(from: card, payloadData: payloadData))
                 }
             })
         ) as Void

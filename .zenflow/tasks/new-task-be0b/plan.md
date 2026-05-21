@@ -148,6 +148,14 @@ No open implementation step is currently queued in this plan.
   - narrowed `NewsFeedCardRendererView` inputs so rows no longer receive the whole `NewsFeedViewModel`; rows receive source-neutral card data plus explicit callbacks.
 - Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded after fixes; no tests or simulator UI run.
 
+
+- Completed now: targeted persistence and media import I/O cleanup follow-up:
+  - changed `./TchopApp/ViewModels/AppShellViewModel.swift` so single-card like/comment/display-mode updates persist one `FeedCard` and update the affected in-memory row instead of rebuilding the whole feed array.
+  - added a single-card persistence API in `./TchopApp/Repositories/AppContentRepository.swift`; build constraints forced the SwiftData lookup to remain warning-free rather than using `#Predicate`, but the store/update call path is now single-card scoped.
+  - moved share-extension imported file copying in `./Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift` into a detached utility task so large share files are not copied on the main actor.
+  - moved composer media data writes and document-picker file copies in `./TchopApp/Views/Composer/SharedCardComposerView.swift` into detached utility work where the API allows it; kept the synchronous Transferable import copy for the `FileRepresentation` closure because that closure is synchronous.
+- Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests/simulator UI/Instruments run.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
