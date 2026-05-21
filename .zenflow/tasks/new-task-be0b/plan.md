@@ -78,6 +78,15 @@ No open implementation step is currently queued in this plan.
   - updated `./docs/README.md` so the new quality gate document is part of the active documentation index and placement policy.
 - Verification: `git diff --check` only; docs-only change, no build/tests/simulator UI run.
 
+
+- Active now: full read-only production audit requested and confirmed by user:
+  - scope: entire project except `./TchopAppTests`.
+  - mode: read-only audit first; do not fix code yet.
+  - user decision: strictly remove all `Local*` runtime/model/persistence naming and source-split logic in the future remediation plan; app is not released, so migration compatibility does not block renaming/remodeling.
+  - severity policy: P0 through P3 findings are in scope and should be planned before new features.
+  - audit focus: conceptual architecture, unified feed/card model, SwiftUI/runtime hot paths, state invalidation, persistence/database, media/cache, networking/sync/package boundaries, extensions/widgets, security/privacy/logging, and verification gaps.
+- Verification: audit phase uses read-only/static commands only; no build/tests/simulator UI unless explicitly requested later.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
