@@ -68,8 +68,8 @@ final class ShareViewController: UIViewController {
         else {
             installRootView(
                 state: .failed(
-                    title: "Share unavailable",
-                    message: "The share extension couldn't be prepared in this session."
+                    title: AppLocalization.text("share.failure.unavailable.title"),
+                    message: AppLocalization.text("share.failure.unavailable.message")
                 )
             )
             return
@@ -82,7 +82,7 @@ final class ShareViewController: UIViewController {
             else {
                 installRootView(
                     state: .signInRequired(
-                        message: "Open the app and sign in before creating cards from the share sheet."
+                        message: AppLocalization.text("share.signInRequired.message")
                     )
                 )
                 return
@@ -132,7 +132,7 @@ final class ShareViewController: UIViewController {
                 do {
                     try sharedFeedCardSyncManager.publishImportedCard(feedCard)
                 } catch {
-                    self.publishFailureMessage = "Failed to publish shared card."
+                    self.publishFailureMessage = AppLocalization.text("share.failure.publish.message")
                 }
             }
         )
@@ -153,7 +153,7 @@ final class ShareViewController: UIViewController {
         if let publishFailureMessage {
             installRootView(
                 state: .failed(
-                    title: "Publish failed",
+                    title: AppLocalization.text("share.failure.publish.title"),
                     message: publishFailureMessage
                 )
             )
@@ -190,33 +190,33 @@ final class ShareViewController: UIViewController {
         switch error {
         case ShareItemImportError.unsupportedProvider:
             return ShareFailurePresentation(
-                title: "This content can't be shared here",
-                message: "This app can create cards from text, images, video, audio, or PDF content."
+                title: AppLocalization.text("share.failure.unsupported.title"),
+                message: AppLocalization.text("share.failure.unsupported.message")
             )
         case ShareItemImportError.unableToDecodeText:
             return ShareFailurePresentation(
-                title: "Text couldn't be loaded",
-                message: "The shared text wasn't readable in this share session."
+                title: AppLocalization.text("share.failure.textLoad.title"),
+                message: AppLocalization.text("share.failure.textLoad.message")
             )
         case ShareItemImportError.unableToLoadFileRepresentation:
             return ShareFailurePresentation(
-                title: "File couldn't be loaded",
-                message: "The shared file wasn't available to the extension."
+                title: AppLocalization.text("share.failure.fileLoad.title"),
+                message: AppLocalization.text("share.failure.fileLoad.message")
             )
         case FeedComposerImportError.unsupportedMixedMediaAttachments:
             return ShareFailurePresentation(
-                title: "This selection mixes media types",
-                message: "A single card can't start with mixed imported media like image and video together. Share one media type at a time."
+                title: AppLocalization.text("share.failure.mixedMedia.title"),
+                message: AppLocalization.text("share.failure.mixedMedia.message")
             )
         case FeedComposerImportError.unsupportedMultipleFileAttachments:
             return ShareFailurePresentation(
-                title: "This selection includes multiple files",
-                message: "A single card can start with one imported video, audio file, or PDF. Share one file at a time."
+                title: AppLocalization.text("share.failure.multipleFiles.title"),
+                message: AppLocalization.text("share.failure.multipleFiles.message")
             )
         case FeedComposerImportError.incompatibleWithExistingMedia:
             return ShareFailurePresentation(
-                title: "This content can't be combined",
-                message: "The imported content doesn't fit the current card media rules. Remove the conflicting media and try again."
+                title: AppLocalization.text("share.failure.incompatible.title"),
+                message: AppLocalization.text("share.failure.incompatible.message")
             )
         default:
             return ShareFailurePresentation(

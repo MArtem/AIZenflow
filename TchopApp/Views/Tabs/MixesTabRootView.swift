@@ -37,8 +37,8 @@ struct MixesTabRootView: View {
         )
     }
 
-    private func destinationView(_ route: MixesRoute) -> StubTabDetailView {
-        StubTabDetailView(
+    private func destinationView(_ route: MixesRoute) -> FeatureTabDetailView {
+        FeatureTabDetailView(
             title: route.title,
             description: route.description
         )

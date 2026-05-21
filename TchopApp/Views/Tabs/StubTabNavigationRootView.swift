@@ -38,7 +38,7 @@ struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {
         router: TabRouter<MixesRoute>(),
         sampleRoute: ViewPreviewSupport.sampleMixesRoute,
         destinationBuilder: { route in
-            StubTabDetailView(
+            FeatureTabDetailView(
                 title: route.title,
                 description: route.description
             )

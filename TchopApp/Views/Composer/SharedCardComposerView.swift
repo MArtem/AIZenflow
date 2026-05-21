@@ -226,7 +226,7 @@ struct SharedCardComposerView: View {
                                         if showsCopyright {
                                             ComposerTextInputView(
                                                 text: photoCopyrightBinding(for: item.id),
-                                                placeholder: "© Copyright text",
+                                                placeholder: AppLocalization.text("composer.placeholder.copyright"),
                                                 style: assetMetadataInputStyle(color: AppTheme.textTertiary),
                                                 isFocused: focusedMetadataField == .photoCopyright(item.id),
                                                 onFocus: { focusMetadataField(.photoCopyright(item.id)) },
@@ -239,7 +239,7 @@ struct SharedCardComposerView: View {
                                         if showsCaption {
                                             ComposerTextInputView(
                                                 text: photoCaptionBinding(for: item.id),
-                                                placeholder: "Write a caption...",
+                                                placeholder: AppLocalization.text("composer.placeholder.caption"),
                                                 style: assetMetadataInputStyle(color: AppTheme.textSecondary),
                                                 isFocused: focusedMetadataField == .photoCaption(item.id),
                                                 onFocus: { focusMetadataField(.photoCaption(item.id)) },
@@ -1549,7 +1549,7 @@ private struct ComposerFileMediaPreviewView: View {
                     if showsTeaserCopyrightField || !teaserCopyrightText.isEmpty {
                         ComposerTextInputView(
                             text: $teaserCopyrightText,
-                            placeholder: "© Copyright text",
+                            placeholder: AppLocalization.text("composer.placeholder.copyright"),
                             style: teaserCopyrightInputStyle,
                             isFocused: isTeaserCopyrightFocused,
                             onFocus: onTeaserCopyrightFocus,
@@ -1576,7 +1576,7 @@ private struct ComposerFileMediaPreviewView: View {
                 if showsCaptionField || !captionText.isEmpty {
                     ComposerTextInputView(
                         text: $captionText,
-                        placeholder: "Add caption",
+                        placeholder: AppLocalization.text("composer.placeholder.addCaption"),
                         style: captionInputStyle,
                         isFocused: isCaptionFocused,
                         onFocus: onCaptionFocus,

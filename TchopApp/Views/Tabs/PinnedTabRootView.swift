@@ -37,8 +37,8 @@ struct PinnedTabRootView: View {
         )
     }
 
-    private func destinationView(_ route: PinnedRoute) -> StubTabDetailView {
-        StubTabDetailView(
+    private func destinationView(_ route: PinnedRoute) -> FeatureTabDetailView {
+        FeatureTabDetailView(
             title: route.title,
             description: route.description
         )

@@ -244,6 +244,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Remediation plan prepared for user review with P1/P2/P3 ordering; no implementation changes were made during the audit.
 - Verification: `git diff --check` run after plan update; no build/test/simulator/Instruments run because audit was read-only plus task-plan update.
 
+
+- Completed now: executed approved remediation blocks after Full Read-Only Production Audit:
+  - Block 2/4: moved share/app-group pending import and composer image previews further away from main-thread/render-path file I/O; composer photo/teaser/fullscreen image previews now use async downsample/cache loading instead of `UIImage(contentsOfFile:)` computed properties.
+  - Block 6: removed `AnyView` from repeated feed file-card rows, removed visible no-op refresh/update menu actions, and added `http`/`https` allowlist for feed source URLs.
+  - Block 1/5: renamed default development auth environment away from silent `localStub` naming, changed synthetic development tokens away from `stub-*`, replaced app runtime `MockUIConfigurationRemoteProvider()` with production-safe `StaticUIConfigurationProvider()`, and removed `StubTabDetailView`/`stubDescription` naming from feature-tab runtime types.
+  - Block 7: localized share-extension failure text and composer placeholder text through shared localization resources.
+  - Block 3: attempted scoped SwiftData `#Predicate` fetches for targeted persistence, but Xcode StrictConcurrency produced Swift 6 `ReferenceWritableKeyPath` warnings; reverted to warning-free fetch-all temporary shape rather than leaving future Swift 6 errors. This remains the one explicitly constrained follow-up item.
+  - Instruments: `xcrun xctrace list templates` succeeded and confirmed `SwiftUI`, `Time Profiler`, `Animation Hitches`, `File Activity`, and related templates are available. No trace was recorded because the user explicitly excluded simulator launch/manual exercise until the end.
+- Verification: after the remediation pass `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded. A final build also succeeded after feature-tab naming cleanup. No tests/simulator UI/manual validation/Instruments trace recording were run.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

@@ -322,7 +322,25 @@ public actor UIConfigurationManager: UIConfigurationManaging {
     }
 }
 
-/// Mock remote source used until a real backend contract exists.
+
+/// Static source for production-safe local UI configuration defaults when no backend contract is wired.
+public struct StaticUIConfigurationProvider: UIConfigurationRemoteProviding {
+    private let response: UIConfigurationSnapshot
+
+    public init(
+        response: UIConfigurationSnapshot = UIConfigurationSnapshot(
+            shell: ShellUIConfiguration(showsFloatingActionButton: true)
+        )
+    ) {
+        self.response = response
+    }
+
+    public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
+        response
+    }
+}
+
+/// Mock remote source used for previews and tests.
 public struct MockUIConfigurationRemoteProvider: UIConfigurationRemoteProviding {
     private let response: UIConfigurationSnapshot
     private let delayNanoseconds: UInt64

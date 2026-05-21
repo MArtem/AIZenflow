@@ -16,7 +16,7 @@ struct TabStubView: View {
                     .font(AppTypography.profileDisplay)
                     .foregroundStyle(AppTheme.textPrimary)
 
-                Text(tab.stubDescription)
+                Text(tab.placeholderDescription)
                     .font(AppTypography.body)
                     .foregroundStyle(AppTheme.textTertiary)
                     .multilineTextAlignment(.center)

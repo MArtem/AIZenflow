@@ -288,3 +288,25 @@
 "widget.feedHeadline.description" = "Shows the title of the first card on the feed screen.";
 "widget.feedHeadline.placeholder" = "Parrots help others...";
 "widget.feedHeadline.preview" = "Parrots help others in need, study shows for first time";
+
+"share.failure.unavailable.title" = "Share unavailable";
+"share.failure.unavailable.message" = "The share extension couldn't be prepared in this session.";
+"share.signInRequired.message" = "Open the app and sign in before creating cards from the share sheet.";
+"share.failure.publish.title" = "Publish failed";
+"share.failure.publish.message" = "Failed to publish shared card.";
+"share.failure.unsupported.title" = "This content can't be shared here";
+"share.failure.unsupported.message" = "This app can create cards from text, images, video, audio, or PDF content.";
+"share.failure.textLoad.title" = "Text couldn't be loaded";
+"share.failure.textLoad.message" = "The shared text wasn't readable in this share session.";
+"share.failure.fileLoad.title" = "File couldn't be loaded";
+"share.failure.fileLoad.message" = "The shared file wasn't available to the extension.";
+"share.failure.mixedMedia.title" = "This selection mixes media types";
+"share.failure.mixedMedia.message" = "A single card can't start with mixed imported media like image and video together. Share one media type at a time.";
+"share.failure.multipleFiles.title" = "This selection includes multiple files";
+"share.failure.multipleFiles.message" = "A single card can start with one imported video, audio file, or PDF. Share one file at a time.";
+"share.failure.incompatible.title" = "This content can't be combined";
+"share.failure.incompatible.message" = "The imported content doesn't fit the current card media rules. Remove the conflicting media and try again.";
+"composer.placeholder.copyright" = "© Copyright text";
+"composer.placeholder.caption" = "Write a caption...";
+"composer.placeholder.addCaption" = "Add caption";
+"composer.teaser.placeholder" = "Teaser image";

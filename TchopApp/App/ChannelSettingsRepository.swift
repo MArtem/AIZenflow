@@ -6,7 +6,7 @@ struct UserChannelSettingsSnapshot: Equatable, Sendable {
     let preselectedChannelID: String?
 }
 
-/// Local stub implementation that models backend-delivered channel settings until the real API exists.
+/// Development implementation that models backend-delivered channel settings until the real API exists.
 @MainActor
 struct UserChannelSettingsRepository {
     private static let defaultAvailableChannels: [AppChannel] = [
@@ -39,7 +39,7 @@ struct UserChannelSettingsRepository {
         }
     }
 
-    /// Keeps the local stub lookup stable regardless of how the username/email was entered.
+    /// Keeps the development lookup stable regardless of how the username/email was entered.
     private func normalizedUsername(_ username: String) -> String {
         username
             .trimmingCharacters(in: .whitespacesAndNewlines)

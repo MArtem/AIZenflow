@@ -446,7 +446,7 @@ private struct VideoCardView: View {
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
                 onSetDisplayMode: onSetDisplayMode,
-                preview: { file in AnyView(FeedVideoMediaView(file: file)) }
+                preview: { file in FeedVideoMediaView(file: file) }
             )
         }
     }
@@ -479,7 +479,7 @@ private struct AudioCardView: View {
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
                 onSetDisplayMode: onSetDisplayMode,
-                preview: { file in AnyView(FeedAudioMediaView(file: file)) }
+                preview: { file in FeedAudioMediaView(file: file) }
             )
         }
     }
@@ -512,7 +512,7 @@ private struct PDFCardView: View {
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
                 onSetDisplayMode: onSetDisplayMode,
-                preview: { file in AnyView(FeedPDFMediaView(file: file)) }
+                preview: { file in FeedPDFMediaView(file: file) }
             )
         }
     }
@@ -526,7 +526,7 @@ private struct PDFCardView: View {
     }
 }
 
-private struct FeedFileCardView: View {
+private struct FeedFileCardView<Preview: View>: View {
     let card: FeedCard
     let mediaHeight: CGFloat
     let translationAction: FeedCardTranslationAction?
@@ -534,7 +534,7 @@ private struct FeedFileCardView: View {
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
     let onSetDisplayMode: (FeedCardDisplayMode) -> Void
-    let preview: (FeedFileMediaContent) -> AnyView
+    let preview: (FeedFileMediaContent) -> Preview
 
     var body: some View {
         FeedCardContainer(
@@ -656,9 +656,7 @@ private struct FeedCardContainer<MediaBody: View>: View {
                 displayMode: card.displayMode,
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
-                onSetDisplayMode: onSetDisplayMode,
-                onRefreshCard: {},
-                onRunUpdateTask: {}
+                onSetDisplayMode: onSetDisplayMode
             )
             .background(AppTheme.surfacePrimary)
             .contentShape(Rectangle())
@@ -718,11 +716,15 @@ private struct FeedCardContainer<MediaBody: View>: View {
     }
 
     private var sourceURL: URL? {
-        guard let resourceURLString = card.sourceContent?.resourceURLString else {
+        guard let resourceURLString = card.sourceContent?.resourceURLString,
+              let url = URL(string: resourceURLString),
+              let scheme = url.scheme?.lowercased(),
+              scheme == "https" || scheme == "http"
+        else {
             return nil
         }
 
-        return URL(string: resourceURLString)
+        return url
     }
 
     private func font(for kind: FeedTextFieldKind) -> Font {
@@ -757,8 +759,6 @@ private struct FeedActionBar: View {
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
     let onSetDisplayMode: (FeedCardDisplayMode) -> Void
-    let onRefreshCard: () -> Void
-    let onRunUpdateTask: () -> Void
 
     var body: some View {
         HStack {
@@ -804,25 +804,6 @@ private struct FeedActionBar: View {
                     )
                 }
 
-                Divider()
-
-                Button {
-                    onRefreshCard()
-                } label: {
-                    Label(
-                        AppLocalization.text("news.photo.menu.refresh"),
-                        systemImage: "arrow.clockwise"
-                    )
-                }
-
-                Button {
-                    onRunUpdateTask()
-                } label: {
-                    Label(
-                        AppLocalization.text("news.photo.menu.update"),
-                        systemImage: "wand.and.stars"
-                    )
-                }
             } label: {
                 Image(systemName: "ellipsis")
             }

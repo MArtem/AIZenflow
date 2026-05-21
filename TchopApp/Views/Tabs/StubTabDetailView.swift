@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Generic destination view used by scaffolded feature-tab routes.
-struct StubTabDetailView: View {
+struct FeatureTabDetailView: View {
     let title: String
     let description: String
 
@@ -26,9 +26,9 @@ struct StubTabDetailView: View {
 }
 
 #if DEBUG
-#Preview("Stub Tab Detail") {
+#Preview("Feature Tab Detail") {
     NavigationStack {
-        StubTabDetailView(
+        FeatureTabDetailView(
             title: "Preview Detail",
             description: "This preview keeps scaffolded destination copy visible and current."
         )

@@ -107,7 +107,7 @@ struct AppLaunchConfiguration {
                 enablesNetworkLogging: environment["TCHOP_NETWORK_LOGGING"] == "1"
             )
         default:
-            return .localStub
+            return .developmentStub
         }
     }
 }

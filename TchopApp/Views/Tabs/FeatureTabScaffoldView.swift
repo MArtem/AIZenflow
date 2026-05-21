@@ -39,7 +39,7 @@ struct FeatureTabNavigationRootView<Route: Hashable>: View {
     @Bindable var router: TabRouter<Route>
     let makeQuickActionRoute: (FeatureQuickAction) -> Route
     let makeItemRoute: (FeatureTabItem) -> Route
-    let destinationBuilder: (Route) -> StubTabDetailView
+    let destinationBuilder: (Route) -> FeatureTabDetailView
 
     var body: some View {
         NavigationStack(path: pathBinding) {

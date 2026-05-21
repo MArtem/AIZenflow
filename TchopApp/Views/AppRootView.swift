@@ -117,7 +117,7 @@ enum ViewPreviewSupport {
     static func makePreviewContainer() -> AppDIContainer {
         AppDIContainer(
             databaseConfiguration: .inMemory,
-            apiEnvironment: .localStub,
+            apiEnvironment: .developmentStub,
             isUITesting: true
         )
     }

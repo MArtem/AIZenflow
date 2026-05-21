@@ -49,19 +49,19 @@ enum AppTab: String, CaseIterable, Identifiable, Codable {
         }
     }
 
-    /// Placeholder copy used by stub screens.
-    var stubDescription: String {
+    /// Placeholder copy used by placeholder feature screens.
+    var placeholderDescription: String {
         switch self {
         case .news:
-            AppLocalization.text("tab.news.stubDescription")
+            AppLocalization.text("tab.news.placeholderDescription")
         case .mixes:
-            AppLocalization.text("tab.mixes.stubDescription")
+            AppLocalization.text("tab.mixes.placeholderDescription")
         case .pinned:
-            AppLocalization.text("tab.pinned.stubDescription")
+            AppLocalization.text("tab.pinned.placeholderDescription")
         case .chat:
-            AppLocalization.text("tab.chat.stubDescription")
+            AppLocalization.text("tab.chat.placeholderDescription")
         case .profile:
-            AppLocalization.text("tab.profile.stubDescription")
+            AppLocalization.text("tab.profile.placeholderDescription")
         }
     }
 }

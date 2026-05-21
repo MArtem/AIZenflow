@@ -97,11 +97,11 @@ private extension ReqResDemoTokenResponseDTO {
     }
 }
 
-/// Production-shaped auth API manager that can run either against synthetic local stub tokens
+/// Production-shaped auth API manager that can run either against synthetic development stub tokens
 /// or against real transport routes once backend endpoints exist.
 struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
     enum Mode {
-        case localStub
+        case developmentSynthetic
         case remoteBackend
         case reqResDemo
     }
@@ -122,7 +122,7 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
 
     func signIn(username: String) async throws -> AuthTokenSet {
         switch mode {
-        case .localStub:
+        case .developmentSynthetic:
             return makeSyntheticTokenSet(subject: "username:\(username)")
         case .remoteBackend:
             let response = try await apiManager.perform(
@@ -142,7 +142,7 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
 
     func signIn(email: String, password: String) async throws -> AuthTokenSet {
         switch mode {
-        case .localStub:
+        case .developmentSynthetic:
             return makeSyntheticTokenSet(subject: "email:\(email)")
         case .remoteBackend:
             let response = try await apiManager.perform(
@@ -166,7 +166,7 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
 
     func register(email: String, password: String) async throws -> AuthTokenSet {
         switch mode {
-        case .localStub:
+        case .developmentSynthetic:
             return makeSyntheticTokenSet(subject: "register:\(email)")
         case .remoteBackend:
             let response = try await apiManager.perform(
@@ -190,7 +190,7 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
 
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AuthTokenSet {
         switch mode {
-        case .localStub:
+        case .developmentSynthetic:
             return makeSyntheticTokenSet(subject: "apple:\(identity.userID)")
         case .remoteBackend:
             let response = try await apiManager.perform(
@@ -213,7 +213,7 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
 
     func refreshToken(using refreshToken: String) async throws -> AuthTokenSet {
         switch mode {
-        case .localStub:
+        case .developmentSynthetic:
             return makeSyntheticTokenSet(subject: "refresh:\(refreshToken)")
         case .remoteBackend:
             let response = try await apiManager.perform(
@@ -231,7 +231,7 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
 
     func revokeSession(accessToken: String?) async throws {
         switch mode {
-        case .localStub, .reqResDemo:
+        case .developmentSynthetic, .reqResDemo:
             return
         case .remoteBackend:
             _ = try await apiManager.perform(
@@ -288,13 +288,13 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
         )
     }
 
-    /// Synthetic stub tokens keep the auth/session foundation exercised locally before real endpoints exist.
+    /// Explicit development synthetic tokens keep the auth/session foundation exercised before real endpoints exist.
     private func makeSyntheticTokenSet(subject: String) -> AuthTokenSet {
         let issuedAt = Date()
         let normalizedSubject = subject.replacingOccurrences(of: " ", with: "-")
         return AuthTokenSet(
-            accessToken: "stub-access-\(normalizedSubject)-\(issuedAt.timeIntervalSince1970)",
-            refreshToken: "stub-refresh-\(normalizedSubject)",
+            accessToken: "dev-access-\(normalizedSubject)-\(issuedAt.timeIntervalSince1970)",
+            refreshToken: "dev-refresh-\(normalizedSubject)",
             expiresAt: issuedAt.addingTimeInterval(3600),
             tokenType: "Bearer"
         )

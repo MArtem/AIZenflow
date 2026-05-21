@@ -33,7 +33,7 @@ struct FeatureTabItem: Identifiable, Equatable {
     let metadata: String
 }
 
-/// Static fixture factory for feature-tab placeholder content.
+/// Static placeholder content for feature tabs not yet connected to backend data.
 enum FeatureTabFixtures {
     static let mixes = FeatureTabContent(
         title: AppLocalization.text("feature.mixes.title"),

@@ -14,7 +14,7 @@ import TchopShareSupport
 /// Runtime API environment describing transport configuration and diagnostics policy.
 struct AppAPIEnvironment {
     enum Kind {
-        case localStub
+        case developmentStub
         case developmentExternalAuth
         case development
         case staging
@@ -28,8 +28,8 @@ struct AppAPIEnvironment {
     let loginScreenMode: LoginScreenMode
     let authenticationEndpointConfiguration: AuthenticationAPIEndpointConfiguration
 
-    static let localStub = AppAPIEnvironment(
-        kind: .localStub,
+    static let developmentStub = AppAPIEnvironment(
+        kind: .developmentStub,
         apiConfiguration: .stub,
         authenticationAPIConfiguration: .stub,
         enablesNetworkLogging: false,
@@ -183,7 +183,7 @@ final class AppDIContainer {
     /// Creates the root dependency container and eagerly wires the initial graph.
     init(
         databaseConfiguration: DatabaseConfiguration = .persistent,
-        apiEnvironment: AppAPIEnvironment = .localStub,
+        apiEnvironment: AppAPIEnvironment = .developmentStub,
         isUITesting: Bool = false
     ) {
         let analyticsCollector = ProductAnalyticsMemoryCollector()
@@ -456,11 +456,11 @@ final class AppDIContainer {
         )
 
         switch apiEnvironment.kind {
-        case .localStub:
+        case .developmentStub:
             return DefaultAuthenticationAPIManager(
                 apiManager: authAPIManager,
                 endpointConfiguration: apiEnvironment.authenticationEndpointConfiguration,
-                mode: .localStub
+                mode: .developmentSynthetic
             )
         case .developmentExternalAuth:
             return DefaultAuthenticationAPIManager(
@@ -571,7 +571,7 @@ final class AppDIContainer {
 
     private static func makeUIConfigurationManager() -> any UIConfigurationManaging {
         UIConfigurationManager(
-            remoteProvider: MockUIConfigurationRemoteProvider(),
+            remoteProvider: StaticUIConfigurationProvider(),
             store: UserDefaultsUIConfigurationSnapshotStore(userDefaults: .standard),
             stalenessPolicy: .after(300),
             refreshThrottling: .minimumInterval(30)

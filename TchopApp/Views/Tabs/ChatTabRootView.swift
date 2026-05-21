@@ -37,8 +37,8 @@ struct ChatTabRootView: View {
         )
     }
 
-    private func destinationView(_ route: ChatRoute) -> StubTabDetailView {
-        StubTabDetailView(
+    private func destinationView(_ route: ChatRoute) -> FeatureTabDetailView {
+        FeatureTabDetailView(
             title: route.title,
             description: route.description
         )
