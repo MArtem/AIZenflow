@@ -85,6 +85,12 @@ No open implementation step is currently queued in this plan.
   - user decision: strictly remove all `Local*` runtime/model/persistence naming and source-split logic in the future remediation plan; app is not released, so migration compatibility does not block renaming/remodeling.
   - severity policy: P0 through P3 findings are in scope and should be planned before new features.
   - audit focus: conceptual architecture, unified feed/card model, SwiftUI/runtime hot paths, state invalidation, persistence/database, media/cache, networking/sync/package boundaries, extensions/widgets, security/privacy/logging, and verification gaps.
+  - mandatory feed scroll performance findings to preserve in the remediation plan:
+    1. `./TchopApp/Views/News/NewsFeedView.swift` currently performs media decoding/thumbnail generation in SwiftUI row bodies: `UIImage(contentsOfFile:)`, synchronous `AVAssetImageGenerator.copyCGImage`, synchronous `PDFDocument(url:)`/`page.thumbnail(...)`, and repeated `FileManager` existence checks during media path resolution. These must move out of the scroll hot path into async/cached media preview preparation.
+    2. `./TchopApp/ViewModels/NewsFeedViewModel.swift` exposes `visibleContent` as a computed property and `./TchopApp/Views/News/NewsFeedView.swift` reads it multiple times during body evaluation, including empty-state checks and `ForEach`; remediation must precompute or memoize visible feed snapshots.
+    3. Feed rows currently receive the whole `NewsFeedViewModel` and call translation/action methods from row bodies, broadening the SwiftUI dependency graph; remediation must pass narrow immutable row data plus explicit callbacks.
+    4. Interaction persistence for like/comment/display-mode currently saves through `LocalFeedCardStore.updatePersistedCard`, fetches broad persistence state in `LocalFeedCardRepository.saveCards`, and rebuilds all cards; remediation must make single-card updates targeted and avoid whole-feed invalidation.
+    5. Repeated `.clipShape(...)` and `.shadow(...)` on every feed card may add offscreen rendering cost after media decoding is fixed; remediation must profile or simplify repeated row effects if needed.
 - Verification: audit phase uses read-only/static commands only; no build/tests/simulator UI unless explicitly requested later.
 
 ## Verification Status
