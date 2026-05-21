@@ -156,6 +156,14 @@ No open implementation step is currently queued in this plan.
   - moved composer media data writes and document-picker file copies in `./TchopApp/Views/Composer/SharedCardComposerView.swift` into detached utility work where the API allows it; kept the synchronous Transferable import copy for the `FileRepresentation` closure because that closure is synchronous.
 - Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests/simulator UI/Instruments run.
 
+
+- Completed now: share/app-group robustness and feed visual rendering cleanup:
+  - added per-file safe JSON loading in `./Packages/TchopInfrastructure/Sources/TchopShareSupport/TchopShareSupport.swift` so one corrupted pending share item no longer blocks all valid cards.
+  - added targeted removal by successfully imported card IDs and quarantine for corrupted pending share JSON files under the app-group store.
+  - changed `./TchopApp/Shared/SharedFeedCardSyncManager.swift` to sync valid pending feed cards, remove only processed files, and quarantine malformed files.
+  - reduced repeated feed-row offscreen rendering cost in `./TchopApp/Views/News/NewsFeedView.swift` by replacing the per-card shadow with a cheap rounded border overlay.
+- Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests/simulator UI/Instruments run.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

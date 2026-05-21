@@ -20,15 +20,15 @@ final class SharedFeedCardSyncManager {
 
     @discardableResult
     func syncPendingCards(into feedCardStore: FeedCardStore) throws -> Int {
-        let cards = try store.loadAll()
-            .sorted { $0.createdAt > $1.createdAt }
+        let loadResult = try store.loadAllSafely()
+        let cards = loadResult.items.sorted { $0.createdAt > $1.createdAt }
 
-        guard !cards.isEmpty else {
-            return 0
+        if !cards.isEmpty {
+            try feedCardStore.sync(cards)
+            try store.removeItems(withIDs: cards.map(\.id))
         }
 
-        try feedCardStore.sync(cards)
-        try store.clear()
+        try store.quarantineFiles(loadResult.failedFileURLs)
 
         return cards.count
     }

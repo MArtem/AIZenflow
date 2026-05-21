@@ -667,7 +667,10 @@ private struct FeedCardContainer<MediaBody: View>: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(AppTheme.surfacePrimary)
         .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard, style: .continuous))
-        .shadow(color: AppTheme.shadow.opacity(0.35), radius: 6, y: 1)
+        .overlay {
+            RoundedRectangle(cornerRadius: AppRadius.compactCard, style: .continuous)
+                .stroke(AppTheme.borderSubtle, lineWidth: 1)
+        }
     }
 
     private var hasVisibleTextContent: Bool {

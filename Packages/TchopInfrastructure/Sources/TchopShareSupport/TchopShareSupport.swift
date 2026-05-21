@@ -4,6 +4,16 @@ public enum AppGroupJSONItemDirectoryStoreError: Error, Equatable, Sendable {
     case unavailableSharedContainer(groupIdentifier: String)
 }
 
+public struct AppGroupJSONItemDirectoryLoadResult<Item: Sendable>: Sendable {
+    public let items: [Item]
+    public let failedFileURLs: [URL]
+
+    public init(items: [Item], failedFileURLs: [URL]) {
+        self.items = items
+        self.failedFileURLs = failedFileURLs
+    }
+}
+
 public final class AppGroupJSONItemDirectoryStore<Item>
 where Item: Codable & Identifiable & Sendable, Item.ID == String {
     private let fileManager: FileManager
@@ -39,15 +49,64 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
     }
 
     public func loadAll() throws -> [Item] {
-        let fileURLs = try fileManager.contentsOfDirectory(
-            at: directoryURL,
-            includingPropertiesForKeys: nil
-        )
-        .filter { $0.pathExtension == "json" }
+        let result = try loadAllSafely()
+        if let failedFileURL = result.failedFileURLs.first {
+            let data = try Data(contentsOf: failedFileURL)
+            _ = try decoder.decode(Item.self, from: data)
+        }
+        return result.items
+    }
 
-        return try fileURLs.map { fileURL in
-            let data = try Data(contentsOf: fileURL)
-            return try decoder.decode(Item.self, from: data)
+    public func loadAllSafely() throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
+        let fileURLs = try jsonFileURLs()
+        var items: [Item] = []
+        var failedFileURLs: [URL] = []
+
+        for fileURL in fileURLs {
+            do {
+                let data = try Data(contentsOf: fileURL)
+                items.append(try decoder.decode(Item.self, from: data))
+            } catch {
+                failedFileURLs.append(fileURL)
+            }
+        }
+
+        return AppGroupJSONItemDirectoryLoadResult(items: items, failedFileURLs: failedFileURLs)
+    }
+
+    public func removeItems(withIDs ids: [String]) throws {
+        for id in ids {
+            let itemURL = fileURL(for: id)
+            guard fileManager.fileExists(atPath: itemURL.path) else {
+                continue
+            }
+            try fileManager.removeItem(at: itemURL)
+        }
+    }
+
+    public func quarantineFiles(_ fileURLs: [URL]) throws {
+        guard !fileURLs.isEmpty else {
+            return
+        }
+
+        let quarantineDirectoryURL = directoryURL.appendingPathComponent("corrupted", isDirectory: true)
+        try fileManager.createDirectory(
+            at: quarantineDirectoryURL,
+            withIntermediateDirectories: true,
+            attributes: nil
+        )
+
+        for fileURL in fileURLs {
+            guard fileManager.fileExists(atPath: fileURL.path) else {
+                continue
+            }
+
+            let quarantineURL = quarantineDirectoryURL
+                .appendingPathComponent("\(UUID().uuidString)-\(fileURL.lastPathComponent)")
+            if fileManager.fileExists(atPath: quarantineURL.path) {
+                try fileManager.removeItem(at: quarantineURL)
+            }
+            try fileManager.moveItem(at: fileURL, to: quarantineURL)
         }
     }
 
@@ -60,6 +119,14 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         for fileURL in fileURLs {
             try fileManager.removeItem(at: fileURL)
         }
+    }
+
+    private func jsonFileURLs() throws -> [URL] {
+        try fileManager.contentsOfDirectory(
+            at: directoryURL,
+            includingPropertiesForKeys: nil
+        )
+        .filter { $0.pathExtension == "json" }
     }
 
     private func fileURL(for id: String) -> URL {
