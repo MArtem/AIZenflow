@@ -93,6 +93,50 @@ No open implementation step is currently queued in this plan.
     5. Repeated `.clipShape(...)` and `.shadow(...)` on every feed card may add offscreen rendering cost after media decoding is fixed; remediation must profile or simplify repeated row effects if needed.
 - Verification: audit phase uses read-only/static commands only; no build/tests/simulator UI unless explicitly requested later.
 
+
+- Approved now: prepare Phase 1 + Phase 2 feed-card remediation implementation plan before coding.
+  - Phase 1 objective: remove all `Local*` naming/source-split logic and converge composer, persistence, feed runtime, share extension, and widgets onto one source-neutral `FeedCard` contract.
+  - Phase 2 objective: remove feed scroll jank by moving all image/video/PDF/file resolution work out of SwiftUI row bodies into prepared/cached media preview state.
+  - Implementation plan, pending user confirmation before code changes:
+    1. Domain/model reset in `./TchopApp/Models/NewsFeedModels.swift`:
+       - replace `LocalFeedCardModel`, `LocalFeed*` media/text/source types, and `.local(...)` wrapper enums with source-neutral `FeedCard`, `FeedCardMedia`, `FeedCardTextContent`, `FeedCardSourceContent`, `FeedCardDisplayMode`, and related helpers.
+       - keep the product taxonomy exactly `text`, `photo`, `video`, `audio`, `pdf` and strict text order `text`, `headline`, `subheadline`, `source`.
+       - remove source-origin from UI/domain names; source/sync metadata, if needed, must be storage/sync metadata, not UI branch identity.
+       - move route/localization decisions out of the card domain model where practical, so the card model stays product data rather than navigation/UI policy.
+    2. Persistence/store reset:
+       - replace `LocalFeedCardRecord` with source-neutral `FeedCardRecord` in `./TchopApp/Persistence/AppContentRecord.swift` and `./TchopApp/Persistence/AppDatabase.swift`; app is not released, so legacy migration compatibility does not block the rename/remodel.
+       - replace `LocalFeedCardRepository` / `LocalFeedCardPersisting` with source-neutral `FeedCardRepository` / concrete persistence boundary in `./TchopApp/Repositories/AppContentRepository.swift`.
+       - move feed-card store/persistence protocol out of `./TchopApp/ViewModels/AppShellViewModel.swift` so view-model files do not own repository contracts.
+       - change single-card updates to targeted persistence paths instead of broad full-record fetch/update/rebuild where possible in this phase.
+    3. App composition/share/widget naming reset:
+       - replace `localFeedCardStore` and related DI naming in `./TchopApp/App/AppDIContainer.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`, and `./TchopApp/ViewModels/NewsFeedViewModel.swift`.
+       - replace `SharedLocalFeedCardSyncManager` with source-neutral shared feed-card import/sync naming in `./TchopApp/Shared` and `./TchopShareExtension/ShareViewController.swift`.
+       - preserve the current core behavior: composer-created and share-extension-created cards persist, display in the selected channel, and preserve like/comment/display mode after restart.
+    4. Feed UI renderer reset in `./TchopApp/Views/News/NewsFeedView.swift`:
+       - remove `.local` switch branches and `Local*CardView` / `Local*Media*` names.
+       - make rows receive source-neutral card row data and narrow callbacks rather than the entire `NewsFeedViewModel`.
+       - remove `ForEach(Array(viewModel.visibleContent.cards), ...)`; compute visible cards once before rendering and pass a stable array to the section.
+    5. Feed state/performance reset in `./TchopApp/ViewModels/NewsFeedViewModel.swift`:
+       - replace computed hot-path `visibleContent` with precomputed or memoized visible feed snapshot invalidated only by channel, search query, card version, or translation state changes.
+       - stop row body calls from repeatedly triggering translation availability and broad view-model reads.
+       - keep empty/search/loading/error state derived from the same feed snapshot source of truth.
+    6. Media preview pipeline for smooth scroll:
+       - introduce a small feed media preview loader/cache owned outside SwiftUI row body; do not add decorative layers, only the minimum service/store needed for async thumbnail preparation and cache lookup.
+       - remove `UIImage(contentsOfFile:)`, `AVAssetImageGenerator.copyCGImage`, `PDFDocument(url:)`, and repeated `FileManager.fileExists` from row body/computed render paths in `./TchopApp/Views/News/NewsFeedView.swift`.
+       - create stable placeholders with similar size to loaded previews to avoid scroll jumps.
+       - cache by durable media file identity/card id and avoid full-resolution image retention in rows.
+    7. Interaction update narrowing:
+       - like/comment/display-mode updates should update one `FeedCard` and persist one record without rebuilding unrelated rows.
+       - failure handling must not silently lose the optimistic UI state; if persistence fails, surface or revert intentionally.
+    8. Visual rendering follow-up after media hot path removal:
+       - review repeated `.clipShape(...)` and `.shadow(...)` on feed cards; simplify or gate if they still contribute to jank.
+       - keep published feed UI semantics from the contract unchanged.
+    9. Verification after implementation, only with user-approved command scope:
+       - always run `git diff --check`.
+       - run `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` if Xcode project changes.
+       - build only if explicitly requested by user.
+       - manual simulator/Instruments scroll validation is recommended for a true 100% smooth-scroll claim, but must be separately approved.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
