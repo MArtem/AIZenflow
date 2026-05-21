@@ -64,6 +64,13 @@ No open implementation step is currently queued in this plan.
   - step 4 context/package cleanup: refreshed active documentation/handoff references so they no longer point at removed remote/stub feed runtime files such as `FeedAPIManager`, `PhotoActionView`, `PhotoCardView`, or `TextCardView`.
 - Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests or simulator UI run.
 
+
+- Completed now: read-only feed scroll performance analysis requested by user:
+  - reviewed local card creation/persistence/display flow from composer media storage through `LocalFeedCardStore`, SwiftData `LocalFeedCardRepository`, `NewsFeedViewModel.visibleContent`, and `NewsFeedView` rendering.
+  - identified primary scroll-jank risks: synchronous media decoding/thumbnail generation in SwiftUI row bodies, repeated derived feed/translation computation during body evaluation, broad row dependency on `NewsFeedViewModel`, per-card main-thread persistence refresh after interactions, and per-card shadows/clipping costs.
+  - produced a recommended remediation plan focused on cached async media previews, stable row view models/snapshots, precomputed visible feed snapshots, incremental persistence updates, and profiler-backed validation.
+- Verification: read-only/static analysis only; no build, tests, or simulator UI run for this analysis pass.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
