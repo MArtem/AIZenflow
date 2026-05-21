@@ -52,7 +52,7 @@ struct NewsFeedView: View {
         .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .refreshable {
-            viewModel.refresh()
+            await viewModel.refresh()
         }
         .confirmationDialog(
             AppLocalization.text("news.card.translation.languagePicker.title"),

@@ -350,8 +350,8 @@ final class NewsFeedViewModel {
 
     /// Starts a user-driven refresh when no feed request is already running.
     /// Online refresh goes through the API path; offline refresh keeps the stored snapshot and updates the UI source metadata.
-    func refresh() {
-        syncSharedFeedCardsIfNeeded()
+    func refresh() async {
+        await syncSharedFeedCardsIfNeeded()
         handleChannelCardsChanged()
     }
 
@@ -380,28 +380,26 @@ final class NewsFeedViewModel {
         handleChannelCardsChanged()
     }
 
-    func syncSharedFeedCardsIfNeeded() {
+    func syncSharedFeedCardsIfNeeded() async {
         guard let sharedFeedCardSyncManager else {
             return
         }
 
         do {
-            let importedCount = try sharedFeedCardSyncManager.syncPendingCards(into: feedCardStore)
+            let importedCount = try await sharedFeedCardSyncManager.syncPendingCards(into: feedCardStore)
             guard importedCount > 0 else {
                 return
             }
 
             handleChannelCardsChanged()
         } catch {
-            Task { @MainActor [errorManager] in
-                _ = await errorManager.presentableError(
-                    from: error,
-                    context: AppErrorContext(
-                        operation: "syncSharedFeedCards",
-                        feature: "newsFeed"
-                    )
+            _ = await errorManager.presentableError(
+                from: error,
+                context: AppErrorContext(
+                    operation: "syncSharedFeedCards",
+                    feature: "newsFeed"
                 )
-            }
+            )
         }
     }
 

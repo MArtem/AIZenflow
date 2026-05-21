@@ -1,11 +1,107 @@
 import AVKit
 import CoreTransferable
+import ImageIO
 import Observation
 import PDFKit
 import PhotosUI
 import SwiftUI
 import UIKit
 import UniformTypeIdentifiers
+
+
+private struct ComposerAsyncImageContent<LoadedContent: View, PlaceholderContent: View>: View {
+    let fileURL: URL?
+    let maxPixelSize: CGFloat
+    let loadedContent: (UIImage) -> LoadedContent
+    let placeholderContent: () -> PlaceholderContent
+    @State private var image: UIImage?
+
+    init(
+        fileURL: URL?,
+        maxPixelSize: CGFloat = 1200,
+        @ViewBuilder loadedContent: @escaping (UIImage) -> LoadedContent,
+        @ViewBuilder placeholderContent: @escaping () -> PlaceholderContent
+    ) {
+        self.fileURL = fileURL
+        self.maxPixelSize = maxPixelSize
+        self.loadedContent = loadedContent
+        self.placeholderContent = placeholderContent
+    }
+
+    var body: some View {
+        Group {
+            if let image {
+                loadedContent(image)
+            } else {
+                placeholderContent()
+            }
+        }
+        .task(id: fileURL) {
+            image = nil
+            guard let fileURL else {
+                return
+            }
+            image = await ComposerImagePreviewLoader.image(at: fileURL, maxPixelSize: maxPixelSize)
+        }
+    }
+}
+
+@MainActor
+private final class ComposerImagePreviewMemoryCache {
+    static let shared = ComposerImagePreviewMemoryCache()
+
+    private let cache = NSCache<NSString, UIImage>()
+
+    private init() {
+        cache.countLimit = 80
+    }
+
+    func image(for key: String) -> UIImage? {
+        cache.object(forKey: key as NSString)
+    }
+
+    func setImage(_ image: UIImage, for key: String) {
+        cache.setObject(image, forKey: key as NSString)
+    }
+}
+
+private enum ComposerImagePreviewLoader {
+    static func image(at fileURL: URL, maxPixelSize: CGFloat) async -> UIImage? {
+        let cacheKey = "\(fileURL.path)|\(Int(maxPixelSize))"
+        if let cachedImage = await ComposerImagePreviewMemoryCache.shared.image(for: cacheKey) {
+            return cachedImage
+        }
+
+        let image = await Task.detached(priority: .utility) {
+            downsampledImage(at: fileURL, maxPixelSize: maxPixelSize)
+        }.value
+
+        if let image {
+            await ComposerImagePreviewMemoryCache.shared.setImage(image, for: cacheKey)
+        }
+        return image
+    }
+
+    private static func downsampledImage(at fileURL: URL, maxPixelSize: CGFloat) -> UIImage? {
+        let options = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithURL(fileURL as CFURL, options) else {
+            return nil
+        }
+
+        let thumbnailOptions = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceShouldCacheImmediately: true,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceThumbnailMaxPixelSize: maxPixelSize
+        ] as CFDictionary
+
+        guard let cgImage = CGImageSourceCreateThumbnailAtIndex(source, 0, thumbnailOptions) else {
+            return nil
+        }
+
+        return UIImage(cgImage: cgImage)
+    }
+}
 
 private enum ComposerMetadataFocusTarget: Equatable {
     case photoCaption(String)
@@ -1174,16 +1270,8 @@ private struct ComposerPhotoStripItemView: View {
 private struct ComposerPhotoPreviewContent: View {
     let item: ChannelCardPhotoItem
 
-    private var image: UIImage? {
-        guard let fileURL = item.fileURL else {
-            return nil
-        }
-
-        return UIImage(contentsOfFile: fileURL.path)
-    }
-
     var body: some View {
-        if let image {
+        ComposerAsyncImageContent(fileURL: item.fileURL) { image in
             ZStack(alignment: .bottom) {
                 Image(uiImage: image)
                     .resizable()
@@ -1195,7 +1283,7 @@ private struct ComposerPhotoPreviewContent: View {
                 photoMetadataOverlay
             }
             .clipShape(RoundedRectangle(cornerRadius: AppRadius.compactCard, style: .continuous))
-        } else {
+        } placeholderContent: {
             VStack(spacing: AppSpacing.xs) {
                 Image(systemName: "photo.on.rectangle.angled")
                     .font(.system(size: 28, weight: .semibold))
@@ -1597,27 +1685,17 @@ private struct ComposerFileMediaInlineTeaserView: View {
     let onMoreTap: () -> Void
     let onTap: () -> Void
 
-    private var image: UIImage? {
-        guard let fileURL = teaserImage.fileURL else {
-            return nil
-        }
-
-        return UIImage(contentsOfFile: fileURL.path)
-    }
-
     var body: some View {
         ZStack(alignment: .topTrailing) {
             Button(action: onTap) {
-                Group {
-                    if let image {
-                        Image(uiImage: image)
-                            .resizable()
-                            .scaledToFill()
-                    } else {
-                        ComposerTeaserPreviewContent(teaserImage: teaserImage)
-                            .frame(maxWidth: .infinity, maxHeight: .infinity)
-                            .background(AppTheme.surfaceSecondary)
-                    }
+                ComposerAsyncImageContent(fileURL: teaserImage.fileURL) { image in
+                    Image(uiImage: image)
+                        .resizable()
+                        .scaledToFill()
+                } placeholderContent: {
+                    ComposerTeaserPreviewContent(teaserImage: teaserImage)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background(AppTheme.surfaceSecondary)
                 }
                 .frame(maxWidth: .infinity)
                 .frame(height: ComposerFileMediaDraftRowLayout.teaserHeight)
@@ -1749,16 +1827,8 @@ private struct ComposerMediaTitleBlock: View {
 private struct ComposerTeaserPreviewContent: View {
     let teaserImage: ChannelCardTeaserImageContent
 
-    private var image: UIImage? {
-        guard let fileURL = teaserImage.fileURL else {
-            return nil
-        }
-
-        return UIImage(contentsOfFile: fileURL.path)
-    }
-
     var body: some View {
-        if let image {
+        ComposerAsyncImageContent(fileURL: teaserImage.fileURL) { image in
             ZStack(alignment: .bottom) {
                 Image(uiImage: image)
                     .resizable()
@@ -1774,9 +1844,9 @@ private struct ComposerTeaserPreviewContent: View {
                         .background(Color.black.opacity(0.38))
                 }
             }
-        } else {
+        } placeholderContent: {
             VStack(spacing: AppSpacing.xs) {
-                Text("Teaser image")
+                Text(AppLocalization.text("composer.teaser.placeholder"))
                     .font(AppTypography.label)
                     .foregroundStyle(AppTheme.textTertiary)
 
@@ -1819,14 +1889,6 @@ private struct ComposerPhotoDetailView: View {
     @State private var scale: CGFloat = 1
     @State private var baseScale: CGFloat = 1
 
-    private var image: UIImage? {
-        guard let fileURL = item.fileURL else {
-            return nil
-        }
-
-        return UIImage(contentsOfFile: fileURL.path)
-    }
-
     var body: some View {
         ZStack(alignment: .top) {
             Color.black.ignoresSafeArea()
@@ -1837,7 +1899,11 @@ private struct ComposerPhotoDetailView: View {
                         .fill(Color.white.opacity(0.08))
                         .frame(width: 320 * scale, height: 480 * scale)
                         .overlay {
-                            ComposerPhotoDetailContent(item: item, image: image, scale: scale)
+                            ComposerAsyncImageContent(fileURL: item.fileURL, maxPixelSize: 1800) { image in
+                                ComposerPhotoDetailContent(item: item, image: image, scale: scale)
+                            } placeholderContent: {
+                                ComposerPhotoDetailContent(item: item, image: nil, scale: scale)
+                            }
                         }
                         .padding(.vertical, 80)
                 }

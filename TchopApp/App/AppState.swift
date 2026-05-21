@@ -171,7 +171,9 @@ final class AppState {
         }
 
         syncShareExtensionSessionContextIfNeeded()
-        appShellViewModel.newsFeedViewModel.syncSharedFeedCardsIfNeeded()
+        Task { @MainActor [appShellViewModel] in
+            await appShellViewModel.newsFeedViewModel.syncSharedFeedCardsIfNeeded()
+        }
     }
 
     /// Restores the previously persisted user session if one exists.

@@ -14,7 +14,7 @@ public struct AppGroupJSONItemDirectoryLoadResult<Item: Sendable>: Sendable {
     }
 }
 
-public final class AppGroupJSONItemDirectoryStore<Item>
+public final class AppGroupJSONItemDirectoryStore<Item>: @unchecked Sendable
 where Item: Codable & Identifiable & Sendable, Item.ID == String {
     private let fileManager: FileManager
     private let directoryURL: URL
@@ -48,6 +48,18 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         try data.write(to: fileURL(for: item.id), options: [.atomic])
     }
 
+    public func saveAsync(_ item: Item) async throws {
+        let directoryURL = directoryURL
+        try await Task.detached(priority: .utility) {
+            let fileManager = FileManager.default
+            let data = try JSONEncoder().encode(item)
+            let fileURL = directoryURL
+                .appendingPathComponent(Self.safeFileName(for: item.id))
+                .appendingPathExtension("json")
+            try data.write(to: fileURL, options: [.atomic])
+        }.value
+    }
+
     public func loadAll() throws -> [Item] {
         let result = try loadAllSafely()
         if let failedFileURL = result.failedFileURLs.first {
@@ -58,7 +70,78 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
     }
 
     public func loadAllSafely() throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
-        let fileURLs = try jsonFileURLs()
+        try Self.loadAllSafely(in: directoryURL, fileManager: fileManager)
+    }
+
+    public func loadAllSafelyAsync() async throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
+        let directoryURL = directoryURL
+        return try await Task.detached(priority: .utility) {
+            try Self.loadAllSafely(in: directoryURL, fileManager: .default)
+        }.value
+    }
+
+    public func removeItems(withIDs ids: [String]) throws {
+        for id in ids {
+            let itemURL = fileURL(for: id)
+            guard fileManager.fileExists(atPath: itemURL.path) else {
+                continue
+            }
+            try fileManager.removeItem(at: itemURL)
+        }
+    }
+
+    public func removeItemsAsync(withIDs ids: [String]) async throws {
+        let directoryURL = directoryURL
+        try await Task.detached(priority: .utility) {
+            let fileManager = FileManager.default
+            for id in ids {
+                let itemURL = directoryURL
+                    .appendingPathComponent(Self.safeFileName(for: id))
+                    .appendingPathExtension("json")
+                guard fileManager.fileExists(atPath: itemURL.path) else {
+                    continue
+                }
+                try fileManager.removeItem(at: itemURL)
+            }
+        }.value
+    }
+
+    public func quarantineFiles(_ fileURLs: [URL]) throws {
+        try Self.quarantineFiles(fileURLs, in: directoryURL, fileManager: fileManager)
+    }
+
+    public func quarantineFilesAsync(_ fileURLs: [URL]) async throws {
+        let directoryURL = directoryURL
+        try await Task.detached(priority: .utility) {
+            try Self.quarantineFiles(fileURLs, in: directoryURL, fileManager: .default)
+        }.value
+    }
+
+    public func clear() throws {
+        let fileURLs = try fileManager.contentsOfDirectory(
+            at: directoryURL,
+            includingPropertiesForKeys: nil
+        )
+
+        for fileURL in fileURLs {
+            try fileManager.removeItem(at: fileURL)
+        }
+    }
+
+    private func jsonFileURLs() throws -> [URL] {
+        try Self.jsonFileURLs(in: directoryURL, fileManager: fileManager)
+    }
+
+    private func fileURL(for id: String) -> URL {
+        directoryURL.appendingPathComponent(Self.safeFileName(for: id)).appendingPathExtension("json")
+    }
+
+    private static func loadAllSafely(
+        in directoryURL: URL,
+        fileManager: FileManager
+    ) throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
+        let fileURLs = try jsonFileURLs(in: directoryURL, fileManager: fileManager)
+        let decoder = JSONDecoder()
         var items: [Item] = []
         var failedFileURLs: [URL] = []
 
@@ -74,17 +157,11 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         return AppGroupJSONItemDirectoryLoadResult(items: items, failedFileURLs: failedFileURLs)
     }
 
-    public func removeItems(withIDs ids: [String]) throws {
-        for id in ids {
-            let itemURL = fileURL(for: id)
-            guard fileManager.fileExists(atPath: itemURL.path) else {
-                continue
-            }
-            try fileManager.removeItem(at: itemURL)
-        }
-    }
-
-    public func quarantineFiles(_ fileURLs: [URL]) throws {
+    private static func quarantineFiles(
+        _ fileURLs: [URL],
+        in directoryURL: URL,
+        fileManager: FileManager
+    ) throws {
         guard !fileURLs.isEmpty else {
             return
         }
@@ -110,18 +187,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         }
     }
 
-    public func clear() throws {
-        let fileURLs = try fileManager.contentsOfDirectory(
-            at: directoryURL,
-            includingPropertiesForKeys: nil
-        )
-
-        for fileURL in fileURLs {
-            try fileManager.removeItem(at: fileURL)
-        }
-    }
-
-    private func jsonFileURLs() throws -> [URL] {
+    private static func jsonFileURLs(in directoryURL: URL, fileManager: FileManager) throws -> [URL] {
         try fileManager.contentsOfDirectory(
             at: directoryURL,
             includingPropertiesForKeys: nil
@@ -129,11 +195,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         .filter { $0.pathExtension == "json" }
     }
 
-    private func fileURL(for id: String) -> URL {
-        directoryURL.appendingPathComponent(safeFileName(for: id)).appendingPathExtension("json")
-    }
-
-    private func safeFileName(for id: String) -> String {
+    private static func safeFileName(for id: String) -> String {
         id.replacingOccurrences(of: "/", with: "_")
     }
 }
