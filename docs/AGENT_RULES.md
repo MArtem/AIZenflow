@@ -3,7 +3,7 @@
 ## Purpose
 This file is the short mandatory rule set for coding work in `TchopApp`.
 
-Use `docs/IOS_ARCHITECTURE_REFERENCE.md` as **reference**, not as a mechanical checklist.
+Use `docs/IOS_ARCHITECTURE_REFERENCE.md` as **reference**, not as a mechanical checklist. Use `docs/PRODUCTION_QUALITY_GATES.md` as mandatory quality gates for implementation, refactor, and review work.
 
 ## Core Decision Rule
 Always choose the **simplest correct solution** that matches:
@@ -35,9 +35,10 @@ Do not add abstractions unless they solve a concrete current problem.
 
 ## Mandatory Priorities
 1. Architecture correctness first.
-2. Overengineering check second.
-3. Minimal safe change for small tasks.
-4. Explicit ownership boundaries (app vs package vs extension).
+2. Production quality gates second: performance hot paths, state invalidation, persistence/network side effects, memory/cache/media, security/privacy, failure states.
+3. Overengineering check third.
+4. Minimal safe change for small tasks.
+5. Explicit ownership boundaries (app vs package vs extension).
 
 ## Practical Defaults
 - Prefer existing project style and naming.
@@ -64,6 +65,8 @@ Do not add abstractions unless they solve a concrete current problem.
 8. Before any new abstraction, document one concrete current pain-point it solves in the PR/task notes.
 9. UI/design tasks must follow `docs/UI_PIXEL_PERFECT_WORKFLOW.md`.
 10. Local feed/card persistence work must follow `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
+11. Any non-trivial implementation, review, or refactor must apply `docs/PRODUCTION_QUALITY_GATES.md`; if a gate is not relevant, state that explicitly in the completion report.
+12. Never close a review as clean when runtime hot-path risks, broad invalidation, main-thread I/O, unbounded memory/cache behavior, unsafe persistence/network side effects, or missing failure states remain unchecked.
 
 ## Size Heuristic
 - Small UI/bugfix task: minimal focused patch.
@@ -71,5 +74,6 @@ Do not add abstractions unless they solve a concrete current problem.
 
 ## Related
 - `docs/IOS_ARCHITECTURE_REFERENCE.md`
+- `docs/PRODUCTION_QUALITY_GATES.md`
 - `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`

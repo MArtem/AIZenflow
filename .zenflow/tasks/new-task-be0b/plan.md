@@ -71,6 +71,13 @@ No open implementation step is currently queued in this plan.
   - produced a recommended remediation plan focused on cached async media previews, stable row view models/snapshots, precomputed visible feed snapshots, incremental persistence updates, and profiler-backed validation.
 - Verification: read-only/static analysis only; no build, tests, or simulator UI run for this analysis pass.
 
+
+- Completed now: expanded future-proof production-quality rules beyond the current feed implementation:
+  - added `./docs/PRODUCTION_QUALITY_GATES.md` with mandatory gates for architecture, SwiftUI rendering, scroll/list/grid performance, state/Observation, concurrency/threading, persistence/database, network/sync, models/mapping, memory/media/cache, visual rendering, error handling, security/privacy/logging, testing/verification, review severity, and stop-the-line rules.
+  - updated `./docs/AGENT_RULES.md` so production quality gates are mandatory for non-trivial implementation, refactor, and review work.
+  - updated `./docs/README.md` so the new quality gate document is part of the active documentation index and placement policy.
+- Verification: `git diff --check` only; docs-only change, no build/tests/simulator UI run.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
