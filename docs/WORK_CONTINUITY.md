@@ -36,6 +36,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 11) docs/agent-prompts/README.md
 12) docs/knowledge/global/README.md
 13) docs/knowledge/TchopApp/README.md
+14) docs/PRODUCTION_QUALITY_GATES.md
+15) docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md
 
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
@@ -54,6 +56,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Точные services/package rules брать из `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`.
 - Точные UI/design правила брать из `docs/UI_PIXEL_PERFECT_WORKFLOW.md`.
 - Точные local feed/card persistence правила брать из `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
+- Перед любой нетривиальной реализацией, рефакторингом, cleanup или review применять `docs/PRODUCTION_QUALITY_GATES.md` и `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`.
+- Stop list из `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` является блокирующим по умолчанию; если нужен exception, сначала явно зафиксировать причину и tradeoff.
 - Глобальные reusable правила/промпты брать из `docs/knowledge/global/`.
 - TchopApp-specific правила/контракты/пути брать из `docs/knowledge/TchopApp/`.
 
@@ -81,6 +85,7 @@ Current epic: 3-phase cleanup/refactor over working runtime code (tests are inte
 - Reusable packages/managers are primary architecture root
 - `SyncCore`, `TchopOnDeviceAI`, `TchopShareSupport` are active foundations
 - No speculative UI/logic/fallback flows
+- Mandatory production checklist + forbidden-pattern stop list before implementation/review/audit
 
 ## Current Functional Contract (Compact)
 - Card kinds: `text`, `photo`, `video`, `audio`, `pdf`

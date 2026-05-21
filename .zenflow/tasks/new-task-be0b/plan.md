@@ -47,11 +47,12 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Special attention: repeated lists/scrolls, cards, menus, root shell, composer, share extension UI, widget rendering.
 - Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
 
-### [ ] Step: Full Read-Only Production Audit — rules/checklist hardening proposal
-- Prepare proposed permanent docs/rules updates, but do not apply them until user approves after audit.
-- Candidate docs: `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, optional new `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`.
-- Include mandatory quality gates: UI hot path, state ownership, DB access pattern, networking boundary, concurrency, memory/cache, naming/domain purity, persistence migration risk, verification scope, and no speculative abstractions.
-- Include forbidden-pattern stop list: `Local*` domain/UI split without storage-only meaning, sync media/file work in render path, unqualified `ForEach(Array(...))`, whole VM into repeated rows, fetch-all for single update without proof, silent stub/demo/local fallback, production UI backed by stub JSON.
+### [x] Step: Full Read-Only Production Audit — rules/checklist hardening proposal
+- Completed before the audit by explicit user approval because the audit must be executed against the final rules, not rules created after the fact.
+- Added `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` with mandatory review areas, forbidden-pattern stop list, severity policy, required finding format, and completion report requirements.
+- Updated `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, and `./docs/README.md` so the checklist is part of the active working baseline.
+- Required audit standards now explicitly cover UI hot path, state ownership, DB access pattern, networking boundary, concurrency, memory/cache, naming/domain purity, persistence migration risk, verification scope, and no speculative abstractions.
+- Stop list now explicitly blocks `Local*` domain/UI split without storage-only meaning, sync media/file work in render paths, unqualified `ForEach(Array(...))`, whole VM into repeated rows, fetch-all for single update without proof, silent stub/demo/local fallback, and production UI backed by stub JSON.
 
 ### [ ] Step: Full Read-Only Production Audit — final report and remediation plan proposal
 - Produce the audit report before making implementation changes.
@@ -222,6 +223,15 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - changed `./TchopApp/Shared/SharedFeedCardSyncManager.swift` to sync valid pending feed cards, remove only processed files, and quarantine malformed files.
   - reduced repeated feed-row offscreen rendering cost in `./TchopApp/Views/News/NewsFeedView.swift` by replacing the per-card shadow with a cheap rounded border overlay.
 - Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests/simulator UI/Instruments run.
+
+
+- Completed now: permanent production audit/review rules hardening before the read-only audit:
+  - created `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` as the mandatory concrete checklist and forbidden-pattern stop list.
+  - updated `./docs/AGENT_RULES.md` so non-trivial implementation/refactor/cleanup/review must apply both production quality gates and the new checklist.
+  - updated `./docs/CURRENT_USER_OVERRIDES.md` so audits must use the current checklist/rules as the standard before findings are produced.
+  - updated `./docs/WORK_CONTINUITY.md` so the checklist and stop list survive context transfer.
+  - updated `./docs/PRODUCTION_QUALITY_GATES.md` and `./docs/README.md` to include the new checklist in the active baseline.
+- Verification: `git diff --check` succeeded; no build/test/simulator run because this is docs-only.
 
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.

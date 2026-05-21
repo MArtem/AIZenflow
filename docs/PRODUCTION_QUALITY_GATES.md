@@ -8,7 +8,7 @@ These gates are intentionally broader than the current app surface. They apply t
 ## Core Rule
 A change is not production-ready just because it compiles or matches the visible UI. It must also be safe for runtime performance, state ownership, persistence correctness, memory, networking, error handling, accessibility, and future maintenance.
 
-When reviewing or implementing code, explicitly check the relevant gates below. If a gate is skipped because it is not relevant, say so in the task notes.
+When reviewing or implementing code, explicitly check the relevant gates below. If a gate is skipped because it is not relevant, say so in the task notes. Apply `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` together with this file; its forbidden-pattern stop list is blocking by default.
 
 ## Universal Definition Of Done
 Every non-trivial code change must answer:

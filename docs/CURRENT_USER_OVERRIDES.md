@@ -43,6 +43,14 @@ Every working response must start with:
 - Prefer the simplest correct implementation that preserves product behavior and UI.
 - If anything is unclear, ask first.
 
+
+### Production Audit / Review Rules
+- Before any non-trivial implementation, refactor, cleanup, or review, apply `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` and `./docs/PRODUCTION_QUALITY_GATES.md`.
+- Treat the forbidden-pattern stop list as blocking by default.
+- Do not keep source-split domain/UI naming such as `Local*` unless it is strictly storage-only and does not leak into product semantics.
+- Do not perform read-only audits without using the current checklist/rules as the audit standard.
+- For every audit finding, provide severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, and verification required.
+
 ### Documentation / Context Transfer
 - When refreshing documentation state or transferring context, include the rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

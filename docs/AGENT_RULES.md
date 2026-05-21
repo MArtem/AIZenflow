@@ -3,7 +3,7 @@
 ## Purpose
 This file is the short mandatory rule set for coding work in `TchopApp`.
 
-Use `docs/IOS_ARCHITECTURE_REFERENCE.md` as **reference**, not as a mechanical checklist. Use `docs/PRODUCTION_QUALITY_GATES.md` as mandatory quality gates for implementation, refactor, and review work.
+Use `docs/IOS_ARCHITECTURE_REFERENCE.md` as **reference**, not as a mechanical checklist. Use `docs/PRODUCTION_QUALITY_GATES.md` and `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` as mandatory quality gates/checklists for implementation, refactor, and review work.
 
 ## Core Decision Rule
 Always choose the **simplest correct solution** that matches:
@@ -36,9 +36,10 @@ Do not add abstractions unless they solve a concrete current problem.
 ## Mandatory Priorities
 1. Architecture correctness first.
 2. Production quality gates second: performance hot paths, state invalidation, persistence/network side effects, memory/cache/media, security/privacy, failure states.
-3. Overengineering check third.
-4. Minimal safe change for small tasks.
-5. Explicit ownership boundaries (app vs package vs extension).
+3. Production code review checklist third: UI hot path, state ownership, DB access pattern, networking boundary, concurrency, memory/cache, naming/domain purity, persistence migration risk, verification scope, and no speculative abstractions.
+4. Overengineering check fourth.
+5. Minimal safe change for small tasks.
+6. Explicit ownership boundaries (app vs package vs extension).
 
 ## Practical Defaults
 - Prefer existing project style and naming.
@@ -54,6 +55,18 @@ Do not add abstractions unless they solve a concrete current problem.
 - New Factory/Builder/Adapter layers without real pressure.
 - Spreading business logic across View + ViewModel + Repository accidentally.
 
+
+## Mandatory Production Checklist Rule
+- Before any non-trivial implementation, refactor, cleanup, or review, apply `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`.
+- The checklist is not optional for reviews: findings must cover runtime correctness, hot paths, state ownership, persistence/network side effects, memory/cache/media, security/privacy, and verification gaps.
+- If a checklist area is irrelevant, say why in the completion report.
+- If ownership, state flow, product behavior, or persistence/network policy is unclear, stop and ask the user before implementing.
+
+## Forbidden Pattern Stop List Rule
+- Treat the stop list in `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` as blocking by default.
+- Do not introduce or keep forbidden patterns unless there is a documented current technical constraint and the user accepts the tradeoff.
+- Especially forbidden without explicit justification: source-split domain/UI naming such as `Local*`, synchronous media/file work in SwiftUI render paths, whole view models in repeated rows, fetch-all/save-all for single-item interaction updates, silent stub/demo fallbacks, and production UI backed by stub JSON.
+
 ## Project-Calibrated Working Rules (TchopApp)
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.
 2. Do not introduce app-local wrappers around reusable package APIs when one direct call is enough.
@@ -65,8 +78,8 @@ Do not add abstractions unless they solve a concrete current problem.
 8. Before any new abstraction, document one concrete current pain-point it solves in the PR/task notes.
 9. UI/design tasks must follow `docs/UI_PIXEL_PERFECT_WORKFLOW.md`.
 10. Local feed/card persistence work must follow `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
-11. Any non-trivial implementation, review, or refactor must apply `docs/PRODUCTION_QUALITY_GATES.md`; if a gate is not relevant, state that explicitly in the completion report.
-12. Never close a review as clean when runtime hot-path risks, broad invalidation, main-thread I/O, unbounded memory/cache behavior, unsafe persistence/network side effects, or missing failure states remain unchecked.
+11. Any non-trivial implementation, review, or refactor must apply `docs/PRODUCTION_QUALITY_GATES.md` and `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`; if a gate/checklist area is not relevant, state that explicitly in the completion report.
+12. Never close a review as clean when runtime hot-path risks, broad invalidation, main-thread I/O, unbounded memory/cache behavior, unsafe persistence/network side effects, missing failure states, naming/domain impurity, or forbidden-pattern violations remain unchecked.
 
 ## Size Heuristic
 - Small UI/bugfix task: minimal focused patch.
@@ -75,5 +88,6 @@ Do not add abstractions unless they solve a concrete current problem.
 ## Related
 - `docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `docs/PRODUCTION_QUALITY_GATES.md`
+- `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
 - `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
