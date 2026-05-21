@@ -9,7 +9,7 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Current user overrides are canonical for this task and live in `./docs/CURRENT_USER_OVERRIDES.md`.
 
 ## Active Steps
-### [ ] Step: Full Read-Only Production Audit — setup and evidence map
+### [x] Step: Full Read-Only Production Audit — setup and evidence map
 - Scope: `./TchopApp`, `./TchopShareExtension`, `./TchopWidgetExtension`, `./Packages`, `./docs`, `./.codex/skills/tchop-feed-cards`.
 - Explicitly exclude `./TchopAppTests`.
 - Read-only only: no code/docs/rules changes during audit except updating this task plan/status after the audit report is produced.
@@ -17,31 +17,31 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Build/test policy during audit: no build required for read-only findings; build only after later remediation blocks.
 - Output artifact target: audit findings should be written/summarized in task context before any implementation plan is executed.
 
-### [ ] Step: Full Read-Only Production Audit — Block A app state/session/auth
+### [x] Step: Full Read-Only Production Audit — Block A app state/session/auth
 - Inspect app state/session/auth runtime for fake/local/demo naming, placeholder production behavior, mixed UI/domain state, and duplicate state owners.
 - Candidate files: `./TchopApp/App/AppState.swift`, `./TchopApp/Services/UserSessionService.swift`, `./TchopApp/Models/AccountProfileSummary.swift`, `./TchopApp/Views/AppRootView.swift`.
 - Also grep wider app/extensions/packages scope for `fake`, `demo`, `stub`, `mock`, `sample`, `placeholder`, `local`, `session`, `token`, `auth`, and user/profile fallback behavior.
 - Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
 
-### [ ] Step: Full Read-Only Production Audit — Block B persistence/database ownership
+### [x] Step: Full Read-Only Production Audit — Block B persistence/database ownership
 - Inspect SwiftData/database lifecycle ownership, repository boundaries, fetch-all/save-all patterns, DTO leakage into UI, schema leftovers after `Local*` removal, and main-thread I/O risk.
 - Candidate files: `./TchopApp/Persistence/AppDatabase.swift`, `./TchopApp/Persistence/AppContentRecord.swift`, `./TchopApp/Repositories/AppContentRepository.swift`, `./TchopApp/ViewModels/AppShellViewModel.swift`.
 - Also inspect package database contracts under `./Packages/TchopInfrastructure` where app/database boundaries are involved.
 - Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
 
-### [ ] Step: Full Read-Only Production Audit — Block C navigation/menu/root composition
+### [x] Step: Full Read-Only Production Audit — Block C navigation/menu/root composition
 - Inspect root composition, coordinator/deep-link ownership, tab/menu state, repeated VM creation, side effects in SwiftUI `body`, and UI implementation details leaking into navigation decisions.
 - Candidate files: `./TchopApp/Views/AppRootView.swift`, `./TchopApp/Navigation/DeepLinkManager.swift`, `./TchopApp/Views/Tabs/NewsTabRootView.swift`.
 - Also inspect app DI/root shell wiring where navigation and session state meet.
 - Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
 
-### [ ] Step: Full Read-Only Production Audit — Block D packages/infrastructure boundaries
+### [x] Step: Full Read-Only Production Audit — Block D packages/infrastructure boundaries
 - Inspect whether app-specific logic leaked into packages, whether app code adds decorative wrappers over package APIs, whether package APIs force bad app patterns, and whether infrastructure has concurrency/sendability risks.
 - Candidate areas: `./Packages/TchopInfrastructure/Sources/TchopShareSupport`, `./Packages/TchopInfrastructure/Sources/TchopCache`, `./Packages/TchopInfrastructure/Sources/TchopNetworking`.
 - Also inspect `SyncCore`, database, localization, widgets, auth, analytics, and package references touched by app runtime.
 - Required output per finding: severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, verification need.
 
-### [ ] Step: Full Read-Only Production Audit — Block E UI rendering/performance rules across project
+### [x] Step: Full Read-Only Production Audit — Block E UI rendering/performance rules across project
 - Inspect all SwiftUI files outside `./TchopAppTests` for hot-path work: sync file/image/media work in `body`, heavy repeated shadows/blur/masks, unstable identity, broad observable dependencies, `AnyView`, computed maps/sorts/filters in render paths, side effects in `body`, and unnecessary layout invalidation.
 - Scope includes `./TchopApp/**/*.swift`, `./TchopShareExtension/**/*.swift`, `./TchopWidgetExtension/**/*.swift`, and package SwiftUI views if present.
 - Special attention: repeated lists/scrolls, cards, menus, root shell, composer, share extension UI, widget rendering.
@@ -54,7 +54,7 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Required audit standards now explicitly cover UI hot path, state ownership, DB access pattern, networking boundary, concurrency, memory/cache, naming/domain purity, persistence migration risk, verification scope, and no speculative abstractions.
 - Stop list now explicitly blocks `Local*` domain/UI split without storage-only meaning, sync media/file work in render paths, unqualified `ForEach(Array(...))`, whole VM into repeated rows, fetch-all for single update without proof, silent stub/demo/local fallback, and production UI backed by stub JSON.
 
-### [ ] Step: Full Read-Only Production Audit — final report and remediation plan proposal
+### [x] Step: Full Read-Only Production Audit — final report and remediation plan proposal
 - Produce the audit report before making implementation changes.
 - Report format:
   1. P0-P3 findings list.
@@ -232,6 +232,17 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated `./docs/WORK_CONTINUITY.md` so the checklist and stop list survive context transfer.
   - updated `./docs/PRODUCTION_QUALITY_GATES.md` and `./docs/README.md` to include the new checklist in the active baseline.
 - Verification: `git diff --check` succeeded; no build/test/simulator run because this is docs-only.
+
+
+- Completed now: Full Read-Only Production Audit completed in one pass using the new production checklist and stop list:
+  - Scope inspected: `./TchopApp`, `./TchopShareExtension`, `./Packages`, `./docs`, and `./.codex/skills/tchop-feed-cards`; `./TchopAppTests` was not touched. `./TchopWidgetExtension` does not exist as a source directory in this worktree; widget package code under `./Packages/TchopInfrastructure/Sources/TchopWidgets` was included.
+  - Block A findings: auth/session still defaults to local stub/synthetic token runtime and has ReqRes/demo fallback paths that should not be the default production-shaped flow.
+  - Block B findings: SwiftData repositories still use fetch-all/in-memory filtering for targeted user/feed-card updates; acceptable only as a temporary SwiftData warning workaround, not a long-term persistence shape.
+  - Block C findings: root/menu/navigation composition is mostly sane, but feature tabs still expose sample/stub navigation and placeholder content as product-visible runtime.
+  - Block D findings: infrastructure package still exposes mock/stub provider surfaces and synchronous file JSON/cache/queue APIs that are acceptable for package internals but need stricter production naming/isolation and async expectations where used by UI/app flows.
+  - Block E findings: feed hot path is much improved, but `AnyView` remains in repeated feed rows, tap handling uses `onTapGesture` for card containers, composer still decodes images synchronously in view computed properties, and composer/share-extension user-visible strings include hardcoded English.
+  - Remediation plan prepared for user review with P1/P2/P3 ordering; no implementation changes were made during the audit.
+- Verification: `git diff --check` run after plan update; no build/test/simulator/Instruments run because audit was read-only plus task-plan update.
 
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
