@@ -254,6 +254,12 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Instruments: `xcrun xctrace list templates` succeeded and confirmed `SwiftUI`, `Time Profiler`, `Animation Hitches`, `File Activity`, and related templates are available. No trace was recorded because the user explicitly excluded simulator launch/manual exercise until the end.
 - Verification: after the remediation pass `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded. A final build also succeeded after feature-tab naming cleanup. No tests/simulator UI/manual validation/Instruments trace recording were run.
 
+
+- Completed now: simulator login unblock for Instruments/manual feed testing:
+  - changed `./TchopApp/App/AppDIContainer.swift` so the `.developmentStub` runtime uses `InMemoryAuthTokenStore()` instead of Keychain storage, avoiding unsigned simulator secure-storage failures while keeping Keychain for external/staging/production environments.
+  - rebuilt and reinstalled the app on the booted simulator.
+- Verification: `./scripts/verify.sh low` passed; `git diff --check` passed.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

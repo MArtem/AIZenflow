@@ -335,7 +335,10 @@ final class AppDIContainer {
         userRepository: any UserRepository,
         sessionService: any UserSessionManaging
     ) {
-        let authTokenStore = makeAuthTokenStore(isUITesting: isUITesting)
+        let authTokenStore = makeAuthTokenStore(
+            isUITesting: isUITesting,
+            apiEnvironment: apiEnvironment
+        )
         let authenticationAPIManager = makeAuthenticationAPIManager(
             analyticsCollector: analyticsCollector,
             apiEnvironment: apiEnvironment
@@ -430,12 +433,20 @@ final class AppDIContainer {
         )
     }
 
-    private static func makeAuthTokenStore(isUITesting: Bool) -> any AuthTokenStoring {
+    private static func makeAuthTokenStore(
+        isUITesting: Bool,
+        apiEnvironment: AppAPIEnvironment
+    ) -> any AuthTokenStoring {
         if isUITesting {
             return InMemoryAuthTokenStore()
         }
 
-        return KeychainAuthTokenStore()
+        switch apiEnvironment.kind {
+        case .developmentStub:
+            return InMemoryAuthTokenStore()
+        case .developmentExternalAuth, .development, .staging, .production:
+            return KeychainAuthTokenStore()
+        }
     }
 
     /// Creates the auth-specific API manager on a dedicated unauthenticated transport pipeline.
