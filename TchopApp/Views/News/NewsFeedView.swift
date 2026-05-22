@@ -104,9 +104,11 @@ struct NewsFeedView: View {
             .frame(maxWidth: .infinity, alignment: .topLeading)
         }
         .coordinateSpace(.named(Self.scrollCoordinateSpace))
-        .onPreferenceChange(NewsFeedTopOffsetPreferenceKey.self) { topOffset in
-            handleTopOffsetChange(topOffset)
-        }
+        .modifier(NewsFeedScrollProximityModifier(
+            threshold: Self.floatingActionButtonHideThreshold,
+            coordinateSpaceName: Self.scrollCoordinateSpace,
+            onChange: handleScrollProximityChange
+        ))
         .accessibilityIdentifier("news.feed")
         .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -131,8 +133,7 @@ struct NewsFeedView: View {
         }
     }
 
-    private func handleTopOffsetChange(_ topOffset: CGFloat) {
-        let isNearTop = topOffset >= -Self.floatingActionButtonHideThreshold
+    private func handleScrollProximityChange(_ isNearTop: Bool) {
         guard isFeedNearTop != isNearTop else {
             return
         }
@@ -414,6 +415,26 @@ private struct NewsFeedTopOffsetPreferenceKey: PreferenceKey {
 
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
+    }
+}
+
+private struct NewsFeedScrollProximityModifier: ViewModifier {
+    let threshold: CGFloat
+    let coordinateSpaceName: String
+    let onChange: (Bool) -> Void
+
+    func body(content: Content) -> some View {
+        if #available(iOS 18.0, *) {
+            content.onScrollGeometryChange(for: Bool.self) { geometry in
+                geometry.contentOffset.y <= threshold
+            } action: { _, isNearTop in
+                onChange(isNearTop)
+            }
+        } else {
+            content.onPreferenceChange(NewsFeedTopOffsetPreferenceKey.self) { topOffset in
+                onChange(topOffset >= -threshold)
+            }
+        }
     }
 }
 

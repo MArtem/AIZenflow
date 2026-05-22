@@ -289,6 +289,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - preserved lazy card rendering and edge-only `onScrollProximityChange` updates for shell button visibility.
 - Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
 
+
+- Completed now: hardened floating `+` visibility path after manual check still showed the button always visible:
+  - `./TchopApp/Views/News/NewsFeedView.swift` now uses native `onScrollGeometryChange` on iOS 18+ for boolean near-top tracking, with the sentinel/preference path retained only as the iOS 17 fallback.
+  - `./TchopApp/Views/ShellContentView.swift` now stores feed near-top visibility in local `@State` and passes the boolean directly into bottom chrome, avoiding an indirect nested-observation dependency for the floating button.
+  - the signal remains edge-only: UI state changes only when crossing the near-top threshold, not on every scroll pixel.
+- Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

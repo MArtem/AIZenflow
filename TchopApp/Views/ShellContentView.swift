@@ -13,6 +13,7 @@ struct ShellContentView: View {
     let currentUser: AppUser?
     let profileTabViewModel: ProfileTabViewModel?
     let onLogout: () -> Void
+    @State private var isNewsFeedNearTop = true
 
     private var composerIsPresented: Binding<Bool> {
         Binding(
@@ -41,7 +42,7 @@ struct ShellContentView: View {
                     selectedTab: coordinator.selectedTab,
                     coordinator: coordinator,
                     newsFeedViewModel: viewModel.newsFeedViewModel,
-                    onNewsFeedScrollProximityChange: viewModel.setNewsFeedNearTop,
+                    onNewsFeedScrollProximityChange: handleNewsFeedScrollProximityChange,
                     currentUser: currentUser,
                     profileTabViewModel: profileTabViewModel,
                     onLogout: onLogout
@@ -54,6 +55,7 @@ struct ShellContentView: View {
                 viewModel: viewModel,
                 selectedTab: coordinator.selectedTab,
                 newsRouteIsAtRoot: newsRouter.path.isEmpty,
+                isNewsFeedNearTop: isNewsFeedNearTop,
                 onSelectTab: coordinator.selectTab
             )
         }
@@ -76,6 +78,16 @@ struct ShellContentView: View {
         coordinator.selectTab(.news)
     }
 
+    /// Stores the feed proximity in local view state so bottom chrome visibility is updated deterministically.
+    private func handleNewsFeedScrollProximityChange(_ isNearTop: Bool) {
+        guard isNewsFeedNearTop != isNearTop else {
+            return
+        }
+
+        isNewsFeedNearTop = isNearTop
+        viewModel.setNewsFeedNearTop(isNearTop)
+    }
+
     /// Opens or closes search for the current channel feed.
     private func handleSearchTap() {
         if coordinator.selectedTab != .news {
@@ -90,6 +102,7 @@ private struct ShellBottomChromeHostView: View {
     let viewModel: AppShellViewModel
     let selectedTab: AppTab
     let newsRouteIsAtRoot: Bool
+    let isNewsFeedNearTop: Bool
     let onSelectTab: (AppTab) -> Void
 
     /// Whether the shell-level floating action button is allowed for the current tab, route depth and scroll position.
@@ -97,7 +110,7 @@ private struct ShellBottomChromeHostView: View {
         selectedTab == .news &&
             newsRouteIsAtRoot &&
             viewModel.showsFloatingActionButton &&
-            viewModel.isNewsFeedNearTop
+            isNewsFeedNearTop
     }
 
     var body: some View {
