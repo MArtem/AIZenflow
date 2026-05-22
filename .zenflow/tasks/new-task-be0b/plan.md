@@ -283,6 +283,12 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - restored feed card view declarations after the observer replacement and fixed the resulting compile errors.
 - Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `** BUILD SUCCEEDED **`. Manual UI validation of `+` hide/show is still needed.
 
+
+- Completed now: fixed floating `+` hide/show regression after scroll optimization:
+  - moved the feed scroll-position sentinel in `./TchopApp/Views/News/NewsFeedView.swift` out of `LazyVStack` into the stable scroll content wrapper so lazy eviction cannot reset the top-offset preference to the near-top default.
+  - preserved lazy card rendering and edge-only `onScrollProximityChange` updates for shell button visibility.
+- Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

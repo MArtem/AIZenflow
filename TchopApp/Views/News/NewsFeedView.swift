@@ -72,32 +72,36 @@ struct NewsFeedView: View {
 
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
-            LazyVStack(spacing: AppSpacing.md) {
+            VStack(spacing: 0) {
+                // Keep the scroll-position sentinel outside LazyVStack. Lazy containers can evict
+                // offscreen children, which would reset the preference and keep the shell button visible.
                 NewsFeedTopOffsetSentinel(coordinateSpaceName: Self.scrollCoordinateSpace)
-                    .frame(height: 0)
+                    .frame(height: 1)
 
-                if viewModel.isSearchPresented {
-                    NewsFeedSearchFieldView(
-                        searchQuery: $viewModel.searchQuery,
-                        clearLabel: AppLocalization.text("news.feed.search.clear")
+                LazyVStack(spacing: AppSpacing.md) {
+                    if viewModel.isSearchPresented {
+                        NewsFeedSearchFieldView(
+                            searchQuery: $viewModel.searchQuery,
+                            clearLabel: AppLocalization.text("news.feed.search.clear")
+                        )
+                    }
+
+                    NewsFeedContentSectionView(
+                        visibleContent: viewModel.visibleContent,
+                        showsNoSearchResults: viewModel.showsNoSearchResults,
+                        translatedCardProvider: viewModel.translatedFeedCard,
+                        translationActionProvider: translationAction(for:),
+                        onCardTap: onCardTap,
+                        onLikeTap: viewModel.toggleFeedCardLike,
+                        onCommentsTap: viewModel.incrementFeedCardComments,
+                        onSetDisplayMode: viewModel.setFeedCardDisplayMode
                     )
                 }
-
-                NewsFeedContentSectionView(
-                    visibleContent: viewModel.visibleContent,
-                    showsNoSearchResults: viewModel.showsNoSearchResults,
-                    translatedCardProvider: viewModel.translatedFeedCard,
-                    translationActionProvider: translationAction(for:),
-                    onCardTap: onCardTap,
-                    onLikeTap: viewModel.toggleFeedCardLike,
-                    onCommentsTap: viewModel.incrementFeedCardComments,
-                    onSetDisplayMode: viewModel.setFeedCardDisplayMode
-                )
+                .padding(.horizontal, AppSpacing.screenHorizontal)
+                .padding(.top, AppSpacing.md)
+                .padding(.bottom, AppSpacing.shellBottomInset)
             }
             .frame(maxWidth: .infinity, alignment: .topLeading)
-            .padding(.horizontal, AppSpacing.screenHorizontal)
-            .padding(.top, AppSpacing.md)
-            .padding(.bottom, AppSpacing.shellBottomInset)
         }
         .coordinateSpace(.named(Self.scrollCoordinateSpace))
         .onPreferenceChange(NewsFeedTopOffsetPreferenceKey.self) { topOffset in
