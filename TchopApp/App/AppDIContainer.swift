@@ -541,7 +541,6 @@ final class AppDIContainer {
                         feature: "shareExtension"
                     )
                 )
-                assertionFailure("Failed to create shared feed card sync manager: \(presentation.error.debugDescription)")
             }
             return nil
         }
@@ -563,7 +562,6 @@ final class AppDIContainer {
                         feature: "shareExtension"
                     )
                 )
-                assertionFailure("Failed to create share extension session context manager: \(presentation.error.debugDescription)")
             }
             return nil
         }
@@ -598,7 +596,6 @@ final class AppDIContainer {
                         feature: "widgetSync"
                     )
                 )
-                assertionFailure("Failed to create widget sync manager: \(presentation.error.debugDescription)")
             }
             return NoopWidgetContentSyncManager()
         }
