@@ -71,10 +71,13 @@ struct NewsFeedView: View {
     let onCardTap: (NewsRoute) -> Void
 
     var body: some View {
+        let visibleContent = viewModel.visibleContent
+        let showsNoSearchResults = viewModel.showsNoSearchResults
+
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 0) {
-                // Keep the scroll-position sentinel outside LazyVStack. Lazy containers can evict
-                // offscreen children, which would reset the preference and keep the shell button visible.
+                // Keep the fallback scroll-position sentinel outside LazyVStack. Lazy containers can
+                // evict offscreen children, which would reset the preference on iOS 17 fallback.
                 NewsFeedTopOffsetSentinel(coordinateSpaceName: Self.scrollCoordinateSpace)
                     .frame(height: 1)
 
@@ -86,16 +89,23 @@ struct NewsFeedView: View {
                         )
                     }
 
-                    NewsFeedContentSectionView(
-                        visibleContent: viewModel.visibleContent,
-                        showsNoSearchResults: viewModel.showsNoSearchResults,
-                        translatedCardProvider: viewModel.translatedFeedCard,
-                        translationActionProvider: translationAction(for:),
-                        onCardTap: onCardTap,
-                        onLikeTap: viewModel.toggleFeedCardLike,
-                        onCommentsTap: viewModel.incrementFeedCardComments,
-                        onSetDisplayMode: viewModel.setFeedCardDisplayMode
-                    )
+                    if visibleContent.cards.isEmpty && !showsNoSearchResults {
+                        NewsFeedEmptyStateView()
+                    } else if showsNoSearchResults {
+                        NewsFeedSearchEmptyStateView()
+                    } else {
+                        ForEach(visibleContent.cards, id: \.id) { card in
+                            NewsFeedCardRendererView(
+                                feedCard: card,
+                                translatedCardProvider: viewModel.translatedFeedCard,
+                                translationAction: translationAction(for: card),
+                                onCardTap: onCardTap,
+                                onLikeTap: viewModel.toggleFeedCardLike,
+                                onCommentsTap: viewModel.incrementFeedCardComments,
+                                onSetDisplayMode: viewModel.setFeedCardDisplayMode
+                            )
+                        }
+                    }
                 }
                 .padding(.horizontal, AppSpacing.screenHorizontal)
                 .padding(.top, AppSpacing.md)
@@ -199,37 +209,6 @@ struct NewsFeedView: View {
         languageSelectionState = nil
         Task {
             await viewModel.performTranslation(for: card, targetLanguage: targetLanguage)
-        }
-    }
-}
-
-private struct NewsFeedContentSectionView: View {
-    let visibleContent: NewsFeedContent
-    let showsNoSearchResults: Bool
-    let translatedCardProvider: (FeedCard) -> FeedCard
-    let translationActionProvider: (NewsFeedCard) -> FeedCardTranslationAction?
-    let onCardTap: (NewsRoute) -> Void
-    let onLikeTap: (String) -> Void
-    let onCommentsTap: (String) -> Void
-    let onSetDisplayMode: (String, FeedCardDisplayMode) -> Void
-
-    var body: some View {
-        if visibleContent.cards.isEmpty && !showsNoSearchResults {
-            NewsFeedEmptyStateView()
-        } else if showsNoSearchResults {
-            NewsFeedSearchEmptyStateView()
-        } else {
-            ForEach(visibleContent.cards, id: \.id) { card in
-                NewsFeedCardRendererView(
-                    feedCard: card,
-                    translatedCardProvider: translatedCardProvider,
-                    translationAction: translationActionProvider(card),
-                    onCardTap: onCardTap,
-                    onLikeTap: onLikeTap,
-                    onCommentsTap: onCommentsTap,
-                    onSetDisplayMode: onSetDisplayMode
-                )
-            }
         }
     }
 }

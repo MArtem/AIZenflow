@@ -296,6 +296,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - the signal remains edge-only: UI state changes only when crossing the near-top threshold, not on every scroll pixel.
 - Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
 
+
+- Completed now: corrected feed lazy rendering structure for production scroll performance:
+  - removed the opaque `NewsFeedContentSectionView` wrapper from `./TchopApp/Views/News/NewsFeedView.swift`.
+  - moved empty/search-empty states and `ForEach(visibleContent.cards, id: \.id)` directly into the primary `LazyVStack` under the `ScrollView`, so the lazy container lays out individual card rows instead of a single section child.
+  - kept the iOS 18+ `onScrollGeometryChange` scroll tracking and iOS 17 fallback sentinel outside lazy card rows, preserving the `+` hide/show optimization path.
+- Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
