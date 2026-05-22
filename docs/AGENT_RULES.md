@@ -67,6 +67,13 @@ Do not add abstractions unless they solve a concrete current problem.
 - Do not introduce or keep forbidden patterns unless there is a documented current technical constraint and the user accepts the tradeoff.
 - Especially forbidden without explicit justification: source-split domain/UI naming such as `Local*`, synchronous media/file work in SwiftUI render paths, whole view models in repeated rows, fetch-all/save-all for single-item interaction updates, silent stub/demo fallbacks, and production UI backed by stub JSON.
 
+
+## Production Review Trigger Rule
+- When the user says `ревью`, `review`, `code review`, `аудит`, or asks whether a change is production-ready, run `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`.
+- Use the prompt in `./docs/agent-prompts/production-review-completeness.md`.
+- Do not narrow the review to the latest bug unless the user explicitly limits scope.
+- Do not say “всё ок”, “готово”, “clean”, or “production-ready” unless every relevant gate is checked, marked not applicable with a reason, or reported as remaining risk.
+
 ## Project-Calibrated Working Rules (TchopApp)
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.
 2. Do not introduce app-local wrappers around reusable package APIs when one direct call is enough.
@@ -89,5 +96,6 @@ Do not add abstractions unless they solve a concrete current problem.
 - `docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `docs/PRODUCTION_QUALITY_GATES.md`
 - `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
+- `docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
 - `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`

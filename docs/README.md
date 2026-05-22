@@ -22,8 +22,10 @@ Entry point for project docs: what to read first and where to place new informat
    - [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
    - [docs/IOS_ARCHITECTURE_REFERENCE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/IOS_ARCHITECTURE_REFERENCE.md)
    - [docs/PRODUCTION_QUALITY_GATES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_QUALITY_GATES.md)
-- [docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md)
+- [docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md)
+   - [docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md)
    - [docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md)
+      - [docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md)
    - [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
 
 ## One-Time Bootstrap After Chat Reset
@@ -53,6 +55,7 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
 - [docs/IOS_ARCHITECTURE_REFERENCE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/IOS_ARCHITECTURE_REFERENCE.md)
 - [docs/PRODUCTION_QUALITY_GATES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_QUALITY_GATES.md)
+- [docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md)
 - [docs/SHARE_EXTENSION_VALIDATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/SHARE_EXTENSION_VALIDATION.md)
 - [docs/agent-prompts/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/agent-prompts/README.md)
 - [docs/knowledge/global/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/global/README.md)
@@ -81,6 +84,7 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md**: feed card persistence and media durability contract.
 - **docs/IOS_ARCHITECTURE_REFERENCE.md**: architecture handbook pointer + usage notes (guidance, not mandate).
 - **docs/PRODUCTION_QUALITY_GATES.md**: mandatory broad production-quality review gates for implementation/review work.
+- **docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md**: mandatory completeness gate and trigger rule for user-requested `ревью` / production review.
 - **docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md**: mandatory concrete audit/review checklist and forbidden-pattern stop list for implementation/review work.
 - **docs/PACKAGES_AND_MANAGERS.md**: reusable package/manager integration guide.
 - **docs/WORK_CONTINUITY.md**: durable resume state and universal transition prompt.
@@ -101,7 +105,7 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **UI/design workflow** → `docs/UI_PIXEL_PERFECT_WORKFLOW.md`
 - **Local feed persistence rules** → `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - **Architecture-reference usage notes** → `docs/IOS_ARCHITECTURE_REFERENCE.md`
-- **Production quality gates / review checklists** → `docs/PRODUCTION_QUALITY_GATES.md` and `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
+- **Production quality gates / review checklists** → `docs/PRODUCTION_QUALITY_GATES.md`, `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, and `docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
 - **Package integration/reuse guide** → `docs/PACKAGES_AND_MANAGERS.md`
 - **Durable continuity + transition prompt** → `docs/WORK_CONTINUITY.md`
 - **Share-extension validation status** → `docs/SHARE_EXTENSION_VALIDATION.md`

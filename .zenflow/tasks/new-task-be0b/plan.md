@@ -303,6 +303,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - kept the iOS 18+ `onScrollGeometryChange` scroll tracking and iOS 17 fallback sentinel outside lazy card rows, preserving the `+` hide/show optimization path.
 - Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
 
+
+- Completed now: added permanent production review completeness documentation and trigger prompt:
+  - added `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md` with mandatory broad review gate, `ревью` trigger rule, checklist coverage, output contract, and stop rule for uncertainty.
+  - added `./docs/agent-prompts/production-review-completeness.md` as the exact production-grade review prompt to run when the user asks for `ревью`/review/audit/production-ready validation.
+  - updated `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and `./docs/agent-prompts/README.md` to index and enforce this gate.
+- Verification: `git diff --check` only; no build needed for documentation-only changes.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

@@ -51,6 +51,13 @@ Every working response must start with:
 - Do not perform read-only audits without using the current checklist/rules as the audit standard.
 - For every audit finding, provide severity P0-P3, affected files, evidence, why it is a problem, target state, remediation order, and verification required.
 
+
+### Review Trigger
+- When the user writes `ревью`, `review`, `code review`, or `аудит`, run the production-grade review prompt from `./docs/agent-prompts/production-review-completeness.md`.
+- Apply `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md` before claiming a change is correct or production-ready.
+- Reviews must not be narrowly scoped to the current bug unless the user explicitly says so.
+- If correctness cannot be proven from code/static evidence, ask the user or report the item as remaining risk.
+
 ### Documentation / Context Transfer
 - When refreshing documentation state or transferring context, include the rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

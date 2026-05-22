@@ -31,6 +31,7 @@ Before applying any prompt here, apply the current project/task rules first:
 | Refactor plan only | `refactoring-plan-only-mini.md` | Use when the user asks for a plan before code. |
 | Review refactor after changes | `refactoring-review-mini.md` | Use after a refactor to check behavior preservation and risk. |
 | Code review | `code-review-master.md` | Use for strict production review. Do not use costly review flows unless requested. |
+| Production completeness review | `production-review-completeness.md` | Mandatory when the user says `ревью`, `review`, `аудит`, or asks whether code is production-ready. |
 | ADR | `adr-master.md` | Use for important architecture decisions. |
 | Quick ADR | `adr-quick.md` | Use for lightweight architecture decision notes. |
 | Test generation | `test-generation-master.md` | Use only when tests are explicitly requested. |
