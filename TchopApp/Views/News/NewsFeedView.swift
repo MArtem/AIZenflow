@@ -61,9 +61,11 @@ private enum FeedPerformanceSignpost {
 struct NewsFeedView: View {
     /// The shell-level plus button hides once the user has clearly moved away from the top card.
     private static let floatingActionButtonHideThreshold: CGFloat = 30
+    private static let scrollCoordinateSpace = "news-feed-scroll"
 
     @Bindable var viewModel: NewsFeedViewModel
     @State private var languageSelectionState: TranslationLanguageSelectionState?
+    @State private var isFeedNearTop = true
     /// Reports whether the list is close enough to the top for the shell-level floating action button to stay visible.
     let onScrollProximityChange: (Bool) -> Void
     let onCardTap: (NewsRoute) -> Void
@@ -71,13 +73,8 @@ struct NewsFeedView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: AppSpacing.md) {
-                NewsFeedScrollObserver(
-                    nearTopThreshold: Self.floatingActionButtonHideThreshold
-                ) { isNearTop in
-                    FeedPerformanceSignpost.scrollNearTopStateChanged(isNearTop)
-                    onScrollProximityChange(isNearTop)
-                }
-                .frame(height: 0)
+                NewsFeedTopOffsetSentinel(coordinateSpaceName: Self.scrollCoordinateSpace)
+                    .frame(height: 0)
 
                 if viewModel.isSearchPresented {
                     NewsFeedSearchFieldView(
@@ -102,6 +99,10 @@ struct NewsFeedView: View {
             .padding(.top, AppSpacing.md)
             .padding(.bottom, AppSpacing.shellBottomInset)
         }
+        .coordinateSpace(.named(Self.scrollCoordinateSpace))
+        .onPreferenceChange(NewsFeedTopOffsetPreferenceKey.self) { topOffset in
+            handleTopOffsetChange(topOffset)
+        }
         .accessibilityIdentifier("news.feed")
         .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
@@ -124,6 +125,17 @@ struct NewsFeedView: View {
                 languageSelectionState = nil
             }
         }
+    }
+
+    private func handleTopOffsetChange(_ topOffset: CGFloat) {
+        let isNearTop = topOffset >= -Self.floatingActionButtonHideThreshold
+        guard isFeedNearTop != isNearTop else {
+            return
+        }
+
+        isFeedNearTop = isNearTop
+        FeedPerformanceSignpost.scrollNearTopStateChanged(isNearTop)
+        onScrollProximityChange(isNearTop)
     }
 
     private var languageSelectionIsPresented: Binding<Bool> {
@@ -378,98 +390,28 @@ private struct NewsFeedCardRendererView: View {
     }
 }
 
-/// Lightweight UIKit bridge that observes only near-top threshold transitions for the hosting scroll view.
-@MainActor
-private struct NewsFeedScrollObserver: UIViewRepresentable {
-    let nearTopThreshold: CGFloat
-    let onNearTopChange: @MainActor (Bool) -> Void
+private struct NewsFeedTopOffsetSentinel: View {
+    let coordinateSpaceName: String
 
-    func makeCoordinator() -> Coordinator {
-        Coordinator(
-            nearTopThreshold: nearTopThreshold,
-            onNearTopChange: onNearTopChange
-        )
-    }
-
-    func makeUIView(context: Context) -> ObserverView {
-        let view = ObserverView()
-        view.isUserInteractionEnabled = false
-        return view
-    }
-
-    func updateUIView(_ uiView: ObserverView, context: Context) {
-        context.coordinator.nearTopThreshold = nearTopThreshold
-        context.coordinator.onNearTopChange = onNearTopChange
-        context.coordinator.attachIfNeeded(to: uiView)
-    }
-
-    /// Owns the single KVO observation for the enclosing UIKit scroll view.
-    @MainActor
-    final class Coordinator {
-        var nearTopThreshold: CGFloat
-        var onNearTopChange: @MainActor (Bool) -> Void
-        private weak var scrollView: UIScrollView?
-        private var observation: NSKeyValueObservation?
-        private var lastIsNearTop: Bool?
-
-        init(
-            nearTopThreshold: CGFloat,
-            onNearTopChange: @escaping @MainActor (Bool) -> Void
-        ) {
-            self.nearTopThreshold = nearTopThreshold
-            self.onNearTopChange = onNearTopChange
+    var body: some View {
+        GeometryReader { proxy in
+            Color.clear.preference(
+                key: NewsFeedTopOffsetPreferenceKey.self,
+                value: proxy.frame(in: .named(coordinateSpaceName)).minY
+            )
         }
-
-        func attachIfNeeded(to view: UIView) {
-            guard let scrollView = enclosingScrollView(from: view) else {
-                return
-            }
-
-            guard self.scrollView !== scrollView else {
-                return
-            }
-
-            self.scrollView = scrollView
-            lastIsNearTop = nil
-            // KVO still observes the UIKit scroll view, but only threshold crossings are forwarded
-            // into SwiftUI/shell state. This keeps the `+` button behavior while avoiding a shell
-            // update for every contentOffset change during scrolling.
-            self.observation = scrollView.observe(\.contentOffset, options: [.initial, .new]) { [weak self] _, change in
-                let verticalOffset = max(0, change.newValue?.y ?? 0)
-                MainActor.assumeIsolated {
-                    self?.handleOffsetChange(verticalOffset)
-                }
-            }
-        }
-
-        private func handleOffsetChange(_ verticalOffset: CGFloat) {
-            let isNearTop = verticalOffset <= nearTopThreshold
-            guard lastIsNearTop != isNearTop else {
-                return
-            }
-
-            lastIsNearTop = isNearTop
-            onNearTopChange(isNearTop)
-        }
-
-        /// Walks up the hosting hierarchy until the actual `UIScrollView` is found.
-        private func enclosingScrollView(from view: UIView) -> UIScrollView? {
-            var currentSuperview: UIView? = view.superview
-
-            while let currentView = currentSuperview {
-                if let scrollView = currentView as? UIScrollView {
-                    return scrollView
-                }
-                currentSuperview = currentView.superview
-            }
-
-            return nil
-        }
+        .frame(height: 0)
+        .accessibilityHidden(true)
     }
 }
 
-/// Zero-sized host view used only to discover the surrounding UIKit scroll view.
-private final class ObserverView: UIView {}
+private struct NewsFeedTopOffsetPreferenceKey: PreferenceKey {
+    static let defaultValue: CGFloat = 0
+
+    static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
+        value = nextValue()
+    }
+}
 
 private struct FeedTextCardView: View {
     let card: FeedCard
@@ -592,7 +534,6 @@ private struct PDFCardView: View {
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
     let onSetDisplayMode: (FeedCardDisplayMode) -> Void
-
     var body: some View {
         switch content {
         case let .card(card):

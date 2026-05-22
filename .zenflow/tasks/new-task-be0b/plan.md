@@ -276,6 +276,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - cleaned unused app-group fallback error presentation assignments in `./TchopApp/App/AppDIContainer.swift` to remove build warnings from the current branch.
 - Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `** BUILD SUCCEEDED **`. No manual simulator UI or Instruments re-test was run in this block.
 
+
+- Completed now: fixed `+` button hide/show regression from the scroll-hot-path cleanup:
+  - replaced the prior UIKit/KVO threshold observer in `./TchopApp/Views/News/NewsFeedView.swift` with a SwiftUI top-offset sentinel scoped to the feed `ScrollView` coordinate space.
+  - preserved edge-only behavior: shell callback still fires only when the top sentinel crosses the existing `30pt` threshold, not on every scroll frame.
+  - restored feed card view declarations after the observer replacement and fixed the resulting compile errors.
+- Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `** BUILD SUCCEEDED **`. Manual UI validation of `+` hide/show is still needed.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
