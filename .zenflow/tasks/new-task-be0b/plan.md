@@ -260,6 +260,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - rebuilt and reinstalled the app on the booted simulator.
 - Verification: `./scripts/verify.sh low` passed; `git diff --check` passed.
 
+
+- Completed now: simulator Time Profiler scroll capture attempt and analysis:
+  - target-process and manually stopped simulator traces saved only `RunIssues.storedata`, so they were not usable for sample analysis.
+  - captured a valid auto-stopped all-process Time Profiler trace at `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-repeat.trace`.
+  - exported analysis to `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-repeat.analysis.json`.
+  - findings: no `potential-hangs` >250ms; simulator does not provide Animation Hitches/SwiftUI lanes; TchopApp samples are overwhelmingly main-thread/AttributeGraph/scroll graph work, with visible cost from `NewsFeedScrollObserver` KVO / `AppShellViewModel.setNewsFeedNearTop(_:)` and no sampled evidence of synchronous media decoding during this run.
+- Verification: Instruments trace analysis only; no build/test run for this analysis step.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
