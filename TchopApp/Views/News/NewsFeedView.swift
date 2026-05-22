@@ -1,10 +1,61 @@
 import AVFoundation
 import ImageIO
 import Observation
+import os
 import PDFKit
 import SwiftUI
 import TchopOnDeviceAI
 import UIKit
+
+private let feedPerformanceLog = OSLog(
+    subsystem: Bundle.main.bundleIdentifier ?? "com.example.TchopApp",
+    category: "FeedPerformance"
+)
+
+private enum FeedPerformanceSignpost {
+    static func scrollNearTopStateChanged(_ isNearTop: Bool) {
+        os_signpost(
+            .event,
+            log: feedPerformanceLog,
+            name: "ScrollNearTopStateChange",
+            "%{public}s",
+            isNearTop ? "nearTop" : "notNearTop"
+        )
+    }
+
+    static func feedCardAppeared(cardID: String) {
+        os_signpost(
+            .event,
+            log: feedPerformanceLog,
+            name: "FeedCardAppear",
+            "%{public}s",
+            cardID
+        )
+    }
+
+    static func beginMediaPreviewLoad(fileURLString: String?, kind: FeedMediaPreviewKind) -> OSSignpostID {
+        let signpostID = OSSignpostID(log: feedPerformanceLog)
+        os_signpost(
+            .begin,
+            log: feedPerformanceLog,
+            name: "FeedMediaPreviewLoad",
+            signpostID: signpostID,
+            "%{public}s %{public}s",
+            kind.rawValue,
+            fileURLString ?? "nil"
+        )
+        return signpostID
+    }
+
+    static func endMediaPreviewLoad(_ signpostID: OSSignpostID) {
+        os_signpost(
+            .end,
+            log: feedPerformanceLog,
+            name: "FeedMediaPreviewLoad",
+            signpostID: signpostID
+        )
+    }
+}
 
 /// Main feed list rendering heterogeneous card content.
 struct NewsFeedView: View {
@@ -20,8 +71,11 @@ struct NewsFeedView: View {
     var body: some View {
         ScrollView(.vertical, showsIndicators: false) {
             LazyVStack(spacing: AppSpacing.md) {
-                NewsFeedScrollObserver { verticalOffset in
-                    onScrollProximityChange(verticalOffset <= Self.floatingActionButtonHideThreshold)
+                NewsFeedScrollObserver(
+                    nearTopThreshold: Self.floatingActionButtonHideThreshold
+                ) { isNearTop in
+                    FeedPerformanceSignpost.scrollNearTopStateChanged(isNearTop)
+                    onScrollProximityChange(isNearTop)
                 }
                 .frame(height: 0)
 
@@ -256,6 +310,9 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { onCommentsTap(card.id) },
                     onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
+                .onAppear {
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                }
             }
         case let .text(content):
             switch content {
@@ -268,6 +325,9 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { onCommentsTap(card.id) },
                     onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
+                .onAppear {
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                }
             }
         case let .video(content):
             switch content {
@@ -280,6 +340,9 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { onCommentsTap(card.id) },
                     onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
+                .onAppear {
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                }
             }
         case let .audio(content):
             switch content {
@@ -292,6 +355,9 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { onCommentsTap(card.id) },
                     onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
+                .onAppear {
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                }
             }
         case let .pdf(content):
             switch content {
@@ -304,18 +370,25 @@ private struct NewsFeedCardRendererView: View {
                     onCommentsTap: { onCommentsTap(card.id) },
                     onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
                 )
+                .onAppear {
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                }
             }
         }
     }
 }
 
-/// Lightweight UIKit bridge that observes the hosting scroll view's content offset without affecting SwiftUI layout.
+/// Lightweight UIKit bridge that observes only near-top threshold transitions for the hosting scroll view.
 @MainActor
 private struct NewsFeedScrollObserver: UIViewRepresentable {
-    let onOffsetChange: @MainActor (CGFloat) -> Void
+    let nearTopThreshold: CGFloat
+    let onNearTopChange: @MainActor (Bool) -> Void
 
     func makeCoordinator() -> Coordinator {
-        Coordinator(onOffsetChange: onOffsetChange)
+        Coordinator(
+            nearTopThreshold: nearTopThreshold,
+            onNearTopChange: onNearTopChange
+        )
     }
 
     func makeUIView(context: Context) -> ObserverView {
@@ -325,19 +398,26 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
     }
 
     func updateUIView(_ uiView: ObserverView, context: Context) {
-        context.coordinator.onOffsetChange = onOffsetChange
+        context.coordinator.nearTopThreshold = nearTopThreshold
+        context.coordinator.onNearTopChange = onNearTopChange
         context.coordinator.attachIfNeeded(to: uiView)
     }
 
     /// Owns the single KVO observation for the enclosing UIKit scroll view.
     @MainActor
     final class Coordinator {
-        var onOffsetChange: @MainActor (CGFloat) -> Void
+        var nearTopThreshold: CGFloat
+        var onNearTopChange: @MainActor (Bool) -> Void
         private weak var scrollView: UIScrollView?
         private var observation: NSKeyValueObservation?
+        private var lastIsNearTop: Bool?
 
-        init(onOffsetChange: @escaping @MainActor (CGFloat) -> Void) {
-            self.onOffsetChange = onOffsetChange
+        init(
+            nearTopThreshold: CGFloat,
+            onNearTopChange: @escaping @MainActor (Bool) -> Void
+        ) {
+            self.nearTopThreshold = nearTopThreshold
+            self.onNearTopChange = onNearTopChange
         }
 
         func attachIfNeeded(to view: UIView) {
@@ -350,14 +430,26 @@ private struct NewsFeedScrollObserver: UIViewRepresentable {
             }
 
             self.scrollView = scrollView
-            // KVO keeps this bridge lightweight and avoids layout-driven approaches such as an
-            // outer GeometryReader wrapper around the entire feed.
+            lastIsNearTop = nil
+            // KVO still observes the UIKit scroll view, but only threshold crossings are forwarded
+            // into SwiftUI/shell state. This keeps the `+` button behavior while avoiding a shell
+            // update for every contentOffset change during scrolling.
             self.observation = scrollView.observe(\.contentOffset, options: [.initial, .new]) { [weak self] _, change in
                 let verticalOffset = max(0, change.newValue?.y ?? 0)
                 MainActor.assumeIsolated {
-                    self?.onOffsetChange(verticalOffset)
+                    self?.handleOffsetChange(verticalOffset)
                 }
             }
+        }
+
+        private func handleOffsetChange(_ verticalOffset: CGFloat) {
+            let isNearTop = verticalOffset <= nearTopThreshold
+            guard lastIsNearTop != isNearTop else {
+                return
+            }
+
+            lastIsNearTop = isNearTop
+            onNearTopChange(isNearTop)
         }
 
         /// Walks up the hosting hierarchy until the actual `UIScrollView` is found.
@@ -1128,6 +1220,14 @@ private enum FeedMediaPreviewLoader {
         let cacheKey = "\(kind.rawValue)|\(fileURLString)"
         if let cachedImage = await FeedMediaPreviewMemoryCache.shared.image(for: cacheKey) {
             return cachedImage
+        }
+
+        let signpostID = FeedPerformanceSignpost.beginMediaPreviewLoad(
+            fileURLString: fileURLString,
+            kind: kind
+        )
+        defer {
+            FeedPerformanceSignpost.endMediaPreviewLoad(signpostID)
         }
 
         let image = await Task.detached(priority: .utility) {

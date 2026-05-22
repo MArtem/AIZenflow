@@ -545,7 +545,7 @@ final class AppDIContainer {
             )
         } catch {
             Task {
-                let presentation = await errorManager.presentableError(
+                _ = await errorManager.presentableError(
                     from: error,
                     context: AppErrorContext(
                         operation: "makeSharedFeedCardSyncManager",
@@ -566,7 +566,7 @@ final class AppDIContainer {
             )
         } catch {
             Task {
-                let presentation = await errorManager.presentableError(
+                _ = await errorManager.presentableError(
                     from: error,
                     context: AppErrorContext(
                         operation: "makeShareExtensionSessionContextManager",
@@ -600,7 +600,7 @@ final class AppDIContainer {
             )
         } catch {
             Task {
-                let presentation = await errorManager.presentableError(
+                _ = await errorManager.presentableError(
                     from: error,
                     context: AppErrorContext(
                         operation: "makeWidgetContentSyncManager",

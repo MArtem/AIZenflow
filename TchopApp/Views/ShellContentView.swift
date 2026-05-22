@@ -14,14 +14,6 @@ struct ShellContentView: View {
     let profileTabViewModel: ProfileTabViewModel?
     let onLogout: () -> Void
 
-    /// Whether the shell-level floating action button is allowed for the current tab, route depth and scroll position.
-    private var shouldShowFloatingActionButton: Bool {
-        coordinator.selectedTab == .news &&
-            newsRouter.path.isEmpty &&
-            viewModel.showsFloatingActionButton &&
-            viewModel.isNewsFeedNearTop
-    }
-
     private var composerIsPresented: Binding<Bool> {
         Binding(
             get: { viewModel.activeComposer != nil },
@@ -58,10 +50,10 @@ struct ShellContentView: View {
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
 
-            ShellBottomChromeView(
+            ShellBottomChromeHostView(
+                viewModel: viewModel,
                 selectedTab: coordinator.selectedTab,
-                shouldShowFloatingActionButton: shouldShowFloatingActionButton,
-                onFloatingActionTap: viewModel.presentComposer,
+                newsRouteIsAtRoot: newsRouter.path.isEmpty,
                 onSelectTab: coordinator.selectTab
             )
         }
@@ -91,6 +83,30 @@ struct ShellContentView: View {
         }
 
         viewModel.newsFeedViewModel.toggleSearchPresentation()
+    }
+}
+
+private struct ShellBottomChromeHostView: View {
+    let viewModel: AppShellViewModel
+    let selectedTab: AppTab
+    let newsRouteIsAtRoot: Bool
+    let onSelectTab: (AppTab) -> Void
+
+    /// Whether the shell-level floating action button is allowed for the current tab, route depth and scroll position.
+    private var shouldShowFloatingActionButton: Bool {
+        selectedTab == .news &&
+            newsRouteIsAtRoot &&
+            viewModel.showsFloatingActionButton &&
+            viewModel.isNewsFeedNearTop
+    }
+
+    var body: some View {
+        ShellBottomChromeView(
+            selectedTab: selectedTab,
+            shouldShowFloatingActionButton: shouldShowFloatingActionButton,
+            onFloatingActionTap: viewModel.presentComposer,
+            onSelectTab: onSelectTab
+        )
     }
 }
 

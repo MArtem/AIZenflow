@@ -1,7 +1,46 @@
 import Foundation
 import Observation
+import os
 import TchopErrors
 import TchopOnDeviceAI
+
+private let newsFeedPerformanceLog = OSLog(
+    subsystem: Bundle.main.bundleIdentifier ?? "com.example.TchopApp",
+    category: "FeedPerformance"
+)
+
+private enum NewsFeedPerformanceSignpost {
+    static func beginVisibleContentRefresh(
+        channelID: String?,
+        searchQuery: String
+    ) -> OSSignpostID {
+        let signpostID = OSSignpostID(log: newsFeedPerformanceLog)
+        os_signpost(
+            .begin,
+            log: newsFeedPerformanceLog,
+            name: "FeedVisibleContentRefresh",
+            signpostID: signpostID,
+            "%{public}s %{public}s",
+            channelID ?? "nil",
+            searchQuery.isEmpty ? "empty-search" : "search"
+        )
+        return signpostID
+    }
+
+    static func endVisibleContentRefresh(
+        _ signpostID: OSSignpostID,
+        visibleCount: Int
+    ) {
+        os_signpost(
+            .end,
+            log: newsFeedPerformanceLog,
+            name: "FeedVisibleContentRefresh",
+            signpostID: signpostID,
+            "visibleCount=%{public}d",
+            visibleCount
+        )
+    }
+}
 
 @MainActor
 final class CardTranslationStore {
@@ -410,6 +449,10 @@ final class NewsFeedViewModel {
     }
 
     private func refreshVisibleContent() {
+        let signpostID = NewsFeedPerformanceSignpost.beginVisibleContentRefresh(
+            channelID: currentChannelID,
+            searchQuery: searchQuery
+        )
         let channelCards = feedCardStore.cards(for: currentChannelID)
         hasCardsInCurrentChannel = !channelCards.isEmpty
         visibleContent = NewsFeedContent(
@@ -417,6 +460,10 @@ final class NewsFeedViewModel {
             availability: .live
         )
         state = Self.resolvedState(for: visibleContent)
+        NewsFeedPerformanceSignpost.endVisibleContentRefresh(
+            signpostID,
+            visibleCount: visibleContent.cards.count
+        )
     }
 
     /// Maps local feed content into the explicit feed state used by the screen.

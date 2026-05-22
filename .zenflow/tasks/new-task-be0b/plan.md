@@ -268,6 +268,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - findings: no `potential-hangs` >250ms; simulator does not provide Animation Hitches/SwiftUI lanes; TchopApp samples are overwhelmingly main-thread/AttributeGraph/scroll graph work, with visible cost from `NewsFeedScrollObserver` KVO / `AppShellViewModel.setNewsFeedNearTop(_:)` and no sampled evidence of synchronous media decoding during this run.
 - Verification: Instruments trace analysis only; no build/test run for this analysis step.
 
+
+- Completed now: Scroll Hot Path Remediation block 1-4:
+  - changed `./TchopApp/Views/News/NewsFeedView.swift` so `NewsFeedScrollObserver` forwards only near-top threshold transitions instead of every `contentOffset` update, preserving the existing `+` button visibility threshold.
+  - split `./TchopApp/Views/ShellContentView.swift` bottom chrome observation into `ShellBottomChromeHostView`, so `isNewsFeedNearTop` invalidates the bottom chrome host rather than the whole shell/feed subtree.
+  - added lightweight feed signposts for `ScrollNearTopStateChange`, `FeedCardAppear`, `FeedMediaPreviewLoad`, and `FeedVisibleContentRefresh` in `./TchopApp/Views/News/NewsFeedView.swift` and `./TchopApp/ViewModels/NewsFeedViewModel.swift`.
+  - cleaned unused app-group fallback error presentation assignments in `./TchopApp/App/AppDIContainer.swift` to remove build warnings from the current branch.
+- Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `** BUILD SUCCEEDED **`. No manual simulator UI or Instruments re-test was run in this block.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
