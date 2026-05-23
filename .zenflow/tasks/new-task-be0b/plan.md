@@ -310,6 +310,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and `./docs/agent-prompts/README.md` to index and enforce this gate.
 - Verification: `git diff --check` only; no build needed for documentation-only changes.
 
+
+- Completed now: final `./TchopApp/Views/News/NewsFeedView.swift` cleanup after external review:
+  - clarified the floating `+` threshold comment from top-card semantics to top-content-area semantics.
+  - extracted card row construction into concrete `makeCardView(for:) -> NewsFeedCardRendererView` while keeping `ForEach` directly inside the primary `LazyVStack`.
+  - verified `startTranslation` already clears `languageSelectionState` before launching translation work.
+- Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
+- Profiling status: attempted new simulator Time Profiler captures after the cleanup (`attach`, `all-processes`, and PID attach paths), but the generated `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-after-lazy-inline.trace` contains only `RunIssues.storedata` and fails `xctrace export` with `Document Missing Template Error`; no valid comparable post-change metrics were produced yet.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
