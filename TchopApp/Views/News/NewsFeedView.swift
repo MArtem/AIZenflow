@@ -59,7 +59,7 @@ private enum FeedPerformanceSignpost {
 
 /// Main feed list rendering heterogeneous card content.
 struct NewsFeedView: View {
-    /// The shell-level plus button hides once the user has clearly moved away from the top card.
+    /// The shell-level plus button hides once the feed scroll position moves away from the top content area.
     private static let floatingActionButtonHideThreshold: CGFloat = 30
     private static let scrollCoordinateSpace = "news-feed-scroll"
 
@@ -95,15 +95,7 @@ struct NewsFeedView: View {
                         NewsFeedSearchEmptyStateView()
                     } else {
                         ForEach(visibleContent.cards, id: \.id) { card in
-                            NewsFeedCardRendererView(
-                                feedCard: card,
-                                translatedCardProvider: viewModel.translatedFeedCard,
-                                translationAction: translationAction(for: card),
-                                onCardTap: onCardTap,
-                                onLikeTap: viewModel.toggleFeedCardLike,
-                                onCommentsTap: viewModel.incrementFeedCardComments,
-                                onSetDisplayMode: viewModel.setFeedCardDisplayMode
-                            )
+                            makeCardView(for: card)
                         }
                     }
                 }
@@ -141,6 +133,18 @@ struct NewsFeedView: View {
                 languageSelectionState = nil
             }
         }
+    }
+
+    private func makeCardView(for card: NewsFeedCard) -> NewsFeedCardRendererView {
+        NewsFeedCardRendererView(
+            feedCard: card,
+            translatedCardProvider: viewModel.translatedFeedCard,
+            translationAction: translationAction(for: card),
+            onCardTap: onCardTap,
+            onLikeTap: viewModel.toggleFeedCardLike,
+            onCommentsTap: viewModel.incrementFeedCardComments,
+            onSetDisplayMode: viewModel.setFeedCardDisplayMode
+        )
     }
 
     private func handleScrollProximityChange(_ isNearTop: Bool) {
