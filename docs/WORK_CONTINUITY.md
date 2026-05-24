@@ -41,6 +41,21 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 16) docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md
 17) docs/IOS_PRODUCTION_READINESS_STANDARD.md
 18) docs/DEFINITION_OF_DONE.md
+19) docs/EVIDENCE_BASED_ENGINEERING_RULES.md
+20) docs/PRODUCT_REQUIREMENTS_STANDARD.md
+21) docs/ARCHITECTURE_DECISION_GOVERNANCE.md
+22) docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md
+23) docs/FEATURE_FLAGS_AND_ROLLOUTS.md
+24) docs/INCIDENT_RESPONSE_STANDARD.md
+25) docs/PRODUCT_HEALTH_SLO.md
+26) docs/RISK_REGISTER.md
+27) docs/TECH_DEBT_REGISTER.md
+28) docs/MODULAR_ARCHITECTURE_STANDARD.md
+29) docs/QA_TEST_PLAN_STANDARD.md
+30) docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md
+31) docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md
+32) docs/DATA_GOVERNANCE_AND_COMPLIANCE.md
+33) docs/COMPATIBILITY_MATRIX.md
 
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
@@ -61,6 +76,9 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Точные local feed/card persistence правила брать из `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
 - Перед любой нетривиальной реализацией, рефакторингом, cleanup или review применять `docs/PRODUCTION_QUALITY_GATES.md` и `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`.
 - Stop list из `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` является блокирующим по умолчанию; если нужен exception, сначала явно зафиксировать причину и tradeoff.
+- Перед утверждением `готово` / `исправлено` / `production-ready` / `verified` применять `docs/EVIDENCE_BASED_ENGINEERING_RULES.md`.
+- Перед нетривиальной feature-работой проверять требования по `docs/PRODUCT_REQUIREMENTS_STANDARD.md`; если acceptance criteria/state behavior неясны — спрашивать.
+- Для production-scale изменений учитывать rollout/rollback, incident response, SLO/product health, risk/debt register, QA, localization, Apple capabilities, data governance, compatibility matrix.
 - Глобальные reusable правила/промпты брать из `docs/knowledge/global/`.
 - TchopApp-specific правила/контракты/пути брать из `docs/knowledge/TchopApp/`.
 
@@ -90,6 +108,7 @@ Current epic: 3-phase cleanup/refactor over working runtime code (tests are inte
 - No speculative UI/logic/fallback flows
 - Mandatory production checklist + forbidden-pattern stop list before implementation/review/audit
 - Mandatory iOS production standards available for release, testing, security/privacy, observability, accessibility, performance, API, migration, design-system, CI/CD, and dependency decisions
+- Mandatory enterprise production standards available for requirements, ADRs, code ownership, evidence, rollout, incidents, SLOs, risk/debt, modular architecture, QA, localization, platform capabilities, data governance, and compatibility decisions
 
 ## Current Functional Contract (Compact)
 - Card kinds: `text`, `photo`, `video`, `audio`, `pdf`

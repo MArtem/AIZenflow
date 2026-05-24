@@ -20,3 +20,18 @@ When a new project starts:
 ## Rule Of Thumb
 - If the rule mentions `TchopApp`, concrete app files, feed cards, SwiftData schema details, channel names, task ids, or current worktree paths, it belongs in the project-specific folder.
 - If the rule describes general working style, prompt workflow, no-overengineering policy, documentation hygiene, or debugging/review/test methodology, it belongs here.
+
+## Additional Reusable Production Coverage
+For large iOS/product projects, keep reusable standards for:
+- product requirements and acceptance criteria
+- architecture decision governance
+- code ownership and review policy
+- evidence-based completion
+- feature flags and rollout/rollback
+- incident response and product health SLOs
+- risk and tech-debt registers
+- modular architecture and developer experience
+- QA planning and localization/internationalization
+- platform capabilities, data governance, and compatibility matrices
+
+These are project-agnostic and should be copied or adapted into new serious iOS products before feature work scales.

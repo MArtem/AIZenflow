@@ -328,6 +328,17 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Updated `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and `./docs/knowledge/global/README.md` to enforce and index the expanded production standards.
 - Verification: `git diff --check` only; no build needed for documentation/skill-only changes.
 
+
+- Completed now: enterprise-scale iOS production governance/docs/prompts/skills/static-gates hardening pass:
+  - Added product/process governance standards: `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`, `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`, `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`, `./docs/INCIDENT_RESPONSE_STANDARD.md`, `./docs/PRODUCT_HEALTH_SLO.md`, `./docs/RISK_REGISTER.md`, and `./docs/TECH_DEBT_REGISTER.md`.
+  - Added enterprise iOS scale standards: `./docs/MODULAR_ARCHITECTURE_STANDARD.md`, `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`, `./docs/QA_TEST_PLAN_STANDARD.md`, `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`, `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`, `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`, and `./docs/COMPATIBILITY_MATRIX.md`.
+  - Added prompt presets for requirements, ADR, evidence-based completion, feature flags/rollouts, incidents, QA plans, localization, and platform capabilities under `./docs/agent-prompts/`, and indexed them in `./docs/agent-prompts/README.md`.
+  - Added local operational skills: `./.codex/skills/ios-product-governance`, `./.codex/skills/ios-incident-ops`, `./.codex/skills/ios-modular-architecture`, `./.codex/skills/ios-qa-localization`, and `./.codex/skills/ios-evidence-gate`.
+  - Added static quality gate scripts under `./scripts/`: docs index validation, forbidden/high-risk pattern scan, secret scan, large-file scan, localization scan, SwiftUI hot-path candidate scan, and aggregate runner.
+  - Updated `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/WORK_CONTINUITY.md`, `./docs/agent-prompts/README.md`, `./docs/knowledge/global/README.md`, and `./docs/knowledge/global/ios/README.md` so the new standards are part of the active baseline.
+  - Removed a hard-coded ReqRes demo API-key fallback from `./scripts/api_method_trace`; the script now requires `TCHOP_REQRES_API_KEY` from environment when used.
+- Verification: `python3 ./scripts/check_docs_index.py` succeeded; `git diff --check` succeeded; `./scripts/run_static_quality_gates.sh` now passes docs/secret/large-file checks but intentionally stops on remaining codebase findings from `./scripts/check_forbidden_patterns.py` and downstream review candidates from localization/SwiftUI scans that should be handled as remediation/audit items, not hidden.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

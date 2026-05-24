@@ -18,5 +18,23 @@ Reusable iOS production rules that are not tied to one app.
 - `./docs/CI_CD_QUALITY_GATES.md`
 - `./docs/DEPENDENCY_POLICY.md`
 
+## Additional Enterprise Standards To Copy Into New iOS Projects
+- `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`
+- `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
+- `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
+- `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+- `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
+- `./docs/INCIDENT_RESPONSE_STANDARD.md`
+- `./docs/PRODUCT_HEALTH_SLO.md`
+- `./docs/RISK_REGISTER.md`
+- `./docs/TECH_DEBT_REGISTER.md`
+- `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
+- `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`
+- `./docs/QA_TEST_PLAN_STANDARD.md`
+- `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
+- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+- `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`
+- `./docs/COMPATIBILITY_MATRIX.md`
+
 ## Rule
 Keep app-specific file paths, models, product names, and task constraints out of global iOS rules.

@@ -1,12 +1,13 @@
 # Documentation Map
 
 ## Purpose
-Entry point for project docs: what to read first and where to place new information.
+Entry point for active project documentation, production standards, prompt presets, local skills, and static quality gates.
 
-- Read active docs first.
+- Read active docs before substantive work.
+- Apply `./docs/CURRENT_USER_OVERRIDES.md` before general defaults.
 - Use archives only when active docs are insufficient.
-- Documentation is not optional: before substantive work, confirm the active docs/rules needed for the current task are loaded and use them as the source of truth.
-- After any chat/context reset, run the bootstrap read before coding or changing docs.
+- If a rule/contract changed, refresh this map before continuing.
+- Documentation is part of the product baseline, not optional commentary.
 
 ## Default Read Order
 1. `./PROJECT_DOCUMENTATION.md`
@@ -15,22 +16,22 @@ Entry point for project docs: what to read first and where to place new informat
 4. `./docs/AGENT_RULES.md`
 5. `./docs/WORK_CONTINUITY.md`
 6. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
-7. Scope-specific docs listed below.
+7. Scope-specific docs from the index below.
 
 ## One-Time Bootstrap After Chat Reset
-On new chat/context reset, read once:
+On a new chat/context reset, read once:
 1. this file
 2. `./PROJECT_DOCUMENTATION.md`
 3. `./PROJECT_HEALTH.md`
 4. `./docs/WORK_CONTINUITY.md`
 5. `./docs/CURRENT_USER_OVERRIDES.md`
 6. `./docs/AGENT_RULES.md`
-7. current task docs (`./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules)
+7. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
+8. relevant prompt/skill/standard docs for the task.
 
-Re-read full stack if architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
+Re-read the full stack only when architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
 
 ## Mandatory Active Documentation Index
-For the current `new-task-be0b` worktree/task, the active documentation set is:
 
 ### Project Baseline
 - `./PROJECT_DOCUMENTATION.md`
@@ -46,6 +47,17 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/DEFINITION_OF_DONE.md`
+- `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+
+### Product, Governance, And Operating Model
+- `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`
+- `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
+- `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
+- `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
+- `./docs/INCIDENT_RESPONSE_STANDARD.md`
+- `./docs/PRODUCT_HEALTH_SLO.md`
+- `./docs/RISK_REGISTER.md`
+- `./docs/TECH_DEBT_REGISTER.md`
 
 ### iOS Production Standards
 - `./docs/IOS_TESTING_STRATEGY.md`
@@ -59,6 +71,13 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - `./docs/DESIGN_SYSTEM_GOVERNANCE.md`
 - `./docs/CI_CD_QUALITY_GATES.md`
 - `./docs/DEPENDENCY_POLICY.md`
+- `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
+- `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`
+- `./docs/QA_TEST_PLAN_STANDARD.md`
+- `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
+- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+- `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`
+- `./docs/COMPATIBILITY_MATRIX.md`
 
 ### TchopApp-Specific Runtime Docs
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
@@ -67,7 +86,7 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 
-### Prompts And Knowledge
+### Prompt Presets And Knowledge
 - `./docs/agent-prompts/README.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
@@ -80,7 +99,7 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
 - `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`
 
-### Skills
+### Local Skills
 - `./.codex/skills/tchop-feed-cards/SKILL.md`
 - `./.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
 - `./.codex/skills/tchop-packages/SKILL.md`
@@ -93,17 +112,50 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - `./.codex/skills/ios-data-migration/SKILL.md`
 - `./.codex/skills/ios-api-contracts/SKILL.md`
 - `./.codex/skills/ios-test-strategy/SKILL.md`
+- `./.codex/skills/ios-product-governance/SKILL.md`
+- `./.codex/skills/ios-incident-ops/SKILL.md`
+- `./.codex/skills/ios-modular-architecture/SKILL.md`
+- `./.codex/skills/ios-qa-localization/SKILL.md`
+- `./.codex/skills/ios-evidence-gate/SKILL.md`
+
+### Static Quality Gate Scripts
+- `./scripts/check_docs_index.py`
+- `./scripts/check_forbidden_patterns.py`
+- `./scripts/check_secrets.py`
+- `./scripts/check_large_files.py`
+- `./scripts/check_localization.py`
+- `./scripts/check_swiftui_hot_path_patterns.py`
+- `./scripts/run_static_quality_gates.sh`
 
 ## Canonical Document Roles
+
+### Core Rules
 - **`./PROJECT_DOCUMENTATION.md`**: stable app architecture and runtime baseline.
 - **`./PROJECT_HEALTH.md`**: package/manager ownership boundaries.
 - **`./TESTING_INSTRUCTIONS.md`**: active verification workflow and levels for this project.
 - **`./docs/AGENT_RULES.md`**: short mandatory implementation guardrails.
 - **`./docs/CURRENT_USER_OVERRIDES.md`**: current task/user overrides that must be applied before general defaults.
+- **`./docs/WORK_CONTINUITY.md`**: durable resume state and universal transition prompt.
+
+### Review And Completion
 - **`./docs/PRODUCTION_QUALITY_GATES.md`**: mandatory broad production-quality review gates.
 - **`./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`**: concrete audit/review checklist and forbidden-pattern stop list.
 - **`./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`**: broad review trigger and completeness gate for `ревью`/review/audit.
 - **`./docs/IOS_PRODUCTION_READINESS_STANDARD.md`**: cross-cutting iOS production-ready definition.
+- **`./docs/DEFINITION_OF_DONE.md`**: task completion contract.
+- **`./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`**: proof requirements for claims, completion reports, and “done” status.
+
+### Product And Governance
+- **`./docs/PRODUCT_REQUIREMENTS_STANDARD.md`**: product behavior, states, acceptance criteria, and non-goal requirements.
+- **`./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`**: ADR threshold, decision ownership, and reversal rules.
+- **`./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`**: ownership, review routing, and blocked-change criteria.
+- **`./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`**: flag lifecycle, rollout controls, rollback expectations.
+- **`./docs/INCIDENT_RESPONSE_STANDARD.md`**: severity, triage, mitigation, and postmortem expectations.
+- **`./docs/PRODUCT_HEALTH_SLO.md`**: product health signals, budgets, and escalation thresholds.
+- **`./docs/RISK_REGISTER.md`**: known risks, owners, mitigation, and review cadence.
+- **`./docs/TECH_DEBT_REGISTER.md`**: intentional debt, owner, expiry, and paydown policy.
+
+### iOS Engineering Standards
 - **`./docs/IOS_TESTING_STRATEGY.md`**: production test/verification decision matrix.
 - **`./docs/IOS_SECURITY_PRIVACY_GATE.md`**: security/privacy/logging/sensitive-data gate.
 - **`./docs/IOS_OBSERVABILITY_STANDARD.md`**: crash, analytics, logs, and performance signal rules.
@@ -113,49 +165,46 @@ For the current `new-task-be0b` worktree/task, the active documentation set is:
 - **`./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`**: API/backend integration rules.
 - **`./docs/IOS_DATA_MIGRATION_STANDARD.md`**: data migration and compatibility rules.
 - **`./docs/DESIGN_SYSTEM_GOVERNANCE.md`**: token/component/visual-effect governance.
-- **`./docs/DEFINITION_OF_DONE.md`**: task completion contract.
 - **`./docs/CI_CD_QUALITY_GATES.md`**: automated quality gates.
 - **`./docs/DEPENDENCY_POLICY.md`**: third-party dependency policy.
-- **`./docs/UI_PIXEL_PERFECT_WORKFLOW.md`**: UI/design implementation workflow from screenshots/Figma/PDF/CSS.
-- **`./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`**: feed card persistence and media durability contract.
-- **`./docs/PACKAGES_AND_MANAGERS.md`**: reusable package/manager integration guide.
-- **`./docs/WORK_CONTINUITY.md`**: durable resume state and universal transition prompt.
-- **`./docs/SHARE_EXTENSION_VALIDATION.md`**: share-extension validation matrix.
-- **`./docs/agent-prompts/README.md`**: prompt preset index and conflict rules.
-- **`./docs/knowledge/global/`**: reusable cross-project rules and prompt presets.
-- **`./docs/knowledge/TchopApp/`**: project-specific TchopApp rules/contracts/context.
-- **`./.zenflow/tasks/.../handoff.md`**: current task status/resume context.
-- **`./.zenflow/tasks/.../plan.md`**: current execution plan only.
+- **`./docs/MODULAR_ARCHITECTURE_STANDARD.md`**: module boundaries, dependency direction, package/API ownership.
+- **`./docs/DEVELOPER_EXPERIENCE_STANDARD.md`**: local setup, diagnostics, scripts, and repeatable workflows.
+- **`./docs/QA_TEST_PLAN_STANDARD.md`**: manual/automated QA plan structure.
+- **`./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`**: localization, pluralization, length, RTL, locale formatting.
+- **`./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`**: entitlements, app groups, background modes, extensions, widgets, deep links.
+- **`./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`**: data classification, retention, export/delete, and compliance expectations.
+- **`./docs/COMPATIBILITY_MATRIX.md`**: supported OS/devices/features and degradation expectations.
 
 ## Placement Rules For New Information
-- **Architecture/runtime baseline** → `./PROJECT_DOCUMENTATION.md`
-- **Package/manager ownership** → `./PROJECT_HEALTH.md`
-- **Verification workflow** → `./TESTING_INSTRUCTIONS.md` or `./docs/IOS_TESTING_STRATEGY.md`
-- **Short implementation guardrails** → `./docs/AGENT_RULES.md`
-- **Current task/user overrides** → `./docs/CURRENT_USER_OVERRIDES.md`
-- **Production gates/checklists** → `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`
-- **Security/privacy** → `./docs/IOS_SECURITY_PRIVACY_GATE.md`
-- **Observability** → `./docs/IOS_OBSERVABILITY_STANDARD.md`
-- **Release** → `./docs/IOS_RELEASE_CHECKLIST.md`
-- **Accessibility** → `./docs/IOS_ACCESSIBILITY_STANDARD.md`
-- **Performance budgets** → `./docs/IOS_PERFORMANCE_BUDGETS.md`
-- **API/backend contracts** → `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
-- **Data migration** → `./docs/IOS_DATA_MIGRATION_STANDARD.md`
-- **Design system** → `./docs/DESIGN_SYSTEM_GOVERNANCE.md`
-- **CI/CD** → `./docs/CI_CD_QUALITY_GATES.md`
-- **Dependencies** → `./docs/DEPENDENCY_POLICY.md`
-- **Reusable prompt presets** → `./docs/agent-prompts/`
-- **Reusable cross-project knowledge** → `./docs/knowledge/global/`
-- **Project-specific knowledge** → `./docs/knowledge/<ProjectName>/`
-- **Current task state** → `./.zenflow/tasks/new-task-be0b/handoff.md`
-- **Current task plan/steps** → `./.zenflow/tasks/new-task-be0b/plan.md`
-- **Obsolete history** → `./docs/archive/` or `./.zenflow/tasks/.../archive/`
+- **Product requirements / acceptance criteria** → `./docs/PRODUCT_REQUIREMENTS_STANDARD.md` or feature-specific task docs.
+- **Architecture/runtime baseline** → `./PROJECT_DOCUMENTATION.md`.
+- **Architecture decisions** → `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md` plus an ADR if needed.
+- **Package/module ownership** → `./PROJECT_HEALTH.md`, `./docs/PACKAGES_AND_MANAGERS.md`, or `./docs/MODULAR_ARCHITECTURE_STANDARD.md`.
+- **Verification workflow** → `./TESTING_INSTRUCTIONS.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/QA_TEST_PLAN_STANDARD.md`, or `./docs/CI_CD_QUALITY_GATES.md`.
+- **Short implementation guardrails** → `./docs/AGENT_RULES.md`.
+- **Current task/user overrides** → `./docs/CURRENT_USER_OVERRIDES.md`.
+- **Production gates/checklists** → `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`.
+- **Security/privacy/data compliance** → `./docs/IOS_SECURITY_PRIVACY_GATE.md` or `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`.
+- **Observability/incidents/SLOs** → `./docs/IOS_OBSERVABILITY_STANDARD.md`, `./docs/INCIDENT_RESPONSE_STANDARD.md`, or `./docs/PRODUCT_HEALTH_SLO.md`.
+- **Rollouts/release** → `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md` or `./docs/IOS_RELEASE_CHECKLIST.md`.
+- **Accessibility** → `./docs/IOS_ACCESSIBILITY_STANDARD.md`.
+- **Performance budgets** → `./docs/IOS_PERFORMANCE_BUDGETS.md`.
+- **API/backend contracts** → `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`.
+- **Data migration** → `./docs/IOS_DATA_MIGRATION_STANDARD.md`.
+- **Design system** → `./docs/DESIGN_SYSTEM_GOVERNANCE.md`.
+- **Dependencies** → `./docs/DEPENDENCY_POLICY.md`.
+- **Reusable prompt presets** → `./docs/agent-prompts/`.
+- **Reusable cross-project knowledge** → `./docs/knowledge/global/`.
+- **Project-specific knowledge** → project-specific folder under `./docs/knowledge/`.
+- **Current task state** → `./.zenflow/tasks/new-task-be0b/handoff.md`.
+- **Current task plan/steps** → `./.zenflow/tasks/new-task-be0b/plan.md`.
+- **Obsolete history** → `./docs/archive/` or task archive folder.
 
 ## Hierarchy Of Truth
-1. Current explicit user instruction for this worktree/task
-2. Global assistant policy
-3. Current user overrides
-4. Canonical project docs
-5. Task overlay rules
-6. Current task docs
-7. Archives
+1. Current explicit user instruction for this worktree/task.
+2. Global assistant policy.
+3. Current user overrides.
+4. Canonical project docs.
+5. Task overlay rules.
+6. Current task docs.
+7. Archives.

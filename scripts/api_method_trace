@@ -22,7 +22,7 @@ shift
 env_name="reqres_demo_auth"
 email=""
 password=""
-api_key="${TCHOP_REQRES_API_KEY:-free_user_3Co5h4PffK0RHil0TjwChhqMETj}"
+api_key="${TCHOP_REQRES_API_KEY:-}"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in

@@ -40,6 +40,14 @@ Before applying any prompt here, apply the current project/task rules first:
 | iOS API contract review | `ios-api-contract-review.md` | Use for DTOs, errors, retry, pagination, offline, sync, auth. |
 | iOS release readiness | `ios-release-readiness.md` | Use for TestFlight/App Store/signing/release checks. |
 | iOS feature definition of done | `ios-feature-definition-of-done.md` | Use before calling a feature done. |
+| Product requirements review | `product-requirements-review.md` | Use before non-trivial feature work when behavior/states/acceptance criteria must be proven. |
+| Architecture decision review | `architecture-decision-review.md` | Use when a change affects module boundaries, persistence, public API, security/privacy, or long-lived architecture. |
+| Evidence-based completion review | `evidence-based-completion-review.md` | Use before claiming done/fixed/verified/production-ready. |
+| Feature flag / rollout review | `feature-flag-rollout-review.md` | Use for staged rollout, kill switch, rollback, or remote config changes. |
+| Incident response review | `incident-response-review.md` | Use for production incident readiness, triage, mitigation, and postmortem planning. |
+| QA test plan review | `qa-test-plan-review.md` | Use when preparing manual/automated QA coverage for a feature or release. |
+| Localization review | `localization-review.md` | Use for user-visible strings, pluralization, locale formatting, RTL, or length expansion. |
+| Platform capability review | `platform-capability-review.md` | Use for entitlements, app groups, extensions, widgets, deep links, background modes, permissions. |
 | ADR | `adr-master.md` | Use for important architecture decisions. |
 | Quick ADR | `adr-quick.md` | Use for lightweight architecture decision notes. |
 | Test generation | `test-generation-master.md` | Use only when tests are explicitly requested. |
@@ -58,3 +66,4 @@ Before applying any prompt here, apply the current project/task rules first:
 - Several prompts mention repository protocols and Action enums as defaults. In this project, those are not default boilerplate; use them only for real boundaries or domain/state-machine contracts.
 - The imported model-routing material said to use the cheapest reliable model. Current task override is stricter: use `GPT-5.5` until the user explicitly changes it.
 - The prompts are generic iOS production templates. Existing `TchopApp` architecture, task rules, feed/composer contract, localization, design tokens, and verification policy are higher priority.
+- Evidence-based completion prompt is mandatory before claiming work is done when verification is non-trivial.

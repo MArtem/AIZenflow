@@ -80,6 +80,28 @@ Do not add abstractions unless they solve a concrete current problem.
 - Do not narrow the review to the latest bug unless the user explicitly limits scope.
 - Do not say “всё ок”, “готово”, “clean”, or “production-ready” unless every relevant gate is checked, marked not applicable with a reason, or reported as remaining risk.
 
+
+## Product / Process Governance Rule
+- Before implementing non-trivial feature behavior, apply `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`; do not guess acceptance criteria, empty/error/offline states, rollout behavior, analytics, accessibility, or localization requirements.
+- If a decision changes architecture, public API, persistence, security/privacy, release behavior, or cross-team ownership, apply `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md` and record the decision before coding.
+- Use `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md` to decide required review scope and blocked-change criteria.
+- Track intentional shortcuts in `./docs/TECH_DEBT_REGISTER.md` and material risks in `./docs/RISK_REGISTER.md`; untracked debt is not an acceptable production tradeoff.
+
+## Evidence-Based Completion Rule
+- Apply `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md` before saying a task is done, production-ready, verified, fixed, faster, safe, or clean.
+- Claims must cite evidence: affected files, command output, static proof, build/test/profiler/manual validation, or explicit remaining risk.
+- If a claim cannot be proven in the current environment, report it as unverified instead of implying confidence.
+
+## Enterprise iOS Coverage Rule
+- For any large or production-critical iOS app area, consider the full enterprise coverage set: modular architecture, developer experience, QA plan, localization/internationalization, Apple platform capabilities, data governance/compliance, compatibility matrix, release, incidents, SLOs, feature flags, risks, and tech debt.
+- Use `./docs/MODULAR_ARCHITECTURE_STANDARD.md`, `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`, `./docs/QA_TEST_PLAN_STANDARD.md`, `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`, `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`, `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`, and `./docs/COMPATIBILITY_MATRIX.md` when relevant.
+- Production readiness is not only code correctness: it includes operability, rollback, observability, QA, supportability, compliance, and maintainability.
+
+## Static Quality Gate Scripts Rule
+- Use `./scripts/check_docs_index.py` after documentation index changes.
+- Use `./scripts/check_forbidden_patterns.py`, `./scripts/check_swiftui_hot_path_patterns.py`, `./scripts/check_secrets.py`, `./scripts/check_large_files.py`, and `./scripts/check_localization.py` as lightweight pre-review gates when their scope matches the task.
+- Use `./scripts/run_static_quality_gates.sh` before broad production review/completion when the expected warnings are understood. If it reports pre-existing issues, classify them instead of silently ignoring them.
+
 ## Project-Calibrated Working Rules (TchopApp)
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.
 2. Do not introduce app-local wrappers around reusable package APIs when one direct call is enough.

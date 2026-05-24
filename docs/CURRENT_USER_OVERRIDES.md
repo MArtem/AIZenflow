@@ -64,6 +64,13 @@ Every working response must start with:
 - Use specialized gates when relevant: testing, security/privacy, observability, release, accessibility, performance budgets, API contracts, data migration, design-system governance, CI/CD, and dependency policy.
 - If a production gate cannot be verified in the current environment, report it as remaining risk instead of implying completion.
 
+
+### Evidence / Governance
+- Do not claim `done`, `fixed`, `verified`, `smooth`, `safe`, `production-ready`, or `clean` without evidence from `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`.
+- Before non-trivial feature work, verify product requirements using `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`; if acceptance criteria/state behavior is missing, ask instead of guessing.
+- For production-scale changes, include rollout/rollback, observability, QA, localization/accessibility, data governance, compatibility, incident, risk, and tech-debt considerations when relevant.
+- Use the static gate scripts under `./scripts/` when they match the task; report failures as findings or remaining risks instead of hiding them.
+
 ### Documentation / Context Transfer
 - When refreshing documentation state or transferring context, include the rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
