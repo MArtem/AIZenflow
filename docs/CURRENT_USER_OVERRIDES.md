@@ -71,6 +71,11 @@ Every working response must start with:
 - For production-scale changes, include rollout/rollback, observability, QA, localization/accessibility, data governance, compatibility, incident, risk, and tech-debt considerations when relevant.
 - Use the static gate scripts under `./scripts/` when they match the task; report failures as findings or remaining risks instead of hiding them.
 
+
+### Generic iOS Coverage
+- For generic iOS development, cover non-app-specific concerns before app-specific assumptions: concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, analytics/telemetry, configuration/environments, input validation/content safety, permissions, and StoreKit/payments when applicable.
+- If a generic iOS area cannot be verified without project-specific requirements or user answers, report it as remaining risk and do not guess.
+
 ### Documentation / Context Transfer
 - When refreshing documentation state or transferring context, include the rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

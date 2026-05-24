@@ -48,6 +48,15 @@ Before applying any prompt here, apply the current project/task rules first:
 | QA test plan review | `qa-test-plan-review.md` | Use when preparing manual/automated QA coverage for a feature or release. |
 | Localization review | `localization-review.md` | Use for user-visible strings, pluralization, locale formatting, RTL, or length expansion. |
 | Platform capability review | `platform-capability-review.md` | Use for entitlements, app groups, extensions, widgets, deep links, background modes, permissions. |
+| iOS concurrency/runtime review | `ios-concurrency-review.md` | Use for async/await, actors, task lifecycle, Sendable, cancellation, and Swift 6 readiness. |
+| iOS memory/cache/media review | `ios-memory-cache-media-review.md` | Use for media, files, caches, memory pressure, thumbnails, and scroll media performance. |
+| iOS UI state/rendering review | `ios-ui-state-rendering-review.md` | Use for SwiftUI/UIKit state invalidation, lazy structure, rows, animations, and layout stability. |
+| iOS network resilience review | `ios-network-resilience-review.md` | Use for retries, timeouts, cancellation, idempotency, pagination, uploads/downloads. |
+| iOS offline/sync review | `ios-offline-sync-review.md` | Use for local mutations, pending sync, app groups, extensions/widgets, conflicts, and relaunch durability. |
+| iOS lifecycle/background review | `ios-lifecycle-background-review.md` | Use for launch, scene, background tasks, notifications, deep links, widgets, and extensions. |
+| iOS error-handling review | `ios-error-handling-review.md` | Use for failure states, retry, optimistic UI, localized errors, and supportability. |
+| iOS configuration/environments review | `ios-configuration-environments-review.md` | Use for dev/staging/prod config, secrets, debug gating, flags, analytics/crash routing. |
+| iOS input-validation/content-safety review | `ios-input-validation-content-safety-review.md` | Use for imports, files, URLs, rich text, push payloads, and untrusted content. |
 | ADR | `adr-master.md` | Use for important architecture decisions. |
 | Quick ADR | `adr-quick.md` | Use for lightweight architecture decision notes. |
 | Test generation | `test-generation-master.md` | Use only when tests are explicitly requested. |

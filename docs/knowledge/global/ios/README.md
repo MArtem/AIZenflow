@@ -23,6 +23,7 @@ Reusable iOS production rules that are not tied to one app.
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
 - `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
 - `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+- `./docs/STATIC_QUALITY_GATE_POLICY.md`
 - `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
 - `./docs/INCIDENT_RESPONSE_STANDARD.md`
 - `./docs/PRODUCT_HEALTH_SLO.md`
@@ -35,6 +36,20 @@ Reusable iOS production rules that are not tied to one app.
 - `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
 - `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`
 - `./docs/COMPATIBILITY_MATRIX.md`
+
+## Additional Generic iOS Standards
+- `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
+- `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
+- `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`
+- `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`
+- `./docs/IOS_OFFLINE_SYNC_STANDARD.md`
+- `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+- `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`
+- `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`
+- `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`
+- `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`
+- `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
+- `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
 
 ## Rule
 Keep app-specific file paths, models, product names, and task constraints out of global iOS rules.

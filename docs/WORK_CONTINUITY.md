@@ -56,6 +56,18 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 31) docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md
 32) docs/DATA_GOVERNANCE_AND_COMPLIANCE.md
 33) docs/COMPATIBILITY_MATRIX.md
+34) docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md
+35) docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md
+36) docs/IOS_UI_STATE_RENDERING_STANDARD.md
+37) docs/IOS_NETWORK_RESILIENCE_STANDARD.md
+38) docs/IOS_OFFLINE_SYNC_STANDARD.md
+39) docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md
+40) docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md
+41) docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md
+42) docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md
+43) docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md
+44) docs/IOS_STOREKIT_PAYMENTS_STANDARD.md
+45) docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md
 
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
@@ -79,6 +91,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Перед утверждением `готово` / `исправлено` / `production-ready` / `verified` применять `docs/EVIDENCE_BASED_ENGINEERING_RULES.md`.
 - Перед нетривиальной feature-работой проверять требования по `docs/PRODUCT_REQUIREMENTS_STANDARD.md`; если acceptance criteria/state behavior неясны — спрашивать.
 - Для production-scale изменений учитывать rollout/rollback, incident response, SLO/product health, risk/debt register, QA, localization, Apple capabilities, data governance, compatibility matrix.
+- Для generic iOS задач учитывать concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, analytics/telemetry, configuration/environments, input validation/content safety, permissions, StoreKit/payments where applicable.
 - Глобальные reusable правила/промпты брать из `docs/knowledge/global/`.
 - TchopApp-specific правила/контракты/пути брать из `docs/knowledge/TchopApp/`.
 

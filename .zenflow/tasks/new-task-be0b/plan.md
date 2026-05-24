@@ -339,6 +339,15 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Removed a hard-coded ReqRes demo API-key fallback from `./scripts/api_method_trace`; the script now requires `TCHOP_REQRES_API_KEY` from environment when used.
 - Verification: `python3 ./scripts/check_docs_index.py` succeeded; `git diff --check` succeeded; `./scripts/run_static_quality_gates.sh` now passes docs/secret/large-file checks but intentionally stops on remaining codebase findings from `./scripts/check_forbidden_patterns.py` and downstream review candidates from localization/SwiftUI scans that should be handled as remediation/audit items, not hidden.
 
+
+- Completed now: generic, non-app-specific iOS production coverage expansion requested by user:
+  - Added universal iOS standards for concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, app lifecycle/background work, error handling/user feedback, analytics/telemetry taxonomy, configuration/environments, input validation/content safety, StoreKit/payments, and camera/photos/files/permissions.
+  - Added `./docs/STATIC_QUALITY_GATE_POLICY.md` to define hard fail vs warning vs review candidate vs allowed exception for static scripts.
+  - Added prompt presets for generic iOS concurrency, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, configuration/environments, and input-validation/content-safety reviews.
+  - Added local skills for generic iOS concurrency/runtime, memory/cache/media, network resilience, offline/sync, lifecycle/background, error handling, configuration/environments, and input validation.
+  - Updated active indexes/rules in `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/WORK_CONTINUITY.md`, `./docs/agent-prompts/README.md`, and `./docs/knowledge/global/ios/README.md`.
+- Verification: `python3 ./scripts/check_docs_index.py` succeeded with 101 indexed paths; `git diff --check` succeeded. Full `./scripts/run_static_quality_gates.sh` still stops on existing app/code findings from `./scripts/check_forbidden_patterns.py`; those are app/project remediation candidates and were intentionally not fixed in this generic-docs pass.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

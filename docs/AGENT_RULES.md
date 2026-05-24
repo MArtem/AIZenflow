@@ -101,6 +101,13 @@ Do not add abstractions unless they solve a concrete current problem.
 - Use `./scripts/check_docs_index.py` after documentation index changes.
 - Use `./scripts/check_forbidden_patterns.py`, `./scripts/check_swiftui_hot_path_patterns.py`, `./scripts/check_secrets.py`, `./scripts/check_large_files.py`, and `./scripts/check_localization.py` as lightweight pre-review gates when their scope matches the task.
 - Use `./scripts/run_static_quality_gates.sh` before broad production review/completion when the expected warnings are understood. If it reports pre-existing issues, classify them instead of silently ignoring them.
+- Interpret static gate findings through `./docs/STATIC_QUALITY_GATE_POLICY.md`: hard fail, warning, review candidate, or allowed exception.
+
+
+## Generic iOS Coverage Rule
+- For any iOS implementation/review, consider generic iOS concerns before app-specific assumptions: concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, analytics/telemetry, configuration/environments, input validation/content safety, StoreKit/payments when applicable, and platform permissions.
+- Apply these documents when relevant: `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`, `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`, `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`, `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`, `./docs/IOS_OFFLINE_SYNC_STANDARD.md`, `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`, `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`, `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`, `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`, `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`, `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`, and `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`.
+- If a concern is not applicable, mark it not applicable with a reason instead of silently skipping it.
 
 ## Project-Calibrated Working Rules (TchopApp)
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.

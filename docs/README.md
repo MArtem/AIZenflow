@@ -48,6 +48,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/DEFINITION_OF_DONE.md`
 - `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+- `./docs/STATIC_QUALITY_GATE_POLICY.md`
 
 ### Product, Governance, And Operating Model
 - `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`
@@ -78,6 +79,18 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
 - `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`
 - `./docs/COMPATIBILITY_MATRIX.md`
+- `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
+- `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
+- `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`
+- `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`
+- `./docs/IOS_OFFLINE_SYNC_STANDARD.md`
+- `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+- `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`
+- `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`
+- `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`
+- `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`
+- `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
+- `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
 
 ### TchopApp-Specific Runtime Docs
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
@@ -117,6 +130,14 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./.codex/skills/ios-modular-architecture/SKILL.md`
 - `./.codex/skills/ios-qa-localization/SKILL.md`
 - `./.codex/skills/ios-evidence-gate/SKILL.md`
+- `./.codex/skills/ios-concurrency-runtime/SKILL.md`
+- `./.codex/skills/ios-memory-cache-media/SKILL.md`
+- `./.codex/skills/ios-network-resilience/SKILL.md`
+- `./.codex/skills/ios-offline-sync/SKILL.md`
+- `./.codex/skills/ios-lifecycle-background/SKILL.md`
+- `./.codex/skills/ios-error-handling/SKILL.md`
+- `./.codex/skills/ios-configuration-environments/SKILL.md`
+- `./.codex/skills/ios-input-validation/SKILL.md`
 
 ### Static Quality Gate Scripts
 - `./scripts/check_docs_index.py`
@@ -144,6 +165,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/IOS_PRODUCTION_READINESS_STANDARD.md`**: cross-cutting iOS production-ready definition.
 - **`./docs/DEFINITION_OF_DONE.md`**: task completion contract.
 - **`./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`**: proof requirements for claims, completion reports, and “done” status.
+- **`./docs/STATIC_QUALITY_GATE_POLICY.md`**: severity and exception policy for static quality scripts.
 
 ### Product And Governance
 - **`./docs/PRODUCT_REQUIREMENTS_STANDARD.md`**: product behavior, states, acceptance criteria, and non-goal requirements.
@@ -174,6 +196,18 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`**: entitlements, app groups, background modes, extensions, widgets, deep links.
 - **`./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`**: data classification, retention, export/delete, and compliance expectations.
 - **`./docs/COMPATIBILITY_MATRIX.md`**: supported OS/devices/features and degradation expectations.
+- **`./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`**: async/await, actor ownership, task lifecycle, cancellation, Sendable, Swift 6 readiness.
+- **`./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`**: memory, cache, media, file, thumbnail, and large-asset rules.
+- **`./docs/IOS_UI_STATE_RENDERING_STANDARD.md`**: SwiftUI/UIKit state invalidation, lazy rendering, row identity, and render-path rules.
+- **`./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`**: mobile network reliability, retries, cancellation, idempotency, and error taxonomy.
+- **`./docs/IOS_OFFLINE_SYNC_STANDARD.md`**: offline mutations, pending sync, conflicts, app-group durability.
+- **`./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`**: launch, scenes, background work, push, deep links, widgets, extensions.
+- **`./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`**: user-visible failure states, retry, optimistic UI, localized errors.
+- **`./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`**: analytics event ownership, privacy, bounded properties, product signals.
+- **`./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`**: dev/staging/prod config, secrets, debug gating, flags, diagnostics.
+- **`./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`**: imported content, external URLs, rich text, payload validation.
+- **`./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`**: StoreKit/payments/subscription production rules when applicable.
+- **`./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`**: permissions, files, photos, camera, security-scoped resources.
 
 ## Placement Rules For New Information
 - **Product requirements / acceptance criteria** → `./docs/PRODUCT_REQUIREMENTS_STANDARD.md` or feature-specific task docs.
@@ -183,7 +217,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **Verification workflow** → `./TESTING_INSTRUCTIONS.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/QA_TEST_PLAN_STANDARD.md`, or `./docs/CI_CD_QUALITY_GATES.md`.
 - **Short implementation guardrails** → `./docs/AGENT_RULES.md`.
 - **Current task/user overrides** → `./docs/CURRENT_USER_OVERRIDES.md`.
-- **Production gates/checklists** → `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`.
+- **Production gates/checklists** → `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`.
 - **Security/privacy/data compliance** → `./docs/IOS_SECURITY_PRIVACY_GATE.md` or `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`.
 - **Observability/incidents/SLOs** → `./docs/IOS_OBSERVABILITY_STANDARD.md`, `./docs/INCIDENT_RESPONSE_STANDARD.md`, or `./docs/PRODUCT_HEALTH_SLO.md`.
 - **Rollouts/release** → `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md` or `./docs/IOS_RELEASE_CHECKLIST.md`.
@@ -193,6 +227,18 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **Data migration** → `./docs/IOS_DATA_MIGRATION_STANDARD.md`.
 - **Design system** → `./docs/DESIGN_SYSTEM_GOVERNANCE.md`.
 - **Dependencies** → `./docs/DEPENDENCY_POLICY.md`.
+- **Concurrency/runtime** → `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`.
+- **Memory/cache/media/files** → `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`.
+- **UI rendering/state** → `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`.
+- **Network resilience** → `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`.
+- **Offline/sync** → `./docs/IOS_OFFLINE_SYNC_STANDARD.md`.
+- **Lifecycle/background/deep links/push/widgets/extensions** → `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`.
+- **Error handling/user feedback** → `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`.
+- **Analytics/telemetry taxonomy** → `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`.
+- **Configuration/environments** → `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`.
+- **Input validation/content safety** → `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`.
+- **StoreKit/payments** → `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`.
+- **Camera/photos/files/permissions** → `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`.
 - **Reusable prompt presets** → `./docs/agent-prompts/`.
 - **Reusable cross-project knowledge** → `./docs/knowledge/global/`.
 - **Project-specific knowledge** → project-specific folder under `./docs/knowledge/`.
