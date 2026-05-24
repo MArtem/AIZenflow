@@ -145,8 +145,8 @@ public actor MemoryAppErrorReporter: AppErrorReporting {
         payloadsStorage
     }
 
-        /// Stores one mapped error payload for later diagnostics/test assertions.
-public func report(_ payload: AppErrorLoggingPayload) async {
+    /// Stores one mapped error payload for later diagnostics/test assertions.
+    public func report(_ payload: AppErrorLoggingPayload) async {
         payloadsStorage.append(payload)
     }
 }
@@ -155,8 +155,8 @@ public func report(_ payload: AppErrorLoggingPayload) async {
 public struct APIErrorAppErrorMapper: AppErrorMapping {
     public init() {}
 
-        /// Maps an arbitrary error into app-facing semantics, delegating known API errors to the API mapper.
-public func map(_ error: Error, context: AppErrorContext?) -> AppError {
+    /// Maps an arbitrary error into app-facing semantics, delegating known API errors to the API mapper.
+    public func map(_ error: Error, context: AppErrorContext? = nil) -> AppError {
         guard let apiError = error as? APIError else {
             return AppError(
                 category: .unknown,
@@ -173,8 +173,13 @@ public func map(_ error: Error, context: AppErrorContext?) -> AppError {
         return mapAPIError(apiError, context: context)
     }
 
-        /// Maps a concrete networking `APIError` into stable app-facing error semantics.
-public func mapAPIError(_ error: APIError, context: AppErrorContext? = nil) -> AppError {
+    /// Maps a concrete networking `APIError` while preserving call-site type inference for API-specific tests/callers.
+    public func map(_ error: APIError, context: AppErrorContext? = nil) -> AppError {
+        mapAPIError(error, context: context)
+    }
+
+    /// Maps a concrete networking `APIError` into stable app-facing error semantics.
+    public func mapAPIError(_ error: APIError, context: AppErrorContext? = nil) -> AppError {
         switch error {
         case .requestCancelled:
             return AppError(
@@ -287,8 +292,8 @@ public struct DefaultAppErrorMapper: AppErrorMapping {
         self.apiErrorMapper = apiErrorMapper
     }
 
-        /// Maps an arbitrary error into app-facing semantics, delegating known API errors to the API mapper.
-public func map(_ error: Error, context: AppErrorContext?) -> AppError {
+    /// Maps an arbitrary error into app-facing semantics, delegating known API errors to the API mapper.
+    public func map(_ error: Error, context: AppErrorContext? = nil) -> AppError {
         if error is APIError {
             return apiErrorMapper.map(error, context: context)
         }
@@ -341,8 +346,8 @@ public struct AppErrorManager: AppErrorManaging {
         self.reporter = reporter
     }
 
-        /// Normalizes, reports, and localizes an error for UI presentation.
-public func presentableError(
+    /// Normalizes, reports, and localizes an error for UI presentation.
+    public func presentableError(
         from error: Error,
         context: AppErrorContext? = nil
     ) async -> AppErrorPresentation {

@@ -13,7 +13,7 @@ final class TchopLocalizationTests: XCTestCase {
             localeIdentifier: "en"
         )
 
-        XCTAssertEqual(value, "Sign in")
+        XCTAssertEqual(value, "Welcome back")
     }
 
     /// Verifies localized returns russian value for explicit locale.
@@ -26,7 +26,7 @@ final class TchopLocalizationTests: XCTestCase {
             localeIdentifier: "ru"
         )
 
-        XCTAssertEqual(value, "Вход")
+        XCTAssertEqual(value, "С возвращением")
     }
 
     /// Verifies localized formats arguments.

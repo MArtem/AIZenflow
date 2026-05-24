@@ -379,9 +379,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Added a static documentation coverage scan for this pass and verified all declarations plus public/internal functions in app/package/extension/test Swift files have nearby documentation comments after the pass.
 - Verification: `git diff --check` succeeded; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; custom Swift documentation scan succeeded. `swift test` in `./Packages/TchopInfrastructure` was also attempted and failed on a pre-existing package test compile issue (`AppGroupJSONItemDirectoryStore<TestItem>` has no `remove(id:)` member in `./Packages/TchopInfrastructure/Tests/TchopShareSupportTests/TchopShareSupportTests.swift:23`) plus existing warnings; this was not fixed because the current task was documentation-only.
 
+
+- Completed now: fixed the package test compile failure found by `swift test` in `./Packages/TchopInfrastructure`:
+  - added `remove(id:)` convenience API to `./Packages/TchopInfrastructure/Sources/TchopShareSupport/TchopShareSupport.swift`, delegating to the existing batch removal contract so `TchopShareSupportTests` can express single-item removal without duplicating array setup.
+  - restored the expected concrete error-mapper convenience surface in `./Packages/TchopInfrastructure/Sources/TchopErrors/TchopErrors.swift` by adding an `APIError` overload and default `context` arguments where the existing tests call the mapper directly.
+  - updated `./Packages/TchopInfrastructure/Tests/TchopLocalizationTests/TchopLocalizationTests.swift` expectations to match the current localization resources for `login.title` (`Welcome back` / `С возвращением`).
+- Verification: `git diff --check` succeeded; `swift test` in `./Packages/TchopInfrastructure` succeeded with 52 XCTest tests and 20 Swift Testing tests; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`. Remaining non-blocking warnings are Swift concurrency warnings in networking/package-test code and should be handled in a dedicated Swift 6/concurrency cleanup pass.
+
 ## Verification Status
-- Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
-- Build was run by explicit user request; tests and simulator UI were not run.
+- Latest verification succeeded with `git diff --check`, `swift test` in `./Packages/TchopInfrastructure`, and `./scripts/verify.sh low`.
+- Build and package tests were run by explicit user permission/request; simulator UI was not run.
 
 ## Archive
 Detailed historical plan/log entries were moved out of the active plan to reduce context cost.
