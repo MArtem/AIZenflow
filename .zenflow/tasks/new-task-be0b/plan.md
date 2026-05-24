@@ -318,6 +318,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `git diff --check` passed; `./scripts/verify.sh low` passed with `BUILD SUCCEEDED`.
 - Profiling status: attempted new simulator Time Profiler captures after the cleanup (`attach`, `all-processes`, and PID attach paths), but the generated `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-after-lazy-inline.trace` contains only `RunIssues.storedata` and fails `xctrace export` with `Document Missing Template Error`; no valid comparable post-change metrics were produced yet.
 
+
+- Completed now: full 5-phase iOS production documentation/prompt/skill hardening pass:
+  - Phase 1 docs hygiene: rewrote `./docs/README.md` into a clean active documentation index, removed duplicated/broken production checklist entries, and updated `./docs/WORK_CONTINUITY.md` with the new production review/readiness docs.
+  - Phase 2 core production standards: added `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/IOS_SECURITY_PRIVACY_GATE.md`, `./docs/IOS_OBSERVABILITY_STANDARD.md`, and `./docs/IOS_RELEASE_CHECKLIST.md`.
+  - Phase 3 specialized standards: added `./docs/IOS_ACCESSIBILITY_STANDARD.md`, `./docs/IOS_PERFORMANCE_BUDGETS.md`, `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`, `./docs/IOS_DATA_MIGRATION_STANDARD.md`, `./docs/DESIGN_SYSTEM_GOVERNANCE.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/CI_CD_QUALITY_GATES.md`, and `./docs/DEPENDENCY_POLICY.md`; added `./docs/knowledge/global/ios/README.md`.
+  - Phase 4 prompt presets: added iOS production/readiness/performance/security/accessibility/migration/API/release/done prompts under `./docs/agent-prompts/` and indexed them in `./docs/agent-prompts/README.md`.
+  - Phase 5 reusable skills: added local skills under `./.codex/skills/ios-production-auditor`, `./.codex/skills/ios-performance-profiler`, `./.codex/skills/ios-security-privacy`, `./.codex/skills/ios-accessibility`, `./.codex/skills/ios-release-engineering`, `./.codex/skills/ios-data-migration`, `./.codex/skills/ios-api-contracts`, and `./.codex/skills/ios-test-strategy`.
+  - Updated `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and `./docs/knowledge/global/README.md` to enforce and index the expanded production standards.
+- Verification: `git diff --check` only; no build needed for documentation/skill-only changes.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

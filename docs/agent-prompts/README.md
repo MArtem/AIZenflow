@@ -32,6 +32,14 @@ Before applying any prompt here, apply the current project/task rules first:
 | Review refactor after changes | `refactoring-review-mini.md` | Use after a refactor to check behavior preservation and risk. |
 | Code review | `code-review-master.md` | Use for strict production review. Do not use costly review flows unless requested. |
 | Production completeness review | `production-review-completeness.md` | Mandatory when the user says `ревью`, `review`, `аудит`, or asks whether code is production-ready. |
+| iOS production readiness review | `ios-production-readiness-review.md` | Use before claiming broad production readiness. |
+| iOS performance audit | `ios-performance-audit.md` | Use for scroll, launch, memory, Instruments, and hot-path work. |
+| iOS security/privacy review | `ios-security-privacy-review.md` | Use for Keychain, PII, logs, privacy manifests, permissions, app groups. |
+| iOS accessibility review | `ios-accessibility-review.md` | Use for VoiceOver, Dynamic Type, contrast, focus, tap targets. |
+| iOS data migration review | `ios-data-migration-review.md` | Use for SwiftData/CoreData/UserDefaults/files/app-group compatibility. |
+| iOS API contract review | `ios-api-contract-review.md` | Use for DTOs, errors, retry, pagination, offline, sync, auth. |
+| iOS release readiness | `ios-release-readiness.md` | Use for TestFlight/App Store/signing/release checks. |
+| iOS feature definition of done | `ios-feature-definition-of-done.md` | Use before calling a feature done. |
 | ADR | `adr-master.md` | Use for important architecture decisions. |
 | Quick ADR | `adr-quick.md` | Use for lightweight architecture decision notes. |
 | Test generation | `test-generation-master.md` | Use only when tests are explicitly requested. |

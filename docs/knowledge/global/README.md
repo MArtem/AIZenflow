@@ -6,6 +6,7 @@ Reusable assistant/project rules, prompt presets, and operating preferences that
 This section should avoid current-app file paths, app entity names, app-specific dimensions, and product-specific contracts.
 
 ## Contents
+- `./ios/`: reusable iOS production standards index.
 - `./agent-working-rules.md`: reusable user/assistant working rules.
 - `./prompt-presets/`: reusable prompt templates for feature work, SwiftUI design work, refactoring, code review, ADRs, tests, CI/debugging, compile errors, signing, and flaky tests.
 

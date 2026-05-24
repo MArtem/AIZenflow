@@ -58,6 +58,12 @@ Every working response must start with:
 - Reviews must not be narrowly scoped to the current bug unless the user explicitly says so.
 - If correctness cannot be proven from code/static evidence, ask the user or report the item as remaining risk.
 
+
+### iOS Production Standards
+- For production-level confidence in any iOS feature, apply `./docs/IOS_PRODUCTION_READINESS_STANDARD.md` and `./docs/DEFINITION_OF_DONE.md`.
+- Use specialized gates when relevant: testing, security/privacy, observability, release, accessibility, performance budgets, API contracts, data migration, design-system governance, CI/CD, and dependency policy.
+- If a production gate cannot be verified in the current environment, report it as remaining risk instead of implying completion.
+
 ### Documentation / Context Transfer
 - When refreshing documentation state or transferring context, include the rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

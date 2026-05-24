@@ -68,6 +68,12 @@ Do not add abstractions unless they solve a concrete current problem.
 - Especially forbidden without explicit justification: source-split domain/UI naming such as `Local*`, synchronous media/file work in SwiftUI render paths, whole view models in repeated rows, fetch-all/save-all for single-item interaction updates, silent stub/demo fallbacks, and production UI backed by stub JSON.
 
 
+
+## iOS Production Standards Rule
+- For production-readiness, release, security/privacy, accessibility, observability, testing strategy, API integration, data migration, design-system, CI/CD, or dependency questions, apply the corresponding `./docs/IOS_*`, `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`, `./docs/DESIGN_SYSTEM_GOVERNANCE.md`, `./docs/CI_CD_QUALITY_GATES.md`, and `./docs/DEPENDENCY_POLICY.md` standards.
+- For any feature declared done, apply `./docs/DEFINITION_OF_DONE.md`.
+- For broad iOS production audits, prefer the reusable iOS skills under `./.codex/skills/ios-*` when they are available in the session.
+
 ## Production Review Trigger Rule
 - When the user says `ревью`, `review`, `code review`, `аудит`, or asks whether a change is production-ready, run `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`.
 - Use the prompt in `./docs/agent-prompts/production-review-completeness.md`.
@@ -97,5 +103,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - `docs/PRODUCTION_QUALITY_GATES.md`
 - `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
 - `docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
+- `docs/IOS_PRODUCTION_READINESS_STANDARD.md`
+- `docs/DEFINITION_OF_DONE.md`
 - `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`

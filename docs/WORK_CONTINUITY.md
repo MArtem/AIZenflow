@@ -38,6 +38,9 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 13) docs/knowledge/TchopApp/README.md
 14) docs/PRODUCTION_QUALITY_GATES.md
 15) docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md
+16) docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md
+17) docs/IOS_PRODUCTION_READINESS_STANDARD.md
+18) docs/DEFINITION_OF_DONE.md
 
 Правило после очистки контекста:
 - Этот список читается один раз в начале нового чата.
@@ -86,6 +89,7 @@ Current epic: 3-phase cleanup/refactor over working runtime code (tests are inte
 - `SyncCore`, `TchopOnDeviceAI`, `TchopShareSupport` are active foundations
 - No speculative UI/logic/fallback flows
 - Mandatory production checklist + forbidden-pattern stop list before implementation/review/audit
+- Mandatory iOS production standards available for release, testing, security/privacy, observability, accessibility, performance, API, migration, design-system, CI/CD, and dependency decisions
 
 ## Current Functional Contract (Compact)
 - Card kinds: `text`, `photo`, `video`, `audio`, `pdf`
