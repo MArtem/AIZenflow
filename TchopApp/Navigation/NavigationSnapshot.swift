@@ -77,7 +77,8 @@ struct NavigationSnapshot: Codable, Equatable {
         )
     }
 
-    enum CodingKeys: String, CodingKey {
+        /// Persisted route-state keys.
+enum CodingKeys: String, CodingKey {
         case version
         case createdAt
         case selectedTab

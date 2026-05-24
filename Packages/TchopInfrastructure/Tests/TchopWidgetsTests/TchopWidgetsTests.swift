@@ -2,6 +2,7 @@ import Foundation
 import Testing
 @testable import TchopWidgets
 
+/// Verifies widget snapshot persistence contracts.
 struct TchopWidgetsTests {
     @Test
     /// Handles snapshot manager persists and loads snapshot.

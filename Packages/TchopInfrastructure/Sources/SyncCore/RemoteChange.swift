@@ -1,11 +1,16 @@
 import Foundation
 
+/// Operation kind reported by the remote sync source.
 public enum RemoteChangeKind: String, Codable, Sendable, Equatable {
     case created
     case updated
     case deleted
 }
 
+/// Remote-side entity change pulled into the local store.
+///
+/// External usage:
+/// Returned by `SyncRemoteClient.pull(_:)` and applied by `SyncLocalStore.saveRemoteChanges(_:nextCursor:)`.
 public struct RemoteChange: Codable, Identifiable, Sendable, Equatable {
     public var id: String { "\(entityType):\(entityID):\(serverRevision ?? -1)" }
     public let entityType: String

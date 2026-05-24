@@ -1,9 +1,11 @@
 import Foundation
 
+/// App-group JSON store setup failures.
 public enum AppGroupJSONItemDirectoryStoreError: Error, Equatable, Sendable {
     case unavailableSharedContainer(groupIdentifier: String)
 }
 
+/// Result of safe app-group JSON loading with valid items separated from corrupt files.
 public struct AppGroupJSONItemDirectoryLoadResult<Item: Sendable>: Sendable {
     public let items: [Item]
     public let failedFileURLs: [URL]
@@ -14,6 +16,10 @@ public struct AppGroupJSONItemDirectoryLoadResult<Item: Sendable>: Sendable {
     }
 }
 
+/// Stores identifiable JSON items as one atomic file per item in an app-group directory.
+///
+/// External usage:
+/// Used by app and extensions to exchange pending work without depending on shared process memory.
 public final class AppGroupJSONItemDirectoryStore<Item>: @unchecked Sendable
 where Item: Codable & Identifiable & Sendable, Item.ID == String {
     private let fileManager: FileManager
@@ -43,12 +49,14 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         )
     }
 
-    public func save(_ item: Item) throws {
+        /// Atomically saves one identifiable item as an individual JSON file.
+public func save(_ item: Item) throws {
         let data = try encoder.encode(item)
         try data.write(to: fileURL(for: item.id), options: [.atomic])
     }
 
-    public func saveAsync(_ item: Item) async throws {
+        /// Saves one item on a utility task so app/extension UI does not perform JSON file I/O.
+public func saveAsync(_ item: Item) async throws {
         let directoryURL = directoryURL
         try await Task.detached(priority: .utility) {
             let fileManager = FileManager.default
@@ -60,7 +68,8 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         }.value
     }
 
-    public func loadAll() throws -> [Item] {
+        /// Loads all items or rethrows the first corrupt file decode error for strict callers.
+public func loadAll() throws -> [Item] {
         let result = try loadAllSafely()
         if let failedFileURL = result.failedFileURLs.first {
             let data = try Data(contentsOf: failedFileURL)
@@ -69,18 +78,21 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         return result.items
     }
 
-    public func loadAllSafely() throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
+        /// Loads valid items and returns corrupt file URLs separately for quarantine/remediation.
+public func loadAllSafely() throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
         try Self.loadAllSafely(in: directoryURL, fileManager: fileManager)
     }
 
-    public func loadAllSafelyAsync() async throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
+        /// Loads valid items on a utility task and returns corrupt file URLs separately.
+public func loadAllSafelyAsync() async throws -> AppGroupJSONItemDirectoryLoadResult<Item> {
         let directoryURL = directoryURL
         return try await Task.detached(priority: .utility) {
             try Self.loadAllSafely(in: directoryURL, fileManager: .default)
         }.value
     }
 
-    public func removeItems(withIDs ids: [String]) throws {
+        /// Removes item files matching the provided stable item identifiers.
+public func removeItems(withIDs ids: [String]) throws {
         for id in ids {
             let itemURL = fileURL(for: id)
             guard fileManager.fileExists(atPath: itemURL.path) else {
@@ -90,7 +102,8 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         }
     }
 
-    public func removeItemsAsync(withIDs ids: [String]) async throws {
+        /// Removes item files on a utility task.
+public func removeItemsAsync(withIDs ids: [String]) async throws {
         let directoryURL = directoryURL
         try await Task.detached(priority: .utility) {
             let fileManager = FileManager.default
@@ -106,18 +119,21 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         }.value
     }
 
-    public func quarantineFiles(_ fileURLs: [URL]) throws {
+        /// Moves corrupt/unreadable files into a quarantine directory for later inspection or cleanup.
+public func quarantineFiles(_ fileURLs: [URL]) throws {
         try Self.quarantineFiles(fileURLs, in: directoryURL, fileManager: fileManager)
     }
 
-    public func quarantineFilesAsync(_ fileURLs: [URL]) async throws {
+        /// Quarantines corrupt/unreadable files on a utility task.
+public func quarantineFilesAsync(_ fileURLs: [URL]) async throws {
         let directoryURL = directoryURL
         try await Task.detached(priority: .utility) {
             try Self.quarantineFiles(fileURLs, in: directoryURL, fileManager: .default)
         }.value
     }
 
-    public func clear() throws {
+        /// Removes all JSON item files from the directory.
+public func clear() throws {
         let fileURLs = try fileManager.contentsOfDirectory(
             at: directoryURL,
             includingPropertiesForKeys: nil

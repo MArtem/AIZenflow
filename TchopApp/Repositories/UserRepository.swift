@@ -341,6 +341,7 @@ final class DefaultUserRepository: UserRepository {
     }
 }
 
+/// User persistence failures produced before mapping into app-level presentation errors.
 enum UserRepositoryError: Error {
     case userNotFound
     case invalidUsername

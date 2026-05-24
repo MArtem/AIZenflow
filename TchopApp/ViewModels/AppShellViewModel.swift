@@ -7,6 +7,10 @@ import TchopUIConfiguration
 #endif
 
 @MainActor
+/// Persistence boundary used by feed-card runtime stores.
+///
+/// External usage:
+/// Implemented by app repositories and injected into `FeedCardStore` by composition code.
 protocol FeedCardPersisting {
     func loadCards() throws -> [FeedCard]
     func saveCards(_ cards: [FeedCard]) throws
@@ -15,6 +19,15 @@ protocol FeedCardPersisting {
 
 @MainActor
 @Observable
+/// Main-actor owner for published feed cards visible in the app runtime.
+///
+/// Responsibilities:
+/// - loads persisted cards at startup;
+/// - publishes composer/share-extension cards;
+/// - keeps in-memory feed rows aligned with persistence.
+///
+/// Ownership:
+/// Created by the app dependency container and shared with feed/composer flows.
 final class FeedCardStore {
     private(set) var cards: [NewsFeedCard] = []
 
@@ -84,6 +97,15 @@ final class FeedCardStore {
 
 @MainActor
 @Observable
+/// Main-actor presentation owner for the shared card composer.
+///
+/// Responsibilities:
+/// - owns the editable composer draft;
+/// - exposes available insertions/channels to SwiftUI;
+/// - publishes a source-neutral `FeedCard` through the injected action.
+///
+/// Ownership:
+/// Created per composer presentation by app or share-extension composition.
 final class FeedComposerViewModel {
     private(set) var draft: FeedComposerDraft
     private let channelsStore: ChannelsStore

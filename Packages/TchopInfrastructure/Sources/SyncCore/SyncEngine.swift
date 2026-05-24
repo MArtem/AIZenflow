@@ -1,5 +1,12 @@
 import Foundation
 
+/// Coordinates push, pull, conflict resolution, and status updates for one sync scope.
+///
+/// Ownership:
+/// Owned by app/package composition and usually driven by `SyncScheduler` or explicit refresh flows.
+///
+/// Concurrency:
+/// Actor isolation serializes sync runs and prevents overlapping push/pull cycles.
 public actor SyncEngine {
     private let localStore: SyncLocalStore
     private let remoteClient: SyncRemoteClient
@@ -26,7 +33,14 @@ public actor SyncEngine {
         self.batchSize = batchSize
     }
 
-    public func sync(reason: SyncReason? = nil) async {
+        /// Runs one complete push/pull sync cycle if no sync is already running.
+    ///
+    /// External usage:
+    /// Called by `SyncScheduler` or explicit app refresh flows.
+    ///
+    /// Side effects:
+    /// Pushes pending mutations, stores remote changes, resolves conflicts, updates sync status.
+public func sync(reason: SyncReason? = nil) async {
         guard !isRunning else { return }
         isRunning = true
 

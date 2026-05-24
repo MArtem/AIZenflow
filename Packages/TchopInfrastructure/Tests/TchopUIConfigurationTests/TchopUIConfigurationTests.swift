@@ -1,6 +1,7 @@
 import XCTest
 @testable import TchopUIConfiguration
 
+/// Verifies UI configuration provider and manager behavior.
 final class TchopUIConfigurationTests: XCTestCase {
     /// Verifies mock provider returns configured snapshot.
     func testMockProviderReturnsConfiguredSnapshot() async throws {

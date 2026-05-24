@@ -1,6 +1,14 @@
 import Foundation
 import TchopShareSupport
 
+/// App-group bridge for feed cards published by the share extension.
+///
+/// External usage:
+/// The extension writes pending cards through this manager; the containing app imports them on
+/// activation/refresh into `FeedCardStore`.
+///
+/// Concurrency:
+/// Marked unchecked-sendable because file-store access is scoped to async app-group operations.
 final class SharedFeedCardSyncManager: @unchecked Sendable {
     private static let pendingCardsDirectoryName = "share-extension-published-cards"
 

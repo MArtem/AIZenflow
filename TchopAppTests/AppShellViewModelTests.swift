@@ -4,6 +4,7 @@ import TchopUIConfiguration
 @testable import TchopApp
 
 @MainActor
+/// Verifies shell state, bottom chrome, and UI configuration behavior.
 final class AppShellViewModelTests: XCTestCase {
     /// Verifies shell view model applies cached uiconfiguration before refresh completes.
     func testShellViewModelAppliesCachedUIConfigurationBeforeRefreshCompletes() async {

@@ -1,5 +1,6 @@
 import Foundation
 
+/// Deletion marker transported through sync so deletes can propagate without the original payload.
 public struct SyncTombstone: Codable, Identifiable, Sendable, Equatable {
     public var id: String { "\(entityType):\(entityID)" }
     public let entityType: String

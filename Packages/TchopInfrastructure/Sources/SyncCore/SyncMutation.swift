@@ -1,5 +1,10 @@
 import Foundation
 
+/// Pending local mutation queued for remote synchronization.
+///
+/// Contract:
+/// `idempotencyKey` must remain stable for retrying the same logical mutation without duplicating
+/// server-side side effects.
 public struct SyncMutation: Codable, Identifiable, Sendable, Equatable {
     public let id: UUID
     public let entityType: String

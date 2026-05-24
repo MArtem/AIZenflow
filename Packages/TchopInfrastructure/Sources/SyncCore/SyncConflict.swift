@@ -1,5 +1,6 @@
 import Foundation
 
+/// Stable reason code describing why a local mutation could not be applied automatically.
 public enum SyncConflictReason: String, Codable, Sendable, Equatable {
     case staleBaseRevision
     case fieldOverlap
@@ -9,6 +10,10 @@ public enum SyncConflictReason: String, Codable, Sendable, Equatable {
     case unknown
 }
 
+/// Persistable conflict record tying a local mutation to the remote change that blocked it.
+///
+/// Ownership:
+/// Created by sync transport/store code and resolved by a `SyncResolving` strategy.
 public struct SyncConflict: Codable, Identifiable, Sendable, Equatable {
     public let id: UUID
     public let entityType: String

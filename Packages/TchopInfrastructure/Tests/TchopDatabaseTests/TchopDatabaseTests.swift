@@ -17,6 +17,7 @@ private final class SwiftDataTestRecord {
 }
 
 @MainActor
+/// Verifies backend-neutral database manager contracts for SwiftData and Core Data.
 final class TchopDatabaseTests: XCTestCase {
     /// Verifies that the SwiftData manager executes the backend-neutral read/write contract.
     @available(iOS 17, macOS 14, *)

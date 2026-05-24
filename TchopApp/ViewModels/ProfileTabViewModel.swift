@@ -9,6 +9,7 @@ import TchopErrors
 @MainActor
 @Observable
 final class ProfileTabViewModel {
+    /// Mutable presentation state for the profile tab.
     struct State {
         var accountSummary: AccountProfileSummary
         var isNavigationRestoreEnabled: Bool

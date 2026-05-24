@@ -1,6 +1,7 @@
 import XCTest
 @testable import TchopBranding
 
+/// Verifies brand theme selection and token behavior.
 final class TchopBrandingTests: XCTestCase {
     /// Verifies info dictionary defaults to classic variant.
     func testInfoDictionaryDefaultsToClassicVariant() {

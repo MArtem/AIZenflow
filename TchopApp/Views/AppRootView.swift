@@ -80,6 +80,7 @@ private struct AppRootLoadingView: View {
 
 #if DEBUG
 @MainActor
+/// Debug-only sample data used by SwiftUI previews.
 enum ViewPreviewSupport {
     static let sampleUser = AppUser(
         id: "preview-user-001",

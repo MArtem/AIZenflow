@@ -3,6 +3,7 @@ import XCTest
 import TchopShareSupport
 @testable import TchopApp
 
+/// Verifies share-extension imported content maps into the shared composer/feed-card contract.
 final class ShareExtensionRuntimeContractTests: XCTestCase {
     func testImportedTextMergesIntoDraftTextField() throws {
         var draft = FeedComposerDraft(selectedChannelID: "channel-1")

@@ -1,5 +1,9 @@
 import Foundation
 
+/// Common sync-domain failures surfaced by reusable sync infrastructure.
+///
+/// External usage:
+/// Repositories and UI layers may map these values into localized user-facing failure states.
 public enum SyncError: Error, Sendable, Equatable, LocalizedError {
     case alreadyRunning
     case offline

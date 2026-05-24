@@ -1,5 +1,10 @@
 import Foundation
 
+/// Codable value container for field-level sync diffs.
+///
+/// Invariant:
+/// Each case is encoded with an explicit type discriminator so persisted mutations remain decodable
+/// when values are transported across app launches or process boundaries.
 public enum FieldValue: Codable, Sendable, Equatable {
     case string(String)
     case int(Int)
@@ -50,7 +55,8 @@ public enum FieldValue: Codable, Sendable, Equatable {
         }
     }
 
-    public func encode(to encoder: Encoder) throws {
+        /// Encodes the value with an explicit type discriminator for stable transport/persistence.
+public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
 
         switch self {

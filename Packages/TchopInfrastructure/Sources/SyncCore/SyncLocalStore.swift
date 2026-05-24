@@ -1,5 +1,11 @@
 import Foundation
 
+/// Local persistence boundary required by `SyncEngine`.
+///
+/// Responsibilities:
+/// - provide pending local mutations;
+/// - persist remote changes and cursors;
+/// - store conflicts and apply resolutions.
 public protocol SyncLocalStore: Sendable {
     func pendingMutations(limit: Int) async throws -> [SyncMutation]
     func pendingMutationsCount() async throws -> Int

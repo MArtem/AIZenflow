@@ -110,6 +110,11 @@ private enum ComposerMetadataFocusTarget: Equatable {
     case teaserCopyright
 }
 
+/// Shared composer UI used by both the app and the share extension.
+///
+/// Responsibilities:
+/// Renders composer draft state and forwards user actions to `FeedComposerViewModel`; it does not
+/// own persistence or publish policy.
 struct SharedCardComposerView: View {
     @Bindable var viewModel: FeedComposerViewModel
     let onCancel: () -> Void
@@ -3157,6 +3162,10 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         context.coordinator.recalculateHeight(for: uiView)
     }
 
+    /// UIKit coordinator for the dynamic-height text view bridge.
+    ///
+    /// External usage:
+    /// Created by SwiftUI through `UIViewRepresentable` and called by `UITextViewDelegate`.
     final class Coordinator: NSObject, UITextViewDelegate {
         @Binding private var text: String
         @Binding private var dynamicHeight: CGFloat

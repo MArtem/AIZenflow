@@ -1,5 +1,6 @@
 import Foundation
 
+/// Stable language identifier wrapper used by on-device AI translation APIs.
 public struct OnDeviceLanguage: Hashable, Sendable, Codable {
     public let localeIdentifier: String
 
@@ -14,13 +15,15 @@ public struct OnDeviceLanguage: Hashable, Sendable, Codable {
             ?? localeIdentifier
     }
 
-    public func matches(localeIdentifier: String) -> Bool {
+        /// Compares language identity using normalized language code rather than exact locale string.
+public func matches(localeIdentifier: String) -> Bool {
         normalizedLanguageIdentifier == OnDeviceLanguage(
             localeIdentifier: localeIdentifier
         ).normalizedLanguageIdentifier
     }
 }
 
+/// One translatable text segment with stable identity for preserving field order across requests.
 public struct OnDeviceTranslationSegment: Hashable, Sendable, Codable, Identifiable {
     public let id: String
     public let text: String
@@ -31,6 +34,7 @@ public struct OnDeviceTranslationSegment: Hashable, Sendable, Codable, Identifia
     }
 }
 
+/// Request contract for translating multiple text segments to one target language.
 public struct OnDeviceTranslationRequest: Hashable, Sendable, Codable {
     public let sourceLanguage: OnDeviceLanguage?
     public let targetLanguage: OnDeviceLanguage
@@ -47,6 +51,7 @@ public struct OnDeviceTranslationRequest: Hashable, Sendable, Codable {
     }
 }
 
+/// Translation result preserving the caller-provided segment identities.
 public struct OnDeviceTranslationResult: Hashable, Sendable, Codable {
     public let targetLanguage: OnDeviceLanguage
     public let segments: [OnDeviceTranslationSegment]
@@ -60,11 +65,13 @@ public struct OnDeviceTranslationResult: Hashable, Sendable, Codable {
     }
 }
 
+/// Runtime availability of on-device AI capabilities for the current OS/device/language.
 public enum OnDeviceAIAvailability: Equatable, Sendable {
     case available(supportedLanguages: Set<OnDeviceLanguage>)
     case unavailable(OnDeviceAIUnavailableReason)
 }
 
+/// Stable reason code for why on-device AI cannot currently run.
 public enum OnDeviceAIUnavailableReason: Equatable, Sendable {
     case unsupportedOS
     case deviceNotEligible
@@ -74,6 +81,7 @@ public enum OnDeviceAIUnavailableReason: Equatable, Sendable {
     case unsupportedLocale
 }
 
+/// Errors thrown by the on-device AI boundary.
 public enum OnDeviceAIError: Error, Equatable, Sendable {
     case unavailable(OnDeviceAIUnavailableReason)
     case emptyRequest
@@ -81,11 +89,16 @@ public enum OnDeviceAIError: Error, Equatable, Sendable {
     case invalidResponse
 }
 
+/// App-facing boundary for on-device AI features.
+///
+/// Contract:
+/// Implementations must report availability before translation and preserve segment identity in results.
 public protocol OnDeviceAIManaging: Sendable {
     func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability
     func translate(_ request: OnDeviceTranslationRequest) async throws -> OnDeviceTranslationResult
 }
 
+/// Factory for the default platform-backed on-device AI manager with safe unavailable fallback.
 public enum OnDeviceAIManagerFactory {
     public static func makeDefaultManager() -> any OnDeviceAIManaging {
         if #available(iOS 26.0, macOS 26.0, visionOS 26.0, *) {

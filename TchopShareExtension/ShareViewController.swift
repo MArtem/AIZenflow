@@ -2,6 +2,16 @@ import SwiftUI
 import UIKit
 import TchopShareSupport
 
+/// UIKit entry point for the share extension.
+///
+/// Responsibilities:
+/// - imports shared item-provider content;
+/// - restores app session/channel context from app-group storage;
+/// - hosts the shared composer;
+/// - writes published cards back to the app-group pending queue.
+///
+/// Ownership:
+/// Created by the extension runtime for one share request.
 final class ShareViewController: UIViewController {
     private let importer: NSItemProviderShareItemImporter? = try? NSItemProviderShareItemImporter(
         groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier

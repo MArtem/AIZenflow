@@ -1,5 +1,9 @@
 import Foundation
 
+/// Single-file JSON app-group store for lightweight shared snapshots.
+///
+/// Contract:
+/// Suitable for small Codable values; use item-directory storage for append-like pending queues.
 public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
     private let fileManager: FileManager
     private let fileURL: URL
@@ -31,12 +35,14 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
         self.fileURL = directoryURL.appendingPathComponent(fileName).appendingPathExtension("json")
     }
 
-    public func save(_ item: Item) throws {
+        /// Atomically writes the current snapshot value to the app-group file.
+public func save(_ item: Item) throws {
         let data = try encoder.encode(item)
         try data.write(to: fileURL, options: [.atomic])
     }
 
-    public func load() throws -> Item? {
+        /// Loads the current snapshot value, returning `nil` when the file does not exist.
+public func load() throws -> Item? {
         guard fileManager.fileExists(atPath: fileURL.path()) else {
             return nil
         }
@@ -45,7 +51,8 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
         return try decoder.decode(Item.self, from: data)
     }
 
-    public func clear() throws {
+        /// Removes the snapshot file if it exists.
+public func clear() throws {
         guard fileManager.fileExists(atPath: fileURL.path()) else {
             return
         }

@@ -1,6 +1,7 @@
 import Foundation
 import TchopShareSupport
 
+/// Small app-group snapshot that lets the share extension know whether app composer can run.
 struct ShareExtensionSessionContext: Codable, Equatable, Sendable {
     let isAuthenticated: Bool
     let availableChannels: [AppChannel]
@@ -8,6 +9,10 @@ struct ShareExtensionSessionContext: Codable, Equatable, Sendable {
 }
 
 @MainActor
+/// Writes and reads the containing app session/channel snapshot for the share extension.
+///
+/// Ownership:
+/// Owned by app and extension composition; data is exchanged through app-group storage, not process memory.
 final class ShareExtensionSessionContextManager {
     private static let directoryName = "share-extension-session"
     private static let fileName = "session-context"

@@ -54,6 +54,10 @@ final class LoginViewModel {
         case password
     }
 
+    /// Mutable presentation state for the login form.
+    ///
+    /// Ownership:
+    /// Owned only by `LoginViewModel`; SwiftUI reads derived bindings and sends explicit intents back.
     struct State {
         var email: String = ""
         var password: String = ""

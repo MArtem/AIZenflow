@@ -185,7 +185,8 @@ final class TchopNetworkingTests: XCTestCase {
             ]
         )
 
-        struct ResponseModel: Decodable, Sendable, Equatable {
+        /// Test-only response DTO used to validate decoding for this networking scenario.
+    struct ResponseModel: Decodable, Sendable, Equatable {
             let value: String
         }
 
@@ -291,6 +292,7 @@ final class TchopNetworkingTests: XCTestCase {
             ]
         )
 
+        /// Test-only response DTO used to validate decoding for this networking scenario.
         struct ResponseModel: Decodable, Sendable, Equatable {
             let value: String
         }
@@ -339,6 +341,7 @@ final class TchopNetworkingTests: XCTestCase {
             ]
         )
 
+        /// Test-only response DTO used to validate decoding for this networking scenario.
         struct ResponseModel: Decodable, Sendable, Equatable {
             let value: String
         }

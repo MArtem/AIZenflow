@@ -1,6 +1,7 @@
 import Testing
 @testable import TchopOnDeviceAI
 
+/// Verifies on-device AI availability and unavailable-manager behavior.
 struct TchopOnDeviceAITests {
     @Test
     func unavailableManagerReportsUnavailableAvailability() async throws {

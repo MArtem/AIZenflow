@@ -213,7 +213,8 @@ public enum DatabaseServiceFactory {
     }
 
     @MainActor
-    public static func makeDatabaseManager(
+        /// Backward-compatible facade for resolving a database manager from explicit factories.
+public static func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         factories: DatabaseManagerFactorySet
     ) throws -> any DatabaseManaging {
@@ -224,7 +225,8 @@ public enum DatabaseServiceFactory {
     }
 
     @MainActor
-    public static func makeDatabaseManager(
+        /// Backward-compatible facade for resolving a database manager from explicit factories.
+public static func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)? = nil
     ) throws -> any DatabaseManaging {
@@ -236,7 +238,8 @@ public enum DatabaseServiceFactory {
 
     @MainActor
     @available(iOS 17, macOS 14, *)
-    public static func makeDatabaseManager(
+        /// Backward-compatible facade for resolving a database manager from explicit factories.
+public static func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         makeSwiftDataContainer: (() throws -> ModelContainer)?
     ) throws -> any DatabaseManaging {
@@ -248,7 +251,8 @@ public enum DatabaseServiceFactory {
 
     @MainActor
     @available(iOS 17, macOS 14, *)
-    public static func makeDatabaseManager(
+        /// Backward-compatible facade for resolving a database manager from explicit factories.
+public static func makeDatabaseManager(
         configuration: DatabaseConfiguration = .persistent,
         makeSwiftDataContainer: (() throws -> ModelContainer)?,
         makeCoreDataContainer: (() throws -> NSPersistentContainer)?

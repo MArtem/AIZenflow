@@ -861,12 +861,14 @@ private struct TranslationLanguageSelectionState {
     let languages: [OnDeviceLanguage]
 }
 
+/// Render-ready translation button action for one feed card.
 struct FeedCardTranslationAction {
     let title: String
     let isInFlight: Bool
     let onTap: () -> Void
 }
 
+/// Small reusable translation control rendered inside feed card action areas.
 struct FeedCardTranslationButton: View {
     let action: FeedCardTranslationAction
 

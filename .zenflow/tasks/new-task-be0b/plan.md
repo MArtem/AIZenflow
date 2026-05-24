@@ -371,6 +371,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Updated `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md` so production reviews check code documentation quality and do not treat missing/fragile contract comments as invisible.
 - Verification: `python3 ./scripts/check_docs_index.py` succeeded with 113 indexed paths; `python3 ./scripts/validate_ios_production_framework.py` succeeded with 52 required files present; `git diff --check` succeeded.
 
+
+- Completed now: full-project inline code documentation pass requested by user:
+  - Scope covered all Swift source/test targets under `./TchopApp`, `./TchopShareExtension`, `./Packages/TchopInfrastructure`, and `./TchopAppTests`; generated/build artifacts were excluded.
+  - Added/updated contract comments for feed/composer models, feed/composer view models, share-extension bridge/runtime, shared app-group sync/session managers, app repositories/errors, reusable package sync core, on-device AI, share support, UI configuration/branding/database/error APIs, and test suites/test DTOs.
+  - Applied `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`: comments document contracts, ownership/lifecycle, external usage/call context, side effects, concurrency, invariants, and rationale where relevant; avoided adding comments to trivial private implementation details unless they were detected as externally meaningful declarations.
+  - Added a static documentation coverage scan for this pass and verified all declarations plus public/internal functions in app/package/extension/test Swift files have nearby documentation comments after the pass.
+- Verification: `git diff --check` succeeded; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; custom Swift documentation scan succeeded. `swift test` in `./Packages/TchopInfrastructure` was also attempted and failed on a pre-existing package test compile issue (`AppGroupJSONItemDirectoryStore<TestItem>` has no `remove(id:)` member in `./Packages/TchopInfrastructure/Tests/TchopShareSupportTests/TchopShareSupportTests.swift:23`) plus existing warnings; this was not fixed because the current task was documentation-only.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

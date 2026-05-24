@@ -1,5 +1,10 @@
 import Foundation
 
+/// Per-entity sync bookkeeping persisted alongside synced domain data.
+///
+/// Invariant:
+/// Local revision advances on local changes; server/base revisions represent the remote baseline
+/// used to detect stale updates and conflicts.
 public struct SyncMetadata: Codable, Sendable, Equatable {
     public var state: SyncState
     public var localRevision: Int

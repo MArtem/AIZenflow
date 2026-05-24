@@ -1,7 +1,12 @@
 import SwiftUI
 
+/// Root SwiftUI surface for the share extension lifecycle.
+///
+/// Responsibilities:
+/// Renders loading, sign-in-required, composer, and failure states from immutable extension state.
 struct ShareExtensionRootView: View {
-    enum State {
+        /// Explicit extension UI state owned by `ShareViewController`.
+enum State {
         case loading
         case signInRequired(message: String)
         case composer(FeedComposerViewModel)

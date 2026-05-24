@@ -2,6 +2,7 @@ import Foundation
 import Testing
 @testable import TchopShareSupport
 
+/// Verifies share-support app-group JSON storage and item import contracts.
 struct TchopShareSupportTests {
     @Test
     func savesLoadsAndRemovesItems() throws {

@@ -335,7 +335,8 @@ public struct StaticUIConfigurationProvider: UIConfigurationRemoteProviding {
         self.response = response
     }
 
-    public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
+        /// Returns the configured local UI snapshot without network access.
+public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
         response
     }
 }

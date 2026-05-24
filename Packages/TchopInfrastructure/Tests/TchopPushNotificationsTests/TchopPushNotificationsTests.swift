@@ -2,6 +2,7 @@ import Foundation
 import Testing
 @testable import TchopPushNotifications
 
+/// Verifies push notification token formatting and payload parsing contracts.
 struct TchopPushNotificationsTests {
     @Test
     /// Handles device token formats as lowercase hex.

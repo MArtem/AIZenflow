@@ -2,6 +2,7 @@ import Foundation
 import TchopOnDeviceAI
 import TchopShareSupport
 
+/// Product-level card kind used by composer draft logic before a card is published.
 enum ChannelCardKind: String, Equatable, Sendable {
     case text
     case photo
@@ -10,6 +11,7 @@ enum ChannelCardKind: String, Equatable, Sendable {
     case pdf
 }
 
+/// Media kind selected in the composer before conversion to a published feed card.
 enum ChannelCardMediaKind: String, Equatable, Sendable {
     case photo
     case video
@@ -17,11 +19,13 @@ enum ChannelCardMediaKind: String, Equatable, Sendable {
     case pdf
 }
 
+/// Source text and optional URL entered in the composer.
 struct ChannelCardSourceContent: Equatable, Sendable {
     let text: String
     let resourceURLString: String?
 }
 
+/// Composer photo attachment with durable file URL and optional metadata fields.
 struct ChannelCardPhotoItem: Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
@@ -30,6 +34,7 @@ struct ChannelCardPhotoItem: Equatable, Sendable, Identifiable {
     let copyright: String?
 }
 
+/// Optional teaser image metadata for non-photo media attachments.
 struct ChannelCardTeaserImageContent: Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
@@ -37,6 +42,7 @@ struct ChannelCardTeaserImageContent: Equatable, Sendable, Identifiable {
     let copyright: String?
 }
 
+/// Composer representation for single-file video, audio, or PDF media.
 struct ChannelCardFileMediaContent: Equatable, Sendable {
     let kind: ChannelCardMediaKind
     let displayTitle: String
@@ -45,6 +51,10 @@ struct ChannelCardFileMediaContent: Equatable, Sendable {
     let caption: String?
 }
 
+/// Composer media selection constrained to either photos or one non-photo file.
+///
+/// Invariant:
+/// Photo attachments may contain multiple items; video/audio/PDF attachments are represented as one file.
 enum ChannelCardMediaContent: Equatable, Sendable {
     case photos(items: [ChannelCardPhotoItem])
     case file(ChannelCardFileMediaContent)
@@ -96,6 +106,7 @@ enum ChannelCardMediaContent: Equatable, Sendable {
     }
 }
 
+/// Canonical composer text fields and their product ordering.
 enum ChannelCardTextFieldKind: String, CaseIterable, Equatable, Sendable, Identifiable {
     case text
     case headline
@@ -136,6 +147,7 @@ enum ChannelCardTextFieldKind: String, CaseIterable, Equatable, Sendable, Identi
     }
 }
 
+/// Toolbar insertion action that reveals or adds one composer content field/media type.
 enum FeedComposerInsertion: Equatable, Sendable, Identifiable {
     case photoOrVideo
     case photo
@@ -177,12 +189,22 @@ enum FeedComposerInsertion: Equatable, Sendable, Identifiable {
     }
 }
 
+/// Import validation errors raised when shared/imported media cannot fit the composer contract.
 enum FeedComposerImportError: Error, Equatable, Sendable {
     case unsupportedMixedMediaAttachments
     case unsupportedMultipleFileAttachments
     case incompatibleWithExistingMedia
 }
 
+/// Pure value model for a composer draft before publication.
+///
+/// Responsibilities:
+/// - enforces the text/media composition contract;
+/// - validates whether publish is allowed;
+/// - converts accepted draft content into a source-neutral `FeedCard`.
+///
+/// Invariant:
+/// Drafts must not publish empty cards; non-photo media is mutually exclusive with other media.
 struct FeedComposerDraft: Equatable, Sendable {
     private static let maximumTextFieldCharacterCount = 200
 
@@ -899,6 +921,7 @@ struct FeedComposerDraft: Equatable, Sendable {
     }
 }
 
+/// One visible composer text field after draft normalization.
 struct ChannelCardTextContent: Equatable, Sendable, Identifiable {
     let kind: ChannelCardTextFieldKind
     let text: String
@@ -906,11 +929,13 @@ struct ChannelCardTextContent: Equatable, Sendable, Identifiable {
     var id: ChannelCardTextFieldKind { kind }
 }
 
+/// Published feed-card source text and optional URL.
 struct FeedSourceContent: Codable, Equatable, Sendable {
     let text: String
     let resourceURLString: String?
 }
 
+/// Published feed-card photo attachment metadata.
 struct FeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
@@ -919,6 +944,7 @@ struct FeedPhotoItem: Codable, Equatable, Sendable, Identifiable {
     let copyright: String?
 }
 
+/// Published teaser image metadata for file-based media cards.
 struct FeedTeaserImageContent: Codable, Equatable, Sendable, Identifiable {
     let id: String
     let displayTitle: String
@@ -926,6 +952,7 @@ struct FeedTeaserImageContent: Codable, Equatable, Sendable, Identifiable {
     let copyright: String?
 }
 
+/// Published media kind used by persisted feed cards.
 enum FeedMediaKind: String, Codable, Equatable, Sendable {
     case photo
     case video
@@ -933,6 +960,7 @@ enum FeedMediaKind: String, Codable, Equatable, Sendable {
     case pdf
 }
 
+/// Published single-file media metadata for video, audio, and PDF cards.
 struct FeedFileMediaContent: Codable, Equatable, Sendable {
     let kind: FeedMediaKind
     let displayTitle: String
@@ -941,11 +969,16 @@ struct FeedFileMediaContent: Codable, Equatable, Sendable {
     let caption: String?
 }
 
+/// Published media payload for feed cards.
+///
+/// Invariant:
+/// A feed card has either photo items or one file payload, never both.
 enum FeedMediaContent: Codable, Equatable, Sendable {
     case photos(items: [FeedPhotoItem])
     case file(FeedFileMediaContent)
 }
 
+/// Canonical published feed text field kind and ordering identity.
 enum FeedTextFieldKind: String, CaseIterable, Codable, Equatable, Sendable, Identifiable {
     case text
     case headline
@@ -955,6 +988,7 @@ enum FeedTextFieldKind: String, CaseIterable, Codable, Equatable, Sendable, Iden
     var id: String { rawValue }
 }
 
+/// One published feed text field with stable identity by field kind.
 struct FeedTextContent: Codable, Equatable, Sendable, Identifiable {
     let kind: FeedTextFieldKind
     let text: String
@@ -962,6 +996,10 @@ struct FeedTextContent: Codable, Equatable, Sendable, Identifiable {
     var id: FeedTextFieldKind { kind }
 }
 
+/// Composer-to-feed bridge content used before a draft becomes persisted `FeedCard`.
+///
+/// Contract:
+/// Keeps composer field ordering and media selection source-neutral so UI does not branch on storage origin.
 struct ChannelCardContent: Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
@@ -1047,6 +1085,12 @@ struct ChannelCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
+/// Source-neutral published feed card persisted by the app and rendered by the feed.
+///
+/// Responsibilities:
+/// - stores durable card content for text/photo/video/audio/PDF;
+/// - carries lightweight interaction state;
+/// - maps to feed-row models without exposing persistence records.
 struct FeedCard: Codable, Identifiable, Equatable, Sendable {
     let id: String
     let channelID: String
@@ -1175,11 +1219,16 @@ struct FeedCard: Codable, Identifiable, Equatable, Sendable {
     }
 }
 
+/// User-selected display density persisted with a feed card.
 enum FeedCardDisplayMode: String, Codable, Equatable, Sendable {
     case expanded
     case compact
 }
 
+/// Stable identifiers for translatable feed-card text segments.
+///
+/// Invariant:
+/// Raw values are persisted in translation snapshots and must remain stable.
 enum CardTranslationFieldID: String, Hashable, Codable, Sendable {
     case text
     case headline
@@ -1218,6 +1267,7 @@ enum CardTranslationFieldID: String, Hashable, Codable, Sendable {
     }
 }
 
+/// Persisted translation result for one card and target language.
 struct CardTranslationSnapshot: Equatable, Codable, Sendable {
     let cardID: String
     let targetLanguageIdentifier: String
@@ -1228,6 +1278,10 @@ struct CardTranslationSnapshot: Equatable, Codable, Sendable {
     }
 }
 
+/// Translatable text payload extracted from one feed card.
+///
+/// External usage:
+/// Built by feed card models and passed to the on-device AI translation boundary.
 struct NewsFeedCardTranslationPayload: Equatable, Sendable {
     let cardID: String
     let fields: [CardTranslationFieldID: String]
@@ -1331,6 +1385,7 @@ struct NewsFeedCardSearchField: Equatable, Sendable {
     let value: String
 }
 
+/// Source-neutral photo card wrapper used by the feed renderer and search logic.
 enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
     case card(FeedCard)
 
@@ -1363,6 +1418,7 @@ enum NewsFeedPhotoCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
+/// Source-neutral text card wrapper used by the feed renderer and search logic.
 enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
     case card(FeedCard)
 
@@ -1395,6 +1451,7 @@ enum NewsFeedTextCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
+/// Source-neutral video card wrapper used by the feed renderer and search logic.
 enum NewsFeedVideoCardContent: Identifiable, Equatable, Sendable {
     case card(FeedCard)
 
@@ -1427,6 +1484,7 @@ enum NewsFeedVideoCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
+/// Source-neutral audio card wrapper used by the feed renderer and search logic.
 enum NewsFeedAudioCardContent: Identifiable, Equatable, Sendable {
     case card(FeedCard)
 
@@ -1459,6 +1517,7 @@ enum NewsFeedAudioCardContent: Identifiable, Equatable, Sendable {
     }
 }
 
+/// Source-neutral PDF card wrapper used by the feed renderer and search logic.
 enum NewsFeedPDFCardContent: Identifiable, Equatable, Sendable {
     case card(FeedCard)
 

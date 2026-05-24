@@ -1,5 +1,6 @@
 import Foundation
 
+/// Batch of local mutations sent to the remote sync endpoint.
 public struct PushRequest: Codable, Sendable, Equatable {
     public let mutations: [SyncMutation]
 
@@ -8,12 +9,14 @@ public struct PushRequest: Codable, Sendable, Equatable {
     }
 }
 
+/// Per-mutation result returned by a push operation.
 public enum MutationPushResult: Codable, Sendable, Equatable {
     case accepted(mutationID: UUID, entityID: String, serverRevision: Int?, serverUpdatedAt: Date?)
     case conflict(SyncConflict)
     case rejected(mutationID: UUID, reason: String)
 }
 
+/// Remote response for a pushed mutation batch.
 public struct PushResponse: Codable, Sendable, Equatable {
     public let results: [MutationPushResult]
 
@@ -22,6 +25,7 @@ public struct PushResponse: Codable, Sendable, Equatable {
     }
 }
 
+/// Request for remote changes after the last known cursor.
 public struct PullRequest: Codable, Sendable, Equatable {
     public let cursor: SyncCursor?
     public let limit: Int
@@ -32,6 +36,7 @@ public struct PullRequest: Codable, Sendable, Equatable {
     }
 }
 
+/// Remote change page plus the cursor needed for the next pull.
 public struct PullResponse: Codable, Sendable, Equatable {
     public let changes: [RemoteChange]
     public let nextCursor: SyncCursor?

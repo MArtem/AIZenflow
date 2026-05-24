@@ -1,5 +1,6 @@
 import Foundation
 
+/// Persisted per-entity sync state used to distinguish synced, pending, failed, and conflicted data.
 public enum SyncState: String, Codable, Sendable, Equatable, CaseIterable {
     case synced
     case pendingCreate

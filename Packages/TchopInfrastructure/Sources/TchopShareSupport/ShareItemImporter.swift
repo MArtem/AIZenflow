@@ -1,6 +1,7 @@
 import Foundation
 import UniformTypeIdentifiers
 
+/// Supported file categories imported from share-sheet item providers.
 public enum ShareImportedFileKind: String, Codable, Equatable, Sendable {
     case image
     case video
@@ -8,6 +9,7 @@ public enum ShareImportedFileKind: String, Codable, Equatable, Sendable {
     case audio
 }
 
+/// Text payload imported from an external share provider.
 public struct ShareImportedTextItem: Codable, Equatable, Identifiable, Sendable {
     public let id: String
     public let text: String
@@ -18,6 +20,10 @@ public struct ShareImportedTextItem: Codable, Equatable, Identifiable, Sendable 
     }
 }
 
+/// Durable file copy imported from an external share provider.
+///
+/// Ownership:
+/// The importer owns copying provider URLs into the configured app-group or temporary import directory.
 public struct ShareImportedFileItem: Codable, Equatable, Identifiable, Sendable {
     public let id: String
     public let kind: ShareImportedFileKind
@@ -40,6 +46,7 @@ public struct ShareImportedFileItem: Codable, Equatable, Identifiable, Sendable 
     }
 }
 
+/// Source-neutral imported share item consumed by app or extension composer flows.
 public enum ShareImportedItem: Codable, Equatable, Identifiable, Sendable {
     case text(ShareImportedTextItem)
     case file(ShareImportedFileItem)
@@ -54,6 +61,7 @@ public enum ShareImportedItem: Codable, Equatable, Identifiable, Sendable {
     }
 }
 
+/// Import failures surfaced when share providers cannot produce supported content.
 public enum ShareItemImportError: Error, Equatable, Sendable {
     case unsupportedProvider
     case unableToDecodeText
@@ -61,6 +69,14 @@ public enum ShareItemImportError: Error, Equatable, Sendable {
 }
 
 @MainActor
+/// Imports `NSItemProvider` payloads into durable text/file share items.
+///
+/// Ownership:
+/// Created by app or extension composition for a share session.
+///
+/// Concurrency:
+/// Main-actor isolated because `NSItemProvider` loading is driven by UIKit/share-extension callbacks;
+/// large file copies are moved to utility work where possible.
 public final class NSItemProviderShareItemImporter {
     private static let importedFilesDirectoryName = "share-imported-items"
 
@@ -98,7 +114,11 @@ public final class NSItemProviderShareItemImporter {
         )
     }
 
-    public func loadItems(from providers: [NSItemProvider]) async throws -> [ShareImportedItem] {
+        /// Loads supported text/file items from share providers into durable imported items.
+    ///
+    /// External usage:
+    /// Called by share-extension controllers after receiving `NSExtensionItem` providers.
+public func loadItems(from providers: [NSItemProvider]) async throws -> [ShareImportedItem] {
         var items: [ShareImportedItem] = []
 
         for provider in providers {

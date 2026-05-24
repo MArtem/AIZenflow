@@ -5,6 +5,7 @@ import TchopNetworking
 import TchopPushNotifications
 @testable import TchopAnalytics
 
+/// Verifies analytics event mapping across infrastructure domains.
 struct TchopAnalyticsTests {
     @Test
     /// Maps a navigation event into the shared analytics surface.

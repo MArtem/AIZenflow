@@ -43,6 +43,11 @@ private enum NewsFeedPerformanceSignpost {
 }
 
 @MainActor
+/// Main-actor persistence helper for feed-stage translation snapshots.
+///
+/// Ownership:
+/// Owned by `NewsFeedViewModel`; snapshots are small UserDefaults-backed presentation artifacts,
+/// not the source of truth for feed card content.
 final class CardTranslationStore {
     private enum Keys {
         static let snapshots = "card_translation_snapshots"
@@ -152,6 +157,15 @@ enum NewsFeedState: Equatable {
 /// View model responsible for loading and exposing the home feed state.
 @MainActor
 @Observable
+/// Main-actor state owner for the news feed screen.
+///
+/// Responsibilities:
+/// - derives the visible feed snapshot for the selected channel/search query;
+/// - handles card interactions and translation actions;
+/// - keeps expensive filtering out of SwiftUI row rendering paths.
+///
+/// Ownership:
+/// Created by app composition for the news tab runtime.
 final class NewsFeedViewModel {
     /// Explicit screen state used by the news feed UI.
     private(set) var state: NewsFeedState

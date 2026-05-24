@@ -124,6 +124,7 @@ final class DefaultAppContentRepository: AppContentRepository {
     }
 }
 
+/// Local app-content repository failures that should be mapped before user presentation.
 enum RepositoryError: Error {
     case missingChannel
     case unsupportedFeedCardPersistence
