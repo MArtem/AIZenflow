@@ -42,6 +42,15 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/CURRENT_USER_OVERRIDES.md`
 
 ### Production Quality And Review Gates
+- `./docs/IOS_PRODUCTION_FRAMEWORK.md`
+- `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
+- `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
+- `./docs/IOS_PR_REVIEW_TEMPLATE.md`
+- `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`
+- `./docs/IOS_AGENT_PROMPT_ROUTER.md`
+- `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
+- `./docs/IOS_PRODUCTION_SCORECARD.md`
+- `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
 - `./docs/PRODUCTION_QUALITY_GATES.md`
 - `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
 - `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
@@ -147,6 +156,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./scripts/check_localization.py`
 - `./scripts/check_swiftui_hot_path_patterns.py`
 - `./scripts/run_static_quality_gates.sh`
+- `./scripts/validate_ios_production_framework.py`
 
 ## Canonical Document Roles
 
@@ -159,6 +169,15 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/WORK_CONTINUITY.md`**: durable resume state and universal transition prompt.
 
 ### Review And Completion
+- **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.
+- **`./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`**: end-to-end feature workflow from intake to operation.
+- **`./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`**: uniform broad audit matrix and finding format.
+- **`./docs/IOS_PR_REVIEW_TEMPLATE.md`**: reusable iOS PR review template.
+- **`./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`**: template for installing the framework into a new app.
+- **`./docs/IOS_AGENT_PROMPT_ROUTER.md`**: routing table from task type to prompt/skill.
+- **`./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`**: explicit exception/waiver policy.
+- **`./docs/IOS_PRODUCTION_SCORECARD.md`**: production-readiness scoring model.
+- **`./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`**: documentation ownership and freshness rules.
 - **`./docs/PRODUCTION_QUALITY_GATES.md`**: mandatory broad production-quality review gates.
 - **`./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`**: concrete audit/review checklist and forbidden-pattern stop list.
 - **`./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`**: broad review trigger and completeness gate for `ревью`/review/audit.
@@ -217,6 +236,15 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **Verification workflow** → `./TESTING_INSTRUCTIONS.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/QA_TEST_PLAN_STANDARD.md`, or `./docs/CI_CD_QUALITY_GATES.md`.
 - **Short implementation guardrails** → `./docs/AGENT_RULES.md`.
 - **Current task/user overrides** → `./docs/CURRENT_USER_OVERRIDES.md`.
+- **Reusable iOS framework / umbrella coverage** → `./docs/IOS_PRODUCTION_FRAMEWORK.md`.
+- **Feature lifecycle** → `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`.
+- **Broad audit matrix** → `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`.
+- **PR review template** → `./docs/IOS_PR_REVIEW_TEMPLATE.md`.
+- **New project bootstrap** → `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`.
+- **Prompt/skill routing** → `./docs/IOS_AGENT_PROMPT_ROUTER.md`.
+- **Exceptions/waivers** → `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`.
+- **Readiness scoring** → `./docs/IOS_PRODUCTION_SCORECARD.md`.
+- **Documentation maintenance** → `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`.
 - **Production gates/checklists** → `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`.
 - **Security/privacy/data compliance** → `./docs/IOS_SECURITY_PRIVACY_GATE.md` or `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`.
 - **Observability/incidents/SLOs** → `./docs/IOS_OBSERVABILITY_STANDARD.md`, `./docs/INCIDENT_RESPONSE_STANDARD.md`, or `./docs/PRODUCT_HEALTH_SLO.md`.

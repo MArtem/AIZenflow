@@ -3,6 +3,18 @@
 ## Purpose
 Reusable iOS production rules that are not tied to one app.
 
+## Framework Entry Points
+- `./docs/IOS_PRODUCTION_FRAMEWORK.md`
+- `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
+- `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
+- `./docs/IOS_PR_REVIEW_TEMPLATE.md`
+- `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`
+- `./docs/IOS_AGENT_PROMPT_ROUTER.md`
+- `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
+- `./docs/IOS_PRODUCTION_SCORECARD.md`
+- `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
+- `./scripts/validate_ios_production_framework.py`
+
 ## Recommended Standards To Copy Into New iOS Projects
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/IOS_TESTING_STRATEGY.md`

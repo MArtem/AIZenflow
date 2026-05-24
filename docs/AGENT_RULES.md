@@ -70,6 +70,7 @@ Do not add abstractions unless they solve a concrete current problem.
 
 
 ## iOS Production Standards Rule
+- Use `./docs/IOS_PRODUCTION_FRAMEWORK.md` as the umbrella framework for generic iOS production work. Use `./docs/IOS_AGENT_PROMPT_ROUTER.md` to select prompt/skill routes when scope is broad or ambiguous.
 - For production-readiness, release, security/privacy, accessibility, observability, testing strategy, API integration, data migration, design-system, CI/CD, or dependency questions, apply the corresponding `./docs/IOS_*`, `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`, `./docs/DESIGN_SYSTEM_GOVERNANCE.md`, `./docs/CI_CD_QUALITY_GATES.md`, and `./docs/DEPENDENCY_POLICY.md` standards.
 - For any feature declared done, apply `./docs/DEFINITION_OF_DONE.md`.
 - For broad iOS production audits, prefer the reusable iOS skills under `./.codex/skills/ios-*` when they are available in the session.
@@ -108,6 +109,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - For any iOS implementation/review, consider generic iOS concerns before app-specific assumptions: concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, analytics/telemetry, configuration/environments, input validation/content safety, StoreKit/payments when applicable, and platform permissions.
 - Apply these documents when relevant: `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`, `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`, `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`, `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`, `./docs/IOS_OFFLINE_SYNC_STANDARD.md`, `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`, `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`, `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`, `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`, `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`, `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`, and `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`.
 - If a concern is not applicable, mark it not applicable with a reason instead of silently skipping it.
+- For full production readiness claims, fill or summarize `./docs/IOS_PRODUCTION_SCORECARD.md`; any score below production threshold must be reported as remaining risk.
 
 ## Project-Calibrated Working Rules (TchopApp)
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.

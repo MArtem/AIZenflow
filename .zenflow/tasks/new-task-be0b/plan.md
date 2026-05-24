@@ -348,6 +348,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Updated active indexes/rules in `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/WORK_CONTINUITY.md`, `./docs/agent-prompts/README.md`, and `./docs/knowledge/global/ios/README.md`.
 - Verification: `python3 ./scripts/check_docs_index.py` succeeded with 101 indexed paths; `git diff --check` succeeded. Full `./scripts/run_static_quality_gates.sh` still stops on existing app/code findings from `./scripts/check_forbidden_patterns.py`; those are app/project remediation candidates and were intentionally not fixed in this generic-docs pass.
 
+
+- Completed now: finalized the generic reusable iOS production framework layer:
+  - Added `./docs/IOS_PRODUCTION_FRAMEWORK.md` as the canonical umbrella framework with layers, workflow, coverage matrix, and completion rule.
+  - Added operating documents: `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`, `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`, `./docs/IOS_PR_REVIEW_TEMPLATE.md`, `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`, `./docs/IOS_AGENT_PROMPT_ROUTER.md`, `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`, `./docs/IOS_PRODUCTION_SCORECARD.md`, and `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`.
+  - Added `./scripts/validate_ios_production_framework.py` and wired it into `./scripts/run_static_quality_gates.sh`, so the reusable framework now has an automated completeness check.
+  - Updated `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and `./docs/knowledge/global/ios/README.md` to route generic iOS work through the full framework instead of loose individual standards.
+- Verification: `python3 ./scripts/check_docs_index.py` succeeded with 111 indexed paths; `python3 ./scripts/validate_ios_production_framework.py` succeeded with 49 required files present; `git diff --check` succeeded. Full `./scripts/run_static_quality_gates.sh` now confirms docs/framework/secret/large-file gates before stopping on existing app-code forbidden-pattern findings, which remain outside this generic-framework pass.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
