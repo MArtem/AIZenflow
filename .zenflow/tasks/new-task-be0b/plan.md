@@ -386,8 +386,18 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated `./Packages/TchopInfrastructure/Tests/TchopLocalizationTests/TchopLocalizationTests.swift` expectations to match the current localization resources for `login.title` (`Welcome back` / `С возвращением`).
 - Verification: `git diff --check` succeeded; `swift test` in `./Packages/TchopInfrastructure` succeeded with 52 XCTest tests and 20 Swift Testing tests; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`. Remaining non-blocking warnings are Swift concurrency warnings in networking/package-test code and should be handled in a dedicated Swift 6/concurrency cleanup pass.
 
+
+- Completed now: Swift concurrency / Swift 6 warning cleanup for `./Packages/TchopInfrastructure`:
+  - constrained `TaskBox` in `./Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift` to `Response: Sendable`, matching the `APIRequest`/`Task` call sites that already require sendable response values.
+  - made database operation closures in `./Packages/TchopInfrastructure/Sources/TchopDatabaseCore/TchopDatabaseCore.swift` explicitly `@Sendable` and adjusted the SwiftData operation wrapper so the strict-concurrency boundary is expressed in the API contract.
+  - removed deprecated `Locale.languageCode` fallbacks from `./Packages/TchopInfrastructure/Sources/TchopLocalization/TchopLocalization.swift` and `./Packages/TchopInfrastructure/Sources/TchopOnDeviceAI/TchopOnDeviceAI.swift`.
+  - changed share text import in `./Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift` so non-sendable `NSSecureCoding` payloads are decoded inside the provider callback and only sendable `ShareImportedTextItem` values cross the async continuation boundary.
+  - replaced the Core Data test merge-policy global with an explicit `NSMergePolicy` instance in `./Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`.
+  - replaced mutable static URL protocol test state in `./Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift` with a locked sendable state holder and locked counter helpers for sendable request-handler closures.
+- Verification: clean `swift test` in `./Packages/TchopInfrastructure` succeeded with no Swift compiler warnings in the captured warning grep; regular `swift test` succeeded with 52 XCTest tests and 20 Swift Testing tests; `git diff --check`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `./scripts/verify.sh low` all succeeded. Xcode build still prints a non-code AppIntents metadata note/warning for the share extension because it has no AppIntents dependency.
+
 ## Verification Status
-- Latest verification succeeded with `git diff --check`, `swift test` in `./Packages/TchopInfrastructure`, and `./scripts/verify.sh low`.
+- Latest verification succeeded with `git diff --check`, clean/regular `swift test` in `./Packages/TchopInfrastructure`, documentation validators, and `./scripts/verify.sh low`.
 - Build and package tests were run by explicit user permission/request; simulator UI was not run.
 
 ## Archive

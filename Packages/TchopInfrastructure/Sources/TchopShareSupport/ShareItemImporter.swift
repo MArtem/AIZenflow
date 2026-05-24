@@ -118,7 +118,7 @@ public final class NSItemProviderShareItemImporter {
     ///
     /// External usage:
     /// Called by share-extension controllers after receiving `NSExtensionItem` providers.
-public func loadItems(from providers: [NSItemProvider]) async throws -> [ShareImportedItem] {
+    public func loadItems(from providers: [NSItemProvider]) async throws -> [ShareImportedItem] {
         var items: [ShareImportedItem] = []
 
         for provider in providers {
@@ -153,27 +153,27 @@ public func loadItems(from providers: [NSItemProvider]) async throws -> [ShareIm
     }
 
     private func loadTextItem(from provider: NSItemProvider) async throws -> ShareImportedTextItem {
-        let item: NSSecureCoding? = try await withCheckedThrowingContinuation {
-            (continuation: CheckedContinuation<NSSecureCoding?, Error>) in
+        try await withCheckedThrowingContinuation {
+            (continuation: CheckedContinuation<ShareImportedTextItem, Error>) in
             provider.loadItem(forTypeIdentifier: UTType.plainText.identifier, options: nil) { item, error in
                 if let error {
                     continuation.resume(throwing: error)
                     return
                 }
 
-                continuation.resume(returning: item)
+                if let text = item as? String {
+                    continuation.resume(returning: ShareImportedTextItem(text: text))
+                    return
+                }
+
+                if let data = item as? Data, let text = String(data: data, encoding: .utf8) {
+                    continuation.resume(returning: ShareImportedTextItem(text: text))
+                    return
+                }
+
+                continuation.resume(throwing: ShareItemImportError.unableToDecodeText)
             }
         }
-
-        if let text = item as? String {
-            return ShareImportedTextItem(text: text)
-        }
-
-        if let data = item as? Data, let text = String(data: data, encoding: .utf8) {
-            return ShareImportedTextItem(text: text)
-        }
-
-        throw ShareItemImportError.unableToDecodeText
     }
 
     private func loadFileItem(

@@ -272,7 +272,7 @@ final class TchopDatabaseTests: XCTestCase {
             throw persistentStoreError
         }
 
-        container.viewContext.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+        container.viewContext.mergePolicy = NSMergePolicy(merge: .mergeByPropertyObjectTrumpMergePolicyType)
         return container
     }
 

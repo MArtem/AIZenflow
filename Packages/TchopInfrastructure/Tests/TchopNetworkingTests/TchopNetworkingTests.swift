@@ -260,10 +260,9 @@ final class TchopNetworkingTests: XCTestCase {
     /// Verifies apimanager uses retry context surface.
     func testAPIManagerUsesRetryContextSurface() async throws {
         URLProtocolStub.reset()
-        var responseCounter = 0
+        let responseCounter = LockedCounter()
         URLProtocolStub.requestHandler = { request in
-            responseCounter += 1
-            let index = responseCounter
+            let index = responseCounter.increment()
             if index == 1 {
                 return (
                     HTTPURLResponse(url: request.url!, statusCode: 500, httpVersion: nil, headerFields: nil)!,
@@ -311,10 +310,9 @@ final class TchopNetworkingTests: XCTestCase {
     /// Verifies apimanager emits retry scheduled for invalid status code branch.
     func testAPIManagerEmitsRetryScheduledForInvalidStatusCodeBranch() async throws {
         URLProtocolStub.reset()
-        var responseCounter = 0
+        let responseCounter = LockedCounter()
         URLProtocolStub.requestHandler = { request in
-            responseCounter += 1
-            if responseCounter == 1 {
+            if responseCounter.increment() == 1 {
                 return (
                     HTTPURLResponse(url: request.url!, statusCode: 500, httpVersion: nil, headerFields: nil)!,
                     Data()
@@ -918,13 +916,62 @@ private actor RefreshingTestAuthenticationProvider: APIAuthenticationRefreshing 
     }
 }
 
+private final class LockedCounter: @unchecked Sendable {
+    private let lock = NSLock()
+    private var value = 0
+
+    func increment() -> Int {
+        lock.withLock {
+            value += 1
+            return value
+        }
+    }
+}
+
+private final class URLProtocolStubState: @unchecked Sendable {
+    private let lock = NSLock()
+    private var lockedRequestHandler: (@Sendable (URLRequest) throws -> (HTTPURLResponse, Data))?
+    private var lockedObservedRequests: [URLRequest] = []
+
+    var requestHandler: (@Sendable (URLRequest) throws -> (HTTPURLResponse, Data))? {
+        get {
+            lock.withLock { lockedRequestHandler }
+        }
+        set {
+            lock.withLock { lockedRequestHandler = newValue }
+        }
+    }
+
+    var observedRequests: [URLRequest] {
+        lock.withLock { lockedObservedRequests }
+    }
+
+    func recordObservedRequest(_ request: URLRequest) {
+        lock.withLock { lockedObservedRequests.append(request) }
+    }
+
+    func reset() {
+        lock.withLock {
+            lockedRequestHandler = nil
+            lockedObservedRequests = []
+        }
+    }
+}
+
 private final class URLProtocolStub: URLProtocol {
-    static var requestHandler: ((URLRequest) throws -> (HTTPURLResponse, Data))?
-    static var observedRequests: [URLRequest] = []
+    private static let state = URLProtocolStubState()
+
+    static var requestHandler: (@Sendable (URLRequest) throws -> (HTTPURLResponse, Data))? {
+        get { state.requestHandler }
+        set { state.requestHandler = newValue }
+    }
+
+    static var observedRequests: [URLRequest] {
+        state.observedRequests
+    }
 
     static func reset() {
-        requestHandler = nil
-        observedRequests = []
+        state.reset()
     }
 
     override class func canInit(with request: URLRequest) -> Bool {
@@ -935,6 +982,10 @@ private final class URLProtocolStub: URLProtocol {
         request
     }
 
+    private static func recordObservedRequest(_ request: URLRequest) {
+        state.recordObservedRequest(request)
+    }
+
     /// Handles start loading.
     override func startLoading() {
         guard let handler = URLProtocolStub.requestHandler else {
@@ -943,7 +994,7 @@ private final class URLProtocolStub: URLProtocol {
         }
 
         do {
-            URLProtocolStub.observedRequests.append(request)
+            URLProtocolStub.recordObservedRequest(request)
             let (response, data) = try handler(request)
             client?.urlProtocol(self, didReceive: response, cacheStoragePolicy: .notAllowed)
             client?.urlProtocol(self, didLoad: data)

@@ -59,8 +59,7 @@ public struct LocalizationManager: LocalizationManaging, Sendable {
             let locale = Locale(identifier: preferredIdentifier)
             let candidates = [
                 locale.identifier(.bcp47),
-                locale.language.languageCode?.identifier,
-                locale.languageCode
+                locale.language.languageCode?.identifier
             ]
             .compactMap { $0 }
 

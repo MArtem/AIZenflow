@@ -87,12 +87,12 @@ public struct DatabaseConfiguration: Sendable, Equatable {
 
 /// Read-only operation that can be executed against either supported backend.
 public struct DatabaseReadOperation<Result> {
-    public let swiftData: (@MainActor (Any) throws -> Result)?
-    public let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+    public let swiftData: (@MainActor @Sendable (Any) throws -> Result)?
+    public let coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)?
 
     /// Creates a new DatabaseReadOperation instance.
     public init(
-        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+        coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)? = nil
     ) {
         self.swiftData = nil
         self.coreData = coreData
@@ -101,8 +101,8 @@ public struct DatabaseReadOperation<Result> {
     @available(iOS 17, macOS 14, *)
     /// Creates a new DatabaseReadOperation instance.
     public init(
-        swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
-        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+        swiftData: (@MainActor @Sendable (ModelContext) throws -> Result)? = nil,
+        coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)? = nil
     ) {
         self.swiftData = makeSwiftDataOperation(
             swiftData,
@@ -114,12 +114,12 @@ public struct DatabaseReadOperation<Result> {
 
 /// Mutating operation that can be executed against either supported backend.
 public struct DatabaseWriteOperation<Result> {
-    public let swiftData: (@MainActor (Any) throws -> Result)?
-    public let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+    public let swiftData: (@MainActor @Sendable (Any) throws -> Result)?
+    public let coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)?
 
     /// Creates a new DatabaseWriteOperation instance.
     public init(
-        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+        coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)? = nil
     ) {
         self.swiftData = nil
         self.coreData = coreData
@@ -128,8 +128,8 @@ public struct DatabaseWriteOperation<Result> {
     @available(iOS 17, macOS 14, *)
     /// Creates a new DatabaseWriteOperation instance.
     public init(
-        swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
-        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+        swiftData: (@MainActor @Sendable (ModelContext) throws -> Result)? = nil,
+        coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)? = nil
     ) {
         self.swiftData = makeSwiftDataOperation(
             swiftData,
@@ -141,12 +141,12 @@ public struct DatabaseWriteOperation<Result> {
 
 /// Batch mutating operation that can be executed against either supported backend.
 public struct DatabaseBatchWriteOperation<Result> {
-    public let swiftData: (@MainActor (Any) throws -> Result)?
-    public let coreData: (@MainActor (NSManagedObjectContext) throws -> Result)?
+    public let swiftData: (@MainActor @Sendable (Any) throws -> Result)?
+    public let coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)?
 
     /// Creates a new DatabaseBatchWriteOperation instance.
     public init(
-        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+        coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)? = nil
     ) {
         self.swiftData = nil
         self.coreData = coreData
@@ -155,8 +155,8 @@ public struct DatabaseBatchWriteOperation<Result> {
     @available(iOS 17, macOS 14, *)
     /// Creates a new DatabaseBatchWriteOperation instance.
     public init(
-        swiftData: (@MainActor (ModelContext) throws -> Result)? = nil,
-        coreData: (@MainActor (NSManagedObjectContext) throws -> Result)? = nil
+        swiftData: (@MainActor @Sendable (ModelContext) throws -> Result)? = nil,
+        coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)? = nil
     ) {
         self.swiftData = makeSwiftDataOperation(
             swiftData,
@@ -168,11 +168,11 @@ public struct DatabaseBatchWriteOperation<Result> {
 
 @available(iOS 17, macOS 14, *)
 private func makeSwiftDataOperation<Result>(
-    _ operation: (@MainActor (ModelContext) throws -> Result)?,
+    _ operation: (@MainActor @Sendable (ModelContext) throws -> Result)?,
     invalidContextMessage: String
-) -> (@MainActor (Any) throws -> Result)? {
+) -> (@MainActor @Sendable (Any) throws -> Result)? {
     operation.map { swiftDataOperation in
-        { @MainActor context in
+        { @MainActor @Sendable context in
             guard let modelContext = context as? ModelContext else {
                 throw DatabaseError.unsupportedOperation(invalidContextMessage)
             }

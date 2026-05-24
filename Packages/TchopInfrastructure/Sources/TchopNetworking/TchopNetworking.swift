@@ -685,7 +685,7 @@ private protocol CancellableTask {
     func cancel()
 }
 
-private final class TaskBox<Response>: CancellableTask {
+private final class TaskBox<Response: Sendable>: CancellableTask {
     let task: Task<Response, Error>
 
     /// Creates a new TaskBox instance.

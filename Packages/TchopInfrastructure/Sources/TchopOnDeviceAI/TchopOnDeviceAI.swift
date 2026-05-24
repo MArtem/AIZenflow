@@ -11,12 +11,11 @@ public struct OnDeviceLanguage: Hashable, Sendable, Codable {
     public var normalizedLanguageIdentifier: String {
         let locale = Locale(identifier: localeIdentifier)
         return locale.language.languageCode?.identifier
-            ?? locale.languageCode
             ?? localeIdentifier
     }
 
-        /// Compares language identity using normalized language code rather than exact locale string.
-public func matches(localeIdentifier: String) -> Bool {
+    /// Compares language identity using normalized language code rather than exact locale string.
+    public func matches(localeIdentifier: String) -> Bool {
         normalizedLanguageIdentifier == OnDeviceLanguage(
             localeIdentifier: localeIdentifier
         ).normalizedLanguageIdentifier
