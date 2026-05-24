@@ -364,6 +364,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Indexed the new standard/prompt/skill in `./docs/README.md`, `./docs/IOS_PRODUCTION_FRAMEWORK.md`, `./docs/agent-prompts/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/knowledge/global/ios/README.md`, and `./scripts/validate_ios_production_framework.py`.
 - Verification: `python3 ./scripts/check_docs_index.py` succeeded with 113 indexed paths; `python3 ./scripts/validate_ios_production_framework.py` succeeded with 52 required files present; `git diff --check` succeeded.
 
+
+- Completed now: propagated inline code documentation rules into the active review/done gates:
+  - Updated `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` with a mandatory Code Documentation Contracts section and a forbidden-pattern stop list for noisy/fragile/unsupported comments.
+  - Updated `./docs/DEFINITION_OF_DONE.md` so code documentation contracts must be updated when public/internal APIs, ownership/lifecycle, external usage, side effects, concurrency, errors, invariants, or temporary workarounds change.
+  - Updated `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md` so production reviews check code documentation quality and do not treat missing/fragile contract comments as invisible.
+- Verification: `python3 ./scripts/check_docs_index.py` succeeded with 113 indexed paths; `python3 ./scripts/validate_ios_production_framework.py` succeeded with 52 required files present; `git diff --check` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.

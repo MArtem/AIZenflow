@@ -59,6 +59,13 @@ Before responding with “всё ок”, “clean”, “готово”, “pr
 - Deep links/menu/root composition do not depend on fragile UI implementation details.
 - SwiftUI `body` has no hidden side effects.
 
+
+### Code Documentation
+- Relevant code comments follow `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`.
+- Contracts, ownership/lifecycle, external usage/call context, side effects, concurrency, errors, invariants, and rationale are documented where they prevent misuse.
+- Comments do not repeat obvious code or list fragile callers.
+- Temporary workarounds have reason and revisit/expiry condition.
+
 ### Verification Honesty
 - Build/static checks do not prove behavior or performance.
 - Scroll/UI performance requires simulator/device exercise or Instruments when user allows it.

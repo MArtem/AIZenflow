@@ -74,6 +74,17 @@ Every meaningful change must be checked against these areas.
 - Retry must not duplicate work or create inconsistent state.
 - User-facing errors must be localized and actionable where practical.
 
+
+### Code Documentation Contracts
+- Inline documentation must follow `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`.
+- Document contracts, not obvious code. Prefer better names over comments that repeat code.
+- Key types should document purpose, responsibilities, runtime ownership/created-by, and important invariants when lifecycle or boundary usage matters.
+- Methods/properties used outside their declaring type should document stable external usage/call context when that helps explain who calls it, when, and why.
+- Avoid fragile exhaustive caller lists unless the caller is part of the API contract.
+- Side-effecting and async methods should document side effects, concurrency/cancellation, failure behavior, and rollback/pending behavior where relevant.
+- Temporary workaround comments must include reason and revisit/expiry condition.
+- Comments must not promise thread safety, performance, persistence, or error behavior that the code does not guarantee.
+
 ### Security, Privacy, And Logging
 - Secrets, tokens, private keys, PII, private URLs, full payloads, and service-account data must not be logged or committed.
 - App-group storage, file protection, backups, and external URL opening must be reviewed for sensitive or large data.
@@ -131,6 +142,13 @@ These patterns are blocked by default. If a change truly needs one, document the
 - Permanent local-vs-remote branches in UI for the same product entity unless product behavior genuinely differs.
 - DTO/backend naming leaking into SwiftUI rows.
 - Duplicate model types for one product concept without a clear boundary.
+
+### Code Documentation
+- Comments that repeat method/property names without adding contract information.
+- `Created by` comments that refer to a human author instead of runtime ownership/lifecycle.
+- Exhaustive caller lists that are not part of the stable API contract.
+- Temporary workaround comments without reason and revisit/expiry condition.
+- Comments claiming thread safety, performance, persistence, or failure behavior not guaranteed by code.
 
 ### Architecture
 - New protocols/factories/builders/adapters/managers/use cases with no concrete current need.
