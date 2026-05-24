@@ -76,6 +76,13 @@ Every working response must start with:
 - For generic iOS development, use `./docs/IOS_PRODUCTION_FRAMEWORK.md` as the umbrella baseline and cover non-app-specific concerns before app-specific assumptions: concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, analytics/telemetry, configuration/environments, input validation/content safety, permissions, and StoreKit/payments when applicable.
 - If a generic iOS area cannot be verified without project-specific requirements or user answers, report it as remaining risk and do not guess.
 
+
+### Code Documentation
+- Document contracts, not obvious code.
+- For methods used outside their declaring type, include stable external usage/call context when it helps understand who calls it, when, and why.
+- For key entities, include runtime ownership/created-by information when lifecycle matters.
+- Avoid fragile exhaustive caller lists unless the caller is part of the API contract.
+
 ### Documentation / Context Transfer
 - When refreshing documentation state or transferring context, include the rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

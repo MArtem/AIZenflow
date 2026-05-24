@@ -18,6 +18,7 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 - `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
 - `./docs/IOS_PRODUCTION_SCORECARD.md`
 - `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
+- `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
 
 ## Framework Layers
 1. **Product Layer**: requirements, acceptance criteria, non-goals, states, analytics, rollout.
@@ -89,6 +90,7 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 | Compatibility | `./docs/COMPATIBILITY_MATRIX.md` |
 | Developer experience | `./docs/DEVELOPER_EXPERIENCE_STANDARD.md` |
 | Documentation maintenance | `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` |
+| Inline code documentation | `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md` |
 | Exception policy | `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md` |
 | Scorecard | `./docs/IOS_PRODUCTION_SCORECARD.md` |
 

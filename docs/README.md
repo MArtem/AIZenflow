@@ -51,6 +51,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
 - `./docs/IOS_PRODUCTION_SCORECARD.md`
 - `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
+- `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
 - `./docs/PRODUCTION_QUALITY_GATES.md`
 - `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
 - `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
@@ -147,6 +148,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./.codex/skills/ios-error-handling/SKILL.md`
 - `./.codex/skills/ios-configuration-environments/SKILL.md`
 - `./.codex/skills/ios-input-validation/SKILL.md`
+- `./.codex/skills/ios-code-documentation/SKILL.md`
 
 ### Static Quality Gate Scripts
 - `./scripts/check_docs_index.py`
@@ -178,6 +180,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`**: explicit exception/waiver policy.
 - **`./docs/IOS_PRODUCTION_SCORECARD.md`**: production-readiness scoring model.
 - **`./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`**: documentation ownership and freshness rules.
+- **`./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`**: inline Swift/iOS documentation comment standard for contracts, ownership, external usage, side effects, concurrency, errors, invariants, and rationale.
 - **`./docs/PRODUCTION_QUALITY_GATES.md`**: mandatory broad production-quality review gates.
 - **`./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`**: concrete audit/review checklist and forbidden-pattern stop list.
 - **`./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`**: broad review trigger and completeness gate for `ревью`/review/audit.
@@ -245,6 +248,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **Exceptions/waivers** → `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`.
 - **Readiness scoring** → `./docs/IOS_PRODUCTION_SCORECARD.md`.
 - **Documentation maintenance** → `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`.
+- **Inline code documentation/comments** → `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`.
 - **Production gates/checklists** → `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`.
 - **Security/privacy/data compliance** → `./docs/IOS_SECURITY_PRIVACY_GATE.md` or `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`.
 - **Observability/incidents/SLOs** → `./docs/IOS_OBSERVABILITY_STANDARD.md`, `./docs/INCIDENT_RESPONSE_STANDARD.md`, or `./docs/PRODUCT_HEALTH_SLO.md`.

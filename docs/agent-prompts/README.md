@@ -40,6 +40,7 @@ Before applying any prompt here, apply the current project/task rules first:
 | iOS API contract review | `ios-api-contract-review.md` | Use for DTOs, errors, retry, pagination, offline, sync, auth. |
 | iOS release readiness | `ios-release-readiness.md` | Use for TestFlight/App Store/signing/release checks. |
 | iOS feature definition of done | `ios-feature-definition-of-done.md` | Use before calling a feature done. |
+| iOS code documentation review | `ios-code-documentation-review.md` | Use for inline Swift documentation comments, ownership, external usage/call context, side effects, invariants, and workaround comments. |
 | Product requirements review | `product-requirements-review.md` | Use before non-trivial feature work when behavior/states/acceptance criteria must be proven. |
 | Architecture decision review | `architecture-decision-review.md` | Use when a change affects module boundaries, persistence, public API, security/privacy, or long-lived architecture. |
 | Evidence-based completion review | `evidence-based-completion-review.md` | Use before claiming done/fixed/verified/production-ready. |

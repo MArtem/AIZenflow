@@ -13,6 +13,7 @@ Reusable iOS production rules that are not tied to one app.
 - `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
 - `./docs/IOS_PRODUCTION_SCORECARD.md`
 - `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
+- `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
 - `./scripts/validate_ios_production_framework.py`
 
 ## Recommended Standards To Copy Into New iOS Projects

@@ -13,6 +13,7 @@ REQUIRED = [
     './docs/IOS_PRODUCTION_EXCEPTION_POLICY.md',
     './docs/IOS_PRODUCTION_SCORECARD.md',
     './docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md',
+    './docs/IOS_CODE_DOCUMENTATION_STANDARD.md',
     './docs/PRODUCT_REQUIREMENTS_STANDARD.md',
     './docs/ARCHITECTURE_DECISION_GOVERNANCE.md',
     './docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md',
@@ -46,6 +47,7 @@ REQUIRED = [
     './docs/agent-prompts/ios-network-resilience-review.md',
     './docs/agent-prompts/ios-offline-sync-review.md',
     './docs/agent-prompts/ios-lifecycle-background-review.md',
+    './docs/agent-prompts/ios-code-documentation-review.md',
     './.codex/skills/ios-production-auditor/SKILL.md',
     './.codex/skills/ios-evidence-gate/SKILL.md',
     './.codex/skills/ios-concurrency-runtime/SKILL.md',
@@ -53,6 +55,7 @@ REQUIRED = [
     './.codex/skills/ios-network-resilience/SKILL.md',
     './.codex/skills/ios-offline-sync/SKILL.md',
     './.codex/skills/ios-lifecycle-background/SKILL.md',
+    './.codex/skills/ios-code-documentation/SKILL.md',
 ]
 
 missing = [path for path in REQUIRED if not (ROOT / path[2:]).exists()]

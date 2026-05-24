@@ -106,6 +106,7 @@ Do not add abstractions unless they solve a concrete current problem.
 
 
 ## Generic iOS Coverage Rule
+- Inline Swift/iOS code documentation must follow `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`: document contracts, ownership/lifecycle, external usage/call context, side effects, concurrency, errors, invariants, and rationale where relevant; do not document obvious code.
 - For any iOS implementation/review, consider generic iOS concerns before app-specific assumptions: concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, analytics/telemetry, configuration/environments, input validation/content safety, StoreKit/payments when applicable, and platform permissions.
 - Apply these documents when relevant: `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`, `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`, `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`, `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`, `./docs/IOS_OFFLINE_SYNC_STANDARD.md`, `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`, `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`, `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`, `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`, `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`, `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`, and `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`.
 - If a concern is not applicable, mark it not applicable with a reason instead of silently skipping it.

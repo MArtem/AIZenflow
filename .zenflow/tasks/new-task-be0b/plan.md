@@ -356,6 +356,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Updated `./docs/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and `./docs/knowledge/global/ios/README.md` to route generic iOS work through the full framework instead of loose individual standards.
 - Verification: `python3 ./scripts/check_docs_index.py` succeeded with 111 indexed paths; `python3 ./scripts/validate_ios_production_framework.py` succeeded with 49 required files present; `git diff --check` succeeded. Full `./scripts/run_static_quality_gates.sh` now confirms docs/framework/secret/large-file gates before stopping on existing app-code forbidden-pattern findings, which remain outside this generic-framework pass.
 
+
+- Completed now: added the generic iOS inline code documentation standard requested by user:
+  - Added `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md` with the rule to document contracts, not obvious code.
+  - The standard explicitly includes runtime ownership/created-by information for key entities and stable external usage/call context for methods used outside their declaring type, while avoiding fragile exhaustive caller lists unless the caller is contractual.
+  - Added `./docs/agent-prompts/ios-code-documentation-review.md` and `./.codex/skills/ios-code-documentation/SKILL.md`.
+  - Indexed the new standard/prompt/skill in `./docs/README.md`, `./docs/IOS_PRODUCTION_FRAMEWORK.md`, `./docs/agent-prompts/README.md`, `./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/knowledge/global/ios/README.md`, and `./scripts/validate_ios_production_framework.py`.
+- Verification: `python3 ./scripts/check_docs_index.py` succeeded with 113 indexed paths; `python3 ./scripts/validate_ios_production_framework.py` succeeded with 52 required files present; `git diff --check` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low`.
 - Build was run by explicit user request; tests and simulator UI were not run.
