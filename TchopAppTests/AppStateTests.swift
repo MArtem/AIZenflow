@@ -1,4 +1,3 @@
-import Combine
 import XCTest
 import TchopErrors
 import TchopNavigation
@@ -20,8 +19,11 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: expectedUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: TestNavigationStateManager(),
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -36,7 +38,7 @@ final class AppStateTests: XCTestCase {
     }
 
     /// Verifies init restores persisted session.
-    func testInitRestoresPersistedSession() {
+    func testInitRestoresPersistedSession() async {
         let restoredUser = AppUser(id: "user-2", username: "restored", createdAt: Date())
         let sessionService = TestUserSessionService(
             signInResult: .failure(TestSessionError.signInUnavailable),
@@ -45,8 +47,11 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: AppCoordinator(),
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: TestNavigationStateManager(),
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -54,6 +59,8 @@ final class AppStateTests: XCTestCase {
             pushNotificationBridge: NoopPushNotificationBridge(),
             errorManager: AppErrorManager()
         )
+
+        await waitForAppStateRestore(state)
 
         XCTAssertEqual(state.currentUser, restoredUser)
     }
@@ -80,8 +87,11 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: shellViewModel,
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: TestNavigationStateManager(),
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -106,11 +116,14 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: AppCoordinator(),
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: TestUserSessionService(
                 signInResult: .success(restoredUser),
                 restoreResult: .success(restoredUser)
             ),
             userRepository: TestUserRepository(user: restoredUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: TestNavigationStateManager(),
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -130,6 +143,8 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: AppCoordinator(),
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: TestUserSessionService(
                 signInResult: .failure(TestSessionError.signInUnavailable),
                 restoreResult: .success(nil)
@@ -137,6 +152,7 @@ final class AppStateTests: XCTestCase {
             userRepository: TestUserRepository(
                 user: AppUser(id: "user-push-request", username: "push-user", createdAt: Date())
             ),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: TestNavigationStateManager(),
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -152,7 +168,7 @@ final class AppStateTests: XCTestCase {
     }
 
     /// Verifies init restores navigation snapshot when flag enabled.
-    func testInitRestoresNavigationSnapshotWhenFlagEnabled() {
+    func testInitRestoresNavigationSnapshotWhenFlagEnabled() async {
         let restoredUser = AppUser(
             id: "user-snapshot-enabled",
             username: "snapshot-on",
@@ -174,11 +190,14 @@ final class AppStateTests: XCTestCase {
         )
         let coordinator = AppCoordinator()
 
-        _ = AppState(
+        let state = AppState(
             coordinator: coordinator,
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: stateManager,
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -187,12 +206,14 @@ final class AppStateTests: XCTestCase {
             errorManager: AppErrorManager()
         )
 
+        await waitForAppStateRestore(state)
+
         XCTAssertEqual(coordinator.selectedTab, .chat)
         XCTAssertEqual(coordinator.chatRouter.path.count, 1)
     }
 
     /// Verifies init does not restore snapshot when flag disabled.
-    func testInitDoesNotRestoreSnapshotWhenFlagDisabled() {
+    func testInitDoesNotRestoreSnapshotWhenFlagDisabled() async {
         let restoredUser = AppUser(
             id: "user-snapshot-disabled",
             username: "snapshot-off",
@@ -214,11 +235,14 @@ final class AppStateTests: XCTestCase {
         )
         let coordinator = AppCoordinator(selectedTab: .mixes)
 
-        _ = AppState(
+        let state = AppState(
             coordinator: coordinator,
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: restoredUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: stateManager,
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -226,6 +250,8 @@ final class AppStateTests: XCTestCase {
             pushNotificationBridge: NoopPushNotificationBridge(),
             errorManager: AppErrorManager()
         )
+
+        await waitForAppStateRestore(state)
 
         XCTAssertEqual(coordinator.selectedTab, .news)
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
@@ -256,8 +282,11 @@ final class AppStateTests: XCTestCase {
         let state = AppState(
             coordinator: coordinator,
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: sessionService,
             userRepository: TestUserRepository(user: signedInUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: stateManager,
             deepLinkManager: DeepLinkManager(),
             navigationEventReporter: NavigationNoopEventReporter(),
@@ -276,7 +305,7 @@ final class AppStateTests: XCTestCase {
     }
 
     /// Verifies init migrates and sanitizes snapshot before apply.
-    func testInitMigratesAndSanitizesSnapshotBeforeApply() {
+    func testInitMigratesAndSanitizesSnapshotBeforeApply() async {
         let restoredUser = AppUser(
             id: "user-snapshot-migrate",
             username: "snapshot-migrate",
@@ -299,14 +328,17 @@ final class AppStateTests: XCTestCase {
         let stateManager = TestNavigationStateManager(seed: [restoredUser.id: legacySnapshot])
         let reporter = NavigationMemoryEventReporter()
 
-        _ = AppState(
+        let state = AppState(
             coordinator: AppCoordinator(),
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: TestUserSessionService(
                 signInResult: .success(restoredUser),
                 restoreResult: .success(restoredUser)
             ),
             userRepository: TestUserRepository(user: restoredUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: stateManager,
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: reporter,
@@ -314,6 +346,8 @@ final class AppStateTests: XCTestCase {
             pushNotificationBridge: NoopPushNotificationBridge(),
             errorManager: AppErrorManager()
         )
+
+        await waitForAppStateRestore(state)
 
         let savedSnapshot = stateManager.snapshot(for: restoredUser.id)
         XCTAssertEqual(savedSnapshot?.version, NavigationSnapshot.supportedVersion)
@@ -331,7 +365,7 @@ final class AppStateTests: XCTestCase {
     }
 
     /// Verifies init drops future snapshot version and resets navigation safely.
-    func testInitDropsFutureSnapshotVersionAndResetsNavigationSafely() {
+    func testInitDropsFutureSnapshotVersionAndResetsNavigationSafely() async {
         let restoredUser = AppUser(
             id: "user-snapshot-future",
             username: "snapshot-future",
@@ -351,14 +385,17 @@ final class AppStateTests: XCTestCase {
         let coordinator = AppCoordinator(selectedTab: .chat)
         let reporter = NavigationMemoryEventReporter()
 
-        _ = AppState(
+        let state = AppState(
             coordinator: coordinator,
             appShellViewModel: makeShellViewModel(),
+            sessionStore: SessionStore(),
+            channelsStore: makeTestChannelsStore(),
             sessionService: TestUserSessionService(
                 signInResult: .success(restoredUser),
                 restoreResult: .success(restoredUser)
             ),
             userRepository: TestUserRepository(user: restoredUser),
+            channelSettingsRepository: UserChannelSettingsRepository(),
             navigationStateManager: stateManager,
             deepLinkManager: TestDeepLinkManager(),
             navigationEventReporter: reporter,
@@ -366,6 +403,8 @@ final class AppStateTests: XCTestCase {
             pushNotificationBridge: NoopPushNotificationBridge(),
             errorManager: AppErrorManager()
         )
+
+        await waitForAppStateRestore(state)
 
         XCTAssertEqual(coordinator.selectedTab, .news)
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
@@ -382,18 +421,33 @@ final class AppStateTests: XCTestCase {
 }
 
 @MainActor
+private func waitForAppStateRestore(_ state: AppState) async {
+    for _ in 0..<50 {
+        await Task.yield()
+        if state.currentUser != nil {
+            try? await Task.sleep(for: .milliseconds(100))
+            return
+        }
+        try? await Task.sleep(for: .milliseconds(20))
+    }
+}
+
+@MainActor
 /// Creates shell view model.
 private func makeShellViewModel(isMenuOpen: Bool = false) -> AppShellViewModel {
-    AppShellViewModel(
-        channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
-        newsFeedViewModel: NewsFeedViewModel(
-            repository: TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [], availability: .live))),
-            widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            errorManager: AppErrorManager(),
-            initialContent: NewsFeedContent(cards: [], availability: .live),
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: "Failed to load"
-        ),
+    let channelsStore = makeTestChannelsStore()
+    let feedCardStore = makeTestFeedCardStore()
+    let newsFeedViewModel = NewsFeedViewModel(
+        channelsStore: channelsStore,
+        widgetContentSyncManager: NoopWidgetContentSyncManager(),
+        errorManager: AppErrorManager(),
+        feedCardStore: feedCardStore
+    )
+
+    return AppShellViewModel(
+        channelsStore: channelsStore,
+        feedCardStore: feedCardStore,
+        newsFeedViewModel: newsFeedViewModel,
         errorManager: AppErrorManager(),
         uiConfigurationManager: UIConfigurationManager(
             remoteProvider: MockUIConfigurationRemoteProvider(delayNanoseconds: 0)
@@ -462,8 +516,6 @@ final class TabRouterTests: XCTestCase {
 @MainActor
 /// Verifies coordinator-level tab and stack orchestration behavior.
 final class AppCoordinatorTests: XCTestCase {
-    private var cancellables: Set<AnyCancellable> = []
-
     /// Verifies select tab does not reset other tab paths.
     func testSelectTabDoesNotResetOtherTabPaths() {
         let coordinator = AppCoordinator()
@@ -564,16 +616,13 @@ final class AppCoordinatorTests: XCTestCase {
         XCTAssertEqual(coordinator.profileRouter.path.count, 1)
     }
 
-    /// Verifies navigation changes publisher emits for selected tab and path changes.
-    func testNavigationChangesPublisherEmitsForSelectedTabAndPathChanges() {
+    /// Verifies navigation change callback emits for selected tab and path changes.
+    func testNavigationChangeCallbackEmitsForSelectedTabAndPathChanges() {
         let coordinator = AppCoordinator()
         var emissionCount = 0
-
-        coordinator.navigationChanges
-            .sink { _ in
-                emissionCount += 1
-            }
-            .store(in: &cancellables)
+        coordinator.onNavigationChange = {
+            emissionCount += 1
+        }
 
         coordinator.selectTab(.chat)
         coordinator.chatRouter.push(ChatRoute(title: "Support", description: "Room"))
@@ -585,19 +634,19 @@ final class AppCoordinatorTests: XCTestCase {
 @MainActor
 /// Verifies deep/universal link routing into navigation destinations.
 final class DeepLinkManagerTests: XCTestCase {
-    /// Verifies custom scheme discussion link routes to news discussion.
-    func testCustomSchemeDiscussionLinkRoutesToNewsDiscussion() {
+    /// Verifies custom scheme photo link routes to news photo.
+    func testCustomSchemePhotoLinkRoutesToNewsPhoto() {
         let coordinator = AppCoordinator()
         let manager = DeepLinkManager()
 
         let handled = manager.handle(
-            url: URL(string: "tchop://news/discussion?title=Debate&subtitle=12+joined&body=Body")!,
+            url: URL(string: "tchop://news/photo?title=Debate&subtitle=12+joined&body=Body")!,
             coordinator: coordinator
         )
 
         XCTAssertTrue(handled)
         XCTAssertEqual(coordinator.selectedTab, .news)
-        XCTAssertEqual(coordinator.newsRouter.path.first?.destinationID, "discussion-details")
+        XCTAssertEqual(coordinator.newsRouter.path.first?.destinationID, "photo-details")
         XCTAssertEqual(coordinator.newsRouter.path.first?.title, "Debate")
     }
 

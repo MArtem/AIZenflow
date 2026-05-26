@@ -201,6 +201,8 @@ struct AppRuntimeErrorMessageCatalog: AppErrorMessageCatalog {
 
     func userMessage(for error: AppError) -> String {
         switch error.messageKey {
+        case "error.unknown" where error.context?.feature == "login":
+            return AppLocalization.text("login.error.generic")
         case "error.auth.refreshMissing":
             return AppLocalization.text("auth.error.refreshMissing")
         case "error.persistence.secureStorage":

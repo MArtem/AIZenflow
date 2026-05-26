@@ -68,7 +68,7 @@ final class TchopAppUITests: XCTestCase {
         let passwordVisibilityButton = element("login.passwordVisibilityButton", in: application)
         XCTAssertTrue(passwordVisibilityButton.waitForExistence(timeout: launchTimeout))
         passwordVisibilityButton.tap()
-        XCTAssertEqual(passwordVisibilityButton.label, "Hide")
+        XCTAssertEqual(passwordVisibilityButton.label, "Hide password")
 
         let passwordField = application.textFields.matching(identifier: "login.passwordField").firstMatch
         XCTAssertTrue(passwordField.waitForExistence(timeout: launchTimeout))

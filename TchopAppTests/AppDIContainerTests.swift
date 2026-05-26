@@ -28,7 +28,7 @@ final class AppDIContainerTests: XCTestCase {
         let shellViewModel = container.makeAppShellViewModel()
         let appState = container.makeAppState()
 
-        XCTAssertFalse(shellViewModel.channelInfo.title.isEmpty)
+        XCTAssertFalse(shellViewModel.channelsStore.selectionSnapshot.availableChannels.isEmpty)
         XCTAssertNotNil(appState.appShellViewModel)
     }
 }

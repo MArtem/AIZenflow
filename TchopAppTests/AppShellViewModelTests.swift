@@ -16,12 +16,7 @@ final class AppShellViewModelTests: XCTestCase {
             refreshDelayNanoseconds: 200_000_000
         )
 
-        let viewModel = AppShellViewModel(
-            channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
-            newsFeedViewModel: makeTestNewsFeedViewModel(),
-            errorManager: AppErrorManager(),
-            uiConfigurationManager: uiConfigurationManager,
-        )
+        let viewModel = makeShellViewModel(uiConfigurationManager: uiConfigurationManager)
 
         await waitUntil(viewModel.showsFloatingActionButton == false)
 
@@ -42,16 +37,22 @@ final class AppShellViewModelTests: XCTestCase {
             refreshDelayNanoseconds: 0
         )
 
-        let viewModel = AppShellViewModel(
-            channelInfo: ChannelHeaderInfo(title: "Tchop", subtitle: "New channel name"),
-            newsFeedViewModel: makeTestNewsFeedViewModel(),
-            errorManager: AppErrorManager(),
-            uiConfigurationManager: uiConfigurationManager,
-        )
+        let viewModel = makeShellViewModel(uiConfigurationManager: uiConfigurationManager)
 
         await waitUntil(viewModel.showsFloatingActionButton == true)
 
         XCTAssertTrue(viewModel.showsFloatingActionButton)
+    }
+
+    /// Verifies shell only changes the near-top flag when the feed reports a real threshold transition.
+    func testSetNewsFeedNearTopUpdatesShellState() {
+        let viewModel = makeShellViewModel()
+
+        viewModel.setNewsFeedNearTop(false)
+        XCTAssertFalse(viewModel.isNewsFeedNearTop)
+
+        viewModel.setNewsFeedNearTop(true)
+        XCTAssertTrue(viewModel.isNewsFeedNearTop)
     }
 
     /// Waits until until.
@@ -72,15 +73,29 @@ final class AppShellViewModelTests: XCTestCase {
         XCTFail("Timed out waiting for condition")
     }
 
-    /// Creates a lightweight feed view model for shell tests.
-    private func makeTestNewsFeedViewModel() -> NewsFeedViewModel {
-        NewsFeedViewModel(
-            repository: TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [], availability: .live))),
+    /// Creates a shell view model with local feed runtime dependencies.
+    private func makeShellViewModel(
+        uiConfigurationManager: any UIConfigurationManaging = TestUIConfigurationManager(
+            currentSnapshot: UIConfigurationSnapshot(),
+            refreshResult: .success(UIConfigurationSnapshot()),
+            refreshDelayNanoseconds: 0
+        )
+    ) -> AppShellViewModel {
+        let channelsStore = makeTestChannelsStore()
+        let feedCardStore = makeTestFeedCardStore()
+        let newsFeedViewModel = NewsFeedViewModel(
+            channelsStore: channelsStore,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
             errorManager: AppErrorManager(),
-            initialContent: NewsFeedContent(cards: [], availability: .live),
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: "Failed to load"
+            feedCardStore: feedCardStore
+        )
+
+        return AppShellViewModel(
+            channelsStore: channelsStore,
+            feedCardStore: feedCardStore,
+            newsFeedViewModel: newsFeedViewModel,
+            errorManager: AppErrorManager(),
+            uiConfigurationManager: uiConfigurationManager
         )
     }
 }

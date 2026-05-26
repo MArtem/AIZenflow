@@ -2,79 +2,24 @@ import XCTest
 import TchopDatabase
 @testable import TchopApp
 
-/// Verifies app-level database runtime policy selection behavior.
+/// Verifies app-level database bootstrap policy for the active SwiftData-only runtime.
+@MainActor
 final class AppDatabasePolicyTests: XCTestCase {
-    /// Verifies automatic policy uses Core Data when SwiftData is unavailable.
-    func testAutomaticPolicyUsesCoreDataWhenSwiftDataIsUnavailable() throws {
-        let plan = try AppDatabaseRuntimePolicy.plan(
-            for: DatabaseConfiguration(
-                backendSelectionPolicy: .automatic,
-                isStoredInMemoryOnly: false
-            ),
-            context: AppDatabaseRuntimeContext(
-                storedBackend: nil,
-                hasLegacyCoreDataStoreOnDisk: false,
-                supportsSwiftData: false
+    /// Verifies the throwing bootstrap API creates an in-memory SwiftData manager.
+    func testThrowingDatabaseBootstrapCreatesInMemorySwiftDataManager() throws {
+        let manager = try AppDatabase.makeDatabaseManagerOrThrow(
+            configuration: DatabaseConfiguration(
+                backendSelectionPolicy: .swiftData,
+                isStoredInMemoryOnly: true
             )
         )
 
-        XCTAssertEqual(plan, .useCoreData)
+        XCTAssertTrue(manager is SwiftDataDatabaseManager)
+        XCTAssertEqual(manager.backendKind, .swiftData)
     }
 
-    /// Verifies automatic policy prefers SwiftData for fresh installs on supported systems.
-    func testAutomaticPolicyUsesSwiftDataForFreshInstall() throws {
-        let plan = try AppDatabaseRuntimePolicy.plan(
-            for: DatabaseConfiguration(
-                backendSelectionPolicy: .automatic,
-                isStoredInMemoryOnly: false
-            ),
-            context: AppDatabaseRuntimeContext(
-                storedBackend: nil,
-                hasLegacyCoreDataStoreOnDisk: false,
-                supportsSwiftData: true
-            )
-        )
-
-        XCTAssertEqual(plan, .useSwiftData)
-    }
-
-    /// Verifies automatic policy migrates legacy Core Data installs on supported systems.
-    func testAutomaticPolicyMigratesLegacyCoreDataInstall() throws {
-        let plan = try AppDatabaseRuntimePolicy.plan(
-            for: DatabaseConfiguration(
-                backendSelectionPolicy: .automatic,
-                isStoredInMemoryOnly: false
-            ),
-            context: AppDatabaseRuntimeContext(
-                storedBackend: .coreData,
-                hasLegacyCoreDataStoreOnDisk: true,
-                supportsSwiftData: true
-            )
-        )
-
-        XCTAssertEqual(plan, .migrateCoreDataToSwiftData)
-    }
-
-    /// Verifies explicit SwiftData policy throws when the platform does not support SwiftData.
-    func testExplicitSwiftDataPolicyThrowsWhenSwiftDataIsUnavailable() {
-        XCTAssertThrowsError(
-            try AppDatabaseRuntimePolicy.plan(
-                for: DatabaseConfiguration(
-                    backendSelectionPolicy: .swiftData,
-                    isStoredInMemoryOnly: false
-                ),
-                context: AppDatabaseRuntimeContext(
-                    storedBackend: nil,
-                    hasLegacyCoreDataStoreOnDisk: false,
-                    supportsSwiftData: false
-                )
-            )
-        )
-    }
-
-    /// Verifies the throwing bootstrap API is available for callers that want to avoid fatalError wrappers.
-    @MainActor
-    func testThrowingDatabaseBootstrapCreatesInMemoryCoreDataManager() throws {
+    /// Verifies explicit Core Data requests are still resolved to the active SwiftData runtime.
+    func testDatabaseBootstrapIgnoresLegacyCoreDataSelectionForActiveRuntime() throws {
         let manager = try AppDatabase.makeDatabaseManagerOrThrow(
             configuration: DatabaseConfiguration(
                 backendSelectionPolicy: .coreData,
@@ -82,6 +27,7 @@ final class AppDatabasePolicyTests: XCTestCase {
             )
         )
 
-        XCTAssertTrue(manager is CoreDataDatabaseManager)
+        XCTAssertTrue(manager is SwiftDataDatabaseManager)
+        XCTAssertEqual(manager.backendKind, .swiftData)
     }
 }

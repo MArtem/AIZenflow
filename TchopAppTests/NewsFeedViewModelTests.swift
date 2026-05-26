@@ -3,222 +3,137 @@ import TchopDatabase
 import TchopErrors
 @testable import TchopApp
 
-/// Verifies async loading states and error handling for feed view model.
+/// Verifies local-created feed-card runtime state, search, interactions, and persistence boundaries.
 @MainActor
 final class NewsFeedViewModelTests: XCTestCase {
-    /// Verifies initial load resolves content from the repository.
-    func testReloadLoadsContentFromRepository() async {
-        let expectedContent = NewsFeedContent(
-            cards: [
-                .discussion(
-                    DiscussionCardModel(
-                        id: "discussion",
-                        categoryTitle: "Discussion",
-                        headline: "Loaded from repository",
-                        participants: [],
-                        replyCount: 0,
-                        joinedCount: 1,
-                        uiState: .idle
-                    )
-                )
-            ],
-            availability: .live
+    /// Verifies the feed starts empty when no card is persisted for the selected channel.
+    func testInitialStateIsEmptyWhenSelectedChannelHasNoCards() {
+        let viewModel = makeViewModel(cards: [])
+
+        XCTAssertEqual(viewModel.state, .empty(NewsFeedContent(cards: [], availability: .live)))
+        XCTAssertTrue(viewModel.visibleContent.cards.isEmpty)
+        XCTAssertFalse(viewModel.showsNoSearchResults)
+    }
+
+    /// Verifies only cards for the selected channel are visible.
+    func testVisibleContentScopesCardsToSelectedChannel() {
+        let selectedCard = makeTextFeedCard(id: "selected-card", channelID: AppChannel.defaultChannel.id, text: "Visible")
+        let otherCard = makeTextFeedCard(id: "other-card", channelID: AppChannel.community.id, text: "Hidden")
+        let viewModel = makeViewModel(cards: [selectedCard, otherCard])
+
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["selected-card"])
+        XCTAssertEqual(viewModel.state, .content(viewModel.visibleContent))
+    }
+
+    /// Verifies search ranks higher-priority text fields above lower-priority matches.
+    func testSearchFiltersAndRanksByFieldPriority() {
+        let headlineMatch = makeTextFeedCard(
+            id: "headline-match",
+            text: "Body",
+            headline: "Revenue Growth"
         )
-        let repository = TestNewsFeedRepository(result: .success(expectedContent))
-        let viewModel = NewsFeedViewModel(
-            repository: repository,
+        let textMatch = makeTextFeedCard(
+            id: "text-match",
+            text: "Revenue Growth",
+            headline: "Body"
+        )
+        let viewModel = makeViewModel(cards: [headlineMatch, textMatch])
+
+        viewModel.toggleSearchPresentation()
+        viewModel.searchQuery = "revenue"
+
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["text-match", "headline-match"])
+        XCTAssertFalse(viewModel.showsNoSearchResults)
+    }
+
+    /// Verifies no-results state is shown only when the selected channel has cards.
+    func testSearchNoResultsRequiresCardsInCurrentChannel() {
+        let viewModel = makeViewModel(cards: [
+            makeTextFeedCard(id: "card-1", text: "Visible")
+        ])
+
+        viewModel.toggleSearchPresentation()
+        viewModel.searchQuery = "missing"
+
+        XCTAssertTrue(viewModel.visibleContent.cards.isEmpty)
+        XCTAssertTrue(viewModel.showsNoSearchResults)
+    }
+
+    /// Verifies interaction updates are persisted and reflected in visible feed cards.
+    func testCardInteractionsPersistAndRefreshVisibleContent() throws {
+        let repository = TestFeedCardRepository(cards: [
+            makeTextFeedCard(id: "card-1", text: "Text")
+        ])
+        let feedCardStore = FeedCardStore(repository: repository)
+        let viewModel = makeViewModel(feedCardStore: feedCardStore)
+
+        viewModel.toggleFeedCardLike(cardID: "card-1")
+        viewModel.incrementFeedCardComments(cardID: "card-1")
+        viewModel.setFeedCardDisplayMode(cardID: "card-1", displayMode: .compact)
+
+        let savedCard = try XCTUnwrap(repository.savedCards.first(where: { $0.id == "card-1" }))
+        XCTAssertTrue(savedCard.isLiked)
+        XCTAssertEqual(savedCard.commentsCount, 1)
+        XCTAssertEqual(savedCard.displayMode, .compact)
+
+        let visibleCard = try XCTUnwrap(viewModel.visibleContent.cards.first)
+        XCTAssertEqual(visibleCard.id, "card-1")
+    }
+
+    /// Verifies changing selected channel resets search and refreshes the scoped card list.
+    func testSelectedChannelChangeResetsSearchAndRefreshesVisibleCards() {
+        let channelsStore = makeTestChannelsStore()
+        let viewModel = makeViewModel(channelsStore: channelsStore, cards: [
+            makeTextFeedCard(id: "product-card", channelID: AppChannel.product.id, text: "Product"),
+            makeTextFeedCard(id: "community-card", channelID: AppChannel.community.id, text: "Community")
+        ])
+
+        viewModel.toggleSearchPresentation()
+        viewModel.searchQuery = "product"
+        _ = channelsStore.selectChannel(id: AppChannel.community.id)
+        viewModel.handleSelectedChannelChange()
+
+        XCTAssertFalse(viewModel.isSearchPresented)
+        XCTAssertEqual(viewModel.searchQuery, "")
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["community-card"])
+    }
+
+    /// Creates a feed view model from seeded cards.
+    private func makeViewModel(cards: [FeedCard]) -> NewsFeedViewModel {
+        makeViewModel(feedCardStore: makeTestFeedCardStore(cards: cards))
+    }
+
+    /// Creates a feed view model from an explicit channel store and seeded cards.
+    private func makeViewModel(
+        channelsStore: ChannelsStore,
+        cards: [FeedCard]
+    ) -> NewsFeedViewModel {
+        makeViewModel(
+            channelsStore: channelsStore,
+            feedCardStore: makeTestFeedCardStore(cards: cards)
+        )
+    }
+
+    /// Creates a feed view model with explicit store injection.
+    private func makeViewModel(
+        channelsStore: ChannelsStore = makeTestChannelsStore(),
+        feedCardStore: FeedCardStore
+    ) -> NewsFeedViewModel {
+        return NewsFeedViewModel(
+            channelsStore: channelsStore,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
             errorManager: AppErrorManager(),
-            initialContent: NewsFeedFixtures.fallbackContent,
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: "Failed to load"
+            feedCardStore: feedCardStore
         )
-
-        await waitForLoading(of: viewModel)
-
-        XCTAssertEqual(viewModel.state, .loaded(expectedContent))
-        XCTAssertEqual(viewModel.content, expectedContent)
-        XCTAssertFalse(viewModel.isLoading)
-        XCTAssertNil(viewModel.errorMessage)
-    }
-
-    /// Verifies initial load publishes error state on failure.
-    func testReloadPublishesErrorStateOnFailure() async {
-        let repository = TestNewsFeedRepository(result: .failure(TestNewsFeedError.failed))
-        let viewModel = NewsFeedViewModel(
-            repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            errorManager: AppErrorManager(),
-            initialContent: NewsFeedFixtures.fallbackContent,
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
-        )
-
-        await waitForLoading(of: viewModel)
-
-        XCTAssertEqual(
-            viewModel.state,
-            .failed(
-                content: NewsFeedFixtures.fallbackContent,
-                message: AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
-            )
-        )
-        XCTAssertEqual(
-            viewModel.errorMessage,
-            AppLocalization.text("news.error.loadFailed", fallback: "Failed to load feed.")
-        )
-        XCTAssertFalse(viewModel.isLoading)
-        XCTAssertFalse(viewModel.content.cards.isEmpty)
-    }
-
-    /// Verifies refresh does not start a second request while one is already running.
-    func testRefreshIgnoresDuplicateRequestWhileLoading() async {
-        let repository = TestNewsFeedRepository(
-            result: .success(NewsFeedContent(cards: [], availability: .live)),
-            delayNanoseconds: 200_000_000
-        )
-        let viewModel = NewsFeedViewModel(
-            repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            errorManager: AppErrorManager(),
-            initialContent: NewsFeedFixtures.fallbackContent,
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: "Failed to load"
-        )
-
-        await waitForFetchCallCount(1, in: repository)
-        XCTAssertEqual(repository.fetchCallCount, 1)
-
-        viewModel.refresh()
-
-        XCTAssertEqual(repository.fetchCallCount, 1)
-
-        await waitForLoading(of: viewModel)
-    }
-
-    /// Verifies retry starts a second request only after the view model enters failed state.
-    func testRetryStartsNewRequestAfterFailure() async {
-        let expectedContent = NewsFeedContent(
-            cards: [
-                .discussion(
-                    DiscussionCardModel(
-                        id: "discussion",
-                        categoryTitle: "Discussion",
-                        headline: "Recovered content",
-                        participants: [],
-                        replyCount: 0,
-                        joinedCount: 1,
-                        uiState: .idle
-                    )
-                )
-            ],
-            availability: .live
-        )
-        let repository = TestNewsFeedRepository(
-            results: [
-                .failure(TestNewsFeedError.failed),
-                .success(expectedContent),
-            ]
-        )
-        let viewModel = NewsFeedViewModel(
-            repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            errorManager: AppErrorManager(),
-            initialContent: NewsFeedFixtures.fallbackContent,
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: "Failed to load"
-        )
-
-        await waitForLoading(of: viewModel)
-        await waitForFetchCallCount(1, in: repository)
-        XCTAssertEqual(repository.fetchCallCount, 1)
-        XCTAssertEqual(
-            viewModel.state,
-            .failed(content: NewsFeedFixtures.fallbackContent, message: "Failed to load")
-        )
-
-        viewModel.retry()
-
-        await waitForFetchCallCount(2, in: repository)
-        XCTAssertEqual(repository.fetchCallCount, 2)
-        await waitForLoading(of: viewModel)
-        XCTAssertEqual(viewModel.state, .loaded(expectedContent))
-    }
-
-    /// Verifies retry stays inert while feed is not in failed state.
-    func testRetryDoesNothingBeforeFailure() async {
-        let repository = TestNewsFeedRepository(result: .success(NewsFeedContent(cards: [], availability: .live)))
-        let viewModel = NewsFeedViewModel(
-            repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            errorManager: AppErrorManager(),
-            initialContent: NewsFeedFixtures.fallbackContent,
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: "Failed to load"
-        )
-
-        await waitForLoading(of: viewModel)
-        XCTAssertEqual(repository.fetchCallCount, 1)
-
-        viewModel.retry()
-
-        XCTAssertEqual(repository.fetchCallCount, 1)
-    }
-
-    /// Verifies cancel loading stops loading state.
-    func testCancelLoadingStopsLoadingState() {
-        let repository = TestNewsFeedRepository(result: .success(.init(cards: [], availability: .live)), delayNanoseconds: 500_000_000)
-        let viewModel = NewsFeedViewModel(
-            repository: repository,
-            widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            errorManager: AppErrorManager(),
-            initialContent: NewsFeedFixtures.fallbackContent,
-            loadFailureContent: NewsFeedFixtures.fallbackContent,
-            loadFailureMessage: "Failed to load"
-        )
-
-        viewModel.cancelLoading()
-
-        XCTAssertEqual(viewModel.state, .loaded(NewsFeedFixtures.fallbackContent))
-        XCTAssertFalse(viewModel.isLoading)
-    }
-
-    /// Waits until for loading.
-    private func waitForLoading(of viewModel: NewsFeedViewModel) async {
-        for _ in 0..<20 {
-            if !viewModel.isLoading {
-                return
-            }
-
-            try? await Task.sleep(nanoseconds: 20_000_000)
-        }
-
-        XCTFail("Timed out waiting for feed loading to finish")
-    }
-
-    /// Waits until the repository records the expected number of fetches.
-    private func waitForFetchCallCount(
-        _ expectedCount: Int,
-        in repository: TestNewsFeedRepository
-    ) async {
-        for _ in 0..<20 {
-            if repository.fetchCallCount == expectedCount {
-                return
-            }
-
-            try? await Task.sleep(nanoseconds: 20_000_000)
-        }
-
-        XCTFail("Timed out waiting for feed repository fetch count to reach \(expectedCount)")
     }
 }
 
-@MainActor
 /// Verifies persistence-facing user repository behavior.
+@MainActor
 final class UserRepositoryTests: XCTestCase {
     /// Verifies find user returns nil for whitespace username.
     func testFindUserReturnsNilForWhitespaceUsername() throws {
-        let repository = DefaultUserRepository(databaseManager: makeInMemoryAppDatabaseManager())
+        let repository = DefaultUserRepository(databaseManager: try makeInMemoryAppDatabaseManager())
 
         let user = try repository.findUser(username: "   ")
 
@@ -227,7 +142,7 @@ final class UserRepositoryTests: XCTestCase {
 
     /// Verifies find or create returns existing user without insert.
     func testFindOrCreateReturnsExistingUserWithoutInsert() throws {
-        let databaseManager = makeInMemoryAppDatabaseManager()
+        let databaseManager = try makeInMemoryAppDatabaseManager()
         let repository = DefaultUserRepository(databaseManager: databaseManager)
         let createdUser = try repository.findOrCreateUser(username: "alice")
 
@@ -239,7 +154,7 @@ final class UserRepositoryTests: XCTestCase {
 
     /// Verifies find or create inserts new user inside transaction.
     func testFindOrCreateInsertsNewUserInsideTransaction() throws {
-        let databaseManager = makeInMemoryAppDatabaseManager()
+        let databaseManager = try makeInMemoryAppDatabaseManager()
         let repository = DefaultUserRepository(databaseManager: databaseManager)
 
         let user = try repository.findOrCreateUser(username: "bob")
@@ -249,117 +164,74 @@ final class UserRepositoryTests: XCTestCase {
     }
 
     /// Verifies find or create throws for whitespace username.
-    func testFindOrCreateThrowsForWhitespaceUsername() {
-        let repository = DefaultUserRepository(databaseManager: makeInMemoryAppDatabaseManager())
+    func testFindOrCreateThrowsForWhitespaceUsername() throws {
+        let repository = DefaultUserRepository(databaseManager: try makeInMemoryAppDatabaseManager())
 
         XCTAssertThrowsError(try repository.findOrCreateUser(username: "   "))
     }
 }
 
+/// Verifies app-content and feed-card persistence repository behavior.
 @MainActor
-/// Verifies app-content repository mapping from persistence/API models.
 final class AppContentRepositoryTests: XCTestCase {
-    /// Verifies fetch channel info maps stored channel.
-    func testFetchChannelInfoMapsStoredChannel() throws {
-        let databaseManager = makeInMemoryAppDatabaseManager()
-        _ = try databaseManager.write(
-            DatabaseWriteOperation(coreData: { context in
-                let entity = CoreDataChannelEntity(context: context)
-                entity.id = "primary-channel"
-                entity.title = "Tchop"
-                entity.subtitle = "New channel name"
-            })
-        ) as Void
+    /// Verifies available channels are mapped from SwiftData records.
+    func testFetchAvailableChannelsMapsStoredChannels() throws {
+        let databaseManager = try makeInMemoryAppDatabaseManager()
+        try seedChannels(databaseManager)
+        let repository = DefaultAppContentRepository(databaseManager: databaseManager)
 
-        let repository = DefaultAppContentRepository(
-            databaseManager: databaseManager,
-            feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: []))),
-            networkAvailabilityChecker: TestNetworkAvailabilityMonitor(isInternetAvailable: true)
-        )
+        let channels = try repository.fetchAvailableChannels()
 
-        let channel = try repository.fetchChannelInfo()
-
-        XCTAssertEqual(channel.title, "Tchop")
-        XCTAssertEqual(channel.subtitle, "New channel name")
+        XCTAssertEqual(channels.map(\.id), [AppChannel.product.id, AppChannel.community.id])
     }
 
-    /// Verifies fetch channel info throws when channel is missing.
-    func testFetchChannelInfoThrowsWhenChannelIsMissing() {
-        let repository = DefaultAppContentRepository(
-            databaseManager: makeInMemoryAppDatabaseManager(),
-            feedAPIManager: TestFeedAPIManager(result: .success(FeedResponseDTO(cards: []))),
-            networkAvailabilityChecker: TestNetworkAvailabilityMonitor(isInternetAvailable: true)
-        )
+    /// Verifies available-channel fetch throws when the channel table is empty.
+    func testFetchAvailableChannelsThrowsWhenChannelIsMissing() throws {
+        let repository = DefaultAppContentRepository(databaseManager: try makeInMemoryAppDatabaseManager())
 
-        XCTAssertThrowsError(try repository.fetchChannelInfo())
+        XCTAssertThrowsError(try repository.fetchAvailableChannels())
     }
 
-    /// Verifies fetch news feed content maps dtos to cards.
-    func testFetchNewsFeedContentMapsDTOsToCards() async throws {
-        let repository = DefaultAppContentRepository(
-            databaseManager: makeInMemoryAppDatabaseManager(),
-            feedAPIManager: TestFeedAPIManager(
-                result: .success(
-                    FeedResponseDTO(
-                        cards: [
-                            .featuredArticle(
-                                FeaturedArticleDTO(
-                                    id: "article-1",
-                                    remoteUpdatedAt: Date(),
-                                    publishedAt: nil,
-                                    postedInPrefix: "Posted in ",
-                                    sourceTitle: "Blog",
-                                    brandTitle: "Tchop",
-                                    headline: "Headline",
-                                    summary: "Summary",
-                                    metadataLine: "Meta",
-                                    translationLabel: "Translate",
-                                    localState: FeaturedArticleStateDTO(
-                                        isLiked: false,
-                                        commentCount: 0,
-                                        displayMode: .expanded
-                                    ),
-                                    actions: [
-                                        ArticleActionDTO(
-                                            id: "like",
-                                            kind: .like,
-                                            systemName: "hand.thumbsup.fill",
-                                            title: "Like"
-                                        )
-                                    ]
-                                )
-                            ),
-                            .discussion(
-                                DiscussionDTO(
-                                    id: "discussion-1",
-                                    remoteUpdatedAt: Date(),
-                                    publishedAt: nil,
-                                    categoryTitle: "Discussion",
-                                    headline: "Headline",
-                                    participants: [
-                                        DiscussionParticipantDTO(
-                                            id: "participant-1",
-                                            initials: "A",
-                                            isHighlighted: true
-                                        )
-                                    ],
-                                    localState: DiscussionStateDTO(
-                                        isParticipating: false,
-                                        replyCount: 0,
-                                        joinedCount: 1,
-                                        displayMode: .expanded
-                                    )
-                                )
-                            )
-                        ]
+    /// Verifies feed-card repository round-trips source-neutral card payloads.
+    func testFeedCardRepositorySavesLoadsAndUpdatesCards() throws {
+        let databaseManager = try makeInMemoryAppDatabaseManager()
+        let repository = FeedCardRepository(databaseManager: databaseManager)
+        let card = makeTextFeedCard(id: "card-1", text: "Text", headline: "Headline")
+
+        try repository.saveCards([card])
+        var loadedCards = try repository.loadCards()
+        XCTAssertEqual(loadedCards, [card])
+
+        let updatedCard = card.replacingInteractionState(
+            isLiked: true,
+            commentsCount: 2,
+            displayMode: .compact
+        )
+        try repository.saveCard(updatedCard)
+
+        loadedCards = try repository.loadCards()
+        XCTAssertEqual(loadedCards, [updatedCard])
+    }
+
+    /// Inserts deterministic channel records into the in-memory SwiftData store.
+    private func seedChannels(_ databaseManager: any DatabaseManaging) throws {
+        try databaseManager.write(
+            DatabaseWriteOperation(swiftData: { context in
+                context.insert(
+                    ChannelRecord(
+                        id: AppChannel.product.id,
+                        title: AppChannel.product.title,
+                        subtitle: AppChannel.product.subtitle
                     )
                 )
-            ),
-            networkAvailabilityChecker: TestNetworkAvailabilityMonitor(isInternetAvailable: true)
-        )
-
-        let content = try await repository.refreshNewsFeedContent()
-
-        XCTAssertEqual(content.cards.count, 2)
+                context.insert(
+                    ChannelRecord(
+                        id: AppChannel.community.id,
+                        title: AppChannel.community.title,
+                        subtitle: AppChannel.community.subtitle
+                    )
+                )
+            })
+        ) as Void
     }
 }

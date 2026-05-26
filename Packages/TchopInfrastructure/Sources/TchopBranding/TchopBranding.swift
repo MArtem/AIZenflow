@@ -225,8 +225,8 @@ public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
         return variant
     }
 
-        /// Resolves the semantic brand token set for one active variant.
-public static func theme(for variant: BrandVariant) -> BrandTheme {
+    /// Resolves the semantic brand token set for one active variant.
+    public static func theme(for variant: BrandVariant) -> BrandTheme {
         switch variant {
         case .classic:
             return BrandTheme(

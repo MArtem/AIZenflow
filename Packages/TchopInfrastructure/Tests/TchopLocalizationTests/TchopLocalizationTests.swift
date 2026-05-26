@@ -42,5 +42,44 @@ final class TchopLocalizationTests: XCTestCase {
 
         XCTAssertTrue(value.hasPrefix("Preview."))
     }
-}
 
+    /// Verifies unsupported explicit locale falls back to development language before caller fallback.
+    func testLocalizedFallsBackToDevelopmentLanguageForUnsupportedLocale() {
+        let manager = LocalizationManager()
+
+        let value = manager.localized(
+            "login.title",
+            fallback: "Sign in",
+            localeIdentifier: "uk"
+        )
+
+        XCTAssertEqual(value, "Welcome back")
+    }
+
+    /// Verifies missing keys use the caller fallback value.
+    func testLocalizedUsesCallerFallbackForMissingKey() {
+        let manager = LocalizationManager()
+
+        let value = manager.localized(
+            "missing.key",
+            fallback: "Fallback",
+            localeIdentifier: "en"
+        )
+
+        XCTAssertEqual(value, "Fallback")
+    }
+
+    /// Verifies preferred locale resolves exact and language-code matches before defaulting.
+    func testPreferredSupportedLocaleIdentifierResolvesBestSupportedMatch() {
+        let manager = LocalizationManager()
+
+        XCTAssertEqual(
+            manager.preferredSupportedLocaleIdentifier(preferredLocaleIdentifiers: ["ru-UA", "en-US"]),
+            "ru"
+        )
+        XCTAssertEqual(
+            manager.preferredSupportedLocaleIdentifier(preferredLocaleIdentifiers: ["fr-FR"]),
+            "en"
+        )
+    }
+}

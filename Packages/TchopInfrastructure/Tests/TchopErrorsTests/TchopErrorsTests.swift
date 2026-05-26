@@ -26,6 +26,51 @@ struct TchopErrorsTests {
     }
 
     @Test
+    func mapsCancelledRequestToNonBlockingClientInfo() {
+        let mapper = APIErrorAppErrorMapper()
+        let mapped = mapper.map(.requestCancelled)
+
+        #expect(mapped.category == .client)
+        #expect(mapped.severity == .info)
+        #expect(!mapped.isRetryable)
+        #expect(mapped.suggestion == .none)
+        #expect(mapped.messageKey == "error.request.cancelled")
+    }
+
+    @Test
+    func mapsServerStatusCodeToRetryableServerError() {
+        let mapper = APIErrorAppErrorMapper()
+        let mapped = mapper.map(.invalidStatusCode(503))
+
+        #expect(mapped.category == .server)
+        #expect(mapped.severity == .error)
+        #expect(mapped.isRetryable)
+        #expect(mapped.suggestion == .retry)
+        #expect(mapped.messageKey == "error.server.unavailable")
+    }
+
+    @Test
+    func defaultMapperPreservesContextForUnknownErrors() {
+        struct UnknownError: Error, CustomStringConvertible {
+            let description = "unknown failure"
+        }
+
+        let mapper = DefaultAppErrorMapper()
+        let context = AppErrorContext(
+            operation: "save",
+            feature: "composer",
+            metadata: ["cardType": "photo"]
+        )
+
+        let mapped = mapper.map(UnknownError(), context: context)
+
+        #expect(mapped.category == .unknown)
+        #expect(mapped.isRetryable)
+        #expect(mapped.context == context)
+        #expect(mapped.debugDescription.contains("unknown failure"))
+    }
+
+    @Test
     func defaultCatalogProvidesStableFallbackMessage() {
         let catalog = DefaultAppErrorMessageCatalog()
         let message = catalog.userMessage(

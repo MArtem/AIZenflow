@@ -44,10 +44,8 @@ final class LoginViewModelTests: XCTestCase {
         XCTAssertNil(viewModel.errorMessage)
     }
 
-    func testSubmitShowsGenericErrorWhenLoginFails() {
-        let expectation = expectation(description: "credential login attempted")
+    func testSubmitShowsGenericErrorWhenLoginFails() async {
         let viewModel = makeViewModel { _, _ in
-            defer { expectation.fulfill() }
             throw TestLoginError.failed
         }
         viewModel.email = "alice@example.com"
@@ -55,8 +53,7 @@ final class LoginViewModelTests: XCTestCase {
 
         viewModel.submit()
 
-        wait(for: [expectation], timeout: 1)
-        waitForAsyncStateUpdate()
+        await waitForErrorMessage(in: viewModel)
         XCTAssertEqual(
             viewModel.errorMessage,
             AppLocalization.text("login.error.generic", fallback: "Unable to sign in right now.")
@@ -72,17 +69,21 @@ final class LoginViewModelTests: XCTestCase {
             onRegister: { _, _ in },
             onAppleLogin: { _ in },
             appleAuthenticationManager: TestAppleAuthenticationManager(),
-            errorManager: AppErrorManager(),
+            errorManager: AppErrorManager(
+                mapper: AppRuntimeErrorMapper(),
+                messageCatalog: AppRuntimeErrorMessageCatalog()
+            ),
             submissionThrottleInterval: 0
         )
     }
 
-    private func waitForAsyncStateUpdate() {
-        let expectation = expectation(description: "async state update")
-        Task { @MainActor in
-            expectation.fulfill()
+    private func waitForErrorMessage(in viewModel: LoginViewModel) async {
+        for _ in 0..<50 {
+            if viewModel.errorMessage != nil {
+                return
+            }
+            try? await Task.sleep(for: .milliseconds(10))
         }
-        wait(for: [expectation], timeout: 1)
     }
 
 }

@@ -118,9 +118,22 @@ final class DefaultAppContentRepository: AppContentRepository {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
                 let descriptor = FetchDescriptor<ChannelRecord>()
-                return try context.fetch(descriptor).map(AppContentMapper.mapChannel)
+                return try context.fetch(descriptor)
+                    .map(AppContentMapper.mapChannel)
+                    .sorted(by: Self.sortChannelsByPreferredOrder)
             })
         )
+    }
+
+    private static func sortChannelsByPreferredOrder(_ lhs: AppChannel, _ rhs: AppChannel) -> Bool {
+        let preferredOrder = AppChannel.allKnown.map(\.id)
+        let lhsIndex = preferredOrder.firstIndex(of: lhs.id) ?? Int.max
+        let rhsIndex = preferredOrder.firstIndex(of: rhs.id) ?? Int.max
+        if lhsIndex != rhsIndex {
+            return lhsIndex < rhsIndex
+        }
+
+        return lhs.title.localizedCaseInsensitiveCompare(rhs.title) == .orderedAscending
     }
 }
 

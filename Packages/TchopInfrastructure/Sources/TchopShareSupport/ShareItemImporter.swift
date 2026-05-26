@@ -114,7 +114,7 @@ public final class NSItemProviderShareItemImporter {
         )
     }
 
-        /// Loads supported text/file items from share providers into durable imported items.
+    /// Loads supported text/file items from share providers into durable imported items.
     ///
     /// External usage:
     /// Called by share-extension controllers after receiving `NSExtensionItem` providers.

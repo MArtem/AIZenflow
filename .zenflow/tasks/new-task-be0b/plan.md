@@ -410,6 +410,15 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - temporary override: `./TchopAppTests` is allowed to be modified until the user explicitly says to stop writing tests; after that command, the previous no-touch rule returns automatically.
   - verification expectation: after each coherent test block, run relevant package tests/builds plus `git diff --check`; simulator UI remains disabled unless explicitly requested.
 
+
+- Completed now: package and app test coverage expansion pass:
+  - expanded `./Packages/TchopInfrastructure` test coverage across SyncCore, Apple authentication, navigation, branding, cache, share support, localization, and app-error mapping surfaces.
+  - realigned `./TchopAppTests` with the current source-neutral feed-card runtime and SwiftData-only active persistence policy; removed stale remote feed repository/DTO assumptions from test doubles and feed view-model tests.
+  - added/updated app tests for feed channel scoping/search/interactions, app session restore/sign-out/widget clearing, navigation snapshot restore/migration/future-version handling, database bootstrap policy, app DI, login validation/error mapping, deep links, user repository, and feed-card persistence.
+  - updated `./TchopAppUITests/TchopAppUITests.swift` to match the current localized password-visibility accessibility label.
+  - fixed app runtime issues surfaced by tests: login unknown errors now use the app login-generic localized message through `AppRuntimeErrorMessageCatalog`, and `DefaultAppContentRepository` now returns channels in stable product order instead of raw SwiftData fetch order.
+- Verification: `git diff --check` succeeded; `swift test` in `./Packages/TchopInfrastructure` succeeded with 59 XCTest tests and 37 Swift Testing tests; full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp` on iPhone 17 Pro iOS 26.0 succeeded; `./scripts/verify.sh medium` succeeded, including package tests, app/UI tests, and final debug build.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, clean/regular `swift test` in `./Packages/TchopInfrastructure`, documentation validators, and `./scripts/verify.sh low`.
 - Latest captured build log no longer contains the share-extension AppIntents metadata warning.

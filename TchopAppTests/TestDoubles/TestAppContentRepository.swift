@@ -1,115 +1,111 @@
 import Foundation
-import CoreData
-import SwiftData
 import TchopDatabase
 @testable import TchopApp
 
-/// Lightweight in-memory repository used by view-model and state tests.
+/// Lightweight in-memory app-content repository used by state/composition tests.
 @MainActor
 final class TestAppContentRepository: AppContentRepository {
+    /// Returns a stable channel snapshot for tests that do not exercise persistence.
     func fetchAvailableChannels() throws -> [AppChannel] {
         [AppChannel.defaultChannel]
     }
-
-    /// Returns an empty feed fixture for tests that do not care about content mapping.
-    func currentNewsFeedContent(channelID: String) throws -> NewsFeedContent? {
-        NewsFeedContent(cards: [], availability: .live)
-    }
-
-    /// Returns an empty feed fixture for tests that do not care about content mapping.
-    func refreshNewsFeedContent(channelID: String) async throws -> NewsFeedContent {
-        NewsFeedContent(cards: [], availability: .live)
-    }
-
-    func performPhotoAction(
-        articleID: String,
-        action: PhotoCardAction
-    ) async throws -> PhotoCardModel {
-        PhotoCardModel(
-            id: articleID,
-            channelID: AppChannel.defaultChannel.id,
-            postedInPrefix: "Posted in ",
-            sourceTitle: "Source",
-            brandTitle: "Brand",
-            headline: "Headline",
-            summary: "Summary",
-            metadataLine: "Metadata",
-            translationLabel: "",
-            commentCount: 0,
-            actions: [],
-            uiState: .idle
-        )
-    }
-
-    func performTextAction(
-        discussionID: String,
-        action: TextCardAction
-    ) async throws -> TextCardModel {
-        TextCardModel(
-            id: discussionID,
-            channelID: AppChannel.defaultChannel.id,
-            categoryTitle: "Category",
-            headline: "Headline",
-            participants: [],
-            replyCount: 0,
-            joinedCount: 0,
-            uiState: .idle
-        )
-    }
 }
 
-/// Stub feed API manager returning deterministic fixture payloads in tests.
-struct TestFeedAPIManager: FeedAPIManaging {
-    let result: Result<FeedResponseDTO, Error>
-
-    /// Returns the configured feed response fixture.
-    func fetchFeed(channelID: String) async throws -> FeedResponseDTO {
-        try result.get()
-    }
-
-    func performPhotoAction(
-        channelID: String,
-        articleID: String,
-        action: PhotoCardAction,
-        context: PhotoActionContext
-    ) async throws -> PhotoDTO {
-        throw TestDatabaseError.fetchFailed
-    }
-
-    func performTextAction(
-        channelID: String,
-        discussionID: String,
-        action: TextCardAction,
-        context: TextActionContext
-    ) async throws -> TextDTO {
-        throw TestDatabaseError.fetchFailed
-    }
-}
-
-/// Test-only error for fixture setup failures.
-enum TestDatabaseError: Error {
-    case fetchFailed
-    case insertFailed
-}
-
-/// Reachability double that lets repository tests opt into online behavior explicitly.
-struct TestNetworkAvailabilityMonitor: NetworkAvailabilityChecking {
-    let internetAvailable: Bool
-
-    func isInternetAvailable() async -> Bool {
-        internetAvailable
-    }
-}
-
-/// Creates a disposable in-memory database manager for app tests.
+/// In-memory feed-card persistence double for feed and shell tests.
 @MainActor
-func makeInMemoryAppDatabaseManager(
-    backend: DatabaseBackendSelectionPolicy = .swiftData
-) -> any DatabaseManaging {
-    AppDatabase.makeDatabaseManager(
+final class TestFeedCardRepository: FeedCardPersisting {
+    private(set) var savedBatches: [[FeedCard]] = []
+    private(set) var savedCards: [FeedCard]
+
+    /// Creates a feed-card repository double seeded with already persisted cards.
+    init(cards: [FeedCard] = []) {
+        self.savedCards = cards
+    }
+
+    /// Returns the current persisted card snapshot.
+    func loadCards() throws -> [FeedCard] {
+        savedCards
+    }
+
+    /// Saves a batch of newly published cards.
+    func saveCards(_ cards: [FeedCard]) throws {
+        savedBatches.append(cards)
+        savedCards = cards + savedCards.filter { existingCard in
+            !cards.contains(where: { $0.id == existingCard.id })
+        }
+    }
+
+    /// Saves or updates one persisted card.
+    func saveCard(_ card: FeedCard) throws {
+        if let index = savedCards.firstIndex(where: { $0.id == card.id }) {
+            savedCards[index] = card
+        } else {
+            savedCards.insert(card, at: 0)
+        }
+    }
+}
+
+/// Creates a disposable in-memory SwiftData database manager for app tests.
+@MainActor
+func makeInMemoryAppDatabaseManager() throws -> any DatabaseManaging {
+    try AppDatabase.makeDatabaseManagerOrThrow(
         configuration: DatabaseConfiguration(
-            backendSelectionPolicy: backend,
+            backendSelectionPolicy: .swiftData,
             isStoredInMemoryOnly: true
         )
+    )
+}
+
+/// Creates a channels store with a deterministic active user/channel snapshot.
+@MainActor
+func makeTestChannelsStore(
+    channels: [AppChannel] = AppChannel.allKnown,
+    selectedChannelID: String = AppChannel.defaultChannel.id,
+    userID: String = "test-user"
+) -> ChannelsStore {
+    let userDefaults = UserDefaults(suiteName: "tchop.tests.\(UUID().uuidString)")!
+    let store = ChannelsStore(
+        selectionStore: UserDefaultsChannelSelectionStore(
+            userDefaults: userDefaults,
+            keyPrefix: "selected_channel_id.tests"
+        )
+    )
+    store.setAvailableChannels(channels)
+    _ = store.activate(for: userID, preferredSelectedChannelID: selectedChannelID)
+    return store
+}
+
+/// Creates a feed-card store from an in-memory repository double.
+@MainActor
+func makeTestFeedCardStore(cards: [FeedCard] = []) -> FeedCardStore {
+    FeedCardStore(repository: TestFeedCardRepository(cards: cards))
+}
+
+/// Creates a valid text feed card for app runtime tests.
+func makeTextFeedCard(
+    id: String = UUID().uuidString,
+    channelID: String = AppChannel.defaultChannel.id,
+    text: String,
+    headline: String? = nil,
+    createdAt: Date = Date(timeIntervalSince1970: 1)
+) -> FeedCard {
+    var textContent = [
+        FeedTextContent(kind: .text, text: text)
+    ]
+    if let headline {
+        textContent.append(FeedTextContent(kind: .headline, text: headline))
+    }
+
+    return FeedCard(
+        id: id,
+        channelID: channelID,
+        createdAt: createdAt,
+        kind: .text,
+        orderedTextContent: textContent,
+        sourceContent: nil,
+        mediaContent: nil,
+        isLiked: false,
+        commentsCount: 0,
+        displayMode: .expanded
     )
 }

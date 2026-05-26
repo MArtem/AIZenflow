@@ -35,14 +35,14 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
         self.fileURL = directoryURL.appendingPathComponent(fileName).appendingPathExtension("json")
     }
 
-        /// Atomically writes the current snapshot value to the app-group file.
-public func save(_ item: Item) throws {
+    /// Atomically writes the current snapshot value to the app-group file.
+    public func save(_ item: Item) throws {
         let data = try encoder.encode(item)
         try data.write(to: fileURL, options: [.atomic])
     }
 
-        /// Loads the current snapshot value, returning `nil` when the file does not exist.
-public func load() throws -> Item? {
+    /// Loads the current snapshot value, returning `nil` when the file does not exist.
+    public func load() throws -> Item? {
         guard fileManager.fileExists(atPath: fileURL.path()) else {
             return nil
         }
@@ -51,8 +51,8 @@ public func load() throws -> Item? {
         return try decoder.decode(Item.self, from: data)
     }
 
-        /// Removes the snapshot file if it exists.
-public func clear() throws {
+    /// Removes the snapshot file if it exists.
+    public func clear() throws {
         guard fileManager.fileExists(atPath: fileURL.path()) else {
             return
         }

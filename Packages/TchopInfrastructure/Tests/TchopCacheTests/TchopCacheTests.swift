@@ -59,6 +59,43 @@ final class TchopCacheTests: XCTestCase {
         XCTAssertNil(remaining)
     }
 
+    /// Verifies cache reports deserialization failures when callers request the wrong value type.
+    func testCacheReportsDeserializationFailureForWrongRequestedType() async throws {
+        let cache = InMemoryLocalCacheManager()
+
+        try await cache.setValue("value", forKey: "key", expiration: .never)
+
+        do {
+            let _: Int? = try await cache.value(forKey: "key", as: Int.self)
+            XCTFail("Expected deserialization failure")
+        } catch let error as LocalCacheError {
+            XCTAssertEqual(error, .deserializationFailed)
+        }
+    }
+
+    /// Verifies expired file cache entries are removed from disk after read.
+    func testFileCacheExpiresAndDeletesStoredEntry() async throws {
+        let directory = try makeTemporaryDirectory()
+        defer { try? FileManager.default.removeItem(at: directory) }
+
+        let cache = try FileLocalCacheManager(
+            directoryURL: directory,
+            dateProvider: { Date(timeIntervalSince1970: 200) }
+        )
+
+        try await cache.setValue(
+            "expired",
+            forKey: "expired-key",
+            expiration: .at(Date(timeIntervalSince1970: 100))
+        )
+        XCTAssertEqual(try cacheFileCount(in: directory), 1)
+
+        let value: String? = try await cache.value(forKey: "expired-key", as: String.self)
+
+        XCTAssertNil(value)
+        XCTAssertEqual(try cacheFileCount(in: directory), 0)
+    }
+
     /// Verifies cache rejects empty key.
     func testCacheRejectsEmptyKey() async throws {
         let cache = InMemoryLocalCacheManager()
@@ -78,5 +115,12 @@ final class TchopCacheTests: XCTestCase {
         try FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
         return directory
     }
-}
 
+    /// Counts cache files in a temporary cache directory.
+    private func cacheFileCount(in directory: URL) throws -> Int {
+        try FileManager.default
+            .contentsOfDirectory(at: directory, includingPropertiesForKeys: nil)
+            .filter { $0.pathExtension == "cache" }
+            .count
+    }
+}

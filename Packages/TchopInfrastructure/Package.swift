@@ -259,6 +259,16 @@ let package = Package(
             name: "TchopShareSupportTests",
             dependencies: ["TchopShareSupport"],
             swiftSettings: strictConcurrencySettings
+        ),
+        .testTarget(
+            name: "TchopAppleAuthenticationTests",
+            dependencies: ["TchopAppleAuthentication"],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .testTarget(
+            name: "TchopNavigationTests",
+            dependencies: ["TchopNavigation"],
+            swiftSettings: strictConcurrencySettings
         )
     ]
 )

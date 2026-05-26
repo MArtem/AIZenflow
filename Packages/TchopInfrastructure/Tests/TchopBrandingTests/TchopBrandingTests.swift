@@ -20,4 +20,22 @@ final class TchopBrandingTests: XCTestCase {
         XCTAssertEqual(manager.activeVariant, .ocean)
         XCTAssertEqual(manager.activeTheme.variant, .ocean)
     }
+
+    /// Verifies unknown info dictionary values fall back to the stable default variant.
+    func testInfoDictionaryRejectsUnknownVariant() {
+        let manager = InfoDictionaryBrandThemeManager(
+            infoDictionary: [BrandThemeInfoKey.variant: "unknown"]
+        )
+
+        XCTAssertEqual(manager.activeVariant, .classic)
+        XCTAssertEqual(manager.activeTheme.variant, .classic)
+    }
+
+    /// Verifies glass themes expose only registered semantic roles.
+    func testGlassThemeResolvesRegisteredRolesOnly() {
+        let theme = InfoDictionaryBrandThemeManager.theme(for: .classic)
+
+        XCTAssertNotNil(theme.glass.style(for: .floatingActionButton))
+        XCTAssertNil(theme.glass.style(for: BrandGlassRole(rawValue: "unknown.role")))
+    }
 }
