@@ -396,8 +396,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - replaced mutable static URL protocol test state in `./Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift` with a locked sendable state holder and locked counter helpers for sendable request-handler closures.
 - Verification: clean `swift test` in `./Packages/TchopInfrastructure` succeeded with no Swift compiler warnings in the captured warning grep; regular `swift test` succeeded with 52 XCTest tests and 20 Swift Testing tests; `git diff --check`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `./scripts/verify.sh low` all succeeded. Xcode build still prints a non-code AppIntents metadata note/warning for the share extension because it has no AppIntents dependency.
 
+
+- Completed now: removed the remaining Xcode AppIntents metadata warning from share-extension builds:
+  - updated `./TchopApp.xcodeproj/project.pbxproj` so all `TchopShareExtension` build configurations pass `-Xfrontend -disable-autolink-framework -Xfrontend AppIntents` through `OTHER_SWIFT_FLAGS`.
+  - reason: the share extension does not use AppIntents, but Xcode was still running `ExtractAppIntentsMetadata` and warning that `AppIntents.framework` was not linked.
+  - avoided adding an unused `AppIntents.framework` dependency to the extension binary.
+- Verification: `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, and `./scripts/verify.sh low` succeeded; captured build log no longer contains `Metadata extraction skipped` or `warning:` entries.
+
 ## Verification Status
-- Latest verification succeeded with `git diff --check`, clean/regular `swift test` in `./Packages/TchopInfrastructure`, documentation validators, and `./scripts/verify.sh low`.
+- Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, clean/regular `swift test` in `./Packages/TchopInfrastructure`, documentation validators, and `./scripts/verify.sh low`.
+- Latest captured build log no longer contains the share-extension AppIntents metadata warning.
 - Build and package tests were run by explicit user permission/request; simulator UI was not run.
 
 ## Archive
