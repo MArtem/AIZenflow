@@ -30,11 +30,12 @@ Every working response must start with:
 - Current worktree is `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
 
 ### Verification / Builds / Tests
-- Do not run builds, tests, or simulator UI unless the user explicitly asks.
+- The user explicitly opened the test-writing phase on 2026-05-26. Until the user says to stop writing tests, test implementation is allowed and expected.
+- While this test-writing phase is open, `./TchopAppTests` may be changed. The previous no-touch rule returns automatically when the user says to stop writing tests.
+- Run relevant package tests/builds after each coherent test block; simulator UI remains off unless the user explicitly asks for manual/simulator validation.
 - `git diff --check` or read-only/static documentation checks are allowed when useful.
-- Do not touch `./TchopAppTests` unless the user explicitly asks.
 - Low-resource mode: minimum reading, minimum commands, one meaningful verification only when requested or explicitly justified.
-- Be capable of strong test strategy and test implementation, but do not spend time/resources on tests until the user explicitly opens that phase.
+- Be capable of strong test strategy and test implementation; during the current phase, prioritize sufficient coverage for packages/managers first, then app-specific code.
 
 ### Implementation Style
 - No speculative UI.

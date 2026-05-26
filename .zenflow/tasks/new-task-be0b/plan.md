@@ -403,6 +403,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - avoided adding an unused `AppIntents.framework` dependency to the extension binary.
 - Verification: `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, and `./scripts/verify.sh low` succeeded; captured build log no longer contains `Metadata extraction skipped` or `warning:` entries.
 
+
+- Active now: full app test coverage expansion phase opened by user on 2026-05-26:
+  - goal: cover the whole app at a sufficient level, starting with all packages/managers and then app-specific code.
+  - existing tests should be reused, updated, or extended where practical; new tests should be added where coverage gaps remain.
+  - temporary override: `./TchopAppTests` is allowed to be modified until the user explicitly says to stop writing tests; after that command, the previous no-touch rule returns automatically.
+  - verification expectation: after each coherent test block, run relevant package tests/builds plus `git diff --check`; simulator UI remains disabled unless explicitly requested.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, clean/regular `swift test` in `./Packages/TchopInfrastructure`, documentation validators, and `./scripts/verify.sh low`.
 - Latest captured build log no longer contains the share-extension AppIntents metadata warning.
