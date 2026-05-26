@@ -438,10 +438,18 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - converted `LoginViewModelTests.testSubmitTrimsWhitespaceBeforeLogin()` to async polling instead of an XCTest expectation under `@MainActor`, fixing a full-suite signal-trap flake while preserving the production behavior assertion.
 - Verification: `git diff --check` succeeded; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded; `swift test` in `./Packages/TchopInfrastructure` succeeded with 59 XCTest tests and 37 Swift Testing tests; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded.
 
+
+- Completed now: feed/card runtime and composer contract test expansion:
+  - added `./TchopAppTests/NewsFeedViewModelTests.swift` coverage for whitespace-only search, multi-token same-field matching, equal-priority stable search ordering, search dismissal restoring the selected-channel snapshot, duplicate feed-card sync no-op behavior, targeted single-card update persistence, and missing-card update no-op behavior.
+  - added `./TchopAppTests/NewsFeedViewModelTests.swift` persistence coverage for `FeedCardRepository.saveCard` inserting a missing record and `loadCards()` returning cards newest-first by `createdAt`.
+  - extended `./TchopAppTests/TestDoubles/TestAppContentRepository.swift` to record single-card saves separately from batch saves, allowing tests to verify targeted persistence rather than broad batch writes.
+  - added `./TchopAppTests/ShareExtensionRuntimeContractTests.swift` composer contract coverage for required text behavior without media, removable text when media carries the draft, media removal making text required again, source URL publishing only with visible source text, and photo metadata publishing only non-empty fields.
+- Verification: targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests -only-testing:TchopAppTests/AppContentRepositoryTests test` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/ShareExtensionRuntimeContractTests test` succeeded; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded; `swift test` in `./Packages/TchopInfrastructure` succeeded with 59 XCTest tests and 37 Swift Testing tests; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` and `git diff --check` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
-- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with the newly enabled app-shell/share-extension runtime tests plus the added launch/session/profile/login coverage.
+- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with the newly enabled app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage.
 - Build and tests were run by explicit user permission/request; no manual simulator UI flow was run in this block.
 
 ## Archive

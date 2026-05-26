@@ -15,6 +15,7 @@ final class TestAppContentRepository: AppContentRepository {
 @MainActor
 final class TestFeedCardRepository: FeedCardPersisting {
     private(set) var savedBatches: [[FeedCard]] = []
+    private(set) var savedSingleCards: [FeedCard] = []
     private(set) var savedCards: [FeedCard]
 
     /// Creates a feed-card repository double seeded with already persisted cards.
@@ -37,6 +38,7 @@ final class TestFeedCardRepository: FeedCardPersisting {
 
     /// Saves or updates one persisted card.
     func saveCard(_ card: FeedCard) throws {
+        savedSingleCards.append(card)
         if let index = savedCards.firstIndex(where: { $0.id == card.id }) {
             savedCards[index] = card
         } else {

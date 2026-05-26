@@ -199,6 +199,83 @@ final class ShareExtensionRuntimeContractTests: XCTestCase {
         XCTAssertEqual(fileMedia.teaserImage?.copyright, "© Tchop")
     }
 
+
+    func testTextFieldCannotBeRemovedWhenDraftHasNoMedia() {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+
+        draft.handleBackspaceOnEmptyField(.text)
+        draft.removeFieldIfOptionalAndEmpty(.text)
+
+        XCTAssertTrue(draft.visibleTextFieldKinds.contains(.text))
+        XCTAssertTrue(draft.fieldIsRequired(.text))
+        XCTAssertFalse(draft.fieldSupportsRemoval(.text))
+        XCTAssertFalse(draft.canPublish)
+    }
+
+    func testTextFieldCanBeRemovedWhenMediaCarriesDraft() throws {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+        draft.selectPickedFile(kind: .video, displayTitle: "clip.mov", fileURL: nil)
+
+        draft.handleBackspaceOnEmptyField(.text)
+
+        XCTAssertFalse(draft.visibleTextFieldKinds.contains(.text))
+        XCTAssertTrue(draft.canPublish)
+        let feedCard = try XCTUnwrap(draft.makeCard(id: "video-card")?.feedCardModel)
+        XCTAssertEqual(feedCard.kind, .video)
+        XCTAssertNil(feedCard.textValue(for: .text))
+    }
+
+    func testRemovingMediaFromMediaOnlyDraftMakesTextRequiredAgain() {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+        draft.selectPickedFile(kind: .video, displayTitle: "clip.mov", fileURL: nil)
+        draft.handleBackspaceOnEmptyField(.text)
+
+        draft.removeMedia()
+
+        XCTAssertNil(draft.media)
+        XCTAssertFalse(draft.canPublish)
+        XCTAssertNil(draft.effectiveKind)
+        XCTAssertTrue(draft.fieldIsRequired(.text))
+        XCTAssertFalse(draft.fieldSupportsRemoval(.text))
+    }
+
+    func testSourceURLPublishesOnlyWithVisibleSourceText() throws {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+        draft.updateText("Body", for: .text)
+        draft.updateSourceURLString(" https://example.com/source ")
+
+        var feedCard = try XCTUnwrap(draft.makeCard(id: "text-card")?.feedCardModel)
+        XCTAssertNil(feedCard.sourceContent)
+
+        draft.applyInsertion(.source)
+        draft.updateText("Source title", for: .source)
+        feedCard = try XCTUnwrap(draft.makeCard(id: "text-card")?.feedCardModel)
+
+        XCTAssertEqual(feedCard.sourceContent?.text, "Source title")
+        XCTAssertEqual(feedCard.sourceContent?.resourceURLString, "https://example.com/source")
+    }
+
+    func testPhotoMetadataPublishesOnlyNonEmptyFields() throws {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+        draft.addPickedPhoto(displayTitle: "photo.jpg", fileURL: URL(fileURLWithPath: "/tmp/photo.jpg"))
+        let photoID = try XCTUnwrap(draft.photoItems.first?.id)
+        draft.showPhotoCaptionField(id: photoID)
+        draft.updatePhotoCaption("   ", id: photoID)
+        draft.removePhotoCaptionFieldIfEmpty(id: photoID)
+        draft.showPhotoCopyrightField(id: photoID)
+        draft.updatePhotoCopyright("© Tchop", id: photoID)
+
+        let feedCard = try XCTUnwrap(draft.makeCard(id: "photo-card")?.feedCardModel)
+        guard case let .photos(items) = feedCard.mediaContent else {
+            XCTFail("Expected photo media")
+            return
+        }
+
+        XCTAssertEqual(items.count, 1)
+        XCTAssertNil(items[0].caption)
+        XCTAssertEqual(items[0].copyright, "© Tchop")
+    }
+
     @MainActor
     func testSharedFeedCardSyncMovesPendingCardsIntoRuntimeStore() async throws {
         let rootURL = FileManager.default.temporaryDirectory

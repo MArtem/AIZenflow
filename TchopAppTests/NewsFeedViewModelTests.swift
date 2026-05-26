@@ -121,6 +121,120 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["community-card"])
     }
 
+
+    /// Verifies whitespace-only search behaves like no query and does not enter no-results state.
+    func testWhitespaceSearchKeepsCurrentChannelCardsVisible() {
+        let viewModel = makeViewModel(cards: [
+            makeTextFeedCard(id: "card-1", text: "Visible")
+        ])
+
+        viewModel.toggleSearchPresentation()
+        viewModel.searchQuery = "      "
+
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["card-1"])
+        XCTAssertFalse(viewModel.showsNoSearchResults)
+        XCTAssertEqual(viewModel.state, .content(viewModel.visibleContent))
+    }
+
+    /// Verifies multiple search tokens must match within one prioritized field.
+    func testSearchRequiresAllTokensWithinSameField() {
+        let splitTokenCard = makeTextFeedCard(
+            id: "split-token-card",
+            text: "Revenue",
+            headline: "Growth"
+        )
+        let sameFieldCard = makeTextFeedCard(
+            id: "same-field-card",
+            text: "Revenue Growth"
+        )
+        let viewModel = makeViewModel(cards: [splitTokenCard, sameFieldCard])
+
+        viewModel.toggleSearchPresentation()
+        viewModel.searchQuery = "revenue growth"
+
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["same-field-card"])
+    }
+
+    /// Verifies equal-priority search matches preserve the current feed order.
+    func testSearchPreservesFeedOrderForEqualPriorityMatches() {
+        let firstCard = makeTextFeedCard(id: "first-card", text: "Release notes")
+        let secondCard = makeTextFeedCard(id: "second-card", text: "Release update")
+        let viewModel = makeViewModel(cards: [firstCard, secondCard])
+
+        viewModel.toggleSearchPresentation()
+        viewModel.searchQuery = "release"
+
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["first-card", "second-card"])
+    }
+
+    /// Verifies hiding search clears the query and restores the full selected-channel snapshot.
+    func testToggleSearchOffClearsQueryAndRestoresVisibleCards() {
+        let viewModel = makeViewModel(cards: [
+            makeTextFeedCard(id: "alpha-card", text: "Alpha"),
+            makeTextFeedCard(id: "beta-card", text: "Beta")
+        ])
+
+        viewModel.toggleSearchPresentation()
+        viewModel.searchQuery = "alpha"
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["alpha-card"])
+
+        viewModel.toggleSearchPresentation()
+
+        XCTAssertFalse(viewModel.isSearchPresented)
+        XCTAssertEqual(viewModel.searchQuery, "")
+        XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["alpha-card", "beta-card"])
+    }
+
+    /// Verifies syncing a duplicate feed card does not overwrite the persisted runtime card.
+    func testFeedCardStoreSyncIgnoresDuplicateCardIDs() throws {
+        let originalCard = makeTextFeedCard(id: "card-1", text: "Original")
+        let duplicateCard = makeTextFeedCard(id: "card-1", text: "Duplicate")
+        let repository = TestFeedCardRepository(cards: [originalCard])
+        let feedCardStore = FeedCardStore(repository: repository)
+
+        try feedCardStore.sync([duplicateCard])
+
+        XCTAssertTrue(repository.savedBatches.isEmpty)
+        XCTAssertEqual(repository.savedCards, [originalCard])
+        XCTAssertEqual(feedCardStore.cards.map(\.id), ["card-1"])
+        XCTAssertEqual(feedCardStore.cards.first?.serviceHeadline, "Original")
+    }
+
+    /// Verifies single-card interaction persistence updates only the targeted card.
+    func testFeedCardStoreUpdatePersistsOnlyTargetedCard() throws {
+        let firstCard = makeTextFeedCard(id: "first-card", text: "First")
+        let secondCard = makeTextFeedCard(id: "second-card", text: "Second")
+        let repository = TestFeedCardRepository(cards: [firstCard, secondCard])
+        let feedCardStore = FeedCardStore(repository: repository)
+
+        feedCardStore.updatePersistedCard(id: "second-card") { card in
+            card.replacingInteractionState(isLiked: true, commentsCount: 3, displayMode: .compact)
+        }
+
+        XCTAssertEqual(repository.savedSingleCards.map(\.id), ["second-card"])
+        XCTAssertEqual(repository.savedCards.map(\.id), ["first-card", "second-card"])
+        XCTAssertFalse(repository.savedCards[0].isLiked)
+        XCTAssertTrue(repository.savedCards[1].isLiked)
+        XCTAssertEqual(repository.savedCards[1].commentsCount, 3)
+        XCTAssertEqual(repository.savedCards[1].displayMode, .compact)
+        XCTAssertEqual(feedCardStore.cards.map(\.id), ["first-card", "second-card"])
+    }
+
+    /// Verifies updating a missing feed card is a no-op against persistence.
+    func testFeedCardStoreUpdateMissingCardDoesNotPersist() {
+        let repository = TestFeedCardRepository(cards: [
+            makeTextFeedCard(id: "card-1", text: "Text")
+        ])
+        let feedCardStore = FeedCardStore(repository: repository)
+
+        feedCardStore.updatePersistedCard(id: "missing-card") { card in
+            card.replacingInteractionState(isLiked: true)
+        }
+
+        XCTAssertTrue(repository.savedSingleCards.isEmpty)
+        XCTAssertEqual(repository.savedCards.map(\.id), ["card-1"])
+    }
+
     /// Creates a feed view model from seeded cards.
     private func makeViewModel(cards: [FeedCard]) -> NewsFeedViewModel {
         makeViewModel(feedCardStore: makeTestFeedCardStore(cards: cards))
@@ -234,6 +348,38 @@ final class AppContentRepositoryTests: XCTestCase {
 
         loadedCards = try repository.loadCards()
         XCTAssertEqual(loadedCards, [updatedCard])
+    }
+
+
+    /// Verifies persisted cards are loaded newest-first regardless of save input order.
+    func testFeedCardRepositoryLoadsCardsNewestFirst() throws {
+        let databaseManager = try makeInMemoryAppDatabaseManager()
+        let repository = FeedCardRepository(databaseManager: databaseManager)
+        let olderCard = makeTextFeedCard(
+            id: "older-card",
+            text: "Older",
+            createdAt: Date(timeIntervalSince1970: 1)
+        )
+        let newerCard = makeTextFeedCard(
+            id: "newer-card",
+            text: "Newer",
+            createdAt: Date(timeIntervalSince1970: 2)
+        )
+
+        try repository.saveCards([olderCard, newerCard])
+
+        XCTAssertEqual(try repository.loadCards().map(\.id), ["newer-card", "older-card"])
+    }
+
+    /// Verifies saving one card can insert a new record without requiring a batch call.
+    func testFeedCardRepositorySaveCardInsertsMissingCard() throws {
+        let databaseManager = try makeInMemoryAppDatabaseManager()
+        let repository = FeedCardRepository(databaseManager: databaseManager)
+        let card = makeTextFeedCard(id: "card-1", text: "Inserted")
+
+        try repository.saveCard(card)
+
+        XCTAssertEqual(try repository.loadCards(), [card])
     }
 
     /// Inserts deterministic channel records into the in-memory SwiftData store.
