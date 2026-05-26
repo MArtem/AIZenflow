@@ -59,6 +59,29 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.showsNoSearchResults)
     }
 
+    /// Verifies source-neutral feed cards expose search fields in the product text order.
+    func testFeedCardSearchFieldsFollowTextHeadlineSubheadlineSourceOrder() {
+        let card = FeedCard(
+            id: "card-1",
+            channelID: AppChannel.defaultChannel.id,
+            createdAt: Date(timeIntervalSince1970: 1),
+            kind: .text,
+            orderedTextContent: [
+                FeedTextContent(kind: .text, text: "Body"),
+                FeedTextContent(kind: .headline, text: "Headline"),
+                FeedTextContent(kind: .subheadline, text: "Subheadline")
+            ],
+            sourceContent: FeedSourceContent(text: "Source", resourceURLString: "https://example.com"),
+            mediaContent: nil,
+            isLiked: false,
+            commentsCount: 0,
+            displayMode: .expanded
+        )
+
+        XCTAssertEqual(card.searchFields.map(\.priority), [500, 400, 300, 200])
+        XCTAssertEqual(card.searchFields.map(\.value), ["Body", "Headline", "Subheadline", "Source"])
+    }
+
     /// Verifies interaction updates are persisted and reflected in visible feed cards.
     func testCardInteractionsPersistAndRefreshVisibleContent() throws {
         let repository = TestFeedCardRepository(cards: [

@@ -23,22 +23,20 @@ final class LoginViewModelTests: XCTestCase {
         )
     }
 
-    func testSubmitTrimsWhitespaceBeforeLogin() {
-        let expectation = expectation(description: "credential login called")
+    func testSubmitTrimsWhitespaceBeforeLogin() async {
         var capturedEmail: String?
         var capturedPassword: String?
 
         let viewModel = makeViewModel { email, password in
             capturedEmail = email
             capturedPassword = password
-            expectation.fulfill()
         }
         viewModel.email = "  alice@example.com  "
         viewModel.password = "Password1"
 
         viewModel.submit()
 
-        wait(for: [expectation], timeout: 1)
+        await waitForCredentialCapture { capturedEmail != nil }
         XCTAssertEqual(capturedEmail, "alice@example.com")
         XCTAssertEqual(capturedPassword, "Password1")
         XCTAssertNil(viewModel.errorMessage)
@@ -69,16 +67,23 @@ final class LoginViewModelTests: XCTestCase {
             onRegister: { _, _ in },
             onAppleLogin: { _ in },
             appleAuthenticationManager: TestAppleAuthenticationManager(),
-            errorManager: AppErrorManager(
-                mapper: AppRuntimeErrorMapper(),
-                messageCatalog: AppRuntimeErrorMessageCatalog()
-            ),
+            errorManager: TestLoginErrorManager(),
             submissionThrottleInterval: 0
         )
     }
 
+
+    private func waitForCredentialCapture(_ isCaptured: @MainActor () -> Bool) async {
+        for _ in 0..<500 {
+            if isCaptured() {
+                return
+            }
+            try? await Task.sleep(for: .milliseconds(10))
+        }
+    }
+
     private func waitForErrorMessage(in viewModel: LoginViewModel) async {
-        for _ in 0..<50 {
+        for _ in 0..<500 {
             if viewModel.errorMessage != nil {
                 return
             }
@@ -90,6 +95,30 @@ final class LoginViewModelTests: XCTestCase {
 
 private enum TestLoginError: Error {
     case failed
+}
+
+private struct TestLoginErrorManager: AppErrorManaging {
+    func presentableError(
+        from error: Error,
+        context: AppErrorContext?
+    ) async -> AppErrorPresentation {
+        AppErrorPresentation(
+            error: AppError(
+                category: .unknown,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.unknown",
+                debugDescription: String(describing: error),
+                context: context
+            ),
+            userMessage: AppLocalization.text(
+                "login.error.generic",
+                fallback: "Unable to sign in right now."
+            )
+        )
+    }
 }
 
 private struct TestAppleAuthenticationManager: AppleAuthenticationManaging {

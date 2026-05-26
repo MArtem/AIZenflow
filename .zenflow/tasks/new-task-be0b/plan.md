@@ -419,10 +419,30 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - fixed app runtime issues surfaced by tests: login unknown errors now use the app login-generic localized message through `AppRuntimeErrorMessageCatalog`, and `DefaultAppContentRepository` now returns channels in stable product order instead of raw SwiftData fetch order.
 - Verification: `git diff --check` succeeded; `swift test` in `./Packages/TchopInfrastructure` succeeded with 59 XCTest tests and 37 Swift Testing tests; full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp` on iPhone 17 Pro iOS 26.0 succeeded; `./scripts/verify.sh medium` succeeded, including package tests, app/UI tests, and final debug build.
 
+
+- Completed now: continued app-specific test coverage expansion after reconnect:
+  - added `./TchopAppTests/AppShellViewModelTests.swift` and `./TchopAppTests/ShareExtensionRuntimeContractTests.swift` to the `TchopAppTests` Xcode target so existing test files are actually compiled and executed.
+  - updated `./TchopAppTests/ShareExtensionRuntimeContractTests.swift` from stale `Local*` names to the current source-neutral `FeedCard` / `SharedFeedCardSyncManager` runtime.
+  - added share/composer contract tests for 10-photo cap, incompatible media import errors, empty draft publish rejection, 200-character imported text limit, file-media caption/teaser metadata publishing, and app-group pending-card sync into `FeedCardStore`.
+  - added `./TchopAppTests/NewsFeedViewModelTests.swift` coverage for canonical search-field order: `text`, `headline`, `subheadline`, `source`.
+  - added a test-only injection initializer to `./TchopApp/Shared/SharedFeedCardSyncManager.swift` so app-group sync can be tested without a real app-group entitlement.
+  - fixed `./TchopAppTests/AppShellViewModelTests.swift` setup now that `UIConfigurationSnapshot` requires an explicit shell configuration.
+- Verification: `git diff --check` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp` on iPhone 17 Pro iOS 26.0 succeeded with the newly enabled tests; `swift test` in `./Packages/TchopInfrastructure` succeeded with 59 XCTest tests and 37 Swift Testing tests.
+
+
+- Completed now: continued app-specific test coverage expansion and full verification stabilization:
+  - added app launch configuration tests in `./TchopAppTests/AppStateTests.swift` for UI-test in-memory SwiftData configuration and ReqRes external-auth environment resolution.
+  - added `SessionStore` transition coverage in `./TchopAppTests/AppStateTests.swift` to verify current-user exposure across signed-out/authenticated transitions.
+  - added `ProfileTabViewModel` coverage in `./TchopAppTests/AppShellViewModelTests.swift` for current-user summary sync plus navigation-restore preference optimistic success and rollback failure behavior.
+  - made profile and login error tests use deterministic test error managers instead of full async/localization error-mapping paths, keeping unit tests focused and parallel-stable.
+  - converted `LoginViewModelTests.testSubmitTrimsWhitespaceBeforeLogin()` to async polling instead of an XCTest expectation under `@MainActor`, fixing a full-suite signal-trap flake while preserving the production behavior assertion.
+- Verification: `git diff --check` succeeded; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded; `swift test` in `./Packages/TchopInfrastructure` succeeded with 59 XCTest tests and 37 Swift Testing tests; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded.
+
 ## Verification Status
-- Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, clean/regular `swift test` in `./Packages/TchopInfrastructure`, documentation validators, and `./scripts/verify.sh low`.
-- Latest captured build log no longer contains the share-extension AppIntents metadata warning.
-- Build and package tests were run by explicit user permission/request; simulator UI was not run.
+- Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, and `swift test` in `./Packages/TchopInfrastructure`.
+- Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
+- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with the newly enabled app-shell/share-extension runtime tests plus the added launch/session/profile/login coverage.
+- Build and tests were run by explicit user permission/request; no manual simulator UI flow was run in this block.
 
 ## Archive
 Detailed historical plan/log entries were moved out of the active plan to reduce context cost.

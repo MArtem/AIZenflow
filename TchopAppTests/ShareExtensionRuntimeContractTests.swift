@@ -117,36 +117,121 @@ final class ShareExtensionRuntimeContractTests: XCTestCase {
         XCTAssertEqual(draft.textValue(for: .text), "Shared text")
     }
 
+    func testImportedImageBatchCapsPhotoCardAtTenItems() throws {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+        let importedImages = (1...12).map { index in
+            ShareImportedItem.file(makeFileItem(kind: .image, filename: "photo-\(index).jpg"))
+        }
+
+        try draft.applyImportedItems(importedImages)
+
+        XCTAssertEqual(draft.effectiveKind, .photo)
+        XCTAssertEqual(draft.photoItems.count, 10)
+        XCTAssertEqual(draft.photoItems.first?.displayTitle, "photo-1.jpg")
+        XCTAssertEqual(draft.photoItems.last?.displayTitle, "photo-10.jpg")
+    }
+
+    func testImportedImageIntoExistingFileMediaThrowsExplicitError() throws {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+        draft.selectPickedFile(kind: .video, displayTitle: "clip.mov", fileURL: nil)
+
+        XCTAssertThrowsError(
+            try draft.applyImportedItems([
+                .file(makeFileItem(kind: .image, filename: "photo.jpg"))
+            ])
+        ) { error in
+            XCTAssertEqual(error as? FeedComposerImportError, .incompatibleWithExistingMedia)
+        }
+    }
+
+    func testDraftDoesNotPublishEmptyTextOnlyContent() {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+
+        draft.updateText("   ", for: .text)
+
+        XCTAssertFalse(draft.canPublish)
+        XCTAssertNil(draft.effectiveKind)
+        XCTAssertNil(draft.makeCard())
+    }
+
+    func testDraftLimitsImportedTextToComposerMaximumLength() throws {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+
+        try draft.applyImportedItems([
+            .text(ShareImportedTextItem(text: String(repeating: "a", count: 250)))
+        ])
+
+        XCTAssertEqual(draft.textValue(for: .text).count, 200)
+        XCTAssertTrue(draft.canPublish)
+    }
+
+    func testDraftPublishesSourceNeutralFileMediaMetadata() throws {
+        var draft = FeedComposerDraft(selectedChannelID: "channel-1")
+        let videoURL = URL(fileURLWithPath: "/tmp/clip.mov")
+        let teaserURL = URL(fileURLWithPath: "/tmp/teaser.jpg")
+
+        draft.selectPickedFile(kind: .video, displayTitle: "clip.mov", fileURL: videoURL)
+        draft.updateText("Video text", for: .text)
+        draft.showFileCaptionField()
+        draft.updateFileCaption("Clip caption")
+        draft.addOrReplaceTeaserImage(displayTitle: "teaser.jpg", fileURL: teaserURL)
+        draft.showTeaserCopyrightField()
+        draft.updateTeaserCopyright("© Tchop")
+
+        let feedCard = try XCTUnwrap(draft.makeCard(id: "video-card", createdAt: Date(timeIntervalSince1970: 10))?.feedCardModel)
+
+        XCTAssertEqual(feedCard.id, "video-card")
+        XCTAssertEqual(feedCard.channelID, "channel-1")
+        XCTAssertEqual(feedCard.kind, .video)
+        XCTAssertEqual(feedCard.textValue(for: .text), "Video text")
+
+        guard case let .file(fileMedia) = feedCard.mediaContent else {
+            XCTFail("Expected file media")
+            return
+        }
+
+        XCTAssertEqual(fileMedia.kind, .video)
+        XCTAssertEqual(fileMedia.displayTitle, "clip.mov")
+        XCTAssertEqual(fileMedia.fileURLString, videoURL.absoluteString)
+        XCTAssertEqual(fileMedia.caption, "Clip caption")
+        XCTAssertEqual(fileMedia.teaserImage?.displayTitle, "teaser.jpg")
+        XCTAssertEqual(fileMedia.teaserImage?.fileURLString, teaserURL.absoluteString)
+        XCTAssertEqual(fileMedia.teaserImage?.copyright, "© Tchop")
+    }
+
     @MainActor
-    func testSharedLocalFeedCardSyncMovesPendingCardsIntoLocalRuntimeStore() throws {
+    func testSharedFeedCardSyncMovesPendingCardsIntoRuntimeStore() async throws {
         let rootURL = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)
         let fileManager = TestAppGroupFileManager(containerURL: rootURL)
-        let store = try AppGroupJSONItemDirectoryStore<LocalFeedCardModel>(
+        let store = try AppGroupJSONItemDirectoryStore<FeedCard>(
             groupIdentifier: "group.test.share-runtime",
             directoryName: "pending-share-cards",
             fileManager: fileManager
         )
-        let syncManager = SharedLocalFeedCardSyncManager(store: store)
-        let localFeedCardStore = LocalFeedCardStore()
-        let card = LocalFeedCardModel(
+        let syncManager = SharedFeedCardSyncManager(store: store)
+        let feedCardStore = makeTestFeedCardStore()
+        let card = FeedCard(
             id: "shared-card-1",
             channelID: "channel-1",
             createdAt: Date(timeIntervalSince1970: 1),
             kind: .text,
             orderedTextContent: [
-                LocalFeedTextContent(kind: .text, text: "Shared text")
+                FeedTextContent(kind: .text, text: "Shared text")
             ],
             sourceContent: nil,
-            mediaContent: nil
+            mediaContent: nil,
+            isLiked: false,
+            commentsCount: 0,
+            displayMode: .expanded
         )
 
-        try syncManager.publishImportedCard(card)
+        try await syncManager.publishImportedCard(card)
 
-        let syncedCount = try syncManager.syncPendingCards(into: localFeedCardStore)
+        let syncedCount = try await syncManager.syncPendingCards(into: feedCardStore)
 
         XCTAssertEqual(syncedCount, 1)
-        XCTAssertEqual(localFeedCardStore.cards(for: "channel-1").map(\.id), ["shared-card-1"])
+        XCTAssertEqual(feedCardStore.cards(for: "channel-1").map(\.id), ["shared-card-1"])
         XCTAssertTrue(try store.loadAll().isEmpty)
     }
 

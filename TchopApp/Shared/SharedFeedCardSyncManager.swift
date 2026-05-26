@@ -21,6 +21,10 @@ final class SharedFeedCardSyncManager: @unchecked Sendable {
         )
     }
 
+    init(store: AppGroupJSONItemDirectoryStore<FeedCard>) {
+        self.store = store
+    }
+
     func publishImportedCard(_ card: FeedCard) throws {
         try store.save(card)
     }

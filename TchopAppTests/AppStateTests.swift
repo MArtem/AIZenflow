@@ -733,3 +733,56 @@ final class DeepLinkManagerTests: XCTestCase {
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
     }
 }
+
+/// Verifies launch-time environment parsing stays centralized and deterministic.
+@MainActor
+final class AppLaunchConfigurationTests: XCTestCase {
+    /// Verifies UI-test launches use in-memory SwiftData storage.
+    func testUITestLaunchUsesInMemorySwiftDataConfiguration() {
+        let configuration = AppLaunchConfiguration(environment: [
+            "TCHOP_UI_TEST_MODE": "1",
+            "TCHOP_DATABASE_BACKEND": "coreData"
+        ])
+
+        XCTAssertTrue(configuration.isUITesting)
+        XCTAssertEqual(configuration.databaseConfiguration.backendSelectionPolicy, .swiftData)
+        XCTAssertTrue(configuration.databaseConfiguration.isStoredInMemoryOnly)
+    }
+
+    /// Verifies external auth launch environment resolves ReqRes login mode and headers.
+    func testReqResEnvironmentResolvesExternalAuthConfiguration() throws {
+        let configuration = AppLaunchConfiguration(environment: [
+            "TCHOP_API_ENV": "reqres_demo_auth",
+            "TCHOP_REQRES_API_KEY": "test-api-key",
+            "TCHOP_NETWORK_LOGGING": "1",
+            "TCHOP_UI_TEST_INITIAL_URL": "tchop://profile"
+        ])
+
+        XCTAssertEqual(configuration.initialURL, URL(string: "tchop://profile"))
+        XCTAssertEqual(configuration.apiEnvironment.kind, .developmentExternalAuth)
+        XCTAssertEqual(configuration.apiEnvironment.loginScreenMode, .reqResDemoExternalAuth)
+        XCTAssertTrue(configuration.apiEnvironment.enablesNetworkLogging)
+        XCTAssertEqual(configuration.apiEnvironment.authenticationAPIConfiguration.defaultHeaders["x-api-key"], "test-api-key")
+    }
+}
+
+/// Verifies the explicit root session store transitions used by app root composition.
+@MainActor
+final class SessionStoreTests: XCTestCase {
+    /// Verifies session store exposes authenticated user only for authenticated state.
+    func testSessionStoreTransitionsExposeCurrentUserOnlyWhenAuthenticated() {
+        let store = SessionStore()
+        let user = AppUser(id: "user-1", username: "alice", createdAt: Date(timeIntervalSince1970: 1))
+
+        store.setSignedOut()
+        XCTAssertEqual(store.sessionState, .signedOut)
+        XCTAssertNil(store.currentUser)
+
+        store.setAuthenticatedUser(user)
+        XCTAssertEqual(store.currentUser, user)
+
+        store.setRestoring()
+        XCTAssertEqual(store.sessionState, .restoring)
+        XCTAssertNil(store.currentUser)
+    }
+}
