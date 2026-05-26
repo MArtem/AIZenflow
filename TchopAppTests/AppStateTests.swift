@@ -2,7 +2,9 @@ import XCTest
 import TchopAppleAuthentication
 import TchopErrors
 import TchopNavigation
+import TchopPushNotifications
 import TchopUIConfiguration
+import TchopWidgets
 @testable import TchopApp
 
 /// Covers app session and navigation restore flows in root state.
@@ -1482,5 +1484,279 @@ private struct ThrowingUserRepository: UserRepository {
 
     func findOrCreateAppleUser(appleUserID: String, preferredUsername: String?) throws -> AppUser {
         throw TestSessionError.signInUnavailable
+    }
+}
+
+@MainActor
+final class AppBridgeTests: XCTestCase {
+    /// Verifies widget sync saves the first service headline from current feed content.
+    func testWidgetSyncSavesPrimaryFeedHeadline() {
+        let snapshotManager = RecordingFeedHeadlineWidgetSnapshotManager()
+        let manager = FeedHeadlineWidgetSyncManager(
+            snapshotManager: snapshotManager,
+            errorManager: RecordingAppErrorManager()
+        )
+
+        manager.syncFeed(
+            content: NewsFeedContent(
+                cards: [
+                    makeNewsFeedCard(id: "card-1", text: "First headline"),
+                    makeNewsFeedCard(id: "card-2", text: "Second headline")
+                ],
+                availability: .live
+            )
+        )
+
+        XCTAssertEqual(snapshotManager.savedSnapshots.map(\.headline), ["First headline"])
+    }
+
+    /// Verifies widget sync skips empty content instead of writing an empty widget snapshot.
+    func testWidgetSyncSkipsEmptyFeedContent() {
+        let snapshotManager = RecordingFeedHeadlineWidgetSnapshotManager()
+        let manager = FeedHeadlineWidgetSyncManager(
+            snapshotManager: snapshotManager,
+            errorManager: RecordingAppErrorManager()
+        )
+
+        manager.syncFeed(content: NewsFeedContent(cards: [], availability: .live))
+
+        XCTAssertTrue(snapshotManager.savedSnapshots.isEmpty)
+    }
+
+    /// Verifies widget clear delegates to the snapshot manager.
+    func testWidgetClearDelegatesToSnapshotManager() {
+        let snapshotManager = RecordingFeedHeadlineWidgetSnapshotManager()
+        let manager = FeedHeadlineWidgetSyncManager(
+            snapshotManager: snapshotManager,
+            errorManager: RecordingAppErrorManager()
+        )
+
+        manager.clearFeed()
+
+        XCTAssertEqual(snapshotManager.clearCallCount, 1)
+    }
+
+    /// Verifies widget storage failures are reported instead of crashing the app bridge.
+    func testWidgetSyncFailureReportsErrorWithoutThrowing() async {
+        let errorManager = RecordingAppErrorManager()
+        let manager = FeedHeadlineWidgetSyncManager(
+            snapshotManager: RecordingFeedHeadlineWidgetSnapshotManager(saveError: TestSessionError.signInUnavailable),
+            errorManager: errorManager
+        )
+
+        manager.syncFeed(
+            content: NewsFeedContent(
+                cards: [makeNewsFeedCard(id: "card-error", text: "Headline")],
+                availability: .live
+            )
+        )
+
+        await waitForCondition { errorManager.contexts.contains(AppErrorContext(operation: "syncFeed", feature: "widgetSync")) }
+        XCTAssertEqual(errorManager.contexts.last?.operation, "syncFeed")
+        XCTAssertEqual(errorManager.contexts.last?.feature, "widgetSync")
+    }
+
+    /// Verifies APNs token callbacks are forwarded to the reusable push manager.
+    func testPushBridgeForwardsDeviceToken() async {
+        let pushManager = RecordingPushNotificationManager()
+        let bridge = AppPushNotificationBridge(
+            manager: pushManager,
+            errorManager: RecordingAppErrorManager()
+        )
+        let token = Data([0x01, 0x02, 0x0A])
+
+        await bridge.didRegisterForRemoteNotifications(deviceToken: token)
+
+        XCTAssertEqual(pushManager.deviceTokens, [token])
+    }
+
+    /// Verifies APNs registration failures are normalized before forwarding.
+    func testPushBridgeForwardsRegistrationFailureDescription() async {
+        let pushManager = RecordingPushNotificationManager()
+        let bridge = AppPushNotificationBridge(
+            manager: pushManager,
+            errorManager: RecordingAppErrorManager()
+        )
+
+        await bridge.didFailToRegisterForRemoteNotifications(error: TestSessionError.signInUnavailable)
+
+        XCTAssertEqual(pushManager.registrationFailures, [TestSessionError.signInUnavailable.localizedDescription])
+    }
+
+    /// Verifies remote notification payloads are forwarded unchanged to the push manager.
+    func testPushBridgeForwardsRemoteNotificationPayload() async {
+        let pushManager = RecordingPushNotificationManager()
+        let bridge = AppPushNotificationBridge(
+            manager: pushManager,
+            errorManager: RecordingAppErrorManager()
+        )
+        let payload = PushNotificationPayload(
+            source: .opened,
+            title: "Title",
+            body: "Body",
+            badge: 3,
+            sound: "default",
+            customData: ["route": "profile"]
+        )
+
+        await bridge.handleRemoteNotification(payload)
+
+        XCTAssertEqual(pushManager.remotePayloads, [payload])
+    }
+
+    /// Verifies push-manager failures are reported through the app error manager without trapping.
+    func testPushBridgeFailureReportsErrorWithoutThrowing() async {
+        let errorManager = RecordingAppErrorManager()
+        let bridge = AppPushNotificationBridge(
+            manager: RecordingPushNotificationManager(deviceTokenError: TestSessionError.signInUnavailable),
+            errorManager: errorManager
+        )
+
+        await bridge.didRegisterForRemoteNotifications(deviceToken: Data([0x01]))
+        await waitForCondition {
+            errorManager.contexts.contains(
+                AppErrorContext(operation: "handleDeviceToken", feature: "pushNotifications")
+            )
+        }
+
+        XCTAssertEqual(errorManager.contexts.last?.operation, "handleDeviceToken")
+        XCTAssertEqual(errorManager.contexts.last?.feature, "pushNotifications")
+    }
+
+    private func makeNewsFeedCard(id: String, text: String) -> NewsFeedCard {
+        FeedCard(
+            id: id,
+            channelID: AppChannel.product.id,
+            createdAt: Date(timeIntervalSince1970: 1),
+            kind: .text,
+            orderedTextContent: [FeedTextContent(kind: .text, text: text)],
+            sourceContent: nil,
+            mediaContent: nil,
+            isLiked: false,
+            commentsCount: 0,
+            displayMode: .expanded
+        ).newsFeedCard
+    }
+
+    private func waitForCondition(_ condition: @MainActor () -> Bool) async {
+        for _ in 0..<200 {
+            if condition() {
+                return
+            }
+            try? await Task.sleep(for: .milliseconds(10))
+        }
+    }
+}
+
+private final class RecordingFeedHeadlineWidgetSnapshotManager:
+    FeedHeadlineWidgetSnapshotManaging,
+    @unchecked Sendable
+{
+    private let saveError: Error?
+    private let clearError: Error?
+
+    private(set) var savedSnapshots: [FeedHeadlineWidgetSnapshot] = []
+    private(set) var clearCallCount = 0
+
+    init(saveError: Error? = nil, clearError: Error? = nil) {
+        self.saveError = saveError
+        self.clearError = clearError
+    }
+
+    func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws {
+        if let saveError {
+            throw saveError
+        }
+
+        savedSnapshots.append(snapshot)
+    }
+
+    func load() throws -> FeedHeadlineWidgetSnapshot? {
+        savedSnapshots.last
+    }
+
+    func clear() throws {
+        if let clearError {
+            throw clearError
+        }
+
+        clearCallCount += 1
+        savedSnapshots.removeAll()
+    }
+}
+
+private final class RecordingPushNotificationManager: PushNotificationManaging, @unchecked Sendable {
+    private let deviceTokenError: Error?
+
+    private(set) var authorizationStatuses: [PushNotificationAuthorizationStatus] = []
+    private(set) var remoteRegistrationStates: [Bool] = []
+    private(set) var deviceTokens: [Data] = []
+    private(set) var registrationFailures: [String] = []
+    private(set) var remotePayloads: [PushNotificationPayload] = []
+
+    init(deviceTokenError: Error? = nil) {
+        self.deviceTokenError = deviceTokenError
+    }
+
+    func currentState() async -> PushNotificationState {
+        PushNotificationState()
+    }
+
+    func updateAuthorizationStatus(_ status: PushNotificationAuthorizationStatus) async throws -> PushNotificationState {
+        authorizationStatuses.append(status)
+        return PushNotificationState(authorizationStatus: status)
+    }
+
+    func updateRemoteRegistration(isRegistered: Bool) async throws -> PushNotificationState {
+        remoteRegistrationStates.append(isRegistered)
+        return PushNotificationState(isRegisteredForRemoteNotifications: isRegistered)
+    }
+
+    func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState {
+        if let deviceTokenError {
+            throw deviceTokenError
+        }
+
+        deviceTokens.append(deviceToken)
+        return PushNotificationState(deviceToken: APNsDeviceToken(data: deviceToken))
+    }
+
+    func handleRegistrationFailure(_ errorDescription: String) async throws -> PushNotificationState {
+        registrationFailures.append(errorDescription)
+        return PushNotificationState(lastRegistrationErrorDescription: errorDescription)
+    }
+
+    func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload {
+        remotePayloads.append(payload)
+        return payload
+    }
+
+    func clearState() async throws {}
+}
+
+private final class RecordingAppErrorManager: AppErrorManaging, @unchecked Sendable {
+    private(set) var contexts: [AppErrorContext] = []
+
+    func presentableError(
+        from error: Error,
+        context: AppErrorContext?
+    ) async -> AppErrorPresentation {
+        if let context {
+            contexts.append(context)
+        }
+
+        return AppErrorPresentation(
+            error: AppError(
+                category: .unknown,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.unknown",
+                debugDescription: String(describing: error),
+                context: context
+            ),
+            userMessage: "Error"
+        )
     }
 }

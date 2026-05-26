@@ -168,7 +168,7 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
                     feature: "pushNotifications"
                 )
             )
-            assertionFailure("Push notification bridge failure: \(presentation.error.debugDescription)")
+            _ = presentation
         }
     }
 }

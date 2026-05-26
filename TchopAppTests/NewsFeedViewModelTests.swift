@@ -265,6 +265,140 @@ final class NewsFeedViewModelTests: XCTestCase {
     }
 }
 
+
+/// Verifies source-neutral feed-card model contracts that must stay stable across composer, persistence, feed, and translation flows.
+final class NewsFeedModelContractTests: XCTestCase {
+    /// Verifies composer content trims text fields and preserves canonical text/headline/subheadline/source order.
+    func testChannelCardContentOrderedTextContentTrimsAndPreservesCanonicalOrder() {
+        let content = ChannelCardContent(
+            id: "content-1",
+            channelID: AppChannel.defaultChannel.id,
+            createdAt: Date(timeIntervalSince1970: 1),
+            kind: .text,
+            text: "  Body  ",
+            headline: "\nHeadline\n",
+            subheadline: "   Subheadline   ",
+            source: "  Source  ",
+            media: nil
+        )
+
+        XCTAssertEqual(content.orderedTextContent.map(\.kind), [.text, .headline, .subheadline, .source])
+        XCTAssertEqual(content.orderedTextContent.map(\.text), ["Body", "Headline", "Subheadline", "Source"])
+    }
+
+    /// Verifies old persisted feed cards without interaction fields decode into safe runtime defaults.
+    func testFeedCardDecodeDefaultsInteractionStateWhenFieldsAreMissing() throws {
+        let json = """
+        {
+          "id": "card-1",
+          "channelID": "\(AppChannel.defaultChannel.id)",
+          "createdAt": 1,
+          "kind": "text",
+          "orderedTextContent": [
+            { "kind": "text", "text": "Persisted body" }
+          ]
+        }
+        """.data(using: .utf8)!
+
+        let card = try JSONDecoder().decode(FeedCard.self, from: json)
+
+        XCTAssertFalse(card.isLiked)
+        XCTAssertEqual(card.commentsCount, 0)
+        XCTAssertEqual(card.displayMode, .expanded)
+    }
+
+    /// Verifies translation payload trims empty fields and does not include source text.
+    func testFeedCardTranslationPayloadTrimsEmptyFieldsAndExcludesSource() {
+        let card = FeedCard(
+            id: "card-1",
+            channelID: AppChannel.defaultChannel.id,
+            createdAt: Date(timeIntervalSince1970: 1),
+            kind: .text,
+            orderedTextContent: [
+                FeedTextContent(kind: .text, text: "  Body  "),
+                FeedTextContent(kind: .headline, text: "   "),
+                FeedTextContent(kind: .subheadline, text: " Subheadline "),
+                FeedTextContent(kind: .source, text: "Source must not translate")
+            ],
+            sourceContent: FeedSourceContent(text: "Visible source", resourceURLString: nil),
+            mediaContent: nil,
+            isLiked: false,
+            commentsCount: 0,
+            displayMode: .expanded
+        )
+
+        let payload = card.newsFeedCard.translationPayload
+
+        XCTAssertEqual(payload.cardID, "card-1")
+        XCTAssertEqual(payload.fields, [.text: "Body", .subheadline: "Subheadline"])
+    }
+
+    /// Verifies channel scoping is nil-safe and preserves feed availability metadata.
+    func testNewsFeedContentScopeNilReturnsEmptyContentAndPreservesAvailability() {
+        let availability = NewsFeedAvailability.cached(
+            lastSyncedAt: Date(timeIntervalSince1970: 5),
+            reason: .offline
+        )
+        let content = NewsFeedContent(
+            cards: [makeTextFeedCard(id: "card-1", text: "Body").newsFeedCard],
+            availability: availability
+        )
+
+        let scopedContent = content.scoped(to: nil)
+
+        XCTAssertTrue(scopedContent.cards.isEmpty)
+        XCTAssertEqual(scopedContent.availability, availability)
+    }
+
+    /// Verifies feed-card detail routing uses headline/text/source fallbacks without exposing storage details.
+    func testFeedCardDetailRouteUsesHeadlineTextAndSourceFallbacks() {
+        let card = FeedCard(
+            id: "card-1",
+            channelID: AppChannel.defaultChannel.id,
+            createdAt: Date(timeIntervalSince1970: 1),
+            kind: .text,
+            orderedTextContent: [
+                FeedTextContent(kind: .text, text: "Body"),
+                FeedTextContent(kind: .headline, text: "Headline"),
+                FeedTextContent(kind: .subheadline, text: "Subheadline")
+            ],
+            sourceContent: FeedSourceContent(text: "Source", resourceURLString: nil),
+            mediaContent: nil,
+            isLiked: false,
+            commentsCount: 0,
+            displayMode: .expanded
+        )
+
+        let route = card.detailRoute
+
+        XCTAssertEqual(route.cardID, "card-1")
+        XCTAssertEqual(route.destinationID, "text-details")
+        XCTAssertEqual(route.title, "Headline")
+        XCTAssertEqual(route.bodyText, "Body")
+        XCTAssertEqual(route.subtitle, "Source")
+    }
+
+    /// Verifies composer media display titles stay deterministic for photo counts and file media.
+    func testChannelCardMediaContentDisplayTitleUsesPhotoCountOrFileTitle() {
+        let photos = ChannelCardMediaContent.photos(items: [
+            ChannelCardPhotoItem(id: "photo-1", displayTitle: "First", fileURL: nil, caption: nil, copyright: nil),
+            ChannelCardPhotoItem(id: "photo-2", displayTitle: "Second", fileURL: nil, caption: nil, copyright: nil)
+        ])
+        let pdf = ChannelCardMediaContent.file(
+            ChannelCardFileMediaContent(
+                kind: .pdf,
+                displayTitle: "Document.pdf",
+                fileURL: nil,
+                teaserImage: nil,
+                caption: nil
+            )
+        )
+
+        XCTAssertEqual(photos.displayTitle, "2 Photos")
+        XCTAssertEqual(pdf.displayTitle, "Document.pdf")
+    }
+}
+
 /// Verifies persistence-facing user repository behavior.
 @MainActor
 final class UserRepositoryTests: XCTestCase {

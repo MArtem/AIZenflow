@@ -78,7 +78,7 @@ final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
                     feature: "widgetSync"
                 )
             )
-            assertionFailure("Widget sync failure: \(presentation.error.debugDescription)")
+            _ = presentation
         }
     }
 }
