@@ -1,4 +1,5 @@
 import XCTest
+import TchopAppleAuthentication
 import TchopErrors
 import TchopNavigation
 import TchopUIConfiguration
@@ -1034,5 +1035,452 @@ final class SessionStoreTests: XCTestCase {
         store.setRestoring()
         XCTAssertEqual(store.sessionState, .restoring)
         XCTAssertNil(store.currentUser)
+    }
+}
+
+@MainActor
+final class ChannelsStoreTests: XCTestCase {
+    /// Verifies available channels are normalized into the product-defined order before selection.
+    func testSetAvailableChannelsSortsKnownChannelsBeforeCustomChannels() {
+        let store = makeChannelsStore()
+        let customChannel = AppChannel(id: "z-custom", title: "Custom", subtitle: "Custom subtitle")
+
+        store.setAvailableChannels([
+            customChannel,
+            .leadership,
+            .community,
+            .product
+        ])
+
+        XCTAssertEqual(
+            store.channels.map(\.id),
+            [
+                AppChannel.product.id,
+                AppChannel.community.id,
+                AppChannel.leadership.id,
+                customChannel.id
+            ]
+        )
+        XCTAssertEqual(store.selectedChannelID, AppChannel.product.id)
+    }
+
+    /// Verifies activation prefers a valid persisted channel over the backend-preselected channel.
+    func testActivateUsesPersistedSelectionBeforePreferredSelection() {
+        let suiteName = "ChannelsStoreTests.\(UUID().uuidString)"
+        let userDefaults = UserDefaults(suiteName: suiteName)!
+        defer { userDefaults.removePersistentDomain(forName: suiteName) }
+
+        let selectionStore = UserDefaultsChannelSelectionStore(userDefaults: userDefaults)
+        selectionStore.saveSelectedChannelID(AppChannel.community.id, for: "user-1")
+
+        let store = ChannelsStore(selectionStore: selectionStore)
+        store.setAvailableChannels([.product, .community, .leadership])
+
+        let didChange = store.activate(
+            for: "user-1",
+            preferredSelectedChannelID: AppChannel.product.id
+        )
+
+        XCTAssertTrue(didChange)
+        XCTAssertEqual(store.selectedChannelID, AppChannel.community.id)
+    }
+
+    /// Verifies invalid persisted and preferred channels fall back to the first available channel.
+    func testActivateFallsBackToFirstAvailableChannelWhenStoredInputsAreInvalid() {
+        let suiteName = "ChannelsStoreTests.\(UUID().uuidString)"
+        let userDefaults = UserDefaults(suiteName: suiteName)!
+        defer { userDefaults.removePersistentDomain(forName: suiteName) }
+
+        let selectionStore = UserDefaultsChannelSelectionStore(userDefaults: userDefaults)
+        selectionStore.saveSelectedChannelID("missing-channel", for: "user-1")
+
+        let store = ChannelsStore(selectionStore: selectionStore)
+        store.setAvailableChannels([.community, .leadership])
+
+        _ = store.activate(
+            for: "user-1",
+            preferredSelectedChannelID: "also-missing"
+        )
+
+        XCTAssertEqual(store.selectedChannelID, AppChannel.community.id)
+        XCTAssertEqual(selectionStore.loadSelectedChannelID(for: "user-1"), AppChannel.community.id)
+    }
+
+    /// Verifies user-driven selection rejects unknown channels without corrupting the previous selection.
+    func testSelectChannelRejectsUnknownIdentifierAndKeepsExistingSelection() {
+        let store = makeChannelsStore()
+        store.setAvailableChannels([.product, .community])
+        _ = store.activate(for: "user-1", preferredSelectedChannelID: AppChannel.product.id)
+
+        let didChange = store.selectChannel(id: "unknown")
+
+        XCTAssertFalse(didChange)
+        XCTAssertEqual(store.selectedChannelID, AppChannel.product.id)
+    }
+
+    /// Verifies resetting the store clears user-scoped selection context without destroying available channels.
+    func testResetClearsUserAndSelectionButKeepsAvailableChannelsSnapshot() {
+        let store = makeChannelsStore()
+        store.setAvailableChannels([.product, .community])
+        _ = store.activate(for: "user-1", preferredSelectedChannelID: AppChannel.community.id)
+
+        store.reset()
+
+        XCTAssertNil(store.selectionSnapshot.userID)
+        XCTAssertNil(store.selectedChannelID)
+        XCTAssertEqual(store.channels.map(\.id), [AppChannel.product.id, AppChannel.community.id])
+    }
+
+    private func makeChannelsStore() -> ChannelsStore {
+        let suiteName = "ChannelsStoreTests.\(UUID().uuidString)"
+        let userDefaults = UserDefaults(suiteName: suiteName)!
+        userDefaults.removePersistentDomain(forName: suiteName)
+        return ChannelsStore(
+            selectionStore: UserDefaultsChannelSelectionStore(
+                userDefaults: userDefaults,
+                keyPrefix: suiteName
+            )
+        )
+    }
+}
+
+@MainActor
+final class UserChannelSettingsRepositoryTests: XCTestCase {
+    /// Verifies known ReqRes users resolve their product-defined default channel settings.
+    func testKnownReqResUsersResolveExpectedPreselectedChannels() throws {
+        let repository = UserChannelSettingsRepository()
+
+        let eveSettings = try repository.loadChannelSettings(
+            for: AppUser(id: "eve", username: "  EVE.HOLT@REQRES.IN  ", createdAt: Date())
+        )
+        let janetSettings = try repository.loadChannelSettings(
+            for: AppUser(id: "janet", username: "janet.weaver@reqres.in", createdAt: Date())
+        )
+
+        XCTAssertEqual(eveSettings.preselectedChannelID, AppChannel.product.id)
+        XCTAssertEqual(janetSettings.preselectedChannelID, AppChannel.community.id)
+        XCTAssertEqual(eveSettings.availableChannels.map(\.id), AppChannel.allKnown.map(\.id))
+        XCTAssertEqual(
+            janetSettings.availableChannels.map(\.id),
+            [
+                AppChannel.community.id,
+                AppChannel.product.id,
+                AppChannel.leadership.id
+            ]
+        )
+    }
+
+    /// Verifies unknown users receive the canonical default channel configuration.
+    func testUnknownUserReceivesDefaultChannelSettings() throws {
+        let repository = UserChannelSettingsRepository()
+
+        let settings = try repository.loadChannelSettings(
+            for: AppUser(id: "unknown", username: "unknown@example.com", createdAt: Date())
+        )
+
+        XCTAssertEqual(settings.preselectedChannelID, AppChannel.defaultChannel.id)
+        XCTAssertEqual(settings.availableChannels.map(\.id), AppChannel.allKnown.map(\.id))
+    }
+}
+
+@MainActor
+final class UserSessionServiceTests: XCTestCase {
+    /// Verifies token-backed email sign-in persists secure credentials before marking the local session active.
+    func testTokenBackedEmailSignInPersistsTokenAndRestoresUser() async throws {
+        let user = AppUser(id: "user-token-login", username: "alice@example.com", createdAt: Date())
+        let tokenStore = RecordingAuthTokenStore()
+        let authManager = RecordingAuthenticationAPIManager(
+            signInEmailToken: makeToken(accessToken: "access-1", refreshToken: "refresh-1")
+        )
+        let service = makeSessionService(
+            user: user,
+            tokenStore: tokenStore,
+            authenticationAPIManager: authManager
+        )
+
+        let signedInUser = try await service.signIn(email: user.username, password: "Password1")
+        let restoredUser = try service.restoreSession()
+
+        XCTAssertEqual(signedInUser, user)
+        XCTAssertEqual(restoredUser, user)
+        XCTAssertEqual(tokenStore.savedTokenSets.last?.accessToken, "access-1")
+        XCTAssertEqual(authManager.signInEmailRequests.first?.email, user.username)
+    }
+
+    /// Verifies token-backed sign-in rolls back secure credentials when local user persistence fails.
+    func testTokenBackedSignInClearsTokenWhenLocalUserResolutionFails() async {
+        let tokenStore = RecordingAuthTokenStore()
+        let authManager = RecordingAuthenticationAPIManager(
+            signInEmailToken: makeToken(accessToken: "access-rollback", refreshToken: "refresh-rollback")
+        )
+        let service = makeSessionService(
+            userRepository: ThrowingUserRepository(),
+            tokenStore: tokenStore,
+            authenticationAPIManager: authManager
+        )
+
+        do {
+            _ = try await service.signIn(email: "broken@example.com", password: "Password1")
+            XCTFail("Expected token-backed sign-in to fail when user persistence fails")
+        } catch {
+            XCTAssertNil(try? tokenStore.loadTokenSet())
+            XCTAssertEqual(tokenStore.clearCallCount, 1)
+        }
+    }
+
+    /// Verifies restore clears orphaned secure credentials when no local app user session exists.
+    func testRestoreAuthenticatedSessionClearsTokenWhenNoLocalUserIsPersisted() async throws {
+        let tokenStore = RecordingAuthTokenStore(initialTokenSet: makeToken(accessToken: "orphan"))
+        let service = makeSessionService(tokenStore: tokenStore)
+
+        let restoredUser = try await service.restoreAuthenticatedSession()
+
+        XCTAssertNil(restoredUser)
+        XCTAssertNil(try tokenStore.loadTokenSet())
+        XCTAssertEqual(tokenStore.clearCallCount, 1)
+    }
+
+    /// Verifies expired access tokens are refreshed during authenticated session restore.
+    func testRestoreAuthenticatedSessionRefreshesExpiredAccessToken() async throws {
+        let user = AppUser(id: "user-refresh", username: "refresh@example.com", createdAt: Date())
+        let expiredToken = makeToken(
+            accessToken: "expired-access",
+            refreshToken: "refresh-token",
+            expiresAt: Date(timeIntervalSinceNow: -60)
+        )
+        let refreshedToken = makeToken(
+            accessToken: "fresh-access",
+            refreshToken: "fresh-refresh",
+            expiresAt: Date(timeIntervalSinceNow: 3600)
+        )
+        let tokenStore = RecordingAuthTokenStore(initialTokenSet: expiredToken)
+        let authManager = RecordingAuthenticationAPIManager(refreshTokenResult: .success(refreshedToken))
+        let service = makeSessionService(
+            user: user,
+            tokenStore: tokenStore,
+            authenticationAPIManager: authManager
+        )
+        _ = try await service.signIn(username: user.username)
+        try tokenStore.saveTokenSet(expiredToken)
+
+        let restoredUser = try await service.restoreAuthenticatedSession()
+
+        XCTAssertEqual(restoredUser, user)
+        XCTAssertEqual(authManager.refreshTokenRequests, ["refresh-token"])
+        XCTAssertEqual(try tokenStore.loadTokenSet(), refreshedToken)
+    }
+
+    /// Verifies expired token restore clears persisted state when no refresh token is available.
+    func testRestoreAuthenticatedSessionClearsSessionWhenRefreshTokenIsMissing() async throws {
+        let user = AppUser(id: "user-missing-refresh", username: "missing-refresh@example.com", createdAt: Date())
+        let tokenStore = RecordingAuthTokenStore(
+            initialTokenSet: makeToken(
+                accessToken: "expired-access",
+                refreshToken: "",
+                expiresAt: Date(timeIntervalSinceNow: -60)
+            )
+        )
+        let service = makeSessionService(user: user, tokenStore: tokenStore)
+        _ = try await service.signIn(username: user.username)
+        try tokenStore.saveTokenSet(
+            makeToken(
+                accessToken: "expired-access",
+                refreshToken: "",
+                expiresAt: Date(timeIntervalSinceNow: -60)
+            )
+        )
+
+        let restoredUser = try await service.restoreAuthenticatedSession()
+
+        XCTAssertNil(restoredUser)
+        XCTAssertNil(try service.restoreSession())
+        XCTAssertNil(try tokenStore.loadTokenSet())
+    }
+
+    /// Verifies sign out clears local and secure session state and attempts backend revocation with the old token.
+    func testSignOutClearsSessionAndRequestsBackendRevocation() async throws {
+        let user = AppUser(id: "user-signout", username: "signout@example.com", createdAt: Date())
+        let tokenStore = RecordingAuthTokenStore(
+            initialTokenSet: makeToken(accessToken: "access-to-revoke", refreshToken: "refresh")
+        )
+        let authManager = RecordingAuthenticationAPIManager()
+        let service = makeSessionService(
+            user: user,
+            tokenStore: tokenStore,
+            authenticationAPIManager: authManager
+        )
+        _ = try await service.signIn(username: user.username)
+        try tokenStore.saveTokenSet(makeToken(accessToken: "access-to-revoke", refreshToken: "refresh"))
+
+        service.signOut()
+        await waitForCondition { authManager.revokeSessionRequests.count == 1 }
+
+        XCTAssertNil(try service.restoreSession())
+        XCTAssertNil(try tokenStore.loadTokenSet())
+        XCTAssertEqual(authManager.revokeSessionRequests, ["access-to-revoke"])
+    }
+
+    private func makeSessionService(
+        user: AppUser = AppUser(id: "user-default", username: "default@example.com", createdAt: Date()),
+        userRepository: (any UserRepository)? = nil,
+        tokenStore: (any AuthTokenStoring)? = nil,
+        authenticationAPIManager: (any AuthenticationAPIManaging)? = nil
+    ) -> UserSessionService {
+        let suiteName = "UserSessionServiceTests.\(UUID().uuidString)"
+        let userDefaults = UserDefaults(suiteName: suiteName)!
+        userDefaults.removePersistentDomain(forName: suiteName)
+        return UserSessionService(
+            userRepository: userRepository ?? TestUserRepository(user: user),
+            userDefaults: userDefaults,
+            tokenStore: tokenStore,
+            authenticationAPIManager: authenticationAPIManager
+        )
+    }
+
+    private func makeToken(
+        accessToken: String = "access",
+        refreshToken: String = "refresh",
+        expiresAt: Date = Date(timeIntervalSinceNow: 3600)
+    ) -> AuthTokenSet {
+        AuthTokenSet(
+            accessToken: accessToken,
+            refreshToken: refreshToken,
+            expiresAt: expiresAt
+        )
+    }
+
+    private func waitForCondition(_ condition: @MainActor () -> Bool) async {
+        for _ in 0..<200 {
+            if condition() {
+                return
+            }
+            try? await Task.sleep(for: .milliseconds(10))
+        }
+    }
+}
+
+private final class RecordingAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
+    private var tokenSet: AuthTokenSet?
+    private(set) var savedTokenSets: [AuthTokenSet] = []
+    private(set) var clearCallCount = 0
+
+    init(initialTokenSet: AuthTokenSet? = nil) {
+        self.tokenSet = initialTokenSet
+    }
+
+    func loadTokenSet() throws -> AuthTokenSet? {
+        tokenSet
+    }
+
+    func saveTokenSet(_ tokenSet: AuthTokenSet) throws {
+        self.tokenSet = tokenSet
+        savedTokenSets.append(tokenSet)
+    }
+
+    func clearTokenSet() throws {
+        tokenSet = nil
+        clearCallCount += 1
+    }
+}
+
+private final class RecordingAuthenticationAPIManager: AuthenticationAPIManaging, @unchecked Sendable {
+    private let signInUsernameToken: AuthTokenSet
+    private let signInEmailToken: AuthTokenSet
+    private let registerToken: AuthTokenSet
+    private let appleToken: AuthTokenSet
+    private let refreshTokenResult: Result<AuthTokenSet, Error>
+
+    private(set) var signInUsernameRequests: [String] = []
+    private(set) var signInEmailRequests: [(email: String, password: String)] = []
+    private(set) var registerRequests: [(email: String, password: String)] = []
+    private(set) var appleRequests: [AppleAuthenticationIdentity] = []
+    private(set) var refreshTokenRequests: [String] = []
+    private(set) var revokeSessionRequests: [String?] = []
+
+    init(
+        signInUsernameToken: AuthTokenSet = AuthTokenSet(
+            accessToken: "username-access",
+            refreshToken: "username-refresh",
+            expiresAt: Date(timeIntervalSinceNow: 3600)
+        ),
+        signInEmailToken: AuthTokenSet = AuthTokenSet(
+            accessToken: "email-access",
+            refreshToken: "email-refresh",
+            expiresAt: Date(timeIntervalSinceNow: 3600)
+        ),
+        registerToken: AuthTokenSet = AuthTokenSet(
+            accessToken: "register-access",
+            refreshToken: "register-refresh",
+            expiresAt: Date(timeIntervalSinceNow: 3600)
+        ),
+        appleToken: AuthTokenSet = AuthTokenSet(
+            accessToken: "apple-access",
+            refreshToken: "apple-refresh",
+            expiresAt: Date(timeIntervalSinceNow: 3600)
+        ),
+        refreshTokenResult: Result<AuthTokenSet, Error> = .success(
+            AuthTokenSet(
+                accessToken: "refreshed-access",
+                refreshToken: "refreshed-refresh",
+                expiresAt: Date(timeIntervalSinceNow: 3600)
+            )
+        )
+    ) {
+        self.signInUsernameToken = signInUsernameToken
+        self.signInEmailToken = signInEmailToken
+        self.registerToken = registerToken
+        self.appleToken = appleToken
+        self.refreshTokenResult = refreshTokenResult
+    }
+
+    func signIn(username: String) async throws -> AuthTokenSet {
+        signInUsernameRequests.append(username)
+        return signInUsernameToken
+    }
+
+    func signIn(email: String, password: String) async throws -> AuthTokenSet {
+        signInEmailRequests.append((email, password))
+        return signInEmailToken
+    }
+
+    func register(email: String, password: String) async throws -> AuthTokenSet {
+        registerRequests.append((email, password))
+        return registerToken
+    }
+
+    func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AuthTokenSet {
+        appleRequests.append(identity)
+        return appleToken
+    }
+
+    func refreshToken(using refreshToken: String) async throws -> AuthTokenSet {
+        refreshTokenRequests.append(refreshToken)
+        return try refreshTokenResult.get()
+    }
+
+    func revokeSession(accessToken: String?) async throws {
+        revokeSessionRequests.append(accessToken)
+    }
+}
+
+private struct ThrowingUserRepository: UserRepository {
+    func findUser(id: String) throws -> AppUser? {
+        nil
+    }
+
+    func findUser(username: String) throws -> AppUser? {
+        nil
+    }
+
+    func findOrCreateUser(username: String) throws -> AppUser {
+        throw TestSessionError.signInUnavailable
+    }
+
+    func updateNavigationStateRestoreEnabled(userID: String, isEnabled: Bool) throws -> AppUser {
+        throw TestSessionError.signInUnavailable
+    }
+
+    func findOrCreateAppleUser(appleUserID: String, preferredUsername: String?) throws -> AppUser {
+        throw TestSessionError.signInUnavailable
     }
 }
