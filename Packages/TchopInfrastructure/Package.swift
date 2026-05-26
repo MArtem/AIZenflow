@@ -196,6 +196,11 @@ let package = Package(
             swiftSettings: strictConcurrencySettings
         ),
         .testTarget(
+            name: "SyncCoreTests",
+            dependencies: ["SyncCore"],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .testTarget(
             name: "TchopNetworkingTests",
             dependencies: ["TchopNetworking"],
             swiftSettings: strictConcurrencySettings
