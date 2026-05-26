@@ -109,6 +109,7 @@ final class TestUserRepository: UserRepository {
 final class TestNavigationStateManager: NavigationStateManaging {
     private var snapshots: [String: NavigationSnapshot] = [:]
     private(set) var clearCallCount = 0
+    private(set) var saveCallCount = 0
 
     /// Creates a new TestNavigationStateManager instance.
     init(seed: [String: NavigationSnapshot] = [:]) {
@@ -117,6 +118,7 @@ final class TestNavigationStateManager: NavigationStateManaging {
 
     /// Stores the typed navigation snapshot for the given user.
     func saveSnapshot<Snapshot: Codable>(_ snapshot: Snapshot, for userID: String) {
+        saveCallCount += 1
         guard let typedSnapshot = snapshot as? NavigationSnapshot else {
             return
         }
@@ -156,6 +158,32 @@ final class TestDeepLinkManager: DeepLinkManaging {
     /// Always declines user-activity handling.
     func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool {
         false
+    }
+}
+
+
+/// Recording deep-link double used to verify authenticated and pending routing semantics.
+@MainActor
+final class RecordingDeepLinkManager: DeepLinkManaging {
+    private let handledResult: Bool
+    private(set) var handledURLs: [URL] = []
+    private(set) var handledActivities: [NSUserActivity] = []
+
+    /// Creates a recording deep-link manager with a configurable return value.
+    init(handledResult: Bool = true) {
+        self.handledResult = handledResult
+    }
+
+    /// Records URL handling attempts.
+    func handle(url: URL, coordinator: AppCoordinator) -> Bool {
+        handledURLs.append(url)
+        return handledResult
+    }
+
+    /// Records user-activity handling attempts.
+    func handle(userActivity: NSUserActivity, coordinator: AppCoordinator) -> Bool {
+        handledActivities.append(userActivity)
+        return handledResult
     }
 }
 

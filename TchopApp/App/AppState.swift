@@ -187,14 +187,13 @@ final class AppState {
                 syncSessionStateFromStore()
             }
         } catch {
-            let presentation = await errorManager.presentableError(
+            _ = await errorManager.presentableError(
                 from: error,
                 context: AppErrorContext(
                     operation: "restoreSession",
                     feature: "appState"
                 )
             )
-            assertionFailure("Failed to restore user session: \(presentation.error.debugDescription)")
             sessionStore.setSignedOut()
             syncSessionStateFromStore()
         }

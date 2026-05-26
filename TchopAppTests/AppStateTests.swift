@@ -304,6 +304,213 @@ final class AppStateTests: XCTestCase {
         XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
     }
 
+
+    /// Verifies unauthenticated deep links are queued and replayed after successful sign-in.
+    func testUnauthenticatedDeepLinkQueuesAndReplaysAfterSignIn() async throws {
+        let signedInUser = AppUser(id: "user-pending-link", username: "pending", createdAt: Date())
+        let deepLinkManager = RecordingDeepLinkManager()
+        let state = makeAppState(
+            user: signedInUser,
+            sessionService: TestUserSessionService(
+                signInResult: .success(signedInUser),
+                restoreResult: .success(nil)
+            ),
+            deepLinkManager: deepLinkManager
+        )
+        let url = URL(string: "tchop://chat?title=Support")!
+
+        XCTAssertTrue(state.handleIncomingURL(url))
+        XCTAssertTrue(deepLinkManager.handledURLs.isEmpty)
+
+        try await state.signIn(username: signedInUser.username)
+
+        XCTAssertEqual(deepLinkManager.handledURLs, [url])
+        XCTAssertEqual(state.currentUser, signedInUser)
+    }
+
+    /// Verifies only the latest unauthenticated deep link is kept before sign-in.
+    func testUnauthenticatedDeepLinkKeepsLatestPendingInputOnly() async throws {
+        let signedInUser = AppUser(id: "user-latest-link", username: "latest", createdAt: Date())
+        let deepLinkManager = RecordingDeepLinkManager()
+        let state = makeAppState(
+            user: signedInUser,
+            sessionService: TestUserSessionService(
+                signInResult: .success(signedInUser),
+                restoreResult: .success(nil)
+            ),
+            deepLinkManager: deepLinkManager
+        )
+        let firstURL = URL(string: "tchop://chat?title=First")!
+        let secondURL = URL(string: "tchop://profile?title=Second")!
+
+        XCTAssertTrue(state.handleIncomingURL(firstURL))
+        XCTAssertTrue(state.handleIncomingURL(secondURL))
+        try await state.signIn(username: signedInUser.username)
+
+        XCTAssertEqual(deepLinkManager.handledURLs, [secondURL])
+    }
+
+    /// Verifies authenticated deep links resolve immediately instead of being queued.
+    func testAuthenticatedDeepLinkResolvesImmediately() async throws {
+        let signedInUser = AppUser(id: "user-auth-link", username: "auth-link", createdAt: Date())
+        let deepLinkManager = RecordingDeepLinkManager()
+        let state = makeAppState(
+            user: signedInUser,
+            sessionService: TestUserSessionService(
+                signInResult: .success(signedInUser),
+                restoreResult: .success(nil)
+            ),
+            deepLinkManager: deepLinkManager
+        )
+        try await state.signIn(username: signedInUser.username)
+        let url = URL(string: "tchop://chat?title=Live")!
+
+        XCTAssertTrue(state.handleIncomingURL(url))
+
+        XCTAssertEqual(deepLinkManager.handledURLs, [url])
+    }
+
+    /// Verifies failed sign-in leaves session signed out and does not replay queued deep links.
+    func testFailedSignInDoesNotReplayPendingDeepLink() async {
+        let user = AppUser(id: "user-failed-link", username: "failed", createdAt: Date())
+        let deepLinkManager = RecordingDeepLinkManager()
+        let state = makeAppState(
+            user: user,
+            sessionService: TestUserSessionService(
+                signInResult: .failure(TestSessionError.signInUnavailable),
+                restoreResult: .success(nil)
+            ),
+            deepLinkManager: deepLinkManager
+        )
+
+        XCTAssertTrue(state.handleIncomingURL(URL(string: "tchop://chat?title=Queued")!))
+        do {
+            try await state.signIn(username: user.username)
+            XCTFail("Expected sign-in to fail")
+        } catch {
+            XCTAssertNil(state.currentUser)
+        }
+
+        XCTAssertTrue(deepLinkManager.handledURLs.isEmpty)
+    }
+
+    /// Verifies restore failures fall back to signed-out root state.
+    func testRestoreFailureFallsBackToSignedOutState() async {
+        let user = AppUser(id: "user-restore-failure", username: "restore-failure", createdAt: Date())
+        let state = makeAppState(
+            user: user,
+            sessionService: TestUserSessionService(
+                signInResult: .success(user),
+                restoreResult: .failure(TestSessionError.signInUnavailable)
+            )
+        )
+
+        await waitForSignedOutState(state)
+
+        XCTAssertEqual(state.sessionState, .signedOut)
+        XCTAssertNil(state.currentUser)
+    }
+
+    /// Verifies opted-in users persist navigation snapshots after authenticated navigation changes.
+    func testAuthenticatedNavigationChangePersistsSnapshotWhenRestoreEnabled() async throws {
+        let signedInUser = AppUser(
+            id: "user-nav-persist",
+            username: "nav-persist",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let stateManager = TestNavigationStateManager()
+        let coordinator = AppCoordinator()
+        let state = makeAppState(
+            coordinator: coordinator,
+            user: signedInUser,
+            sessionService: TestUserSessionService(
+                signInResult: .success(signedInUser),
+                restoreResult: .success(nil)
+            ),
+            navigationStateManager: stateManager
+        )
+
+        try await state.signIn(username: signedInUser.username)
+        coordinator.selectTab(.profile)
+
+        XCTAssertEqual(stateManager.snapshot(for: signedInUser.id)?.selectedTab, .profile)
+        XCTAssertGreaterThanOrEqual(stateManager.saveCallCount, 1)
+    }
+
+    /// Verifies clean snapshot restore does not immediately re-save from the coordinator callback.
+    func testCleanSnapshotRestoreDoesNotCreatePersistenceFeedbackLoop() async {
+        let restoredUser = AppUser(
+            id: "user-clean-snapshot",
+            username: "clean-snapshot",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .profile,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [],
+            profilePath: [ProfileRoute(title: "Profile", description: "Clean")]
+        )
+        let stateManager = TestNavigationStateManager(seed: [restoredUser.id: snapshot])
+        let coordinator = AppCoordinator()
+        let state = makeAppState(
+            coordinator: coordinator,
+            user: restoredUser,
+            sessionService: TestUserSessionService(
+                signInResult: .success(restoredUser),
+                restoreResult: .success(restoredUser)
+            ),
+            navigationStateManager: stateManager
+        )
+
+        await waitForAppStateRestore(state)
+
+        XCTAssertEqual(coordinator.selectedTab, .profile)
+        XCTAssertEqual(coordinator.profileRouter.path.count, 1)
+        XCTAssertEqual(stateManager.saveCallCount, 0)
+    }
+
+    /// Verifies disabling restore clears persisted snapshot and resets navigation immediately.
+    func testSetNavigationRestoreDisabledClearsSnapshotAndResetsNavigation() async throws {
+        let signedInUser = AppUser(
+            id: "user-disable-restore",
+            username: "disable-restore",
+            createdAt: Date(),
+            isNavigationStateRestoreEnabled: true
+        )
+        let snapshot = NavigationSnapshot(
+            selectedTab: .profile,
+            newsPath: [],
+            mixesPath: [],
+            pinnedPath: [],
+            chatPath: [],
+            profilePath: [ProfileRoute(title: "Profile", description: "Saved")]
+        )
+        let stateManager = TestNavigationStateManager(seed: [signedInUser.id: snapshot])
+        let coordinator = AppCoordinator(selectedTab: .profile)
+        coordinator.profileRouter.push(ProfileRoute(title: "Current", description: "Current"))
+        let state = makeAppState(
+            coordinator: coordinator,
+            user: signedInUser,
+            sessionService: TestUserSessionService(
+                signInResult: .success(signedInUser),
+                restoreResult: .success(nil)
+            ),
+            navigationStateManager: stateManager
+        )
+        try await state.signIn(username: signedInUser.username)
+
+        try state.setNavigationRestoreEnabled(false)
+
+        XCTAssertEqual(coordinator.selectedTab, .news)
+        XCTAssertTrue(coordinator.profileRouter.path.isEmpty)
+        XCTAssertNil(stateManager.snapshot(for: signedInUser.id))
+        XCTAssertEqual(stateManager.clearCallCount, 1)
+    }
+
     /// Verifies init migrates and sanitizes snapshot before apply.
     func testInitMigratesAndSanitizesSnapshotBeforeApply() async {
         let restoredUser = AppUser(
@@ -430,6 +637,49 @@ private func waitForAppStateRestore(_ state: AppState) async {
         }
         try? await Task.sleep(for: .milliseconds(20))
     }
+}
+
+
+@MainActor
+private func waitForSignedOutState(_ state: AppState) async {
+    for _ in 0..<50 {
+        await Task.yield()
+        if state.sessionState == .signedOut {
+            return
+        }
+        try? await Task.sleep(for: .milliseconds(20))
+    }
+}
+
+@MainActor
+private func makeAppState(
+    coordinator: AppCoordinator = AppCoordinator(),
+    shellViewModel: AppShellViewModel = makeShellViewModel(),
+    sessionStore: SessionStore = SessionStore(),
+    channelsStore: ChannelsStore = makeTestChannelsStore(),
+    user: AppUser,
+    sessionService: TestUserSessionService,
+    navigationStateManager: TestNavigationStateManager = TestNavigationStateManager(),
+    deepLinkManager: any DeepLinkManaging = TestDeepLinkManager(),
+    widgetContentSyncManager: any WidgetContentSyncing = NoopWidgetContentSyncManager(),
+    pushNotificationBridge: any AppPushNotificationBridging = NoopPushNotificationBridge(),
+    errorManager: any AppErrorManaging = AppErrorManager()
+) -> AppState {
+    AppState(
+        coordinator: coordinator,
+        appShellViewModel: shellViewModel,
+        sessionStore: sessionStore,
+        channelsStore: channelsStore,
+        sessionService: sessionService,
+        userRepository: TestUserRepository(user: user),
+        channelSettingsRepository: UserChannelSettingsRepository(),
+        navigationStateManager: navigationStateManager,
+        deepLinkManager: deepLinkManager,
+        navigationEventReporter: NavigationNoopEventReporter(),
+        widgetContentSyncManager: widgetContentSyncManager,
+        pushNotificationBridge: pushNotificationBridge,
+        errorManager: errorManager
+    )
 }
 
 @MainActor
