@@ -476,6 +476,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - added `./TchopAppTests/NewsFeedViewModelTests.swift` coverage for `NewsFeedCardActionCoordinator` queued additive actions, per-card clear semantics, and `cancelAll()` task cancellation/queue cleanup.
 - Verification: targeted `xcodebuild ... -only-testing:TchopAppTests/AppShellViewModelTests test` first exposed a missing test file-manager double, then succeeded after adding a local double; targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedCardActionCoordinatorTests test` succeeded; final `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, and `swift test` in `./Packages/TchopInfrastructure` all succeeded.
 
+
+- Completed now: app-specific shell error and composer view-model contract test expansion:
+  - added `./TchopAppTests/AppShellViewModelTests.swift` coverage that failed UI-configuration refreshes are reported through `AppErrorManaging` while preserving the cached shell `showsFloatingActionButton` state.
+  - made the app-shell test factory accept an injected `AppErrorManaging` instance so shell error side effects can be asserted without production reporting.
+  - added `./TchopAppTests/ShareExtensionRuntimeContractTests.swift` `FeedComposerViewModelTests` coverage for empty publish no-op behavior, source-neutral text-card publishing, channel/title sourcing from `ChannelsStore`, and draft field visibility mutations through the view-model surface.
+- Verification: targeted `xcodebuild ... -only-testing:TchopAppTests/AppShellViewModelTests test` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/FeedComposerViewModelTests test` succeeded; final `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, and `swift test` in `./Packages/TchopInfrastructure` all succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.

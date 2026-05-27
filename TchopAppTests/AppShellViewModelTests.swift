@@ -44,6 +44,29 @@ final class AppShellViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.showsFloatingActionButton)
     }
 
+    /// Verifies refresh failures are reported without replacing the cached shell configuration.
+    func testShellViewModelReportsUIConfigurationRefreshFailureWithoutChangingCachedState() async {
+        let errorManager = ShellRecordingAppErrorManager()
+        let uiConfigurationManager = TestUIConfigurationManager(
+            currentSnapshot: UIConfigurationSnapshot(
+                shell: ShellUIConfiguration(showsFloatingActionButton: false)
+            ),
+            refreshResult: .failure(TestUIConfigurationError.refreshFailed),
+            refreshDelayNanoseconds: 0
+        )
+
+        let viewModel = makeShellViewModel(
+            uiConfigurationManager: uiConfigurationManager,
+            errorManager: errorManager
+        )
+
+        await waitUntil(errorManager.contexts.count == 1)
+
+        XCTAssertFalse(viewModel.showsFloatingActionButton)
+        XCTAssertEqual(errorManager.contexts.first?.operation, "refreshUIConfiguration")
+        XCTAssertEqual(errorManager.contexts.first?.feature, "appShell")
+    }
+
     /// Verifies shell only changes the near-top flag when the feed reports a real threshold transition.
     func testSetNewsFeedNearTopUpdatesShellState() {
         let viewModel = makeShellViewModel()
@@ -141,6 +164,7 @@ final class AppShellViewModelTests: XCTestCase {
             refreshResult: .success(UIConfigurationSnapshot(shell: ShellUIConfiguration(showsFloatingActionButton: true))),
             refreshDelayNanoseconds: 0
         ),
+        errorManager: any AppErrorManaging = AppErrorManager(),
         shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = nil,
         isMenuOpen: Bool = false
     ) -> AppShellViewModel {
@@ -148,7 +172,7 @@ final class AppShellViewModelTests: XCTestCase {
         let newsFeedViewModel = NewsFeedViewModel(
             channelsStore: channelsStore,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
-            errorManager: AppErrorManager(),
+            errorManager: errorManager,
             feedCardStore: resolvedFeedCardStore
         )
 
@@ -156,7 +180,7 @@ final class AppShellViewModelTests: XCTestCase {
             channelsStore: channelsStore,
             feedCardStore: resolvedFeedCardStore,
             newsFeedViewModel: newsFeedViewModel,
-            errorManager: AppErrorManager(),
+            errorManager: errorManager,
             uiConfigurationManager: uiConfigurationManager,
             shareExtensionSessionContextManager: shareExtensionSessionContextManager,
             isMenuOpen: isMenuOpen
@@ -170,6 +194,37 @@ final class AppShellViewModelTests: XCTestCase {
         return try ShareExtensionSessionContextManager(
             groupIdentifier: "group.test.shell-session",
             fileManager: ShellTestAppGroupFileManager(containerURL: rootURL)
+        )
+    }
+}
+
+/// Records shell error contexts without relying on production reporting side effects.
+@MainActor
+private final class ShellRecordingAppErrorManager: AppErrorManaging {
+    private(set) var contexts: [AppErrorContext] = []
+
+    func presentableError(
+        from error: any Error,
+        context: AppErrorContext?
+    ) async -> AppErrorPresentation {
+        if let context {
+            contexts.append(context)
+        }
+
+        let appError = AppError(
+            category: .unknown,
+            severity: .error,
+            suggestion: .retry,
+            isRetryable: true,
+            isSessionRecoveryRequired: false,
+            messageKey: "shell.test.error",
+            debugDescription: String(describing: error),
+            context: context
+        )
+
+        return AppErrorPresentation(
+            error: appError,
+            userMessage: "Shell configuration failed"
         )
     }
 }

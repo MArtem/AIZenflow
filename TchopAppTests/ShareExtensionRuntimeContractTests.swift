@@ -327,6 +327,92 @@ final class ShareExtensionRuntimeContractTests: XCTestCase {
     }
 }
 
+/// Verifies app/share composer view-model behavior stays aligned with feed-card draft rules.
+@MainActor
+final class FeedComposerViewModelTests: XCTestCase {
+    /// Verifies empty composer drafts do not call the publish boundary.
+    func testPublishReturnsFalseForEmptyDraft() {
+        var publishedCards: [FeedCard] = []
+        let viewModel = FeedComposerViewModel(
+            selectedChannelID: AppChannel.defaultChannel.id,
+            channelsStore: makeTestChannelsStore(),
+            publishAction: { card in
+                publishedCards.append(card)
+            }
+        )
+
+        XCTAssertFalse(viewModel.publish())
+        XCTAssertTrue(publishedCards.isEmpty)
+    }
+
+    /// Verifies published text cards carry only source-neutral feed data.
+    func testPublishSendsSourceNeutralTextCard() throws {
+        var publishedCards: [FeedCard] = []
+        let viewModel = FeedComposerViewModel(
+            selectedChannelID: AppChannel.community.id,
+            channelsStore: makeTestChannelsStore(selectedChannelID: AppChannel.community.id),
+            publishAction: { card in
+                publishedCards.append(card)
+            }
+        )
+
+        viewModel.updateText(" Body ", for: .text)
+        viewModel.applyInsertion(.headline)
+        viewModel.updateText(" Headline ", for: .headline)
+
+        XCTAssertTrue(viewModel.publish())
+
+        let card = try XCTUnwrap(publishedCards.first)
+        XCTAssertEqual(card.channelID, AppChannel.community.id)
+        XCTAssertEqual(card.kind, .text)
+        XCTAssertEqual(card.textValue(for: .text), "Body")
+        XCTAssertEqual(card.textValue(for: .headline), "Headline")
+        XCTAssertNil(card.sourceContent)
+        XCTAssertNil(card.mediaContent)
+    }
+
+    /// Verifies available channels and title are sourced from the injected channel store.
+    func testAvailableChannelsAndSelectedTitleFollowChannelsStore() {
+        let channels = [AppChannel.product, AppChannel.community]
+        let viewModel = FeedComposerViewModel(
+            selectedChannelID: AppChannel.community.id,
+            channelsStore: makeTestChannelsStore(
+                channels: channels,
+                selectedChannelID: AppChannel.product.id
+            ),
+            publishAction: { _ in }
+        )
+
+        XCTAssertEqual(viewModel.availableChannels, channels)
+        XCTAssertEqual(viewModel.selectedChannelID, AppChannel.community.id)
+        XCTAssertEqual(viewModel.selectedChannelTitle, AppChannel.community.title)
+    }
+
+    /// Verifies draft field visibility changes remain observable through the composer view model.
+    func testFieldVisibilityTracksDraftMutations() throws {
+        let viewModel = FeedComposerViewModel(
+            selectedChannelID: AppChannel.defaultChannel.id,
+            channelsStore: makeTestChannelsStore(),
+            publishAction: { _ in }
+        )
+
+        XCTAssertEqual(viewModel.orderedVisibleTextFieldKinds, [.text])
+        XCTAssertFalse(viewModel.fieldSupportsRemoval(.text))
+
+        viewModel.selectPickedFile(kind: .video, displayTitle: "clip.mov", fileURL: nil)
+        viewModel.handleBackspaceOnEmptyField(.text)
+
+        XCTAssertFalse(viewModel.visibleTextFieldKinds.contains(.text))
+        XCTAssertTrue(viewModel.canPublish)
+
+        viewModel.applyInsertion(.headline)
+        viewModel.updateText("Headline", for: .headline)
+
+        XCTAssertEqual(viewModel.orderedVisibleTextFieldKinds, [.headline])
+        XCTAssertEqual(viewModel.textValue(for: .headline), "Headline")
+    }
+}
+
 private final class TestAppGroupFileManager: FileManager, @unchecked Sendable {
     private let sharedContainerURL: URL
 
