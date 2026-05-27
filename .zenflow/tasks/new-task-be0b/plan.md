@@ -483,6 +483,12 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - added `./TchopAppTests/ShareExtensionRuntimeContractTests.swift` `FeedComposerViewModelTests` coverage for empty publish no-op behavior, source-neutral text-card publishing, channel/title sourcing from `ChannelsStore`, and draft field visibility mutations through the view-model surface.
 - Verification: targeted `xcodebuild ... -only-testing:TchopAppTests/AppShellViewModelTests test` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/FeedComposerViewModelTests test` succeeded; final `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, and `swift test` in `./Packages/TchopInfrastructure` all succeeded.
 
+
+- Completed now: launch-configuration and share-extension session-context test expansion:
+  - added `./TchopAppTests/AppStateTests.swift` coverage for default launch configuration, UI-test authenticated-session flags, invalid initial URL handling, and ReqRes external-auth default API-key behavior.
+  - added `./TchopAppTests/ShareExtensionRuntimeContractTests.swift` `ShareExtensionSessionContextManagerTests` coverage for authenticated session context round-trip through app-group JSON storage and signed-out context scrubbing of channel details.
+- Verification: targeted `xcodebuild ... -only-testing:TchopAppTests/AppLaunchConfigurationTests test` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/ShareExtensionSessionContextManagerTests test` succeeded; final `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, and `swift test` in `./Packages/TchopInfrastructure` all succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.

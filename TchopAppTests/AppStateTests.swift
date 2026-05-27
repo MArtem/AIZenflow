@@ -990,6 +990,20 @@ final class DeepLinkManagerTests: XCTestCase {
 /// Verifies launch-time environment parsing stays centralized and deterministic.
 @MainActor
 final class AppLaunchConfigurationTests: XCTestCase {
+    /// Verifies default launches stay on persistent SwiftData and local app-auth mode.
+    func testDefaultLaunchUsesPersistentSwiftDataAndStubAuth() {
+        let configuration = AppLaunchConfiguration(environment: [:])
+
+        XCTAssertFalse(configuration.isUITesting)
+        XCTAssertFalse(configuration.launchesAuthenticatedSession)
+        XCTAssertEqual(configuration.uiTestUsername, "ui-test-user")
+        XCTAssertNil(configuration.initialURL)
+        XCTAssertEqual(configuration.databaseConfiguration.backendSelectionPolicy, .swiftData)
+        XCTAssertFalse(configuration.databaseConfiguration.isStoredInMemoryOnly)
+        XCTAssertEqual(configuration.apiEnvironment.kind, .developmentStub)
+        XCTAssertEqual(configuration.apiEnvironment.loginScreenMode, .defaultAppAuth)
+    }
+
     /// Verifies UI-test launches use in-memory SwiftData storage.
     func testUITestLaunchUsesInMemorySwiftDataConfiguration() {
         let configuration = AppLaunchConfiguration(environment: [
@@ -1016,6 +1030,36 @@ final class AppLaunchConfigurationTests: XCTestCase {
         XCTAssertEqual(configuration.apiEnvironment.loginScreenMode, .reqResDemoExternalAuth)
         XCTAssertTrue(configuration.apiEnvironment.enablesNetworkLogging)
         XCTAssertEqual(configuration.apiEnvironment.authenticationAPIConfiguration.defaultHeaders["x-api-key"], "test-api-key")
+    }
+
+    /// Verifies UI-test session and URL flags are parsed without leaking into API mode.
+    func testUITestSessionFlagsAndInvalidInitialURLAreParsedDeterministically() {
+        let configuration = AppLaunchConfiguration(environment: [
+            "TCHOP_UI_TEST_MODE": "1",
+            "TCHOP_UI_TEST_AUTHENTICATED": "1",
+            "TCHOP_UI_TEST_USERNAME": "alice",
+            "TCHOP_UI_TEST_INITIAL_URL": "http://[::1"
+        ])
+
+        XCTAssertTrue(configuration.isUITesting)
+        XCTAssertTrue(configuration.launchesAuthenticatedSession)
+        XCTAssertEqual(configuration.uiTestUsername, "alice")
+        XCTAssertNil(configuration.initialURL)
+        XCTAssertEqual(configuration.apiEnvironment.kind, .developmentStub)
+    }
+
+    /// Verifies ReqRes auth uses the safe default API key when the launch key is absent.
+    func testReqResEnvironmentUsesDefaultAPIKeyWhenLaunchKeyIsMissing() {
+        let configuration = AppLaunchConfiguration(environment: [
+            "TCHOP_API_ENV": "reqres_demo_auth"
+        ])
+
+        XCTAssertEqual(configuration.apiEnvironment.kind, .developmentExternalAuth)
+        XCTAssertEqual(
+            configuration.apiEnvironment.authenticationAPIConfiguration.defaultHeaders["x-api-key"],
+            "free_user_3Co5h4PffK0RHil0TjwChhqMETj"
+        )
+        XCTAssertFalse(configuration.apiEnvironment.enablesNetworkLogging)
     }
 }
 

@@ -413,6 +413,52 @@ final class FeedComposerViewModelTests: XCTestCase {
     }
 }
 
+/// Verifies app-group session snapshots shared with the share extension.
+@MainActor
+final class ShareExtensionSessionContextManagerTests: XCTestCase {
+    /// Verifies authenticated session context round-trips through app-group JSON storage.
+    func testAuthenticatedContextRoundTripsThroughStorage() throws {
+        let manager = try makeManager()
+
+        try manager.syncContext(
+            isAuthenticated: true,
+            availableChannels: [AppChannel.product, AppChannel.community],
+            selectedChannelID: AppChannel.community.id
+        )
+
+        let context = try XCTUnwrap(manager.loadContext())
+        XCTAssertTrue(context.isAuthenticated)
+        XCTAssertEqual(context.availableChannels, [AppChannel.product, AppChannel.community])
+        XCTAssertEqual(context.selectedChannelID, AppChannel.community.id)
+    }
+
+    /// Verifies signed-out session context removes channel details from extension-visible storage.
+    func testSignedOutContextScrubsChannelDetails() throws {
+        let manager = try makeManager()
+
+        try manager.syncContext(
+            isAuthenticated: false,
+            availableChannels: [AppChannel.product, AppChannel.community],
+            selectedChannelID: AppChannel.community.id
+        )
+
+        let context = try XCTUnwrap(manager.loadContext())
+        XCTAssertFalse(context.isAuthenticated)
+        XCTAssertTrue(context.availableChannels.isEmpty)
+        XCTAssertNil(context.selectedChannelID)
+    }
+
+    /// Creates a session-context manager backed by an isolated temporary app-group container.
+    private func makeManager() throws -> ShareExtensionSessionContextManager {
+        let rootURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        return try ShareExtensionSessionContextManager(
+            groupIdentifier: "group.test.share-session",
+            fileManager: TestAppGroupFileManager(containerURL: rootURL)
+        )
+    }
+}
+
 private final class TestAppGroupFileManager: FileManager, @unchecked Sendable {
     private let sharedContainerURL: URL
 
