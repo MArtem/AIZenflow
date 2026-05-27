@@ -1,6 +1,7 @@
 import XCTest
 
 /// Smoke UI coverage for the app root, shell, and news feed entry states.
+@MainActor
 final class TchopAppUITests: XCTestCase {
     private let launchTimeout: TimeInterval = 15
     private let reqResEmail = "eve.holt@reqres.in"
@@ -31,6 +32,42 @@ final class TchopAppUITests: XCTestCase {
         application.launch()
 
         XCTAssertTrue(element("news.feed", in: application).waitForExistence(timeout: launchTimeout))
+    }
+
+    /// Verifies the primary composer flow publishes a text card into the feed.
+    func testAuthenticatedUserCanPublishTextCardIntoFeed() {
+        let application = makeApplication(authenticated: true)
+        let cardText = "P0 UI composer text card"
+
+        application.launch()
+
+        XCTAssertTrue(element("news.feed", in: application).waitForExistence(timeout: launchTimeout))
+
+        publishTextCard(cardText, in: application)
+
+        XCTAssertTrue(application.staticTexts[cardText].waitForExistence(timeout: launchTimeout))
+    }
+
+    /// Verifies the shell-level plus button hides when the feed scrolls away from the top.
+    func testFeedScrollHidesAndRestoresFloatingActionButton() {
+        let application = makeApplication(authenticated: true)
+
+        application.launch()
+
+        XCTAssertTrue(element("news.feed", in: application).waitForExistence(timeout: launchTimeout))
+
+        for index in 1...6 {
+            publishTextCard("P0 scroll card \(index)", in: application)
+        }
+
+        let floatingActionButton = element("shell.fab.create", in: application)
+        XCTAssertTrue(floatingActionButton.waitForExistence(timeout: launchTimeout))
+
+        element("news.feed", in: application).swipeUp()
+        XCTAssertTrue(floatingActionButton.waitForNonExistence(timeout: launchTimeout))
+
+        element("news.feed", in: application).swipeDown()
+        XCTAssertTrue(floatingActionButton.waitForExistence(timeout: launchTimeout))
     }
 
     /// Verifies launch-time deep links can bring an authenticated session directly to the profile tab.
@@ -107,8 +144,53 @@ final class TchopAppUITests: XCTestCase {
         return application
     }
 
+    /// Publishes a plain text feed card through the real app composer UI.
+    private func publishTextCard(_ text: String, in application: XCUIApplication) {
+        let floatingActionButton = element("shell.fab.create", in: application)
+        XCTAssertTrue(floatingActionButton.waitForExistence(timeout: launchTimeout))
+        floatingActionButton.tap()
+
+        XCTAssertTrue(element("composer.screen", in: application).waitForExistence(timeout: launchTimeout))
+
+        let textView = application.textViews.matching(identifier: "composer.text.body").firstMatch
+        XCTAssertTrue(textView.waitForExistence(timeout: launchTimeout))
+        textView.tap()
+        textView.typeText(text)
+        application.swipeDown()
+
+        let publishButton = element("composer.publishButton", in: application)
+        XCTAssertTrue(publishButton.waitForExistence(timeout: launchTimeout))
+        publishButton.tap()
+
+        XCTAssertTrue(element("composer.screen", in: application).waitForNonExistence(timeout: launchTimeout))
+    }
+
     /// Resolves a UI element by accessibility identifier without assuming its element type.
     private func element(_ identifier: String, in application: XCUIApplication) -> XCUIElement {
-        application.descendants(matching: .any).matching(identifier: identifier).firstMatch
+        let identifiedElement = application.descendants(matching: .any).matching(identifier: identifier).firstMatch
+        if identifiedElement.exists {
+            return identifiedElement
+        }
+
+        switch identifier {
+        case "shell.fab.create":
+            // iOS 26 Liquid Glass currently exposes the FAB by accessibility label in UI tests,
+            // while the visual SwiftUI button keeps the stable identifier for platforms that surface it.
+            let englishCreateButton = application.buttons["Create"].firstMatch
+            if englishCreateButton.exists {
+                return englishCreateButton
+            }
+            return application.buttons["Создать"].firstMatch
+
+        case "composer.publishButton":
+            let publishButton = application.buttons["Publish"].firstMatch
+            if publishButton.exists {
+                return publishButton
+            }
+            return application.buttons["Опубликовать"].firstMatch
+
+        default:
+            return identifiedElement
+        }
     }
 }

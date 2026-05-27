@@ -489,11 +489,20 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - added `./TchopAppTests/ShareExtensionRuntimeContractTests.swift` `ShareExtensionSessionContextManagerTests` coverage for authenticated session context round-trip through app-group JSON storage and signed-out context scrubbing of channel details.
 - Verification: targeted `xcodebuild ... -only-testing:TchopAppTests/AppLaunchConfigurationTests test` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/ShareExtensionSessionContextManagerTests test` succeeded; final `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, and `swift test` in `./Packages/TchopInfrastructure` all succeeded.
 
+- Completed now: P0 feed/composer/FAB UI regression coverage:
+  - made `./TchopApp/App/AppDIContainer.swift` use deterministic UI-test UI configuration by avoiding persisted standard `UserDefaults` shell configuration in UI-test mode, so tests cannot inherit a hidden floating action button from previous runtime state.
+  - added stable UI-test identifiers in `./TchopApp/Views/Composer/SharedCardComposerView.swift` for composer root, body input, and publish/cancel actions.
+  - kept `./TchopApp/Views/Tabs/FloatingActionButton.swift` visual glass styling intact while preserving a stable accessibility identifier and adding XCTest label fallbacks for iOS 26 Liquid Glass exposure behavior.
+  - hardened `./TchopApp/Views/News/NewsFeedView.swift` scroll/FAB proximity handling: empty feed keeps the plus button visible, iOS 18+ uses native scroll geometry, and older systems keep the preference-key fallback.
+  - added `./TchopAppUITests/TchopAppUITests.swift` P0 UI tests for authenticated text-card publish into feed and feed scroll hide/restore behavior for the shell plus button.
+- Verification: targeted UI tests for `testAuthenticatedUserCanPublishTextCardIntoFeed` and `testFeedScrollHidesAndRestoresFloatingActionButton` succeeded; `git diff --check` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 59 XCTest tests and 37 Swift Testing tests; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded.
+
+
 ## Verification Status
-- Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, and `swift test` in `./Packages/TchopInfrastructure`.
+- Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
-- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with the newly enabled app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage.
-- Build and tests were run by explicit user permission/request; no manual simulator UI flow was run in this block.
+- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage and the new P0 feed/composer/FAB UI regressions.
+- Build and tests were run by explicit user permission/request; no manual simulator UI flow or Instruments trace was run in this block.
 
 ## Archive
 Detailed historical plan/log entries were moved out of the active plan to reduce context cost.

@@ -148,6 +148,17 @@ struct NewsFeedView: View {
     }
 
     private func handleScrollProximityChange(_ isNearTop: Bool) {
+        guard !viewModel.visibleContent.cards.isEmpty else {
+            guard !isFeedNearTop else {
+                return
+            }
+
+            isFeedNearTop = true
+            FeedPerformanceSignpost.scrollNearTopStateChanged(true)
+            onScrollProximityChange(true)
+            return
+        }
+
         guard isFeedNearTop != isNearTop else {
             return
         }
@@ -405,19 +416,33 @@ private struct NewsFeedScrollProximityModifier: ViewModifier {
     let threshold: CGFloat
     let coordinateSpaceName: String
     let onChange: (Bool) -> Void
+    @State private var topOffsetBaseline: CGFloat?
+    @State private var lastReportedIsNearTop: Bool?
 
+    @ViewBuilder
     func body(content: Content) -> some View {
         if #available(iOS 18.0, *) {
             content.onScrollGeometryChange(for: Bool.self) { geometry in
                 geometry.contentOffset.y <= threshold
             } action: { _, isNearTop in
-                onChange(isNearTop)
+                reportIfNeeded(isNearTop)
             }
         } else {
             content.onPreferenceChange(NewsFeedTopOffsetPreferenceKey.self) { topOffset in
-                onChange(topOffset >= -threshold)
+                let baseline = topOffsetBaseline.map { max($0, topOffset) } ?? topOffset
+                topOffsetBaseline = baseline
+                reportIfNeeded(topOffset >= baseline - threshold)
             }
         }
+    }
+
+    private func reportIfNeeded(_ isNearTop: Bool) {
+        guard lastReportedIsNearTop != isNearTop else {
+            return
+        }
+
+        lastReportedIsNearTop = isNearTop
+        onChange(isNearTop)
     }
 }
 

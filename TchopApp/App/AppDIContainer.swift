@@ -224,7 +224,7 @@ final class AppDIContainer {
         self.channelSettingsRepository = UserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
-        self.uiConfigurationManager = Self.makeUIConfigurationManager()
+        self.uiConfigurationManager = Self.makeUIConfigurationManager(isUITesting: isUITesting)
         self.widgetContentSyncManager = Self.makeWidgetContentSyncManager(
             errorManager: errorManager
         )
@@ -578,10 +578,14 @@ final class AppDIContainer {
         }
     }
 
-    private static func makeUIConfigurationManager() -> any UIConfigurationManaging {
-        UIConfigurationManager(
+    private static func makeUIConfigurationManager(isUITesting: Bool) -> any UIConfigurationManaging {
+        let store: (any UIConfigurationSnapshotStoring)? = isUITesting
+            ? nil
+            : UserDefaultsUIConfigurationSnapshotStore(userDefaults: .standard)
+
+        return UIConfigurationManager(
             remoteProvider: StaticUIConfigurationProvider(),
-            store: UserDefaultsUIConfigurationSnapshotStore(userDefaults: .standard),
+            store: store,
             stalenessPolicy: .after(300),
             refreshThrottling: .minimumInterval(30)
         )

@@ -158,6 +158,7 @@ struct SharedCardComposerView: View {
                                     text: binding(for: .headline),
                                     placeholder: viewModel.fieldPlaceholder(for: .headline),
                                     style: textInputStyle(for: .headline),
+                                    accessibilityIdentifier: "composer.text.headline",
                                     isFocused: focusedTextFieldKind == .headline,
                                     onFocus: { setFocusedTextField(.headline) },
                                     onDeleteBackwardWhenEmpty: {
@@ -171,6 +172,7 @@ struct SharedCardComposerView: View {
                                     text: binding(for: .subheadline),
                                     placeholder: viewModel.fieldPlaceholder(for: .subheadline),
                                     style: textInputStyle(for: .subheadline),
+                                    accessibilityIdentifier: "composer.text.subheadline",
                                     isFocused: focusedTextFieldKind == .subheadline,
                                     onFocus: { setFocusedTextField(.subheadline) },
                                     onDeleteBackwardWhenEmpty: {
@@ -185,6 +187,7 @@ struct SharedCardComposerView: View {
                                     text: binding(for: .text),
                                     placeholder: viewModel.fieldPlaceholder(for: .text),
                                     style: textInputStyle(for: .text),
+                                    accessibilityIdentifier: "composer.text.body",
                                     isFocused: focusedTextFieldKind == .text,
                                     onFocus: { setFocusedTextField(.text) },
                                     onDeleteBackwardWhenEmpty: {
@@ -264,6 +267,7 @@ struct SharedCardComposerView: View {
                                 text: binding(for: .source),
                                 placeholder: viewModel.fieldPlaceholder(for: .source),
                                 style: textInputStyle(for: .source),
+                                accessibilityIdentifier: "composer.text.source",
                                 isFocused: focusedTextFieldKind == .source,
                                 onFocus: { setFocusedTextField(.source) },
                                 onDeleteBackwardWhenEmpty: {
@@ -314,6 +318,7 @@ struct SharedCardComposerView: View {
 
         }
         .background(AppTheme.surfacePrimary.ignoresSafeArea())
+        .accessibilityIdentifier("composer.screen")
         .onAppear {
             focusInitialTextField()
         }
@@ -2945,6 +2950,7 @@ private struct SharedCardComposerHeaderView: View {
                 .buttonStyle(.plain)
                 .font(AppTypography.bodyRegular)
                 .foregroundStyle(AppTheme.accent)
+                .accessibilityIdentifier("composer.cancelButton")
         }
         .padding(.horizontal, AppSpacing.screenHorizontal)
         .padding(.vertical, AppSpacing.md)
@@ -3023,6 +3029,7 @@ private struct SharedCardComposerToolbarView: View {
             }
             .buttonStyle(.plain)
             .disabled(!canPublish)
+            .accessibilityIdentifier("composer.publishButton")
         }
         .padding(.horizontal, 16)
         .padding(.top, Layout.toolbarTopPadding)
@@ -3041,6 +3048,7 @@ private struct ComposerTextInputView: View {
     @Binding var text: String
     let placeholder: String
     let style: ComposerTextInputStyle
+    let accessibilityIdentifier: String?
     let isFocused: Bool
     let onFocus: () -> Void
     let onDeleteBackwardWhenEmpty: () -> Void
@@ -3051,6 +3059,7 @@ private struct ComposerTextInputView: View {
         text: Binding<String>,
         placeholder: String,
         style: ComposerTextInputStyle,
+        accessibilityIdentifier: String? = nil,
         isFocused: Bool = false,
         onFocus: @escaping () -> Void = {},
         onDeleteBackwardWhenEmpty: @escaping () -> Void
@@ -3058,6 +3067,7 @@ private struct ComposerTextInputView: View {
         self._text = text
         self.placeholder = placeholder
         self.style = style
+        self.accessibilityIdentifier = accessibilityIdentifier
         self.isFocused = isFocused
         self.onFocus = onFocus
         self.onDeleteBackwardWhenEmpty = onDeleteBackwardWhenEmpty
@@ -3083,6 +3093,7 @@ private struct ComposerTextInputView: View {
                 minimumHeight: style.minimumHeight,
                 textInsets: style.textInsets,
                 maximumCharacterCount: ComposerTextInputStyle.maximumCharacterCount,
+                accessibilityIdentifier: accessibilityIdentifier,
                 isFocused: isFocused,
                 onFocus: onFocus,
                 onDeleteBackwardWhenEmpty: onDeleteBackwardWhenEmpty
@@ -3102,6 +3113,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
     let minimumHeight: CGFloat
     let textInsets: UIEdgeInsets
     let maximumCharacterCount: Int
+    let accessibilityIdentifier: String?
     let isFocused: Bool
     let onFocus: () -> Void
     let onDeleteBackwardWhenEmpty: () -> Void
@@ -3129,6 +3141,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         textView.autocorrectionType = .no
         textView.autocapitalizationType = .sentences
         textView.returnKeyType = .default
+        textView.accessibilityIdentifier = accessibilityIdentifier
         textView.setContentHuggingPriority(.defaultLow, for: .horizontal)
         textView.setContentCompressionResistancePriority(.defaultLow, for: .horizontal)
         textView.font = font
@@ -3153,6 +3166,7 @@ private struct ComposerTextViewRepresentable: UIViewRepresentable {
         uiView.font = font
         uiView.textColor = textColor
         uiView.textContainerInset = textInsets
+        uiView.accessibilityIdentifier = accessibilityIdentifier
         uiView.onDeleteBackwardWhenEmpty = onDeleteBackwardWhenEmpty
         if isFocused && !uiView.isFirstResponder {
             DispatchQueue.main.async {

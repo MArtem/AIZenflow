@@ -8,24 +8,38 @@ struct FloatingActionButton: View {
         let glassStyle = AppTheme.glassStyle(for: .floatingActionButton)
 
         Button(action: action) {
-            Image(systemName: "plus")
-                .font(AppTypography.fabIcon)
-                .foregroundStyle(AppTheme.accentOnColor)
-                .frame(width: 56, height: 56)
-                .appGlassChrome(
-                    in: Circle(),
-                    glassTint: glassStyle?.tint,
-                    glassStroke: glassStyle?.stroke,
-                    fallbackBackground: AppTheme.floatingActionButtonFill,
-                    fallbackShadowColor: AppTheme.floatingActionButtonShadow,
-                    fallbackShadowRadius: 10,
-                    fallbackShadowY: 6,
-                    interactive: true
-                )
+            ZStack {
+                Circle()
+                    .fill(.clear)
+                    .frame(width: 56, height: 56)
+                    .appGlassChrome(
+                        in: Circle(),
+                        glassTint: glassStyle?.tint,
+                        glassStroke: glassStyle?.stroke,
+                        fallbackBackground: AppTheme.floatingActionButtonFill,
+                        fallbackShadowColor: AppTheme.floatingActionButtonShadow,
+                        fallbackShadowRadius: 10,
+                        fallbackShadowY: 6,
+                        interactive: true
+                    )
+
+                Image(systemName: "plus")
+                    .font(AppTypography.fabIcon)
+                    .foregroundStyle(AppTheme.accentOnColor)
+                    .accessibilityHidden(true)
+            }
+            .frame(width: 56, height: 56)
         }
         .buttonStyle(.plain)
+        .accessibilityElement(children: .ignore)
+        .accessibilityIdentifier("shell.fab.create")
         .accessibilityLabel(AppLocalization.text("accessibility.fab.create"))
         .accessibilityHint(AppLocalization.text("accessibility.fab.createHint"))
+        .accessibilityRepresentation {
+            Button(AppLocalization.text("accessibility.fab.create"), action: action)
+                .accessibilityIdentifier("shell.fab.create")
+                .accessibilityHint(AppLocalization.text("accessibility.fab.createHint"))
+        }
     }
 }
 
