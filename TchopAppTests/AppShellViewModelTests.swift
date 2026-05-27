@@ -55,6 +55,65 @@ final class AppShellViewModelTests: XCTestCase {
         XCTAssertTrue(viewModel.isNewsFeedNearTop)
     }
 
+
+    /// Verifies side-menu state is controlled only by explicit shell intents.
+    func testMenuToggleAndCloseUpdateShellState() {
+        let viewModel = makeShellViewModel(isMenuOpen: false)
+
+        viewModel.toggleMenu()
+        XCTAssertTrue(viewModel.isMenuOpen)
+
+        viewModel.closeMenu()
+        XCTAssertFalse(viewModel.isMenuOpen)
+    }
+
+    /// Verifies presenting composer uses the currently selected channel snapshot.
+    func testPresentComposerUsesSelectedChannel() {
+        let channelsStore = makeTestChannelsStore(selectedChannelID: AppChannel.community.id)
+        let viewModel = makeShellViewModel(channelsStore: channelsStore)
+
+        viewModel.presentComposer()
+
+        XCTAssertEqual(viewModel.activeComposer?.selectedChannelID, AppChannel.community.id)
+        XCTAssertEqual(viewModel.activeComposer?.selectedChannelTitle, AppChannel.community.title)
+    }
+
+    /// Verifies selecting a channel updates feed scope and syncs share-extension session context.
+    func testSelectChannelRefreshesFeedScopeAndShareExtensionContext() throws {
+        let channelsStore = makeTestChannelsStore(selectedChannelID: AppChannel.product.id)
+        let feedCardStore = makeTestFeedCardStore(cards: [
+            makeTextFeedCard(id: "product-card", channelID: AppChannel.product.id, text: "Product"),
+            makeTextFeedCard(id: "community-card", channelID: AppChannel.community.id, text: "Community")
+        ])
+        let sessionContextManager = try makeShareExtensionSessionContextManager()
+        let viewModel = makeShellViewModel(
+            channelsStore: channelsStore,
+            feedCardStore: feedCardStore,
+            shareExtensionSessionContextManager: sessionContextManager
+        )
+
+        viewModel.selectChannel(id: AppChannel.community.id)
+
+        XCTAssertEqual(viewModel.newsFeedViewModel.visibleContent.cards.map(\.id), ["community-card"])
+        let context = try XCTUnwrap(sessionContextManager.loadContext())
+        XCTAssertTrue(context.isAuthenticated)
+        XCTAssertEqual(context.selectedChannelID, AppChannel.community.id)
+        XCTAssertEqual(context.availableChannels, AppChannel.allKnown)
+    }
+
+    /// Verifies publishing composer content updates the feed and clears the active composer presentation.
+    func testPublishComposerRefreshesFeedAndDismissesComposer() throws {
+        let viewModel = makeShellViewModel()
+        viewModel.presentComposer()
+        let composer = try XCTUnwrap(viewModel.activeComposer)
+        composer.updateText("Published card", for: .text)
+
+        XCTAssertTrue(composer.publish())
+        viewModel.publishComposer()
+
+        XCTAssertNil(viewModel.activeComposer)
+        XCTAssertEqual(viewModel.newsFeedViewModel.visibleContent.cards.map(\.serviceHeadline), ["Published card"])
+    }
     /// Waits until until.
     private func waitUntil(
         _ condition: @autoclosure () -> Bool,
@@ -75,27 +134,42 @@ final class AppShellViewModelTests: XCTestCase {
 
     /// Creates a shell view model with local feed runtime dependencies.
     private func makeShellViewModel(
+        channelsStore: ChannelsStore = makeTestChannelsStore(),
+        feedCardStore: FeedCardStore? = nil,
         uiConfigurationManager: any UIConfigurationManaging = TestUIConfigurationManager(
             currentSnapshot: UIConfigurationSnapshot(shell: ShellUIConfiguration(showsFloatingActionButton: true)),
             refreshResult: .success(UIConfigurationSnapshot(shell: ShellUIConfiguration(showsFloatingActionButton: true))),
             refreshDelayNanoseconds: 0
-        )
+        ),
+        shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = nil,
+        isMenuOpen: Bool = false
     ) -> AppShellViewModel {
-        let channelsStore = makeTestChannelsStore()
-        let feedCardStore = makeTestFeedCardStore()
+        let resolvedFeedCardStore = feedCardStore ?? makeTestFeedCardStore()
         let newsFeedViewModel = NewsFeedViewModel(
             channelsStore: channelsStore,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
             errorManager: AppErrorManager(),
-            feedCardStore: feedCardStore
+            feedCardStore: resolvedFeedCardStore
         )
 
         return AppShellViewModel(
             channelsStore: channelsStore,
-            feedCardStore: feedCardStore,
+            feedCardStore: resolvedFeedCardStore,
             newsFeedViewModel: newsFeedViewModel,
             errorManager: AppErrorManager(),
-            uiConfigurationManager: uiConfigurationManager
+            uiConfigurationManager: uiConfigurationManager,
+            shareExtensionSessionContextManager: shareExtensionSessionContextManager,
+            isMenuOpen: isMenuOpen
+        )
+    }
+
+    /// Creates a share-extension session context manager backed by a temporary test app-group container.
+    private func makeShareExtensionSessionContextManager() throws -> ShareExtensionSessionContextManager {
+        let rootURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        return try ShareExtensionSessionContextManager(
+            groupIdentifier: "group.test.shell-session",
+            fileManager: ShellTestAppGroupFileManager(containerURL: rootURL)
         )
     }
 }
@@ -206,5 +280,18 @@ private struct ProfileTestErrorManager: AppErrorManaging {
             ),
             userMessage: "Profile preference update failed"
         )
+    }
+}
+
+private final class ShellTestAppGroupFileManager: FileManager, @unchecked Sendable {
+    private let sharedContainerURL: URL
+
+    init(containerURL: URL) {
+        self.sharedContainerURL = containerURL
+        super.init()
+    }
+
+    override func containerURL(forSecurityApplicationGroupIdentifier groupIdentifier: String) -> URL? {
+        sharedContainerURL
     }
 }

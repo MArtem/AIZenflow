@@ -27,6 +27,16 @@ final class ShareExtensionSessionContextManager {
         )
     }
 
+    /// Creates the manager with an explicit file manager for tests and controlled app-group storage.
+    init(groupIdentifier: String, fileManager: FileManager) throws {
+        self.store = try AppGroupJSONFileStore(
+            groupIdentifier: groupIdentifier,
+            directoryName: Self.directoryName,
+            fileName: Self.fileName,
+            fileManager: fileManager
+        )
+    }
+
     func syncContext(
         isAuthenticated: Bool,
         availableChannels: [AppChannel],

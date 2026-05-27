@@ -399,6 +399,56 @@ final class NewsFeedModelContractTests: XCTestCase {
     }
 }
 
+/// Verifies per-card action coordinator queue and cancellation contracts.
+@MainActor
+final class NewsFeedCardActionCoordinatorTests: XCTestCase {
+    /// Verifies queued additive actions are consumed exactly once per queued action.
+    func testQueuedAdditiveActionsAreConsumedInOrderAndThenCleared() {
+        let coordinator = NewsFeedCardActionCoordinator()
+
+        coordinator.queueAdditiveAction(for: "card-1")
+        coordinator.queueAdditiveAction(for: "card-1")
+
+        XCTAssertTrue(coordinator.consumeQueuedAdditiveAction(for: "card-1"))
+        XCTAssertTrue(coordinator.consumeQueuedAdditiveAction(for: "card-1"))
+        XCTAssertFalse(coordinator.consumeQueuedAdditiveAction(for: "card-1"))
+    }
+
+    /// Verifies clearing one card action does not affect another card's queued work.
+    func testClearRemovesOnlyTargetCardState() {
+        let coordinator = NewsFeedCardActionCoordinator()
+        coordinator.queueAdditiveAction(for: "card-1")
+        coordinator.queueAdditiveAction(for: "card-2")
+
+        coordinator.clear(cardID: "card-1")
+
+        XCTAssertFalse(coordinator.consumeQueuedAdditiveAction(for: "card-1"))
+        XCTAssertTrue(coordinator.consumeQueuedAdditiveAction(for: "card-2"))
+    }
+
+    /// Verifies cancelAll cancels active card tasks and clears queued additive actions.
+    func testCancelAllCancelsActiveTasksAndClearsQueues() async {
+        let coordinator = NewsFeedCardActionCoordinator()
+        let cancellationExpectation = expectation(description: "Task cancelled")
+        let task = Task {
+            do {
+                try await Task.sleep(for: .seconds(30))
+            } catch is CancellationError {
+                cancellationExpectation.fulfill()
+            } catch {
+                XCTFail("Unexpected task error: \\(error)")
+            }
+        }
+
+        coordinator.start(task, for: "card-1")
+        coordinator.queueAdditiveAction(for: "card-1")
+        coordinator.cancelAll()
+
+        await fulfillment(of: [cancellationExpectation], timeout: 2)
+        XCTAssertFalse(coordinator.consumeQueuedAdditiveAction(for: "card-1"))
+    }
+}
+
 /// Verifies persistence-facing user repository behavior.
 @MainActor
 final class UserRepositoryTests: XCTestCase {

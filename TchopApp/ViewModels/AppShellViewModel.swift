@@ -493,14 +493,13 @@ final class AppShellViewModel {
     /// Handles non-fatal refresh failures after the cached configuration has already been applied.
     private func handleUIConfigurationRefreshFailure(_ error: any Error) {
         Task { [errorManager] in
-            let presentation = await errorManager.presentableError(
+            _ = await errorManager.presentableError(
                 from: error,
                 context: AppErrorContext(
                     operation: "refreshUIConfiguration",
                     feature: "appShell"
                 )
             )
-            assertionFailure("Failed to fetch UI configuration: \(presentation.error.debugDescription)")
         }
     }
 
