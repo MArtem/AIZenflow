@@ -506,10 +506,20 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: first targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests test` exposed a Swift concurrency isolation issue in `NewsFeedViewModel.deinit`; removed the unsafe deinit access and reran successfully. Final verification succeeded with `git diff --check`, targeted `NewsFeedViewModelTests`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `(cd ./Packages/TchopInfrastructure && swift test)`.
 
 
+
+- Completed now: first-step feed card view-state boundary:
+  - added `NewsFeedCardViewState`, `NewsFeedCardActionViewState`, and `NewsFeedCardTranslationViewState` in `./TchopApp/ViewModels/NewsFeedViewModel.swift`.
+  - extended `NewsFeedScreenState` with `cardStates`, so `./TchopApp/Views/News/NewsFeedView.swift` renders rows from a prepared presentation snapshot instead of rebuilding translation/action/footer decisions in the view tree.
+  - changed `NewsFeedCardRendererView` in `./TchopApp/Views/News/NewsFeedView.swift` to consume `NewsFeedCardViewState`; route, rendered card, footer action state, and translation presentation now come from the view-model snapshot.
+  - moved feed action footer labels/state into `NewsFeedCardActionViewState` while keeping existing text/photo/video/audio/pdf renderers intact.
+  - added `./TchopAppTests/NewsFeedViewModelTests.swift` assertions for the new screen/card-state action contract.
+- Verification: `git diff --check` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests test` succeeded; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; `(cd ./Packages/TchopInfrastructure && swift test)` succeeded.
+
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
-- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, and feed MVVM action/screen-state contract coverage.
+- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, feed MVVM action/screen-state contract coverage, and first-step feed-card view-state boundary coverage.
 - Build and tests were run by explicit user permission/request; no manual simulator UI flow or Instruments trace was run in this block.
 
 ## Archive

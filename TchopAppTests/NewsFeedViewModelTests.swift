@@ -101,6 +101,13 @@ final class NewsFeedViewModelTests: XCTestCase {
 
         let visibleCard = try XCTUnwrap(viewModel.visibleContent.cards.first)
         XCTAssertEqual(visibleCard.id, "card-1")
+
+        let cardState = try XCTUnwrap(viewModel.screenState.cardStates.first)
+        XCTAssertEqual(cardState.id, "card-1")
+        XCTAssertEqual(cardState.route.cardID, "card-1")
+        XCTAssertTrue(cardState.actionState.isLiked)
+        XCTAssertEqual(cardState.actionState.commentsCount, 1)
+        XCTAssertEqual(cardState.actionState.displayMode, .compact)
     }
 
     /// Verifies changing selected channel resets search and refreshes the scoped card list.

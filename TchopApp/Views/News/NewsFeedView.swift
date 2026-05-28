@@ -93,8 +93,8 @@ struct NewsFeedView: View {
                     } else if screenState.showsNoSearchResults {
                         NewsFeedSearchEmptyStateView()
                     } else {
-                        ForEach(screenState.visibleContent.cards, id: \.id) { card in
-                            makeCardView(for: card)
+                        ForEach(screenState.cardStates) { cardState in
+                            makeCardView(for: cardState)
                         }
                     }
                 }
@@ -134,11 +134,10 @@ struct NewsFeedView: View {
         }
     }
 
-    private func makeCardView(for card: NewsFeedCard) -> NewsFeedCardRendererView {
+    private func makeCardView(for cardState: NewsFeedCardViewState) -> NewsFeedCardRendererView {
         NewsFeedCardRendererView(
-            feedCard: card,
-            translatedCardProvider: viewModel.translatedFeedCard,
-            translationAction: translationAction(for: card),
+            state: cardState,
+            translationAction: translationAction(for: cardState),
             onCardTap: onCardTap,
             onLikeTap: { cardID in
                 viewModel.send(.cardLikeTapped(cardID: cardID))
@@ -184,40 +183,40 @@ struct NewsFeedView: View {
         )
     }
 
-    private func translationAction(for card: NewsFeedCard) -> FeedCardTranslationAction? {
-        guard viewModel.showsTranslationAction(for: card) else {
+    private func translationAction(for cardState: NewsFeedCardViewState) -> FeedCardTranslationAction? {
+        guard let translation = cardState.translation else {
             return nil
         }
 
         return FeedCardTranslationAction(
-            title: viewModel.translationActionTitle(for: card.id),
-            isInFlight: viewModel.isTranslationInFlight(card.id),
-            onTap: { handleTranslationTap(for: card) }
+            title: translation.title,
+            isInFlight: translation.isInFlight,
+            onTap: { handleTranslationTap(for: cardState) }
         )
     }
 
-    private func handleTranslationTap(for card: NewsFeedCard) {
-        guard !viewModel.isTranslationInFlight(card.id) else {
+    private func handleTranslationTap(for cardState: NewsFeedCardViewState) {
+        guard let translation = cardState.translation, !translation.isInFlight else {
             return
         }
 
-        if viewModel.isCardTranslated(card.id) {
-            viewModel.send(.cardOriginalTextRequested(cardID: card.id))
+        if translation.isShowingTranslatedText {
+            viewModel.send(.cardOriginalTextRequested(cardID: cardState.id))
             return
         }
 
-        let targetLanguages = viewModel.translationTargetLanguages(for: card)
+        let targetLanguages = translation.targetLanguages
         guard !targetLanguages.isEmpty else {
             return
         }
 
         if targetLanguages.count == 1, let targetLanguage = targetLanguages.first {
-            startTranslation(for: card, targetLanguage: targetLanguage)
+            startTranslation(for: cardState.sourceCard, targetLanguage: targetLanguage)
             return
         }
 
         languageSelectionState = TranslationLanguageSelectionState(
-            card: card,
+            card: cardState.sourceCard,
             languages: targetLanguages
         )
     }
@@ -305,8 +304,7 @@ private struct NewsFeedSearchFieldView: View {
 }
 
 private struct NewsFeedCardRendererView: View {
-    let feedCard: NewsFeedCard
-    let translatedCardProvider: (FeedCard) -> FeedCard
+    let state: NewsFeedCardViewState
     let translationAction: FeedCardTranslationAction?
     let onCardTap: (NewsRoute) -> Void
     let onLikeTap: (String) -> Void
@@ -314,80 +312,85 @@ private struct NewsFeedCardRendererView: View {
     let onSetDisplayMode: (String, FeedCardDisplayMode) -> Void
 
     var body: some View {
-        switch feedCard {
+        switch state.renderedCard {
         case let .photo(content):
             switch content {
             case let .card(card):
                 FeedPhotoCardView(
-                    card: translatedCardProvider(card),
+                    card: card,
+                    actionState: state.actionState,
                     translationAction: translationAction,
-                    onTap: { onCardTap(card.detailRoute) },
-                    onLikeTap: { onLikeTap(card.id) },
-                    onCommentsTap: { onCommentsTap(card.id) },
-                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
+                    onTap: { onCardTap(state.route) },
+                    onLikeTap: { onLikeTap(state.id) },
+                    onCommentsTap: { onCommentsTap(state.id) },
+                    onSetDisplayMode: { onSetDisplayMode(state.id, $0) }
                 )
                 .onAppear {
-                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: state.id)
                 }
             }
         case let .text(content):
             switch content {
             case let .card(card):
                 FeedTextCardView(
-                    card: translatedCardProvider(card),
+                    card: card,
+                    actionState: state.actionState,
                     translationAction: translationAction,
-                    onTap: { onCardTap(card.detailRoute) },
-                    onLikeTap: { onLikeTap(card.id) },
-                    onCommentsTap: { onCommentsTap(card.id) },
-                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
+                    onTap: { onCardTap(state.route) },
+                    onLikeTap: { onLikeTap(state.id) },
+                    onCommentsTap: { onCommentsTap(state.id) },
+                    onSetDisplayMode: { onSetDisplayMode(state.id, $0) }
                 )
                 .onAppear {
-                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: state.id)
                 }
             }
         case let .video(content):
             switch content {
             case let .card(card):
                 VideoCardView(
-                    content: .card(translatedCardProvider(card)),
+                    content: .card(card),
+                    actionState: state.actionState,
                     translationAction: translationAction,
-                    onTap: { onCardTap(card.detailRoute) },
-                    onLikeTap: { onLikeTap(card.id) },
-                    onCommentsTap: { onCommentsTap(card.id) },
-                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
+                    onTap: { onCardTap(state.route) },
+                    onLikeTap: { onLikeTap(state.id) },
+                    onCommentsTap: { onCommentsTap(state.id) },
+                    onSetDisplayMode: { onSetDisplayMode(state.id, $0) }
                 )
                 .onAppear {
-                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: state.id)
                 }
             }
         case let .audio(content):
             switch content {
             case let .card(card):
                 AudioCardView(
-                    content: .card(translatedCardProvider(card)),
+                    content: .card(card),
+                    actionState: state.actionState,
                     translationAction: translationAction,
-                    onTap: { onCardTap(card.detailRoute) },
-                    onLikeTap: { onLikeTap(card.id) },
-                    onCommentsTap: { onCommentsTap(card.id) },
-                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
+                    onTap: { onCardTap(state.route) },
+                    onLikeTap: { onLikeTap(state.id) },
+                    onCommentsTap: { onCommentsTap(state.id) },
+                    onSetDisplayMode: { onSetDisplayMode(state.id, $0) }
                 )
                 .onAppear {
-                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: state.id)
                 }
             }
         case let .pdf(content):
             switch content {
             case let .card(card):
                 PDFCardView(
-                    content: .card(translatedCardProvider(card)),
+                    content: .card(card),
+                    actionState: state.actionState,
                     translationAction: translationAction,
-                    onTap: { onCardTap(card.detailRoute) },
-                    onLikeTap: { onLikeTap(card.id) },
-                    onCommentsTap: { onCommentsTap(card.id) },
-                    onSetDisplayMode: { onSetDisplayMode(card.id, $0) }
+                    onTap: { onCardTap(state.route) },
+                    onLikeTap: { onLikeTap(state.id) },
+                    onCommentsTap: { onCommentsTap(state.id) },
+                    onSetDisplayMode: { onSetDisplayMode(state.id, $0) }
                 )
                 .onAppear {
-                    FeedPerformanceSignpost.feedCardAppeared(cardID: card.id)
+                    FeedPerformanceSignpost.feedCardAppeared(cardID: state.id)
                 }
             }
         }
@@ -453,6 +456,7 @@ private struct NewsFeedScrollProximityModifier: ViewModifier {
 
 private struct FeedTextCardView: View {
     let card: FeedCard
+    let actionState: NewsFeedCardActionViewState
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
@@ -462,6 +466,7 @@ private struct FeedTextCardView: View {
     var body: some View {
         FeedCardContainer(
             card: card,
+            actionState: actionState,
             mediaHeight: nil,
             translationAction: translationAction,
             onTap: onTap,
@@ -476,6 +481,7 @@ private struct FeedTextCardView: View {
 
 private struct FeedPhotoCardView: View {
     let card: FeedCard
+    let actionState: NewsFeedCardActionViewState
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
@@ -485,6 +491,7 @@ private struct FeedPhotoCardView: View {
     var body: some View {
         FeedCardContainer(
             card: card,
+            actionState: actionState,
             mediaHeight: 220,
             translationAction: translationAction,
             onTap: onTap,
@@ -501,6 +508,7 @@ private struct FeedPhotoCardView: View {
 
 private struct VideoCardView: View {
     let content: NewsFeedVideoCardContent
+    let actionState: NewsFeedCardActionViewState
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
@@ -512,6 +520,7 @@ private struct VideoCardView: View {
         case let .card(card):
             FeedFileCardView(
                 card: card,
+                actionState: actionState,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
                 onTap: onTap,
@@ -534,6 +543,7 @@ private struct VideoCardView: View {
 
 private struct AudioCardView: View {
     let content: NewsFeedAudioCardContent
+    let actionState: NewsFeedCardActionViewState
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
@@ -545,6 +555,7 @@ private struct AudioCardView: View {
         case let .card(card):
             FeedFileCardView(
                 card: card,
+                actionState: actionState,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
                 onTap: onTap,
@@ -567,6 +578,7 @@ private struct AudioCardView: View {
 
 private struct PDFCardView: View {
     let content: NewsFeedPDFCardContent
+    let actionState: NewsFeedCardActionViewState
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
     let onLikeTap: () -> Void
@@ -577,6 +589,7 @@ private struct PDFCardView: View {
         case let .card(card):
             FeedFileCardView(
                 card: card,
+                actionState: actionState,
                 mediaHeight: Self.fileMediaPreviewHeight(for: card),
                 translationAction: translationAction,
                 onTap: onTap,
@@ -599,6 +612,7 @@ private struct PDFCardView: View {
 
 private struct FeedFileCardView<Preview: View>: View {
     let card: FeedCard
+    let actionState: NewsFeedCardActionViewState
     let mediaHeight: CGFloat
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
@@ -610,6 +624,7 @@ private struct FeedFileCardView<Preview: View>: View {
     var body: some View {
         FeedCardContainer(
             card: card,
+            actionState: actionState,
             mediaHeight: mediaHeight,
             translationAction: translationAction,
             onTap: onTap,
@@ -636,6 +651,7 @@ private struct FeedCardContainer<MediaBody: View>: View {
     @Environment(\.openURL) private var openURL
 
     let card: FeedCard
+    let actionState: NewsFeedCardActionViewState
     let mediaHeight: CGFloat?
     let translationAction: FeedCardTranslationAction?
     let onTap: () -> Void
@@ -646,6 +662,7 @@ private struct FeedCardContainer<MediaBody: View>: View {
 
     init(
         card: FeedCard,
+        actionState: NewsFeedCardActionViewState,
         mediaHeight: CGFloat?,
         translationAction: FeedCardTranslationAction?,
         onTap: @escaping () -> Void,
@@ -655,6 +672,7 @@ private struct FeedCardContainer<MediaBody: View>: View {
         @ViewBuilder mediaBody: () -> MediaBody
     ) {
         self.card = card
+        self.actionState = actionState
         self.mediaHeight = mediaHeight
         self.translationAction = translationAction
         self.onTap = onTap
@@ -722,9 +740,7 @@ private struct FeedCardContainer<MediaBody: View>: View {
                 .padding(.horizontal, 14)
 
             FeedActionBar(
-                isLiked: card.isLiked,
-                commentsCount: card.commentsCount,
-                displayMode: card.displayMode,
+                state: actionState,
                 onLikeTap: onLikeTap,
                 onCommentsTap: onCommentsTap,
                 onSetDisplayMode: onSetDisplayMode
@@ -824,9 +840,7 @@ private struct FeedCardContainer<MediaBody: View>: View {
 }
 
 private struct FeedActionBar: View {
-    let isLiked: Bool
-    let commentsCount: Int
-    let displayMode: FeedCardDisplayMode
+    let state: NewsFeedCardActionViewState
     let onLikeTap: () -> Void
     let onCommentsTap: () -> Void
     let onSetDisplayMode: (FeedCardDisplayMode) -> Void
@@ -840,7 +854,7 @@ private struct FeedActionBar: View {
                         AppLocalization.text("news.photo.action.liked")
                     )
                 }
-                .foregroundStyle(isLiked ? AppTheme.accent : AppTheme.iconSecondary)
+                .foregroundStyle(state.isLiked ? AppTheme.accent : AppTheme.iconSecondary)
             }
             .buttonStyle(.plain)
 
@@ -849,7 +863,7 @@ private struct FeedActionBar: View {
             Button(action: onCommentsTap) {
                 HStack(spacing: AppSpacing.xs) {
                     Image(systemName: "bubble.left.fill")
-                    Text("\(commentsCount) " + AppLocalization.text("news.photo.action.comments"))
+                    Text(state.commentsText)
                 }
             }
             .buttonStyle(.plain)
@@ -862,7 +876,7 @@ private struct FeedActionBar: View {
                 } label: {
                     Label(
                         AppLocalization.text("news.photo.menu.expanded"),
-                        systemImage: displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
+                        systemImage: state.displayMode == .expanded ? "checkmark.circle.fill" : "text.alignleft"
                     )
                 }
 
@@ -871,7 +885,7 @@ private struct FeedActionBar: View {
                 } label: {
                     Label(
                         AppLocalization.text("news.photo.menu.compact"),
-                        systemImage: displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
+                        systemImage: state.displayMode == .compact ? "checkmark.circle.fill" : "rectangle.compress.vertical"
                     )
                 }
 

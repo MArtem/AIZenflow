@@ -188,8 +188,40 @@ enum NewsFeedAction {
 /// in `NewsFeedViewModel.refreshVisibleContent()` or dedicated media loaders.
 struct NewsFeedScreenState: Equatable {
     let visibleContent: NewsFeedContent
+    let cardStates: [NewsFeedCardViewState]
     let isSearchPresented: Bool
     let showsNoSearchResults: Bool
+}
+
+/// Lightweight presentation state for one feed card row.
+///
+/// Purpose:
+/// Starts separating SwiftUI rendering decisions from source-neutral feed-card runtime data
+/// without rewriting the existing media/text card renderers in one risky pass.
+struct NewsFeedCardViewState: Identifiable, Equatable {
+    let id: String
+    let sourceCard: NewsFeedCard
+    let renderedCard: NewsFeedCard
+    let route: NewsRoute
+    let actionState: NewsFeedCardActionViewState
+    let translation: NewsFeedCardTranslationViewState?
+    let accessibilityLabel: String
+}
+
+/// Presentation state for the shared feed-card footer actions.
+struct NewsFeedCardActionViewState: Equatable {
+    let isLiked: Bool
+    let commentsCount: Int
+    let commentsText: String
+    let displayMode: FeedCardDisplayMode
+}
+
+/// Presentation state for feed-card translation controls.
+struct NewsFeedCardTranslationViewState: Equatable {
+    let title: String
+    let isInFlight: Bool
+    let targetLanguages: [OnDeviceLanguage]
+    let isShowingTranslatedText: Bool
 }
 
 /// View model responsible for loading and exposing the home feed state.
@@ -262,6 +294,7 @@ final class NewsFeedViewModel {
     var screenState: NewsFeedScreenState {
         NewsFeedScreenState(
             visibleContent: visibleContent,
+            cardStates: visibleContent.cards.map(makeCardViewState),
             isSearchPresented: isSearchPresented,
             showsNoSearchResults: showsNoSearchResults
         )
@@ -331,6 +364,42 @@ final class NewsFeedViewModel {
 
             await operation(self)
         }
+    }
+
+    private func makeCardViewState(for card: NewsFeedCard) -> NewsFeedCardViewState {
+        let feedCard = card.feedCard
+        let translatedCard = translatedFeedCard(feedCard)
+        let targetLanguages = translationTargetLanguages(for: card)
+        let isShowingTranslatedText = isCardTranslated(card.id)
+        let translation: NewsFeedCardTranslationViewState? =
+            isShowingTranslatedText ||
+            (
+                AppLocalization.supportedLocaleIdentifiers.count > 1 &&
+                !targetLanguages.isEmpty
+            )
+            ? NewsFeedCardTranslationViewState(
+                title: translationActionTitle(for: card.id),
+                isInFlight: isTranslationInFlight(card.id),
+                targetLanguages: targetLanguages,
+                isShowingTranslatedText: isShowingTranslatedText
+            )
+            : nil
+
+        return NewsFeedCardViewState(
+            id: card.id,
+            sourceCard: card,
+            renderedCard: translatedCard.newsFeedCard,
+            route: feedCard.detailRoute,
+            actionState: NewsFeedCardActionViewState(
+                isLiked: translatedCard.isLiked,
+                commentsCount: translatedCard.commentsCount,
+                commentsText: "\(translatedCard.commentsCount) " +
+                    AppLocalization.text("news.photo.action.comments"),
+                displayMode: translatedCard.displayMode
+            ),
+            translation: translation,
+            accessibilityLabel: translatedCard.serviceHeadline
+        )
     }
 
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {
@@ -686,5 +755,38 @@ final class NewsFeedViewModel {
     /// Currently selected channel identifier used for feed queries.
     private var currentChannelID: String? {
         channelsStore.selectionSnapshot.selectedChannelID ?? channelsStore.selectionSnapshot.selectedChannel?.id
+    }
+}
+
+private extension NewsFeedCard {
+    /// Source-neutral published feed card behind the current feed-row wrapper.
+    var feedCard: FeedCard {
+        switch self {
+        case let .photo(content):
+            switch content {
+            case let .card(card):
+                return card
+            }
+        case let .text(content):
+            switch content {
+            case let .card(card):
+                return card
+            }
+        case let .video(content):
+            switch content {
+            case let .card(card):
+                return card
+            }
+        case let .audio(content):
+            switch content {
+            case let .card(card):
+                return card
+            }
+        case let .pdf(content):
+            switch content {
+            case let .card(card):
+                return card
+            }
+        }
     }
 }
