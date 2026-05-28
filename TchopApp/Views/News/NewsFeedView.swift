@@ -88,12 +88,15 @@ struct NewsFeedView: View {
                         )
                     }
 
-                    if screenState.visibleContent.cards.isEmpty && !screenState.showsNoSearchResults {
+                    switch screenState.contentPresentation {
+                    case .empty:
                         NewsFeedEmptyStateView()
-                    } else if screenState.showsNoSearchResults {
+
+                    case .noSearchResults:
                         NewsFeedSearchEmptyStateView()
-                    } else {
-                        ForEach(screenState.cardStates) { cardState in
+
+                    case let .cards(cardStates):
+                        ForEach(cardStates) { cardState in
                             makeCardView(for: cardState)
                         }
                     }
@@ -108,7 +111,12 @@ struct NewsFeedView: View {
         .modifier(NewsFeedScrollProximityModifier(
             threshold: Self.floatingActionButtonHideThreshold,
             coordinateSpaceName: Self.scrollCoordinateSpace,
-            onChange: handleScrollProximityChange
+            onChange: { isNearTop in
+                handleScrollProximityChange(
+                    isNearTop,
+                    hasVisibleCards: screenState.hasVisibleCards
+                )
+            }
         ))
         .accessibilityIdentifier("news.feed")
         .clipped()
@@ -151,8 +159,8 @@ struct NewsFeedView: View {
         )
     }
 
-    private func handleScrollProximityChange(_ isNearTop: Bool) {
-        guard !viewModel.visibleContent.cards.isEmpty else {
+    private func handleScrollProximityChange(_ isNearTop: Bool, hasVisibleCards: Bool) {
+        guard hasVisibleCards else {
             guard !isFeedNearTop else {
                 return
             }
@@ -427,7 +435,6 @@ private struct NewsFeedScrollProximityModifier: ViewModifier {
     @State private var topOffsetBaseline: CGFloat?
     @State private var lastReportedIsNearTop: Bool?
 
-    @ViewBuilder
     func body(content: Content) -> some View {
         if #available(iOS 18.0, *) {
             content.onScrollGeometryChange(for: Bool.self) { geometry in

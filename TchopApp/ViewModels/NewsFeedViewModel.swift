@@ -189,8 +189,22 @@ enum NewsFeedAction {
 struct NewsFeedScreenState: Equatable {
     let visibleContent: NewsFeedContent
     let cardStates: [NewsFeedCardViewState]
+    let contentPresentation: NewsFeedContentPresentation
+    let hasVisibleCards: Bool
     let isSearchPresented: Bool
     let showsNoSearchResults: Bool
+}
+
+/// Top-level presentation choice for the feed content area.
+///
+/// Purpose:
+/// Keeps empty/search-empty/card-list branching in the view-model snapshot so
+/// `NewsFeedView` can keep its lazy list structure explicit without owning
+/// content-state decisions.
+enum NewsFeedContentPresentation: Equatable {
+    case empty
+    case noSearchResults
+    case cards([NewsFeedCardViewState])
 }
 
 /// Lightweight presentation state for one feed card row.
@@ -292,9 +306,17 @@ final class NewsFeedViewModel {
 
     /// Current screen-level presentation snapshot for `NewsFeedView`.
     var screenState: NewsFeedScreenState {
-        NewsFeedScreenState(
+        let cardStates = visibleContent.cards.map(makeCardViewState)
+        let showsNoSearchResults = showsNoSearchResults
+
+        return NewsFeedScreenState(
             visibleContent: visibleContent,
-            cardStates: visibleContent.cards.map(makeCardViewState),
+            cardStates: cardStates,
+            contentPresentation: Self.makeContentPresentation(
+                cardStates: cardStates,
+                showsNoSearchResults: showsNoSearchResults
+            ),
+            hasVisibleCards: !cardStates.isEmpty,
             isSearchPresented: isSearchPresented,
             showsNoSearchResults: showsNoSearchResults
         )
@@ -400,6 +422,21 @@ final class NewsFeedViewModel {
             translation: translation,
             accessibilityLabel: translatedCard.serviceHeadline
         )
+    }
+
+    private static func makeContentPresentation(
+        cardStates: [NewsFeedCardViewState],
+        showsNoSearchResults: Bool
+    ) -> NewsFeedContentPresentation {
+        if showsNoSearchResults {
+            return .noSearchResults
+        }
+
+        if cardStates.isEmpty {
+            return .empty
+        }
+
+        return .cards(cardStates)
     }
 
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {

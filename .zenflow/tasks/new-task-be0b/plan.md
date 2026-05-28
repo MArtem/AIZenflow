@@ -516,10 +516,20 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `git diff --check` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests test` succeeded; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; `(cd ./Packages/TchopInfrastructure && swift test)` succeeded.
 
 
+
+- Completed now: feed screen-state presentation branching cleanup:
+  - added `NewsFeedContentPresentation` in `./TchopApp/ViewModels/NewsFeedViewModel.swift` so empty/search-empty/cards branching is part of the screen-state snapshot instead of being recomputed in `./TchopApp/Views/News/NewsFeedView.swift`.
+  - added `hasVisibleCards` to `NewsFeedScreenState` so scroll/FAB proximity handling no longer reads `viewModel.visibleContent` from the scroll callback path.
+  - updated `./TchopApp/Views/News/NewsFeedView.swift` to keep `ForEach` directly inside the main `LazyVStack` while switching on `screenState.contentPresentation`.
+  - removed the duplicate `@ViewBuilder` annotation from `NewsFeedScrollProximityModifier` while preserving native iOS 18 scroll-geometry handling and iOS 17 preference fallback behavior.
+  - extended `./TchopAppTests/NewsFeedViewModelTests.swift` coverage for empty, no-results, card-list presentation, `hasVisibleCards`, and first-step card accessibility summary state.
+- Verification: first targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests test` exposed a missing `return` in `NewsFeedViewModel.screenState`; fixed it and reran targeted tests successfully. Final verification succeeded with `git diff --check`, targeted `NewsFeedViewModelTests`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `(cd ./Packages/TchopInfrastructure && swift test)`.
+
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
-- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, feed MVVM action/screen-state contract coverage, and first-step feed-card view-state boundary coverage.
+- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, feed MVVM action/screen-state contract coverage, first-step feed-card view-state boundary coverage, and feed screen-state presentation branching coverage.
 - Build and tests were run by explicit user permission/request; no manual simulator UI flow or Instruments trace was run in this block.
 
 ## Archive

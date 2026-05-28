@@ -13,6 +13,8 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.state, .empty(NewsFeedContent(cards: [], availability: .live)))
         XCTAssertTrue(viewModel.visibleContent.cards.isEmpty)
         XCTAssertFalse(viewModel.showsNoSearchResults)
+        XCTAssertEqual(viewModel.screenState.contentPresentation, .empty)
+        XCTAssertFalse(viewModel.screenState.hasVisibleCards)
     }
 
     /// Verifies only cards for the selected channel are visible.
@@ -57,6 +59,8 @@ final class NewsFeedViewModelTests: XCTestCase {
 
         XCTAssertTrue(viewModel.visibleContent.cards.isEmpty)
         XCTAssertTrue(viewModel.showsNoSearchResults)
+        XCTAssertEqual(viewModel.screenState.contentPresentation, .noSearchResults)
+        XCTAssertFalse(viewModel.screenState.hasVisibleCards)
     }
 
     /// Verifies source-neutral feed cards expose search fields in the product text order.
@@ -108,6 +112,13 @@ final class NewsFeedViewModelTests: XCTestCase {
         XCTAssertTrue(cardState.actionState.isLiked)
         XCTAssertEqual(cardState.actionState.commentsCount, 1)
         XCTAssertEqual(cardState.actionState.displayMode, .compact)
+        XCTAssertEqual(cardState.accessibilityLabel, "Text")
+
+        guard case let .cards(cardStates) = viewModel.screenState.contentPresentation else {
+            return XCTFail("Expected card-state presentation")
+        }
+        XCTAssertEqual(cardStates.map(\.id), ["card-1"])
+        XCTAssertTrue(viewModel.screenState.hasVisibleCards)
     }
 
     /// Verifies changing selected channel resets search and refreshes the scoped card list.
