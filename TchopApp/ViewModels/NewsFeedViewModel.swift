@@ -154,6 +154,44 @@ enum NewsFeedState: Equatable {
     }
 }
 
+/// User/product events accepted by `NewsFeedViewModel`.
+///
+/// Purpose:
+/// Keeps the SwiftUI layer on user intent terms instead of exposing implementation
+/// details such as repository/store mutation helpers.
+///
+/// External usage:
+/// `NewsFeedView` and shell composition should prefer sending actions through this
+/// contract. Direct methods remain only where another owner needs a narrower
+/// lifecycle-specific call, such as selected-channel changes from the shell.
+enum NewsFeedAction {
+    case refreshRequested
+    case retryTapped
+    case searchPresentationToggled
+    case selectedChannelChanged
+    case channelCardsChanged
+    case cardLikeTapped(cardID: String)
+    case cardCommentsTapped(cardID: String)
+    case cardDisplayModeChanged(cardID: String, displayMode: FeedCardDisplayMode)
+    case cardOriginalTextRequested(cardID: String)
+    case cardTranslationRequested(card: NewsFeedCard, targetLanguage: OnDeviceLanguage)
+}
+
+/// Snapshot consumed by `NewsFeedView` for one SwiftUI body pass.
+///
+/// Purpose:
+/// Groups screen-level presentation inputs so the View reads one stable snapshot
+/// instead of reaching into several independent `NewsFeedViewModel` properties.
+///
+/// Invariant:
+/// This type must stay cheap to construct. Expensive search/filter/media work belongs
+/// in `NewsFeedViewModel.refreshVisibleContent()` or dedicated media loaders.
+struct NewsFeedScreenState: Equatable {
+    let visibleContent: NewsFeedContent
+    let isSearchPresented: Bool
+    let showsNoSearchResults: Bool
+}
+
 /// View model responsible for loading and exposing the home feed state.
 @MainActor
 @Observable
@@ -191,6 +229,7 @@ final class NewsFeedViewModel {
     private let sharedFeedCardSyncManager: SharedFeedCardSyncManager?
     private let onDeviceAIManager: any OnDeviceAIManaging
     private let cardTranslationStore: CardTranslationStore
+    private var asynchronousActionTask: Task<Void, Never>?
 
     /// Creates the feed view model for local-created feed cards.
     init(
@@ -217,6 +256,81 @@ final class NewsFeedViewModel {
     /// Current feed content shown by the news screen.
     var content: NewsFeedContent {
         state.content
+    }
+
+    /// Current screen-level presentation snapshot for `NewsFeedView`.
+    var screenState: NewsFeedScreenState {
+        NewsFeedScreenState(
+            visibleContent: visibleContent,
+            isSearchPresented: isSearchPresented,
+            showsNoSearchResults: showsNoSearchResults
+        )
+    }
+
+    /// Handles synchronous feed actions from SwiftUI and shell composition.
+    func send(_ action: NewsFeedAction) {
+        switch action {
+        case .refreshRequested:
+            runAsynchronousAction { viewModel in
+                await viewModel.refresh()
+            }
+
+        case .retryTapped:
+            retry()
+
+        case .searchPresentationToggled:
+            toggleSearchPresentation()
+
+        case .selectedChannelChanged:
+            handleSelectedChannelChange()
+
+        case .channelCardsChanged:
+            handleChannelCardsChanged()
+
+        case let .cardLikeTapped(cardID):
+            toggleFeedCardLike(cardID: cardID)
+
+        case let .cardCommentsTapped(cardID):
+            incrementFeedCardComments(cardID: cardID)
+
+        case let .cardDisplayModeChanged(cardID, displayMode):
+            setFeedCardDisplayMode(cardID: cardID, displayMode: displayMode)
+
+        case let .cardOriginalTextRequested(cardID):
+            restoreOriginalCardText(cardID: cardID)
+
+        case let .cardTranslationRequested(card, targetLanguage):
+            runAsynchronousAction { viewModel in
+                await viewModel.performTranslation(for: card, targetLanguage: targetLanguage)
+            }
+        }
+    }
+
+    /// Handles feed actions whose caller needs to await lifecycle-bound work.
+    func sendAndWait(_ action: NewsFeedAction) async {
+        switch action {
+        case .refreshRequested:
+            await refresh()
+
+        case let .cardTranslationRequested(card, targetLanguage):
+            await performTranslation(for: card, targetLanguage: targetLanguage)
+
+        default:
+            send(action)
+        }
+    }
+
+    private func runAsynchronousAction(
+        _ operation: @escaping @MainActor (NewsFeedViewModel) async -> Void
+    ) {
+        asynchronousActionTask?.cancel()
+        asynchronousActionTask = Task { @MainActor [weak self] in
+            guard let self else {
+                return
+            }
+
+            await operation(self)
+        }
     }
 
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {
@@ -265,19 +379,19 @@ final class NewsFeedViewModel {
         card.translated(using: cardTranslationStore.snapshot(for: card.id))
     }
 
-    func toggleFeedCardLike(cardID: String) {
+    private func toggleFeedCardLike(cardID: String) {
         updateFeedCard(cardID: cardID) { card in
             card.replacingInteractionState(isLiked: !card.isLiked)
         }
     }
 
-    func incrementFeedCardComments(cardID: String) {
+    private func incrementFeedCardComments(cardID: String) {
         updateFeedCard(cardID: cardID) { card in
             card.replacingInteractionState(commentsCount: card.commentsCount + 1)
         }
     }
 
-    func setFeedCardDisplayMode(cardID: String, displayMode: FeedCardDisplayMode) {
+    private func setFeedCardDisplayMode(cardID: String, displayMode: FeedCardDisplayMode) {
         updateFeedCard(cardID: cardID) { card in
             card.replacingInteractionState(displayMode: displayMode)
         }
@@ -325,7 +439,7 @@ final class NewsFeedViewModel {
         }
     }
 
-    func translateCard(
+    private func translateCard(
         _ card: NewsFeedCard,
         targetLanguage: OnDeviceLanguage
     ) async throws {
@@ -348,7 +462,7 @@ final class NewsFeedViewModel {
         refreshVisibleContent()
     }
 
-    func performTranslation(
+    private func performTranslation(
         for card: NewsFeedCard,
         targetLanguage: OnDeviceLanguage
     ) async {
@@ -374,12 +488,12 @@ final class NewsFeedViewModel {
         }
     }
 
-    func restoreOriginalCardText(cardID: String) {
+    private func restoreOriginalCardText(cardID: String) {
         cardTranslationStore.remove(cardID: cardID)
         refreshVisibleContent()
     }
 
-    func handleChannelCardsChanged() {
+    private func handleChannelCardsChanged() {
         refreshVisibleContent()
     }
 
@@ -403,18 +517,18 @@ final class NewsFeedViewModel {
 
     /// Starts a user-driven refresh when no feed request is already running.
     /// Online refresh goes through the API path; offline refresh keeps the stored snapshot and updates the UI source metadata.
-    func refresh() async {
+    private func refresh() async {
         await syncSharedFeedCardsIfNeeded()
         handleChannelCardsChanged()
     }
 
     /// Retries feed loading only after a visible failed state.
-    func retry() {
+    private func retry() {
         handleChannelCardsChanged()
     }
 
     /// Opens or closes the current-channel search UI.
-    func toggleSearchPresentation() {
+    private func toggleSearchPresentation() {
         isSearchPresented.toggle()
         if !isSearchPresented {
             searchQuery = ""
@@ -422,7 +536,7 @@ final class NewsFeedViewModel {
     }
 
     /// Re-resolves feed cards for a newly selected channel.
-    func handleSelectedChannelChange() {
+    private func handleSelectedChannelChange() {
         searchQuery = ""
         isSearchPresented = false
 
@@ -433,7 +547,7 @@ final class NewsFeedViewModel {
         handleChannelCardsChanged()
     }
 
-    func syncSharedFeedCardsIfNeeded() async {
+    private func syncSharedFeedCardsIfNeeded() async {
         guard let sharedFeedCardSyncManager else {
             return
         }

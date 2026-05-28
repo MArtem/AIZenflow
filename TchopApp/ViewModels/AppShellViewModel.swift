@@ -425,7 +425,7 @@ final class AppShellViewModel {
     /// Applies one new active channel choice to the shared runtime store.
     func selectChannel(id: String) {
         if channelsStore.selectChannel(id: id) {
-            newsFeedViewModel.handleSelectedChannelChange()
+            newsFeedViewModel.send(.selectedChannelChanged)
             syncShareExtensionSessionContextIfNeeded()
         }
     }
@@ -443,7 +443,7 @@ final class AppShellViewModel {
     }
 
     func publishComposer() {
-        newsFeedViewModel.handleChannelCardsChanged()
+        newsFeedViewModel.send(.channelCardsChanged)
         dismissComposer()
     }
 

@@ -149,7 +149,7 @@ final class AppState {
         profileTabViewModel = nil
         pendingDeepLinkInput = nil
         channelsStore.reset()
-        appShellViewModel.newsFeedViewModel.handleSelectedChannelChange()
+        appShellViewModel.newsFeedViewModel.send(.selectedChannelChanged)
         resetNavigationToDefaultState()
         appShellViewModel.closeMenu()
         widgetContentSyncManager.clearFeed()
@@ -172,7 +172,7 @@ final class AppState {
 
         syncShareExtensionSessionContextIfNeeded()
         Task { @MainActor [appShellViewModel] in
-            await appShellViewModel.newsFeedViewModel.syncSharedFeedCardsIfNeeded()
+            await appShellViewModel.newsFeedViewModel.sendAndWait(.refreshRequested)
         }
     }
 
@@ -357,7 +357,7 @@ final class AppState {
             for: user.id,
             preferredSelectedChannelID: settings.preselectedChannelID
         )
-        appShellViewModel.newsFeedViewModel.handleSelectedChannelChange()
+        appShellViewModel.newsFeedViewModel.send(.selectedChannelChanged)
     }
 
     /// Creates or synchronizes the injected profile view model for the active authenticated user.
@@ -464,7 +464,7 @@ extension AppState {
             sessionStore.setSignedOut()
             syncSessionStateFromStore()
             channelsStore.reset()
-            appShellViewModel.newsFeedViewModel.handleSelectedChannelChange()
+            appShellViewModel.newsFeedViewModel.send(.selectedChannelChanged)
             profileTabViewModel = nil
         case let .authenticated(user):
             sessionStore.setAuthenticatedUser(user)

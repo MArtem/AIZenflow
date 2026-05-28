@@ -39,7 +39,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         )
         let viewModel = makeViewModel(cards: [headlineMatch, textMatch])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
         viewModel.searchQuery = "revenue"
 
         XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["text-match", "headline-match"])
@@ -52,7 +52,7 @@ final class NewsFeedViewModelTests: XCTestCase {
             makeTextFeedCard(id: "card-1", text: "Visible")
         ])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
         viewModel.searchQuery = "missing"
 
         XCTAssertTrue(viewModel.visibleContent.cards.isEmpty)
@@ -90,9 +90,9 @@ final class NewsFeedViewModelTests: XCTestCase {
         let feedCardStore = FeedCardStore(repository: repository)
         let viewModel = makeViewModel(feedCardStore: feedCardStore)
 
-        viewModel.toggleFeedCardLike(cardID: "card-1")
-        viewModel.incrementFeedCardComments(cardID: "card-1")
-        viewModel.setFeedCardDisplayMode(cardID: "card-1", displayMode: .compact)
+        viewModel.send(.cardLikeTapped(cardID: "card-1"))
+        viewModel.send(.cardCommentsTapped(cardID: "card-1"))
+        viewModel.send(.cardDisplayModeChanged(cardID: "card-1", displayMode: .compact))
 
         let savedCard = try XCTUnwrap(repository.savedCards.first(where: { $0.id == "card-1" }))
         XCTAssertTrue(savedCard.isLiked)
@@ -111,10 +111,10 @@ final class NewsFeedViewModelTests: XCTestCase {
             makeTextFeedCard(id: "community-card", channelID: AppChannel.community.id, text: "Community")
         ])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
         viewModel.searchQuery = "product"
         _ = channelsStore.selectChannel(id: AppChannel.community.id)
-        viewModel.handleSelectedChannelChange()
+        viewModel.send(.selectedChannelChanged)
 
         XCTAssertFalse(viewModel.isSearchPresented)
         XCTAssertEqual(viewModel.searchQuery, "")
@@ -128,7 +128,7 @@ final class NewsFeedViewModelTests: XCTestCase {
             makeTextFeedCard(id: "card-1", text: "Visible")
         ])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
         viewModel.searchQuery = "      "
 
         XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["card-1"])
@@ -149,7 +149,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         )
         let viewModel = makeViewModel(cards: [splitTokenCard, sameFieldCard])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
         viewModel.searchQuery = "revenue growth"
 
         XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["same-field-card"])
@@ -161,7 +161,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         let secondCard = makeTextFeedCard(id: "second-card", text: "Release update")
         let viewModel = makeViewModel(cards: [firstCard, secondCard])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
         viewModel.searchQuery = "release"
 
         XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["first-card", "second-card"])
@@ -174,11 +174,11 @@ final class NewsFeedViewModelTests: XCTestCase {
             makeTextFeedCard(id: "beta-card", text: "Beta")
         ])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
         viewModel.searchQuery = "alpha"
         XCTAssertEqual(viewModel.visibleContent.cards.map(\.id), ["alpha-card"])
 
-        viewModel.toggleSearchPresentation()
+        viewModel.send(.searchPresentationToggled)
 
         XCTAssertFalse(viewModel.isSearchPresented)
         XCTAssertEqual(viewModel.searchQuery, "")

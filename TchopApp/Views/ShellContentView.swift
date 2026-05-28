@@ -94,7 +94,7 @@ struct ShellContentView: View {
             coordinator.selectTab(.news)
         }
 
-        viewModel.newsFeedViewModel.toggleSearchPresentation()
+        viewModel.newsFeedViewModel.send(.searchPresentationToggled)
     }
 }
 

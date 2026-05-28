@@ -71,8 +71,7 @@ struct NewsFeedView: View {
     let onCardTap: (NewsRoute) -> Void
 
     var body: some View {
-        let visibleContent = viewModel.visibleContent
-        let showsNoSearchResults = viewModel.showsNoSearchResults
+        let screenState = viewModel.screenState
 
         ScrollView(.vertical, showsIndicators: false) {
             VStack(spacing: 0) {
@@ -82,19 +81,19 @@ struct NewsFeedView: View {
                     .frame(height: 1)
 
                 LazyVStack(spacing: AppSpacing.md) {
-                    if viewModel.isSearchPresented {
+                    if screenState.isSearchPresented {
                         NewsFeedSearchFieldView(
                             searchQuery: $viewModel.searchQuery,
                             clearLabel: AppLocalization.text("news.feed.search.clear")
                         )
                     }
 
-                    if visibleContent.cards.isEmpty && !showsNoSearchResults {
+                    if screenState.visibleContent.cards.isEmpty && !screenState.showsNoSearchResults {
                         NewsFeedEmptyStateView()
-                    } else if showsNoSearchResults {
+                    } else if screenState.showsNoSearchResults {
                         NewsFeedSearchEmptyStateView()
                     } else {
-                        ForEach(visibleContent.cards, id: \.id) { card in
+                        ForEach(screenState.visibleContent.cards, id: \.id) { card in
                             makeCardView(for: card)
                         }
                     }
@@ -115,7 +114,7 @@ struct NewsFeedView: View {
         .clipped()
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .refreshable {
-            await viewModel.refresh()
+            await viewModel.sendAndWait(.refreshRequested)
         }
         .confirmationDialog(
             AppLocalization.text("news.card.translation.languagePicker.title"),
@@ -141,9 +140,15 @@ struct NewsFeedView: View {
             translatedCardProvider: viewModel.translatedFeedCard,
             translationAction: translationAction(for: card),
             onCardTap: onCardTap,
-            onLikeTap: viewModel.toggleFeedCardLike,
-            onCommentsTap: viewModel.incrementFeedCardComments,
-            onSetDisplayMode: viewModel.setFeedCardDisplayMode
+            onLikeTap: { cardID in
+                viewModel.send(.cardLikeTapped(cardID: cardID))
+            },
+            onCommentsTap: { cardID in
+                viewModel.send(.cardCommentsTapped(cardID: cardID))
+            },
+            onSetDisplayMode: { cardID, displayMode in
+                viewModel.send(.cardDisplayModeChanged(cardID: cardID, displayMode: displayMode))
+            }
         )
     }
 
@@ -197,7 +202,7 @@ struct NewsFeedView: View {
         }
 
         if viewModel.isCardTranslated(card.id) {
-            viewModel.restoreOriginalCardText(cardID: card.id)
+            viewModel.send(.cardOriginalTextRequested(cardID: card.id))
             return
         }
 
@@ -223,7 +228,7 @@ struct NewsFeedView: View {
     ) {
         languageSelectionState = nil
         Task {
-            await viewModel.performTranslation(for: card, targetLanguage: targetLanguage)
+            await viewModel.sendAndWait(.cardTranslationRequested(card: card, targetLanguage: targetLanguage))
         }
     }
 }
