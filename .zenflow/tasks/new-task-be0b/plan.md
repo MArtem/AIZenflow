@@ -526,10 +526,19 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: first targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests test` exposed a missing `return` in `NewsFeedViewModel.screenState`; fixed it and reran targeted tests successfully. Final verification succeeded with `git diff --check`, targeted `NewsFeedViewModelTests`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `(cd ./Packages/TchopInfrastructure && swift test)`.
 
 
+
+- Completed now: feed translation tap behavior presentation-state cleanup:
+  - added `NewsFeedCardTranslationTapBehavior` in `./TchopApp/ViewModels/NewsFeedViewModel.swift` to encode restore-original, direct one-language translation, and language-picker behavior in card presentation state.
+  - changed `NewsFeedCardTranslationViewState` to expose `tapBehavior` instead of leaking target-language decision logic into `./TchopApp/Views/News/NewsFeedView.swift`.
+  - simplified `NewsFeedView.handleTranslationTap` so the view only performs UI effects: send restore action, start async translation, or present the language picker.
+  - added deterministic `TestOnDeviceAIManager` support and translation tap-behavior assertions in `./TchopAppTests/NewsFeedViewModelTests.swift`.
+- Verification: `git diff --check` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests test` succeeded; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; `(cd ./Packages/TchopInfrastructure && swift test)` succeeded.
+
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
-- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, feed MVVM action/screen-state contract coverage, first-step feed-card view-state boundary coverage, and feed screen-state presentation branching coverage.
+- App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, feed MVVM action/screen-state contract coverage, first-step feed-card view-state boundary coverage, feed screen-state presentation branching coverage, and feed translation tap-behavior state coverage.
 - Build and tests were run by explicit user permission/request; no manual simulator UI flow or Instruments trace was run in this block.
 
 ## Archive

@@ -234,8 +234,18 @@ struct NewsFeedCardActionViewState: Equatable {
 struct NewsFeedCardTranslationViewState: Equatable {
     let title: String
     let isInFlight: Bool
-    let targetLanguages: [OnDeviceLanguage]
-    let isShowingTranslatedText: Bool
+    let tapBehavior: NewsFeedCardTranslationTapBehavior
+}
+
+/// Product-level behavior for tapping the translation control.
+///
+/// Purpose:
+/// Keeps one-vs-many-language and translated-vs-original decisions out of
+/// `NewsFeedView`; the view only performs the required UI effect.
+enum NewsFeedCardTranslationTapBehavior: Equatable {
+    case restoreOriginal(cardID: String)
+    case startTranslation(card: NewsFeedCard, targetLanguage: OnDeviceLanguage)
+    case chooseLanguage(card: NewsFeedCard, languages: [OnDeviceLanguage])
 }
 
 /// View model responsible for loading and exposing the home feed state.
@@ -391,21 +401,14 @@ final class NewsFeedViewModel {
     private func makeCardViewState(for card: NewsFeedCard) -> NewsFeedCardViewState {
         let feedCard = card.feedCard
         let translatedCard = translatedFeedCard(feedCard)
-        let targetLanguages = translationTargetLanguages(for: card)
-        let isShowingTranslatedText = isCardTranslated(card.id)
-        let translation: NewsFeedCardTranslationViewState? =
-            isShowingTranslatedText ||
-            (
-                AppLocalization.supportedLocaleIdentifiers.count > 1 &&
-                !targetLanguages.isEmpty
-            )
-            ? NewsFeedCardTranslationViewState(
+        let translationTapBehavior = makeTranslationTapBehavior(for: card)
+        let translation: NewsFeedCardTranslationViewState? = translationTapBehavior.map { tapBehavior in
+            NewsFeedCardTranslationViewState(
                 title: translationActionTitle(for: card.id),
                 isInFlight: isTranslationInFlight(card.id),
-                targetLanguages: targetLanguages,
-                isShowingTranslatedText: isShowingTranslatedText
+                tapBehavior: tapBehavior
             )
-            : nil
+        }
 
         return NewsFeedCardViewState(
             id: card.id,
@@ -437,6 +440,27 @@ final class NewsFeedViewModel {
         }
 
         return .cards(cardStates)
+    }
+
+    private func makeTranslationTapBehavior(for card: NewsFeedCard) -> NewsFeedCardTranslationTapBehavior? {
+        if isCardTranslated(card.id) {
+            return .restoreOriginal(cardID: card.id)
+        }
+
+        guard AppLocalization.supportedLocaleIdentifiers.count > 1 else {
+            return nil
+        }
+
+        let targetLanguages = translationTargetLanguages(for: card)
+        guard !targetLanguages.isEmpty else {
+            return nil
+        }
+
+        if targetLanguages.count == 1, let targetLanguage = targetLanguages.first {
+            return .startTranslation(card: card, targetLanguage: targetLanguage)
+        }
+
+        return .chooseLanguage(card: card, languages: targetLanguages)
     }
 
     func showsTranslationAction(for card: NewsFeedCard) -> Bool {

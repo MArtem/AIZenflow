@@ -1,6 +1,7 @@
 import XCTest
 import TchopDatabase
 import TchopErrors
+import TchopOnDeviceAI
 @testable import TchopApp
 
 /// Verifies local-created feed-card runtime state, search, interactions, and persistence boundaries.
@@ -119,6 +120,59 @@ final class NewsFeedViewModelTests: XCTestCase {
         }
         XCTAssertEqual(cardStates.map(\.id), ["card-1"])
         XCTAssertTrue(viewModel.screenState.hasVisibleCards)
+    }
+
+    /// Verifies card state owns the one-language translation tap decision.
+    func testScreenStateTranslationTapBehaviorStartsSingleSupportedLanguage() throws {
+        let targetLocaleIdentifier = try XCTUnwrap(
+            AppLocalization.supportedLocaleIdentifiers.first {
+                $0 != AppLocalization.preferredLocaleIdentifier
+            }
+        )
+        let targetLanguage = OnDeviceLanguage(localeIdentifier: targetLocaleIdentifier)
+        let viewModel = makeViewModel(
+            cards: [makeTextFeedCard(id: "card-1", text: "Text")],
+            onDeviceAIManager: TestOnDeviceAIManager(
+                availability: .available(supportedLanguages: [targetLanguage])
+            )
+        )
+
+        let translation = try XCTUnwrap(viewModel.screenState.cardStates.first?.translation)
+
+        switch translation.tapBehavior {
+        case let .startTranslation(card, language):
+            XCTAssertEqual(card.id, "card-1")
+            XCTAssertEqual(language, targetLanguage)
+        default:
+            XCTFail("Expected direct translation start behavior")
+        }
+    }
+
+    /// Verifies translated card state owns the restore-original tap decision.
+    func testScreenStateTranslationTapBehaviorRestoresOriginalText() throws {
+        let userDefaults = UserDefaults(suiteName: "tchop.tests.translation.\(UUID().uuidString)")!
+        let translationStore = CardTranslationStore(userDefaults: userDefaults)
+        translationStore.save(
+            CardTranslationSnapshot(
+                cardID: "card-1",
+                targetLanguageIdentifier: "ru",
+                translatedTexts: [.text: "Translated text"]
+            )
+        )
+        let viewModel = makeViewModel(
+            cards: [makeTextFeedCard(id: "card-1", text: "Original text")],
+            cardTranslationStore: translationStore
+        )
+
+        let translation = try XCTUnwrap(viewModel.screenState.cardStates.first?.translation)
+
+        XCTAssertEqual(translation.title, AppLocalization.text("news.card.translation.original"))
+        switch translation.tapBehavior {
+        case let .restoreOriginal(cardID):
+            XCTAssertEqual(cardID, "card-1")
+        default:
+            XCTFail("Expected restore-original translation behavior")
+        }
     }
 
     /// Verifies changing selected channel resets search and refreshes the scoped card list.
@@ -254,31 +308,73 @@ final class NewsFeedViewModelTests: XCTestCase {
     }
 
     /// Creates a feed view model from seeded cards.
-    private func makeViewModel(cards: [FeedCard]) -> NewsFeedViewModel {
-        makeViewModel(feedCardStore: makeTestFeedCardStore(cards: cards))
+    private func makeViewModel(
+        cards: [FeedCard],
+        onDeviceAIManager: any OnDeviceAIManaging = TestOnDeviceAIManager(),
+        cardTranslationStore: CardTranslationStore = CardTranslationStore(
+            userDefaults: UserDefaults(suiteName: "tchop.tests.translation.\(UUID().uuidString)")!
+        )
+    ) -> NewsFeedViewModel {
+        makeViewModel(
+            feedCardStore: makeTestFeedCardStore(cards: cards),
+            onDeviceAIManager: onDeviceAIManager,
+            cardTranslationStore: cardTranslationStore
+        )
     }
 
     /// Creates a feed view model from an explicit channel store and seeded cards.
     private func makeViewModel(
         channelsStore: ChannelsStore,
-        cards: [FeedCard]
+        cards: [FeedCard],
+        onDeviceAIManager: any OnDeviceAIManaging = TestOnDeviceAIManager(),
+        cardTranslationStore: CardTranslationStore = CardTranslationStore(
+            userDefaults: UserDefaults(suiteName: "tchop.tests.translation.\(UUID().uuidString)")!
+        )
     ) -> NewsFeedViewModel {
         makeViewModel(
             channelsStore: channelsStore,
-            feedCardStore: makeTestFeedCardStore(cards: cards)
+            feedCardStore: makeTestFeedCardStore(cards: cards),
+            onDeviceAIManager: onDeviceAIManager,
+            cardTranslationStore: cardTranslationStore
         )
     }
 
     /// Creates a feed view model with explicit store injection.
     private func makeViewModel(
         channelsStore: ChannelsStore = makeTestChannelsStore(),
-        feedCardStore: FeedCardStore
+        feedCardStore: FeedCardStore,
+        onDeviceAIManager: any OnDeviceAIManaging = TestOnDeviceAIManager(),
+        cardTranslationStore: CardTranslationStore = CardTranslationStore(
+            userDefaults: UserDefaults(suiteName: "tchop.tests.translation.\(UUID().uuidString)")!
+        )
     ) -> NewsFeedViewModel {
         return NewsFeedViewModel(
             channelsStore: channelsStore,
             widgetContentSyncManager: NoopWidgetContentSyncManager(),
             errorManager: AppErrorManager(),
-            feedCardStore: feedCardStore
+            feedCardStore: feedCardStore,
+            onDeviceAIManager: onDeviceAIManager,
+            cardTranslationStore: cardTranslationStore
+        )
+    }
+}
+
+/// Deterministic on-device AI manager double for feed translation state tests.
+private struct TestOnDeviceAIManager: OnDeviceAIManaging {
+    let availability: OnDeviceAIAvailability
+
+    init(availability: OnDeviceAIAvailability = .unavailable(.unsupportedLocale)) {
+        self.availability = availability
+    }
+
+    func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
+        availability
+    }
+
+    func translate(_ request: OnDeviceTranslationRequest) async throws -> OnDeviceTranslationResult {
+        OnDeviceTranslationResult(
+            targetLanguage: request.targetLanguage,
+            segments: request.segments
         )
     }
 }

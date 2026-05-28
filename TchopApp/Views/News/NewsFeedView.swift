@@ -208,25 +208,19 @@ struct NewsFeedView: View {
             return
         }
 
-        if translation.isShowingTranslatedText {
-            viewModel.send(.cardOriginalTextRequested(cardID: cardState.id))
-            return
-        }
+        switch translation.tapBehavior {
+        case let .restoreOriginal(cardID):
+            viewModel.send(.cardOriginalTextRequested(cardID: cardID))
 
-        let targetLanguages = translation.targetLanguages
-        guard !targetLanguages.isEmpty else {
-            return
-        }
+        case let .startTranslation(card, targetLanguage):
+            startTranslation(for: card, targetLanguage: targetLanguage)
 
-        if targetLanguages.count == 1, let targetLanguage = targetLanguages.first {
-            startTranslation(for: cardState.sourceCard, targetLanguage: targetLanguage)
-            return
+        case let .chooseLanguage(card, languages):
+            languageSelectionState = TranslationLanguageSelectionState(
+                card: card,
+                languages: languages
+            )
         }
-
-        languageSelectionState = TranslationLanguageSelectionState(
-            card: cardState.sourceCard,
-            languages: targetLanguages
-        )
     }
 
     private func startTranslation(
