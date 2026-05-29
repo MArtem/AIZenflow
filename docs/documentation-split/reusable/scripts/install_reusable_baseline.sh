@@ -41,6 +41,7 @@ copy_template_if_missing() {
   fi
 }
 
+copy_template_if_missing "${BASELINE_ROOT}/templates/AGENTS.template.md" "${TARGET_ROOT}/AGENTS.md"
 copy_template_if_missing "${BASELINE_ROOT}/templates/PROJECT_DOCUMENTATION.template.md" "${TARGET_ROOT}/PROJECT_DOCUMENTATION.md"
 copy_template_if_missing "${BASELINE_ROOT}/templates/PROJECT_HEALTH.template.md" "${TARGET_ROOT}/PROJECT_HEALTH.md"
 copy_template_if_missing "${BASELINE_ROOT}/templates/TESTING_INSTRUCTIONS.template.md" "${TARGET_ROOT}/TESTING_INSTRUCTIONS.md"

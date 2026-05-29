@@ -579,6 +579,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - applied the same rule to `MVVMExample` docs and local task plan, then pushed to GitHub `main` and `Development`.
 - Verification: in `MVVMExample`, `git diff --check` and `python3 scripts/check_docs_index.py` succeeded before commit/push.
 
+
+
+- Completed now: root `AGENTS.md` added to MVVMExample and reusable bootstrap:
+  - added `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/AGENTS.md` with mandatory response header, startup read order, clean-project mode, no `TaskDemo` continuation, tests-off rule, and plan maintenance rule.
+  - added `./docs/documentation-split/reusable/templates/AGENTS.template.md` and updated `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh` so future projects receive root agent instructions automatically.
+  - pushed MVVMExample commit `757f0ec` to GitHub `main` and `Development`.
+- Verification: `git diff --check` and `python3 scripts/check_docs_index.py` succeeded in MVVMExample before commit/push.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
