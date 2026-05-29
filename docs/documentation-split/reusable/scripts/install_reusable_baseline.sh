@@ -14,8 +14,12 @@ BASELINE_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 
 mkdir -p "${TARGET_ROOT}"
 
-# Copy reusable docs and project-local skills.
+# Copy reusable docs, project-local skills, and root quality scripts.
 rsync -a "${BASELINE_ROOT}/docs/" "${TARGET_ROOT}/docs/"
+if [[ -d "${BASELINE_ROOT}/root-scripts" ]]; then
+  mkdir -p "${TARGET_ROOT}/scripts"
+  rsync -a "${BASELINE_ROOT}/root-scripts/" "${TARGET_ROOT}/scripts/"
+fi
 if [[ -d "${BASELINE_ROOT}/.codex" ]]; then
   rsync -a "${BASELINE_ROOT}/.codex/" "${TARGET_ROOT}/.codex/"
 fi
@@ -43,6 +47,8 @@ copy_template_if_missing "${BASELINE_ROOT}/templates/TESTING_INSTRUCTIONS.templa
 copy_template_if_missing "${BASELINE_ROOT}/templates/docs/README.template.md" "${TARGET_ROOT}/docs/README.md"
 copy_template_if_missing "${BASELINE_ROOT}/templates/docs/CURRENT_USER_OVERRIDES.template.md" "${TARGET_ROOT}/docs/CURRENT_USER_OVERRIDES.md"
 copy_template_if_missing "${BASELINE_ROOT}/templates/docs/WORK_CONTINUITY.template.md" "${TARGET_ROOT}/docs/WORK_CONTINUITY.md"
+copy_template_if_missing "${BASELINE_ROOT}/templates/scripts/verify.template.sh" "${TARGET_ROOT}/scripts/verify.sh"
+chmod +x "${TARGET_ROOT}/scripts/verify.sh" 2>/dev/null || true
 
 # Ensure gitignore exists with common generated artifacts.
 if [[ ! -e "${TARGET_ROOT}/.gitignore" ]]; then

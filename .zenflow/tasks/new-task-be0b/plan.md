@@ -562,6 +562,15 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated `./docs/README.md` and reusable transfer docs so new projects copy both project-local skills and external skill snapshots, with missing skills reported as explicit risk.
 - Verification: source/split coverage check succeeded with no missing markdown docs; reusable source-app token scan returned empty; `python3 ./scripts/check_docs_index.py` succeeded; `git diff --check` succeeded; no build/tests/simulator run because this is documentation-only and the test-writing ban is active.
 
+
+
+- Completed now: reusable scripts transfer gap fixed for future projects:
+  - added reusable root scripts under `./docs/documentation-split/reusable/root-scripts/` so new projects receive the static/documentation/quality helper scripts, not only docs and skills.
+  - added `./docs/documentation-split/reusable/templates/scripts/verify.template.sh` for project-specific verification bootstrap.
+  - updated `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh` so future installs copy root scripts into target `./scripts/` and instantiate `./scripts/verify.sh`.
+  - added a generic `./docs/documentation-split/reusable/docs/agent-prompts/README.md` required by the reusable docs index.
+- Verification: applied in `MVVMExample`, where `git diff --check`, `python3 scripts/check_docs_index.py`, `python3 scripts/validate_ios_production_framework.py`, and `./scripts/verify.sh list` succeeded; pushed to GitHub `main` and `Development`.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
