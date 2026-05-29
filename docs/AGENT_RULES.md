@@ -45,6 +45,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - Prefer existing project style and naming.
 - Keep API surface minimal.
 - Keep state ownership explicit.
+- For any SwiftUI child view, default to narrow immutable `ViewState` plus explicit callbacks; add a dedicated model/view model only for a concrete independent lifecycle, async/subscription/resource ownership, transactional editing, isolated retry/error behavior, or cross-feature reusable contract.
 - Use protocol seams only at real boundaries, not for every type.
 - Use UseCase/Application Service only when there is real multi-step business flow.
 - Keep DTO/Domain/UI boundaries clear where they already exist.
@@ -53,6 +54,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - Massive ViewModel / God Manager.
 - Pattern-for-pattern usage.
 - New Factory/Builder/Adapter layers without real pressure.
+- Per-view models/view models that only mirror parent state or exist for architectural symmetry.
 - Spreading business logic across View + ViewModel + Repository accidentally.
 
 

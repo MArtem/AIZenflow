@@ -29,6 +29,8 @@ Every meaningful change must be checked against these areas.
 - UI-only state stays local where possible.
 - Feature state is owned above consumers and injected down.
 - Views should not observe broad global objects when they need only scalar values or callbacks.
+- Child views should start as narrow immutable `ViewState` plus explicit callbacks; add a dedicated model/view model only for concrete independent lifecycle, async ownership, subscriptions, transactional editing, isolated retry/error behavior, resource ownership, or cross-feature reusable contract pressure.
+- A child model/view model that only mirrors parent input, hides simple callbacks, or exists for pattern symmetry is forbidden.
 - Async tasks must protect against stale results and duplicated writes.
 
 ### Persistence And Database Access
@@ -63,10 +65,11 @@ Every meaningful change must be checked against these areas.
 - Avoid duplicated concepts with different names across app, extension, package, and docs.
 
 ### Architecture And Abstractions
-- No speculative layers, protocols, factories, adapters, managers, UseCases, or services without one concrete current problem.
+- No speculative layers, protocols, factories, adapters, managers, UseCases, services, or per-view models without one concrete current problem.
 - App-specific product policy stays in `./TchopApp`.
 - Reusable entity-agnostic mechanics belong in `./Packages/TchopInfrastructure`.
 - Package APIs should be used directly when they already fit; do not wrap them decoratively.
+- Use `./docs/IOS_UI_STATE_RENDERING_STANDARD.md` as the decision gate before adding a dedicated model/view model to any view.
 
 ### Error, Empty, Loading, And Retry States
 - Empty, loading, failure, offline, and partial-success states must be distinct when product behavior differs.
@@ -118,6 +121,7 @@ These patterns are blocked by default. If a change truly needs one, document the
 
 ### State / Observation
 - Passing an entire view model into every row when rows need narrow data and callbacks.
+- Creating a view-specific model/view model that only mirrors parent input or forwards simple callbacks.
 - Multiple owners for the same state concept.
 - Multiple booleans that can represent impossible UI states.
 - Silent state fallback that hides real failures.

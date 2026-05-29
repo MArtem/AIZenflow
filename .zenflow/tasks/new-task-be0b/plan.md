@@ -535,6 +535,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `git diff --check` succeeded; targeted `xcodebuild ... -only-testing:TchopAppTests/NewsFeedViewModelTests test` succeeded; full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; `(cd ./Packages/TchopInfrastructure && swift test)` succeeded.
 
 
+
+
+- Completed now: documentation/rules update for generic SwiftUI view model ownership and restored test-writing ban:
+  - added a reusable decision rule in `./docs/IOS_UI_STATE_RENDERING_STANDARD.md` for when any view should receive a dedicated model/view model versus narrow immutable `ViewState` plus callbacks.
+  - hardened `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` and `./docs/AGENT_RULES.md` to block speculative per-view models that only mirror parent input or exist for pattern symmetry.
+  - updated `./docs/CURRENT_USER_OVERRIDES.md` to restore the no-test-writing/no-test-file-touch rule until the user explicitly allows tests again.
+- Verification: docs/static check only; `git diff --check` succeeded; no build/tests/simulator run because this was documentation-only and the test-writing ban is active.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
