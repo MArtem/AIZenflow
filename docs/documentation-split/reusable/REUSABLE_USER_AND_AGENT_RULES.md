@@ -39,3 +39,10 @@ When the user says `ревью`, `review`, `code review`, or `аудит`:
 ## Context Transfer Rule
 Every context-transfer prompt must include:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
+
+## No-Loss Cumulative Transfer Rule
+- Every new task/project must receive all reusable, non-app-specific documentation, rules, prompts, skills, templates, scripts, and environment skill snapshots accumulated so far.
+- Nothing reusable may be dropped silently during transfer. If something cannot be copied or activated, record it as an explicit remaining risk and dependency.
+- Reusable knowledge is cumulative: improvements made in one project should be promoted back into the reusable baseline before starting the next project.
+- App-specific contracts must stay out of the reusable baseline unless generalized first.
+- Before declaring a new task/project bootstrapped, verify that reusable docs, prompt presets, project-local skills, external skill dependencies, templates, and transfer scripts are present and indexed.

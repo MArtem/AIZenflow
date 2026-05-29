@@ -19,3 +19,15 @@ Use this guide when starting a new iOS project/task from the reusable baseline.
 
 ## Do Not Copy By Default
 Do not copy `./docs/documentation-split/app-specific/` into a new unrelated project. It contains source-app feature contracts, current task history, and project-specific paths.
+
+## No-Loss Cumulative Transfer Requirement
+Every new task/project must receive the complete reusable baseline: docs, prompt presets, project-local skills, external environment skill snapshots, templates, scripts, and user/agent rules. If any item cannot be transferred or activated, document it as an explicit remaining risk before implementation starts.
+
+## Preferred Automated Install
+From this reusable baseline folder, run:
+
+```zsh
+./scripts/install_reusable_baseline.sh <target-project-root> <AppName> <task-id>
+```
+
+Then replace placeholders and project-specific commands in the generated files.

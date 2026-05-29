@@ -552,6 +552,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated `./docs/README.md` so the split/export baseline is indexed.
 - Verification: `git diff --check` succeeded; documentation index check was run; no build/tests/simulator run because this is documentation-only and the test-writing ban is active.
 
+
+
+- Completed now: no-loss reusable baseline hardening for future task/project transfer:
+  - added the cumulative no-loss transfer rule to `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md` so reusable docs, prompts, rules, skills, templates, scripts, and environment skill snapshots must move forward into every new task/project.
+  - added new-project bootstrap templates under `./docs/documentation-split/reusable/templates/` for `PROJECT_DOCUMENTATION`, `PROJECT_HEALTH`, `TESTING_INSTRUCTIONS`, `docs/README`, `docs/CURRENT_USER_OVERRIDES`, and `docs/WORK_CONTINUITY`.
+  - added `./docs/documentation-split/reusable/EXTERNAL_SKILL_DEPENDENCIES.md` plus snapshots of environment-level reusable skills under `./docs/documentation-split/reusable/external-environment/skills/`.
+  - added `./docs/documentation-split/reusable/TRANSFER_CHECKLIST.md` and executable `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh` for repeatable transfer into a new project.
+  - updated `./docs/README.md` and reusable transfer docs so new projects copy both project-local skills and external skill snapshots, with missing skills reported as explicit risk.
+- Verification: source/split coverage check succeeded with no missing markdown docs; reusable source-app token scan returned empty; `python3 ./scripts/check_docs_index.py` succeeded; `git diff --check` succeeded; no build/tests/simulator run because this is documentation-only and the test-writing ban is active.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.

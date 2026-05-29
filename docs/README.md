@@ -122,6 +122,9 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`
 - `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md`
 - `./docs/documentation-split/reusable/NEW_PROJECT_PORTING_GUIDE.md`
+- `./docs/documentation-split/reusable/EXTERNAL_SKILL_DEPENDENCIES.md`
+- `./docs/documentation-split/reusable/TRANSFER_CHECKLIST.md`
+- `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh`
 
 ### Task Docs
 - `./.zenflow/tasks/new-task-be0b/handoff.md`

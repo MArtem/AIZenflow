@@ -152,3 +152,8 @@ Files in this group are intended as the portable iOS production baseline for a n
 
 ## Transfer Rule
 When a new task/project is created, copy this group first, then replace placeholder project/task names in the generated bootstrap files. Do not copy `./docs/documentation-split/app-specific/` unless explicitly needed.
+- `./REUSABLE_USER_AND_AGENT_RULES.md`
+- `./NEW_PROJECT_PORTING_GUIDE.md`
+- `./EXTERNAL_SKILL_DEPENDENCIES.md`
+- `./TRANSFER_CHECKLIST.md`
+- `./scripts/install_reusable_baseline.sh`
