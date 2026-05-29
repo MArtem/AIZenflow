@@ -15,6 +15,7 @@ Every working response should start with:
 - next safe step
 - whether a build is needed
 - sandbox/worktree confirmation
+- Readiness/status answers such as “готов к новым задачам” are not exempt.
 
 ## Implementation Style
 - Do not guess product behavior. Ask when requirements, ownership, state flow, or acceptance criteria are unclear.

@@ -571,6 +571,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - added a generic `./docs/documentation-split/reusable/docs/agent-prompts/README.md` required by the reusable docs index.
 - Verification: applied in `MVVMExample`, where `git diff --check`, `python3 scripts/check_docs_index.py`, `python3 scripts/validate_ios_production_framework.py`, and `./scripts/verify.sh list` succeeded; pushed to GitHub `main` and `Development`.
 
+
+
+- Completed now: reusable response-header rule hardened after MVVMExample bootstrap:
+  - updated reusable baseline docs so every working/status/readiness/task-orientation response must start with model, active phase, files, next safe step, build need, and sandbox/worktree confirmation.
+  - clarified that answers like “готов к новым задачам” are not exempt.
+  - applied the same rule to `MVVMExample` docs and local task plan, then pushed to GitHub `main` and `Development`.
+- Verification: in `MVVMExample`, `git diff --check` and `python3 scripts/check_docs_index.py` succeeded before commit/push.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
