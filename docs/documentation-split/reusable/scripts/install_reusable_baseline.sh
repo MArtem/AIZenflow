@@ -28,8 +28,12 @@ fi
 mkdir -p "${TARGET_ROOT}/docs/reusable-baseline"
 rsync -a "${BASELINE_ROOT}/external-environment/" "${TARGET_ROOT}/docs/reusable-baseline/external-environment/"
 cp "${BASELINE_ROOT}/REUSABLE_USER_AND_AGENT_RULES.md" "${TARGET_ROOT}/docs/reusable-baseline/"
+cp "${BASELINE_ROOT}/NEW_PROJECT_PORTING_GUIDE.md" "${TARGET_ROOT}/docs/reusable-baseline/"
 cp "${BASELINE_ROOT}/EXTERNAL_SKILL_DEPENDENCIES.md" "${TARGET_ROOT}/docs/reusable-baseline/"
 cp "${BASELINE_ROOT}/TRANSFER_CHECKLIST.md" "${TARGET_ROOT}/docs/reusable-baseline/"
+if [[ -f "${BASELINE_ROOT}/MVVMEXAMPLE_REMEDIATION_SPEC.md" ]]; then
+  cp "${BASELINE_ROOT}/MVVMEXAMPLE_REMEDIATION_SPEC.md" "${TARGET_ROOT}/docs/reusable-baseline/"
+fi
 
 # Instantiate canonical project-specific templates only when missing.
 copy_template_if_missing() {

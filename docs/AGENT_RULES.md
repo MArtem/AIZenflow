@@ -33,6 +33,12 @@ Do not add abstractions unless they solve a concrete current problem.
 - TchopApp-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/TchopApp/` or in the canonical docs indexed there.
 - When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
 
+## ViewModel Intent API Rule
+- ViewModels expose explicit intent methods by default, e.g. `loginTapped()`, `refreshRequested()`, `articleTapped(id:)`, `logoutTapped()`.
+- Do not add or keep generic `send(_ action:)`, `dispatch(_:)`, or UI action-enum dispatch as default MVVM boilerplate.
+- Reducer/action architecture requires explicit user approval and an ADR/state-machine rationale.
+- Apply `./docs/IOS_MVVM_INTENT_API_STANDARD.md` when creating or reviewing ViewModel APIs.
+
 ## Mandatory Priorities
 1. Architecture correctness first.
 2. Production quality gates second: performance hot paths, state invalidation, persistence/network side effects, memory/cache/media, security/privacy, failure states.

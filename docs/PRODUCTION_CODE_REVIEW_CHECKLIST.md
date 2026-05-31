@@ -125,7 +125,7 @@ These patterns are blocked by default. If a change truly needs one, document the
 - Multiple owners for the same state concept.
 - Multiple booleans that can represent impossible UI states.
 - Silent state fallback that hides real failures.
-- Generic `send(action)` as the default ViewModel API when explicit intents are clearer.
+- Generic `send(_ action:)`, `dispatch(_:)`, or UI action-enum dispatch as the default ViewModel API. Use explicit intent methods unless reducer/state-machine architecture was explicitly approved and documented.
 
 ### Persistence / Files
 - Fetch-all/save-all for single-record interaction updates without a documented current constraint.

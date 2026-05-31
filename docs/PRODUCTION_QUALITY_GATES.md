@@ -34,6 +34,7 @@ Stop and fix or escalate before continuing if any of these appear:
 - A feature depends on temporary picker URLs, security-scoped URLs after release, or external provider availability after relaunch.
 - A network/backend error destroys local user data or local interaction state.
 - A new abstraction is introduced without one concrete current pain point.
+- Generic `send(_ action:)` / UI action-enum dispatch used as default ViewModel API without an approved ADR.
 - A review says “looks good” without checking performance hot paths, state invalidation, persistence/network side effects, and failure states.
 
 ## Architecture And Ownership Gate
@@ -43,7 +44,7 @@ Check:
 - Reusable, entity-agnostic mechanics belong in `Packages/TchopInfrastructure`.
 - DTO/domain/UI models are not collapsed unless the type is truly local and trivial.
 - View code does not own business rules, persistence policy, retry policy, or backend mapping.
-- View models expose explicit state and explicit intents; avoid generic catch-all action dispatch by default.
+- View models expose explicit state and explicit intent methods; generic `send(_ action:)` / UI action-enum dispatch is forbidden as the default MVVM API unless explicitly approved and documented as reducer/state-machine architecture.
 - Protocols exist only at real seams: package boundaries, test seams requested by task, alternate runtime backends, or integration boundaries.
 - No decorative Factory/Builder/Adapter/UseCase layer without current pressure.
 - No God ViewModel, God Manager, or hidden singleton dependency.

@@ -13,7 +13,7 @@ Before applying any prompt here, apply the current project/task rules first:
 2. For this worktree/task, use `GPT-5.5` unless the user explicitly changes the model again.
 3. Do not add speculative UI, logic, tests, layers, protocols, UseCases, factories, or adapters.
 4. Tests are not written or run by default. Use test prompts only when the user explicitly asks for tests, test review, flaky-test diagnosis, or when a separately justified verification strategy requires it.
-5. Repository protocols, ViewState, Action enums, and extra layers are allowed only when they protect a real boundary or solve a concrete current problem.
+5. Repository protocols, ViewState, and extra layers are allowed only when they protect a real boundary or solve a concrete current problem. UI action enums / `send(_ action:)` dispatch are not default MVVM boilerplate; use explicit ViewModel intent methods unless reducer/state-machine architecture is explicitly approved and documented.
 6. SwiftUI design work from screenshots/Figma/PDF/CSS uses `GPT-5.5` and must stay pixel-focused.
 7. Verification commands follow `../../TESTING_INSTRUCTIONS.md`; do not run builds/tests unless the user asks or the current agreed verification policy allows it.
 8. Preserve `TchopApp` conventions, design tokens, localization, SwiftData-first persistence, and feed/composer card contract.
@@ -73,7 +73,7 @@ Before applying any prompt here, apply the current project/task rules first:
 ## Conflict Notes Found During Import
 
 - Several prompts recommend generating tests as part of feature work. In this project, tests remain opt-in unless the user explicitly asks.
-- Several prompts mention repository protocols and Action enums as defaults. In this project, those are not default boilerplate; use them only for real boundaries or domain/state-machine contracts.
+- Several prompts mention repository protocols and Action enums as defaults. In this project, repository protocols are allowed only at real seams, and UI action enums / `send(_ action:)` dispatch are not default MVVM boilerplate. Use explicit ViewModel intent methods unless reducer/state-machine architecture is explicitly approved and documented.
 - The imported model-routing material said to use the cheapest reliable model. Current task override is stricter: use `GPT-5.5` until the user explicitly changes it.
 - The prompts are generic iOS production templates. Existing `TchopApp` architecture, task rules, feed/composer contract, localization, design tokens, and verification policy are higher priority.
 - Evidence-based completion prompt is mandatory before claiming work is done when verification is non-trivial.

@@ -24,6 +24,11 @@ Every working/status/readiness response must start with:
 - Do not run builds/tests/simulator UI/Instruments unless explicitly requested or already approved for the current block.
 - `git diff --check` and read-only/static documentation checks are allowed when useful.
 
+### MVVM ViewModel API
+- ViewModels expose explicit intent methods by default.
+- Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as default MVVM boilerplate.
+- Reducer/action architecture requires explicit user approval and a documented rationale.
+
 ### Implementation Style
 - No speculative UI.
 - No speculative business logic.

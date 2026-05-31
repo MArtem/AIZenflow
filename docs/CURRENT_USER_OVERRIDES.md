@@ -37,6 +37,11 @@ Every working response must start with:
 - `git diff --check` or read-only/static documentation checks are allowed when useful.
 - Low-resource mode: minimum reading, minimum commands, one meaningful verification only when requested or explicitly justified.
 
+### MVVM / ViewModel API
+- Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as the default ViewModel API in any project, including test/demo projects.
+- Use explicit intent methods on ViewModels.
+- Action/reducer architecture is allowed only after explicit user approval and documentation.
+
 ### Implementation Style
 - No speculative UI.
 - No speculative business logic.

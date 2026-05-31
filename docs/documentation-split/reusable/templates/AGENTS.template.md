@@ -22,8 +22,13 @@ Before code, docs, git, or project changes, read:
 6. `./docs/WORK_CONTINUITY.md`
 7. current Zenflow task plan if present
 
+## MVVM ViewModel API
+- ViewModels expose explicit intent methods by default.
+- Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as default MVVM boilerplate.
+- Reducer/action architecture requires explicit user approval and a documented rationale.
+
 ## Current Project Mode
-- This is a clean `MVVMExample` baseline project.
+- This is a clean `<AppName>` baseline project unless project-specific docs say otherwise.
 - Do not implement app-specific demo features unless the user explicitly asks.
 - Do not continue old `TaskDemo` / `TaskDemoViewModel` / behavior-test plans.
 - The user may provide Swift files or text fragments to add iteratively.

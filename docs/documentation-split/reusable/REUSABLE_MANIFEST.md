@@ -30,6 +30,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
 - `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
 - `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`
+- `./docs/IOS_MVVM_INTENT_API_STANDARD.md`
 - `./docs/CI_CD_QUALITY_GATES.md`
 - `./docs/TECH_DEBT_REGISTER.md`
 - `./docs/QA_TEST_PLAN_STANDARD.md`
@@ -59,8 +60,11 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`
 - `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
 - `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
+- `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`
+- `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
 - `./docs/agent-prompts/test-review-mini.md`
+- `./docs/agent-prompts/README.md`
 - `./docs/agent-prompts/code-review-master.md`
 - `./docs/agent-prompts/refactoring-master.md`
 - `./docs/agent-prompts/feature-generation-master.md`
@@ -108,6 +112,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/agent-prompts/swift-compile-error-mini.md`
 - `./docs/knowledge/global/agent-working-rules.md`
 - `./docs/knowledge/global/ios/README.md`
+- `./docs/knowledge/global/prompt-presets/README.md`
 - `./docs/knowledge/global/prompt-presets/test-review-mini.md`
 - `./docs/knowledge/global/prompt-presets/code-review-master.md`
 - `./docs/knowledge/global/prompt-presets/refactoring-master.md`
@@ -156,4 +161,5 @@ When a new task/project is created, copy this group first, then replace placehol
 - `./NEW_PROJECT_PORTING_GUIDE.md`
 - `./EXTERNAL_SKILL_DEPENDENCIES.md`
 - `./TRANSFER_CHECKLIST.md`
+- `./MVVMEXAMPLE_REMEDIATION_SPEC.md`
 - `./scripts/install_reusable_baseline.sh`

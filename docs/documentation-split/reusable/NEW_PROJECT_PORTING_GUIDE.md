@@ -31,3 +31,19 @@ From this reusable baseline folder, run:
 ```
 
 Then replace placeholders and project-specific commands in the generated files.
+
+
+## Neutral Infrastructure Package Recommendation
+For a new unrelated iOS project, create or copy reusable infrastructure under neutral names. Recommended initial shape:
+
+```text
+Packages/AppInfrastructure/
+  Sources/
+    AppNetworking/
+    AppErrors/
+    AppLocalization/
+    AppConfiguration/
+    AppLogging/
+```
+
+Do not copy source-app branded names such as `Tchop*` into a generic project unless the user explicitly accepts that branding. Use previous package implementations as reference material, then rename and remove app-specific policy before adoption.

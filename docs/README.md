@@ -83,6 +83,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/CI_CD_QUALITY_GATES.md`
 - `./docs/DEPENDENCY_POLICY.md`
 - `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
+- `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`
 - `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`
 - `./docs/QA_TEST_PLAN_STANDARD.md`
 - `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
@@ -92,6 +93,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
 - `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
 - `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`
+- `./docs/IOS_MVVM_INTENT_API_STANDARD.md`
 - `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`
 - `./docs/IOS_OFFLINE_SYNC_STANDARD.md`
 - `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
@@ -218,6 +220,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/IOS_ACCESSIBILITY_STANDARD.md`**: accessibility gate.
 - **`./docs/IOS_PERFORMANCE_BUDGETS.md`**: measurable performance expectations.
 - **`./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`**: API/backend integration rules.
+- **`./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`**: neutral reusable infrastructure package rules for new iOS projects.
 - **`./docs/IOS_DATA_MIGRATION_STANDARD.md`**: data migration and compatibility rules.
 - **`./docs/DESIGN_SYSTEM_GOVERNANCE.md`**: token/component/visual-effect governance.
 - **`./docs/CI_CD_QUALITY_GATES.md`**: automated quality gates.
@@ -231,6 +234,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/COMPATIBILITY_MATRIX.md`**: supported OS/devices/features and degradation expectations.
 - **`./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`**: async/await, actor ownership, task lifecycle, cancellation, Sendable, Swift 6 readiness.
 - **`./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`**: memory, cache, media, file, thumbnail, and large-asset rules.
+- **`./docs/IOS_MVVM_INTENT_API_STANDARD.md`**: default ViewModel API standard: explicit intent methods, no generic `send(_ action:)` dispatcher by default.
 - **`./docs/IOS_UI_STATE_RENDERING_STANDARD.md`**: SwiftUI/UIKit state invalidation, lazy rendering, row identity, and render-path rules.
 - **`./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`**: mobile network reliability, retries, cancellation, idempotency, and error taxonomy.
 - **`./docs/IOS_OFFLINE_SYNC_STANDARD.md`**: offline mutations, pending sync, conflicts, app-group durability.

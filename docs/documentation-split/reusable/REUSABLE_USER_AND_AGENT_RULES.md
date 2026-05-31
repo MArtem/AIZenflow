@@ -17,6 +17,11 @@ Every working response should start with:
 - sandbox/worktree confirmation
 - Readiness/status answers such as “готов к новым задачам” are not exempt.
 
+## MVVM ViewModel API Rule
+- ViewModels expose explicit intent methods by default.
+- Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as default MVVM boilerplate.
+- Reducer/action architecture requires explicit user approval and a documented rationale.
+
 ## Implementation Style
 - Do not guess product behavior. Ask when requirements, ownership, state flow, or acceptance criteria are unclear.
 - Do not add speculative UI, speculative business logic, decorative wrappers, or extra abstractions.
@@ -40,6 +45,11 @@ When the user says `ревью`, `review`, `code review`, or `аудит`:
 ## Context Transfer Rule
 Every context-transfer prompt must include:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
+
+## Neutral Reusable Package Rule
+- New unrelated projects should receive neutral reusable package naming such as `AppInfrastructure`, not source-app branding such as `Tchop*`, unless the user explicitly asks otherwise.
+- Promote generic mechanics from prior apps only after removing app-specific policy, names, paths, endpoints, copy, and product assumptions.
+- Start with currently needed infrastructure only: networking, errors, localization, configuration, logging/analytics/cache. Add database/sync/media/widgets/push/share/AI/payments only when current requirements exist.
 
 ## No-Loss Cumulative Transfer Rule
 - Every new task/project must receive all reusable, non-app-specific documentation, rules, prompts, skills, templates, scripts, and environment skill snapshots accumulated so far.

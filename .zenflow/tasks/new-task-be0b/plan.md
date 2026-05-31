@@ -587,6 +587,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - pushed MVVMExample commit `757f0ec` to GitHub `main` and `Development`.
 - Verification: `git diff --check` and `python3 scripts/check_docs_index.py` succeeded in MVVMExample before commit/push.
 
+
+- Completed now: reusable MVVM/infrastructure baseline hardening for MVVMExample handoff:
+  - added `./docs/IOS_MVVM_INTENT_API_STANDARD.md` and mirrored it into `./docs/documentation-split/reusable/docs/`, making explicit ViewModel intent methods the default and blocking generic `send(_ action:)` / UI action-enum dispatch unless explicitly approved and documented.
+  - added `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md` and mirrored it into the reusable split, defining neutral `AppInfrastructure`/`AppNetworking`/`AppLocalization`/`AppConfiguration` package naming for new projects instead of source-app `Tchop*` branding.
+  - hardened active and reusable rules/templates (`./docs/AGENT_RULES.md`, `./docs/CURRENT_USER_OVERRIDES.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`, `./docs/MODULAR_ARCHITECTURE_STANDARD.md`, `./docs/PACKAGES_AND_MANAGERS.md`, reusable templates) so new projects inherit the explicit-intent MVVM rule and neutral package promotion rule.
+  - added `./docs/documentation-split/reusable/MVVMEXAMPLE_REMEDIATION_SPEC.md` for the new task handoff and updated the reusable installer to copy the porting guide/spec into target `./docs/reusable-baseline/`.
+- Verification: `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded; no build/tests/simulator run because this was documentation/reusable-baseline work.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
