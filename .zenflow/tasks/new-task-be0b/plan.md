@@ -610,6 +610,10 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - added the required transfer rule: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 - Verification: `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded.
 
+
+- Completed now: synced the proactive new-chat/context-transfer rule into MVVMExample reusable baseline so the existing new task receives the same rule as future projects.
+- Verification: current worktree docs index/diff checks and MVVMExample docs index/diff checks succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
