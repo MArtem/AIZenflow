@@ -147,3 +147,9 @@ Do not add abstractions unless they solve a concrete current problem.
 - `docs/DEFINITION_OF_DONE.md`
 - `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
+
+
+## New Chat / Context Transfer Rule
+- Proactively recommend moving to a new chat when context size, phase changes, interruptions, or accumulated history make continuity risky.
+- Provide a compact handoff spec before transfer.
+- Apply `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`.

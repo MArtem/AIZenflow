@@ -42,3 +42,10 @@ Before code, docs, git, or project changes, read:
 
 ## Plan Rule
 If new user-approved work benefits from a breakdown, update the local task plan with checkbox steps and mark completed steps before reporting completion.
+
+
+## New Chat / Context Transfer
+- Proactively recommend a new chat when context becomes risky or a major phase changes.
+- Provide a compact transition spec before transfer.
+- Include the rule: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Do not include raw command logs, tool output, full diffs, or long scripts unless requested.

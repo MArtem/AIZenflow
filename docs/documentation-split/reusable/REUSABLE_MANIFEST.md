@@ -26,6 +26,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/IOS_OFFLINE_SYNC_STANDARD.md`
 - `./docs/RISK_REGISTER.md`
 - `./docs/AGENT_RULES.md`
+- `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 - `./docs/INCIDENT_RESPONSE_STANDARD.md`
 - `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
 - `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`

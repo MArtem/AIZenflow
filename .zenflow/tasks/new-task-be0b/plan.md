@@ -603,6 +603,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated reusable transfer/porting docs to clarify that new projects receive the baseline during install, while already-created worktrees require an explicit sync step for newly added reusable files.
 - Verification: current worktree `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded; MVVMExample `git diff --check` and `python3 scripts/check_docs_index.py` succeeded.
 
+
+- Completed now: added proactive new-chat/context-transfer rule to reusable baseline:
+  - added `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md` and reusable split copy.
+  - updated active/reusable rules and templates so the assistant must proactively recommend a new chat when context risk grows and must provide a compact transition spec.
+  - added the required transfer rule: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Verification: `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.

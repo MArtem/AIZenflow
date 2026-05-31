@@ -39,6 +39,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./TESTING_INSTRUCTIONS.md`
 - `./docs/AGENT_RULES.md`
 - `./docs/WORK_CONTINUITY.md`
+- `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 - `./docs/CURRENT_USER_OVERRIDES.md`
 
 ### Production Quality And Review Gates
@@ -182,6 +183,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/AGENT_RULES.md`**: short mandatory implementation guardrails.
 - **`./docs/CURRENT_USER_OVERRIDES.md`**: current task/user overrides that must be applied before general defaults.
 - **`./docs/WORK_CONTINUITY.md`**: durable resume state and universal transition prompt.
+- **`./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`**: proactive new-chat trigger and compact transition-spec requirements.
 
 ### Review And Completion
 - **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.

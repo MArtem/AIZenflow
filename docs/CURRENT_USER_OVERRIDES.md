@@ -96,3 +96,9 @@ Every working response must start with:
 
 ## Notes
 If this file conflicts with an explicit newer user instruction in chat, the newer user instruction wins.
+
+
+### New Chat / Context Transfer
+- The assistant must proactively tell the user when the current chat/context should be replaced by a new chat to reduce context risk.
+- When recommending a new chat, provide a compact transition spec and include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Do not include raw command logs, tool output, full diffs, or long scripts in the transition spec unless explicitly requested.

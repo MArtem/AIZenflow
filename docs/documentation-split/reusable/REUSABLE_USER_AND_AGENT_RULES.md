@@ -58,3 +58,10 @@ Every context-transfer prompt must include:
 - Existing tasks/projects must be resynced after reusable baseline changes; new files are not magically visible in already-created worktrees unless the sync/install step is run or the files live in a shared external environment.
 - App-specific contracts must stay out of the reusable baseline unless generalized first.
 - Before declaring a new task/project bootstrapped, verify that reusable docs, prompt presets, project-local skills, external skill dependencies, templates, and transfer scripts are present and indexed.
+
+
+## New Chat / Context Transfer Rule
+- Proactively recommend moving to a new chat when context size, phase changes, interruptions, or accumulated history make continuity risky.
+- Provide a compact handoff spec before transfer.
+- Include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Keep the handoff compact: no raw command logs, tool output, full diffs, or long scripts unless requested.

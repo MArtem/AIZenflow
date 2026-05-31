@@ -41,3 +41,9 @@ Every working/status/readiness response must start with:
 
 ## Notes
 If this file conflicts with a newer explicit user instruction in chat, the newer instruction wins.
+
+
+### New Chat / Context Transfer
+- The assistant must proactively recommend a new chat when context becomes risky or a major phase changes.
+- The assistant must provide a compact transition spec and include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Do not include raw command logs, tool output, full diffs, or long scripts unless requested.
