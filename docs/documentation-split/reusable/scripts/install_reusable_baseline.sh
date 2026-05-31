@@ -27,6 +27,10 @@ fi
 # Preserve environment-level skill snapshots for recovery/reference.
 mkdir -p "${TARGET_ROOT}/docs/reusable-baseline"
 rsync -a "${BASELINE_ROOT}/external-environment/" "${TARGET_ROOT}/docs/reusable-baseline/external-environment/"
+if [[ -d "${BASELINE_ROOT}/scripts" ]]; then
+  mkdir -p "${TARGET_ROOT}/docs/reusable-baseline/scripts"
+  rsync -a "${BASELINE_ROOT}/scripts/" "${TARGET_ROOT}/docs/reusable-baseline/scripts/"
+fi
 cp "${BASELINE_ROOT}/REUSABLE_USER_AND_AGENT_RULES.md" "${TARGET_ROOT}/docs/reusable-baseline/"
 cp "${BASELINE_ROOT}/NEW_PROJECT_PORTING_GUIDE.md" "${TARGET_ROOT}/docs/reusable-baseline/"
 cp "${BASELINE_ROOT}/EXTERNAL_SKILL_DEPENDENCIES.md" "${TARGET_ROOT}/docs/reusable-baseline/"

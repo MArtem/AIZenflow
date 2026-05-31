@@ -163,3 +163,4 @@ When a new task/project is created, copy this group first, then replace placehol
 - `./TRANSFER_CHECKLIST.md`
 - `./MVVMEXAMPLE_REMEDIATION_SPEC.md`
 - `./scripts/install_reusable_baseline.sh`
+- `./scripts/sync_reusable_baseline_to_project.sh`

@@ -595,6 +595,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - added `./docs/documentation-split/reusable/MVVMEXAMPLE_REMEDIATION_SPEC.md` for the new task handoff and updated the reusable installer to copy the porting guide/spec into target `./docs/reusable-baseline/`.
 - Verification: `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded; no build/tests/simulator run because this was documentation/reusable-baseline work.
 
+
+- Completed now: reusable baseline resync follow-up after MVVMExample spec lookup failure:
+  - confirmed `./docs/documentation-split/reusable/MVVMEXAMPLE_REMEDIATION_SPEC.md` exists in this worktree and synced the reusable baseline into `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80`, making the spec available at `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/docs/reusable-baseline/MVVMEXAMPLE_REMEDIATION_SPEC.md`.
+  - added `./docs/documentation-split/reusable/scripts/sync_reusable_baseline_to_project.sh` for explicit resync of already-created projects after reusable baseline changes.
+  - updated `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh` to copy reusable baseline scripts into target `./docs/reusable-baseline/scripts/`.
+  - updated reusable transfer/porting docs to clarify that new projects receive the baseline during install, while already-created worktrees require an explicit sync step for newly added reusable files.
+- Verification: current worktree `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded; MVVMExample `git diff --check` and `python3 scripts/check_docs_index.py` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.

@@ -55,5 +55,6 @@ Every context-transfer prompt must include:
 - Every new task/project must receive all reusable, non-app-specific documentation, rules, prompts, skills, templates, scripts, and environment skill snapshots accumulated so far.
 - Nothing reusable may be dropped silently during transfer. If something cannot be copied or activated, record it as an explicit remaining risk and dependency.
 - Reusable knowledge is cumulative: improvements made in one project should be promoted back into the reusable baseline before starting the next project.
+- Existing tasks/projects must be resynced after reusable baseline changes; new files are not magically visible in already-created worktrees unless the sync/install step is run or the files live in a shared external environment.
 - App-specific contracts must stay out of the reusable baseline unless generalized first.
 - Before declaring a new task/project bootstrapped, verify that reusable docs, prompt presets, project-local skills, external skill dependencies, templates, and transfer scripts are present and indexed.
