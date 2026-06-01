@@ -663,3 +663,10 @@ Use archives only when historical detail is needed:
   - clarified that static performance/memory/rendering issues should be fixed when evident; profilers are for proof/comparison/non-obvious risks, not an excuse to keep avoidable hot-path problems.
   - propagated the rule into current TchopApp rules, reusable baseline rules/templates, and the synced MVVMExample task rules.
 - Verification: docs-only change; `git diff --check` and docs index checks were run. No build/tests/simulator UI required.
+
+- Completed now: added the user's full-scope audit/planning rule to the reusable baseline and active task rules:
+  - reviews, audits, project/code inspections, requirements analysis, and task planning must provide the fullest unbiased high-quality analysis available, even for tiny code.
+  - agents must not silently simplify, defer, dismiss, or complicate scope on the user's behalf; the user decides what to execute.
+  - recommendations must be prioritized as must-do-now, should-do-next, later/only-if-needed, and do-not-do/overengineering where applicable.
+  - skipped concerns must be explicit remaining risks; implementation still executes only user-approved scope.
+- Verification: docs-only change; `git diff --check` and docs index checks succeeded. No build/tests/simulator UI required.
