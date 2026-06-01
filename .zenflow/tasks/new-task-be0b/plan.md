@@ -651,3 +651,9 @@ Use archives only when historical detail is needed:
   - verified share extension publishes pending feed cards through `SharedFeedCardSyncManager` and app refresh pulls them into the same `FeedCardStore` path.
   - applied one contract fix in `./TchopApp/Models/NewsFeedModels.swift`: composer visible text fields now use canonical order `text`, `headline`, `subheadline`, `source`, matching published feed/feed card ordering.
 - Verification: `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, and `./scripts/verify.sh low` succeeded; no tests/simulator UI run.
+
+- Completed now: read-only MVVMExample production/performance audit follow-up:
+  - reviewed `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80` against the synced reusable baseline, explicit-intent MVVM rule, production review gate, and performance hot-path rules.
+  - confirmed static gates in MVVMExample pass: docs index, framework validation, secrets, large files, forbidden patterns, localization, and SwiftUI hot-path scans.
+  - found remaining non-visual/non-profiler items to report before claiming clean: profile edit result does not refresh/update profile screen after save, profile edit save error uses raw localizedDescription instead of `AppErrorMapper`, invalid API base URL silently falls back to DummyJSON, and visual/profile/manual plus real profiler validation remain unverified.
+  - no source/test changes were made; this was an audit/report-only pass.
