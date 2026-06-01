@@ -28,6 +28,13 @@ Every working response should start with:
 - Prefer the simplest correct implementation that preserves runtime correctness, UX, and maintainability.
 - New protocols, factories, adapters, use cases, services, per-view models, or managers require one concrete current problem.
 
+
+## Product-Staff Quality Bar
+- Never lower the engineering bar because a project is described as demo, test, sample, prototype, imported, or pre-production; those words may only describe configuration/risk context, not code quality.
+- Treat every authored or reviewed code path as product-staff-level production code: correct ownership, explicit state, clear failure behavior, performance-aware rendering, privacy-safe logging, accessibility, localization, and supportable verification.
+- Do not wait for Instruments/profilers before fixing statically obvious performance or memory issues. Use profiling to prove behavior, compare alternatives, or validate non-obvious risks, not as an excuse to leave avoidable redraws, broad invalidation, main-thread work, unbounded caches, or lifecycle leaks.
+- Maximize quality through the simplest correct design: improve hot paths, state ownership, and error handling without adding decorative protocols, wrappers, factories, use cases, or interfaces.
+
 ## Testing And Verification Defaults
 - Do not write or modify tests unless the user explicitly opens a test-writing phase or asks to fix a specific failing test.
 - Do not run builds, tests, simulator UI, or Instruments by default unless requested or already approved for the current block.

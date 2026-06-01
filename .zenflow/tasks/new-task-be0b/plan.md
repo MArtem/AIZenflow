@@ -657,3 +657,9 @@ Use archives only when historical detail is needed:
   - confirmed static gates in MVVMExample pass: docs index, framework validation, secrets, large files, forbidden patterns, localization, and SwiftUI hot-path scans.
   - found remaining non-visual/non-profiler items to report before claiming clean: profile edit result does not refresh/update profile screen after save, profile edit save error uses raw localizedDescription instead of `AppErrorMapper`, invalid API base URL silently falls back to DummyJSON, and visual/profile/manual plus real profiler validation remain unverified.
   - no source/test changes were made; this was an audit/report-only pass.
+
+- Completed now: added product-staff quality bar rule to reusable/current task rules:
+  - clarified that demo/test/sample/prototype/pre-production labels may describe configuration context only and must never lower code quality expectations.
+  - clarified that static performance/memory/rendering issues should be fixed when evident; profilers are for proof/comparison/non-obvious risks, not an excuse to keep avoidable hot-path problems.
+  - propagated the rule into current TchopApp rules, reusable baseline rules/templates, and the synced MVVMExample task rules.
+- Verification: docs-only change; `git diff --check` and docs index checks were run. No build/tests/simulator UI required.
