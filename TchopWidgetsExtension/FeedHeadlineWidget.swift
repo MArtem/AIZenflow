@@ -2,6 +2,18 @@ import SwiftUI
 import WidgetKit
 import TchopWidgets
 
+/// Stable identifiers used by the widget extension to read the app-written feed headline snapshot.
+enum FeedHeadlineWidgetConstants {
+    static let widgetKind = "FeedHeadlineWidget"
+    static let snapshotKey = "widgets.feed.headline.snapshot"
+}
+
+/// Widget-local copy of the app-written feed headline snapshot payload.
+struct FeedHeadlineWidgetSnapshot: Codable, Equatable, Sendable {
+    let headline: String
+    let updatedAt: Date
+}
+
 /// Widget entry carrying the latest cached feed headline.
 struct FeedHeadlineWidgetEntry: TimelineEntry {
     let date: Date
@@ -48,10 +60,14 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
     }
 
     /// Uses the shared app-group defaults in production and standard defaults as a safe preview fallback.
-    private var snapshotManager: UserDefaultsFeedHeadlineWidgetSnapshotManager {
-        (try? UserDefaultsFeedHeadlineWidgetSnapshotManager(
-            suiteName: AppGroupConfiguration.widgetsSuiteName
-        )) ?? UserDefaultsFeedHeadlineWidgetSnapshotManager(userDefaults: .standard)
+    private var snapshotManager: UserDefaultsWidgetSnapshotStore<FeedHeadlineWidgetSnapshot> {
+        (try? UserDefaultsWidgetSnapshotStore<FeedHeadlineWidgetSnapshot>(
+            suiteName: AppGroupConfiguration.widgetsSuiteName,
+            snapshotKey: FeedHeadlineWidgetConstants.snapshotKey
+        )) ?? UserDefaultsWidgetSnapshotStore<FeedHeadlineWidgetSnapshot>(
+            userDefaults: .standard,
+            snapshotKey: FeedHeadlineWidgetConstants.snapshotKey
+        )
     }
 }
 

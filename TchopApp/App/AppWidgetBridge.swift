@@ -25,15 +25,32 @@ final class NoopWidgetContentSyncManager: WidgetContentSyncing {
     func clearFeed() {}
 }
 
+/// Stable identifiers shared between the app and widget extension for the feed headline widget.
+enum FeedHeadlineWidgetConstants {
+    static let widgetKind = "FeedHeadlineWidget"
+    static let snapshotKey = "widgets.feed.headline.snapshot"
+}
+
+/// App-specific snapshot rendered by the feed headline widget.
+struct FeedHeadlineWidgetSnapshot: Codable, Equatable, Sendable {
+    let headline: String
+    let updatedAt: Date
+
+    init(headline: String, updatedAt: Date = Date()) {
+        self.headline = headline
+        self.updatedAt = updatedAt
+    }
+}
+
 /// Shared widget bridge used by the app to publish widget snapshots.
 @MainActor
 final class FeedHeadlineWidgetSyncManager: WidgetContentSyncing {
-    private let snapshotManager: any FeedHeadlineWidgetSnapshotManaging
+    private let snapshotManager: any WidgetSnapshotStoring<FeedHeadlineWidgetSnapshot>
     private let errorManager: any AppErrorManaging
 
     /// Creates a new FeedHeadlineWidgetSyncManager instance.
     init(
-        snapshotManager: any FeedHeadlineWidgetSnapshotManaging,
+        snapshotManager: any WidgetSnapshotStoring<FeedHeadlineWidgetSnapshot>,
         errorManager: any AppErrorManaging
     ) {
         self.snapshotManager = snapshotManager

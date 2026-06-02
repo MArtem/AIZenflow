@@ -35,9 +35,9 @@ public struct APIConfiguration: Sendable, Equatable {
         self.timeoutInterval = timeoutInterval
     }
 
-    /// Default configuration used by local stub-based development flows.
+    /// Default configuration used by stub-based tests and local development flows.
     public static let stub = APIConfiguration(
-        baseURL: URL(string: "https://stub.tchop.local")!,
+        baseURL: URL(string: "https://stub.local")!,
         defaultHeaders: [:],
         timeoutInterval: 30
     )
@@ -1230,7 +1230,7 @@ public actor APIManager: APIManaging {
     /// Creates a synthetic successful HTTP response for stub-driven requests.
     private static func makeStubHTTPURLResponse(for request: URLRequest) -> HTTPURLResponse {
         HTTPURLResponse(
-            url: request.url ?? URL(string: "https://stub.tchop.local")!,
+            url: request.url ?? URL(string: "https://stub.local")!,
             statusCode: 200,
             httpVersion: "HTTP/1.1",
             headerFields: nil

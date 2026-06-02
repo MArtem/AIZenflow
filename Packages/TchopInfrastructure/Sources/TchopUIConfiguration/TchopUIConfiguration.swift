@@ -1,80 +1,66 @@
 import Foundation
 
-/// Root snapshot describing server-driven UI configuration for the app shell.
-public struct UIConfigurationSnapshot: Codable, Equatable, Sendable {
-    public static let supportedSchemaVersion = 1
-
-    public let metadata: UIConfigurationSnapshotMetadata
-    public let shell: ShellUIConfiguration
-
-    /// Creates a new UIConfigurationSnapshot instance.
-    public init(
-        metadata: UIConfigurationSnapshotMetadata = UIConfigurationSnapshotMetadata(
-            schemaVersion: UIConfigurationSnapshot.supportedSchemaVersion,
-            fetchedAt: .distantPast,
-            expirationDate: nil
-        ),
-        shell: ShellUIConfiguration
-    ) {
-        self.metadata = metadata
-        self.shell = shell
-    }
-}
-
-/// Metadata describing the freshness and schema of a UI configuration snapshot.
+/// Metadata describing the freshness and schema of a remote configuration snapshot.
 public struct UIConfigurationSnapshotMetadata: Codable, Equatable, Sendable {
     public let schemaVersion: Int
     public let fetchedAt: Date
     public let expirationDate: Date?
 
-    /// Creates a new UIConfigurationSnapshotMetadata instance.
-    public init(
-        schemaVersion: Int,
-        fetchedAt: Date,
-        expirationDate: Date?
-    ) {
+    public init(schemaVersion: Int, fetchedAt: Date, expirationDate: Date?) {
         self.schemaVersion = schemaVersion
         self.fetchedAt = fetchedAt
         self.expirationDate = expirationDate
     }
 }
 
-/// Shell-scoped UI toggles that can be modified by remote configuration.
-public struct ShellUIConfiguration: Codable, Equatable, Sendable {
-    public let showsFloatingActionButton: Bool
+/// Generic remote configuration snapshot.
+///
+/// Boundary rule:
+/// The reusable package owns schema/freshness mechanics. Apps own the concrete payload type and feature policy.
+public struct UIConfigurationSnapshot<Payload>: Codable, Equatable, Sendable
+where Payload: Codable & Equatable & Sendable {
+    public static var supportedSchemaVersion: Int { 1 }
 
-    /// Creates a new ShellUIConfiguration instance.
-    public init(showsFloatingActionButton: Bool) {
-        self.showsFloatingActionButton = showsFloatingActionButton
+    public let metadata: UIConfigurationSnapshotMetadata
+    public let payload: Payload
+
+    public init(
+        metadata: UIConfigurationSnapshotMetadata = UIConfigurationSnapshotMetadata(
+            schemaVersion: UIConfigurationSnapshot.supportedSchemaVersion,
+            fetchedAt: .distantPast,
+            expirationDate: nil
+        ),
+        payload: Payload
+    ) {
+        self.metadata = metadata
+        self.payload = payload
     }
 }
 
-/// Contract for a remote source that fetches UI configuration from backend.
-public protocol UIConfigurationRemoteProviding: Sendable {
-    /// Fetches configuration.
-    func fetchConfiguration() async throws -> UIConfigurationSnapshot
+/// Contract for a remote source that fetches one concrete configuration payload.
+public protocol UIConfigurationRemoteProviding<Payload>: Sendable {
+    associatedtype Payload: Codable & Equatable & Sendable
+
+    func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload>
 }
 
-/// App-facing contract that can serve the active UI configuration snapshot.
-public protocol UIConfigurationManaging: Sendable {
-    /// Returns configuration.
-    func currentConfiguration() async -> UIConfigurationSnapshot
-    /// Returns whether the current configuration should be considered stale.
+/// App-facing contract that can serve one concrete configuration payload.
+public protocol UIConfigurationManaging<Payload>: Sendable {
+    associatedtype Payload: Codable & Equatable & Sendable
+
+    func currentConfiguration() async -> UIConfigurationSnapshot<Payload>
     func isCurrentConfigurationStale() async -> Bool
-    /// Handles refresh configuration.
-    func refreshConfiguration() async throws -> UIConfigurationSnapshot
-    /// Fetches configuration.
-    func fetchConfiguration() async throws -> UIConfigurationSnapshot
+    func refreshConfiguration() async throws -> UIConfigurationSnapshot<Payload>
+    func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload>
 }
 
 public extension UIConfigurationManaging {
-    /// Fetches configuration.
-    func fetchConfiguration() async throws -> UIConfigurationSnapshot {
+    func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload> {
         try await refreshConfiguration()
     }
 }
 
-/// Describes when a cached UI configuration snapshot should be considered stale.
+/// Describes when a cached configuration snapshot should be considered stale.
 public enum UIConfigurationStalenessPolicy: Equatable, Sendable {
     case never
     case after(TimeInterval)
@@ -87,126 +73,122 @@ public enum UIConfigurationRefreshThrottling: Equatable, Sendable {
     case minimumInterval(TimeInterval)
 }
 
-/// Persists and restores the last known UI configuration snapshot.
-public protocol UIConfigurationSnapshotStoring: Sendable {
-    /// Saves this operation.
-    func save(_ snapshot: UIConfigurationSnapshot) throws
-    /// Loads this operation.
-    func load() throws -> UIConfigurationSnapshot?
-    /// Clears this operation.
+/// Persists and restores one concrete configuration snapshot.
+public protocol UIConfigurationSnapshotStoring<Payload>: Sendable {
+    associatedtype Payload: Codable & Equatable & Sendable
+
+    func save(_ snapshot: UIConfigurationSnapshot<Payload>) throws
+    func load() throws -> UIConfigurationSnapshot<Payload>?
     func clear() throws
 }
 
-/// Errors emitted by the default UI configuration snapshot store.
-public enum UIConfigurationSnapshotStoreError: Error, Equatable {
+/// Errors emitted by the default configuration snapshot store.
+public enum UIConfigurationSnapshotStoreError: Error, Equatable, Sendable {
     case unavailableUserDefaults(suiteName: String)
 }
 
-/// Errors emitted by the reusable UI configuration manager.
-public enum UIConfigurationManagerError: Error, Equatable {
+/// Errors emitted by the reusable configuration manager.
+public enum UIConfigurationManagerError: Error, Equatable, Sendable {
     case unsupportedSchemaVersion(actual: Int, supported: Int)
 }
 
-/// UserDefaults-backed UI configuration snapshot storage.
-public final class UserDefaultsUIConfigurationSnapshotStore:
+/// UserDefaults-backed generic configuration snapshot storage.
+///
+/// Thread safety:
+/// `UserDefaults` supports concurrent access for individual operations. This class stores immutable
+/// key/configuration state only; payload mutation is not retained in the store instance.
+public final class UserDefaultsUIConfigurationSnapshotStore<Payload>:
     @unchecked Sendable,
     UIConfigurationSnapshotStoring
-{
+where Payload: Codable & Equatable & Sendable {
     private let userDefaults: UserDefaults
     private let storageKey: String
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
 
-    /// Creates a new UserDefaultsUIConfigurationSnapshotStore instance.
-    public init(
-        userDefaults: UserDefaults,
-        storageKey: String = "ui-configuration.snapshot"
-    ) {
+    public init(userDefaults: UserDefaults, storageKey: String = "ui-configuration.snapshot") {
         self.userDefaults = userDefaults
         self.storageKey = storageKey
     }
 
-    /// Creates a new UserDefaultsUIConfigurationSnapshotStore instance.
-    public convenience init(
-        suiteName: String,
-        storageKey: String = "ui-configuration.snapshot"
-    ) throws {
+    public convenience init(suiteName: String, storageKey: String = "ui-configuration.snapshot") throws {
         guard let userDefaults = UserDefaults(suiteName: suiteName) else {
             throw UIConfigurationSnapshotStoreError.unavailableUserDefaults(suiteName: suiteName)
         }
-
         self.init(userDefaults: userDefaults, storageKey: storageKey)
     }
 
-    /// Saves this operation.
-    public func save(_ snapshot: UIConfigurationSnapshot) throws {
+    public func save(_ snapshot: UIConfigurationSnapshot<Payload>) throws {
         let data = try encoder.encode(snapshot)
         userDefaults.set(data, forKey: storageKey)
     }
 
-    /// Loads this operation.
-    public func load() throws -> UIConfigurationSnapshot? {
+    public func load() throws -> UIConfigurationSnapshot<Payload>? {
         guard let data = userDefaults.data(forKey: storageKey) else {
             return nil
         }
-
-        return try decoder.decode(UIConfigurationSnapshot.self, from: data)
+        return try decoder.decode(UIConfigurationSnapshot<Payload>.self, from: data)
     }
 
-    /// Clears this operation.
     public func clear() throws {
         userDefaults.removeObject(forKey: storageKey)
     }
 }
 
-/// In-memory UI configuration snapshot storage for previews, tests, and ephemeral hosts.
-public final class InMemoryUIConfigurationSnapshotStore:
+/// In-memory configuration snapshot storage for previews, tests, and ephemeral hosts.
+///
+/// Thread safety:
+/// A small `NSLock` protects the mutable snapshot so the store can satisfy the synchronous storage
+/// protocol without forcing all store implementations to become actors.
+public final class InMemoryUIConfigurationSnapshotStore<Payload>:
     @unchecked Sendable,
     UIConfigurationSnapshotStoring
-{
-    private var snapshot: UIConfigurationSnapshot?
+where Payload: Codable & Equatable & Sendable {
+    private let lock = NSLock()
+    private var snapshot: UIConfigurationSnapshot<Payload>?
 
-    /// Creates a new InMemoryUIConfigurationSnapshotStore instance.
-    public init(snapshot: UIConfigurationSnapshot? = nil) {
+    public init(snapshot: UIConfigurationSnapshot<Payload>? = nil) {
         self.snapshot = snapshot
     }
 
-    /// Saves this operation.
-    public func save(_ snapshot: UIConfigurationSnapshot) throws {
+    public func save(_ snapshot: UIConfigurationSnapshot<Payload>) throws {
+        lock.lock()
         self.snapshot = snapshot
+        lock.unlock()
     }
 
-    /// Loads this operation.
-    public func load() throws -> UIConfigurationSnapshot? {
-        snapshot
+    public func load() throws -> UIConfigurationSnapshot<Payload>? {
+        lock.lock()
+        defer { lock.unlock() }
+        return snapshot
     }
 
-    /// Clears this operation.
     public func clear() throws {
+        lock.lock()
         snapshot = nil
+        lock.unlock()
     }
 }
 
-/// Reusable manager that serves current cached configuration and refreshes from a remote source.
-public actor UIConfigurationManager: UIConfigurationManaging {
-    private let remoteProvider: any UIConfigurationRemoteProviding
-    private let store: (any UIConfigurationSnapshotStoring)?
-    private let fallbackSnapshot: UIConfigurationSnapshot
+/// Reusable manager that serves a cached configuration and refreshes from a remote source.
+public actor UIConfigurationManager<Payload>: UIConfigurationManaging
+where Payload: Codable & Equatable & Sendable {
+    private let remoteProvider: any UIConfigurationRemoteProviding<Payload>
+    private let store: (any UIConfigurationSnapshotStoring<Payload>)?
+    private let fallbackSnapshot: UIConfigurationSnapshot<Payload>
     private let stalenessPolicy: UIConfigurationStalenessPolicy
     private let refreshThrottling: UIConfigurationRefreshThrottling
     private let dateProvider: @Sendable () -> Date
-    private var currentSnapshot: UIConfigurationSnapshot
+    private var currentSnapshot: UIConfigurationSnapshot<Payload>
+    private var lastRefreshAttempt: Date?
 
-    /// Creates a new UIConfigurationManager instance.
     public init(
-        remoteProvider: any UIConfigurationRemoteProviding,
-        store: (any UIConfigurationSnapshotStoring)? = nil,
+        remoteProvider: any UIConfigurationRemoteProviding<Payload>,
+        store: (any UIConfigurationSnapshotStoring<Payload>)? = nil,
         stalenessPolicy: UIConfigurationStalenessPolicy = .never,
         refreshThrottling: UIConfigurationRefreshThrottling = .none,
         dateProvider: @escaping @Sendable () -> Date = { Date() },
-        fallbackSnapshot: UIConfigurationSnapshot = UIConfigurationSnapshot(
-            shell: ShellUIConfiguration(showsFloatingActionButton: true)
-        )
+        fallbackSnapshot: UIConfigurationSnapshot<Payload>
     ) {
         self.remoteProvider = remoteProvider
         self.store = store
@@ -220,147 +202,87 @@ public actor UIConfigurationManager: UIConfigurationManaging {
         )
     }
 
-    /// Returns configuration.
-    public func currentConfiguration() async -> UIConfigurationSnapshot {
+    public func currentConfiguration() async -> UIConfigurationSnapshot<Payload> {
         currentSnapshot
     }
 
-    /// Returns whether the current configuration should be considered stale.
     public func isCurrentConfigurationStale() async -> Bool {
         isSnapshotStale(currentSnapshot, now: dateProvider())
     }
 
-    /// Handles refresh configuration.
-    public func refreshConfiguration() async throws -> UIConfigurationSnapshot {
+    public func refreshConfiguration() async throws -> UIConfigurationSnapshot<Payload> {
         let now = dateProvider()
-        if let reusableSnapshot = reusableCurrentSnapshot(for: now) {
-            return reusableSnapshot
-        }
-
-        return try await fetchAndStoreRemoteSnapshot()
-    }
-
-    /// Returns a snapshot that can safely be used as the active cached state.
-    private static func sanitizedSnapshot(
-        _ snapshot: UIConfigurationSnapshot?,
-        fallbackSnapshot: UIConfigurationSnapshot
-    ) -> UIConfigurationSnapshot {
-        guard
-            let snapshot,
-            snapshot.metadata.schemaVersion == UIConfigurationSnapshot.supportedSchemaVersion
-        else {
-            return fallbackSnapshot
-        }
-
-        return snapshot
-    }
-
-    /// Returns the current snapshot when refresh can safely reuse it without a remote hit.
-    private func reusableCurrentSnapshot(for now: Date) -> UIConfigurationSnapshot? {
-        guard !isSnapshotStale(currentSnapshot, now: now) else {
-            return nil
-        }
-
-        switch refreshThrottling {
-        case .none:
-            return nil
-        case let .minimumInterval(interval):
-            guard now.timeIntervalSince(currentSnapshot.metadata.fetchedAt) < interval else {
-                return nil
-            }
-
+        if shouldThrottleRefresh(now: now) {
             return currentSnapshot
         }
+
+        lastRefreshAttempt = now
+        let snapshot = try await remoteProvider.fetchConfiguration()
+        let sanitized = try Self.validatedSnapshot(snapshot)
+        currentSnapshot = sanitized
+        try store?.save(sanitized)
+        return sanitized
     }
 
-    /// Fetches, validates, stores, and activates the next remote snapshot.
-    private func fetchAndStoreRemoteSnapshot() async throws -> UIConfigurationSnapshot {
-        let remoteSnapshot = try await remoteProvider.fetchConfiguration()
-        let validatedSnapshot = try Self.validatedRemoteSnapshot(remoteSnapshot)
-        currentSnapshot = validatedSnapshot
-        try store?.save(validatedSnapshot)
-        return validatedSnapshot
-    }
-
-    /// Returns whether the provided snapshot is stale under the manager's active policy.
-    private func isSnapshotStale(_ snapshot: UIConfigurationSnapshot, now: Date) -> Bool {
-        Self.isSnapshotStale(snapshot, policy: stalenessPolicy, now: now)
-    }
-
-    /// Validates a newly fetched remote snapshot before storing and exposing it.
-    private static func validatedRemoteSnapshot(
-        _ snapshot: UIConfigurationSnapshot
-    ) throws -> UIConfigurationSnapshot {
-        guard snapshot.metadata.schemaVersion == UIConfigurationSnapshot.supportedSchemaVersion else {
-            throw UIConfigurationManagerError.unsupportedSchemaVersion(
-                actual: snapshot.metadata.schemaVersion,
-                supported: UIConfigurationSnapshot.supportedSchemaVersion
-            )
+    private func shouldThrottleRefresh(now: Date) -> Bool {
+        guard let lastRefreshAttempt else { return false }
+        switch refreshThrottling {
+        case .none:
+            return false
+        case .minimumInterval(let interval):
+            return now.timeIntervalSince(lastRefreshAttempt) < interval
         }
-
-        return snapshot
     }
 
-    /// Returns whether the provided snapshot is stale under the supplied policy.
-    private static func isSnapshotStale(
-        _ snapshot: UIConfigurationSnapshot,
-        policy: UIConfigurationStalenessPolicy,
-        now: Date
-    ) -> Bool {
-        switch policy {
+    private func isSnapshotStale(_ snapshot: UIConfigurationSnapshot<Payload>, now: Date) -> Bool {
+        switch stalenessPolicy {
         case .never:
             return false
-        case let .after(interval):
+        case .after(let interval):
             return now.timeIntervalSince(snapshot.metadata.fetchedAt) >= interval
         case .expirationDate:
-            guard let expirationDate = snapshot.metadata.expirationDate else {
-                return false
-            }
-
+            guard let expirationDate = snapshot.metadata.expirationDate else { return false }
             return now >= expirationDate
         }
     }
-}
 
-
-/// Static source for production-safe local UI configuration defaults when no backend contract is wired.
-public struct StaticUIConfigurationProvider: UIConfigurationRemoteProviding {
-    private let response: UIConfigurationSnapshot
-
-    public init(
-        response: UIConfigurationSnapshot = UIConfigurationSnapshot(
-            shell: ShellUIConfiguration(showsFloatingActionButton: true)
-        )
-    ) {
-        self.response = response
+    private static func sanitizedSnapshot(
+        _ snapshot: UIConfigurationSnapshot<Payload>?,
+        fallbackSnapshot: UIConfigurationSnapshot<Payload>
+    ) -> UIConfigurationSnapshot<Payload> {
+        guard let snapshot else { return fallbackSnapshot }
+        guard let validated = try? validatedSnapshot(snapshot) else { return fallbackSnapshot }
+        return validated
     }
 
-        /// Returns the configured local UI snapshot without network access.
-public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
-        response
+    private static func validatedSnapshot(
+        _ snapshot: UIConfigurationSnapshot<Payload>
+    ) throws -> UIConfigurationSnapshot<Payload> {
+        guard snapshot.metadata.schemaVersion == UIConfigurationSnapshot<Payload>.supportedSchemaVersion else {
+            throw UIConfigurationManagerError.unsupportedSchemaVersion(
+                actual: snapshot.metadata.schemaVersion,
+                supported: UIConfigurationSnapshot<Payload>.supportedSchemaVersion
+            )
+        }
+        return snapshot
     }
 }
 
-/// Mock remote source used for previews and tests.
-public struct MockUIConfigurationRemoteProvider: UIConfigurationRemoteProviding {
-    private let response: UIConfigurationSnapshot
+/// Static remote provider useful for local configuration and tests.
+public struct StaticUIConfigurationProvider<Payload>: UIConfigurationRemoteProviding
+where Payload: Codable & Equatable & Sendable {
+    private let snapshot: UIConfigurationSnapshot<Payload>
     private let delayNanoseconds: UInt64
 
-    /// Creates a new MockUIConfigurationRemoteProvider instance.
-    public init(
-        response: UIConfigurationSnapshot = UIConfigurationSnapshot(
-            shell: ShellUIConfiguration(showsFloatingActionButton: true)
-        ),
-        delayNanoseconds: UInt64 = 120_000_000
-    ) {
-        self.response = response
+    public init(snapshot: UIConfigurationSnapshot<Payload>, delayNanoseconds: UInt64 = 0) {
+        self.snapshot = snapshot
         self.delayNanoseconds = delayNanoseconds
     }
 
-    /// Fetches configuration.
-    public func fetchConfiguration() async throws -> UIConfigurationSnapshot {
-        try await Task.sleep(nanoseconds: delayNanoseconds)
-        try Task.checkCancellation()
-        return response
+    public func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload> {
+        if delayNanoseconds > 0 {
+            try await Task.sleep(nanoseconds: delayNanoseconds)
+        }
+        return snapshot
     }
 }

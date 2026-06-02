@@ -676,3 +676,30 @@ Use archives only when historical detail is needed:
   - confirmed high-priority universality issues remain: `Tchop*` branded naming is not suitable for unrelated reusable projects without neutral promotion, `TchopDatabase` umbrella incorrectly re-exports navigation/sync, `TchopWidgets` and `TchopUIConfiguration` contain app-specific payloads, analytics dependency direction is too coupled, `TchopNetworking.swift` is a 1900-line single-file module, several stores use `@unchecked Sendable`, and docs/DocC/readme contracts are still insufficient for reusable SDK use.
   - prepared a prioritized remediation plan focused on mechanism-vs-app-policy split, dependency cleanup, package documentation, and targeted concurrency/testability hardening without decorative abstractions.
 - Verification: read-only/static package review only; no source changes, no build/tests.
+
+### [x] Step: Package universality hardening and package-owned tests
+- User approved implementing the package universality remediation plan and explicitly requested that tests belonging to reusable packages live with those packages so a package can be copied into another project together with its tests.
+- Scope:
+  1. verify package-related tests are under `./Packages/TchopInfrastructure/Tests` and move any misplaced app-level package tests if found;
+  2. fix hard boundary issues: database umbrella/re-export leakage, analytics dependency direction, errors/networking coupling, widget app-specific payloads, UI configuration app-specific shell payload;
+  3. improve networking/concurrency/testability items where they are clear and non-decorative;
+  4. add package-level README/contract docs;
+  5. run `swift test` in `./Packages/TchopInfrastructure`, `git diff --check`, and app build if app imports/usages changed.
+- Constraints: maximize universal package quality, but do not add decorative protocols/wrappers/factories; implementation must keep mechanisms in packages and app-specific policy in app code.
+- Completed now:
+  - kept reusable package tests at package level under `./Packages/TchopInfrastructure/Tests`, including the generic widget snapshot store and generic UI configuration manager/store tests.
+  - removed incorrect `./Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift` umbrella leakage of navigation/sync and removed those hidden target dependencies from `./Packages/TchopInfrastructure/Package.swift`.
+  - converted `./Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift` from app-specific feed-headline widget payload storage into a generic `WidgetSnapshotStoring` / `UserDefaultsWidgetSnapshotStore<Snapshot>` mechanism.
+  - moved feed-headline widget constants/snapshot payload ownership into app/widget-extension code instead of the reusable widget package.
+  - converted `./Packages/TchopInfrastructure/Sources/TchopUIConfiguration/TchopUIConfiguration.swift` from app-shell-specific configuration into a generic `UIConfigurationSnapshot<Payload>` / `UIConfigurationManager<Payload>` mechanism; app-owned `ShellUIConfiguration` now lives in `./TchopApp/App/AppDIContainer.swift`.
+  - neutralized the branded networking stub URL from `stub.tchop.local` to `stub.local` and updated package analytics tests accordingly.
+  - added `./Packages/TchopInfrastructure/README.md` with package ownership, package-level test, mechanism-vs-app-policy, and reusable-quality rules.
+- Verification: `swift test` in `./Packages/TchopInfrastructure` succeeded with 58 XCTest tests and 35 Swift Testing tests; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; targeted `AppShellViewModelTests` + `AppBridgeTests` succeeded; targeted `AppStateTests` succeeded; `git diff --check` succeeded.
+
+### [ ] Step: Package universality follow-up — analytics/errors target split and large-file modularization
+- Remaining explicit risks from the external-model review that were not silently hidden:
+  - `./Packages/TchopInfrastructure/Sources/TchopAnalytics/TchopAnalytics.swift` still combines analytics core with navigation/networking/push adapters in one target; correct target state is core analytics plus separate adapter targets/products.
+  - `./Packages/TchopInfrastructure/Sources/TchopErrors/TchopErrors.swift` still imports `TchopNetworking`; correct target state is error core plus a separate networking-error adapter target/product.
+  - `./Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift` is still a large single-file module and should be split by request/config/errors/interceptors/offline queue/testing surfaces without changing behavior.
+  - Package names are still `Tchop*` in this app worktree; neutral names should be used when promoting/copying into new generic projects, per `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`.
+- This follow-up requires public package product/target changes and app dependency migration, so it should be implemented as a separate coherent package migration block with package tests plus app build/tests.

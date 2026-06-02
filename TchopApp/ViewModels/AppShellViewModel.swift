@@ -368,7 +368,7 @@ final class AppShellViewModel {
     /// View model for the news feed feature.
     let newsFeedViewModel: NewsFeedViewModel
 
-    private let uiConfigurationManager: any UIConfigurationManaging
+    private let uiConfigurationManager: any UIConfigurationManaging<ShellUIConfiguration>
     private let errorManager: any AppErrorManaging
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     let channelsStore: ChannelsStore
@@ -390,7 +390,7 @@ final class AppShellViewModel {
         feedCardStore: FeedCardStore,
         newsFeedViewModel: NewsFeedViewModel,
         errorManager: any AppErrorManaging,
-        uiConfigurationManager: any UIConfigurationManaging,
+        uiConfigurationManager: any UIConfigurationManaging<ShellUIConfiguration>,
         shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = nil,
         isMenuOpen: Bool = false,
         sideMenuFooterText: String = AppLocalization.text("shell.sideMenu.footer")
@@ -486,8 +486,8 @@ final class AppShellViewModel {
     }
 
     /// Applies shell-specific UI settings from a full configuration snapshot.
-    private func applyShellConfiguration(_ configuration: UIConfigurationSnapshot) {
-        state.showsFloatingActionButton = configuration.shell.showsFloatingActionButton
+    private func applyShellConfiguration(_ configuration: AppUIConfigurationSnapshot) {
+        state.showsFloatingActionButton = configuration.payload.showsFloatingActionButton
     }
 
     /// Handles non-fatal refresh failures after the cached configuration has already been applied.

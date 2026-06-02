@@ -703,7 +703,14 @@ private func makeShellViewModel(isMenuOpen: Bool = false) -> AppShellViewModel {
         newsFeedViewModel: newsFeedViewModel,
         errorManager: AppErrorManager(),
         uiConfigurationManager: UIConfigurationManager(
-            remoteProvider: MockUIConfigurationRemoteProvider(delayNanoseconds: 0)
+            remoteProvider: StaticUIConfigurationProvider(
+                snapshot: AppUIConfigurationSnapshot(
+                    payload: ShellUIConfiguration(showsFloatingActionButton: true)
+                )
+            ),
+            fallbackSnapshot: AppUIConfigurationSnapshot(
+                payload: ShellUIConfiguration(showsFloatingActionButton: true)
+            )
         ),
         isMenuOpen: isMenuOpen
     )
@@ -1693,7 +1700,7 @@ final class AppBridgeTests: XCTestCase {
 }
 
 private final class RecordingFeedHeadlineWidgetSnapshotManager:
-    FeedHeadlineWidgetSnapshotManaging,
+    WidgetSnapshotStoring,
     @unchecked Sendable
 {
     private let saveError: Error?

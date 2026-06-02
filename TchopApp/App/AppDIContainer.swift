@@ -163,7 +163,7 @@ final class AppDIContainer {
     let appleAuthenticationManager: any AppleAuthenticationManaging
 
     /// Remote UI configuration manager used for server-driven shell tweaks.
-    private let uiConfigurationManager: any UIConfigurationManaging
+    private let uiConfigurationManager: any UIConfigurationManaging<ShellUIConfiguration>
 
     /// Manager that persists/restores per-user navigation snapshots.
     private let navigationStateManager: any NavigationStateManaging
@@ -224,7 +224,7 @@ final class AppDIContainer {
         self.channelSettingsRepository = UserChannelSettingsRepository()
         self.appleAuthenticationManager = AppleAuthenticationManager()
 
-        self.uiConfigurationManager = Self.makeUIConfigurationManager(isUITesting: isUITesting)
+        self.uiConfigurationManager = Self.makeAppUIConfigurationManager(isUITesting: isUITesting)
         self.widgetContentSyncManager = Self.makeWidgetContentSyncManager(
             errorManager: errorManager
         )
@@ -578,16 +578,20 @@ final class AppDIContainer {
         }
     }
 
-    private static func makeUIConfigurationManager(isUITesting: Bool) -> any UIConfigurationManaging {
-        let store: (any UIConfigurationSnapshotStoring)? = isUITesting
+    private static func makeAppUIConfigurationManager(isUITesting: Bool) -> any UIConfigurationManaging<ShellUIConfiguration> {
+        let store: (any UIConfigurationSnapshotStoring<ShellUIConfiguration>)? = isUITesting
             ? nil
-            : UserDefaultsUIConfigurationSnapshotStore(userDefaults: .standard)
+            : AppUIConfigurationSnapshotStore(userDefaults: .standard)
+        let fallbackSnapshot = AppUIConfigurationSnapshot(
+            payload: ShellUIConfiguration(showsFloatingActionButton: true)
+        )
 
-        return UIConfigurationManager(
-            remoteProvider: StaticUIConfigurationProvider(),
+        return AppUIConfigurationManager(
+            remoteProvider: StaticUIConfigurationProvider(snapshot: fallbackSnapshot),
             store: store,
             stalenessPolicy: .after(300),
-            refreshThrottling: .minimumInterval(30)
+            refreshThrottling: .minimumInterval(30),
+            fallbackSnapshot: fallbackSnapshot
         )
     }
 
@@ -595,8 +599,9 @@ final class AppDIContainer {
         errorManager: any AppErrorManaging
     ) -> any WidgetContentSyncing {
         do {
-            let widgetSnapshotManager = try UserDefaultsFeedHeadlineWidgetSnapshotManager(
-                suiteName: AppGroupConfiguration.widgetsSuiteName
+            let widgetSnapshotManager = try UserDefaultsWidgetSnapshotStore<FeedHeadlineWidgetSnapshot>(
+                suiteName: AppGroupConfiguration.widgetsSuiteName,
+                snapshotKey: FeedHeadlineWidgetConstants.snapshotKey
             )
             return FeedHeadlineWidgetSyncManager(
                 snapshotManager: widgetSnapshotManager,
@@ -668,3 +673,11 @@ extension EnvironmentValues {
         set { self[DIContainerKey.self] = newValue }
     }
 }
+/// App-owned shell configuration payload consumed by the generic package configuration manager.
+struct ShellUIConfiguration: Codable, Equatable, Sendable {
+    let showsFloatingActionButton: Bool
+}
+
+typealias AppUIConfigurationSnapshot = UIConfigurationSnapshot<ShellUIConfiguration>
+typealias AppUIConfigurationManager = UIConfigurationManager<ShellUIConfiguration>
+typealias AppUIConfigurationSnapshotStore = UserDefaultsUIConfigurationSnapshotStore<ShellUIConfiguration>

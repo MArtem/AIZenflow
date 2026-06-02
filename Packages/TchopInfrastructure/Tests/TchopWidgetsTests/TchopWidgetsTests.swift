@@ -1,40 +1,41 @@
-import Foundation
-import Testing
+import XCTest
 @testable import TchopWidgets
 
-/// Verifies widget snapshot persistence contracts.
-struct TchopWidgetsTests {
-    @Test
-    /// Handles snapshot manager persists and loads snapshot.
-    func snapshotManagerPersistsAndLoadsSnapshot() throws {
-        let suiteName = "TchopWidgetsTests.\(UUID().uuidString)"
-        let userDefaults = try #require(UserDefaults(suiteName: suiteName))
-        defer {
-            userDefaults.removePersistentDomain(forName: suiteName)
-        }
+private struct TestWidgetSnapshot: Codable, Equatable, Sendable {
+    let headline: String
+    let updatedAt: Date
+}
 
-        let manager = UserDefaultsFeedHeadlineWidgetSnapshotManager(userDefaults: userDefaults)
-        let snapshot = FeedHeadlineWidgetSnapshot(headline: "Parrots help others...")
-
-        try manager.save(snapshot)
-
-        #expect(try manager.load() == snapshot)
+final class TchopWidgetsTests: XCTestCase {
+    override func tearDown() {
+        UserDefaults.standard.removeObject(forKey: "test.widget.snapshot")
+        super.tearDown()
     }
 
-    @Test
-    /// Handles snapshot manager clears stored snapshot.
-    func snapshotManagerClearsStoredSnapshot() throws {
-        let suiteName = "TchopWidgetsTests.\(UUID().uuidString)"
-        let userDefaults = try #require(UserDefaults(suiteName: suiteName))
-        defer {
-            userDefaults.removePersistentDomain(forName: suiteName)
-        }
+    func testUserDefaultsWidgetSnapshotStoreSavesAndLoadsGenericSnapshot() throws {
+        let store = UserDefaultsWidgetSnapshotStore<TestWidgetSnapshot>(
+            userDefaults: .standard,
+            snapshotKey: "test.widget.snapshot"
+        )
+        let snapshot = TestWidgetSnapshot(
+            headline: "Parrots help others...",
+            updatedAt: Date(timeIntervalSince1970: 100)
+        )
 
-        let manager = UserDefaultsFeedHeadlineWidgetSnapshotManager(userDefaults: userDefaults)
-        try manager.save(FeedHeadlineWidgetSnapshot(headline: "Parrots help others..."))
+        try store.save(snapshot)
 
-        try manager.clear()
+        XCTAssertEqual(try store.load(), snapshot)
+    }
 
-        #expect(try manager.load() == nil)
+    func testUserDefaultsWidgetSnapshotStoreClearsSnapshot() throws {
+        let store = UserDefaultsWidgetSnapshotStore<TestWidgetSnapshot>(
+            userDefaults: .standard,
+            snapshotKey: "test.widget.snapshot"
+        )
+        try store.save(TestWidgetSnapshot(headline: "Parrots help others...", updatedAt: .now))
+
+        try store.clear()
+
+        XCTAssertNil(try store.load())
     }
 }

@@ -1,7 +1,7 @@
 import Foundation
 import TchopLocalization
 
-/// Localized copy used by widget extensions without depending on app targets.
+/// Localized copy helper used by widget extensions without depending on app targets.
 public enum TchopWidgetLocalization {
     private static let manager = LocalizationManager()
 
@@ -11,86 +11,71 @@ public enum TchopWidgetLocalization {
     }
 }
 
-/// Stable identifiers shared between the app and widget extension.
-public enum FeedHeadlineWidgetConstants {
-    public static let widgetKind = "FeedHeadlineWidget"
-    public static let snapshotKey = "widgets.feed.headline.snapshot"
-}
+/// Generic persistence contract for small Codable widget snapshots shared between an app and widget extension.
+///
+/// Ownership:
+/// The package owns storage mechanics only. The app or feature target owns concrete snapshot payloads,
+/// widget kinds, keys, and rendering policy.
+public protocol WidgetSnapshotStoring<Snapshot>: Sendable {
+    associatedtype Snapshot: Codable & Sendable
 
-/// Snapshot rendered by the feed headline widget.
-public struct FeedHeadlineWidgetSnapshot: Codable, Equatable, Sendable {
-    public let headline: String
-    public let updatedAt: Date
+    /// Saves the latest snapshot value.
+    func save(_ snapshot: Snapshot) throws
 
-    /// Creates a new FeedHeadlineWidgetSnapshot instance.
-    public init(headline: String, updatedAt: Date = Date()) {
-        self.headline = headline
-        self.updatedAt = updatedAt
-    }
-}
+    /// Loads the latest snapshot value, returning `nil` when no snapshot exists.
+    func load() throws -> Snapshot?
 
-/// Shared persistence contract used by the app and widget extension.
-public protocol FeedHeadlineWidgetSnapshotManaging: Sendable {
-    /// Saves this operation.
-    func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws
-    /// Loads this operation.
-    func load() throws -> FeedHeadlineWidgetSnapshot?
-    /// Clears this operation.
+    /// Clears the stored snapshot.
     func clear() throws
 }
 
-/// Errors produced by the shared widget snapshot manager.
-public enum FeedHeadlineWidgetSnapshotStoreError: Error {
+/// Errors produced by reusable widget snapshot stores.
+public enum WidgetSnapshotStoreError: Error, Equatable, Sendable {
     case unavailableSharedDefaults(suiteName: String)
 }
 
-/// UserDefaults-backed manager that persists widget snapshots in app-group storage.
-public final class UserDefaultsFeedHeadlineWidgetSnapshotManager:
-    @unchecked Sendable,
-    FeedHeadlineWidgetSnapshotManaging
-{
+/// UserDefaults-backed generic widget snapshot store for app-group sharing.
+///
+/// Thread safety:
+/// `UserDefaults` supports concurrent access for individual operations. This class stores no mutable
+/// state beyond immutable encoder/decoder/key configuration, so the unchecked sendability is limited to
+/// the injected `UserDefaults` runtime guarantee.
+public final class UserDefaultsWidgetSnapshotStore<Snapshot>: @unchecked Sendable, WidgetSnapshotStoring
+where Snapshot: Codable & Sendable {
     private let userDefaults: UserDefaults
     private let snapshotKey: String
     private let encoder = JSONEncoder()
     private let decoder = JSONDecoder()
 
-    /// Creates a new UserDefaultsFeedHeadlineWidgetSnapshotManager instance.
-    public init(
-        userDefaults: UserDefaults,
-        snapshotKey: String = FeedHeadlineWidgetConstants.snapshotKey
-    ) {
+    /// Creates a snapshot store using a concrete `UserDefaults` instance.
+    public init(userDefaults: UserDefaults, snapshotKey: String) {
         self.userDefaults = userDefaults
         self.snapshotKey = snapshotKey
     }
 
-    /// Creates a new UserDefaultsFeedHeadlineWidgetSnapshotManager instance.
-    public convenience init(
-        suiteName: String,
-        snapshotKey: String = FeedHeadlineWidgetConstants.snapshotKey
-    ) throws {
+    /// Creates a snapshot store using an app-group suite name.
+    public convenience init(suiteName: String, snapshotKey: String) throws {
         guard let userDefaults = UserDefaults(suiteName: suiteName) else {
-            throw FeedHeadlineWidgetSnapshotStoreError.unavailableSharedDefaults(suiteName: suiteName)
+            throw WidgetSnapshotStoreError.unavailableSharedDefaults(suiteName: suiteName)
         }
-
         self.init(userDefaults: userDefaults, snapshotKey: snapshotKey)
     }
 
-    /// Saves this operation.
-    public func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws {
+    /// Saves the latest snapshot value.
+    public func save(_ snapshot: Snapshot) throws {
         let data = try encoder.encode(snapshot)
         userDefaults.set(data, forKey: snapshotKey)
     }
 
-    /// Loads this operation.
-    public func load() throws -> FeedHeadlineWidgetSnapshot? {
+    /// Loads the latest snapshot value, returning `nil` when no snapshot exists.
+    public func load() throws -> Snapshot? {
         guard let data = userDefaults.data(forKey: snapshotKey) else {
             return nil
         }
-
-        return try decoder.decode(FeedHeadlineWidgetSnapshot.self, from: data)
+        return try decoder.decode(Snapshot.self, from: data)
     }
 
-    /// Clears this operation.
+    /// Clears the stored snapshot.
     public func clear() throws {
         userDefaults.removeObject(forKey: snapshotKey)
     }

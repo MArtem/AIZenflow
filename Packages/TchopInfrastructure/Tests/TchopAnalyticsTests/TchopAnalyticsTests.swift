@@ -33,7 +33,7 @@ struct TchopAnalyticsTests {
             .requestSucceeded(
                 statusCode: 200,
                 bytes: 512,
-                url: "https://stub.tchop.local/feed"
+                url: "https://stub.local/feed"
             )
         )
 
@@ -84,7 +84,7 @@ struct TchopAnalyticsTests {
         let collector = ProductAnalyticsMemoryCollector()
         let analyticsCollector = APIAnalyticsMetricsCollector(collector: collector)
 
-        await analyticsCollector.record(.requestPrepared(method: "GET", url: "https://stub.tchop.local/feed"))
+        await analyticsCollector.record(.requestPrepared(method: "GET", url: "https://stub.local/feed"))
         let events = await collector.events
 
         #expect(events.count == 1)

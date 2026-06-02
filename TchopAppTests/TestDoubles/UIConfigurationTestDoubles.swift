@@ -1,3 +1,4 @@
+@testable import TchopApp
 import TchopUIConfiguration
 
 /// Test-only UI configuration error cases.
@@ -7,14 +8,15 @@ enum TestUIConfigurationError: Error {
 
 /// In-memory UI configuration manager used by shell tests.
 actor TestUIConfigurationManager: UIConfigurationManaging {
-    private let currentSnapshotValue: UIConfigurationSnapshot
-    private let refreshResult: Result<UIConfigurationSnapshot, Error>
+    typealias Payload = ShellUIConfiguration
+    private let currentSnapshotValue: AppUIConfigurationSnapshot
+    private let refreshResult: Result<AppUIConfigurationSnapshot, Error>
     private let refreshDelayNanoseconds: UInt64
 
     /// Creates a new TestUIConfigurationManager instance.
     init(
-        currentSnapshot: UIConfigurationSnapshot,
-        refreshResult: Result<UIConfigurationSnapshot, Error>,
+        currentSnapshot: AppUIConfigurationSnapshot,
+        refreshResult: Result<AppUIConfigurationSnapshot, Error>,
         refreshDelayNanoseconds: UInt64
     ) {
         self.currentSnapshotValue = currentSnapshot
@@ -23,7 +25,7 @@ actor TestUIConfigurationManager: UIConfigurationManaging {
     }
 
     /// Returns the currently cached configuration snapshot.
-    func currentConfiguration() async -> UIConfigurationSnapshot {
+    func currentConfiguration() async -> AppUIConfigurationSnapshot {
         currentSnapshotValue
     }
 
@@ -33,7 +35,7 @@ actor TestUIConfigurationManager: UIConfigurationManaging {
     }
 
     /// Returns the configured refresh result after the optional delay.
-    func refreshConfiguration() async throws -> UIConfigurationSnapshot {
+    func refreshConfiguration() async throws -> AppUIConfigurationSnapshot {
         if refreshDelayNanoseconds > 0 {
             try await Task.sleep(nanoseconds: refreshDelayNanoseconds)
         }

@@ -131,9 +131,7 @@ let package = Package(
                 "TchopDatabaseCore",
                 "TchopSwiftDataDatabase",
                 "TchopCoreDataDatabase",
-                "TchopDatabaseComposition",
-                "TchopNavigation",
-                "SyncCore"
+                "TchopDatabaseComposition"
             ],
             swiftSettings: strictConcurrencySettings
         ),

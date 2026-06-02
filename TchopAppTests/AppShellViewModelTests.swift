@@ -9,8 +9,8 @@ final class AppShellViewModelTests: XCTestCase {
     /// Verifies shell view model applies cached uiconfiguration before refresh completes.
     func testShellViewModelAppliesCachedUIConfigurationBeforeRefreshCompletes() async {
         let uiConfigurationManager = TestUIConfigurationManager(
-            currentSnapshot: UIConfigurationSnapshot(
-                shell: ShellUIConfiguration(showsFloatingActionButton: false)
+            currentSnapshot: AppUIConfigurationSnapshot(
+                payload: ShellUIConfiguration(showsFloatingActionButton: false)
             ),
             refreshResult: .failure(TestUIConfigurationError.refreshFailed),
             refreshDelayNanoseconds: 200_000_000
@@ -26,12 +26,12 @@ final class AppShellViewModelTests: XCTestCase {
     /// Verifies shell view model applies refreshed uiconfiguration when fetch succeeds.
     func testShellViewModelAppliesRefreshedUIConfigurationWhenFetchSucceeds() async {
         let uiConfigurationManager = TestUIConfigurationManager(
-            currentSnapshot: UIConfigurationSnapshot(
-                shell: ShellUIConfiguration(showsFloatingActionButton: false)
+            currentSnapshot: AppUIConfigurationSnapshot(
+                payload: ShellUIConfiguration(showsFloatingActionButton: false)
             ),
             refreshResult: .success(
-                UIConfigurationSnapshot(
-                    shell: ShellUIConfiguration(showsFloatingActionButton: true)
+                AppUIConfigurationSnapshot(
+                    payload: ShellUIConfiguration(showsFloatingActionButton: true)
                 )
             ),
             refreshDelayNanoseconds: 0
@@ -48,8 +48,8 @@ final class AppShellViewModelTests: XCTestCase {
     func testShellViewModelReportsUIConfigurationRefreshFailureWithoutChangingCachedState() async {
         let errorManager = ShellRecordingAppErrorManager()
         let uiConfigurationManager = TestUIConfigurationManager(
-            currentSnapshot: UIConfigurationSnapshot(
-                shell: ShellUIConfiguration(showsFloatingActionButton: false)
+            currentSnapshot: AppUIConfigurationSnapshot(
+                payload: ShellUIConfiguration(showsFloatingActionButton: false)
             ),
             refreshResult: .failure(TestUIConfigurationError.refreshFailed),
             refreshDelayNanoseconds: 0
@@ -159,9 +159,9 @@ final class AppShellViewModelTests: XCTestCase {
     private func makeShellViewModel(
         channelsStore: ChannelsStore = makeTestChannelsStore(),
         feedCardStore: FeedCardStore? = nil,
-        uiConfigurationManager: any UIConfigurationManaging = TestUIConfigurationManager(
-            currentSnapshot: UIConfigurationSnapshot(shell: ShellUIConfiguration(showsFloatingActionButton: true)),
-            refreshResult: .success(UIConfigurationSnapshot(shell: ShellUIConfiguration(showsFloatingActionButton: true))),
+        uiConfigurationManager: any UIConfigurationManaging<ShellUIConfiguration> = TestUIConfigurationManager(
+            currentSnapshot: AppUIConfigurationSnapshot(payload: ShellUIConfiguration(showsFloatingActionButton: true)),
+            refreshResult: .success(AppUIConfigurationSnapshot(payload: ShellUIConfiguration(showsFloatingActionButton: true))),
             refreshDelayNanoseconds: 0
         ),
         errorManager: any AppErrorManaging = AppErrorManager(),
