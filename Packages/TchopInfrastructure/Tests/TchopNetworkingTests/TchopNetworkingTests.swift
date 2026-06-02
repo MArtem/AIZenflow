@@ -303,7 +303,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(response, ResponseModel(value: "ok"))
         let contexts = await contextRecorder.contexts
         XCTAssertEqual(contexts.count, 1)
-        XCTAssertEqual(contexts.first?.error, .invalidStatusCode(500))
+        XCTAssertEqual(contexts.first?.error.statusCode, 500)
         XCTAssertEqual(contexts.first?.attempt, 0)
     }
 
@@ -353,7 +353,7 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertTrue(
             events.contains { event in
                 if case let .retryScheduled(error, attempt, _, _) = event {
-                    return error == .invalidStatusCode(500) && attempt == 0
+                    return error.statusCode == 500 && attempt == 0
                 }
                 return false
             }
@@ -828,7 +828,7 @@ private struct ContextDrivenRetryInterceptor: APIRequestIntercepting {
     /// Handles retry directive.
     func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
         await recorder.record(context)
-        if context.attempt == 0, case .invalidStatusCode(500) = context.error {
+        if context.attempt == 0, context.error.statusCode == 500 {
             return .retry(afterNanoseconds: 0)
         }
         return .doNotRetry
@@ -843,7 +843,7 @@ private struct ContextDrivenRetryInterceptor: APIRequestIntercepting {
 private struct RetryOnFirst500Interceptor: APIRequestIntercepting {
     /// Handles retry directive.
     func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
-        if context.attempt == 0, context.error == .invalidStatusCode(500) {
+        if context.attempt == 0, context.error.statusCode == 500 {
             return .retry(afterNanoseconds: 0)
         }
         return .doNotRetry

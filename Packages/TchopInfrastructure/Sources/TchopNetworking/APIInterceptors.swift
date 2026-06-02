@@ -314,7 +314,7 @@ public struct APIAuthorizationRefreshInterceptor: APIRequestIntercepting {
             return .doNotRetry
         }
 
-        guard case .invalidStatusCode(let statusCode) = error, statusCode == 401 else {
+        guard error.statusCode == 401 else {
             return .doNotRetry
         }
 

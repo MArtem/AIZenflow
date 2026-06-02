@@ -1,15 +1,4 @@
 import Foundation
-import TchopLocalization
-
-/// Localized copy helper used by widget extensions without depending on app targets.
-public enum TchopWidgetLocalization {
-    private static let manager = LocalizationManager()
-
-    /// Resolves plain localized text using shared package resources.
-    public static func text(_ key: String) -> String {
-        manager.localized(key, localeIdentifier: nil)
-    }
-}
 
 /// Generic persistence contract for small Codable widget snapshots shared between an app and widget extension.
 ///

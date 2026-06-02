@@ -11,7 +11,7 @@ public enum PushNotificationAnalyticsEventMapper {
                 domain: .pushNotifications,
                 name: "authorization_status_updated",
                 attributes: [
-                    "status": status.rawValue
+                    "status": .string(status.rawValue)
                 ]
             )
         case let .remoteRegistrationUpdated(isRegistered):
@@ -19,7 +19,7 @@ public enum PushNotificationAnalyticsEventMapper {
                 domain: .pushNotifications,
                 name: "remote_registration_updated",
                 attributes: [
-                    "is_registered": String(isRegistered)
+                    "is_registered": .bool(isRegistered)
                 ]
             )
         case let .deviceTokenUpdated(token):
@@ -27,7 +27,7 @@ public enum PushNotificationAnalyticsEventMapper {
                 domain: .pushNotifications,
                 name: "device_token_updated",
                 attributes: [
-                    "token_length": String(token.count)
+                    "token_length": .int(token.count)
                 ]
             )
         case let .registrationFailed(reason):
@@ -35,18 +35,18 @@ public enum PushNotificationAnalyticsEventMapper {
                 domain: .pushNotifications,
                 name: "registration_failed",
                 attributes: [
-                    "reason": reason
+                    "reason": .string(reason)
                 ]
             )
         case let .remoteNotificationHandled(source, route, title):
-            var attributes: [String: String] = [
-                "source": source.rawValue
+            var attributes: [String: AnalyticsValue] = [
+                "source": .string(source.rawValue)
             ]
             if let route {
-                attributes["route"] = route
+                attributes["route"] = .string(route)
             }
             if let title {
-                attributes["title"] = title
+                attributes["title"] = .string(title)
             }
             return ProductAnalyticsEvent(
                 domain: .pushNotifications,

@@ -53,6 +53,15 @@ public enum APIError: Error, Equatable, Sendable {
     case requestCancelled
     case timeout
     case transportFailure(String)
+
+    /// HTTP status code for status-code failures.
+    public var statusCode: Int? {
+        guard case .invalidStatusCode(let statusCode) = self else {
+            return nil
+        }
+
+        return statusCode
+    }
 }
 
 /// Maps arbitrary runtime errors into typed ``APIError`` values.

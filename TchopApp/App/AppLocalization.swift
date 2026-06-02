@@ -1,9 +1,10 @@
 import Foundation
 import TchopLocalization
+import TchopAppLocalizationResources
 
 /// Central app-level localization facade used by views, models, and view models.
 enum AppLocalization {
-    private static let manager = LocalizationManager()
+    private static let manager = TchopAppLocalizationResources.makeManager()
 
     /// Resolves plain localized text using resource values only.
     static func text(_ key: String) -> String {

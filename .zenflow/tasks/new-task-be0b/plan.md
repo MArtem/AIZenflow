@@ -631,6 +631,17 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification current TchopApp worktree: `python3 ./scripts/check_docs_index.py` succeeded; `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 58 XCTest tests and 35 Swift Testing tests; `git diff --check` succeeded before the plan update.
 - Verification MVVMExample worktree: `python3 ./scripts/check_docs_index.py` succeeded; `python3 ./scripts/validate_ios_production_framework.py` succeeded; package test command `xcodebuild -scheme AppInfrastructure-Package -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test` succeeded without warnings after package flags; `./scripts/verify.sh build` succeeded without warnings after project flags; `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj` succeeded; `git diff --check` succeeded.
 
+
+- Completed now: reusable package universality cleanup pass after external review feedback:
+  - split product localization copy out of the reusable lookup package by adding `./Packages/TchopInfrastructure/Sources/TchopAppLocalizationResources` and reducing `./Packages/TchopInfrastructure/Sources/TchopLocalization/Resources` to generic test-only lookup strings.
+  - updated app/share/widget localization wiring through `TchopAppLocalizationResources.makeManager()` so product strings live in the app-specific resource target, not the reusable localization mechanism.
+  - removed the localization dependency and widget text helper from `./Packages/TchopInfrastructure/Sources/TchopWidgets/TchopWidgets.swift`; widget feature text now belongs to `./TchopWidgetsExtension/FeedHeadlineWidget.swift`.
+  - changed analytics domains from a closed enum to extensible `AnalyticsDomain` values and changed analytics attributes from string-only `[String: String]` to typed `[String: AnalyticsValue]` across analytics adapters and tests.
+  - changed `BrandVariant` from a closed enum to an extensible raw-value type while keeping current built-in `classic`/`ocean` theme resolution behavior.
+  - attempted richer networking invalid-status payload handling, but reverted it from this batch because it triggered a repeatable Swift Testing runner `signal 11`; only the safe `APIError.statusCode` convenience remained for retry/test code.
+  - checked `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80`; no package sync was required because the neutral `AppInfrastructure` package there has no analytics/branding/widgets/product-resource equivalents for this specific cleanup.
+- Verification: `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 58 XCTest tests and 35 Swift Testing tests; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.

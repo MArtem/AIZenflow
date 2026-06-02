@@ -21,9 +21,9 @@ struct TchopAnalyticsTests {
 
         #expect(event.domain == .navigation)
         #expect(event.name == "deep_link_handled")
-        #expect(event.attributes["url"] == "tchop://news/article/42")
-        #expect(event.attributes["destination"] == "news.article")
-        #expect(event.attributes["policy"] == "push")
+        #expect(event.attributes["url"] == .string("tchop://news/article/42"))
+        #expect(event.attributes["destination"] == .string("news.article"))
+        #expect(event.attributes["policy"] == .string("push"))
     }
 
     @Test
@@ -39,8 +39,8 @@ struct TchopAnalyticsTests {
 
         #expect(event.domain == .networking)
         #expect(event.name == "request_succeeded")
-        #expect(event.attributes["status_code"] == "200")
-        #expect(event.attributes["bytes"] == "512")
+        #expect(event.attributes["status_code"] == .int(200))
+        #expect(event.attributes["bytes"] == .int(512))
     }
 
     @Test
@@ -56,9 +56,9 @@ struct TchopAnalyticsTests {
 
         #expect(event.domain == .pushNotifications)
         #expect(event.name == "remote_notification_handled")
-        #expect(event.attributes["source"] == "opened")
-        #expect(event.attributes["route"] == "tchop://news")
-        #expect(event.attributes["title"] == "Feed update")
+        #expect(event.attributes["source"] == .string("opened"))
+        #expect(event.attributes["route"] == .string("tchop://news"))
+        #expect(event.attributes["title"] == .string("Feed update"))
     }
 
     @Test

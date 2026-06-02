@@ -8,12 +8,12 @@ final class TchopLocalizationTests: XCTestCase {
         let manager = LocalizationManager()
 
         let value = manager.localized(
-            "login.title",
+            "localization.test.title",
             fallback: "Sign in",
             localeIdentifier: "en"
         )
 
-        XCTAssertEqual(value, "Welcome back")
+        XCTAssertEqual(value, "Localized title")
     }
 
     /// Verifies localized returns russian value for explicit locale.
@@ -21,12 +21,12 @@ final class TchopLocalizationTests: XCTestCase {
         let manager = LocalizationManager()
 
         let value = manager.localized(
-            "login.title",
+            "localization.test.title",
             fallback: "Sign in",
             localeIdentifier: "ru"
         )
 
-        XCTAssertEqual(value, "С возвращением")
+        XCTAssertEqual(value, "Локализованный заголовок")
     }
 
     /// Verifies localized formats arguments.
@@ -34,13 +34,13 @@ final class TchopLocalizationTests: XCTestCase {
         let manager = LocalizationManager()
 
         let value = manager.localized(
-            "mixes.route.quickAction.descriptionFormat",
+            "localization.test.format",
             fallback: "%@ fallback",
             arguments: ["Preview"],
             localeIdentifier: "en"
         )
 
-        XCTAssertTrue(value.hasPrefix("Preview."))
+        XCTAssertEqual(value, "Preview localized value")
     }
 
     /// Verifies unsupported explicit locale falls back to development language before caller fallback.
@@ -48,12 +48,12 @@ final class TchopLocalizationTests: XCTestCase {
         let manager = LocalizationManager()
 
         let value = manager.localized(
-            "login.title",
+            "localization.test.title",
             fallback: "Sign in",
             localeIdentifier: "uk"
         )
 
-        XCTAssertEqual(value, "Welcome back")
+        XCTAssertEqual(value, "Localized title")
     }
 
     /// Verifies missing keys use the caller fallback value.

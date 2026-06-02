@@ -12,9 +12,9 @@ public enum NavigationAnalyticsEventMapper {
                 domain: .navigation,
                 name: "deep_link_handled",
                 attributes: [
-                    "url": url,
-                    "destination": destination,
-                    "policy": policy.rawValue
+                    "url": .string(url),
+                    "destination": .string(destination),
+                    "policy": .string(policy.rawValue)
                 ]
             )
         case let .deepLinkRejected(url, reason):
@@ -22,8 +22,8 @@ public enum NavigationAnalyticsEventMapper {
                 domain: .navigation,
                 name: "deep_link_rejected",
                 attributes: [
-                    "url": url,
-                    "reason": reason
+                    "url": .string(url),
+                    "reason": .string(reason)
                 ]
             )
         case let .deepLinkFallback(url, reason):
@@ -31,8 +31,8 @@ public enum NavigationAnalyticsEventMapper {
                 domain: .navigation,
                 name: "deep_link_fallback",
                 attributes: [
-                    "url": url,
-                    "reason": reason
+                    "url": .string(url),
+                    "reason": .string(reason)
                 ]
             )
         case let .snapshotRestoreStarted(userID, sourceVersion):
@@ -40,8 +40,8 @@ public enum NavigationAnalyticsEventMapper {
                 domain: .navigation,
                 name: "snapshot_restore_started",
                 attributes: [
-                    "user_id": userID,
-                    "source_version": String(sourceVersion)
+                    "user_id": .string(userID),
+                    "source_version": .int(sourceVersion)
                 ]
             )
         case let .snapshotRestoreCompleted(userID, appliedVersion, wasSanitized, wasMigrated):
@@ -49,10 +49,10 @@ public enum NavigationAnalyticsEventMapper {
                 domain: .navigation,
                 name: "snapshot_restore_completed",
                 attributes: [
-                    "user_id": userID,
-                    "applied_version": String(appliedVersion),
-                    "was_sanitized": String(wasSanitized),
-                    "was_migrated": String(wasMigrated)
+                    "user_id": .string(userID),
+                    "applied_version": .int(appliedVersion),
+                    "was_sanitized": .bool(wasSanitized),
+                    "was_migrated": .bool(wasMigrated)
                 ]
             )
         case let .snapshotRestoreSkipped(userID, reason):
@@ -60,8 +60,8 @@ public enum NavigationAnalyticsEventMapper {
                 domain: .navigation,
                 name: "snapshot_restore_skipped",
                 attributes: [
-                    "user_id": userID,
-                    "reason": reason
+                    "user_id": .string(userID),
+                    "reason": .string(reason)
                 ]
             )
         case let .snapshotRestoreFailed(userID, reason):
@@ -69,8 +69,8 @@ public enum NavigationAnalyticsEventMapper {
                 domain: .navigation,
                 name: "snapshot_restore_failed",
                 attributes: [
-                    "user_id": userID,
-                    "reason": reason
+                    "user_id": .string(userID),
+                    "reason": .string(reason)
                 ]
             )
         }

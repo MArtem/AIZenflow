@@ -11,8 +11,8 @@ public enum APIMetricsAnalyticsEventMapper {
                 domain: .networking,
                 name: "request_prepared",
                 attributes: [
-                    "method": method,
-                    "url": url
+                    "method": .string(method),
+                    "url": .string(url)
                 ]
             )
         case let .requestSucceeded(statusCode, bytes, url):
@@ -20,9 +20,9 @@ public enum APIMetricsAnalyticsEventMapper {
                 domain: .networking,
                 name: "request_succeeded",
                 attributes: [
-                    "status_code": String(statusCode),
-                    "bytes": String(bytes),
-                    "url": url
+                    "status_code": .int(statusCode),
+                    "bytes": .int(bytes),
+                    "url": .string(url)
                 ]
             )
         case let .requestFailed(error, url):
@@ -30,8 +30,8 @@ public enum APIMetricsAnalyticsEventMapper {
                 domain: .networking,
                 name: "request_failed",
                 attributes: [
-                    "error": String(describing: error),
-                    "url": url
+                    "error": .string(String(describing: error)),
+                    "url": .string(url)
                 ]
             )
         case let .retryScheduled(error, attempt, delayNanoseconds, url):
@@ -39,10 +39,10 @@ public enum APIMetricsAnalyticsEventMapper {
                 domain: .networking,
                 name: "retry_scheduled",
                 attributes: [
-                    "error": String(describing: error),
-                    "attempt": String(attempt),
-                    "delay_nanoseconds": String(delayNanoseconds),
-                    "url": url
+                    "error": .string(String(describing: error)),
+                    "attempt": .int(attempt),
+                    "delay_nanoseconds": .string(String(delayNanoseconds)),
+                    "url": .string(url)
                 ]
             )
         }

@@ -9,10 +9,22 @@ import AppKit
 private typealias PlatformColor = NSColor
 #endif
 
-/// Shared semantic brand variants resolved from target configuration.
-public enum BrandVariant: String, CaseIterable, Codable {
-    case classic
-    case ocean
+/// Extensible semantic brand variant resolved from target configuration.
+public struct BrandVariant: RawRepresentable, Hashable, Codable, Sendable, ExpressibleByStringLiteral {
+    public let rawValue: String
+
+    /// Creates a new brand variant.
+    public init(rawValue: String) {
+        self.rawValue = rawValue
+    }
+
+    /// Creates a new brand variant from a string literal.
+    public init(stringLiteral value: StringLiteralType) {
+        self.init(rawValue: value)
+    }
+
+    public static let classic = BrandVariant(rawValue: "classic")
+    public static let ocean = BrandVariant(rawValue: "ocean")
 }
 
 /// Shared info-dictionary keys used to resolve target branding at runtime.
@@ -217,100 +229,17 @@ public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
     }
 
     public var activeVariant: BrandVariant {
-        guard let rawValue = infoDictionary[BrandThemeInfoKey.variant] as? String,
-              let variant = BrandVariant(rawValue: rawValue) else {
+        guard let rawValue = infoDictionary[BrandThemeInfoKey.variant] as? String else {
             return .classic
         }
 
-        return variant
+        let variant = BrandVariant(rawValue: rawValue)
+        return Self.hasBuiltInTheme(for: variant) ? variant : .classic
     }
 
     /// Resolves the semantic brand token set for one active variant.
     public static func theme(for variant: BrandVariant) -> BrandTheme {
-        switch variant {
-        case .classic:
-            return BrandTheme(
-                variant: .classic,
-                button: BrandButtonTheme(
-                    primaryFill: dynamicColor(
-                        light: BrandColorTokens.classicPrimaryAccentLight,
-                        dark: BrandColorTokens.classicPrimaryAccentDark
-                    ),
-                    primaryForeground: dynamicColor(
-                        light: BrandColorTokens.classicPrimaryForegroundLight,
-                        dark: BrandColorTokens.classicPrimaryForegroundDark
-                    ),
-                    floatingActionFill: dynamicColor(
-                        light: BrandColorTokens.classicPrimaryAccentLight,
-                        dark: BrandColorTokens.classicPrimaryAccentDark
-                    ),
-                    floatingActionShadow: dynamicColor(
-                        light: BrandColorTokens.classicFloatingActionButtonShadowLight,
-                        dark: BrandColorTokens.classicFloatingActionButtonShadowDark
-                    )
-                ),
-                badge: BrandBadgeTheme(
-                    accentFill: dynamicColor(
-                        light: BrandColorTokens.classicBadgeFillLight,
-                        dark: BrandColorTokens.classicBadgeFillDark
-                    ),
-                    accentForeground: dynamicColor(
-                        light: BrandColorTokens.classicPrimaryForegroundLight,
-                        dark: BrandColorTokens.classicPrimaryForegroundDark
-                    )
-                ),
-                tab: BrandTabTheme(
-                    selectedIcon: dynamicColor(
-                        light: BrandColorTokens.classicPrimaryAccentLight,
-                        dark: BrandColorTokens.classicPrimaryAccentDark
-                    ),
-                    selectedIndicator: dynamicColor(
-                        light: BrandColorTokens.classicTabIndicatorLight,
-                        dark: BrandColorTokens.classicTabIndicatorDark
-                    )
-                ),
-                card: BrandCardTheme(
-                    highlightedBorder: dynamicColor(
-                        light: BrandColorTokens.classicCardHighlightBorderLight,
-                        dark: BrandColorTokens.classicCardHighlightBorderDark
-                    ),
-                    highlightedAccent: dynamicColor(
-                        light: BrandColorTokens.classicPrimaryAccentLight,
-                        dark: BrandColorTokens.classicPrimaryAccentDark
-                    )
-                ),
-                navigation: BrandNavigationTheme(
-                    activeTint: dynamicColor(
-                        light: BrandColorTokens.classicPrimaryAccentLight,
-                        dark: BrandColorTokens.classicPrimaryAccentDark
-                    ),
-                    activeBackground: dynamicColor(
-                        light: BrandColorTokens.classicNavigationBackgroundLight,
-                        dark: BrandColorTokens.classicNavigationBackgroundDark
-                    )
-                ),
-                status: BrandStatusTheme(
-                    success: dynamicColor(
-                        light: BrandColorTokens.classicSuccessLight,
-                        dark: BrandColorTokens.classicSuccessDark
-                    ),
-                    destructive: dynamicColor(
-                        light: BrandColorTokens.classicDestructiveLight,
-                        dark: BrandColorTokens.classicDestructiveDark
-                    )
-                ),
-                glass: BrandGlassTheme(
-                    stylesByRole: [
-                        .floatingActionButton: BrandGlassStyle(
-                            tint: dynamicColor(
-                                light: BrandColorTokens.classicPrimaryAccentLight,
-                                dark: BrandColorTokens.classicPrimaryAccentDark
-                            )
-                        )
-                    ]
-                )
-            )
-        case .ocean:
+        if variant == .ocean {
             return BrandTheme(
                 variant: .ocean,
                 button: BrandButtonTheme(
@@ -393,6 +322,92 @@ public final class InfoDictionaryBrandThemeManager: BrandThemeManaging {
                 )
             )
         }
+
+        return BrandTheme(
+            variant: .classic,
+            button: BrandButtonTheme(
+                primaryFill: dynamicColor(
+                    light: BrandColorTokens.classicPrimaryAccentLight,
+                    dark: BrandColorTokens.classicPrimaryAccentDark
+                ),
+                primaryForeground: dynamicColor(
+                    light: BrandColorTokens.classicPrimaryForegroundLight,
+                    dark: BrandColorTokens.classicPrimaryForegroundDark
+                ),
+                floatingActionFill: dynamicColor(
+                    light: BrandColorTokens.classicPrimaryAccentLight,
+                    dark: BrandColorTokens.classicPrimaryAccentDark
+                ),
+                floatingActionShadow: dynamicColor(
+                    light: BrandColorTokens.classicFloatingActionButtonShadowLight,
+                    dark: BrandColorTokens.classicFloatingActionButtonShadowDark
+                )
+            ),
+            badge: BrandBadgeTheme(
+                accentFill: dynamicColor(
+                    light: BrandColorTokens.classicBadgeFillLight,
+                    dark: BrandColorTokens.classicBadgeFillDark
+                ),
+                accentForeground: dynamicColor(
+                    light: BrandColorTokens.classicPrimaryForegroundLight,
+                    dark: BrandColorTokens.classicPrimaryForegroundDark
+                )
+            ),
+            tab: BrandTabTheme(
+                selectedIcon: dynamicColor(
+                    light: BrandColorTokens.classicPrimaryAccentLight,
+                    dark: BrandColorTokens.classicPrimaryAccentDark
+                ),
+                selectedIndicator: dynamicColor(
+                    light: BrandColorTokens.classicTabIndicatorLight,
+                    dark: BrandColorTokens.classicTabIndicatorDark
+                )
+            ),
+            card: BrandCardTheme(
+                highlightedBorder: dynamicColor(
+                    light: BrandColorTokens.classicCardHighlightBorderLight,
+                    dark: BrandColorTokens.classicCardHighlightBorderDark
+                ),
+                highlightedAccent: dynamicColor(
+                    light: BrandColorTokens.classicPrimaryAccentLight,
+                    dark: BrandColorTokens.classicPrimaryAccentDark
+                )
+            ),
+            navigation: BrandNavigationTheme(
+                activeTint: dynamicColor(
+                    light: BrandColorTokens.classicPrimaryAccentLight,
+                    dark: BrandColorTokens.classicPrimaryAccentDark
+                ),
+                activeBackground: dynamicColor(
+                    light: BrandColorTokens.classicNavigationBackgroundLight,
+                    dark: BrandColorTokens.classicNavigationBackgroundDark
+                )
+            ),
+            status: BrandStatusTheme(
+                success: dynamicColor(
+                    light: BrandColorTokens.classicSuccessLight,
+                    dark: BrandColorTokens.classicSuccessDark
+                ),
+                destructive: dynamicColor(
+                    light: BrandColorTokens.classicDestructiveLight,
+                    dark: BrandColorTokens.classicDestructiveDark
+                )
+            ),
+            glass: BrandGlassTheme(
+                stylesByRole: [
+                    .floatingActionButton: BrandGlassStyle(
+                        tint: dynamicColor(
+                            light: BrandColorTokens.classicPrimaryAccentLight,
+                            dark: BrandColorTokens.classicPrimaryAccentDark
+                        )
+                    )
+                ]
+            )
+        )
+    }
+
+    private static func hasBuiltInTheme(for variant: BrandVariant) -> Bool {
+        variant == .classic || variant == .ocean
     }
 
     private static func dynamicColor(light: PlatformColor, dark: PlatformColor) -> Color {

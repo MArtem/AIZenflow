@@ -1,6 +1,7 @@
 import SwiftUI
 import WidgetKit
 import TchopWidgets
+import TchopAppLocalizationResources
 
 /// Stable identifiers used by the widget extension to read the app-written feed headline snapshot.
 enum FeedHeadlineWidgetConstants {
@@ -25,7 +26,7 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
     func placeholder(in context: Context) -> FeedHeadlineWidgetEntry {
         FeedHeadlineWidgetEntry(
             date: Date(),
-            headline: TchopWidgetLocalization.text("widget.feedHeadline.placeholder")
+            headline: FeedHeadlineWidgetLocalization.text("widget.feedHeadline.placeholder")
         )
     }
 
@@ -52,7 +53,7 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
         // Keep the widget renderable even when the shared app-group snapshot is unavailable, such
         // as in previews or before the main app has performed its first sync.
         let headline = (try? snapshotManager.load())?.headline
-            ?? TchopWidgetLocalization.text("widget.feedHeadline.placeholder")
+            ?? FeedHeadlineWidgetLocalization.text("widget.feedHeadline.placeholder")
         return FeedHeadlineWidgetEntry(
             date: Date(),
             headline: headline
@@ -87,7 +88,7 @@ struct FeedHeadlineWidgetEntryView: View {
             )
 
             VStack(alignment: .leading, spacing: 10) {
-                Text(TchopWidgetLocalization.text("widget.feed.label"))
+                Text(FeedHeadlineWidgetLocalization.text("widget.feed.label"))
                     .font(.caption.weight(.semibold))
                     .foregroundStyle(.white.opacity(0.8))
 
@@ -113,8 +114,8 @@ struct FeedHeadlineWidget: Widget {
         ) { entry in
             FeedHeadlineWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName(TchopWidgetLocalization.text("widget.feedHeadline.displayName"))
-        .description(TchopWidgetLocalization.text("widget.feedHeadline.description"))
+        .configurationDisplayName(FeedHeadlineWidgetLocalization.text("widget.feedHeadline.displayName"))
+        .description(FeedHeadlineWidgetLocalization.text("widget.feedHeadline.description"))
         .supportedFamilies([.systemSmall, .systemMedium])
     }
 }
@@ -124,7 +125,7 @@ struct FeedHeadlineWidget: Widget {
     FeedHeadlineWidgetEntryView(
         entry: FeedHeadlineWidgetEntry(
             date: Date(),
-            headline: TchopWidgetLocalization.text("widget.feedHeadline.preview")
+            headline: FeedHeadlineWidgetLocalization.text("widget.feedHeadline.preview")
         )
     )
     .frame(width: 170, height: 170)
@@ -136,7 +137,7 @@ struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
             FeedHeadlineWidgetEntryView(
                 entry: FeedHeadlineWidgetEntry(
                     date: Date(),
-                    headline: TchopWidgetLocalization.text("widget.feedHeadline.preview")
+                    headline: FeedHeadlineWidgetLocalization.text("widget.feedHeadline.preview")
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemSmall))
@@ -144,7 +145,7 @@ struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
             FeedHeadlineWidgetEntryView(
                 entry: FeedHeadlineWidgetEntry(
                     date: Date(),
-                    headline: TchopWidgetLocalization.text("widget.feedHeadline.preview")
+                    headline: FeedHeadlineWidgetLocalization.text("widget.feedHeadline.preview")
                 )
             )
             .previewContext(WidgetPreviewContext(family: .systemMedium))
@@ -152,3 +153,12 @@ struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
     }
 }
 #endif
+
+/// Widget-local copy helper backed by Tchop app localization resources.
+private enum FeedHeadlineWidgetLocalization {
+    private static let manager = TchopAppLocalizationResources.makeManager()
+
+    static func text(_ key: String) -> String {
+        manager.localized(key, localeIdentifier: nil)
+    }
+}

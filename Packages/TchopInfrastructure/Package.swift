@@ -53,6 +53,10 @@ let package = Package(
             targets: ["TchopLocalization"]
         ),
         .library(
+            name: "TchopAppLocalizationResources",
+            targets: ["TchopAppLocalizationResources"]
+        ),
+        .library(
             name: "TchopBranding",
             targets: ["TchopBranding"]
         ),
@@ -171,6 +175,14 @@ let package = Package(
             swiftSettings: strictConcurrencySettings
         ),
         .target(
+            name: "TchopAppLocalizationResources",
+            dependencies: ["TchopLocalization"],
+            resources: [
+                .process("Resources")
+            ],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
             name: "TchopBranding",
             swiftSettings: strictConcurrencySettings
         ),
@@ -184,7 +196,6 @@ let package = Package(
         ),
         .target(
             name: "TchopWidgets",
-            dependencies: ["TchopLocalization"],
             swiftSettings: strictConcurrencySettings
         ),
         .target(
