@@ -73,12 +73,36 @@ let package = Package(
             targets: ["TchopPushNotifications"]
         ),
         .library(
+            name: "TchopAnalyticsCore",
+            targets: ["TchopAnalyticsCore"]
+        ),
+        .library(
+            name: "TchopNavigationAnalytics",
+            targets: ["TchopNavigationAnalytics"]
+        ),
+        .library(
+            name: "TchopNetworkingAnalytics",
+            targets: ["TchopNetworkingAnalytics"]
+        ),
+        .library(
+            name: "TchopPushNotificationAnalytics",
+            targets: ["TchopPushNotificationAnalytics"]
+        ),
+        .library(
             name: "TchopAnalytics",
             targets: ["TchopAnalytics"]
         ),
         .library(
             name: "TchopAppleAuthentication",
             targets: ["TchopAppleAuthentication"]
+        ),
+        .library(
+            name: "TchopErrorsCore",
+            targets: ["TchopErrorsCore"]
+        ),
+        .library(
+            name: "TchopNetworkingErrorAdapter",
+            targets: ["TchopNetworkingErrorAdapter"]
         ),
         .library(
             name: "TchopErrors",
@@ -168,12 +192,55 @@ let package = Package(
             swiftSettings: strictConcurrencySettings
         ),
         .target(
+            name: "TchopAnalyticsCore",
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
+            name: "TchopNavigationAnalytics",
+            dependencies: [
+                "TchopAnalyticsCore",
+                "TchopNavigation"
+            ],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
+            name: "TchopNetworkingAnalytics",
+            dependencies: [
+                "TchopAnalyticsCore",
+                "TchopNetworking"
+            ],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
+            name: "TchopPushNotificationAnalytics",
+            dependencies: [
+                "TchopAnalyticsCore",
+                "TchopPushNotifications"
+            ],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
             name: "TchopAppleAuthentication",
             swiftSettings: strictConcurrencySettings
         ),
         .target(
+            name: "TchopErrorsCore",
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
+            name: "TchopNetworkingErrorAdapter",
+            dependencies: [
+                "TchopErrorsCore",
+                "TchopNetworking"
+            ],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
             name: "TchopErrors",
-            dependencies: ["TchopNetworking"],
+            dependencies: [
+                "TchopErrorsCore",
+                "TchopNetworkingErrorAdapter"
+            ],
             swiftSettings: strictConcurrencySettings
         ),
         .target(
@@ -187,9 +254,10 @@ let package = Package(
         .target(
             name: "TchopAnalytics",
             dependencies: [
-                "TchopNavigation",
-                "TchopNetworking",
-                "TchopPushNotifications"
+                "TchopAnalyticsCore",
+                "TchopNavigationAnalytics",
+                "TchopNetworkingAnalytics",
+                "TchopPushNotificationAnalytics"
             ],
             swiftSettings: strictConcurrencySettings
         ),

@@ -696,10 +696,16 @@ Use archives only when historical detail is needed:
   - added `./Packages/TchopInfrastructure/README.md` with package ownership, package-level test, mechanism-vs-app-policy, and reusable-quality rules.
 - Verification: `swift test` in `./Packages/TchopInfrastructure` succeeded with 58 XCTest tests and 35 Swift Testing tests; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; targeted `AppShellViewModelTests` + `AppBridgeTests` succeeded; targeted `AppStateTests` succeeded; `git diff --check` succeeded.
 
-### [ ] Step: Package universality follow-up — analytics/errors target split and large-file modularization
+### [x] Step: Package universality follow-up — analytics/errors target split and large-file modularization
 - Remaining explicit risks from the external-model review that were not silently hidden:
   - `./Packages/TchopInfrastructure/Sources/TchopAnalytics/TchopAnalytics.swift` still combines analytics core with navigation/networking/push adapters in one target; correct target state is core analytics plus separate adapter targets/products.
   - `./Packages/TchopInfrastructure/Sources/TchopErrors/TchopErrors.swift` still imports `TchopNetworking`; correct target state is error core plus a separate networking-error adapter target/product.
   - `./Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift` is still a large single-file module and should be split by request/config/errors/interceptors/offline queue/testing surfaces without changing behavior.
   - Package names are still `Tchop*` in this app worktree; neutral names should be used when promoting/copying into new generic projects, per `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`.
-- This follow-up requires public package product/target changes and app dependency migration, so it should be implemented as a separate coherent package migration block with package tests plus app build/tests.
+- Completed now:
+  - split analytics into `./Packages/TchopInfrastructure/Sources/TchopAnalyticsCore`, `./Packages/TchopInfrastructure/Sources/TchopNavigationAnalytics`, `./Packages/TchopInfrastructure/Sources/TchopNetworkingAnalytics`, and `./Packages/TchopInfrastructure/Sources/TchopPushNotificationAnalytics`; `./Packages/TchopInfrastructure/Sources/TchopAnalytics/TchopAnalytics.swift` remains only as a compatibility umbrella.
+  - split error handling into `./Packages/TchopInfrastructure/Sources/TchopErrorsCore` and `./Packages/TchopInfrastructure/Sources/TchopNetworkingErrorAdapter`; `./Packages/TchopInfrastructure/Sources/TchopErrors/TchopErrors.swift` remains only as a compatibility umbrella with the existing default networking-aware manager convenience.
+  - modularized networking out of the previous large single source file into request/config/error models, interceptors, manager/runtime, mock/testing, connectivity, and offline queue files under `./Packages/TchopInfrastructure/Sources/TchopNetworking` without intentional behavior changes.
+  - updated `./Packages/TchopInfrastructure/Package.swift` products/targets and `./Packages/TchopInfrastructure/README.md` so core/adapter package ownership and package-level tests are explicit.
+  - kept package tests at package level under `./Packages/TchopInfrastructure/Tests`, so package-related coverage can move with the package into another project.
+- Verification: `swift test` in `./Packages/TchopInfrastructure` succeeded with 58 XCTest tests and 35 Swift Testing tests; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; `git diff --check` succeeded. No Xcode project file changed, so `plutil` was not required.
