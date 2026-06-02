@@ -186,7 +186,7 @@ final class TchopNetworkingTests: XCTestCase {
         )
 
         /// Test-only response DTO used to validate decoding for this networking scenario.
-    struct ResponseModel: Decodable, Sendable, Equatable {
+        struct ResponseModel: Decodable, Sendable, Equatable {
             let value: String
         }
 
@@ -202,6 +202,59 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(requests.count, 2)
         XCTAssertEqual(requests.first?.value(forHTTPHeaderField: "Authorization"), "Bearer old-token")
         XCTAssertEqual(requests.last?.value(forHTTPHeaderField: "Authorization"), "Bearer new-token")
+    }
+
+    /// Verifies concurrent 401 responses share one authorization refresh operation.
+    func testAuthorizationRefreshInterceptorCoalescesConcurrentRefreshes() async throws {
+        URLProtocolStub.reset()
+        URLProtocolStub.requestHandler = { request in
+            let token = request.value(forHTTPHeaderField: "Authorization")
+            if token == "Bearer old-token" {
+                return (
+                    HTTPURLResponse(url: request.url!, statusCode: 401, httpVersion: nil, headerFields: nil)!,
+                    Data()
+                )
+            }
+
+            return (
+                HTTPURLResponse(url: request.url!, statusCode: 200, httpVersion: nil, headerFields: nil)!,
+                Data(#"{"value":"ok"}"#.utf8)
+            )
+        }
+
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
+        sessionConfiguration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: sessionConfiguration)
+
+        let authProvider = RefreshingTestAuthenticationProvider(
+            initialHeaders: ["Authorization": "Bearer old-token"],
+            refreshedHeaders: ["Authorization": "Bearer new-token"],
+            refreshDelayNanoseconds: 50_000_000
+        )
+        let coordinator = APIAuthorizationRefreshCoordinator()
+        let manager = APIManager(
+            configuration: APIConfiguration(baseURL: URL(string: "https://example.com")!),
+            session: session,
+            interceptors: [
+                APIAuthenticationInterceptor(provider: authProvider),
+                APIAuthorizationRefreshInterceptor(provider: authProvider, coordinator: coordinator)
+            ]
+        )
+
+        /// Test-only response DTO used to validate decoding for this networking scenario.
+        struct ResponseModel: Decodable, Sendable, Equatable {
+            let value: String
+        }
+
+        async let first = manager.perform(APIRequest<ResponseModel>.json(path: "resource/1"))
+        async let second = manager.perform(APIRequest<ResponseModel>.json(path: "resource/2"))
+        async let third = manager.perform(APIRequest<ResponseModel>.json(path: "resource/3"))
+
+        let responses = try await [first, second, third]
+
+        XCTAssertEqual(responses, Array(repeating: ResponseModel(value: "ok"), count: 3))
+        let refreshCount = await authProvider.refreshCount
+        XCTAssertEqual(refreshCount, 1)
     }
 
     /// Verifies request allows custom valid status codes.
@@ -329,14 +382,18 @@ final class TchopNetworkingTests: XCTestCase {
         sessionConfiguration.protocolClasses = [URLProtocolStub.self]
         let session = URLSession(configuration: sessionConfiguration)
         let collector = TestMetricsCollector()
+        let sleeper = RetrySleepRecorder()
 
         let manager = APIManager(
             configuration: APIConfiguration(baseURL: URL(string: "https://example.com")!),
             session: session,
             interceptors: [
                 APIMetricsInterceptor(collector: collector),
-                RetryOnFirst500Interceptor()
-            ]
+                RetryOnFirst500Interceptor(delayNanoseconds: 123)
+            ],
+            retrySleeper: { delayNanoseconds in
+                await sleeper.record(delayNanoseconds)
+            }
         )
 
         /// Test-only response DTO used to validate decoding for this networking scenario.
@@ -358,6 +415,8 @@ final class TchopNetworkingTests: XCTestCase {
                 return false
             }
         )
+        let sleepDelays = await sleeper.delays
+        XCTAssertEqual(sleepDelays, [123])
     }
 
     /// Verifies persisted offline queue stores and reloads entries.
@@ -808,6 +867,15 @@ private actor RetryContextRecorder {
     }
 }
 
+private actor RetrySleepRecorder {
+    private(set) var delays: [UInt64] = []
+
+    /// Handles record.
+    func record(_ delay: UInt64) {
+        delays.append(delay)
+    }
+}
+
 private actor LogRecorder {
     private var values: [String] = []
 
@@ -841,10 +909,17 @@ private struct ContextDrivenRetryInterceptor: APIRequestIntercepting {
 }
 
 private struct RetryOnFirst500Interceptor: APIRequestIntercepting {
+    let delayNanoseconds: UInt64
+
+    /// Creates a RetryOnFirst500Interceptor instance.
+    init(delayNanoseconds: UInt64 = 0) {
+        self.delayNanoseconds = delayNanoseconds
+    }
+
     /// Handles retry directive.
     func retryDirective(for context: APIRetryContext) async -> APIRetryDirective {
         if context.attempt == 0, context.error.statusCode == 500 {
-            return .retry(afterNanoseconds: 0)
+            return .retry(afterNanoseconds: delayNanoseconds)
         }
         return .doNotRetry
     }
@@ -897,11 +972,22 @@ private func removeOfflineQueueArtifacts(at fileURL: URL) {
 private actor RefreshingTestAuthenticationProvider: APIAuthenticationRefreshing {
     private var headers: [String: String]
     private let refreshedHeaders: [String: String]
+    private let refreshDelayNanoseconds: UInt64
+    private var refreshCountStorage = 0
 
     /// Creates a new RefreshingTestAuthenticationProvider instance.
-    init(initialHeaders: [String: String], refreshedHeaders: [String: String]) {
+    init(
+        initialHeaders: [String: String],
+        refreshedHeaders: [String: String],
+        refreshDelayNanoseconds: UInt64 = 0
+    ) {
         self.headers = initialHeaders
         self.refreshedHeaders = refreshedHeaders
+        self.refreshDelayNanoseconds = refreshDelayNanoseconds
+    }
+
+    var refreshCount: Int {
+        refreshCountStorage
     }
 
     /// Handles authorization headers.
@@ -911,6 +997,10 @@ private actor RefreshingTestAuthenticationProvider: APIAuthenticationRefreshing 
 
     /// Handles refresh authorization headers.
     func refreshAuthorizationHeaders() async throws -> [String: String] {
+        refreshCountStorage += 1
+        if refreshDelayNanoseconds > 0 {
+            try await Task.sleep(nanoseconds: refreshDelayNanoseconds)
+        }
         headers = refreshedHeaders
         return headers
     }

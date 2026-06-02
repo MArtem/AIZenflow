@@ -93,6 +93,34 @@ final class TchopDatabaseTests: XCTestCase {
         XCTAssertEqual(records.count, 3)
     }
 
+    /// Verifies that background Core Data work uses a private queue manager instead of the main-context contract.
+    func testCoreDataBackgroundManagerExecutesWriteAndReadOffMainContext() async throws {
+        let manager = CoreDataBackgroundDatabaseManager(
+            persistentContainer: try makeInMemoryCoreDataContainer()
+        )
+
+        let insertedID = try await manager.write { context in
+            let entity = NSEntityDescription.insertNewObject(
+                forEntityName: CoreDataTestRecordSchema.entityName,
+                into: context
+            )
+            entity.setValue("background-1", forKey: "id")
+            entity.setValue("Background", forKey: "title")
+            return entity.value(forKey: "id") as? String
+        }
+
+        let count = try await manager.read { context in
+            let request = NSFetchRequest<NSManagedObject>(
+                entityName: CoreDataTestRecordSchema.entityName
+            )
+            request.predicate = NSPredicate(format: "id == %@", "background-1")
+            return try context.fetch(request).count
+        }
+
+        XCTAssertEqual(insertedID, "background-1")
+        XCTAssertEqual(count, 1)
+    }
+
     /// Verifies that the service factory selects the requested backend correctly.
     func testDatabaseFactoryCreatesCoreDataManagerWhenRequested() throws {
         let manager = try DatabaseServiceFactory.makeDatabaseManager(

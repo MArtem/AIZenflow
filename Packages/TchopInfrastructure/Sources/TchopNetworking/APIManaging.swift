@@ -1,5 +1,8 @@
 import Foundation
 
+/// Performs a retry delay requested by the interceptor pipeline.
+public typealias APIRetrySleeper = @Sendable (_ delayNanoseconds: UInt64) async throws -> Void
+
 public protocol APIManaging: Actor {
     /// Replaces the active runtime configuration.
     func updateConfiguration(_ configuration: APIConfiguration)
@@ -79,19 +82,24 @@ public actor APIManager: APIManaging {
     private var interceptors: [any APIRequestIntercepting]
     private var runningTasks: [UUID: CancellableTask]
     private let errorMapper: any APIErrorMapping
+    private let retrySleeper: APIRetrySleeper
 
     /// Creates a new API client.
     public init(
         configuration: APIConfiguration,
         session: URLSession = .shared,
         interceptors: [any APIRequestIntercepting] = [],
-        errorMapper: any APIErrorMapping = APIDefaultErrorMapper()
+        errorMapper: any APIErrorMapping = APIDefaultErrorMapper(),
+        retrySleeper: @escaping APIRetrySleeper = { delayNanoseconds in
+            try await Task.sleep(nanoseconds: delayNanoseconds)
+        }
     ) {
         self.configuration = configuration
         self.session = session
         self.interceptors = interceptors
         self.runningTasks = [:]
         self.errorMapper = errorMapper
+        self.retrySleeper = retrySleeper
     }
 
     /// Updates configuration.
@@ -325,7 +333,7 @@ public actor APIManager: APIManaging {
         _ request: APIRequest<Response>,
         cancellationToken: APICancellationToken?
     ) -> Task<Response, Error> where Response: Sendable {
-        let task = Task<Response, Error> { [configuration, session, interceptors, errorMapper] in
+        let task = Task<Response, Error> { [configuration, session, interceptors, errorMapper, retrySleeper] in
             if let stubResponse = request.stubResponse {
                 try await cancellationToken?.throwIfCancelled()
                 try Task.checkCancellation()
@@ -371,7 +379,8 @@ public actor APIManager: APIManaging {
                             for: error,
                             attempt: &attempt,
                             request: urlRequest,
-                            interceptors: interceptors
+                            interceptors: interceptors,
+                            retrySleeper: retrySleeper
                         ) {
                             continue
                         }
@@ -395,7 +404,8 @@ public actor APIManager: APIManaging {
                         for: error,
                         attempt: &attempt,
                         request: urlRequest,
-                        interceptors: interceptors
+                        interceptors: interceptors,
+                        retrySleeper: retrySleeper
                     ) {
                         continue
                     }
@@ -410,7 +420,8 @@ public actor APIManager: APIManaging {
                         for: apiError,
                         attempt: &attempt,
                         request: urlRequest,
-                        interceptors: interceptors
+                        interceptors: interceptors,
+                        retrySleeper: retrySleeper
                     ) {
                         continue
                     }
@@ -423,7 +434,8 @@ public actor APIManager: APIManaging {
                         for: apiError,
                         attempt: &attempt,
                         request: urlRequest,
-                        interceptors: interceptors
+                        interceptors: interceptors,
+                        retrySleeper: retrySleeper
                     ) {
                         continue
                     }
@@ -577,7 +589,8 @@ public actor APIManager: APIManaging {
         for error: APIError,
         attempt: inout Int,
         request: URLRequest,
-        interceptors: [any APIRequestIntercepting]
+        interceptors: [any APIRequestIntercepting],
+        retrySleeper: APIRetrySleeper
     ) async throws -> Bool {
         guard let delay = await Self.retryDelay(
             for: error,
@@ -596,7 +609,7 @@ public actor APIManager: APIManaging {
             interceptors: interceptors
         )
         attempt += 1
-        try await Task.sleep(nanoseconds: delay)
+        try await retrySleeper(delay)
         return true
     }
 

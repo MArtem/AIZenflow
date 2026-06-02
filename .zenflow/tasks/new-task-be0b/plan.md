@@ -642,6 +642,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - checked `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80`; no package sync was required because the neutral `AppInfrastructure` package there has no analytics/branding/widgets/product-resource equivalents for this specific cleanup.
 - Verification: `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 58 XCTest tests and 35 Swift Testing tests; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` succeeded.
 
+
+- Completed now: P3 database boundary hardening follow-up:
+  - added `./Packages/TchopInfrastructure/Sources/TchopCoreDataDatabase/CoreDataBackgroundDatabaseManager.swift` as an explicit private-queue Core Data adapter for imports, migrations, sync writes, and other non-UI Core Data work.
+  - preserved the existing `DatabaseManaging` / `SwiftDataDatabaseManager` main-context contract instead of forcing a brittle unified background abstraction over SwiftData and Core Data.
+  - added package coverage in `./Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift` proving background Core Data write/read execution through the new manager.
+  - kept networking richer invalid-status payload as a documented follow-up because the direct APIError payload attempt repeatedly crashed Swift Testing with `signal 11`; no unstable API shape was left in the branch.
+- Verification: clean `(cd ./Packages/TchopInfrastructure && swift package clean && swift test)` succeeded with 59 XCTest tests and 35 Swift Testing tests and no compiler warnings in the captured warning grep; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
@@ -737,3 +745,24 @@ Use archives only when historical detail is needed:
   - updated `./Packages/TchopInfrastructure/Package.swift` products/targets and `./Packages/TchopInfrastructure/README.md` so core/adapter package ownership and package-level tests are explicit.
   - kept package tests at package level under `./Packages/TchopInfrastructure/Tests`, so package-related coverage can move with the package into another project.
 - Verification: `swift test` in `./Packages/TchopInfrastructure` succeeded with 58 XCTest tests and 35 Swift Testing tests; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; `git diff --check` succeeded. No Xcode project file changed, so `plutil` was not required.
+
+- Completed now: P3 reusable package networking/database hardening follow-up:
+  - added `./Packages/TchopInfrastructure/Sources/TchopCoreDataDatabase/CoreDataBackgroundDatabaseManager.swift` as an explicit private-queue Core Data manager for background read/write work instead of overextending the main-context `DatabaseManaging` contract.
+  - added package-level Core Data background manager coverage in `./Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`.
+  - added `APIAuthorizationRefreshCoordinator` in `./Packages/TchopInfrastructure/Sources/TchopNetworking/APIInterceptors.swift` so concurrent 401 waves share one token refresh task instead of causing refresh storms.
+  - added package-level networking coverage in `./Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift` for coalesced concurrent authorization refresh.
+  - kept richer invalid-status response-body/header payload as an explicit follow-up rather than landing an unstable implementation, because the direct enum-payload attempt repeatedly crashed the Swift Testing runner with signal 11 during verification.
+- Verification: `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 60 XCTest tests and 35 Swift Testing tests and no compiler warnings in warning grep; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` all succeeded with `BUILD SUCCEEDED`.
+
+- Completed now: P3 networking retry testability hardening:
+  - added `APIRetrySleeper` injection to `./Packages/TchopInfrastructure/Sources/TchopNetworking/APIManaging.swift` so retry delay behavior is explicit and package tests do not need to depend on real `Task.sleep` timing.
+  - kept default runtime behavior identical by using `Task.sleep(nanoseconds:)` as the default sleeper.
+  - extended `./Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift` to assert scheduled retry delay propagation through the injected sleeper.
+- Verification: targeted `TchopNetworkingTests` succeeded; full `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 60 XCTest tests and 35 Swift Testing tests and no compiler warnings in warning grep; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` all succeeded with `BUILD SUCCEEDED`.
+
+- Completed now: synced the applicable package hardening into `MVVMExample` reusable infrastructure:
+  - added retry-sleeper injection to `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages/AppInfrastructure/Sources/AppNetworking/URLSessionNetworkClient.swift` and package-level coverage in `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages/AppInfrastructure/Tests/AppNetworkingTests/URLSessionNetworkClientTests.swift`.
+  - fixed package-test portability exposed during sync: `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages/AppInfrastructure/Sources/AppLocalization/AppStrings.swift` no longer uses macOS 12-only `String.LocalizationValue` for the simple facade path.
+  - made `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages/AppInfrastructure/Sources/AppImageLoading` conditionally support UIKit/AppKit with `AppPlatformImage`, so AppInfrastructure package tests can travel with the package and run under SwiftPM on macOS while iOS app builds still use UIKit.
+  - added macOS 12 to `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages/AppInfrastructure/Package.swift` to make the package test platform explicit.
+- MVVMExample verification: `(cd /Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages/AppInfrastructure && swift test)` succeeded with 14 Swift Testing tests and no compiler warnings in warning grep; `git diff --check`, `python3 ./scripts/check_docs_index.py`, `./scripts/verify.sh list`, and `./scripts/verify.sh build` succeeded with `BUILD SUCCEEDED`.

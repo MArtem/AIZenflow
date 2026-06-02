@@ -302,10 +302,15 @@ public struct APIAuthenticationInterceptor: APIRequestIntercepting {
 /// Performs a one-shot auth refresh and triggers request retry after HTTP 401 responses.
 public struct APIAuthorizationRefreshInterceptor: APIRequestIntercepting {
     private let provider: any APIAuthenticationRefreshing
+    private let coordinator: APIAuthorizationRefreshCoordinator
 
     /// Creates an authorization refresh interceptor.
-    public init(provider: any APIAuthenticationRefreshing) {
+    public init(
+        provider: any APIAuthenticationRefreshing,
+        coordinator: APIAuthorizationRefreshCoordinator = APIAuthorizationRefreshCoordinator()
+    ) {
         self.provider = provider
+        self.coordinator = coordinator
     }
 
     /// Handles retry directive.
@@ -319,10 +324,41 @@ public struct APIAuthorizationRefreshInterceptor: APIRequestIntercepting {
         }
 
         do {
-            _ = try await provider.refreshAuthorizationHeaders()
+            _ = try await coordinator.refreshAuthorizationHeaders(using: provider)
             return .retry(afterNanoseconds: 0)
         } catch {
             return .doNotRetry
+        }
+    }
+}
+
+/// Coalesces concurrent authorization refresh requests so one 401 wave triggers one refresh operation.
+public actor APIAuthorizationRefreshCoordinator {
+    private var refreshTask: Task<[String: String], Error>?
+
+    /// Creates an empty refresh coordinator.
+    public init() {}
+
+    /// Returns refreshed authorization headers, joining an in-flight refresh when one already exists.
+    public func refreshAuthorizationHeaders(
+        using provider: any APIAuthenticationRefreshing
+    ) async throws -> [String: String] {
+        if let refreshTask {
+            return try await refreshTask.value
+        }
+
+        let task = Task<[String: String], Error> {
+            try await provider.refreshAuthorizationHeaders()
+        }
+        refreshTask = task
+
+        do {
+            let headers = try await task.value
+            refreshTask = nil
+            return headers
+        } catch {
+            refreshTask = nil
+            throw error
         }
     }
 }
