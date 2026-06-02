@@ -614,6 +614,23 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Completed now: synced the proactive new-chat/context-transfer rule into MVVMExample reusable baseline so the existing new task receives the same rule as future projects.
 - Verification: current worktree docs index/diff checks and MVVMExample docs index/diff checks succeeded.
 
+### [x] Step: Neutral package promotion docs, DocC API docs, and MVVMExample package sync
+- User approved the first two remaining quality items and requested syncing updated packages into the related MVVMExample task because it was using an older package baseline.
+- Completed now in current TchopApp worktree:
+  - added `./Packages/TchopInfrastructure/NEUTRAL_PACKAGE_PROMOTION.md` with concrete Tchop-to-neutral package promotion mapping and the rule that source, tests, and docs move together.
+  - added DocC overview catalogs under each active `./Packages/TchopInfrastructure/Sources/*/Documentation.docc` target directory so public package ownership, boundaries, and package-test expectations are documented near the code.
+  - added `./docs/documentation-split/reusable/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md` and `./docs/documentation-split/reusable/templates/AppInfrastructurePackage.swift.template` for future neutral reusable package installs.
+  - updated `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh` so already-created/new projects receive the neutral promotion guide and reusable templates under `./docs/reusable-baseline`.
+- Completed now in linked MVVMExample worktree `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80`:
+  - updated `./Packages/AppInfrastructure/Package.swift` with strict-concurrency Swift settings for all package targets, package-level `AppErrorsTests`, and package-level `AppLoggingTests`.
+  - added `./Packages/AppInfrastructure/README.md` and DocC overview catalogs under `./Packages/AppInfrastructure/Sources/*/Documentation.docc`.
+  - added package-owned tests for `./Packages/AppInfrastructure/Sources/AppErrors` and `./Packages/AppInfrastructure/Sources/AppLogging`, keeping infrastructure tests movable with the package.
+  - replaced `String(localized:)` in `./Packages/AppInfrastructure/Sources/AppLocalization/AppStrings.swift` with `NSLocalizedString` to avoid package build availability drift.
+  - synced the reusable baseline into MVVMExample so `./docs/reusable-baseline/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md` and reusable package templates are available there.
+  - removed the MVVMExample app/package AppIntents metadata warning without adding an unused AppIntents dependency.
+- Verification current TchopApp worktree: `python3 ./scripts/check_docs_index.py` succeeded; `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 58 XCTest tests and 35 Swift Testing tests; `git diff --check` succeeded before the plan update.
+- Verification MVVMExample worktree: `python3 ./scripts/check_docs_index.py` succeeded; `python3 ./scripts/validate_ios_production_framework.py` succeeded; package test command `xcodebuild -scheme AppInfrastructure-Package -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' test` succeeded without warnings after package flags; `./scripts/verify.sh build` succeeded without warnings after project flags; `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj` succeeded; `git diff --check` succeeded.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.

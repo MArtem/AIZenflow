@@ -165,3 +165,6 @@ When a new task/project is created, copy this group first, then replace placehol
 - `./MVVMEXAMPLE_REMEDIATION_SPEC.md`
 - `./scripts/install_reusable_baseline.sh`
 - `./scripts/sync_reusable_baseline_to_project.sh`
+
+- `./docs/documentation-split/reusable/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md` — neutral package promotion rules for transferring reusable infrastructure into another project.
+- `./docs/documentation-split/reusable/templates/AppInfrastructurePackage.swift.template` — neutral SwiftPM package template with package-level tests.
