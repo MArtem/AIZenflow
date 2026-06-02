@@ -670,3 +670,9 @@ Use archives only when historical detail is needed:
   - recommendations must be prioritized as must-do-now, should-do-next, later/only-if-needed, and do-not-do/overengineering where applicable.
   - skipped concerns must be explicit remaining risks; implementation still executes only user-approved scope.
 - Verification: docs-only change; `git diff --check` and docs index checks succeeded. No build/tests/simulator UI required.
+
+- Completed now: reviewed external-model findings about `./Packages/TchopInfrastructure` universality/quality:
+  - verified several findings are outdated because current package already has `Package.swift`, strict-concurrency settings, product/test targets, and package tests.
+  - confirmed high-priority universality issues remain: `Tchop*` branded naming is not suitable for unrelated reusable projects without neutral promotion, `TchopDatabase` umbrella incorrectly re-exports navigation/sync, `TchopWidgets` and `TchopUIConfiguration` contain app-specific payloads, analytics dependency direction is too coupled, `TchopNetworking.swift` is a 1900-line single-file module, several stores use `@unchecked Sendable`, and docs/DocC/readme contracts are still insufficient for reusable SDK use.
+  - prepared a prioritized remediation plan focused on mechanism-vs-app-policy split, dependency cleanup, package documentation, and targeted concurrency/testability hardening without decorative abstractions.
+- Verification: read-only/static package review only; no source changes, no build/tests.
