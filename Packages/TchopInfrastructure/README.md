@@ -11,7 +11,7 @@
 
 ## Current target map
 
-- **Core/data**: `SyncCore`, `TchopDatabaseCore`, `TchopCoreDataDatabase`, `TchopSwiftDataDatabase`, `TchopDatabaseComposition`, `TchopDatabase`.
+- **Core/data**: `SyncCore`, `SyncObservation`, `TchopDatabaseCore`, `TchopCoreDataDatabase`, `TchopSwiftDataDatabase`, `TchopDatabaseComposition`, `TchopDatabase`.
 - **Networking/runtime**: `TchopNetworking`, `TchopNetworkTesting`, `TchopCache`.
 - **Error handling**: `TchopErrorsCore`, `TchopNetworkingErrorAdapter`, `TchopErrors` umbrella.
 - **Analytics**: `TchopAnalyticsCore`, `TchopNavigationAnalytics`, `TchopNetworkingAnalytics`, `TchopPushNotificationAnalytics`, `TchopAnalytics` umbrella.

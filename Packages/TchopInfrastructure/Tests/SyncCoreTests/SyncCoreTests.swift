@@ -1,5 +1,6 @@
 import Foundation
 import SyncCore
+import SyncObservation
 import Testing
 
 /// Validates generic sync models, conflict resolution, and engine orchestration.
@@ -145,7 +146,7 @@ struct SyncCoreTests {
         let engine = SyncEngine(
             localStore: localStore,
             remoteClient: remoteClient,
-            statusStore: statusStore,
+            statusReporter: statusStore,
             scope: "feed",
             batchSize: 10
         )

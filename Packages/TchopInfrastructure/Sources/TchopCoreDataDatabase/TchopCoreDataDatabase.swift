@@ -2,7 +2,10 @@ import CoreData
 import Foundation
 import TchopDatabaseCore
 
-/// Core Data-backed implementation of `DatabaseManaging`.
+/// Core Data `viewContext` implementation of the main-context `DatabaseManaging` contract.
+///
+/// Keep operations small enough for UI-owned context execution. Use `CoreDataBackgroundDatabaseManager` for imports,
+/// migrations, sync writes, and other queue-confined persistence work.
 @MainActor
 public final class CoreDataDatabaseManager: DatabaseManaging {
     public let persistentContainer: NSPersistentContainer

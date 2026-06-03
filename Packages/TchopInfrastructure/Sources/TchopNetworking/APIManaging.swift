@@ -10,10 +10,14 @@ public protocol APIManaging: Actor {
     /// Replaces the active interceptor pipeline.
     func updateInterceptors(_ interceptors: [any APIRequestIntercepting])
 
-    /// Executes a request without an explicit cancellation token.
+    /// Executes a request using Swift task cancellation as the primary cancellation mechanism.
     func perform<Response>(_ request: APIRequest<Response>) async throws -> Response where Response: Sendable
 
-    /// Executes a request while observing a cancellation token.
+    /// Executes a request while observing a secondary cooperative cancellation token.
+    ///
+    /// The token does not replace task cancellation and may not interrupt an in-flight transport operation until the
+    /// next checkpoint. Imperative callers that require immediate cancellation should retain the request ID and call
+    /// ``cancelRequest(id:)``.
     func perform<Response>(
         _ request: APIRequest<Response>,
         cancellationToken: APICancellationToken?
@@ -26,7 +30,7 @@ public protocol APIManaging: Actor {
         progressHandler: APIProgressHandler?
     ) async throws -> Response where Response: Sendable
 
-    /// Uploads the file at the supplied URL while observing a cancellation token.
+    /// Uploads the file while observing a secondary cooperative cancellation token.
     func upload<Response>(
         _ request: APIRequest<Response>,
         from fileURL: URL,
@@ -41,7 +45,7 @@ public protocol APIManaging: Actor {
         progressHandler: APIProgressHandler?
     ) async throws -> URL
 
-    /// Downloads a resource to disk while observing a cancellation token.
+    /// Downloads a resource to disk while observing a secondary cooperative cancellation token.
     func download(
         _ request: APIRequest<Data>,
         destinationURL: URL?,
@@ -49,10 +53,10 @@ public protocol APIManaging: Actor {
         cancellationToken: APICancellationToken?
     ) async throws -> URL
 
-    /// Cancels a running request with the matching identifier.
+    /// Cancels the running request task with the matching identifier.
     func cancelRequest(id: UUID)
 
-    /// Cancels every in-flight request.
+    /// Cancels every in-flight request task.
     func cancelAllRequests()
 }
 
@@ -129,7 +133,11 @@ public actor APIManager: APIManaging {
         }
 
         do {
-            return try await task.value
+            return try await withTaskCancellationHandler {
+                try await task.value
+            } onCancel: {
+                task.cancel()
+            }
         } catch let error as APIHTTPFailure {
             throw error
         } catch let error as APIError {

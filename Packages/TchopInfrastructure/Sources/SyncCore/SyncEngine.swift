@@ -11,7 +11,7 @@ public actor SyncEngine {
     private let localStore: SyncLocalStore
     private let remoteClient: SyncRemoteClient
     private let resolver: SyncResolving
-    private let statusStore: SyncStatusStore
+    private let statusReporter: any SyncStatusReporting
     private let scope: String
     private let batchSize: Int
 
@@ -21,14 +21,14 @@ public actor SyncEngine {
         localStore: SyncLocalStore,
         remoteClient: SyncRemoteClient,
         resolver: SyncResolving = ManualConflictResolver(),
-        statusStore: SyncStatusStore,
+        statusReporter: any SyncStatusReporting = SyncNoopStatusReporter(),
         scope: String = "default",
         batchSize: Int = 500
     ) {
         self.localStore = localStore
         self.remoteClient = remoteClient
         self.resolver = resolver
-        self.statusStore = statusStore
+        self.statusReporter = statusReporter
         self.scope = scope
         self.batchSize = batchSize
     }
@@ -44,24 +44,24 @@ public func sync(reason: SyncReason? = nil) async {
         guard !isRunning else { return }
         isRunning = true
 
-        await statusStore.setStatus(.syncing(progress: 0.0, reason: reason))
+        await statusReporter.setStatus(.syncing(progress: 0.0, reason: reason))
 
         do {
             try await refreshCounters()
 
-            await statusStore.setStatus(.syncing(progress: 0.15, reason: reason))
+            await statusReporter.setStatus(.syncing(progress: 0.15, reason: reason))
             try await pushPendingMutations()
 
-            await statusStore.setStatus(.syncing(progress: 0.55, reason: reason))
+            await statusReporter.setStatus(.syncing(progress: 0.55, reason: reason))
             try await pullRemoteChangesUntilComplete()
 
             try await refreshCounters()
             let date = Date()
-            await statusStore.setStatus(.completed(lastSyncDate: date))
+            await statusReporter.setStatus(.completed(lastSyncDate: date))
         } catch is CancellationError {
-            await statusStore.setStatus(.failed(message: SyncError.cancelled.localizedDescription))
+            await statusReporter.setStatus(.failed(message: SyncError.cancelled.localizedDescription))
         } catch {
-            await statusStore.setStatus(.failed(message: error.localizedDescription))
+            await statusReporter.setStatus(.failed(message: error.localizedDescription))
         }
 
         isRunning = false
@@ -117,7 +117,7 @@ public func sync(reason: SyncReason? = nil) async {
     private func refreshCounters() async throws {
         let pending = try await localStore.pendingMutationsCount()
         let conflicts = try await localStore.unresolvedConflictsCount()
-        await statusStore.setPendingChangesCount(pending)
-        await statusStore.setUnresolvedConflictsCount(conflicts)
+        await statusReporter.setPendingChangesCount(pending)
+        await statusReporter.setUnresolvedConflictsCount(conflicts)
     }
 }

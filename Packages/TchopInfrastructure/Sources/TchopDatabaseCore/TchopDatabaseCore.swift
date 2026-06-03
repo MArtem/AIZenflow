@@ -85,7 +85,10 @@ public struct DatabaseConfiguration: Sendable, Equatable {
     )
 }
 
-/// Read-only operation that can be executed against either supported backend.
+/// Main-context read-only operation that can be executed against either supported backend.
+///
+/// This operation shape is intentionally UI/main-context oriented. Do not use it for heavy imports, sync application,
+/// migrations, or large fetches; use a backend-specific actor/queue-confined manager for that work.
 public struct DatabaseReadOperation<Result> {
     public let swiftData: (@MainActor @Sendable (Any) throws -> Result)?
     public let coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)?
@@ -112,7 +115,7 @@ public struct DatabaseReadOperation<Result> {
     }
 }
 
-/// Mutating operation that can be executed against either supported backend.
+/// Main-context mutating operation that can be executed against either supported backend.
 public struct DatabaseWriteOperation<Result> {
     public let swiftData: (@MainActor @Sendable (Any) throws -> Result)?
     public let coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)?
@@ -139,7 +142,7 @@ public struct DatabaseWriteOperation<Result> {
     }
 }
 
-/// Batch mutating operation that can be executed against either supported backend.
+/// Main-context batch mutating operation that can be executed against either supported backend.
 public struct DatabaseBatchWriteOperation<Result> {
     public let swiftData: (@MainActor @Sendable (Any) throws -> Result)?
     public let coreData: (@MainActor @Sendable (NSManagedObjectContext) throws -> Result)?
@@ -182,7 +185,12 @@ private func makeSwiftDataOperation<Result>(
     }
 }
 
-/// Common contract implemented by all database managers.
+/// Main-context database contract implemented by UI-oriented backend managers.
+///
+/// Actor boundary:
+/// This protocol intentionally does not model background persistence. Its `@MainActor` isolation protects SwiftData
+/// `mainContext` and Core Data `viewContext`, but callers must keep operations small enough to avoid blocking UI work.
+/// Use backend-specific queue/actor managers for imports, migrations, sync writes, and other heavy persistence work.
 @MainActor
 public protocol DatabaseManaging: AnyObject {
     var backendKind: DatabaseBackendKind { get }
@@ -198,17 +206,17 @@ public protocol DatabaseManaging: AnyObject {
 
 @MainActor
 public extension DatabaseManaging {
-    /// Reads async.
+    /// Reads through the same main-context contract without moving work off the main actor.
     func readAsync<Result>(_ operation: DatabaseReadOperation<Result>) async throws -> Result {
         try read(operation)
     }
 
-    /// Writes async.
+    /// Writes through the same main-context contract without moving work off the main actor.
     func writeAsync<Result>(_ operation: DatabaseWriteOperation<Result>) async throws -> Result {
         try write(operation)
     }
 
-    /// Writes batch async.
+    /// Writes a batch through the same main-context contract without moving work off the main actor.
     func writeBatchAsync<Result>(
         _ operation: DatabaseBatchWriteOperation<Result>
     ) async throws -> Result {

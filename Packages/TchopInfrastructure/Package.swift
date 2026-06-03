@@ -49,6 +49,10 @@ let package = Package(
             targets: ["SyncCore"]
         ),
         .library(
+            name: "SyncObservation",
+            targets: ["SyncObservation"]
+        ),
+        .library(
             name: "TchopLocalization",
             targets: ["TchopLocalization"]
         ),
@@ -168,6 +172,11 @@ let package = Package(
             swiftSettings: strictConcurrencySettings
         ),
         .target(
+            name: "SyncObservation",
+            dependencies: ["SyncCore"],
+            swiftSettings: strictConcurrencySettings
+        ),
+        .target(
             name: "TchopLocalization",
             resources: [
                 .process("Resources")
@@ -274,7 +283,7 @@ let package = Package(
         ),
         .testTarget(
             name: "SyncCoreTests",
-            dependencies: ["SyncCore"],
+            dependencies: ["SyncCore", "SyncObservation"],
             swiftSettings: strictConcurrencySettings
         ),
         .testTarget(

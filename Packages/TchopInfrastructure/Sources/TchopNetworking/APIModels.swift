@@ -147,7 +147,13 @@ public struct APIEmptyResponse: Sendable, Decodable, Equatable {
 /// Async callback used to report transfer progress.
 public typealias APIProgressHandler = @Sendable (APITransferProgress) async -> Void
 
-/// Provides cooperative cancellation for requests started outside direct task ownership.
+/// Provides cooperative cancellation checkpoints for requests started outside direct task ownership.
+///
+/// Cancellation policy:
+/// Swift task cancellation is the primary cancellation mechanism and should be preferred whenever the caller owns the
+/// task. This token is a secondary bridge for imperative or shared ownership flows. Cancelling the token prevents work
+/// at the next checkpoint, but does not promise immediate transport interruption; use ``APIManaging/cancelRequest(id:)``
+/// when an imperative caller must cancel the in-flight request task immediately.
 public actor APICancellationToken {
     private var isCancelled = false
 

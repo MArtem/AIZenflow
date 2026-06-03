@@ -44,6 +44,25 @@ final class TchopDatabaseTests: XCTestCase {
         XCTAssertEqual(records.first?.title, "First")
     }
 
+    /// Verifies SwiftData work can use a model-actor context instead of the UI-owned main context.
+    @available(iOS 17, macOS 14, *)
+    func testSwiftDataModelActorManagerExecutesWriteAndRead() async throws {
+        let schema = Schema([SwiftDataTestRecord.self])
+        let configuration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: true)
+        let container = try ModelContainer(for: schema, configurations: [configuration])
+        let manager = SwiftDataModelActorDatabaseManager(modelContainer: container)
+
+        try await manager.write { context in
+            context.insert(SwiftDataTestRecord(id: "actor-1", title: "Actor"))
+        }
+
+        let count = try await manager.read { context in
+            try context.fetchCount(FetchDescriptor<SwiftDataTestRecord>())
+        }
+
+        XCTAssertEqual(count, 1)
+    }
+
     /// Verifies that the Core Data manager executes the same contract successfully.
     func testCoreDataManagerCanInsertAndFetchThroughUnifiedContract() throws {
         let manager = CoreDataDatabaseManager(

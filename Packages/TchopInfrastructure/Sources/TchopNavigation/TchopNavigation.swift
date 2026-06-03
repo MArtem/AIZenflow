@@ -9,8 +9,10 @@ public enum NavigationTransitionPolicy: String, Codable, Equatable, Sendable {
 }
 
 /// Typed events emitted by navigation restore and deep-link flows.
-@MainActor
-public enum NavigationEvent: Equatable {
+///
+/// Events are immutable diagnostic values and can cross concurrency boundaries. Reporter implementations may still
+/// choose main-actor isolation when their storage or analytics integration requires it.
+public enum NavigationEvent: Equatable, Sendable {
     case deepLinkHandled(url: String, destination: String, policy: NavigationTransitionPolicy)
     case deepLinkRejected(url: String, reason: String)
     case deepLinkFallback(url: String, reason: String)

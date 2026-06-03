@@ -2,7 +2,10 @@ import Foundation
 import SwiftData
 import TchopDatabaseCore
 
-/// SwiftData-backed implementation of `DatabaseManaging`.
+/// SwiftData `mainContext` implementation of the main-context `DatabaseManaging` contract.
+///
+/// Keep operations small enough for UI-owned context execution. Use `SwiftDataModelActorDatabaseManager` for imports,
+/// migrations, sync writes, and other actor-confined persistence work.
 @MainActor
 @available(iOS 17, macOS 14, *)
 public final class SwiftDataDatabaseManager: DatabaseManaging {

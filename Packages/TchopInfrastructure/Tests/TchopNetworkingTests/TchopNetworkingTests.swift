@@ -40,6 +40,32 @@ final class TchopNetworkingTests: XCTestCase {
         }
     }
 
+    /// Verifies caller-owned Swift task cancellation remains the primary cancellation mechanism.
+    func testTaskCancellationCancelsRequest() async {
+        let manager = APIManager(configuration: .stub)
+        let request = APIRequest<String>(
+            path: "feed",
+            stubResponse: {
+                try await Task.sleep(nanoseconds: 1_000_000_000)
+                return "ok"
+            }
+        )
+
+        let task = Task {
+            try await manager.perform(request)
+        }
+        task.cancel()
+
+        do {
+            _ = try await task.value
+            XCTFail("Expected request cancellation")
+        } catch let error as APIError {
+            XCTAssertEqual(error, .requestCancelled)
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
     /// Verifies authentication interceptor injects headers.
     func testAuthenticationInterceptorInjectsHeaders() async throws {
         let interceptor = APIAuthenticationInterceptor(

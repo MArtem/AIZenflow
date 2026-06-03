@@ -15,6 +15,8 @@ Generic sync entity, mutation, scheduler, conflict, and transport contracts.
 ## Boundary Rules
 
 - Feature-specific local/remote stores provide concrete persistence and DTO mapping.
+- UI-observable status storage belongs to `SyncObservation`; `SyncCore` exposes only the framework-neutral
+  `SyncStatusReporting` contract.
 
 ## Testing
 

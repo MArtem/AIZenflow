@@ -652,7 +652,7 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
-- Package tests currently pass with 59 XCTest tests and 37 Swift Testing tests.
+- Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.
 - App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, feed MVVM action/screen-state contract coverage, first-step feed-card view-state boundary coverage, feed screen-state presentation branching coverage, and feed translation tap-behavior state coverage.
 - Build and tests were run by explicit user permission/request; no manual simulator UI flow or Instruments trace was run in this block.
 
@@ -775,3 +775,21 @@ Use archives only when historical detail is needed:
   - added package-level coverage for context capture, bounded body retention, status mapping, and payload redaction.
   - reviewed `MVVMExample` applicability: its neutral `AppNetworking` already parses backend error message text into `AppAPIError.server` and has no interceptor/endpoint-specific error-mapping surface requiring this larger contract, so no speculative sync was applied.
 - Verification: full `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 62 XCTest tests and 37 Swift Testing tests and no compiler warnings in warning grep; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` all succeeded with `BUILD SUCCEEDED`.
+
+- Completed now: P3 cancellation contract and database execution-boundary hardening:
+  - clarified in `./Packages/TchopInfrastructure/Sources/TchopNetworking/APIModels.swift` and `./Packages/TchopInfrastructure/Sources/TchopNetworking/APIManaging.swift` that Swift task cancellation is the primary structured-concurrency contract, `APICancellationToken` is a secondary cooperative checkpoint bridge, and `cancelRequest(id:)` is the imperative immediate-cancellation surface.
+  - fixed a real cancellation propagation bug in `APIManager.perform`: caller task cancellation now cancels the internal request task through `withTaskCancellationHandler` instead of allowing the unstructured request task to continue.
+  - added package-level networking coverage proving caller task cancellation reaches the request operation.
+  - documented the existing `DatabaseManaging` / Core Data / SwiftData managers as main-context and UI-oriented boundaries that must not be used for heavy imports, sync application, migrations, or large fetches.
+  - added `./Packages/TchopInfrastructure/Sources/TchopSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift` as a concrete actor-confined SwiftData execution boundary for background persistence work without weakening type safety through the backend-neutral `Any` operation contract.
+  - added package-level SwiftData model-actor read/write coverage.
+  - reviewed `MVVMExample` applicability: its `URLSessionNetworkClient` does not create an internal unstructured request task, and it has no database package, so no speculative sync was required for this block.
+- Verification: targeted networking/database package tests first exposed the cancellation propagation failure and then succeeded after the fix; full `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 64 XCTest tests and 37 Swift Testing tests and no compiler warnings in warning grep; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` all succeeded with `BUILD SUCCEEDED`.
+
+- Completed now: Navigation value isolation and SyncCore observation-boundary hardening:
+  - removed unnecessary `@MainActor` isolation from immutable `NavigationEvent` values in `./Packages/TchopInfrastructure/Sources/TchopNavigation/TchopNavigation.swift` and made the diagnostic event contract `Sendable`; reporter implementations remain free to use main-actor isolation where required.
+  - added framework-neutral `SyncStatusReporting` and `SyncNoopStatusReporter` contracts to `SyncCore`, so `SyncEngine` no longer requires an Observation-backed UI store.
+  - moved `SyncStatusStore` into the new `SyncObservation` product/target, keeping UI-observable state outside the sync mechanism core while preserving package-owned coverage.
+  - updated package manifest, README, DocC boundary documentation, and `SyncCoreTests` dependencies for the explicit core/observation split.
+  - reviewed `MVVMExample` applicability: it does not currently include Navigation or Sync packages, so no speculative sync was required for this block.
+- Verification: targeted `TchopNavigationTests` and `SyncCoreTests` succeeded; full `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 64 XCTest tests and 37 Swift Testing tests; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` all succeeded with `BUILD SUCCEEDED`.
