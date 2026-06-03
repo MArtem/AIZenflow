@@ -793,3 +793,9 @@ Use archives only when historical detail is needed:
   - updated package manifest, README, DocC boundary documentation, and `SyncCoreTests` dependencies for the explicit core/observation split.
   - reviewed `MVVMExample` applicability: it does not currently include Navigation or Sync packages, so no speculative sync was required for this block.
 - Verification: targeted `TchopNavigationTests` and `SyncCoreTests` succeeded; full `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 64 XCTest tests and 37 Swift Testing tests; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` all succeeded with `BUILD SUCCEEDED`.
+
+- Completed now: prepared the new-chat transition handoff in `./.zenflow/tasks/new-task-be0b/handoff.md`:
+  - replaced the stale phase-oriented handoff with the current package-hardening state, identifiers, mandatory startup read order, active user rules, latest verification baseline, and linked MVVMExample uncommitted-change warning.
+  - recorded the next safe block as an evidence-based audit of remaining `@unchecked Sendable` declarations, with explicit candidates, verification expectations, and remaining risks that must not be silently changed.
+  - included the mandatory transfer rule: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Verification: documentation/task-context change only; `git diff --check` required before transfer.
