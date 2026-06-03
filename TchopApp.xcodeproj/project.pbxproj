@@ -7,12 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AA1000000000000000000002 /* TchopAppLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopAppLocalizationResources */; };
-		AA1000000000000000000003 /* TchopAppLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopAppLocalizationResources */; };
-		AA1000000000000000000004 /* TchopAppLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopAppLocalizationResources */; };
-		AA1000000000000000000005 /* TchopAppLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopAppLocalizationResources */; };
-		AA1000000000000000000006 /* TchopAppLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopAppLocalizationResources */; };
-		AA1000000000000000000007 /* TchopAppLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopAppLocalizationResources */; };
+		AA1000000000000000000002 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
+		AA1000000000000000000003 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
+		AA1000000000000000000004 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
+		AA1000000000000000000005 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
+		AA1000000000000000000006 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
+		AA1000000000000000000007 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
 		A00000110000000000000001 /* TchopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000210000000000000001 /* TchopApp.swift */; };
 		A00000120000000000000001 /* Models/AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000220000000000000001 /* Models/AppTab.swift */; };
 		A00000130000000000000001 /* AppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000230000000000000001 /* AppShellView.swift */; };
@@ -73,13 +73,13 @@
 		R00000080000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		S00000050000000000000001 /* App/ChannelSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = S00000060000000000000001 /* ChannelSettingsRepository.swift */; };
 		S00000070000000000000001 /* App/ChannelSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = S00000060000000000000001 /* ChannelSettingsRepository.swift */; };
-		A00000750000000000000001 /* TchopNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* TchopNetworking */; };
-		A00000770000000000000001 /* TchopDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* TchopDatabase */; };
-		A00000B20000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
+		A00000750000000000000001 /* AppNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = A00000760000000000000001 /* AppNetworking */; };
+		A00000770000000000000001 /* AppDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = A00000780000000000000001 /* AppDatabase */; };
+		A00000B20000000000000001 /* AppLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* AppLocalization */; };
 		A00000B00000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
 		B00000030000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
-		B00000040000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
-		C00000010000000000000001 /* TchopUIConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = C00000020000000000000001 /* TchopUIConfiguration */; };
+		B00000040000000000000001 /* AppBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* AppBranding */; };
+		C00000010000000000000001 /* AppConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = C00000020000000000000001 /* AppConfiguration */; };
 		A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000820000000000000001 /* AppStateTests.swift */; };
 		A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000840000000000000001 /* LoginViewModelTests.swift */; };
 		A00000850000000000000001 /* TchopAppTests/NewsFeedViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000860000000000000001 /* NewsFeedViewModelTests.swift */; };
@@ -104,46 +104,46 @@
 		D00000031000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedFeedCardSyncManager.swift */; };
 		D00000032000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
 		D00000033000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
-		D00000050000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
-		D00000070000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
-		D00000071000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
-		D00000072000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
+		D00000050000000000000001 /* AppWidgetSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* AppWidgetSupport */; };
+		D00000070000000000000001 /* AppWidgetSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* AppWidgetSupport */; };
+		D00000071000000000000001 /* AppShareExtensionSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* AppShareExtensionSupport */; };
+		D00000072000000000000001 /* AppShareExtensionSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* AppShareExtensionSupport */; };
 		D00000080000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D00000200000000000000001 /* TchopWidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000000A0000000000000001 /* TchopWidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D00000240000000000000001 /* TchopWidgetsOceanExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		D000000B0000000000000001 /* FeedHeadlineWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000C0000000000000001 /* FeedHeadlineWidget.swift */; };
 		D000000D0000000000000001 /* TchopWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000E0000000000000001 /* TchopWidgetsBundle.swift */; };
 		D000000F0000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
-		D00000100000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
+		D00000100000000000000001 /* AppWidgetSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* AppWidgetSupport */; };
 		D00000250000000000000001 /* FeedHeadlineWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000C0000000000000001 /* FeedHeadlineWidget.swift */; };
 		D00000260000000000000001 /* TchopWidgetsBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = D000000E0000000000000001 /* TchopWidgetsBundle.swift */; };
 		D00000270000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
-		D00000280000000000000001 /* TchopWidgets in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* TchopWidgets */; };
-		E00000010000000000000001 /* TchopPushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = E00000030000000000000001 /* TchopPushNotifications */; };
-		E00000020000000000000001 /* TchopPushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = E00000030000000000000001 /* TchopPushNotifications */; };
+		D00000280000000000000001 /* AppWidgetSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000060000000000000001 /* AppWidgetSupport */; };
+		E00000010000000000000001 /* AppPushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = E00000030000000000000001 /* AppPushNotifications */; };
+		E00000020000000000000001 /* AppPushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = E00000030000000000000001 /* AppPushNotifications */; };
 		E00000040000000000000001 /* App/AppPushNotificationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000080000000000000001 /* AppPushNotificationBridge.swift */; };
 		E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000090000000000000001 /* TchopApplicationDelegate.swift */; };
 		E00000060000000000000001 /* App/AppPushNotificationBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000080000000000000001 /* AppPushNotificationBridge.swift */; };
 		E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00000090000000000000001 /* TchopApplicationDelegate.swift */; };
-		F00000010000000000000001 /* TchopNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F00000020000000000000001 /* TchopNavigation */; };
-		F00000030000000000000001 /* TchopNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F00000020000000000000001 /* TchopNavigation */; };
-		G00000010000000000000001 /* TchopAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = G00000020000000000000001 /* TchopAnalytics */; };
-		G00000030000000000000001 /* TchopAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = G00000020000000000000001 /* TchopAnalytics */; };
-		H00000010000000000000001 /* TchopAppleAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = H00000020000000000000001 /* TchopAppleAuthentication */; };
-		H00000030000000000000001 /* TchopAppleAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = H00000020000000000000001 /* TchopAppleAuthentication */; };
-		I00000010000000000000001 /* TchopErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* TchopErrors */; };
-		I00000030000000000000001 /* TchopErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* TchopErrors */; };
-		J10000010000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
-		J10000030000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
+		F00000010000000000000001 /* AppNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F00000020000000000000001 /* AppNavigation */; };
+		F00000030000000000000001 /* AppNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F00000020000000000000001 /* AppNavigation */; };
+		G00000010000000000000001 /* AppAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = G00000020000000000000001 /* AppAnalytics */; };
+		G00000030000000000000001 /* AppAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = G00000020000000000000001 /* AppAnalytics */; };
+		H00000010000000000000001 /* AppAppleAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = H00000020000000000000001 /* AppAppleAuthentication */; };
+		H00000030000000000000001 /* AppAppleAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = H00000020000000000000001 /* AppAppleAuthentication */; };
+		I00000010000000000000001 /* AppErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* AppErrors */; };
+		I00000030000000000000001 /* AppErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* AppErrors */; };
+		J10000010000000000000001 /* AppOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* AppOnDeviceAI */; };
+		J10000030000000000000001 /* AppOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* AppOnDeviceAI */; };
 		L00000010000000000000001 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000150000000000000001 /* ShareViewController.swift */; };
 		L00000020000000000000001 /* ShareExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000160000000000000001 /* ShareExtensionRootView.swift */; };
 		L00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
-		L00000040000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
+		L00000040000000000000001 /* AppShareExtensionSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* AppShareExtensionSupport */; };
 		L00000050000000000000001 /* TchopShareExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = L00000130000000000000001 /* TchopShareExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		L00000060000000000000001 /* ShareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000150000000000000001 /* ShareViewController.swift */; };
 		L00000070000000000000001 /* ShareExtensionRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = L00000160000000000000001 /* ShareExtensionRootView.swift */; };
 		L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000040000000000000001 /* AppGroupConfiguration.swift */; };
-		L00000090000000000000001 /* TchopShareSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* TchopShareSupport */; };
+		L00000090000000000000001 /* AppShareExtensionSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D00000061000000000000001 /* AppShareExtensionSupport */; };
 		L000000A0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedFeedCardSyncManager.swift */; };
 		L000000B0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
 		L000000C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
@@ -156,9 +156,9 @@
 		L000001D0000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		L00000410000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
 		L00000430000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* TabRoutes.swift */; };
-		L000001E0000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
-		L000001F0000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
-		L000002A0000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
+		L000001E0000000000000001 /* AppLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* AppLocalization */; };
+		L000001F0000000000000001 /* AppBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* AppBranding */; };
+		L000002A0000000000000001 /* AppOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* AppOnDeviceAI */; };
 		L00000100000000000000001 /* TchopShareOceanExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = L00000140000000000000001 /* TchopShareOceanExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		L000002B0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000041000000000000001 /* SharedFeedCardSyncManager.swift */; };
 		L000002C0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */; };
@@ -172,9 +172,9 @@
 		L000003D00000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		L00000420000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
 		L00000440000000000000001 /* Navigation/TabRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000004E0000000000000001 /* TabRoutes.swift */; };
-		L000003E00000000000000001 /* TchopLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* TchopLocalization */; };
-		L000003F00000000000000001 /* TchopBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* TchopBranding */; };
-		L00000400000000000000001 /* TchopOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* TchopOnDeviceAI */; };
+		L000003E00000000000000001 /* AppLocalization in Frameworks */ = {isa = PBXBuildFile; productRef = A00000B30000000000000001 /* AppLocalization */; };
+		L000003F00000000000000001 /* AppBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* AppBranding */; };
+		L00000400000000000000001 /* AppOnDeviceAI in Frameworks */ = {isa = PBXBuildFile; productRef = J10000020000000000000001 /* AppOnDeviceAI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -357,19 +357,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00000750000000000000001 /* TchopNetworking in Frameworks */,
-				A00000770000000000000001 /* TchopDatabase in Frameworks */,
-				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
-				AA1000000000000000000002 /* TchopAppLocalizationResources in Frameworks */,
-				D00000050000000000000001 /* TchopWidgets in Frameworks */,
-				D00000071000000000000001 /* TchopShareSupport in Frameworks */,
-				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
-				E00000010000000000000001 /* TchopPushNotifications in Frameworks */,
-				F00000010000000000000001 /* TchopNavigation in Frameworks */,
-				G00000010000000000000001 /* TchopAnalytics in Frameworks */,
-				H00000010000000000000001 /* TchopAppleAuthentication in Frameworks */,
-				I00000010000000000000001 /* TchopErrors in Frameworks */,
-				J10000010000000000000001 /* TchopOnDeviceAI in Frameworks */,
+				A00000750000000000000001 /* AppNetworking in Frameworks */,
+				A00000770000000000000001 /* AppDatabase in Frameworks */,
+				A00000B20000000000000001 /* AppLocalization in Frameworks */,
+				AA1000000000000000000002 /* TchopProductLocalizationResources in Frameworks */,
+				D00000050000000000000001 /* AppWidgetSupport in Frameworks */,
+				D00000071000000000000001 /* AppShareExtensionSupport in Frameworks */,
+				C00000010000000000000001 /* AppConfiguration in Frameworks */,
+				E00000010000000000000001 /* AppPushNotifications in Frameworks */,
+				F00000010000000000000001 /* AppNavigation in Frameworks */,
+				G00000010000000000000001 /* AppAnalytics in Frameworks */,
+				H00000010000000000000001 /* AppAppleAuthentication in Frameworks */,
+				I00000010000000000000001 /* AppErrors in Frameworks */,
+				J10000010000000000000001 /* AppOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,20 +384,20 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A00000750000000000000001 /* TchopNetworking in Frameworks */,
-				A00000770000000000000001 /* TchopDatabase in Frameworks */,
-				A00000B20000000000000001 /* TchopLocalization in Frameworks */,
-				B00000040000000000000001 /* TchopBranding in Frameworks */,
-				AA1000000000000000000003 /* TchopAppLocalizationResources in Frameworks */,
-				D00000070000000000000001 /* TchopWidgets in Frameworks */,
-				D00000072000000000000001 /* TchopShareSupport in Frameworks */,
-				C00000010000000000000001 /* TchopUIConfiguration in Frameworks */,
-				E00000020000000000000001 /* TchopPushNotifications in Frameworks */,
-				F00000030000000000000001 /* TchopNavigation in Frameworks */,
-				G00000030000000000000001 /* TchopAnalytics in Frameworks */,
-				H00000030000000000000001 /* TchopAppleAuthentication in Frameworks */,
-				I00000030000000000000001 /* TchopErrors in Frameworks */,
-				J10000030000000000000001 /* TchopOnDeviceAI in Frameworks */,
+				A00000750000000000000001 /* AppNetworking in Frameworks */,
+				A00000770000000000000001 /* AppDatabase in Frameworks */,
+				A00000B20000000000000001 /* AppLocalization in Frameworks */,
+				B00000040000000000000001 /* AppBranding in Frameworks */,
+				AA1000000000000000000003 /* TchopProductLocalizationResources in Frameworks */,
+				D00000070000000000000001 /* AppWidgetSupport in Frameworks */,
+				D00000072000000000000001 /* AppShareExtensionSupport in Frameworks */,
+				C00000010000000000000001 /* AppConfiguration in Frameworks */,
+				E00000020000000000000001 /* AppPushNotifications in Frameworks */,
+				F00000030000000000000001 /* AppNavigation in Frameworks */,
+				G00000030000000000000001 /* AppAnalytics in Frameworks */,
+				H00000030000000000000001 /* AppAppleAuthentication in Frameworks */,
+				I00000030000000000000001 /* AppErrors in Frameworks */,
+				J10000030000000000000001 /* AppOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -405,8 +405,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00000100000000000000001 /* TchopWidgets in Frameworks */,
-				AA1000000000000000000004 /* TchopAppLocalizationResources in Frameworks */,
+				D00000100000000000000001 /* AppWidgetSupport in Frameworks */,
+				AA1000000000000000000004 /* TchopProductLocalizationResources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -414,8 +414,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D00000280000000000000001 /* TchopWidgets in Frameworks */,
-				AA1000000000000000000005 /* TchopAppLocalizationResources in Frameworks */,
+				D00000280000000000000001 /* AppWidgetSupport in Frameworks */,
+				AA1000000000000000000005 /* TchopProductLocalizationResources in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,11 +423,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				L00000040000000000000001 /* TchopShareSupport in Frameworks */,
-				L000001E0000000000000001 /* TchopLocalization in Frameworks */,
-				AA1000000000000000000006 /* TchopAppLocalizationResources in Frameworks */,
-				L000001F0000000000000001 /* TchopBranding in Frameworks */,
-				L000002A0000000000000001 /* TchopOnDeviceAI in Frameworks */,
+				L00000040000000000000001 /* AppShareExtensionSupport in Frameworks */,
+				L000001E0000000000000001 /* AppLocalization in Frameworks */,
+				AA1000000000000000000006 /* TchopProductLocalizationResources in Frameworks */,
+				L000001F0000000000000001 /* AppBranding in Frameworks */,
+				L000002A0000000000000001 /* AppOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,11 +435,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				L00000090000000000000001 /* TchopShareSupport in Frameworks */,
-				L000003E00000000000000001 /* TchopLocalization in Frameworks */,
-				AA1000000000000000000007 /* TchopAppLocalizationResources in Frameworks */,
-				L000003F00000000000000001 /* TchopBranding in Frameworks */,
-				L00000400000000000000001 /* TchopOnDeviceAI in Frameworks */,
+				L00000090000000000000001 /* AppShareExtensionSupport in Frameworks */,
+				L000003E00000000000000001 /* AppLocalization in Frameworks */,
+				AA1000000000000000000007 /* TchopProductLocalizationResources in Frameworks */,
+				L000003F00000000000000001 /* AppBranding in Frameworks */,
+				L00000400000000000000001 /* AppOnDeviceAI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -764,20 +764,20 @@
 			);
 			name = TchopApp;
 			packageProductDependencies = (
-				A00000760000000000000001 /* TchopNetworking */,
-				A00000780000000000000001 /* TchopDatabase */,
-				A00000B30000000000000001 /* TchopLocalization */,
-				AA1000000000000000000001 /* TchopAppLocalizationResources */,
-				B000000C0000000000000001 /* TchopBranding */,
-				D00000060000000000000001 /* TchopWidgets */,
-				D00000061000000000000001 /* TchopShareSupport */,
-				C00000020000000000000001 /* TchopUIConfiguration */,
-				E00000030000000000000001 /* TchopPushNotifications */,
-				F00000020000000000000001 /* TchopNavigation */,
-				G00000020000000000000001 /* TchopAnalytics */,
-				H00000020000000000000001 /* TchopAppleAuthentication */,
-				I00000020000000000000001 /* TchopErrors */,
-				J10000020000000000000001 /* TchopOnDeviceAI */,
+				A00000760000000000000001 /* AppNetworking */,
+				A00000780000000000000001 /* AppDatabase */,
+				A00000B30000000000000001 /* AppLocalization */,
+				AA1000000000000000000001 /* TchopProductLocalizationResources */,
+				B000000C0000000000000001 /* AppBranding */,
+				D00000060000000000000001 /* AppWidgetSupport */,
+				D00000061000000000000001 /* AppShareExtensionSupport */,
+				C00000020000000000000001 /* AppConfiguration */,
+				E00000030000000000000001 /* AppPushNotifications */,
+				F00000020000000000000001 /* AppNavigation */,
+				G00000020000000000000001 /* AppAnalytics */,
+				H00000020000000000000001 /* AppAppleAuthentication */,
+				I00000020000000000000001 /* AppErrors */,
+				J10000020000000000000001 /* AppOnDeviceAI */,
 			);
 			productName = TchopApp;
 			productReference = A00000010000000000000001 /* TchopApp.app */;
@@ -800,20 +800,20 @@
 			);
 			name = TchopAppOcean;
 			packageProductDependencies = (
-				A00000760000000000000001 /* TchopNetworking */,
-				A00000780000000000000001 /* TchopDatabase */,
-				A00000B30000000000000001 /* TchopLocalization */,
-				AA1000000000000000000001 /* TchopAppLocalizationResources */,
-				B000000C0000000000000001 /* TchopBranding */,
-				D00000060000000000000001 /* TchopWidgets */,
-				D00000061000000000000001 /* TchopShareSupport */,
-				C00000020000000000000001 /* TchopUIConfiguration */,
-				E00000030000000000000001 /* TchopPushNotifications */,
-				F00000020000000000000001 /* TchopNavigation */,
-				G00000020000000000000001 /* TchopAnalytics */,
-				H00000020000000000000001 /* TchopAppleAuthentication */,
-				I00000020000000000000001 /* TchopErrors */,
-				J10000020000000000000001 /* TchopOnDeviceAI */,
+				A00000760000000000000001 /* AppNetworking */,
+				A00000780000000000000001 /* AppDatabase */,
+				A00000B30000000000000001 /* AppLocalization */,
+				AA1000000000000000000001 /* TchopProductLocalizationResources */,
+				B000000C0000000000000001 /* AppBranding */,
+				D00000060000000000000001 /* AppWidgetSupport */,
+				D00000061000000000000001 /* AppShareExtensionSupport */,
+				C00000020000000000000001 /* AppConfiguration */,
+				E00000030000000000000001 /* AppPushNotifications */,
+				F00000020000000000000001 /* AppNavigation */,
+				G00000020000000000000001 /* AppAnalytics */,
+				H00000020000000000000001 /* AppAppleAuthentication */,
+				I00000020000000000000001 /* AppErrors */,
+				J10000020000000000000001 /* AppOnDeviceAI */,
 			);
 			productName = TchopAppOcean;
 			productReference = B00000010000000000000001 /* TchopAppOcean.app */;
@@ -833,8 +833,8 @@
 			);
 			name = TchopWidgetsExtension;
 			packageProductDependencies = (
-				D00000060000000000000001 /* TchopWidgets */,
-				AA1000000000000000000001 /* TchopAppLocalizationResources */,
+				D00000060000000000000001 /* AppWidgetSupport */,
+				AA1000000000000000000001 /* TchopProductLocalizationResources */,
 			);
 			productName = TchopWidgetsExtension;
 			productReference = D000000A0000000000000001 /* TchopWidgetsExtension.appex */;
@@ -854,8 +854,8 @@
 			);
 			name = TchopWidgetsOceanExtension;
 			packageProductDependencies = (
-				D00000060000000000000001 /* TchopWidgets */,
-				AA1000000000000000000001 /* TchopAppLocalizationResources */,
+				D00000060000000000000001 /* AppWidgetSupport */,
+				AA1000000000000000000001 /* TchopProductLocalizationResources */,
 			);
 			productName = TchopWidgetsOceanExtension;
 			productReference = D000002A0000000000000001 /* TchopWidgetsOceanExtension.appex */;
@@ -875,11 +875,11 @@
 			);
 			name = TchopShareExtension;
 			packageProductDependencies = (
-				D00000061000000000000001 /* TchopShareSupport */,
-				A00000B30000000000000001 /* TchopLocalization */,
-				AA1000000000000000000001 /* TchopAppLocalizationResources */,
-				B000000C0000000000000001 /* TchopBranding */,
-				J10000020000000000000001 /* TchopOnDeviceAI */,
+				D00000061000000000000001 /* AppShareExtensionSupport */,
+				A00000B30000000000000001 /* AppLocalization */,
+				AA1000000000000000000001 /* TchopProductLocalizationResources */,
+				B000000C0000000000000001 /* AppBranding */,
+				J10000020000000000000001 /* AppOnDeviceAI */,
 			);
 			productName = TchopShareExtension;
 			productReference = L00000130000000000000001 /* TchopShareExtension.appex */;
@@ -899,11 +899,11 @@
 			);
 			name = TchopShareOceanExtension;
 			packageProductDependencies = (
-				D00000061000000000000001 /* TchopShareSupport */,
-				A00000B30000000000000001 /* TchopLocalization */,
-				AA1000000000000000000001 /* TchopAppLocalizationResources */,
-				B000000C0000000000000001 /* TchopBranding */,
-				J10000020000000000000001 /* TchopOnDeviceAI */,
+				D00000061000000000000001 /* AppShareExtensionSupport */,
+				A00000B30000000000000001 /* AppLocalization */,
+				AA1000000000000000000001 /* TchopProductLocalizationResources */,
+				B000000C0000000000000001 /* AppBranding */,
+				J10000020000000000000001 /* AppOnDeviceAI */,
 			);
 			productName = TchopShareOceanExtension;
 			productReference = L00000140000000000000001 /* TchopShareOceanExtension.appex */;
@@ -982,7 +982,20 @@
 			mainGroup = A00000020000000000000001;
 			minimizedProjectReferenceProxies = 1;
 			packageReferences = (
-				A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */,
+				ECA000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AppNetworking" */,
+				ECA000000000000000000002 /* XCLocalSwiftPackageReference "Packages/AppDatabase" */,
+				ECA000000000000000000003 /* XCLocalSwiftPackageReference "Packages/AppLocalization" */,
+				ECA000000000000000000004 /* XCLocalSwiftPackageReference "Packages/TchopProductLocalizationResources" */,
+				ECA000000000000000000005 /* XCLocalSwiftPackageReference "Packages/AppBranding" */,
+				ECA000000000000000000006 /* XCLocalSwiftPackageReference "Packages/AppWidgetSupport" */,
+				ECA000000000000000000007 /* XCLocalSwiftPackageReference "Packages/AppShareExtensionSupport" */,
+				ECA000000000000000000008 /* XCLocalSwiftPackageReference "Packages/AppConfiguration" */,
+				ECA000000000000000000009 /* XCLocalSwiftPackageReference "Packages/AppPushNotifications" */,
+				ECA00000000000000000000A /* XCLocalSwiftPackageReference "Packages/AppNavigation" */,
+				ECA00000000000000000000B /* XCLocalSwiftPackageReference "Packages/AppAnalytics" */,
+				ECA00000000000000000000C /* XCLocalSwiftPackageReference "Packages/AppAppleAuthentication" */,
+				ECA00000000000000000000D /* XCLocalSwiftPackageReference "Packages/AppErrors" */,
+				ECA00000000000000000000E /* XCLocalSwiftPackageReference "Packages/AppOnDeviceAI" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A00000040000000000000001 /* Products */;
@@ -1326,82 +1339,134 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCLocalSwiftPackageReference section */
-		A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */ = {
+		ECA000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AppNetworking" */ = {
 			isa = XCLocalSwiftPackageReference;
-			relativePath = Packages/TchopInfrastructure;
+			relativePath = Packages/AppNetworking;
+		};
+		ECA000000000000000000002 /* XCLocalSwiftPackageReference "Packages/AppDatabase" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppDatabase;
+		};
+		ECA000000000000000000003 /* XCLocalSwiftPackageReference "Packages/AppLocalization" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppLocalization;
+		};
+		ECA000000000000000000004 /* XCLocalSwiftPackageReference "Packages/TchopProductLocalizationResources" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/TchopProductLocalizationResources;
+		};
+		ECA000000000000000000005 /* XCLocalSwiftPackageReference "Packages/AppBranding" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppBranding;
+		};
+		ECA000000000000000000006 /* XCLocalSwiftPackageReference "Packages/AppWidgetSupport" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppWidgetSupport;
+		};
+		ECA000000000000000000007 /* XCLocalSwiftPackageReference "Packages/AppShareExtensionSupport" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppShareExtensionSupport;
+		};
+		ECA000000000000000000008 /* XCLocalSwiftPackageReference "Packages/AppConfiguration" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppConfiguration;
+		};
+		ECA000000000000000000009 /* XCLocalSwiftPackageReference "Packages/AppPushNotifications" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppPushNotifications;
+		};
+		ECA00000000000000000000A /* XCLocalSwiftPackageReference "Packages/AppNavigation" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppNavigation;
+		};
+		ECA00000000000000000000B /* XCLocalSwiftPackageReference "Packages/AppAnalytics" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppAnalytics;
+		};
+		ECA00000000000000000000C /* XCLocalSwiftPackageReference "Packages/AppAppleAuthentication" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppAppleAuthentication;
+		};
+		ECA00000000000000000000D /* XCLocalSwiftPackageReference "Packages/AppErrors" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppErrors;
+		};
+		ECA00000000000000000000E /* XCLocalSwiftPackageReference "Packages/AppOnDeviceAI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppOnDeviceAI;
 		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		AA1000000000000000000001 /* TchopAppLocalizationResources */ = {
+		AA1000000000000000000001 /* TchopProductLocalizationResources */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopAppLocalizationResources;
+			package = ECA000000000000000000004 /* XCLocalSwiftPackageReference "Packages/TchopProductLocalizationResources" */;
+			productName = TchopProductLocalizationResources;
 		};
-		A00000760000000000000001 /* TchopNetworking */ = {
+		A00000760000000000000001 /* AppNetworking */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopNetworking;
+			package = ECA000000000000000000001 /* XCLocalSwiftPackageReference "Packages/AppNetworking" */;
+			productName = AppNetworking;
 		};
-		A00000780000000000000001 /* TchopDatabase */ = {
+		A00000780000000000000001 /* AppDatabase */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopDatabase;
+			package = ECA000000000000000000002 /* XCLocalSwiftPackageReference "Packages/AppDatabase" */;
+			productName = AppDatabase;
 		};
-		A00000B30000000000000001 /* TchopLocalization */ = {
+		A00000B30000000000000001 /* AppLocalization */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopLocalization;
+			package = ECA000000000000000000003 /* XCLocalSwiftPackageReference "Packages/AppLocalization" */;
+			productName = AppLocalization;
 		};
-		B000000C0000000000000001 /* TchopBranding */ = {
+		B000000C0000000000000001 /* AppBranding */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopBranding;
+			package = ECA000000000000000000005 /* XCLocalSwiftPackageReference "Packages/AppBranding" */;
+			productName = AppBranding;
 		};
-		C00000020000000000000001 /* TchopUIConfiguration */ = {
+		C00000020000000000000001 /* AppConfiguration */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopUIConfiguration;
+			package = ECA000000000000000000008 /* XCLocalSwiftPackageReference "Packages/AppConfiguration" */;
+			productName = AppConfiguration;
 		};
-		D00000060000000000000001 /* TchopWidgets */ = {
+		D00000060000000000000001 /* AppWidgetSupport */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopWidgets;
+			package = ECA000000000000000000006 /* XCLocalSwiftPackageReference "Packages/AppWidgetSupport" */;
+			productName = AppWidgetSupport;
 		};
-		D00000061000000000000001 /* TchopShareSupport */ = {
+		D00000061000000000000001 /* AppShareExtensionSupport */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopShareSupport;
+			package = ECA000000000000000000007 /* XCLocalSwiftPackageReference "Packages/AppShareExtensionSupport" */;
+			productName = AppShareExtensionSupport;
 		};
-		E00000030000000000000001 /* TchopPushNotifications */ = {
+		E00000030000000000000001 /* AppPushNotifications */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopPushNotifications;
+			package = ECA000000000000000000009 /* XCLocalSwiftPackageReference "Packages/AppPushNotifications" */;
+			productName = AppPushNotifications;
 		};
-		F00000020000000000000001 /* TchopNavigation */ = {
+		F00000020000000000000001 /* AppNavigation */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopNavigation;
+			package = ECA00000000000000000000A /* XCLocalSwiftPackageReference "Packages/AppNavigation" */;
+			productName = AppNavigation;
 		};
-		G00000020000000000000001 /* TchopAnalytics */ = {
+		G00000020000000000000001 /* AppAnalytics */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopAnalytics;
+			package = ECA00000000000000000000B /* XCLocalSwiftPackageReference "Packages/AppAnalytics" */;
+			productName = AppAnalytics;
 		};
-		H00000020000000000000001 /* TchopAppleAuthentication */ = {
+		H00000020000000000000001 /* AppAppleAuthentication */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopAppleAuthentication;
+			package = ECA00000000000000000000C /* XCLocalSwiftPackageReference "Packages/AppAppleAuthentication" */;
+			productName = AppAppleAuthentication;
 		};
-		I00000020000000000000001 /* TchopErrors */ = {
+		I00000020000000000000001 /* AppErrors */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopErrors;
+			package = ECA00000000000000000000D /* XCLocalSwiftPackageReference "Packages/AppErrors" */;
+			productName = AppErrors;
 		};
-		J10000020000000000000001 /* TchopOnDeviceAI */ = {
+		J10000020000000000000001 /* AppOnDeviceAI */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = A00000790000000000000001 /* XCLocalSwiftPackageReference "Packages/TchopInfrastructure" */;
-			productName = TchopOnDeviceAI;
+			package = ECA00000000000000000000E /* XCLocalSwiftPackageReference "Packages/AppOnDeviceAI" */;
+			productName = AppOnDeviceAI;
 		};
 /* End XCSwiftPackageProductDependency section */
 
@@ -1644,6 +1709,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -disable-autolink-framework -Xfrontend AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1664,6 +1730,7 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
+				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -disable-autolink-framework -Xfrontend AppIntents";
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;

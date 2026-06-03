@@ -1,5 +1,5 @@
 @testable import TchopApp
-import TchopUIConfiguration
+import AppConfiguration
 
 /// Test-only UI configuration error cases.
 enum TestUIConfigurationError: Error {

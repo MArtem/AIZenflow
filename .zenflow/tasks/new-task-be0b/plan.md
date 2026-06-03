@@ -848,3 +848,13 @@ Use archives only when historical detail is needed:
   - updated reusable package promotion docs so the higher portability bar is one self-contained package folder per reusable package/domain, with local `.package(path:)` dependencies for current local development and future Git URL readiness.
   - preserved `./Packages/TchopInfrastructure` unchanged as the temporary app-connected compatibility baseline; app package references were not switched in this block.
 - Verification: `./Packages/verify_standalone_packages.sh` succeeded with no `warning:`/`error:` lines in the captured log; `python3 ./scripts/check_docs_index.py` succeeded; `python3 ./scripts/validate_ios_production_framework.py` succeeded; `git diff --check` succeeded. App build was not required because app/Xcode package references were not changed.
+
+### [x] Step: Switch TchopApp runtime to standalone packages
+- User requested converting the app itself to use the new standalone package folders and then rechecking the full project.
+- Completed now:
+  - switched app, share extension, widget extension, unit tests, UI tests, and test doubles from legacy `Tchop*` package imports to the new standalone package products such as `AppNetworking`, `AppDatabase`, `AppErrors`, `AppNavigation`, `AppAnalytics`, `AppConfiguration`, `AppWidgetSupport`, `AppShareExtensionSupport`, `AppLocalization`, and `TchopProductLocalizationResources`.
+  - updated `./TchopApp.xcodeproj/project.pbxproj` local Swift package references from the compatibility `./Packages/TchopInfrastructure` bundle to the standalone package folders used by the app targets.
+  - kept `./Packages/TchopInfrastructure` present as a compatibility/source baseline, but the app project now resolves its active package products from the standalone package folders.
+  - updated lingering app comments to refer to the new `AppDatabase` and `AppErrors` boundaries.
+  - removed the remaining visible AppIntents metadata warning for `TchopAppUITests` by applying the same no-autolink Swift frontend flag strategy already used for the share extension, without adding an unused `AppIntents.framework` dependency.
+- Verification: `./Packages/verify_standalone_packages.sh` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; `./scripts/verify.sh medium` succeeded with app/unit/UI tests and final build; the final captured medium verification contained no `warning:` or `Metadata extraction skipped` lines.

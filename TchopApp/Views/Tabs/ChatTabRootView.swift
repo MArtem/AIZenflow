@@ -1,6 +1,6 @@
 import Observation
 import SwiftUI
-import TchopNavigation
+import AppNavigation
 
 /// Root chat-tab screen bound to its dedicated navigation router.
 struct ChatTabRootView: View {

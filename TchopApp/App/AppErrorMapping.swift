@@ -1,10 +1,10 @@
 import Foundation
-import TchopDatabase
-import TchopErrors
+import AppDatabase
+import AppErrors
 
 /// App-local error mapper layered on top of the shared infrastructure mapper.
 ///
-/// `TchopErrors` intentionally knows only generic infrastructure failures. This mapper keeps
+/// `AppErrors` intentionally knows only generic infrastructure failures. This mapper keeps
 /// feature-specific semantics in the app target so repository/session errors can carry stable
 /// categories, retry policy, and recovery hints before a real backend is connected.
 struct AppRuntimeErrorMapper: AppErrorMapping {

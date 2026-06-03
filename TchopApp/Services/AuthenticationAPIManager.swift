@@ -1,6 +1,6 @@
 import Foundation
-import TchopAppleAuthentication
-import TchopNetworking
+import AppAppleAuthentication
+import AppNetworking
 
 /// Configurable endpoint contract for backend authentication routes.
 ///

@@ -1,9 +1,9 @@
 import Foundation
 import Observation
-import TchopAppleAuthentication
-import TchopErrors
+import AppAppleAuthentication
+import AppErrors
 import UIKit
-import TchopNavigation
+import AppNavigation
 
 /// Root app-level state object.
 ///

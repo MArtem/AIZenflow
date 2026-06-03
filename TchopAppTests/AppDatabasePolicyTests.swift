@@ -1,5 +1,5 @@
 import XCTest
-import TchopDatabase
+import AppDatabase
 @testable import TchopApp
 
 /// Verifies app-level database bootstrap policy for the active SwiftData-only runtime.

@@ -1,7 +1,7 @@
 import CoreData
 import Foundation
 import SwiftData
-import TchopDatabase
+import AppDatabase
 
 /// Builds app-specific persistence containers and delegates backend selection to the infrastructure package.
 @MainActor
@@ -444,7 +444,7 @@ private enum AppDatabaseContainerFactory {
     @available(iOS 17, *)
     static func makeSwiftDataModelContainer(isStoredInMemoryOnly: Bool) throws -> ModelContainer {
         // The app keeps its schema local so storage changes remain explicit at the app boundary even
-        // though runtime read/write orchestration is delegated to TchopDatabase.
+        // though runtime read/write orchestration is delegated to AppDatabase.
         let schema = Schema([
             ChannelRecord.self,
             UserRecord.self,

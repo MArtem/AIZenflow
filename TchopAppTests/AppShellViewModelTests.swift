@@ -1,6 +1,6 @@
 import XCTest
-import TchopErrors
-import TchopUIConfiguration
+import AppErrors
+import AppConfiguration
 @testable import TchopApp
 
 @MainActor

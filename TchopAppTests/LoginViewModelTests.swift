@@ -1,7 +1,7 @@
 import AuthenticationServices
 import XCTest
-import TchopAppleAuthentication
-import TchopErrors
+import AppAppleAuthentication
+import AppErrors
 @testable import TchopApp
 
 /// Validates login form state and submission behavior for the credential-first login screen.

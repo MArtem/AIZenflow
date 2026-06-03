@@ -1,7 +1,7 @@
 import XCTest
-import TchopDatabase
-import TchopErrors
-import TchopOnDeviceAI
+import AppDatabase
+import AppErrors
+import AppOnDeviceAI
 @testable import TchopApp
 
 /// Verifies local-created feed-card runtime state, search, interactions, and persistence boundaries.

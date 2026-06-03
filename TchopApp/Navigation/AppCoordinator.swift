@@ -1,6 +1,6 @@
 import Foundation
 import Observation
-import TchopNavigation
+import AppNavigation
 
 /// Coordinator that owns shared tab selection and per-tab routers.
 @MainActor

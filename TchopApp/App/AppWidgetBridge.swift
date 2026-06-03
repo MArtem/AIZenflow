@@ -1,7 +1,7 @@
 import Foundation
-import TchopErrors
+import AppErrors
 import WidgetKit
-import TchopWidgets
+import AppWidgetSupport
 
 /// App-facing contract that synchronizes feed data into widget storage.
 @MainActor

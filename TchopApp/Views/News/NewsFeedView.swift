@@ -4,7 +4,7 @@ import Observation
 import os
 import PDFKit
 import SwiftUI
-import TchopOnDeviceAI
+import AppOnDeviceAI
 import UIKit
 
 private let feedPerformanceLog = OSLog(

@@ -1,8 +1,8 @@
 import Foundation
 import Observation
 import os
-import TchopErrors
-import TchopOnDeviceAI
+import AppErrors
+import AppOnDeviceAI
 
 private let newsFeedPerformanceLog = OSLog(
     subsystem: Bundle.main.bundleIdentifier ?? "com.example.TchopApp",

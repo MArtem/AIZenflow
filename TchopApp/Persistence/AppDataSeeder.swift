@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 import SwiftData
-import TchopDatabase
+import AppDatabase
 
 /// Seeds the local persistence backend with the initial app content.
 @MainActor

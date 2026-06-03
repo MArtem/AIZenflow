@@ -1,9 +1,9 @@
 import Foundation
 import Observation
-import TchopShareSupport
+import AppShareExtensionSupport
 #if !APP_EXTENSION
-import TchopErrors
-import TchopUIConfiguration
+import AppErrors
+import AppConfiguration
 #endif
 
 @MainActor

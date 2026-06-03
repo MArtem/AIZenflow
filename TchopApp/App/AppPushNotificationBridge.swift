@@ -1,8 +1,8 @@
 import Foundation
-import TchopErrors
+import AppErrors
 import UIKit
 import UserNotifications
-import TchopPushNotifications
+import AppPushNotifications
 
 /// App-facing abstraction used by the application delegate to forward APNs events.
 @MainActor

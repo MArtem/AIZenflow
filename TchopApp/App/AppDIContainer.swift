@@ -1,15 +1,15 @@
 import Foundation
 import SwiftUI
-import TchopAnalytics
-import TchopAppleAuthentication
-import TchopDatabase
-import TchopErrors
-import TchopNavigation
-import TchopNetworking
-import TchopPushNotifications
-import TchopUIConfiguration
-import TchopWidgets
-import TchopShareSupport
+import AppAnalytics
+import AppAppleAuthentication
+import AppDatabase
+import AppErrors
+import AppNavigation
+import AppNetworking
+import AppPushNotifications
+import AppConfiguration
+import AppWidgetSupport
+import AppShareExtensionSupport
 
 /// Runtime API environment describing transport configuration and diagnostics policy.
 struct AppAPIEnvironment {

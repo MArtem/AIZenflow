@@ -1,7 +1,7 @@
 import Observation
 import SwiftUI
 #if !APP_EXTENSION
-import TchopNavigation
+import AppNavigation
 
 /// Layout wrapper combining top chrome, tab content, and overlays.
 struct ShellContentView: View {

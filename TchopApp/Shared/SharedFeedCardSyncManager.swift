@@ -1,5 +1,5 @@
 import Foundation
-import TchopShareSupport
+import AppShareExtensionSupport
 
 /// App-group bridge for feed cards published by the share extension.
 ///

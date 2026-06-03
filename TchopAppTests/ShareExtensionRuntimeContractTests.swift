@@ -1,6 +1,6 @@
 import Foundation
 import XCTest
-import TchopShareSupport
+import AppShareExtensionSupport
 @testable import TchopApp
 
 /// Verifies share-extension imported content maps into the shared composer/feed-card contract.

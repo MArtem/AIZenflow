@@ -1,7 +1,7 @@
 import SwiftUI
 import WidgetKit
-import TchopWidgets
-import TchopAppLocalizationResources
+import AppWidgetSupport
+import TchopProductLocalizationResources
 
 /// Stable identifiers used by the widget extension to read the app-written feed headline snapshot.
 enum FeedHeadlineWidgetConstants {
@@ -156,7 +156,7 @@ struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
 
 /// Widget-local copy helper backed by Tchop app localization resources.
 private enum FeedHeadlineWidgetLocalization {
-    private static let manager = TchopAppLocalizationResources.makeManager()
+    private static let manager = TchopProductLocalizationResources.makeManager()
 
     static func text(_ key: String) -> String {
         manager.localized(key, localeIdentifier: nil)

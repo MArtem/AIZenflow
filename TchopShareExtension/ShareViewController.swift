@@ -1,6 +1,6 @@
 import SwiftUI
 import UIKit
-import TchopShareSupport
+import AppShareExtensionSupport
 
 /// UIKit entry point for the share extension.
 ///

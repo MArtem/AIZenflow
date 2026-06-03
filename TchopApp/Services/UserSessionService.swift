@@ -1,7 +1,7 @@
 import Foundation
 import Security
-import TchopAppleAuthentication
-import TchopNetworking
+import AppAppleAuthentication
+import AppNetworking
 
 /// Stable auth token payload expected from authenticated backend sessions.
 struct AuthTokenSet: Codable, Equatable, Sendable {

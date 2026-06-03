@@ -1,7 +1,7 @@
 import Foundation
 import CoreData
 import SwiftData
-import TchopDatabase
+import AppDatabase
 
 /// Repository interface for loading and creating locally persisted users.
 @MainActor

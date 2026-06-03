@@ -1,8 +1,8 @@
 import Foundation
 import UIKit
-import TchopAppleAuthentication
-import TchopNavigation
-import TchopPushNotifications
+import AppAppleAuthentication
+import AppNavigation
+import AppPushNotifications
 @testable import TchopApp
 
 /// Test-only session error cases used by app-state scenarios.
