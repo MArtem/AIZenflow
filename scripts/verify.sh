@@ -5,6 +5,7 @@ set -euo pipefail
 readonly PROJECT="TchopApp.xcodeproj"
 readonly SCHEME="TchopApp"
 readonly PACKAGE_PATH="Packages/TchopInfrastructure"
+readonly PACKAGE_BUILD_PATH=".build/package-tests/TchopInfrastructure"
 readonly DESTINATION_IOS_26="platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0"
 readonly DESTINATION_IOS_18="platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2"
 
@@ -21,7 +22,9 @@ EOF
 }
 
 run_package_tests() {
-  swift test --package-path "${PACKAGE_PATH}"
+  swift test \
+    --package-path "${PACKAGE_PATH}" \
+    --build-path "${PACKAGE_BUILD_PATH}"
 }
 
 run_build() {

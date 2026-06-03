@@ -858,3 +858,14 @@ Use archives only when historical detail is needed:
   - updated lingering app comments to refer to the new `AppDatabase` and `AppErrors` boundaries.
   - removed the remaining visible AppIntents metadata warning for `TchopAppUITests` by applying the same no-autolink Swift frontend flag strategy already used for the share extension, without adding an unused `AppIntents.framework` dependency.
 - Verification: `./Packages/verify_standalone_packages.sh` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj` succeeded; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; `./scripts/verify.sh medium` succeeded with app/unit/UI tests and final build; the final captured medium verification contained no `warning:` or `Metadata extraction skipped` lines.
+
+### [x] Step: Centralize SwiftPM build artifacts for standalone packages
+- User asked whether package-local `.build` folders are required and approved moving away from per-package `.build` directories.
+- Completed now:
+  - updated `./Packages/verify_standalone_packages.sh` so each package runs `swift test` with a root-level `--build-path` under `./.build/standalone-packages/<PackageName>` instead of creating `./Packages/<PackageName>/.build`.
+  - updated `./scripts/verify.sh` so compatibility package tests for `./Packages/TchopInfrastructure` use root-level `./.build/package-tests/TchopInfrastructure`.
+  - added explicit `**/.build/` ignore coverage to `./.gitignore`.
+  - updated `./Packages/README.md` to document centralized build artifacts and the disposable nature of local package build outputs.
+  - removed existing local `./Packages/*/.build` and accidental package-local `./Packages/*/build` directories; final checks confirmed no package-local build artifact directories remain.
+  - resolved the remaining visible Xcode `AppIntents` metadata warning by weak-linking `AppIntents.framework` only for `TchopShareExtension`, `TchopShareOceanExtension`, and `TchopAppUITests`, which are targets Xcode already runs through the AppIntents metadata extractor.
+- Verification: `./Packages/verify_standalone_packages.sh` succeeded with centralized build paths and no `warning:`/`error:` lines; `./scripts/verify.sh medium` succeeded with app/unit/UI tests and final build, no `warning:` or `Metadata extraction skipped` lines, and no package-local `.build`/`build` directories; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py` succeeded.

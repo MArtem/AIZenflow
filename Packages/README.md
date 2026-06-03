@@ -2,8 +2,8 @@
 
 This folder now contains two package layers:
 
-1. **Compatibility baseline**: `./Packages/TchopInfrastructure` remains the app-connected package bundle used by the current Xcode project.
-2. **Standalone neutral packages**: `./Packages/App*` folders are portable package units. Each folder owns its own manifest, README, source, DocC docs, tests, and local SwiftPM verification.
+1. **Compatibility baseline**: `./Packages/TchopInfrastructure` remains as the historical/source compatibility bundle.
+2. **Standalone packages**: `./Packages/App*` folders and `./Packages/TchopProductLocalizationResources` are the active package units used by the app project. Each folder owns its own manifest, README, source, DocC docs, tests, and local SwiftPM verification.
 
 ## Standalone Package Contract
 
@@ -23,6 +23,14 @@ Package-owned tests must live under the same package folder and must pass with:
 cd PackageName
 swift test
 ```
+
+Repository verification should prefer the centralized helper:
+
+```bash
+./Packages/verify_standalone_packages.sh
+```
+
+The helper passes SwiftPM a root-level `--build-path` under `./.build/standalone-packages/` so package folders stay clean and portable. Local `./Packages/*/.build` folders are disposable artifacts and should not be committed.
 
 ## Current Standalone Packages
 
@@ -47,4 +55,4 @@ swift test
 
 ## Migration Rule
 
-Do not delete or rewire `./Packages/TchopInfrastructure` until the app has been switched package-by-package and each switch has passed app build verification.
+Do not delete `./Packages/TchopInfrastructure` until its compatibility role has been explicitly retired. The app project currently resolves active package products from the standalone package folders.

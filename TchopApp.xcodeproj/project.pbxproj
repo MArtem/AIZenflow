@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ZAI000010000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ZAI000020000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ZAI000030000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		AA1000000000000000000002 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
 		AA1000000000000000000003 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
 		AA1000000000000000000004 /* TchopProductLocalizationResources in Frameworks */ = {isa = PBXBuildFile; productRef = AA1000000000000000000001 /* TchopProductLocalizationResources */; };
@@ -350,6 +353,7 @@
 		E00000090000000000000001 /* TchopApplicationDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopApplicationDelegate.swift; sourceTree = "<group>"; };
 		E000000A0000000000000001 /* SampleTchopApp.apns */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleTchopApp.apns; sourceTree = "<group>"; };
 		E000000B0000000000000001 /* SampleTchopAppOcean.apns */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleTchopAppOcean.apns; sourceTree = "<group>"; };
+		ZAI000000000000000000001 /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -423,6 +427,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ZAI000010000000000000001 /* AppIntents.framework in Frameworks */,
 				L00000040000000000000001 /* AppShareExtensionSupport in Frameworks */,
 				L000001E0000000000000001 /* AppLocalization in Frameworks */,
 				AA1000000000000000000006 /* TchopProductLocalizationResources in Frameworks */,
@@ -435,6 +440,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ZAI000020000000000000001 /* AppIntents.framework in Frameworks */,
 				L00000090000000000000001 /* AppShareExtensionSupport in Frameworks */,
 				L000003E00000000000000001 /* AppLocalization in Frameworks */,
 				AA1000000000000000000007 /* TchopProductLocalizationResources in Frameworks */,
@@ -1333,6 +1339,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ZAI000030000000000000001 /* AppIntents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1710,6 +1717,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -disable-autolink-framework -Xfrontend AppIntents";
+				LM_FILTER_WARNINGS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1731,6 +1739,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				OTHER_SWIFT_FLAGS = "$(inherited) -Xfrontend -disable-autolink-framework -Xfrontend AppIntents";
+				LM_FILTER_WARNINGS = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.example.TchopAppUITests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
@@ -1862,6 +1871,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopApp.share;
+				LM_FILTER_WARNINGS = YES;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_URL_SCHEME = tchop;
 				APPLICATION_EXTENSION_API_ONLY = YES;
@@ -1894,6 +1904,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopApp.share;
+				LM_FILTER_WARNINGS = YES;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_URL_SCHEME = tchop;
 				APPLICATION_EXTENSION_API_ONLY = YES;
@@ -1926,6 +1937,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.share;
+				LM_FILTER_WARNINGS = YES;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_URL_SCHEME = "tchop-ocean";
 				APPLICATION_EXTENSION_API_ONLY = YES;
@@ -1958,6 +1970,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				APP_BUNDLE_IDENTIFIER = com.example.TchopAppOcean.share;
+				LM_FILTER_WARNINGS = YES;
 				APP_GROUP_IDENTIFIER = group.com.example.tchop.shared;
 				APP_URL_SCHEME = "tchop-ocean";
 				APPLICATION_EXTENSION_API_ONLY = YES;
