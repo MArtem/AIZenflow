@@ -6,17 +6,25 @@ Define how reusable package/manager behavior should be promoted across iOS proje
 ## Default Package Shape For New Projects
 For a new unrelated iOS project, start with a neutral infrastructure package only when the project has current implementation pressure for shared mechanics.
 
-Recommended initial structure:
+Recommended initial structure for fully portable package units:
 
 ```text
-Packages/AppInfrastructure/
-  Sources/
-    AppNetworking/
-    AppErrors/
-    AppLocalization/
-    AppConfiguration/
-    AppLogging/
+Packages/AppNetworking/
+  Package.swift
+  README.md
+  Sources/AppNetworking/
+  Sources/AppNetworking/Documentation.docc/
+  Tests/AppNetworkingTests/
+
+Packages/AppErrors/
+  Package.swift
+  README.md
+  Sources/AppErrorsCore/
+  Sources/AppNetworkingErrorAdapter/
+  Tests/AppErrorsTests/
 ```
+
+A single `AppInfrastructure` bundle is still acceptable for a small project, but the higher portability bar is one self-contained folder per reusable package/domain. Package-owned tests, DocC, fixtures, and README must travel with the package folder.
 
 Optional modules can be added only when requirements exist:
 

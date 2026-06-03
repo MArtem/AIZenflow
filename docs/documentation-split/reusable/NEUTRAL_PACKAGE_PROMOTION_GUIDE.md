@@ -15,6 +15,21 @@ Use these names unless the destination project already has a documented naming c
 - `AppImageLoading` for image loading, downsampling, cache, and SwiftUI image presentation support.
 - `AppCache`, `AppWidgetSupport`, `AppAnalyticsCore`, `AppShareExtensionSupport`, `AppPushNotifications`, `AppDatabaseCore` when those capabilities are needed.
 
+
+## Standalone Folder Rule
+Reusable packages should be promoted as self-contained package folders, not as disconnected targets inside an unrelated bundle. The default portable shape is:
+
+```text
+Packages/AppNetworking/
+  Package.swift
+  README.md
+  Sources/AppNetworking/
+  Sources/AppNetworking/Documentation.docc/
+  Tests/AppNetworkingTests/
+```
+
+A package is not considered reusable until `swift test` succeeds from that package folder. Cross-package dependencies should use local `.package(path:)` while the project is local-only, so future Git URL dependencies can replace paths without changing source layout.
+
 ## Non-Negotiable Promotion Rules
 
 1. Copy **source + tests + docs** together. A package without its tests is not considered transferred.

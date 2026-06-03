@@ -828,3 +828,23 @@ Use archives only when historical detail is needed:
   - recorded the next safe block as an evidence-based audit of remaining `@unchecked Sendable` declarations, with explicit candidates, verification expectations, and remaining risks that must not be silently changed.
   - included the mandatory transfer rule: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 - Verification: documentation/task-context change only; `git diff --check` required before transfer.
+
+### [x] Step: Standalone neutral package migration — self-contained package folders
+- User requested converting reusable infrastructure from one shared package bundle into autonomous neutral packages where each package folder contains its own `Package.swift`, README, DocC docs, sources, package-owned tests, resources/fixtures as needed, and can be copied into a new project and tested with `swift test`.
+- Migration rule: keep `./Packages/TchopInfrastructure` as the temporary compatibility baseline until new standalone packages are verified and app wiring can be switched safely; do not break existing app imports in the same block.
+- Naming rule: new reusable packages use neutral names such as `AppCache`, `AppNetworking`, `AppDatabase`, `AppSync`, `AppConfiguration`, `AppWidgetSupport`, `AppShareExtensionSupport`, and app-specific resources/branding stay app-specific.
+- Execution order:
+  1. build a low-risk pilot package to establish the structure and verification contract;
+  2. migrate leaf packages with no app-specific policy;
+  3. migrate foundation packages such as networking/database/sync;
+  4. migrate cross-package adapters only after their dependency packages exist;
+  5. update reusable baseline docs/templates and only then consider app import rewiring.
+- Verification per package block: run `swift test` from each new package folder, run `git diff --check`, and run app build only when app/package references change.
+- Completed now:
+  - created standalone neutral package folders under `./Packages/` for analytics, Apple authentication, branding, cache, configuration, database, errors, localization, navigation, networking, on-device AI, push notifications, share-extension support, sync, and widget support.
+  - created `./Packages/TchopProductLocalizationResources` as an intentionally product-specific standalone package for TchopApp localization resources; it is portable with TchopApp but not generic reusable infrastructure.
+  - each new package owns its own `Package.swift`, `README.md`, `Sources`, DocC overview docs, and package-owned `Tests`.
+  - added `./Packages/README.md` and `./Packages/verify_standalone_packages.sh` to document and verify the portable-package structure.
+  - updated reusable package promotion docs so the higher portability bar is one self-contained package folder per reusable package/domain, with local `.package(path:)` dependencies for current local development and future Git URL readiness.
+  - preserved `./Packages/TchopInfrastructure` unchanged as the temporary app-connected compatibility baseline; app package references were not switched in this block.
+- Verification: `./Packages/verify_standalone_packages.sh` succeeded with no `warning:`/`error:` lines in the captured log; `python3 ./scripts/check_docs_index.py` succeeded; `python3 ./scripts/validate_ios_production_framework.py` succeeded; `git diff --check` succeeded. App build was not required because app/Xcode package references were not changed.
