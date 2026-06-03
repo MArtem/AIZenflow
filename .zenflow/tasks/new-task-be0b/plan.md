@@ -663,6 +663,22 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Checked linked MVVMExample worktree status and local rules before applicability review. No sync was applied: its neutral package currently has no matching push/share/widget/UI-configuration snapshot store or unsafe mock type-erasure surface, and adding those modules would be speculative.
 - Verification: clean `swift package clean && swift test` completed with 67 XCTest tests and 40 Swift Testing tests passing; compiler-warning grep returned empty; `./scripts/verify.sh low` completed with `BUILD SUCCEEDED`; `git diff --check` succeeded. The app build still prints the existing share-extension AppIntents metadata warning, and package tests still print non-failing Core Data `NSXPCConnection` runtime messages; neither was hidden or changed in this concurrency block.
 
+### [x] Step: Define app-group pending handoff same-ID and cross-process semantics
+- Read-only audit confirmed the current app flow is a pending handoff queue: the share extension writes `FeedCard` files, the app loads them, persists only previously unseen card IDs, and then removes files by ID.
+- Current app behavior treats a published `FeedCard.id` as an idempotency key: `FeedCardStore.sync(_:)` ignores an already-persisted ID instead of applying a newer payload.
+- The generic `AppGroupJSONItemDirectoryStore` contract does not yet define whether saving a different payload with the same ID is invalid, last-write-wins, or a new pending revision.
+- Current load-then-remove behavior can delete a same-ID file written after the load. This is safe only if same-ID payloads are immutable/idempotent duplicates; it is data loss if same-ID updates are valid.
+- Current load-then-quarantine behavior can move a valid same-path replacement if a corrupt file is repaired between load and quarantine.
+- User direction: packages must follow general implementation-independent principles; app-specific behavior belongs at app level.
+- Selected generic package contract: `AppGroupJSONItemDirectoryStore` is an identifiable key-value/upsert store, not a transactional queue. Same-ID saves replace the current value; remove-by-ID removes the current value; revision history and claim/ack delivery require distinct operation IDs or a higher-level policy.
+- Documented the generic identity contract in package source and DocC.
+- Documented the TchopApp-level policy that published `FeedCard.id` is an immutable idempotency key; new content must receive a new ID.
+- Removed unnecessary `@unchecked Sendable` from `SharedFeedCardSyncManager` because it stores only a sendable package mechanism and owns no mutable in-memory state.
+- Added defensive quarantine revalidation so a stale corrupt-file load result does not quarantine a file that has since been replaced with a valid current value.
+- Added package-owned tests for same-ID replacement and stale quarantine recovery.
+- MVVMExample applicability: no sync required because its neutral package intentionally has no share/app-group module.
+- Verification: targeted `swift test --filter TchopShareSupportTests` first exposed an incorrect test assumption about the empty quarantine directory, then succeeded after correcting the assertion; full `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 67 XCTest tests and 42 Swift Testing tests; package compiler-warning grep returned empty; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; `git diff --check` succeeded. The existing share-extension AppIntents metadata warning remains visible and was not changed in this block.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.

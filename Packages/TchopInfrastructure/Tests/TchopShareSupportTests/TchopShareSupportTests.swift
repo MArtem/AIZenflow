@@ -45,6 +45,23 @@ struct TchopShareSupportTests {
     }
 
     @Test
+    func savingSameIDReplacesCurrentValue() throws {
+        let rootURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        let fileManager = TestAppGroupFileManager(containerURL: rootURL)
+        let store = try AppGroupJSONItemDirectoryStore<TestItem>(
+            groupIdentifier: "group.test.share-support",
+            directoryName: "pending",
+            fileManager: fileManager
+        )
+
+        try store.save(TestItem(id: "item-1", value: "first"))
+        try store.save(TestItem(id: "item-1", value: "second"))
+
+        #expect(try store.loadAll() == [TestItem(id: "item-1", value: "second")])
+    }
+
+    @Test
     func safeLoadSeparatesValidAndCorruptDirectoryItems() throws {
         let rootURL = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)
@@ -94,6 +111,34 @@ struct TchopShareSupportTests {
         )
         #expect(quarantinedFiles.count == 1)
         #expect(quarantinedFiles[0].lastPathComponent.hasSuffix("corrupt.json"))
+    }
+
+    @Test
+    func quarantineSkipsFileThatWasReplacedWithValidCurrentValue() throws {
+        let rootURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        let fileManager = TestAppGroupFileManager(containerURL: rootURL)
+        let store = try AppGroupJSONItemDirectoryStore<TestItem>(
+            groupIdentifier: "group.test.share-support",
+            directoryName: "pending",
+            fileManager: fileManager
+        )
+        let directoryURL = rootURL.appendingPathComponent("pending", isDirectory: true)
+        let itemFileURL = directoryURL.appendingPathComponent("item-1.json")
+        try "not-json".write(to: itemFileURL, atomically: true, encoding: .utf8)
+        let staleLoadResult = try store.loadAllSafely()
+
+        let recoveredItem = TestItem(id: "item-1", value: "recovered")
+        try store.save(recoveredItem)
+        try store.quarantineFiles(staleLoadResult.failedFileURLs)
+
+        #expect(try store.loadAll() == [recoveredItem])
+        let quarantineDirectoryURL = directoryURL.appendingPathComponent("corrupted", isDirectory: true)
+        let quarantinedFiles = try FileManager.default.contentsOfDirectory(
+            at: quarantineDirectoryURL,
+            includingPropertiesForKeys: nil
+        )
+        #expect(quarantinedFiles.isEmpty)
     }
 
     @Test

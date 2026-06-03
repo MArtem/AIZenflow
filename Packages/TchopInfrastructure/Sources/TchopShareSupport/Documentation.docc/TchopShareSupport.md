@@ -15,6 +15,9 @@ App-group JSON stores, share item import contracts, durable file copy helpers, a
 ## Boundary Rules
 
 - Validate imported files and keep app-specific card mapping outside the package.
+- Treat `AppGroupJSONItemDirectoryStore` as an identifiable key-value store: same-ID saves replace the current
+  value, and same-ID revision history or claim/ack delivery belongs in a higher-level policy with distinct
+  operation identifiers.
 
 ## Testing
 

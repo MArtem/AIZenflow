@@ -7,9 +7,13 @@ import TchopShareSupport
 /// The extension writes pending cards through this manager; the containing app imports them on
 /// activation/refresh into `FeedCardStore`.
 ///
+/// Identity policy:
+/// A published `FeedCard.id` is an immutable idempotency key. Re-publishing the same ID represents retrying the
+/// same card payload, not publishing a newer revision. New card content must receive a new ID.
+///
 /// Concurrency:
-/// Marked unchecked-sendable because file-store access is scoped to async app-group operations.
-final class SharedFeedCardSyncManager: @unchecked Sendable {
+/// The manager stores only a sendable app-group storage mechanism and owns no mutable in-memory state.
+final class SharedFeedCardSyncManager: Sendable {
     private static let pendingCardsDirectoryName = "share-extension-published-cards"
 
     private let store: AppGroupJSONItemDirectoryStore<FeedCard>

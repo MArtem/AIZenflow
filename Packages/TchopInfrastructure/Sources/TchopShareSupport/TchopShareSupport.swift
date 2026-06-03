@@ -21,6 +21,12 @@ public struct AppGroupJSONItemDirectoryLoadResult<Item: Sendable>: Sendable {
 /// External usage:
 /// Used by app and extensions to exchange pending work without depending on shared process memory.
 ///
+/// Identity semantics:
+/// This is an identifiable key-value store, not a transactional queue. An item ID identifies one current
+/// logical value: saving the same ID replaces that value, and removing the ID removes whichever value is current
+/// at removal time. Callers that need revision history, claim/ack delivery, or multiple pending operations for
+/// one logical entity must use distinct operation IDs or add that policy above this storage mechanism.
+///
 /// Thread safety:
 /// The store retains immutable path configuration and a delegate-free `FileManager`. Foundation documents
 /// delegate-free file-manager operations as safe for concurrent calls, and encoding/decoding uses operation-local
@@ -53,13 +59,13 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         )
     }
 
-    /// Atomically saves one identifiable item as an individual JSON file.
+    /// Atomically saves one identifiable item as an individual JSON file, replacing the current value for its ID.
     public func save(_ item: Item) throws {
         let data = try JSONEncoder().encode(item)
         try data.write(to: fileURL(for: item.id), options: [.atomic])
     }
 
-    /// Saves one item on a utility task so app/extension UI does not perform JSON file I/O.
+    /// Saves one item on a utility task, replacing the current value for its ID.
     public func saveAsync(_ item: Item) async throws {
         let directoryURL = directoryURL
         try await Task.detached(priority: .utility) {
@@ -127,7 +133,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         }.value
     }
 
-    /// Moves corrupt/unreadable files into a quarantine directory for later inspection or cleanup.
+    /// Moves files that are still corrupt/unreadable into a quarantine directory for later inspection or cleanup.
     public func quarantineFiles(_ fileURLs: [URL]) throws {
         try Self.quarantineFiles(fileURLs, in: directoryURL, fileManager: fileManager)
     }
@@ -199,6 +205,15 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
 
         for fileURL in fileURLs {
             guard fileManager.fileExists(atPath: fileURL.path) else {
+                continue
+            }
+
+            // A producer may have replaced a previously corrupt file with a valid current value.
+            // Revalidate immediately before quarantine so a stale load result does not discard that recovery.
+            if
+                let data = try? Data(contentsOf: fileURL),
+                (try? JSONDecoder().decode(Item.self, from: data)) != nil
+            {
                 continue
             }
 
