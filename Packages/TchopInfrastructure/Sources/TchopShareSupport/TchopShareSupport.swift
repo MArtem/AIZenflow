@@ -20,12 +20,16 @@ public struct AppGroupJSONItemDirectoryLoadResult<Item: Sendable>: Sendable {
 ///
 /// External usage:
 /// Used by app and extensions to exchange pending work without depending on shared process memory.
+///
+/// Thread safety:
+/// The store retains immutable path configuration and a delegate-free `FileManager`. Foundation documents
+/// delegate-free file-manager operations as safe for concurrent calls, and encoding/decoding uses operation-local
+/// instances. The unchecked conformance is limited to the imported `FileManager` reference; callers must still
+/// coordinate higher-level read/modify/write semantics when multiple processes can act on the same item ID.
 public final class AppGroupJSONItemDirectoryStore<Item>: @unchecked Sendable
 where Item: Codable & Identifiable & Sendable, Item.ID == String {
     private let fileManager: FileManager
     private let directoryURL: URL
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
 
     public init(
         groupIdentifier: String,
@@ -51,7 +55,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
 
     /// Atomically saves one identifiable item as an individual JSON file.
     public func save(_ item: Item) throws {
-        let data = try encoder.encode(item)
+        let data = try JSONEncoder().encode(item)
         try data.write(to: fileURL(for: item.id), options: [.atomic])
     }
 
@@ -72,7 +76,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         let result = try loadAllSafely()
         if let failedFileURL = result.failedFileURLs.first {
             let data = try Data(contentsOf: failedFileURL)
-            _ = try decoder.decode(Item.self, from: data)
+            _ = try JSONDecoder().decode(Item.self, from: data)
         }
         return result.items
     }

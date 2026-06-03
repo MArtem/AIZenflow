@@ -38,4 +38,28 @@ final class TchopWidgetsTests: XCTestCase {
 
         XCTAssertNil(try store.load())
     }
+
+    func testUserDefaultsWidgetSnapshotStoreSupportsConcurrentAccess() async throws {
+        let store = UserDefaultsWidgetSnapshotStore<TestWidgetSnapshot>(
+            userDefaults: .standard,
+            snapshotKey: "test.widget.snapshot"
+        )
+
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            for index in 0..<100 {
+                group.addTask {
+                    try store.save(
+                        TestWidgetSnapshot(
+                            headline: "Headline \(index)",
+                            updatedAt: Date(timeIntervalSince1970: TimeInterval(index))
+                        )
+                    )
+                    _ = try store.load()
+                }
+            }
+            try await group.waitForAll()
+        }
+
+        XCTAssertNotNil(try store.load())
+    }
 }

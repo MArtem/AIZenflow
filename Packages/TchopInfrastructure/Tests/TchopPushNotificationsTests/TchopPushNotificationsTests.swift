@@ -115,4 +115,55 @@ struct TchopPushNotificationsTests {
         )
         #expect(events[5] == .stateCleared)
     }
+
+    @Test
+    /// Verifies one in-memory store can be used safely by concurrent synchronous callers.
+    func inMemoryStoreSupportsConcurrentAccess() async throws {
+        let store = InMemoryPushNotificationStateStore()
+
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            for index in 0..<100 {
+                group.addTask {
+                    try store.save(
+                        PushNotificationState(
+                            isRegisteredForRemoteNotifications: index.isMultiple(of: 2)
+                        )
+                    )
+                    _ = try store.load()
+                }
+            }
+            try await group.waitForAll()
+        }
+
+        #expect(try store.load() != nil)
+        try store.clear()
+        #expect(try store.load() == nil)
+    }
+
+    @Test
+    /// Verifies the UserDefaults-backed store keeps operation-local coding safe across concurrent callers.
+    func userDefaultsStoreSupportsConcurrentAccess() async throws {
+        let suiteName = "TchopPushNotificationsTests.Concurrent.\(UUID().uuidString)"
+        let userDefaults = try #require(UserDefaults(suiteName: suiteName))
+        defer {
+            userDefaults.removePersistentDomain(forName: suiteName)
+        }
+        let store = UserDefaultsPushNotificationStateStore(userDefaults: userDefaults)
+
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            for index in 0..<100 {
+                group.addTask {
+                    try store.save(
+                        PushNotificationState(
+                            isRegisteredForRemoteNotifications: index.isMultiple(of: 2)
+                        )
+                    )
+                    _ = try store.load()
+                }
+            }
+            try await group.waitForAll()
+        }
+
+        #expect(try store.load() != nil)
+    }
 }

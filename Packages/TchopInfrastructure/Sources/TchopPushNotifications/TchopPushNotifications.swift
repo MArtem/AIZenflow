@@ -180,6 +180,11 @@ public enum PushNotificationStateStoreError: Error {
 }
 
 /// UserDefaults-backed push state storage used by the app by default.
+///
+/// Thread safety:
+/// `UserDefaults` supports concurrent access for individual operations, and this store retains only immutable
+/// key/defaults references. Encoding and decoding use operation-local instances. The unchecked conformance is
+/// limited to Foundation's imported `UserDefaults` reference.
 public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, PushNotificationStateStoring {
     private let userDefaults: UserDefaults
     private let storageKey: String
@@ -227,31 +232,37 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
 }
 
 /// In-memory push state storage useful for previews, tests, and ephemeral hosts.
+///
+/// Thread safety:
+/// `lock` protects every access to the mutable state so synchronous callers may use one store across tasks.
 public final class InMemoryPushNotificationStateStore: @unchecked Sendable, PushNotificationStateStoring {
-    private final class StorageBox: @unchecked Sendable {
-        var state: PushNotificationState?
-    }
-
-    private let storage = StorageBox()
+    private let lock = NSLock()
+    private var state: PushNotificationState?
 
     /// Creates a new InMemoryPushNotificationStateStore instance.
     public init(initialState: PushNotificationState? = nil) {
-        storage.state = initialState
+        state = initialState
     }
 
     /// Saves this operation.
     public func save(_ state: PushNotificationState) throws {
-        storage.state = state
+        lock.lock()
+        self.state = state
+        lock.unlock()
     }
 
     /// Loads this operation.
     public func load() throws -> PushNotificationState? {
-        storage.state
+        lock.lock()
+        defer { lock.unlock() }
+        return state
     }
 
     /// Clears this operation.
     public func clear() throws {
-        storage.state = nil
+        lock.lock()
+        state = nil
+        lock.unlock()
     }
 }
 

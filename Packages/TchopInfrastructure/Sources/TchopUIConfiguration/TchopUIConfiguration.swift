@@ -96,15 +96,14 @@ public enum UIConfigurationManagerError: Error, Equatable, Sendable {
 ///
 /// Thread safety:
 /// `UserDefaults` supports concurrent access for individual operations. This class stores immutable
-/// key/configuration state only; payload mutation is not retained in the store instance.
+/// key/configuration state only, and encoding/decoding uses operation-local instances. The unchecked
+/// conformance is limited to Foundation's imported `UserDefaults` reference.
 public final class UserDefaultsUIConfigurationSnapshotStore<Payload>:
     @unchecked Sendable,
     UIConfigurationSnapshotStoring
 where Payload: Codable & Equatable & Sendable {
     private let userDefaults: UserDefaults
     private let storageKey: String
-    private let encoder = JSONEncoder()
-    private let decoder = JSONDecoder()
 
     public init(userDefaults: UserDefaults, storageKey: String = "ui-configuration.snapshot") {
         self.userDefaults = userDefaults
@@ -119,7 +118,7 @@ where Payload: Codable & Equatable & Sendable {
     }
 
     public func save(_ snapshot: UIConfigurationSnapshot<Payload>) throws {
-        let data = try encoder.encode(snapshot)
+        let data = try JSONEncoder().encode(snapshot)
         userDefaults.set(data, forKey: storageKey)
     }
 
@@ -127,7 +126,7 @@ where Payload: Codable & Equatable & Sendable {
         guard let data = userDefaults.data(forKey: storageKey) else {
             return nil
         }
-        return try decoder.decode(UIConfigurationSnapshot<Payload>.self, from: data)
+        return try JSONDecoder().decode(UIConfigurationSnapshot<Payload>.self, from: data)
     }
 
     public func clear() throws {

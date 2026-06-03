@@ -97,6 +97,29 @@ struct TchopShareSupportTests {
     }
 
     @Test
+    func itemDirectoryStoreSupportsConcurrentUniqueItemWrites() async throws {
+        let rootURL = FileManager.default.temporaryDirectory
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
+        let fileManager = TestAppGroupFileManager(containerURL: rootURL)
+        let store = try AppGroupJSONItemDirectoryStore<TestItem>(
+            groupIdentifier: "group.test.share-support",
+            directoryName: "pending",
+            fileManager: fileManager
+        )
+
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            for index in 0..<50 {
+                group.addTask {
+                    try store.save(TestItem(id: "item-\(index)", value: "\(index)"))
+                }
+            }
+            try await group.waitForAll()
+        }
+
+        #expect(try store.loadAllSafely().items.count == 50)
+    }
+
+    @Test
     func singleFileStoreSavesLoadsAndClearsSnapshot() throws {
         let rootURL = FileManager.default.temporaryDirectory
             .appendingPathComponent(UUID().uuidString, isDirectory: true)

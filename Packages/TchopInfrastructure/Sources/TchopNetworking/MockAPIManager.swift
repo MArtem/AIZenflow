@@ -56,7 +56,7 @@ public actor MockAPIManager: APIManaging {
         switch stored.result {
         case let .success(value as Response):
             return value
-        case let .failure(error as APIError):
+        case let .failure(error):
             throw error
         default:
             throw APIError.transportFailure("Type mismatch for mock stub \(request.id)")

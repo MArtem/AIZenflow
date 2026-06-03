@@ -9,6 +9,11 @@ import FoundationModels
 ///
 /// Ownership:
 /// Created by `OnDeviceAIManagerFactory` or dependency composition when platform support is available.
+///
+/// Thread safety:
+/// `SystemLanguageModel` is `Sendable`, each translation creates its own `LanguageModelSession`, and the only
+/// manager-owned mutable state is protected by `stateLock`. The unchecked conformance exposes that lock-protected
+/// invariant because Swift cannot prove synchronization of the stored unavailable-reason value.
 public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unchecked Sendable {
     private let model: SystemLanguageModel
     private let stateLock = NSLock()

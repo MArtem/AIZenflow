@@ -112,6 +112,59 @@ final class TchopUIConfigurationTests: XCTestCase {
         }
     }
 
+    func testInMemoryStoreSupportsConcurrentAccess() async throws {
+        let store = InMemoryUIConfigurationSnapshotStore<TestUIConfigurationPayload>()
+
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            for index in 0..<100 {
+                group.addTask {
+                    try store.save(
+                        UIConfigurationSnapshot(
+                            payload: TestUIConfigurationPayload(
+                                flagEnabled: index.isMultiple(of: 2)
+                            )
+                        )
+                    )
+                    _ = try store.load()
+                }
+            }
+            try await group.waitForAll()
+        }
+
+        XCTAssertNotNil(try store.load())
+        try store.clear()
+        XCTAssertNil(try store.load())
+    }
+
+    func testUserDefaultsStoreSupportsConcurrentAccess() async throws {
+        let suiteName = "TchopUIConfigurationTests.Concurrent.\(UUID().uuidString)"
+        let userDefaults = try XCTUnwrap(UserDefaults(suiteName: suiteName))
+        defer {
+            userDefaults.removePersistentDomain(forName: suiteName)
+        }
+        let store = UserDefaultsUIConfigurationSnapshotStore<TestUIConfigurationPayload>(
+            userDefaults: userDefaults
+        )
+
+        try await withThrowingTaskGroup(of: Void.self) { group in
+            for index in 0..<100 {
+                group.addTask {
+                    try store.save(
+                        UIConfigurationSnapshot(
+                            payload: TestUIConfigurationPayload(
+                                flagEnabled: index.isMultiple(of: 2)
+                            )
+                        )
+                    )
+                    _ = try store.load()
+                }
+            }
+            try await group.waitForAll()
+        }
+
+        XCTAssertNotNil(try store.load())
+    }
+
     private func makeSnapshot(
         flagEnabled: Bool,
         fetchedAt: Date = Date(timeIntervalSince1970: 100)

@@ -19,8 +19,8 @@ struct QueuedOperation: Sendable {
     let operation: @Sendable () async -> Void
 }
 
-final class AnySendableResult: @unchecked Sendable {
-    let result: Result<Any, Error>
+final class AnySendableResult: Sendable {
+    let result: Result<any Sendable, APIError>
 
     init<Response: Sendable>(_ result: Result<Response, APIError>) {
         switch result {

@@ -650,6 +650,19 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - kept networking richer invalid-status payload as a documented follow-up because the direct APIError payload attempt repeatedly crashed Swift Testing with `signal 11`; no unstable API shape was left in the branch.
 - Verification: clean `(cd ./Packages/TchopInfrastructure && swift package clean && swift test)` succeeded with 59 XCTest tests and 35 Swift Testing tests and no compiler warnings in the captured warning grep; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` succeeded.
 
+### [x] Step: Evidence-based concurrency audit of remaining package `@unchecked Sendable`
+- Audited every remaining `@unchecked Sendable` declaration under `./Packages/TchopInfrastructure/Sources` against mutable-state ownership, cross-task/process access, framework guarantees, and package-owned test evidence.
+- Removed `@unchecked Sendable` from `AnySendableResult` by preserving type erasure as `any Sendable` plus `APIError` instead of unsafe `Any` / `Error` storage.
+- Fixed the real in-memory push-state data race by protecting `InMemoryPushNotificationStateStore` state with `NSLock` and removing the unprotected nested storage box.
+- Replaced shared `JSONEncoder` / `JSONDecoder` instances with operation-local codecs in sendable UserDefaults, widget, UI-configuration, and app-group directory stores.
+- Documented the retained unchecked boundaries:
+  - `FoundationModelsOnDeviceAIManager`: `SystemLanguageModel` is `Sendable`; only the manager-owned unavailable-reason state requires the documented lock invariant.
+  - UserDefaults-backed push/UI-configuration/widget stores: Foundation documents concurrent individual access; unchecked conformance is limited to the imported `UserDefaults` reference.
+  - `AppGroupJSONItemDirectoryStore`: delegate-free `FileManager` concurrent-call guarantee plus immutable path state; higher-level same-ID and cross-process read/modify/write semantics remain an explicit separate risk.
+- Added package-owned concurrent-access coverage for in-memory push state, UserDefaults push state, app-group unique-item writes, in-memory UI configuration, UserDefaults UI configuration, and widget snapshots.
+- Checked linked MVVMExample worktree status and local rules before applicability review. No sync was applied: its neutral package currently has no matching push/share/widget/UI-configuration snapshot store or unsafe mock type-erasure surface, and adding those modules would be speculative.
+- Verification: clean `swift package clean && swift test` completed with 67 XCTest tests and 40 Swift Testing tests passing; compiler-warning grep returned empty; `./scripts/verify.sh low` completed with `BUILD SUCCEEDED`; `git diff --check` succeeded. The app build still prints the existing share-extension AppIntents metadata warning, and package tests still print non-failing Core Data `NSXPCConnection` runtime messages; neither was hidden or changed in this concurrency block.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.
