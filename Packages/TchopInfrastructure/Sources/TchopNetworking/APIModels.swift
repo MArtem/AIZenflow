@@ -43,11 +43,48 @@ public struct APIConfiguration: Sendable, Equatable {
     )
 }
 
+/// Captured HTTP failure details available to endpoint-specific error mappers.
+///
+/// Security:
+/// The response body and headers may contain sensitive server data. Callers must not log them without explicit
+/// redaction. Body capture is bounded to avoid retaining arbitrarily large error responses.
+public struct APIHTTPFailure: Error, Equatable, Sendable {
+    /// Maximum number of response-body bytes retained by default.
+    public static let defaultMaximumCapturedBodyBytes = 64 * 1024
+
+    /// HTTP status code returned by the server.
+    public let statusCode: Int
+
+    /// Bounded UTF-8 response body, when one was available.
+    ///
+    /// Text capture is intentional: backend error payloads are expected to be JSON/text, while retaining arbitrary
+    /// binary bodies inside long-lived error values adds memory and tooling risk without useful mapping semantics.
+    public let bodyText: String?
+
+    /// Response headers normalized to string keys and values.
+    public let headers: [String: String]
+
+    /// Creates a captured HTTP failure.
+    public init(
+        statusCode: Int,
+        body: Data?,
+        headers: [String: String],
+        maximumCapturedBodyBytes: Int = APIHTTPFailure.defaultMaximumCapturedBodyBytes
+    ) {
+        self.statusCode = statusCode
+        self.bodyText = body.flatMap {
+            String(data: Data($0.prefix(max(0, maximumCapturedBodyBytes))), encoding: .utf8)
+        }
+        self.headers = headers
+    }
+}
+
 /// Typed errors surfaced by the networking layer.
 public enum APIError: Error, Equatable, Sendable {
     case badURL(path: String)
     case noConnection
     case invalidResponse
+    /// Legacy status-only error retained for source compatibility with existing callers.
     case invalidStatusCode(Int)
     case decodingFailed(String)
     case requestCancelled
@@ -56,11 +93,12 @@ public enum APIError: Error, Equatable, Sendable {
 
     /// HTTP status code for status-code failures.
     public var statusCode: Int? {
-        guard case .invalidStatusCode(let statusCode) = self else {
+        switch self {
+        case .invalidStatusCode(let statusCode):
+            return statusCode
+        default:
             return nil
         }
-
-        return statusCode
     }
 }
 
@@ -79,6 +117,9 @@ public struct APIDefaultErrorMapper: APIErrorMapping {
     public func map(_ error: Error) -> APIError {
         if let apiError = error as? APIError {
             return apiError
+        }
+        if let httpFailure = error as? APIHTTPFailure {
+            return .invalidStatusCode(httpFailure.statusCode)
         }
         if error is CancellationError {
             return .requestCancelled

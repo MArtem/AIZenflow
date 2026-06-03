@@ -399,9 +399,14 @@ public struct APIRetryInterceptor: APIRequestIntercepting {
             return .doNotRetry
         }
 
-        switch error {
-        case .invalidStatusCode(let statusCode) where statusCode >= 500:
+        switch error.statusCode {
+        case .some(let statusCode) where statusCode >= 500:
             return .retry(afterNanoseconds: makeDelay(attempt: attempt))
+        default:
+            break
+        }
+
+        switch error {
         case .transportFailure:
             return .retry(afterNanoseconds: makeDelay(attempt: attempt))
         default:

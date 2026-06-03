@@ -7,6 +7,10 @@ public struct APIErrorAppErrorMapper: AppErrorMapping {
 
     /// Maps an arbitrary error into app-facing semantics, delegating known API errors to the API mapper.
     public func map(_ error: Error, context: AppErrorContext? = nil) -> AppError {
+        if let httpFailure = error as? APIHTTPFailure {
+            return mapStatusCode(httpFailure.statusCode, context: context)
+        }
+
         guard let apiError = error as? APIError else {
             return AppError(
                 category: .unknown,
@@ -30,6 +34,10 @@ public struct APIErrorAppErrorMapper: AppErrorMapping {
 
     /// Maps a concrete networking `APIError` into stable app-facing error semantics.
     public func mapAPIError(_ error: APIError, context: AppErrorContext? = nil) -> AppError {
+        if let code = error.statusCode {
+            return mapStatusCode(code, context: context)
+        }
+
         switch error {
         case .requestCancelled:
             return AppError(
@@ -64,39 +72,8 @@ public struct APIErrorAppErrorMapper: AppErrorMapping {
                 debugDescription: "Request timed out.",
                 context: context
             )
-        case .invalidStatusCode(let code) where code == 401:
-            return AppError(
-                category: .authentication,
-                severity: .error,
-                suggestion: .reauthenticate,
-                isRetryable: false,
-                isSessionRecoveryRequired: true,
-                messageKey: "error.auth.required",
-                debugDescription: "Unauthorized status code \(code).",
-                context: context
-            )
-        case .invalidStatusCode(let code) where code >= 500:
-            return AppError(
-                category: .server,
-                severity: .error,
-                suggestion: .retry,
-                isRetryable: true,
-                isSessionRecoveryRequired: false,
-                messageKey: "error.server.unavailable",
-                debugDescription: "Server failure status code \(code).",
-                context: context
-            )
-        case .invalidStatusCode(let code):
-            return AppError(
-                category: .client,
-                severity: .error,
-                suggestion: .none,
-                isRetryable: false,
-                isSessionRecoveryRequired: false,
-                messageKey: "error.client.invalidResponse",
-                debugDescription: "Invalid status code \(code).",
-                context: context
-            )
+        case .invalidStatusCode:
+            preconditionFailure("Status-code errors are handled before the switch.")
         case .decodingFailed(let reason):
             return AppError(
                 category: .client,
@@ -132,6 +109,45 @@ public struct APIErrorAppErrorMapper: AppErrorMapping {
             )
         }
     }
+
+    /// Maps status-code failures without exposing captured response bodies or headers in diagnostics.
+    private func mapStatusCode(_ code: Int, context: AppErrorContext?) -> AppError {
+        switch code {
+        case 401:
+            return AppError(
+                category: .authentication,
+                severity: .error,
+                suggestion: .reauthenticate,
+                isRetryable: false,
+                isSessionRecoveryRequired: true,
+                messageKey: "error.auth.required",
+                debugDescription: "Unauthorized status code \(code).",
+                context: context
+            )
+        case 500...:
+            return AppError(
+                category: .server,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.server.unavailable",
+                debugDescription: "Server failure status code \(code).",
+                context: context
+            )
+        default:
+            return AppError(
+                category: .client,
+                severity: .error,
+                suggestion: .none,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.client.invalidResponse",
+                debugDescription: "Invalid status code \(code).",
+                context: context
+            )
+        }
+    }
 }
 
 /// Fallback mapper that normalizes known infrastructure errors and degrades safely for unknown ones.
@@ -144,7 +160,7 @@ public struct DefaultAppErrorMapper: AppErrorMapping {
 
     /// Maps an arbitrary error into app-facing semantics, delegating known API errors to the API mapper.
     public func map(_ error: Error, context: AppErrorContext? = nil) -> AppError {
-        if error is APIError {
+        if error is APIError || error is APIHTTPFailure {
             return apiErrorMapper.map(error, context: context)
         }
 

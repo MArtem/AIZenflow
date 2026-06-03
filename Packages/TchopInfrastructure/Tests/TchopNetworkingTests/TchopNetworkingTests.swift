@@ -287,6 +287,54 @@ final class TchopNetworkingTests: XCTestCase {
         XCTAssertEqual(response, APIEmptyResponse())
     }
 
+    /// Verifies live HTTP failures retain bounded body and header context for endpoint-specific mapping.
+    func testAPIManagerCapturesHTTPFailureContext() async {
+        URLProtocolStub.reset()
+        let body = Data(#"{"code":"validation_failed"}"#.utf8)
+        URLProtocolStub.requestHandler = { request in
+            (
+                HTTPURLResponse(
+                    url: request.url!,
+                    statusCode: 422,
+                    httpVersion: nil,
+                    headerFields: ["Retry-After": "30"]
+                )!,
+                body
+            )
+        }
+
+        let sessionConfiguration = URLSessionConfiguration.ephemeral
+        sessionConfiguration.protocolClasses = [URLProtocolStub.self]
+        let session = URLSession(configuration: sessionConfiguration)
+        let manager = APIManager(
+            configuration: APIConfiguration(baseURL: URL(string: "https://example.com")!),
+            session: session
+        )
+
+        do {
+            _ = try await manager.perform(APIRequest<APIEmptyResponse>.json(path: "resource"))
+            XCTFail("Expected HTTP failure")
+        } catch let failure as APIHTTPFailure {
+            XCTAssertEqual(failure.statusCode, 422)
+            XCTAssertEqual(failure.bodyText, #"{"code":"validation_failed"}"#)
+            XCTAssertEqual(failure.headers["Retry-After"], "30")
+        } catch {
+            XCTFail("Unexpected error: \(error)")
+        }
+    }
+
+    /// Verifies captured HTTP failure bodies are bounded before they become long-lived error values.
+    func testHTTPFailureBodyCaptureIsBounded() {
+        let failure = APIHTTPFailure(
+            statusCode: 500,
+            body: Data(repeating: 1, count: 10),
+            headers: [:],
+            maximumCapturedBodyBytes: 4
+        )
+
+        XCTAssertEqual(failure.bodyText, String(repeating: "\u{1}", count: 4))
+    }
+
     /// Verifies apimanager uses custom error mapper for non apierrors.
     func testAPIManagerUsesCustomErrorMapperForNonAPIErrors() async {
         struct SyntheticError: Error {}

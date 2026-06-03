@@ -130,6 +130,8 @@ public actor APIManager: APIManaging {
 
         do {
             return try await task.value
+        } catch let error as APIHTTPFailure {
+            throw error
         } catch let error as APIError {
             throw error
         } catch {
@@ -196,9 +198,9 @@ public actor APIManager: APIManaging {
             }
 
             guard isStatusCodeValid(httpResponse.statusCode, for: request) else {
-                let error = APIError.invalidStatusCode(httpResponse.statusCode)
-                await Self.notifyInterceptors(of: .failure(error), for: urlRequest, interceptors: interceptors)
-                throw error
+                let apiError = APIError.invalidStatusCode(httpResponse.statusCode)
+                await Self.notifyInterceptors(of: .failure(apiError), for: urlRequest, interceptors: interceptors)
+                throw Self.makeHTTPFailure(data: data, response: httpResponse)
             }
 
             await progressHandler?(.progressed(1))
@@ -215,6 +217,8 @@ public actor APIManager: APIManaging {
             }
 
             return try responseParser(data, httpResponse)
+        } catch let error as APIHTTPFailure {
+            throw error
         } catch let error as APIError {
             throw error
         } catch {
@@ -284,9 +288,9 @@ public actor APIManager: APIManaging {
             }
 
             guard isStatusCodeValid(httpResponse.statusCode, for: request) else {
-                let error = APIError.invalidStatusCode(httpResponse.statusCode)
-                await Self.notifyInterceptors(of: .failure(error), for: urlRequest, interceptors: interceptors)
-                throw error
+                let apiError = APIError.invalidStatusCode(httpResponse.statusCode)
+                await Self.notifyInterceptors(of: .failure(apiError), for: urlRequest, interceptors: interceptors)
+                throw Self.makeHTTPFailure(data: nil, response: httpResponse)
             }
 
             let outputURL = destinationURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("\(request.id.uuidString).download")
@@ -307,6 +311,8 @@ public actor APIManager: APIManaging {
             )
 
             return outputURL
+        } catch let error as APIHTTPFailure {
+            throw error
         } catch let error as APIError {
             throw error
         } catch {
@@ -372,11 +378,11 @@ public actor APIManager: APIManaging {
                     }
 
                     guard isStatusCodeValid(httpResponse.statusCode, for: request) else {
-                        let error = APIError.invalidStatusCode(httpResponse.statusCode)
-                        await Self.notifyInterceptors(of: .failure(error), for: urlRequest, interceptors: interceptors)
+                        let apiError = APIError.invalidStatusCode(httpResponse.statusCode)
+                        await Self.notifyInterceptors(of: .failure(apiError), for: urlRequest, interceptors: interceptors)
 
                         if try await Self.performRetryIfNeeded(
-                            for: error,
+                            for: apiError,
                             attempt: &attempt,
                             request: urlRequest,
                             interceptors: interceptors,
@@ -385,7 +391,7 @@ public actor APIManager: APIManaging {
                             continue
                         }
 
-                        throw error
+                        throw Self.makeHTTPFailure(data: data, response: httpResponse)
                     }
 
                     await Self.notifyInterceptors(
@@ -399,6 +405,8 @@ public actor APIManager: APIManaging {
                     }
 
                     return try responseParser(data, httpResponse)
+                } catch let error as APIHTTPFailure {
+                    throw error
                 } catch let error as APIError {
                     if try await Self.performRetryIfNeeded(
                         for: error,
@@ -535,6 +543,19 @@ public actor APIManager: APIManaging {
                 request: request
             )
         }
+    }
+
+    /// Creates a bounded HTTP failure error without assuming response headers or body are safe to log.
+    private static func makeHTTPFailure(data: Data?, response: HTTPURLResponse) -> APIHTTPFailure {
+        let headers = response.allHeaderFields.reduce(into: [String: String]()) { result, entry in
+            result[String(describing: entry.key)] = String(describing: entry.value)
+        }
+
+        return APIHTTPFailure(
+            statusCode: response.statusCode,
+            body: data,
+            headers: headers
+        )
     }
 
     /// Executes a stubbed request with the same interceptor notifications as a live request.

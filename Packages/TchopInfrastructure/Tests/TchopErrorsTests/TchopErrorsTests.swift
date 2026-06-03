@@ -1,3 +1,4 @@
+import Foundation
 import Testing
 import TchopErrors
 import TchopNetworking
@@ -47,6 +48,39 @@ struct TchopErrorsTests {
         #expect(mapped.isRetryable)
         #expect(mapped.suggestion == .retry)
         #expect(mapped.messageKey == "error.server.unavailable")
+    }
+
+    @Test
+    func mapsRichHTTPFailureWithoutExposingCapturedPayload() {
+        let mapper = APIErrorAppErrorMapper()
+        let mapped = mapper.map(
+            APIHTTPFailure(
+                statusCode: 503,
+                body: Data("secret-body".utf8),
+                headers: ["Set-Cookie": "secret-cookie"]
+            )
+        )
+
+        #expect(mapped.category == .server)
+        #expect(mapped.isRetryable)
+        #expect(!mapped.debugDescription.contains("secret-body"))
+        #expect(!mapped.debugDescription.contains("secret-cookie"))
+    }
+
+    @Test
+    func defaultMapperRecognizesRichHTTPFailureWithoutExposingCapturedPayload() {
+        let mapper = DefaultAppErrorMapper()
+        let mapped = mapper.map(
+            APIHTTPFailure(
+                statusCode: 422,
+                body: Data("secret-body".utf8),
+                headers: ["Set-Cookie": "secret-cookie"]
+            )
+        )
+
+        #expect(mapped.category == .client)
+        #expect(!mapped.debugDescription.contains("secret-body"))
+        #expect(!mapped.debugDescription.contains("secret-cookie"))
     }
 
     @Test
