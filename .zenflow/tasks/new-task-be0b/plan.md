@@ -829,6 +829,15 @@ Use archives only when historical detail is needed:
   - included the mandatory transfer rule: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 - Verification: documentation/task-context change only; `git diff --check` required before transfer.
 
+### [x] Step: Read-only review of external `Packages_hardened_vNext3.zip`
+- User provided `./.zenflow-attachments/a4d15c31-414a-4b60-93cb-a27864f8aa6d.zip` from another model and requested an independent highest-quality review before adopting package changes.
+- Completed now:
+  - unpacked the archive into `/tmp/tchop-packages-vnext3-4qlXpM` and reviewed package contracts, portability docs, verification scripts, package README updates, `AppCache`, `AppConfiguration`, `AppNetworking`, and `AppErrors` changes.
+  - confirmed vNext3 materially addresses the main vNext2 objections: explicit portability/copy-mode contract, strict-concurrency verification including Apple-only packages on macOS, sanitized `AppConfiguration` failure metadata, resilient corrupted-cache cleanup, and consolidated package hardening documentation.
+  - ran the archive verification scripts on this macOS/Xcode environment: `./Packages/verify_foundation_only_packages.sh`, `./Packages/verify_apple_packages_macos.sh`, and `./Packages/verify_strict_concurrency_macos.sh`; all completed without `warning:` or `error:` lines in the captured log.
+  - identified remaining adoption risks rather than silently approving a blind replacement: current-app integration still needs controlled merge verification, rich `APIError.httpFailure` should be re-tested in the active mixed app/package suite, analytics error-string attributes still need a redaction/category decision if shipped as telemetry, `@unchecked Sendable` audit remains separate, Git URL dependency mode is documented but not automated, and compatibility `./Packages/TchopInfrastructure` may diverge if standalone package changes are adopted alone.
+- Verification: read-only archive review plus archive package scripts only; no current worktree package source was replaced from the archive.
+
 ### [x] Step: Standalone neutral package migration — self-contained package folders
 - User requested converting reusable infrastructure from one shared package bundle into autonomous neutral packages where each package folder contains its own `Package.swift`, README, DocC docs, sources, package-owned tests, resources/fixtures as needed, and can be copied into a new project and tested with `swift test`.
 - Migration rule: keep `./Packages/TchopInfrastructure` as the temporary compatibility baseline until new standalone packages are verified and app wiring can be switched safely; do not break existing app imports in the same block.
