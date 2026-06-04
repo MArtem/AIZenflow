@@ -679,6 +679,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - MVVMExample applicability: no sync required because its neutral package intentionally has no share/app-group module.
 - Verification: targeted `swift test --filter TchopShareSupportTests` first exposed an incorrect test assumption about the empty quarantine directory, then succeeded after correcting the assertion; full `(cd ./Packages/TchopInfrastructure && swift test)` succeeded with 67 XCTest tests and 42 Swift Testing tests; package compiler-warning grep returned empty; `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`; `git diff --check` succeeded. The existing share-extension AppIntents metadata warning remains visible and was not changed in this block.
 
+### [x] Step: Read-only review of external `Packages_single_folder_standalone_vNext4.zip`
+- User provided `./.zenflow-attachments/c88f0c2a-a28c-4234-a1eb-48c49b54d8a0.zip` after clarifying that the target is true 100% single-folder standalone packages, not only documented bundle/path/Git portability modes.
+- Completed now:
+  - unpacked the archive into `/tmp/tchop-packages-vnext4-KJ2azb` and reviewed package manifests, standalone structural gate, portability/hardening reports, integration helpers, and the modified standalone package boundaries for `AppAnalytics`, `AppErrors`, and `TchopProductLocalizationResources`.
+  - confirmed root package manifests no longer use sibling `../...` package dependencies for the listed `App*` packages and that cross-package adapters are moved out to `./Packages/IntegrationHelpers` rather than forcing reusable packages to depend on each other.
+  - ran archive verification: `./Packages/verify_single_folder_standalone.sh`, `./Packages/verify_foundation_only_packages.sh`, `./Packages/verify_apple_packages_macos.sh`, and `./Packages/verify_strict_concurrency_macos.sh`; all completed without `warning:` or `error:` lines in the captured log.
+  - smoke-built all integration helper files together in a temporary Swift package against the archive packages; helper compilation completed without warnings or errors.
+  - identified remaining adoption risks: the standalone gate is structural rather than semantic, integration helpers are not package-owned test targets yet, helper analytics still maps errors with raw `String(describing:)`, compatibility `./Packages/TchopInfrastructure` still exists as a separate bundle that can diverge, and current app integration still needs controlled merge plus full verification before this becomes the active baseline.
+- Verification: read-only archive review and archive/temp verification only; no current worktree source package folders were replaced from the archive.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.
