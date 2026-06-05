@@ -689,6 +689,17 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - identified remaining adoption risks: the standalone gate is structural rather than semantic, integration helpers are not package-owned test targets yet, helper analytics still maps errors with raw `String(describing:)`, compatibility `./Packages/TchopInfrastructure` still exists as a separate bundle that can diverge, and current app integration still needs controlled merge plus full verification before this becomes the active baseline.
 - Verification: read-only archive review and archive/temp verification only; no current worktree source package folders were replaced from the archive.
 
+### [x] Step: Read-only review of external `Packages_single_folder_standalone_FINAL_vNext6.zip`
+- User provided `./.zenflow-attachments/8895397a-c8f7-47a4-a782-9ab1f6ba3534.zip` as the final single-folder standalone package baseline from another model and requested an independent quality opinion.
+- Completed now:
+  - unpacked the archive into `/tmp/tchop-packages-vnext6-nIseKU` and reviewed root package structure, manifests, package contracts, local verify scripts, DocC presence, integration helper packages, copy-file helpers, and final portability/hardening docs.
+  - confirmed root package manifests in the archive have no `.package(...)` dependencies, no sibling `../...` path dependencies, and the provided standalone structural gate verifies required package-local docs/tests/scripts/DocC.
+  - ran `./Packages/verify_single_folder_standalone.sh`; it passed and confirmed the root packages satisfy the single-folder standalone structural contract.
+  - ran archive `./Packages/verify_everything.sh`; package and helper verification progressed through root packages, integration helpers, Apple packages, and strict concurrency checks, but the first full run aborted at the final strict `AppAnalyticsNavigationIntegration` helper because the host disk hit `No space left on device`, not because of a package compile/test failure.
+  - cleaned temporary archive build output to restore disk space and reran strict `AppAnalyticsNavigationIntegration` directly with an external build path; it passed without warnings or errors.
+  - identified remaining adoption considerations rather than blocking findings: `./Packages/TchopInfrastructure` remains a compatibility bundle with divergence risk, app integration still needs controlled merge into the active worktree, and the standalone gate is strong structurally but the active project should keep full app/package verification before declaring this the working baseline.
+- Verification: read-only archive review and archive/temp verification only; current worktree package source folders were not replaced from the archive.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.
