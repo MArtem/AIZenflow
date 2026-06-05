@@ -29,9 +29,19 @@ actor TestUIConfigurationManager: UIConfigurationManaging {
         currentSnapshotValue
     }
 
+    /// Returns sanitized runtime metadata for configuration tests.
+    func runtimeMetadata() async -> UIConfigurationRuntimeMetadata {
+        UIConfigurationRuntimeMetadata(currentSource: .fallback)
+    }
+
     /// Returns whether the current snapshot should be treated as stale in tests.
     func isCurrentConfigurationStale() async -> Bool {
         false
+    }
+
+    /// Fetches configuration through the same path as refresh so tests cover the manager contract.
+    func fetchConfiguration() async throws -> AppUIConfigurationSnapshot {
+        try await refreshConfiguration()
     }
 
     /// Returns the configured refresh result after the optional delay.

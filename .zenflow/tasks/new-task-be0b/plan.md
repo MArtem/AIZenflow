@@ -700,6 +700,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - identified remaining adoption considerations rather than blocking findings: `./Packages/TchopInfrastructure` remains a compatibility bundle with divergence risk, app integration still needs controlled merge into the active worktree, and the standalone gate is strong structurally but the active project should keep full app/package verification before declaring this the working baseline.
 - Verification: read-only archive review and archive/temp verification only; current worktree package source folders were not replaced from the archive.
 
+- Completed now: integrated the `vNext6` single-folder standalone package baseline into the TchopApp worktree:
+  - replaced the active package baseline under `./Packages` with root package folders that each carry their own `Package.swift`, `README.md`, `PackageContract.md`, DocC docs, tests, and local verification script.
+  - removed the old `./Packages/TchopInfrastructure` compatibility bundle from the active project and updated docs/scripts so package verification now targets the standalone `./Packages/App*` packages plus `./Packages/TchopProductLocalizationResources`.
+  - wired optional cross-package analytics adapters through `./Packages/IntegrationHelpers` instead of restoring package-to-package sibling dependencies inside root package folders.
+  - updated app integration points in `./TchopApp/App/AppDIContainer.swift`, `./TchopApp/App/AppLocalization.swift`, `./TchopApp/App/AppErrorMapping.swift`, and `./TchopWidgetsExtension/FeedHeadlineWidget.swift` to compile against the new standalone packages.
+  - updated `./TchopApp.xcodeproj/project.pbxproj` to reference the new standalone package/helper products used by the app and widget/share-extension targets.
+  - hardened package verification scripts so SwiftPM/Xcode-generated `./Packages/*/.swiftpm` and package-local `./.build` artifacts are cleaned and do not remain inside portable package folders after verification.
+  - fixed the app test double in `./TchopAppTests/TestDoubles/UIConfigurationTestDoubles.swift` to satisfy the new `AppConfiguration` runtime metadata contract after the package update.
+- Verification: `./Packages/verify_single_folder_standalone.sh`, `./Packages/verify_integration_helpers.sh`, `./Packages/verify_everything.sh`, `./scripts/verify.sh low`, full `xcodebuild -project ./TchopApp.xcodeproj -scheme TchopApp -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO test`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `git diff --check` succeeded. Final package artifact check found no remaining `./Packages/*/.swiftpm` folders.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.

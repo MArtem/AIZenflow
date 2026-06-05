@@ -1,18 +1,15 @@
 # AppAnalytics
 
-`AppAnalytics` is a standalone Swift package intended to move into another project as one complete folder.
+`AppAnalytics` is a 100% single-folder standalone Swift package. You can copy this folder into a new project, open it as a Swift Package, and run its tests without copying any sibling packages from this repository.
 
 ## Ownership
 
-- **Package owns**: reusable mechanisms, public contracts, documentation, and package-owned tests for the products listed below.
-- **App owns**: product-specific policy, concrete feature behavior, user-facing copy, backend-specific decisions, and app composition.
+- **Package owns**: generic analytics primitives, typed analytics values, event contracts, in-memory/no-op collectors, documentation, and package-owned tests.
+- **App/integration layer owns**: concrete provider SDK adapters, cross-package event mappers, product analytics taxonomy, upload policy, sampling, privacy policy, and user-consent decisions.
 
 ## Products
 
 - `AppAnalyticsCore`
-- `AppNavigationAnalytics`
-- `AppNetworkingAnalytics`
-- `AppPushNotificationAnalytics`
 - `AppAnalytics`
 
 ## Structure
@@ -34,3 +31,26 @@ Run from this folder:
 ```bash
 swift test
 ```
+
+## Portability
+
+Required sibling packages: **None**
+
+Copy modes:
+- **Standalone copy mode:** supported.
+- **Local path dependency mode:** not required.
+- **Git URL dependency mode:** supported as a normal independent package.
+- **Bundle copy mode:** supported, but not required.
+
+## Cross-package integrations
+
+Navigation/networking/push analytics adapters intentionally do **not** live inside this package anymore. They are optional host-level composition files under:
+
+```text
+../IntegrationHelpers/
+  AppAnalyticsNavigationIntegration.swift
+  AppAnalyticsNetworkingIntegration.swift
+  AppAnalyticsPushNotificationsIntegration.swift
+```
+
+Copy only the helpers you need into the app/integration target after adding the corresponding root packages.

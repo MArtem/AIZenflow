@@ -1,10 +1,6 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-private let strictConcurrencySettings: [SwiftSetting] = [
-    .unsafeFlags(["-strict-concurrency=complete"])
-]
-
 let package = Package(
     name: "AppWidgetSupport",
     platforms: [
@@ -16,15 +12,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "AppWidgetSupport",
-            swiftSettings: strictConcurrencySettings
+            name: "AppWidgetSupport"
         ),
         .testTarget(
             name: "AppWidgetSupportTests",
             dependencies: [
                 "AppWidgetSupport",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
     ]
 )

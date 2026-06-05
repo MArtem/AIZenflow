@@ -4,7 +4,11 @@ import TchopProductLocalizationResources
 
 /// Central app-level localization facade used by views, models, and view models.
 enum AppLocalization {
-    private static let manager = TchopProductLocalizationResources.makeManager()
+    private static let manager = LocalizationManager(
+        tableName: "Localizable",
+        developmentLanguageIdentifier: "en",
+        bundleProvider: { TchopProductLocalizationResources.bundle }
+    )
 
     /// Resolves plain localized text using resource values only.
     static func text(_ key: String) -> String {

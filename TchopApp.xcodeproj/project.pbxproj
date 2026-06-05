@@ -132,6 +132,12 @@
 		F00000030000000000000001 /* AppNavigation in Frameworks */ = {isa = PBXBuildFile; productRef = F00000020000000000000001 /* AppNavigation */; };
 		G00000010000000000000001 /* AppAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = G00000020000000000000001 /* AppAnalytics */; };
 		G00000030000000000000001 /* AppAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = G00000020000000000000001 /* AppAnalytics */; };
+		KAA000000000000000000001 /* AppAnalyticsNetworkingIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = KAA000000000000000000007 /* AppAnalyticsNetworkingIntegration */; };
+		KAA000000000000000000002 /* AppAnalyticsNetworkingIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = KAA000000000000000000007 /* AppAnalyticsNetworkingIntegration */; };
+		KAA000000000000000000003 /* AppAnalyticsPushNotificationsIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = KAA000000000000000000008 /* AppAnalyticsPushNotificationsIntegration */; };
+		KAA000000000000000000004 /* AppAnalyticsPushNotificationsIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = KAA000000000000000000008 /* AppAnalyticsPushNotificationsIntegration */; };
+		KAA000000000000000000005 /* AppAnalyticsNavigationIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = KAA000000000000000000009 /* AppAnalyticsNavigationIntegration */; };
+		KAA000000000000000000006 /* AppAnalyticsNavigationIntegration in Frameworks */ = {isa = PBXBuildFile; productRef = KAA000000000000000000009 /* AppAnalyticsNavigationIntegration */; };
 		H00000010000000000000001 /* AppAppleAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = H00000020000000000000001 /* AppAppleAuthentication */; };
 		H00000030000000000000001 /* AppAppleAuthentication in Frameworks */ = {isa = PBXBuildFile; productRef = H00000020000000000000001 /* AppAppleAuthentication */; };
 		I00000010000000000000001 /* AppErrors in Frameworks */ = {isa = PBXBuildFile; productRef = I00000020000000000000001 /* AppErrors */; };
@@ -371,6 +377,9 @@
 				E00000010000000000000001 /* AppPushNotifications in Frameworks */,
 				F00000010000000000000001 /* AppNavigation in Frameworks */,
 				G00000010000000000000001 /* AppAnalytics in Frameworks */,
+				KAA000000000000000000001 /* AppAnalyticsNetworkingIntegration in Frameworks */,
+				KAA000000000000000000003 /* AppAnalyticsPushNotificationsIntegration in Frameworks */,
+				KAA000000000000000000005 /* AppAnalyticsNavigationIntegration in Frameworks */,
 				H00000010000000000000001 /* AppAppleAuthentication in Frameworks */,
 				I00000010000000000000001 /* AppErrors in Frameworks */,
 				J10000010000000000000001 /* AppOnDeviceAI in Frameworks */,
@@ -399,6 +408,9 @@
 				E00000020000000000000001 /* AppPushNotifications in Frameworks */,
 				F00000030000000000000001 /* AppNavigation in Frameworks */,
 				G00000030000000000000001 /* AppAnalytics in Frameworks */,
+				KAA000000000000000000002 /* AppAnalyticsNetworkingIntegration in Frameworks */,
+				KAA000000000000000000004 /* AppAnalyticsPushNotificationsIntegration in Frameworks */,
+				KAA000000000000000000006 /* AppAnalyticsNavigationIntegration in Frameworks */,
 				H00000030000000000000001 /* AppAppleAuthentication in Frameworks */,
 				I00000030000000000000001 /* AppErrors in Frameworks */,
 				J10000030000000000000001 /* AppOnDeviceAI in Frameworks */,
@@ -781,6 +793,9 @@
 				E00000030000000000000001 /* AppPushNotifications */,
 				F00000020000000000000001 /* AppNavigation */,
 				G00000020000000000000001 /* AppAnalytics */,
+				KAA000000000000000000007 /* AppAnalyticsNetworkingIntegration */,
+				KAA000000000000000000008 /* AppAnalyticsPushNotificationsIntegration */,
+				KAA000000000000000000009 /* AppAnalyticsNavigationIntegration */,
 				H00000020000000000000001 /* AppAppleAuthentication */,
 				I00000020000000000000001 /* AppErrors */,
 				J10000020000000000000001 /* AppOnDeviceAI */,
@@ -817,6 +832,9 @@
 				E00000030000000000000001 /* AppPushNotifications */,
 				F00000020000000000000001 /* AppNavigation */,
 				G00000020000000000000001 /* AppAnalytics */,
+				KAA000000000000000000007 /* AppAnalyticsNetworkingIntegration */,
+				KAA000000000000000000008 /* AppAnalyticsPushNotificationsIntegration */,
+				KAA000000000000000000009 /* AppAnalyticsNavigationIntegration */,
 				H00000020000000000000001 /* AppAppleAuthentication */,
 				I00000020000000000000001 /* AppErrors */,
 				J10000020000000000000001 /* AppOnDeviceAI */,
@@ -1002,6 +1020,9 @@
 				ECA00000000000000000000C /* XCLocalSwiftPackageReference "Packages/AppAppleAuthentication" */,
 				ECA00000000000000000000D /* XCLocalSwiftPackageReference "Packages/AppErrors" */,
 				ECA00000000000000000000E /* XCLocalSwiftPackageReference "Packages/AppOnDeviceAI" */,
+				ECA00000000000000000000F /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsNetworkingIntegration" */,
+				ECA000000000000000000010 /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration" */,
+				ECA000000000000000000011 /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsNavigationIntegration" */,
 			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = A00000040000000000000001 /* Products */;
@@ -1402,6 +1423,18 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/AppOnDeviceAI;
 		};
+		ECA00000000000000000000F /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsNetworkingIntegration" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/IntegrationHelpers/AppAnalyticsNetworkingIntegration;
+		};
+		ECA000000000000000000010 /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration;
+		};
+		ECA000000000000000000011 /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsNavigationIntegration" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/IntegrationHelpers/AppAnalyticsNavigationIntegration;
+		};
 /* End XCLocalSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1474,6 +1507,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ECA00000000000000000000E /* XCLocalSwiftPackageReference "Packages/AppOnDeviceAI" */;
 			productName = AppOnDeviceAI;
+		};
+		KAA000000000000000000007 /* AppAnalyticsNetworkingIntegration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECA00000000000000000000F /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsNetworkingIntegration" */;
+			productName = AppAnalyticsNetworkingIntegration;
+		};
+		KAA000000000000000000008 /* AppAnalyticsPushNotificationsIntegration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECA000000000000000000010 /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration" */;
+			productName = AppAnalyticsPushNotificationsIntegration;
+		};
+		KAA000000000000000000009 /* AppAnalyticsNavigationIntegration */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = ECA000000000000000000011 /* XCLocalSwiftPackageReference "Packages/IntegrationHelpers/AppAnalyticsNavigationIntegration" */;
+			productName = AppAnalyticsNavigationIntegration;
 		};
 /* End XCSwiftPackageProductDependency section */
 

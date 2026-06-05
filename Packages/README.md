@@ -1,38 +1,24 @@
 # Packages
 
-This folder now contains two package layers:
+This folder contains the active standalone package baseline for `TchopApp`.
 
-1. **Compatibility baseline**: `./Packages/TchopInfrastructure` remains as the historical/source compatibility bundle.
-2. **Standalone packages**: `./Packages/App*` folders and `./Packages/TchopProductLocalizationResources` are the active package units used by the app project. Each folder owns its own manifest, README, source, DocC docs, tests, and local SwiftPM verification.
+## Contract
 
-## Standalone Package Contract
-
-Every standalone package must be copyable as one folder into another project:
+Each root package folder is intended to be copyable as one self-contained Swift Package:
 
 ```text
 PackageName/
   Package.swift
   README.md
+  PackageContract.md
+  Scripts/verify_package.sh
   Sources/
   Tests/
 ```
 
-Package-owned tests must live under the same package folder and must pass with:
+Root packages must not depend on sibling packages via `.package(path: "../...")`, and their tests/docs/scripts travel with the package folder. Cross-package composition belongs in `./Packages/IntegrationHelpers`, not inside root packages.
 
-```bash
-cd PackageName
-swift test
-```
-
-Repository verification should prefer the centralized helper:
-
-```bash
-./Packages/verify_standalone_packages.sh
-```
-
-The helper passes SwiftPM a root-level `--build-path` under `./.build/standalone-packages/` so package folders stay clean and portable. Local `./Packages/*/.build` folders are disposable artifacts and should not be committed.
-
-## Current Standalone Packages
+## Active Root Packages
 
 - `./Packages/AppAnalytics`
 - `./Packages/AppAppleAuthentication`
@@ -51,8 +37,41 @@ The helper passes SwiftPM a root-level `--build-path` under `./.build/standalone
 - `./Packages/AppWidgetSupport`
 - `./Packages/TchopProductLocalizationResources`
 
-`./Packages/TchopProductLocalizationResources` is intentionally product-specific and should move with TchopApp only. It is standalone, but not reusable generic infrastructure.
+`./Packages/TchopProductLocalizationResources` is standalone but product-specific; copy it only with TchopApp product strings.
 
-## Migration Rule
+## Integration Helpers
 
-Do not delete `./Packages/TchopInfrastructure` until its compatibility role has been explicitly retired. The app project currently resolves active package products from the standalone package folders.
+Optional helper packages and copy-in source files live under `./Packages/IntegrationHelpers`. They compose multiple root packages while preserving root-package standalone portability.
+
+## Verification
+
+Use the main entry point:
+
+```bash
+./Packages/verify_everything.sh
+```
+
+Useful focused checks:
+
+```bash
+./Packages/verify_single_folder_standalone.sh
+./Packages/verify_foundation_only_packages.sh
+./Packages/verify_integration_helpers.sh
+./Packages/verify_apple_packages_macos.sh
+./Packages/verify_strict_concurrency_macos.sh
+```
+
+The scripts use centralized build paths under `./.build/` and clean generated `.swiftpm` state from package folders so package directories remain portable.
+
+## Distribution Hygiene
+
+Before sharing package archives, exclude generated metadata and local SwiftPM/Xcode state:
+
+```text
+.DS_Store
+__MACOSX/
+.swiftpm/
+.build/
+xcuserdata/
+*.xcuserstate
+```

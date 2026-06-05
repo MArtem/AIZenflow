@@ -73,7 +73,10 @@ extension AnalyticsValue: ExpressibleByBooleanLiteral {
     }
 }
 
-/// Product-level analytics event shared across infrastructure modules.
+/// Generic analytics event shared across infrastructure modules.
+///
+/// The historical `ProductAnalyticsEvent` name is kept for source compatibility. New code can use
+/// the `AnalyticsEvent` typealias below to avoid product-specific naming in reusable packages.
 public struct ProductAnalyticsEvent: Codable, Equatable, Sendable {
     public let domain: AnalyticsDomain
     public let name: String
@@ -109,13 +112,22 @@ public struct ProductAnalyticsEvent: Codable, Equatable, Sendable {
     }
 }
 
+/// Preferred neutral event name for reusable package callers.
+public typealias AnalyticsEvent = ProductAnalyticsEvent
+
 /// Sink contract used by analytics adapters across infrastructure modules.
 public protocol ProductAnalyticsCollecting: Sendable {
     /// Records a product analytics event.
     func record(_ event: ProductAnalyticsEvent) async
 }
 
+/// Preferred neutral collector name for reusable package callers.
+public typealias AnalyticsCollecting = ProductAnalyticsCollecting
+
 /// In-memory collector useful for tests, debug overlays, and local inspection.
+/// Preferred neutral memory collector name for reusable package callers.
+public typealias AnalyticsMemoryCollector = ProductAnalyticsMemoryCollector
+
 public actor ProductAnalyticsMemoryCollector: ProductAnalyticsCollecting {
     private var eventsStorage: [ProductAnalyticsEvent] = []
 
@@ -146,3 +158,6 @@ public struct ProductAnalyticsNoopCollector: ProductAnalyticsCollecting {
     /// Ignores the incoming analytics event.
     public func record(_ event: ProductAnalyticsEvent) async {}
 }
+
+/// Preferred neutral no-op collector name for reusable package callers.
+public typealias AnalyticsNoopCollector = ProductAnalyticsNoopCollector

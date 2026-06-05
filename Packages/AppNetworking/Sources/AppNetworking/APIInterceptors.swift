@@ -1,5 +1,9 @@
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 public protocol APIRequestIntercepting: Sendable {
     /// Adapts the outgoing request before execution.
     func prepare(_ request: URLRequest) async throws -> URLRequest

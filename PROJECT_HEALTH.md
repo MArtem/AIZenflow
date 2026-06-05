@@ -14,7 +14,7 @@ Read it when you need to answer:
 - Do not add extra shim or protocol layers on top of a good reusable package unless there is a real seam requirement.
 
 ## Reusable Package Inventory
-### `TchopNetworking`
+### `AppNetworking`
 Owns:
 - request execution
 - upload/download
@@ -28,7 +28,7 @@ Must not know about:
 - app localization keys
 - app bundle semantics
 
-### `TchopDatabaseCore`
+### `AppDatabaseCore`
 Owns:
 - backend-neutral DB contracts
 - migration primitives
@@ -39,7 +39,7 @@ Must not know about:
 - app entities
 - app migration policy
 
-### `TchopSwiftDataDatabase`
+### `AppSwiftDataDatabase`
 Owns:
 - SwiftData-backed `DatabaseManaging` implementation
 
@@ -47,7 +47,7 @@ Must not know about:
 - app schema
 - app bootstrap policy
 
-### `TchopCoreDataDatabase`
+### `AppCoreDataDatabase`
 Owns:
 - Core Data-backed `DatabaseManaging` implementation
 
@@ -55,7 +55,7 @@ Must not know about:
 - app model objects
 - app migration policy
 
-### `TchopDatabaseComposition`
+### `AppDatabaseComposition`
 Owns:
 - DB factory composition
 - backend resolver/factory APIs
@@ -64,7 +64,7 @@ Must not know about:
 - app upgrade policy
 - app runtime rollback decisions
 
-### `SyncCore`
+### `AppSyncCore`
 Owns:
 - sync state machine
 - mutation queue orchestration
@@ -78,7 +78,7 @@ Must not know about:
 - app DTO naming
 - app route or UI semantics
 
-### `TchopNavigation`
+### `AppNavigation`
 Owns:
 - generic tab/router primitives
 - navigation snapshot persistence contract
@@ -88,7 +88,7 @@ Must not know about:
 - app route payloads
 - app URL structure
 
-### `TchopLocalization`
+### `AppLocalization`
 Owns:
 - localization facade
 - locale override support
@@ -96,7 +96,7 @@ Owns:
 Must not know about:
 - app copy itself
 
-### `TchopBranding`
+### `AppBranding`
 Owns:
 - target-driven branding
 - semantic tokens
@@ -104,12 +104,12 @@ Owns:
 Current note:
 - keep extending semantic tokens instead of introducing one-off view-level colors
 
-### `TchopUIConfiguration`
+### `AppConfiguration`
 Owns:
 - configuration snapshot model
 - refresh/store behavior
 
-### `TchopWidgets`
+### `AppWidgetSupport`
 Owns:
 - widget snapshot primitives
 
@@ -117,18 +117,18 @@ Must not know about:
 - app DI
 - app navigation
 
-### `TchopPushNotifications`
+### `AppPushNotifications`
 Owns:
 - APNs state
 - token handling
 - payload parsing
 - persistent push state
 
-### `TchopAnalytics`
+### `AppAnalytics`
 Owns:
 - reusable analytics/event primitives
 
-### `TchopAppleAuthentication`
+### `AppAppleAuthentication`
 Owns:
 - Apple auth integration primitives
 
@@ -144,7 +144,7 @@ Owns:
 ## Current Runtime Notes
 - App runtime is `SwiftData`-first
 - Legacy `Core Data` path exists only as fallback material, not active architecture direction
-- `SyncCore` is now part of the active sync foundation and should absorb reusable sync behavior instead of duplicating sync logic in app repositories
+- `AppSyncCore` is now part of the active sync foundation and should absorb reusable sync behavior instead of duplicating sync logic in app repositories
 
 ## Placement Rule
 If a new package or manager rule changes ownership boundaries, update this file.

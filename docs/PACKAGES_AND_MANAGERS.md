@@ -20,7 +20,7 @@ Do not use it for:
 - Do not add decorative adapters or protocols when the package surface already fits the need.
 
 ## Package Inventory
-### `TchopNetworking`
+### `AppNetworking`
 Use for:
 - request execution
 - uploads/downloads
@@ -33,7 +33,7 @@ App keeps:
 - endpoint semantics
 - mapping to app models
 
-### `TchopDatabaseCore`
+### `AppDatabaseCore`
 Use for:
 - backend-neutral database contracts
 - migration primitives
@@ -44,7 +44,7 @@ App keeps:
 - app record types
 - app bootstrap policy
 
-### `TchopSwiftDataDatabase`
+### `AppSwiftDataDatabase`
 Use for:
 - active SwiftData-backed database manager
 
@@ -53,7 +53,7 @@ App keeps:
 - app seeding/bootstrap
 - persistence policy
 
-### `TchopCoreDataDatabase`
+### `AppCoreDataDatabase`
 Use for:
 - legacy rollback-only Core Data manager
 
@@ -61,7 +61,7 @@ Current rule:
 - do not design new app runtime behavior around it
 - keep it only as fallback material when explicitly needed
 
-### `TchopDatabaseComposition`
+### `AppDatabaseComposition`
 Use for:
 - resolver/factory composition
 - backend wiring primitives
@@ -69,7 +69,7 @@ Use for:
 App keeps:
 - current runtime choice and rollout policy
 
-### `SyncCore`
+### `AppSyncCore`
 Use for:
 - sync state machine
 - push/pull orchestration
@@ -84,7 +84,7 @@ App keeps:
 - endpoint semantics
 - feature-specific merge policy
 
-### `TchopNavigation`
+### `AppNavigation`
 Use for:
 - reusable router/tab primitives
 - navigation snapshot persistence contract
@@ -94,7 +94,7 @@ App keeps:
 - route payloads
 - deep-link semantics
 
-### `TchopLocalization`
+### `AppLocalization`
 Use for:
 - localization facade
 - locale override support
@@ -102,7 +102,7 @@ Use for:
 App keeps:
 - actual product copy
 
-### `TchopOnDeviceAI`
+### `AppOnDeviceAI`
 Use for:
 - on-device Foundation Models availability checks
 - reusable local AI task contracts
@@ -115,7 +115,7 @@ App keeps:
 - translated-state presentation policy
 - local per-feature persistence of translated snapshots
 
-### `TchopShareSupport`
+### `AppShareExtensionSupport`
 Use for:
 - app-group-backed shared JSON item storage
 - reusable cross-process handoff primitives for app extensions
@@ -129,7 +129,7 @@ App keeps:
 - publish/sync policy between extension storage and app runtime
 - extension lifecycle and authentication gating
 
-### `TchopBranding`
+### `AppBranding`
 Use for:
 - semantic brand tokens
 - target-driven branding behavior
@@ -137,19 +137,19 @@ Use for:
 Working rule:
 - extend semantic tokens instead of inventing one-off view colors
 
-### `TchopUIConfiguration`
+### `AppConfiguration`
 Use for:
 - UI configuration snapshot model
 - refresh/store behavior
 
-### `TchopWidgets`
+### `AppWidgetSupport`
 Use for:
 - widget snapshot primitives
 
 App keeps:
 - widget composition fed by app-specific data
 
-### `TchopPushNotifications`
+### `AppPushNotifications`
 Use for:
 - APNs token handling
 - payload parsing
@@ -158,7 +158,7 @@ Use for:
 App keeps:
 - app-specific routing after payload interpretation
 
-### `TchopAnalytics`
+### `AppAnalytics`
 Use for:
 - reusable analytics/event primitives
 
@@ -166,7 +166,7 @@ App keeps:
 - app event naming policy
 - app feature instrumentation decisions
 
-### `TchopAppleAuthentication`
+### `AppAppleAuthentication`
 Use for:
 - reusable Apple auth integration primitives
 
@@ -195,7 +195,7 @@ When reusing these packages elsewhere:
 
 
 ## Neutral Reuse For New Projects
-`TchopInfrastructure` contains reusable mechanics, but unrelated new projects should not inherit `Tchop*` naming by default. When bootstrapping a generic/new project, promote only currently needed mechanics into neutral package names such as:
+The old `TchopInfrastructure` compatibility bundle has been retired from this worktree. New projects should copy only the needed standalone package folders, using neutral package names such as:
 
 - `AppInfrastructure`
 - `AppNetworking`

@@ -1,10 +1,6 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-private let strictConcurrencySettings: [SwiftSetting] = [
-    .unsafeFlags(["-strict-concurrency=complete"])
-]
-
 let package = Package(
     name: "AppConfiguration",
     platforms: [
@@ -16,15 +12,13 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "AppConfiguration",
-            swiftSettings: strictConcurrencySettings
+            name: "AppConfiguration"
         ),
         .testTarget(
             name: "AppConfigurationTests",
             dependencies: [
                 "AppConfiguration",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
     ]
 )

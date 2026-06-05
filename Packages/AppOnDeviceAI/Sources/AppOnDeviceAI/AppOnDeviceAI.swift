@@ -99,10 +99,17 @@ public protocol OnDeviceAIManaging: Sendable {
 
 /// Factory for the default platform-backed on-device AI manager with safe unavailable fallback.
 public enum OnDeviceAIManagerFactory {
+    /// Creates the best available on-device AI manager for the current SDK and OS.
+    ///
+    /// The FoundationModels-backed implementation is compiled only when the SDK provides
+    /// the `FoundationModels` module. Older Xcode/SDK combinations therefore keep building
+    /// and receive an explicit unavailable fallback instead of a compile-time failure.
     public static func makeDefaultManager() -> any OnDeviceAIManaging {
+        #if canImport(FoundationModels)
         if #available(iOS 26.0, macOS 26.0, visionOS 26.0, *) {
             return FoundationModelsOnDeviceAIManager()
         }
+        #endif
 
         return UnavailableOnDeviceAIManager(reason: .unsupportedOS)
     }

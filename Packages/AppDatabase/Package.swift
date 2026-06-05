@@ -1,10 +1,6 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-private let strictConcurrencySettings: [SwiftSetting] = [
-    .unsafeFlags(["-strict-concurrency=complete"])
-]
-
 let package = Package(
     name: "AppDatabase",
     platforms: [
@@ -20,22 +16,19 @@ let package = Package(
     ],
     targets: [
         .target(
-            name: "AppDatabaseCore",
-            swiftSettings: strictConcurrencySettings
+            name: "AppDatabaseCore"
         ),
         .target(
             name: "AppSwiftDataDatabase",
             dependencies: [
                 "AppDatabaseCore",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
         .target(
             name: "AppCoreDataDatabase",
             dependencies: [
                 "AppDatabaseCore",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
         .target(
             name: "AppDatabaseComposition",
@@ -43,8 +36,7 @@ let package = Package(
                 "AppDatabaseCore",
                 "AppSwiftDataDatabase",
                 "AppCoreDataDatabase",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
         .target(
             name: "AppDatabase",
@@ -53,15 +45,13 @@ let package = Package(
                 "AppSwiftDataDatabase",
                 "AppCoreDataDatabase",
                 "AppDatabaseComposition",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
         .testTarget(
             name: "AppDatabaseTests",
             dependencies: [
                 "AppDatabase",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
     ]
 )

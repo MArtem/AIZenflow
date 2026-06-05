@@ -3,10 +3,15 @@ import XCTest
 
 final class TchopProductLocalizationResourcesTests: XCTestCase {
     func testProductLocalizationBundleProvidesKnownAppString() {
-        let manager = TchopProductLocalizationResources.makeManager()
-
-        let title = manager.localized("login.title", localeIdentifier: "en")
+        let title = TchopProductLocalizationResources.localized("login.title", localeIdentifier: "en")
 
         XCTAssertEqual(title, "Welcome back")
+    }
+
+    func testProductLocalizationBundleSupportsLocaleSpecificLookup() {
+        let title = TchopProductLocalizationResources.localized("login.title", localeIdentifier: "ru")
+
+        XCTAssertFalse(title.isEmpty)
+        XCTAssertNotEqual(title, "login.title")
     }
 }

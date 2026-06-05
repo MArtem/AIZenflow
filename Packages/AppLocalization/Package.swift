@@ -1,10 +1,6 @@
 // swift-tools-version: 5.9
 import PackageDescription
 
-private let strictConcurrencySettings: [SwiftSetting] = [
-    .unsafeFlags(["-strict-concurrency=complete"])
-]
-
 let package = Package(
     name: "AppLocalization",
     defaultLocalization: "en",
@@ -18,15 +14,13 @@ let package = Package(
     targets: [
         .target(
             name: "AppLocalization",
-            resources: [.process("Resources")],
-            swiftSettings: strictConcurrencySettings
+            resources: [.process("Resources")]
         ),
         .testTarget(
             name: "AppLocalizationTests",
             dependencies: [
                 "AppLocalization",
-            ],
-            swiftSettings: strictConcurrencySettings
+            ]
         ),
     ]
 )

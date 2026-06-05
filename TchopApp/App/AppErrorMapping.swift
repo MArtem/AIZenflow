@@ -10,7 +10,7 @@ import AppErrors
 struct AppRuntimeErrorMapper: AppErrorMapping {
     private let fallbackMapper: any AppErrorMapping
 
-    init(fallbackMapper: any AppErrorMapping = DefaultAppErrorMapper()) {
+    init(fallbackMapper: any AppErrorMapping = UnknownAppErrorMapper()) {
         self.fallbackMapper = fallbackMapper
     }
 

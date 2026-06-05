@@ -179,3 +179,168 @@ final class AppConfigurationTests: XCTestCase {
         )
     }
 }
+
+extension AppConfigurationTests {
+    func testRuntimeMetadataReportsFallbackSourceBeforeRefresh() async throws {
+        let manager = UIConfigurationManager(
+            remoteProvider: StaticUIConfigurationProvider(snapshot: makeSnapshot(flagEnabled: true)),
+            fallbackSnapshot: makeSnapshot(flagEnabled: false)
+        )
+
+        let metadata = await manager.runtimeMetadata()
+
+        XCTAssertEqual(metadata.currentSource, .fallback)
+        XCTAssertNil(metadata.lastSuccessfulFetchAt)
+        XCTAssertNil(metadata.lastFailedFetchAt)
+    }
+
+    func testRuntimeMetadataReportsRemoteSuccess() async throws {
+        let now = Date(timeIntervalSince1970: 500)
+        let manager = UIConfigurationManager(
+            remoteProvider: StaticUIConfigurationProvider(snapshot: makeSnapshot(flagEnabled: true)),
+            dateProvider: { now },
+            fallbackSnapshot: makeSnapshot(flagEnabled: false)
+        )
+
+        _ = try await manager.refreshConfiguration()
+        let metadata = await manager.runtimeMetadata()
+
+        XCTAssertEqual(metadata.currentSource, .remote)
+        XCTAssertEqual(metadata.lastSuccessfulFetchAt, now)
+    }
+
+    func testRuntimeMetadataReportsRemoteFailureWithoutReplacingCurrentSnapshot() async throws {
+        let now = Date(timeIntervalSince1970: 600)
+        let fallback = makeSnapshot(flagEnabled: false)
+        let manager = UIConfigurationManager(
+            remoteProvider: FailingUIConfigurationProvider<TestUIConfigurationPayload>(),
+            dateProvider: { now },
+            fallbackSnapshot: fallback
+        )
+
+        do {
+            _ = try await manager.refreshConfiguration()
+            XCTFail("Expected failure")
+        } catch {
+            let current = await manager.currentConfiguration()
+            let metadata = await manager.runtimeMetadata()
+            XCTAssertEqual(current, fallback)
+            XCTAssertEqual(metadata.currentSource, .fallback)
+            XCTAssertEqual(metadata.lastFailedFetchAt, now)
+            XCTAssertEqual(metadata.lastFailure?.category, .remoteProvider)
+            XCTAssertEqual(metadata.lastFailureDescription, "remote_provider_failed")
+        }
+    }
+
+    func testRuntimeMetadataDoesNotExposeRawFailureDescription() async throws {
+        let manager = UIConfigurationManager(
+            remoteProvider: SensitiveFailingUIConfigurationProvider<TestUIConfigurationPayload>(),
+            fallbackSnapshot: makeSnapshot(flagEnabled: false)
+        )
+
+        do {
+            _ = try await manager.refreshConfiguration()
+            XCTFail("Expected failure")
+        } catch {
+            let metadata = await manager.runtimeMetadata()
+            XCTAssertEqual(metadata.lastFailureDescription, "remote_provider_failed")
+            XCTAssertFalse(metadata.lastFailureDescription?.contains("secret-token") == true)
+            XCTAssertFalse(metadata.lastFailureDescription?.contains("https://") == true)
+        }
+    }
+
+    func testRuntimeMetadataClearsFailureDescriptionAfterSuccessfulRefresh() async throws {
+        let dateProvider = LockedDateProvider(Date(timeIntervalSince1970: 700))
+        let remoteProvider = SwitchableUIConfigurationProvider<TestUIConfigurationPayload>(
+            result: .failure(SensitiveUIConfigurationTestError.failed)
+        )
+        let manager = UIConfigurationManager(
+            remoteProvider: remoteProvider,
+            dateProvider: { dateProvider.now() },
+            fallbackSnapshot: makeSnapshot(flagEnabled: false)
+        )
+
+        do {
+            _ = try await manager.refreshConfiguration()
+            XCTFail("Expected failure")
+        } catch {
+            let metadata = await manager.runtimeMetadata()
+            XCTAssertEqual(metadata.lastFailureDescription, "remote_provider_failed")
+        }
+
+        dateProvider.set(Date(timeIntervalSince1970: 800))
+        await remoteProvider.set(.success(makeSnapshot(flagEnabled: true)))
+        _ = try await manager.refreshConfiguration()
+
+        let metadata = await manager.runtimeMetadata()
+        XCTAssertEqual(metadata.currentSource, .remote)
+        XCTAssertEqual(metadata.lastSuccessfulFetchAt, Date(timeIntervalSince1970: 800))
+        XCTAssertNil(metadata.lastFailureDescription)
+    }
+
+}
+
+private struct FailingUIConfigurationProvider<Payload>: UIConfigurationRemoteProviding
+where Payload: Codable & Equatable & Sendable {
+    func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload> {
+        throw UIConfigurationTestError.failed
+    }
+}
+
+private enum UIConfigurationTestError: Error {
+    case failed
+}
+
+
+private struct SensitiveFailingUIConfigurationProvider<Payload>: UIConfigurationRemoteProviding
+where Payload: Codable & Equatable & Sendable {
+    func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload> {
+        throw SensitiveUIConfigurationTestError.failed
+    }
+}
+
+private actor SwitchableUIConfigurationProvider<Payload>: UIConfigurationRemoteProviding
+where Payload: Codable & Equatable & Sendable {
+    private var result: Result<UIConfigurationSnapshot<Payload>, Error>
+
+    init(result: Result<UIConfigurationSnapshot<Payload>, Error>) {
+        self.result = result
+    }
+
+    func set(_ result: Result<UIConfigurationSnapshot<Payload>, Error>) {
+        self.result = result
+    }
+
+    func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload> {
+        try result.get()
+    }
+}
+
+private enum SensitiveUIConfigurationTestError: Error, CustomStringConvertible {
+    case failed
+
+    var description: String {
+        "failed with https://example.com/?token=secret-token"
+    }
+}
+
+private final class LockedDateProvider: @unchecked Sendable {
+    private let lock = NSLock()
+    private var date: Date
+
+    init(_ date: Date) {
+        self.date = date
+    }
+
+    func now() -> Date {
+        lock.lock()
+        defer { lock.unlock() }
+        return date
+    }
+
+    func set(_ date: Date) {
+        lock.lock()
+        self.date = date
+        lock.unlock()
+    }
+}

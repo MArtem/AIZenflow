@@ -49,6 +49,7 @@ public protocol UIConfigurationManaging<Payload>: Sendable {
     associatedtype Payload: Codable & Equatable & Sendable
 
     func currentConfiguration() async -> UIConfigurationSnapshot<Payload>
+    func runtimeMetadata() async -> UIConfigurationRuntimeMetadata
     func isCurrentConfigurationStale() async -> Bool
     func refreshConfiguration() async throws -> UIConfigurationSnapshot<Payload>
     func fetchConfiguration() async throws -> UIConfigurationSnapshot<Payload>
@@ -71,6 +72,77 @@ public enum UIConfigurationStalenessPolicy: Equatable, Sendable {
 public enum UIConfigurationRefreshThrottling: Equatable, Sendable {
     case none
     case minimumInterval(TimeInterval)
+}
+
+/// Describes where the currently served configuration snapshot came from.
+public enum UIConfigurationSnapshotSource: String, Codable, Equatable, Sendable {
+    case fallback
+    case cache
+    case remote
+}
+
+/// Sanitized category for the latest refresh failure.
+public enum UIConfigurationFailureCategory: String, Codable, Equatable, Sendable {
+    case remoteProvider
+    case unsupportedSchemaVersion
+    case cancellation
+    case unknown
+}
+
+/// Sanitized refresh failure descriptor safe for diagnostics and support tooling.
+///
+/// This type intentionally stores stable categories/codes instead of raw error descriptions. Raw
+/// errors can contain URLs, backend messages, file paths, or token-like values and should be handled
+/// by a caller-owned logger/redactor if needed.
+public struct UIConfigurationFailureDescriptor: Codable, Equatable, Sendable {
+    public let category: UIConfigurationFailureCategory
+    public let code: String
+
+    public init(category: UIConfigurationFailureCategory, code: String) {
+        self.category = category
+        self.code = code
+    }
+}
+
+/// Runtime metadata useful for diagnostics, observability, and support tooling.
+public struct UIConfigurationRuntimeMetadata: Codable, Equatable, Sendable {
+    public let currentSource: UIConfigurationSnapshotSource
+    public let lastSuccessfulFetchAt: Date?
+    public let lastFailedFetchAt: Date?
+    public let lastFailure: UIConfigurationFailureDescriptor?
+
+    /// Backward-compatible sanitized failure description.
+    ///
+    /// This is intentionally the stable sanitized failure code, not `String(describing: error)`.
+    public var lastFailureDescription: String? {
+        lastFailure?.code
+    }
+
+    public init(
+        currentSource: UIConfigurationSnapshotSource,
+        lastSuccessfulFetchAt: Date? = nil,
+        lastFailedFetchAt: Date? = nil,
+        lastFailure: UIConfigurationFailureDescriptor? = nil,
+        lastFailureDescription: String? = nil
+    ) {
+        self.currentSource = currentSource
+        self.lastSuccessfulFetchAt = lastSuccessfulFetchAt
+        self.lastFailedFetchAt = lastFailedFetchAt
+        self.lastFailure = lastFailure ?? lastFailureDescription.map {
+            UIConfigurationFailureDescriptor(category: .unknown, code: Self.sanitizedLegacyFailureCode($0))
+        }
+    }
+
+    private static func sanitizedLegacyFailureCode(_ value: String) -> String {
+        let allowed = value.lowercased().map { character -> Character in
+            if character.isLetter || character.isNumber || character == "_" || character == "-" || character == "." {
+                return character
+            }
+            return "_"
+        }
+        let sanitized = String(allowed).trimmingCharacters(in: CharacterSet(charactersIn: "_"))
+        return sanitized.isEmpty ? "unknown_failure" : String(sanitized.prefix(80))
+    }
 }
 
 /// Persists and restores one concrete configuration snapshot.
@@ -179,6 +251,7 @@ where Payload: Codable & Equatable & Sendable {
     private let refreshThrottling: UIConfigurationRefreshThrottling
     private let dateProvider: @Sendable () -> Date
     private var currentSnapshot: UIConfigurationSnapshot<Payload>
+    private var runtime: UIConfigurationRuntimeMetadata
     private var lastRefreshAttempt: Date?
 
     public init(
@@ -195,14 +268,22 @@ where Payload: Codable & Equatable & Sendable {
         self.refreshThrottling = refreshThrottling
         self.dateProvider = dateProvider
         self.fallbackSnapshot = fallbackSnapshot
+        let loadedSnapshot = try? store?.load()
         self.currentSnapshot = Self.sanitizedSnapshot(
-            try? store?.load(),
+            loadedSnapshot,
             fallbackSnapshot: fallbackSnapshot
+        )
+        self.runtime = UIConfigurationRuntimeMetadata(
+            currentSource: loadedSnapshot == nil ? .fallback : .cache
         )
     }
 
     public func currentConfiguration() async -> UIConfigurationSnapshot<Payload> {
         currentSnapshot
+    }
+
+    public func runtimeMetadata() async -> UIConfigurationRuntimeMetadata {
+        runtime
     }
 
     public func isCurrentConfigurationStale() async -> Bool {
@@ -216,11 +297,27 @@ where Payload: Codable & Equatable & Sendable {
         }
 
         lastRefreshAttempt = now
-        let snapshot = try await remoteProvider.fetchConfiguration()
-        let sanitized = try Self.validatedSnapshot(snapshot)
-        currentSnapshot = sanitized
-        try store?.save(sanitized)
-        return sanitized
+        do {
+            let snapshot = try await remoteProvider.fetchConfiguration()
+            let sanitized = try Self.validatedSnapshot(snapshot)
+            currentSnapshot = sanitized
+            runtime = UIConfigurationRuntimeMetadata(
+                currentSource: .remote,
+                lastSuccessfulFetchAt: now,
+                lastFailedFetchAt: runtime.lastFailedFetchAt,
+                lastFailure: nil
+            )
+            try store?.save(sanitized)
+            return sanitized
+        } catch {
+            runtime = UIConfigurationRuntimeMetadata(
+                currentSource: runtime.currentSource,
+                lastSuccessfulFetchAt: runtime.lastSuccessfulFetchAt,
+                lastFailedFetchAt: now,
+                lastFailure: Self.failureDescriptor(from: error)
+            )
+            throw error
+        }
     }
 
     private func shouldThrottleRefresh(now: Date) -> Bool {
@@ -243,6 +340,24 @@ where Payload: Codable & Equatable & Sendable {
             guard let expirationDate = snapshot.metadata.expirationDate else { return false }
             return now >= expirationDate
         }
+    }
+
+    private static func failureDescriptor(from error: Error) -> UIConfigurationFailureDescriptor {
+        if error is CancellationError {
+            return UIConfigurationFailureDescriptor(category: .cancellation, code: "cancelled")
+        }
+
+        if case UIConfigurationManagerError.unsupportedSchemaVersion = error {
+            return UIConfigurationFailureDescriptor(
+                category: .unsupportedSchemaVersion,
+                code: "unsupported_schema_version"
+            )
+        }
+
+        return UIConfigurationFailureDescriptor(
+            category: .remoteProvider,
+            code: "remote_provider_failed"
+        )
     }
 
     private static func sanitizedSnapshot(

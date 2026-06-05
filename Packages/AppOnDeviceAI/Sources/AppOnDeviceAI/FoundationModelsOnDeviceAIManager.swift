@@ -2,7 +2,6 @@ import Foundation
 
 #if canImport(FoundationModels)
 import FoundationModels
-#endif
 
 @available(iOS 26.0, macOS 26.0, visionOS 26.0, *)
 /// Foundation Models-backed on-device AI manager for supported OS versions.
@@ -25,8 +24,8 @@ public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unche
         self.model = model
     }
 
-        /// Reports whether translation can run for the requested source language on this device.
-public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
+    /// Reports whether translation can run for the requested source language on this device.
+    public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
         if let sessionUnavailableReason = currentSessionUnavailableReason {
             return .unavailable(sessionUnavailableReason)
         }
@@ -50,11 +49,11 @@ public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAI
         }
     }
 
-        /// Translates all request segments while preserving segment identifiers in the result.
+    /// Translates all request segments while preserving segment identifiers in the result.
     ///
     /// Throws:
     /// `OnDeviceAIError` when the platform model is unavailable or returns incomplete output.
-public func translate(_ request: OnDeviceTranslationRequest) async throws -> OnDeviceTranslationResult {
+    public func translate(_ request: OnDeviceTranslationRequest) async throws -> OnDeviceTranslationResult {
         guard !request.segments.isEmpty else {
             throw OnDeviceAIError.emptyRequest
         }
@@ -219,3 +218,5 @@ private struct GeneratedTranslationSegment {
     let id: String
     let text: String
 }
+
+#endif

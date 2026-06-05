@@ -2,31 +2,14 @@
 set -eu
 
 packages_dir="$(cd "$(dirname "$0")" && pwd)"
-root_dir="$(cd "$packages_dir/.." && pwd)"
-build_root="$root_dir/.build/standalone-packages"
 
-packages="
-AppCache
-AppWidgetSupport
-AppConfiguration
-AppPushNotifications
-AppNavigation
-AppAppleAuthentication
-AppShareExtensionSupport
-AppOnDeviceAI
-AppLocalization
-AppBranding
-AppSync
-AppNetworking
-AppDatabase
-AppErrors
-AppAnalytics
-TchopProductLocalizationResources
-"
+"$packages_dir/verify_single_folder_standalone.sh"
+"$packages_dir/verify_foundation_only_packages.sh"
+"$packages_dir/verify_integration_helpers.sh"
 
-for package in $packages; do
-  echo "=== $package ==="
-  swift test \
-    --package-path "$packages_dir/$package" \
-    --build-path "$build_root/$package"
-done
+if [ "$(uname)" = "Darwin" ]; then
+  "$packages_dir/verify_apple_packages_macos.sh"
+  "$packages_dir/verify_strict_concurrency_macos.sh"
+else
+  echo "Skipping Apple platform packages and Apple strict-concurrency checks on non-macOS host. Run macOS scripts on Xcode." >&2
+fi

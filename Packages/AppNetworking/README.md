@@ -30,3 +30,15 @@ Run from this folder:
 ```bash
 swift test
 ```
+
+## Portability
+
+Required sibling packages: **None**
+
+Copy modes:
+- **Standalone copy mode:** supported.
+- **Local path dependency mode:** supported when this folder is copied with its required siblings using the same relative layout.
+- **Git URL dependency mode:** supported after replacing local `.package(path:)` declarations with package URLs.
+- **Bundle copy mode:** supported by copying the whole `Packages/` directory.
+
+This package can be copied as a single folder. Use bundle copy mode if you want all packages and scripts together.

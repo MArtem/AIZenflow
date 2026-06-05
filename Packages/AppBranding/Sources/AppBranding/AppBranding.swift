@@ -23,7 +23,15 @@ public struct BrandVariant: RawRepresentable, Hashable, Codable, Sendable, Expre
         self.init(rawValue: value)
     }
 
+    /// Compatibility sample variant retained for existing callers.
+    ///
+    /// Generic package consumers should define project-specific variants in their app/product layer:
+    /// `extension BrandVariant { static let acme = BrandVariant(rawValue: "acme") }`.
     public static let classic = BrandVariant(rawValue: "classic")
+
+    /// Compatibility sample variant retained for existing callers.
+    ///
+    /// Generic package consumers should define project-specific variants in their app/product layer.
     public static let ocean = BrandVariant(rawValue: "ocean")
 }
 
@@ -46,6 +54,10 @@ public struct BrandGlassRole: RawRepresentable, Hashable, Codable, Sendable, Exp
         self.init(rawValue: value)
     }
 
+    /// Compatibility sample role retained for existing callers.
+    ///
+    /// Generic package consumers should define semantic roles in their app/product layer rather than
+    /// relying on this Tchop/App-shell flavored role name.
     public static let floatingActionButton = BrandGlassRole(rawValue: "shell.floatingActionButton")
 }
 

@@ -4,10 +4,12 @@ set -euo pipefail
 
 readonly PROJECT="TchopApp.xcodeproj"
 readonly SCHEME="TchopApp"
-readonly PACKAGE_PATH="Packages/TchopInfrastructure"
-readonly PACKAGE_BUILD_PATH=".build/package-tests/TchopInfrastructure"
 readonly DESTINATION_IOS_26="platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0"
 readonly DESTINATION_IOS_18="platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2"
+
+cleanup_generated_package_state() {
+  find ./Packages -name .swiftpm -type d -prune -exec rm -rf {} +
+}
 
 usage() {
   cat <<'EOF'
@@ -22,9 +24,7 @@ EOF
 }
 
 run_package_tests() {
-  swift test \
-    --package-path "${PACKAGE_PATH}" \
-    --build-path "${PACKAGE_BUILD_PATH}"
+  ./Packages/verify_everything.sh
 }
 
 run_build() {
@@ -79,4 +79,6 @@ main() {
   esac
 }
 
+trap cleanup_generated_package_state EXIT
+cleanup_generated_package_state
 main "$@"

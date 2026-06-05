@@ -35,13 +35,13 @@ For context transfer, include this exact rule:
 - coordinator-driven navigation
 - app-level session and shell state
 - local-first persistence
-- reusable infrastructure in `Packages/TchopInfrastructure`
+- standalone reusable infrastructure packages under `Packages/App*`
 - widget, localization, branding, and push-notification support
 - feed/composer runtime built around `text/photo/video/audio/pdf` cards
 
 The primary separation is:
 - `TchopApp` = product-specific composition, features, UI, app policies, DTO/app mapping, persistence schema, routing
-- `Packages/TchopInfrastructure` = reusable managers and shared primitives
+- `Packages/App*` = standalone reusable managers and shared primitives; `Packages/IntegrationHelpers` = optional cross-package composition
 
 ## Stable Runtime Baselines
 - Current deployment target: `iOS 17`
@@ -107,9 +107,9 @@ AppShellViewModel
   -> NewsFeedViewModel
     -> FeedCardStore
       -> FeedCardRepository
-        -> TchopDatabase / SwiftData
+        -> AppDatabase / SwiftData
     -> SharedFeedCardSyncManager
-      -> TchopShareSupport app-group storage
+      -> AppShareExtensionSupport app-group storage
 ```
 
 Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md) for package boundaries and manager ownership.
@@ -125,19 +125,26 @@ Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HE
 - `TchopApp/ViewModels`: UI-facing state owners
 - `TchopApp/Views`: SwiftUI screens and reusable view pieces
 
-### Infrastructure Package
-`Packages/TchopInfrastructure` contains reusable modules for:
-- networking
-- database
-- sync
-- navigation
-- localization
-- branding
-- widgets
-- push notifications
-- analytics
-- UI configuration
-- Apple authentication
+### Standalone Infrastructure Packages
+`Packages/` now contains one copyable package folder per reusable domain:
+- `./Packages/AppNetworking`
+- `./Packages/AppDatabase`
+- `./Packages/AppSync`
+- `./Packages/AppNavigation`
+- `./Packages/AppLocalization`
+- `./Packages/AppBranding`
+- `./Packages/AppWidgetSupport`
+- `./Packages/AppPushNotifications`
+- `./Packages/AppAnalytics`
+- `./Packages/AppConfiguration`
+- `./Packages/AppAppleAuthentication`
+- `./Packages/AppShareExtensionSupport`
+- `./Packages/AppCache`
+- `./Packages/AppErrors`
+- `./Packages/AppOnDeviceAI`
+- `./Packages/TchopProductLocalizationResources` for TchopApp product strings only
+
+Cross-package adapters live outside root packages in `./Packages/IntegrationHelpers`.
 
 ## Canonical Companion Documents
 - [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md): documentation map and placement policy

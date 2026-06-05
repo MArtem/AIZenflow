@@ -156,9 +156,7 @@ struct FeedHeadlineWidgetEntryView_Previews: PreviewProvider {
 
 /// Widget-local copy helper backed by Tchop app localization resources.
 private enum FeedHeadlineWidgetLocalization {
-    private static let manager = TchopProductLocalizationResources.makeManager()
-
     static func text(_ key: String) -> String {
-        manager.localized(key, localeIdentifier: nil)
+        TchopProductLocalizationResources.localized(key, localeIdentifier: nil)
     }
 }

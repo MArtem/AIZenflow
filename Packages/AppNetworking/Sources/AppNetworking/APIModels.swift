@@ -1,5 +1,9 @@
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 /// Describes the HTTP verb used by a request.
 public enum HTTPMethod: String, Sendable, Equatable {
     case delete = "DELETE"
@@ -84,6 +88,8 @@ public enum APIError: Error, Equatable, Sendable {
     case badURL(path: String)
     case noConnection
     case invalidResponse
+    /// Rich HTTP failure that preserves bounded body text and response headers.
+    case httpFailure(APIHTTPFailure)
     /// Legacy status-only error retained for source compatibility with existing callers.
     case invalidStatusCode(Int)
     case decodingFailed(String)
@@ -94,6 +100,8 @@ public enum APIError: Error, Equatable, Sendable {
     /// HTTP status code for status-code failures.
     public var statusCode: Int? {
         switch self {
+        case .httpFailure(let failure):
+            return failure.statusCode
         case .invalidStatusCode(let statusCode):
             return statusCode
         default:
@@ -119,7 +127,7 @@ public struct APIDefaultErrorMapper: APIErrorMapping {
             return apiError
         }
         if let httpFailure = error as? APIHTTPFailure {
-            return .invalidStatusCode(httpFailure.statusCode)
+            return .httpFailure(httpFailure)
         }
         if error is CancellationError {
             return .requestCancelled

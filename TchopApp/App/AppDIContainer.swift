@@ -1,6 +1,9 @@
 import Foundation
 import SwiftUI
 import AppAnalytics
+import AppAnalyticsNavigationIntegration
+import AppAnalyticsNetworkingIntegration
+import AppAnalyticsPushNotificationsIntegration
 import AppAppleAuthentication
 import AppDatabase
 import AppErrors

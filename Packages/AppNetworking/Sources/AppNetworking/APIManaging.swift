@@ -1,5 +1,9 @@
 import Foundation
 
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
+
 /// Performs a retry delay requested by the interceptor pipeline.
 public typealias APIRetrySleeper = @Sendable (_ delayNanoseconds: UInt64) async throws -> Void
 
