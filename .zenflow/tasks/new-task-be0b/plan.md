@@ -721,6 +721,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification TchopApp: `./Packages/verify_everything.sh`, `./scripts/verify.sh low`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `git diff --check` succeeded; warning/error grep returned empty; no `./Packages/*/.swiftpm` folders remain. Static scans found no app-local raw `GlassEffectContainer`/`.glassEffect` usage and no remaining simple hardcoded SwiftUI string candidates in app/share/widget Swift files.
 - Verification MVVMExample: `./Packages/AppGlassUI/Scripts/verify_package.sh`, `python3 ./scripts/check_docs_index.py`, `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `git diff --check`, and `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded; final warning/error grep returned empty; no package-local `.swiftpm` folders remain.
 
+
+- Completed now: linked MVVMExample full standalone package transition:
+  - removed `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages/AppInfrastructure` from the linked task worktree and Xcode package graph.
+  - split reusable functionality into standalone root packages under `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/Packages`: `AppConfiguration`, `AppErrors`, `AppGlassUI`, `AppImageLoading`, `AppLocalization`, `AppLogging`, and `AppNetworking`.
+  - removed root package sibling dependencies so each active root package is single-folder standalone; app-owned integration now adapts configuration, error mapping, logging, localization, image loading, and Liquid Glass usage at the app boundary.
+  - updated package docs/DocC/usage docs plus MVVMExample project docs and local task plan.
+- MVVMExample verification: each package `Scripts/verify_package.sh` succeeded with no warning/error grep hits; `python3 ./scripts/check_docs_index.py`, `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `git diff --check`, standalone manifest grep, and `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded with no warning/error grep hits.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.
