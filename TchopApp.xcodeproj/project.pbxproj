@@ -70,8 +70,6 @@
 		K00000060000000000000001 /* App/AppErrorMapping.swift in Sources */ = {isa = PBXBuildFile; fileRef = K00000050000000000000001 /* AppErrorMapping.swift */; };
 		A00000730000000000000001 /* App/AppDIContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000740000000000000001 /* AppDIContainer.swift */; };
 		A000009C0000000000000001 /* App/AppTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = A000009D0000000000000001 /* AppTheme.swift */; };
-		Q00000010000000000000001 /* App/AppGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = Q00000020000000000000001 /* AppGlass.swift */; };
-		Q00000030000000000000001 /* App/AppGlass.swift in Sources */ = {isa = PBXBuildFile; fileRef = Q00000020000000000000001 /* AppGlass.swift */; };
 		R00000070000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		R00000080000000000000001 /* App/ChannelsStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = R00000090000000000000001 /* ChannelsStore.swift */; };
 		S00000050000000000000001 /* App/ChannelSettingsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = S00000060000000000000001 /* ChannelSettingsRepository.swift */; };
@@ -82,6 +80,8 @@
 		A00000B00000000000000001 /* App/AppLocalization.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000B10000000000000001 /* AppLocalization.swift */; };
 		B00000030000000000000001 /* App/AppBranding.swift in Sources */ = {isa = PBXBuildFile; fileRef = B00000020000000000000001 /* AppBranding.swift */; };
 		B00000040000000000000001 /* AppBranding in Frameworks */ = {isa = PBXBuildFile; productRef = B000000C0000000000000001 /* AppBranding */; };
+		GLASSUI100000000000000001 /* AppGlassUI in Frameworks */ = {isa = PBXBuildFile; productRef = GLASSUI300000000000000001 /* AppGlassUI */; };
+		GLASSUI200000000000000001 /* AppGlassUI in Frameworks */ = {isa = PBXBuildFile; productRef = GLASSUI300000000000000001 /* AppGlassUI */; };
 		C00000010000000000000001 /* AppConfiguration in Frameworks */ = {isa = PBXBuildFile; productRef = C00000020000000000000001 /* AppConfiguration */; };
 		A00000810000000000000001 /* TchopAppTests/AppStateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000820000000000000001 /* AppStateTests.swift */; };
 		A00000830000000000000001 /* TchopAppTests/LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000840000000000000001 /* LoginViewModelTests.swift */; };
@@ -312,7 +312,6 @@
 		K00000050000000000000001 /* AppErrorMapping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrorMapping.swift; sourceTree = "<group>"; };
 		A00000740000000000000001 /* AppDIContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDIContainer.swift; sourceTree = "<group>"; };
 		A000009D0000000000000001 /* AppTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppTheme.swift; sourceTree = "<group>"; };
-		Q00000020000000000000001 /* AppGlass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGlass.swift; sourceTree = "<group>"; };
 		R00000090000000000000001 /* ChannelsStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelsStore.swift; sourceTree = "<group>"; };
 		S00000060000000000000001 /* ChannelSettingsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChannelSettingsRepository.swift; sourceTree = "<group>"; };
 		A00000B10000000000000001 /* AppLocalization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppLocalization.swift; sourceTree = "<group>"; };
@@ -371,6 +370,7 @@
 				A00000770000000000000001 /* AppDatabase in Frameworks */,
 				A00000B20000000000000001 /* AppLocalization in Frameworks */,
 				AA1000000000000000000002 /* TchopProductLocalizationResources in Frameworks */,
+				GLASSUI100000000000000001 /* AppGlassUI in Frameworks */,
 				D00000050000000000000001 /* AppWidgetSupport in Frameworks */,
 				D00000071000000000000001 /* AppShareExtensionSupport in Frameworks */,
 				C00000010000000000000001 /* AppConfiguration in Frameworks */,
@@ -401,6 +401,7 @@
 				A00000770000000000000001 /* AppDatabase in Frameworks */,
 				A00000B20000000000000001 /* AppLocalization in Frameworks */,
 				B00000040000000000000001 /* AppBranding in Frameworks */,
+				GLASSUI200000000000000001 /* AppGlassUI in Frameworks */,
 				AA1000000000000000000003 /* TchopProductLocalizationResources in Frameworks */,
 				D00000070000000000000001 /* AppWidgetSupport in Frameworks */,
 				D00000072000000000000001 /* AppShareExtensionSupport in Frameworks */,
@@ -567,7 +568,6 @@
 				A00000740000000000000001 /* AppDIContainer.swift */,
 				K00000050000000000000001 /* AppErrorMapping.swift */,
 				U00000130000000000000001 /* AppLaunchConfiguration.swift */,
-				Q00000020000000000000001 /* AppGlass.swift */,
 				A00000620000000000000001 /* AppState.swift */,
 				R00000060000000000000001 /* SessionStore.swift */,
 				A00000B10000000000000001 /* AppLocalization.swift */,
@@ -787,6 +787,7 @@
 				A00000B30000000000000001 /* AppLocalization */,
 				AA1000000000000000000001 /* TchopProductLocalizationResources */,
 				B000000C0000000000000001 /* AppBranding */,
+				GLASSUI300000000000000001 /* AppGlassUI */,
 				D00000060000000000000001 /* AppWidgetSupport */,
 				D00000061000000000000001 /* AppShareExtensionSupport */,
 				C00000020000000000000001 /* AppConfiguration */,
@@ -826,6 +827,7 @@
 				A00000B30000000000000001 /* AppLocalization */,
 				AA1000000000000000000001 /* TchopProductLocalizationResources */,
 				B000000C0000000000000001 /* AppBranding */,
+				GLASSUI300000000000000001 /* AppGlassUI */,
 				D00000060000000000000001 /* AppWidgetSupport */,
 				D00000061000000000000001 /* AppShareExtensionSupport */,
 				C00000020000000000000001 /* AppConfiguration */,
@@ -1011,6 +1013,7 @@
 				ECA000000000000000000003 /* XCLocalSwiftPackageReference "Packages/AppLocalization" */,
 				ECA000000000000000000004 /* XCLocalSwiftPackageReference "Packages/TchopProductLocalizationResources" */,
 				ECA000000000000000000005 /* XCLocalSwiftPackageReference "Packages/AppBranding" */,
+				GLASSUI000000000000000001 /* XCLocalSwiftPackageReference "Packages/AppGlassUI" */,
 				ECA000000000000000000006 /* XCLocalSwiftPackageReference "Packages/AppWidgetSupport" */,
 				ECA000000000000000000007 /* XCLocalSwiftPackageReference "Packages/AppShareExtensionSupport" */,
 				ECA000000000000000000008 /* XCLocalSwiftPackageReference "Packages/AppConfiguration" */,
@@ -1183,7 +1186,6 @@
 				R00000070000000000000001 /* App/ChannelsStore.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
-				Q00000010000000000000001 /* App/AppGlass.swift in Sources */,
 				R00000040000000000000001 /* App/SessionStore.swift in Sources */,
 				E00000040000000000000001 /* App/AppPushNotificationBridge.swift in Sources */,
 				E00000050000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
@@ -1255,7 +1257,6 @@
 				R00000080000000000000001 /* App/ChannelsStore.swift in Sources */,
 				A00000B00000000000000001 /* App/AppLocalization.swift in Sources */,
 				A000009C0000000000000001 /* App/AppTheme.swift in Sources */,
-				Q00000030000000000000001 /* App/AppGlass.swift in Sources */,
 				R00000050000000000000001 /* App/SessionStore.swift in Sources */,
 				E00000060000000000000001 /* App/AppPushNotificationBridge.swift in Sources */,
 				E00000070000000000000001 /* App/TchopApplicationDelegate.swift in Sources */,
@@ -1387,6 +1388,10 @@
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/AppBranding;
 		};
+		GLASSUI000000000000000001 /* XCLocalSwiftPackageReference "Packages/AppGlassUI" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = Packages/AppGlassUI;
+		};
 		ECA000000000000000000006 /* XCLocalSwiftPackageReference "Packages/AppWidgetSupport" */ = {
 			isa = XCLocalSwiftPackageReference;
 			relativePath = Packages/AppWidgetSupport;
@@ -1462,6 +1467,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = ECA000000000000000000005 /* XCLocalSwiftPackageReference "Packages/AppBranding" */;
 			productName = AppBranding;
+		};
+		GLASSUI300000000000000001 /* AppGlassUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = GLASSUI000000000000000001 /* XCLocalSwiftPackageReference "Packages/AppGlassUI" */;
+			productName = AppGlassUI;
 		};
 		C00000020000000000000001 /* AppConfiguration */ = {
 			isa = XCSwiftPackageProductDependency;

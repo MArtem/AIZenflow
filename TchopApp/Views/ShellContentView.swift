@@ -1,5 +1,6 @@
 import Observation
 import SwiftUI
+import AppGlassUI
 #if !APP_EXTENSION
 import AppNavigation
 

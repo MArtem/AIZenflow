@@ -54,3 +54,8 @@ Navigation/networking/push analytics adapters intentionally do **not** live insi
 ```
 
 Copy only the helpers you need into the app/integration target after adding the corresponding root packages.
+
+
+## Usage guide
+
+See `./USAGE.md` for package/app boundary rules and host integration guidance.

@@ -67,3 +67,8 @@ This package can be copied as a single folder. Use bundle copy mode if you want 
 `FileLocalCacheManager.removeExpired()` is resilient to corrupted or unreadable `.cache` files.
 A single bad cache entry no longer makes the full cleanup fail. Invalid cache files are removed on
 a best-effort basis and valid fresh entries are preserved.
+
+
+## Usage guide
+
+See `./USAGE.md` for package/app boundary rules and host integration guidance.

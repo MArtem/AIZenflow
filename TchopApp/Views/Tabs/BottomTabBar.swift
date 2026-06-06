@@ -1,4 +1,5 @@
 import SwiftUI
+import AppGlassUI
 
 /// Custom bottom tab bar that drives coordinator tab selection.
 struct BottomTabBar: View {

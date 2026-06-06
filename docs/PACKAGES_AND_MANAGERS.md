@@ -129,6 +129,17 @@ App keeps:
 - publish/sync policy between extension storage and app runtime
 - extension lifecycle and authentication gating
 
+### `AppGlassUI`
+Use for:
+- SwiftUI Liquid Glass availability checks
+- glass chrome fallback mechanics
+- reusable shape-based glass styling helpers
+
+App keeps:
+- semantic color tokens
+- product-specific visual roles
+- screen layout and interaction decisions
+
 ### `AppBranding`
 Use for:
 - semantic brand tokens

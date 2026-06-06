@@ -46,3 +46,8 @@ Copy modes:
 - **Bundle copy mode:** supported by copying the whole `Packages/` directory.
 
 This package can be copied as a single folder. Use bundle copy mode if you want all packages and scripts together.
+
+
+## Usage guide
+
+See `./USAGE.md` for package/app boundary rules and host integration guidance.

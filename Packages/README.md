@@ -75,3 +75,8 @@ __MACOSX/
 xcuserdata/
 *.xcuserstate
 ```
+
+
+## Liquid Glass / visual effects
+
+Use `./Packages/AppGlassUI` for reusable SwiftUI Liquid Glass availability and fallback mechanics. Keep product-specific colors, semantic roles, and layout decisions in the host app or compose them with `./Packages/AppBranding` in app code.

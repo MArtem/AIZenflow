@@ -1773,7 +1773,7 @@ private struct ComposerFileMediaDraftIcon: View {
                 ZStack {
                     Image(systemName: "doc")
                         .font(.system(size: 32, weight: .medium))
-                    Text("PDF")
+                    Text(AppLocalization.text("composer.media.pdf"))
                         .font(.system(size: 8, weight: .bold))
                         .offset(y: 2)
                 }
@@ -2533,7 +2533,7 @@ private struct ComposerPhotoActionsView: View {
                 VStack(spacing: ComposerPhotoActionsLayout.sectionSpacing) {
                     ComposerPhotoActionsSection {
                         ComposerPhotoActionRow(
-                            title: "Delete",
+                            title: AppLocalization.text("common.delete"),
                             systemImageName: "trash",
                             titleColor: ComposerPhotoActionsLayout.destructiveColor,
                             iconColor: AppTheme.textPrimary,
@@ -2542,7 +2542,7 @@ private struct ComposerPhotoActionsView: View {
                         )
 
                         ComposerPhotoActionRow(
-                            title: "Replace",
+                            title: AppLocalization.text("common.replace"),
                             systemImageName: "arrow.triangle.2.circlepath",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2553,7 +2553,7 @@ private struct ComposerPhotoActionsView: View {
 
                     ComposerPhotoActionsSection {
                         ComposerPhotoActionRow(
-                            title: "Caption",
+                            title: AppLocalization.text("composer.action.caption"),
                             systemImageName: "line.3.horizontal",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2562,7 +2562,7 @@ private struct ComposerPhotoActionsView: View {
                         )
 
                         ComposerPhotoActionRow(
-                            title: "Copyright text",
+                            title: AppLocalization.text("composer.action.copyrightText"),
                             systemImageName: "c.circle",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2581,7 +2581,7 @@ private struct ComposerPhotoActionsView: View {
     private var header: some View {
         VStack(spacing: 0) {
             ZStack {
-                Text("Actions")
+                Text(AppLocalization.text("composer.actions.title"))
                     .font(.system(size: 18, weight: .bold))
                     .foregroundStyle(ComposerPhotoActionsLayout.titleColor)
 
@@ -2590,7 +2590,7 @@ private struct ComposerPhotoActionsView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: ComposerPhotoActionsLayout.backIconSize, weight: .semibold))
-                            Text("Back")
+                            Text(AppLocalization.text("common.back"))
                                 .font(.system(size: 17, weight: .regular))
                         }
                         .foregroundStyle(ComposerPhotoActionsLayout.accentColor)
@@ -2626,7 +2626,7 @@ private struct ComposerFileMediaActionsView: View {
                 VStack(spacing: ComposerPhotoActionsLayout.sectionSpacing) {
                     ComposerPhotoActionsSection {
                         ComposerPhotoActionRow(
-                            title: "Delete",
+                            title: AppLocalization.text("common.delete"),
                             systemImageName: "trash",
                             titleColor: ComposerPhotoActionsLayout.destructiveColor,
                             iconColor: AppTheme.textPrimary,
@@ -2635,7 +2635,7 @@ private struct ComposerFileMediaActionsView: View {
                         )
 
                         ComposerPhotoActionRow(
-                            title: "Replace",
+                            title: AppLocalization.text("common.replace"),
                             systemImageName: "arrow.triangle.2.circlepath",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2646,7 +2646,7 @@ private struct ComposerFileMediaActionsView: View {
 
                     ComposerPhotoActionsSection {
                         ComposerPhotoActionRow(
-                            title: "Caption",
+                            title: AppLocalization.text("composer.action.caption"),
                             systemImageName: "line.3.horizontal",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2655,7 +2655,7 @@ private struct ComposerFileMediaActionsView: View {
                         )
 
                         ComposerPhotoActionRow(
-                            title: "Teaser image",
+                            title: AppLocalization.text("composer.action.teaserImage"),
                             systemImageName: "photo",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2674,7 +2674,7 @@ private struct ComposerFileMediaActionsView: View {
     private var header: some View {
         VStack(spacing: 0) {
             ZStack {
-                Text("Actions")
+                Text(AppLocalization.text("composer.actions.title"))
                     .font(.system(size: 18, weight: .bold))
                     .foregroundStyle(ComposerPhotoActionsLayout.titleColor)
 
@@ -2683,7 +2683,7 @@ private struct ComposerFileMediaActionsView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: ComposerPhotoActionsLayout.backIconSize, weight: .semibold))
-                            Text("Back")
+                            Text(AppLocalization.text("common.back"))
                                 .font(.system(size: 17, weight: .regular))
                         }
                         .foregroundStyle(ComposerPhotoActionsLayout.accentColor)
@@ -2718,7 +2718,7 @@ private struct ComposerTeaserImageActionsView: View {
                 VStack(spacing: ComposerPhotoActionsLayout.sectionSpacing) {
                     ComposerPhotoActionsSection {
                         ComposerPhotoActionRow(
-                            title: "Delete",
+                            title: AppLocalization.text("common.delete"),
                             systemImageName: "trash",
                             titleColor: ComposerPhotoActionsLayout.destructiveColor,
                             iconColor: AppTheme.textPrimary,
@@ -2727,7 +2727,7 @@ private struct ComposerTeaserImageActionsView: View {
                         )
 
                         ComposerPhotoActionRow(
-                            title: "Replace",
+                            title: AppLocalization.text("common.replace"),
                             systemImageName: "arrow.triangle.2.circlepath",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2738,7 +2738,7 @@ private struct ComposerTeaserImageActionsView: View {
 
                     ComposerPhotoActionsSection {
                         ComposerPhotoActionRow(
-                            title: "Copyright text",
+                            title: AppLocalization.text("composer.action.copyrightText"),
                             systemImageName: "c.circle",
                             titleColor: AppTheme.textPrimary,
                             iconColor: ComposerPhotoActionsLayout.iconColor,
@@ -2757,7 +2757,7 @@ private struct ComposerTeaserImageActionsView: View {
     private var header: some View {
         VStack(spacing: 0) {
             ZStack {
-                Text("Actions")
+                Text(AppLocalization.text("composer.actions.title"))
                     .font(.system(size: 18, weight: .bold))
                     .foregroundStyle(ComposerPhotoActionsLayout.titleColor)
 
@@ -2766,7 +2766,7 @@ private struct ComposerTeaserImageActionsView: View {
                         HStack(spacing: 6) {
                             Image(systemName: "chevron.left")
                                 .font(.system(size: ComposerPhotoActionsLayout.backIconSize, weight: .semibold))
-                            Text("Back")
+                            Text(AppLocalization.text("common.back"))
                                 .font(.system(size: 17, weight: .regular))
                         }
                         .foregroundStyle(ComposerPhotoActionsLayout.accentColor)
@@ -3018,7 +3018,7 @@ private struct SharedCardComposerToolbarView: View {
             Spacer(minLength: 0)
 
             Button(action: onPublish) {
-                Text("Publish")
+                Text(AppLocalization.text("common.publish"))
                     .font(AppTypography.bodySemibold)
                     .foregroundStyle(Color.white)
                     .frame(width: 95, height: 38)

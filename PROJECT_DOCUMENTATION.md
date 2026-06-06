@@ -141,6 +141,7 @@ Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HE
 - `./Packages/AppShareExtensionSupport`
 - `./Packages/AppCache`
 - `./Packages/AppErrors`
+- `./Packages/AppGlassUI`
 - `./Packages/AppOnDeviceAI`
 - `./Packages/TchopProductLocalizationResources` for TchopApp product strings only
 

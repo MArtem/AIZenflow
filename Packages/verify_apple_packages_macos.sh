@@ -25,6 +25,7 @@ AppAppleAuthentication
 AppShareExtensionSupport
 AppOnDeviceAI
 AppBranding
+AppGlassUI
 AppDatabase
 AppAnalytics
 AppSync

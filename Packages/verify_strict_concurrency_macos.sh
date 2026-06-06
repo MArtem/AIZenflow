@@ -37,6 +37,7 @@ AppNavigation
 AppAppleAuthentication
 AppShareExtensionSupport
 AppBranding
+AppGlassUI
 AppDatabase
 AppSync
 "

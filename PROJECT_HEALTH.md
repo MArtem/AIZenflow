@@ -96,6 +96,17 @@ Owns:
 Must not know about:
 - app copy itself
 
+### `AppGlassUI`
+Use for:
+- SwiftUI Liquid Glass availability checks
+- glass chrome fallback mechanics
+- reusable shape-based glass styling helpers
+
+App keeps:
+- semantic color tokens
+- product-specific visual roles
+- screen layout and interaction decisions
+
 ### `AppBranding`
 Owns:
 - target-driven branding

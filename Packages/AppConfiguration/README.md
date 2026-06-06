@@ -66,3 +66,8 @@ sanitized compatibility code; prefer `lastFailure` for new integrations.
 
 After a successful remote refresh, the active failure descriptor is cleared while historical
 `lastFailedFetchAt` can remain available for diagnostics.
+
+
+## Usage guide
+
+See `./USAGE.md` for package/app boundary rules and host integration guidance.

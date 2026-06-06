@@ -52,3 +52,8 @@ Copy modes:
 ```
 
 Copy it into the app/integration target only when both `TchopProductLocalizationResources` and `AppLocalization` are present.
+
+
+## Usage guide
+
+See `./USAGE.md` for package/app boundary rules and host integration guidance.

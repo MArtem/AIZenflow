@@ -51,3 +51,8 @@ Networking-specific error mapping intentionally does **not** live inside this pa
 ```
 
 Copy it into the app/integration target only when both `AppErrors` and `AppNetworking` are present.
+
+
+## Usage guide
+
+See `./USAGE.md` for package/app boundary rules and host integration guidance.

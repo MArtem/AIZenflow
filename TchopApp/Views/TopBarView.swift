@@ -1,4 +1,5 @@
 import SwiftUI
+import AppGlassUI
 
 /// Reusable top bar with menu trigger and channel metadata.
 struct TopBarView: View {

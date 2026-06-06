@@ -109,6 +109,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
+- `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 
