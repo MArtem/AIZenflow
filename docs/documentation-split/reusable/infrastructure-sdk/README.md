@@ -54,9 +54,9 @@ Catalog/SDK_PACKAGE_ROADMAP_50.md
 ```text
 Iteration: 00
 Status: SDK standard/template created
-Production packages added in this baseline: 1
-Latest production package: AppSecureStorage
-Next iteration: AppSession
+Production packages added in this baseline: 2
+Latest production package: AppFeatureFlags
+Next planned iteration: AppSession or another user-approved infrastructure package
 ```
 
 
@@ -79,5 +79,14 @@ Multi-target packages are allowed when the targets are inside the same package f
 `./Packages/AppSecureStorage` was adopted as the secure-storage runtime package after additional local hardening:
 
 - Keychain writes now prefer an in-place update for existing values and reserve delete/add for synchronizable-scope changes.
+- Package verification fails if compiler warnings are emitted.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 03 note
+
+`./Packages/AppFeatureFlags` was adopted as the feature-flag runtime package after additional local hardening:
+
+- Snapshot validation rejects empty keys, dictionary/payload key mismatch, and invalid rollout percentages.
+- UserDefaults-backed snapshot and override stores were added so the package is useful without a sibling configuration package.
 - Package verification fails if compiler warnings are emitted.
 - The package is indexed in the active package inventory and root package verification scripts.

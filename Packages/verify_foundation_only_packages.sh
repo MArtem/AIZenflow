@@ -25,6 +25,7 @@ AppAnalytics
 TchopProductLocalizationResources
 AppOnDeviceAI
 AppSecureStorage
+AppFeatureFlags
 "
 
 for package in $packages; do

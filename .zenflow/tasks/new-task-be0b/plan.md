@@ -754,6 +754,18 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - intentionally did not replace `./TchopApp/Services/UserSessionService.swift` token storage in this block: the correct migration requires changing the app token-store contract to async and updating app tests, while the current task rule still forbids touching `./TchopAppTests` without explicit permission. The app-local Keychain token store is now documented as legacy/new-direct-Keychain-stoplist material until that migration is explicitly opened.
 - Verification: `./Packages/AppSecureStorage/Scripts/verify_package.sh` succeeded with 18 XCTest tests and strict-concurrency package build; `./Packages/verify_single_folder_standalone.sh` succeeded; `./Packages/verify_foundation_only_packages.sh` succeeded including `AppSecureStorage`; `./Packages/verify_strict_concurrency_macos.sh` succeeded including Apple-only packages and integration helpers; `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `git diff --check` succeeded. No app build was run because the app target/project file was not changed.
 
+
+
+- Completed now: reviewed and adopted `InfrastructureSDK_Iteration03_fixed_v2.zip` as the standalone feature-flag package baseline:
+  - added `./Packages/AppFeatureFlags` as a 100% single-folder standalone package with `Package.swift`, README, package contract, source-owned DocC, package-owned tests, and package-local verification.
+  - hardened the imported package before adoption: added snapshot validation for empty keys, dictionary/payload key mismatch, and invalid rollout percentages instead of silent clamping.
+  - added UserDefaults-backed snapshot and override stores so the package is useful as a standalone app package without depending on a sibling configuration package.
+  - hardened package verification so `./Packages/AppFeatureFlags/Scripts/verify_package.sh` fails on emitted compiler warnings/errors.
+  - fixed a strict-concurrency test warning by adding suite-name initializers for UserDefaults-backed stores and avoiding cross-actor transfer of a non-sendable `UserDefaults` instance in tests.
+  - indexed `AppFeatureFlags` in root package docs and verification scripts, plus active package ownership/usage docs (`./PROJECT_DOCUMENTATION.md`, `./PROJECT_HEALTH.md`, `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, `./docs/README.md`, and reusable SDK status docs).
+  - no current TchopApp runtime replacement was needed in this block because the app has no active generic feature-flag evaluator; future feature gating should use this package rather than new app-local flag mechanics.
+- Verification: `./Packages/AppFeatureFlags/Scripts/verify_package.sh` succeeded with 26 XCTest tests and strict-concurrency package build; `./Packages/verify_single_folder_standalone.sh` succeeded; `./Packages/verify_foundation_only_packages.sh` succeeded including `AppFeatureFlags`; targeted strict-concurrency package test for `./Packages/AppFeatureFlags` succeeded with warning grep clean; `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `git diff --check` succeeded. No app build was run because app target/project/runtime code was not changed.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.

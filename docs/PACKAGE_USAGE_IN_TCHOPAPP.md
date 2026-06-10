@@ -59,6 +59,11 @@ Available as the reusable secure-storage mechanism for small secrets, including 
 
 App keeps auth/session key names, token refresh behavior, logout policy, and migration choices. Direct Keychain usage in app code should be treated as legacy until it is migrated through this package with test coverage.
 
+### `AppFeatureFlags`
+Available as the reusable feature-flag mechanism for future gated features, kill switches, local QA overrides, and staged rollout evaluation.
+
+App keeps product flag names, remote configuration fetching, rollout ownership/cleanup, and telemetry policy. Direct app-local flag evaluators should not be introduced while this package exists.
+
 ### `AppNavigation`
 Used by coordinator/deep-link/root-tab code for generic navigation primitives and snapshot contracts.
 
@@ -96,6 +101,7 @@ Do not reintroduce these app-local mechanics if an active package already owns t
 - generic app-group JSON handoff outside `AppShareExtensionSupport`;
 - generic APNs state/payload parsing outside `AppPushNotifications`;
 - new direct Keychain secret storage outside `AppSecureStorage`;
+- app-local generic feature flag evaluators outside `AppFeatureFlags`;
 - generic route/snapshot primitives outside `AppNavigation`.
 
 ## Verification after package usage changes

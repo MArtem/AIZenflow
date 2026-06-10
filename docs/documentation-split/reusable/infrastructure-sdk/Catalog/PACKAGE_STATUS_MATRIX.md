@@ -5,7 +5,7 @@
 | 0 | SDK Standard / Package Template | Complete | This archive |
 | 1 | AppSecureStorage | Complete | Adopted in `./Packages/AppSecureStorage`; standalone, documented, package-tested |
 | 2 | AppSession | Planned | Depends conceptually on secure storage, but must remain standalone |
-| 3 | AppFeatureFlags | Planned | Mechanism-only |
+| 3 | AppFeatureFlags | Complete | Adopted in `./Packages/AppFeatureFlags`; standalone, documented, package-tested |
 | 4 | AppLogging | Planned | Privacy-first structured logging |
 | 5 | AppObservability | Planned | Spans, breadcrumbs, correlation IDs |
 | 6 | AppConnectivity | Planned | Network reachability/connectivity state |

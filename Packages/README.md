@@ -27,6 +27,7 @@ Root packages must not depend on sibling packages via `.package(path: "../...")`
 - `./Packages/AppConfiguration`
 - `./Packages/AppDatabase`
 - `./Packages/AppErrors`
+- `./Packages/AppFeatureFlags`
 - `./Packages/AppLocalization`
 - `./Packages/AppNavigation`
 - `./Packages/AppNetworking`

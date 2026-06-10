@@ -182,6 +182,19 @@ App keeps:
 - migration from old app-local token stores
 - user-facing auth error mapping
 
+### `AppFeatureFlags`
+Use for:
+- product-neutral feature flag evaluation
+- local overrides and persisted snapshot/override stores
+- percentage rollout and weighted variant bucketing
+- validating snapshots before app runtime activation
+
+App keeps:
+- concrete product flag names
+- remote config/network fetch policy
+- rollout ownership and cleanup dates
+- analytics and telemetry decisions for flag exposure
+
 ### `AppAnalytics`
 Use for:
 - reusable analytics/event primitives

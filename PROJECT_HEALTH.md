@@ -148,6 +148,19 @@ Must not know about:
 - token refresh/logout behavior
 - product localization or analytics routing
 
+### `AppFeatureFlags`
+Owns:
+- product-neutral feature flag keys, values, snapshots, and evaluation
+- local overrides and UserDefaults-backed persistence
+- percentage rollout and weighted variant bucketing
+- snapshot validation before runtime activation
+
+Must not know about:
+- product-specific flag names
+- remote configuration fetch policy
+- analytics exposure of flag values
+- app release/rollout decisions
+
 ### `AppAnalytics`
 Owns:
 - reusable analytics/event primitives

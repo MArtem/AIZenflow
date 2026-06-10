@@ -27,6 +27,7 @@ AppErrors
 AppAnalytics
 AppOnDeviceAI
 AppSecureStorage
+AppFeatureFlags
 TchopProductLocalizationResources
 "
 
