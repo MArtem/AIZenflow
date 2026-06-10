@@ -110,6 +110,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
+- `./Packages/SDKCreation/README.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 
@@ -129,6 +130,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/documentation-split/reusable/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md`
 - `./docs/documentation-split/reusable/EXTERNAL_SKILL_DEPENDENCIES.md`
 - `./docs/documentation-split/reusable/TRANSFER_CHECKLIST.md`
+- `./docs/documentation-split/reusable/infrastructure-sdk/README.md`
 - `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh`
 
 ### Task Docs

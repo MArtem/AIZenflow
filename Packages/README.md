@@ -39,6 +39,10 @@ Root packages must not depend on sibling packages via `.package(path: "../...")`
 
 `./Packages/TchopProductLocalizationResources` is standalone but product-specific; copy it only with TchopApp product strings.
 
+## SDK Creation Baseline
+
+`./Packages/SDKCreation` contains the reusable documentation, templates, and verification scripts for creating future standalone infrastructure packages. It is not a runtime package and must not be linked into app targets. Use it when creating new root packages or integration helpers.
+
 ## Integration Helpers
 
 Optional helper packages and copy-in source files live under `./Packages/IntegrationHelpers`. They compose multiple root packages while preserving root-package standalone portability.

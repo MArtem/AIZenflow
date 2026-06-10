@@ -168,3 +168,5 @@ When a new task/project is created, copy this group first, then replace placehol
 
 - `./docs/documentation-split/reusable/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md` — neutral package promotion rules for transferring reusable infrastructure into another project.
 - `./docs/documentation-split/reusable/templates/AppInfrastructurePackage.swift.template` — neutral SwiftPM package template with package-level tests.
+
+- `./infrastructure-sdk/README.md` — reusable SDK/package creation baseline, templates, catalog, policies, and verification scripts.

@@ -35,6 +35,10 @@ if [[ -d "${BASELINE_ROOT}/templates" ]]; then
   mkdir -p "${TARGET_ROOT}/docs/reusable-baseline/templates"
   rsync -a "${BASELINE_ROOT}/templates/" "${TARGET_ROOT}/docs/reusable-baseline/templates/"
 fi
+if [[ -d "${BASELINE_ROOT}/infrastructure-sdk" ]]; then
+  mkdir -p "${TARGET_ROOT}/docs/reusable-baseline/infrastructure-sdk"
+  rsync -a "${BASELINE_ROOT}/infrastructure-sdk/" "${TARGET_ROOT}/docs/reusable-baseline/infrastructure-sdk/"
+fi
 cp "${BASELINE_ROOT}/REUSABLE_USER_AND_AGENT_RULES.md" "${TARGET_ROOT}/docs/reusable-baseline/"
 cp "${BASELINE_ROOT}/NEW_PROJECT_PORTING_GUIDE.md" "${TARGET_ROOT}/docs/reusable-baseline/"
 if [[ -f "${BASELINE_ROOT}/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md" ]]; then

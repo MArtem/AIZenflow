@@ -72,3 +72,7 @@ When reusable non-app-specific documentation, prompts, scripts, skills, template
 ```
 
 This refreshes generic docs, scripts, skill snapshots, and `./docs/reusable-baseline/` contents in the target project. Existing project-specific root files are not blindly overwritten; update them explicitly when a global rule must become active in that project.
+
+## Infrastructure SDK Creation Baseline
+- [ ] Copy `./docs/documentation-split/reusable/infrastructure-sdk/` into the target project under `./docs/reusable-baseline/infrastructure-sdk/`.
+- [ ] Use the package template only after filling `PackageContract.md`; do not create speculative packages for symmetry.

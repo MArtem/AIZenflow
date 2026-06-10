@@ -729,6 +729,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated package docs/DocC/usage docs plus MVVMExample project docs and local task plan.
 - MVVMExample verification: each package `Scripts/verify_package.sh` succeeded with no warning/error grep hits; `python3 ./scripts/check_docs_index.py`, `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `git diff --check`, standalone manifest grep, and `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded with no warning/error grep hits.
 
+
+- Completed now: read-only reviewed and adopted `InfrastructureSDK_Iteration00.zip` documentation/template baseline:
+  - verified archive hygiene, single-folder structural script behavior, package template smoke generation, integration-helper template smoke generation, and forbidden-content scan in `/tmp/infrastructure-sdk-iteration00-review`.
+  - adopted the baseline under `./Packages/SDKCreation` for current package authoring and under `./docs/documentation-split/reusable/infrastructure-sdk` for future project transfer.
+  - hardened the imported baseline before adoption: source-owned DocC paths, temporary SwiftPM build paths, generated-state cleanup, Swift identifier validation, stronger package-structure checks, unresolved-placeholder checks, and failing forbidden-content scan.
+  - updated `./Packages/README.md`, `./docs/README.md`, reusable manifest, transfer checklist, and reusable installer so the package creation baseline is indexed and transferred.
+- Verification: `./Packages/SDKCreation` template smoke checks succeeded before adoption; post-adoption checks succeeded: archive hygiene, forbidden-content scan, SDKCreation standalone structural gate across current packages, current package standalone gate, docs index, iOS production framework validation, and `git diff --check`.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.

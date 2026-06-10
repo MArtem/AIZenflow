@@ -1,0 +1,16 @@
+import XCTest
+@testable import {{PackageName}}
+
+final class {{PackageName}}Tests: XCTestCase {
+    func test_noopManager_reportsUnavailable() async {
+        let manager = Noop{{PackageName}}Manager()
+
+        let status = await manager.healthCheck()
+
+        XCTAssertFalse(status.isAvailable)
+    }
+
+    func test_packageInfo_exposesPackageName() {
+        XCTAssertEqual({{PackageName}}Info.packageName, "{{PackageName}}")
+    }
+}
