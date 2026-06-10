@@ -169,6 +169,19 @@ Use for:
 App keeps:
 - app-specific routing after payload interpretation
 
+### `AppSecureStorage`
+Use for:
+- product-neutral async secure storage contracts
+- Keychain-backed small-secret storage on Apple platforms
+- actor-backed in-memory storage for tests, previews, and unsigned simulator fallback
+- sanitized secure-storage errors and key/value validation
+
+App keeps:
+- concrete auth/session key taxonomy
+- token refresh and logout policy
+- migration from old app-local token stores
+- user-facing auth error mapping
+
 ### `AppAnalytics`
 Use for:
 - reusable analytics/event primitives

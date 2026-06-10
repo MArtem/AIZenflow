@@ -135,6 +135,19 @@ Owns:
 - payload parsing
 - persistent push state
 
+### `AppSecureStorage`
+Owns:
+- product-neutral secure storage contracts
+- Keychain-backed storage on Apple platforms
+- actor-backed in-memory secure storage for tests/previews
+- key validation, value-size limits, and sanitized secure-storage errors
+
+Must not know about:
+- app auth/session policy
+- app-specific token key names
+- token refresh/logout behavior
+- product localization or analytics routing
+
 ### `AppAnalytics`
 Owns:
 - reusable analytics/event primitives

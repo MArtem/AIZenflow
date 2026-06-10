@@ -30,6 +30,7 @@ root_packages = [
     "AppNetworking",
     "AppOnDeviceAI",
     "AppPushNotifications",
+    "AppSecureStorage",
     "AppShareExtensionSupport",
     "AppSync",
     "AppWidgetSupport",

@@ -24,6 +24,7 @@ AppErrors
 AppAnalytics
 TchopProductLocalizationResources
 AppOnDeviceAI
+AppSecureStorage
 "
 
 for package in $packages; do

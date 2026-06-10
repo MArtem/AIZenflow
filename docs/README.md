@@ -111,6 +111,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
 - `./Packages/SDKCreation/README.md`
+- `./Packages/AppSecureStorage/README.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 

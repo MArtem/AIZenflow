@@ -2,7 +2,7 @@
 
 This archive is the **baseline standard** for building a large set of app-independent iOS infrastructure packages.
 
-Iteration 00 does not add production runtime packages yet. It creates the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow.
+Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. Iteration 01 has now added `AppSecureStorage` as the first production runtime package.
 
 ## Goal
 
@@ -54,8 +54,9 @@ Catalog/SDK_PACKAGE_ROADMAP_50.md
 ```text
 Iteration: 00
 Status: SDK standard/template created
-Production packages added in this iteration: 0
-Next iteration: AppSecureStorage
+Production packages added in this baseline: 1
+Latest production package: AppSecureStorage
+Next iteration: AppSession
 ```
 
 
@@ -72,3 +73,11 @@ This baseline was adopted from `InfrastructureSDK_Iteration00.zip` and hardened 
 ## Multi-target note
 
 Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The standalone verifier requires at least one source target, at least one test target, and source-owned DocC, but it does not require every package to have exactly one target named after the package.
+
+## Iteration 01 note
+
+`./Packages/AppSecureStorage` was adopted as the secure-storage runtime package after additional local hardening:
+
+- Keychain writes now prefer an in-place update for existing values and reserve delete/add for synchronizable-scope changes.
+- Package verification fails if compiler warnings are emitted.
+- The package is indexed in the active package inventory and root package verification scripts.

@@ -744,6 +744,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - no current app/package code was changed and no `AppSecureStorage` package was added to `./Packages`.
 - Verification: archive-only package verification failed as expected; current worktree was not modified except this task-plan review note.
 
+
+
+- Completed now: reviewed and adopted `InfrastructureSDK_Iteration01_fixed_v2.zip` as the new standalone secure-storage package baseline:
+  - added `./Packages/AppSecureStorage` as a 100% single-folder standalone package with `Package.swift`, README, package contract, source-owned DocC, package-owned tests, and package-local verification script.
+  - hardened the imported Keychain implementation before adoption: removed the remaining compiler warning, changed replacement saves to prefer non-destructive in-place `SecItemUpdate` for existing values, and reserved delete/add for synchronizable-scope fallback cases.
+  - hardened `./Packages/AppSecureStorage/Scripts/verify_package.sh` so package verification fails on emitted compiler warnings/errors, not only test failures.
+  - indexed `AppSecureStorage` in root package docs and verification scripts, plus active package ownership/usage docs (`./PROJECT_DOCUMENTATION.md`, `./PROJECT_HEALTH.md`, `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, `./docs/README.md`, and reusable SDK status docs).
+  - intentionally did not replace `./TchopApp/Services/UserSessionService.swift` token storage in this block: the correct migration requires changing the app token-store contract to async and updating app tests, while the current task rule still forbids touching `./TchopAppTests` without explicit permission. The app-local Keychain token store is now documented as legacy/new-direct-Keychain-stoplist material until that migration is explicitly opened.
+- Verification: `./Packages/AppSecureStorage/Scripts/verify_package.sh` succeeded with 18 XCTest tests and strict-concurrency package build; `./Packages/verify_single_folder_standalone.sh` succeeded; `./Packages/verify_foundation_only_packages.sh` succeeded including `AppSecureStorage`; `./Packages/verify_strict_concurrency_macos.sh` succeeded including Apple-only packages and integration helpers; `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `git diff --check` succeeded. No app build was run because the app target/project file was not changed.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.

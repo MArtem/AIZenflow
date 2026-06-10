@@ -3,7 +3,7 @@
 | Iteration | Package | Status | Notes |
 |---:|---|---|---|
 | 0 | SDK Standard / Package Template | Complete | This archive |
-| 1 | AppSecureStorage | Planned | Next |
+| 1 | AppSecureStorage | Complete | Adopted in `./Packages/AppSecureStorage`; standalone, documented, package-tested |
 | 2 | AppSession | Planned | Depends conceptually on secure storage, but must remain standalone |
 | 3 | AppFeatureFlags | Planned | Mechanism-only |
 | 4 | AppLogging | Planned | Privacy-first structured logging |

@@ -32,6 +32,7 @@ Root packages must not depend on sibling packages via `.package(path: "../...")`
 - `./Packages/AppNetworking`
 - `./Packages/AppOnDeviceAI`
 - `./Packages/AppPushNotifications`
+- `./Packages/AppSecureStorage`
 - `./Packages/AppShareExtensionSupport`
 - `./Packages/AppSync`
 - `./Packages/AppWidgetSupport`

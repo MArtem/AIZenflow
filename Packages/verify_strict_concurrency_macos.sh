@@ -26,6 +26,7 @@ AppNetworking
 AppErrors
 AppAnalytics
 AppOnDeviceAI
+AppSecureStorage
 TchopProductLocalizationResources
 "
 

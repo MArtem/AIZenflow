@@ -135,6 +135,7 @@ Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HE
 - `./Packages/AppBranding`
 - `./Packages/AppWidgetSupport`
 - `./Packages/AppPushNotifications`
+- `./Packages/AppSecureStorage`
 - `./Packages/AppAnalytics`
 - `./Packages/AppConfiguration`
 - `./Packages/AppAppleAuthentication`

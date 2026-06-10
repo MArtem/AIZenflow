@@ -54,6 +54,11 @@ Used by application delegate and bridge for APNs registration/payload mechanics.
 
 App keeps route handling, session requirements, and product-specific push behavior.
 
+### `AppSecureStorage`
+Available as the reusable secure-storage mechanism for small secrets, including future token/session storage refactors.
+
+App keeps auth/session key names, token refresh behavior, logout policy, and migration choices. Direct Keychain usage in app code should be treated as legacy until it is migrated through this package with test coverage.
+
 ### `AppNavigation`
 Used by coordinator/deep-link/root-tab code for generic navigation primitives and snapshot contracts.
 
@@ -90,6 +95,7 @@ Do not reintroduce these app-local mechanics if an active package already owns t
 - generic widget snapshot storage outside `AppWidgetSupport`;
 - generic app-group JSON handoff outside `AppShareExtensionSupport`;
 - generic APNs state/payload parsing outside `AppPushNotifications`;
+- new direct Keychain secret storage outside `AppSecureStorage`;
 - generic route/snapshot primitives outside `AppNavigation`.
 
 ## Verification after package usage changes
