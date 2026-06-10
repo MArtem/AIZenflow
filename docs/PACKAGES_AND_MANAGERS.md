@@ -195,6 +195,19 @@ App keeps:
 - rollout ownership and cleanup dates
 - analytics and telemetry decisions for flag exposure
 
+### `AppLogging`
+Use for:
+- product-neutral structured log events
+- privacy-aware metadata redaction
+- no-op, memory, console, multiplex, redacting, and OSLog-backed logging
+- package-safe logger surfaces for optional integration helpers
+
+App keeps:
+- product-specific log taxonomy and subsystem names
+- decisions about when/where to log
+- crash/analytics/observability export policy
+- user/session/domain metadata classification
+
 ### `AppAnalytics`
 Use for:
 - reusable analytics/event primitives

@@ -54,8 +54,8 @@ Catalog/SDK_PACKAGE_ROADMAP_50.md
 ```text
 Iteration: 00
 Status: SDK standard/template created
-Production packages added in this baseline: 2
-Latest production package: AppFeatureFlags
+Production packages added in this baseline: 3
+Latest production package: AppLogging
 Next planned iteration: AppSession or another user-approved infrastructure package
 ```
 
@@ -89,4 +89,13 @@ Multi-target packages are allowed when the targets are inside the same package f
 - Snapshot validation rejects empty keys, dictionary/payload key mismatch, and invalid rollout percentages.
 - UserDefaults-backed snapshot and override stores were added so the package is useful without a sibling configuration package.
 - Package verification fails if compiler warnings are emitted.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 04 note
+
+`./Packages/AppLogging` was adopted as the structured logging package after additional local hardening:
+
+- Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
+- Package verification fails if compiler warnings are emitted.
+- Documentation now clarifies that `NoopLogger` is the safe default, `MemoryLogger` is primarily for tests/local diagnostics, and public messages require explicit host-app privacy classification.
 - The package is indexed in the active package inventory and root package verification scripts.

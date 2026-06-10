@@ -64,6 +64,11 @@ Available as the reusable feature-flag mechanism for future gated features, kill
 
 App keeps product flag names, remote configuration fetching, rollout ownership/cleanup, and telemetry policy. Direct app-local flag evaluators should not be introduced while this package exists.
 
+### `AppLogging`
+Available as the reusable structured logging mechanism for future package/app logging integration.
+
+App keeps product log taxonomy, final privacy classification of domain metadata, and any crash/analytics/observability export policy. New generic logging helpers should use this package instead of direct `print` or app-local logger wrappers.
+
 ### `AppNavigation`
 Used by coordinator/deep-link/root-tab code for generic navigation primitives and snapshot contracts.
 
@@ -102,6 +107,7 @@ Do not reintroduce these app-local mechanics if an active package already owns t
 - generic APNs state/payload parsing outside `AppPushNotifications`;
 - new direct Keychain secret storage outside `AppSecureStorage`;
 - app-local generic feature flag evaluators outside `AppFeatureFlags`;
+- direct `print`/ad-hoc generic logger wrappers where `AppLogging` fits;
 - generic route/snapshot primitives outside `AppNavigation`.
 
 ## Verification after package usage changes

@@ -26,6 +26,7 @@ TchopProductLocalizationResources
 AppOnDeviceAI
 AppSecureStorage
 AppFeatureFlags
+AppLogging
 "
 
 for package in $packages; do

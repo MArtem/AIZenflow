@@ -161,6 +161,19 @@ Must not know about:
 - analytics exposure of flag values
 - app release/rollout decisions
 
+### `AppLogging`
+Owns:
+- product-neutral structured logging primitives
+- privacy classification, metadata redaction, and safe formatting
+- no-op, memory, console, multiplex, redacting, and OSLog-backed logger implementations
+- package-level logging tests and strict-concurrency verification
+
+Must not know about:
+- app-specific log domains or event taxonomy
+- analytics/crash/observability transport
+- networking request/response models
+- product-specific user/session fields
+
 ### `AppAnalytics`
 Owns:
 - reusable analytics/event primitives
