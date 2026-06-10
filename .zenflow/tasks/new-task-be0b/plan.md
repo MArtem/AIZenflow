@@ -737,6 +737,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated `./Packages/README.md`, `./docs/README.md`, reusable manifest, transfer checklist, and reusable installer so the package creation baseline is indexed and transferred.
 - Verification: `./Packages/SDKCreation` template smoke checks succeeded before adoption; post-adoption checks succeeded: archive hygiene, forbidden-content scan, SDKCreation standalone structural gate across current packages, current package standalone gate, docs index, iOS production framework validation, and `git diff --check`.
 
+
+- Completed now: read-only reviewed `InfrastructureSDK_Iteration01_hardened.zip` and did not adopt it because the package is not currently production-acceptable:
+  - archive package `AppSecureStorage` failed its own `./Scripts/verify_package.sh` on macOS/Xcode with a Swift compile error in `KeychainSecureStorage.keys()` (`SecureStorageKey.init` ambiguity) and a compiler warning for an unused mutable `query`.
+  - additional review blockers found before integration: Keychain SecItem operations run synchronously inside `async` methods on the caller executor, synchronizable per-save options are not consistently readable/removable unless `defaultSynchronizable` matches, requested local-auth access control can silently fall back to non-authenticated storage if `SecAccessControlCreateWithFlags` fails, and key diagnostics expose stable hashes of raw key names.
+  - no current app/package code was changed and no `AppSecureStorage` package was added to `./Packages`.
+- Verification: archive-only package verification failed as expected; current worktree was not modified except this task-plan review note.
+
 ## Verification Status
 - Latest verification succeeded with `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, full `xcodebuild ... test` for `./TchopApp.xcodeproj`/`TchopApp`, targeted `NewsFeedViewModelTests`, targeted P0 UI tests for composer publish and feed scroll/FAB behavior, and `swift test` in `./Packages/TchopInfrastructure`.
 - Package tests currently pass with 64 XCTest tests and 37 Swift Testing tests.
