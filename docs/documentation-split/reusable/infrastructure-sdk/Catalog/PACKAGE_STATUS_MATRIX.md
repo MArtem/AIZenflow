@@ -8,7 +8,7 @@
 | 3 | AppFeatureFlags | Complete | Adopted in `./Packages/AppFeatureFlags`; standalone, documented, package-tested |
 | 4 | AppLogging | Complete | Adopted in `./Packages/AppLogging`; standalone, documented, package-tested |
 | 5 | AppObservability | Complete | Adopted in `./Packages/AppObservability`; standalone, documented, package-tested |
-| 6 | AppConnectivity | Planned | Network reachability/connectivity state |
+| 6 | AppConnectivity | Complete | Adopted in `./Packages/AppConnectivity`; standalone, documented, package-tested |
 | 7 | AppPermissions | Planned | Permission state/request abstraction |
 | 8 | AppEnvironment | Planned | Environment/build/runtime info |
 | 9 | AppDeviceInfo | Planned | Device/system info |

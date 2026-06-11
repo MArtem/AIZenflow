@@ -188,6 +188,21 @@ Must not know about:
 - networking/session/sync payload details
 - product-specific user/session fields
 
+### `AppConnectivity`
+Owns:
+- product-neutral connectivity status, interface, cost, and constrained-network models
+- async connectivity snapshots and transition observation
+- manual/static monitors for tests and previews
+- native `Network.framework` path monitor behind platform availability guards
+- privacy-safe connectivity diagnostics
+
+Must not know about:
+- networking request execution or retry queues
+- sync/download/upload orchestration
+- app-specific offline UI or copy
+- analytics/logging/observability export policy
+- URLs, headers, tokens, SSIDs, carrier names, or user identifiers
+
 ### `AppAnalytics`
 Owns:
 - reusable analytics/event primitives

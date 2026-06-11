@@ -30,6 +30,7 @@ Root packages must not depend on sibling packages via `.package(path: "../...")`
 - `./Packages/AppFeatureFlags`
 - `./Packages/AppLogging`
 - `./Packages/AppObservability`
+- `./Packages/AppConnectivity`
 - `./Packages/AppLocalization`
 - `./Packages/AppNavigation`
 - `./Packages/AppNetworking`

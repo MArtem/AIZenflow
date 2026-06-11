@@ -74,6 +74,11 @@ Available as the reusable observability mechanism for future spans, breadcrumbs,
 
 App keeps product telemetry taxonomy, decisions about correlation ownership, and any export bridge to analytics, logging, or crash-reporting systems. New generic tracing/measurement helpers should use this package instead of introducing app-local observability primitives.
 
+### `AppConnectivity`
+Available as the reusable connectivity mechanism for future online/offline status, cost/constrained policy checks, transition observation, and privacy-safe connectivity diagnostics.
+
+App keeps product-specific offline UI/copy, retry/offline queue orchestration, sync/download/upload decisions, and telemetry/logging export adapters. New generic connectivity state helpers should use this package instead of app-local reachability wrappers.
+
 ### `AppNavigation`
 Used by coordinator/deep-link/root-tab code for generic navigation primitives and snapshot contracts.
 
@@ -114,6 +119,7 @@ Do not reintroduce these app-local mechanics if an active package already owns t
 - app-local generic feature flag evaluators outside `AppFeatureFlags`;
 - direct `print`/ad-hoc generic logger wrappers where `AppLogging` fits;
 - app-local generic observability/span/breadcrumb helpers where `AppObservability` fits;
+- app-local generic connectivity/reachability wrappers where `AppConnectivity` fits;
 - generic route/snapshot primitives outside `AppNavigation`.
 
 ## Verification after package usage changes

@@ -28,6 +28,7 @@ root_packages = [
     "AppGlassUI",
     "AppLogging",
     "AppObservability",
+    "AppConnectivity",
     "AppLocalization",
     "AppNavigation",
     "AppNetworking",

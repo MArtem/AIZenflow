@@ -2,7 +2,7 @@
 
 This archive is the **baseline standard** for building a large set of app-independent iOS infrastructure packages.
 
-Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. Iteration 01 has now added `AppSecureStorage` as the first production runtime package.
+Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. The current repository has since adopted production runtime packages through `./Packages/AppConnectivity`.
 
 ## Goal
 
@@ -54,9 +54,9 @@ Catalog/SDK_PACKAGE_ROADMAP_50.md
 ```text
 Iteration: 00
 Status: SDK standard/template created
-Production packages added in this baseline: 4
-Latest production package: AppObservability
-Next planned iteration: AppSession or another user-approved infrastructure package
+Production packages added in this baseline: 5
+Latest production package: AppConnectivity
+Next planned iteration: AppPermissions or another user-approved infrastructure package
 ```
 
 
@@ -110,4 +110,14 @@ Multi-target packages are allowed when the targets are inside the same package f
 - `ObservabilitySpan.end(...)` is single-shot so duplicate end calls do not emit duplicate events.
 - Package verification fails if compiler warnings are emitted and must not create package-local SwiftPM artifacts.
 - Documentation now clarifies privacy, cancellation, span lifecycle, and caller-owned correlation policy.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 06 note
+
+`./Packages/AppConnectivity` was adopted as the connectivity package after additional local hardening:
+
+- Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
+- Native `NetworkPathConnectivityMonitor.start()` is idempotent while active and `stop()` is documented as terminal because `NWPathMonitor` cancellation is terminal.
+- Package-owned tests cover native monitor start/stop idempotency on Apple platforms, manual/static monitors, transition streams, waiter behavior, cost policy, and privacy-safe diagnostics.
+- Package verification fails if compiler warnings are emitted and must not create package-local SwiftPM artifacts.
 - The package is indexed in the active package inventory and root package verification scripts.

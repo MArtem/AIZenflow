@@ -221,6 +221,19 @@ App keeps:
 - decisions about when to start/end spans and emit breadcrumbs
 - domain-specific attribute classification beyond the generic redaction baseline
 
+### `AppConnectivity`
+Use for:
+- product-neutral connectivity snapshots and transition observation
+- cost/constrained network policy checks
+- manual/static connectivity monitors in package tests/previews
+- privacy-safe connectivity diagnostics
+
+App keeps:
+- product-specific offline UI and copy
+- retry/offline queue orchestration decisions
+- sync/download/upload behavior
+- telemetry/logging export adapters
+
 ### `AppAnalytics`
 Use for:
 - reusable analytics/event primitives
@@ -267,6 +280,7 @@ The old `TchopInfrastructure` compatibility bundle has been retired from this wo
 - `AppConfiguration`
 - `AppLogging`
 - `AppObservability`
+- `AppConnectivity`
 - `AppAnalytics`
 - `AppCache`
 

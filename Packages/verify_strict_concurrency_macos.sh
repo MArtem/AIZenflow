@@ -30,6 +30,7 @@ AppSecureStorage
 AppFeatureFlags
 AppLogging
 AppObservability
+AppConnectivity
 TchopProductLocalizationResources
 "
 

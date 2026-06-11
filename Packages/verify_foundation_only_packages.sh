@@ -28,6 +28,7 @@ AppSecureStorage
 AppFeatureFlags
 AppLogging
 AppObservability
+AppConnectivity
 "
 
 for package in $packages; do

@@ -2,7 +2,7 @@
 
 This archive is the **baseline standard** for building a large set of app-independent iOS infrastructure packages.
 
-Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. The current repository has since adopted production runtime packages through `./Packages/AppObservability`.
+Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. The current repository has since adopted production runtime packages through `./Packages/AppConnectivity`.
 
 ## Goal
 
@@ -54,9 +54,9 @@ Catalog/SDK_PACKAGE_ROADMAP_50.md
 ```text
 Iteration: 00
 Status: SDK standard/template created
-Production packages adopted in this repository: 4
-Latest adopted production package: AppObservability
-Next planned iteration: AppSession or another user-approved infrastructure package
+Production packages adopted in this repository: 5
+Latest adopted production package: AppConnectivity
+Next planned iteration: AppPermissions or another user-approved infrastructure package
 ```
 
 
