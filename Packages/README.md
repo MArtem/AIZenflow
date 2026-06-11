@@ -1,5 +1,7 @@
 # Packages
 
+`./Packages` is the active local SwiftPM package area for packages that are connected to, verified with, or immediately relevant to `TchopApp`. `./PackagesForReuse` is the lightweight vault for all reviewed reusable package folders, including packages that are not connected to the app yet.
+
 This folder contains the active standalone package baseline for `TchopApp`.
 
 ## Contract

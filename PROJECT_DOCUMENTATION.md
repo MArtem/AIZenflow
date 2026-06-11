@@ -126,7 +126,9 @@ Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HE
 - `TchopApp/Views`: SwiftUI screens and reusable view pieces
 
 ### Standalone Infrastructure Packages
-`Packages/` now contains one copyable package folder per reusable domain:
+`Packages/` contains packages currently available for local app/package verification. `PackagesForReuse/` preserves a lightweight source-only vault of all current and future reviewed reusable package folders without connecting them to app targets by default.
+
+The active reusable package set includes:
 - `./Packages/AppNetworking`
 - `./Packages/AppDatabase`
 - `./Packages/AppSync`
@@ -151,6 +153,11 @@ Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HE
 - `./Packages/TchopProductLocalizationResources` for TchopApp product strings only
 
 Cross-package adapters live outside root packages in `./Packages/IntegrationHelpers`.
+
+Package vault and connection instructions:
+- [PackagesForReuse/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PackagesForReuse/README.md)
+- [PackagesForReuse/CONNECTING_PACKAGES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PackagesForReuse/CONNECTING_PACKAGES.md)
+- [PackagesForReuse/ADOPTION_AUDIT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PackagesForReuse/ADOPTION_AUDIT.md)
 
 ## Canonical Companion Documents
 - [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md): documentation map and placement policy

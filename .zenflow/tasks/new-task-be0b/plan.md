@@ -1011,3 +1011,24 @@ Use archives only when historical detail is needed:
   - verified the archive directly in this macOS/Xcode environment by running its `verify_foundation_only_packages.sh`, `verify_apple_packages_macos.sh`, and `verify_strict_concurrency_macos.sh`; all completed without `warning:` or `error:` lines.
   - identified adoption-quality concerns that should be addressed before wholesale merge: dependent packages are still not truly single-folder self-contained when copied without sibling dependencies or Git URL mapping; strict-concurrency script coverage omits several Apple-only packages after removing manifest `unsafeFlags`; `AppConfiguration` stores raw `String(describing: error)` and preserves stale failure text after success; `AppCache.removeExpired()` can fail all cleanup on one corrupt cache file; and `APIError.httpFailure` needs full app-integration verification because this shape previously had toolchain instability in the main package suite.
 - Verification: read-only/static diff plus archive package scripts only; no current worktree package code was changed by this review.
+
+### [x] Step: PackagesForReuse baseline and connected-package cleanup
+- User goal: preserve all reusable package code without losing any package while keeping app-connected SwiftPM packages limited to what the app actually uses.
+- Create `./PackagesForReuse` as the lightweight, non-connected package vault for current reusable packages and future reviewed archive packages.
+- Copy package folders there without generated artifacts (`.build`, `.swiftpm`, `build`, `DerivedData`, logs), keeping each package self-contained with docs/tests/scripts.
+- Add clear docs for how to connect each package from the reuse vault into a project when needed.
+- Audit `./TchopApp.xcodeproj/project.pbxproj` package references and app/extension imports to identify required, unused, and candidate packages.
+- Keep connected packages that are used by app/extension targets; remove only proven unused package references after preserving package code in `./PackagesForReuse`.
+- For reusable package functionality that clearly overlaps app-local code and can be adopted safely, connect/use the package; otherwise keep it only in `./PackagesForReuse`.
+- Clean generated SwiftPM build artifacts only after code/package references are safe.
+- Verification expectation: `git diff --check`, docs index check if docs index changes, `plutil` if Xcode project changes, and build/package verification if package references/imports change.
+
+
+- Completed now: PackagesForReuse source-only vault and connected-package cleanup baseline:
+  - created `./PackagesForReuse` with 22 root package snapshots and 5 integration helper package snapshots, excluding generated `.build`, `.swiftpm`, `build`, `DerivedData`, and log artifacts.
+  - added `./PackagesForReuse/README.md`, `./PackagesForReuse/CONNECTING_PACKAGES.md`, package-level `REUSE.md` files, and `./PackagesForReuse/ADOPTION_AUDIT.md` documenting how to connect packages and why vault-only packages are not connected now.
+  - audited current Xcode local package references: all 18 connected package/helper references are imported by app, widget, share-extension, or app DI targets and were kept.
+  - preserved vault-only packages without connecting them: `AppSecureStorage`, `AppFeatureFlags`, `AppCache`, `AppLogging`, `AppObservability`, `AppConnectivity`, `AppSync`, `AppErrorsNetworkingIntegration`, and `TchopProductLocalizationResourcesAppLocalizationIntegration`; current app adoption would require focused migrations or would be speculative.
+  - removed generated SwiftPM artifacts from the worktree by deleting root `./.build` (~11GB) and package-local `.swiftpm` folders; source package snapshots remain lightweight.
+  - updated active docs to index the new package vault and usage/audit documents.
+- Verification: `python3 ./scripts/check_docs_index.py` succeeded with 136 indexed paths; `git diff --check` succeeded. No Xcode project change was made, so `plutil` was not required; no build/test run because package references/imports did not change.

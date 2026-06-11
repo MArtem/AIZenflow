@@ -1,5 +1,10 @@
 # Package Usage In TchopApp
 
+## PackagesForReuse Vault
+
+`./PackagesForReuse` is the source-only vault for reusable packages that should be preserved without being connected to app targets by default. Use `./PackagesForReuse/CONNECTING_PACKAGES.md` before copying a package into `./Packages` or another project. Current adoption decisions are tracked in `./PackagesForReuse/ADOPTION_AUDIT.md`.
+
+
 ## Purpose
 
 Concrete map of where `TchopApp` uses standalone reusable packages and what must stay in app code.
