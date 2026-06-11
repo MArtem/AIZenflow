@@ -1,6 +1,5 @@
 import Foundation
 import SwiftData
-import AppDatabase
 
 /// Repository used by app composition to resolve locally available channels.
 @MainActor

@@ -1,5 +1,4 @@
 import Foundation
-import AppShareExtensionSupport
 
 /// Small app-group snapshot that lets the share extension know whether app composer can run.
 struct ShareExtensionSessionContext: Codable, Equatable, Sendable {

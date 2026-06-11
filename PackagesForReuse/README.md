@@ -10,8 +10,8 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 
 - Packages in this folder are **not connected to the app by default**.
 - Do not place generated artifacts here: `.build`, `.swiftpm`, `build`, `DerivedData`, logs, or Xcode user data.
-- A package may be copied from here into `./Packages` or another project when it is actually needed.
-- After copying a package into a project, run the package-local verification script before wiring it into app code.
+- A package may be copied from here into `./PackagesInUse` when `TchopApp` can use it now, or into another project when it is actually needed.
+- Before wiring a package into app code, run the package-local verification script when using SwiftPM mode; in source-only mode, run project verification after adding the package source/resources to Xcode targets.
 - Keep package code self-contained: `Package.swift`, `README.md`, `PackageContract.md`, `Sources`, `Tests`, DocC, and `Scripts/verify_package.sh` travel together.
 - Integration helpers are optional composition files/packages and must stay outside root standalone packages.
 
@@ -49,17 +49,17 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 
 ## Standard Connection Flow
 
-1. Copy the needed package folder into the target project, usually under `./Packages/<PackageName>`.
+1. For current TchopApp source-only mode, copy the needed package folder into `./PackagesInUse/<PackageName>`. For future SwiftPM mode in another project, copy it under that project's package folder, usually `./Packages/<PackageName>`.
 2. Run the local verification script:
 
 ```zsh
-cd ./Packages/<PackageName>
+cd ./PackagesForReuse/<PackageName>
 ./Scripts/verify_package.sh
 ```
 
-3. Add the package to Xcode or to the target project's `Package.swift`.
-4. Link only the products that are needed by the app target.
+3. In current TchopApp source-only mode, add only required `Sources/**/*.swift` files/resources from `./PackagesInUse/<PackageName>` to the relevant Xcode targets.
+4. In future SwiftPM mode, add the package to Xcode or to the target project's `Package.swift` and link only needed products.
 5. Replace app-local duplicated mechanics with the package API only when the package surface matches without decorative wrappers.
-6. Run project verification after app imports/package references change.
+6. Run project verification after app imports, source references, resources, or package references change.
 
 See `./PackagesForReuse/CONNECTING_PACKAGES.md` for concrete examples.

@@ -1,6 +1,5 @@
 import Observation
 import SwiftUI
-import AppNavigation
 
 /// Root news-tab container that binds feed and destination navigation.
 struct NewsTabRootView: View {

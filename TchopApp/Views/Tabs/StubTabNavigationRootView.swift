@@ -1,6 +1,5 @@
 import Observation
 import SwiftUI
-import AppNavigation
 
 /// Generic navigation root hosting a typed path with destination builder closure.
 struct StubTabNavigationRootView<Route: Hashable, Destination: View>: View {

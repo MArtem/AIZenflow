@@ -1,93 +1,29 @@
 # Packages
 
-`./Packages` is the active local SwiftPM package area for packages that are connected to, verified with, or immediately relevant to `TchopApp`. `./PackagesForReuse` is the lightweight vault for all reviewed reusable package folders, including packages that are not connected to the app yet.
+`./Packages` no longer contains runtime SwiftPM packages for `TchopApp`.
 
-This folder contains the active standalone package baseline for `TchopApp`.
+## Current role
 
-## Contract
+This folder is now reserved for reusable SDK/package creation documentation, templates, and optional copy-file integration helpers:
 
-Each root package folder is intended to be copyable as one self-contained Swift Package:
+- `./Packages/SDKCreation`: templates, scripts, and docs for creating future standalone package folders.
+- `./Packages/Docs`: archived package-hardening reports and SDK baseline notes.
+- `./Packages/IntegrationHelpers/CopyFiles`: optional cross-package helper source files that can be copied into an app/integration target when needed.
 
-```text
-PackageName/
-  Package.swift
-  README.md
-  PackageContract.md
-  Scripts/verify_package.sh
-  Sources/
-  Tests/
-```
+## Active app package code
 
-Root packages must not depend on sibling packages via `.package(path: "../...")`, and their tests/docs/scripts travel with the package folder. Cross-package composition belongs in `./Packages/IntegrationHelpers`, not inside root packages.
+The app compiles package source directly from `./PackagesInUse` to reduce local SwiftPM build/cache growth while this worktree is used as the package-library testbed.
 
-## Active Root Packages
+- `./PackagesInUse`: source-only active subset used by `TchopApp`, `TchopShareExtension`, and `TchopWidgetsExtension`.
+- `./PackagesForReuse`: complete source-only vault of all reviewed current/future reusable packages.
 
-- `./Packages/AppAnalytics`
-- `./Packages/AppAppleAuthentication`
-- `./Packages/AppBranding`
-- `./Packages/AppConfiguration`
-- `./Packages/AppDatabase`
-- `./Packages/AppErrors`
-- `./Packages/AppLocalization`
-- `./Packages/AppNavigation`
-- `./Packages/AppNetworking`
-- `./Packages/AppOnDeviceAI`
-- `./Packages/AppPushNotifications`
-- `./Packages/AppShareExtensionSupport`
-- `./Packages/AppWidgetSupport`
-- `./Packages/TchopProductLocalizationResources`
+## Rules
 
-`./Packages/TchopProductLocalizationResources` is standalone but product-specific; copy it only with TchopApp product strings.
+- Do not connect `./Packages` to app targets.
+- Do not restore active package folders here unless the project intentionally returns to real SwiftPM package linkage.
+- Do not store generated artifacts here: `.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, logs, or temporary build products.
+- Any build/cache output must stay under `/Users/Artem/.zenflow/worktrees/`.
 
-## Vault-only packages
+## Future SwiftPM use
 
-Reusable packages that are not connected to the app now live under `./PackagesForReuse`. Copy a package back into `./Packages` only when the app has a concrete current use for it. See `./PackagesForReuse/ADOPTION_AUDIT.md`.
-
-## SDK Creation Baseline
-
-`./Packages/SDKCreation` contains the reusable documentation, templates, and verification scripts for creating future standalone infrastructure packages. It is not a runtime package and must not be linked into app targets. Use it when creating new root packages or integration helpers.
-
-## Integration Helpers
-
-Optional helper packages and copy-in source files live under `./Packages/IntegrationHelpers`. They compose multiple root packages while preserving root-package standalone portability.
-
-## Verification
-
-Use the main entry point:
-
-```bash
-./Packages/verify_everything.sh
-```
-
-Useful focused checks:
-
-```bash
-./Packages/verify_single_folder_standalone.sh
-./Packages/verify_foundation_only_packages.sh
-./Packages/verify_integration_helpers.sh
-./Packages/verify_apple_packages_macos.sh
-./Packages/verify_strict_concurrency_macos.sh
-```
-
-The scripts use centralized build paths under `/Users/Artem/.zenflow/worktrees/.package-build-cache/` and clean generated `.swiftpm` state from package folders so package directories remain portable. Do not route package verification, Xcode DerivedData, or cloned package state outside `/Users/Artem/.zenflow/worktrees/`.
-
-## Distribution Hygiene
-
-Before sharing package archives, exclude generated metadata and local SwiftPM/Xcode state:
-
-```text
-.DS_Store
-__MACOSX/
-.swiftpm/
-.build/
-.package-build-cache/
-.xcode-derived-data/
-.xcode-package-cache/
-xcuserdata/
-*.xcuserstate
-```
-
-
-## Liquid Glass / visual effects
-
-Use `./Packages/AppGlassUI` for reusable SwiftUI Liquid Glass availability and fallback mechanics. Keep product-specific colors, semantic roles, and layout decisions in the host app or compose them with `./Packages/AppBranding` in app code.
+Each package preserved under `./PackagesForReuse` and `./PackagesInUse` still keeps its `Package.swift`, README, contract docs, tests, DocC, and verify scripts. A future project can copy one package folder and connect it through SwiftPM when disk/build-cache cost is acceptable.

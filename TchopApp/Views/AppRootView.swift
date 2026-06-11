@@ -1,6 +1,4 @@
 import SwiftUI
-import AppAppleAuthentication
-import AppErrors
 
 /// Root switch between authentication flow and authenticated shell.
 struct AppRootView: View {

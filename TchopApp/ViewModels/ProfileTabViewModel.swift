@@ -1,6 +1,5 @@
 import Foundation
 import Observation
-import AppErrors
 
 /// Presentation owner for the profile tab root screen.
 ///

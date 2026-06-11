@@ -35,13 +35,13 @@ For context transfer, include this exact rule:
 - coordinator-driven navigation
 - app-level session and shell state
 - local-first persistence
-- standalone reusable infrastructure packages under `Packages/App*`
+- source-only reusable infrastructure packages under `./PackagesInUse` plus the full vault under `./PackagesForReuse`
 - widget, localization, branding, and push-notification support
 - feed/composer runtime built around `text/photo/video/audio/pdf` cards
 
 The primary separation is:
 - `TchopApp` = product-specific composition, features, UI, app policies, DTO/app mapping, persistence schema, routing
-- `Packages/App*` = standalone reusable managers and shared primitives; `Packages/IntegrationHelpers` = optional cross-package composition
+- `./PackagesInUse` = active source-only reusable managers compiled into the app; `./PackagesForReuse` = full package vault; `./Packages/IntegrationHelpers/CopyFiles` = optional composition snippets
 
 ## Stable Runtime Baselines
 - Current deployment target: `iOS 17`
@@ -125,39 +125,22 @@ Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HE
 - `TchopApp/ViewModels`: UI-facing state owners
 - `TchopApp/Views`: SwiftUI screens and reusable view pieces
 
-### Standalone Infrastructure Packages
-`Packages/` contains packages currently available for local app/package verification. `PackagesForReuse/` preserves a lightweight source-only vault of all current and future reviewed reusable package folders without connecting them to app targets by default.
+### Reusable Infrastructure Package Layout
+Reusable infrastructure is currently integrated in source-only mode to keep this package-library worktree small while many packages are reviewed and staged.
 
-The active reusable package set includes:
-- `./Packages/AppNetworking`
-- `./Packages/AppDatabase`
-- `./PackagesForReuse/AppSync`
-- `./Packages/AppNavigation`
-- `./Packages/AppLocalization`
-- `./Packages/AppBranding`
-- `./Packages/AppWidgetSupport`
-- `./Packages/AppPushNotifications`
-- `./PackagesForReuse/AppSecureStorage`
-- `./Packages/AppAnalytics`
-- `./Packages/AppConfiguration`
-- `./Packages/AppAppleAuthentication`
-- `./Packages/AppShareExtensionSupport`
-- `./PackagesForReuse/AppCache`
-- `./Packages/AppErrors`
-- `./PackagesForReuse/AppFeatureFlags`
-- `./PackagesForReuse/AppLogging`
-- `./PackagesForReuse/AppObservability`
-- `./PackagesForReuse/AppConnectivity`
-- `./Packages/AppGlassUI`
-- `./Packages/AppOnDeviceAI`
-- `./Packages/TchopProductLocalizationResources` for TchopApp product strings only
+Folder roles:
+- `./PackagesInUse` = active source-only package subset compiled directly into app/share/widget targets.
+- `./PackagesForReuse` = complete source-only vault for all reviewed reusable packages, including packages not currently used by the app.
+- `./Packages` = package/SDK creation docs, templates, reports, and optional copy-file helpers only; it is not a runtime package source folder for this app.
 
-Cross-package adapters live outside root packages in `./Packages/IntegrationHelpers`.
+The active reusable package set is documented in `./PackagesInUse/README.md`. The complete vault index and connection examples are documented in `./PackagesForReuse/README.md` and `./PackagesForReuse/CONNECTING_PACKAGES.md`.
 
-Package vault and connection instructions:
-- [PackagesForReuse/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PackagesForReuse/README.md)
-- [PackagesForReuse/CONNECTING_PACKAGES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PackagesForReuse/CONNECTING_PACKAGES.md)
-- [PackagesForReuse/ADOPTION_AUDIT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PackagesForReuse/ADOPTION_AUDIT.md)
+Source-only mode rules:
+- app targets compile selected `./PackagesInUse/**/Sources/**/*.swift` files directly;
+- package-module imports are removed from app/share/widget/test source;
+- resources from product localization are copied into each runtime target that needs them;
+- generated artifacts (`.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, logs) must not be committed or kept inside package folders;
+- build/cache output must stay under `/Users/Artem/.zenflow/worktrees/`.
 
 ## Canonical Companion Documents
 - [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md): documentation map and placement policy

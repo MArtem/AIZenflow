@@ -1,5 +1,4 @@
 import Foundation
-import AppNavigation
 
 /// Contract that routes incoming URLs/user activities into app navigation.
 @MainActor

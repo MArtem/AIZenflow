@@ -1,5 +1,4 @@
 import SwiftUI
-import AppBranding
 import UIKit
 
 /// Semantic color tokens used across app screens in light and dark modes.

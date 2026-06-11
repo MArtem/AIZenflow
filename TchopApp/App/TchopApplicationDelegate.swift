@@ -1,7 +1,6 @@
 import Foundation
 import UIKit
 import UserNotifications
-import AppPushNotifications
 
 /// UIKit lifecycle bridge used to receive APNs callbacks in the SwiftUI app.
 final class TchopApplicationDelegate: NSObject, UIApplicationDelegate {

@@ -1,7 +1,5 @@
 import SwiftUI
 import WidgetKit
-import AppWidgetSupport
-import TchopProductLocalizationResources
 
 /// Stable identifiers used by the widget extension to read the app-written feed headline snapshot.
 enum FeedHeadlineWidgetConstants {

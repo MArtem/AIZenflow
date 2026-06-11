@@ -1,6 +1,4 @@
 import Foundation
-import AppLocalization
-import TchopProductLocalizationResources
 
 /// Central app-level localization facade used by views, models, and view models.
 enum AppLocalization {

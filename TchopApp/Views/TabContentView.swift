@@ -1,5 +1,4 @@
 import SwiftUI
-import AppNavigation
 
 /// Hosts tab-level content including top bar, feed, and action affordances.
 struct TabContentView: View {

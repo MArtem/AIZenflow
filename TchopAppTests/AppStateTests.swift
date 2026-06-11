@@ -1,10 +1,4 @@
 import XCTest
-import AppAppleAuthentication
-import AppErrors
-import AppNavigation
-import AppPushNotifications
-import AppConfiguration
-import AppWidgetSupport
 @testable import TchopApp
 
 /// Covers app session and navigation restore flows in root state.

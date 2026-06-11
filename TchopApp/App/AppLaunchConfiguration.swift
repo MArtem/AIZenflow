@@ -1,5 +1,4 @@
 import Foundation
-import AppDatabase
 
 /// Launch-time database mode used to steer the app between automatic resolution and
 /// explicit single-backend runs for local development and debugging.

@@ -1,9 +1,6 @@
 import Foundation
 import Observation
-import AppShareExtensionSupport
 #if !APP_EXTENSION
-import AppErrors
-import AppConfiguration
 #endif
 
 @MainActor

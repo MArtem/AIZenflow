@@ -11,7 +11,8 @@ readonly DERIVED_DATA_PATH="${TCHOP_DERIVED_DATA_PATH:-${WORKTREES_ROOT}/.xcode-
 readonly CLONED_PACKAGES_PATH="${TCHOP_XCODE_PACKAGE_CACHE:-${WORKTREES_ROOT}/.xcode-package-cache/TchopApp}"
 
 cleanup_generated_package_state() {
-  find ./Packages -name .swiftpm -type d -prune -exec rm -rf {} +
+  find ./Packages ./PackagesInUse ./PackagesForReuse -name .swiftpm -type d -prune -exec rm -rf {} + 2>/dev/null || true
+  find ./Packages ./PackagesInUse ./PackagesForReuse -name .build -type d -prune -exec rm -rf {} + 2>/dev/null || true
 }
 
 usage() {
@@ -21,14 +22,14 @@ Usage:
 
 Levels:
   low     Build TchopApp on iPhone 17 Pro (iOS 26.0)
-  medium  Run package tests, app tests, then build on iPhone 17 Pro (iOS 26.0)
-  full    Run package tests, app tests, then build on iPhone 16 Pro (iOS 18.2) and iPhone 17 Pro (iOS 26.0)
+  medium  Run app tests, then build on iPhone 17 Pro (iOS 26.0)
+  full    Run app tests, then build on iPhone 16 Pro (iOS 18.2) and iPhone 17 Pro (iOS 26.0)
+
+Package-vault SwiftPM tests are intentionally not part of app verification in source-only mode.
+Run package-local `Scripts/verify_package.sh` explicitly from `./PackagesForReuse/<PackageName>` when reviewing a package archive.
 EOF
 }
 
-run_package_tests() {
-  ./Packages/verify_everything.sh
-}
 
 run_build() {
   local destination="$1"
@@ -69,12 +70,10 @@ main() {
       run_build "${DESTINATION_IOS_26}"
       ;;
     medium)
-      run_package_tests
       run_app_tests "${DESTINATION_IOS_26}"
       run_build "${DESTINATION_IOS_26}"
       ;;
     full)
-      run_package_tests
       run_app_tests "${DESTINATION_IOS_26}"
       run_build "${DESTINATION_IOS_18}"
       run_build "${DESTINATION_IOS_26}"

@@ -1,7 +1,6 @@
 import CoreData
 import Foundation
 import SwiftData
-import AppDatabase
 
 /// Builds app-specific persistence containers and delegates backend selection to the infrastructure package.
 @MainActor

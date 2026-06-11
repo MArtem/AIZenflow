@@ -1,5 +1,4 @@
 import SwiftUI
-import AppGlassUI
 
 /// Floating action button anchored above the bottom tab bar.
 struct FloatingActionButton: View {

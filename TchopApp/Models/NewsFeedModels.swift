@@ -1,6 +1,4 @@
 import Foundation
-import AppOnDeviceAI
-import AppShareExtensionSupport
 
 /// Product-level card kind used by composer draft logic before a card is published.
 enum ChannelCardKind: String, Equatable, Sendable {

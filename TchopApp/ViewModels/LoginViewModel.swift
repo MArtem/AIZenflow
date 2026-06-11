@@ -1,8 +1,6 @@
 import AuthenticationServices
 import Foundation
 import Observation
-import AppAppleAuthentication
-import AppErrors
 
 /// Login screen behavior selected by the active app environment.
 enum LoginScreenMode {

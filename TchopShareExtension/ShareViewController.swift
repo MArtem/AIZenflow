@@ -1,6 +1,5 @@
 import SwiftUI
 import UIKit
-import AppShareExtensionSupport
 
 /// UIKit entry point for the share extension.
 ///

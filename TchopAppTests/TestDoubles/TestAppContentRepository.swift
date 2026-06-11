@@ -1,5 +1,4 @@
 import Foundation
-import AppDatabase
 @testable import TchopApp
 
 /// Lightweight in-memory app-content repository used by state/composition tests.

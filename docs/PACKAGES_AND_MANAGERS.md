@@ -13,6 +13,19 @@ Do not use it for:
 - global assistant behavior
 - temporary debugging notes
 
+
+## Current TchopApp integration mode
+
+`TchopApp` currently uses reusable package code in source-only local mode:
+
+- `./PackagesInUse` contains the active package subset compiled directly into app/share/widget targets.
+- `./PackagesForReuse` contains the full reviewed reusable package vault.
+- `./Packages` contains SDK/package creation documentation, templates, reports, and optional copy-file helpers only.
+
+This mode is a disk-usage control decision while building a large package library. It does not lower the package quality bar: each package must still keep SwiftPM metadata, docs, tests, DocC, contracts, and verify scripts so it can later be used as a real Swift Package.
+
+When adopting new package functionality in this worktree, copy the package into `./PackagesForReuse` first, then into `./PackagesInUse` only if the app can use it now. Add only the required source/resources to Xcode targets and keep generated artifacts out of package folders.
+
 ## Core Rule
 - Reusable packages and managers are the foundation.
 - If behavior is generic, repeatable, and entity-agnostic, it should live in the package.

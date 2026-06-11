@@ -1,6 +1,5 @@
 import Observation
 import SwiftUI
-import AppNavigation
 
 /// Root profile-tab screen bound to its dedicated navigation router.
 struct ProfileTabRootView: View {

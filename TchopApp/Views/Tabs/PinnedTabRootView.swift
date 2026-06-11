@@ -1,6 +1,5 @@
 import Observation
 import SwiftUI
-import AppNavigation
 
 /// Root pinned-tab screen bound to its dedicated navigation router.
 struct PinnedTabRootView: View {

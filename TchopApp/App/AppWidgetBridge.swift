@@ -1,7 +1,5 @@
 import Foundation
-import AppErrors
 import WidgetKit
-import AppWidgetSupport
 
 /// App-facing contract that synchronizes feed data into widget storage.
 @MainActor

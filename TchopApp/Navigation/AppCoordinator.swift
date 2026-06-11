@@ -1,6 +1,5 @@
 import Foundation
 import Observation
-import AppNavigation
 
 /// Coordinator that owns shared tab selection and per-tab routers.
 @MainActor

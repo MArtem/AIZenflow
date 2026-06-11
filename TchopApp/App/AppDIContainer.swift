@@ -1,18 +1,5 @@
 import Foundation
 import SwiftUI
-import AppAnalytics
-import AppAnalyticsNavigationIntegration
-import AppAnalyticsNetworkingIntegration
-import AppAnalyticsPushNotificationsIntegration
-import AppAppleAuthentication
-import AppDatabase
-import AppErrors
-import AppNavigation
-import AppNetworking
-import AppPushNotifications
-import AppConfiguration
-import AppWidgetSupport
-import AppShareExtensionSupport
 
 /// Runtime API environment describing transport configuration and diagnostics policy.
 struct AppAPIEnvironment {

@@ -1,6 +1,4 @@
 import Foundation
-import AppAppleAuthentication
-import AppNetworking
 
 /// Configurable endpoint contract for backend authentication routes.
 ///

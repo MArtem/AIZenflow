@@ -1,5 +1,4 @@
 import Foundation
-import AppNavigation
 
 /// Resolves deep and universal links into coordinator-driven app navigation.
 @MainActor
