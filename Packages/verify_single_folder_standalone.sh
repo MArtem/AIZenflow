@@ -27,6 +27,7 @@ root_packages = [
     "AppFeatureFlags",
     "AppGlassUI",
     "AppLogging",
+    "AppObservability",
     "AppLocalization",
     "AppNavigation",
     "AppNetworking",

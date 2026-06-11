@@ -174,6 +174,20 @@ Must not know about:
 - networking request/response models
 - product-specific user/session fields
 
+### `AppObservability`
+Owns:
+- product-neutral spans, breadcrumbs, and measurement primitives
+- caller-provided trace and correlation propagation state
+- privacy-aware observability attribute redaction
+- structured cancellation and failure descriptors
+- package-level observability tests and strict-concurrency verification
+
+Must not know about:
+- app-specific telemetry taxonomy
+- analytics or crash-export routing
+- networking/session/sync payload details
+- product-specific user/session fields
+
 ### `AppAnalytics`
 Owns:
 - reusable analytics/event primitives

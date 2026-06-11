@@ -7,7 +7,7 @@
 | 2 | AppSession | Planned | Depends conceptually on secure storage, but must remain standalone |
 | 3 | AppFeatureFlags | Complete | Adopted in `./Packages/AppFeatureFlags`; standalone, documented, package-tested |
 | 4 | AppLogging | Complete | Adopted in `./Packages/AppLogging`; standalone, documented, package-tested |
-| 5 | AppObservability | Planned | Spans, breadcrumbs, correlation IDs |
+| 5 | AppObservability | Complete | Adopted in `./Packages/AppObservability`; standalone, documented, package-tested |
 | 6 | AppConnectivity | Planned | Network reachability/connectivity state |
 | 7 | AppPermissions | Planned | Permission state/request abstraction |
 | 8 | AppEnvironment | Planned | Environment/build/runtime info |

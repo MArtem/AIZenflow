@@ -54,8 +54,8 @@ Catalog/SDK_PACKAGE_ROADMAP_50.md
 ```text
 Iteration: 00
 Status: SDK standard/template created
-Production packages added in this baseline: 3
-Latest production package: AppLogging
+Production packages added in this baseline: 4
+Latest production package: AppObservability
 Next planned iteration: AppSession or another user-approved infrastructure package
 ```
 
@@ -98,4 +98,16 @@ Multi-target packages are allowed when the targets are inside the same package f
 - Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
 - Package verification fails if compiler warnings are emitted.
 - Documentation now clarifies that `NoopLogger` is the safe default, `MemoryLogger` is primarily for tests/local diagnostics, and public messages require explicit host-app privacy classification.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 05 note
+
+`./Packages/AppObservability` was adopted as the observability package after additional local hardening:
+
+- Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
+- URL redaction now removes query/fragment data from absolute URLs, relative paths, and scheme-less URL strings.
+- `measure(...)` records `CancellationError` as `.cancelled`.
+- `ObservabilitySpan.end(...)` is single-shot so duplicate end calls do not emit duplicate events.
+- Package verification fails if compiler warnings are emitted and must not create package-local SwiftPM artifacts.
+- Documentation now clarifies privacy, cancellation, span lifecycle, and caller-owned correlation policy.
 - The package is indexed in the active package inventory and root package verification scripts.

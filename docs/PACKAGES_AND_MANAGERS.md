@@ -208,6 +208,19 @@ App keeps:
 - crash/analytics/observability export policy
 - user/session/domain metadata classification
 
+### `AppObservability`
+Use for:
+- product-neutral spans, breadcrumbs, and duration measurements
+- trace IDs, span IDs, and caller-owned correlation propagation
+- privacy-aware observability attributes and redaction
+- structured cancellation/failure descriptors
+
+App keeps:
+- product-specific telemetry naming and sampling policy
+- concrete analytics/crash/export adapters
+- decisions about when to start/end spans and emit breadcrumbs
+- domain-specific attribute classification beyond the generic redaction baseline
+
 ### `AppAnalytics`
 Use for:
 - reusable analytics/event primitives
@@ -253,6 +266,7 @@ The old `TchopInfrastructure` compatibility bundle has been retired from this wo
 - `AppLocalization`
 - `AppConfiguration`
 - `AppLogging`
+- `AppObservability`
 - `AppAnalytics`
 - `AppCache`
 

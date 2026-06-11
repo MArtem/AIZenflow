@@ -69,6 +69,11 @@ Available as the reusable structured logging mechanism for future package/app lo
 
 App keeps product log taxonomy, final privacy classification of domain metadata, and any crash/analytics/observability export policy. New generic logging helpers should use this package instead of direct `print` or app-local logger wrappers.
 
+### `AppObservability`
+Available as the reusable observability mechanism for future spans, breadcrumbs, and operation measurements.
+
+App keeps product telemetry taxonomy, decisions about correlation ownership, and any export bridge to analytics, logging, or crash-reporting systems. New generic tracing/measurement helpers should use this package instead of introducing app-local observability primitives.
+
 ### `AppNavigation`
 Used by coordinator/deep-link/root-tab code for generic navigation primitives and snapshot contracts.
 
@@ -108,6 +113,7 @@ Do not reintroduce these app-local mechanics if an active package already owns t
 - new direct Keychain secret storage outside `AppSecureStorage`;
 - app-local generic feature flag evaluators outside `AppFeatureFlags`;
 - direct `print`/ad-hoc generic logger wrappers where `AppLogging` fits;
+- app-local generic observability/span/breadcrumb helpers where `AppObservability` fits;
 - generic route/snapshot primitives outside `AppNavigation`.
 
 ## Verification after package usage changes

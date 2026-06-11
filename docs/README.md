@@ -114,6 +114,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./Packages/AppSecureStorage/README.md`
 - `./Packages/AppFeatureFlags/README.md`
 - `./Packages/AppLogging/README.md`
+- `./Packages/AppObservability/README.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 

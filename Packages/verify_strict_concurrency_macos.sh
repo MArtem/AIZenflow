@@ -29,6 +29,7 @@ AppOnDeviceAI
 AppSecureStorage
 AppFeatureFlags
 AppLogging
+AppObservability
 TchopProductLocalizationResources
 "
 

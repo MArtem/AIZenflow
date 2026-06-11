@@ -27,6 +27,7 @@ AppOnDeviceAI
 AppSecureStorage
 AppFeatureFlags
 AppLogging
+AppObservability
 "
 
 for package in $packages; do
