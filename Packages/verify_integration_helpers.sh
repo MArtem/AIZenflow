@@ -9,16 +9,14 @@ cleanup_generated_package_state() {
 
 cleanup_generated_package_state
 trap cleanup_generated_package_state EXIT
-root_dir="$(cd "$packages_dir/.." && pwd)"
-build_root="$root_dir/.build/integration-helpers"
+cache_root="${TCHOP_PACKAGE_BUILD_CACHE:-$HOME/Library/Caches/TchopPackageBuilds}"
+build_root="$cache_root/integration-helpers"
 
 # Integration helpers are optional composition packages. They intentionally depend on
 # the root packages they compose, but root packages never depend on helpers.
 portable_helpers="
 AppAnalyticsNetworkingIntegration
 AppAnalyticsPushNotificationsIntegration
-AppErrorsNetworkingIntegration
-TchopProductLocalizationResourcesAppLocalizationIntegration
 "
 
 apple_helpers="

@@ -2,7 +2,7 @@
 
 This archive is the **baseline standard** for building a large set of app-independent iOS infrastructure packages.
 
-Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. The current repository has since adopted production runtime packages through `./Packages/AppConnectivity`.
+Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. The current repository has since adopted production runtime packages through `./PackagesForReuse/AppConnectivity`.
 
 ## Goal
 

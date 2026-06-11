@@ -48,10 +48,10 @@ Copy modes:
 `AppLocalization` integration intentionally does **not** live inside this package anymore. It is an optional host-level composition file under:
 
 ```text
-../IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration.swift
+./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration
 ```
 
-Copy it into the app/integration target only when both `TchopProductLocalizationResources` and `AppLocalization` are present.
+Copy it from `./PackagesForReuse` into the app/integration target only when both `TchopProductLocalizationResources` and `AppLocalization` are present.
 
 
 ## Usage guide

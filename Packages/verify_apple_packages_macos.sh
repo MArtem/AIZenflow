@@ -9,8 +9,8 @@ cleanup_generated_package_state() {
 
 cleanup_generated_package_state
 trap cleanup_generated_package_state EXIT
-root_dir="$(cd "$packages_dir/.." && pwd)"
-build_root="$root_dir/.build/apple-packages"
+cache_root="${TCHOP_PACKAGE_BUILD_CACHE:-$HOME/Library/Caches/TchopPackageBuilds}"
+build_root="$cache_root/apple-packages"
 
 if [ "$(uname)" != "Darwin" ]; then
   echo "Apple platform packages require macOS/Xcode. Run this script on macOS." >&2
@@ -28,7 +28,6 @@ AppBranding
 AppGlassUI
 AppDatabase
 AppAnalytics
-AppSync
 "
 
 for package in $packages; do

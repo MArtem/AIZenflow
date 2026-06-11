@@ -47,10 +47,10 @@ Copy modes:
 Networking-specific error mapping intentionally does **not** live inside this package anymore. It is an optional host-level composition file under:
 
 ```text
-../IntegrationHelpers/AppErrorsNetworkingIntegration.swift
+./PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration
 ```
 
-Copy it into the app/integration target only when both `AppErrors` and `AppNetworking` are present.
+Copy it from `./PackagesForReuse` into the app/integration target only when both `AppErrors` and `AppNetworking` are present.
 
 
 ## Usage guide

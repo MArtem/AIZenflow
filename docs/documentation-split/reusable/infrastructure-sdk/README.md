@@ -2,7 +2,7 @@
 
 This archive is the **baseline standard** for building a large set of app-independent iOS infrastructure packages.
 
-Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. The current repository has since adopted production runtime packages through `./Packages/AppConnectivity`.
+Iteration 00 created the reusable **package template, rules, policies, verification scripts, and roadmap** that every future package must follow. The current repository has since adopted production runtime packages through `./PackagesForReuse/AppConnectivity`.
 
 ## Goal
 
@@ -76,7 +76,7 @@ Multi-target packages are allowed when the targets are inside the same package f
 
 ## Iteration 01 note
 
-`./Packages/AppSecureStorage` was adopted as the secure-storage runtime package after additional local hardening:
+`./PackagesForReuse/AppSecureStorage` was adopted as the secure-storage runtime package after additional local hardening:
 
 - Keychain writes now prefer an in-place update for existing values and reserve delete/add for synchronizable-scope changes.
 - Package verification fails if compiler warnings are emitted.
@@ -84,7 +84,7 @@ Multi-target packages are allowed when the targets are inside the same package f
 
 ## Iteration 03 note
 
-`./Packages/AppFeatureFlags` was adopted as the feature-flag runtime package after additional local hardening:
+`./PackagesForReuse/AppFeatureFlags` was adopted as the feature-flag runtime package after additional local hardening:
 
 - Snapshot validation rejects empty keys, dictionary/payload key mismatch, and invalid rollout percentages.
 - UserDefaults-backed snapshot and override stores were added so the package is useful without a sibling configuration package.
@@ -93,7 +93,7 @@ Multi-target packages are allowed when the targets are inside the same package f
 
 ## Iteration 04 note
 
-`./Packages/AppLogging` was adopted as the structured logging package after additional local hardening:
+`./PackagesForReuse/AppLogging` was adopted as the structured logging package after additional local hardening:
 
 - Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
 - Package verification fails if compiler warnings are emitted.
@@ -102,7 +102,7 @@ Multi-target packages are allowed when the targets are inside the same package f
 
 ## Iteration 05 note
 
-`./Packages/AppObservability` was adopted as the observability package after additional local hardening:
+`./PackagesForReuse/AppObservability` was adopted as the observability package after additional local hardening:
 
 - Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
 - URL redaction now removes query/fragment data from absolute URLs, relative paths, and scheme-less URL strings.
@@ -114,7 +114,7 @@ Multi-target packages are allowed when the targets are inside the same package f
 
 ## Iteration 06 note
 
-`./Packages/AppConnectivity` was adopted as the connectivity package after additional local hardening:
+`./PackagesForReuse/AppConnectivity` was adopted as the connectivity package after additional local hardening:
 
 - Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
 - Native `NetworkPathConnectivityMonitor.start()` is idempotent while active and `stop()` is documented as terminal because `NWPathMonitor` cancellation is terminal.

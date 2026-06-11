@@ -3,12 +3,12 @@
 | Iteration | Package | Status | Notes |
 |---:|---|---|---|
 | 0 | SDK Standard / Package Template | Complete | This archive |
-| 1 | AppSecureStorage | Complete | Adopted in `./Packages/AppSecureStorage`; standalone, documented, package-tested |
+| 1 | AppSecureStorage | Complete | Preserved in `./PackagesForReuse/AppSecureStorage`; standalone, documented, package-tested |
 | 2 | AppSession | Planned | Depends conceptually on secure storage, but must remain standalone |
-| 3 | AppFeatureFlags | Complete | Adopted in `./Packages/AppFeatureFlags`; standalone, documented, package-tested |
-| 4 | AppLogging | Complete | Adopted in `./Packages/AppLogging`; standalone, documented, package-tested |
-| 5 | AppObservability | Complete | Adopted in `./Packages/AppObservability`; standalone, documented, package-tested |
-| 6 | AppConnectivity | Complete | Adopted in `./Packages/AppConnectivity`; standalone, documented, package-tested |
+| 3 | AppFeatureFlags | Complete | Preserved in `./PackagesForReuse/AppFeatureFlags`; standalone, documented, package-tested |
+| 4 | AppLogging | Complete | Preserved in `./PackagesForReuse/AppLogging`; standalone, documented, package-tested |
+| 5 | AppObservability | Complete | Preserved in `./PackagesForReuse/AppObservability`; standalone, documented, package-tested |
+| 6 | AppConnectivity | Complete | Preserved in `./PackagesForReuse/AppConnectivity`; standalone, documented, package-tested |
 | 7 | AppPermissions | Planned | Permission state/request abstraction |
 | 8 | AppEnvironment | Planned | Environment/build/runtime info |
 | 9 | AppDeviceInfo | Planned | Device/system info |

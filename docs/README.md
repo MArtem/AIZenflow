@@ -111,11 +111,11 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
 - `./Packages/SDKCreation/README.md`
-- `./Packages/AppSecureStorage/README.md`
-- `./Packages/AppFeatureFlags/README.md`
-- `./Packages/AppLogging/README.md`
-- `./Packages/AppObservability/README.md`
-- `./Packages/AppConnectivity/README.md`
+- `./PackagesForReuse/AppSecureStorage/README.md`
+- `./PackagesForReuse/AppFeatureFlags/README.md`
+- `./PackagesForReuse/AppLogging/README.md`
+- `./PackagesForReuse/AppObservability/README.md`
+- `./PackagesForReuse/AppConnectivity/README.md`
 - `./PackagesForReuse/README.md`
 - `./PackagesForReuse/CONNECTING_PACKAGES.md`
 - `./PackagesForReuse/ADOPTION_AUDIT.md`

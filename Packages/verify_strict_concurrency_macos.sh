@@ -13,11 +13,10 @@ cleanup_generated_package_state() {
 
 cleanup_generated_package_state
 trap cleanup_generated_package_state EXIT
-root_dir="$(cd "$packages_dir/.." && pwd)"
-build_root="$root_dir/.build/strict-concurrency"
+cache_root="${TCHOP_PACKAGE_BUILD_CACHE:-$HOME/Library/Caches/TchopPackageBuilds}"
+build_root="$cache_root/strict-concurrency"
 
 foundation_packages="
-AppCache
 AppWidgetSupport
 AppConfiguration
 AppPushNotifications
@@ -26,11 +25,6 @@ AppNetworking
 AppErrors
 AppAnalytics
 AppOnDeviceAI
-AppSecureStorage
-AppFeatureFlags
-AppLogging
-AppObservability
-AppConnectivity
 TchopProductLocalizationResources
 "
 
@@ -44,14 +38,11 @@ AppShareExtensionSupport
 AppBranding
 AppGlassUI
 AppDatabase
-AppSync
 "
 
 portable_helpers="
 IntegrationHelpers/AppAnalyticsNetworkingIntegration
 IntegrationHelpers/AppAnalyticsPushNotificationsIntegration
-IntegrationHelpers/AppErrorsNetworkingIntegration
-IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration
 "
 
 apple_helpers="

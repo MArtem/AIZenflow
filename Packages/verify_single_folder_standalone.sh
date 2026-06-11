@@ -20,23 +20,16 @@ root_packages = [
     "AppAnalytics",
     "AppAppleAuthentication",
     "AppBranding",
-    "AppCache",
     "AppConfiguration",
     "AppDatabase",
     "AppErrors",
-    "AppFeatureFlags",
     "AppGlassUI",
-    "AppLogging",
-    "AppObservability",
-    "AppConnectivity",
     "AppLocalization",
     "AppNavigation",
     "AppNetworking",
     "AppOnDeviceAI",
     "AppPushNotifications",
-    "AppSecureStorage",
     "AppShareExtensionSupport",
-    "AppSync",
     "AppWidgetSupport",
     "TchopProductLocalizationResources",
 ]
@@ -44,8 +37,6 @@ helper_packages = [
     "AppAnalyticsNavigationIntegration",
     "AppAnalyticsNetworkingIntegration",
     "AppAnalyticsPushNotificationsIntegration",
-    "AppErrorsNetworkingIntegration",
-    "TchopProductLocalizationResourcesAppLocalizationIntegration",
 ]
 
 failures: list[str] = []

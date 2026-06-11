@@ -1032,3 +1032,26 @@ Use archives only when historical detail is needed:
   - removed generated SwiftPM artifacts from the worktree by deleting root `./.build` (~11GB) and package-local `.swiftpm` folders; source package snapshots remain lightweight.
   - updated active docs to index the new package vault and usage/audit documents.
 - Verification: `python3 ./scripts/check_docs_index.py` succeeded with 136 indexed paths; `git diff --check` succeeded. No Xcode project change was made, so `plutil` was not required; no build/test run because package references/imports did not change.
+
+- Completed now: hard split of active packages vs reusable package vault:
+  - removed vault-only package folders from active `./Packages`: `AppSecureStorage`, `AppFeatureFlags`, `AppCache`, `AppLogging`, `AppObservability`, `AppConnectivity`, and `AppSync`.
+  - removed vault-only helper packages from active `./Packages/IntegrationHelpers`: `AppErrorsNetworkingIntegration` and `TchopProductLocalizationResourcesAppLocalizationIntegration`, including their copy-file variants.
+  - kept all removed package/helper source, docs, scripts, and tests preserved under `./PackagesForReuse`, so no reusable package code was lost.
+  - active `./Packages` now contains only the packages and integration helpers required by current TchopApp app/widget/share-extension wiring, plus package docs/SDK-creation documentation.
+  - updated package verification scripts so they only enumerate active packages and use external SwiftPM build caches under `${TCHOP_PACKAGE_BUILD_CACHE:-$HOME/Library/Caches/TchopPackageBuilds}` instead of recreating root/project-local `./.build`.
+  - confirmed `./.build` remains absent and no `.build`, `.swiftpm`, `build`, log, or `.DS_Store` artifacts exist under `./Packages` or `./PackagesForReuse`.
+- Completed now in linked MVVMExample worktree `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80`:
+  - removed duplicated local Swift packages by deleting `./Packages` from the MVVMExample worktree.
+  - copied only the minimal needed app-local infrastructure source into `./MVVMExample/MVVMExampleDemo/Infrastructure/LocalSupport`, so MVVMExample no longer depends on duplicated package folders.
+  - removed package product/framework links and local package references from `./MVVMExample.xcodeproj/project.pbxproj`.
+  - updated MVVMExample docs and task plan to state that reusable packages now live in the TchopApp package vault and MVVMExample uses app-local minimal support code for now.
+- Verification current TchopApp worktree:
+  - `./Packages/verify_single_folder_standalone.sh` succeeded.
+  - `./Packages/verify_integration_helpers.sh` succeeded.
+  - `./Packages/verify_foundation_only_packages.sh` succeeded for the active foundation package set.
+  - `./Packages/verify_apple_packages_macos.sh` succeeded for the active Apple-only package set.
+  - `./Packages/verify_strict_concurrency_macos.sh` succeeded for active packages/helpers under strict concurrency.
+  - `python3 ./scripts/check_docs_index.py`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`.
+- Verification MVVMExample worktree:
+  - `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, `xcodebuild -list -project ./MVVMExample.xcodeproj`, and `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded with no warning/error lines in the captured build log.
+  - No simulator UI/manual validation/Instruments run was performed.

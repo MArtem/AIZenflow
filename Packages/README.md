@@ -25,26 +25,23 @@ Root packages must not depend on sibling packages via `.package(path: "../...")`
 - `./Packages/AppAnalytics`
 - `./Packages/AppAppleAuthentication`
 - `./Packages/AppBranding`
-- `./Packages/AppCache`
 - `./Packages/AppConfiguration`
 - `./Packages/AppDatabase`
 - `./Packages/AppErrors`
-- `./Packages/AppFeatureFlags`
-- `./Packages/AppLogging`
-- `./Packages/AppObservability`
-- `./Packages/AppConnectivity`
 - `./Packages/AppLocalization`
 - `./Packages/AppNavigation`
 - `./Packages/AppNetworking`
 - `./Packages/AppOnDeviceAI`
 - `./Packages/AppPushNotifications`
-- `./Packages/AppSecureStorage`
 - `./Packages/AppShareExtensionSupport`
-- `./Packages/AppSync`
 - `./Packages/AppWidgetSupport`
 - `./Packages/TchopProductLocalizationResources`
 
 `./Packages/TchopProductLocalizationResources` is standalone but product-specific; copy it only with TchopApp product strings.
+
+## Vault-only packages
+
+Reusable packages that are not connected to the app now live under `./PackagesForReuse`. Copy a package back into `./Packages` only when the app has a concrete current use for it. See `./PackagesForReuse/ADOPTION_AUDIT.md`.
 
 ## SDK Creation Baseline
 

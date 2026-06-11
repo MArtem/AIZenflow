@@ -131,23 +131,23 @@ Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HE
 The active reusable package set includes:
 - `./Packages/AppNetworking`
 - `./Packages/AppDatabase`
-- `./Packages/AppSync`
+- `./PackagesForReuse/AppSync`
 - `./Packages/AppNavigation`
 - `./Packages/AppLocalization`
 - `./Packages/AppBranding`
 - `./Packages/AppWidgetSupport`
 - `./Packages/AppPushNotifications`
-- `./Packages/AppSecureStorage`
+- `./PackagesForReuse/AppSecureStorage`
 - `./Packages/AppAnalytics`
 - `./Packages/AppConfiguration`
 - `./Packages/AppAppleAuthentication`
 - `./Packages/AppShareExtensionSupport`
-- `./Packages/AppCache`
+- `./PackagesForReuse/AppCache`
 - `./Packages/AppErrors`
-- `./Packages/AppFeatureFlags`
-- `./Packages/AppLogging`
-- `./Packages/AppObservability`
-- `./Packages/AppConnectivity`
+- `./PackagesForReuse/AppFeatureFlags`
+- `./PackagesForReuse/AppLogging`
+- `./PackagesForReuse/AppObservability`
+- `./PackagesForReuse/AppConnectivity`
 - `./Packages/AppGlassUI`
 - `./Packages/AppOnDeviceAI`
 - `./Packages/TchopProductLocalizationResources` for TchopApp product strings only
