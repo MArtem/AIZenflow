@@ -17,6 +17,12 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Report back after a meaningful block is complete, or earlier only if a blocker, ambiguity, or architecture-risk decision appears.
 - If the user creates a separate new task, treat it as an independent unit and provide a completion report for that task specifically.
 
+## Filesystem Sandbox Rule
+- All project work, build output, package verification output, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts must stay inside `/Users/Artem/.zenflow/worktrees`.
+- Never use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow/worktrees` for project work.
+- If a command/tool would default outside the worktrees sandbox, override its output paths before running it.
+- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside the sandbox when explicitly requested by the user.
+
 ### Universal Transition Prompt Template
 ```text
 Работаем в проекте `TchopApp` в worktree:
@@ -79,6 +85,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 
 Критичные правила:
 - Для текущего worktree/task использовать `GPT-5.5`, пока пользователь явно не изменит модель.
+- Никогда не выходить за файловую границу `/Users/Artem/.zenflow/worktrees`; build/cache/DerivedData/package verification output тоже должны быть внутри этой границы.
 - Архитектура — приоритет №1.
 - После архитектуры всегда проверка на overengineering.
 - Не угадывать state flow/ownership/boundaries; если неясно — сначала уточнить.

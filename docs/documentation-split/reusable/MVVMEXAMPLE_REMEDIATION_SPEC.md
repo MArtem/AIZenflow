@@ -26,7 +26,7 @@ Every working/status/readiness/planning/confirmation response must start with:
 - files being inspected/changed
 - next safe step
 - whether a build is needed
-- sandbox/worktree confirmation inside `/Users/Artem/.zenflow`
+- sandbox/worktree confirmation inside `/Users/Artem/.zenflow/worktrees`
 
 ## Non-Negotiable Architecture Rule
 Do not use generic ViewModel dispatch as the default MVVM API:

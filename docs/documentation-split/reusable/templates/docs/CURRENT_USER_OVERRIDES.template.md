@@ -19,6 +19,11 @@ Every working/status/readiness response must start with:
 - sandbox/worktree confirmation
 - Readiness/status answers such as “готов к новым задачам” are not exempt.
 
+### Filesystem Sandbox
+- Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active worktree sandbox.
+- Do not use global SwiftPM/Xcode caches, `/tmp`, user-library caches, or any path outside the active worktree sandbox for project work.
+- If a tool defaults outside the sandbox, override its output/cache/DerivedData paths before running it.
+
 ### Verification / Builds / Tests
 - Do not write or modify tests unless the user explicitly opens a test-writing phase or asks to fix a specific failing test.
 - Do not run builds/tests/simulator UI/Instruments unless explicitly requested or already approved for the current block.

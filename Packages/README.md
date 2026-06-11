@@ -69,7 +69,7 @@ Useful focused checks:
 ./Packages/verify_strict_concurrency_macos.sh
 ```
 
-The scripts use centralized build paths under `./.build/` and clean generated `.swiftpm` state from package folders so package directories remain portable.
+The scripts use centralized build paths under `/Users/Artem/.zenflow/worktrees/.package-build-cache/` and clean generated `.swiftpm` state from package folders so package directories remain portable. Do not route package verification, Xcode DerivedData, or cloned package state outside `/Users/Artem/.zenflow/worktrees/`.
 
 ## Distribution Hygiene
 
@@ -80,6 +80,9 @@ Before sharing package archives, exclude generated metadata and local SwiftPM/Xc
 __MACOSX/
 .swiftpm/
 .build/
+.package-build-cache/
+.xcode-derived-data/
+.xcode-package-cache/
 xcuserdata/
 *.xcuserstate
 ```

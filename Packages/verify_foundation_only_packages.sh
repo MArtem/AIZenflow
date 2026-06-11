@@ -9,7 +9,8 @@ cleanup_generated_package_state() {
 
 cleanup_generated_package_state
 trap cleanup_generated_package_state EXIT
-cache_root="${TCHOP_PACKAGE_BUILD_CACHE:-$HOME/Library/Caches/TchopPackageBuilds}"
+worktrees_root="$(cd "$packages_dir/../.." && pwd)"
+cache_root="${TCHOP_PACKAGE_BUILD_CACHE:-$worktrees_root/.package-build-cache/TchopPackageBuilds}"
 build_root="$cache_root/foundation-only-packages"
 
 # Packages that are expected to build with portable Foundation-only SwiftPM toolchains.

@@ -6,6 +6,9 @@ readonly PROJECT="TchopApp.xcodeproj"
 readonly SCHEME="TchopApp"
 readonly DESTINATION_IOS_26="platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0"
 readonly DESTINATION_IOS_18="platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2"
+readonly WORKTREES_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
+readonly DERIVED_DATA_PATH="${TCHOP_DERIVED_DATA_PATH:-${WORKTREES_ROOT}/.xcode-derived-data/TchopApp}"
+readonly CLONED_PACKAGES_PATH="${TCHOP_XCODE_PACKAGE_CACHE:-${WORKTREES_ROOT}/.xcode-package-cache/TchopApp}"
 
 cleanup_generated_package_state() {
   find ./Packages -name .swiftpm -type d -prune -exec rm -rf {} +
@@ -35,6 +38,8 @@ run_build() {
     -scheme "${SCHEME}" \
     -configuration Debug \
     -destination "${destination}" \
+    -derivedDataPath "${DERIVED_DATA_PATH}" \
+    -clonedSourcePackagesDirPath "${CLONED_PACKAGES_PATH}" \
     CODE_SIGNING_ALLOWED=NO \
     build
 }
@@ -47,6 +52,8 @@ run_app_tests() {
     -scheme "${SCHEME}" \
     -configuration Debug \
     -destination "${destination}" \
+    -derivedDataPath "${DERIVED_DATA_PATH}" \
+    -clonedSourcePackagesDirPath "${CLONED_PACKAGES_PATH}" \
     CODE_SIGNING_ALLOWED=NO \
     test
 }

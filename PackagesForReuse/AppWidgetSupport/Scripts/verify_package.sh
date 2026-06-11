@@ -12,8 +12,9 @@ while [ "$(basename "$packages_dir")" != "Packages" ]; do
   packages_dir="$parent"
 done
 root_dir="$(dirname "$packages_dir")"
+worktrees_root="$(cd "$root_dir/.." && pwd)"
 package_name="$(basename "$package_dir")"
-build_path="$root_dir/.build/local-package-verification/$package_name"
+build_path="${PACKAGE_BUILD_PATH:-$worktrees_root/.package-build-cache/local-package-verification/$package_name}"
 
 cleanup_generated_package_state() {
   rm -rf "$package_dir/.swiftpm" "$package_dir/.build"

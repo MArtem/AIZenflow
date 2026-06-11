@@ -22,6 +22,11 @@ Before code, docs, git, or project changes, read:
 6. `./docs/WORK_CONTINUITY.md`
 7. current Zenflow task plan if present
 
+## Filesystem Sandbox
+- Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active worktree sandbox.
+- Do not use global SwiftPM/Xcode caches, `/tmp`, user-library caches, or any path outside the active worktree sandbox for project work.
+- If a tool defaults outside the sandbox, override its output/cache/DerivedData paths before running it.
+
 ## MVVM ViewModel API
 - ViewModels expose explicit intent methods by default.
 - Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as default MVVM boilerplate.

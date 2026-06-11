@@ -17,6 +17,13 @@ Every working response should start with:
 - sandbox/worktree confirmation
 - Readiness/status answers such as “готов к новым задачам” are not exempt.
 
+## Filesystem Sandbox Rule
+- Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active Zenflow worktrees sandbox.
+- For Artem's local environment, the hard boundary is `/Users/Artem/.zenflow/worktrees`.
+- Never use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside the active worktrees sandbox for project work.
+- If a tool defaults outside the worktrees sandbox, override its output/cache/DerivedData paths before running it.
+- The only allowed external filesystem action is deleting previously created project traces outside the sandbox when the user explicitly requests cleanup.
+
 ## MVVM ViewModel API Rule
 - ViewModels expose explicit intent methods by default.
 - Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as default MVVM boilerplate.

@@ -995,8 +995,8 @@ Use archives only when historical detail is needed:
 ### [x] Step: Centralize SwiftPM build artifacts for standalone packages
 - User asked whether package-local `.build` folders are required and approved moving away from per-package `.build` directories.
 - Completed now:
-  - updated `./Packages/verify_standalone_packages.sh` so each package runs `swift test` with a root-level `--build-path` under `./.build/standalone-packages/<PackageName>` instead of creating `./Packages/<PackageName>/.build`.
-  - updated `./scripts/verify.sh` so compatibility package tests for `./Packages/TchopInfrastructure` use root-level `./.build/package-tests/TchopInfrastructure`.
+  - updated `./Packages/verify_standalone_packages.sh` so each package runs `swift test` with a centralized `--build-path` instead of creating `./Packages/<PackageName>/.build`; the old root-level `./.build` location was later superseded by the mandatory sandbox-bound cache under `/Users/Artem/.zenflow/worktrees/.package-build-cache`.
+  - updated `./scripts/verify.sh` so compatibility package tests for `./Packages/TchopInfrastructure` use centralized build output; the old root-level `./.build` location was later superseded by the mandatory sandbox-bound cache under `/Users/Artem/.zenflow/worktrees/.package-build-cache`.
   - added explicit `**/.build/` ignore coverage to `./.gitignore`.
   - updated `./Packages/README.md` to document centralized build artifacts and the disposable nature of local package build outputs.
   - removed existing local `./Packages/*/.build` and accidental package-local `./Packages/*/build` directories; final checks confirmed no package-local build artifact directories remain.
@@ -1038,7 +1038,7 @@ Use archives only when historical detail is needed:
   - removed vault-only helper packages from active `./Packages/IntegrationHelpers`: `AppErrorsNetworkingIntegration` and `TchopProductLocalizationResourcesAppLocalizationIntegration`, including their copy-file variants.
   - kept all removed package/helper source, docs, scripts, and tests preserved under `./PackagesForReuse`, so no reusable package code was lost.
   - active `./Packages` now contains only the packages and integration helpers required by current TchopApp app/widget/share-extension wiring, plus package docs/SDK-creation documentation.
-  - updated package verification scripts so they only enumerate active packages and use external SwiftPM build caches under `${TCHOP_PACKAGE_BUILD_CACHE:-$HOME/Library/Caches/TchopPackageBuilds}` instead of recreating root/project-local `./.build`.
+  - updated package verification scripts so they only enumerate active packages and use SwiftPM build caches inside `/Users/Artem/.zenflow/worktrees/.package-build-cache/TchopPackageBuilds`, never under `/Users/Artem/Library` or any path outside `/Users/Artem/.zenflow/worktrees`.
   - confirmed `./.build` remains absent and no `.build`, `.swiftpm`, `build`, log, or `.DS_Store` artifacts exist under `./Packages` or `./PackagesForReuse`.
 - Completed now in linked MVVMExample worktree `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80`:
   - removed duplicated local Swift packages by deleting `./Packages` from the MVVMExample worktree.
@@ -1052,6 +1052,7 @@ Use archives only when historical detail is needed:
   - `./Packages/verify_apple_packages_macos.sh` succeeded for the active Apple-only package set.
   - `./Packages/verify_strict_concurrency_macos.sh` succeeded for active packages/helpers under strict concurrency.
   - `python3 ./scripts/check_docs_index.py`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`.
+  - After the sandbox-boundary correction, external traces created by package/Xcode verification were removed from `/Users/Artem/Library/Caches/TchopPackageBuilds`, `/Users/Artem/Library/Developer/Xcode/DerivedData/TchopApp-bemtrqlzujeplwdrjbjfolultghp`, and `/Users/Artem/Library/Developer/Xcode/DerivedData/MVVMExample-cfgmgdsybeumsehimdvtxmbfjflu`; follow-up checks found no remaining Tchop/MVVMExample-named candidates under those external roots.
 - Verification MVVMExample worktree:
   - `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, `xcodebuild -list -project ./MVVMExample.xcodeproj`, and `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded with no warning/error lines in the captured build log.
   - No simulator UI/manual validation/Instruments run was performed.
