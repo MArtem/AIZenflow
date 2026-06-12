@@ -198,6 +198,19 @@
 		B1294C7AFDED3CC4EEE05435 /* SystemPermissionManagerFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1294C7AFDED3CC4EEE05435 /* SystemPermissionManagerFactory.swift */; };
 		B11D5C9644D4AD68ECBD8A64 /* TrackingTransparencyPermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11D5C9644D4AD68ECBD8A64 /* TrackingTransparencyPermissionProvider.swift */; };
 		B14701072B26244C28F267AE /* UserNotificationPermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F14701072B26244C28F267AE /* UserNotificationPermissionProvider.swift */; };
+		B15DB9E3784CE340E16C9434 /* AppBuildInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = F15DB9E3784CE340E16C9434 /* AppBuildInfo.swift */; };
+		B123F9845F21F48DDA812C65 /* AppEnvironmentDiagnostics.swift in Sources */ = {isa = PBXBuildFile; fileRef = F123F9845F21F48DDA812C65 /* AppEnvironmentDiagnostics.swift */; };
+		B1E44787048058FEDD3AF909 /* AppEnvironmentProviding.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E44787048058FEDD3AF909 /* AppEnvironmentProviding.swift */; };
+		B182D22A0B360456132A3184 /* AppEnvironmentSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F182D22A0B360456132A3184 /* AppEnvironmentSnapshot.swift */; };
+		B13F94E33B7F05890809E77F /* AppLocaleContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13F94E33B7F05890809E77F /* AppLocaleContext.swift */; };
+		B12E7568FD5D7E1D751FB691 /* AppRuntimeFlags.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12E7568FD5D7E1D751FB691 /* AppRuntimeFlags.swift */; };
+		B139683313ACB3F013724210 /* BuildConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F139683313ACB3F013724210 /* BuildConfiguration.swift */; };
+		B1096E05B7263C8905B2AF59 /* BundleAppBuildInfoProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1096E05B7263C8905B2AF59 /* BundleAppBuildInfoProvider.swift */; };
+		B1DCB83FC2BB84AF16A27A37 /* CurrentLocaleContextProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1DCB83FC2BB84AF16A27A37 /* CurrentLocaleContextProvider.swift */; };
+		B1FF3868CA33E862E3B62241 /* DefaultAppEnvironmentProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1FF3868CA33E862E3B62241 /* DefaultAppEnvironmentProvider.swift */; };
+		B107DC66714B65397F210359 /* EnvironmentKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F107DC66714B65397F210359 /* EnvironmentKind.swift */; };
+		B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift */; };
+		B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -432,6 +445,19 @@
 		F1294C7AFDED3CC4EEE05435 /* SystemPermissionManagerFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppPermissions/Sources/AppPermissions/SystemPermissionManagerFactory.swift; sourceTree = "<group>"; };
 		F11D5C9644D4AD68ECBD8A64 /* TrackingTransparencyPermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppPermissions/Sources/AppPermissions/TrackingTransparencyPermissionProvider.swift; sourceTree = "<group>"; };
 		F14701072B26244C28F267AE /* UserNotificationPermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppPermissions/Sources/AppPermissions/UserNotificationPermissionProvider.swift; sourceTree = "<group>"; };
+		F15DB9E3784CE340E16C9434 /* AppBuildInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppBuildInfo.swift; sourceTree = "<group>"; };
+		F123F9845F21F48DDA812C65 /* AppEnvironmentDiagnostics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentDiagnostics.swift; sourceTree = "<group>"; };
+		F1E44787048058FEDD3AF909 /* AppEnvironmentProviding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentProviding.swift; sourceTree = "<group>"; };
+		F182D22A0B360456132A3184 /* AppEnvironmentSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentSnapshot.swift; sourceTree = "<group>"; };
+		F13F94E33B7F05890809E77F /* AppLocaleContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppLocaleContext.swift; sourceTree = "<group>"; };
+		F12E7568FD5D7E1D751FB691 /* AppRuntimeFlags.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppRuntimeFlags.swift; sourceTree = "<group>"; };
+		F139683313ACB3F013724210 /* BuildConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/BuildConfiguration.swift; sourceTree = "<group>"; };
+		F1096E05B7263C8905B2AF59 /* BundleAppBuildInfoProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/BundleAppBuildInfoProvider.swift; sourceTree = "<group>"; };
+		F1DCB83FC2BB84AF16A27A37 /* CurrentLocaleContextProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/CurrentLocaleContextProvider.swift; sourceTree = "<group>"; };
+		F1FF3868CA33E862E3B62241 /* DefaultAppEnvironmentProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/DefaultAppEnvironmentProvider.swift; sourceTree = "<group>"; };
+		F107DC66714B65397F210359 /* EnvironmentKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/EnvironmentKind.swift; sourceTree = "<group>"; };
+		F196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/ProcessRuntimeFlagsProvider.swift; sourceTree = "<group>"; };
+		F1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/StaticProviders.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1212,6 +1238,19 @@
 				B1294C7AFDED3CC4EEE05435 /* SystemPermissionManagerFactory.swift in Sources */,
 				B11D5C9644D4AD68ECBD8A64 /* TrackingTransparencyPermissionProvider.swift in Sources */,
 				B14701072B26244C28F267AE /* UserNotificationPermissionProvider.swift in Sources */,
+				B15DB9E3784CE340E16C9434 /* AppBuildInfo.swift in Sources */,
+				B123F9845F21F48DDA812C65 /* AppEnvironmentDiagnostics.swift in Sources */,
+				B1E44787048058FEDD3AF909 /* AppEnvironmentProviding.swift in Sources */,
+				B182D22A0B360456132A3184 /* AppEnvironmentSnapshot.swift in Sources */,
+				B13F94E33B7F05890809E77F /* AppLocaleContext.swift in Sources */,
+				B12E7568FD5D7E1D751FB691 /* AppRuntimeFlags.swift in Sources */,
+				B139683313ACB3F013724210 /* BuildConfiguration.swift in Sources */,
+				B1096E05B7263C8905B2AF59 /* BundleAppBuildInfoProvider.swift in Sources */,
+				B1DCB83FC2BB84AF16A27A37 /* CurrentLocaleContextProvider.swift in Sources */,
+				B1FF3868CA33E862E3B62241 /* DefaultAppEnvironmentProvider.swift in Sources */,
+				B107DC66714B65397F210359 /* EnvironmentKind.swift in Sources */,
+				B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */,
+				B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1339,6 +1378,19 @@
 				B1294C7AFDED3CC4EEE05435 /* SystemPermissionManagerFactory.swift in Sources */,
 				B11D5C9644D4AD68ECBD8A64 /* TrackingTransparencyPermissionProvider.swift in Sources */,
 				B14701072B26244C28F267AE /* UserNotificationPermissionProvider.swift in Sources */,
+				B15DB9E3784CE340E16C9434 /* AppBuildInfo.swift in Sources */,
+				B123F9845F21F48DDA812C65 /* AppEnvironmentDiagnostics.swift in Sources */,
+				B1E44787048058FEDD3AF909 /* AppEnvironmentProviding.swift in Sources */,
+				B182D22A0B360456132A3184 /* AppEnvironmentSnapshot.swift in Sources */,
+				B13F94E33B7F05890809E77F /* AppLocaleContext.swift in Sources */,
+				B12E7568FD5D7E1D751FB691 /* AppRuntimeFlags.swift in Sources */,
+				B139683313ACB3F013724210 /* BuildConfiguration.swift in Sources */,
+				B1096E05B7263C8905B2AF59 /* BundleAppBuildInfoProvider.swift in Sources */,
+				B1DCB83FC2BB84AF16A27A37 /* CurrentLocaleContextProvider.swift in Sources */,
+				B1FF3868CA33E862E3B62241 /* DefaultAppEnvironmentProvider.swift in Sources */,
+				B107DC66714B65397F210359 /* EnvironmentKind.swift in Sources */,
+				B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */,
+				B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -826,6 +826,17 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `./PackagesForReuse/AppPermissions/Scripts/verify_package.sh` succeeded with 24 XCTest tests plus strict-concurrency verification and no warning grep findings; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`.
 - Cleanup: removed temporary incoming extraction/logs and removed empty worktree package build cache; package folders contain no `.build`, `.swiftpm`, `Package.resolved`, `DerivedData`, `xcuserdata`, or logs.
 
+### [x] Step: Review and adopt InfrastructureSDK Iteration08 AppEnvironment
+- Reviewed `InfrastructureSDK_Iteration08.zip` package `AppEnvironment` as a single-folder standalone package.
+- Fixed package verification sandboxing so `Scripts/verify_package.sh` uses a worktree-local scratch path instead of `/tmp` or external user caches, and corrected package contract wording accordingly.
+- Added `ProcessRuntimeFlagsProvider.makeRuntimeFlags(...)` so synchronous app entry points can use package-owned runtime flag resolution without adding async launch plumbing or decorative wrappers.
+- Added package-owned coverage for the synchronous runtime flag helper and replaced a test-only `/tmp` path string with a worktree-shaped path fixture.
+- Added `AppEnvironment` to both `./PackagesForReuse` and active source-only `./PackagesInUse`.
+- Migrated `./TchopApp/App/AppLaunchConfiguration.swift` so generic process/runtime flag parsing comes from `AppEnvironment`; product-specific `TCHOP_*` launch policy remains app-owned.
+- Updated `./scripts/migrate_packages_in_use_project.py`, `./TchopApp.xcodeproj/project.pbxproj`, `./PackagesForReuse/README.md`, `./PackagesInUse/README.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, and `./docs/README.md` for the new active/vault package.
+- Verification: `./PackagesForReuse/AppEnvironment/Scripts/verify_package.sh` succeeded with 15 XCTest tests plus strict-concurrency verification and no warning grep findings; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`.
+- Cleanup: removed temporary incoming extraction/logs and generated worktree package/Xcode build caches; package folders contain no `.build`, `.swiftpm`, `Package.resolved`, `DerivedData`, `xcuserdata`, or logs.
+
 ## Verification Status
 - Latest verification succeeded with `./scripts/verify.sh medium` after source-only package migration, then `./scripts/verify.sh low`, `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py`.
 - Package-vault SwiftPM tests are now explicit per-package checks from `./PackagesForReuse/<PackageName>`; app verification no longer depends on connected SwiftPM packages because `TchopApp` uses `./PackagesInUse` source-only mode.

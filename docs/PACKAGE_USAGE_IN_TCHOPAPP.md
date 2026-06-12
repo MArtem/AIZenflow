@@ -32,6 +32,7 @@ Use package mechanics instead of app-local duplicated code when the package surf
 - share-extension import/app-group storage mechanics
 - push registration/notification forwarding mechanics
 - permission state/request mechanics
+- runtime environment/build/test flag snapshot mechanics
 - database execution-boundary utilities
 - on-device AI abstraction/fallback mechanics
 - analytics event/transport mechanics
@@ -53,3 +54,7 @@ Every package under `./PackagesForReuse` and `./PackagesInUse` keeps SwiftPM met
 ## Current permission package usage
 
 `./TchopApp/App/AppPushNotificationBridge.swift` uses `./PackagesInUse/AppPermissions` for the notification permission request/state boundary and `./PackagesInUse/AppPushNotifications` for push runtime state, APNs token handling, and notification payload handling.
+
+## Current environment package usage
+
+`./TchopApp/App/AppLaunchConfiguration.swift` uses `./PackagesInUse/AppEnvironment` for generic process/runtime flag resolution. Product-specific launch switches such as `TCHOP_API_ENV`, `TCHOP_DATABASE_BACKEND`, and UI-test usernames remain app-owned policy.

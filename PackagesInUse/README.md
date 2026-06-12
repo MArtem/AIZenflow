@@ -28,6 +28,7 @@ This folder exists because this worktree is being used both as an app and as a p
 - `./PackagesInUse/AppBranding`
 - `./PackagesInUse/AppConfiguration`
 - `./PackagesInUse/AppDatabase`
+- `./PackagesInUse/AppEnvironment`
 - `./PackagesInUse/AppErrors`
 - `./PackagesInUse/AppGlassUI`
 - `./PackagesInUse/AppLocalization`

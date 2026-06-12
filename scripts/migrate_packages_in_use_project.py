@@ -44,6 +44,7 @@ APP_PACKAGES = {
     "AppBranding",
     "AppConfiguration",
     "AppDatabase",
+    "AppEnvironment",
     "AppErrors",
     "AppGlassUI",
     "AppLocalization",
@@ -76,6 +77,7 @@ SHARE_PACKAGES = {
 PRODUCT_NAMES = {
     "AppNetworking",
     "AppDatabase",
+    "AppEnvironment",
     "AppLocalization",
     "TchopProductLocalizationResources",
     "AppBranding",

@@ -41,7 +41,8 @@ private enum AppLaunchDatabaseMode {
 /// Launch-time configuration derived from process environment for local testing flows.
 ///
 /// This keeps development-only runtime switches centralized in one place so entry points and
-/// composition do not grow ad-hoc environment parsing logic.
+/// composition do not grow ad-hoc environment parsing logic. Generic process/runtime flags are
+/// resolved through the reusable `AppEnvironment` package.
 struct AppLaunchConfiguration {
     let isUITesting: Bool
     let launchesAuthenticatedSession: Bool
@@ -54,8 +55,18 @@ struct AppLaunchConfiguration {
     ///
     /// This is also the single place where development-only external runtime switches are read
     /// from launch environment variables so the rest of the app can stay declarative.
-    init(environment: [String: String] = ProcessInfo.processInfo.environment) {
-        self.isUITesting = environment["TCHOP_UI_TEST_MODE"] == "1"
+    init(
+        environment: [String: String] = ProcessInfo.processInfo.environment,
+        arguments: [String] = ProcessInfo.processInfo.arguments,
+        processName: String = ProcessInfo.processInfo.processName
+    ) {
+        let runtimeFlags = ProcessRuntimeFlagsProvider.makeRuntimeFlags(
+            environment: environment,
+            arguments: arguments,
+            processName: processName
+        )
+
+        self.isUITesting = runtimeFlags.isUITesting || environment["TCHOP_UI_TEST_MODE"] == "1"
         self.launchesAuthenticatedSession = environment["TCHOP_UI_TEST_AUTHENTICATED"] == "1"
         self.uiTestUsername = environment["TCHOP_UI_TEST_USERNAME"] ?? "ui-test-user"
         self.initialURL = Self.makeInitialURL(environment: environment)
