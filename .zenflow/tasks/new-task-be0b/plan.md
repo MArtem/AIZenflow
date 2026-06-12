@@ -837,6 +837,15 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `./PackagesForReuse/AppEnvironment/Scripts/verify_package.sh` succeeded with 15 XCTest tests plus strict-concurrency verification and no warning grep findings; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`.
 - Cleanup: removed temporary incoming extraction/logs and generated worktree package/Xcode build caches; package folders contain no `.build`, `.swiftpm`, `Package.resolved`, `DerivedData`, `xcuserdata`, or logs.
 
+### [x] Step: Review and vault InfrastructureSDK Iteration09 AppDeviceInfo
+- Reviewed `InfrastructureSDK_Iteration09.zip` package `AppDeviceInfo` as a single-folder standalone package.
+- Added privacy guardrails in package docs and inline comments: raw `DeviceInfoSnapshot` can be fingerprintable and must stay local unless explicitly privacy-reviewed; `DeviceInfoDiagnostics` is the telemetry/support-safe summary surface.
+- Verified the package does not use `/tmp`, `~/Library`, sibling dependencies, remote package dependencies, `@unchecked Sendable`, or app-specific imports.
+- Added `AppDeviceInfo` to `./PackagesForReuse` only. It was intentionally not added to `./PackagesInUse` because current `TchopApp` has no app-specific device diagnostics/runtime device-info logic to replace; converting the simple compile-time simulator login hint to async runtime device-info would be unnecessary complexity.
+- Updated `./PackagesForReuse/README.md` and `./docs/README.md` for the new vault package.
+- Verification: `./PackagesForReuse/AppDeviceInfo/Scripts/verify_package.sh` succeeded with 12 XCTest tests plus strict-concurrency verification and no warning grep findings; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded.
+- Cleanup: removed temporary incoming extraction/logs and package scratch cache; package folders contain no `.build`, `.swiftpm`, `Package.resolved`, `DerivedData`, `xcuserdata`, or logs.
+
 ## Verification Status
 - Latest verification succeeded with `./scripts/verify.sh medium` after source-only package migration, then `./scripts/verify.sh low`, `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py`.
 - Package-vault SwiftPM tests are now explicit per-package checks from `./PackagesForReuse/<PackageName>`; app verification no longer depends on connected SwiftPM packages because `TchopApp` uses `./PackagesInUse` source-only mode.
