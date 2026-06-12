@@ -33,6 +33,7 @@ Use package mechanics instead of app-local duplicated code when the package surf
 - push registration/notification forwarding mechanics
 - permission state/request mechanics
 - runtime environment/build/test flag snapshot mechanics
+- app lifecycle phase/event tracking mechanics
 - database execution-boundary utilities
 - on-device AI abstraction/fallback mechanics
 - analytics event/transport mechanics
@@ -58,3 +59,8 @@ Every package under `./PackagesForReuse` and `./PackagesInUse` keeps SwiftPM met
 ## Current environment package usage
 
 `./TchopApp/App/AppLaunchConfiguration.swift` uses `./PackagesInUse/AppEnvironment` for generic process/runtime flag resolution. Product-specific launch switches such as `TCHOP_API_ENV`, `TCHOP_DATABASE_BACKEND`, and UI-test usernames remain app-owned policy.
+
+
+## Current lifecycle package usage
+
+`./TchopApp/TchopApp.swift` maps SwiftUI `ScenePhase` values into `./PackagesInUse/AppLifecycle` phases/events, while `./TchopApp/App/AppState.swift` records launch and scene transitions through `DefaultAppLifecycleManager`. Product-specific foreground behavior, such as share-extension sync and feed refresh, remains app-owned policy.

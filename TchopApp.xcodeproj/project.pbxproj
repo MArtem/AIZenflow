@@ -211,6 +211,7 @@
 		B107DC66714B65397F210359 /* EnvironmentKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = F107DC66714B65397F210359 /* EnvironmentKind.swift */; };
 		B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift */; };
 		B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift */; };
+		B1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -458,6 +459,7 @@
 		F107DC66714B65397F210359 /* EnvironmentKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/EnvironmentKind.swift; sourceTree = "<group>"; };
 		F196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/ProcessRuntimeFlagsProvider.swift; sourceTree = "<group>"; };
 		F1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/StaticProviders.swift; sourceTree = "<group>"; };
+		F1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppLifecycle/Sources/AppLifecycle/AppLifecycle.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1251,6 +1253,7 @@
 				B107DC66714B65397F210359 /* EnvironmentKind.swift in Sources */,
 				B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */,
 				B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */,
+				B1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1391,6 +1394,7 @@
 				B107DC66714B65397F210359 /* EnvironmentKind.swift in Sources */,
 				B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */,
 				B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */,
+				B1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

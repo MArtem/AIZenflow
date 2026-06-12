@@ -53,12 +53,41 @@ struct TchopApp: App {
             )
                 .environment(\.diContainer, container)
                 .onChange(of: scenePhase) { _, newPhase in
-                    guard newPhase == .active else {
-                        return
-                    }
-
-                    appState.handleAppDidBecomeActive()
+                    appState.handleLifecyclePhaseChange(
+                        newPhase.appLifecyclePhase,
+                        reason: newPhase.appLifecycleEventKind
+                    )
                 }
+        }
+    }
+}
+
+private extension ScenePhase {
+    /// Maps SwiftUI scene phase values into the product-neutral lifecycle package contract.
+    var appLifecyclePhase: AppLifecyclePhase {
+        switch self {
+        case .active:
+            return .active
+        case .inactive:
+            return .inactive
+        case .background:
+            return .background
+        @unknown default:
+            return .unknown
+        }
+    }
+
+    /// Preserves the system transition reason while keeping package code SwiftUI-independent.
+    var appLifecycleEventKind: AppLifecycleEventKind {
+        switch self {
+        case .active:
+            return .didBecomeActive
+        case .inactive:
+            return .willResignActive
+        case .background:
+            return .didEnterBackground
+        @unknown default:
+            return .custom
         }
     }
 }

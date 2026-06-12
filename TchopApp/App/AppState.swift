@@ -30,6 +30,7 @@ final class AppState {
     private let navigationEventReporter: any NavigationEventReporting
     private let widgetContentSyncManager: any WidgetContentSyncing
     private let pushNotificationBridge: any AppPushNotificationBridging
+    private let lifecycleManager: any AppLifecycleManaging
     private let errorManager: any AppErrorManaging
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager?
     /// Guards snapshot persistence while an old snapshot is being restored into the coordinator.
@@ -56,6 +57,7 @@ final class AppState {
         navigationEventReporter: any NavigationEventReporting,
         widgetContentSyncManager: any WidgetContentSyncing,
         pushNotificationBridge: any AppPushNotificationBridging,
+        lifecycleManager: any AppLifecycleManaging = DefaultAppLifecycleManager(initialPhase: .inactive),
         errorManager: any AppErrorManaging,
         shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = nil
     ) {
@@ -72,10 +74,12 @@ final class AppState {
         self.navigationEventReporter = navigationEventReporter
         self.widgetContentSyncManager = widgetContentSyncManager
         self.pushNotificationBridge = pushNotificationBridge
+        self.lifecycleManager = lifecycleManager
         self.errorManager = errorManager
         self.shareExtensionSessionContextManager = shareExtensionSessionContextManager
         setupNavigationPersistenceBindings()
         Task { @MainActor [weak self] in
+            await self?.startLifecycleTracking()
             await self?.restoreSession()
         }
     }
@@ -162,8 +166,16 @@ final class AppState {
         }
     }
 
-    func handleAppDidBecomeActive() {
-        guard case .authenticated = sessionState else {
+    /// Records a scene lifecycle transition and runs the authenticated foreground refresh policy.
+    func handleLifecyclePhaseChange(
+        _ phase: AppLifecyclePhase,
+        reason: AppLifecycleEventKind
+    ) {
+        Task { @MainActor [weak self] in
+            await self?.recordLifecycleTransition(phase, reason: reason)
+        }
+
+        guard phase == .active, case .authenticated = sessionState else {
             return
         }
 
@@ -171,6 +183,49 @@ final class AppState {
         Task { @MainActor [appShellViewModel] in
             await appShellViewModel.newsFeedViewModel.sendAndWait(.refreshRequested)
         }
+    }
+
+    /// Starts product-neutral lifecycle tracking using app-owned build identity metadata.
+    private func startLifecycleTracking() async {
+        do {
+            _ = try await lifecycleManager.startLaunch(buildIdentity: Self.currentBuildIdentity())
+        } catch {
+            await reportLifecycleError(error, operation: "startLifecycleTracking")
+        }
+    }
+
+    /// Persists the latest product-neutral lifecycle transition in the shared lifecycle manager.
+    private func recordLifecycleTransition(
+        _ phase: AppLifecyclePhase,
+        reason: AppLifecycleEventKind
+    ) async {
+        do {
+            _ = try await lifecycleManager.setPhase(phase, reason: reason)
+        } catch {
+            await reportLifecycleError(error, operation: "recordLifecycleTransition")
+        }
+    }
+
+    /// Maps lifecycle package errors through the app runtime error manager without exposing raw details.
+    private func reportLifecycleError(_ error: Error, operation: String) async {
+        _ = await errorManager.presentableError(
+            from: error,
+            context: AppErrorContext(
+                operation: operation,
+                feature: "appLifecycle"
+            )
+        )
+    }
+
+    /// Reads non-sensitive app build metadata used by the reusable lifecycle package.
+    private static func currentBuildIdentity() -> AppLifecycleBuildIdentity? {
+        guard let version = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String,
+              !version.isEmpty
+        else {
+            return nil
+        }
+        let build = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+        return AppLifecycleBuildIdentity(version: version, build: build)
     }
 
     /// Restores the previously persisted user session if one exists.

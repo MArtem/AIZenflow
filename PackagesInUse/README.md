@@ -32,6 +32,7 @@ This folder exists because this worktree is being used both as an app and as a p
 - `./PackagesInUse/AppErrors`
 - `./PackagesInUse/AppGlassUI`
 - `./PackagesInUse/AppLocalization`
+- `./PackagesInUse/AppLifecycle`
 - `./PackagesInUse/AppNavigation`
 - `./PackagesInUse/AppNetworking`
 - `./PackagesInUse/AppOnDeviceAI`

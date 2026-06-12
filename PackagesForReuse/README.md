@@ -32,6 +32,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppFeatureFlags` | root-package | `AppFeatureFlags` |
 | `./PackagesForReuse/AppGlassUI` | root-package | `AppGlassUI` |
 | `./PackagesForReuse/AppLocalization` | root-package | `AppLocalization` |
+| `./PackagesForReuse/AppLifecycle` | root-package | `AppLifecycle` |
 | `./PackagesForReuse/AppLogging` | root-package | `AppLogging` |
 | `./PackagesForReuse/AppNavigation` | root-package | `AppNavigation` |
 | `./PackagesForReuse/AppNetworking` | root-package | `AppNetworking` |

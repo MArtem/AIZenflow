@@ -846,6 +846,14 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `./PackagesForReuse/AppDeviceInfo/Scripts/verify_package.sh` succeeded with 12 XCTest tests plus strict-concurrency verification and no warning grep findings; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded.
 - Cleanup: removed temporary incoming extraction/logs and package scratch cache; package folders contain no `.build`, `.swiftpm`, `Package.resolved`, `DerivedData`, `xcuserdata`, or logs.
 
+
+- Completed now: InfrastructureSDK Iteration10 package review and source-only adoption:
+  - reviewed `AppLifecycle` from `InfrastructureSDK_Iteration10.zip` against the single-folder standalone package contract, privacy rules, concurrency rules, and package/app ownership boundary.
+  - bumped the incoming package manifest to Swift tools 6.0 for consistency with the current reusable package baseline, verified package-owned tests and strict-concurrency build, and copied the final package into both `./PackagesForReuse/AppLifecycle` and `./PackagesInUse/AppLifecycle`.
+  - integrated `AppLifecycle` into the active app in source-only mode: `./TchopApp/TchopApp.swift` now maps SwiftUI `ScenePhase` to product-neutral lifecycle phases/events, `./TchopApp/App/AppState.swift` records launch/scene transitions through `DefaultAppLifecycleManager`, and product-specific foreground refresh policy remains app-owned.
+  - updated `./scripts/migrate_packages_in_use_project.py`, `./TchopApp.xcodeproj/project.pbxproj`, `./PackagesForReuse/README.md`, `./PackagesInUse/README.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, and `./docs/README.md` for the new active package.
+- Verification: `./PackagesForReuse/AppLifecycle/Scripts/verify_package.sh` succeeded with 14 XCTest tests and strict-concurrency build; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`. No simulator UI/manual validation/Instruments run.
+
 ## Verification Status
 - Latest verification succeeded with `./scripts/verify.sh medium` after source-only package migration, then `./scripts/verify.sh low`, `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py`.
 - Package-vault SwiftPM tests are now explicit per-package checks from `./PackagesForReuse/<PackageName>`; app verification no longer depends on connected SwiftPM packages because `TchopApp` uses `./PackagesInUse` source-only mode.

@@ -170,6 +170,9 @@ final class AppDIContainer {
     /// Bridge that adapts system APNs callbacks into package-backed push state handling.
     let pushNotificationBridge: any AppPushNotificationBridging
 
+    /// Product-neutral lifecycle manager that records launch and scene phase transitions.
+    let lifecycleManager: any AppLifecycleManaging
+
     /// Creates the root dependency container and eagerly wires the initial graph.
     init(
         databaseConfiguration: DatabaseConfiguration = .persistent,
@@ -222,6 +225,7 @@ final class AppDIContainer {
             analyticsCollector: analyticsCollector,
             errorManager: errorManager
         )
+        self.lifecycleManager = DefaultAppLifecycleManager(initialPhase: .inactive)
 
         let navigationServices = Self.makeNavigationServices(
             analyticsCollector: analyticsCollector
@@ -271,6 +275,7 @@ final class AppDIContainer {
             navigationEventReporter: navigationEventReporter,
             widgetContentSyncManager: widgetContentSyncManager,
             pushNotificationBridge: pushNotificationBridge,
+            lifecycleManager: lifecycleManager,
             errorManager: errorManager,
             shareExtensionSessionContextManager: shareExtensionSessionContextManager
         )
