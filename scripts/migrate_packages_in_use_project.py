@@ -50,6 +50,7 @@ APP_PACKAGES = {
     "AppNavigation",
     "AppNetworking",
     "AppOnDeviceAI",
+    "AppPermissions",
     "AppPushNotifications",
     "AppShareExtensionSupport",
     "AppWidgetSupport",
@@ -91,6 +92,7 @@ PRODUCT_NAMES = {
     "AppAppleAuthentication",
     "AppErrors",
     "AppOnDeviceAI",
+    "AppPermissions",
 }
 
 

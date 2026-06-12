@@ -40,18 +40,21 @@ final class NoopPushNotificationBridge: AppPushNotificationBridging {
 @MainActor
 final class AppPushNotificationBridge: AppPushNotificationBridging {
     private let manager: any PushNotificationManaging
-    private let notificationCenter: UNUserNotificationCenter
+    private let notificationPermissionProvider: any PermissionProviding
     private let errorManager: any AppErrorManaging
 
     /// Creates a new AppPushNotificationBridge instance.
     init(
         manager: any PushNotificationManaging,
         errorManager: any AppErrorManaging,
-        notificationCenter: UNUserNotificationCenter = .current()
+        notificationCenter: UNUserNotificationCenter = .current(),
+        notificationPermissionProvider: (any PermissionProviding)? = nil
     ) {
         self.manager = manager
         self.errorManager = errorManager
-        self.notificationCenter = notificationCenter
+        self.notificationPermissionProvider = notificationPermissionProvider ?? UserNotificationPermissionProvider(
+            notificationCenter: notificationCenter
+        )
     }
 
     /// Handles start.
@@ -68,13 +71,11 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
     /// Requests authorization and register.
     func requestAuthorizationAndRegister(application: UIApplication) async {
         do {
-            let isGranted = try await notificationCenter.requestAuthorization(
-                options: [.alert, .badge, .sound]
-            )
-            let status: PushNotificationAuthorizationStatus = isGranted ? .authorized : .denied
+            let outcome = try await notificationPermissionProvider.request(.notifications)
+            let status = PushNotificationAuthorizationStatus(outcome.state)
             _ = try await manager.updateAuthorizationStatus(status)
 
-            guard isGranted else {
+            guard outcome.state.grantsAccess else {
                 return
             }
 
@@ -126,8 +127,8 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
 
     /// Handles refresh authorization status.
     private func refreshAuthorizationStatus() async -> PushNotificationAuthorizationStatus {
-        let settings = await notificationCenter.notificationSettings()
-        let status = PushNotificationAuthorizationStatus(settings.authorizationStatus)
+        let permissionState = await notificationPermissionProvider.state(for: .notifications)
+        let status = PushNotificationAuthorizationStatus(permissionState)
         do {
             _ = try await manager.updateAuthorizationStatus(status)
         } catch {
@@ -181,7 +182,25 @@ extension PushNotificationAuthorizationStatus {
         }
     }
 
-    /// Creates a new AppPushNotificationBridge instance.
+    /// Creates a push authorization status from the generic permission state contract.
+    init(_ state: PermissionState) {
+        switch state {
+        case .notDetermined:
+            self = .notDetermined
+        case .authorized:
+            self = .authorized
+        case .provisional:
+            self = .provisional
+        case .ephemeral:
+            self = .ephemeral
+        case .denied, .restricted, .limited, .unavailable:
+            self = .denied
+        case .unknown:
+            self = .notDetermined
+        }
+    }
+
+    /// Creates a push authorization status from the platform notification status.
     init(_ status: UNAuthorizationStatus) {
         switch status {
         case .notDetermined:

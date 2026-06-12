@@ -34,6 +34,7 @@ This folder exists because this worktree is being used both as an app and as a p
 - `./PackagesInUse/AppNavigation`
 - `./PackagesInUse/AppNetworking`
 - `./PackagesInUse/AppOnDeviceAI`
+- `./PackagesInUse/AppPermissions`
 - `./PackagesInUse/AppPushNotifications`
 - `./PackagesInUse/AppShareExtensionSupport`
 - `./PackagesInUse/AppWidgetSupport`

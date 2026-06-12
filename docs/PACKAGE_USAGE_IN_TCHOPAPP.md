@@ -31,6 +31,7 @@ Use package mechanics instead of app-local duplicated code when the package surf
 - widget snapshot storage mechanics
 - share-extension import/app-group storage mechanics
 - push registration/notification forwarding mechanics
+- permission state/request mechanics
 - database execution-boundary utilities
 - on-device AI abstraction/fallback mechanics
 - analytics event/transport mechanics
@@ -48,3 +49,7 @@ Keep product policy in app code:
 ## Future SwiftPM use
 
 Every package under `./PackagesForReuse` and `./PackagesInUse` keeps SwiftPM metadata and package-owned tests. A future project can copy one folder and connect it as a normal Swift Package when disk/build-cache cost is acceptable.
+
+## Current permission package usage
+
+`./TchopApp/App/AppPushNotificationBridge.swift` uses `./PackagesInUse/AppPermissions` for the notification permission request/state boundary and `./PackagesInUse/AppPushNotifications` for push runtime state, APNs token handling, and notification payload handling.

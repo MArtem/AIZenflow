@@ -35,6 +35,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppNetworking` | root-package | `AppNetworking` |
 | `./PackagesForReuse/AppObservability` | root-package | `AppObservability` |
 | `./PackagesForReuse/AppOnDeviceAI` | root-package | `AppOnDeviceAI` |
+| `./PackagesForReuse/AppPermissions` | root-package | `AppPermissions` |
 | `./PackagesForReuse/AppPushNotifications` | root-package | `AppPushNotifications` |
 | `./PackagesForReuse/AppSecureStorage` | root-package | `AppSecureStorage` |
 | `./PackagesForReuse/AppShareExtensionSupport` | root-package | `AppShareExtensionSupport` |

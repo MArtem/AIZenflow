@@ -814,6 +814,18 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Updated `./Packages/README.md`, `./PackagesInUse/README.md`, `./PackagesForReuse/README.md`, `./PackagesForReuse/CONNECTING_PACKAGES.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, `./docs/PACKAGES_AND_MANAGERS.md`, `./PROJECT_DOCUMENTATION.md`, `./docs/README.md`, and `./scripts/verify.sh` for the new package mode.
 - Verification: `./scripts/verify.sh medium` succeeded with app/unit/UI tests plus final build; after project cleanup `./scripts/verify.sh low` succeeded; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `git diff --check` succeeded. Static scans confirmed no SPM package references in project, no package-module imports in app/share/widget/test sources, no generated package artifacts inside the project, and no matching external Tchop/MVVM traces under `/tmp`, `/Users/Artem/Library/Caches`, or `/Users/Artem/Library/Developer/Xcode/DerivedData`.
 
+### [x] Step: Review and adopt InfrastructureSDK Iteration07 AppPermissions
+- Reviewed `InfrastructureSDK_Iteration07_fixed_v2.zip` package `AppPermissions` as a single-folder standalone package.
+- Fixed package verification sandboxing so `Scripts/verify_package.sh` uses a worktree-local scratch path instead of `/tmp` or external user caches.
+- Fixed `PermissionReadinessEvaluator` ordering so `.unavailable` resolves to `.unavailable` rather than a settings redirect.
+- Removed the deprecated `CLLocationManager.authorizationStatus()` fallback from `CoreLocationPermissionProvider` because the package platform floor already supports instance `authorizationStatus`.
+- Hardened `UserNotificationPermissionProvider` with injected `UNUserNotificationCenter` ownership so host apps/tests keep notification-center lifecycle control.
+- Added `AppPermissions` to both `./PackagesForReuse` and active source-only `./PackagesInUse`.
+- Migrated `./TchopApp/App/AppPushNotificationBridge.swift` so notification permission request/state uses `AppPermissions`, while `AppPushNotifications` remains responsible for push runtime state, APNs tokens, and payload handling.
+- Updated `./scripts/migrate_packages_in_use_project.py`, `./TchopApp.xcodeproj/project.pbxproj`, `./PackagesForReuse/README.md`, `./PackagesInUse/README.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, and `./docs/README.md` for the new active/vault package.
+- Verification: `./PackagesForReuse/AppPermissions/Scripts/verify_package.sh` succeeded with 24 XCTest tests plus strict-concurrency verification and no warning grep findings; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`.
+- Cleanup: removed temporary incoming extraction/logs and removed empty worktree package build cache; package folders contain no `.build`, `.swiftpm`, `Package.resolved`, `DerivedData`, `xcuserdata`, or logs.
+
 ## Verification Status
 - Latest verification succeeded with `./scripts/verify.sh medium` after source-only package migration, then `./scripts/verify.sh low`, `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py`.
 - Package-vault SwiftPM tests are now explicit per-package checks from `./PackagesForReuse/<PackageName>`; app verification no longer depends on connected SwiftPM packages because `TchopApp` uses `./PackagesInUse` source-only mode.
