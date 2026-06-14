@@ -16,6 +16,13 @@ Applies to the current worktree/task:
 - Use and report `GPT-5.5` for all work in this worktree/task unless the user explicitly changes the model again.
 - UI/design work from screenshots/Figma/PDF/CSS always requires `GPT-5.5`.
 
+
+### Temporary Package-Review Model Policy
+- During the current package-library/reusable-package task sequence, keep `GPT-5.5` as the default and final decision model.
+- `GPT-5.4` may be used only for clearly vault-only, docs-only, or mechanical package review work where no app adoption, architecture decision, security/privacy decision, storage/network/auth/files/lifecycle behavior, or Xcode integration is involved.
+- Any package that may be adopted into `./PackagesInUse`, any change to `./TchopApp`, any concurrency/security/privacy/storage/network/auth/files/lifecycle concern, any build/test failure, and every final gate must use `GPT-5.5`.
+- Cancel this temporary policy when the user says so, when the package task sequence ends, or immediately if quality drops or resource savings are not meaningful.
+
 ### Response Header
 Every working response must start with:
 - model

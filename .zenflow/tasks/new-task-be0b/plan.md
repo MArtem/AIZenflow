@@ -854,6 +854,15 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - updated `./scripts/migrate_packages_in_use_project.py`, `./TchopApp.xcodeproj/project.pbxproj`, `./PackagesForReuse/README.md`, `./PackagesInUse/README.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, and `./docs/README.md` for the new active package.
 - Verification: `./PackagesForReuse/AppLifecycle/Scripts/verify_package.sh` succeeded with 14 XCTest tests and strict-concurrency build; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`. No simulator UI/manual validation/Instruments run.
 
+
+- Active temporary model policy for package-review work:
+  - User approved a hybrid resource-saving model rule for the current package-library task sequence.
+  - Keep `GPT-5.5` as default and final decision model.
+  - `GPT-5.4` is allowed only for clearly vault-only, docs-only, or mechanical package review where there is no app adoption, no architecture/security/privacy/concurrency/storage/network/auth/files/lifecycle decision, and no Xcode integration.
+  - Any package adoption into `./PackagesInUse`, any `./TchopApp` change, any risky domain, any build/test failure, and every final gate stays on `GPT-5.5`.
+  - Revert to `GPT-5.5` for all work if the user cancels this rule, package tasks end, quality drops, or savings are not meaningful.
+- Verification: docs/task-context only; `git diff --check` succeeded. No build/tests/simulator run required.
+
 ## Verification Status
 - Latest verification succeeded with `./scripts/verify.sh medium` after source-only package migration, then `./scripts/verify.sh low`, `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py`.
 - Package-vault SwiftPM tests are now explicit per-package checks from `./PackagesForReuse/<PackageName>`; app verification no longer depends on connected SwiftPM packages because `TchopApp` uses `./PackagesInUse` source-only mode.
