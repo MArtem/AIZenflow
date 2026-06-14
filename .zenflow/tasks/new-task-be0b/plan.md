@@ -863,6 +863,16 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - Revert to `GPT-5.5` for all work if the user cancels this rule, package tasks end, quality drops, or savings are not meaningful.
 - Verification: docs/task-context only; `git diff --check` succeeded. No build/tests/simulator run required.
 
+
+- Completed now: InfrastructureSDK Iteration11 package review and vault-only adoption:
+  - reviewed `AppBackgroundTasks` from `InfrastructureSDK_Iteration11.zip` using `GPT-5.5` because background/lifecycle packages are excluded from the temporary GPT-5.4 cost-saving path.
+  - found and fixed a real portability issue: `canImport(BackgroundTasks)` was insufficient on macOS because `BGTaskRequest` APIs are explicitly unavailable there; native request factory code is now guarded by platform availability.
+  - hardened diagnostics and scheduling correctness before adoption: `BackgroundTaskFailureCode` now sanitizes raw diagnostic values, and `DefaultBackgroundTaskManager.runPending(identifier:)` no longer removes a pending request when execution cannot start because no handler is registered.
+  - added package-owned tests for sanitized failure codes and pending-request preservation on missing handler.
+  - copied the final package into `./PackagesForReuse/AppBackgroundTasks` only; did not copy to `./PackagesInUse` because current `TchopApp` has no concrete background task registration/submission requirement, and adoption would require product decisions, entitlements, Info.plist identifiers, scheduling policy, and manual lifecycle QA.
+  - updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, `./PackagesForReuse/AppBackgroundTasks/REUSE.md`, package docs, and `./docs/README.md`.
+- Verification: `./PackagesForReuse/AppBackgroundTasks/Scripts/verify_package.sh` succeeded with 16 XCTest tests under strict concurrency and no warning grep findings; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded. No app build was required because no app/Xcode target source or project references changed.
+
 ## Verification Status
 - Latest verification succeeded with `./scripts/verify.sh medium` after source-only package migration, then `./scripts/verify.sh low`, `git diff --check`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py`.
 - Package-vault SwiftPM tests are now explicit per-package checks from `./PackagesForReuse/<PackageName>`; app verification no longer depends on connected SwiftPM packages because `TchopApp` uses `./PackagesInUse` source-only mode.

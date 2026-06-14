@@ -20,6 +20,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | Path | Kind | Products |
 | --- | --- | --- |
 | `./PackagesForReuse/AppAnalytics` | root-package | `AppAnalyticsCore`, `AppAnalytics` |
+| `./PackagesForReuse/AppBackgroundTasks` | root-package | `AppBackgroundTasks` |
 | `./PackagesForReuse/AppAppleAuthentication` | root-package | `AppAppleAuthentication` |
 | `./PackagesForReuse/AppBranding` | root-package | `AppBranding` |
 | `./PackagesForReuse/AppCache` | root-package | `AppCache` |

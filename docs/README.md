@@ -111,6 +111,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
 - `./Packages/SDKCreation/README.md`
+- `./PackagesForReuse/AppBackgroundTasks/README.md`
 - `./PackagesForReuse/AppSecureStorage/README.md`
 - `./PackagesForReuse/AppFeatureFlags/README.md`
 - `./PackagesForReuse/AppLogging/README.md`

@@ -34,6 +34,7 @@ Evidence-based record for which reusable packages are connected to `TchopApp` an
 | `./PackagesForReuse/AppSecureStorage` | vault-only | Overlaps auth token storage, but current app token protocol is synchronous while the package API is async. Do not force this migration without a focused auth/session refactor and build/test pass. |
 | `./PackagesForReuse/AppFeatureFlags` | vault-only | No current feature-flag runtime in app; connecting it now would be speculative. |
 | `./PackagesForReuse/AppCache` | vault-only | Current feed/composer media caches store UIImage previews; this package is Codable value/file cache. Do not replace media cache without a focused media-cache design. |
+| `./PackagesForReuse/AppBackgroundTasks` | vault-only | No current background task registration/submission requirement exists in app; adoption would require entitlements, Info.plist identifiers, scheduling policy, and manual lifecycle QA. |
 | `./PackagesForReuse/AppLogging` | vault-only | Current app uses limited OSLog signposts. Full logging taxonomy/export policy is not defined yet. |
 | `./PackagesForReuse/AppObservability` | vault-only | No product telemetry/span policy is connected yet; package is ready for later observability integration. |
 | `./PackagesForReuse/AppConnectivity` | vault-only | No app-level reachability/offline UI contract is currently wired; package is ready for later networking/offline integration. |
