@@ -42,6 +42,7 @@ Evidence-based record for which reusable packages are connected to `TchopApp` an
 | `./PackagesForReuse/AppConnectivity` | vault-only | No app-level reachability/offline UI contract is currently wired; package is ready for later networking/offline integration. |
 | `./PackagesForReuse/AppDownloads` | vault-only | Current app has no product-level generic download feature to migrate; `./PackagesInUse/AppNetworking` already owns API-oriented request/download behavior, so connecting this package now would duplicate mechanisms. |
 | `./PackagesForReuse/AppSync` | vault-only | No backend sync runtime is active; connecting sync now would create unused infrastructure. |
+| `./PackagesForReuse/AppUploads` | vault-only | Current app has no product-level generic upload feature to migrate; `./PackagesInUse/AppNetworking` already owns API-oriented file upload behavior, so connecting this package now would duplicate mechanisms. |
 | `./PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration` | vault-only | Not linked by current Xcode targets; keep for future networking/error composition. |
 | `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration` | vault-only | Not linked by current Xcode targets; keep for future localization-resource composition. |
 

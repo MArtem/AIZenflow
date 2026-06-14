@@ -1174,3 +1174,13 @@ Use archives only when historical detail is needed:
 - Adoption decision: vault-only for now. Current `TchopApp` has no product-level generic download feature to migrate, and `./PackagesInUse/AppNetworking` already owns API-oriented request/download behavior; connecting `AppDownloads` now would duplicate mechanisms.
 - Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
 - Verification: `./PackagesForReuse/AppDownloads/Scripts/verify_package.sh` succeeded with 11 XCTest tests plus strict-concurrency verification and warning/error grep clean; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded. No app build/plutil was required because no app/Xcode project/runtime source changed.
+
+### [x] Step: Review and adopt InfrastructureSDK Iteration15 AppUploads
+- Reviewed `./.zenflow-attachments/5b72538d-0597-42c0-a9ad-cb23b6b1f80b.zip` as `InfrastructureSDK_Iteration15` / `AppUploads`.
+- Hardened the package before adoption: `UploadRequest` is now `https`-only by default with explicit opt-in for `http`, zero payload/response limits are rejected, Swift task cancellation is preserved instead of being retried/mapped to generic transport failure, retry sleep is injectable for deterministic tests, and file/multipart declared byte counts are checked before reading payload files where possible.
+- Hardened package verification so emitted `warning:` / `error:` lines fail the verifier.
+- Added package-owned tests for secure default URL schemes, explicit insecure-scheme opt-in, zero size-limit rejection, declared-size rejection before file read, and injected retry sleeper behavior.
+- Added `./PackagesForReuse/AppUploads` as a standalone vault package with README, package contract, DocC, tests, verification script, and `REUSE.md`.
+- Adoption decision: vault-only for now. Current `TchopApp` has no product-level generic upload feature to migrate, and `./PackagesInUse/AppNetworking` already owns API-oriented file upload behavior; connecting `AppUploads` now would duplicate mechanisms.
+- Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
+- Verification: `./PackagesForReuse/AppUploads/Scripts/verify_package.sh` succeeded with 12 XCTest tests plus strict-concurrency verification and warning/error grep clean; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded. No app build/plutil was required because no app/Xcode project/runtime source changed.

@@ -47,6 +47,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppSecureStorage` | root-package | `AppSecureStorage` |
 | `./PackagesForReuse/AppShareExtensionSupport` | root-package | `AppShareExtensionSupport` |
 | `./PackagesForReuse/AppSync` | root-package | `AppSyncCore`, `AppSyncObservation` |
+| `./PackagesForReuse/AppUploads` | root-package | `AppUploads` |
 | `./PackagesForReuse/AppWidgetSupport` | root-package | `AppWidgetSupport` |
 | `./PackagesForReuse/TchopProductLocalizationResources` | root-package | `TchopProductLocalizationResources` |
 | `./PackagesForReuse/IntegrationHelpers/AppAnalyticsNavigationIntegration` | integration-helper | `AppAnalyticsNavigationIntegration` |
