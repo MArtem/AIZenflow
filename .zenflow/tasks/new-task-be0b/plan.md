@@ -1156,3 +1156,12 @@ Use archives only when historical detail is needed:
 - Verification MVVMExample worktree:
   - `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, `xcodebuild -list -project ./MVVMExample.xcodeproj`, and `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded with no warning/error lines in the captured build log.
   - No simulator UI/manual validation/Instruments run was performed.
+
+### [x] Step: Review and adopt InfrastructureSDK Iteration13 AppImagePipeline
+- Reviewed `./.zenflow-attachments/ab5547f8-810e-45c6-bb50-c4c505293774.zip` as `InfrastructureSDK_Iteration13` / `AppImagePipeline`.
+- Hardened the package before adoption: bounded `ImageDiskCache` by entry count and byte count, added pipeline content-type allowlist enforcement, sanitized arbitrary fetch/storage diagnostic codes, made prefetch respect cancellation, and made package verification fail on emitted `warning:` / `error:` lines.
+- Added package-owned tests for disk-cache eviction, unsupported content type handling, and diagnostic-code sanitization.
+- Added `./PackagesForReuse/AppImagePipeline` as a standalone vault package with README, package contract, DocC, tests, verification script, and `REUSE.md`.
+- Adoption decision: vault-only for now. Current `TchopApp` image work is local composer/feed media preview generation with platform-specific downsampling and stable local file references; adopting the generic remote/provided image-byte pipeline into `./PackagesInUse` now would be speculative.
+- Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
+- Verification: `./PackagesForReuse/AppImagePipeline/Scripts/verify_package.sh` succeeded with 15 XCTest tests plus strict-concurrency verification and warning/error grep clean; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded. No app build/plutil was required because no app/Xcode project/runtime source changed.
