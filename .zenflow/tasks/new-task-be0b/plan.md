@@ -1165,3 +1165,12 @@ Use archives only when historical detail is needed:
 - Adoption decision: vault-only for now. Current `TchopApp` image work is local composer/feed media preview generation with platform-specific downsampling and stable local file references; adopting the generic remote/provided image-byte pipeline into `./PackagesInUse` now would be speculative.
 - Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
 - Verification: `./PackagesForReuse/AppImagePipeline/Scripts/verify_package.sh` succeeded with 15 XCTest tests plus strict-concurrency verification and warning/error grep clean; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded. No app build/plutil was required because no app/Xcode project/runtime source changed.
+
+### [x] Step: Review and adopt InfrastructureSDK Iteration14 AppDownloads
+- Reviewed `./.zenflow-attachments/f62e84c2-4013-41ca-a8fc-3566582d2884.zip` as `InfrastructureSDK_Iteration14` / `AppDownloads`.
+- Hardened the package before adoption: `DownloadRequest` is now `https`-only by default with explicit opt-in for `http`, Swift task cancellation is preserved instead of being mapped to generic transport failure, replacement writes use non-destructive `FileManager.replaceItemAt` semantics with work-file cleanup, service size checks consider expected bytes before writing, and package verification fails on emitted `warning:` / `error:` lines.
+- Added package-owned tests for secure default URL schemes, explicit insecure-scheme opt-in, expected-size rejection before write, replacement cleanup, and fail-if-exists preservation.
+- Added `./PackagesForReuse/AppDownloads` as a standalone vault package with README, package contract, DocC, tests, verification script, and `REUSE.md`.
+- Adoption decision: vault-only for now. Current `TchopApp` has no product-level generic download feature to migrate, and `./PackagesInUse/AppNetworking` already owns API-oriented request/download behavior; connecting `AppDownloads` now would duplicate mechanisms.
+- Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
+- Verification: `./PackagesForReuse/AppDownloads/Scripts/verify_package.sh` succeeded with 11 XCTest tests plus strict-concurrency verification and warning/error grep clean; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded. No app build/plutil was required because no app/Xcode project/runtime source changed.

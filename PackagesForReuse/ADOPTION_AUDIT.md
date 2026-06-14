@@ -40,6 +40,7 @@ Evidence-based record for which reusable packages are connected to `TchopApp` an
 | `./PackagesForReuse/AppLogging` | vault-only | Current app uses limited OSLog signposts. Full logging taxonomy/export policy is not defined yet. |
 | `./PackagesForReuse/AppObservability` | vault-only | No product telemetry/span policy is connected yet; package is ready for later observability integration. |
 | `./PackagesForReuse/AppConnectivity` | vault-only | No app-level reachability/offline UI contract is currently wired; package is ready for later networking/offline integration. |
+| `./PackagesForReuse/AppDownloads` | vault-only | Current app has no product-level generic download feature to migrate; `./PackagesInUse/AppNetworking` already owns API-oriented request/download behavior, so connecting this package now would duplicate mechanisms. |
 | `./PackagesForReuse/AppSync` | vault-only | No backend sync runtime is active; connecting sync now would create unused infrastructure. |
 | `./PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration` | vault-only | Not linked by current Xcode targets; keep for future networking/error composition. |
 | `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration` | vault-only | Not linked by current Xcode targets; keep for future localization-resource composition. |

@@ -28,6 +28,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppConnectivity` | root-package | `AppConnectivity` |
 | `./PackagesForReuse/AppDatabase` | root-package | `AppDatabaseCore`, `AppSwiftDataDatabase`, `AppCoreDataDatabase`, `AppDatabaseComposition`, `AppDatabase` |
 | `./PackagesForReuse/AppDeviceInfo` | root-package | `AppDeviceInfo` |
+| `./PackagesForReuse/AppDownloads` | root-package | `AppDownloads` |
 | `./PackagesForReuse/AppEnvironment` | root-package | `AppEnvironment` |
 | `./PackagesForReuse/AppErrors` | root-package | `AppErrorsCore`, `AppErrors` |
 | `./PackagesForReuse/AppFeatureFlags` | root-package | `AppFeatureFlags` |
