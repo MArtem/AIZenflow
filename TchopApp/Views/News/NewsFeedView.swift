@@ -1289,8 +1289,6 @@ private enum FeedMediaPreviewLoader {
 }
 
 private enum ComposerMediaPathResolver {
-    private static let mediaDirectoryName = "TchopComposerMedia"
-
     static func resolve(fileURLString: String?) -> URL? {
         guard let fileURLString, !fileURLString.isEmpty else {
             return nil
@@ -1308,17 +1306,12 @@ private enum ComposerMediaPathResolver {
 
         // Fallback for persisted absolute paths that become stale across app container changes.
         let filename = URL(fileURLWithPath: fileURLString).lastPathComponent
-        guard !filename.isEmpty else {
+        guard !filename.isEmpty,
+              let path = try? AppFileStorageDomains.composerMediaPath(existingFilename: filename),
+              let candidateURL = try? AppFileStorageDomains.composerMediaFileURL(for: path)
+        else {
             return nil
         }
-
-        guard let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else {
-            return nil
-        }
-
-        let candidateURL = documentsURL
-            .appendingPathComponent(mediaDirectoryName, isDirectory: true)
-            .appendingPathComponent(filename, isDirectory: false)
 
         return FileManager.default.fileExists(atPath: candidateURL.path) ? candidateURL : nil
     }

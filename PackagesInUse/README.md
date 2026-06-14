@@ -30,6 +30,7 @@ This folder exists because this worktree is being used both as an app and as a p
 - `./PackagesInUse/AppDatabase`
 - `./PackagesInUse/AppEnvironment`
 - `./PackagesInUse/AppErrors`
+- `./PackagesInUse/AppFileStorage`
 - `./PackagesInUse/AppGlassUI`
 - `./PackagesInUse/AppLocalization`
 - `./PackagesInUse/AppLifecycle`

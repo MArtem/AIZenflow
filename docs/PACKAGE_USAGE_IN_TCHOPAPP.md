@@ -64,3 +64,9 @@ Every package under `./PackagesForReuse` and `./PackagesInUse` keeps SwiftPM met
 ## Current lifecycle package usage
 
 `./TchopApp/TchopApp.swift` maps SwiftUI `ScenePhase` values into `./PackagesInUse/AppLifecycle` phases/events, while `./TchopApp/App/AppState.swift` records launch and scene transitions through `DefaultAppLifecycleManager`. Product-specific foreground behavior, such as share-extension sync and feed refresh, remains app-owned policy.
+
+## AppFileStorage
+
+`./TchopApp/Shared/AppFileStorageDomains.swift` defines the app-owned composer media storage domain on top of `./PackagesInUse/AppFileStorage`. Composer-created media in `./TchopApp/Views/Composer/SharedCardComposerView.swift` now writes and copies files through package APIs while preserving the stable `Documents/TchopComposerMedia` directory used by persisted feed cards. `./TchopApp/Views/News/NewsFeedView.swift` keeps old absolute-path and stale-container fallback behavior, but resolves composer media fallback through the same app-owned package domain.
+
+`./PackagesInUse/AppShareExtensionSupport` and `./PackagesInUse/AppNetworking` intentionally keep their package-local file mechanisms because root packages must remain single-folder standalone and cannot directly depend on sibling packages. Cross-package composition should be introduced only through host app code or explicit integration helpers.

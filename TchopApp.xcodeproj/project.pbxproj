@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF1AF5010000000000000001 /* AppFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1AF5010000000000000001 /* AppFileStorage.swift */; };
+		BF1AF5020000000000000001 /* Shared/AppFileStorageDomains.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1AF5020000000000000001 /* AppFileStorageDomains.swift */; };
 		ZAI000010000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ZAI000020000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ZAI000030000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -348,6 +350,7 @@
 		D00000040000000000000001 /* AppGroupConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppGroupConfiguration.swift; sourceTree = "<group>"; };
 		D00000041000000000000001 /* SharedFeedCardSyncManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFeedCardSyncManager.swift; sourceTree = "<group>"; };
 		D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareExtensionSessionContextManager.swift; sourceTree = "<group>"; };
+		FF1AF5020000000000000001 /* AppFileStorageDomains.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFileStorageDomains.swift; sourceTree = "<group>"; };
 		D000000C0000000000000001 /* FeedHeadlineWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedHeadlineWidget.swift; sourceTree = "<group>"; };
 		D000000E0000000000000001 /* TchopWidgetsBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopWidgetsBundle.swift; sourceTree = "<group>"; };
 		D00000130000000000000001 /* TchopApp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TchopApp.entitlements; sourceTree = "<group>"; };
@@ -388,6 +391,7 @@
 		E000000B0000000000000001 /* SampleTchopAppOcean.apns */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = SampleTchopAppOcean.apns; sourceTree = "<group>"; };
 		ZAI000000000000000000001 /* AppIntents.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppIntents.framework; path = System/Library/Frameworks/AppIntents.framework; sourceTree = SDKROOT; };
 		F1174D9B4D1000F7A6F19921 /* AppAnalytics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppAnalytics/Sources/AppAnalytics/AppAnalytics.swift; sourceTree = "<group>"; };
+		FF1AF5010000000000000001 /* AppFileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFileStorage/Sources/AppFileStorage/AppFileStorage.swift; sourceTree = "<group>"; };
 		F11ED4DC89E5864CE4DED583 /* AppAnalyticsCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppAnalytics/Sources/AppAnalyticsCore/AppAnalyticsCore.swift; sourceTree = "<group>"; };
 		F1E7122EA40405498D50C09D /* AppAppleAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppAppleAuthentication/Sources/AppAppleAuthentication/AppAppleAuthentication.swift; sourceTree = "<group>"; };
 		F162886B171F46F1F2D8D95A /* AppBrandingCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppBranding/Sources/AppBranding/AppBrandingCore.swift; sourceTree = "<group>"; };
@@ -637,6 +641,7 @@
 				D00000040000000000000001 /* AppGroupConfiguration.swift */,
 				D00000041000000000000001 /* SharedFeedCardSyncManager.swift */,
 				D00000042000000000000001 /* ShareExtensionSessionContextManager.swift */,
+				FF1AF5020000000000000001 /* AppFileStorageDomains.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -1184,6 +1189,7 @@
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 				D00000031000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				D00000032000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
+				BF1AF5020000000000000001 /* Shared/AppFileStorageDomains.swift in Sources */,
 				B1174D9B4D1000F7A6F19921 /* AppAnalytics.swift in Sources */,
 				B11ED4DC89E5864CE4DED583 /* AppAnalyticsCore.swift in Sources */,
 				B1E7122EA40405498D50C09D /* AppAppleAuthentication.swift in Sources */,
@@ -1220,6 +1226,7 @@
 				B1B4FD3AA1666E2680DA16F7 /* AppAnalyticsNavigationIntegration.swift in Sources */,
 				B18EFC7790280D8DB59E79E4 /* AppAnalyticsNetworkingIntegration.swift in Sources */,
 				B1465A1AA7B57175F914FECB /* AppAnalyticsPushNotificationsIntegration.swift in Sources */,
+				BF1AF5010000000000000001 /* AppFileStorage.swift in Sources */,
 				B1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift in Sources */,
 				B13AA7F9D10F170ACE435056 /* AVFoundationPermissionProvider.swift in Sources */,
 				B1DC209FBCD5A356594801D9 /* CompositePermissionManager.swift in Sources */,
@@ -1325,6 +1332,7 @@
 				D00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 				D00000031000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				D00000033000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
+				BF1AF5020000000000000001 /* Shared/AppFileStorageDomains.swift in Sources */,
 				B1174D9B4D1000F7A6F19921 /* AppAnalytics.swift in Sources */,
 				B11ED4DC89E5864CE4DED583 /* AppAnalyticsCore.swift in Sources */,
 				B1E7122EA40405498D50C09D /* AppAppleAuthentication.swift in Sources */,
@@ -1361,6 +1369,7 @@
 				B1B4FD3AA1666E2680DA16F7 /* AppAnalyticsNavigationIntegration.swift in Sources */,
 				B18EFC7790280D8DB59E79E4 /* AppAnalyticsNetworkingIntegration.swift in Sources */,
 				B1465A1AA7B57175F914FECB /* AppAnalyticsPushNotificationsIntegration.swift in Sources */,
+				BF1AF5010000000000000001 /* AppFileStorage.swift in Sources */,
 				B1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift in Sources */,
 				B13AA7F9D10F170ACE435056 /* AVFoundationPermissionProvider.swift in Sources */,
 				B1DC209FBCD5A356594801D9 /* CompositePermissionManager.swift in Sources */,
@@ -1431,6 +1440,7 @@
 				L00000030000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 				L000000A0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				L000000B0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
+				BF1AF5020000000000000001 /* Shared/AppFileStorageDomains.swift in Sources */,
 				L000000C0000000000000001 /* App/AppTheme.swift in Sources */,
 				L000000D0000000000000001 /* App/AppLocalization.swift in Sources */,
 				L000000E0000000000000001 /* Models/AppChannel.swift in Sources */,
@@ -1450,6 +1460,7 @@
 				B1AFBD5B8465FE6627D03AEC /* AppGroupJSONFileStore.swift in Sources */,
 				B15D8BAA5A60D12A48E2BBB8 /* AppShareExtensionSupport.swift in Sources */,
 				B1FD56D66ED90A5816CA8FBD /* ShareItemImporter.swift in Sources */,
+				BF1AF5010000000000000001 /* AppFileStorage.swift in Sources */,
 				B1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1463,6 +1474,7 @@
 				L00000080000000000000001 /* Shared/AppGroupConfiguration.swift in Sources */,
 				L000002B0000000000000001 /* Shared/SharedFeedCardSyncManager.swift in Sources */,
 				L000002C0000000000000001 /* Shared/ShareExtensionSessionContextManager.swift in Sources */,
+				BF1AF5020000000000000001 /* Shared/AppFileStorageDomains.swift in Sources */,
 				L000002D0000000000000001 /* App/AppTheme.swift in Sources */,
 				L000002E0000000000000001 /* App/AppLocalization.swift in Sources */,
 				L000002F0000000000000001 /* Models/AppChannel.swift in Sources */,
@@ -1482,6 +1494,7 @@
 				B1AFBD5B8465FE6627D03AEC /* AppGroupJSONFileStore.swift in Sources */,
 				B15D8BAA5A60D12A48E2BBB8 /* AppShareExtensionSupport.swift in Sources */,
 				B1FD56D66ED90A5816CA8FBD /* ShareItemImporter.swift in Sources */,
+				BF1AF5010000000000000001 /* AppFileStorage.swift in Sources */,
 				B1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

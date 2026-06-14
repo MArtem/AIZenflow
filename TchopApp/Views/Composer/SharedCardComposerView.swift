@@ -1053,65 +1053,28 @@ struct SharedCardComposerView: View {
 
 private enum ComposerPickedMediaStorage {
     static func save(data: Data, suggestedFilename: String) async throws -> URL {
-        let destinationURL = try uniqueDestinationURL(suggestedFilename: suggestedFilename)
-        try await Task.detached(priority: .utility) {
-            try data.write(to: destinationURL, options: .atomic)
-        }.value
-        return destinationURL
+        let path = try AppFileStorageDomains.composerMediaPath(suggestedFilename: suggestedFilename)
+        let storage = AppFileStorageDomains.composerMediaStorage
+        try await storage.write(data, to: path, options: .default)
+        return try await storage.fileURL(for: path)
     }
 
     static func copyFile(from sourceURL: URL) async throws -> URL {
-        let destinationURL = try uniqueDestinationURL(suggestedFilename: sourceURL.lastPathComponent)
-        try await copyFileSync(from: sourceURL, to: destinationURL)
-        return destinationURL
+        let path = try AppFileStorageDomains.composerMediaPath(suggestedFilename: sourceURL.lastPathComponent)
+        let storage = AppFileStorageDomains.composerMediaStorage
+        try await storage.copyFile(from: sourceURL, to: path, options: .default)
+        return try await storage.fileURL(for: path)
     }
 
     static func copyFileForTransferRepresentation(from sourceURL: URL) throws -> URL {
-        let destinationURL = try uniqueDestinationURL(suggestedFilename: sourceURL.lastPathComponent)
-        try copyFileSyncForTransferRepresentation(from: sourceURL, to: destinationURL)
-        return destinationURL
-    }
-
-    private static func copyFileSync(from sourceURL: URL, to destinationURL: URL) async throws {
-        try await Task.detached(priority: .utility) {
-            try copyFileSyncForTransferRepresentation(from: sourceURL, to: destinationURL)
-        }.value
-    }
-
-    private static func copyFileSyncForTransferRepresentation(from sourceURL: URL, to destinationURL: URL) throws {
-        let fileManager = FileManager.default
-        if fileManager.fileExists(atPath: destinationURL.path) {
-            try fileManager.removeItem(at: destinationURL)
-        }
-        try fileManager.copyItem(at: sourceURL, to: destinationURL)
-    }
-
-    private static func uniqueDestinationURL(suggestedFilename: String) throws -> URL {
-        let directoryURL = try mediaDirectoryURL()
-        let sanitizedFilename = sanitizedFilename(suggestedFilename)
-        let uniqueFilename = "\(UUID().uuidString)-\(sanitizedFilename)"
-        return directoryURL.appendingPathComponent(uniqueFilename, isDirectory: false)
-    }
-
-    private static func mediaDirectoryURL() throws -> URL {
-        let baseURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-        let directoryURL = baseURL.appendingPathComponent("TchopComposerMedia", isDirectory: true)
-        try FileManager.default.createDirectory(
-            at: directoryURL,
-            withIntermediateDirectories: true
+        let path = try AppFileStorageDomains.composerMediaPath(suggestedFilename: sourceURL.lastPathComponent)
+        return try FileStorageSynchronousOperations.copyFile(
+            from: sourceURL,
+            to: path,
+            root: AppFileStorageDomains.composerMediaRoot,
+            namespace: AppFileStorageDomains.composerMediaNamespace,
+            options: .default
         )
-        return directoryURL
-    }
-
-    private static func sanitizedFilename(_ filename: String) -> String {
-        let fallbackFilename = "media"
-        let trimmedFilename = filename.trimmingCharacters(in: .whitespacesAndNewlines)
-        let candidate = trimmedFilename.isEmpty ? fallbackFilename : trimmedFilename
-        let invalidCharacters = CharacterSet(charactersIn: "/\\:")
-
-        return candidate
-            .components(separatedBy: invalidCharacters)
-            .joined(separator: "-")
     }
 }
 

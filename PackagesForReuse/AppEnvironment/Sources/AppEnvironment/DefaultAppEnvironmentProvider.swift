@@ -12,7 +12,7 @@ public struct DefaultAppEnvironmentProvider: AppEnvironmentProviding {
         buildInfoProvider: any AppBuildInfoProviding = BundleAppBuildInfoProvider(),
         runtimeFlagsProvider: any AppRuntimeFlagsProviding = ProcessRuntimeFlagsProvider(),
         localeContextProvider: any AppLocaleContextProviding = CurrentLocaleContextProvider(),
-        dateProvider: @escaping @Sendable () -> Date = Date.init
+        dateProvider: @escaping @Sendable () -> Date = { Date() }
     ) {
         self.environmentKind = environmentKind
         self.buildInfoProvider = buildInfoProvider
@@ -27,7 +27,7 @@ public struct DefaultAppEnvironmentProvider: AppEnvironmentProviding {
         buildInfoProvider: any AppBuildInfoProviding = BundleAppBuildInfoProvider(),
         runtimeFlagsProvider: any AppRuntimeFlagsProviding = ProcessRuntimeFlagsProvider(),
         localeContextProvider: any AppLocaleContextProviding = CurrentLocaleContextProvider(),
-        dateProvider: @escaping @Sendable () -> Date = Date.init
+        dateProvider: @escaping @Sendable () -> Date = { Date() }
     ) {
         self.init(
             environmentKind: EnvironmentKind(rawValue: processEnvironment[environmentVariableName]),
