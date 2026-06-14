@@ -114,6 +114,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./PackagesForReuse/AppBackgroundTasks/README.md`
 - `./PackagesForReuse/AppSecureStorage/README.md`
 - `./PackagesForReuse/AppFeatureFlags/README.md`
+- `./PackagesForReuse/AppFileStorage/README.md`
 - `./PackagesForReuse/AppLogging/README.md`
 - `./PackagesForReuse/AppObservability/README.md`
 - `./PackagesForReuse/AppConnectivity/README.md`

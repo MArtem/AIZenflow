@@ -31,6 +31,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppEnvironment` | root-package | `AppEnvironment` |
 | `./PackagesForReuse/AppErrors` | root-package | `AppErrorsCore`, `AppErrors` |
 | `./PackagesForReuse/AppFeatureFlags` | root-package | `AppFeatureFlags` |
+| `./PackagesForReuse/AppFileStorage` | root-package | `AppFileStorage` |
 | `./PackagesForReuse/AppGlassUI` | root-package | `AppGlassUI` |
 | `./PackagesForReuse/AppLocalization` | root-package | `AppLocalization` |
 | `./PackagesForReuse/AppLifecycle` | root-package | `AppLifecycle` |
