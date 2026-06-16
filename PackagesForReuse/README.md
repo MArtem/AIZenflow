@@ -44,6 +44,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppOnDeviceAI` | root-package | `AppOnDeviceAI` |
 | `./PackagesForReuse/AppPermissions` | root-package | `AppPermissions` |
 | `./PackagesForReuse/AppPushNotifications` | root-package | `AppPushNotifications` |
+| `./PackagesForReuse/AppRateLimiter` | root-package | `AppRateLimiter` |
 | `./PackagesForReuse/AppRemoteAssets` | root-package | `AppRemoteAssets` |
 | `./PackagesForReuse/AppSecureStorage` | root-package | `AppSecureStorage` |
 | `./PackagesForReuse/AppShareExtensionSupport` | root-package | `AppShareExtensionSupport` |
