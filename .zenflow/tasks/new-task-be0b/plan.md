@@ -1232,3 +1232,17 @@ Use archives only when historical detail is needed:
 - Adoption decision: vault-only for now. Current `TchopApp` has no active backend pagination/feed pagination runtime to migrate; the existing feed is local-first and channel-scoped, so connecting `AppPagination` now would add unused infrastructure.
 - Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
 - Verification: incoming and final vault `./PackagesForReuse/AppPagination/Scripts/verify_package.sh` succeeded with 11 XCTest tests plus strict-concurrency verification and warning/error grep clean; `python3 ./scripts/check_docs_index.py`, artifact scan, and `git diff --check` are part of final block verification. No app build/plutil was required because no app/Xcode project/runtime source changed.
+
+### [x] Step: Review and adopt InfrastructureSDK Iteration21 AppFormValidation
+- Reviewed `./.zenflow-attachments/74c089d8-677a-4e4d-8b24-5b240aff1bef.zip` as `InfrastructureSDK_Iteration21` / `AppFormValidation`.
+- Kept extraction, verification scratch, and logs inside `/Users/Artem/.zenflow/worktrees/new-task-be0b`; no external `/tmp`, Library cache, or DerivedData locations were used.
+- Hardened the package before vault adoption:
+  - `FormStateController` now serializes load/update/save and load/validate operations across suspending store calls, preventing actor-reentrancy lost-update races.
+  - `FormSnapshot` now rejects revision overflow with `FormValidationFailure.revisionOverflow` instead of overflowing/trapping.
+  - missing persisted snapshots now report `FormValidationFailure.missingSnapshot`, separate from missing fields inside an existing snapshot.
+  - package docs now define the localization/copy boundary: package emits machine-readable validation codes; host apps own localized messages, field labels, accessibility phrasing, and product-specific validation policy.
+  - `Scripts/verify_package.sh` now captures SwiftPM output and fails on emitted `warning:` / `error:` lines.
+- Added package-owned coverage for revision overflow, concurrent controller updates across an awaiting store, and missing snapshot reporting.
+- Added final package to `./PackagesForReuse/AppFormValidation` with `REUSE.md`; did not add it to `./PackagesInUse` because current `TchopApp` only has a small product-specific login validation surface, and safe migration would require app runtime/test changes while `./TchopAppTests` is currently off-limits.
+- Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
+- Verification: incoming and final vault `./PackagesForReuse/AppFormValidation/Scripts/verify_package.sh` succeeded with 10 XCTest tests plus strict-concurrency verification and warning/error grep clean; `python3 ./scripts/check_docs_index.py`, package artifact scan, and `git diff --check` succeeded. No app build/plutil was required because no app/Xcode project/runtime source changed.

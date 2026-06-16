@@ -33,6 +33,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppErrors` | root-package | `AppErrorsCore`, `AppErrors` |
 | `./PackagesForReuse/AppFeatureFlags` | root-package | `AppFeatureFlags` |
 | `./PackagesForReuse/AppFileStorage` | root-package | `AppFileStorage` |
+| `./PackagesForReuse/AppFormValidation` | root-package | `AppFormValidation` |
 | `./PackagesForReuse/AppGlassUI` | root-package | `AppGlassUI` |
 | `./PackagesForReuse/AppImagePipeline` | root-package | `AppImagePipeline` |
 | `./PackagesForReuse/AppLocalization` | root-package | `AppLocalization` |
