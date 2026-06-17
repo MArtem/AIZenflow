@@ -54,6 +54,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppStateMachine` | root-package | `AppStateMachine` |
 | `./PackagesForReuse/AppTaskQueue` | root-package | `AppTaskQueue` |
 | `./PackagesForReuse/AppUploads` | root-package | `AppUploads` |
+| `./PackagesForReuse/AppValidationCore` | root-package | `AppValidationCore` |
 | `./PackagesForReuse/AppWidgetSupport` | root-package | `AppWidgetSupport` |
 | `./PackagesForReuse/TchopProductLocalizationResources` | root-package | `TchopProductLocalizationResources` |
 | `./PackagesForReuse/IntegrationHelpers/AppAnalyticsNavigationIntegration` | integration-helper | `AppAnalyticsNavigationIntegration` |

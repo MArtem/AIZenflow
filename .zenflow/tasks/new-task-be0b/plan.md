@@ -904,7 +904,7 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `./PackagesForReuse/AppFileStorage/Scripts/verify_package.sh` and `./PackagesInUse/AppFileStorage/Scripts/verify_package.sh` succeeded with 19 XCTest tests each; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`. No simulator UI/manual validation/Instruments run was performed.
 
 ## Verification Status
-- Latest verification for the current package adoption succeeded with `./PackagesForReuse/AppFormValidation/Scripts/verify_package.sh`, `./PackagesInUse/AppFormValidation/Scripts/verify_package.sh`, targeted `xcodebuild ... -only-testing:TchopAppTests/LoginViewModelTests test`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low`; final warning/error grep on the low-build log was clean. The broader full-test baseline remains the previous successful `./scripts/verify.sh medium` source-only package migration check.
+- Latest verification for the current vault package adoption succeeded with `./PackagesForReuse/AppValidationCore/Scripts/verify_package.sh`, `python3 ./scripts/check_docs_index.py`, package artifact scan, and `git diff --check`; no app build/plutil was required because `AppValidationCore` was not connected to app/Xcode targets. The broader app/source-only package baseline remains the previous successful `./scripts/verify.sh low` after `AppFormValidation` source-only adoption and the previous successful `./scripts/verify.sh medium` source-only package migration check.
 - Package-vault SwiftPM tests are now explicit per-package checks from `./PackagesForReuse/<PackageName>`; app verification no longer depends on connected SwiftPM packages because `TchopApp` uses `./PackagesInUse` source-only mode.
 - App/unit/UI tests currently pass on iPhone 17 Pro iOS 26.0 with app-shell/share-extension runtime tests plus launch/session/profile/login/feed/persistence/composer contract coverage, P0 feed/composer/FAB UI regressions, feed MVVM action/screen-state contract coverage, first-step feed-card view-state boundary coverage, feed screen-state presentation branching coverage, and feed translation tap-behavior state coverage.
 - Build and tests were run by explicit user permission/request; no manual simulator UI flow or Instruments trace was run in this block.
@@ -1259,3 +1259,19 @@ Use archives only when historical detail is needed:
 - Restored warning-free widget build metadata behavior by weak-linking `AppIntents.framework` for the widget extension targets that Xcode runs through AppIntents metadata extraction.
 - Kept `./PackagesForReuse/AppSecureStorage` vault-only: adoption requires a focused async auth/session token-store refactor, not just test-file permission.
 - Verification: `./PackagesForReuse/AppFormValidation/Scripts/verify_package.sh`, `./PackagesInUse/AppFormValidation/Scripts/verify_package.sh`, targeted `xcodebuild ... -only-testing:TchopAppTests/LoginViewModelTests test`, `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, and `./scripts/verify.sh low` succeeded; warning/error grep on the final low-build log was clean.
+
+### [x] Step: Review and adopt InfrastructureSDK Iteration22 AppValidationCore
+- Reviewed `./.zenflow-attachments/fe2ab906-3928-497d-98ea-8da9efafbc6f.zip` as `InfrastructureSDK_Iteration22` / `AppValidationCore`.
+- Used GPT-5.4 for read-only package triage and GPT-5.5 for final hardening/adoption decisions.
+- Initial review found one blocking generic validation issue: bulk validation iterated only over supplied values, so configured required rules for missing values could be silently skipped.
+- Hardened the package before adoption:
+  - `AppValidationCoreEngine.validate(values:using:)` now validates every configured rule set and evaluates missing configured values as `.missing` instead of skipping them.
+  - `ValidationContext` now rejects duplicate `ValidationValueID` inputs instead of silently using last-write-wins.
+  - `SafeValidationIdentifier` now explicitly conforms to `CustomStringConvertible` / `CustomDebugStringConvertible`, preventing direct string/reflection descriptions from exposing raw identifiers.
+  - README, package contract, and DocC now document bulk missing-value behavior, duplicate-value rejection, and type-mismatch issue semantics.
+  - `Scripts/verify_package.sh` now captures SwiftPM output and fails on emitted `warning:` / `error:` lines.
+- Added package-owned tests for missing configured values, duplicate value IDs, and direct safe-identifier redaction; package now verifies with 11 XCTest tests plus strict-concurrency verification.
+- Added `./PackagesForReuse/AppValidationCore` as a standalone vault package with README, package contract, DocC, tests, verification script, and `REUSE.md`.
+- Adoption decision: vault-only. Current `TchopApp` already uses `./PackagesInUse/AppFormValidation` for login form validation; connecting `AppValidationCore` now would create a parallel lower-level validation surface without a current app consumer.
+- Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
+- Verification: incoming and final `./PackagesForReuse/AppValidationCore/Scripts/verify_package.sh` succeeded with warning/error grep clean; `python3 ./scripts/check_docs_index.py` succeeded; package artifact scan returned empty. No app build/plutil was required because no app/Xcode project/runtime source changed.
