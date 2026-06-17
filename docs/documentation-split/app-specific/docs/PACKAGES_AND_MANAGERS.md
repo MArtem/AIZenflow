@@ -13,6 +13,19 @@ Do not use it for:
 - global assistant behavior
 - temporary debugging notes
 
+
+## Current TchopApp integration mode
+
+`TchopApp` currently uses reusable package code in source-only local mode:
+
+- `./PackagesInUse` contains the active package subset compiled directly into app/share/widget targets.
+- `./PackagesForReuse` contains the full reviewed reusable package vault.
+- `./Packages` contains SDK/package creation documentation, templates, reports, and optional copy-file helpers only.
+
+This mode is a disk-usage control decision while building a large package library. It does not lower the package quality bar: each package must still keep SwiftPM metadata, docs, tests, DocC, contracts, and verify scripts so it can later be used as a real Swift Package.
+
+When adopting new package functionality in this worktree, copy the package into `./PackagesForReuse` first, then into `./PackagesInUse` only if the app can use it now. Add only the required source/resources to Xcode targets and keep generated artifacts out of package folders.
+
 ## Core Rule
 - Reusable packages and managers are the foundation.
 - If behavior is generic, repeatable, and entity-agnostic, it should live in the package.
@@ -20,7 +33,7 @@ Do not use it for:
 - Do not add decorative adapters or protocols when the package surface already fits the need.
 
 ## Package Inventory
-### `TchopNetworking`
+### `AppNetworking`
 Use for:
 - request execution
 - uploads/downloads
@@ -33,7 +46,7 @@ App keeps:
 - endpoint semantics
 - mapping to app models
 
-### `TchopDatabaseCore`
+### `AppDatabaseCore`
 Use for:
 - backend-neutral database contracts
 - migration primitives
@@ -44,7 +57,7 @@ App keeps:
 - app record types
 - app bootstrap policy
 
-### `TchopSwiftDataDatabase`
+### `AppSwiftDataDatabase`
 Use for:
 - active SwiftData-backed database manager
 
@@ -53,7 +66,7 @@ App keeps:
 - app seeding/bootstrap
 - persistence policy
 
-### `TchopCoreDataDatabase`
+### `AppCoreDataDatabase`
 Use for:
 - legacy rollback-only Core Data manager
 
@@ -61,7 +74,7 @@ Current rule:
 - do not design new app runtime behavior around it
 - keep it only as fallback material when explicitly needed
 
-### `TchopDatabaseComposition`
+### `AppDatabaseComposition`
 Use for:
 - resolver/factory composition
 - backend wiring primitives
@@ -69,7 +82,7 @@ Use for:
 App keeps:
 - current runtime choice and rollout policy
 
-### `SyncCore`
+### `AppSyncCore`
 Use for:
 - sync state machine
 - push/pull orchestration
@@ -84,7 +97,7 @@ App keeps:
 - endpoint semantics
 - feature-specific merge policy
 
-### `TchopNavigation`
+### `AppNavigation`
 Use for:
 - reusable router/tab primitives
 - navigation snapshot persistence contract
@@ -94,7 +107,7 @@ App keeps:
 - route payloads
 - deep-link semantics
 
-### `TchopLocalization`
+### `AppLocalization`
 Use for:
 - localization facade
 - locale override support
@@ -102,7 +115,7 @@ Use for:
 App keeps:
 - actual product copy
 
-### `TchopOnDeviceAI`
+### `AppOnDeviceAI`
 Use for:
 - on-device Foundation Models availability checks
 - reusable local AI task contracts
@@ -115,7 +128,7 @@ App keeps:
 - translated-state presentation policy
 - local per-feature persistence of translated snapshots
 
-### `TchopShareSupport`
+### `AppShareExtensionSupport`
 Use for:
 - app-group-backed shared JSON item storage
 - reusable cross-process handoff primitives for app extensions
@@ -129,7 +142,18 @@ App keeps:
 - publish/sync policy between extension storage and app runtime
 - extension lifecycle and authentication gating
 
-### `TchopBranding`
+### `AppGlassUI`
+Use for:
+- SwiftUI Liquid Glass availability checks
+- glass chrome fallback mechanics
+- reusable shape-based glass styling helpers
+
+App keeps:
+- semantic color tokens
+- product-specific visual roles
+- screen layout and interaction decisions
+
+### `AppBranding`
 Use for:
 - semantic brand tokens
 - target-driven branding behavior
@@ -137,19 +161,19 @@ Use for:
 Working rule:
 - extend semantic tokens instead of inventing one-off view colors
 
-### `TchopUIConfiguration`
+### `AppConfiguration`
 Use for:
 - UI configuration snapshot model
 - refresh/store behavior
 
-### `TchopWidgets`
+### `AppWidgetSupport`
 Use for:
 - widget snapshot primitives
 
 App keeps:
 - widget composition fed by app-specific data
 
-### `TchopPushNotifications`
+### `AppPushNotifications`
 Use for:
 - APNs token handling
 - payload parsing
@@ -158,7 +182,72 @@ Use for:
 App keeps:
 - app-specific routing after payload interpretation
 
-### `TchopAnalytics`
+### `AppSecureStorage`
+Use for:
+- product-neutral async secure storage contracts
+- Keychain-backed small-secret storage on Apple platforms
+- actor-backed in-memory storage for tests, previews, and unsigned simulator fallback
+- sanitized secure-storage errors and key/value validation
+
+App keeps:
+- concrete auth/session key taxonomy
+- token refresh and logout policy
+- migration from old app-local token stores
+- user-facing auth error mapping
+
+### `AppFeatureFlags`
+Use for:
+- product-neutral feature flag evaluation
+- local overrides and persisted snapshot/override stores
+- percentage rollout and weighted variant bucketing
+- validating snapshots before app runtime activation
+
+App keeps:
+- concrete product flag names
+- remote config/network fetch policy
+- rollout ownership and cleanup dates
+- analytics and telemetry decisions for flag exposure
+
+### `AppLogging`
+Use for:
+- product-neutral structured log events
+- privacy-aware metadata redaction
+- no-op, memory, console, multiplex, redacting, and OSLog-backed logging
+- package-safe logger surfaces for optional integration helpers
+
+App keeps:
+- product-specific log taxonomy and subsystem names
+- decisions about when/where to log
+- crash/analytics/observability export policy
+- user/session/domain metadata classification
+
+### `AppObservability`
+Use for:
+- product-neutral spans, breadcrumbs, and duration measurements
+- trace IDs, span IDs, and caller-owned correlation propagation
+- privacy-aware observability attributes and redaction
+- structured cancellation/failure descriptors
+
+App keeps:
+- product-specific telemetry naming and sampling policy
+- concrete analytics/crash/export adapters
+- decisions about when to start/end spans and emit breadcrumbs
+- domain-specific attribute classification beyond the generic redaction baseline
+
+### `AppConnectivity`
+Use for:
+- product-neutral connectivity snapshots and transition observation
+- cost/constrained network policy checks
+- manual/static connectivity monitors in package tests/previews
+- privacy-safe connectivity diagnostics
+
+App keeps:
+- product-specific offline UI and copy
+- retry/offline queue orchestration decisions
+- sync/download/upload behavior
+- telemetry/logging export adapters
+
+### `AppAnalytics`
 Use for:
 - reusable analytics/event primitives
 
@@ -166,7 +255,7 @@ App keeps:
 - app event naming policy
 - app feature instrumentation decisions
 
-### `TchopAppleAuthentication`
+### `AppAppleAuthentication`
 Use for:
 - reusable Apple auth integration primitives
 
@@ -189,6 +278,25 @@ When reusing these packages elsewhere:
 - do not cargo-cult `TchopApp` repository shapes if the new project does not need them
 
 ## Related Sources
-- [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
-- [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
-- [.codex/skills/tchop-packages/SKILL.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-packages/SKILL.md)
+- [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
+- [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)
+- [.codex/skills/tchop-packages/SKILL.md](./.codex/skills/tchop-packages/SKILL.md)
+
+
+## Neutral Reuse For New Projects
+The old `TchopInfrastructure` compatibility bundle has been retired from this worktree. New projects should copy only the needed standalone package folders, using neutral package names such as:
+
+- `AppInfrastructure`
+- `AppNetworking`
+- `AppErrors`
+- `AppLocalization`
+- `AppConfiguration`
+- `AppLogging`
+- `AppObservability`
+- `AppConnectivity`
+- `AppAnalytics`
+- `AppCache`
+
+Use source package behavior as implementation reference, not as branding. Keep app-specific endpoint semantics, copy, route payloads, schemas, session policy, and product behavior in the target app.
+
+For small demo/test projects, start with networking, errors, localization, configuration, and logging only. Add database, sync, widgets, push, share, media, AI, or payments packages only when the project has current requirements for those areas.

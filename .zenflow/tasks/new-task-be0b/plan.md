@@ -1284,3 +1284,14 @@ Use archives only when historical detail is needed:
 - Adoption decision: vault-only. Current `TchopApp` already uses `./PackagesInUse/AppFormValidation` for login form validation; connecting `AppValidationCore` now would create a parallel lower-level validation surface without a current app consumer.
 - Updated `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, and `./docs/README.md`.
 - Verification: incoming and final `./PackagesForReuse/AppValidationCore/Scripts/verify_package.sh` succeeded with warning/error grep clean; `python3 ./scripts/check_docs_index.py` succeeded; package artifact scan returned empty. No app build/plutil was required because no app/Xcode project/runtime source changed.
+
+### [x] Step: Documentation/rules/skills consistency cleanup after full read-only audit
+- User approved all 9 audit recommendations and explicitly expanded the local sandbox boundary from `/Users/Artem/.zenflow/worktrees` to `/Users/Artem/.zenflow`.
+- Added root `./AGENTS.md` for current worktree startup, response-header, sandbox, model-routing, package-mode, test-ban, and plan-maintenance rules.
+- Updated active model-routing references so stale `GPT-5.5 for all/default` wording now defers to `./docs/MODEL_ROUTING_RULE.md`.
+- Updated package-boundary docs and `tchop-packages` skill references away from retired `./Packages/TchopInfrastructure` active-package assumptions toward current `./PackagesInUse` source-only integration and `./PackagesForReuse` vault mode.
+- Refreshed `./docs/WORK_CONTINUITY.md` and `./.zenflow/tasks/new-task-be0b/handoff.md` to reflect the current docs-cleanup task, source-only package mode, expanded sandbox, mandatory startup read order, and no-build docs-only verification scope.
+- Replaced active absolute workspace markdown links with portable `./` paths where practical and clarified external assistant-home links as optional/non-authoritative under the expanded `/Users/Artem/.zenflow` sandbox.
+- Added `./scripts/check_docs_consistency.py` plus reusable root-script copy to catch stale model-routing/package-mode/sandbox/link regressions that the docs index check does not cover.
+- Synced touched active docs into app-specific/reusable split copies where relevant, including rules/checklists/package docs and reusable root scripts.
+- Verification: `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py` succeeded before final `git diff --check`; no build/tests/simulator/Instruments run because this block is docs/rules/skills/templates only.

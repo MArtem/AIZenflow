@@ -278,9 +278,9 @@ When reusing these packages elsewhere:
 - do not cargo-cult `TchopApp` repository shapes if the new project does not need them
 
 ## Related Sources
-- [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
-- [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
-- [.codex/skills/tchop-packages/SKILL.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-packages/SKILL.md)
+- [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
+- [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)
+- [.codex/skills/tchop-packages/SKILL.md](./.codex/skills/tchop-packages/SKILL.md)
 
 
 ## Neutral Reuse For New Projects

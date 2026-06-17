@@ -34,6 +34,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 ## Mandatory Active Documentation Index
 
 ### Project Baseline
+- `./AGENTS.md`
 - `./PROJECT_DOCUMENTATION.md`
 - `./PROJECT_HEALTH.md`
 - `./TESTING_INSTRUCTIONS.md`
@@ -160,6 +161,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 
 ### Static Quality Gate Scripts
 - `./scripts/check_docs_index.py`
+- `./scripts/check_docs_consistency.py`
 - `./scripts/check_forbidden_patterns.py`
 - `./scripts/check_secrets.py`
 - `./scripts/check_large_files.py`
@@ -171,6 +173,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 ## Canonical Document Roles
 
 ### Core Rules
+- **`./AGENTS.md`**: root agent startup rules, response header, sandbox, model routing, package mode, and plan rule.
 - **`./PROJECT_DOCUMENTATION.md`**: stable app architecture and runtime baseline.
 - **`./PROJECT_HEALTH.md`**: package/manager ownership boundaries.
 - **`./TESTING_INSTRUCTIONS.md`**: active verification workflow and levels for this project.

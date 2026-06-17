@@ -15,16 +15,16 @@ Do not use this file for:
 - implementation logs
 - temporary debugging notes
 
-For the full documentation map, use [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md).
+For the full documentation map, use [docs/README.md](./docs/README.md).
 
 ## First Read For Agents
 When starting or resuming work in this worktree, read in this order:
-1. [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md)
+1. [docs/README.md](./docs/README.md)
 2. this file
-3. [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
-4. [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
-5. [docs/AGENT_RULES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/AGENT_RULES.md)
-6. [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md)
+3. [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
+4. [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
+5. [docs/AGENT_RULES.md](./docs/AGENT_RULES.md)
+6. [docs/WORK_CONTINUITY.md](./docs/WORK_CONTINUITY.md)
 7. current task docs under `.zenflow/tasks/new-task-be0b/`
 
 For context transfer, include this exact rule:
@@ -59,20 +59,20 @@ The primary separation is:
 
 ## Current Task Overrides
 Current user/task overrides live in:
-- [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
+- [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
 
 Important current overrides:
-- use/report `GPT-5.5` unless user explicitly changes model
+- apply `./docs/MODEL_ROUTING_RULE.md`: use `GPT-5.4` only for approved low-risk execution and `GPT-5.5` for planning, architecture, high-risk, and final-gate work
 - do not run builds/tests/simulator UI unless user explicitly asks
 - do not touch `./TchopAppTests` unless user explicitly asks
 - UI/design work from screenshots/Figma/PDF/CSS must be pixel-focused and use `GPT-5.5`
 
 ## Knowledge Organization
 Reusable cross-project knowledge lives in:
-- [docs/knowledge/global/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/global/README.md)
+- [docs/knowledge/global/README.md](./docs/knowledge/global/README.md)
 
 TchopApp-specific knowledge lives in:
-- [docs/knowledge/TchopApp/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/TchopApp/README.md)
+- [docs/knowledge/TchopApp/README.md](./docs/knowledge/TchopApp/README.md)
 
 Rule of thumb:
 - reusable prompts/rules → `docs/knowledge/global/`
@@ -82,9 +82,9 @@ Rule of thumb:
 The app currently centers on a local-first feed/composer runtime.
 
 Canonical contracts:
-- [feed-card-contract.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
-- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
-- [docs/knowledge/TchopApp/feed-and-composer-summary.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/TchopApp/feed-and-composer-summary.md)
+- [feed-card-contract.md](./.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
+- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
+- [docs/knowledge/TchopApp/feed-and-composer-summary.md](./docs/knowledge/TchopApp/feed-and-composer-summary.md)
 
 Current product baseline:
 - card kinds: `text`, `photo`, `video`, `audio`, `pdf`
@@ -112,7 +112,7 @@ AppShellViewModel
       -> AppShareExtensionSupport app-group storage
 ```
 
-Use [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md) for package boundaries and manager ownership.
+Use [PROJECT_HEALTH.md](./PROJECT_HEALTH.md) for package boundaries and manager ownership.
 
 ## Top-Level Structure
 ### App
@@ -140,43 +140,43 @@ Source-only mode rules:
 - package-module imports are removed from app/share/widget/test source;
 - resources from product localization are copied into each runtime target that needs them;
 - generated artifacts (`.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, logs) must not be committed or kept inside package folders;
-- build/cache output must stay under `/Users/Artem/.zenflow/worktrees/`.
+- build/cache output must stay under `/Users/Artem/.zenflow/`.
 
 ## Canonical Companion Documents
-- [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md): documentation map and placement policy
-- [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md): current task/user overrides
-- [docs/AGENT_RULES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/AGENT_RULES.md): short mandatory implementation guardrails
-- [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md): package inventory and ownership boundaries
-- [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md): reusable package and manager usage guide
-- [docs/UI_PIXEL_PERFECT_WORKFLOW.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/UI_PIXEL_PERFECT_WORKFLOW.md): UI/design implementation workflow
-- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md): local feed persistence and sync direction
-- [docs/WORK_CONTINUITY.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/WORK_CONTINUITY.md): durable resume state and transition prompt
-- [docs/knowledge/global/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/global/README.md): reusable cross-project knowledge
-- [docs/knowledge/TchopApp/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/knowledge/TchopApp/README.md): TchopApp-specific knowledge index
-- [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md): verification and testing workflow
-- [APPLE_SIGN_IN_SETUP.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/APPLE_SIGN_IN_SETUP.md): Sign in with Apple setup
-- [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md): current task resume state
-- [plan.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/plan.md): current task plan only
+- [docs/README.md](./docs/README.md): documentation map and placement policy
+- [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md): current task/user overrides
+- [docs/AGENT_RULES.md](./docs/AGENT_RULES.md): short mandatory implementation guardrails
+- [PROJECT_HEALTH.md](./PROJECT_HEALTH.md): package inventory and ownership boundaries
+- [docs/PACKAGES_AND_MANAGERS.md](./docs/PACKAGES_AND_MANAGERS.md): reusable package and manager usage guide
+- [docs/UI_PIXEL_PERFECT_WORKFLOW.md](./docs/UI_PIXEL_PERFECT_WORKFLOW.md): UI/design implementation workflow
+- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md): local feed persistence and sync direction
+- [docs/WORK_CONTINUITY.md](./docs/WORK_CONTINUITY.md): durable resume state and transition prompt
+- [docs/knowledge/global/README.md](./docs/knowledge/global/README.md): reusable cross-project knowledge
+- [docs/knowledge/TchopApp/README.md](./docs/knowledge/TchopApp/README.md): TchopApp-specific knowledge index
+- [TESTING_INSTRUCTIONS.md](./TESTING_INSTRUCTIONS.md): verification and testing workflow
+- [APPLE_SIGN_IN_SETUP.md](./APPLE_SIGN_IN_SETUP.md): Sign in with Apple setup
+- [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md): current task resume state
+- [plan.md](./.zenflow/tasks/new-task-be0b/plan.md): current task plan only
 
 ## What To Update When Things Change
 - Stable architecture or runtime policy:
   update this file
 - Package or manager ownership:
-  update [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
+  update [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
 - Verification workflow:
-  update [TESTING_INSTRUCTIONS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/TESTING_INSTRUCTIONS.md)
+  update [TESTING_INSTRUCTIONS.md](./TESTING_INSTRUCTIONS.md)
 - Current user/task override:
-  update [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
+  update [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
 - UI/design workflow:
-  update [docs/UI_PIXEL_PERFECT_WORKFLOW.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/UI_PIXEL_PERFECT_WORKFLOW.md)
+  update [docs/UI_PIXEL_PERFECT_WORKFLOW.md](./docs/UI_PIXEL_PERFECT_WORKFLOW.md)
 - Feed/composer product contract:
-  update [feed-card-contract.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
+  update [feed-card-contract.md](./.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
 - Local feed persistence/sync contract:
-  update [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
+  update [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
 - Current task state:
-  update [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md)
+  update [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md)
 - Current task plan:
-  update [plan.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/plan.md)
+  update [plan.md](./.zenflow/tasks/new-task-be0b/plan.md)
 
 ## Archive Policy
 Verbose historical versions are kept only for fallback reference:

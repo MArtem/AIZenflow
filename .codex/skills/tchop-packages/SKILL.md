@@ -14,22 +14,26 @@ Use this skill for `TchopApp` work involving:
 
 ## Read Order
 1. [references/package-rules.md](./references/package-rules.md)
-2. [docs/PACKAGES_AND_MANAGERS.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/PACKAGES_AND_MANAGERS.md)
-3. [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
+2. `./docs/PACKAGES_AND_MANAGERS.md`
+3. `./PROJECT_HEALTH.md`
+4. `./PackagesInUse/README.md`
+5. `./PackagesForReuse/README.md`
 
 ## Working Rules
 - Start from the reusable package contract.
 - Do not add app-local wrappers if the package already fits.
 - Move generic behavior downward into the package when possible.
 - Keep only project-specific policy and mapping in app code.
-- Treat `SyncCore` as the root sync foundation.
+- Treat `AppSyncCore` / sync package mechanics as the root sync foundation when active in the current package mode.
 - Treat `SwiftData` as the active persistence runtime unless explicitly told otherwise.
 
 ## Important Areas
-- [Packages/TchopInfrastructure](/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure)
-- [AppContentRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/AppContentRepository.swift)
-- [AppDatabase.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDatabase.swift)
-- [UserRepository.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/UserRepository.swift)
+- `./PackagesInUse` for active source-only package code compiled into app/share/widget targets
+- `./PackagesForReuse` for validated reusable package vault code
+- `./Packages` for SDK/package creation docs/templates only
+- `./TchopApp/Repositories/AppContentRepository.swift`
+- `./TchopApp/Persistence/AppDatabase.swift`
+- `./TchopApp/Repositories/UserRepository.swift`
 
 ## Output Expectation
 When changing this area:

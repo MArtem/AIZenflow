@@ -29,7 +29,7 @@ Before code, docs, git, or project changes, read:
 
 ## Filesystem Sandbox
 - Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active worktree sandbox.
-- Do not use global SwiftPM/Xcode caches, `/tmp`, user-library caches, or any path outside the active worktree sandbox for project work.
+- Do not use global SwiftPM/Xcode caches, `/tmp`, user-library caches, or any path outside the active Zenflow sandbox for project work.
 - If a tool defaults outside the sandbox, override its output/cache/DerivedData paths before running it.
 
 ## MVVM ViewModel API

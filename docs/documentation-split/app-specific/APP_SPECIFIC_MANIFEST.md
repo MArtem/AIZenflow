@@ -4,6 +4,10 @@
 Files in this group are tied to `TchopApp`, its current task, feed/composer/card contract, package names, paths, or runtime state. Do not copy this group into a new unrelated project as baseline documentation.
 
 ## Files
+- `./AGENTS.md`
+- `./docs/AGENT_RULES.md`
+- `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
+- `./docs/MODEL_ROUTING_RULE.md`
 - `./APPLE_SIGN_IN_SETUP.md`
 - `./PROJECT_DOCUMENTATION.md`
 - `./PROJECT_HEALTH.md`

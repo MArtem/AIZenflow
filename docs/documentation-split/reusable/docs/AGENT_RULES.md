@@ -14,6 +14,20 @@ Always choose the **simplest correct solution** that matches:
 
 Do not add abstractions unless they solve a concrete current problem.
 
+## Model Routing Rule
+- Apply `./docs/MODEL_ROUTING_RULE.md` before implementation, planning, review, and package-adoption work.
+- Before editing code or documentation, classify the task as `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets.
+- Use `GPT-5.4` for approved-plan, low-risk execution only. Escalate to `GPT-5.5` when architecture, persistence, concurrency, navigation, state ownership, public APIs, security/privacy, data loss, sync, performance-sensitive SwiftUI, package adoption, Xcode integration, or app-wide behavior is involved.
+- In sessions where the primary assistant is already `GPT-5.5`, use `GPT-5.4` only through available subagents/tools when it is actually suitable and resource-saving; do not lower quality to save limits.
+
+
+## Filesystem Sandbox Rule
+- All project work must stay inside `/Users/Artem/.zenflow`.
+- Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow`.
+- Before running tools that normally use global caches or DerivedData, override their output/cache paths to `/Users/Artem/.zenflow/...`.
+- Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other external location for project work.
+- The only allowed external filesystem action is cleanup/removal of previously created TchopApp/MVVMExample traces when the user explicitly requests it.
+
 
 ## Product-Staff Quality Bar Rule
 - Never lower the engineering bar because a project is described as demo, test, sample, prototype, imported, or pre-production; those words may only describe configuration/risk context, not code quality.
@@ -162,3 +176,9 @@ Do not add abstractions unless they solve a concrete current problem.
 - `docs/DEFINITION_OF_DONE.md`
 - `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
+
+
+## New Chat / Context Transfer Rule
+- Proactively recommend moving to a new chat when context size, phase changes, interruptions, or accumulated history make continuity risky.
+- Provide a compact handoff spec before transfer.
+- Apply `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`.

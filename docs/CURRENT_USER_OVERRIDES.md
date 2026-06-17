@@ -27,15 +27,15 @@ Every working response must start with:
 - files being inspected/changed
 - next safe step
 - whether a build is needed
-- sandbox confirmation inside `/Users/Artem/.zenflow/worktrees`
+- sandbox confirmation inside `/Users/Artem/.zenflow`
 
 ### Sandbox
-- Work strictly inside `/Users/Artem/.zenflow/worktrees`.
+- Work strictly inside `/Users/Artem/.zenflow`.
 - Current worktree is `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
-- Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow/worktrees`.
-- Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow/worktrees` for project work.
-- If a tool defaults to an external cache/location, override it to a path under `/Users/Artem/.zenflow/worktrees` before running it.
-- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside `/Users/Artem/.zenflow/worktrees` when explicitly requested by the user.
+- Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow`.
+- Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow` for project work.
+- If a tool defaults to an external cache/location, override it to a path under `/Users/Artem/.zenflow` before running it.
+- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside `/Users/Artem/.zenflow` when explicitly requested by the user.
 
 ### Verification / Builds / Tests
 - The user restored the test-writing ban on 2026-05-29. Do not write, modify, or expand tests until the user explicitly gives permission again.

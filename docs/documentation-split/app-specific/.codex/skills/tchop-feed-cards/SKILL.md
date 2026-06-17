@@ -16,8 +16,8 @@ Use this skill for `TchopApp` tasks involving:
 Read these files first:
 
 1. [references/feed-card-contract.md](./references/feed-card-contract.md)
-2. [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
-3. [handoff.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md) if resume state matters
+2. [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)
+3. [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md) if resume state matters
 
 Read code only after the contract is clear.
 
@@ -29,10 +29,10 @@ Read code only after the contract is clear.
 - If a card flow looks generic, check whether it belongs in the model layer instead of a screen convenience branch.
 
 ## Important Code
-- [NewsFeedModels.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/NewsFeedModels.swift)
-- [AppShellViewModel.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/AppShellViewModel.swift)
-- [ShellContentView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/ShellContentView.swift)
-- [NewsFeedView.swift](/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift)
+- [NewsFeedModels.swift](./TchopApp/Models/NewsFeedModels.swift)
+- [AppShellViewModel.swift](./TchopApp/ViewModels/AppShellViewModel.swift)
+- [ShellContentView.swift](./TchopApp/Views/ShellContentView.swift)
+- [NewsFeedView.swift](./TchopApp/Views/News/NewsFeedView.swift)
 
 ## Output Expectation
 When changing this area:

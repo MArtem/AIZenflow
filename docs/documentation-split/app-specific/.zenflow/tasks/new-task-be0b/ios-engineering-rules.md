@@ -4,17 +4,19 @@
 This file contains project-specific iOS overlay rules for this worktree.
 
 It is not the global iOS policy.
-Global assistant iOS/model-routing rules live in:
-- [/Users/Artem/.zenflow/assistant/AGENTS.md](/Users/Artem/.zenflow/assistant/AGENTS.md)
-- [docs/MODEL_ROUTING_RULE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/MODEL_ROUTING_RULE.md)
-- [/Users/Artem/.zenflow/assistant/docs/ios-agent-policy.md](/Users/Artem/.zenflow/assistant/docs/ios-agent-policy.md)
+Global assistant iOS/model-routing rules for this worktree live in:
+- `./docs/MODEL_ROUTING_RULE.md`
+- `./docs/AGENT_RULES.md`
+- `./docs/CURRENT_USER_OVERRIDES.md`
+
+External assistant-home policies under `/Users/Artem/.zenflow/assistant` may be consulted when explicitly relevant; active worktree rules above remain authoritative for this task.
 
 ## Read Together With
-- [PROJECT_DOCUMENTATION.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_DOCUMENTATION.md)
-- [PROJECT_HEALTH.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/PROJECT_HEALTH.md)
-- [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md)
-- [docs/CURRENT_USER_OVERRIDES.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/CURRENT_USER_OVERRIDES.md)
-- [docs/UI_PIXEL_PERFECT_WORKFLOW.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/UI_PIXEL_PERFECT_WORKFLOW.md)
+- [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)
+- [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
+- [docs/README.md](./docs/README.md)
+- [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
+- [docs/UI_PIXEL_PERFECT_WORKFLOW.md](./docs/UI_PIXEL_PERFECT_WORKFLOW.md)
 
 ## Project-Specific Rules
 - For coding-task responses in this task thread, include the active model header at the top:
@@ -50,10 +52,10 @@ Global assistant iOS/model-routing rules live in:
 
 ## Documentation Rule
 When asked to add a new rule or document, first propose placement using:
-- [docs/README.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/README.md)
+- [docs/README.md](./docs/README.md)
 
 Then write it to the canonical location instead of duplicating it across multiple files.
 
 ## Archive
 Verbose historical versions of this rules file are kept only in:
-- [.zenflow/tasks/new-task-be0b/archive/ios-engineering-rules.legacy.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/archive/ios-engineering-rules.legacy.md)
+- [.zenflow/tasks/new-task-be0b/archive/ios-engineering-rules.legacy.md](./.zenflow/tasks/new-task-be0b/archive/ios-engineering-rules.legacy.md)

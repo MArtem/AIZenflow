@@ -32,6 +32,10 @@ Every working response must start with:
 ### Sandbox
 - Work strictly inside `/Users/Artem/.zenflow`.
 - Current worktree is `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
+- Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow`.
+- Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow` for project work.
+- If a tool defaults to an external cache/location, override it to a path under `/Users/Artem/.zenflow` before running it.
+- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside `/Users/Artem/.zenflow` when explicitly requested by the user.
 
 ### Verification / Builds / Tests
 - The user restored the test-writing ban on 2026-05-29. Do not write, modify, or expand tests until the user explicitly gives permission again.
@@ -41,6 +45,11 @@ Every working response must start with:
 - `git diff --check` or read-only/static documentation checks are allowed when useful.
 - Low-resource mode: minimum reading, minimum commands, one meaningful verification only when requested or explicitly justified.
 
+### MVVM / ViewModel API
+- Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as the default ViewModel API in any project, including test/demo projects.
+- Use explicit intent methods on ViewModels.
+- Action/reducer architecture is allowed only after explicit user approval and documentation.
+
 ### Implementation Style
 - No speculative UI.
 - No speculative business logic.
@@ -48,6 +57,19 @@ Every working response must start with:
 - Prefer the simplest correct implementation that preserves product behavior and UI.
 - If anything is unclear, ask first.
 
+
+### Product-Staff Quality Bar
+- Never lower the engineering bar because a project is described as demo, test, sample, prototype, imported, or pre-production; those words may only describe configuration/risk context, not code quality.
+- Treat every authored or reviewed code path as product-staff-level production code: correct ownership, explicit state, clear failure behavior, performance-aware rendering, privacy-safe logging, accessibility, localization, and supportable verification.
+- Do not wait for Instruments/profilers before fixing statically obvious performance or memory issues. Use profiling to prove behavior, compare alternatives, or validate non-obvious risks, not as an excuse to leave avoidable redraws, broad invalidation, main-thread work, unbounded caches, or lifecycle leaks.
+- Maximize quality through the simplest correct design: improve hot paths, state ownership, and error handling without adding decorative protocols, wrappers, factories, use cases, or interfaces.
+
+### Audit / Planning Scope Rule
+- When the user asks to review, audit, inspect a project/code area, evaluate requirements, or plan a task, provide the fullest unbiased high-quality analysis available, even for very small code.
+- Do not silently simplify, defer, dismiss, or complicate scope on the user's behalf. The assistant must surface the full relevant concern set and let the user decide what to execute.
+- Always prioritize findings and recommendations as `must do now`, `should do next`, `later / only if needed`, and `do not do / overengineering for this scope` where applicable.
+- If a concern is intentionally not investigated, state it as an explicit remaining risk; never imply it is irrelevant because the project is small, early, demo-like, or because the assistant judged it unnecessary.
+- During implementation, only execute the scope the user approved, but keep unexecuted review/planning concerns visible as remaining risks or backlog candidates.
 
 ### Production Audit / Review Rules
 - Before any non-trivial implementation, refactor, cleanup, or review, apply `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` and `./docs/PRODUCTION_QUALITY_GATES.md`.
@@ -95,3 +117,9 @@ Every working response must start with:
 
 ## Notes
 If this file conflicts with an explicit newer user instruction in chat, the newer user instruction wins.
+
+
+### New Chat / Context Transfer
+- The assistant must proactively tell the user when the current chat/context should be replaced by a new chat to reduce context risk.
+- When recommending a new chat, provide a compact transition spec and include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
+- Do not include raw command logs, tool output, full diffs, or long scripts in the transition spec unless explicitly requested.

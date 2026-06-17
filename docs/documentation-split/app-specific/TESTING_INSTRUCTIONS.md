@@ -121,14 +121,14 @@ If a requested verification run finds a real project issue:
 
 ## Canonical Commands
 - Build/test helper:
-  [scripts/verify.sh](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/verify.sh)
+  [scripts/verify.sh](./scripts/verify.sh)
 - HTTP trace:
-  [scripts/api_http_trace](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_http_trace)
+  [scripts/api_http_trace](./scripts/api_http_trace)
 - Method trace:
-  [scripts/api_method_trace](/Users/Artem/.zenflow/worktrees/new-task-be0b/scripts/api_method_trace)
+  [scripts/api_method_trace](./scripts/api_method_trace)
 
 ## Archive Policy
 Older verbose testing workflows are preserved only in:
-- [docs/archive/TESTING_INSTRUCTIONS.legacy.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/archive/TESTING_INSTRUCTIONS.legacy.md)
+- [docs/archive/TESTING_INSTRUCTIONS.legacy.md](./docs/archive/TESTING_INSTRUCTIONS.legacy.md)
 
 That file is not part of the default read path.

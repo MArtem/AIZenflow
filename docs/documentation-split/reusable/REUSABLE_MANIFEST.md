@@ -4,6 +4,7 @@
 Files in this group are intended as the portable iOS production baseline for a new project/task. They cover general engineering rules, production gates, prompt presets, and generic iOS skills without depending on the <AppName> feature/entity product contract.
 
 ## Files
+- `./AGENTS.md`
 - `./docs/MODEL_ROUTING_RULE.md`
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
@@ -65,6 +66,8 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
+- `./scripts/check_docs_consistency.py`
+- `./root-scripts/check_docs_consistency.py`
 - `./docs/agent-prompts/test-review-mini.md`
 - `./docs/agent-prompts/README.md`
 - `./docs/agent-prompts/code-review-master.md`
@@ -159,6 +162,8 @@ Files in this group are intended as the portable iOS production baseline for a n
 
 ## Transfer Rule
 When a new task/project is created, copy this group first, then replace placeholder project/task names in the generated bootstrap files. Do not copy `./docs/documentation-split/app-specific/` unless explicitly needed.
+
+The paths below are relative to `./docs/documentation-split/reusable/` unless they already start with `./docs/documentation-split/reusable/`.
 - `./REUSABLE_USER_AND_AGENT_RULES.md`
 - `./NEW_PROJECT_PORTING_GUIDE.md`
 - `./EXTERNAL_SKILL_DEPENDENCIES.md`
@@ -166,6 +171,7 @@ When a new task/project is created, copy this group first, then replace placehol
 - `./MVVMEXAMPLE_REMEDIATION_SPEC.md`
 - `./scripts/install_reusable_baseline.sh`
 - `./scripts/sync_reusable_baseline_to_project.sh`
+- `./templates/AGENTS.template.md`
 
 - `./docs/documentation-split/reusable/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md` — neutral package promotion rules for transferring reusable infrastructure into another project.
 - `./docs/documentation-split/reusable/templates/AppInfrastructurePackage.swift.template` — neutral SwiftPM package template with package-level tests.
