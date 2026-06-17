@@ -46,6 +46,7 @@ APP_PACKAGES = {
     "AppDatabase",
     "AppEnvironment",
     "AppErrors",
+    "AppFileStorage",
     "AppFormValidation",
     "AppGlassUI",
     "AppLifecycle",
@@ -70,6 +71,7 @@ WIDGET_PACKAGES = {
 }
 SHARE_PACKAGES = {
     "AppBranding",
+    "AppFileStorage",
     "AppLocalization",
     "AppOnDeviceAI",
     "AppShareExtensionSupport",
@@ -96,6 +98,7 @@ PRODUCT_NAMES = {
     "AppAnalyticsNavigationIntegration",
     "AppAppleAuthentication",
     "AppErrors",
+    "AppFileStorage",
     "AppFormValidation",
     "AppOnDeviceAI",
     "AppPermissions",
@@ -228,10 +231,121 @@ def build_file_entry(build_id: str, file_id: str, comment: str) -> str:
     return f"\t\t{build_id} /* {comment} */ = {{isa = PBXBuildFile; fileRef = {file_id} /* {comment.split(' in ')[0]} */; }};\n"
 
 
+def package_group_name(path: Path) -> str:
+    if path.parts[1] == "IntegrationHelpers":
+        return f"IntegrationHelpers/{path.parts[2]}"
+    return path.parts[1]
+
+
+def package_group_entries(source_paths: list[Path], resource_paths: list[Path]) -> tuple[list[str], str]:
+    groups: dict[str, list[tuple[str, str]]] = {}
+    for path in source_paths:
+        group_name = package_group_name(path)
+        file_id = pbx_id("F1", path.as_posix())
+        groups.setdefault(group_name, []).append((file_id, path.name))
+    for path in resource_paths:
+        group_name = "TchopProductLocalizationResources"
+        file_id = pbx_id("F2", path.as_posix())
+        groups.setdefault(group_name, []).append((file_id, path.name))
+
+    root_group_id = pbx_id("G1", "PackagesInUse")
+    integration_group_id = pbx_id("G1", "PackagesInUse/IntegrationHelpers")
+    entries: list[str] = []
+
+    root_children: list[tuple[str, str]] = []
+    integration_children: list[tuple[str, str]] = []
+
+    for group_name in sorted(groups):
+        group_id = pbx_id("G1", f"PackagesInUse/{group_name}")
+        display_name = group_name.split("/")[-1]
+        child_lines = "".join(
+            f"\t\t\t\t{file_id} /* {comment} */,\n"
+            for file_id, comment in sorted(groups[group_name], key=lambda item: item[1])
+        )
+        entries.append(
+            f"\t\t{group_id} /* {display_name} */ = {{\n"
+            f"\t\t\tisa = PBXGroup;\n"
+            f"\t\t\tchildren = (\n"
+            f"{child_lines}"
+            f"\t\t\t);\n"
+            f"\t\t\tname = {display_name};\n"
+            f"\t\t\tsourceTree = \"<group>\";\n"
+            f"\t\t}};\n"
+        )
+        if group_name.startswith("IntegrationHelpers/"):
+            integration_children.append((group_id, display_name))
+        else:
+            root_children.append((group_id, display_name))
+
+    if integration_children:
+        child_lines = "".join(
+            f"\t\t\t\t{group_id} /* {display_name} */,\n"
+            for group_id, display_name in sorted(integration_children, key=lambda item: item[1])
+        )
+        entries.append(
+            f"\t\t{integration_group_id} /* IntegrationHelpers */ = {{\n"
+            f"\t\t\tisa = PBXGroup;\n"
+            f"\t\t\tchildren = (\n"
+            f"{child_lines}"
+            f"\t\t\t);\n"
+            f"\t\t\tname = IntegrationHelpers;\n"
+            f"\t\t\tsourceTree = \"<group>\";\n"
+            f"\t\t}};\n"
+        )
+        root_children.append((integration_group_id, "IntegrationHelpers"))
+
+    child_lines = "".join(
+        f"\t\t\t\t{group_id} /* {display_name} */,\n"
+        for group_id, display_name in sorted(root_children, key=lambda item: item[1])
+    )
+    entries.append(
+        f"\t\t{root_group_id} /* PackagesInUse */ = {{\n"
+        f"\t\t\tisa = PBXGroup;\n"
+        f"\t\t\tchildren = (\n"
+        f"{child_lines}"
+        f"\t\t\t);\n"
+        f"\t\t\tname = PackagesInUse;\n"
+        f"\t\t\tsourceTree = \"<group>\";\n"
+        f"\t\t}};\n"
+    )
+    return entries, root_group_id
+
+
+def remove_existing_packages_group_entries(text: str) -> str:
+    return re.sub(
+        r"\n\t\tG1[A-Z0-9]+ /\* (?:PackagesInUse|IntegrationHelpers|App[A-Za-z0-9]+|TchopProductLocalizationResources) \*/ = \{\n"
+        r"\t\t\tisa = PBXGroup;\n"
+        r"\t\t\tchildren = \(\n"
+        r".*?"
+        r"\t\t\t\);\n"
+        r"\t\t\tname = (?:PackagesInUse|IntegrationHelpers|App[A-Za-z0-9]+|TchopProductLocalizationResources);\n"
+        r"\t\t\tsourceTree = \"<group>\";\n"
+        r"\t\t\};",
+        "",
+        text,
+        flags=re.S,
+    )
+
+
+def ensure_packages_group_in_main_group(text: str, root_group_id: str) -> str:
+    if f"{root_group_id} /* PackagesInUse */" in re.search(
+        r"\n\t\tA00000020000000000000001 = \{\n\t\t\tisa = PBXGroup;\n\t\t\tchildren = \(\n(?P<children>.*?)\t\t\t\);",
+        text,
+        re.S,
+    ).group("children"):
+        return text
+    return text.replace(
+        "\t\t\t\tA00000040000000000000001 /* Products */,\n",
+        f"\t\t\t\t{root_group_id} /* PackagesInUse */,\n\t\t\t\tA00000040000000000000001 /* Products */,\n",
+        1,
+    )
+
+
 def main() -> None:
     text = PROJECT_PATH.read_text()
     text = strip_spm_framework_entries(text)
     text = strip_spm_dependency_blocks(text)
+    text = remove_existing_packages_group_entries(text)
 
     source_sets = {kind: source_files_for(kind) for kind in SOURCE_PHASES}
     all_source_files = sorted(set().union(*source_sets.values()))
@@ -264,8 +378,12 @@ def main() -> None:
         if build_id not in text:
             build_entries.append(build_file_entry(build_id, file_id, comment))
 
+    group_entries, packages_group_id = package_group_entries(all_source_files, resource_dirs)
+
     text = insert_before_section_end(text, "PBXFileReference", file_ref_entries)
     text = insert_before_section_end(text, "PBXBuildFile", build_entries)
+    text = insert_before_section_end(text, "PBXGroup", group_entries)
+    text = ensure_packages_group_in_main_group(text, packages_group_id)
 
     for kind, phases in SOURCE_PHASES.items():
         build_ids = [source_build_by_path[path] for path in source_sets[kind]]

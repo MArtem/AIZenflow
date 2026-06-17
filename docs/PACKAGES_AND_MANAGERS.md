@@ -300,3 +300,7 @@ The old `TchopInfrastructure` compatibility bundle has been retired from this wo
 Use source package behavior as implementation reference, not as branding. Keep app-specific endpoint semantics, copy, route payloads, schemas, session policy, and product behavior in the target app.
 
 For small demo/test projects, start with networking, errors, localization, configuration, and logging only. Add database, sync, widgets, push, share, media, AI, or payments packages only when the project has current requirements for those areas.
+
+## Xcode Project Organization For Source-Only Packages
+
+Active package source files must be grouped in `./TchopApp.xcodeproj/project.pbxproj` under a logical `PackagesInUse` group with one subgroup per package. This is an Xcode navigation rule only; physical files remain under `./PackagesInUse/<PackageName>`. Future package additions must keep this structure and must not leave package files only in `Recovered References`.

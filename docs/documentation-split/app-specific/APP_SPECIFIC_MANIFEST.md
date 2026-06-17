@@ -18,6 +18,7 @@ Files in this group are tied to `TchopApp`, its current task, feed/composer/card
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
+- `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
 - `./docs/knowledge/TchopApp/README.md`

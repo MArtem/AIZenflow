@@ -57,6 +57,13 @@ Source-only compilation differs from SwiftPM module compilation:
 4. Resource bundles that previously used `Bundle.module` must use a local bundle token and target resources copied into the app/extension bundle.
 5. Package tests remain preserved with each package for future SwiftPM verification, but app verification uses the app target and app tests.
 
+
+## Xcode project organization
+
+Every active package in this folder must also be visible in `./TchopApp.xcodeproj/project.pbxproj` under a logical `PackagesInUse` group, with one subgroup per package. Files must not remain only in Xcode `Recovered References` or other unstructured project groups.
+
+When adding a future package to `./PackagesInUse`, update the project through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves this logical grouping. Physical files still stay under `./PackagesInUse/<PackageName>`; this rule is about Xcode navigation only.
+
 ## Adding a future package
 
 1. Review/fix the archive as a standalone package.

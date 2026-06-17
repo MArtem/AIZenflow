@@ -1302,3 +1302,12 @@ Use archives only when historical detail is needed:
   - captured launch screenshot at `./.zenflow/tasks/new-task-be0b/simulator-launch-screenshot.png`, showing the app on the login screen.
   - build succeeded, but Xcode still emitted non-blocking `AppIntents` metadata extraction warnings for app/share/widget targets; this was not fixed in this run because the user asked only to build and launch.
 - Verification: simulator boot/install/launch succeeded; no tests or manual app flow were run.
+
+### [x] Step: Organize active source-only packages in Xcode project groups
+- User reported that files from `./PackagesInUse` were logically scattered in Xcode, including under recovered references, making active package code hard to find.
+- Updated `./scripts/migrate_packages_in_use_project.py` so the source-only package migration now also creates a logical `PackagesInUse` PBXGroup with one subgroup per active package and an `IntegrationHelpers` subgroup, without physically moving files or reintroducing SwiftPM app integration.
+- Updated `./TchopApp.xcodeproj/project.pbxproj` so active package source files are visible under the logical `PackagesInUse` group instead of relying on recovered/unowned references.
+- Fixed a duplicate `AppFileStorage.swift` compile-source reference exposed by the first build after grouping; `AppFileStorage` is now script-managed consistently for app/share targets.
+- Documented the future rule in `./PackagesInUse/README.md`, `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`, and `./docs/PACKAGES_AND_MANAGERS.md`: any future package copied into `./PackagesInUse` must be added through `./scripts/migrate_packages_in_use_project.py` and must appear under the logical `PackagesInUse/<PackageName>` Xcode group.
+- Synced package-organization docs into the documentation split where relevant.
+- Verification: `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded. Warning/error grep on `./.zenflow/tasks/new-task-be0b/package-group-build.log` returned empty. No tests/simulator UI/Instruments run.
