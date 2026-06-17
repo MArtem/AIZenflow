@@ -12,6 +12,8 @@
 		ZAI000010000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ZAI000020000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		ZAI000030000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ZAI000040000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
+		ZAI000050000000000000001 /* AppIntents.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ZAI000000000000000000001 /* AppIntents.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		A00000110000000000000001 /* TchopApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000210000000000000001 /* TchopApp.swift */; };
 		A00000120000000000000001 /* Models/AppTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000220000000000000001 /* Models/AppTab.swift */; };
 		A00000130000000000000001 /* AppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A00000230000000000000001 /* AppShellView.swift */; };
@@ -214,6 +216,21 @@
 		B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift */; };
 		B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift */; };
 		B1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift */; };
+		B185F952AAAE615D759B082E /* BuiltInFormValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F185F952AAAE615D759B082E /* BuiltInFormValidationRule.swift */; };
+		B1A17DA1002324BB6444E331 /* FormFieldState.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1A17DA1002324BB6444E331 /* FormFieldState.swift */; };
+		B1E0090A4683F72570AA6056 /* FormFieldValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E0090A4683F72570AA6056 /* FormFieldValue.swift */; };
+		B158F3364FF9783BC93BD290 /* FormSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = F158F3364FF9783BC93BD290 /* FormSnapshot.swift */; };
+		B154A2CB61F2F98F652D800D /* FormSnapshotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F154A2CB61F2F98F652D800D /* FormSnapshotStore.swift */; };
+		B1B8834A337097125AA59B94 /* FormStateController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1B8834A337097125AA59B94 /* FormStateController.swift */; };
+		B1D280A0625CB3AED3BCD844 /* FormValidationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D280A0625CB3AED3BCD844 /* FormValidationContext.swift */; };
+		B1119117F0EC03F9B711655E /* FormValidationFailure.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1119117F0EC03F9B711655E /* FormValidationFailure.swift */; };
+		B13FCFC497D0B22C32461194 /* FormValidationIdentifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13FCFC497D0B22C32461194 /* FormValidationIdentifiers.swift */; };
+		B1D297DE79FE1C469455FF82 /* FormValidationIssue.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D297DE79FE1C469455FF82 /* FormValidationIssue.swift */; };
+		B1F92F327C15B89975B20374 /* FormValidationPlan.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F92F327C15B89975B20374 /* FormValidationPlan.swift */; };
+		B1306B74D0FA6F5D23EB1562 /* FormValidationResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1306B74D0FA6F5D23EB1562 /* FormValidationResult.swift */; };
+		B1E197B00711E5060C4EBD35 /* FormValidationRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1E197B00711E5060C4EBD35 /* FormValidationRule.swift */; };
+		B12083C9BF3E0EA8BC042CB3 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12083C9BF3E0EA8BC042CB3 /* FormValidator.swift */; };
+		B1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -464,6 +481,21 @@
 		F196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/ProcessRuntimeFlagsProvider.swift; sourceTree = "<group>"; };
 		F1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppEnvironment/Sources/AppEnvironment/StaticProviders.swift; sourceTree = "<group>"; };
 		F1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppLifecycle/Sources/AppLifecycle/AppLifecycle.swift; sourceTree = "<group>"; };
+		F185F952AAAE615D759B082E /* BuiltInFormValidationRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/BuiltInFormValidationRule.swift; sourceTree = "<group>"; };
+		F1A17DA1002324BB6444E331 /* FormFieldState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormFieldState.swift; sourceTree = "<group>"; };
+		F1E0090A4683F72570AA6056 /* FormFieldValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormFieldValue.swift; sourceTree = "<group>"; };
+		F158F3364FF9783BC93BD290 /* FormSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormSnapshot.swift; sourceTree = "<group>"; };
+		F154A2CB61F2F98F652D800D /* FormSnapshotStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormSnapshotStore.swift; sourceTree = "<group>"; };
+		F1B8834A337097125AA59B94 /* FormStateController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormStateController.swift; sourceTree = "<group>"; };
+		F1D280A0625CB3AED3BCD844 /* FormValidationContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationContext.swift; sourceTree = "<group>"; };
+		F1119117F0EC03F9B711655E /* FormValidationFailure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationFailure.swift; sourceTree = "<group>"; };
+		F13FCFC497D0B22C32461194 /* FormValidationIdentifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationIdentifiers.swift; sourceTree = "<group>"; };
+		F1D297DE79FE1C469455FF82 /* FormValidationIssue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationIssue.swift; sourceTree = "<group>"; };
+		F1F92F327C15B89975B20374 /* FormValidationPlan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationPlan.swift; sourceTree = "<group>"; };
+		F1306B74D0FA6F5D23EB1562 /* FormValidationResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationResult.swift; sourceTree = "<group>"; };
+		F1E197B00711E5060C4EBD35 /* FormValidationRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationRule.swift; sourceTree = "<group>"; };
+		F12083C9BF3E0EA8BC042CB3 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidator.swift; sourceTree = "<group>"; };
+		F1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/SafeFormIdentifier.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -492,6 +524,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ZAI000040000000000000001 /* AppIntents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -499,6 +532,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ZAI000050000000000000001 /* AppIntents.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1261,6 +1295,21 @@
 				B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */,
 				B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */,
 				B1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift in Sources */,
+				B185F952AAAE615D759B082E /* BuiltInFormValidationRule.swift in Sources */,
+				B1A17DA1002324BB6444E331 /* FormFieldState.swift in Sources */,
+				B1E0090A4683F72570AA6056 /* FormFieldValue.swift in Sources */,
+				B158F3364FF9783BC93BD290 /* FormSnapshot.swift in Sources */,
+				B154A2CB61F2F98F652D800D /* FormSnapshotStore.swift in Sources */,
+				B1B8834A337097125AA59B94 /* FormStateController.swift in Sources */,
+				B1D280A0625CB3AED3BCD844 /* FormValidationContext.swift in Sources */,
+				B1119117F0EC03F9B711655E /* FormValidationFailure.swift in Sources */,
+				B13FCFC497D0B22C32461194 /* FormValidationIdentifiers.swift in Sources */,
+				B1D297DE79FE1C469455FF82 /* FormValidationIssue.swift in Sources */,
+				B1F92F327C15B89975B20374 /* FormValidationPlan.swift in Sources */,
+				B1306B74D0FA6F5D23EB1562 /* FormValidationResult.swift in Sources */,
+				B1E197B00711E5060C4EBD35 /* FormValidationRule.swift in Sources */,
+				B12083C9BF3E0EA8BC042CB3 /* FormValidator.swift in Sources */,
+				B1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1404,6 +1453,21 @@
 				B196836BA89782A8E5E0742C /* ProcessRuntimeFlagsProvider.swift in Sources */,
 				B1F50FDFFCB3F84F8CDE3DCE /* StaticProviders.swift in Sources */,
 				B1CD46F4C0AEEB6B9C363AF8 /* AppLifecycle.swift in Sources */,
+				B185F952AAAE615D759B082E /* BuiltInFormValidationRule.swift in Sources */,
+				B1A17DA1002324BB6444E331 /* FormFieldState.swift in Sources */,
+				B1E0090A4683F72570AA6056 /* FormFieldValue.swift in Sources */,
+				B158F3364FF9783BC93BD290 /* FormSnapshot.swift in Sources */,
+				B154A2CB61F2F98F652D800D /* FormSnapshotStore.swift in Sources */,
+				B1B8834A337097125AA59B94 /* FormStateController.swift in Sources */,
+				B1D280A0625CB3AED3BCD844 /* FormValidationContext.swift in Sources */,
+				B1119117F0EC03F9B711655E /* FormValidationFailure.swift in Sources */,
+				B13FCFC497D0B22C32461194 /* FormValidationIdentifiers.swift in Sources */,
+				B1D297DE79FE1C469455FF82 /* FormValidationIssue.swift in Sources */,
+				B1F92F327C15B89975B20374 /* FormValidationPlan.swift in Sources */,
+				B1306B74D0FA6F5D23EB1562 /* FormValidationResult.swift in Sources */,
+				B1E197B00711E5060C4EBD35 /* FormValidationRule.swift in Sources */,
+				B12083C9BF3E0EA8BC042CB3 /* FormValidator.swift in Sources */,
+				B1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

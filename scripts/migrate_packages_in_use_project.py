@@ -46,6 +46,7 @@ APP_PACKAGES = {
     "AppDatabase",
     "AppEnvironment",
     "AppErrors",
+    "AppFormValidation",
     "AppGlassUI",
     "AppLifecycle",
     "AppLocalization",
@@ -95,6 +96,7 @@ PRODUCT_NAMES = {
     "AppAnalyticsNavigationIntegration",
     "AppAppleAuthentication",
     "AppErrors",
+    "AppFormValidation",
     "AppOnDeviceAI",
     "AppPermissions",
 }

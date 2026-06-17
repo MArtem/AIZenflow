@@ -70,3 +70,9 @@ Every package under `./PackagesForReuse` and `./PackagesInUse` keeps SwiftPM met
 `./TchopApp/Shared/AppFileStorageDomains.swift` defines the app-owned composer media storage domain on top of `./PackagesInUse/AppFileStorage`. Composer-created media in `./TchopApp/Views/Composer/SharedCardComposerView.swift` now writes and copies files through package APIs while preserving the stable `Documents/TchopComposerMedia` directory used by persisted feed cards. `./TchopApp/Views/News/NewsFeedView.swift` keeps old absolute-path and stale-container fallback behavior, but resolves composer media fallback through the same app-owned package domain.
 
 `./PackagesInUse/AppShareExtensionSupport` and `./PackagesInUse/AppNetworking` intentionally keep their package-local file mechanisms because root packages must remain single-folder standalone and cannot directly depend on sibling packages. Cross-package composition should be introduced only through host app code or explicit integration helpers.
+
+## AppFormValidation
+
+`./TchopApp/ViewModels/LoginViewModel.swift` uses `./PackagesInUse/AppFormValidation` for product-neutral login form validation mechanics: safe form/field/rule/code identifiers, built-in required/minimum-length rules, custom async rule execution, form snapshots, and validation result aggregation.
+
+The app still owns product policy and presentation: localized validation copy, email format policy, default-password strength policy, ReqRes trimmed-password behavior, submission throttling, auth callbacks, and login error mapping remain in `./TchopApp`.

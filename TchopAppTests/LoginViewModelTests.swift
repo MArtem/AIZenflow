@@ -17,13 +17,35 @@ final class LoginViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.isPasswordVisible)
     }
 
-    func testSubmitWithEmptyEmailShowsValidationError() {
+    func testSubmitWithEmptyEmailShowsValidationError() async {
         let viewModel = makeViewModel()
         viewModel.email = "   "
         viewModel.password = "Password1"
 
         viewModel.submit()
 
+        await waitForErrorMessage(in: viewModel)
+        XCTAssertEqual(
+            viewModel.errorMessage,
+            AppLocalization.text(
+                "login.error.invalidCredentials",
+                fallback: "Check the highlighted fields and try again."
+            )
+        )
+    }
+
+    func testInvalidEmailUsesLocalizedInlineValidationMessage() async {
+        let viewModel = makeViewModel()
+        viewModel.email = "not-an-email"
+        viewModel.password = "Password1"
+
+        viewModel.submit()
+
+        await waitForErrorMessage(in: viewModel)
+        XCTAssertEqual(
+            viewModel.emailValidationState,
+            .invalid(AppLocalization.text("login.error.invalidEmail"))
+        )
         XCTAssertEqual(
             viewModel.errorMessage,
             AppLocalization.text(
@@ -145,6 +167,7 @@ final class LoginViewModelTests: XCTestCase {
         await waitForCredentialCapture { credentialLoginCallCount == 1 }
         viewModel.submit()
 
+        await waitForErrorMessage(in: viewModel)
         XCTAssertEqual(credentialLoginCallCount, 1)
         XCTAssertEqual(
             viewModel.errorMessage,

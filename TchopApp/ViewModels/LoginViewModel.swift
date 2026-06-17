@@ -43,6 +43,152 @@ enum LoginFieldValidationState: Equatable {
     }
 }
 
+
+private enum LoginValidationConstants {
+    static let formID = try! FormID("login")
+    static let emailFieldID = try! FormFieldID("email")
+    static let passwordFieldID = try! FormFieldID("password")
+    static let emailRequiredRuleID = try! FormValidationRuleID("email.required")
+    static let emailFormatRuleID = try! FormValidationRuleID("email.format")
+    static let passwordRequiredRuleID = try! FormValidationRuleID("password.required")
+    static let passwordMinimumLengthRuleID = try! FormValidationRuleID("password.minimum-length")
+    static let passwordWhitespaceRuleID = try! FormValidationRuleID("password.whitespace")
+    static let passwordLetterRuleID = try! FormValidationRuleID("password.letter")
+    static let passwordDigitRuleID = try! FormValidationRuleID("password.digit")
+    static let emailRequiredCode = try! FormValidationCode("email.required")
+    static let emailInvalidCode = try! FormValidationCode("email.invalid")
+    static let passwordRequiredCode = try! FormValidationCode("password.required")
+    static let passwordWhitespaceCode = try! FormValidationCode("password.whitespace")
+    static let passwordTooShortCode = try! FormValidationCode("password.too-short")
+    static let passwordMissingLetterCode = try! FormValidationCode("password.missing-letter")
+    static let passwordMissingDigitCode = try! FormValidationCode("password.missing-digit")
+}
+
+
+private struct LoginEmailFormatRule: FormValidationRule {
+    let id = LoginValidationConstants.emailFormatRuleID
+
+    func validate(
+        fieldID: FormFieldID,
+        value: FormFieldValue,
+        context: FormValidationContext
+    ) async throws -> FormValidationRuleResult {
+        guard fieldID == LoginValidationConstants.emailFieldID else {
+            return .valid
+        }
+        guard case let .string(email) = value, !value.isEmptyForValidation else {
+            return .valid
+        }
+        guard isValidLoginEmail(email) else {
+            return FormValidationRuleResult(
+                issues: [
+                    FormValidationIssue(
+                        fieldID: fieldID,
+                        ruleID: id,
+                        code: LoginValidationConstants.emailInvalidCode,
+                        severity: .error
+                    )
+                ]
+            )
+        }
+        return .valid
+    }
+}
+
+private struct DefaultPasswordWhitespaceRule: FormValidationRule {
+    let isEnabled: Bool
+    let id = LoginValidationConstants.passwordWhitespaceRuleID
+
+    func validate(
+        fieldID: FormFieldID,
+        value: FormFieldValue,
+        context: FormValidationContext
+    ) async throws -> FormValidationRuleResult {
+        guard isEnabled, fieldID == LoginValidationConstants.passwordFieldID else {
+            return .valid
+        }
+        guard case let .string(password) = value, !value.isEmptyForValidation else {
+            return .valid
+        }
+        guard password.contains(where: { $0.isWhitespace }) else {
+            return .valid
+        }
+        return FormValidationRuleResult(
+            issues: [
+                FormValidationIssue(
+                    fieldID: fieldID,
+                    ruleID: id,
+                    code: LoginValidationConstants.passwordWhitespaceCode,
+                    severity: .error
+                )
+            ]
+        )
+    }
+}
+
+private struct DefaultPasswordLetterRule: FormValidationRule {
+    let isEnabled: Bool
+    let id = LoginValidationConstants.passwordLetterRuleID
+
+    func validate(
+        fieldID: FormFieldID,
+        value: FormFieldValue,
+        context: FormValidationContext
+    ) async throws -> FormValidationRuleResult {
+        guard isEnabled, fieldID == LoginValidationConstants.passwordFieldID else {
+            return .valid
+        }
+        guard case let .string(password) = value, !value.isEmptyForValidation else {
+            return .valid
+        }
+        guard password.contains(where: { $0.isLetter }) else {
+            return FormValidationRuleResult(
+                issues: [
+                    FormValidationIssue(
+                        fieldID: fieldID,
+                        ruleID: id,
+                        code: LoginValidationConstants.passwordMissingLetterCode,
+                        severity: .error
+                    )
+                ]
+            )
+        }
+        return .valid
+    }
+}
+
+private struct DefaultPasswordDigitRule: FormValidationRule {
+    let isEnabled: Bool
+    let id = LoginValidationConstants.passwordDigitRuleID
+
+    func validate(
+        fieldID: FormFieldID,
+        value: FormFieldValue,
+        context: FormValidationContext
+    ) async throws -> FormValidationRuleResult {
+        guard isEnabled, fieldID == LoginValidationConstants.passwordFieldID else {
+            return .valid
+        }
+        guard case let .string(password) = value, !value.isEmptyForValidation else {
+            return .valid
+        }
+        guard password.contains(where: { $0.isNumber }) else {
+            return FormValidationRuleResult(
+                issues: [
+                    FormValidationIssue(
+                        fieldID: fieldID,
+                        ruleID: id,
+                        code: LoginValidationConstants.passwordMissingDigitCode,
+                        severity: .error
+                    )
+                ]
+            )
+        }
+        return .valid
+    }
+}
+
+
 /// View model backing the default app login screen and the development-only external ReqRes auth flow.
 @MainActor
 @Observable
@@ -50,6 +196,11 @@ final class LoginViewModel {
     private enum ValidationField {
         case email
         case password
+    }
+
+    private enum SubmissionKind {
+        case signIn
+        case registration
     }
 
     /// Mutable presentation state for the login form.
@@ -166,23 +317,9 @@ final class LoginViewModel {
 
     /// Starts the primary sign-in flow for the currently active mode.
     func submit() {
-        guard let credentials = validateCredentialsForSubmission() else {
-            return
+        Task { @MainActor [weak self] in
+            await self?.submitValidated(kind: .signIn)
         }
-
-        guard canStartSubmission() else {
-            return
-        }
-
-        runSignInTask(
-            operation: { [self] in
-                try await self.onCredentialLogin(credentials.email, credentials.password)
-            },
-            failureContext: AppErrorContext(
-                operation: mode == .defaultAppAuth ? "defaultCredentialLogin" : "credentialLogin",
-                feature: "login"
-            )
-        )
     }
 
     /// Starts the ReqRes registration flow.
@@ -191,23 +328,9 @@ final class LoginViewModel {
             return
         }
 
-        guard let credentials = validateCredentialsForSubmission() else {
-            return
+        Task { @MainActor [weak self] in
+            await self?.submitValidated(kind: .registration)
         }
-
-        guard canStartSubmission() else {
-            return
-        }
-
-        runSignInTask(
-            operation: { [self] in
-                try await self.onRegister(credentials.email, credentials.password)
-            },
-            failureContext: AppErrorContext(
-                operation: "credentialRegistration",
-                feature: "login"
-            )
-        )
     }
 
     /// Toggles password visibility between secure and plain text.
@@ -278,9 +401,9 @@ final class LoginViewModel {
 
             switch field {
             case .email:
-                self.emailValidationState = self.validateEmail(self.email)
+                self.emailValidationState = await self.validateEmail(self.email)
             case .password:
-                self.passwordValidationState = self.validatePassword(self.password)
+                self.passwordValidationState = await self.validatePassword(self.password)
             }
 
             self.refreshCanSubmitState()
@@ -294,18 +417,53 @@ final class LoginViewModel {
         }
     }
 
-    private func validateCredentialsForSubmission() -> (email: String, password: String)? {
+    private func submitValidated(kind: SubmissionKind) async {
+        guard let credentials = await validateCredentialsForSubmission() else {
+            return
+        }
+
+        guard canStartSubmission() else {
+            return
+        }
+
+        switch kind {
+        case .signIn:
+            runSignInTask(
+                operation: { [self] in
+                    try await self.onCredentialLogin(credentials.email, credentials.password)
+                },
+                failureContext: AppErrorContext(
+                    operation: mode == .defaultAppAuth ? "defaultCredentialLogin" : "credentialLogin",
+                    feature: "login"
+                )
+            )
+        case .registration:
+            runSignInTask(
+                operation: { [self] in
+                    try await self.onRegister(credentials.email, credentials.password)
+                },
+                failureContext: AppErrorContext(
+                    operation: "credentialRegistration",
+                    feature: "login"
+                )
+            )
+        }
+    }
+
+    private func validateCredentialsForSubmission() async -> (email: String, password: String)? {
         let normalizedEmail = normalizedEmail(email)
         let normalizedPassword = password.trimmingCharacters(in: .whitespacesAndNewlines)
 
-        let emailState = validateEmail(normalizedEmail)
-        let passwordState = validatePassword(password)
+        let states = await validateCurrentCredentials(
+            email: normalizedEmail,
+            password: mode == .reqResDemoExternalAuth ? normalizedPassword : password
+        )
 
-        emailValidationState = emailState
-        passwordValidationState = passwordState
+        emailValidationState = states.email
+        passwordValidationState = states.password
         refreshCanSubmitState()
 
-        guard emailState.isValid, passwordState.isValid else {
+        guard states.email.isValid, states.password.isValid else {
             errorMessage = AppLocalization.text("login.error.invalidCredentials")
             return nil
         }
@@ -314,74 +472,166 @@ final class LoginViewModel {
         return (normalizedEmail, normalizedPassword)
     }
 
-    private func validateEmail(_ rawEmail: String) -> LoginFieldValidationState {
+    private func validateEmail(_ rawEmail: String) async -> LoginFieldValidationState {
         let normalizedEmail = normalizedEmail(rawEmail)
-        guard !normalizedEmail.isEmpty else {
+        let states = await validateCurrentCredentials(email: normalizedEmail, password: currentPasswordValueForValidation())
+        return states.email
+    }
+
+    private func validatePassword(_ rawPassword: String) async -> LoginFieldValidationState {
+        let passwordValue = mode == .reqResDemoExternalAuth
+            ? rawPassword.trimmingCharacters(in: .whitespacesAndNewlines)
+            : rawPassword
+        let states = await validateCurrentCredentials(email: normalizedEmail(email), password: passwordValue)
+        return states.password
+    }
+
+    private func validateCurrentCredentials(
+        email: String,
+        password: String
+    ) async -> (email: LoginFieldValidationState, password: LoginFieldValidationState) {
+        do {
+            let result = try await makeCredentialValidator().validate(
+                try FormSnapshot(
+                    formID: LoginValidationConstants.formID,
+                    fields: [
+                        FormFieldState(id: LoginValidationConstants.emailFieldID, value: .string(email)),
+                        FormFieldState(id: LoginValidationConstants.passwordFieldID, value: .string(password))
+                    ]
+                )
+            )
+            return (
+                email: emailValidationState(from: result),
+                password: passwordValidationState(from: result, rawPassword: password)
+            )
+        } catch {
+            return (
+                email: .invalid(AppLocalization.text("login.error.invalidCredentials")),
+                password: .invalid(AppLocalization.text("login.error.invalidCredentials"))
+            )
+        }
+    }
+
+    private func makeCredentialValidator() throws -> FormValidator {
+        let emailPlan = try FormFieldValidationPlan(
+            fieldID: LoginValidationConstants.emailFieldID,
+            rules: [
+                .required(
+                    id: LoginValidationConstants.emailRequiredRuleID,
+                    code: LoginValidationConstants.emailRequiredCode,
+                    severity: .error
+                )
+            ]
+        )
+
+        let passwordRules: [BuiltInFormValidationRule]
+        switch mode {
+        case .defaultAppAuth:
+            passwordRules = [
+                .required(
+                    id: LoginValidationConstants.passwordRequiredRuleID,
+                    code: LoginValidationConstants.passwordRequiredCode,
+                    severity: .error
+                ),
+                .minLength(
+                    id: LoginValidationConstants.passwordMinimumLengthRuleID,
+                    length: 8,
+                    code: LoginValidationConstants.passwordTooShortCode,
+                    severity: .error
+                )
+            ]
+        case .reqResDemoExternalAuth:
+            passwordRules = [
+                .required(
+                    id: LoginValidationConstants.passwordRequiredRuleID,
+                    code: LoginValidationConstants.passwordRequiredCode,
+                    severity: .error
+                )
+            ]
+        }
+
+        let passwordPlan = try FormFieldValidationPlan(
+            fieldID: LoginValidationConstants.passwordFieldID,
+            rules: passwordRules
+        )
+        let plan = try FormValidationPlan(
+            formID: LoginValidationConstants.formID,
+            fieldPlans: [emailPlan, passwordPlan]
+        )
+
+        return FormValidator(
+            plan: plan,
+            externalRules: [
+                LoginEmailFormatRule(),
+                DefaultPasswordWhitespaceRule(isEnabled: mode == .defaultAppAuth),
+                DefaultPasswordLetterRule(isEnabled: mode == .defaultAppAuth),
+                DefaultPasswordDigitRule(isEnabled: mode == .defaultAppAuth)
+            ]
+        )
+    }
+
+    private func emailValidationState(from result: FormValidationResult) -> LoginFieldValidationState {
+        guard let issue = result.issues(for: LoginValidationConstants.emailFieldID).first else {
+            switch mode {
+            case .defaultAppAuth:
+                return .valid(AppLocalization.text("login.email.valid"))
+            case .reqResDemoExternalAuth:
+                return .valid(AppLocalization.text("login.external.email.valid"))
+            }
+        }
+
+        switch issue.code {
+        case LoginValidationConstants.emailRequiredCode:
             return .invalid(AppLocalization.text("login.error.emptyEmail"))
-        }
-
-        guard Self.isValidEmail(normalizedEmail) else {
+        case LoginValidationConstants.emailInvalidCode:
             return .invalid(AppLocalization.text("login.error.invalidEmail"))
-        }
-
-        switch mode {
-        case .defaultAppAuth:
-            return .valid(AppLocalization.text("login.email.valid"))
-        case .reqResDemoExternalAuth:
-            return .valid(AppLocalization.text("login.external.email.valid"))
+        default:
+            return .invalid(AppLocalization.text("login.error.invalidCredentials"))
         }
     }
 
-    private func validatePassword(_ rawPassword: String) -> LoginFieldValidationState {
-        switch mode {
-        case .defaultAppAuth:
-            return validateDefaultPassword(rawPassword)
-        case .reqResDemoExternalAuth:
-            return validateReqResPassword(rawPassword)
+    private func passwordValidationState(
+        from result: FormValidationResult,
+        rawPassword: String
+    ) -> LoginFieldValidationState {
+        guard let issue = result.issues(for: LoginValidationConstants.passwordFieldID).first else {
+            switch mode {
+            case .defaultAppAuth:
+                let hasSymbol = rawPassword.contains { !$0.isLetter && !$0.isNumber && !$0.isWhitespace }
+                if rawPassword.count >= 12 && hasSymbol {
+                    return .valid(AppLocalization.text("login.password.strong"))
+                }
+                return .valid(AppLocalization.text("login.password.valid"))
+            case .reqResDemoExternalAuth:
+                return .valid(AppLocalization.text("login.external.password.valid"))
+            }
         }
-    }
 
-    private func validateDefaultPassword(_ rawPassword: String) -> LoginFieldValidationState {
-        guard !rawPassword.isEmpty else {
+        switch issue.code {
+        case LoginValidationConstants.passwordRequiredCode:
             return .invalid(AppLocalization.text("login.error.emptyPassword"))
-        }
-
-        guard !rawPassword.contains(where: { $0.isWhitespace }) else {
+        case LoginValidationConstants.passwordWhitespaceCode:
             return .invalid(AppLocalization.text("login.error.passwordWhitespace"))
-        }
-
-        guard rawPassword.count >= 8 else {
+        case LoginValidationConstants.passwordTooShortCode:
             return .invalid(AppLocalization.text("login.error.passwordTooShort"))
-        }
-
-        let hasLetter = rawPassword.contains(where: { $0.isLetter })
-        let hasDigit = rawPassword.contains(where: { $0.isNumber })
-        let hasSymbol = rawPassword.contains(where: { !$0.isLetter && !$0.isNumber && !$0.isWhitespace })
-
-        guard hasLetter else {
+        case LoginValidationConstants.passwordMissingLetterCode:
             return .invalid(AppLocalization.text("login.error.passwordMissingLetter"))
-        }
-
-        guard hasDigit else {
+        case LoginValidationConstants.passwordMissingDigitCode:
             return .invalid(AppLocalization.text("login.error.passwordMissingDigit"))
+        default:
+            return .invalid(AppLocalization.text("login.error.invalidCredentials"))
         }
-
-        if rawPassword.count >= 12 && hasSymbol {
-            return .valid(AppLocalization.text("login.password.strong"))
-        }
-
-        return .valid(AppLocalization.text("login.password.valid"))
     }
 
-    private func validateReqResPassword(_ rawPassword: String) -> LoginFieldValidationState {
-        let normalizedPassword = rawPassword.trimmingCharacters(in: .whitespacesAndNewlines)
-
-        guard !normalizedPassword.isEmpty else {
-            return .invalid(AppLocalization.text("login.error.emptyPassword"))
+    private func currentPasswordValueForValidation() -> String {
+        switch mode {
+        case .defaultAppAuth:
+            return password
+        case .reqResDemoExternalAuth:
+            return password.trimmingCharacters(in: .whitespacesAndNewlines)
         }
-
-        return .valid(AppLocalization.text("login.external.password.valid"))
     }
+
 
     private func refreshCanSubmitState() {
         canSubmit = emailValidationState.isValid && passwordValidationState.isValid && !isSubmitting
@@ -489,11 +739,12 @@ final class LoginViewModel {
         }
     }
 
-    private static func isValidEmail(_ email: String) -> Bool {
-        let emailPredicate = NSPredicate(
-            format: "SELF MATCHES %@",
-            #"^[A-Z0-9a-z._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"#
-        )
-        return emailPredicate.evaluate(with: email)
-    }
+}
+
+private func isValidLoginEmail(_ email: String) -> Bool {
+    let emailPredicate = NSPredicate(
+        format: "SELF MATCHES %@",
+        #"^[A-Z0-9a-z._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"#
+    )
+    return emailPredicate.evaluate(with: email)
 }
