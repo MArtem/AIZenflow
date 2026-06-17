@@ -72,7 +72,7 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - After the user approves the remediation plan, implement fixes in coherent blocks; after each block update `./.zenflow/tasks/new-task-be0b/plan.md`, run `git diff --check`, run `plutil` if project files changed, and run build when the block is implementation-level.
 
 ## Current Working Baseline
-- Use `GPT-5.5` for this worktree/task unless the user explicitly changes the model.
+- Apply `./docs/MODEL_ROUTING_RULE.md`: use `GPT-5.4` for approved-plan low-risk execution and `GPT-5.5` for planning, architecture, high-risk, and final-gate work.
 - Before substantive work or context transfer, use the active docs index in `./docs/README.md`.
 - Always include the context-transfer rule: **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 - Do not run builds, tests, or simulator UI unless the user explicitly asks.

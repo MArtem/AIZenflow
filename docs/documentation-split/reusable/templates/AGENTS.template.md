@@ -12,6 +12,11 @@ Every working, status, readiness, confirmation, task-orientation, planning, or c
 
 Short answers such as “готов”, “да, всё ясно”, “готов к новым задачам”, or “можешь присылать” are not exempt.
 
+## Model Routing
+- Apply `./docs/MODEL_ROUTING_RULE.md` before implementation, planning, review, or package-adoption work.
+- Classify the task before editing code or documentation.
+- Use `GPT-5.4` only for approved-plan low-risk execution; use `GPT-5.5` for architecture, persistence, concurrency, navigation, state ownership, public APIs, package boundaries/adoption, security/privacy, data-loss/sync, performance-sensitive work, and high-risk final reviews.
+
 ## Startup Read Rule
 Before code, docs, git, or project changes, read:
 1. `./docs/README.md`

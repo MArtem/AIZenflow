@@ -7,7 +7,7 @@
 - Task ID: `be0b925f-37c1-468e-a4b0-061fc6ae30cd`
 - Previous chat ID: `cafd90cf-f9f7-4f9d-b4b9-ae98ba2ff693`
 - Linked project worktree: `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80`
-- Required model: **GPT-5.5**
+- Model routing: apply `./docs/MODEL_ROUTING_RULE.md`; `GPT-5.5` remains required for planning/high-risk/final gates.
 
 ## Mandatory Startup Rule
 Before any code, documentation, git, project, build, or task action:
@@ -22,12 +22,13 @@ Before any code, documentation, git, project, build, or task action:
 5. `./docs/AGENT_RULES.md`
 6. `./docs/WORK_CONTINUITY.md`
 7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
-8. `./.zenflow/tasks/new-task-be0b/handoff.md`
-9. `./.zenflow/tasks/new-task-be0b/plan.md`
-10. `./docs/documentation-split/reusable/MVVMEXAMPLE_REMEDIATION_SPEC.md`
-11. `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`
-12. `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
-13. `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
+8. `./docs/MODEL_ROUTING_RULE.md`
+9. `./.zenflow/tasks/new-task-be0b/handoff.md`
+10. `./.zenflow/tasks/new-task-be0b/plan.md`
+11. `./docs/documentation-split/reusable/MVVMEXAMPLE_REMEDIATION_SPEC.md`
+12. `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`
+13. `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
+14. `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
 
 ## Mandatory Working Response Header
 Every working, status, readiness, planning, or confirmation response must start with:

@@ -14,6 +14,13 @@ Always choose the **simplest correct solution** that matches:
 
 Do not add abstractions unless they solve a concrete current problem.
 
+## Model Routing Rule
+- Apply `./docs/MODEL_ROUTING_RULE.md` before implementation, planning, review, and package-adoption work.
+- Before editing code or documentation, classify the task as `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets.
+- Use `GPT-5.4` for approved-plan, low-risk execution only. Escalate to `GPT-5.5` when architecture, persistence, concurrency, navigation, state ownership, public APIs, security/privacy, data loss, sync, performance-sensitive SwiftUI, package adoption, Xcode integration, or app-wide behavior is involved.
+- In sessions where the primary assistant is already `GPT-5.5`, use `GPT-5.4` only through available subagents/tools when it is actually suitable and resource-saving; do not lower quality to save limits.
+
+
 ## Filesystem Sandbox Rule
 - All project work must stay inside `/Users/Artem/.zenflow/worktrees`.
 - Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow/worktrees`.

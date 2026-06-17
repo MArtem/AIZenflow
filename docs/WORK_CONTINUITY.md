@@ -84,7 +84,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Для задач, похожих на feature generation / UI from design / refactoring / code review / ADR / tests / CI-debug / compile errors / signing / flaky tests, открыть релевантный prompt preset из `docs/agent-prompts/` и применить его только после project/task/user overrides.
 
 Критичные правила:
-- Для текущего worktree/task использовать `GPT-5.5`, пока пользователь явно не изменит модель.
+- Использовать `docs/MODEL_ROUTING_RULE.md`: `GPT-5.4` для approved-plan low-risk execution, `GPT-5.5` для planning/architecture/high-risk/final gates. Перед изменениями классифицировать задачу в 3–5 bullets.
 - Никогда не выходить за файловую границу `/Users/Artem/.zenflow/worktrees`; build/cache/DerivedData/package verification output тоже должны быть внутри этой границы.
 - Архитектура — приоритет №1.
 - После архитектуры всегда проверка на overengineering.
@@ -163,7 +163,8 @@ Current epic: 3-phase cleanup/refactor over working runtime code (tests are inte
 2. `PROJECT_DOCUMENTATION.md`
 3. `PROJECT_HEALTH.md`
 4. this file
-5. task `handoff.md` / `plan.md`
+5. `docs/MODEL_ROUTING_RULE.md`
+6. task `handoff.md` / `plan.md`
 
 ## Key Files
 - `TchopApp/Models/NewsFeedModels.swift`

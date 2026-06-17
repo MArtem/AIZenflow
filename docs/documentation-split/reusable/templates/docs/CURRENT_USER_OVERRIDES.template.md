@@ -5,9 +5,12 @@ Task-local user preferences and hard constraints that apply before general proje
 
 ## Active Overrides
 
-### Model
-- Use and report `GPT-5.5` unless the user explicitly changes the model.
-- UI/design work from screenshots/Figma/PDF/SVG/CSS requires `GPT-5.5`.
+### Model Routing
+- Apply `./docs/MODEL_ROUTING_RULE.md` for implementation, planning, review, and package-adoption work.
+- Default executor is `GPT-5.4` for approved-plan low-risk execution.
+- Use `GPT-5.5` for planning, architecture, persistence, concurrency, navigation, state ownership, public APIs, module/package boundaries, security/privacy, data-loss/sync, performance-sensitive decisions, package adoption/app integration, and high-risk final reviews.
+- Before editing code or documentation, classify the task in 3–5 bullets.
+- UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison requires `GPT-5.5` unless explicitly relaxed.
 
 ### Response Header
 Every working/status/readiness response must start with:

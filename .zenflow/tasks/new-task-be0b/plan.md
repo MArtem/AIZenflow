@@ -72,7 +72,7 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - After the user approves the remediation plan, implement fixes in coherent blocks; after each block update `./.zenflow/tasks/new-task-be0b/plan.md`, run `git diff --check`, run `plutil` if project files changed, and run build when the block is implementation-level.
 
 ## Current Working Baseline
-- Use `GPT-5.5` for this worktree/task unless the user explicitly changes the model.
+- Apply `./docs/MODEL_ROUTING_RULE.md`: use `GPT-5.4` for approved-plan low-risk execution and `GPT-5.5` for planning, architecture, high-risk, and final-gate work.
 - Before substantive work or context transfer, use the active docs index in `./docs/README.md`.
 - Always include the context-transfer rule: **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 - Do not run builds, tests, or simulator UI unless the user explicitly asks.
@@ -902,6 +902,15 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
   - fixed a newly surfaced Swift concurrency warning in `./PackagesInUse/AppEnvironment/Sources/AppEnvironment/DefaultAppEnvironmentProvider.swift` and the vault copy by replacing default `Date.init` sendable conversion with `{ Date() }`.
   - updated package/app usage documentation in `./PackagesInUse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, `./PackagesForReuse/AppFileStorage/REUSE.md`, `./PackagesInUse/AppFileStorage/REUSE.md`, and `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`.
 - Verification: `./PackagesForReuse/AppFileStorage/Scripts/verify_package.sh` and `./PackagesInUse/AppFileStorage/Scripts/verify_package.sh` succeeded with 19 XCTest tests each; `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, and `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED`. No simulator UI/manual validation/Instruments run was performed.
+
+
+- Completed now: permanent model-routing rule for limit-aware iOS/project work:
+  - evaluated the user-proposed model-routing policy and accepted the core rule: route by task risk, not habit.
+  - added `./docs/MODEL_ROUTING_RULE.md` as the canonical active rule for classifying tasks before edits, using `GPT-5.4` for approved-plan low-risk execution, and reserving `GPT-5.5` for planning, architecture, persistence, concurrency, navigation, state ownership, public APIs, security/privacy, data-loss/sync, package adoption/app integration, performance-sensitive decisions, and high-risk final gates.
+  - replaced the old task override that forced `GPT-5.5` for all work and removed the narrower temporary package-review model policy.
+  - propagated the rule into active docs/rules, prompt preset routing, work-continuity/bootstrap docs, and the reusable baseline/templates so future projects inherit the same classification/escalation model.
+  - preserved the stricter UI/design exception: screenshot/Figma/PDF/SVG/CSS/pixel-perfect visual work still requires `GPT-5.5` unless explicitly relaxed.
+- Verification: documentation-only change; `python3 ./scripts/check_docs_index.py` and `git diff --check` succeeded. No build/tests/simulator UI needed.
 
 ## Verification Status
 - Latest verification for the current vault package adoption succeeded with `./PackagesForReuse/AppValidationCore/Scripts/verify_package.sh`, `python3 ./scripts/check_docs_index.py`, package artifact scan, and `git diff --check`; no app build/plutil was required because `AppValidationCore` was not connected to app/Xcode targets. The broader app/source-only package baseline remains the previous successful `./scripts/verify.sh low` after `AppFormValidation` source-only adoption and the previous successful `./scripts/verify.sh medium` source-only package migration check.

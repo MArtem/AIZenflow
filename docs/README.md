@@ -15,8 +15,9 @@ Entry point for active project documentation, production standards, prompt prese
 3. `./docs/CURRENT_USER_OVERRIDES.md`
 4. `./docs/AGENT_RULES.md`
 5. `./docs/WORK_CONTINUITY.md`
-6. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
-7. Scope-specific docs from the index below.
+6. `./docs/MODEL_ROUTING_RULE.md`
+7. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
+8. Scope-specific docs from the index below.
 
 ## One-Time Bootstrap After Chat Reset
 On a new chat/context reset, read once:
@@ -26,8 +27,9 @@ On a new chat/context reset, read once:
 4. `./docs/WORK_CONTINUITY.md`
 5. `./docs/CURRENT_USER_OVERRIDES.md`
 6. `./docs/AGENT_RULES.md`
-7. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
-8. relevant prompt/skill/standard docs for the task.
+7. `./docs/MODEL_ROUTING_RULE.md`
+8. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
+9. relevant prompt/skill/standard docs for the task.
 
 Re-read the full stack only when architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
 
@@ -41,6 +43,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/WORK_CONTINUITY.md`
 - `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 - `./docs/CURRENT_USER_OVERRIDES.md`
+- `./docs/MODEL_ROUTING_RULE.md`
 
 ### Production Quality And Review Gates
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`
@@ -213,6 +216,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - **`./docs/CURRENT_USER_OVERRIDES.md`**: current task/user overrides that must be applied before general defaults.
 - **`./docs/WORK_CONTINUITY.md`**: durable resume state and universal transition prompt.
 - **`./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`**: proactive new-chat trigger and compact transition-spec requirements.
+- **`./docs/MODEL_ROUTING_RULE.md`**: model selection, escalation, and context/output budget rule for implementation, planning, and review work.
 
 ### Review And Completion
 - **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.

@@ -9,8 +9,9 @@ Entry point for active project documentation, production standards, prompt prese
 3. `./docs/CURRENT_USER_OVERRIDES.md`
 4. `./docs/AGENT_RULES.md`
 5. `./docs/WORK_CONTINUITY.md`
-6. current task docs under `./.zenflow/tasks/<task-id>/` when available
-7. scope-specific docs from this index
+6. `./docs/MODEL_ROUTING_RULE.md`
+7. current task docs under `./.zenflow/tasks/<task-id>/` when available
+8. scope-specific docs from this index
 
 ## Mandatory Active Documentation Index
 
@@ -21,6 +22,7 @@ Entry point for active project documentation, production standards, prompt prese
 - `./docs/AGENT_RULES.md`
 - `./docs/WORK_CONTINUITY.md`
 - `./docs/CURRENT_USER_OVERRIDES.md`
+- `./docs/MODEL_ROUTING_RULE.md`
 
 ### Reusable Production Standards
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`

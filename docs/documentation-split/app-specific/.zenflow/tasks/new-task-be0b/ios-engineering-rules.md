@@ -6,7 +6,7 @@ This file contains project-specific iOS overlay rules for this worktree.
 It is not the global iOS policy.
 Global assistant iOS/model-routing rules live in:
 - [/Users/Artem/.zenflow/assistant/AGENTS.md](/Users/Artem/.zenflow/assistant/AGENTS.md)
-- [/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md](/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md)
+- [docs/MODEL_ROUTING_RULE.md](/Users/Artem/.zenflow/worktrees/new-task-be0b/docs/MODEL_ROUTING_RULE.md)
 - [/Users/Artem/.zenflow/assistant/docs/ios-agent-policy.md](/Users/Artem/.zenflow/assistant/docs/ios-agent-policy.md)
 
 ## Read Together With
@@ -19,8 +19,8 @@ Global assistant iOS/model-routing rules live in:
 ## Project-Specific Rules
 - For coding-task responses in this task thread, include the active model header at the top:
   - `Model: GPT-5.3-codex` / `Model: GPT-5.4` / `Model: GPT-5.5`
-  - Follow the canonical model-selection policy in `/Users/Artem/.zenflow/assistant/docs/model-routing-policy.md`.
-- Current user override for this worktree/task: use and report `GPT-5.5` for all work unless the user explicitly changes the model again. This task-local override wins over cheaper-model defaults in the general model-routing policy.
+  - Follow the canonical model-selection policy in `./docs/MODEL_ROUTING_RULE.md`.
+- Current user override for this worktree/task: apply `./docs/MODEL_ROUTING_RULE.md`; use `GPT-5.4` for approved-plan low-risk execution and `GPT-5.5` for planning, architecture, high-risk, and final-gate work.
 - Current user override for this worktree/task: do not run builds, tests, or simulator UI unless the user explicitly asks.
 - Do not add speculative UI, speculative logic, or fallback flows that were not explicitly requested.
 - Prefer the minimum working implementation that matches the clarified product contract.

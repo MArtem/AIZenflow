@@ -4,6 +4,7 @@
 Files in this group are intended as the portable iOS production baseline for a new project/task. They cover general engineering rules, production gates, prompt presets, and generic iOS skills without depending on the <AppName> feature/entity product contract.
 
 ## Files
+- `./docs/MODEL_ROUTING_RULE.md`
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`

@@ -3,9 +3,12 @@
 ## Purpose
 Portable non-app-specific rules extracted from the current worktree preferences. Use this as the starting baseline for a new iOS project before app-specific rules exist.
 
-## Model Rule
-- Use and report `GPT-5.5` unless the user explicitly changes the model.
-- UI/design work from screenshots, Figma, PDF, SVG, CSS, or visual references must use `GPT-5.5`.
+## Model Routing Rule
+- Apply `./docs/MODEL_ROUTING_RULE.md` after project-specific overrides are loaded.
+- Use `GPT-5.4` for approved-plan, routine, low-risk implementation where architecture and ownership are already decided.
+- Use `GPT-5.5` for planning, architecture, persistence, concurrency, navigation, state ownership, public APIs, module/package boundaries, security/privacy, data-loss/sync, performance-sensitive decisions, package adoption, app runtime/Xcode integration, and high-risk final reviews.
+- Before editing code or documentation, classify the task as `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets.
+- UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison must use `GPT-5.5` unless the user explicitly relaxes that requirement.
 
 ## Working Response Header
 Every working response should start with:

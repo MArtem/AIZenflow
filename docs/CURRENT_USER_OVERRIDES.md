@@ -12,16 +12,13 @@ Applies to the current worktree/task:
 
 ## Active Overrides
 
-### Model
-- Use and report `GPT-5.5` for all work in this worktree/task unless the user explicitly changes the model again.
-- UI/design work from screenshots/Figma/PDF/CSS always requires `GPT-5.5`.
-
-
-### Temporary Package-Review Model Policy
-- During the current package-library/reusable-package task sequence, keep `GPT-5.5` as the default and final decision model.
-- `GPT-5.4` may be used only for clearly vault-only, docs-only, or mechanical package review work where no app adoption, architecture decision, security/privacy decision, storage/network/auth/files/lifecycle behavior, or Xcode integration is involved.
-- Any package that may be adopted into `./PackagesInUse`, any change to `./TchopApp`, any concurrency/security/privacy/storage/network/auth/files/lifecycle concern, any build/test failure, and every final gate must use `GPT-5.5`.
-- Cancel this temporary policy when the user says so, when the package task sequence ends, or immediately if quality drops or resource savings are not meaningful.
+### Model Routing
+- Apply `./docs/MODEL_ROUTING_RULE.md` for all implementation, planning, review, and package-adoption work.
+- Default executor is `GPT-5.4` for approved-plan, routine, low-risk implementation where architecture and ownership are already decided.
+- Use `GPT-5.5` for planning gates, architecture, persistence, concurrency, navigation, state ownership, public APIs, module/package boundaries, security/privacy, data-loss/sync, performance-sensitive decisions, package adoption into `./PackagesInUse`, Xcode/app runtime integration, and high-risk final reviews.
+- Before editing code or documentation, classify the task as one of: `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets of reasoning.
+- In a `GPT-5.5` primary-assistant session, use `GPT-5.4` through available subagents/tools only when it is genuinely suitable and resource-saving; `GPT-5.5` remains the planner, escalation target, and final decision model for high-risk work.
+- UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison still requires `GPT-5.5` unless the user explicitly relaxes that requirement.
 
 ### Response Header
 Every working response must start with:

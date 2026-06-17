@@ -13,18 +13,19 @@
 4. `docs/CURRENT_USER_OVERRIDES.md`
 5. `docs/AGENT_RULES.md`
 6. `docs/WORK_CONTINUITY.md`
-7. this file
-8. `.zenflow/tasks/new-task-be0b/plan.md`
-9. `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
-10. `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
-11. `docs/agent-prompts/README.md`
-12. `docs/knowledge/global/README.md`
-13. `docs/knowledge/TchopApp/README.md`
+7. `docs/MODEL_ROUTING_RULE.md`
+8. this file
+9. `.zenflow/tasks/new-task-be0b/plan.md`
+10. `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
+11. `.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
+12. `docs/agent-prompts/README.md`
+13. `docs/knowledge/global/README.md`
+14. `docs/knowledge/TchopApp/README.md`
 
 If this handoff is used in a context-transfer prompt, include the explicit rule:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
-Current model override: use `GPT-5.5` for this worktree/task unless the user explicitly changes the model again.
+Current model routing: apply `./docs/MODEL_ROUTING_RULE.md`; use `GPT-5.4` for approved-plan low-risk execution and `GPT-5.5` for planning, architecture, high-risk, and final-gate work.
 
 ## What Is Completed
 - Phase 1 runtime simplification pass over active runtime/repository code.

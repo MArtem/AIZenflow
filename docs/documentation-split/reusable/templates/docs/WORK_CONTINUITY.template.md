@@ -21,9 +21,11 @@ Durable resume checkpoint for `<AppName>` when chat/task context is lost.
 4) ./docs/CURRENT_USER_OVERRIDES.md
 5) ./docs/AGENT_RULES.md
 6) ./docs/WORK_CONTINUITY.md
-7) текущие task docs under ./.zenflow/tasks/<task-id>/ если есть
+7) ./docs/MODEL_ROUTING_RULE.md
+8) текущие task docs under ./.zenflow/tasks/<task-id>/ если есть
 
 Правило после очистки контекста:
 - перечитать весь актуальный набор документации и правил для этого worktree и task-контекста
 - reusable baseline является накопительным и не должен теряться при переходе между проектами
+- применять `./docs/MODEL_ROUTING_RULE.md`: `GPT-5.4` для approved-plan low-risk execution, `GPT-5.5` для planning/high-risk/final gates
 ```
