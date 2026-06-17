@@ -1295,3 +1295,10 @@ Use archives only when historical detail is needed:
 - Added `./scripts/check_docs_consistency.py` plus reusable root-script copy to catch stale model-routing/package-mode/sandbox/link regressions that the docs index check does not cover.
 - Synced touched active docs into app-specific/reusable split copies where relevant, including rules/checklists/package docs and reusable root scripts.
 - Verification: `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, and `python3 ./scripts/validate_ios_production_framework.py` succeeded before final `git diff --check`; no build/tests/simulator/Instruments run because this block is docs/rules/skills/templates only.
+
+- Completed now: explicit simulator build/install/launch check requested by user:
+  - built `TchopApp` with `./scripts/verify.sh low` on `iPhone 17 Pro (iOS 26.0)` using DerivedData/package cache under `/Users/Artem/.zenflow/worktrees`.
+  - booted simulator `iPhone 17 Pro` (`39CE4180-05FE-4978-A3DD-4CE44AE7F334`), installed `TchopApp.app`, and launched bundle `com.example.TchopApp`; `simctl launch` returned PID `56856`.
+  - captured launch screenshot at `./.zenflow/tasks/new-task-be0b/simulator-launch-screenshot.png`, showing the app on the login screen.
+  - build succeeded, but Xcode still emitted non-blocking `AppIntents` metadata extraction warnings for app/share/widget targets; this was not fixed in this run because the user asked only to build and launch.
+- Verification: simulator boot/install/launch succeeded; no tests or manual app flow were run.
