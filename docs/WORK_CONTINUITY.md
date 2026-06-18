@@ -4,6 +4,11 @@
 Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 
 ## Chat Transition Rule (Universal)
+
+## Result Model And Context Reporting Rule
+- After every meaningful step/task/completion report, include which model(s) worked and what each one did.
+- Always include a context-health decision: `контекст обновлять не нужно`, `желательно обновить контекст`, or `нужен новый чат`, with a concise reason.
+- Recommend a new chat proactively when context size, phase changes, stale rules, or accumulated history can reduce reliability.
 - Keep this file compact and current; long historical implementation logs belong in `./.zenflow/tasks/new-task-be0b/plan.md` or archives.
 - When context gets large or a phase boundary is reached, propose a new chat proactively.
 - After reset, run bootstrap read **once per new chat**.

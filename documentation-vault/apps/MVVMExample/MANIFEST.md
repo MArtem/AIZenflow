@@ -2,13 +2,14 @@
 
 Area: `./documentation-vault/apps/MVVMExample`
 
-Files: 50
+Files: 52
 
 ## Files
 
 - `./documentation-vault/apps/MVVMExample/app-specific-matches/.zenflow/tasks/mvvmexample-3c80/plan.md`
 - `./documentation-vault/apps/MVVMExample/app-specific-matches/.zenflow/tasks/mvvmexample-3c80/requirements.md`
 - `./documentation-vault/apps/MVVMExample/app-specific-matches/docs/AGENT_RULES.md`
+- `./documentation-vault/apps/MVVMExample/app-specific-matches/docs/CURRENT_USER_OVERRIDES.md`
 - `./documentation-vault/apps/MVVMExample/app-specific-matches/docs/IOS_MVVM_INTENT_API_STANDARD.md`
 - `./documentation-vault/apps/MVVMExample/app-specific-matches/docs/IOS_UI_STATE_RENDERING_STANDARD.md`
 - `./documentation-vault/apps/MVVMExample/app-specific-matches/docs/PACKAGES_AND_MANAGERS.md`
@@ -53,6 +54,7 @@ Files: 50
 - `./documentation-vault/apps/MVVMExample/root-docs/docs/AGENT_RULES.md`
 - `./documentation-vault/apps/MVVMExample/root-docs/docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 - `./documentation-vault/apps/MVVMExample/root-docs/docs/CURRENT_USER_OVERRIDES.md`
+- `./documentation-vault/apps/MVVMExample/root-docs/docs/MODEL_ROUTING_RULE.md`
 - `./documentation-vault/apps/MVVMExample/root-docs/docs/PACKAGES_AND_MANAGERS.md`
 - `./documentation-vault/apps/MVVMExample/root-docs/docs/README.md`
 - `./documentation-vault/apps/MVVMExample/root-docs/docs/WORK_CONTINUITY.md`

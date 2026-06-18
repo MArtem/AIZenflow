@@ -86,6 +86,12 @@ Every context-transfer prompt must include:
 
 
 ## New Chat / Context Transfer Rule
+
+## Result Model And Context Reporting Rule
+- After every meaningful step, task, review, implementation block, or completion report, state which model(s) worked and what each one did.
+- Include a context-health decision in the same result: `контекст обновлять не нужно`, `желательно обновить контекст`, or `нужен новый чат`, with a short reason.
+- Recommend a new chat proactively when context size, phase changes, stale rules, or accumulated history can reduce reliability.
+
 - Proactively recommend moving to a new chat when context size, phase changes, interruptions, or accumulated history make continuity risky.
 - Provide a compact handoff spec before transfer.
 - Include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.

@@ -5,48 +5,31 @@ Task-local user preferences and hard constraints that apply before general proje
 
 ## Active Overrides
 
-### Documentation Vault
-- If the project has a git-backed documentation vault, mirror durable docs/rules/prompts/skills/templates into both the active worktree location and the vault location.
-- Keep reusable docs and app-specific docs separated.
-- Do not place another app's docs into this worktree's task docs; cross-app context belongs in the vault's app-specific area.
-
-
 ### Model Routing
-- Apply `./docs/MODEL_ROUTING_RULE.md` for implementation, planning, review, and package-adoption work.
-- Default executor is `GPT-5.4` for approved-plan low-risk execution.
-- Use `GPT-5.5` for planning, architecture, persistence, concurrency, navigation, state ownership, public APIs, module/package boundaries, security/privacy, data-loss/sync, performance-sensitive decisions, package adoption/app integration, and high-risk final reviews.
-- Before editing code or documentation, classify the task in 3–5 bullets.
-- UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison requires `GPT-5.5` unless explicitly relaxed.
+- Apply `./docs/MODEL_ROUTING_RULE.md`; do not use the old `GPT-5.5 for all work` rule.
+- `GPT-5.4` is allowed only for approved low-risk execution where architecture and ownership are already decided.
+- `GPT-5.5` is required for planning, architecture, persistence, concurrency, navigation, state ownership, public APIs, package/app boundaries, security/privacy, data-loss/sync, performance-sensitive work, Xcode/app runtime integration, and high-risk final review.
+- UI/design work from screenshots/Figma/PDF/SVG/CSS remains `GPT-5.5` unless explicitly relaxed.
 
 ### Response Header
-
-### Result Model And Context Reporting
-- After every meaningful step/task/completion report, state which model(s) worked and what each one did.
-- Include whether context should be refreshed or a new chat should be started, with a short reason.
-
 Every working/status/readiness response must start with:
-- model
-- active phase
-- files being inspected/changed
-- next safe step
-- whether a build is needed
-- sandbox/worktree confirmation
+- **Модель:** current model
+- **Фаза:** current phase
+- **Файлы:** files being inspected/changed, or `none`
+- **Следующий безопасный шаг:** next safe step
+- **Build/tests:** whether build/tests are needed and why
+- **Sandbox:** confirmation that work stays inside `/Users/Artem/.zenflow`
 - Readiness/status answers such as “готов к новым задачам” are not exempt.
 
 ### Filesystem Sandbox
-- Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active worktree sandbox.
-- Do not use global SwiftPM/Xcode caches, `/tmp`, user-library caches, or any path outside the active Zenflow sandbox for project work.
-- If a tool defaults outside the sandbox, override its output/cache/DerivedData paths before running it.
+- Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside `/Users/Artem/.zenflow`.
+- Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any path outside `/Users/Artem/.zenflow` for project work.
+- If a tool defaults outside the Zenflow sandbox, override its output/cache/DerivedData paths before running it.
 
 ### Verification / Builds / Tests
 - Do not write or modify tests unless the user explicitly opens a test-writing phase or asks to fix a specific failing test.
 - Do not run builds/tests/simulator UI/Instruments unless explicitly requested or already approved for the current block.
 - `git diff --check` and read-only/static documentation checks are allowed when useful.
-
-### MVVM ViewModel API
-- ViewModels expose explicit intent methods by default.
-- Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as default MVVM boilerplate.
-- Reducer/action architecture requires explicit user approval and a documented rationale.
 
 ### Implementation Style
 - No speculative UI.
@@ -75,7 +58,8 @@ Every working/status/readiness response must start with:
 If this file conflicts with a newer explicit user instruction in chat, the newer instruction wins.
 
 
-### New Chat / Context Transfer
-- The assistant must proactively recommend a new chat when context becomes risky or a major phase changes.
-- The assistant must provide a compact transition spec and include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
-- Do not include raw command logs, tool output, full diffs, or long scripts unless requested.
+### Documentation Vault Ownership
+- Durable reusable docs/rules/prompts/skills/templates/scripts must be synchronized with `/Users/Artem/.zenflow/worktrees/new-task-be0b/documentation-vault/reusable/`.
+- MVVMExample-specific docs must be synchronized with `/Users/Artem/.zenflow/worktrees/new-task-be0b/documentation-vault/apps/MVVMExample/`.
+- Do not change TchopApp-specific docs from MVVMExample tasks unless explicitly requested.
+- Do not commit or push without explicit user approval.

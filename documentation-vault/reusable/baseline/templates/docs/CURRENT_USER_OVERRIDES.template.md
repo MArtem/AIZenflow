@@ -19,6 +19,11 @@ Task-local user preferences and hard constraints that apply before general proje
 - UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison requires `GPT-5.5` unless explicitly relaxed.
 
 ### Response Header
+
+### Result Model And Context Reporting
+- After every meaningful step/task/completion report, state which model(s) worked and what each one did.
+- Include whether context should be refreshed or a new chat should be started, with a short reason.
+
 Every working/status/readiness response must start with:
 - model
 - active phase

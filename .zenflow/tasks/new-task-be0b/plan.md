@@ -1326,3 +1326,10 @@ Use archives only when historical detail is needed:
 - Updated active rules/docs so future durable documentation changes must update both the worktree copy and the matching `./documentation-vault` copy in the same block.
 - Removed the MVVMExample-specific remediation spec from the reusable split baseline and preserved it under `./documentation-vault/apps/MVVMExample`, keeping reusable and app-specific docs separated.
 - Verification: `./documentation-vault/scripts/check_documentation_vault.py`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, `git diff --check`, and generated-artifact scan under `./documentation-vault` all succeeded. No build/tests/simulator/Instruments run because this was docs/scripts only.
+
+### [x] Step: Add reusable result model/context reporting rule
+- User requested a new common rule: after every meaningful step/task/result, the agent must report which model(s) worked and what each one did, and must assess whether the current context should be refreshed or moved to a new chat.
+- Added the rule to active docs: `./docs/AGENT_RULES.md`, `./docs/WORK_CONTINUITY.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`.
+- Added the reusable version to `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md`, `./docs/documentation-split/reusable/templates/AGENTS.template.md`, and `./docs/documentation-split/reusable/templates/docs/CURRENT_USER_OVERRIDES.template.md`; synced `./docs/documentation-split/reusable/docs/AGENT_RULES.md` with the active agent rules.
+- Synced the updated reusable rule into `./documentation-vault/reusable/baseline/**` through `./documentation-vault/scripts/sync_from_worktrees.py`.
+- Verification: `./documentation-vault/scripts/check_documentation_vault.py`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `git diff --check` succeeded. No build/tests/simulator/Instruments run because this was docs/rules only.

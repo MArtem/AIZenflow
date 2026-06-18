@@ -129,6 +129,13 @@ Do not add abstractions unless they solve a concrete current problem.
 - Track intentional shortcuts in `./docs/TECH_DEBT_REGISTER.md` and material risks in `./docs/RISK_REGISTER.md`; untracked debt is not an acceptable production tradeoff.
 
 ## Evidence-Based Completion Rule
+
+## Result Model And Context Reporting Rule
+- After every meaningful step, task, review, implementation block, or completion report, include a `Результат` block or equivalent concise summary that states which model(s) worked and what each one did.
+- If only the primary assistant model worked, state that explicitly, for example: `GPT-5.5 — reviewed/implemented/verified the block`.
+- If subagents or lower-cost models were used, list each model separately with its role, scope, and output.
+- In the same result block, assess whether the current chat/context should be refreshed or replaced with a new chat. State one of: `контекст обновлять не нужно`, `желательно обновить контекст`, or `нужен новый чат`, with a short reason.
+- Do not hide context risk: recommend a new chat proactively when context size, phase changes, stale rules, or accumulated history can reduce reliability.
 - Apply `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md` before saying a task is done, production-ready, verified, fixed, faster, safe, or clean.
 - Claims must cite evidence: affected files, command output, static proof, build/test/profiler/manual validation, or explicit remaining risk.
 - If a claim cannot be proven in the current environment, report it as unverified instead of implying confidence.

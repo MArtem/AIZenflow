@@ -4,11 +4,11 @@
 Every working, status, readiness, confirmation, task-orientation, planning, or clarification response must start with:
 
 - **Модель:** current model
-- **Фаза:** current phase
-- **Файлы:** files being inspected/changed, or `none` if no files
+- **Active phase:** current phase
+- **Файлы смотришь/меняешь:** files being inspected/changed, or `none` if no files
 - **Следующий безопасный шаг:** next safe step
-- **Build/tests:** whether build/tests are needed and why
-- **Sandbox:** confirmation that all project work stays inside the active Zenflow sandbox
+- **Нужна ли сборка:** yes/no and why
+- **Sandbox:** active worktree/sandbox confirmation
 
 Short answers such as “готов”, “да, всё ясно”, “готов к новым задачам”, or “можешь присылать” are not exempt.
 
@@ -61,6 +61,11 @@ If new user-approved work benefits from a breakdown, update the local task plan 
 
 
 ## New Chat / Context Transfer
+
+## Result Model And Context Reporting
+- After every meaningful step/task/completion report, state which model(s) worked and what each one did.
+- Include whether context should be refreshed or a new chat should be started, with a short reason.
+
 - Proactively recommend a new chat when context becomes risky or a major phase changes.
 - Provide a compact transition spec before transfer.
 - Include the rule: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.

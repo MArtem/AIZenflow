@@ -149,3 +149,33 @@ Do not implement `TaskDemo`, `TaskDemoViewModel`, SwiftUI demo views, behavior t
 - Updated MVVMExample ownership docs to reflect approved app-local `LocalSupport` infrastructure and central documentation-vault context.
 - Synced MVVMExample and reusable documentation copies into `/Users/Artem/.zenflow/worktrees/new-task-be0b/documentation-vault`.
 - Ran docs/static checks: `git diff --check`, `./scripts/check_docs_index.py`, and documentation vault consistency check.
+
+### [x] Step: Remediation Block 1 — Config safety and infrastructure tests
+- Make production/release config fail safe instead of silently using DummyJSON fallback.
+- Add deterministic tests for config, request encoding, network mapping/retry, error mapping, and image cache/pipeline contracts.
+- Run `git diff --check` after the block.
+
+### [x] Step: Remediation Block 2 — Test plan and verification script
+- Split unit/UI test plan intent or make the lane naming explicit.
+- Extend `./scripts/verify.sh` with static/test/all modes using sandboxed paths.
+- Run `git diff --check` after the block.
+
+### [x] Step: Remediation Block 3 — LocalSupport ownership cleanup
+- Reduce app-local infrastructure API from `public` to internal where possible.
+- Update stale package-oriented comments to app-local `LocalSupport` ownership.
+- Decide whether transitional networking bridge wrappers remain useful or should be collapsed.
+- Run `git diff --check` after the block.
+
+### [x] Step: Remediation Block 4 — Image/feed and mapper polish
+- Add explicit image session/cache/memory-pressure behavior where practical without speculative layers.
+- Cache or inject expensive DTO date formatting.
+- Run `git diff --check` after the block.
+
+### [x] Step: Remediation Block 5 — Release/readiness documentation
+- Document remaining release/App Store/privacy/observability readiness gaps without pretending they are solved.
+- Sync durable MVVMExample docs with the documentation vault when docs are changed.
+- Run docs/vault/static checks.
+
+### [x] Step: Remediation Block 6 — Final verification and review
+- Run approved build/tests/static gates with all artifacts inside `/Users/Artem/.zenflow`.
+- Mark completed plan steps and report remaining risks.

@@ -18,6 +18,12 @@ Recommend a new chat when one or more conditions are true:
 - the next block is high-risk and should start from a clean reread of docs and current files.
 
 ## Required Transition Spec
+
+## Result Model And Context Reporting
+- Every result/completion report must state which model(s) worked and what each one did.
+- Every result/completion report must include a context-health recommendation: no refresh needed, refresh desirable, or new chat needed.
+- New-chat recommendations must be proactive, not delayed until context is already failing.
+
 When recommending a new chat, provide a compact handoff spec with:
 
 1. project/worktree/task/chat identifiers;

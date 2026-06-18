@@ -27,6 +27,11 @@ Applies to the current worktree/task:
 - UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison still requires `GPT-5.5` unless the user explicitly relaxes that requirement.
 
 ### Response Header
+
+### Result Model And Context Reporting
+- After every meaningful step, task, review, implementation block, or completion report, include which model(s) worked and what each one did.
+- Include whether context should be refreshed or a new chat should be started: `контекст обновлять не нужно`, `желательно обновить контекст`, or `нужен новый чат`, with a short reason.
+
 Every working response must start with:
 - model
 - active phase
