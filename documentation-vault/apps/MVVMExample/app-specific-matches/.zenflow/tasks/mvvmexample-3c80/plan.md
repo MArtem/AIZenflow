@@ -128,7 +128,7 @@ Do not implement `TaskDemo`, `TaskDemoViewModel`, SwiftUI demo views, behavior t
 - No source/test changes were made.
 
 ### [x] Step: Remove duplicated local packages and use app-local minimal infrastructure
-- User request: remove all local package folders from `MVVMExample` because reusable package source is now centralized in TchopApp `./PackagesForReuse`.
+- User request: remove all local package folders from `MVVMExample` because reusable package source is now centralized in the central documentation vault reusable area.
 - Removed SwiftPM package references/products from `./MVVMExample.xcodeproj/project.pbxproj`; the app target now has no local Swift Package dependencies.
 - Removed local `./Packages` folder from the MVVMExample worktree.
 - Copied only currently needed infrastructure source into `./MVVMExample/MVVMExampleDemo/Infrastructure/LocalSupport/`:
@@ -140,5 +140,12 @@ Do not implement `TaskDemo`, `TaskDemoViewModel`, SwiftUI demo views, behavior t
   - remote image loading/cache primitives;
   - Liquid Glass fallback helper.
 - Removed `import App*` package imports from app and test sources; app/tests now use same-module local support types through `@testable import MVVMExample` where applicable.
-- Updated project docs to state that this worktree intentionally has no local `./Packages` folder and should copy packages from TchopApp `./PackagesForReuse` only when package-mode adoption is explicitly desired.
+- Updated project docs to state that this worktree intentionally has no local `./Packages` folder and should copy packages from the central documentation vault reusable area only when package-mode adoption is explicitly desired.
 - Verification: `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `python3 ./scripts/check_docs_index.py`, `git diff --check`, `xcodebuild -list -project ./MVVMExample.xcodeproj`, and `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded; build log warning/error grep was clean.
+
+### [x] Step: Sync active rules with documentation vault ownership
+- Re-read current MVVMExample rules, task docs, and central documentation vault.
+- Updated local docs to use the new `/Users/Artem/.zenflow` sandbox boundary, current response header, and `MODEL_ROUTING_RULE` policy.
+- Updated MVVMExample ownership docs to reflect approved app-local `LocalSupport` infrastructure and central documentation-vault context.
+- Synced MVVMExample and reusable documentation copies into `/Users/Artem/.zenflow/worktrees/new-task-be0b/documentation-vault`.
+- Ran docs/static checks: `git diff --check`, `./scripts/check_docs_index.py`, and documentation vault consistency check.

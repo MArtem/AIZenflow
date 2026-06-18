@@ -10,7 +10,7 @@ Use it to decide:
 - what risks are known
 
 ## Root Rule
-This project currently keeps only minimal app-local infrastructure support under `./MVVMExample/MVVMExampleDemo/Infrastructure/LocalSupport` to avoid duplicating reusable package folders. Reusable package source is maintained in the TchopApp package vault; app-specific demo behavior, UI composition, feature contracts, and DummyJSON mapping stay in the app layer.
+This project currently keeps only minimal app-local infrastructure support under `./MVVMExample/MVVMExampleDemo/Infrastructure/LocalSupport` to avoid duplicating reusable package folders. Reusable/cross-app rules and source context are maintained in `/Users/Artem/.zenflow/worktrees/new-task-be0b/documentation-vault`; app-specific demo behavior, UI composition, feature contracts, and DummyJSON mapping stay in the app layer.
 
 ## Current Project Shape
 - App target: `MVVMExample`
@@ -58,22 +58,26 @@ Owns minimal local infrastructure primitives copied from the reusable baseline:
 Must not own app-specific feature behavior, product-specific DTOs, navigation, or screen composition.
 
 ## Current Known Risks
-- Build must be rerun after package/project changes.
-- Manual simulator and accessibility verification are still deferred unless explicitly requested.
+- Build must be rerun after Swift/project changes.
+- Unit tests and UI tests are intentionally separated; UI smoke remains explicit because it requires simulator execution.
+- Manual simulator and accessibility verification beyond smoke tests are still deferred unless explicitly requested.
 - Session store is demo in-memory only; production persistence remains a future requirement.
+- Release/App Store readiness is not established yet: signing, bundle identity, privacy manifest, analytics/crash routing, and rollout/rollback policy require a separate release-readiness phase before TestFlight/App Store claims.
 
 ## Verification Baseline
 ```zsh
-# static
-git diff --check
-
-# project structure
-xcodebuild -list -project MVVMExample.xcodeproj
-
-# build, when Swift/package/project code changes
-xcodebuild -project MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'generic/platform=iOS Simulator' CODE_SIGNING_ALLOWED=NO build
+./scripts/verify.sh static
+./scripts/verify.sh list
+./scripts/verify.sh build
+./scripts/verify.sh test-unit
+# Explicit UI lane only when requested/needed:
+./scripts/verify.sh test-ui
 ```
 
 
 ### Local Liquid Glass support
 `./MVVMExample/MVVMExampleDemo/Infrastructure/LocalSupport/AppGlassUI/` owns Liquid Glass availability and fallback chrome mechanics. App code owns semantic colors, layout, and feature-specific visual policy.
+
+
+## Documentation Vault Risk
+Durable MVVMExample documentation must be synchronized with `/Users/Artem/.zenflow/worktrees/new-task-be0b/documentation-vault/apps/MVVMExample/`. Reusable documentation updates must also be synchronized with `documentation-vault/reusable/`.

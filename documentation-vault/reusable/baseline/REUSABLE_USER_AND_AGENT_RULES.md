@@ -12,12 +12,12 @@ Portable non-app-specific rules extracted from the current worktree preferences.
 
 ## Working Response Header
 Every working response should start with:
-- model
-- active phase
-- files being inspected/changed
-- next safe step
-- whether a build is needed
-- sandbox/worktree confirmation
+- **Модель:** current model
+- **Фаза:** current phase
+- **Файлы:** files being inspected/changed, or `none`
+- **Следующий безопасный шаг:** next safe step
+- **Build/tests:** whether build/tests are needed and why
+- **Sandbox:** confirmation that work stays inside the active Zenflow sandbox
 - Readiness/status answers such as “готов к новым задачам” are not exempt.
 
 ## Filesystem Sandbox Rule

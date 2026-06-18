@@ -4,11 +4,11 @@
 Every working, status, readiness, confirmation, task-orientation, planning, or clarification response must start with:
 
 - **Модель:** current model
-- **Active phase:** current phase
-- **Файлы смотришь/меняешь:** files being inspected/changed, or `none` if no files
+- **Фаза:** current phase
+- **Файлы:** files being inspected/changed, or `none` if no files
 - **Следующий безопасный шаг:** next safe step
-- **Нужна ли сборка:** yes/no and why
-- **Sandbox:** active worktree/sandbox confirmation
+- **Build/tests:** whether build/tests are needed and why
+- **Sandbox:** confirmation that all project work stays inside the active Zenflow sandbox
 
 Short answers such as “готов”, “да, всё ясно”, “готов к новым задачам”, or “можешь присылать” are not exempt.
 
