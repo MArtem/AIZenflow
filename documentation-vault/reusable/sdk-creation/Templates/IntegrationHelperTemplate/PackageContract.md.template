@@ -1,0 +1,36 @@
+# {{HelperName}} Contract
+
+## Type
+
+Integration helper.
+
+## Responsibility
+
+This helper owns:
+
+```text
+- mapping/composition between root packages;
+- privacy-safe transformation;
+- helper-specific tests.
+```
+
+This helper does not own:
+
+```text
+- root package mechanisms;
+- app-specific product logic;
+- feature routes/screens;
+- raw sensitive telemetry.
+```
+
+## Dependencies
+
+List the root packages this helper integrates:
+
+```text
+- TODO
+```
+
+## Privacy contract
+
+This helper must not emit raw sensitive data by default.

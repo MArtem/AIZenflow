@@ -26,7 +26,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow`.
 - Before running tools that normally use global caches or DerivedData, override their output/cache paths to `/Users/Artem/.zenflow/...`.
 - Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other external location for project work.
-- The only allowed external filesystem action is cleanup/removal of previously created TchopApp/MVVMExample traces when the user explicitly requests it.
+- The only allowed external filesystem action is cleanup/removal of previously created project traces inside `/Users/Artem/.zenflow` when the user explicitly requests it.
 
 
 ## Product-Staff Quality Bar Rule
@@ -58,6 +58,9 @@ Do not add abstractions unless they solve a concrete current problem.
 - If a preset conflicts with active docs, task rules, or explicit user instruction, follow the higher-priority project/task/user rule.
 
 ## Global vs Project Knowledge Rule
+- Durable agent-used docs/rules/prompts/skills/templates must be mirrored into `./documentation-vault` in the `AIZenflow` repo.
+- Keep reusable docs and app-specific docs separated in the vault: `./documentation-vault/reusable/`, `./documentation-vault/apps/TchopApp/`, `./documentation-vault/apps/MVVMExample/`.
+- When changing a durable rule or prompt, update the worktree copy and the vault copy together before reporting completion.
 - Reusable cross-project rules and prompts live in `docs/knowledge/global/`.
 - TchopApp-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/TchopApp/` or in the canonical docs indexed there.
 - When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
