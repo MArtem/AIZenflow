@@ -18,3 +18,7 @@ Route work to the correct prompt/skill so reviews are not accidentally narrow.
 
 ## Stop Rule
 If no route clearly fits, run `./docs/agent-prompts/ios-production-readiness-review.md` and list uncertain domains explicitly.
+
+## Architecture Style Routing
+- Use `./docs/agent-prompts/ios-architecture-style-review.md` with `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md` when code or requirements mention MVVM, SwiftUI native state, Clean/Layered, Coordinator, Modular, Hexagonal, TCA, Redux/Elm/UDF, ReactorKit, VIP/Clean Swift, VIPER, MVP, RIBs, or MVC migration.
+- Do not apply architecture-specific rules that conflict with active project rules; report conflicts and ask for explicit user decision.

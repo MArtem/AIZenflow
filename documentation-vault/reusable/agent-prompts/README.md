@@ -43,6 +43,7 @@ Before applying any prompt here, apply the current project/task rules first:
 | iOS code documentation review | `ios-code-documentation-review.md` | Use for inline Swift documentation comments, ownership, external usage/call context, side effects, invariants, and workaround comments. |
 | Product requirements review | `product-requirements-review.md` | Use before non-trivial feature work when behavior/states/acceptance criteria must be proven. |
 | Architecture decision review | `architecture-decision-review.md` | Use when a change affects module boundaries, persistence, public API, security/privacy, or long-lived architecture. |
+| Architecture style review | `ios-architecture-style-review.md` | Use to detect MVVM/SwiftUI state/Clean/Coordinator/Modular/Hexagonal/TCA/UDF/Reactor/VIP/VIPER/MVP/RIBs/MVC style and apply the matching gate without importing conflicting rules. |
 | Evidence-based completion review | `evidence-based-completion-review.md` | Use before claiming done/fixed/verified/production-ready. |
 | Feature flag / rollout review | `feature-flag-rollout-review.md` | Use for staged rollout, kill switch, rollback, or remote config changes. |
 | Incident response review | `incident-response-review.md` | Use for production incident readiness, triage, mitigation, and postmortem planning. |

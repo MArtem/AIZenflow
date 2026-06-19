@@ -2,7 +2,7 @@
 
 Area: `./documentation-vault/reusable`
 
-Files: 875
+Files: 880
 
 ## Files
 
@@ -22,6 +22,7 @@ Files: 875
 - `./documentation-vault/reusable/agent-prompts/incident-response-review.md`
 - `./documentation-vault/reusable/agent-prompts/ios-accessibility-review.md`
 - `./documentation-vault/reusable/agent-prompts/ios-api-contract-review.md`
+- `./documentation-vault/reusable/agent-prompts/ios-architecture-style-review.md`
 - `./documentation-vault/reusable/agent-prompts/ios-code-documentation-review.md`
 - `./documentation-vault/reusable/agent-prompts/ios-concurrency-review.md`
 - `./documentation-vault/reusable/agent-prompts/ios-configuration-environments-review.md`
@@ -56,6 +57,7 @@ Files: 875
 - `./documentation-vault/reusable/agent-prompts/test-review-mini.md`
 - `./documentation-vault/reusable/baseline/.codex/skills/ios-accessibility/SKILL.md`
 - `./documentation-vault/reusable/baseline/.codex/skills/ios-api-contracts/SKILL.md`
+- `./documentation-vault/reusable/baseline/.codex/skills/ios-architecture-router/SKILL.md`
 - `./documentation-vault/reusable/baseline/.codex/skills/ios-code-documentation/SKILL.md`
 - `./documentation-vault/reusable/baseline/.codex/skills/ios-concurrency-runtime/SKILL.md`
 - `./documentation-vault/reusable/baseline/.codex/skills/ios-configuration-environments/SKILL.md`
@@ -102,6 +104,7 @@ Files: 875
 - `./documentation-vault/reusable/baseline/docs/IOS_AGENT_PROMPT_ROUTER.md`
 - `./documentation-vault/reusable/baseline/docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`
 - `./documentation-vault/reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+- `./documentation-vault/reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`
 - `./documentation-vault/reusable/baseline/docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
 - `./documentation-vault/reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
 - `./documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
@@ -159,6 +162,7 @@ Files: 875
 - `./documentation-vault/reusable/baseline/docs/agent-prompts/incident-response-review.md`
 - `./documentation-vault/reusable/baseline/docs/agent-prompts/ios-accessibility-review.md`
 - `./documentation-vault/reusable/baseline/docs/agent-prompts/ios-api-contract-review.md`
+- `./documentation-vault/reusable/baseline/docs/agent-prompts/ios-architecture-style-review.md`
 - `./documentation-vault/reusable/baseline/docs/agent-prompts/ios-code-documentation-review.md`
 - `./documentation-vault/reusable/baseline/docs/agent-prompts/ios-concurrency-review.md`
 - `./documentation-vault/reusable/baseline/docs/agent-prompts/ios-configuration-environments-review.md`
@@ -565,6 +569,7 @@ Files: 875
 - `./documentation-vault/reusable/knowledge-global/prompt-presets/test-review-mini.md`
 - `./documentation-vault/reusable/local-ios-skills/ios-accessibility/SKILL.md`
 - `./documentation-vault/reusable/local-ios-skills/ios-api-contracts/SKILL.md`
+- `./documentation-vault/reusable/local-ios-skills/ios-architecture-router/SKILL.md`
 - `./documentation-vault/reusable/local-ios-skills/ios-code-documentation/SKILL.md`
 - `./documentation-vault/reusable/local-ios-skills/ios-concurrency-runtime/SKILL.md`
 - `./documentation-vault/reusable/local-ios-skills/ios-configuration-environments/SKILL.md`

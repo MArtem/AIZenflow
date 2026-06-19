@@ -53,6 +53,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/IOS_PR_REVIEW_TEMPLATE.md`
 - `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`
 - `./docs/IOS_AGENT_PROMPT_ROUTER.md`
+- `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`
 - `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
 - `./docs/IOS_PRODUCTION_SCORECARD.md`
 - `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
@@ -145,6 +146,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 
 ### Prompt Presets And Knowledge
 - `./docs/agent-prompts/README.md`
+- `./docs/agent-prompts/ios-architecture-style-review.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
 - `./docs/knowledge/TchopApp/README.md`
@@ -191,6 +193,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./.codex/skills/ios-api-contracts/SKILL.md`
 - `./.codex/skills/ios-test-strategy/SKILL.md`
 - `./.codex/skills/ios-product-governance/SKILL.md`
+- `./.codex/skills/ios-architecture-router/SKILL.md`
 - `./.codex/skills/ios-incident-ops/SKILL.md`
 - `./.codex/skills/ios-modular-architecture/SKILL.md`
 - `./.codex/skills/ios-qa-localization/SKILL.md`

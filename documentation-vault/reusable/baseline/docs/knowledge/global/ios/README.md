@@ -66,3 +66,7 @@ Reusable iOS production rules that are not tied to one app.
 
 ## Rule
 Keep app-specific file paths, models, product names, and task constraints out of global iOS rules.
+
+## Architecture Style Routing
+- `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md` defines reusable architecture-style detection and review gates for MVVM, SwiftUI Native State, Clean/Layered, Coordinator, Modular, Hexagonal, TCA, Redux/Elm/UDF, ReactorKit, VIP/Clean Swift, VIPER, MVP, RIBs, and MVC migration.
+- `./docs/agent-prompts/ios-architecture-style-review.md` is the matching prompt for architecture-style reviews.

@@ -53,6 +53,7 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 | Review completeness | `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md` |
 | Code review checklist | `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` |
 | Architecture decisions | `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md` |
+| Architecture style routing | `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md` |
 | Modular architecture | `./docs/MODULAR_ARCHITECTURE_STANDARD.md` |
 | Code ownership | `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md` |
 | UI state/rendering | `./docs/IOS_UI_STATE_RENDERING_STANDARD.md` |

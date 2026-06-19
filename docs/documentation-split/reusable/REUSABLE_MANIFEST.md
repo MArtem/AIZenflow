@@ -19,6 +19,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/PRODUCT_HEALTH_SLO.md`
 - `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`
 - `./docs/IOS_AGENT_PROMPT_ROUTER.md`
+- `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`
 - `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
 - `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
@@ -81,6 +82,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/agent-prompts/ios-input-validation-content-safety-review.md`
 - `./docs/agent-prompts/swiftui-design-generation-quick.md`
 - `./docs/agent-prompts/architecture-decision-review.md`
+- `./docs/agent-prompts/ios-architecture-style-review.md`
 - `./docs/agent-prompts/ci-debug-quick.md`
 - `./docs/agent-prompts/evidence-based-completion-review.md`
 - `./docs/agent-prompts/ios-data-migration-review.md`
@@ -143,6 +145,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./.codex/skills/ios-lifecycle-background/SKILL.md`
 - `./.codex/skills/ios-code-documentation/SKILL.md`
 - `./.codex/skills/ios-product-governance/SKILL.md`
+- `./.codex/skills/ios-architecture-router/SKILL.md`
 - `./.codex/skills/ios-error-handling/SKILL.md`
 - `./.codex/skills/ios-performance-profiler/SKILL.md`
 - `./.codex/skills/ios-evidence-gate/SKILL.md`

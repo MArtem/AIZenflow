@@ -83,6 +83,94 @@ Keep `MVVMExample` as a clean starter project with the full reusable documentati
 - Updated app/package documentation and package usage rules for the new standalone package layout.
 - Verification: each package `Scripts/verify_package.sh` succeeded with no warning/error grep hits; `python3 ./scripts/check_docs_index.py` succeeded; `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj` succeeded; `git diff --check` succeeded; standalone structural grep found no `.package(path:)` or `unsafeFlags` in root package manifests; `xcodebuild -project ./MVVMExample.xcodeproj -scheme MVVMExample -configuration Debug -destination 'platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0' CODE_SIGNING_ALLOWED=NO build` succeeded with `BUILD SUCCEEDED` and no warning/error grep hits.
 
+
+### [x] Step: Fix news list card layout regression
+- Diagnosed screenshot-reported left-shift/clipping in the news list row layout.
+- Fixed image display sizing so cached/downsample target width no longer becomes the row's layout width.
+- Ensured news cards fill the available list width with leading alignment.
+- Did not change tests or feature behavior.
+- Verification: `git diff --check` succeeded and `./scripts/verify.sh build` succeeded with sandboxed DerivedData/package cache paths.
+
+
+### [x] Step: Persist session and user actions locally
+- Added durable session restoration through Keychain-backed storage so relaunch does not force login when a saved session exists.
+- Stored token-like session payload outside SwiftData; SwiftData is used only for non-secret local user state.
+- Added SwiftData-backed article like/favorite state and profile-edit persistence so supported user actions survive relaunch.
+- Merged local interaction/profile state back into server-loaded data on app/list/detail/profile load.
+- Kept server mutation best-effort for the current demo backend; local state is the durable fallback when server persistence is unavailable.
+- Did not add or modify tests in this block.
+- Verification: `git diff --check`, `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `./scripts/verify.sh static`, and `./scripts/verify.sh build` succeeded.
+
+
+### [x] Step: Add pending mutation queue and replay sync
+- Added SwiftData-backed pending mutation records for user actions that failed server persistence.
+- Coalesced duplicate pending mutations through deterministic idempotency keys for article likes and profile updates.
+- Added retry/backoff metadata and replay pending mutations on login/relaunch for the active user.
+- Cleared acknowledged mutations after server success and retained failed mutations for later replay.
+- Kept token-like session data out of SwiftData.
+- Did not add or modify tests in this block.
+- Verification: `git diff --check`, `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, `./scripts/verify.sh static`, and `./scripts/verify.sh build` succeeded.
+
+### [x] Step: Sync feed row state after detail favorite changes
+- Re-merge visible news-list articles from the shared interaction store when the list becomes visible again after detail navigation.
+- Preserve existing pagination and banner state; do not force a network reload.
+- Do not add or modify tests in this block.
+- Verify with `git diff --check` and an app build.
+
+### [x] Step: Stabilize favorite count and button feedback
+- Prevent demo backend responses from double-adjusting locally optimistic like counts.
+- Keep favorite UI in the final optimistic state during sync instead of showing a transient clock/disabled flicker.
+- Preserve pending mutation behavior and avoid broad observer/reducer changes.
+- Verify with `git diff --check` and an app build.
+
+### [x] Step: Audit buttons lists and optimistic server acknowledgements
+- Review SwiftUI buttons/transient states for flicker, duplicate taps, and stale disabled/loading behavior.
+- Review list mutation paths for server-ack overwrites of locally optimistic state.
+- Apply minimal fixes only for defects matching the observed favorite-count class.
+- Verify with `git diff --check` and an app build.
+
+### [x] Step: Create comprehensive app test coverage plan
+- Reviewed current unit/UI test layout and approved test lanes.
+- Identified stale tests that must be modified after recent optimistic-state changes.
+- Planned required unit, integration-style, persistence, sync, UI smoke, accessibility, and regression coverage without modifying tests in this step.
+
+
+### [x] Step: Test sync and optimistic interaction regressions
+- Update stale news list/detail tests after favorite optimistic-state changes.
+- Add deterministic ArticleInteractionStore and PendingMutationStore tests.
+- Add ProfileLocalStore stale server acknowledgement tests.
+- Run `git diff --check` and `./scripts/verify.sh test-unit`.
+
+
+### [x] Step: Test session sync persistence and local store edge cases
+- Add deterministic tests for Keychain/session restore safety, token exclusion from SwiftData, logout/local active-user cleanup where testable without production refactor.
+- Add pending mutation replay failure/backoff/invalid-payload coverage.
+- Add profile local merge/load fallback/no-local failure coverage.
+- Add article interaction persistence edge-case coverage.
+- Run `git diff --check` and `./scripts/verify.sh test-unit`.
+
+### [x] Step: Test integration regressions navigation and view-state breadth
+- Added AppRootCoordinator login/startup/logout dependency integration coverage where current seams exist.
+- Added news list refresh, pagination merge, and pagination retry regression coverage for shared interaction state.
+- Added news detail load merge and stale cancelled-load response coverage.
+- Added profile edit save to profile presentation integration coverage.
+- Added standalone navigation tests for `NewsRouter`, `ProfileRouter`, and `MainCoordinator` after explicit follow-up approval.
+- Did not add ViewStateBuilder formatting tests in this block; they remain optional backlog unless specifically requested.
+- Verification: `git diff --check` and `./scripts/verify.sh test-unit` succeeded.
+
+### [x] Step: Validate approved UI smoke lane and sandbox result bundles
+- Fixed the UI test plan identifier so Xcode can read `./MVVMExampleUI.xctestplan`.
+- Updated `./scripts/verify.sh` so unit/UI result bundles are written inside `/Users/Artem/.zenflow/worktrees/.xcode-result-bundles/MVVMExample` instead of tool-default temporary locations.
+- Verified existing approved UI smoke coverage for login controls, news list/detail controls, profile edit visibility, and logout/login return without live network.
+- Did not add deterministic performance regression tests in this block because no concrete performance budget/acceptance threshold was defined; keep this as optional backlog.
+- Verification: `git diff --check`, `./scripts/verify.sh test-unit`, and approved `./scripts/verify.sh test-ui` succeeded.
+
+### [x] Step: Test ViewStateBuilder formatting and performance guardrails
+- Added deterministic ViewStateBuilder formatting coverage for news list cards, news detail content, and profile display fallbacks/accessibility text.
+- Added unit-level performance regression guardrails with explicit budgets for large news-list state building, article interaction merge, and image memory-cache insert/lookup paths.
+- Kept performance tests as deterministic simulator/unit guardrails only; real-device Instruments profiling remains a separate validation lane.
+- Verification: `git diff --check`, `plutil -lint ./MVVMExample.xcodeproj/project.pbxproj`, and `./scripts/verify.sh test-unit` succeeded.
+
 ## Plan Maintenance Rule
 This does not disable plan tracking.
 
