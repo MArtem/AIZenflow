@@ -886,3 +886,10 @@ Files: 880
 - `./documentation-vault/reusable/sdk-creation/Templates/PackageTemplate/Sources/{{PackageName}}/Documentation.docc/{{PackageName}}.md.template`
 - `./documentation-vault/reusable/sdk-creation/Templates/PackageTemplate/Sources/{{PackageName}}/{{PackageName}}.swift.template`
 - `./documentation-vault/reusable/sdk-creation/Templates/PackageTemplate/Tests/{{PackageName}}Tests/{{PackageName}}Tests.swift.template`
+
+## Reusable Architecture Cases
+- `./documentation-vault/reusable/architecture-cases/MVVMExample/README.md`
+- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/README.md`
+- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/CASES.md`
+- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/PROGRESS.md`
+- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/*/ARCHITECTURE_CASE.md`

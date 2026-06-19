@@ -1346,3 +1346,12 @@ Use archives only when historical detail is needed:
 - Updated active indexes/routing docs: `./docs/README.md`, `./docs/agent-prompts/README.md`, `./docs/IOS_PRODUCTION_FRAMEWORK.md`, `./docs/IOS_AGENT_PROMPT_ROUTER.md`, and `./docs/knowledge/global/ios/README.md`.
 - Synced the new reusable docs/prompt/skill into `./docs/documentation-split/reusable/**` and regenerated the git-backed `./documentation-vault` from worktree sources.
 - Verification: `./documentation-vault/scripts/check_documentation_vault.py`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, and `git diff --check` succeeded. No build/tests/simulator/Instruments run because this was docs/rules/prompt/skill-only work.
+
+
+### [x] Step: Review and commit shared MVVMExample architecture-case vault copy
+- User asked to inspect the working copy produced by another task for shared cross-task architecture-case code/docs and commit if acceptable.
+- Reviewed `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases`, which contains 14 self-contained MVVMExample architecture-case snapshots for SwiftUI Native State/MV, MVVM explicit intents, Coordinator, Clean/Layered, Modular/Feature-Sliced, Hexagonal, Redux/Elm/UDF, TCA, ReactorKit, MVC migration, MVP Passive View, VIP/Clean Swift, VIPER, and RIBs.
+- Confirmed the vault copy is intentionally a shared documentation/architecture-case baseline: conversions are mostly pending and explicitly marked as not architecture-complete until each case is converted and post-conversion build-verified.
+- Removed generated `.DS_Store` files from the vault copy and confirmed no `.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, or `Package.resolved` artifacts remain under the architecture cases.
+- Verification: `./documentation-vault/scripts/check_documentation_vault.py`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, targeted architecture-case artifact path scan, and `git diff --check` succeeded. Full secret/large-file scans were not used as hard blockers because the current scripts flag known test/demo token fixture strings and ignored trace artifacts outside this commit.
+- Build/tests/simulator were not run because this block only reviews and commits git-backed documentation-vault architecture-case snapshots.
