@@ -888,8 +888,11 @@ Files: 880
 - `./documentation-vault/reusable/sdk-creation/Templates/PackageTemplate/Tests/{{PackageName}}Tests/{{PackageName}}Tests.swift.template`
 
 ## Reusable Architecture Cases
-- `./documentation-vault/reusable/architecture-cases/MVVMExample/README.md`
-- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/README.md`
-- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/CASES.md`
-- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/PROGRESS.md`
-- `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases/*/ARCHITECTURE_CASE.md`
+- `./documentation-vault/reusable/architecture-cases/README.md`
+- `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/README.md`
+- `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/CASES.md`
+- `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/PROGRESS.md`
+- `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/*/ARCHITECTURE_CASE.md`
+- `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/13-viper/VIPERArchitectureCase.xcodeproj`
+- `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/13-viper/VIPERArchitectureCase/`
+- `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/13-viper/VIPERArchitectureCaseTests/`
