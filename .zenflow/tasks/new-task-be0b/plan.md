@@ -1355,3 +1355,12 @@ Use archives only when historical detail is needed:
 - Removed generated `.DS_Store` files from the vault copy and confirmed no `.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, or `Package.resolved` artifacts remain under the architecture cases.
 - Verification: `./documentation-vault/scripts/check_documentation_vault.py`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, targeted architecture-case artifact path scan, and `git diff --check` succeeded. Full secret/large-file scans were not used as hard blockers because the current scripts flag known test/demo token fixture strings and ignored trace artifacts outside this commit.
 - Build/tests/simulator were not run because this block only reviews and commits git-backed documentation-vault architecture-case snapshots.
+
+
+### [x] Step: Review and commit shared architecture-case vault restructure with VIPER case
+- User asked to inspect many files produced by another task in shared docs and commit if acceptable.
+- Reviewed the working copy under `./documentation-vault/reusable/architecture-cases`: the previous app-named `./documentation-vault/reusable/architecture-cases/MVVMExample/AllArchitectureCases` path was replaced with source-app-neutral `./documentation-vault/reusable/architecture-cases/AllArchitectureCases`.
+- Confirmed the shared architecture-case inventory still covers 14 iOS architecture styles and now marks only `13-viper` as converted/build/test passed while the remaining cases are explicitly pending.
+- Reviewed `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/13-viper/ARCHITECTURE_CASE.md`; it is a standalone `VIPERArchitectureCase` with non-empty View/Interactor/Presenter/Entity/Router/Builder roles and no empty pass-through role by policy.
+- Confirmed no `.DS_Store`, `.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, or `Package.resolved` artifacts remain under `./documentation-vault/reusable/architecture-cases`.
+- Verification: `./documentation-vault/scripts/check_documentation_vault.py`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, targeted artifact path scan, and `git diff --check` succeeded. Build/tests were not run in this task because the committed scope is documentation-vault/shared architecture-case files; the VIPER case reports its build/test status in its own case docs.
