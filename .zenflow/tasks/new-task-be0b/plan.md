@@ -261,6 +261,22 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Verification: `./scripts/verify.sh low` passed; `git diff --check` passed.
 
 
+- Completed now: Figma-driven shell create action sheet implementation:
+  - inspected Figma node `3540:43423` in file `BGqNSk77WrL73OIad1UEES` as design context for the feed screen plus create bottom sheet.
+  - changed `./TchopApp/Views/ShellContentView.swift` so the shell floating action button presents the Figma-style dimmed bottom action sheet instead of opening the composer directly.
+  - wired `New post` to the existing `FeedComposerViewModel` composer path; `Create a thread`, `New event`, and `New poll` are represented as visible sheet actions only because no approved product flow/API/DB contract exists for them in this task.
+  - added localized action labels to `./PackagesInUse/TchopProductLocalizationResources` and mirrored them into `./PackagesForReuse/TchopProductLocalizationResources`.
+  - Verification: `git diff --check` succeeded; `python3 scripts/check_localization.py` succeeded; user-requested app build succeeded with DerivedData/TMPDIR under `./.zenflow-build`.
+
+
+- Completed now: Figma asset fidelity correction for create action sheet icons:
+  - replaced the SF Symbol approximations for `New post`, `Create a thread`, `New event`, and `New poll` with the exact SVG assets from Figma: `PencilSimple`, `Chat`, `CalendarCheck`, and `ListChecks`.
+  - added those icons as vector-preserved image sets under `./TchopApp/Assets.xcassets`.
+  - kept the 48pt icon containers, 22pt icon size, and Figma-provided row colors from the inspected design.
+  - added `./.zenflow-build/` to `.gitignore` so local DerivedData and temporary Figma downloads stay out of git status.
+  - Verification: `git diff --check` succeeded; asset `Contents.json` files passed JSON parser validation; `python3 scripts/check_localization.py` succeeded; user-requested app build succeeded with DerivedData/TMPDIR under `./.zenflow-build`.
+
+
 - Completed now: simulator Time Profiler scroll capture attempt and analysis:
   - target-process and manually stopped simulator traces saved only `RunIssues.storedata`, so they were not usable for sample analysis.
   - captured a valid auto-stopped all-process Time Profiler trace at `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-repeat.trace`.
