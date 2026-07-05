@@ -79,3 +79,7 @@ If this file conflicts with a newer explicit user instruction in chat, the newer
 - The assistant must proactively recommend a new chat when context becomes risky or a major phase changes.
 - The assistant must provide a compact transition spec and include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 - Do not include raw command logs, tool output, full diffs, or long scripts unless requested.
+
+
+## Figma MCP SwiftUI Prompt Rule
+- When work starts from Figma, when the user provides a Figma link, or when the task says to inspect/implement a Figma design through MCP, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before using Figma MCP or changing code. That prompt is mandatory for Figma → SwiftUI work and reinforces native SwiftUI, existing DesignSystem usage, pre-code analysis, Figma mismatch reporting, and no web-code generation.

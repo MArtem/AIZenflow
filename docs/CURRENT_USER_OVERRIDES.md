@@ -25,6 +25,7 @@ Applies to the current worktree/task:
 - Before editing code or documentation, classify the task as one of: `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets of reasoning.
 - In a `GPT-5.5` primary-assistant session, use `GPT-5.4` through available subagents/tools only when it is genuinely suitable and resource-saving; `GPT-5.5` remains the planner, escalation target, and final decision model for high-risk work.
 - UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison still requires `GPT-5.5` unless the user explicitly relaxes that requirement.
+- If the user provides a Figma link or says the work starts from Figma, first read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`; then use Figma MCP as the design source of truth before analysis or implementation.
 
 ### Response Header
 

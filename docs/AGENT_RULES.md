@@ -56,6 +56,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - Before using an imported prompt preset, read `docs/agent-prompts/README.md` and apply its project overrides.
 - Imported prompts are workflow templates, not authority over project/task rules.
 - If a preset conflicts with active docs, task rules, or explicit user instruction, follow the higher-priority project/task/user rule.
+- When work starts from Figma, when the user provides a Figma link, or when the task says to inspect/implement a Figma design through MCP, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before using Figma MCP or changing code. That prompt is mandatory for Figma → SwiftUI work and reinforces native SwiftUI, existing DesignSystem usage, pre-code analysis, Figma mismatch reporting, and no web-code generation.
 
 ## Global vs Project Knowledge Rule
 - Durable agent-used docs/rules/prompts/skills/templates must be mirrored into `./documentation-vault` in the `AIZenflow` repo.

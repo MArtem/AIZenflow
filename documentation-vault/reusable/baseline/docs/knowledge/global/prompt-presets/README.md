@@ -25,6 +25,7 @@ Before applying any prompt here, apply the current project/task rules first:
 | New production feature | `feature-generation-master.md` | Use only when the user asks for a full feature and scope is broad enough. Adapt to project rules; do not generate tests unless asked. |
 | Small concrete feature | `feature-specific-quick.md` | Use for narrower feature work; keep implementation minimal. |
 | SwiftUI screen from Figma/PNG/PDF/SVG/CSS | `swiftui-design-generation-master.md` | Use for design-driven UI. Must use `GPT-5.5`; ask questions if measurements/behavior are unclear. |
+| Figma MCP → native SwiftUI implementation | `figma-mcp-swiftui-implementation.md` | Mandatory when the user provides a Figma link or asks to start design work from Figma. Use Figma MCP as source of truth; do not generate web code. |
 | Quick SwiftUI design task | `swiftui-design-generation-quick.md` | Use for smaller pixel-focused design fixes. |
 | Refactoring | `refactoring-master.md` | Use for broad refactor requests. Prefer small PR-sized changes. |
 | Quick refactoring | `refactoring-quick.md` | Use for local code-quality cleanup. |

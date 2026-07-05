@@ -117,6 +117,7 @@ Latest user approvals:
 14) ./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md
 15) ./docs/documentation-split/reusable/REUSABLE_MANIFEST.md
 16) ./docs/agent-prompts/README.md
+17) For Figma-link/design work: ./docs/agent-prompts/figma-mcp-swiftui-implementation.md
 
 Обязательное правило переноса контекста:
 перечитать весь актуальный набор документации и правил для этого worktree и task-контекста
@@ -126,5 +127,6 @@ Latest user approvals:
 - Начинать рабочие ответы с обязательного response header.
 - Не запускать build/tests/simulator/Instruments без явного разрешения.
 - Не трогать ./TchopAppTests без явного разрешения.
+- Если задача начинается с Figma или пользователь даёт Figma link, сначала читать ./docs/agent-prompts/figma-mcp-swiftui-implementation.md и использовать Figma MCP как источник design context.
 - Package mode: ./PackagesInUse = active source-only packages; ./PackagesForReuse = reusable package vault; ./Packages = SDK/package docs/templates only.
 ```

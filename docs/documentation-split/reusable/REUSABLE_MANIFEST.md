@@ -83,6 +83,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/agent-prompts/swiftui-design-generation-quick.md`
 - `./docs/agent-prompts/architecture-decision-review.md`
 - `./docs/agent-prompts/ios-architecture-style-review.md`
+- `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
 - `./docs/agent-prompts/ci-debug-quick.md`
 - `./docs/agent-prompts/evidence-based-completion-review.md`
 - `./docs/agent-prompts/ios-data-migration-review.md`
@@ -128,6 +129,7 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/knowledge/global/prompt-presets/refactoring-review-mini.md`
 - `./docs/knowledge/global/prompt-presets/adr-master.md`
 - `./docs/knowledge/global/prompt-presets/swiftui-design-generation-quick.md`
+- `./docs/knowledge/global/prompt-presets/figma-mcp-swiftui-implementation.md`
 - `./docs/knowledge/global/prompt-presets/ci-debug-quick.md`
 - `./docs/knowledge/global/prompt-presets/test-generation-quick.md`
 - `./docs/knowledge/global/prompt-presets/refactoring-plan-only-mini.md`

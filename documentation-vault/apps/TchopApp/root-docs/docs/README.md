@@ -147,6 +147,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 ### Prompt Presets And Knowledge
 - `./docs/agent-prompts/README.md`
 - `./docs/agent-prompts/ios-architecture-style-review.md`
+- `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
 - `./docs/knowledge/TchopApp/README.md`

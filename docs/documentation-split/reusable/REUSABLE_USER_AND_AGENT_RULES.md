@@ -96,3 +96,7 @@ Every context-transfer prompt must include:
 - Provide a compact handoff spec before transfer.
 - Include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 - Keep the handoff compact: no raw command logs, tool output, full diffs, or long scripts unless requested.
+
+
+## Figma MCP SwiftUI Prompt Rule
+- When work starts from Figma, when the user provides a Figma link, or when the task says to inspect/implement a Figma design through MCP, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before using Figma MCP or changing code. That prompt is mandatory for Figma → SwiftUI work and reinforces native SwiftUI, existing DesignSystem usage, pre-code analysis, Figma mismatch reporting, and no web-code generation.

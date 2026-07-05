@@ -1380,3 +1380,20 @@ Use archives only when historical detail is needed:
 - Reviewed `./documentation-vault/reusable/architecture-cases/AllArchitectureCases/13-viper/ARCHITECTURE_CASE.md`; it is a standalone `VIPERArchitectureCase` with non-empty View/Interactor/Presenter/Entity/Router/Builder roles and no empty pass-through role by policy.
 - Confirmed no `.DS_Store`, `.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, or `Package.resolved` artifacts remain under `./documentation-vault/reusable/architecture-cases`.
 - Verification: `./documentation-vault/scripts/check_documentation_vault.py`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, targeted artifact path scan, and `git diff --check` succeeded. Build/tests were not run in this task because the committed scope is documentation-vault/shared architecture-case files; the VIPER case reports its build/test status in its own case docs.
+
+### [x] Step: Fix Figma create-action resources rendering in SwiftUI
+- User reported runtime screenshots where the floating `+` button and all four create action sheet glyphs rendered as empty background circles.
+- Keep Figma as the source of truth: do not substitute SF Symbols or hand-drawn icons for the affected create resources.
+- Fix scope:
+  - add exact Figma `imgAdd` resource as `ShellCreateAdd.imageset`;
+  - render FAB with exact Figma fill/shadow/icon instead of the iOS 26 glass path that produced a pale blank circle;
+  - keep action sheet glyph path data from Figma but remove runtime-unsafe SVG export wrappers (`var(...)`, masks, clip paths, percent dimensions);
+  - keep the thread row background at the exact Figma color instead of the nearest app surface token.
+- Verification: asset catalog JSON validated with `python3 -m json.tool`, unsafe SVG constructs scan returned empty for create assets, `python3 scripts/check_localization.py` succeeded, `git diff --check` succeeded, and the requested `xcodebuild ... build` succeeded. Tests remained out of scope.
+
+### [x] Step: Add mandatory Figma MCP → SwiftUI design prompt rule
+- User requested a durable rule: whenever work starts from Figma or the user provides a Figma design link, agents must first read the dedicated prompt before using Figma MCP or changing code.
+- Added `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` as the canonical prompt for Figma MCP design intake and native SwiftUI implementation.
+- Updated active routing/rule docs so Figma-link/design work requires GPT-5.5, Figma MCP as design source of truth, pre-code Figma/project analysis, native SwiftUI output, existing DesignSystem usage, Preview/mock data where appropriate, and explicit mismatch/TODO reporting.
+- Synced the prompt/rule into the reusable documentation split and prompt knowledge copies so future projects inherit the same Figma MCP workflow.
+- Verification scope: documentation/vault/static checks only; no app build/tests/simulator required because no runtime source or Xcode project files were intentionally changed by this rule block.

@@ -232,7 +232,7 @@ private struct ShellCreateActionSheetContent: View {
             ShellCreateActionSheetItemView(
                 title: AppLocalization.text("shell.createAction.createThread"),
                 assetName: "ShellCreateChat",
-                iconBackground: AppTheme.surfaceSecondary,
+                iconBackground: Color(red: 243.0 / 255.0, green: 243.0 / 255.0, blue: 246.0 / 255.0),
                 action: onCreateThread
             )
 

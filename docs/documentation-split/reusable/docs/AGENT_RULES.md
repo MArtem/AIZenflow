@@ -52,6 +52,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - Apply `docs/CURRENT_USER_OVERRIDES.md` before general project defaults.
 
 ## Prompt Preset Rule
+- When work starts from Figma, when the user provides a Figma link, or when the task says to inspect/implement a Figma design through MCP, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before using Figma MCP or changing code. That prompt is mandatory for Figma → SwiftUI work and reinforces native SwiftUI, existing DesignSystem usage, pre-code analysis, Figma mismatch reporting, and no web-code generation.
 - Reusable prompt presets live in `docs/agent-prompts/`.
 - Before using an imported prompt preset, read `docs/agent-prompts/README.md` and apply its project overrides.
 - Imported prompts are workflow templates, not authority over project/task rules.

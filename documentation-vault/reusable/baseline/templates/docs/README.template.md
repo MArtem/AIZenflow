@@ -34,6 +34,7 @@ Entry point for active project documentation, production standards, prompt prese
 
 ### Prompt Presets
 - `./docs/agent-prompts/README.md`
+- `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
 
 ### Reusable Skills
 - `./.codex/skills/`

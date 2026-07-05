@@ -6,6 +6,11 @@ Rules for implementing UI/design tasks in `TchopApp` from screenshots, Figma, PD
 ## Mandatory Model Rule
 - Use `GPT-5.5` for all UI/design tasks based on screenshots, Figma, PDF, SVG, CSS, or visual comparison.
 
+## Figma MCP Prompt Rule
+- If the user provides a Figma link or says the work starts from Figma, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before Figma MCP inspection or code changes.
+- Use Figma MCP as the source of design context: hierarchy, frame size, Auto Layout, spacing, colors, typography, radii, strokes, effects, assets, component instances, variants/states, text, visibility, layer names, and repeated patterns.
+- Treat CSS/web-oriented Figma output only as intermediate design description; translate it manually into native SwiftUI primitives.
+
 ## Source Of Truth
 Use this priority order:
 1. explicit user-provided numeric values

@@ -2,33 +2,32 @@ import SwiftUI
 
 /// Floating action button anchored above the bottom tab bar.
 struct FloatingActionButton: View {
+    private static let buttonSize: CGFloat = 56
+    private static let iconSize: CGFloat = 24
+    private static let figmaFill = Color(red: 243.0 / 255.0, green: 115.0 / 255.0, blue: 84.0 / 255.0)
+    private static let figmaPrimaryShadow = Color(red: 40.0 / 255.0, green: 41.0 / 255.0, blue: 61.0 / 255.0)
+    private static let figmaSecondaryShadow = Color(red: 96.0 / 255.0, green: 97.0 / 255.0, blue: 112.0 / 255.0)
+
     let action: () -> Void
 
     var body: some View {
-        let glassStyle = AppTheme.glassStyle(for: .floatingActionButton)
-
         Button(action: action) {
             ZStack {
                 Circle()
-                    .fill(.clear)
-                    .frame(width: 56, height: 56)
-                    .appGlassChrome(
-                        in: Circle(),
-                        glassTint: glassStyle?.tint,
-                        glassStroke: glassStyle?.stroke,
-                        fallbackBackground: AppTheme.floatingActionButtonFill,
-                        fallbackShadowColor: AppTheme.floatingActionButtonShadow,
-                        fallbackShadowRadius: 10,
-                        fallbackShadowY: 6,
-                        interactive: true
-                    )
+                    .fill(Self.figmaFill)
+                    .frame(width: Self.buttonSize, height: Self.buttonSize)
+                    .shadow(color: Self.figmaPrimaryShadow.opacity(0.04), radius: 4, y: 2)
+                    .shadow(color: Self.figmaSecondaryShadow.opacity(0.16), radius: 16, y: 8)
 
-                Image(systemName: "plus")
-                    .font(AppTypography.fabIcon)
-                    .foregroundStyle(AppTheme.accentOnColor)
+                Image("ShellCreateAdd")
+                    .resizable()
+                    .renderingMode(.original)
+                    .scaledToFit()
+                    .frame(width: Self.iconSize, height: Self.iconSize)
                     .accessibilityHidden(true)
             }
-            .frame(width: 56, height: 56)
+            .frame(width: Self.buttonSize, height: Self.buttonSize)
+            .contentShape(Circle())
         }
         .buttonStyle(.plain)
         .accessibilityElement(children: .ignore)
