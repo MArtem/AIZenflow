@@ -48,3 +48,7 @@ Files in this group are tied to `TchopApp`, its current task, feed/composer/card
 
 ## Transfer Rule
 Use this group only as source material when the new project intentionally reuses the same product concepts. Otherwise, leave it out.
+
+## Saved Prompt Snapshots
+- `./docs/saved-prompts/README.md`
+- `./docs/ALL_DOCUMENTS_INVENTORY.md`

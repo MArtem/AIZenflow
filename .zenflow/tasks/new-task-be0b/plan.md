@@ -1425,3 +1425,13 @@ Use archives only when historical detail is needed:
 - Updated active routing/rule docs so Figma-link/design work requires GPT-5.5, Figma MCP as design source of truth, pre-code Figma/project analysis, native SwiftUI output, existing DesignSystem usage, Preview/mock data where appropriate, and explicit mismatch/TODO reporting.
 - Synced the prompt/rule into the reusable documentation split and prompt knowledge copies so future projects inherit the same Figma MCP workflow.
 - Verification scope: documentation/vault/static checks only; no app build/tests/simulator required because no runtime source or Xcode project files were intentionally changed by this rule block.
+
+### [x] Step: Materialize Codex App saved prompts and complete document inventory
+- User provided a screenshot of Codex App `Prompts & Skills` saved prompts and asked whether they have physical files or only internal UI/database state.
+- Reviewed the screenshot and identified visible shortcuts: `/confirm-first`, `/fix-ci`, `/pr-comments`, `/review`, `/update-branch`, `/ios`, and `/services`.
+- Searched active docs, task docs, local skills, documentation vault, and `/Users/Artem/.zenflow` for the visible shortcut strings and prompt excerpts; no full physical saved-prompt bodies were found for `/confirm-first`, `/fix-ci`, `/pr-comments`, `/review`, or `/update-branch`.
+- Confirmed `/ios` and `/services` are backed by physical task rule files: `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md` and `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md`.
+- Added `./docs/saved-prompts/` with one physical markdown file per screenshot shortcut, marking exact completeness where the screenshot appears complete and partial status where the screenshot truncates the prompt body.
+- Added `./docs/ALL_DOCUMENTS_INVENTORY.md` as a generated complete inventory of active shared docs, prompts, skills, task docs, package docs/scripts, and source-only/reuse package docs, excluding duplicate `./documentation-vault` copies.
+- Mirrored saved prompt snapshots and inventory into `./docs/documentation-split/**` and matching `./documentation-vault/**` locations.
+- Verification scope: docs/vault/static checks only; no app build/tests/simulator required because this block changed documentation only.
