@@ -163,7 +163,7 @@ public struct UnknownAppErrorMapper: AppErrorMapping {
             isRetryable: true,
             isSessionRecoveryRequired: false,
             messageKey: "error.unknown",
-            debugDescription: String(describing: error),
+            debugDescription: "Unmapped error type: \(String(reflecting: type(of: error))).",
             context: context
         )
     }

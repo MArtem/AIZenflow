@@ -66,6 +66,10 @@ private struct CredentialSignInRequestDTO: Encodable, Sendable {
 
 private struct AppleSignInRequestDTO: Encodable, Sendable {
     let userID: String
+    let identityToken: String?
+    let authorizationCode: String?
+    let nonce: String?
+    let state: String?
     let displayName: String?
     let email: String?
     let preferredUsername: String?
@@ -191,12 +195,20 @@ struct DefaultAuthenticationAPIManager: AuthenticationAPIManaging {
         case .developmentSynthetic:
             return makeSyntheticTokenSet(subject: "apple:\(identity.userID)")
         case .remoteBackend:
+            guard identity.identityToken != nil || identity.authorizationCode != nil else {
+                throw AuthenticationSessionError.missingAppleIdentityProof
+            }
+
             let response = try await apiManager.perform(
                 tokenRequest(
                     path: endpointConfiguration.appleSignInPath,
                     method: .post,
                     payload: AppleSignInRequestDTO(
                         userID: identity.userID,
+                        identityToken: identity.identityToken,
+                        authorizationCode: identity.authorizationCode,
+                        nonce: identity.nonce,
+                        state: identity.state,
                         displayName: identity.displayName,
                         email: identity.email,
                         preferredUsername: identity.preferredUsername

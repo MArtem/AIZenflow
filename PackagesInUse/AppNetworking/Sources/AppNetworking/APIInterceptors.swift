@@ -266,6 +266,10 @@ public struct APILoggingInterceptor: APIRequestIntercepting {
             }
         }
 
+        if !components.path.isEmpty {
+            components.path = "/<redacted-path>"
+        }
+
         return components.string ?? url.absoluteString
     }
 

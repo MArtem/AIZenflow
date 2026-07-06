@@ -52,6 +52,7 @@ protocol AuthenticationAPIManaging: Sendable {
 /// Auth-specific failures surfaced by the token/session stack.
 enum AuthenticationSessionError: Error, Equatable {
     case missingRefreshToken
+    case missingAppleIdentityProof
 }
 
 /// Keychain-backed token store used for production credentials.

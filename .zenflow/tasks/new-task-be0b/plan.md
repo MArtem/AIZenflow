@@ -9,6 +9,34 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Current user overrides are canonical for this task and live in `./docs/CURRENT_USER_OVERRIDES.md`.
 
 ## Active Steps
+### [x] Step: Security Fix Block 1 — Apple Sign In identity proof
+- Approved by user: implement security fixes from the Codex Security scan in order, with a build after each block.
+- Model routing classification: `GPT-5.5 Full Task Required`.
+  - Touches authentication and backend API DTO contracts.
+  - Changes security/privacy behavior and login acceptance rules.
+  - Requires app/package boundary decisions between `AppAppleAuthentication` and `TchopApp` DTO mapping.
+  - Requires Xcode build verification after the block.
+- Goal: Apple Sign In backend requests must carry cryptographic Apple identity material (`identityToken` or `authorizationCode`) and request correlation material where supported (`nonce`/`state`), not only profile fields.
+- Constraints: do not write/modify tests in this block; run build only after implementation.
+- Verification: `git diff --check` succeeded; approved Xcode build succeeded with `BUILD SUCCEEDED`.
+
+### [x] Step: Security Fix Block 2 — production guard against synthetic auth
+- Goal: production/release runtime must not silently use development/synthetic auth.
+- Verification: `git diff --check` succeeded; approved Xcode build succeeded with `BUILD SUCCEEDED`.
+
+### [x] Step: Security Fix Block 3 — analytics/logging privacy sanitizer
+- Goal: prevent raw URL paths, deep-link route values, push route codes, and HTTP failure body/header content from reaching analytics or generic diagnostics.
+- Verification: `git diff --check` succeeded; approved Xcode build succeeded with `BUILD SUCCEEDED`.
+
+### [x] Step: Security Fix Block 4 — user-scoped feed persistence
+- Goal: persisted feed cards must be scoped to the active user or safely cleared/ignored on logout/account switch.
+- Data migration note: app is pre-production in this task history, but destructive/legacy data handling must still be explicit before changing SwiftData schema behavior.
+- Verification: `git diff --check` succeeded; approved Xcode build succeeded with `BUILD SUCCEEDED`.
+
+### [x] Step: Security Fix Block 5 — local storage privacy for push/widget/imported media
+- Goal: minimize push state retention, add widget privacy gating/cleanup, and apply explicit file-protection/backup policy for imported media.
+- Verification: `git diff --check` succeeded; approved Xcode build succeeded with `BUILD SUCCEEDED`.
+
 ### [x] Step: Full Read-Only Production Audit — setup and evidence map
 - Scope: `./TchopApp`, `./TchopShareExtension`, `./TchopWidgetExtension`, `./Packages`, `./docs`, `./.codex/skills/tchop-feed-cards`.
 - Explicitly exclude `./TchopAppTests`.

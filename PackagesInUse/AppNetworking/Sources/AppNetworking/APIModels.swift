@@ -52,7 +52,7 @@ public struct APIConfiguration: Sendable, Equatable {
 /// Security:
 /// The response body and headers may contain sensitive server data. Callers must not log them without explicit
 /// redaction. Body capture is bounded to avoid retaining arbitrarily large error responses.
-public struct APIHTTPFailure: Error, Equatable, Sendable {
+public struct APIHTTPFailure: Error, Equatable, Sendable, CustomStringConvertible {
     /// Maximum number of response-body bytes retained by default.
     public static let defaultMaximumCapturedBodyBytes = 64 * 1024
 
@@ -81,10 +81,15 @@ public struct APIHTTPFailure: Error, Equatable, Sendable {
         }
         self.headers = headers
     }
+
+    /// Safe diagnostic description that never includes response body text or headers.
+    public var description: String {
+        "HTTP failure status_code=\(statusCode)"
+    }
 }
 
 /// Typed errors surfaced by the networking layer.
-public enum APIError: Error, Equatable, Sendable {
+public enum APIError: Error, Equatable, Sendable, CustomStringConvertible {
     case badURL(path: String)
     case noConnection
     case invalidResponse
@@ -106,6 +111,30 @@ public enum APIError: Error, Equatable, Sendable {
             return statusCode
         default:
             return nil
+        }
+    }
+
+    /// Safe diagnostic description that preserves category/status without raw URLs, bodies, headers, or transport text.
+    public var description: String {
+        switch self {
+        case .badURL:
+            return "APIError.badURL"
+        case .noConnection:
+            return "APIError.noConnection"
+        case .invalidResponse:
+            return "APIError.invalidResponse"
+        case .httpFailure(let failure):
+            return "APIError.httpFailure(\(failure.description))"
+        case .invalidStatusCode(let statusCode):
+            return "APIError.invalidStatusCode(\(statusCode))"
+        case .decodingFailed:
+            return "APIError.decodingFailed"
+        case .requestCancelled:
+            return "APIError.requestCancelled"
+        case .timeout:
+            return "APIError.timeout"
+        case .transportFailure:
+            return "APIError.transportFailure"
         }
     }
 }

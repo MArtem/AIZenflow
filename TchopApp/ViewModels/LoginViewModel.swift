@@ -1,6 +1,8 @@
 import AuthenticationServices
+import CryptoKit
 import Foundation
 import Observation
+import Security
 
 /// Login screen behavior selected by the active app environment.
 enum LoginScreenMode {
@@ -284,6 +286,7 @@ final class LoginViewModel {
     private let errorManager: any AppErrorManaging
     private let submissionThrottleInterval: TimeInterval
     private var lastSubmissionDate = Date.distantPast
+    private var pendingAppleRequest: AppleSignInRequestContext?
     private var emailValidationTask: Task<Void, Never>?
     private var passwordValidationTask: Task<Void, Never>?
 
@@ -331,6 +334,15 @@ final class LoginViewModel {
         Task { @MainActor [weak self] in
             await self?.submitValidated(kind: .registration)
         }
+    }
+
+    /// Adds per-request proof material to the Apple authorization request before the system sheet opens.
+    func configureAppleSignInRequest(_ request: ASAuthorizationAppleIDRequest) {
+        let context = AppleSignInRequestContext.make()
+        pendingAppleRequest = context
+        request.requestedScopes = [.fullName, .email]
+        request.nonce = context.hashedNonce
+        request.state = context.state
     }
 
     /// Toggles password visibility between secure and plain text.
@@ -660,12 +672,22 @@ final class LoginViewModel {
     private func handleSuccessfulAppleAuthorization(_ authorization: ASAuthorization) {
         do {
             let identity = try appleAuthenticationManager.identity(from: authorization)
+            let requestContext = try consumeAppleRequestContext(for: identity)
+            let backendIdentity = AppleAuthenticationIdentity(
+                userID: identity.userID,
+                displayName: identity.displayName,
+                email: identity.email,
+                identityToken: identity.identityToken,
+                authorizationCode: identity.authorizationCode,
+                nonce: requestContext.nonce,
+                state: requestContext.state
+            )
             guard !isSubmitting else {
                 return
             }
             runSignInTask(
                 operation: { [self] in
-                    try await self.onAppleLogin(identity)
+                    try await self.onAppleLogin(backendIdentity)
                 },
                 failureContext: AppErrorContext(
                     operation: "appleLogin",
@@ -674,6 +696,8 @@ final class LoginViewModel {
             )
         } catch AppleAuthenticationError.invalidCredential {
             errorMessage = AppLocalization.text("login.apple.error.invalidCredential")
+        } catch AppleAuthenticationError.missingIdentityProof {
+            errorMessage = AppLocalization.text("login.apple.error.missingIdentityProof")
         } catch {
             presentLoginError(
                 error,
@@ -687,6 +711,8 @@ final class LoginViewModel {
 
     /// Handles Apple authorization failures while keeping user-cancelled flows silent.
     private func handleAppleAuthorizationFailure(_ error: Error) {
+        pendingAppleRequest = nil
+
         if appleAuthenticationManager.isCancellationError(error) {
             errorMessage = nil
             return
@@ -713,6 +739,24 @@ final class LoginViewModel {
             )
             self?.errorMessage = presentation.userMessage
         }
+    }
+
+    private func consumeAppleRequestContext(
+        for identity: AppleAuthenticationIdentity
+    ) throws -> AppleSignInRequestContext {
+        guard identity.identityToken != nil || identity.authorizationCode != nil else {
+            pendingAppleRequest = nil
+            throw AppleAuthenticationError.missingIdentityProof
+        }
+
+        guard let requestContext = pendingAppleRequest,
+              identity.state == nil || identity.state == requestContext.state else {
+            pendingAppleRequest = nil
+            throw AppleAuthenticationError.invalidCredential
+        }
+
+        pendingAppleRequest = nil
+        return requestContext
     }
 
     /// Runs a single sign-in operation while keeping the screen responsive and duplicate-safe.
@@ -747,4 +791,37 @@ private func isValidLoginEmail(_ email: String) -> Bool {
         #"^[A-Z0-9a-z._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$"#
     )
     return emailPredicate.evaluate(with: email)
+}
+
+private struct AppleSignInRequestContext: Sendable, Equatable {
+    let nonce: String
+    let hashedNonce: String
+    let state: String
+
+    static func make() -> AppleSignInRequestContext {
+        let nonce = randomURLSafeString()
+        return AppleSignInRequestContext(
+            nonce: nonce,
+            hashedNonce: sha256(nonce),
+            state: randomURLSafeString()
+        )
+    }
+
+    private static func randomURLSafeString(byteCount: Int = 32) -> String {
+        var bytes = [UInt8](repeating: 0, count: byteCount)
+        let status = SecRandomCopyBytes(kSecRandomDefault, bytes.count, &bytes)
+        precondition(status == errSecSuccess, "Unable to generate Apple sign-in nonce")
+
+        return Data(bytes)
+            .base64EncodedString()
+            .replacingOccurrences(of: "+", with: "-")
+            .replacingOccurrences(of: "/", with: "_")
+            .replacingOccurrences(of: "=", with: "")
+    }
+
+    private static func sha256(_ value: String) -> String {
+        let inputData = Data(value.utf8)
+        let hashedData = SHA256.hash(data: inputData)
+        return hashedData.map { String(format: "%02x", $0) }.joined()
+    }
 }

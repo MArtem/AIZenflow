@@ -57,12 +57,15 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             withIntermediateDirectories: true,
             attributes: nil
         )
+        try Self.applyPrivacyAttributes(to: directoryURL, fileManager: fileManager)
     }
 
     /// Atomically saves one identifiable item as an individual JSON file, replacing the current value for its ID.
     public func save(_ item: Item) throws {
         let data = try JSONEncoder().encode(item)
-        try data.write(to: fileURL(for: item.id), options: [.atomic])
+        let itemURL = fileURL(for: item.id)
+        try data.write(to: itemURL, options: [.atomic])
+        try Self.applyPrivacyAttributes(to: itemURL, fileManager: fileManager)
     }
 
     /// Saves one item on a utility task, replacing the current value for its ID.
@@ -74,6 +77,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
                 .appendingPathComponent(Self.safeFileName(for: item.id))
                 .appendingPathExtension("json")
             try data.write(to: fileURL, options: [.atomic])
+            try Self.applyPrivacyAttributes(to: fileURL, fileManager: .default)
         }.value
     }
 
@@ -202,6 +206,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             withIntermediateDirectories: true,
             attributes: nil
         )
+        try applyPrivacyAttributes(to: quarantineDirectoryURL, fileManager: fileManager)
 
         for fileURL in fileURLs {
             guard fileManager.fileExists(atPath: fileURL.path) else {
@@ -223,6 +228,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
                 try fileManager.removeItem(at: quarantineURL)
             }
             try fileManager.moveItem(at: fileURL, to: quarantineURL)
+            try applyPrivacyAttributes(to: quarantineURL, fileManager: fileManager)
         }
     }
 
@@ -236,5 +242,13 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
 
     private static func safeFileName(for id: String) -> String {
         id.replacingOccurrences(of: "/", with: "_")
+    }
+
+    private static func applyPrivacyAttributes(to url: URL, fileManager: FileManager) throws {
+        try (url as NSURL).setResourceValue(true, forKey: .isExcludedFromBackupKey)
+        try fileManager.setAttributes(
+            [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+            ofItemAtPath: url.path
+        )
     }
 }

@@ -38,6 +38,8 @@
 "login.external.password.valid" = "Password provided.";
 "login.apple.simulatorHint" = "Apple sign-in is prepared in code, but simulator-only validation is unreliable. Real authorization still requires a real bundle id, Apple capability setup, and ideally a physical device.";
 "login.apple.error.invalidCredential" = "Unable to read the Apple sign-in credential.";
+"login.apple.error.missingIdentityProof" = "Apple did not return the identity proof required for secure sign-in. Please try again.";
+"error.auth.appleIdentityProofMissing" = "Apple sign-in could not be verified securely. Please try again.";
 "login.error.emptyUsername" = "Enter a username.";
 "login.error.generic" = "Unable to sign in right now.";
 "common.done" = "Done";

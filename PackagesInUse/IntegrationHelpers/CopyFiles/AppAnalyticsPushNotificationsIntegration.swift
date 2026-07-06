@@ -4,7 +4,8 @@ import AppPushNotifications
 /// Optional integration helper for projects that use both `AppAnalytics` and `AppPushNotifications`.
 ///
 /// Privacy:
-/// Notification titles are intentionally not recorded. The mapper records `has_title` instead.
+/// Notification titles and raw routes are intentionally not recorded.
+/// The mapper records `has_title` and a coarse first-segment route category instead.
 public enum PushNotificationAnalyticsEventMapper {
     public static func map(_ event: PushNotificationEvent) -> AnalyticsEvent {
         switch event {
@@ -38,7 +39,7 @@ public enum PushNotificationAnalyticsEventMapper {
                 "has_title": .bool(title != nil)
             ]
             if let route {
-                attributes["route_code"] = .string(sanitizedCode(route))
+                attributes["route_code"] = .string(routeCode(route))
             }
             return AnalyticsEvent(
                 domain: .pushNotifications,
@@ -62,6 +63,21 @@ public enum PushNotificationAnalyticsEventMapper {
             }
         let collapsed = String(normalized).split(separator: "_").joined(separator: "_")
         return collapsed.isEmpty ? "unknown" : collapsed
+    }
+
+    private static func routeCode(_ value: String) -> String {
+        let firstPathComponent = value
+            .split { character in
+                character == "/" || character == "?" || character == "#" || character == "&" || character == "="
+            }
+            .first
+            .map(String.init) ?? ""
+        let sanitized = sanitizedCode(firstPathComponent)
+        return sanitized == "unknown" || isDynamicRouteComponent(sanitized) ? "route" : sanitized
+    }
+
+    private static func isDynamicRouteComponent(_ value: String) -> Bool {
+        value.allSatisfy(\.isNumber) || value.count > 48
     }
 }
 

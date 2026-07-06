@@ -109,15 +109,78 @@ struct AppLaunchConfiguration {
     ///
     /// `TCHOP_API_ENV=reqres_demo_auth` enables the external login/register screen backed by ReqRes.
     /// The corresponding API key is read from `TCHOP_REQRES_API_KEY`.
+    ///
+    /// Debug builds may omit `TCHOP_API_ENV` and use the local development stub. Non-debug builds
+    /// must explicitly choose a remote environment and provide `TCHOP_API_BASE_URL`; they fail closed
+    /// instead of silently using synthetic authentication.
     private static func makeAPIEnvironment(environment: [String: String]) -> AppAPIEnvironment {
-        switch environment["TCHOP_API_ENV"] {
+        let apiEnvironment = environment["TCHOP_API_ENV"]?
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+
+        switch apiEnvironment {
+        case nil, "":
+#if DEBUG
+            return .developmentStub
+#else
+            preconditionFailure("TCHOP_API_ENV must be set for non-debug builds.")
+#endif
+        case "development_stub", "dev_stub":
+#if DEBUG
+            return .developmentStub
+#else
+            preconditionFailure("Development stub auth is not available in non-debug builds.")
+#endif
         case "reqres_demo_auth":
+#if DEBUG
             return .developmentExternalAuth(
                 reqResAPIKey: environment["TCHOP_REQRES_API_KEY"] ?? "free_user_3Co5h4PffK0RHil0TjwChhqMETj",
                 enablesNetworkLogging: environment["TCHOP_NETWORK_LOGGING"] == "1"
             )
+#else
+            preconditionFailure("ReqRes demo auth is not available in non-debug builds.")
+#endif
+        case "development", "dev":
+            return makeRemoteAPIEnvironment(
+                kind: .development,
+                environment: environment,
+                enablesNetworkLoggingDefault: true
+            )
+        case "staging", "stage", "qa":
+            return makeRemoteAPIEnvironment(
+                kind: .staging,
+                environment: environment,
+                enablesNetworkLoggingDefault: false
+            )
+        case "production", "prod", "release", "live":
+            return makeRemoteAPIEnvironment(
+                kind: .production,
+                environment: environment,
+                enablesNetworkLoggingDefault: false
+            )
         default:
-            return .developmentStub
+            preconditionFailure("Unsupported TCHOP_API_ENV value: \(apiEnvironment ?? "<missing>").")
         }
+    }
+
+    private static func makeRemoteAPIEnvironment(
+        kind: AppAPIEnvironment.Kind,
+        environment: [String: String],
+        enablesNetworkLoggingDefault: Bool
+    ) -> AppAPIEnvironment {
+        guard let rawBaseURL = environment["TCHOP_API_BASE_URL"]?
+            .trimmingCharacters(in: .whitespacesAndNewlines),
+              let baseURL = URL(string: rawBaseURL),
+              let scheme = baseURL.scheme?.lowercased(),
+              scheme == "https",
+              baseURL.host != nil else {
+            preconditionFailure("TCHOP_API_BASE_URL must be a valid HTTPS URL for \(kind).")
+        }
+
+        return .remote(
+            kind: kind,
+            baseURL: baseURL,
+            enablesNetworkLogging: environment["TCHOP_NETWORK_LOGGING"].map { $0 == "1" } ?? enablesNetworkLoggingDefault
+        )
     }
 }

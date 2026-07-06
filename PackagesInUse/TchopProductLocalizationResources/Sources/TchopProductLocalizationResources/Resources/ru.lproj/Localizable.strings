@@ -38,6 +38,8 @@
 "login.external.password.valid" = "Пароль указан.";
 "login.apple.simulatorHint" = "Поддержка Apple sign-in подготовлена в коде, но проверка только в симуляторе ненадёжна. Для реальной авторизации всё ещё нужны корректный bundle id, capability Apple и желательно физическое устройство.";
 "login.apple.error.invalidCredential" = "Не удалось прочитать учётные данные Apple sign-in.";
+"login.apple.error.missingIdentityProof" = "Apple не вернул подтверждение личности, необходимое для безопасного входа. Попробуйте ещё раз.";
+"error.auth.appleIdentityProofMissing" = "Не удалось безопасно проверить вход через Apple. Попробуйте ещё раз.";
 "login.error.emptyUsername" = "Введите имя пользователя.";
 "login.error.generic" = "Сейчас не удалось выполнить вход.";
 "common.done" = "Готово";

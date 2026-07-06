@@ -179,6 +179,8 @@ final class AppDIContainer {
         apiEnvironment: AppAPIEnvironment = .developmentStub,
         isUITesting: Bool = false
     ) {
+        Self.validateRuntimeAuthEnvironment(apiEnvironment)
+
         let analyticsCollector = ProductAnalyticsMemoryCollector()
         self.analyticsCollector = analyticsCollector
 
@@ -235,6 +237,19 @@ final class AppDIContainer {
         self.deepLinkManager = navigationServices.deepLinkManager
 
         channelsStore.setAvailableChannels([.product, .community, .leadership])
+    }
+
+    private static func validateRuntimeAuthEnvironment(_ apiEnvironment: AppAPIEnvironment) {
+#if DEBUG
+        _ = apiEnvironment
+#else
+        switch apiEnvironment.kind {
+        case .developmentStub, .developmentExternalAuth:
+            preconditionFailure("Development or demo authentication is not available in non-debug builds.")
+        case .development, .staging, .production:
+            return
+        }
+#endif
     }
 
     /// Creates the shell view model used by the authenticated part of the app.

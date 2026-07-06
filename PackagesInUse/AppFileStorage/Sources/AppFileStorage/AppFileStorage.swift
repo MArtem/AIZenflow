@@ -383,6 +383,7 @@ public enum FileStorageSynchronousOperations {
                 }
                 try FileManager.default.copyItem(at: sourceURL, to: destination)
             }
+            try applyPrivacyAttributes(to: destination)
             return destination
         } catch let error as FileStorageError {
             throw error
@@ -415,6 +416,18 @@ public enum FileStorageSynchronousOperations {
                 try? FileManager.default.removeItem(at: temporaryURL)
             }
             throw FileStorageError.writeFailed(code: "atomic_copy_failed")
+        }
+    }
+
+    private static func applyPrivacyAttributes(to url: URL) throws {
+        do {
+            try (url as NSURL).setResourceValue(true, forKey: .isExcludedFromBackupKey)
+            try FileManager.default.setAttributes(
+                [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+                ofItemAtPath: url.path
+            )
+        } catch {
+            throw FileStorageError.writeFailed(code: "privacy_attributes_failed")
         }
     }
 }
@@ -452,6 +465,7 @@ public actor LocalFileStorage: FileStoring {
                 throw FileStorageError.writeFailed(code: "write_failed")
             }
         }
+        try applyPrivacyAttributes(to: destination)
     }
 
     /// Copies a file into storage without loading the whole payload into memory.
@@ -483,6 +497,7 @@ public actor LocalFileStorage: FileStoring {
                 throw FileStorageError.writeFailed(code: "copy_failed")
             }
         }
+        try applyPrivacyAttributes(to: destination)
     }
 
     public func read(from path: FileStorageRelativePath, options: FileStorageReadOptions = .default) async throws -> Data {
@@ -691,6 +706,18 @@ public actor LocalFileStorage: FileStoring {
                 try removeTemporaryWriteFile(temporaryURL)
             }
             throw FileStorageError.writeFailed(code: "atomic_write_failed")
+        }
+    }
+
+    private func applyPrivacyAttributes(to url: URL) throws {
+        do {
+            try (url as NSURL).setResourceValue(true, forKey: .isExcludedFromBackupKey)
+            try FileManager.default.setAttributes(
+                [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+                ofItemAtPath: url.path
+            )
+        } catch {
+            throw FileStorageError.writeFailed(code: "privacy_attributes_failed")
         }
     }
 

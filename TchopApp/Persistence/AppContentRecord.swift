@@ -33,6 +33,7 @@ final class ChannelRecord {
 @Model
 final class FeedCardRecord {
     @Attribute(.unique) var id: String
+    var ownerUserID: String?
     var channelID: String
     var kindRawValue: String
     var createdAt: Date
@@ -43,6 +44,7 @@ final class FeedCardRecord {
 
     init(
         id: String,
+        ownerUserID: String?,
         channelID: String,
         kindRawValue: String,
         createdAt: Date,
@@ -52,6 +54,7 @@ final class FeedCardRecord {
         lastSyncAttemptAt: Date? = nil
     ) {
         self.id = id
+        self.ownerUserID = ownerUserID
         self.channelID = channelID
         self.kindRawValue = kindRawValue
         self.createdAt = createdAt

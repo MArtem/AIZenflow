@@ -5,7 +5,7 @@ import Foundation
 /// Optional integration helper for projects that use both `AppAnalytics` and `AppNavigation`.
 ///
 /// Privacy:
-/// Deep-link URLs are recorded without query strings or fragments.
+/// Deep-link URLs are recorded without URL paths, query strings, or fragments.
 @MainActor
 public enum NavigationAnalyticsEventMapper {
     public static func map(_ event: NavigationEvent) -> AnalyticsEvent {
@@ -16,7 +16,7 @@ public enum NavigationAnalyticsEventMapper {
                 name: "deep_link_handled",
                 attributes: [
                     "url": .string(TelemetrySanitizer.redactedURL(url)),
-                    "destination": .string(destination),
+                    "destination_code": .string(TelemetrySanitizer.sanitizedCode(destination)),
                     "policy": .string(policy.rawValue)
                 ]
             )
@@ -101,6 +101,9 @@ private enum TelemetrySanitizer {
     static func redactedURL(_ value: String) -> String {
         guard var components = URLComponents(string: value) else {
             return "invalid_url"
+        }
+        if !components.path.isEmpty {
+            components.path = "/<redacted-path>"
         }
         components.query = nil
         components.fragment = nil

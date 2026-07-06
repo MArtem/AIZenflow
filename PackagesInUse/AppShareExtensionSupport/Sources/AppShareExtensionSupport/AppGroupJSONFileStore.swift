@@ -30,6 +30,7 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
             withIntermediateDirectories: true,
             attributes: nil
         )
+        try Self.applyPrivacyAttributes(to: directoryURL, fileManager: fileManager)
 
         self.fileManager = fileManager
         self.fileURL = directoryURL.appendingPathComponent(fileName).appendingPathExtension("json")
@@ -39,6 +40,7 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
     public func save(_ item: Item) throws {
         let data = try encoder.encode(item)
         try data.write(to: fileURL, options: [.atomic])
+        try Self.applyPrivacyAttributes(to: fileURL, fileManager: fileManager)
     }
 
     /// Loads the current snapshot value, returning `nil` when the file does not exist.
@@ -58,5 +60,13 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
         }
 
         try fileManager.removeItem(at: fileURL)
+    }
+
+    private static func applyPrivacyAttributes(to url: URL, fileManager: FileManager) throws {
+        try (url as NSURL).setResourceValue(true, forKey: .isExcludedFromBackupKey)
+        try fileManager.setAttributes(
+            [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+            ofItemAtPath: url.path
+        )
     }
 }

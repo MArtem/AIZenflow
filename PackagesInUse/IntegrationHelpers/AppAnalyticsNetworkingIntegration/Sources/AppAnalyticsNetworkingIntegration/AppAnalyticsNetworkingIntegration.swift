@@ -9,7 +9,7 @@ import FoundationNetworking
 /// This helper intentionally lives outside both root packages so each package remains single-folder standalone.
 ///
 /// Privacy:
-/// The mapper never records raw error descriptions, HTTP bodies, headers, query strings, or URL fragments.
+/// The mapper never records raw error descriptions, HTTP bodies, headers, URL paths, query strings, or URL fragments.
 /// It emits stable categories/codes suitable for production telemetry.
 public enum APIMetricsAnalyticsEventMapper {
     public static func map(_ event: APIMetricsEvent) -> AnalyticsEvent {
@@ -145,6 +145,9 @@ private enum TelemetrySanitizer {
     static func redactedURL(_ value: String) -> String {
         guard var components = URLComponents(string: value) else {
             return "invalid_url"
+        }
+        if !components.path.isEmpty {
+            components.path = "/<redacted-path>"
         }
         components.query = nil
         components.fragment = nil

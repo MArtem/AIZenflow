@@ -33,6 +33,7 @@ struct LoginScreenView: View {
                 if viewModel.mode == .defaultAppAuth {
                     LoginAppleSectionView(
                         isSubmitting: viewModel.isSubmitting,
+                        onRequest: viewModel.configureAppleSignInRequest,
                         onCompletion: viewModel.handleAppleSignInCompletion
                     )
                     LoginDividerView()
@@ -192,12 +193,13 @@ private struct LoginHeroSectionView: View {
 
 private struct LoginAppleSectionView: View {
     let isSubmitting: Bool
+    let onRequest: (ASAuthorizationAppleIDRequest) -> Void
     let onCompletion: (Result<ASAuthorization, Error>) -> Void
 
     var body: some View {
         VStack(alignment: .leading, spacing: 12) {
             SignInWithAppleButton(.signIn) { request in
-                request.requestedScopes = [.fullName, .email]
+                onRequest(request)
             } onCompletion: { result in
                 onCompletion(result)
             }

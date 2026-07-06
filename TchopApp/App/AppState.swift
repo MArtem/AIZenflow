@@ -150,6 +150,7 @@ final class AppState {
         profileTabViewModel = nil
         pendingDeepLinkInput = nil
         channelsStore.reset()
+        appShellViewModel.clearFeedScope()
         appShellViewModel.newsFeedViewModel.send(.selectedChannelChanged)
         resetNavigationToDefaultState()
         appShellViewModel.closeMenu()
@@ -237,6 +238,7 @@ final class AppState {
             } else {
                 sessionStore.setSignedOut()
                 syncSessionStateFromStore()
+                appShellViewModel.clearFeedScope()
             }
         } catch {
             _ = await errorManager.presentableError(
@@ -248,6 +250,7 @@ final class AppState {
             )
             sessionStore.setSignedOut()
             syncSessionStateFromStore()
+            appShellViewModel.clearFeedScope()
         }
     }
 
@@ -359,6 +362,7 @@ final class AppState {
     private func activateAuthenticatedUser(_ user: AppUser) {
         sessionStore.setAuthenticatedUser(user)
         syncSessionStateFromStore()
+        appShellViewModel.activateFeedScope(for: user.id)
         bootstrapChannels(for: user)
         syncShareExtensionSessionContextIfNeeded()
         updateProfileTabViewModel(for: user)

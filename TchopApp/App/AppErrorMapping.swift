@@ -21,8 +21,16 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
             return mapAuthenticationError(authenticationError, context: context)
         }
 
+        if let apiError = error as? APIError {
+            return mapAPIError(apiError, context: context)
+        }
+
         if let userRepositoryError = error as? UserRepositoryError {
             return mapUserRepositoryError(userRepositoryError, context: context)
+        }
+
+        if let feedCardStoreError = error as? FeedCardStoreError {
+            return mapFeedCardStoreError(feedCardStoreError, context: context)
         }
 
         if let repositoryError = error as? RepositoryError {
@@ -114,6 +122,136 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
                 debugDescription: "Refresh was requested without a persisted refresh token.",
                 context: context
             )
+        case .missingAppleIdentityProof:
+            return AppError(
+                category: .authentication,
+                severity: .error,
+                suggestion: .reauthenticate,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.auth.appleIdentityProofMissing",
+                debugDescription: "Apple sign-in reached backend exchange without identity token or authorization code.",
+                context: context
+            )
+        }
+    }
+
+    private func mapAPIError(
+        _ error: APIError,
+        context: AppErrorContext?
+    ) -> AppError {
+        switch error {
+        case .noConnection:
+            return AppError(
+                category: .network,
+                severity: .warning,
+                suggestion: .checkConnection,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.network.offline",
+                debugDescription: "Network request failed because the device is offline.",
+                context: context
+            )
+        case .timeout:
+            return AppError(
+                category: .network,
+                severity: .warning,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.network.timeout",
+                debugDescription: "Network request timed out.",
+                context: context
+            )
+        case .requestCancelled:
+            return AppError(
+                category: .client,
+                severity: .info,
+                suggestion: .none,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.unknown",
+                debugDescription: "Network request was cancelled.",
+                context: context
+            )
+        case .httpFailure(let failure):
+            return mapHTTPStatusCode(failure.statusCode, context: context)
+        case .invalidStatusCode(let statusCode):
+            return mapHTTPStatusCode(statusCode, context: context)
+        case .badURL, .invalidResponse, .decodingFailed:
+            return AppError(
+                category: .client,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.unknown",
+                debugDescription: "Network request failed because the client response contract was invalid.",
+                context: context
+            )
+        case .transportFailure:
+            return AppError(
+                category: .network,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.network.timeout",
+                debugDescription: "Network transport failed.",
+                context: context
+            )
+        }
+    }
+
+    private func mapHTTPStatusCode(
+        _ statusCode: Int,
+        context: AppErrorContext?
+    ) -> AppError {
+        switch statusCode {
+        case 401, 403:
+            return AppError(
+                category: .authentication,
+                severity: .error,
+                suggestion: .reauthenticate,
+                isRetryable: false,
+                isSessionRecoveryRequired: true,
+                messageKey: "error.auth.required",
+                debugDescription: "Network request failed with authentication status \(statusCode).",
+                context: context
+            )
+        case 408, 429:
+            return AppError(
+                category: .network,
+                severity: .warning,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.network.timeout",
+                debugDescription: "Network request failed with retryable HTTP status \(statusCode).",
+                context: context
+            )
+        case 500...599:
+            return AppError(
+                category: .server,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: true,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.server.unavailable",
+                debugDescription: "Network request failed with server HTTP status \(statusCode).",
+                context: context
+            )
+        default:
+            return AppError(
+                category: .client,
+                severity: .error,
+                suggestion: .retry,
+                isRetryable: false,
+                isSessionRecoveryRequired: false,
+                messageKey: "error.unknown",
+                debugDescription: "Network request failed with HTTP status \(statusCode).",
+                context: context
+            )
         }
     }
 
@@ -142,6 +280,25 @@ struct AppRuntimeErrorMapper: AppErrorMapping {
                 isSessionRecoveryRequired: false,
                 messageKey: "error.client.unsupportedCardAction",
                 debugDescription: "The requested feed card shape is not supported by the current persistence contract.",
+                context: context
+            )
+        }
+    }
+
+    private func mapFeedCardStoreError(
+        _ error: FeedCardStoreError,
+        context: AppErrorContext?
+    ) -> AppError {
+        switch error {
+        case .missingActiveUser:
+            return AppError(
+                category: .authentication,
+                severity: .error,
+                suggestion: .reauthenticate,
+                isRetryable: false,
+                isSessionRecoveryRequired: true,
+                messageKey: "error.auth.required",
+                debugDescription: "Feed card persistence was requested without an active authenticated user.",
                 context: context
             )
         }

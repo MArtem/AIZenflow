@@ -9,9 +9,13 @@ import Observation
 /// External usage:
 /// Implemented by app repositories and injected into `FeedCardStore` by composition code.
 protocol FeedCardPersisting {
-    func loadCards() throws -> [FeedCard]
-    func saveCards(_ cards: [FeedCard]) throws
-    func saveCard(_ card: FeedCard) throws
+    func loadCards(for userID: String) throws -> [FeedCard]
+    func saveCards(_ cards: [FeedCard], for userID: String) throws
+    func saveCard(_ card: FeedCard, for userID: String) throws
+}
+
+enum FeedCardStoreError: Error {
+    case missingActiveUser
 }
 
 @MainActor
@@ -30,11 +34,11 @@ final class FeedCardStore {
 
     private let repository: any FeedCardPersisting
     private var persistedCards: [FeedCard]
+    private var activeUserID: String?
 
     init(repository: any FeedCardPersisting) {
         self.repository = repository
-        self.persistedCards = (try? repository.loadCards()) ?? []
-        refreshCards()
+        self.persistedCards = []
     }
 
     func publish(_ card: FeedCard) {
@@ -43,6 +47,18 @@ final class FeedCardStore {
         } catch {
             assertionFailure("Failed to persist feed card: \(error)")
         }
+    }
+
+    func activateUser(id userID: String) {
+        activeUserID = userID
+        persistedCards = (try? repository.loadCards(for: userID)) ?? []
+        refreshCards()
+    }
+
+    func clearUser() {
+        activeUserID = nil
+        persistedCards = []
+        cards = []
     }
 
     func cards(for channelID: String?) -> [NewsFeedCard] {
@@ -57,6 +73,9 @@ final class FeedCardStore {
         guard !feedCards.isEmpty else {
             return
         }
+        guard let activeUserID else {
+            throw FeedCardStoreError.missingActiveUser
+        }
 
         let existingIDs = Set(persistedCards.map(\.id))
         let newCards = feedCards.filter { !existingIDs.contains($0.id) }
@@ -64,7 +83,7 @@ final class FeedCardStore {
             return
         }
 
-        try repository.saveCards(newCards)
+        try repository.saveCards(newCards, for: activeUserID)
         persistedCards = newCards + persistedCards
         cards = newCards.map(\.newsFeedCard) + cards
     }
@@ -76,10 +95,13 @@ final class FeedCardStore {
         guard let index = persistedCards.firstIndex(where: { $0.id == id }) else {
             return
         }
+        guard let activeUserID else {
+            return
+        }
 
         let updatedCard = transform(persistedCards[index])
         do {
-            try repository.saveCard(updatedCard)
+            try repository.saveCard(updatedCard, for: activeUserID)
             persistedCards[index] = updatedCard
             cards[index] = updatedCard.newsFeedCard
         } catch {
@@ -417,6 +439,16 @@ final class AppShellViewModel {
     /// Closes the side menu explicitly.
     func closeMenu() {
         state.isMenuOpen = false
+    }
+
+    func activateFeedScope(for userID: String) {
+        feedCardStore.activateUser(id: userID)
+        newsFeedViewModel.send(.channelCardsChanged)
+    }
+
+    func clearFeedScope() {
+        feedCardStore.clearUser()
+        newsFeedViewModel.send(.channelCardsChanged)
     }
 
     /// Applies one new active channel choice to the shared runtime store.

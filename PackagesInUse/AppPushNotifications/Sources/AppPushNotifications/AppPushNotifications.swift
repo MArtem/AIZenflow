@@ -58,7 +58,12 @@ public struct PushNotificationPayload: Codable, Equatable, Sendable {
     }
 }
 
-/// Persisted manager snapshot covering authorization, token, and the latest payloads.
+/// Persisted manager snapshot covering registration status without retaining notification content.
+///
+/// Privacy:
+/// Host apps should treat device tokens and APNs payloads as sensitive. The manager keeps these fields source
+/// compatible for consumers that inspect transient in-memory state, but the default persistence path intentionally
+/// avoids storing token or payload values after handling.
 public struct PushNotificationState: Codable, Equatable, Sendable {
     public let authorizationStatus: PushNotificationAuthorizationStatus
     public let isRegisteredForRemoteNotifications: Bool
@@ -394,8 +399,8 @@ public actor PushNotificationManager: PushNotificationManaging {
         try await updateState(
             to: makeState(
                 isRegisteredForRemoteNotifications: true,
-                deviceToken: normalizedToken,
-                lastRegistrationErrorDescription: nil
+                deviceToken: .some(nil),
+                lastRegistrationErrorDescription: .some(nil)
             ),
             event: .deviceTokenUpdated(normalizedToken.value)
         )
@@ -407,7 +412,7 @@ public actor PushNotificationManager: PushNotificationManaging {
         try await updateState(
             to: makeState(
                 isRegisteredForRemoteNotifications: false,
-                lastRegistrationErrorDescription: errorDescription
+                lastRegistrationErrorDescription: .some(nil)
             ),
             event: .registrationFailed(reason: errorDescription)
         )
@@ -418,8 +423,8 @@ public actor PushNotificationManager: PushNotificationManaging {
     public func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload {
         try await updateState(
             to: makeState(
-                lastReceivedPayload: payload.source == .opened ? state.lastReceivedPayload : payload,
-                lastOpenedPayload: payload.source == .opened ? payload : state.lastOpenedPayload
+                lastReceivedPayload: .some(nil),
+                lastOpenedPayload: .some(nil)
             ),
             event: .remoteNotificationHandled(
                 source: payload.source,

@@ -22,36 +22,37 @@ struct FeedCardRepository: FeedCardPersisting {
         )
     }
 
-    func loadCards() throws -> [FeedCard] {
+    func loadCards(for userID: String) throws -> [FeedCard] {
         try databaseManager.read(
             DatabaseReadOperation(swiftData: { context in
                 let records = try context.fetch(FetchDescriptor<FeedCardRecord>())
+                    .filter { $0.ownerUserID == userID }
                     .sorted(by: { $0.createdAt > $1.createdAt })
                 return try records.map(Self.decodeCard)
             })
         )
     }
 
-    func saveCards(_ cards: [FeedCard]) throws {
+    func saveCards(_ cards: [FeedCard], for userID: String) throws {
         guard !cards.isEmpty else {
             return
         }
 
         for card in cards {
-            try saveCard(card)
+            try saveCard(card, for: userID)
         }
     }
 
-    func saveCard(_ card: FeedCard) throws {
+    func saveCard(_ card: FeedCard, for userID: String) throws {
         try databaseManager.write(
             DatabaseWriteOperation(swiftData: { context in
                 let payloadData = try JSONEncoder().encode(card)
                 let existingRecords = try context.fetch(FetchDescriptor<FeedCardRecord>())
 
-                if let existingRecord = existingRecords.first(where: { $0.id == card.id }) {
-                    Self.apply(card, payloadData: payloadData, to: existingRecord)
+                if let existingRecord = existingRecords.first(where: { $0.id == card.id && $0.ownerUserID == userID }) {
+                    Self.apply(card, ownerUserID: userID, payloadData: payloadData, to: existingRecord)
                 } else {
-                    context.insert(Self.makeRecord(from: card, payloadData: payloadData))
+                    context.insert(Self.makeRecord(from: card, ownerUserID: userID, payloadData: payloadData))
                 }
             })
         ) as Void
@@ -63,10 +64,12 @@ struct FeedCardRepository: FeedCardPersisting {
 
     private static func makeRecord(
         from card: FeedCard,
+        ownerUserID: String,
         payloadData: Data
     ) -> FeedCardRecord {
         FeedCardRecord(
             id: card.id,
+            ownerUserID: ownerUserID,
             channelID: card.channelID,
             kindRawValue: card.kind.rawValue,
             createdAt: card.createdAt,
@@ -76,9 +79,11 @@ struct FeedCardRepository: FeedCardPersisting {
 
     private static func apply(
         _ card: FeedCard,
+        ownerUserID: String,
         payloadData: Data,
         to record: FeedCardRecord
     ) {
+        record.ownerUserID = ownerUserID
         record.channelID = card.channelID
         record.kindRawValue = card.kind.rawValue
         record.createdAt = card.createdAt
