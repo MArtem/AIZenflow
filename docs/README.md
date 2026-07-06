@@ -45,6 +45,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 - `./docs/CURRENT_USER_OVERRIDES.md`
 - `./docs/MODEL_ROUTING_RULE.md`
+- `./docs/DOCUMENT_LIBRARY_GUIDE.md`
 
 ### Production Quality And Review Gates
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`
@@ -148,12 +149,14 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/agent-prompts/README.md`
 - `./docs/agent-prompts/ios-architecture-style-review.md`
 - `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
-- `./docs/saved-prompts/README.md`
-- `./docs/ALL_DOCUMENTS_INVENTORY.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
 - `./docs/knowledge/TchopApp/README.md`
 
+
+### Reference Inventories And Saved Prompts
+- `./docs/saved-prompts/README.md`
+- `./docs/ALL_DOCUMENTS_INVENTORY.md`
 
 ### Documentation Split / Transfer Baseline
 - `./documentation-vault/README.md`

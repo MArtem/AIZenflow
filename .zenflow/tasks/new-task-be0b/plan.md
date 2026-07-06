@@ -1435,3 +1435,15 @@ Use archives only when historical detail is needed:
 - Added `./docs/ALL_DOCUMENTS_INVENTORY.md` as a generated complete inventory of active shared docs, prompts, skills, task docs, package docs/scripts, and source-only/reuse package docs, excluding duplicate `./documentation-vault` copies.
 - Mirrored saved prompt snapshots and inventory into `./docs/documentation-split/**` and matching `./documentation-vault/**` locations.
 - Verification scope: docs/vault/static checks only; no app build/tests/simulator required because this block changed documentation only.
+
+### [x] Step: Rationalize saved-prompt and document-inventory structure
+- Audited the new saved-prompt and inventory files added from the Codex App screenshot and found no content hash conflicts, but excessive duplication: seven identical saved-prompt copies and six identical inventory copies across active docs, split docs, and vault mirrors.
+- Rationalized the structure to reduce resource cost and drift risk:
+  - canonical saved prompts live only under `./docs/saved-prompts/`;
+  - durable shared mirror lives under `./documentation-vault/reusable/saved-prompts/`;
+  - canonical complete inventory lives under `./docs/ALL_DOCUMENTS_INVENTORY.md`;
+  - durable inventory mirror lives under `./documentation-vault/apps/TchopApp/root-docs/docs/ALL_DOCUMENTS_INVENTORY.md`.
+- Removed redundant saved-prompt and inventory copies from `./docs/documentation-split/**`, `./documentation-vault/reusable/baseline/**`, and `./documentation-vault/apps/TchopApp/baseline/**` where they duplicated canonical/mirror files without adding transfer value.
+- Added `./docs/DOCUMENT_LIBRARY_GUIDE.md` to define the low-cost read strategy: startup docs first, task-specific docs next, prompt/skill docs only when triggered, and full inventory/vault only for audits, transfer, recovery, or documentation-library maintenance.
+- Refreshed `./docs/ALL_DOCUMENTS_INVENTORY.md`; it now lists 1700 active physical docs/files while excluding duplicate `./documentation-vault` mirrors from the normal reading path.
+- Verification scope: docs/vault/static checks only; no app build/tests/simulator required because no runtime source changed.

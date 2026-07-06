@@ -7,12 +7,14 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - Includes active root docs, `./docs`, local skills under `./.codex/skills`, current task docs under `./.zenflow/tasks/new-task-be0b`, `./Packages`, `./PackagesInUse`, and `./PackagesForReuse`.
 - Excludes generated build artifacts, `.git`, `.build`, `.swiftpm`, `DerivedData`, and `xcuserdata`.
 - Excludes `./documentation-vault` duplicate copies to avoid listing the same document twice; the vault mirrors active/split sources separately.
+- Excludes additional vault mirrors from the normal reading path; use `./docs/DOCUMENT_LIBRARY_GUIDE.md` to select the smallest sufficient document set.
 
 ## Total
-- Documents/files listed: 1714
+- Documents/files listed: 1700
 
 ## Active project docs
 - `./docs/AGENT_RULES.md`
+- `./docs/ALL_DOCUMENTS_INVENTORY.md`
 - `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
 - `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
@@ -26,6 +28,7 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./docs/DEPENDENCY_POLICY.md`
 - `./docs/DESIGN_SYSTEM_GOVERNANCE.md`
 - `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`
+- `./docs/DOCUMENT_LIBRARY_GUIDE.md`
 - `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
 - `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
 - `./docs/INCIDENT_RESPONSE_STANDARD.md`
@@ -288,14 +291,6 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./docs/documentation-split/app-specific/docs/knowledge/global/prompt-presets/README.md`
 - `./docs/documentation-split/app-specific/docs/knowledge/global/prompt-presets/figma-mcp-swiftui-implementation.md`
 - `./docs/documentation-split/app-specific/docs/knowledge/global/prompt-presets/swiftui-design-generation-master.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/README.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/confirm-first.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/fix-ci.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/ios.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/pr-comments.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/review.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/services.md`
-- `./docs/documentation-split/app-specific/docs/saved-prompts/update-branch.md`
 - `./docs/documentation-split/reusable/.codex/skills/ios-accessibility/SKILL.md`
 - `./docs/documentation-split/reusable/.codex/skills/ios-api-contracts/SKILL.md`
 - `./docs/documentation-split/reusable/.codex/skills/ios-architecture-router/SKILL.md`
@@ -459,14 +454,6 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./docs/documentation-split/reusable/docs/knowledge/global/prompt-presets/test-generation-master.md`
 - `./docs/documentation-split/reusable/docs/knowledge/global/prompt-presets/test-generation-quick.md`
 - `./docs/documentation-split/reusable/docs/knowledge/global/prompt-presets/test-review-mini.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/README.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/confirm-first.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/fix-ci.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/ios.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/pr-comments.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/review.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/services.md`
-- `./docs/documentation-split/reusable/docs/saved-prompts/update-branch.md`
 - `./docs/documentation-split/reusable/external-environment/skills/agents-home/agent-browser/SKILL.md`
 - `./docs/documentation-split/reusable/external-environment/skills/agents-home/cross-review/SKILL.md`
 - `./docs/documentation-split/reusable/external-environment/skills/agents-home/frontend-design/SKILL.md`

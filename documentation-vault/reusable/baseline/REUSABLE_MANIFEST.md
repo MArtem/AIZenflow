@@ -181,7 +181,3 @@ The paths below are relative to `./docs/documentation-split/reusable/` unless th
 - `./docs/documentation-split/reusable/templates/AppInfrastructurePackage.swift.template` — neutral SwiftPM package template with package-level tests.
 
 - `./infrastructure-sdk/README.md` — reusable SDK/package creation baseline, templates, catalog, policies, and verification scripts.
-
-## Saved Prompt Snapshots
-- `./docs/saved-prompts/README.md`
-- `./docs/ALL_DOCUMENTS_INVENTORY.md`
