@@ -1,13 +1,14 @@
 # Saved Prompt: `/update-branch`
 
-## Visible Content
-Merge the latest changes from main and resolve conflicts. Ask me if you'r...
+## Content
+```text
+Merge the latest changes from main and resolve conflicts. Ask me if you're unsure about any resolution.
+```
 
 ## Completeness
-Status: partial from screenshot. The exact full saved-prompt body was not found as a physical file in the repo/vault/sandbox audit.
+Status: complete exact export from Zenflow/Codex App `saved_prompts` table.
 
-## Required Follow-Up For Exact Preservation
-Export or copy the full `/update-branch` prompt body from Codex App and replace this partial placeholder.
-
-## Source
-Codex App saved prompts screenshot: `./.zenflow-attachments/dbcdd4b7-48fe-4fb7-bbea-7b40adce1a0f.png`.
+## Export Metadata
+- Slug: `/update-branch`
+- Exported from local read-only DB table: `saved_prompts`
+- App-updated timestamp: `2026-03-29 00:22:09.666`

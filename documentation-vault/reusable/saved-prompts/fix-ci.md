@@ -1,10 +1,14 @@
 # Saved Prompt: `/fix-ci`
 
 ## Content
+```text
 Check CI failures using `gh` CLI and fix them.
+```
 
 ## Completeness
-Status: complete from screenshot-visible content.
+Status: complete exact export from Zenflow/Codex App `saved_prompts` table.
 
-## Source
-Codex App saved prompts screenshot: `./.zenflow-attachments/dbcdd4b7-48fe-4fb7-bbea-7b40adce1a0f.png`.
+## Export Metadata
+- Slug: `/fix-ci`
+- Exported from local read-only DB table: `saved_prompts`
+- App-updated timestamp: `2026-03-29 00:22:09.666`

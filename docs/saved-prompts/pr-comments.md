@@ -1,13 +1,14 @@
 # Saved Prompt: `/pr-comments`
 
-## Visible Content
-Check GitHub PR review comments and share your resolution plan. Only ...
+## Content
+```text
+Check GitHub PR review comments and share your resolution plan. Only proceed after my confirmation.
+```
 
 ## Completeness
-Status: partial from screenshot. The full saved-prompt body was not found as a physical file in the repo/vault/sandbox audit.
+Status: complete exact export from Zenflow/Codex App `saved_prompts` table.
 
-## Required Follow-Up For Exact Preservation
-Export or copy the full `/pr-comments` prompt body from Codex App and replace this partial placeholder.
-
-## Source
-Codex App saved prompts screenshot: `./.zenflow-attachments/dbcdd4b7-48fe-4fb7-bbea-7b40adce1a0f.png`.
+## Export Metadata
+- Slug: `/pr-comments`
+- Exported from local read-only DB table: `saved_prompts`
+- App-updated timestamp: `2026-03-29 00:22:09.666`

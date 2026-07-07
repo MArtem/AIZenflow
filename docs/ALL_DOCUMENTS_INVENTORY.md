@@ -10,7 +10,7 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - Excludes additional vault mirrors from the normal reading path; use `./docs/DOCUMENT_LIBRARY_GUIDE.md` to select the smallest sufficient document set.
 
 ## Total
-- Documents/files listed: 1700
+- Documents/files listed: 1701
 
 ## Active project docs
 - `./docs/AGENT_RULES.md`
@@ -1722,6 +1722,7 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./.zenflow/tasks/new-task-be0b/handoff.md`
 - `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `./.zenflow/tasks/new-task-be0b/plan.md`
+- `./.zenflow/tasks/new-task-be0b/saved-prompts-export.json`
 - `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
 - `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`
 - `./.zenflow/tasks/new-task-be0b/traces/smoke-cpu.trace/form.template`

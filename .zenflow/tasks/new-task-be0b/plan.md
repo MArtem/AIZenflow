@@ -1447,3 +1447,12 @@ Use archives only when historical detail is needed:
 - Added `./docs/DOCUMENT_LIBRARY_GUIDE.md` to define the low-cost read strategy: startup docs first, task-specific docs next, prompt/skill docs only when triggered, and full inventory/vault only for audits, transfer, recovery, or documentation-library maintenance.
 - Refreshed `./docs/ALL_DOCUMENTS_INVENTORY.md`; it now lists 1700 active physical docs/files while excluding duplicate `./documentation-vault` mirrors from the normal reading path.
 - Verification scope: docs/vault/static checks only; no app build/tests/simulator required because no runtime source changed.
+
+### [x] Step: Recover full Codex App saved prompt bodies from local Zenflow DB
+- User approved resolving the remaining partial saved-prompt risk for `/pr-comments`, `/review`, and `/update-branch`.
+- Located the local Zenflow/Codex App SQLite database at `/Users/Artem/Library/Application Support/ai.forgoodai.zenflow/db.sqlite` and read it strictly read-only.
+- Found table `saved_prompts` with all screenshot shortcuts and exported exact prompt bodies to `./.zenflow/tasks/new-task-be0b/saved-prompts-export.json`.
+- Updated `./docs/saved-prompts/*.md` so `/confirm-first`, `/fix-ci`, `/pr-comments`, `/review`, `/update-branch`, `/ios`, and `/services` are all complete exact exports from the app table.
+- Preserved active evolved task-rule links for `/ios` and `/services` because current project rules are more authoritative than the older saved prompt bodies.
+- Mirrored the recovered prompt snapshots to `./documentation-vault/reusable/saved-prompts/` and refreshed `./docs/ALL_DOCUMENTS_INVENTORY.md` plus its vault mirror.
+- Verification scope: docs/vault/static checks only; no app build/tests/simulator required because no runtime source changed.
