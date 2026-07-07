@@ -1465,3 +1465,10 @@ Use archives only when historical detail is needed:
 - Removed the old local `./documentation-vault` duplicate from the current worktree staging area so the central repo is the single source.
 - Updated MVVMExample lightweight pointers in `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/AGENTS.md`, `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/docs/README.md`, and `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/docs/CURRENT_USER_OVERRIDES.md`; removed accidental local full-library guide/inventory duplicates there.
 - Verification: central vault check, current docs consistency/index/framework checks, current `git diff --check`, MVVMExample docs index, and MVVMExample `git diff --check` succeeded. No build/tests/simulator run because this was documentation structure only.
+
+### [x] Step: Publish shared documentation vault to GitHub
+- Connected the central shared documentation repository at `/Users/Artem/.zenflow/worktrees/documentation-vault` to `https://github.com/MArtem/AIZenflowDocumentation`.
+- Hardened the central repo `.gitignore` for documentation/source snapshots and generated artifacts.
+- Updated central `README.md` and `SYNC_POLICY.md` so the canonical location and GitHub remote are explicit.
+- Pushed the central library to GitHub; latest remote `main` commit is `70aaac4 Document shared vault remote ownership`.
+- Verification: central `./scripts/check_documentation_vault.py`, central `git diff --check`, push to `origin/main`, and central `git status` succeeded/clean. No build/tests/simulator run because this was docs/git infrastructure only.
