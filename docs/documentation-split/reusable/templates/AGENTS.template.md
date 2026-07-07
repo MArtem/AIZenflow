@@ -25,7 +25,11 @@ Before code, docs, git, or project changes, read:
 4. `./docs/CURRENT_USER_OVERRIDES.md`
 5. `./docs/AGENT_RULES.md`
 6. `./docs/WORK_CONTINUITY.md`
-7. current Zenflow task plan if present
+7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
+8. `./docs/DOCUMENT_LIBRARY_GUIDE.md`
+9. `./docs/ALL_DOCUMENTS_INVENTORY.md`
+10. current Zenflow task handoff/plan if present
+11. task-relevant package/prompt/skill docs selected through the guide and inventory.
 
 
 ## Documentation Vault

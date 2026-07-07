@@ -6,6 +6,8 @@ Files in this group are intended as the portable iOS production baseline for a n
 ## Files
 - `./AGENTS.md`
 - `./docs/MODEL_ROUTING_RULE.md`
+- `./docs/DOCUMENT_LIBRARY_GUIDE.md`
+- `./docs/ALL_DOCUMENTS_INVENTORY.md`
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`
