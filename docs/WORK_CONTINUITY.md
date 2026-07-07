@@ -25,8 +25,8 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 ## Filesystem Sandbox Rule
 
 ## Documentation Vault Continuity
-- The durable git-backed documentation vault lives at `./documentation-vault` in the `AIZenflow` repo.
-- Before a new task/project bootstrap, copy or read `./documentation-vault/reusable/` first, then create app-specific docs for the new app under both the new worktree and `./documentation-vault/apps/<NewApp>/`.
+- The durable git-backed documentation vault lives at `/Users/Artem/.zenflow/worktrees/documentation-vault`.
+- Before a new task/project bootstrap, read `/Users/Artem/.zenflow/worktrees/documentation-vault/DOCUMENT_LIBRARY_GUIDE.md` and the relevant central manifests. Do not copy the full library into the new worktree; create only minimal task/project pointers locally and keep shared docs in the central library.
 - Existing app-specific vault areas are recovery/reference sources only; do not copy another app's docs into the current task folder unless the user explicitly asks.
 
 - The user explicitly expanded the local sandbox for this task from `/Users/Artem/.zenflow/worktrees` to `/Users/Artem/.zenflow`.

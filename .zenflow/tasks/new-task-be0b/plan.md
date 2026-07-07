@@ -1456,3 +1456,12 @@ Use archives only when historical detail is needed:
 - Preserved active evolved task-rule links for `/ios` and `/services` because current project rules are more authoritative than the older saved prompt bodies.
 - Mirrored the recovered prompt snapshots to `./documentation-vault/reusable/saved-prompts/` and refreshed `./docs/ALL_DOCUMENTS_INVENTORY.md` plus its vault mirror.
 - Verification scope: docs/vault/static checks only; no app build/tests/simulator required because no runtime source changed.
+
+### [x] Step: Centralize shared documentation library at worktrees root
+- Corrected the documentation-library ownership model after user clarification: the shared library must not be copied into each task/worktree.
+- Created the canonical shared git repository at `/Users/Artem/.zenflow/worktrees/documentation-vault` with central `DOCUMENT_LIBRARY_GUIDE.md`, `ALL_DOCUMENTS_INVENTORY.md`, manifests, reusable docs, app snapshots, and task archives.
+- Initialized and committed the central documentation-vault repo; latest central commit is `a97ba4b Centralize shared documentation library`.
+- Updated current worktree docs/rules to point to `/Users/Artem/.zenflow/worktrees/documentation-vault` instead of local `./documentation-vault`.
+- Removed the old local `./documentation-vault` duplicate from the current worktree staging area so the central repo is the single source.
+- Updated MVVMExample lightweight pointers in `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/AGENTS.md`, `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/docs/README.md`, and `/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/docs/CURRENT_USER_OVERRIDES.md`; removed accidental local full-library guide/inventory duplicates there.
+- Verification: central vault check, current docs consistency/index/framework checks, current `git diff --check`, MVVMExample docs index, and MVVMExample `git diff --check` succeeded. No build/tests/simulator run because this was documentation structure only.

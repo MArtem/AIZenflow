@@ -1,8 +1,0 @@
-import XCTest
-@testable import {{HelperName}}
-
-final class {{HelperName}}Tests: XCTestCase {
-    func test_helperInfo_exposesName() {
-        XCTAssertEqual({{HelperName}}Info.helperName, "{{HelperName}}")
-    }
-}

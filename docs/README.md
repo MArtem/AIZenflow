@@ -159,14 +159,6 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/ALL_DOCUMENTS_INVENTORY.md`
 
 ### Documentation Split / Transfer Baseline
-- `./documentation-vault/README.md`
-- `./documentation-vault/SYNC_POLICY.md`
-- `./documentation-vault/MANIFEST.md`
-- `./documentation-vault/reusable/MANIFEST.md`
-- `./documentation-vault/apps/TchopApp/MANIFEST.md`
-- `./documentation-vault/apps/MVVMExample/MANIFEST.md`
-- `./documentation-vault/scripts/sync_from_worktrees.py`
-- `./documentation-vault/scripts/check_documentation_vault.py`
 - `./docs/documentation-split/README.md`
 - `./docs/documentation-split/app-specific/APP_SPECIFIC_MANIFEST.md`
 - `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`

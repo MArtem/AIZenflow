@@ -46,10 +46,10 @@ Always include the context-transfer rule when handing off:
 ## Current Package Mode
 
 ## Documentation Vault
-- Durable rules, prompts, skills, templates, package docs, and app-specific docs are mirrored into `./documentation-vault` inside the `AIZenflow` repo.
-- When changing a durable doc/rule/prompt/skill used by agents, update both the active worktree copy and the matching `./documentation-vault` copy in the same block.
-- Keep reusable docs under `./documentation-vault/reusable/` and app-specific docs under `./documentation-vault/apps/<AppName>/`.
-- Do not copy docs from another app into this worktree's local task docs; read other app context from `./documentation-vault/apps/<AppName>/` when explicitly needed.
+- Durable reusable rules, prompts, skills, templates, package docs, and shared app snapshots live in the single central library `/Users/Artem/.zenflow/worktrees/documentation-vault`.
+- When changing reusable/shared agent docs, update `/Users/Artem/.zenflow/worktrees/documentation-vault` as the canonical source; keep worktree-local docs limited to project/task state or explicit app-local operational docs.
+- Keep reusable docs under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` and app-specific docs under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`.
+- Do not copy docs from another app into this worktree's local task docs; read other app context from `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/` when explicitly needed.
 
 - `./PackagesInUse` contains active source-only reusable package code compiled into app/share/widget targets.
 - `./PackagesForReuse` contains the full reviewed reusable package vault.

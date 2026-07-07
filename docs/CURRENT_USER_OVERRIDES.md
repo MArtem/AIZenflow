@@ -13,9 +13,9 @@ Applies to the current worktree/task:
 ## Active Overrides
 
 ### Documentation Vault
-- `./documentation-vault` is the git-backed durable copy for reusable docs, TchopApp docs, MVVMExample docs, prompts, skills, templates, scripts, and task context snapshots.
-- New durable documentation changes must be mirrored into both the active worktree location and the appropriate `./documentation-vault` area.
-- Do not place another app's docs into this worktree's task docs; cross-app context belongs under `./documentation-vault/apps/<AppName>/`.
+- `/Users/Artem/.zenflow/worktrees/documentation-vault` is the git-backed durable copy for reusable docs, TchopApp docs, MVVMExample docs, prompts, skills, templates, scripts, and task context snapshots.
+- New reusable/shared documentation changes must be made in `/Users/Artem/.zenflow/worktrees/documentation-vault`; app-local docs may keep a small operational copy only when the project needs it.
+- Do not place another app's docs into this worktree's task docs; cross-app context belongs under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`.
 
 
 ### Model Routing

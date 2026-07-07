@@ -59,9 +59,9 @@ Do not add abstractions unless they solve a concrete current problem.
 - When work starts from Figma, when the user provides a Figma link, or when the task says to inspect/implement a Figma design through MCP, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before using Figma MCP or changing code. That prompt is mandatory for Figma → SwiftUI work and reinforces native SwiftUI, existing DesignSystem usage, pre-code analysis, Figma mismatch reporting, and no web-code generation.
 
 ## Global vs Project Knowledge Rule
-- Durable agent-used docs/rules/prompts/skills/templates must be mirrored into `./documentation-vault` in the `AIZenflow` repo.
-- Keep reusable docs and app-specific docs separated in the vault: `./documentation-vault/reusable/`, `./documentation-vault/apps/TchopApp/`, `./documentation-vault/apps/MVVMExample/`.
-- When changing a durable rule or prompt, update the worktree copy and the vault copy together before reporting completion.
+- Durable reusable agent-used docs/rules/prompts/skills/templates belong in `/Users/Artem/.zenflow/worktrees/documentation-vault` as the canonical shared library.
+- Keep reusable docs and app-specific docs separated in the vault: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/`, `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/TchopApp/`, `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/MVVMExample/`.
+- When changing a durable reusable rule or prompt, update the central library before reporting completion; do not create per-task full-library copies.
 - Reusable cross-project rules and prompts live in `docs/knowledge/global/`.
 - TchopApp-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/TchopApp/` or in the canonical docs indexed there.
 - When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
