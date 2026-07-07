@@ -24,6 +24,8 @@ Applies to the current worktree/task:
 - Use `GPT-5.5` for planning gates, architecture, persistence, concurrency, navigation, state ownership, public APIs, module/package boundaries, security/privacy, data-loss/sync, performance-sensitive decisions, package adoption into `./PackagesInUse`, Xcode/app runtime integration, and high-risk final reviews.
 - Before editing code or documentation, classify the task as one of: `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets of reasoning.
 - In a `GPT-5.5` primary-assistant session, use `GPT-5.4` through available subagents/tools only when it is genuinely suitable and resource-saving; `GPT-5.5` remains the planner, escalation target, and final decision model for high-risk work.
+- Choose the reasoning/thinking level per task: save resources where safe, but never reduce reasoning effort when it would reduce quality, correctness, or verification confidence.
+- Every working/status/completion response must include both model version and reasoning/thinking level.
 - UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison still requires `GPT-5.5` unless the user explicitly relaxes that requirement.
 - If the user provides a Figma link or says the work starts from Figma, first read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`; then use Figma MCP as the design source of truth before analysis or implementation.
 
@@ -34,7 +36,7 @@ Applies to the current worktree/task:
 - Include whether context should be refreshed or a new chat should be started: `контекст обновлять не нужно`, `желательно обновить контекст`, or `нужен новый чат`, with a short reason.
 
 Every working response must start with:
-- model
+- model and reasoning/thinking level
 - active phase
 - files being inspected/changed
 - next safe step
@@ -52,10 +54,11 @@ Every working response must start with:
 ### Verification / Builds / Tests
 - The user restored the test-writing ban on 2026-05-29. Do not write, modify, or expand tests until the user explicitly gives permission again.
 - Do not touch `./TchopAppTests` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
-- Build/test execution is allowed only when explicitly requested by the user or when a previously approved implementation block requires verification; do not add new test coverage while the ban is active.
-- Simulator UI remains off unless the user explicitly asks for manual/simulator validation.
+- Build/simulator execution is approved for cases where the assistant determines it is needed to reproduce a bug, verify a fix, or protect quality. Do not run build/simulator when cheaper evidence is sufficient.
+- Test execution is allowed only when explicitly requested by the user or when a previously approved implementation block requires verification; do not add new test coverage while the ban is active.
+- Simulator UI automation may be used when it materially improves repro/verification confidence; if UI automation access is insufficient, state what is missing, whether simulator/logs/code analysis can substitute, and what risk remains.
 - `git diff --check` or read-only/static documentation checks are allowed when useful.
-- Low-resource mode: minimum reading, minimum commands, one meaningful verification only when requested or explicitly justified.
+- Low-resource mode: minimum reading, minimum commands, one meaningful verification when sufficient; resource savings must never reduce quality or confidence.
 
 ### MVVM / ViewModel API
 - Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as the default ViewModel API in any project, including test/demo projects.

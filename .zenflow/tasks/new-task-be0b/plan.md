@@ -9,6 +9,13 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Current user overrides are canonical for this task and live in `./docs/CURRENT_USER_OVERRIDES.md`.
 
 ## Active Steps
+### [x] Step: Resource/model/build policy update
+- User approved build/simulator execution whenever the assistant determines it is needed for bug reproduction, fix verification, or quality protection.
+- Resource policy: save commands, builds, simulator runs, model budget, and reasoning effort where safe, but never at the cost of quality, correctness, or verification confidence.
+- Response policy: every working/status/completion response must include both model version and reasoning/thinking level.
+- Durable rule source: central documentation vault at `/Users/Artem/.zenflow/worktrees/documentation-vault`; do not copy the full library into this worktree.
+- Verification: docs-only update; build/tests not required.
+
 ### [x] Step: Security Fix Block 1 — Apple Sign In identity proof
 - Approved by user: implement security fixes from the Codex Security scan in order, with a build after each block.
 - Model routing classification: `GPT-5.5 Full Task Required`.
