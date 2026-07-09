@@ -4,7 +4,7 @@
 
 `./PackagesInUse` contains the active source-only copies of reusable infrastructure packages currently compiled directly into `TchopApp`, share-extension and widget targets.
 
-Use `./PackagesInUse/PACKAGE_CATALOG.md` to see what is active in the app. Use `./PackagesForReuse/PACKAGE_CATALOG.md` to choose from the full reusable vault.
+Use `./PackagesInUse/PACKAGE_CATALOG.md` to see what is active in the app; it includes expanded descriptions and TchopApp ownership notes so a task can quickly decide which active package is relevant. Use `./PackagesForReuse/PACKAGE_CATALOG.md` to choose from the full reusable vault.
 
 ## Current Counts
 

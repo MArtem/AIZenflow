@@ -4,7 +4,7 @@
 
 `./PackagesForReuse` is the complete reusable package vault. It preserves package source, tests, DocC, scripts and usage documentation without forcing every package to be connected to `TchopApp`.
 
-Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. Then open the package-specific `README.md` for detailed usage and integration instructions.
+Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. It now includes short summaries, expanded descriptions, package ownership boundaries, and host-app responsibility notes for every package/helper. Then open the package-specific `README.md` for setup, usage examples, boundaries and verification instructions.
 
 ## Current Counts
 

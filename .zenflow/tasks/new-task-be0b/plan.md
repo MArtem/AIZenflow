@@ -1551,3 +1551,12 @@ Use archives only when historical detail is needed:
 - Adoption decision: vault-only in `./PackagesForReuse/AppInputFormatting`; not copied into `./PackagesInUse` because current TchopApp has no active input-formatting runtime requirement and app integration would be speculative.
 - Updated `./PackagesForReuse/PACKAGE_CATALOG.md`, `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, `./docs/README.md`, and central documentation-vault package docs.
 - Verification: incoming and final vault `./Scripts/verify_package.sh` succeeded with 12 XCTest tests plus strict-concurrency verification and clean warning/error grep; final docs/static checks required before completion.
+
+### [x] Step: Expand package catalog descriptions for package library usability
+- User provided a curated package/helper list and asked to make package descriptions more informative than one-line labels.
+- Expanded `./PackagesForReuse/PACKAGE_CATALOG.md` for all 40 reusable root packages and 5 integration helper packages with short summary, expanded description, and host/app ownership notes.
+- Expanded `./PackagesInUse/PACKAGE_CATALOG.md` for all 21 active source-only root packages and 4 active helper folders with the same description quality and TchopApp ownership notes.
+- Updated `./PackagesForReuse/README.md` and `./PackagesInUse/README.md` to route package selection through the richer catalogs.
+- Synced the reusable catalog/README updates into `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs` so the shared documentation library remains the cross-task source.
+- Runtime/package code unchanged; this was documentation-only.
+- Verification: package catalog expanded-description scan, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, `/Users/Artem/.zenflow/worktrees/documentation-vault/scripts/check_documentation_vault.py`, `git diff --check`, and central-vault `git diff --check` succeeded; no build/tests needed.
