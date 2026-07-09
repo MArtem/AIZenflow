@@ -16,6 +16,25 @@ Keep `TchopApp` implementation and documentation aligned with the current produc
 - Durable rule source: central documentation vault at `/Users/Artem/.zenflow/worktrees/documentation-vault`; do not copy the full library into this worktree.
 - Verification: docs-only update; build/tests not required.
 
+### [x] Step: Independent iOS Battleship project
+- User requested a new independent iOS project inside the current sandbox/worktree, then clarified that browser/web project output is not acceptable.
+- Removed the empty browser/web `battleship-game` stub and created `./BattleshipGame` as a standalone SwiftUI iOS Xcode project.
+- Implemented a simple playable Battleship game against the computer:
+  - player places five ships on a 10x10 board;
+  - orientation can be rotated before placement;
+  - game starts only after all ships are placed;
+  - player fires on the enemy board and the computer answers automatically;
+  - hit/miss/win/loss state is shown in the UI.
+- Verification: `plutil -lint BattleshipGame/BattleshipGame.xcodeproj/project.pbxproj` succeeded; `git diff --check` succeeded; Xcode Debug build for generic iOS Simulator succeeded with `BUILD SUCCEEDED` using DerivedData under `./.zenflow-build/BattleshipDerivedData`.
+- Tests were not written or run due to the active test-writing ban.
+
+### [x] Step: Battleship board matrix layout fix
+- User reported via screenshot that both player and computer boards rendered only one visible row instead of a full 10x10 matrix.
+- Fixed `./BattleshipGame/BattleshipGame/ContentView.swift` by replacing the board `LazyVGrid` with an explicit square board container and 10 row `VStack` / 10 column `HStack` matrix.
+- Each cell now receives an explicit square frame derived from available board width, so the board has stable height and renders all rows.
+- Verification: `git diff --check` succeeded; `plutil -lint BattleshipGame/BattleshipGame.xcodeproj/project.pbxproj` succeeded; Xcode Debug build for generic iOS Simulator succeeded with `BUILD SUCCEEDED`.
+- Tests were not written or run due to the active test-writing ban.
+
 ### [x] Step: Security Fix Block 1 — Apple Sign In identity proof
 - Approved by user: implement security fixes from the Codex Security scan in order, with a build after each block.
 - Model routing classification: `GPT-5.5 Full Task Required`.
