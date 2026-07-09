@@ -317,3 +317,34 @@ App keeps:
 - `AppShortcutsProvider` declarations;
 - shortcut phrases/titles/descriptions;
 - product-specific persistence, routing, authorization, analytics, and user-facing copy.
+
+## Mandatory Package README And Catalog Rule
+
+Every reusable package must be self-documenting. Before a new package is considered adopted, it must include a package-level `README.md` with:
+
+1. summary and status in the repository;
+2. the problem it solves;
+3. capabilities;
+4. when to use it and when not to use it;
+5. package/app ownership boundary;
+6. products and targets;
+7. local SwiftPM usage with `.package(path:)`;
+8. remote SwiftPM usage guidance, including the rule that SwiftPM Git URL mode needs `Package.swift` at repository root;
+9. current TchopApp source-only integration notes;
+10. basic usage example;
+11. verification instructions;
+12. links to `PackageContract.md`, `REUSE.md`, `USAGE.md` or DocC where present.
+
+The common package selector must also stay current:
+
+- `./PackagesForReuse/PACKAGE_CATALOG.md` lists every reusable package and integration helper with a short purpose, products and active/inactive status.
+- `./PackagesInUse/PACKAGE_CATALOG.md` lists the source-only packages currently compiled into TchopApp targets.
+- `./PackagesForReuse/README.md` and `./PackagesInUse/README.md` must state package counts, usage mode and maintenance rules.
+
+When adding a new package:
+
+1. update the package `README.md`;
+2. update `./PackagesForReuse/PACKAGE_CATALOG.md`;
+3. if active in TchopApp, update `./PackagesInUse/PACKAGE_CATALOG.md` and `./PackagesInUse/README.md`;
+4. keep matching central documentation-vault package docs current under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs`;
+5. run docs/static verification and `git diff --check`.

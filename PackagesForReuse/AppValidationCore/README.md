@@ -1,60 +1,124 @@
 # AppValidationCore
 
-`AppValidationCore` is a standalone Swift package with app-independent validation primitives.
-It is intended to be copied as a single folder into any iOS, macOS, watchOS, or tvOS project.
+## Summary
 
-The package focuses on reusable validation mechanics:
+Low-level validation engine with safe identifiers, typed values and rule evaluation.
 
-- safe validation identifiers;
-- validation values with redacted diagnostics;
-- validation issues and severities;
-- validation rule protocols;
-- built-in validation rules;
-- rule set validation;
-- async validation engine actor;
-- context-aware cross-value validation.
+## Status In This Repository
 
-It does not depend on any sibling SDK package and does not include app-specific entities.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## Example
+## What Problem It Solves
+
+- Provides reusable validation below form-specific state controllers.
+- Validates missing configured values explicitly.
+- Prevents raw identifier leakage through safe identifiers.
+
+## What It Does
+
+- Validation values/contexts.
+- Rule sets and issue codes.
+- Safe validation identifiers.
+
+## When To Use It
+
+- several packages/features need generic validation rules.
+- validation is not tied to one UI form.
+
+## When Not To Use It
+
+- you only need form-level state; use AppFormValidation.
+- localized copy/product field labels are needed; keep them in host app.
+
+## Ownership Boundary
+
+Package owns validation mechanics; host apps own localized messages, product policy and UI presentation.
+
+## Products And Targets
+
+- **Library products**: `AppValidationCore`
+- **SwiftPM targets**: `AppValidationCore`
+- **Repository path**: `./PackagesForReuse/AppValidationCore`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppValidationCore")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppValidationCore"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppValidationCore`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppValidationCore.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppValidationCore"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppValidationCore`.
+2. Copy/sync it into `./PackagesInUse/AppValidationCore`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppValidationCore
 
-let fieldID = try ValidationValueID("email")
-let rules = try ValidationRuleSet(
-    id: try ValidationSetID("email.rules"),
-    rules: [
-        try BuiltInValidationRule.required(ruleID: "email.required", code: "required"),
-        try BuiltInValidationRule.textLengthAtLeast(3, ruleID: "email.min", code: "too_short")
-    ]
-)
-
-let input = ValidationRuleInput(
-    valueID: fieldID,
-    value: .text("a")
-)
-
-let engine = AppValidationCoreEngine()
-let result = await engine.validate(input, using: rules)
+// Use the package APIs from the target that owns product-specific policy.
 ```
 
-## Privacy baseline
+## Verification
 
-Diagnostics never expose validation values, validation identifiers, rule identifiers, or issue codes by default. Host apps can map `ValidationCode` to user-facing copy at the UI boundary.
+From this package folder, run:
 
-## Bulk validation semantics
+```zsh
+./Scripts/verify_package.sh
+```
 
-`AppValidationCoreEngine.validate(values:using:)` validates every configured rule set. If a rule set is configured for a missing value, the engine evaluates that rule set with `.missing` so required-style rules cannot be silently skipped. Duplicate value IDs are rejected instead of using last-write-wins context behavior.
+For source-only app integration, also run the host app's required verification, usually:
 
-Built-in type-specific rules treat missing or wrong-kind values as validation issues using the rule's configured code and severity. They do not throw for user-input type mismatch.
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
 
-## Standalone contract
+## More Documentation
 
-This package must remain single-folder standalone:
+- `./PackageContract.md`
+- `./REUSE.md`
 
-- no sibling path dependencies;
-- no remote package dependencies;
-- no app-specific logic;
-- no imports of other Infrastructure SDK packages;
-- no hidden persistence or file-system side effects.
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

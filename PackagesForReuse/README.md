@@ -2,81 +2,35 @@
 
 ## Purpose
 
-`./PackagesForReuse` is a lightweight, non-connected vault for reusable Swift packages.
+`./PackagesForReuse` is the complete reusable package vault. It preserves package source, tests, DocC, scripts and usage documentation without forcing every package to be connected to `TchopApp`.
 
-It exists so package source, tests, DocC, scripts, and usage documentation are preserved without forcing every package to be connected to `TchopApp` through SwiftPM.
+Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. Then open the package-specific `README.md` for detailed usage and integration instructions.
+
+## Current Counts
+
+- Root packages: 39
+- Integration helper packages: 5
 
 ## Rules
 
-- Packages in this folder are **not connected to the app by default**.
-- Do not place generated artifacts here: `.build`, `.swiftpm`, `build`, `DerivedData`, logs, or Xcode user data.
-- A package may be copied from here into `./PackagesInUse` when `TchopApp` can use it now, or into another project when it is actually needed.
-- Before wiring a package into app code, run the package-local verification script when using SwiftPM mode; in source-only mode, run project verification after adding the package source/resources to Xcode targets.
-- Keep package code self-contained: `Package.swift`, `README.md`, `PackageContract.md`, `Sources`, `Tests`, DocC, and `Scripts/verify_package.sh` travel together.
-- Integration helpers are optional composition files/packages and must stay outside root standalone packages.
+- Packages here are not connected to the app by default.
+- Package folders must be self-contained: `Package.swift`, `README.md`, `PackageContract.md`, `Sources`, tests where allowed, DocC/docs and verification scripts travel together.
+- Do not store generated artifacts here: `.build`, `.swiftpm`, `build`, `DerivedData`, logs or Xcode user data.
+- Keep generic mechanisms in packages and product-specific policy in the host app.
+- Every new package must update its own README and `./PackagesForReuse/PACKAGE_CATALOG.md`.
 
-## Current Vault Index
+## Main Documents
 
-| Path | Kind | Products |
-| --- | --- | --- |
-| `./PackagesForReuse/AppAnalytics` | root-package | `AppAnalyticsCore`, `AppAnalytics` |
-| `./PackagesForReuse/AppBackgroundTasks` | root-package | `AppBackgroundTasks` |
-| `./PackagesForReuse/AppAppleAuthentication` | root-package | `AppAppleAuthentication` |
-| `./PackagesForReuse/AppBranding` | root-package | `AppBranding` |
-| `./PackagesForReuse/AppCache` | root-package | `AppCache` |
-| `./PackagesForReuse/AppConfiguration` | root-package | `AppConfiguration` |
-| `./PackagesForReuse/AppConnectivity` | root-package | `AppConnectivity` |
-| `./PackagesForReuse/AppDatabase` | root-package | `AppDatabaseCore`, `AppSwiftDataDatabase`, `AppCoreDataDatabase`, `AppDatabaseComposition`, `AppDatabase` |
-| `./PackagesForReuse/AppDeviceInfo` | root-package | `AppDeviceInfo` |
-| `./PackagesForReuse/AppDownloads` | root-package | `AppDownloads` |
-| `./PackagesForReuse/AppEnvironment` | root-package | `AppEnvironment` |
-| `./PackagesForReuse/AppErrors` | root-package | `AppErrorsCore`, `AppErrors` |
-| `./PackagesForReuse/AppFeatureFlags` | root-package | `AppFeatureFlags` |
-| `./PackagesForReuse/AppFileStorage` | root-package | `AppFileStorage` |
-| `./PackagesForReuse/AppFormValidation` | root-package | `AppFormValidation` |
-| `./PackagesForReuse/AppGlassUI` | root-package | `AppGlassUI` |
-| `./PackagesForReuse/AppImagePipeline` | root-package | `AppImagePipeline` |
-| `./PackagesForReuse/AppIntentSupport` | root-package | `AppIntentSupport` |
-| `./PackagesForReuse/AppLocalization` | root-package | `AppLocalization` |
-| `./PackagesForReuse/AppLifecycle` | root-package | `AppLifecycle` |
-| `./PackagesForReuse/AppLogging` | root-package | `AppLogging` |
-| `./PackagesForReuse/AppNavigation` | root-package | `AppNavigation` |
-| `./PackagesForReuse/AppNetworking` | root-package | `AppNetworking` |
-| `./PackagesForReuse/AppObservability` | root-package | `AppObservability` |
-| `./PackagesForReuse/AppOnDeviceAI` | root-package | `AppOnDeviceAI` |
-| `./PackagesForReuse/AppPagination` | root-package | `AppPagination` |
-| `./PackagesForReuse/AppPermissions` | root-package | `AppPermissions` |
-| `./PackagesForReuse/AppPushNotifications` | root-package | `AppPushNotifications` |
-| `./PackagesForReuse/AppRateLimiter` | root-package | `AppRateLimiter` |
-| `./PackagesForReuse/AppRemoteAssets` | root-package | `AppRemoteAssets` |
-| `./PackagesForReuse/AppSecureStorage` | root-package | `AppSecureStorage` |
-| `./PackagesForReuse/AppShareExtensionSupport` | root-package | `AppShareExtensionSupport` |
-| `./PackagesForReuse/AppSync` | root-package | `AppSyncCore`, `AppSyncObservation` |
-| `./PackagesForReuse/AppStateMachine` | root-package | `AppStateMachine` |
-| `./PackagesForReuse/AppTaskQueue` | root-package | `AppTaskQueue` |
-| `./PackagesForReuse/AppUploads` | root-package | `AppUploads` |
-| `./PackagesForReuse/AppValidationCore` | root-package | `AppValidationCore` |
-| `./PackagesForReuse/AppWidgetSupport` | root-package | `AppWidgetSupport` |
-| `./PackagesForReuse/TchopProductLocalizationResources` | root-package | `TchopProductLocalizationResources` |
-| `./PackagesForReuse/IntegrationHelpers/AppAnalyticsNavigationIntegration` | integration-helper | `AppAnalyticsNavigationIntegration` |
-| `./PackagesForReuse/IntegrationHelpers/AppAnalyticsNetworkingIntegration` | integration-helper | `AppAnalyticsNetworkingIntegration` |
-| `./PackagesForReuse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration` | integration-helper | `AppAnalyticsPushNotificationsIntegration` |
-| `./PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration` | integration-helper | `AppErrorsNetworkingIntegration` |
-| `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration` | integration-helper | `TchopProductLocalizationResourcesAppLocalizationIntegration` |
+- `./PackagesForReuse/PACKAGE_CATALOG.md`: package selector and short descriptions for all packages.
+- `./PackagesForReuse/CONNECTING_PACKAGES.md`: examples for connecting packages.
+- `./PackagesForReuse/ADOPTION_AUDIT.md`: adoption status and rationale.
 
 ## Standard Connection Flow
 
-1. For current TchopApp source-only mode, copy the needed package folder into `./PackagesInUse/<PackageName>`. For future SwiftPM mode in another project, copy it under that project's package folder, usually `./Packages/<PackageName>`.
-2. Run the local verification script:
-
-```zsh
-cd ./PackagesForReuse/<PackageName>
-./Scripts/verify_package.sh
-```
-
-3. In current TchopApp source-only mode, add only required `Sources/**/*.swift` files/resources from `./PackagesInUse/<PackageName>` to the relevant Xcode targets.
-4. In future SwiftPM mode, add the package to Xcode or to the target project's `Package.swift` and link only needed products.
-5. Replace app-local duplicated mechanics with the package API only when the package surface matches without decorative wrappers.
-6. Run project verification after app imports, source references, resources, or package references change.
-
-See `./PackagesForReuse/CONNECTING_PACKAGES.md` for concrete examples.
+1. Choose a package from `./PackagesForReuse/PACKAGE_CATALOG.md`.
+2. Read that package's `README.md` and `PackageContract.md`.
+3. Run package-local verification from the package folder.
+4. For current TchopApp source-only mode, copy/sync the package to `./PackagesInUse/<PackageName>` and update Xcode with `./scripts/migrate_packages_in_use_project.py`.
+5. For SwiftPM local mode in another project, use `.package(path:)`.
+6. For SwiftPM remote mode, publish the standalone package folder as the root of its own Git repository and use `.package(url:from:)`.
+7. Run host-project verification after wiring sources/resources/imports.

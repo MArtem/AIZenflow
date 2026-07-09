@@ -1,119 +1,124 @@
 # AppTaskQueue
 
-`AppTaskQueue` is a standalone Swift package with app-independent task queue primitives for iOS, macOS, tvOS, watchOS, and Swift server/Linux test environments.
+## Summary
 
-The package is intentionally self-contained. It does not depend on any sibling InfrastructureSDK package, remote package, application target, analytics layer, logging layer, persistence SDK, or product-specific model.
+Durable task queue, reservation, retry and payload-limit mechanics.
 
-## What it provides
+## Status In This Repository
 
-- Safe task identifiers and task kinds.
-- Payload envelope with size limits and redacted descriptions.
-- Task priority and deferred scheduling.
-- Retry policy with bounded exponential backoff.
-- Queue task states: queued, reserved, succeeded, failed, cancelled.
-- `AppTaskQueueStore` protocol as an explicit host-app persistence boundary.
-- `InMemoryAppTaskQueueStore` actor for tests, previews, and simple runtime use.
-- `AppTaskQueueService` actor for enqueue/reserve/complete/retry/fail/cancel flows.
-- `AppTaskExecutor` protocol as an explicit execution boundary.
-- `AppTaskQueueRunner` actor for one-task-at-a-time execution.
-- Source-owned DocC under `Sources/AppTaskQueue/Documentation.docc/AppTaskQueue.md`.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## Package layout
+## What Problem It Solves
 
-```text
-AppTaskQueue/
-├── Package.swift
-├── README.md
-├── PackageContract.md
-├── Sources/
-│   └── AppTaskQueue/
-│       └── Documentation.docc/
-├── Tests/
-│   └── AppTaskQueueTests/
-├── Docs/
-│   └── Iteration17_Report.md
-└── Scripts/
-    └── verify_package.sh
+- Provides reusable queued-work semantics.
+- Makes reservation/completion rules explicit.
+- Separates task queue engine from host storage atomicity.
+
+## What It Does
+
+- Queued task models.
+- Retry policy.
+- Reservation/complete/fail contracts.
+
+## When To Use It
+
+- background/offline work needs durable queue semantics.
+- multiple task kinds share retry/reservation behavior.
+
+## When Not To Use It
+
+- one immediate async task is enough.
+- you cannot provide a durable store with atomic reservation semantics.
+
+## Ownership Boundary
+
+Package owns queue mechanics; host apps own durable store implementation, task payload schema, runner lifecycle and crash/lease policy.
+
+## Products And Targets
+
+- **Library products**: `AppTaskQueue`
+- **SwiftPM targets**: `AppTaskQueue`
+- **Repository path**: `./PackagesForReuse/AppTaskQueue`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppTaskQueue")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppTaskQueue"
+        ]
+    )
+]
 ```
 
-## Quick start
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppTaskQueue`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppTaskQueue.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppTaskQueue"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppTaskQueue`.
+2. Copy/sync it into `./PackagesInUse/AppTaskQueue`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppTaskQueue
-import Foundation
 
-let store = try InMemoryAppTaskQueueStore()
-let queue = AppTaskQueueService(store: store)
-
-let request = try AppTaskEnqueueRequest(
-    id: AppTaskID("sync.article.001"),
-    kind: AppTaskKind("sync.article"),
-    payload: AppTaskPayload(data: Data([1, 2, 3])),
-    priority: .high,
-    retryPolicy: .standard
-)
-
-try await queue.enqueue(request)
+// Use the package APIs from the target that owns product-specific policy.
 ```
-
-## Runner example
-
-```swift
-struct ExampleExecutor: AppTaskExecutor {
-    func execute(
-        _ task: AppQueuedTask,
-        context: AppTaskExecutionContext
-    ) async -> AppTaskExecutionDecision {
-        // Host app performs the real operation here.
-        .succeeded
-    }
-}
-
-let runner = AppTaskQueueRunner(
-    queue: queue,
-    executor: ExampleExecutor()
-)
-
-let report = try await runner.runOne()
-```
-
-## Persistence boundary
-
-This root package does not perform file, SQLite, Core Data, SwiftData, Keychain, or network persistence. Host applications can provide persistence by implementing `AppTaskQueueStore`.
-
-That choice is deliberate:
-
-- no hidden blocking I/O inside async APIs;
-- no dependency on AppFileStorage or any sibling package;
-- persistence decisions stay owned by the host app or an optional integration helper;
-- root package stays single-folder standalone.
-
-`AppTaskQueueService.reserveNext()` is a queue-level operation, not a cross-process distributed lock. A custom durable `AppTaskQueueStore` must serialize reservation/update operations for its own backend, or the host must run one runner per logical queue. If a host needs multi-process claiming, expiration of reserved tasks, or crash recovery, that policy belongs in the durable store or an app-owned integration layer because the correct lease duration and conflict policy are product-specific.
-
-Completion and failure are valid only for reserved tasks. Queued tasks can be cancelled or removed, but they cannot be marked succeeded/failed without first being reserved by the queue runner/service.
-
-Retry policies are bounded. `maximumAttempts` must be between `1` and `AppTaskRetryPolicy.maximumSupportedAttempts`, delays must be finite, and `maximumDelay` must not be lower than `initialDelay`.
-
-Payload size limits must be positive. Empty payloads are allowed only when the configured positive maximum still permits them; `maximumBytes == 0` is rejected as an invalid limit.
-
-## Privacy and diagnostics
-
-Descriptions intentionally redact task identifiers, task kinds, and payload contents. Payload descriptions expose only byte count and whether a media type was provided.
-
-The package does not log, report analytics, collect diagnostics, or expose task payload contents through `description` / `debugDescription`.
 
 ## Verification
 
-Run:
+From this package folder, run:
 
-```bash
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The verifier uses a worktree-local scratch directory outside the package folder:
+For source-only app integration, also run the host app's required verification, usually:
 
-```text
-../WorktreeScratch/AppTaskQueue
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
 ```
 
-It removes the scratch directory after verification and checks that package-local build artifacts are not left in the root package folder.
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

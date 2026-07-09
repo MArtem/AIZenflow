@@ -1,87 +1,124 @@
 # AppDeviceInfo
 
-`AppDeviceInfo` is a single-folder standalone Swift package for product-independent device and runtime diagnostics.
+## Summary
 
-It answers questions such as:
+Device, OS and runtime information provider utilities.
 
-- what platform is running;
-- what OS version is running;
-- what device family/model identifier is available;
-- whether the app appears to run in unit tests, previews, simulator or physical-device mode;
-- whether low-power and thermal state are available;
-- whether screen and memory information are available.
+## Status In This Repository
 
-The package does not contain app-specific diagnostics, analytics events, logging, crash reporting or backend configuration.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## Standalone contract
+## What Problem It Solves
 
-The folder can be copied independently into a new project and opened as a Swift Package.
+- Centralizes device metadata access.
+- Makes diagnostics and compatibility checks testable.
+- Avoids scattering UIDevice/ProcessInfo reads.
 
-Rules:
+## What It Does
 
-- no sibling path dependencies;
-- no remote package dependencies;
-- no imports of other Infrastructure SDK packages;
-- all sources, tests, scripts and DocC live inside this folder;
-- DocC is source-owned under `Sources/AppDeviceInfo/Documentation.docc/`;
-- verification uses a worktree-local scratch path outside this package folder;
-- verification must not create `.build` or `.swiftpm` inside this package folder.
+- Device info snapshot/provider contracts.
+- Platform/version metadata helpers.
+- Testable provider surfaces.
 
-## Usage
+## When To Use It
+
+- you need device metadata in diagnostics, feature gates or support payloads.
+- multiple modules need consistent device info.
+
+## When Not To Use It
+
+- you are collecting privacy-sensitive identifiers without policy.
+- one direct local check is enough.
+
+## Ownership Boundary
+
+Package owns generic device info mechanics; host apps own privacy policy, telemetry fields and compatibility decisions.
+
+## Products And Targets
+
+- **Library products**: `AppDeviceInfo`
+- **SwiftPM targets**: `AppDeviceInfo`
+- **Repository path**: `./PackagesForReuse/AppDeviceInfo`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppDeviceInfo")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppDeviceInfo"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppDeviceInfo`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppDeviceInfo.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppDeviceInfo"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppDeviceInfo`.
+2. Copy/sync it into `./PackagesInUse/AppDeviceInfo`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppDeviceInfo
 
-let provider = DefaultDeviceInfoProvider()
-let snapshot = await provider.snapshot()
-let diagnostics = DeviceInfoDiagnostics(snapshot: snapshot)
+// Use the package APIs from the target that owns product-specific policy.
 ```
-
-For tests and previews:
-
-```swift
-let provider = StaticDeviceInfoProvider(
-    snapshot: DeviceInfoSnapshot(
-        model: DeviceModelInfo(identifier: "iPhone16,1", family: .phone, architecture: "arm64"),
-        operatingSystem: OperatingSystemInfo(platform: .iOS, name: "iOS", versionString: "17.0.0", majorVersion: 17, minorVersion: 0, patchVersion: 0),
-        executionEnvironment: .simulator,
-        screen: DeviceScreenInfo(widthPoints: 390, heightPoints: 844, scale: 3),
-        power: DevicePowerInfo(isLowPowerModeEnabled: false, thermalCondition: .nominal),
-        memory: DeviceMemoryInfo(physicalMemoryBytes: 8_589_934_592)
-    )
-)
-```
-
-## What belongs here
-
-- platform and OS snapshot types;
-- model/family/architecture snapshot types;
-- execution environment detection;
-- power, thermal, screen and memory snapshot types;
-- static and process-based providers;
-- privacy-safe diagnostics summary.
-
-## What does not belong here
-
-- app-specific support bundle diagnostics;
-- analytics event emission;
-- crash reporting SDK adapters;
-- logging adapters;
-- remote diagnostics upload;
-- backend environment selection;
-- device fingerprinting.
-
-Those belong in optional integration helpers or in the host app.
 
 ## Verification
 
-```bash
-cd AppDeviceInfo
+From this package folder, run:
+
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The verifier uses a worktree-local scratch path outside the package folder and removes it after the run.
+For source-only app integration, also run the host app's required verification, usually:
 
-## Privacy boundary
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
 
-Raw `DeviceInfoSnapshot` values can be fingerprintable because they may include model identifiers, architecture, screen dimensions, memory class and OS version. Keep raw snapshots local to app composition, compatibility decisions, diagnostics screens, or tests. Do not send raw snapshots to analytics, logs, crash metadata or backend diagnostics by default. Use `DeviceInfoDiagnostics` when a privacy-safe summary is enough.
+## More Documentation
+
+- `./PackageContract.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

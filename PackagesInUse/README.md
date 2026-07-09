@@ -1,76 +1,43 @@
 # PackagesInUse
 
-`./PackagesInUse` contains the source-only copies of reusable infrastructure packages that are currently compiled directly into the `TchopApp` app, share-extension, and widget targets.
-
 ## Purpose
 
-This folder exists because this worktree is being used both as an app and as a package-library testbed. Real SwiftPM linkage for many packages creates large `.build`, `.swiftpm`, cloned package, and DerivedData artifacts. Source-only integration keeps the active app small while preserving the ability to publish/copy any package as a real Swift Package later.
+`./PackagesInUse` contains the active source-only copies of reusable infrastructure packages currently compiled directly into `TchopApp`, share-extension and widget targets.
+
+Use `./PackagesInUse/PACKAGE_CATALOG.md` to see what is active in the app. Use `./PackagesForReuse/PACKAGE_CATALOG.md` to choose from the full reusable vault.
+
+## Current Counts
+
+- Active root packages: 21
+- Active helper folders: 4
 
 ## Contract
 
-- This folder is **not** connected through Swift Package Manager in this project.
+- This folder is not connected through Swift Package Manager in this project.
 - Xcode compiles selected `Sources/**/*.swift` files directly into runtime targets.
-- Package folders remain self-documenting and keep `Package.swift`, `README.md`, `PackageContract.md`, `Sources`, `Tests`, DocC, and `Scripts/verify_package.sh` so the same folder can be copied or published as SwiftPM later.
-- Runtime targets must include only the source files/resources they actually need.
-- Do not store generated artifacts here: `.build`, `.swiftpm`, `build`, `DerivedData`, logs, or Xcode user data.
-- Build/cache/DerivedData output must stay under `/Users/Artem/.zenflow/worktrees` and never under `/Users/Artem/Library`, `/tmp`, or other external locations.
+- Package folders still keep SwiftPM-compatible structure so they can be copied/published later.
+- Runtime targets must include only source files/resources they actually need.
+- Do not store generated artifacts here: `.build`, `.swiftpm`, `build`, `DerivedData`, logs or Xcode user data.
+- Build/cache/DerivedData output must stay under `/Users/Artem/.zenflow/worktrees`.
 
-## Relationship to other package folders
+## Relationship To Other Package Folders
 
-- `./PackagesForReuse` is the complete vault of reviewed reusable packages.
-- `./PackagesInUse` is the active source-only subset compiled into this app.
-- `./Packages` is now SDK/package creation docs/templates only, not runtime package code.
+- `./PackagesForReuse`: complete reusable package vault.
+- `./PackagesInUse`: active source-only subset compiled into this app.
+- `./Packages`: SDK/package creation docs/templates only.
 
-## Active packages
+## Xcode Project Organization
 
-- `./PackagesInUse/AppAnalytics`
-- `./PackagesInUse/AppAppleAuthentication`
-- `./PackagesInUse/AppBranding`
-- `./PackagesInUse/AppConfiguration`
-- `./PackagesInUse/AppDatabase`
-- `./PackagesInUse/AppEnvironment`
-- `./PackagesInUse/AppErrors`
-- `./PackagesInUse/AppFileStorage`
-- `./PackagesInUse/AppFormValidation`
-- `./PackagesInUse/AppGlassUI`
-- `./PackagesInUse/AppIntentSupport`
-- `./PackagesInUse/AppLocalization`
-- `./PackagesInUse/AppLifecycle`
-- `./PackagesInUse/AppNavigation`
-- `./PackagesInUse/AppNetworking`
-- `./PackagesInUse/AppOnDeviceAI`
-- `./PackagesInUse/AppPermissions`
-- `./PackagesInUse/AppPushNotifications`
-- `./PackagesInUse/AppShareExtensionSupport`
-- `./PackagesInUse/AppWidgetSupport`
-- `./PackagesInUse/TchopProductLocalizationResources`
-- `./PackagesInUse/IntegrationHelpers/AppAnalyticsNavigationIntegration`
-- `./PackagesInUse/IntegrationHelpers/AppAnalyticsNetworkingIntegration`
-- `./PackagesInUse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration`
+Every active package must appear in `./TchopApp.xcodeproj/project.pbxproj` under logical group `PackagesInUse/<PackageName>`. Do not leave active package files only in recovered/unstructured Xcode references.
 
-## Source-only integration notes
+When adding/removing a package, update the project through `./scripts/migrate_packages_in_use_project.py` or an equivalent deterministic project edit.
 
-Source-only compilation differs from SwiftPM module compilation:
+## Adding A Future Package
 
-1. Package-module imports are removed in app/extension/test source because package declarations compile into the target module.
-2. Umbrella re-export files in `./PackagesInUse` must not contain `@_exported import` of sibling package modules.
-3. Package source filenames that collide with app source filenames may need unique filenames to avoid Xcode `.stringsdata` duplicate-output errors.
-4. Resource bundles that previously used `Bundle.module` must use a local bundle token and target resources copied into the app/extension bundle.
-5. Package tests remain preserved with each package for future SwiftPM verification, but app verification uses the app target and app tests.
-
-
-## Xcode project organization
-
-Every active package in this folder must also be visible in `./TchopApp.xcodeproj/project.pbxproj` under a logical `PackagesInUse` group, with one subgroup per package. Files must not remain only in Xcode `Recovered References` or other unstructured project groups.
-
-When adding a future package to `./PackagesInUse`, update the project through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves this logical grouping. Physical files still stay under `./PackagesInUse/<PackageName>`; this rule is about Xcode navigation only.
-
-## Adding a future package
-
-1. Review/fix the archive as a standalone package.
-2. Always copy the final source-only package folder into `./PackagesForReuse`.
-3. If the app can use it now, also copy it into `./PackagesInUse`.
-4. Remove generated artifacts from the copied folder.
-5. Add only required package source/resource files to the relevant Xcode targets.
-6. Replace app-specific duplicated mechanics with package APIs only when the package surface fits without decorative wrappers.
-7. Run `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `git diff --check`, and `./scripts/verify.sh low` at minimum.
+1. Review and verify the package in `./PackagesForReuse/<PackageName>`.
+2. Ensure its `README.md` has summary, solved problem, capabilities, local SwiftPM usage, remote SwiftPM usage, source-only integration notes and verification.
+3. Update `./PackagesForReuse/PACKAGE_CATALOG.md`.
+4. Copy/sync the package into `./PackagesInUse/<PackageName>` only if TchopApp uses it now.
+5. Update `./PackagesInUse/PACKAGE_CATALOG.md` and this file.
+6. Add required sources/resources through `./scripts/migrate_packages_in_use_project.py`.
+7. Run `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `./scripts/verify.sh low` and `git diff --check`.

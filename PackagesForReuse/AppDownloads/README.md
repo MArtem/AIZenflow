@@ -1,75 +1,124 @@
 # AppDownloads
 
-`AppDownloads` is a standalone InfrastructureSDK package for app-independent download primitives.
+## Summary
 
-It is intentionally not a networking architecture, not a cache package, not a logging package, and not a diagnostics package. It only provides the mechanism needed to describe, validate, download, persist, inspect, and clean downloaded files.
+Secure generic download service with URL, size, cancellation and destination-file policies.
 
-## What is included
+## Status In This Repository
 
-- `DownloadRequest` with URL validation and optional response size limit.
-- `SafeDownloadFileName` for portable, traversal-safe destination names.
-- `DownloadDirectoryRole` and `DownloadDirectory` for host-provided storage locations.
-- `DownloadDirectoryResolver` for standard directories and platform guarded shared containers.
-- `FoundationDownloadTransport` as the default transport.
-- `DownloadFileSystemWorker` actor for file writes, metadata, and removal.
-- `DownloadCleanupWorker` actor for age and total-size cleanup policies.
-- `DownloadService` actor combining transport and persistence.
-- Source-owned DocC at `Sources/AppDownloads/Documentation.docc/AppDownloads.md`.
-- Fail-fast `Scripts/verify_package.sh`.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## Standalone guarantees
+## What Problem It Solves
 
-This root package has:
+- Avoids unsafe ad-hoc file downloads.
+- Centralizes HTTPS/default limits/replacement behavior.
+- Keeps cancellation and cleanup semantics explicit.
 
-- no `.package(path:)` dependencies;
-- no `.package(url:)` dependencies;
-- no imports of sibling InfrastructureSDK packages;
-- no app/product/domain-specific entities;
-- no dependency on AppFileStorage, AppImagePipeline, AppRemoteAssets, AppLogging, AppDiagnostics, AppConnectivity, or AppSession.
+## What It Does
 
-The folder can be copied into another repository and opened as a Swift Package by itself.
+- Download request model.
+- Transport and destination policies.
+- Size checks, replacement and cleanup behavior.
 
-## Privacy and diagnostics baseline
+## When To Use It
 
-Diagnostics and textual representations avoid revealing raw identifiers, full URLs, query strings, fragments, full paths, file names, or shared container identifiers.
+- you need reusable product-independent file download behavior.
+- downloaded files must respect limits and destination policies.
 
-The package stores operational values where required to perform work, but public `description` values are redacted by default.
+## When Not To Use It
 
-`DownloadRequest` accepts `https` URLs by default. Insecure `http` must be explicitly allowed by the host, for example for local development fixtures.
+- you need API-specific request/response mapping; use networking package.
+- you only download bundled static assets.
 
-## Concurrency boundary
+## Ownership Boundary
 
-File system operations can block. This package does not hide those operations inside decorative async wrappers on a caller executor. Potentially blocking file I/O is isolated behind dedicated actors:
+Package owns download mechanics; host apps own endpoint semantics, auth, user-facing progress, file classification and retention policy.
 
-- `DownloadFileSystemWorker`
-- `DownloadCleanupWorker`
+## Products And Targets
 
-`DownloadService` is also an actor and delegates persistence to the file system worker.
+- **Library products**: `AppDownloads`
+- **SwiftPM targets**: `AppDownloads`
+- **Repository path**: `./PackagesForReuse/AppDownloads`
 
-The default Foundation transport is an in-memory data transport. It is appropriate for bounded app downloads where `maximumAllowedBytes` is set by the host. Large streaming/background downloads should use a host-owned transport or a future dedicated streaming/background package.
+## Local SwiftPM Usage
 
-## Basic example
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppDownloads")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppDownloads"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppDownloads`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppDownloads.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppDownloads"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppDownloads`.
+2. Copy/sync it into `./PackagesInUse/AppDownloads`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppDownloads
-import Foundation
 
-let request = try DownloadRequest(url: URL(string: "https://example.com/manual.pdf")!)
-let directory = try DownloadDirectoryResolver.standard(.caches)
-let fileName = try SafeDownloadFileName("manual.pdf")
-let destination = DownloadDestination(directory: directory, fileName: fileName)
-let service = DownloadService()
-let receipt = try await service.download(request, to: destination)
-print(receipt)
+// Use the package APIs from the target that owns product-specific policy.
 ```
 
 ## Verification
 
-Run:
+From this package folder, run:
 
-```bash
-cd AppDownloads
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The verifier copies the package into a worktree-local scratch directory outside the package folder, runs package checks there, and removes the scratch directory afterwards.
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

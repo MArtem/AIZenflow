@@ -140,7 +140,9 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./PackagesForReuse/AppTaskQueue/README.md`
 - `./PackagesForReuse/AppValidationCore/README.md`
 - `./PackagesInUse/README.md`
+- `./PackagesInUse/PACKAGE_CATALOG.md`
 - `./PackagesForReuse/README.md`
+- `./PackagesForReuse/PACKAGE_CATALOG.md`
 - `./PackagesForReuse/CONNECTING_PACKAGES.md`
 - `./PackagesForReuse/ADOPTION_AUDIT.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`

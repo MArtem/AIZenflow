@@ -1533,3 +1533,12 @@ Use archives only when historical detail is needed:
 - Updated `./TchopApp/AppIntents/CreateTextFeedCardIntent.swift` so empty text and over-limit text return explicit App Intent dialogs instead of throwing package validation errors into a generic Shortcuts alert.
 - Kept the reusable `AppIntentSupport` package mechanism-only; the user-facing copy remains app-owned in the concrete intent.
 - Verification: run `./scripts/verify.sh low`, `git diff --check`, and warning/error grep on the build log before reporting completion.
+
+### [x] Step: Expand package README documentation and package catalog rules
+- User requested full package documentation across both `./PackagesInUse` and `./PackagesForReuse`, plus a root package selector catalog and a durable rule that future packages must include the same documentation level.
+- Updated all root package and integration-helper `README.md` files in `./PackagesForReuse` and `./PackagesInUse` with summary, solved problem, capabilities, usage guidance, local/remote SwiftPM instructions, source-only integration notes, ownership boundary, and verification instructions.
+- Added `./PackagesForReuse/PACKAGE_CATALOG.md` as the common package selector with counts, active status, products, and short package descriptions.
+- Added `./PackagesInUse/PACKAGE_CATALOG.md` as the active source-only package selector for TchopApp wiring.
+- Updated package rules in `./docs/PACKAGES_AND_MANAGERS.md`, `./PackagesForReuse/README.md`, and `./PackagesInUse/README.md` so every future package must update its README and package catalog entries.
+- Synced package docs/catalog mirrors into the central documentation vault under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs`.
+- Verification: docs/static checks and `git diff --check` required before final report; no app build/tests needed for docs-only changes.

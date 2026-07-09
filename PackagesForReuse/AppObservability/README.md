@@ -1,111 +1,125 @@
 # AppObservability
 
-`AppObservability` is a standalone Swift package for privacy-aware spans, breadcrumbs, measurements, and correlation propagation across iOS, macOS, tvOS, watchOS, visionOS, and SwiftPM test environments.
+## Summary
 
-It is intentionally app-independent. The package does not know about screens, routes, user models, network payloads, analytics providers, crash SDKs, or product-specific telemetry policy.
+Observability primitives for diagnostics, metrics and operational event reporting.
 
-## What belongs here
+## Status In This Repository
 
-- `TraceID`, `SpanID`, `CorrelationID`
-- `TraceContext` and `DiagnosticContext`
-- `ObservabilityEvent` and `SpanStatus`
-- `ObservabilityManaging` and `DefaultObservability`
-- `ObservabilitySpan`
-- `ObservabilityRedactor`
-- `ObservabilityErrorDescriptor`
-- no-op, memory, redacting, and multiplex recorders
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## What must not belong here
+## What Problem It Solves
 
-- app-specific event names or feature taxonomy;
-- networking/session/sync adapters;
-- concrete Firebase/Sentry/OpenTelemetry SDK adapters;
-- raw request/response bodies or headers;
-- raw token/password/cookie/session values;
-- raw URLs with query/fragment secrets;
-- event/span/breadcrumb names containing user input, URLs, emails, tokens, or other high-cardinality sensitive values;
-- sibling package imports.
+- Separates operational diagnostics from feature code.
+- Provides reusable reporting contracts.
+- Keeps privacy boundaries visible.
 
-## Runtime guidance
+## What It Does
 
-- `NoopObservabilityRecorder` is the safe default dependency.
-- `MemoryObservabilityRecorder` is for tests and local diagnostics.
-- `RedactingObservabilityRecorder` is useful at host boundaries where upstream data may still need sanitization.
-- Correlation IDs are **caller-owned**. `DefaultObservability` reuses `diagnosticContext.correlationID` or `parent.correlationID` when provided and otherwise leaves `correlationID` unset.
-- `ObservabilitySpan.end(...)` is single-shot and idempotent. Repeated end calls are ignored.
-- `DefaultObservability.measure(...)` records `CancellationError` as `.cancelled` instead of a generic failure.
+- Diagnostic event models.
+- Metric/reporting contracts.
+- No-op/testable reporters.
 
-## Usage
+## When To Use It
+
+- you need package-neutral observability hooks.
+- features should report operational state without vendor coupling.
+
+## When Not To Use It
+
+- you do not have privacy/redaction policy.
+- analytics events are enough and operational metrics are unnecessary.
+
+## Ownership Boundary
+
+Package owns observability mechanics; host apps own sinks, retention, redaction, alerting and compliance requirements.
+
+## Products And Targets
+
+- **Library products**: `AppObservability`
+- **SwiftPM targets**: `AppObservability`
+- **Repository path**: `./PackagesForReuse/AppObservability`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppObservability")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppObservability"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppObservability`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppObservability.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppObservability"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppObservability`.
+2. Copy/sync it into `./PackagesInUse/AppObservability`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppObservability
 
-let recorder = MemoryObservabilityRecorder()
-let observability = DefaultObservability(recorder: recorder)
-let context = DiagnosticContext(
-    correlationID: CorrelationID(rawValue: "corr-42"),
-    attributes: ["screen": .string("home")]
-)
-
-let span = await observability.startSpan(
-    "feed.load",
-    attributes: [
-        "source": .string("remote"),
-        "url": .string("/feed?token=secret")
-    ],
-    diagnosticContext: context
-)
-
-await observability.addBreadcrumb("feed.refresh_tapped", diagnosticContext: context)
-await span.end(status: .ok, attributes: ["items": .integer(20)])
+// Use the package APIs from the target that owns product-specific policy.
 ```
 
-## Privacy
+## Verification
 
-The default redactor:
+From this package folder, run:
 
-- masks explicit private/sensitive attributes;
-- masks common sensitive keys such as `token`, `access_token`, `refresh_token`, `authorization`, `password`, `cookie`, `email`, and `phone`;
-- removes query and fragment data from absolute URLs, relative paths, and scheme-less URL strings.
-
-Examples:
-
-```swift
-.string("https://example.com/feed?token=secret#frag")
-// -> https://example.com/feed
-
-.string("/feed?token=secret#frag")
-// -> /feed
-
-.string("feed?token=secret#frag")
-// -> feed
-
-.string("//example.com/path?token=secret")
-// -> //example.com/path
-```
-
-## Cancellation behavior
-
-When `measure` throws `CancellationError`, the package records a measurement with `.cancelled` status and rethrows the cancellation.
-
-Errors conforming to `ObservabilityErrorDescribing` are recorded as structured failure descriptors. Unknown errors fall back to `.operationFailed` without exposing raw error text.
-
-## Standalone contract
-
-`AppObservability` has no sibling package dependencies and can be copied as a single folder into another project.
-
-```bash
-cd AppObservability
-swift test
-swift test -Xswiftc -strict-concurrency=complete
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-## Integration
+For source-only app integration, also run the host app's required verification, usually:
 
-Cross-package integration must live outside this root package, for example:
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
 
-- `AppObservabilityNetworkingIntegration`
-- `AppObservabilityLoggingIntegration`
-- `AppObservabilityCrashReportingIntegration`
-- `AppObservabilityAnalyticsIntegration`
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

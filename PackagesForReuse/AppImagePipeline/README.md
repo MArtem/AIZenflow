@@ -1,58 +1,125 @@
 # AppImagePipeline
 
-`AppImagePipeline` is a 100% single-folder standalone Swift package that provides app-independent image data loading and caching infrastructure.
+## Summary
 
-## Includes
+Image loading, decoding, caching and prefetch pipeline.
 
-- `ImageRequest`
-- `ImageCacheKey`
-- `ImageResponse`
-- `ImageDataFetching`
-- `URLSessionImageDataFetcher`
-- `MockImageDataFetcher`
-- `ImageMemoryCache`
-- `ImageDiskCache`
-- `DefaultImagePipeline`
-- `ImagePipelineDiagnostics`
+## Status In This Repository
 
-## Design rules
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-- No product-specific image URLs.
-- No feed/profile/news/avatar domain logic.
-- No analytics/logging/networking package dependency.
-- No sibling package imports.
-- No raw URL, token, credential, or cache key in diagnostics/descriptions.
-- Disk cache filenames are deterministic but never exposed through public diagnostics.
-- Memory and disk caches are bounded by entry count and byte count.
-- Content-type allowlists are enforced by the pipeline when callers provide `preferredContentTypes`.
-- Error descriptions expose stable failure codes only; arbitrary diagnostic codes are sanitized before display.
+## What Problem It Solves
 
-## Usage
+- Avoids synchronous image decoding in UI hot paths.
+- Provides bounded memory/disk cache behavior.
+- Centralizes remote/provided image byte handling.
+
+## What It Does
+
+- Image request/response models.
+- Disk/memory cache policies.
+- Prefetch and content-type validation.
+
+## When To Use It
+
+- images are loaded from remote/provided byte sources.
+- scroll performance needs cached decoded previews.
+
+## When Not To Use It
+
+- the app only uses local already-prepared thumbnails.
+- you need product-specific media authorization or asset policy.
+
+## Ownership Boundary
+
+Package owns image pipeline mechanics; host apps own image source policy, placeholders, product cache domains and UX behavior.
+
+## Products And Targets
+
+- **Library products**: `AppImagePipeline`
+- **SwiftPM targets**: `AppImagePipeline`
+- **Repository path**: `./PackagesForReuse/AppImagePipeline`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
 
 ```swift
-let pipeline = DefaultImagePipeline()
-let request = try ImageRequest.url(URL(string: "https://example.com/image.png")!)
-let response = try await pipeline.image(for: request)
+dependencies: [
+    .package(path: "../PackagesForReuse/AppImagePipeline")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppImagePipeline"
+        ]
+    )
+]
 ```
 
-Use a disk cache only when the host app owns an appropriate cache directory and retention policy:
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppImagePipeline`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
 
 ```swift
-let diskCache = ImageDiskCache(
-    rootDirectory: cacheDirectory,
-    maximumEntryCount: 500,
-    maximumTotalBytes: 100 * 1024 * 1024
-)
-let pipeline = DefaultImagePipeline(diskCache: diskCache)
+dependencies: [
+    .package(url: "https://github.com/<org>/AppImagePipeline.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppImagePipeline"
+        ]
+    )
+]
 ```
 
-This package returns image bytes. Host apps remain responsible for platform-specific image decoding, downsampling, view placeholders, memory-pressure behavior, and UI rendering policy.
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppImagePipeline`.
+2. Copy/sync it into `./PackagesInUse/AppImagePipeline`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
+
+```swift
+import AppImagePipeline
+
+// Use the package APIs from the target that owns product-specific policy.
+```
 
 ## Verification
 
-```bash
-cd AppImagePipeline
+From this package folder, run:
+
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The verification script uses a worktree-local scratch path outside the package folder.
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

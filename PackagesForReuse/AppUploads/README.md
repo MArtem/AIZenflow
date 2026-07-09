@@ -1,106 +1,124 @@
 # AppUploads
 
-`AppUploads` is a standalone Swift package with app-independent primitives for preparing and sending uploads from iOS, macOS, tvOS, and watchOS apps.
+## Summary
 
-The package is intentionally infrastructure-only. It does not depend on sibling SDK packages and does not include product-specific upload flows, analytics, diagnostics, logging, cache, or persistence code.
+Secure generic upload service with URL, size, retry and cancellation policies.
 
-## Goals
+## Status In This Repository
 
-- Validate upload URLs and identifiers.
-- Model upload payloads as in-memory data, file references, or multipart forms.
-- Provide safe upload names for field names and file names.
-- Keep potentially blocking file reads behind an explicit actor boundary.
-- Provide a small transport abstraction for host apps and tests.
-- Provide a Foundation-backed transport for basic `POST`, `PUT`, and `PATCH` uploads.
-- Keep descriptions and diagnostics redacted by default.
-- Preserve Swift task cancellation instead of mapping it to generic transport failure.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## Non-goals
+## What Problem It Solves
 
-- Background transfer session lifecycle management.
-- Authentication or credential injection.
-- Logging, analytics, crash reporting, or diagnostics integration.
-- Cross-package composition with AppFileStorage, AppDownloads, AppDiagnostics, or AppLogging.
-- Large-file streaming APIs. This package prepares payload data before transport; host apps that need streaming should provide a custom `UploadTransport`.
+- Avoids unsafe ad-hoc file/multipart uploads.
+- Centralizes HTTPS/default limits/retry sleeper injection.
+- Preserves cancellation semantics.
 
-`UploadRequest` accepts `https` URLs by default. Insecure `http` must be explicitly allowed by the host, for example for local development fixtures.
+## What It Does
 
-The default body worker prepares upload payload bytes in memory before transport. Host apps must set `maximumPayloadBytes` for untrusted files or user-selected media. Large streaming, resumable, or background uploads require a host-owned transport or a future dedicated package.
+- Upload request models.
+- Data/file/multipart payload policies.
+- Retry and response-size validation.
 
-## Basic usage
+## When To Use It
+
+- you need reusable generic file/data upload behavior.
+- uploads need declared-size checks and retry policy.
+
+## When Not To Use It
+
+- you need endpoint DTO mapping; use networking/app API layers.
+- the app has no upload feature.
+
+## Ownership Boundary
+
+Package owns upload mechanics; host apps own endpoints, auth, progress UI, payload classification and user-facing errors.
+
+## Products And Targets
+
+- **Library products**: `AppUploads`
+- **SwiftPM targets**: `AppUploads`
+- **Repository path**: `./PackagesForReuse/AppUploads`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppUploads")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppUploads"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppUploads`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppUploads.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppUploads"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppUploads`.
+2. Copy/sync it into `./PackagesInUse/AppUploads`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppUploads
-import Foundation
 
-let request = try UploadRequest(
-    id: try UploadID("avatar-upload"),
-    url: URL(string: "https://example.com/upload")!,
-    method: .post,
-    payload: .data(Data([1, 2, 3]), mediaType: .binary),
-    maximumPayloadBytes: 10_000_000,
-    maximumResponseBytes: 64_000
-)
-
-let service = UploadService()
-let response = try await service.upload(request) { progress in
-    print(progress.fractionCompleted ?? 0)
-}
+// Use the package APIs from the target that owns product-specific policy.
 ```
-
-## File upload
-
-```swift
-let file = try UploadFileReference(
-    fileURL: localFileURL,
-    fieldName: try SafeUploadName("file"),
-    fileName: try SafeUploadName("avatar.jpg"),
-    mediaType: try UploadMediaType("image/jpeg")
-)
-
-let request = try UploadRequest(
-    id: try UploadID("avatar-upload"),
-    url: uploadURL,
-    payload: .file(file)
-)
-```
-
-## Multipart upload
-
-```swift
-let form = try UploadMultipartForm(
-    fields: [
-        try UploadFormField(name: try SafeUploadName("kind"), value: "avatar")
-    ],
-    files: [file]
-)
-
-let request = try UploadRequest(
-    id: try UploadID("multipart-avatar"),
-    url: uploadURL,
-    payload: .multipart(form)
-)
-```
-
-## Privacy baseline
-
-- `description` values do not reveal upload identifiers, full file paths, field values, or file names.
-- URL query and fragment are removed from redacted URL output.
-- The package does not store credential-bearing fields.
-- Host apps that need authenticated requests should provide an app-owned `UploadTransport` boundary.
 
 ## Verification
 
-Run from the package root:
+From this package folder, run:
 
-```bash
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The verifier uses a worktree-local scratch path outside the package folder:
+For source-only app integration, also run the host app's required verification, usually:
 
-```text
-../WorktreeScratch/AppUploads
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
 ```
 
-It removes that scratch path after verification and fails fast if package-local build artifacts are left behind.
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

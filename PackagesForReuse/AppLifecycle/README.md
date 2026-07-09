@@ -1,68 +1,124 @@
 # AppLifecycle
 
-`AppLifecycle` is a product-independent Swift package for modeling application lifecycle state, launch classification, lifecycle events and privacy-safe lifecycle diagnostics.
+## Summary
 
-It is a mechanism package. It does not own product screens, routes, analytics events, logging backends, session restoration, push registration, background task scheduling or app-specific launch policy.
+Application lifecycle event and state helper mechanisms.
 
-## What belongs here
+## Status In This Repository
 
-- lifecycle phases;
-- lifecycle events;
-- launch classification;
-- foreground/background counters;
-- app lifecycle snapshots;
-- privacy-safe lifecycle attributes;
-- lifecycle diagnostics;
-- in-memory lifecycle state store;
-- manual/default lifecycle manager for host app composition.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## What does not belong here
+## What Problem It Solves
 
-- app-specific onboarding logic;
-- auth/session restoration;
-- analytics/logging/crash-reporting adapters;
-- push token registration;
-- background task scheduling;
-- concrete SwiftUI scene wiring;
-- product-specific route handling.
+- Centralizes lifecycle event modeling.
+- Keeps foreground/background handling testable.
+- Avoids duplicated scene phase translation.
 
-Cross-package or app-specific composition belongs in optional integration helpers or in the host app.
+## What It Does
 
-## Basic usage
+- Lifecycle event/status contracts.
+- Observer/reporter helpers.
+- No-op/testable lifecycle surfaces.
+
+## When To Use It
+
+- features need lifecycle-aware refresh, sync or cleanup behavior.
+- multiple targets observe lifecycle state.
+
+## When Not To Use It
+
+- you need one local `.task` tied to a SwiftUI view.
+- the behavior is product-specific and should stay in app coordination.
+
+## Ownership Boundary
+
+Package owns lifecycle mechanics; host apps own scene wiring, refresh policy, background-task decisions and UX side effects.
+
+## Products And Targets
+
+- **Library products**: `AppLifecycle`
+- **SwiftPM targets**: `AppLifecycle`
+- **Repository path**: `./PackagesForReuse/AppLifecycle`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
 
 ```swift
-let manager = DefaultAppLifecycleManager(initialPhase: .inactive)
-
-try await manager.startLaunch(
-    buildIdentity: AppLifecycleBuildIdentity(version: "1.0", build: "100")
-)
-
-try await manager.record(.didBecomeActive)
-let snapshot = await manager.snapshot()
+dependencies: [
+    .package(path: "../PackagesForReuse/AppLifecycle")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppLifecycle"
+        ]
+    )
+]
 ```
 
-## Observing lifecycle events
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppLifecycle`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
 
 ```swift
-let stream = await manager.eventStream()
-
-Task {
-    for await event in stream {
-        // Forward to app-level logging, analytics or diagnostics if desired.
-    }
-}
+dependencies: [
+    .package(url: "https://github.com/<org>/AppLifecycle.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppLifecycle"
+        ]
+    )
+]
 ```
 
-## Privacy
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
 
-Lifecycle attributes are privacy-aware. String descriptions are intentionally redacted and sensitive-looking keys are sanitized before storage in lifecycle events.
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppLifecycle`.
+2. Copy/sync it into `./PackagesInUse/AppLifecycle`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
+
+```swift
+import AppLifecycle
+
+// Use the package APIs from the target that owns product-specific policy.
+```
 
 ## Verification
 
-Run from the package folder:
+From this package folder, run:
 
-```bash
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The script uses a worktree-local scratch path outside the package folder and must not leave `.build`, `.swiftpm` or `Package.resolved` inside the package.
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

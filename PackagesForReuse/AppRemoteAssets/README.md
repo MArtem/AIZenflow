@@ -1,101 +1,124 @@
 # AppRemoteAssets
 
-`AppRemoteAssets` is a standalone Swift package for app-independent remote asset coordination.
+## Summary
 
-It does not store files, render images, perform logging, or compose with sibling SDK packages. Its job is to model remote asset manifests, validate asset identity and versions, load manifest data through an explicit transport boundary, and produce a fetch plan that a host app can execute with its own storage and transfer stack.
+Remote asset manifest validation and asset retrieval mechanics.
 
-## Goals
+## Status In This Repository
 
-- Safe remote asset identifiers and versions.
-- HTTPS-only manifest and asset locations by default, with explicit host opt-in for HTTP.
-- Query/fragment redaction for URLs shown in diagnostics.
-- Manifest validation with duplicate asset detection.
-- Remote asset descriptors with kind, media type, expected byte count, checksum, and cache policy.
-- Actor-based manifest loading service.
-- Transport abstraction for host-provided networking.
-- Optional Foundation URLSession manifest data transport.
-- Fetch planning from manifest state plus host-owned local records.
-- No dependency on AppDownloads, AppFileStorage, AppLogging, or AppDiagnostics.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-`http` is accepted only when the host explicitly includes it in `allowedSchemes`, for example for local development fixtures. Manifest and asset URLs should be `https` in production.
+## What Problem It Solves
 
-## Minimal usage
+- Keeps remote asset metadata validation explicit.
+- Enforces secure URL/status/checksum/size policies.
+- Avoids ad-hoc asset manifest parsing.
+
+## What It Does
+
+- Manifest request/validation models.
+- Asset metadata and checksum validation.
+- Transport and response-size handling.
+
+## When To Use It
+
+- an app downloads versioned remote assets from a manifest.
+- assets require checksum/size/status validation.
+
+## When Not To Use It
+
+- assets are bundled or local-only.
+- product asset rollout policy is not defined.
+
+## Ownership Boundary
+
+Package owns remote asset mechanics; host apps own manifest endpoint, rollout behavior, storage, UI and cache policy.
+
+## Products And Targets
+
+- **Library products**: `AppRemoteAssets`
+- **SwiftPM targets**: `AppRemoteAssets`
+- **Repository path**: `./PackagesForReuse/AppRemoteAssets`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppRemoteAssets")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppRemoteAssets"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppRemoteAssets`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppRemoteAssets.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppRemoteAssets"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppRemoteAssets`.
+2. Copy/sync it into `./PackagesInUse/AppRemoteAssets`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppRemoteAssets
-import Foundation
 
-let manifestRequest = try RemoteAssetManifestRequest(
-    url: URL(string: "https://example.com/assets/manifest.json?signature=redacted")!,
-    maximumResponseBytes: 1_000_000
-)
-
-let transport = FoundationRemoteAssetManifestDataTransport()
-let service = RemoteAssetManifestService(transport: transport)
-let manifest = try await service.loadManifest(manifestRequest)
-
-let plan = RemoteAssetFetchPlanner().makePlan(
-    manifest: manifest,
-    localRecords: [],
-    now: Date()
-)
-
-for action in plan.actions {
-    switch action {
-    case .fetch(let asset, let reason):
-        print("Fetch asset with reason: \(reason). URL: \(asset.location.redactedURLString)")
-    case .keep:
-        break
-    case .removeLocal:
-        break
-    }
-}
+// Use the package APIs from the target that owns product-specific policy.
 ```
-
-## Manifest model
-
-```swift
-let asset = try RemoteAssetDescriptor(
-    id: try RemoteAssetID("hero.image"),
-    version: try RemoteAssetVersion("2026.06.01"),
-    location: try RemoteAssetLocation(url: URL(string: "https://example.com/assets/hero.png?signature=abc")!),
-    kind: .image,
-    mediaType: .png,
-    expectedByteCount: 250_000,
-    checksum: try RemoteAssetChecksum(algorithm: .sha256, value: String(repeating: "a", count: 64)),
-    cachePolicy: .immutable
-)
-
-let manifest = try RemoteAssetManifest(
-    schemaVersion: try RemoteAssetVersion("1"),
-    generatedAt: Date(),
-    assets: [asset]
-)
-```
-
-## Privacy baseline
-
-Descriptions and debug-facing strings redact identifiers, versions, checksum values, URL path details, and URL query/fragment components. The package does not expose raw asset bytes in diagnostics. The host app remains responsible for its own telemetry, persistence, and transfer execution policies.
-
-## Boundaries
-
-This package intentionally does not include:
-
-- File storage.
-- Image decoding or transformation.
-- Background scheduling.
-- Download queue execution.
-- App-specific asset names or product-specific manifest fields.
-- Cross-package composition.
-
-Use an integration helper outside this package if a project wants to connect remote asset plans to downloads, file storage, analytics, or logging.
 
 ## Verification
 
-Run:
+From this package folder, run:
 
-```bash
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The verifier copies the package to `../WorktreeScratch/AppRemoteAssets`, runs tests, runs strict concurrency tests, and removes the scratch copy after completion.
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

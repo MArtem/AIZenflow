@@ -1,85 +1,124 @@
 # AppRateLimiter
 
-`AppRateLimiter` is a standalone Swift package for app-independent rate limiting primitives. It provides safe keys, fixed-window limits, sliding-window limits, token-bucket limits, deterministic test clocks, an explicit store protocol, and an in-memory actor-backed implementation.
+## Summary
 
-The package is designed as a root Infrastructure SDK package:
+Fixed-window and token-bucket rate limiting mechanics.
 
-- no sibling package imports;
-- no remote package dependencies;
-- no app-specific domain entities;
-- no logging, analytics, networking, persistence, or diagnostics package coupling;
-- no hidden file system or database work;
-- privacy-safe descriptions by default.
+## Status In This Repository
 
-## Core API
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-```swift
-let limiter = AppRateLimiter()
+## What Problem It Solves
 
-let request = RateLimitRequest(
-    key: try RateLimitKey("route.login"),
-    policy: .fixedWindow(
-        limit: try RateLimitLimit(5),
-        interval: try .minutes(1)
-    ),
-    cost: try RateLimitCost(1)
-)
+- Prevents repeated action/request storms.
+- Makes fail-open/fail-closed policy visible through store errors.
+- Provides reusable limits independent of product behavior.
 
-let decision = try await limiter.evaluate(request)
+## What It Does
 
-if decision.isAllowed {
-    // Continue the operation.
-} else {
-    // Respect decision.retryAfter.
-}
-```
+- Rate limit identifiers/costs.
+- Fixed-window/token-bucket evaluation.
+- Store-backed limit state.
 
-## Policies
+## When To Use It
 
-### Fixed window
+- you need reusable throttling for actions, API calls or background work.
+- limits must survive or coordinate through a store.
 
-A fixed-window policy counts cost units from the beginning of a window. Once the window expires, usage resets.
+## When Not To Use It
 
-### Sliding window
+- a simple button-level debounce is enough.
+- rate-limit rejection policy is not yet defined.
 
-A sliding-window policy retains recent usage entries and releases them as they become older than the configured interval.
+## Ownership Boundary
 
-### Token bucket
+Package owns rate-limit mechanics; host apps own user-facing copy, fail-open/fail-closed policy, scopes and telemetry.
 
-A token-bucket policy starts full, consumes units per accepted request, and refills by completed intervals.
+## Products And Targets
+
+- **Library products**: `AppRateLimiter`
+- **SwiftPM targets**: `AppRateLimiter`
+- **Repository path**: `./PackagesForReuse/AppRateLimiter`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
 
 ```swift
-let policy = try RateLimitPolicy.makeTokenBucket(
-    capacity: try RateLimitLimit(20),
-    refillAmount: try RateLimitLimit(5),
-    refillInterval: try .seconds(10)
-)
+dependencies: [
+    .package(path: "../PackagesForReuse/AppRateLimiter")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppRateLimiter"
+        ]
+    )
+]
 ```
 
-## Privacy baseline
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppRateLimiter`.
 
-`RateLimitKey`, `RateLimitRequest`, and related descriptions are intentionally redacted. The package does not log or expose app-specific identifiers through `description` / `debugDescription`.
+## Remote SwiftPM Usage
 
-## Persistence boundary
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
 
-The root package ships with `InMemoryRateLimitStore`. Durable or distributed storage belongs to the host app and should be implemented behind `RateLimitStore` without importing sibling SDK packages into this package.
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppRateLimiter.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppRateLimiter"
+        ]
+    )
+]
+```
 
-`RateLimitStore` operations are throwing by design. A durable store must propagate file, database, or distributed-storage failures to the host so the host can choose its own fail-open or fail-closed policy. The package must not hide storage failures as allowed or rejected decisions.
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
 
-`InMemoryRateLimitStore` is actor-backed and suitable for tests, previews, process-local limits, and small bounded runtime scopes. Hosts must not feed unbounded high-cardinality user/device/request identifiers into the in-memory store without an app-owned key strategy, reset policy, or durable bounded store.
+## Current TchopApp Source-Only Usage
 
-Rejected decisions expose `RateLimitRejection.reason` so hosts can distinguish normal rate limiting from a request whose cost can never fit the configured policy.
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppRateLimiter`.
+2. Copy/sync it into `./PackagesInUse/AppRateLimiter`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
+
+```swift
+import AppRateLimiter
+
+// Use the package APIs from the target that owns product-specific policy.
+```
 
 ## Verification
 
-Run:
+From this package folder, run:
 
-```bash
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The verifier uses a worktree-local scratch path outside the package folder:
+For source-only app integration, also run the host app's required verification, usually:
 
-```text
-../WorktreeScratch/AppRateLimiter
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
 ```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

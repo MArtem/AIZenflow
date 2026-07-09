@@ -1,73 +1,125 @@
 # AppFeatureFlags
 
-`AppFeatureFlags` is a 100% single-folder standalone Swift package for app-independent feature flag evaluation.
+## Summary
 
-## Purpose
+Feature flag definition, evaluation and storage mechanics.
 
-Use this package to evaluate:
+## Status In This Repository
 
-- boolean feature toggles;
-- typed flag values;
-- local debug overrides;
-- percentage rollouts;
-- weighted experiment variants;
-- diagnostic evaluation results.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## What belongs here
+## What Problem It Solves
 
-- Generic feature flag keys and values.
-- Snapshot and override stores.
-- Rollout bucketing.
-- Variant selection.
-- Test-friendly in-memory implementations.
-- UserDefaults-backed snapshot and override persistence.
-- Snapshot validation before runtime activation.
+- Keeps feature-gating decisions explicit.
+- Separates reusable flag evaluation from rollout policy.
+- Avoids scattered boolean defaults.
 
-## What must not belong here
+## What It Does
 
-- Product-specific flag names like `news.newLayout`.
-- Analytics integration.
-- Remote config integration.
-- Networking integration.
-- UI copy or localization strings.
+- Flag identifiers and values.
+- Evaluation/store contracts.
+- Default/in-memory helpers.
 
-Cross-package composition belongs in optional `IntegrationHelpers`.
+## When To Use It
 
-## Example
+- you need reusable feature gates or staged rollout controls.
+- flags must be testable and centrally listed.
+
+## When Not To Use It
+
+- you are using flags as permanent architecture forks.
+- the behavior is not optional/rollable.
+
+## Ownership Boundary
+
+Package owns flag mechanics; host apps own flag catalog, rollout source, kill-switch policy, analytics and cleanup dates.
+
+## Products And Targets
+
+- **Library products**: `AppFeatureFlags`
+- **SwiftPM targets**: `AppFeatureFlags`
+- **Repository path**: `./PackagesForReuse/AppFeatureFlags`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
 
 ```swift
-let key = FeatureFlagKey(namespace: "feed", name: "new-card")
-let manager = DefaultFeatureFlagManager()
+dependencies: [
+    .package(path: "../PackagesForReuse/AppFeatureFlags")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppFeatureFlags"
+        ]
+    )
+]
+```
 
-try await manager.updateSnapshot(
-    FeatureFlagSnapshot(flags: [
-        key: FeatureFlag(
-            key: key,
-            isEnabled: true,
-            value: .bool(true),
-            rolloutPercentage: 25
-        )
-    ])
-)
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppFeatureFlags`.
 
-let enabled = await manager.isEnabled(
-    key,
-    default: false,
-    context: FeatureFlagContext(stableIdentifier: "user-123")
-)
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppFeatureFlags.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppFeatureFlags"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppFeatureFlags`.
+2. Copy/sync it into `./PackagesInUse/AppFeatureFlags`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
+
+```swift
+import AppFeatureFlags
+
+// Use the package APIs from the target that owns product-specific policy.
 ```
 
 ## Verification
 
-```bash
+From this package folder, run:
+
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The script runs regular tests and strict-concurrency checks.
+For source-only app integration, also run the host app's required verification, usually:
 
-## Production notes
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
 
-- Invalid rollout percentages are rejected instead of silently clamped.
-- Snapshot dictionary keys must match each contained flag key.
-- Anonymous contexts intentionally share one `"anonymous"` rollout bucket; host apps that need per-install anonymous rollout should pass a stable app-owned identifier.
-- Diagnostics and string descriptions avoid exposing raw flag string values, but host apps should still avoid sending feature keys to external telemetry unless explicitly approved.
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

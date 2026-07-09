@@ -1,100 +1,125 @@
 # AppConnectivity
 
-`AppConnectivity` is a 100% single-folder standalone Swift package for app-independent connectivity monitoring.
+## Summary
 
-It provides a normalized connectivity model that can be used by networking, sync, downloads, uploads, media, diagnostics, feature flags, and UI state without coupling those packages to each other.
+Network connectivity observation and reachability-state helpers.
 
-## Goals
+## Status In This Repository
 
-- Represent online/offline/unknown/requires-connection states.
-- Represent interface kind: Wi-Fi, cellular, wired Ethernet, loopback, other, unknown.
-- Represent expensive and constrained connections.
-- Expose `AsyncStream`-based connectivity snapshots.
-- Provide test-friendly manual/static monitors.
-- Provide a native `Network.framework` monitor on Apple platforms when available.
-- Keep native monitor lifecycle explicit: `start()` is idempotent while active, `stop()` is terminal, and a new monitor instance is required for a fresh native lifecycle.
-- Avoid product-specific routing, analytics, logging, copy, or networking dependencies.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## Installation
+## What Problem It Solves
 
-Copy the whole `AppConnectivity` folder into a project or workspace and add it as a Swift Package.
+- Avoids feature-level network reachability duplication.
+- Provides one reusable connectivity status contract.
+- Helps networking/offline features reason about current availability.
 
-```bash
-cd AppConnectivity
-swift test
+## What It Does
+
+- Connectivity status model.
+- Observer/provider contracts.
+- No-op/testable status providers.
+
+## When To Use It
+
+- features need connectivity-aware behavior.
+- networking/offline layers need a shared status source.
+
+## When Not To Use It
+
+- you plan to block every request solely based on reachability; requests should still handle real failures.
+- you do not need connectivity UI or offline behavior.
+
+## Ownership Boundary
+
+Package owns connectivity mechanics; host apps own UX policy, offline messaging, retries and telemetry.
+
+## Products And Targets
+
+- **Library products**: `AppConnectivity`
+- **SwiftPM targets**: `AppConnectivity`
+- **Repository path**: `./PackagesForReuse/AppConnectivity`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppConnectivity")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppConnectivity"
+        ]
+    )
+]
 ```
 
-## Basic usage
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppConnectivity`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppConnectivity.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppConnectivity"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppConnectivity`.
+2. Copy/sync it into `./PackagesInUse/AppConnectivity`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppConnectivity
 
-let monitor = ConnectivityMonitorFactory.makeDefault()
-await monitor.start() // Idempotent while active. After stop, create a new monitor instance.
-
-let snapshot = await monitor.currentSnapshot()
-if snapshot.isAllowed(by: .conservative) {
-    // Start a large sync/download only when the connection is usable and not constrained/expensive.
-}
+// Use the package APIs from the target that owns product-specific policy.
 ```
-
-## Observing changes
-
-```swift
-let stream = await monitor.snapshots()
-for await snapshot in stream {
-    print(snapshot.status)
-}
-```
-
-## Transition events
-
-```swift
-let changes = await ConnectivityChangeStream(monitor: monitor).changes()
-for await change in changes {
-    if change.becameOnline {
-        // Resume queued work.
-    }
-}
-```
-
-## Lifecycle and cancellation
-
-`NetworkPathConnectivityMonitor` wraps `NWPathMonitor`, whose cancellation is terminal. `start()` is idempotent while active; after `stop()`, create a new monitor instance instead of trying to restart the same one. `ManualConnectivityMonitor` is intended for tests/previews and can be driven directly through `update(...)`.
-
-`ConnectivityWaiter.waitUntilAllowed()` waits on the caller task; cancel the caller task to stop waiting.
-
-## Tests and previews
-
-```swift
-let monitor = ManualConnectivityMonitor(initialSnapshot: .offline())
-await monitor.update(.online(interfaces: [.wifi]))
-```
-
-## What belongs here
-
-- Connectivity state models.
-- Native path monitoring abstraction.
-- Test doubles.
-- Privacy-safe diagnostics snapshot.
-- Cost/constrained policy helpers.
-
-## What does not belong here
-
-- HTTP client logic.
-- Retry queue implementation.
-- Feature-specific offline UI.
-- Analytics events.
-- Logging implementation.
-- Sync/download/upload orchestration.
-- App-specific strings or route names.
-
-Those integrations should live in optional IntegrationHelpers or the host app composition layer.
 
 ## Verification
 
-```bash
+From this package folder, run:
+
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-This runs structure checks, forbidden dependency checks, `swift test`, and strict concurrency verification.
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

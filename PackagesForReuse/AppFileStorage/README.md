@@ -1,71 +1,125 @@
 # AppFileStorage
 
-`AppFileStorage` is a standalone Swift package for app-owned file storage.
+## Summary
 
-It provides:
+Safe local file storage domains and file copy/write helpers.
 
-- safe relative path modeling;
-- directory providers with non-colliding custom roots;
-- atomic replacement writes;
-- symlink escape checks;
-- read, write, copy, remove, remove-all;
-- file attributes;
-- recursive listing;
-- total size calculation;
-- cleanup policies;
-- privacy-safe diagnostics;
-- test-friendly static directory provider.
+## Status In This Repository
 
-## Basic usage
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
+
+## What Problem It Solves
+
+- Avoids raw FileManager paths scattered through UI/features.
+- Centralizes storage domains, replacement and cleanup behavior.
+- Makes local file identity and sandbox location explicit.
+
+## What It Does
+
+- Storage domain and file reference models.
+- Local copy/write/remove operations.
+- App-group/local-container friendly path handling.
+
+## When To Use It
+
+- features import/copy user files, media or generated artifacts.
+- file location durability matters.
+
+## When Not To Use It
+
+- you need secret/token storage; use secure storage.
+- the file is a bundled read-only resource.
+
+## Ownership Boundary
+
+Package owns file mechanics; host apps own domains, retention, backup policy, privacy classification and UI-facing error copy.
+
+## Products And Targets
+
+- **Library products**: `AppFileStorage`
+- **SwiftPM targets**: `AppFileStorage`
+- **Repository path**: `./PackagesForReuse/AppFileStorage`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
 
 ```swift
-let storage = LocalFileStorage(
-    root: .applicationSupport,
-    namespace: FileStorageNamespace("offline-cache")
-)
-
-let path = try FileStorageRelativePath("articles", "page-1.json")
-try await storage.write(data, to: path, options: .default)
-try await storage.copyFile(from: sourceURL, to: path, options: .default)
-let fileURL = try await storage.fileURL(for: path)
-let loaded = try await storage.read(from: path, options: .default)
+dependencies: [
+    .package(path: "../PackagesForReuse/AppFileStorage")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppFileStorage"
+        ]
+    )
+]
 ```
 
-## What belongs here
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppFileStorage`.
 
-Generic file system mechanisms:
+## Remote SwiftPM Usage
 
-- app storage directories;
-- safe filenames and relative paths;
-- atomic writes;
-- cleanup;
-- file size and metadata;
-- diagnostics without raw file paths.
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
 
-## What does not belong here
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppFileStorage.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppFileStorage"
+        ]
+    )
+]
+```
 
-- product-specific directories;
-- feature-specific file names;
-- image loading pipelines;
-- downloads/uploads;
-- user-facing error copy;
-- analytics/logging integrations;
-- database export formats.
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
 
-Those integrations should live in host app code or optional `IntegrationHelpers`.
+## Current TchopApp Source-Only Usage
 
-## Storage safety contract
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
 
-`FileStorageRelativePath` accepts only explicit path components and rejects empty components, traversal markers, separators, and control characters.
+1. Keep the reviewed package in `./PackagesForReuse/AppFileStorage`.
+2. Copy/sync it into `./PackagesInUse/AppFileStorage`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
 
-`LocalFileStorage` resolves every operation inside its configured storage directory and rejects symlink escapes before reading or writing. Atomic writes preserve the previous file until replacement succeeds.
+## Basic Usage
 
-Custom roots use the sanitized custom namespace value as a real directory name; the redacted `description` is never used for path construction.
+```swift
+import AppFileStorage
 
-## Standalone contract
+// Use the package APIs from the target that owns product-specific policy.
+```
 
-This package has no sibling dependencies and no remote dependencies. It can be copied as a single folder into a new project and verified with:
+## Verification
 
-```bash
+From this package folder, run:
+
+```zsh
 ./Scripts/verify_package.sh
 ```
+
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

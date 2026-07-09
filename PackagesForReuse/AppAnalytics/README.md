@@ -1,61 +1,125 @@
 # AppAnalytics
 
-`AppAnalytics` is a 100% single-folder standalone Swift package. You can copy this folder into a new project, open it as a Swift Package, and run its tests without copying any sibling packages from this repository.
+## Summary
 
-## Ownership
+Analytics event modeling and reporting primitives for app, navigation, networking and push events.
 
-- **Package owns**: generic analytics primitives, typed analytics values, event contracts, in-memory/no-op collectors, documentation, and package-owned tests.
-- **App/integration layer owns**: concrete provider SDK adapters, cross-package event mappers, product analytics taxonomy, upload policy, sampling, privacy policy, and user-consent decisions.
+## Status In This Repository
 
-## Products
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-- `AppAnalyticsCore`
-- `AppAnalytics`
+## What Problem It Solves
 
-## Structure
+- Keeps analytics payload shape consistent across features.
+- Separates event definition/reporting from product-specific analytics policy.
+- Provides a reusable base for adapter packages.
 
-```text
-AppAnalytics/
-  Package.swift
-  README.md
-  Sources/
-  Tests/
+## What It Does
+
+- Core analytics event contracts.
+- Reporter/no-op reporter mechanics.
+- Adapter-friendly attributes and event flow.
+
+## When To Use It
+
+- you need a lightweight analytics boundary without binding features to one vendor SDK.
+- you want package-owned event contracts that can be reused across apps.
+
+## When Not To Use It
+
+- the app only needs one direct vendor SDK call and no shared event taxonomy.
+- the data contains secrets or raw user payloads; sanitize before reporting.
+
+## Ownership Boundary
+
+Package owns generic analytics mechanics; host apps own event taxonomy decisions, consent, privacy policy, vendor SDK wiring and redaction.
+
+## Products And Targets
+
+- **Library products**: `AppAnalyticsCore`, `AppAnalytics`
+- **SwiftPM targets**: `AppAnalyticsCore`, `AppAnalytics`
+- **Repository path**: `./PackagesForReuse/AppAnalytics`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppAnalytics")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppAnalyticsCore"
+        ]
+    )
+]
 ```
 
-The package is self-contained and keeps its tests beside its source.
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppAnalytics`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppAnalytics.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppAnalyticsCore"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppAnalytics`.
+2. Copy/sync it into `./PackagesInUse/AppAnalytics`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
+
+```swift
+import AppAnalyticsCore
+
+// Use the package APIs from the target that owns product-specific policy.
+```
 
 ## Verification
 
-Run from this folder:
+From this package folder, run:
 
-```bash
-swift test
+```zsh
+./Scripts/verify_package.sh
 ```
 
-## Portability
+For source-only app integration, also run the host app's required verification, usually:
 
-Required sibling packages: **None**
-
-Copy modes:
-- **Standalone copy mode:** supported.
-- **Local path dependency mode:** not required.
-- **Git URL dependency mode:** supported as a normal independent package.
-- **Bundle copy mode:** supported, but not required.
-
-## Cross-package integrations
-
-Navigation/networking/push analytics adapters intentionally do **not** live inside this package anymore. They are optional host-level composition files under:
-
-```text
-../IntegrationHelpers/
-  AppAnalyticsNavigationIntegration.swift
-  AppAnalyticsNetworkingIntegration.swift
-  AppAnalyticsPushNotificationsIntegration.swift
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
 ```
 
-Copy only the helpers you need into the app/integration target after adding the corresponding root packages.
+## More Documentation
 
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./USAGE.md`
 
-## Usage guide
+## Documentation Maintenance
 
-See `./USAGE.md` for package/app boundary rules and host integration guidance.
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

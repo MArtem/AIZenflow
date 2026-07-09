@@ -1,92 +1,124 @@
 # AppEnvironment
 
-`AppEnvironment` is a single-folder standalone Swift package for app-independent runtime environment snapshots.
+## Summary
 
-It answers generic infrastructure questions such as:
+Environment/runtime provider for app mode, configuration source and build/runtime context.
 
-- which deployment environment is active: development, staging, production or custom;
-- what selected build identity is available: bundle identifier, app version, build number, build configuration;
-- whether the app is running in tests, UI tests, previews or simulator;
-- what locale, time zone and calendar identifiers are active.
+## Status In This Repository
 
-The package does not know product features, screens, routes, API clients, analytics domains, user sessions or brand-specific values.
+Active source-only package compiled directly into `TchopApp` targets from `./PackagesInUse`.
 
-## Installation / copy mode
+## What Problem It Solves
 
-Copy the `AppEnvironment/` folder into any repository and open it as a Swift Package.
+- Avoids scattered environment checks.
+- Makes dev/staging/production decisions explicit.
+- Keeps environment injection testable.
 
-```bash
-cd AppEnvironment
+## What It Does
+
+- Environment snapshot/provider contracts.
+- Default provider helpers.
+- Sendable date/runtime injection surfaces.
+
+## When To Use It
+
+- the app has multiple environments or runtime modes.
+- configuration and networking need one environment source.
+
+## When Not To Use It
+
+- environment can be a compile-time constant only.
+- you need product behavior fallback; keep policy in the app.
+
+## Ownership Boundary
+
+Package owns environment mechanics; host apps own environment definitions, secrets, URLs and release policy.
+
+## Products And Targets
+
+- **Library products**: `AppEnvironment`
+- **SwiftPM targets**: `AppEnvironment`
+- **Repository path**: `./PackagesInUse/AppEnvironment`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesInUse/AppEnvironment")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppEnvironment"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesInUse/AppEnvironment`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppEnvironment.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppEnvironment"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppEnvironment`.
+2. Copy/sync it into `./PackagesInUse/AppEnvironment`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
+
+```swift
+import AppEnvironment
+
+// Use the package APIs from the target that owns product-specific policy.
+```
+
+## Verification
+
+From this package folder, run:
+
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-The package has no `.package(...)` dependencies and no sibling imports.
+For source-only app integration, also run the host app's required verification, usually:
 
-## Basic usage
-
-```swift
-let provider = DefaultAppEnvironmentProvider(
-    environmentVariableName: "APP_ENVIRONMENT"
-)
-
-let snapshot = await provider.snapshot()
-
-if snapshot.kind == .staging {
-    // configure app composition root for staging
-}
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
 ```
 
-## Test usage
+## More Documentation
 
-```swift
-let provider = StaticEnvironmentProvider(
-    AppEnvironmentSnapshot(
-        kind: .development,
-        buildInfo: AppBuildInfo(version: "1.0", buildNumber: "1"),
-        runtimeFlags: AppRuntimeFlags(isDebugBuild: true, isSimulator: true),
-        localeContext: AppLocaleContext(
-            localeIdentifier: "en_US",
-            languageCode: "en",
-            regionCode: "US",
-            timeZoneIdentifier: "UTC",
-            calendarIdentifier: "gregorian"
-        )
-    )
-)
-```
+- `./PackageContract.md`
+- `./Docs/README.md`
 
-## Privacy stance
+## Documentation Maintenance
 
-`AppEnvironment` reads only allowlisted metadata. It does not expose the full process environment, full bundle info dictionary, command line arguments, secrets, tokens or backend URLs.
-
-Diagnostic descriptions intentionally avoid dumping process names, full environment dictionaries or arbitrary runtime values.
-
-## What belongs here
-
-- Environment kind parsing.
-- Build/version metadata allowlist.
-- Runtime flags for tests/previews/simulator.
-- Locale/time-zone/calendar context as primitive `Sendable` values.
-- Static providers for tests and previews.
-
-## What does not belong here
-
-- API base URL selection.
-- Feature flags.
-- Session state.
-- Secure storage.
-- Product-specific environment names.
-- Analytics/logging integrations.
-- Remote configuration fetching.
-
-Those integrations belong in app composition code or optional `IntegrationHelpers`.
-
-## Synchronous launch usage
-
-App entry points that cannot `await` during initialization can resolve runtime flags synchronously:
-
-```swift
-let flags = ProcessRuntimeFlagsProvider.makeRuntimeFlags()
-```
-
-Use this only for generic runtime flags. Product-specific launch switches remain app-owned.
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

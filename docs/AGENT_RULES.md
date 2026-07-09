@@ -66,6 +66,14 @@ Do not add abstractions unless they solve a concrete current problem.
 - TchopApp-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/TchopApp/` or in the canonical docs indexed there.
 - When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
 
+
+## Package Documentation Rule
+- Every reusable package must have a complete package-level `README.md` before adoption or publication. The README must explain purpose, solved problem, capabilities, when to use/not use, ownership boundary, products/targets, local SwiftPM usage, remote SwiftPM usage, source-only integration notes, basic usage, verification, and related docs.
+- Keep `./PackagesForReuse/PACKAGE_CATALOG.md` updated whenever a reusable package or integration helper is added, removed, renamed, or its purpose/products change.
+- If the package is active in TchopApp, also update `./PackagesInUse/PACKAGE_CATALOG.md`, `./PackagesInUse/README.md`, and the active package README.
+- Reusable package docs mirrored for all tasks must stay current under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs`.
+- Do not create or adopt a package with only a placeholder README unless the user explicitly approves a temporary exception and the follow-up is recorded.
+
 ## ViewModel Intent API Rule
 - ViewModels expose explicit intent methods by default, e.g. `loginTapped()`, `refreshRequested()`, `articleTapped(id:)`, `logoutTapped()`.
 - Do not add or keep generic `send(_ action:)`, `dispatch(_:)`, or UI action-enum dispatch as default MVVM boilerplate.

@@ -1,68 +1,125 @@
 # AppBackgroundTasks
 
-`AppBackgroundTasks` is a product-independent Swift package for background task registration, scheduling models, manual/test scheduling, execution orchestration and diagnostics.
+## Summary
 
-It is a mechanism package. It does not know about app screens, sync engines, networking clients, analytics domains, session state or product-specific jobs.
+Background task registration and execution coordination helpers.
 
-## What belongs here
+## Status In This Repository
 
-- Background task identifiers and task kinds.
-- Registration and scheduling request models.
-- Manual scheduler for tests, previews and deterministic host-app orchestration.
-- Execution context and result models.
-- Privacy-safe diagnostics.
-- Compile-gated helpers for native `BackgroundTasks` request creation when available.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## What must not belong here
+## What Problem It Solves
 
-- Concrete app job names such as feed refresh or profile sync.
-- Networking clients.
-- Database writes.
-- Analytics tracking.
-- Session restoration policy.
-- Background task entitlement or Info.plist ownership.
-- Hidden native scheduler side effects during tests.
+- Keeps BGTaskScheduler-style mechanics in one reusable place.
+- Makes background work registration explicit.
+- Separates system scheduling from app-specific sync/import policy.
 
-## Quick example
+## What It Does
+
+- Task identifiers and registration helpers.
+- Execution result/cancellation boundaries.
+- Documentation for host-owned scheduling policy.
+
+## When To Use It
+
+- you need reusable background task plumbing across apps.
+- background work must be registered consistently.
+
+## When Not To Use It
+
+- you need product-specific sync behavior; implement it in the app layer.
+- the task is simple foreground work.
+
+## Ownership Boundary
+
+Package owns background-task mechanics; host apps own identifiers, entitlement setup, Info.plist declarations, retry policy and task body.
+
+## Products And Targets
+
+- **Library products**: `AppBackgroundTasks`
+- **SwiftPM targets**: `AppBackgroundTasks`
+- **Repository path**: `./PackagesForReuse/AppBackgroundTasks`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
 
 ```swift
-let manager = DefaultBackgroundTaskManager()
-
-try await manager.register(
-    BackgroundTaskRegistration(identifier: "refresh", kind: .appRefresh),
-    handler: AnyBackgroundTaskHandler { context in
-        // Host app performs its own work here.
-        return .success
-    }
-)
-
-try await manager.schedule(
-    BackgroundTaskRequest(identifier: "refresh", kind: .appRefresh)
-)
-
-let result = try await manager.runPending(identifier: "refresh")
+dependencies: [
+    .package(path: "../PackagesForReuse/AppBackgroundTasks")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppBackgroundTasks"
+        ]
+    )
+]
 ```
 
-## Standalone contract
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppBackgroundTasks`.
 
-This package is 100% single-folder standalone:
+## Remote SwiftPM Usage
 
-- no sibling path dependencies;
-- no remote package dependencies;
-- no imports of sibling SDK packages;
-- source-owned DocC under `Sources/AppBackgroundTasks/Documentation.docc/`;
-- verification uses a worktree-local scratch path outside this package folder;
-- verification must not leave SwiftPM build artifacts inside this package folder.
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
 
-## Native platform note
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppBackgroundTasks.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppBackgroundTasks"
+        ]
+    )
+]
+```
 
-The package intentionally keeps native `BGTaskScheduler` submission outside the root package. Background task registration and submission are tightly coupled to app lifecycle, entitlements and Info.plist configuration, so host apps should own that boundary.
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
 
-When `BackgroundTasks` is available, the package provides `BGTaskRequestFactory` to convert portable requests into native `BGTaskRequest` values. Actual submission should be host-app or integration-helper code.
+## Current TchopApp Source-Only Usage
 
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
 
-## Hardening notes
+1. Keep the reviewed package in `./PackagesForReuse/AppBackgroundTasks`.
+2. Copy/sync it into `./PackagesInUse/AppBackgroundTasks`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
 
-- Failure diagnostic codes are sanitized before storage or error descriptions.
-- `runPending(identifier:)` checks that a handler exists before removing a pending request, so a composition error does not silently drop scheduled work.
-- Native `BackgroundTasks` request factory code is excluded on macOS/watchOS where `BGTaskRequest` types are unavailable even though the framework may be importable.
+## Basic Usage
+
+```swift
+import AppBackgroundTasks
+
+// Use the package APIs from the target that owns product-specific policy.
+```
+
+## Verification
+
+From this package folder, run:
+
+```zsh
+./Scripts/verify_package.sh
+```
+
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

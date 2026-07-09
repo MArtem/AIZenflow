@@ -1,104 +1,125 @@
 # AppLogging
 
-`AppLogging` is a standalone Swift Package that provides privacy-aware structured logging primitives for iOS, macOS, tvOS, watchOS, visionOS, and SwiftPM-compatible test environments.
+## Summary
 
-The package is intentionally app-independent. It does not know about screens, features, routes, networking, analytics, crash reporting, or product-specific log domains.
+Structured logging primitives and safe log-level/category contracts.
 
-## What belongs here
+## Status In This Repository
 
-- `LogLevel`
-- `LogEvent`
-- `LogMetadata`
-- `LogMetadataValue`
-- `LogPrivacy`
-- `LogRedactor`
-- `AppLogging` protocol
-- `NoopLogger`
-- `MemoryLogger`
-- `ConsoleLogger`
-- `MultiplexLogger`
-- `RedactingLogger`
-- Apple `OSLogAppLogger` adapter behind `canImport(os)`
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## What must not belong here
+## What Problem It Solves
 
-- app-specific event names;
-- user/profile/news/order-specific fields;
-- networking request/response models;
-- analytics adapters;
-- crash reporting SDK adapters;
-- raw server error bodies;
-- raw token/password/cookie/session values;
-- sibling package imports.
+- Avoids raw print/debug logging in packages.
+- Keeps log categories and privacy decisions explicit.
+- Provides a reusable no-op/logger boundary.
 
-## Runtime guidance
+## What It Does
 
-- Use `NoopLogger` as the default dependency when a feature should not emit logs.
-- Use `MemoryLogger` for tests and local diagnostics; do not treat it as a production log export store unless the host app first applies an explicit redaction/export policy.
-- Use `RedactingLogger` or `OSLogAppLogger` at app boundaries where events may contain host-app metadata.
-- Public messages are rendered as provided except for explicit `LogRedactor.stringMasks`; mark sensitive messages `.private` or `.sensitive`.
+- Logger contracts.
+- Log level/category models.
+- No-op and structured log helpers.
 
-## Usage
+## When To Use It
+
+- packages/features need logging without binding to one backend.
+- you need testable logging side effects.
+
+## When Not To Use It
+
+- you might log secrets, tokens or raw user content.
+- one local debug-only print is sufficient and non-production.
+
+## Ownership Boundary
+
+Package owns logging mechanics; host apps own sinks, privacy redaction, log retention and operational policy.
+
+## Products And Targets
+
+- **Library products**: `AppLogging`
+- **SwiftPM targets**: `AppLogging`
+- **Repository path**: `./PackagesForReuse/AppLogging`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppLogging")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppLogging"
+        ]
+    )
+]
+```
+
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppLogging`.
+
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppLogging.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppLogging"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppLogging`.
+2. Copy/sync it into `./PackagesInUse/AppLogging`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppLogging
 
-let logger = ConsoleLogger(minimumLevel: .debug)
-
-await logger.info(
-    "Loaded cache snapshot",
-    subsystem: "storage",
-    category: "cache",
-    metadata: LogMetadata([
-        "key": .string("home-feed"),
-        "duration_ms": .integer(14)
-    ])
-)
+// Use the package APIs from the target that owns product-specific policy.
 ```
 
-## Privacy
+## Verification
 
-Metadata can be explicitly marked private:
+From this package folder, run:
 
-```swift
-let metadata = LogMetadata([
-    "email": .string("person@example.com", privacy: .private),
-    "access_token": .string("secret-token")
-])
-```
-
-`LogRedactor.default` redacts known sensitive keys such as `token`, `access_token`, `refresh_token`, `authorization`, `password`, `secret`, `cookie`, `session`, and `api_key`.
-
-URLs are rendered without query and fragment by default:
-
-```swift
-.url("https://example.com/path?token=secret#fragment")
-// -> https://example.com/path
-```
-
-## Standalone contract
-
-`AppLogging` has no sibling dependencies and can be copied as a single folder into another project.
-
-```bash
-cd AppLogging
-swift test
-swift test -Xswiftc -strict-concurrency=complete
-```
-
-Or use:
-
-```bash
+```zsh
 ./Scripts/verify_package.sh
 ```
 
-## Integration
+For source-only app integration, also run the host app's required verification, usually:
 
-Cross-package integration must live outside this root package, for example:
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
 
-- `AppLoggingNetworkingIntegration`
-- `AppLoggingAnalyticsIntegration`
-- `AppLoggingCrashReportingIntegration`
-- `AppLoggingObservabilityIntegration`
+## More Documentation
 
-Those helpers may import multiple packages, but this root package must remain standalone.
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.

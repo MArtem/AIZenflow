@@ -1,113 +1,125 @@
 # AppSecureStorage
 
-`AppSecureStorage` is a 100% single-folder standalone Swift package that provides product-neutral secure storage contracts and implementations for iOS/macOS/tvOS/watchOS projects.
+## Summary
 
-## Purpose
+Secure storage/keychain-style boundary for tokens and secret-like values.
 
-Use this package when an app needs to store small sensitive values such as tokens, user secrets, device-bound identifiers, or encrypted key material.
+## Status In This Repository
 
-The package provides mechanisms only. It does **not** define app-specific keys like `accessToken`, `refreshToken`, `userID`, or product-specific session semantics.
+Reusable vault package stored under `./PackagesForReuse`; not connected to `TchopApp` unless copied into `./PackagesInUse`.
 
-## Contents
+## What Problem It Solves
 
-- `SecureStorageManaging` — async secure storage protocol.
-- `SecureStorageKey` — product-neutral key wrapper with privacy-safe diagnostics.
-- `SecureStorageNamespace` — optional key namespace helper.
-- `SecureStorageSaveOptions` — accessibility, synchronizable, and local authentication policies.
-- `SecureStorageAccessibility` — Keychain-style accessibility levels.
-- `SecureStorageAuthenticationPolicy` — optional user presence / biometry policy.
-- `SecureStorageRecord` — stored data + guaranteed metadata.
-- `SecureStorageError` — sanitized error model.
-- `InMemorySecureStorage` — actor-backed implementation for tests/previews.
-- `KeychainSecureStorage` — Keychain-backed implementation on Apple platforms with a private actor execution boundary; unsupported-platform placeholder elsewhere.
+- Avoids storing sensitive values in UserDefaults/files.
+- Centralizes secure-store operations and failure handling.
+- Makes secret storage testable.
 
-## Installation / copy mode
+## What It Does
 
-This package is intentionally standalone:
+- Secure value identifiers.
+- Store/read/remove contracts.
+- Keychain-friendly provider surfaces.
 
-```text
-AppSecureStorage/
-├── Package.swift
-├── README.md
-├── PackageContract.md
-├── Sources/
-├── Tests/
-├── Docs/
-└── Scripts/
+## When To Use It
+
+- auth tokens, refresh tokens or secrets need durable secure storage.
+- features need a package-level secure storage boundary.
+
+## When Not To Use It
+
+- data is non-sensitive cache/configuration.
+- the app has no clear keychain/access-group policy.
+
+## Ownership Boundary
+
+Package owns secure storage mechanics; host apps own access groups, migration, logout wipe policy, biometric/access-control decisions and error UX.
+
+## Products And Targets
+
+- **Library products**: `AppSecureStorage`
+- **SwiftPM targets**: `AppSecureStorage`
+- **Repository path**: `./PackagesForReuse/AppSecureStorage`
+
+## Local SwiftPM Usage
+
+Use this when the package folder is available locally and should be consumed as a SwiftPM package:
+
+```swift
+dependencies: [
+    .package(path: "../PackagesForReuse/AppSecureStorage")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppSecureStorage"
+        ]
+    )
+]
 ```
 
-You can copy only the `AppSecureStorage` folder into another project and open it as a Swift Package.
+For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/AppSecureStorage`.
 
-## Usage
+## Remote SwiftPM Usage
+
+SwiftPM requires a `Package.swift` at the root of the Git repository it consumes. To use this package by URL, first publish/copy this package folder as the root of its own repository, then depend on it like this:
+
+```swift
+dependencies: [
+    .package(url: "https://github.com/<org>/AppSecureStorage.git", from: "0.1.0")
+],
+targets: [
+    .target(
+        name: "YourTarget",
+        dependencies: [
+            "AppSecureStorage"
+        ]
+    )
+]
+```
+
+Do not point SwiftPM at a subfolder of a documentation/app repository and expect it to resolve this package automatically.
+
+## Current TchopApp Source-Only Usage
+
+Current `TchopApp` integration is source-only. If this package is needed by the app now:
+
+1. Keep the reviewed package in `./PackagesForReuse/AppSecureStorage`.
+2. Copy/sync it into `./PackagesInUse/AppSecureStorage`.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
+5. Run app verification after project/source changes.
+
+## Basic Usage
 
 ```swift
 import AppSecureStorage
 
-let storage: any SecureStorageManaging = KeychainSecureStorage(
-    service: "com.example.app.secure-storage"
-)
-
-extension SecureStorageKey {
-    static let accessToken = SecureStorageKey("auth.access-token")
-}
-
-try await storage.save(
-    Data("secret-token".utf8),
-    for: .accessToken,
-    options: SecureStorageSaveOptions(
-        accessibility: .afterFirstUnlockThisDeviceOnly
-    )
-)
-
-let tokenData = try await storage.data(for: .accessToken)
+// Use the package APIs from the target that owns product-specific policy.
 ```
-
-### Codable values
-
-```swift
-struct SessionTokens: Codable, Sendable {
-    let accessToken: String
-    let refreshToken: String
-}
-
-try await storage.save(SessionTokens(accessToken: "a", refreshToken: "r"), for: "session.tokens")
-let tokens = try await storage.value(for: "session.tokens", as: SessionTokens.self)
-```
-
-## What belongs here
-
-- Secure storage contracts.
-- Keychain-backed storage.
-- In-memory test storage.
-- Sanitized secure storage errors.
-- Key validation.
-- Small Codable convenience helpers.
-
-## What must not belong here
-
-- Product-specific keys.
-- Auth/session logic.
-- Networking token refresh logic.
-- App-specific logout cleanup.
-- Analytics/logging adapters.
-- Product copy/localization.
-
-Cross-package composition belongs in optional integration helpers.
-
-## Security notes
-
-- `InMemorySecureStorage` is not secure and is only for tests/previews/ephemeral use.
-- `KeychainSecureStorage` is the production Apple-platform implementation.
-- Keychain `SecItem*` calls are synchronous, so this package routes them through a private actor worker before touching Keychain.
-- A requested local-authentication policy must not silently downgrade; access-control creation failure is reported as `.accessControlCreationFailed`.
-- Values saved with per-call `synchronizable: true` remain discoverable/removable through normal read/delete APIs because lookups use an any-synchronizable query policy.
-- Replacement saves update an existing Keychain item in place when possible; delete/add is reserved for synchronizable-scope changes that Keychain cannot update in place.
-- Error messages intentionally avoid exposing raw keys, values, service names, access groups, URLs, or OS debug strings.
-- `SecureStorageKey.description` and `SecureStorageNamespace.description` are fully redacted and do not expose stable hashes by default.
-- Large values should not be stored in Keychain. Store only small secrets and references.
 
 ## Verification
 
-```bash
+From this package folder, run:
+
+```zsh
 ./Scripts/verify_package.sh
 ```
+
+For source-only app integration, also run the host app's required verification, usually:
+
+```zsh
+plutil -lint ./TchopApp.xcodeproj/project.pbxproj
+./scripts/verify.sh low
+git diff --check
+```
+
+## More Documentation
+
+- `./PackageContract.md`
+- `./REUSE.md`
+- `./Docs/README.md`
+
+## Documentation Maintenance
+
+Every new reusable package must include this level of README detail and the package must be listed in `./PackagesForReuse/PACKAGE_CATALOG.md`. If the package is copied into `./PackagesInUse`, update `./PackagesInUse/README.md` and keep both package README files consistent.
