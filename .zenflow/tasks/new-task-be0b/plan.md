@@ -1542,3 +1542,12 @@ Use archives only when historical detail is needed:
 - Updated package rules in `./docs/PACKAGES_AND_MANAGERS.md`, `./PackagesForReuse/README.md`, and `./PackagesInUse/README.md` so every future package must update its README and package catalog entries.
 - Synced package docs/catalog mirrors into the central documentation vault under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs`.
 - Verification: docs/static checks and `git diff --check` required before final report; no app build/tests needed for docs-only changes.
+
+### [x] Step: Review and adopt InfrastructureSDK Iteration23 AppInputFormatting
+- Reviewed `./.zenflow-attachments/9c0debd9-222d-4c23-9119-3ab4c826e282.zip` as `InfrastructureSDK_Iteration23` / `AppInputFormatting`.
+- Package purpose: standalone user-input formatting mechanics: safe field/formatter identifiers, input snapshots, cursor mapping, built-in formatters, formatter pipelines, store-backed actor engine, and privacy-safe diagnostics.
+- Hardened before vault adoption: added explicit revision-overflow failure, bounded formatter plan/pipeline sizes, bounded allow-list and grouping-separator sizes, overflow-safe applied formatter count accumulation, and package-owned tests for these cases.
+- Hardened package docs to match the current mandatory package README/catalog rule: complete README, `PackageContract.md`, `REUSE.md`, `USAGE.md`, DocC and warning/error-clean verifier.
+- Adoption decision: vault-only in `./PackagesForReuse/AppInputFormatting`; not copied into `./PackagesInUse` because current TchopApp has no active input-formatting runtime requirement and app integration would be speculative.
+- Updated `./PackagesForReuse/PACKAGE_CATALOG.md`, `./PackagesForReuse/README.md`, `./PackagesForReuse/ADOPTION_AUDIT.md`, `./docs/README.md`, and central documentation-vault package docs.
+- Verification: incoming and final vault `./Scripts/verify_package.sh` succeeded with 12 XCTest tests plus strict-concurrency verification and clean warning/error grep; final docs/static checks required before completion.

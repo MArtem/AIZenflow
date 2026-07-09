@@ -6,7 +6,7 @@ This catalog is the high-level selector for the reusable package library. Read t
 
 ## Counts
 
-- **Reusable root packages**: 39
+- **Reusable root packages**: 40
 - **Integration helper packages**: 5
 - **Currently active in `./PackagesInUse`**: 21 root packages and 4 helper folders
 
@@ -31,6 +31,7 @@ This catalog is the high-level selector for the reusable package library. Read t
 | `./PackagesForReuse/AppFormValidation` | Yes | `AppFormValidation` | Form state, field validation and save/load controller mechanics. |
 | `./PackagesForReuse/AppGlassUI` | Yes | `AppGlassUI` | Reusable SwiftUI glass-style visual primitives for modern iOS UI. |
 | `./PackagesForReuse/AppImagePipeline` | No | `AppImagePipeline` | Image loading, decoding, caching and prefetch pipeline. |
+| `./PackagesForReuse/AppInputFormatting` | No | `AppInputFormatting` | User-input formatting mechanics: safe identifiers, snapshots, cursor mapping, built-in formatters, pipelines and actor engine. |
 | `./PackagesForReuse/AppIntentSupport` | Yes | `AppIntentSupport` | Reusable helper mechanics for App Intents input validation and package composition markers. |
 | `./PackagesForReuse/AppLifecycle` | Yes | `AppLifecycle` | Application lifecycle event and state helper mechanisms. |
 | `./PackagesForReuse/AppLocalization` | Yes | `AppLocalization` | Localization lookup/provider mechanics independent of any product string catalog. |

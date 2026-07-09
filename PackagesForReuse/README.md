@@ -8,7 +8,7 @@ Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. 
 
 ## Current Counts
 
-- Root packages: 39
+- Root packages: 40
 - Integration helper packages: 5
 
 ## Rules

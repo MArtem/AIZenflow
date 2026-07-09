@@ -68,3 +68,11 @@ For every new archive:
 3. Decide whether the app has an immediate concrete use.
 4. If yes, also connect/use it in app code and run project verification.
 5. If no, leave it vault-only and document the reason here or in the package `REUSE.md`.
+
+## AppInputFormatting — InfrastructureSDK Iteration23
+
+- **Decision**: vault-only adoption.
+- **Reason**: package is useful as reusable input-formatting infrastructure, but current TchopApp has no active product requirement that needs it in runtime. Connecting it to `./PackagesInUse` now would be speculative.
+- **Scope adopted**: standalone `AppInputFormatting` package with source, tests, DocC, package contract, README, `REUSE.md`, `USAGE.md`, and warning/error-clean verification script.
+- **Hardening before adoption**: added explicit revision-overflow failure, bounded formatter plan/pipeline sizes, bounded `allowCharacters` and grouping separator sizes, overflow-safe applied formatter count accumulation, and package-owned coverage for those cases.
+- **Verification**: `./PackagesForReuse/AppInputFormatting/Scripts/verify_package.sh` succeeded with 12 XCTest tests plus strict-concurrency verification and clean warning/error grep.
