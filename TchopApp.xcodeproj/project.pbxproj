@@ -231,6 +231,11 @@
 		B12083C9BF3E0EA8BC042CB3 /* FormValidator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F12083C9BF3E0EA8BC042CB3 /* FormValidator.swift */; };
 		B1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift */; };
 		B1CB9F7302D2B76B8F03B500 /* AppFileStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CB9F7302D2B76B8F03B500 /* AppFileStorage.swift */; };
+		B10F1D49CC48B83C3BC3A892 /* AppIntentSupport.swift in Sources */ = {isa = PBXBuildFile; fileRef = F10F1D49CC48B83C3BC3A892 /* AppIntentSupport.swift */; };
+		AISRC1C9CB4A69EF9403806B /* CreateTextFeedCardIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AIREFC9CB4A69EF9403806BE /* CreateTextFeedCardIntent.swift */; };
+		AISRC2C9CB4A69EF9403806B /* CreateTextFeedCardIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = AIREFC9CB4A69EF9403806BE /* CreateTextFeedCardIntent.swift */; };
+		AISRC1E8A87337A180CBC938 /* TchopAppShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AIREFE8A87337A180CBC938E /* TchopAppShortcutsProvider.swift */; };
+		AISRC2E8A87337A180CBC938 /* TchopAppShortcutsProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = AIREFE8A87337A180CBC938E /* TchopAppShortcutsProvider.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -496,6 +501,9 @@
 		F12083C9BF3E0EA8BC042CB3 /* FormValidator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidator.swift; sourceTree = "<group>"; };
 		F1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFormValidation/Sources/AppFormValidation/SafeFormIdentifier.swift; sourceTree = "<group>"; };
 		F1CB9F7302D2B76B8F03B500 /* AppFileStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppFileStorage/Sources/AppFileStorage/AppFileStorage.swift; sourceTree = "<group>"; };
+		F10F1D49CC48B83C3BC3A892 /* AppIntentSupport.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppIntentSupport/Sources/AppIntentSupport/AppIntentSupport.swift; sourceTree = "<group>"; };
+		AIREFC9CB4A69EF9403806BE /* CreateTextFeedCardIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTextFeedCardIntent.swift; sourceTree = "<group>"; };
+		AIREFE8A87337A180CBC938E /* TchopAppShortcutsProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TchopAppShortcutsProvider.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -569,6 +577,7 @@
 		A00000030000000000000001 /* TchopApp */ = {
 			isa = PBXGroup;
 			children = (
+				AIGRPB8A27598856E1455077 /* AppIntents */,
 				A00000210000000000000001 /* TchopApp.swift */,
 				A000000F0000000000000002 /* App */,
 				D00000170000000000000001 /* Shared */,
@@ -969,6 +978,14 @@
 			name = AppGlassUI;
 			sourceTree = "<group>";
 		};
+		G19AA4B11471BC48C3099AE8 /* AppIntentSupport */ = {
+			isa = PBXGroup;
+			children = (
+				F10F1D49CC48B83C3BC3A892 /* AppIntentSupport.swift */,
+			);
+			name = AppIntentSupport;
+			sourceTree = "<group>";
+		};
 		G148F941809A8A0AEEE3459B /* AppLifecycle */ = {
 			isa = PBXGroup;
 			children = (
@@ -1127,6 +1144,7 @@
 				G11A37D825E7D5318BCF6AC2 /* AppFileStorage */,
 				G15F4EB11131C38910B0B4D0 /* AppFormValidation */,
 				G17FD5543FD7EE102A5B5482 /* AppGlassUI */,
+				G19AA4B11471BC48C3099AE8 /* AppIntentSupport */,
 				G148F941809A8A0AEEE3459B /* AppLifecycle */,
 				G1E7AB4F6673306DEF21B9E4 /* AppLocalization */,
 				G11C0EB5E27E51C6AE30EF7C /* AppNavigation */,
@@ -1140,6 +1158,15 @@
 				G14674B05A421F53C767855B /* TchopProductLocalizationResources */,
 			);
 			name = PackagesInUse;
+			sourceTree = "<group>";
+		};
+		AIGRPB8A27598856E1455077 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				AIREFC9CB4A69EF9403806BE /* CreateTextFeedCardIntent.swift */,
+				AIREFE8A87337A180CBC938E /* TchopAppShortcutsProvider.swift */,
+			);
+			path = AppIntents;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1599,6 +1626,9 @@
 				B12083C9BF3E0EA8BC042CB3 /* FormValidator.swift in Sources */,
 				B1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift in Sources */,
 				B1CB9F7302D2B76B8F03B500 /* AppFileStorage.swift in Sources */,
+				B10F1D49CC48B83C3BC3A892 /* AppIntentSupport.swift in Sources */,
+				AISRC1C9CB4A69EF9403806B /* CreateTextFeedCardIntent.swift in Sources */,
+				AISRC1E8A87337A180CBC938 /* TchopAppShortcutsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1757,6 +1787,9 @@
 				B12083C9BF3E0EA8BC042CB3 /* FormValidator.swift in Sources */,
 				B1D38587460DC768AAA08F20 /* SafeFormIdentifier.swift in Sources */,
 				B1CB9F7302D2B76B8F03B500 /* AppFileStorage.swift in Sources */,
+				B10F1D49CC48B83C3BC3A892 /* AppIntentSupport.swift in Sources */,
+				AISRC2C9CB4A69EF9403806B /* CreateTextFeedCardIntent.swift in Sources */,
+				AISRC2E8A87337A180CBC938 /* TchopAppShortcutsProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

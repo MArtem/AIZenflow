@@ -3,7 +3,7 @@ set -euo pipefail
 
 readonly PROJECT="<AppName>.xcodeproj"
 readonly SCHEME="<AppName>"
-readonly DESTINATION_IOS_26="platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0"
+readonly DESTINATION_CURRENT="platform=iOS Simulator,name=iPhone 17 Pro"
 
 usage() {
   cat <<'EOF'
@@ -12,7 +12,7 @@ Usage:
 
 Levels:
   list   Verify Xcode project structure
-  build  Build <AppName> on iPhone 17 Pro (iOS 26.0)
+  build  Build <AppName> on iPhone 17 Pro (available iOS runtime)
 EOF
 }
 
@@ -25,7 +25,7 @@ run_build() {
     -project "${PROJECT}" \
     -scheme "${SCHEME}" \
     -configuration Debug \
-    -destination "${DESTINATION_IOS_26}" \
+    -destination "${DESTINATION_CURRENT}" \
     CODE_SIGNING_ALLOWED=NO \
     build
 }

@@ -39,16 +39,16 @@ Verification runs only when the user explicitly asks for them.
 - no simulator verification
 
 ### `Low`
-- build on `iPhone 17 Pro (iOS 26.0)`
+- build on `iPhone 17 Pro (available iOS runtime)`
 
 ### `Medium`
 - all requested tests
-- build on `iPhone 17 Pro (iOS 26.0)`
+- build on `iPhone 17 Pro (available iOS runtime)`
 
 ### `Full`
 - all requested tests
 - build on `iPhone 16 Pro (iOS 18.2)`
-- build on `iPhone 17 Pro (iOS 26.0)`
+- build on `iPhone 17 Pro (available iOS runtime)`
 
 ## API Inspection First
 When the user asks to inspect an API path, do not default to XCTest or simulator UI.

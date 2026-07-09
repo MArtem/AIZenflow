@@ -304,3 +304,16 @@ For small demo/test projects, start with networking, errors, localization, confi
 ## Xcode Project Organization For Source-Only Packages
 
 Active package source files must be grouped in `./TchopApp.xcodeproj/project.pbxproj` under a logical `PackagesInUse` group with one subgroup per package. This is an Xcode navigation rule only; physical files remain under `./PackagesInUse/<PackageName>`. Future package additions must keep this structure and must not leave package files only in `Recovered References`.
+
+### `AppIntentSupport`
+Use for:
+- reusable App Intents helper mechanics;
+- generic App Intent text parameter normalization;
+- stable product-neutral validation failures;
+- package marker support for future App Intents composition.
+
+App keeps:
+- concrete `AppIntent` declarations;
+- `AppShortcutsProvider` declarations;
+- shortcut phrases/titles/descriptions;
+- product-specific persistence, routing, authorization, analytics, and user-facing copy.

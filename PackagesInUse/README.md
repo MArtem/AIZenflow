@@ -33,6 +33,7 @@ This folder exists because this worktree is being used both as an app and as a p
 - `./PackagesInUse/AppFileStorage`
 - `./PackagesInUse/AppFormValidation`
 - `./PackagesInUse/AppGlassUI`
+- `./PackagesInUse/AppIntentSupport`
 - `./PackagesInUse/AppLocalization`
 - `./PackagesInUse/AppLifecycle`
 - `./PackagesInUse/AppNavigation`

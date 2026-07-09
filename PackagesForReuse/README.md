@@ -36,6 +36,7 @@ It exists so package source, tests, DocC, scripts, and usage documentation are p
 | `./PackagesForReuse/AppFormValidation` | root-package | `AppFormValidation` |
 | `./PackagesForReuse/AppGlassUI` | root-package | `AppGlassUI` |
 | `./PackagesForReuse/AppImagePipeline` | root-package | `AppImagePipeline` |
+| `./PackagesForReuse/AppIntentSupport` | root-package | `AppIntentSupport` |
 | `./PackagesForReuse/AppLocalization` | root-package | `AppLocalization` |
 | `./PackagesForReuse/AppLifecycle` | root-package | `AppLifecycle` |
 | `./PackagesForReuse/AppLogging` | root-package | `AppLogging` |

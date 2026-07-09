@@ -4,7 +4,7 @@ set -euo pipefail
 
 readonly PROJECT="TchopApp.xcodeproj"
 readonly SCHEME="TchopApp"
-readonly DESTINATION_IOS_26="platform=iOS Simulator,name=iPhone 17 Pro,OS=26.0"
+readonly DESTINATION_CURRENT="platform=iOS Simulator,name=iPhone 17 Pro"
 readonly DESTINATION_IOS_18="platform=iOS Simulator,name=iPhone 16 Pro,OS=18.2"
 readonly WORKTREES_ROOT="$(cd "$(dirname "$0")/../.." && pwd)"
 readonly DERIVED_DATA_PATH="${TCHOP_DERIVED_DATA_PATH:-${WORKTREES_ROOT}/.xcode-derived-data/TchopApp}"
@@ -21,9 +21,9 @@ Usage:
   ./scripts/verify.sh <low|medium|full>
 
 Levels:
-  low     Build TchopApp on iPhone 17 Pro (iOS 26.0)
-  medium  Run app tests, then build on iPhone 17 Pro (iOS 26.0)
-  full    Run app tests, then build on iPhone 16 Pro (iOS 18.2) and iPhone 17 Pro (iOS 26.0)
+  low     Build TchopApp on iPhone 17 Pro (available iOS runtime)
+  medium  Run app tests, then build on iPhone 17 Pro (available iOS runtime)
+  full    Run app tests, then build on iPhone 16 Pro (iOS 18.2) and iPhone 17 Pro (available iOS runtime)
 
 Package-vault SwiftPM tests are intentionally not part of app verification in source-only mode.
 Run package-local `Scripts/verify_package.sh` explicitly from `./PackagesForReuse/<PackageName>` when reviewing a package archive.
@@ -67,16 +67,16 @@ main() {
 
   case "$1" in
     low)
-      run_build "${DESTINATION_IOS_26}"
+      run_build "${DESTINATION_CURRENT}"
       ;;
     medium)
-      run_app_tests "${DESTINATION_IOS_26}"
-      run_build "${DESTINATION_IOS_26}"
+      run_app_tests "${DESTINATION_CURRENT}"
+      run_build "${DESTINATION_CURRENT}"
       ;;
     full)
-      run_app_tests "${DESTINATION_IOS_26}"
+      run_app_tests "${DESTINATION_CURRENT}"
       run_build "${DESTINATION_IOS_18}"
-      run_build "${DESTINATION_IOS_26}"
+      run_build "${DESTINATION_CURRENT}"
       ;;
     *)
       usage

@@ -1498,3 +1498,32 @@ Use archives only when historical detail is needed:
 - Updated central `README.md` and `SYNC_POLICY.md` so the canonical location and GitHub remote are explicit.
 - Pushed the central library to GitHub; latest remote `main` commit is `70aaac4 Document shared vault remote ownership`.
 - Verification: central `./scripts/check_documentation_vault.py`, central `git diff --check`, push to `origin/main`, and central `git status` succeeded/clean. No build/tests/simulator run because this was docs/git infrastructure only.
+
+### [x] Step: App Intents support package and test app integration
+- User approved creating an App Intents support package in both `./PackagesForReuse` and `./PackagesInUse`, then wiring a minimal test App Intent into TchopApp.
+- Scope:
+  1. create reusable `AppIntentSupport` package docs/source/verification script in the package vault and active source-only package folder;
+  2. keep reusable package generic and put Tchop-specific feed-card intent behavior in app-owned code;
+  3. implement the simplest test App Intent for creating a text feed card through existing app-group pending-card import flow;
+  4. update Xcode source-only package grouping and package/docs indexes;
+  5. run build/static verification and provide manual Shortcuts/Siri verification instructions.
+- Constraints: no test files unless separately approved; no speculative full App Intents architecture; no cloud/global AI integration in this block.
+
+
+- Completed now:
+  - added reusable `AppIntentSupport` package in both `./PackagesForReuse/AppIntentSupport` and `./PackagesInUse/AppIntentSupport` with SwiftPM metadata, source, DocC, package contract, README, reuse/usage docs, and sandbox-local verify script;
+  - kept reusable package generic: it owns text normalization/validation and an App Intents package marker, while TchopApp owns concrete shortcut actions and product persistence;
+  - added app-owned `./TchopApp/AppIntents/CreateTextFeedCardIntent.swift` and `./TchopApp/AppIntents/TchopAppShortcutsProvider.swift`;
+  - wired the test shortcut `Create Card` to create a text feed card through the existing app-group pending-card path used by share-extension imports;
+  - updated source-only Xcode package grouping via `./scripts/migrate_packages_in_use_project.py` and added the app-owned App Intents files to both app targets;
+  - updated package/docs indexes plus central documentation-vault package docs for `AppIntentSupport`;
+  - updated `./scripts/verify.sh` and testing instructions to target the available `iPhone 17 Pro` runtime instead of stale fixed `OS=26.0`, because current Xcode has iOS 26.5 simulators.
+- Verification:
+  - `./PackagesForReuse/AppIntentSupport/Scripts/verify_package.sh` succeeded;
+  - `./PackagesInUse/AppIntentSupport/Scripts/verify_package.sh` succeeded;
+  - `./scripts/verify.sh low` succeeded with `BUILD SUCCEEDED` and clean warning/error grep in `./.zenflow/tasks/new-task-be0b/app-intents-build.log`;
+  - App Intents metadata extraction wrote `Metadata.appintents` for `TchopApp`;
+  - `plutil -lint ./TchopApp.xcodeproj/project.pbxproj`, `./scripts/check_docs_consistency.py`, `python3 ./scripts/check_docs_index.py`, `python3 ./scripts/validate_ios_production_framework.py`, central documentation-vault check, `git diff --check`, central `git diff --check`, and package artifact scan succeeded.
+- Tests/manual UI:
+  - no test files were added or modified because the active no-test-writing rule remains in force;
+  - Shortcuts/Siri/manual App Intent execution was not run in this block and remains the required end-to-end validation step.
