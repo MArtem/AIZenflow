@@ -22,11 +22,22 @@ struct CreateTextFeedCardIntent: AppIntent {
     var text: String
 
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        let normalizedText = try AppIntentTextNormalizer.requiredText(
-            text,
-            fieldName: "Text",
-            maximumCharacterCount: 200
-        )
+        let normalizedText: String
+        do {
+            normalizedText = try AppIntentTextNormalizer.requiredText(
+                text,
+                fieldName: "Text",
+                maximumCharacterCount: 200
+            )
+        } catch AppIntentSupportValidationFailure.emptyRequiredText {
+            return .result(
+                dialog: "Enter text before creating a card."
+            )
+        } catch AppIntentSupportValidationFailure.textExceedsLimit {
+            return .result(
+                dialog: "Text must be 200 characters or fewer."
+            )
+        }
 
         let sessionContext = try await loadSessionContext()
         guard sessionContext?.isAuthenticated == true else {

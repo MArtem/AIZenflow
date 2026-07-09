@@ -1527,3 +1527,9 @@ Use archives only when historical detail is needed:
 - Tests/manual UI:
   - no test files were added or modified because the active no-test-writing rule remains in force;
   - Shortcuts/Siri/manual App Intent execution was not run in this block and remains the required end-to-end validation step.
+
+### [x] Step: Polish App Intent direct Shortcuts tap validation feedback
+- User found the `TchopApp → Create Card` action in Shortcuts, but direct tap produced Apple Shortcuts generic `Unable to run App Shortcut` because the required `Text` parameter was empty.
+- Updated `./TchopApp/AppIntents/CreateTextFeedCardIntent.swift` so empty text and over-limit text return explicit App Intent dialogs instead of throwing package validation errors into a generic Shortcuts alert.
+- Kept the reusable `AppIntentSupport` package mechanism-only; the user-facing copy remains app-owned in the concrete intent.
+- Verification: run `./scripts/verify.sh low`, `git diff --check`, and warning/error grep on the build log before reporting completion.
