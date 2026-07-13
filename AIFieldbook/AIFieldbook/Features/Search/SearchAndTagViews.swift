@@ -8,21 +8,21 @@ struct SearchView: View {
         List {
                 Section("Filters") {
                     Picker("Workspace", selection: $viewModel.selectedWorkspaceID) {
-                        Text("All Workspaces").tag(UUID?.none)
+                        Text(String(localized: "All Workspaces")).tag(UUID?.none)
                         ForEach(viewModel.workspaces) { workspace in
                             Text(workspace.name).tag(Optional(workspace.id))
                         }
                     }
 
                     Picker("Item Type", selection: $viewModel.selectedKind) {
-                        Text("All Types").tag(KnowledgeItemKind?.none)
+                        Text(String(localized: "All Types")).tag(KnowledgeItemKind?.none)
                         ForEach(KnowledgeItemKind.allCases, id: \.self) { kind in
                             Text(kind.displayName).tag(Optional(kind))
                         }
                     }
 
                     Picker("Tag", selection: $viewModel.selectedTagID) {
-                        Text("All Tags").tag(UUID?.none)
+                        Text(String(localized: "All Tags")).tag(UUID?.none)
                         ForEach(viewModel.tags) { tag in
                             Text(tag.name).tag(Optional(tag.id))
                         }
@@ -46,7 +46,7 @@ struct SearchView: View {
                         ContentUnavailableView(
                             "Search Local Content",
                             systemImage: "magnifyingglass",
-                            description: Text("Enter text or choose a filter. Search stays on this device.")
+                            description: Text(String(localized: "Enter text or choose a filter. Search stays on this device."))
                         )
                     }
                 } else if viewModel.hasSearched && viewModel.results.isEmpty {
@@ -83,6 +83,9 @@ struct SearchView: View {
         .onChange(of: viewModel.selectedTagID) {
             viewModel.searchCriteriaChanged()
         }
+        .onDisappear {
+            viewModel.disappeared()
+        }
     }
 }
 
@@ -103,7 +106,7 @@ struct TagManagerView: View {
 
                 Section("Assigned Tags") {
                     if viewModel.tags.isEmpty {
-                        Text("No tags created yet.")
+                        Text(String(localized: "No tags created yet."))
                             .foregroundStyle(.secondary)
                     } else {
                         ForEach(viewModel.tags) { tag in

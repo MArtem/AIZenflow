@@ -5,7 +5,6 @@ enum AppTab: Hashable {
     case workspace
     case capture
     case search
-    case labs
     case settings
 }
 
@@ -20,10 +19,6 @@ enum CaptureRoute: Hashable {
 
 enum SearchRoute: Hashable {
     case item(UUID, KnowledgeItemKind)
-}
-
-enum LabsRoute: Hashable {
-    case overview
 }
 
 enum SettingsRoute: Hashable {
@@ -70,7 +65,6 @@ final class AppCoordinator {
     let workspaceRouter = TabRouter<WorkspaceRoute>()
     let captureRouter = TabRouter<CaptureRoute>()
     let searchRouter = TabRouter<SearchRoute>()
-    let labsRouter = TabRouter<LabsRoute>()
     let settingsRouter = TabRouter<SettingsRoute>()
 
     func openWorkspace(id: UUID) {
@@ -87,7 +81,7 @@ final class AppCoordinator {
             captureRouter.push(.item(id, kind))
         case .search:
             searchRouter.push(.item(id, kind))
-        case .labs, .settings:
+        case .settings:
             selectedTab = .workspace
             workspaceRouter.push(.item(id, kind))
         }

@@ -2,43 +2,57 @@ import CoreSpotlight
 import Foundation
 import UniformTypeIdentifiers
 
-struct SpotlightIndexService {
+/// Owns optional Core Spotlight indexing for local fieldbook content.
+///
+/// Privacy contract:
+/// Spotlight exposes titles, subtitles, tags, and workspace names to system search. Iteration 1
+/// keeps indexing disabled until the product has an explicit user-facing opt-in. The clear path
+/// is still active so destructive local-data flows can remove indexes created by older builds or
+/// future opt-in sessions.
+actor SpotlightIndexService {
     private let index = CSSearchableIndex.default()
+    private let isIndexingEnabled: Bool
 
-    @MainActor
-    func rebuild(repository: FieldbookRepository) async {
+    init(isIndexingEnabled: Bool = false) {
+        self.isIndexingEnabled = isIndexingEnabled
+    }
+
+    func rebuildIfAllowed(searchIndex: FieldbookSearchIndex) async {
+        guard isIndexingEnabled else {
+            await clear()
+            return
+        }
+
         do {
-            var searchableItems: [CSSearchableItem] = []
-            for workspace in try repository.fetchWorkspaces() {
+            let searchableItems = try await searchIndex.spotlightEntries().map { entry in
                 let attributes = CSSearchableItemAttributeSet(contentType: .folder)
-                attributes.title = workspace.name
-                attributes.contentDescription = String(localized: "AI Fieldbook workspace")
+                attributes.title = entry.title
+                attributes.contentDescription = entry.subtitle
+                attributes.keywords = entry.keywords
+
+                let uniqueIdentifier: String
+                let domainIdentifier: String
+                switch entry.kind {
+                case .workspace:
+                    uniqueIdentifier = "workspace:\(entry.id.uuidString)"
+                    domainIdentifier = "AIFieldbook.Workspaces"
+                case let .item(kind):
+                    uniqueIdentifier = "item:\(entry.id.uuidString):\(kind.rawValue)"
+                    domainIdentifier = "AIFieldbook.Items"
+                }
                 let item = CSSearchableItem(
-                    uniqueIdentifier: "workspace:\(workspace.id.uuidString)",
-                    domainIdentifier: "AIFieldbook.Workspaces",
+                    uniqueIdentifier: uniqueIdentifier,
+                    domainIdentifier: domainIdentifier,
                     attributeSet: attributes
                 )
                 item.expirationDate = .distantFuture
-                searchableItems.append(item)
-
-                for summary in try repository.fetchKnowledgeItems(workspaceID: workspace.id) {
-                    let itemAttributes = CSSearchableItemAttributeSet(contentType: .content)
-                    itemAttributes.title = summary.displayTitle
-                    itemAttributes.contentDescription = summary.subtitle
-                    itemAttributes.keywords = summary.tags.map(\.name) + [workspace.name, summary.kind.displayName]
-                    let searchable = CSSearchableItem(
-                        uniqueIdentifier: "item:\(summary.id.uuidString):\(summary.kind.rawValue)",
-                        domainIdentifier: "AIFieldbook.Items",
-                        attributeSet: itemAttributes
-                    )
-                    searchable.expirationDate = .distantFuture
-                    searchableItems.append(searchable)
-                }
+                return item
             }
             try await index.deleteAllSearchableItems()
             if !searchableItems.isEmpty { try await index.indexSearchableItems(searchableItems) }
         } catch {
             // Spotlight is supplementary; local content remains available in-app.
+            // Revisit when a privacy-safe diagnostics surface is added.
         }
     }
 

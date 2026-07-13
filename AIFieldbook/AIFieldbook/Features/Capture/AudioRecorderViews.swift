@@ -21,6 +21,7 @@ final class AudioRecorderViewModel {
     private var recorder: AVAudioRecorder?
     private var timer: Timer?
     private var draftURL: URL?
+    private var didFinish = false
 
     var selectedWorkspaceID: UUID?
     var title = ""
@@ -69,7 +70,7 @@ final class AudioRecorderViewModel {
                 ]
             )
             guard recorder.record() else { throw CocoaError(.fileWriteUnknown) }
-            self.recorder = recorder
+        self.recorder = recorder
             draftURL = url
             duration = 0
             state = .recording
@@ -94,6 +95,7 @@ final class AudioRecorderViewModel {
                 )
                 await fileStore.discardRecordingDraft(at: draftURL)
                 self.draftURL = nil
+                didFinish = true
                 return true
             } catch {
                 try? await fileStore.remove(metadata.reference)
@@ -107,6 +109,7 @@ final class AudioRecorderViewModel {
     }
 
     func cancelled() async {
+        guard !didFinish else { return }
         stopRecording()
         if let draftURL { await fileStore.discardRecordingDraft(at: draftURL) }
         draftURL = nil
@@ -142,7 +145,7 @@ struct AudioRecorderView: View {
             Form {
                 Section("Destination") {
                     Picker("Workspace", selection: $viewModel.selectedWorkspaceID) {
-                        Text("Choose a Workspace").tag(UUID?.none)
+                        Text(String(localized: "Choose a Workspace")).tag(UUID?.none)
                         ForEach(viewModel.workspaces) { Text($0.name).tag(Optional($0.id)) }
                     }
                     TextField("Title (optional)", text: $viewModel.title)
@@ -158,7 +161,7 @@ struct AudioRecorderView: View {
                 }
                 if viewModel.state == .permissionDenied {
                     Section("Microphone Permission") {
-                        Text("Allow microphone access in Settings to record audio.")
+                        Text(String(localized: "Allow microphone access in Settings to record audio."))
                         Button("Open Settings") { if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) } }
                     }
                 }

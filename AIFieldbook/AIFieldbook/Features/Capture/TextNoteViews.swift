@@ -26,7 +26,7 @@ struct CaptureView: View {
                     ContentUnavailableView(
                         "Create a Workspace First",
                         systemImage: "square.grid.2x2",
-                        description: Text("Every note belongs to a local workspace. Create one from the Workspace tab.")
+                        description: Text(String(localized: "Every note belongs to a local workspace. Create one from the Workspace tab."))
                     )
                 } else {
                     List {
@@ -84,7 +84,7 @@ struct TextNoteEditorView: View {
                 if viewModel.showsWorkspacePicker {
                     Section("Workspace") {
                         Picker("Workspace", selection: $viewModel.selectedWorkspaceID) {
-                            Text("Choose a Workspace").tag(UUID?.none)
+                            Text(String(localized: "Choose a Workspace")).tag(UUID?.none)
                             ForEach(viewModel.workspaces) { workspace in
                                 Text(workspace.name).tag(Optional(workspace.id))
                             }
@@ -188,7 +188,12 @@ struct TextNoteDetailView: View {
                             TagListView(tags: detail.tags)
                         }
 
-                        Text("Updated \(detail.updatedAt.formatted(date: .abbreviated, time: .shortened))")
+                        Text(
+                            String.localizedStringWithFormat(
+                                String(localized: "Updated %@"),
+                                detail.updatedAt.formatted(date: .abbreviated, time: .shortened)
+                            )
+                        )
                             .font(.caption)
                             .foregroundStyle(.secondary)
                     }
@@ -224,7 +229,7 @@ struct TextNoteDetailView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This permanently deletes the note.")
+            Text(String(localized: "This permanently deletes the note."))
         }
         .alert(
             "Action Failed",

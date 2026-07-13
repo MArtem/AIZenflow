@@ -55,6 +55,11 @@ struct StagedDeletion: Sendable {
     let stagedRelativePath: String
 }
 
+enum MissingFileDeletionPolicy: Sendable {
+    case fail
+    case ignoreMissing
+}
+
 enum ImportKind: String, CaseIterable, Hashable, Identifiable, Sendable {
     case image
     case pdf
@@ -133,6 +138,18 @@ enum AppFileStoreError: LocalizedError {
     }
 }
 
+/// Actor-isolated owner for app-managed files.
+///
+/// Responsibilities:
+/// - copies imported files into app-owned Application Support storage;
+/// - validates imported media before persistence records are created;
+/// - stages destructive file deletion so database failures can roll files back;
+/// - creates user-initiated local export folders.
+///
+/// Privacy and backup contract:
+/// Iteration 1 is local-only with no approved cloud data path. App-owned content, staging
+/// files, and generated exports are marked excluded from system backup. Users can still share
+/// an export explicitly through the Settings screen.
 actor AppFileStore {
     private let fileManager: FileManager
     private let rootURL: URL
@@ -156,6 +173,7 @@ actor AppFileStore {
         try prepareDirectories()
         let url = stagingURL.appending(path: "recording-\(UUID().uuidString).m4a")
         fileManager.createFile(atPath: url.path, contents: nil)
+        try applyProtectionAndBackupPolicy(to: url)
         return url
     }
 
@@ -222,21 +240,30 @@ actor AppFileStore {
         try fileManager.removeItem(at: url)
     }
 
-    func stageDeletion(_ references: [DurableFileReference]) throws -> [StagedDeletion] {
+    func stageDeletion(
+        _ references: [DurableFileReference],
+        missingFilePolicy: MissingFileDeletionPolicy = .fail
+    ) throws -> [StagedDeletion] {
         guard !references.isEmpty else { return [] }
         try prepareDirectories()
 
         let batchPath = "Staging/Deletion/\(UUID().uuidString)"
         let batchURL = rootURL.appending(path: batchPath, directoryHint: .isDirectory)
-        try fileManager.createDirectory(at: batchURL, withIntermediateDirectories: true)
+        try createManagedDirectory(batchURL)
 
         var staged: [StagedDeletion] = []
         do {
             for reference in references {
-                let sourceURL = try resolvedURL(for: reference)
+                let sourceURL: URL
+                do {
+                    sourceURL = try resolvedURL(for: reference)
+                } catch AppFileStoreError.missingFile where missingFilePolicy == .ignoreMissing {
+                    continue
+                }
                 let destinationRelativePath = "\(batchPath)/\(sourceURL.lastPathComponent)"
                 let destinationURL = rootURL.appending(path: destinationRelativePath)
                 try fileManager.moveItem(at: sourceURL, to: destinationURL)
+                try applyProtectionAndBackupPolicy(to: destinationURL)
                 staged.append(
                     StagedDeletion(
                         originalReference: reference,
@@ -276,7 +303,7 @@ actor AppFileStore {
         if fileManager.fileExists(atPath: stagingURL.path) {
             try? fileManager.removeItem(at: stagingURL)
         }
-        try? fileManager.createDirectory(at: stagingURL, withIntermediateDirectories: true)
+        try? createManagedDirectory(stagingURL)
     }
 
     func storageByteCount() -> Int64 {
@@ -293,13 +320,22 @@ actor AppFileStore {
         return total
     }
 
+    /// Creates one temporary user-shareable export and removes older generated exports.
+    ///
+    /// Side effects:
+    /// Export folders are app-owned, excluded from backup, and intentionally regenerated on
+    /// demand instead of becoming a permanent second copy of private local content.
     func createExport(manifest: Data) throws -> URL {
-        try fileManager.createDirectory(at: exportsURL, withIntermediateDirectories: true)
+        cleanupExports()
+        try createManagedDirectory(exportsURL)
         let exportURL = exportsURL.appending(path: "AIFieldbook-Export-\(UUID().uuidString)", directoryHint: .isDirectory)
-        try fileManager.createDirectory(at: exportURL, withIntermediateDirectories: true)
+        try createManagedDirectory(exportURL)
         try manifest.write(to: exportURL.appending(path: "manifest.json"), options: .atomic)
+        try applyProtectionAndBackupPolicy(to: exportURL.appending(path: "manifest.json"))
         if fileManager.fileExists(atPath: contentURL.path) {
-            try fileManager.copyItem(at: contentURL, to: exportURL.appending(path: "Content", directoryHint: .isDirectory))
+            let exportedContentURL = exportURL.appending(path: "Content", directoryHint: .isDirectory)
+            try fileManager.copyItem(at: contentURL, to: exportedContentURL)
+            try applyProtectionAndBackupPolicy(to: exportedContentURL)
         }
         return exportURL
     }
@@ -339,6 +375,7 @@ actor AppFileStore {
                 [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
                 ofItemAtPath: stagedURL.path
             )
+            try applyProtectionAndBackupPolicy(to: stagedURL)
             try fileManager.moveItem(at: stagedURL, to: destinationURL)
             return try DurableFileReference(relativePath: "Content/\(filename)")
         } catch {
@@ -448,8 +485,27 @@ actor AppFileStore {
     }
 
     private func prepareDirectories() throws {
-        try fileManager.createDirectory(at: contentURL, withIntermediateDirectories: true)
-        try fileManager.createDirectory(at: stagingURL, withIntermediateDirectories: true)
+        try createManagedDirectory(rootURL)
+        try createManagedDirectory(contentURL)
+        try createManagedDirectory(stagingURL)
+    }
+
+    private func createManagedDirectory(_ url: URL) throws {
+        try fileManager.createDirectory(at: url, withIntermediateDirectories: true)
+        try applyProtectionAndBackupPolicy(to: url)
+    }
+
+    private func applyProtectionAndBackupPolicy(to url: URL) throws {
+        if fileManager.fileExists(atPath: url.path) {
+            try fileManager.setAttributes(
+                [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+                ofItemAtPath: url.path
+            )
+        }
+        var resourceValues = URLResourceValues()
+        resourceValues.isExcludedFromBackup = true
+        var mutableURL = url
+        try mutableURL.setResourceValues(resourceValues)
     }
 
     private func removeEmptyDeletionParents(from staged: [StagedDeletion]) throws {

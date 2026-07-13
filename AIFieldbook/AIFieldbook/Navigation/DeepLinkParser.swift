@@ -5,6 +5,11 @@ enum DeepLinkDestination: Equatable {
     case item(UUID, KnowledgeItemKind?)
 }
 
+/// Parses external AI Fieldbook URLs into app navigation destinations.
+///
+/// Security contract:
+/// Only the app-owned `aifieldbook` scheme is accepted. Parsed identifiers remain value-only
+/// until `AppComposition` verifies that the target record exists before routing.
 enum DeepLinkParser {
     static func destination(for url: URL) -> DeepLinkDestination? {
         guard url.scheme?.lowercased() == "aifieldbook" else { return nil }

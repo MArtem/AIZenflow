@@ -8,14 +8,25 @@ import UIKit
 final class SettingsViewModel {
     private let repository: FieldbookRepository
     private let fileStore: AppFileStore
+    private let spotlight: SpotlightIndexService
     private(set) var storageBytes: Int64 = 0
     private(set) var exportURL: URL?
     private(set) var errorMessage: String?
     private(set) var isWorking = false
 
-    init(repository: FieldbookRepository, fileStore: AppFileStore) {
+    /// Owns settings-screen state and destructive local-data actions.
+    ///
+    /// Ownership:
+    /// Created by `AppComposition` and reused for the app lifetime.
+    ///
+    /// Side effects:
+    /// Export and cleanup actions touch app-owned files. Delete-all removes SwiftData records,
+    /// app-owned files, temporary exports, and Core Spotlight indexes so private local content
+    /// does not survive the destructive flow in another local system surface.
+    init(repository: FieldbookRepository, fileStore: AppFileStore, spotlight: SpotlightIndexService) {
         self.repository = repository
         self.fileStore = fileStore
+        self.spotlight = spotlight
     }
 
     func appeared() async { storageBytes = await fileStore.storageByteCount() }
@@ -41,11 +52,15 @@ final class SettingsViewModel {
         defer { isWorking = false }
         var staged: [StagedDeletion] = []
         do {
-            staged = try await fileStore.stageDeletion(repository.allFileReferences())
+            staged = try await fileStore.stageDeletion(
+                repository.allFileReferences(),
+                missingFilePolicy: .ignoreMissing
+            )
             do { try repository.deleteAllData() }
             catch { try? await fileStore.rollbackDeletion(staged); throw error }
             await fileStore.commitDeletion(staged)
             await fileStore.cleanupExports()
+            await spotlight.clear()
             exportURL = nil
             storageBytes = await fileStore.storageByteCount()
             return true
@@ -59,14 +74,18 @@ final class SettingsViewModel {
 struct SettingsView: View {
     @Environment(\.openURL) private var openURL
     @Bindable var viewModel: SettingsViewModel
+    let localDataResetCompleted: () -> Void
     @State private var confirmsDeleteAll = false
 
     var body: some View {
         List {
             Section("Privacy") {
                 Label("All content stays on this device.", systemImage: "lock.shield")
-                Text("AI Fieldbook has no account, backend, analytics, or cloud processing in Iteration 1.")
+                Text(String(localized: "AI Fieldbook has no account, backend, analytics, or cloud processing in Iteration 1."))
                     .font(FieldbookTypography.supporting)
+                    .foregroundStyle(.secondary)
+                Text(String(localized: "System Spotlight indexing is disabled until a separate opt-in privacy control is added."))
+                    .font(.footnote)
                     .foregroundStyle(.secondary)
             }
             Section("Storage") {
@@ -82,7 +101,7 @@ struct SettingsView: View {
                 Button("Open App Settings", systemImage: "gear") {
                     if let url = URL(string: UIApplication.openSettingsURLString) { openURL(url) }
                 }
-                Text("Microphone access is requested only when you start recording.")
+                Text(String(localized: "Microphone access is requested only when you start recording."))
                     .font(.footnote)
                     .foregroundStyle(.secondary)
             }
@@ -93,9 +112,15 @@ struct SettingsView: View {
         }
         .navigationTitle("Settings")
         .alert("Delete All Local Data?", isPresented: $confirmsDeleteAll) {
-            Button("Delete Everything", role: .destructive) { Task { _ = await viewModel.deleteAllConfirmed() } }
+            Button("Delete Everything", role: .destructive) {
+                Task {
+                    if await viewModel.deleteAllConfirmed() {
+                        localDataResetCompleted()
+                    }
+                }
+            }
             Button("Cancel", role: .cancel) {}
-        } message: { Text("This permanently deletes every workspace, item, tag, and app-owned file.") }
+        } message: { Text(String(localized: "This permanently deletes every workspace, item, tag, and app-owned file.")) }
         .task { await viewModel.appeared() }
     }
 }

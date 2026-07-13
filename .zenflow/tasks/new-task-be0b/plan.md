@@ -62,6 +62,29 @@ Manual validation still needed:
 - confirmed deep-link routing after accepting the system prompt;
 - export/delete-all flows.
 
+### [x] AI Fieldbook production audit remediation pass
+- Fix data lifecycle and Spotlight privacy/delete-all behavior.
+- Add explicit local storage/privacy documentation and code contracts.
+- Reduce main-actor search/repository hot-path risk.
+- Replace synchronous PDF document loading in UI update path.
+- Bound cached detail view model lifetime and avoid broad reloads.
+- Complete localization/InfoPlist localization coverage.
+- Keep App Intents and AI out of this pass.
+
+### [x] AI Fieldbook task/data/rendering hardening pass
+- Move search and Spotlight snapshots to a background SwiftData `ModelActor`.
+- Add cancellable search task ownership and stale-result protection.
+- Harden delete-all to clear records, files, exports, Spotlight, routes, and runtime detail caches.
+- Keep generated exports temporary by replacing older export folders.
+- Review SwiftUI render paths for sync file/media/database work and keep remaining async tasks tied to a user action, `.task(id:)`, model-owned cancellation, or app-lifetime maintenance.
+
+### [x] Static quality gate scope hardening
+- Make Swift/static gate scripts respect explicit file/directory scope arguments.
+- Add shared scope resolution that refuses paths outside the repository root.
+- Classify output as `blocking`, `warning`, or `review-candidate` instead of mixing all findings as failures.
+- Keep SwiftUI hot-path task findings non-blocking review candidates while forbidden patterns, localization gaps, secrets, and large files remain blocking.
+- Update `run_static_quality_gates.sh` to pass scope arguments through to scoped checks.
+
 ### [ ] Iteration 2 block 2.0: App Intents foundation
 Do not start until gate 1.26 is accepted.
 

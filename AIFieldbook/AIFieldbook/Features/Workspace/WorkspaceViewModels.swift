@@ -69,7 +69,7 @@ final class WorkspaceDetailViewModel {
         var staged: [StagedDeletion] = []
         do {
             let references = try repository.workspaceFileReferences(id: workspaceID)
-            staged = try await fileStore.stageDeletion(references)
+            staged = try await fileStore.stageDeletion(references, missingFilePolicy: .ignoreMissing)
             do {
                 try repository.deleteWorkspace(id: workspaceID)
             } catch {

@@ -32,6 +32,12 @@ enum KnowledgeItemKind: String, Codable, CaseIterable, Hashable, Sendable {
     }
 }
 
+/// Version 1 persisted schema kept solely for migration compatibility.
+///
+/// Migration contract:
+/// Do not remove this schema while existing simulator/device data may have been created by
+/// earlier Iteration 1 builds. New runtime code should use the `AIFieldbookSchemaV2` typealiases
+/// below instead of referring to V1 records.
 enum AIFieldbookSchemaV1: VersionedSchema {
     static let versionIdentifier = Schema.Version(1, 0, 0)
 
@@ -258,6 +264,12 @@ typealias KnowledgeItemRecord = AIFieldbookSchemaV2.KnowledgeItemRecord
 typealias AttachmentRecord = AIFieldbookSchemaV2.AttachmentRecord
 typealias TagRecord = AIFieldbookSchemaV2.TagRecord
 
+/// SwiftData migration plan for AI Fieldbook local records.
+///
+/// Compatibility:
+/// The V1 → V2 stage is lightweight because V2 adds tag relationships and attachment metadata.
+/// Any future destructive reset must be recorded as an app-local exception and accepted by the
+/// user before changing this plan.
 enum AIFieldbookMigrationPlan: SchemaMigrationPlan {
     static var schemas: [any VersionedSchema.Type] {
         [AIFieldbookSchemaV1.self, AIFieldbookSchemaV2.self]

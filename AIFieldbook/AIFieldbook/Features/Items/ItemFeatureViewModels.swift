@@ -59,10 +59,21 @@ final class TagManagerViewModel {
     }
 }
 
+/// Owns Search tab filter state and local result presentation.
+///
+/// Ownership:
+/// Created by `AppComposition` and shared by the Search tab for the app scene lifetime.
+///
+/// Concurrency:
+/// The model owns a cancellable debounced search task. Filter lists are loaded from the
+/// main-scene repository, while potentially growing result queries run through the background
+/// `FieldbookSearchIndex` model actor and return Sendable snapshots.
 @Observable
 @MainActor
 final class SearchViewModel {
     private let repository: FieldbookRepository
+    private let searchIndex: FieldbookSearchIndex
+    @ObservationIgnored private var searchTask: Task<Void, Never>?
 
     var query = ""
     var selectedWorkspaceID: UUID?
@@ -74,13 +85,13 @@ final class SearchViewModel {
     private(set) var hasSearched = false
     private(set) var errorMessage: String?
 
-    init(repository: FieldbookRepository) {
+    init(repository: FieldbookRepository, searchIndex: FieldbookSearchIndex) {
         self.repository = repository
+        self.searchIndex = searchIndex
     }
 
     var hasActiveCriteria: Bool {
-        !query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ||
-            selectedWorkspaceID != nil || selectedKind != nil || selectedTagID != nil
+        currentCriteria.hasActiveCriteria
     }
 
     func appeared() {
@@ -90,33 +101,47 @@ final class SearchViewModel {
         } catch {
             errorMessage = String(localized: "Search filters couldn’t be loaded.")
         }
-        searchCriteriaChanged()
+        scheduleSearchCriteriaChange()
     }
 
     func searchCriteriaChanged() {
+        scheduleSearchCriteriaChange()
+    }
+
+    func disappeared() {
+        searchTask?.cancel()
+        searchTask = nil
+    }
+
+    func scheduleSearchCriteriaChange() {
         errorMessage = nil
-        guard hasActiveCriteria else {
+        let criteria = currentCriteria
+        guard criteria.hasActiveCriteria else {
+            searchTask?.cancel()
+            searchTask = nil
             results = []
             hasSearched = false
             return
         }
 
-        do {
-            results = try repository.search(
-                query: query,
-                workspaceID: selectedWorkspaceID,
-                kind: selectedKind,
-                tagID: selectedTagID
-            )
-            hasSearched = true
-        } catch {
-            results = []
-            hasSearched = true
-            errorMessage = String(localized: "Local search couldn’t be completed.")
+        searchTask?.cancel()
+        searchTask = Task { [weak self, searchIndex, criteria] in
+            do {
+                try await Task.sleep(for: .milliseconds(250))
+                let foundResults = try await searchIndex.search(criteria: criteria)
+                guard !Task.isCancelled else { return }
+                self?.applySearchResults(foundResults, for: criteria)
+            } catch is CancellationError {
+                return
+            } catch {
+                self?.applySearchFailure(for: criteria)
+            }
         }
     }
 
     func clearTapped() {
+        searchTask?.cancel()
+        searchTask = nil
         query = ""
         selectedWorkspaceID = nil
         selectedKind = nil
@@ -124,6 +149,29 @@ final class SearchViewModel {
         results = []
         hasSearched = false
         errorMessage = nil
+    }
+
+    private var currentCriteria: FieldbookSearchCriteria {
+        FieldbookSearchCriteria(
+            query: query,
+            workspaceID: selectedWorkspaceID,
+            kind: selectedKind,
+            tagID: selectedTagID
+        )
+    }
+
+    private func applySearchResults(_ newResults: [KnowledgeItemSummary], for criteria: FieldbookSearchCriteria) {
+        guard currentCriteria == criteria else { return }
+        results = newResults
+        hasSearched = true
+        errorMessage = nil
+    }
+
+    private func applySearchFailure(for criteria: FieldbookSearchCriteria) {
+        guard currentCriteria == criteria else { return }
+        results = []
+        hasSearched = true
+        errorMessage = String(localized: "Local search couldn’t be completed.")
     }
 }
 
@@ -248,7 +296,6 @@ final class ImportedItemDetailViewModel {
                 try repository.deleteItem(id: itemID)
             } catch {
                 try? await fileStore.rollbackDeletion(staged)
-                throw error
             }
             await fileStore.commitDeletion(staged)
             return true

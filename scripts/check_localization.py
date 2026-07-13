@@ -1,27 +1,39 @@
 #!/usr/bin/env python3
-from pathlib import Path
-import re, sys
-root = Path(__file__).resolve().parents[1]
-exclude = {'TchopAppTests', '.git', 'DerivedData'}
+import re
+
+from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+
+
 # Heuristic only: flags simple Text("literal") occurrences that do not look like previews/debug/system symbols.
-rx = re.compile(r'\bText\s*\(\s*"([^"]*[A-Za-zА-Яа-я][^"]*)"\s*\)')
-findings=[]
-for path in root.rglob('*.swift'):
-    rel=str(path.relative_to(root))
-    if any(part in rel for part in exclude):
-        continue
-    text=path.read_text(errors='ignore')
-    for m in rx.finditer(text):
-        literal=m.group(1)
-        if literal.startswith('system.') or '#Preview' in text[max(0,m.start()-300):m.start()+300]:
-            continue
-        line=text[:m.start()].count('\n')+1
-        findings.append((rel,line,literal))
-if findings:
-    print('Potential hard-coded user-facing Text literals:')
-    for rel,line,literal in findings[:100]:
-        print(f'- ./{rel}:{line}: "{literal}"')
-    if len(findings)>100:
-        print(f'... {len(findings)-100} more')
-    sys.exit(1)
-print('Localization heuristic scan OK')
+TEXT_LITERAL = re.compile(r'\bText\s*\(\s*"([^"]*[A-Za-zА-Яа-я][^"]*)"\s*\)')
+
+
+def main() -> int:
+    args = parse_scope_args("Scan potential hard-coded user-facing Text literals.")
+    scan_roots = resolve_scan_roots(args.paths)
+    findings = []
+
+    for path in iter_files(scan_roots, "*.swift", {"TchopAppTests"}):
+        text = path.read_text(errors="ignore")
+        for match in TEXT_LITERAL.finditer(text):
+            literal = match.group(1)
+            nearby = text[max(0, match.start() - 300):match.start() + 300]
+            if literal.startswith("system.") or "#Preview" in nearby:
+                continue
+            line = text[:match.start()].count("\n") + 1
+            findings.append((path, line, literal))
+
+    if findings:
+        print("Potential hard-coded user-facing Text literals (blocking until reviewed/localized):")
+        for path, line, literal in findings[:args.max_findings]:
+            print(f'- [blocking] {display_path(path)}:{line}: "{literal}"')
+        if len(findings) > args.max_findings:
+            print(f"... {len(findings) - args.max_findings} more")
+        return 1
+
+    print("Localization heuristic scan OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

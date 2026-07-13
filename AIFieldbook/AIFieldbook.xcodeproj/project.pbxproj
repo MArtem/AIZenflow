@@ -30,6 +30,8 @@
 		6B1A00000000000000000017 /* DeepLinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000116 /* DeepLinkParser.swift */; };
 		6B1A00000000000000000018 /* MoveItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000118 /* MoveItemView.swift */; };
 		6B1A00000000000000000019 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000119 /* Localizable.strings */; };
+		6B1A0000000000000000001A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011A /* InfoPlist.strings */; };
+		6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011C /* FieldbookSearchIndex.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +60,9 @@
 		6B1A00000000000000000117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6B1A00000000000000000118 /* MoveItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItemView.swift; sourceTree = "<group>"; };
 		6B1A00000000000000000119 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6B1A0000000000000000011A /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LOCAL_DATA_PRIVACY_AND_RUNTIME.md; sourceTree = "<group>"; };
+		6B1A0000000000000000011C /* FieldbookSearchIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookSearchIndex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,6 +93,7 @@
 				6B1A00000000000000000037 /* Core */,
 				6B1A00000000000000000038 /* Features */,
 				6B1A00000000000000000046 /* Resources */,
+				6B1A00000000000000000047 /* Documentation */,
 			);
 			path = AIFieldbook;
 			sourceTree = "<group>";
@@ -143,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				6B1A00000000000000000115 /* SpotlightIndexService.swift */,
+				6B1A0000000000000000011C /* FieldbookSearchIndex.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -152,8 +159,17 @@
 			children = (
 				6B1A00000000000000000117 /* Info.plist */,
 				6B1A00000000000000000119 /* Localizable.strings */,
+				6B1A0000000000000000011A /* InfoPlist.strings */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000047 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */,
+			);
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 		6B1A00000000000000000038 /* Features */ = {
@@ -299,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6B1A00000000000000000019 /* Localizable.strings in Resources */,
+				6B1A0000000000000000001A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,6 +348,7 @@
 				6B1A00000000000000000016 /* SpotlightIndexService.swift in Sources */,
 				6B1A00000000000000000017 /* DeepLinkParser.swift in Sources */,
 				6B1A00000000000000000018 /* MoveItemView.swift in Sources */,
+				6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

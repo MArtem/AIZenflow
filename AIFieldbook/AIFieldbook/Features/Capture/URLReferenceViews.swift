@@ -125,7 +125,7 @@ struct URLReferenceEditorView: View {
             Form {
                 Section("Destination") {
                     Picker("Workspace", selection: $viewModel.selectedWorkspaceID) {
-                        Text("Choose a Workspace").tag(UUID?.none)
+                        Text(String(localized: "Choose a Workspace")).tag(UUID?.none)
                         ForEach(viewModel.workspaces) { Text($0.name).tag(Optional($0.id)) }
                     }
                 }

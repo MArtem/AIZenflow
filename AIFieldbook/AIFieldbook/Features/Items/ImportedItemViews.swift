@@ -1,7 +1,6 @@
 import AVFoundation
 import ImageIO
 import Observation
-import PDFKit
 import QuickLook
 import SwiftUI
 
@@ -15,7 +14,7 @@ struct ImportItemView: View {
             Form {
                 Section("Destination") {
                     Picker("Workspace", selection: $viewModel.selectedWorkspaceID) {
-                        Text("Choose a Workspace").tag(UUID?.none)
+                        Text(String(localized: "Choose a Workspace")).tag(UUID?.none)
                         ForEach(viewModel.workspaces) { workspace in
                             Text(workspace.name).tag(Optional(workspace.id))
                         }
@@ -169,7 +168,7 @@ struct ImportedItemDetailView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This permanently deletes the item and its app-owned local file.")
+            Text(String(localized: "This permanently deletes the item and its app-owned local file."))
         }
         .task {
             await viewModel.appeared()
@@ -188,7 +187,7 @@ private struct ImportedContentPreview: View {
             DownsampledImageView(url: fileURL)
                 .frame(maxWidth: .infinity, minHeight: 240)
         case .pdf:
-            PDFPreviewView(url: fileURL)
+            QuickLookPreviewView(url: fileURL)
                 .frame(height: 520)
                 .clipShape(.rect(cornerRadius: FieldbookRadius.card))
         case .plainTextDocument:
@@ -218,11 +217,22 @@ private struct ImportedMetadataView: View {
                 .foregroundStyle(.secondary)
 
             if let width = detail.pixelWidth, let height = detail.pixelHeight {
-                Text("\(width) × \(height) pixels")
+                Text(
+                    String.localizedStringWithFormat(
+                        String(localized: "%lld × %lld pixels"),
+                        width,
+                        height
+                    )
+                )
                     .foregroundStyle(.secondary)
             }
             if let pageCount = detail.pageCount {
-                Text("\(pageCount) pages")
+                Text(
+                    String.localizedStringWithFormat(
+                        String(localized: "%lld pages"),
+                        pageCount
+                    )
+                )
                     .foregroundStyle(.secondary)
             }
             if let duration = detail.durationSeconds {
@@ -262,40 +272,26 @@ private struct DownsampledImageView: View {
     var body: some View {
         Group {
             if let image {
-                Image(image, scale: 1, label: Text("Imported Image"))
+                Image(image, scale: 1, label: Text(String(localized: "Imported Image")))
                     .resizable()
                     .scaledToFit()
             } else if failed {
                 ContentUnavailableView(
                     "Image Unavailable",
                     systemImage: "photo.badge.exclamationmark",
-                    description: Text("The local image couldn’t be decoded.")
+                    description: Text(String(localized: "The local image couldn’t be decoded."))
                 )
             } else {
                 ProgressView("Loading Image")
             }
         }
         .task(id: url) {
-            image = await ImageDownsampler.shared.image(at: url)
-            failed = image == nil
-        }
-    }
-}
-
-private struct PDFPreviewView: UIViewRepresentable {
-    let url: URL
-
-    func makeUIView(context: Context) -> PDFView {
-        let view = PDFView()
-        view.autoScales = true
-        view.displayMode = .singlePageContinuous
-        view.displayDirection = .vertical
-        return view
-    }
-
-    func updateUIView(_ uiView: PDFView, context: Context) {
-        if uiView.document?.documentURL != url {
-            uiView.document = PDFDocument(url: url)
+            failed = false
+            image = nil
+            let loadedImage = await ImageDownsampler.shared.image(at: url)
+            guard !Task.isCancelled else { return }
+            image = loadedImage
+            failed = loadedImage == nil
         }
     }
 }
@@ -303,6 +299,11 @@ private struct PDFPreviewView: UIViewRepresentable {
 private struct QuickLookPreviewView: UIViewControllerRepresentable {
     let url: URL
 
+    /// Presents app-owned imported files through Quick Look.
+    ///
+    /// Rationale:
+    /// Quick Look avoids constructing heavyweight PDF/media documents synchronously during
+    /// SwiftUI update passes. The file URL must already point to durable app-owned storage.
     func makeCoordinator() -> Coordinator {
         Coordinator(url: url)
     }
@@ -425,7 +426,7 @@ private struct AudioPlaybackView: View {
                 ),
                 in: 0...max(model.duration, 0.01)
             ) {
-                Text("Playback Position")
+                Text(String(localized: "Playback Position"))
             }
 
             HStack {

@@ -119,6 +119,18 @@ enum FieldbookRepositoryError: Error {
     case tagNotFound
 }
 
+/// App-specific SwiftData repository and domain mapping boundary.
+///
+/// Responsibilities:
+/// - owns access to the app scene's SwiftData `ModelContext`;
+/// - maps persistence records into UI/domain state values;
+/// - keeps file references as durable app-owned relative paths.
+///
+/// Concurrency:
+/// This repository is main-actor isolated because it is backed by the app's main SwiftData
+/// context and owns user-triggered mutations. Growing read-only search/index work belongs in
+/// `FieldbookSearchIndex`, which uses a background SwiftData model actor and returns Sendable
+/// snapshots to UI models.
 @MainActor
 final class FieldbookRepository {
     private let context: ModelContext
@@ -416,37 +428,6 @@ final class FieldbookRepository {
         try context.save()
     }
 
-    func search(
-        query: String,
-        workspaceID: UUID?,
-        kind: KnowledgeItemKind?,
-        tagID: UUID?
-    ) throws -> [KnowledgeItemSummary] {
-        let trimmedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines)
-        let descriptor = FetchDescriptor<KnowledgeItemRecord>(
-            sortBy: [SortDescriptor(\KnowledgeItemRecord.updatedAt, order: .reverse)]
-        )
-
-        return try context.fetch(descriptor)
-            .filter { item in
-                guard workspaceID == nil || item.workspace?.id == workspaceID else { return false }
-                guard kind == nil || item.kind == kind else { return false }
-                guard tagID == nil || item.tags.contains(where: { $0.id == tagID }) else { return false }
-                guard !trimmedQuery.isEmpty else { return true }
-
-                let searchableValues = [
-                    item.title,
-                    item.textContent,
-                    item.attachments.first?.originalFilename ?? "",
-                    item.tags.map(\.name).joined(separator: " ")
-                ]
-                return searchableValues.contains { value in
-                    value.localizedStandardContains(trimmedQuery)
-                }
-            }
-            .compactMap(makeItemSummary)
-    }
-
     func allFileReferences() throws -> [DurableFileReference] {
         try context.fetch(FetchDescriptor<AttachmentRecord>()).map {
             try DurableFileReference(relativePath: $0.relativePath)
@@ -498,6 +479,8 @@ final class FieldbookRepository {
     }
 
     func deleteAllData() throws {
+        try context.delete(model: AttachmentRecord.self)
+        try context.delete(model: KnowledgeItemRecord.self)
         try context.delete(model: WorkspaceRecord.self)
         try context.delete(model: TagRecord.self)
         try context.save()

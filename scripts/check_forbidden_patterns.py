@@ -1,29 +1,42 @@
 #!/usr/bin/env python3
-from pathlib import Path
-import re, sys
-root = Path(__file__).resolve().parents[1]
-patterns = [
-    ('UIImage(contentsOfFile:) in SwiftUI/source', re.compile(r'UIImage\s*\(\s*contentsOfFile\s*:')),
-    ('Data(contentsOf:) sync file read', re.compile(r'Data\s*\(\s*contentsOf\s*:')),
-    ('PDFDocument(url:) sync PDF load', re.compile(r'PDFDocument\s*\(\s*url\s*:')),
-    ('AVAssetImageGenerator usage', re.compile(r'AVAssetImageGenerator')),
-    ('ForEach(Array(...))', re.compile(r'ForEach\s*\(\s*Array\s*\(')),
-    ('AnyView usage', re.compile(r'\bAnyView\s*\(')),
+import re
+
+from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+
+
+PATTERNS = [
+    ("blocking", "UIImage(contentsOfFile:) in SwiftUI/source", re.compile(r"UIImage\s*\(\s*contentsOfFile\s*:")),
+    ("blocking", "Data(contentsOf:) sync file read", re.compile(r"Data\s*\(\s*contentsOf\s*:")),
+    ("blocking", "PDFDocument(url:) sync PDF load", re.compile(r"PDFDocument\s*\(\s*url\s*:")),
+    ("blocking", "AVAssetImageGenerator usage", re.compile(r"AVAssetImageGenerator")),
+    ("review-candidate", "ForEach(Array(...))", re.compile(r"ForEach\s*\(\s*Array\s*\(")),
+    ("review-candidate", "AnyView usage", re.compile(r"\bAnyView\s*\(")),
 ]
-exclude_parts = {'TchopAppTests', '.git', 'DerivedData', '.zenflow/tasks', 'docs/archive'}
-findings=[]
-for path in root.rglob('*.swift'):
-    rel=str(path.relative_to(root))
-    if any(part in rel for part in exclude_parts):
-        continue
-    text=path.read_text(errors='ignore')
-    for name,rx in patterns:
-        for match in rx.finditer(text):
-            line=text[:match.start()].count('\n')+1
-            findings.append((name, rel, line))
-if findings:
-    print('Forbidden/high-risk Swift patterns found:')
-    for name, rel, line in findings:
-        print(f'- {name}: ./{rel}:{line}')
-    sys.exit(1)
-print('Forbidden/high-risk Swift pattern scan OK')
+
+
+def main() -> int:
+    args = parse_scope_args("Scan blocking and review-candidate forbidden Swift patterns.")
+    scan_roots = resolve_scan_roots(args.paths)
+    findings = []
+
+    for path in iter_files(scan_roots, "*.swift", {"TchopAppTests", "docs", ".zenflow"}):
+        text = path.read_text(errors="ignore")
+        for severity, name, rx in PATTERNS:
+            for match in rx.finditer(text):
+                line = text[:match.start()].count("\n") + 1
+                findings.append((severity, name, path, line))
+
+    if findings:
+        print("Forbidden/high-risk Swift patterns found:")
+        for severity, name, path, line in findings[:args.max_findings]:
+            print(f"- [{severity}] {name}: {display_path(path)}:{line}")
+        if len(findings) > args.max_findings:
+            print(f"... {len(findings) - args.max_findings} more")
+        return 1 if any(severity == "blocking" for severity, *_ in findings) else 0
+
+    print("Forbidden/high-risk Swift pattern scan OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

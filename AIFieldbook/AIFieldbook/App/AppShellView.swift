@@ -24,10 +24,6 @@ struct AppShellView: View {
                 searchScene
             }
 
-            Tab("Labs", systemImage: "flask", value: AppTab.labs) {
-                labsScene
-            }
-
             Tab("Settings", systemImage: "gearshape", value: AppTab.settings) {
                 settingsScene
             }
@@ -40,6 +36,17 @@ struct AppShellView: View {
             await composition.started()
         }
         .onOpenURL(perform: composition.handleOpenURL)
+        .alert(
+            "Link Unavailable",
+            isPresented: Binding(
+                get: { composition.deepLinkErrorMessage != nil },
+                set: { if !$0 { composition.deepLinkErrorDismissed() } }
+            )
+        ) {
+            Button("OK") { composition.deepLinkErrorDismissed() }
+        } message: {
+            Text(composition.deepLinkErrorMessage ?? "")
+        }
     }
 
     private var workspaceScene: some View {
@@ -103,21 +110,13 @@ struct AppShellView: View {
         }
     }
 
-    private var labsScene: some View {
-        @Bindable var router = composition.coordinator.labsRouter
-        return NavigationStack(path: $router.path) {
-            PlaceholderDestinationView(
-                title: "Labs",
-                systemImage: "flask",
-                message: "AI capabilities arrive only after the complete non-AI app experience."
-            )
-        }
-    }
-
     private var settingsScene: some View {
         @Bindable var router = composition.coordinator.settingsRouter
         return NavigationStack(path: $router.path) {
-            SettingsView(viewModel: composition.settingsModel)
+            SettingsView(
+                viewModel: composition.settingsModel,
+                localDataResetCompleted: composition.localDataResetCompleted
+            )
         }
     }
 
@@ -197,7 +196,7 @@ struct PersistenceFailureView: View {
         ContentUnavailableView(
             "Local Storage Unavailable",
             systemImage: "externaldrive.badge.exclamationmark",
-            description: Text("AI Fieldbook couldn’t open its local database. Close and reopen the app to try again.")
+            description: Text(String(localized: "AI Fieldbook couldn’t open its local database. Close and reopen the app to try again."))
         )
     }
 }

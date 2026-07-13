@@ -24,7 +24,7 @@ struct WorkspaceListView: View {
                     ContentUnavailableView {
                         Label("No Workspaces", systemImage: "square.grid.2x2")
                     } description: {
-                        Text("Create a local workspace to organize your notes.")
+                        Text(String(localized: "Create a local workspace to organize your notes."))
                     } actions: {
                         Button("Create Workspace") {
                             createWorkspace()
@@ -66,7 +66,12 @@ private struct WorkspaceRow: View {
         VStack(alignment: .leading, spacing: FieldbookSpacing.compact) {
             Text(workspace.name)
                 .font(.headline)
-            Text("\(workspace.itemCount) items")
+            Text(
+                String.localizedStringWithFormat(
+                    String(localized: "%lld items"),
+                    workspace.itemCount
+                )
+            )
                 .font(FieldbookTypography.supporting)
                 .foregroundStyle(.secondary)
         }
@@ -101,7 +106,7 @@ struct WorkspaceDetailView: View {
                 List {
                     Section("Items") {
                         if detail.items.isEmpty {
-                            Text("No items yet.")
+                            Text(String(localized: "No items yet."))
                                 .foregroundStyle(.secondary)
                         } else {
                             ForEach(detail.items) { item in
@@ -146,7 +151,7 @@ struct WorkspaceDetailView: View {
             }
             Button("Cancel", role: .cancel) {}
         } message: {
-            Text("This permanently deletes the workspace and every contained item.")
+            Text(String(localized: "This permanently deletes the workspace and every contained item."))
         }
         .alert(
             "Action Failed",

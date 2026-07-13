@@ -1,30 +1,40 @@
 #!/usr/bin/env python3
-from pathlib import Path
-import re, sys
-root=Path(__file__).resolve().parents[1]
-exclude={'TchopAppTests','.git','DerivedData'}
-patterns=[
- ('GeometryReader usage; verify not in repeated row hot path', re.compile(r'\bGeometryReader\b')),
- ('PreferenceKey usage; verify scroll/layout update rate', re.compile(r'\bPreferenceKey\b')),
- ('Broad animation without obvious value parameter', re.compile(r'\.animation\s*\([^\n)]*\)')),
- ('Task in View; verify lifecycle/cancellation', re.compile(r'\bTask\s*\{')),
+import re
+
+from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+
+
+PATTERNS = [
+    ("warning", "GeometryReader usage; verify not in repeated row hot path", re.compile(r"\bGeometryReader\b")),
+    ("warning", "PreferenceKey usage; verify scroll/layout update rate", re.compile(r"\bPreferenceKey\b")),
+    ("warning", "Broad animation without obvious value parameter", re.compile(r"\.animation\s*\([^\n)]*\)")),
+    ("review-candidate", "Task lifecycle; verify owner/cancellation/stale-result policy", re.compile(r"\bTask\s*\{")),
 ]
-findings=[]
-for path in root.rglob('*.swift'):
-    rel=str(path.relative_to(root))
-    if any(part in rel for part in exclude):
-        continue
-    text=path.read_text(errors='ignore')
-    for name,rx in patterns:
-        for m in rx.finditer(text):
-            line=text[:m.start()].count('\n')+1
-            findings.append((name,rel,line))
-if findings:
-    print('SwiftUI hot-path review candidates:')
-    for name,rel,line in findings[:150]:
-        print(f'- {name}: ./{rel}:{line}')
-    if len(findings)>150:
-        print(f'... {len(findings)-150} more')
-    # Review candidates are warnings, not failure.
-    sys.exit(0)
-print('SwiftUI hot-path candidate scan OK')
+
+
+def main() -> int:
+    args = parse_scope_args("Scan SwiftUI hot-path review candidates.")
+    scan_roots = resolve_scan_roots(args.paths)
+    findings = []
+
+    for path in iter_files(scan_roots, "*.swift", {"TchopAppTests"}):
+        text = path.read_text(errors="ignore")
+        for severity, name, rx in PATTERNS:
+            for match in rx.finditer(text):
+                line = text[:match.start()].count("\n") + 1
+                findings.append((severity, name, path, line))
+
+    if findings:
+        print("SwiftUI hot-path review candidates (non-blocking):")
+        for severity, name, path, line in findings[:args.max_findings]:
+            print(f"- [{severity}] {name}: {display_path(path)}:{line}")
+        if len(findings) > args.max_findings:
+            print(f"... {len(findings) - args.max_findings} more")
+        return 0
+
+    print("SwiftUI hot-path candidate scan OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

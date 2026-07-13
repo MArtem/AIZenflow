@@ -1,22 +1,32 @@
 #!/usr/bin/env python3
-from pathlib import Path
-import sys
-root = Path(__file__).resolve().parents[1]
-limit = 5 * 1024 * 1024
-exclude = {'.git', 'DerivedData', '.build', '.zenflow-attachments', '.zenflow/tasks/new-task-be0b/traces'}
-large=[]
-for path in root.rglob('*'):
-    if not path.is_file():
-        continue
-    rel=str(path.relative_to(root))
-    if any(part in rel for part in exclude):
-        continue
-    size=path.stat().st_size
-    if size > limit:
-        large.append((rel,size))
-if large:
-    print('Large files over 5MB:')
-    for rel,size in large:
-        print(f'- ./{rel}: {size/1024/1024:.1f} MB')
-    sys.exit(1)
-print('Large file scan OK')
+
+from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
+
+
+LIMIT = 5 * 1024 * 1024
+
+
+def main() -> int:
+    args = parse_scope_args("Scan large files over the repository limit.")
+    scan_roots = resolve_scan_roots(args.paths)
+    large = []
+
+    for path in iter_files(scan_roots, "*", {"traces"}):
+        size = path.stat().st_size
+        if size > LIMIT:
+            large.append((path, size))
+
+    if large:
+        print("Large files over 5MB:")
+        for path, size in large[:args.max_findings]:
+            print(f"- [blocking] {display_path(path)}: {size / 1024 / 1024:.1f} MB")
+        if len(large) > args.max_findings:
+            print(f"... {len(large) - args.max_findings} more")
+        return 1
+
+    print("Large file scan OK")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
