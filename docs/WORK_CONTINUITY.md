@@ -1,7 +1,7 @@
 # Work Continuity
 
 ## Purpose
-Durable resume checkpoint for `TchopApp` when chat/task context is lost.
+Durable resume checkpoint for this iOS worktree when chat/task context is lost.
 
 ## Chat Transition Rule (Universal)
 
@@ -26,14 +26,16 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 
 ## Documentation Vault Continuity
 - The durable git-backed documentation vault lives at `/Users/Artem/.zenflow/worktrees/documentation-vault`.
+- Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` for every docs/rules/prompts/skills/package-docs/new-project boundary decision.
 - Before a new task/project bootstrap, read `/Users/Artem/.zenflow/worktrees/documentation-vault/DOCUMENT_LIBRARY_GUIDE.md` and the relevant central manifests. Do not copy the full library into the new worktree; create only minimal task/project pointers locally and keep shared docs in the central library.
 - Existing app-specific vault areas are recovery/reference sources only; do not copy another app's docs into the current task folder unless the user explicitly asks.
+- Local app exceptions remain local and do not update reusable/global rules without explicit promotion approval.
 
 - The user explicitly expanded the local sandbox for this task from `/Users/Artem/.zenflow/worktrees` to `/Users/Artem/.zenflow`.
 - All project work, build output, package verification output, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts must stay inside `/Users/Artem/.zenflow`.
 - Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow` for project work.
 - If a command/tool would default outside the Zenflow sandbox, override its output paths before running it.
-- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside the sandbox when explicitly requested by the user.
+- The only allowed external filesystem action is deleting previously created project traces outside the sandbox when explicitly requested by the user.
 
 ## Mandatory Startup Read Order
 1. `./docs/README.md`
@@ -44,20 +46,26 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 6. `./docs/WORK_CONTINUITY.md`
 7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 8. `./docs/MODEL_ROUTING_RULE.md`
-9. `./.zenflow/tasks/new-task-be0b/handoff.md`
-10. `./.zenflow/tasks/new-task-be0b/plan.md`
-11. `./PackagesForReuse/README.md`
-12. `./PackagesInUse/README.md`
-13. `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
-14. `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md`
-15. `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`
-16. `./docs/agent-prompts/README.md`
+9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
+10. `./.zenflow/tasks/new-task-be0b/handoff.md`
+11. `./.zenflow/tasks/new-task-be0b/plan.md`
+12. `./PackagesForReuse/README.md`
+13. `./PackagesInUse/README.md`
+14. `./docs/PACKAGES_AND_MANAGERS.md`
+15. `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md`
+16. `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`
+17. `./docs/agent-prompts/README.md`
 
 ## Current Working Baseline
-- Apply `./docs/MODEL_ROUTING_RULE.md`: `GPT-5.4` only for approved low-risk execution; `GPT-5.5` for planning, architecture, high-risk domains, package adoption/app integration, and final gates.
+- Apply `./docs/MODEL_ROUTING_RULE.md`: the assistant may choose the suitable model per task and adjust routing when risk changes, subject to available Zenflow/tool support.
+- Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md` before non-trivial work and `./docs/COMPLETION_REPORT_CONTRACT.md` before reporting completion.
+- Apply `./docs/SOURCE_OF_TRUTH_MAP.md` and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` before moving durable knowledge between reusable/app/task areas.
+- For new project/task/worktree bootstrap, apply `./docs/NEW_PROJECT_START_CONTRACT.md` and verify with `./scripts/check_bootstrap_contract.py`.
+- If the primary chat model is fixed by the UI, the assistant must ask the user to switch when a true model switch is required; otherwise continue with the best available model and report residual risk.
+- Preferred current balance: `GPT-5.6 sol` or `GPT-5.5` for normal high-quality work, `GPT-5.6 tera` for highest-risk gates, `GPT-5.6 luna` for low-risk mechanical/read-only work, and `GPT-5.4` only for approved low-risk execution when it is still available and resource-saving.
 - Every working/status/readiness/planning response must start with model, phase, files, next safe step, build need, and sandbox confirmation.
 - Do not run builds, tests, simulator UI, or Instruments unless explicitly requested or already approved for the current block.
-- Do not touch `./TchopAppTests` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
+- Do not touch app/UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
 - No speculative UI, speculative business logic, decorative wrappers/protocols/factories/adapters/use cases, or per-view models without a concrete current problem.
 - Reviews/audits/planning must provide full unbiased analysis and prioritized recommendations.
 
@@ -65,7 +73,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - `./PackagesInUse` contains active source-only package copies compiled directly into app/share/widget targets.
 - `./PackagesForReuse` contains the complete reviewed reusable package vault.
 - `./Packages` contains SDK/package creation docs, templates, reports, and optional copy-file helpers only.
-- Do not reintroduce `./Packages/TchopInfrastructure` as an active runtime package path.
+- Do not reintroduce retired monolithic source-app infrastructure bundles as active runtime package paths.
 - Do not use SwiftPM for app integration unless there is an explicit current reason; source-only mode is the active disk-control strategy.
 
 ## Current Functional Baseline
@@ -73,7 +81,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Feed/composer product contract: `text`, `photo`, `video`, `audio`, `pdf` cards.
 - Text order: `text`, `headline`, `subheadline`, `source`.
 - Composer/share/feed runtime is source-neutral and local-first.
-- Product-specific behavior stays in `./TchopApp`; reusable mechanics stay in `./PackagesInUse` / `./PackagesForReuse`.
+- Product-specific behavior stays in the app target; reusable mechanics stay in `./PackagesInUse` / `./PackagesForReuse`.
 
 ## Current Task State
 The current approved block is documentation/rules/skills cleanup after a read-only audit of active docs, task docs, reusable baseline, prompt presets, saved prompt snippets, local skills, package usage docs, continuity/handoff/model-routing rules, and reusable templates.
@@ -93,7 +101,7 @@ Latest user approvals:
 
 ## Context Transfer Prompt Template
 ```text
-Работаем в проекте `TchopApp` в worktree:
+Работаем в iOS worktree:
 `/Users/Artem/.zenflow/worktrees/new-task-be0b`
 
 Локальная sandbox-граница для этой задачи расширена пользователем до:
@@ -109,15 +117,16 @@ Latest user approvals:
 6) ./docs/WORK_CONTINUITY.md
 7) ./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md
 8) ./docs/MODEL_ROUTING_RULE.md
-9) ./.zenflow/tasks/new-task-be0b/handoff.md
-10) ./.zenflow/tasks/new-task-be0b/plan.md
-11) ./PackagesForReuse/README.md
-12) ./PackagesInUse/README.md
-13) ./docs/PACKAGE_USAGE_IN_TCHOPAPP.md
-14) ./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md
-15) ./docs/documentation-split/reusable/REUSABLE_MANIFEST.md
-16) ./docs/agent-prompts/README.md
-17) For Figma-link/design work: ./docs/agent-prompts/figma-mcp-swiftui-implementation.md
+9) ./docs/DOCUMENT_BOUNDARY_STANDARD.md
+10) ./.zenflow/tasks/new-task-be0b/handoff.md
+11) ./.zenflow/tasks/new-task-be0b/plan.md
+12) ./PackagesForReuse/README.md
+13) ./PackagesInUse/README.md
+14) ./docs/PACKAGES_AND_MANAGERS.md
+15) ./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md
+16) ./docs/documentation-split/reusable/REUSABLE_MANIFEST.md
+17) ./docs/agent-prompts/README.md
+18) For Figma-link/design work: ./docs/agent-prompts/figma-mcp-swiftui-implementation.md
 
 Обязательное правило переноса контекста:
 перечитать весь актуальный набор документации и правил для этого worktree и task-контекста
@@ -126,7 +135,9 @@ Latest user approvals:
 - Использовать ./docs/MODEL_ROUTING_RULE.md.
 - Начинать рабочие ответы с обязательного response header.
 - Не запускать build/tests/simulator/Instruments без явного разрешения.
-- Не трогать ./TchopAppTests без явного разрешения.
+- Не трогать test targets без явного разрешения.
 - Если задача начинается с Figma или пользователь даёт Figma link, сначала читать ./docs/agent-prompts/figma-mcp-swiftui-implementation.md и использовать Figma MCP как источник design context.
 - Package mode: ./PackagesInUse = active source-only packages; ./PackagesForReuse = reusable package vault; ./Packages = SDK/package docs/templates only.
+- Docs boundary mode: reusable/global docs stay under documentation-vault/reusable; app docs stay under documentation-vault/apps/<AppName>; task docs stay under documentation-vault/tasks/<TaskId> or local task state. Local exceptions never change reusable rules without explicit promotion approval.
+- Даже маленькое тестовое приложение должно иметь production-shaped структуру, composition root, coordinator/router navigation, корректное владение state/models и явные gates; не откладывать эти основы до появления сложности.
 ```

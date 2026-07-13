@@ -1,7 +1,7 @@
 # Agent Rules (Short, Mandatory)
 
 ## Purpose
-This file is the short mandatory rule set for coding work in `TchopApp`.
+This file is the short mandatory rule set for iOS coding work in this worktree.
 
 Use `docs/IOS_ARCHITECTURE_REFERENCE.md` as **reference**, not as a mechanical checklist. Use `docs/PRODUCTION_QUALITY_GATES.md` and `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` as mandatory quality gates/checklists for implementation, refactor, and review work.
 
@@ -14,8 +14,12 @@ Always choose the **simplest correct solution** that matches:
 
 Do not add abstractions unless they solve a concrete current problem.
 
+This rule does not permit skipping required architecture. The simplest correct solution must still include the required project structure, composition root, coordinator/router boundary, explicit state ownership, error handling, accessibility, localization, and verification appropriate to the feature.
+
 ## Model Routing Rule
 - Apply `./docs/MODEL_ROUTING_RULE.md` before implementation, planning, review, and package-adoption work.
+- The assistant is authorized to choose the model for each task and adjust the routing when risk changes; if Zenflow/UI does not allow the assistant to switch the primary model directly, tell the user when a manual switch is needed.
+- Preferred balance: `GPT-5.6 sol` or `GPT-5.5` for normal work, `GPT-5.6 tera` only for highest-risk gates, and `GPT-5.6 luna` only for low-risk mechanical/read-only work.
 - Before editing code or documentation, classify the task as `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets.
 - Use `GPT-5.4` for approved-plan, low-risk execution only. Escalate to `GPT-5.5` when architecture, persistence, concurrency, navigation, state ownership, public APIs, security/privacy, data loss, sync, performance-sensitive SwiftUI, package adoption, Xcode integration, or app-wide behavior is involved.
 - In sessions where the primary assistant is already `GPT-5.5`, use `GPT-5.4` only through available subagents/tools when it is actually suitable and resource-saving; do not lower quality to save limits.
@@ -32,6 +36,8 @@ Do not add abstractions unless they solve a concrete current problem.
 ## Product-Staff Quality Bar Rule
 - Never lower the engineering bar because a project is described as demo, test, sample, prototype, imported, or pre-production; those words may only describe configuration/risk context, not code quality.
 - Treat every authored or reviewed code path as product-staff-level production code: correct ownership, explicit state, clear failure behavior, performance-aware rendering, privacy-safe logging, accessibility, localization, and supportable verification.
+- Do not defer coordinator/router setup, app composition, physical file structure, feature state ownership, model boundaries, or view reaction rules because the current app is small. Small apps get smaller feature scope, not lower engineering standards.
+- Any project uses the highest reusable standards and best current rules by default until the user explicitly approves a narrower local exception.
 - Do not wait for Instruments/profilers before fixing statically obvious performance or memory issues. Use profiling to prove behavior, compare alternatives, or validate non-obvious risks, not as an excuse to leave avoidable redraws, broad invalidation, main-thread work, unbounded caches, or lifecycle leaks.
 - Maximize quality through the simplest correct design: improve hot paths, state ownership, and error handling without adding decorative protocols, wrappers, factories, use cases, or interfaces.
 
@@ -60,17 +66,21 @@ Do not add abstractions unless they solve a concrete current problem.
 
 ## Global vs Project Knowledge Rule
 - Durable reusable agent-used docs/rules/prompts/skills/templates belong in `/Users/Artem/.zenflow/worktrees/documentation-vault` as the canonical shared library.
-- Keep reusable docs and app-specific docs separated in the vault: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/`, `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/TchopApp/`, `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/MVVMExample/`.
+- Keep reusable docs and app-specific docs separated in the vault: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` for shared material and `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/` for app snapshots.
+- Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before changing documentation, prompts, skills, package docs, architecture-case docs, app docs, or task handoffs.
+- Use `./docs/SOURCE_OF_TRUTH_MAP.md` to decide where every durable rule, app decision, task state, package contract, prompt, skill, or temporary note belongs.
 - When changing a durable reusable rule or prompt, update the central library before reporting completion; do not create per-task full-library copies.
 - Reusable cross-project rules and prompts live in `docs/knowledge/global/`.
-- TchopApp-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/TchopApp/` or in the canonical docs indexed there.
+- App-specific rules, contracts, paths, entities, and current task context live in an app-specific knowledge folder or in the canonical docs indexed there.
 - When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
+- Local app exceptions never weaken reusable rules automatically. Promote a local exception to reusable only after explicit user approval and app-neutral rewriting.
+- Never copy one app's docs into another app as baseline. Read another app's docs only when the user explicitly asks for cross-app reference.
 
 
 ## Package Documentation Rule
 - Every reusable package must have a complete package-level `README.md` before adoption or publication. The README must explain purpose, solved problem, capabilities, when to use/not use, ownership boundary, products/targets, local SwiftPM usage, remote SwiftPM usage, source-only integration notes, basic usage, verification, and related docs.
 - Keep `./PackagesForReuse/PACKAGE_CATALOG.md` updated whenever a reusable package or integration helper is added, removed, renamed, or its purpose/products change.
-- If the package is active in TchopApp, also update `./PackagesInUse/PACKAGE_CATALOG.md`, `./PackagesInUse/README.md`, and the active package README.
+- If the package is active in an app target, also update `./PackagesInUse/PACKAGE_CATALOG.md`, `./PackagesInUse/README.md`, and the active package README.
 - Reusable package docs mirrored for all tasks must stay current under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs`.
 - Do not create or adopt a package with only a placeholder README unless the user explicitly approves a temporary exception and the follow-up is recorded.
 
@@ -132,12 +142,17 @@ Do not add abstractions unless they solve a concrete current problem.
 
 
 ## Product / Process Governance Rule
+- Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md` before non-trivial implementation, refactor, documentation migration, package adoption, review, or new project/task bootstrap.
+- Use `./docs/NEW_PROJECT_START_CONTRACT.md` before creating or bootstrapping a new project, task, or worktree.
 - Before implementing non-trivial feature behavior, apply `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`; do not guess acceptance criteria, empty/error/offline states, rollout behavior, analytics, accessibility, or localization requirements.
 - If a decision changes architecture, public API, persistence, security/privacy, release behavior, or cross-team ownership, apply `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md` and record the decision before coding.
+- If a project intentionally violates a reusable rule, record it with `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md` in app/task-specific docs. Do not promote it globally without explicit user approval.
 - Use `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md` to decide required review scope and blocked-change criteria.
 - Track intentional shortcuts in `./docs/TECH_DEBT_REGISTER.md` and material risks in `./docs/RISK_REGISTER.md`; untracked debt is not an acceptable production tradeoff.
 
 ## Evidence-Based Completion Rule
+- Apply `./docs/COMPLETION_REPORT_CONTRACT.md` before any meaningful completion report.
+- Apply `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` before changing `plan.md`, `handoff.md`, task archives, or task recovery snapshots.
 
 ## Result Model And Context Reporting Rule
 - After every meaningful step, task, review, implementation block, or completion report, include a `Результат` block or equivalent concise summary that states which model(s) worked and what each one did.
@@ -168,7 +183,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - If a concern is not applicable, mark it not applicable with a reason instead of silently skipping it.
 - For full production readiness claims, fill or summarize `./docs/IOS_PRODUCTION_SCORECARD.md`; any score below production threshold must be reported as remaining risk.
 
-## Project-Calibrated Working Rules (TchopApp)
+## Project-Calibrated Working Rules
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.
 2. Do not introduce app-local wrappers around reusable package APIs when one direct call is enough.
 3. SwiftUI composition details are governed by `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`; do not duplicate conflicting local style rules.
@@ -178,13 +193,14 @@ Do not add abstractions unless they solve a concrete current problem.
 7. ViewModel interaction style must follow `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md` (`@MainActor`, `@Observable`, explicit state + intents, no generic `send(action)` default).
 8. Before any new abstraction, document one concrete current pain-point it solves in the PR/task notes.
 9. UI/design tasks must follow `docs/UI_PIXEL_PERFECT_WORKFLOW.md`.
-10. Local feed/card persistence work must follow `docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`.
+10. Content/feed/card persistence work must follow the active product contract for the current app.
 11. Any non-trivial implementation, review, or refactor must apply `docs/PRODUCTION_QUALITY_GATES.md` and `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`; if a gate/checklist area is not relevant, state that explicitly in the completion report.
 12. Never close a review as clean when runtime hot-path risks, broad invalidation, main-thread I/O, unbounded memory/cache behavior, unsafe persistence/network side effects, missing failure states, naming/domain impurity, or forbidden-pattern violations remain unchecked.
 
 ## Size Heuristic
-- Small UI/bugfix task: minimal focused patch.
+- Small UI/bugfix task: minimal focused patch inside the established architecture.
 - Architecture/runtime task: use reference guidance to choose boundaries and responsibilities.
+- New app or new feature area: create the production-shaped skeleton first, including physical structure, composition, navigation/coordinator, state ownership, and error/loading/empty state strategy.
 
 ## Related
 - `docs/IOS_ARCHITECTURE_REFERENCE.md`

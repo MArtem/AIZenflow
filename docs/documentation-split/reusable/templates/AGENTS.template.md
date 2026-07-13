@@ -27,15 +27,19 @@ Before code, docs, git, or project changes, read:
 6. `./docs/WORK_CONTINUITY.md`
 7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 8. `./docs/DOCUMENT_LIBRARY_GUIDE.md`
-9. `./docs/ALL_DOCUMENTS_INVENTORY.md`
-10. current Zenflow task handoff/plan if present
-11. task-relevant package/prompt/skill docs selected through the guide and inventory.
+9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
+10. `./docs/ALL_DOCUMENTS_INVENTORY.md`
+11. current Zenflow task handoff/plan if present
+12. task-relevant package/prompt/skill docs selected through the guide and inventory.
 
 
 ## Documentation Vault
 - Durable reusable rules, prompts, skills, templates, scripts, and app-specific docs should be mirrored into the active git-backed documentation vault when a project provides one.
-- Keep reusable docs separate from app-specific docs.
+- Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before documentation moves, reusable rule updates, app-specific docs updates, prompt/skill changes, package-doc updates, task handoff updates, or new-project bootstrapping.
+- Use `./docs/SOURCE_OF_TRUTH_MAP.md` to choose the correct durable location for every reusable rule, app decision, task state, package contract, prompt, skill, or temporary note.
+- Keep reusable/global docs under the vault's `reusable/` area, app-specific docs under `apps/<AppName>/`, and task-only handoffs/plans under `tasks/<task-id>/` when a vault is present.
 - Do not copy another app's docs into a new task's local task folder; keep cross-app context in the vault's app-specific area.
+- Local app exceptions remain local and must not weaken reusable/global rules without explicit user-approved promotion and app-neutral rewriting.
 
 ## Filesystem Sandbox
 - Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active worktree sandbox.
@@ -49,6 +53,7 @@ Before code, docs, git, or project changes, read:
 
 ## Current Project Mode
 - This is a clean `<AppName>` baseline project unless project-specific docs say otherwise.
+- This project uses the highest reusable standards and best current rules by default until the user explicitly approves a narrower local exception.
 - Do not implement app-specific demo features unless the user explicitly asks.
 - Do not continue stale app/task-specific demo plans from another project.
 - The user may provide Swift files or text fragments to add iteratively.
@@ -62,6 +67,13 @@ Before code, docs, git, or project changes, read:
 
 ## Plan Rule
 If new user-approved work benefits from a breakdown, update the local task plan with checkbox steps and mark completed steps before reporting completion.
+
+## Preflight And Completion
+- Apply `./docs/NEW_PROJECT_START_CONTRACT.md` before creating or bootstrapping a new project/task/worktree.
+- Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md` before non-trivial implementation, refactor, docs migration, package adoption, review, or bootstrap work.
+- Apply `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md` when a local project intentionally violates a reusable/global rule.
+- Apply `./docs/COMPLETION_REPORT_CONTRACT.md` before meaningful completion reports.
+- Apply `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` before changing task plan/handoff/archive/recovery docs.
 
 
 ## New Chat / Context Transfer

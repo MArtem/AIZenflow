@@ -13,13 +13,18 @@ Applies to the current worktree/task:
 ## Active Overrides
 
 ### Documentation Vault
-- `/Users/Artem/.zenflow/worktrees/documentation-vault` is the git-backed durable copy for reusable docs, TchopApp docs, MVVMExample docs, prompts, skills, templates, scripts, and task context snapshots.
+- `/Users/Artem/.zenflow/worktrees/documentation-vault` is the git-backed durable copy for reusable docs, app-specific snapshots, prompts, skills, templates, scripts, and task context snapshots.
+- `./docs/DOCUMENT_BOUNDARY_STANDARD.md` is mandatory for all documentation/library/prompt/skill/package-doc work.
 - New reusable/shared documentation changes must be made in `/Users/Artem/.zenflow/worktrees/documentation-vault`; app-local docs may keep a small operational copy only when the project needs it.
 - Do not place another app's docs into this worktree's task docs; cross-app context belongs under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`.
+- Local project exceptions, compromises, or intentional rule violations must remain app-specific. They must not change reusable/global rules unless the user explicitly approves promotion to reusable.
 
 
 ### Model Routing
 - Apply `./docs/MODEL_ROUTING_RULE.md` for all implementation, planning, review, and package-adoption work.
+- User authorizes the assistant to choose the suitable model before each task and to recommend or use a different model when risk/resource balance changes, subject to actual Zenflow/tool availability.
+- If the current chat/session primary model is fixed by Zenflow/UI, the assistant cannot physically switch it alone; when a true primary-model switch is needed, the assistant must ask the user to switch or continue with the best available model and report risk.
+- Use `GPT-5.6 sol` or `GPT-5.5` as the normal high-quality default when available; reserve `GPT-5.6 tera` for highest-risk planning/review/final gates; use `GPT-5.6 luna` only for low-risk mechanical/read-only/docs inventory work.
 - Default executor is `GPT-5.4` for approved-plan, routine, low-risk implementation where architecture and ownership are already decided.
 - Use `GPT-5.5` for planning gates, architecture, persistence, concurrency, navigation, state ownership, public APIs, module/package boundaries, security/privacy, data-loss/sync, performance-sensitive decisions, package adoption into `./PackagesInUse`, Xcode/app runtime integration, and high-risk final reviews.
 - Before editing code or documentation, classify the task as one of: `GPT-5.5 Planning Required`, `GPT-5.4 Execution Only`, `GPT-5.4 Execution + GPT-5.5 Final Review`, or `GPT-5.5 Full Task Required`, with 3–5 bullets of reasoning.
@@ -49,11 +54,11 @@ Every working response must start with:
 - Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow`.
 - Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow` for project work.
 - If a tool defaults to an external cache/location, override it to a path under `/Users/Artem/.zenflow` before running it.
-- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside `/Users/Artem/.zenflow` when explicitly requested by the user.
+- The only allowed external filesystem action is deleting previously created project traces outside `/Users/Artem/.zenflow` when explicitly requested by the user.
 
 ### Verification / Builds / Tests
 - The user restored the test-writing ban on 2026-05-29. Do not write, modify, or expand tests until the user explicitly gives permission again.
-- Do not touch `./TchopAppTests` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
+- Do not touch `./app test targets` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
 - Build/simulator execution is approved for cases where the assistant determines it is needed to reproduce a bug, verify a fix, or protect quality. Do not run build/simulator when cheaper evidence is sufficient.
 - Test execution is allowed only when explicitly requested by the user or when a previously approved implementation block requires verification; do not add new test coverage while the ban is active.
 - Simulator UI automation may be used when it materially improves repro/verification confidence; if UI automation access is insufficient, state what is missing, whether simulator/logs/code analysis can substitute, and what risk remains.
@@ -74,8 +79,10 @@ Every working response must start with:
 
 
 ### Product-Staff Quality Bar
+- Any project is developed by default according to the highest reusable standards and best current rules until the user explicitly says otherwise.
 - Never lower the engineering bar because a project is described as demo, test, sample, prototype, imported, or pre-production; those words may only describe configuration/risk context, not code quality.
 - Treat every authored or reviewed code path as product-staff-level production code: correct ownership, explicit state, clear failure behavior, performance-aware rendering, privacy-safe logging, accessibility, localization, and supportable verification.
+- Even the smallest test app must start with proper project structure, composition root, navigation coordinator/router, feature state ownership, model boundaries, view-state rendering, accessibility/localization posture, and explicit verification gates. Do not defer these foundations until future complexity appears.
 - Do not wait for Instruments/profilers before fixing statically obvious performance or memory issues. Use profiling to prove behavior, compare alternatives, or validate non-obvious risks, not as an excuse to leave avoidable redraws, broad invalidation, main-thread work, unbounded caches, or lifecycle leaks.
 - Maximize quality through the simplest correct design: improve hot paths, state ownership, and error handling without adding decorative protocols, wrappers, factories, use cases, or interfaces.
 
@@ -138,3 +145,14 @@ If this file conflicts with an explicit newer user instruction in chat, the newe
 - The assistant must proactively tell the user when the current chat/context should be replaced by a new chat to reduce context risk.
 - When recommending a new chat, provide a compact transition spec and include: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 - Do not include raw command logs, tool output, full diffs, or long scripts in the transition spec unless explicitly requested.
+
+### AI Fieldbook Current Decisions
+- AI Fieldbook is an independent internal-only learning app, not a source-app feature.
+- The currently reported toolchain is Xcode 26.5; Xcode/iOS 27 beta is unavailable.
+- Available runtime verification is iOS Simulator only; no physical Apple Intelligence-capable device is currently available.
+- No backend, paid cloud-provider budget, or third-party cloud data path is approved.
+- Default mode is local-only; private user content must not leave the device.
+- Test writing remains prohibited for the independent app as well as the existing project until the user explicitly changes this decision.
+- The user authorized Iteration 1 to begin block-by-block. Complete and report one self-contained block before starting the next; do not begin Iteration 2 before the Iteration 1 completion gate is accepted.
+- Backend/cloud provisioning and test writing remain prohibited until separately approved.
+- For every AI-related task, read `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md` and apply only its relevant sections under the higher-priority current rules above.

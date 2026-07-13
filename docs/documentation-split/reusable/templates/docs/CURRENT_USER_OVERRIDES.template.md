@@ -7,8 +7,10 @@ Task-local user preferences and hard constraints that apply before general proje
 
 ### Documentation Vault
 - If the project has a git-backed documentation vault, mirror durable docs/rules/prompts/skills/templates into both the active worktree location and the vault location.
-- Keep reusable docs and app-specific docs separated.
+- `./docs/DOCUMENT_BOUNDARY_STANDARD.md` is mandatory for all documentation/library/prompt/skill/package-doc/new-project bootstrap work.
+- Keep reusable/global docs under the vault's `reusable/` area, app-specific docs under `apps/<AppName>/`, and task-only docs under `tasks/<task-id>/` or the current local task docs.
 - Do not place another app's docs into this worktree's task docs; cross-app context belongs in the vault's app-specific area.
+- Local project exceptions, compromises, or intentional rule violations must remain app-specific. They must not change reusable/global rules unless the user explicitly approves promotion to reusable and the text is rewritten app-neutrally.
 
 
 ### Model Routing
@@ -55,6 +57,7 @@ Every working/status/readiness response must start with:
 - If anything is unclear, ask first.
 
 ### Product-Staff Quality Bar
+- Any project is developed according to the highest reusable standards and best current rules by default until the user explicitly approves a narrower local exception.
 - Never lower the engineering bar because a project is described as demo, test, sample, prototype, imported, or pre-production; those words may only describe configuration/risk context, not code quality.
 - Treat every authored or reviewed code path as product-staff-level production code: correct ownership, explicit state, clear failure behavior, performance-aware rendering, privacy-safe logging, accessibility, localization, and supportable verification.
 - Do not wait for Instruments/profilers before fixing statically obvious performance or memory issues. Use profiling to prove behavior, compare alternatives, or validate non-obvious risks, not as an excuse to leave avoidable redraws, broad invalidation, main-thread work, unbounded caches, or lifecycle leaks.
@@ -69,6 +72,8 @@ Every working/status/readiness response must start with:
 
 ### No-Loss Transfer
 - Every new project/task must receive the full reusable non-app-specific baseline accumulated so far.
+- Every new project/task/worktree must receive and apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` from the start.
+- Every new project/task/worktree must receive and apply `./docs/NEW_PROJECT_START_CONTRACT.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/AGENT_PREFLIGHT_CHECKLIST.md`, `./docs/COMPLETION_REPORT_CONTRACT.md`, `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`, and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`.
 - If any reusable documentation, prompt, rule, skill, template, or script cannot be copied or activated, report it as an explicit remaining risk.
 
 ## Notes

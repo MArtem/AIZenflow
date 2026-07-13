@@ -19,6 +19,8 @@ Every feature should define:
 ## Stop Rule
 If acceptance criteria or state behavior is unclear, ask the user/product owner before implementing.
 
+For a new project/task/worktree, fill or explicitly defer `./docs/NEW_PROJECT_START_CONTRACT.md` before implementation starts.
+
 ## Review Output
 - Requirements completeness: complete/incomplete.
 - Missing decisions.

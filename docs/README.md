@@ -16,8 +16,9 @@ Entry point for active project documentation, production standards, prompt prese
 4. `./docs/AGENT_RULES.md`
 5. `./docs/WORK_CONTINUITY.md`
 6. `./docs/MODEL_ROUTING_RULE.md`
-7. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
-8. Scope-specific docs from the index below.
+7. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
+8. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
+9. Scope-specific docs from the index below.
 
 ## One-Time Bootstrap After Chat Reset
 On a new chat/context reset, read once:
@@ -28,8 +29,9 @@ On a new chat/context reset, read once:
 5. `./docs/CURRENT_USER_OVERRIDES.md`
 6. `./docs/AGENT_RULES.md`
 7. `./docs/MODEL_ROUTING_RULE.md`
-8. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
-9. relevant prompt/skill/standard docs for the task.
+8. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
+9. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
+10. relevant prompt/skill/standard docs for the task.
 
 Re-read the full stack only when architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
 
@@ -45,7 +47,12 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 - `./docs/CURRENT_USER_OVERRIDES.md`
 - `./docs/MODEL_ROUTING_RULE.md`
+- `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
 - `./docs/DOCUMENT_LIBRARY_GUIDE.md`
+- `./docs/SOURCE_OF_TRUTH_MAP.md`
+- `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
+- `./docs/COMPLETION_REPORT_CONTRACT.md`
+- `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
 
 ### Production Quality And Review Gates
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`
@@ -68,6 +75,12 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/STATIC_QUALITY_GATE_POLICY.md`
 
 ### Product, Governance, And Operating Model
+- `./docs/NEW_PROJECT_START_CONTRACT.md`
+- `./docs/SOURCE_OF_TRUTH_MAP.md`
+- `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
+- `./docs/COMPLETION_REPORT_CONTRACT.md`
+- `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`
+- `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
 - `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
 - `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
@@ -111,11 +124,11 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
 - `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
 
-### TchopApp-Specific Runtime Docs
+### Reusable Package And App Runtime Docs
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
-- `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
+- `./docs/PACKAGES_AND_MANAGERS.md`
 - `./Packages/SDKCreation/README.md`
 - `./PackagesForReuse/AppBackgroundTasks/README.md`
 - `./PackagesForReuse/AppSecureStorage/README.md`
@@ -151,11 +164,12 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 
 ### Prompt Presets And Knowledge
 - `./docs/agent-prompts/README.md`
+- `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`
 - `./docs/agent-prompts/ios-architecture-style-review.md`
 - `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
-- `./docs/knowledge/TchopApp/README.md`
+- `./docs/knowledge/global/README.md`
 
 
 ### Reference Inventories And Saved Prompts
@@ -163,6 +177,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/ALL_DOCUMENTS_INVENTORY.md`
 
 ### Documentation Split / Transfer Baseline
+- `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
 - `./docs/documentation-split/README.md`
 - `./docs/documentation-split/app-specific/APP_SPECIFIC_MANIFEST.md`
 - `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`
@@ -177,15 +192,19 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 ### Task Docs
 - `./.zenflow/tasks/new-task-be0b/handoff.md`
 - `./.zenflow/tasks/new-task-be0b/plan.md`
+- `./.zenflow/tasks/new-task-be0b/ai-fieldbook-product-contract.md`
+- `./.zenflow/tasks/new-task-be0b/ai-fieldbook-architecture-decisions.md`
+- `./.zenflow/tasks/new-task-be0b/ai-fieldbook-implementation-plan.md`
+- `./.zenflow/tasks/new-task-be0b/ios-ai-capabilities-and-lab-plan.md`
 - `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
 - `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`
 
 ### Local Skills
-- `./.codex/skills/tchop-feed-cards/SKILL.md`
-- `./.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
-- `./.codex/skills/tchop-packages/SKILL.md`
-- `./.codex/skills/tchop-packages/references/package-rules.md`
+- `./.codex/skills/ios-content-cards/SKILL.md`
+- `./.codex/skills/ios-content-cards/references/feed-card-contract.md`
+- `./.codex/skills/ios-reusable-packages/SKILL.md`
+- `./.codex/skills/ios-reusable-packages/references/package-rules.md`
 - `./.codex/skills/ios-production-auditor/SKILL.md`
 - `./.codex/skills/ios-performance-profiler/SKILL.md`
 - `./.codex/skills/ios-security-privacy/SKILL.md`
@@ -211,6 +230,8 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./.codex/skills/ios-code-documentation/SKILL.md`
 
 ### Static Quality Gate Scripts
+- `./scripts/check_bootstrap_contract.py`
+- `./scripts/check_documentation_boundaries.py`
 - `./scripts/check_docs_index.py`
 - `./scripts/check_docs_consistency.py`
 - `./scripts/check_forbidden_patterns.py`
@@ -225,16 +246,23 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 
 ### Core Rules
 - **`./AGENTS.md`**: root agent startup rules, response header, sandbox, model routing, package mode, and plan rule.
-- **`./PROJECT_DOCUMENTATION.md`**: stable app architecture and runtime baseline.
-- **`./PROJECT_HEALTH.md`**: package/manager ownership boundaries.
+- **`./PROJECT_DOCUMENTATION.md`**: stable iOS architecture and runtime baseline.
+- **`./PROJECT_HEALTH.md`**: reusable package/manager ownership boundaries.
 - **`./TESTING_INSTRUCTIONS.md`**: active verification workflow and levels for this project.
 - **`./docs/AGENT_RULES.md`**: short mandatory implementation guardrails.
 - **`./docs/CURRENT_USER_OVERRIDES.md`**: current task/user overrides that must be applied before general defaults.
 - **`./docs/WORK_CONTINUITY.md`**: durable resume state and universal transition prompt.
 - **`./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`**: proactive new-chat trigger and compact transition-spec requirements.
 - **`./docs/MODEL_ROUTING_RULE.md`**: model selection, escalation, and context/output budget rule for implementation, planning, and review work.
+- **`./docs/DOCUMENT_BOUNDARY_STANDARD.md`**: hard physical/logical separation rule for reusable, app-specific, architecture, package, and task documentation.
+- **`./docs/SOURCE_OF_TRUTH_MAP.md`**: canonical storage map for reusable rules, app decisions, task state, packages, prompts, and temporary notes.
+- **`./docs/NEW_PROJECT_START_CONTRACT.md`**: mandatory bootstrap contract for new projects, tasks, and worktrees.
+- **`./docs/AGENT_PREFLIGHT_CHECKLIST.md`**: preflight gate before non-trivial work, package adoption, docs migration, review, or bootstrap.
+- **`./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`**: local exception ADR format for app/task-specific deviations from reusable rules.
+- **`./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`**: ownership boundary for `plan.md`, `handoff.md`, task archives, and recovery snapshots.
 
 ### Review And Completion
+- **`./docs/COMPLETION_REPORT_CONTRACT.md`**: mandatory report shape before claiming done/fixed/verified/safe/clean/production-ready.
 - **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.
 - **`./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`**: end-to-end feature workflow from intake to operation.
 - **`./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`**: uniform broad audit matrix and finding format.

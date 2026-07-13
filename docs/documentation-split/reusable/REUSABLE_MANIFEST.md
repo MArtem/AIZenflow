@@ -7,6 +7,13 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./AGENTS.md`
 - `./docs/MODEL_ROUTING_RULE.md`
 - `./docs/DOCUMENT_LIBRARY_GUIDE.md`
+- `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
+- `./docs/NEW_PROJECT_START_CONTRACT.md`
+- `./docs/SOURCE_OF_TRUTH_MAP.md`
+- `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
+- `./docs/COMPLETION_REPORT_CONTRACT.md`
+- `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`
+- `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
 - `./docs/ALL_DOCUMENTS_INVENTORY.md`
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
@@ -70,6 +77,8 @@ Files in this group are intended as the portable iOS production baseline for a n
 - `./docs/PACKAGES_AND_MANAGERS.md`
 - `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
 - `./scripts/check_docs_consistency.py`
+- `./scripts/check_bootstrap_contract.py`
+- `./scripts/check_documentation_boundaries.py`
 - `./root-scripts/check_docs_consistency.py`
 - `./docs/agent-prompts/test-review-mini.md`
 - `./docs/agent-prompts/README.md`

@@ -22,3 +22,5 @@ A task is done only when:
 - Verification not run and why.
 - Remaining risks.
 - Code documentation updated or explicitly not needed.
+
+Use `./docs/COMPLETION_REPORT_CONTRACT.md` for the full required report shape, including context health, model result, local exceptions, and intentionally skipped work.

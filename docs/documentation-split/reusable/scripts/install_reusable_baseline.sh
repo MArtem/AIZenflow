@@ -16,6 +16,20 @@ mkdir -p "${TARGET_ROOT}"
 
 # Copy reusable docs, project-local skills, and root quality scripts.
 rsync -a "${BASELINE_ROOT}/docs/" "${TARGET_ROOT}/docs/"
+for required_doc in \
+  DOCUMENT_BOUNDARY_STANDARD.md \
+  NEW_PROJECT_START_CONTRACT.md \
+  SOURCE_OF_TRUTH_MAP.md \
+  AGENT_PREFLIGHT_CHECKLIST.md \
+  COMPLETION_REPORT_CONTRACT.md \
+  LOCAL_EXCEPTION_ADR_TEMPLATE.md \
+  TASK_STATE_DOCUMENTATION_STANDARD.md
+do
+  if [[ ! -f "${TARGET_ROOT}/docs/${required_doc}" ]]; then
+    echo "Missing required docs/${required_doc} after baseline copy" >&2
+    exit 3
+  fi
+done
 if [[ -d "${BASELINE_ROOT}/root-scripts" ]]; then
   mkdir -p "${TARGET_ROOT}/scripts"
   rsync -a "${BASELINE_ROOT}/root-scripts/" "${TARGET_ROOT}/scripts/"

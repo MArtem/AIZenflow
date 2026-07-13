@@ -28,3 +28,5 @@ Every strong completion claim must include evidence:
 - Scope
 - Verification not run
 - Remaining risk
+
+For meaningful completion reports, use the stricter shape in `./docs/COMPLETION_REPORT_CONTRACT.md`.

@@ -8,9 +8,13 @@ Repeatable checklist for moving the accumulated non-app-specific baseline into a
 - Confirm target repository URL.
 - Confirm target worktree path.
 - Confirm whether the target already has app-specific docs.
+- Read `./docs/DOCUMENT_BOUNDARY_STANDARD.md` and decide the target app name used for `documentation-vault/apps/<AppName>/`.
+- Read `./docs/NEW_PROJECT_START_CONTRACT.md` and `./docs/SOURCE_OF_TRUTH_MAP.md`.
 
 ## Copy Required Baseline
 - Copy `./docs/` from this reusable baseline into the target project.
+- Confirm `./docs/DOCUMENT_BOUNDARY_STANDARD.md` exists in the target project before any code/docs work starts.
+- Confirm `./docs/NEW_PROJECT_START_CONTRACT.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/AGENT_PREFLIGHT_CHECKLIST.md`, `./docs/COMPLETION_REPORT_CONTRACT.md`, `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`, and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` exist in the target project.
 - Copy `./.codex/skills/` from this reusable baseline into the target project.
 - Copy `./external-environment/skills/` into the target project documentation or recovery area.
 - Copy `./REUSABLE_USER_AND_AGENT_RULES.md`, `./EXTERNAL_SKILL_DEPENDENCIES.md`, and this checklist.
@@ -18,6 +22,7 @@ Repeatable checklist for moving the accumulated non-app-specific baseline into a
 
 ## Instantiate Project-Specific Files
 Create or update:
+- `./AGENTS.md`
 - `./PROJECT_DOCUMENTATION.md`
 - `./PROJECT_HEALTH.md`
 - `./TESTING_INSTRUCTIONS.md`
@@ -45,10 +50,19 @@ rg -n "<SourceAppName>|<SourceTaskId>|<SourceUserHome>|<SourceAppSpecificToken>"
 
 Any hit must be intentionally app-specific for the new project or removed.
 
+## Verify Documentation Boundary
+- Reusable/global docs must be under `documentation-vault/reusable/`.
+- App-specific docs must be under `documentation-vault/apps/<AppName>/`.
+- Task-only state must be under `documentation-vault/tasks/<task-id>/` or local task docs.
+- Do not copy another app's docs into the new app/task as baseline.
+- If the new project intentionally violates a reusable rule, record the exception only in its app/task docs.
+- Do not promote app-local exceptions to reusable/global docs without explicit user approval and app-neutral rewriting.
+
 ## Verify Baseline Integrity
 Run:
 
 ```zsh
+python3 scripts/check_bootstrap_contract.py
 git diff --check
 ```
 
@@ -58,6 +72,8 @@ If the new project has a docs index checker, run it too.
 Report:
 - files copied
 - templates instantiated
+- boundary standard activated
+- bootstrap/source-of-truth/preflight/completion contracts activated
 - external skills available/missing
 - placeholder replacements done
 - checks run

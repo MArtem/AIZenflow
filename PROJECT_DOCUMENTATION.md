@@ -1,7 +1,7 @@
-# TchopApp Developer Onboarding Guide
+# iOS Project Developer Onboarding Guide
 
 ## Purpose
-This is the stable onboarding document for `TchopApp`.
+This is the stable onboarding document for iOS work in this worktree.
 
 Read this file for:
 - app shape
@@ -12,8 +12,8 @@ Read this file for:
 
 Do not use this file for:
 - current task history
-- implementation logs
 - temporary debugging notes
+- app-specific implementation logs
 
 For the full documentation map, use [docs/README.md](./docs/README.md).
 
@@ -25,158 +25,110 @@ When starting or resuming work in this worktree, read in this order:
 4. [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
 5. [docs/AGENT_RULES.md](./docs/AGENT_RULES.md)
 6. [docs/WORK_CONTINUITY.md](./docs/WORK_CONTINUITY.md)
-7. current task docs under `.zenflow/tasks/new-task-be0b/`
+7. [docs/DOCUMENT_BOUNDARY_STANDARD.md](./docs/DOCUMENT_BOUNDARY_STANDARD.md)
+8. current task docs under `.zenflow/tasks/new-task-be0b/`
 
 For context transfer, include this exact rule:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
-## Quick Orientation
-`TchopApp` is a SwiftUI iOS application with:
-- coordinator-driven navigation
-- app-level session and shell state
-- local-first persistence
-- source-only reusable infrastructure packages under `./PackagesInUse` plus the full vault under `./PackagesForReuse`
-- widget, localization, branding, and push-notification support
-- feed/composer runtime built around `text/photo/video/audio/pdf` cards
+## Universal Architecture Baseline
+Every iOS app created or changed in this worktree must start from a production-shaped baseline, even when the app is internal, educational, test-only, prototype, or small.
 
-The primary separation is:
-- `TchopApp` = product-specific composition, features, UI, app policies, DTO/app mapping, persistence schema, routing
-- `./PackagesInUse` = active source-only reusable managers compiled into the app; `./PackagesForReuse` = full package vault; `./Packages/IntegrationHelpers/CopyFiles` = optional composition snippets
+Required baseline:
+- physical project structure that separates `App`, `Navigation`, `Core`, `Features`, `Resources`, and reusable package code when present;
+- app composition root that owns long-lived services, repositories, feature models, and app-wide state;
+- coordinator/router layer for tab selection, per-tab navigation stacks, modal presentation, deep links, and cross-feature routing;
+- feature state owners created above views and injected downward;
+- explicit ViewModel intent methods instead of generic `send(_:)`, `dispatch(_:)`, or UI action enums by default;
+- routes carry stable identifiers or value objects, not DTOs, database records, views, or ViewModels;
+- SwiftUI views render state and forward user intents; they do not construct repositories, own global services, perform synchronous file/media work in render paths, or hide failure states.
+
+## Non-Negotiable Quality Bar
+Do not defer coordinator, routing, feature state ownership, file structure, model/state boundaries, accessibility, localization, error handling, or verification because the app is currently simple.
+
+Small scope may reduce feature count and verification cost. It must not reduce code quality, architecture correctness, ownership clarity, or maintainability.
 
 ## Stable Runtime Baselines
-- Current deployment target: `iOS 17`
-- UI-facing state owners should prefer `Observation` (`@Observable`, `@Bindable`)
-- Type-level `@MainActor` belongs on UI state owners, not on repositories/use cases/API clients by default
-- Active app persistence path is `SwiftData`
-- `Core Data` is fallback-only historical/runtime material, not the active design direction
-- Reusable packages/managers are the root; app code adapts to them instead of wrapping them in decorative layers
-- `SyncCore` is the reusable sync foundation; app code owns project-specific mapping and policy
-- Use `.task` over `.onAppear` for async loading when lifecycle correctness matters
-- Do not assume deallocation immediately after navigation pop
-- Feature view models are created above views and injected downward
-- Implement only explicitly requested behavior; do not add speculative UI or logic
-- Prefer the simplest correct implementation and avoid decorative abstraction
+- Current deployment target is project-specific and must be recorded in task/app docs.
+- UI-facing state owners should prefer `Observation` (`@Observable`, `@Bindable`) where supported.
+- Type-level `@MainActor` belongs on UI state owners, not on repositories, services, API clients, or reusable packages by default.
+- Persistence choice is app-specific, but schema ownership, migration/data-loss behavior, and storage privacy must be explicit before implementation.
+- Use `.task` over `.onAppear` for async loading when lifecycle correctness matters.
+- Do not assume deallocation immediately after navigation pop.
+- Feature view models are created above views and injected downward.
+- Implement only explicitly requested behavior; do not add speculative UI or business logic.
+- Prefer the simplest correct design that satisfies the full quality bar.
 
-## Current Task Overrides
-Current user/task overrides live in:
-- [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
+## Reusable Infrastructure
+Reusable package code lives in:
+- `./PackagesInUse` for active source-only packages compiled into app targets;
+- `./PackagesForReuse` for the reusable package vault;
+- `./Packages` for SDK/package creation docs, templates, reports, and optional copy-file helpers only.
 
-Important current overrides:
-- apply `./docs/MODEL_ROUTING_RULE.md`: use `GPT-5.4` only for approved low-risk execution and `GPT-5.5` for planning, architecture, high-risk, and final-gate work
-- do not run builds/tests/simulator UI unless user explicitly asks
-- do not touch `./TchopAppTests` unless user explicitly asks
-- UI/design work from screenshots/Figma/PDF/CSS must be pixel-focused and use `GPT-5.5`
+Reusable packages own generic mechanisms. App targets own product policy, composition, routing, UI, DTO/domain mapping, persistence schema choices, and feature behavior.
 
-## Knowledge Organization
-Reusable cross-project knowledge lives in:
-- [docs/knowledge/global/README.md](./docs/knowledge/global/README.md)
+Do not use source-app branding in reusable docs, package names, skill names, prompts, or shared rules. Historical app-specific snapshots belong only in app-specific vault folders.
 
-TchopApp-specific knowledge lives in:
-- [docs/knowledge/TchopApp/README.md](./docs/knowledge/TchopApp/README.md)
+## Documentation Boundary
+Apply [docs/DOCUMENT_BOUNDARY_STANDARD.md](./docs/DOCUMENT_BOUNDARY_STANDARD.md) before moving, copying, promoting, or editing documentation that may be reusable or app-specific.
 
-Rule of thumb:
-- reusable prompts/rules → `docs/knowledge/global/`
-- concrete TchopApp files/entities/contracts/current task rules → `docs/knowledge/TchopApp/` or the canonical app doc indexed there
+Reusable/global knowledge must stay app-neutral. App-specific plans, local rules, exceptions, compromises, histories, ADRs, and task decisions must stay under the corresponding app/task area. A local exception can become a reusable rule only after explicit promotion approval and app-neutral rewriting.
 
-## Feed / Composer Baseline
-The app currently centers on a local-first feed/composer runtime.
+## Current Active App Overlay
+The current independent learning app in this worktree is `AI Fieldbook` under `./AIFieldbook`.
 
-Canonical contracts:
-- [feed-card-contract.md](./.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
-- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
-- [docs/knowledge/TchopApp/feed-and-composer-summary.md](./docs/knowledge/TchopApp/feed-and-composer-summary.md)
+Its current baseline:
+- internal-only, local-first iOS learning app;
+- no backend, cloud provider, paid service, or third-party cloud data path approved;
+- Iteration 1 app shell/user features exist; App Intents and AI begin only after the Iteration 1 acceptance gate;
+- architecture baseline is `AppComposition` plus `AppCoordinator`, typed per-tab routers, route IDs, feature models injected into views, and source-only `PackagesInUse/AppNavigation`;
+- tests remain prohibited until the user explicitly opens a test-writing phase.
 
-Current product baseline:
-- card kinds: `text`, `photo`, `video`, `audio`, `pdf`
-- text render order: `text`, `headline`, `subheadline`, `source`
-- feed cards must persist through SwiftData and durable media references
-- future backend/API sync should merge into local-first records instead of creating permanent local-vs-remote split behavior
+## Top-Level Structure Pattern
+New app projects should use this shape unless a documented ADR chooses another one:
 
-## Dependency Map
 ```text
-TchopApp.swift
-  -> AppDIContainer
-    -> AppState
-      -> AppCoordinator
-      -> AppShellViewModel
-      -> LoginViewModel
-      -> ProfileTabViewModel
-      -> repositories/services/managers
-
-AppShellViewModel
-  -> NewsFeedViewModel
-    -> FeedCardStore
-      -> FeedCardRepository
-        -> AppDatabase / SwiftData
-    -> SharedFeedCardSyncManager
-      -> AppShareExtensionSupport app-group storage
+AppName/
+  App/
+  Navigation/
+  Core/
+    DesignSystem/
+    Persistence/
+    Search/
+    Services/
+  Features/
+    FeatureName/
+  Resources/
 ```
 
-Use [PROJECT_HEALTH.md](./PROJECT_HEALTH.md) for package boundaries and manager ownership.
-
-## Top-Level Structure
-### App
-- `TchopApp/App`: app entry points, DI, app-global state, bridges, theme/localization
-- `TchopApp/Models`: app-local models and feature contracts
-- `TchopApp/Navigation`: coordinator, routes, deep links, navigation snapshot integration
-- `TchopApp/Persistence`: app schema, bootstrap, seeding, persistence policy
-- `TchopApp/Repositories`: feature-facing repository orchestration
-- `TchopApp/Services`: app services and API-facing managers
-- `TchopApp/ViewModels`: UI-facing state owners
-- `TchopApp/Views`: SwiftUI screens and reusable view pieces
-
-### Reusable Infrastructure Package Layout
-Reusable infrastructure is currently integrated in source-only mode to keep this package-library worktree small while many packages are reviewed and staged.
-
-Folder roles:
-- `./PackagesInUse` = active source-only package subset compiled directly into app/share/widget targets.
-- `./PackagesForReuse` = complete source-only vault for all reviewed reusable packages, including packages not currently used by the app.
-- `./Packages` = package/SDK creation docs, templates, reports, and optional copy-file helpers only; it is not a runtime package source folder for this app.
-
-The active reusable package set is documented in `./PackagesInUse/README.md`. The complete vault index and connection examples are documented in `./PackagesForReuse/README.md` and `./PackagesForReuse/CONNECTING_PACKAGES.md`.
-
-Source-only mode rules:
-- app targets compile selected `./PackagesInUse/**/Sources/**/*.swift` files directly;
-- package-module imports are removed from app/share/widget/test source;
-- resources from product localization are copied into each runtime target that needs them;
-- generated artifacts (`.build`, `.swiftpm`, `DerivedData`, `xcuserdata`, logs) must not be committed or kept inside package folders;
-- build/cache output must stay under `/Users/Artem/.zenflow/`.
+Reusable package source remains outside the app target folder under `./PackagesInUse/<PackageName>` and is grouped logically in Xcode.
 
 ## Canonical Companion Documents
 - [docs/README.md](./docs/README.md): documentation map and placement policy
 - [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md): current task/user overrides
 - [docs/AGENT_RULES.md](./docs/AGENT_RULES.md): short mandatory implementation guardrails
-- [PROJECT_HEALTH.md](./PROJECT_HEALTH.md): package inventory and ownership boundaries
+- [docs/NEW_PROJECT_START_CONTRACT.md](./docs/NEW_PROJECT_START_CONTRACT.md): required bootstrap contract for new projects/tasks/worktrees
+- [docs/SOURCE_OF_TRUTH_MAP.md](./docs/SOURCE_OF_TRUTH_MAP.md): canonical location map for durable knowledge
+- [docs/AGENT_PREFLIGHT_CHECKLIST.md](./docs/AGENT_PREFLIGHT_CHECKLIST.md): preflight checklist before non-trivial work
+- [docs/COMPLETION_REPORT_CONTRACT.md](./docs/COMPLETION_REPORT_CONTRACT.md): evidence-based completion report shape
+- [docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md](./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md): local exception ADR format
+- [docs/TASK_STATE_DOCUMENTATION_STANDARD.md](./docs/TASK_STATE_DOCUMENTATION_STANDARD.md): plan/handoff/task archive boundaries
+- [PROJECT_HEALTH.md](./PROJECT_HEALTH.md): reusable package and ownership boundaries
 - [docs/PACKAGES_AND_MANAGERS.md](./docs/PACKAGES_AND_MANAGERS.md): reusable package and manager usage guide
-- [docs/UI_PIXEL_PERFECT_WORKFLOW.md](./docs/UI_PIXEL_PERFECT_WORKFLOW.md): UI/design implementation workflow
-- [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md): local feed persistence and sync direction
 - [docs/WORK_CONTINUITY.md](./docs/WORK_CONTINUITY.md): durable resume state and transition prompt
+- [docs/DOCUMENT_BOUNDARY_STANDARD.md](./docs/DOCUMENT_BOUNDARY_STANDARD.md): reusable/app-specific/task documentation boundary
 - [docs/knowledge/global/README.md](./docs/knowledge/global/README.md): reusable cross-project knowledge
-- [docs/knowledge/TchopApp/README.md](./docs/knowledge/TchopApp/README.md): TchopApp-specific knowledge index
 - [TESTING_INSTRUCTIONS.md](./TESTING_INSTRUCTIONS.md): verification and testing workflow
-- [APPLE_SIGN_IN_SETUP.md](./APPLE_SIGN_IN_SETUP.md): Sign in with Apple setup
 - [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md): current task resume state
 - [plan.md](./.zenflow/tasks/new-task-be0b/plan.md): current task plan only
 
 ## What To Update When Things Change
-- Stable architecture or runtime policy:
-  update this file
-- Package or manager ownership:
-  update [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
-- Verification workflow:
-  update [TESTING_INSTRUCTIONS.md](./TESTING_INSTRUCTIONS.md)
-- Current user/task override:
-  update [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
-- UI/design workflow:
-  update [docs/UI_PIXEL_PERFECT_WORKFLOW.md](./docs/UI_PIXEL_PERFECT_WORKFLOW.md)
-- Feed/composer product contract:
-  update [feed-card-contract.md](./.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
-- Local feed persistence/sync contract:
-  update [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
-- Current task state:
-  update [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md)
-- Current task plan:
-  update [plan.md](./.zenflow/tasks/new-task-be0b/plan.md)
+- Stable architecture or runtime policy: update this file.
+- Package or manager ownership: update [PROJECT_HEALTH.md](./PROJECT_HEALTH.md).
+- Verification workflow: update [TESTING_INSTRUCTIONS.md](./TESTING_INSTRUCTIONS.md).
+- Current user/task override: update [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md).
+- Current task state: update [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md).
+- Current task plan: update [plan.md](./.zenflow/tasks/new-task-be0b/plan.md).
 
 ## Archive Policy
 Verbose historical versions are kept only for fallback reference:
