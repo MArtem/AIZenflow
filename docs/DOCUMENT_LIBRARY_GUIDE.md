@@ -6,9 +6,13 @@ Keep the shared documentation library complete without making every task pay the
 ## Canonical Location
 The shared documentation library for all Zenflow tasks is:
 
+- GitHub repository: `MArtem/AIZenflowDocumentation`
+- Remote URL: `https://github.com/MArtem/AIZenflowDocumentation`
 - `/Users/Artem/.zenflow/worktrees/documentation-vault`
 
 This is the single shared source for reusable agent rules, prompt presets, skills, templates, package documentation, architecture cases, and app-specific documentation snapshots.
+
+Global documentation work is complete only after changes are committed in the local checkout and pushed to `MArtem/AIZenflowDocumentation`.
 
 ## Boundary Rule
 Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before moving, copying, promoting, or editing documentation that may be reusable or app-specific.
@@ -63,7 +67,8 @@ When a durable reusable doc/rule/prompt/skill/template changes:
 1. update the active canonical file;
 2. update the matching vault copy under `documentation-vault/reusable/`;
 3. update `./docs/README.md` if the file should be discoverable from the active index;
-4. run docs/vault static checks.
+4. run docs/vault static checks;
+5. commit and push the corresponding `documentation-vault` changes to `MArtem/AIZenflowDocumentation`.
 
 When an app-specific rule, plan, ADR, exception, prompt, skill, or history changes, update only the matching `documentation-vault/apps/<AppName>/` area.
 

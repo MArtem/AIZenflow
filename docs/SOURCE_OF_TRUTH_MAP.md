@@ -4,6 +4,10 @@
 This map prevents agents from storing durable knowledge in the wrong place.
 
 ## Canonical Locations
+Global documentation repository: `https://github.com/MArtem/AIZenflowDocumentation`
+
+Local checkout: `/Users/Artem/.zenflow/worktrees/documentation-vault`
+
 | Knowledge type | Source of truth |
 |---|---|
 | Reusable/global rule | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` |

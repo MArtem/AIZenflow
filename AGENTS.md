@@ -61,7 +61,9 @@ Always include the context-transfer rule when handing off:
 ## Current Package Mode
 
 ## Documentation Vault
-- Durable reusable rules, prompts, skills, templates, package docs, and shared app snapshots live in the single central library `/Users/Artem/.zenflow/worktrees/documentation-vault`.
+- Durable reusable rules, prompts, skills, templates, package docs, and shared app snapshots live in the GitHub repository `MArtem/AIZenflowDocumentation`.
+- The local checkout for that repository is `/Users/Artem/.zenflow/worktrees/documentation-vault`.
+- Global documentation work is not complete until the relevant changes are committed in that checkout and pushed to `https://github.com/MArtem/AIZenflowDocumentation`.
 - Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before documentation moves, reusable rule updates, app-specific docs updates, prompt/skill changes, package-doc updates, or new-project bootstrapping.
 - Apply `./docs/SOURCE_OF_TRUTH_MAP.md` before deciding where durable knowledge belongs.
 - When changing reusable/shared agent docs, update `/Users/Artem/.zenflow/worktrees/documentation-vault` as the canonical source; keep worktree-local docs limited to project/task state or explicit app-local operational docs.

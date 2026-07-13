@@ -13,7 +13,9 @@ Applies to the current worktree/task:
 ## Active Overrides
 
 ### Documentation Vault
-- `/Users/Artem/.zenflow/worktrees/documentation-vault` is the git-backed durable copy for reusable docs, app-specific snapshots, prompts, skills, templates, scripts, and task context snapshots.
+- `MArtem/AIZenflowDocumentation` is the canonical GitHub repository for reusable/global docs, rules, prompts, skills, templates, package docs, scripts, app-specific snapshots, and task context snapshots.
+- `/Users/Artem/.zenflow/worktrees/documentation-vault` is the local checkout of `https://github.com/MArtem/AIZenflowDocumentation`.
+- Global documentation changes must be committed in that checkout and pushed to `MArtem/AIZenflowDocumentation`; a local-only commit is not a completed global documentation update.
 - `./docs/DOCUMENT_BOUNDARY_STANDARD.md` is mandatory for all documentation/library/prompt/skill/package-doc work.
 - New reusable/shared documentation changes must be made in `/Users/Artem/.zenflow/worktrees/documentation-vault`; app-local docs may keep a small operational copy only when the project needs it.
 - Do not place another app's docs into this worktree's task docs; cross-app context belongs under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`.
