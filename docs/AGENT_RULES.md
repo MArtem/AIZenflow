@@ -65,11 +65,13 @@ This rule does not permit skipping required architecture. The simplest correct s
 - When work starts from Figma, when the user provides a Figma link, or when the task says to inspect/implement a Figma design through MCP, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before using Figma MCP or changing code. That prompt is mandatory for Figma → SwiftUI work and reinforces native SwiftUI, existing DesignSystem usage, pre-code analysis, Figma mismatch reporting, and no web-code generation.
 
 ## Global vs Project Knowledge Rule
-- Durable reusable agent-used docs/rules/prompts/skills/templates belong in `/Users/Artem/.zenflow/worktrees/documentation-vault` as the canonical shared library.
-- Keep reusable docs and app-specific docs separated in the vault: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` for shared material and `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/` for app snapshots.
+- Durable reusable agent-used docs/rules/prompts/skills/templates belong in the GitHub repository `MArtem/AIZenflowDocumentation`.
+- `/Users/Artem/.zenflow/worktrees/documentation-vault` is the local checkout of that repository, not a separate source of truth.
+- Global documentation work is complete only after the matching `documentation-vault` changes are committed and pushed to `https://github.com/MArtem/AIZenflowDocumentation`.
+- Keep reusable docs and app-specific docs separated in the checkout: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` for shared material and `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/` for app snapshots.
 - Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before changing documentation, prompts, skills, package docs, architecture-case docs, app docs, or task handoffs.
 - Use `./docs/SOURCE_OF_TRUTH_MAP.md` to decide where every durable rule, app decision, task state, package contract, prompt, skill, or temporary note belongs.
-- When changing a durable reusable rule or prompt, update the central library before reporting completion; do not create per-task full-library copies.
+- When changing a durable reusable rule or prompt, update and push `MArtem/AIZenflowDocumentation` before reporting completion; do not create per-task full-library copies.
 - Reusable cross-project rules and prompts live in `docs/knowledge/global/`.
 - App-specific rules, contracts, paths, entities, and current task context live in an app-specific knowledge folder or in the canonical docs indexed there.
 - When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
@@ -81,7 +83,7 @@ This rule does not permit skipping required architecture. The simplest correct s
 - Every reusable package must have a complete package-level `README.md` before adoption or publication. The README must explain purpose, solved problem, capabilities, when to use/not use, ownership boundary, products/targets, local SwiftPM usage, remote SwiftPM usage, source-only integration notes, basic usage, verification, and related docs.
 - Keep `./PackagesForReuse/PACKAGE_CATALOG.md` updated whenever a reusable package or integration helper is added, removed, renamed, or its purpose/products change.
 - If the package is active in an app target, also update `./PackagesInUse/PACKAGE_CATALOG.md`, `./PackagesInUse/README.md`, and the active package README.
-- Reusable package docs mirrored for all tasks must stay current under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs`.
+- Reusable package docs mirrored for all tasks must stay current under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/package-vault-docs` and pushed to `MArtem/AIZenflowDocumentation`.
 - Do not create or adopt a package with only a placeholder README unless the user explicitly approves a temporary exception and the follow-up is recorded.
 
 ## ViewModel Intent API Rule
@@ -171,6 +173,7 @@ This rule does not permit skipping required architecture. The simplest correct s
 
 ## Static Quality Gate Scripts Rule
 - Use `./scripts/check_docs_index.py` after documentation index changes.
+- Use `./scripts/check_documentation_remote_state.py` before claiming global documentation changes are complete.
 - Use `./scripts/check_forbidden_patterns.py`, `./scripts/check_swiftui_hot_path_patterns.py`, `./scripts/check_secrets.py`, `./scripts/check_large_files.py`, and `./scripts/check_localization.py` as lightweight pre-review gates when their scope matches the task.
 - Use `./scripts/run_static_quality_gates.sh` before broad production review/completion when the expected warnings are understood. If it reports pre-existing issues, classify them instead of silently ignoring them.
 - Interpret static gate findings through `./docs/STATIC_QUALITY_GATE_POLICY.md`: hard fail, warning, review candidate, or allowed exception.

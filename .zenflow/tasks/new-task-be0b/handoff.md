@@ -72,6 +72,8 @@ Every working, status, readiness, planning, confirmation, or task-orientation re
 - Current app-specific canonical target: `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/AIFieldbook`.
 - Current task canonical target: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b`.
 - Reusable canonical target: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable`.
+- Canonical global documentation remote: `https://github.com/MArtem/AIZenflowDocumentation`.
+- Global documentation work is complete only after commit and push to `MArtem/AIZenflowDocumentation`; use `./scripts/check_documentation_remote_state.py` to verify the local checkout is clean and synced.
 - Other app docs are reference-only unless the user explicitly asks for cross-app comparison.
 
 ## Current AI Fieldbook State

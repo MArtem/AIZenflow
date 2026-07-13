@@ -43,6 +43,7 @@ Build and maintain `AI Fieldbook` as an independent internal-only iOS learning a
 - Add new project start contract, source-of-truth map, local exception ADR template, completion report contract, preflight checklist, and task-state documentation standard.
 - Add explicit AI Fieldbook Iteration 1 acceptance gate.
 - Record that every project uses the highest reusable standards and best current rules unless the user explicitly approves a narrower local exception.
+- Add canonical `MArtem/AIZenflowDocumentation` push requirement, docs repo operations runbook, remote-state validator, and compact manifest summary.
 
 ### [x] Iteration 1 local app blocks 1.1-1.25
 - Local-only workspace/content app exists.

@@ -29,6 +29,7 @@ REQUIRED_TEXT = {
     "AGENTS.md": [
         "DOCUMENT_BOUNDARY_STANDARD.md",
         "MODEL_ROUTING_RULE.md",
+        "AIZenflowDocumentation",
         "/Users/Artem/.zenflow",
         "перечитать весь актуальный набор документации и правил",
     ],
@@ -40,10 +41,12 @@ REQUIRED_TEXT = {
         "DOCUMENT_BOUNDARY_STANDARD.md",
     ],
     "docs/CURRENT_USER_OVERRIDES.md": [
+        "AIZenflowDocumentation",
         "DOCUMENT_BOUNDARY_STANDARD.md",
         "Product-Staff Quality Bar",
     ],
     "docs/WORK_CONTINUITY.md": [
+        "AIZenflowDocumentation",
         "DOCUMENT_BOUNDARY_STANDARD.md",
         "перечитать весь актуальный набор документации и правил",
     ],

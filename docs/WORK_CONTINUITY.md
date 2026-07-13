@@ -25,7 +25,9 @@ Durable resume checkpoint for this iOS worktree when chat/task context is lost.
 ## Filesystem Sandbox Rule
 
 ## Documentation Vault Continuity
-- The durable git-backed documentation vault lives at `/Users/Artem/.zenflow/worktrees/documentation-vault`.
+- The durable global documentation repository is `MArtem/AIZenflowDocumentation`.
+- The local checkout for that repository is `/Users/Artem/.zenflow/worktrees/documentation-vault`.
+- Global documentation work is incomplete until the local checkout is clean, synced with `origin/main`, and pushed to `https://github.com/MArtem/AIZenflowDocumentation`.
 - Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` for every docs/rules/prompts/skills/package-docs/new-project boundary decision.
 - Before a new task/project bootstrap, read `/Users/Artem/.zenflow/worktrees/documentation-vault/DOCUMENT_LIBRARY_GUIDE.md` and the relevant central manifests. Do not copy the full library into the new worktree; create only minimal task/project pointers locally and keep shared docs in the central library.
 - Existing app-specific vault areas are recovery/reference sources only; do not copy another app's docs into the current task folder unless the user explicitly asks.
@@ -95,6 +97,7 @@ Latest user approvals:
 1. Complete docs/rules/skills cleanup for model routing, sandbox, package mode, stale handoff/continuity, absolute workspace links, reusable manifest path clarity, and root `./AGENTS.md`.
 2. Run docs/static verification only:
    - `python3 ./scripts/check_docs_index.py`
+   - `python3 ./scripts/check_documentation_remote_state.py`
    - `python3 ./scripts/validate_ios_production_framework.py`
    - `git diff --check`
 3. Update `./.zenflow/tasks/new-task-be0b/plan.md` before reporting completion.
@@ -138,6 +141,7 @@ Latest user approvals:
 - Не трогать test targets без явного разрешения.
 - Если задача начинается с Figma или пользователь даёт Figma link, сначала читать ./docs/agent-prompts/figma-mcp-swiftui-implementation.md и использовать Figma MCP как источник design context.
 - Package mode: ./PackagesInUse = active source-only packages; ./PackagesForReuse = reusable package vault; ./Packages = SDK/package docs/templates only.
-- Docs boundary mode: reusable/global docs stay under documentation-vault/reusable; app docs stay under documentation-vault/apps/<AppName>; task docs stay under documentation-vault/tasks/<TaskId> or local task state. Local exceptions never change reusable rules without explicit promotion approval.
+- Docs boundary mode: global docs live in MArtem/AIZenflowDocumentation; local checkout is /Users/Artem/.zenflow/worktrees/documentation-vault; reusable/global docs stay under documentation-vault/reusable; app docs stay under documentation-vault/apps/<AppName>; task docs stay under documentation-vault/tasks/<TaskId> or local task state. Local exceptions never change reusable rules without explicit promotion approval.
+- Global documentation changes are complete only after commit and push to MArtem/AIZenflowDocumentation.
 - Даже маленькое тестовое приложение должно иметь production-shaped структуру, composition root, coordinator/router navigation, корректное владение state/models и явные gates; не откладывать эти основы до появления сложности.
 ```

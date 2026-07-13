@@ -10,6 +10,8 @@ This contract is a preflight gate. Complete it before project creation, first im
 - Task ID:
 - Worktree path:
 - Repository URL or local-only reason:
+- Global documentation repository: `https://github.com/MArtem/AIZenflowDocumentation`
+- Global documentation local checkout: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 - App-specific vault path: `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`
 - Task vault path: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/<TaskId>/`
 - Reusable baseline path: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/`
@@ -28,6 +30,7 @@ Before implementation:
 4. Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md`.
 5. Confirm app-specific docs are not copied from another app.
 6. Confirm local exceptions are recorded only in app/task docs.
+7. Confirm reusable/global documentation changes are committed and pushed to `MArtem/AIZenflowDocumentation`.
 
 ## Highest-Quality Default
 All projects use the strongest reusable engineering rules by default:
@@ -50,3 +53,4 @@ The project start contract is satisfied only when:
 - source-of-truth locations are known;
 - app-specific vault area exists or is intentionally deferred;
 - first task plan/handoff points to the correct docs.
+- any reusable/global docs touched during bootstrap are pushed to `MArtem/AIZenflowDocumentation`.

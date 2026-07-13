@@ -128,7 +128,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
-- `./docs/PACKAGES_AND_MANAGERS.md`
+- `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
 - `./Packages/SDKCreation/README.md`
 - `./PackagesForReuse/AppBackgroundTasks/README.md`
 - `./PackagesForReuse/AppSecureStorage/README.md`
@@ -169,10 +169,11 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
-- `./docs/knowledge/global/README.md`
 
 
 ### Reference Inventories And Saved Prompts
+- `./docs/DOCS_REPO_OPERATIONS.md`
+- `./docs/DOCUMENTATION_VAULT_SUMMARY.md`
 - `./docs/saved-prompts/README.md`
 - `./docs/ALL_DOCUMENTS_INVENTORY.md`
 
