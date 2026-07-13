@@ -70,14 +70,14 @@ For future backend integration, prefer this direction:
 1. Persist feed card and durable media first.
 2. Create an outbound mutation record for backend sync.
 3. Let `SyncCore` own mutation queue mechanics, retry, and status transitions.
-4. Keep app-specific card mapping, media upload semantics, endpoint payloads, and UI policy in `TchopApp`.
+4. Keep app-specific card mapping, media upload semantics, endpoint payloads, and UI policy in `source-app`.
 5. Merge backend responses into the same feed card record instead of replacing it with a separate remote-only object.
 6. Preserve local interaction state unless backend explicitly owns and returns a newer authoritative value.
 7. Treat media upload as part of sync: upload durable local files, then persist remote asset references when accepted.
 
 ## Sync Ownership
 - Generic sync mechanics belong in `SyncCore`.
-- App-specific feed/card mapping, schema, endpoint semantics, and UI-facing policy stay in `TchopApp`.
+- App-specific feed/card mapping, schema, endpoint semantics, and UI-facing policy stay in `source-app`.
 
 ## Feed Card Runtime Contract
 Locally created cards and future API cards should converge toward the same feed-card semantics:

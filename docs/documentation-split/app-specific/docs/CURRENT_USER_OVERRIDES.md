@@ -35,11 +35,11 @@ Every working response must start with:
 - Never write build artifacts, package caches, Xcode DerivedData, cloned package state, logs, temporary package verification output, or project traces outside `/Users/Artem/.zenflow`.
 - Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow` for project work.
 - If a tool defaults to an external cache/location, override it to a path under `/Users/Artem/.zenflow` before running it.
-- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside `/Users/Artem/.zenflow` when explicitly requested by the user.
+- The only allowed external filesystem action is deleting previously created source-app/MVVMExample traces outside `/Users/Artem/.zenflow` when explicitly requested by the user.
 
 ### Verification / Builds / Tests
 - The user restored the test-writing ban on 2026-05-29. Do not write, modify, or expand tests until the user explicitly gives permission again.
-- Do not touch `./TchopAppTests` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
+- Do not touch `./app test targets` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
 - Build/test execution is allowed only when explicitly requested by the user or when a previously approved implementation block requires verification; do not add new test coverage while the ban is active.
 - Simulator UI remains off unless the user explicitly asks for manual/simulator validation.
 - `git diff --check` or read-only/static documentation checks are allowed when useful.

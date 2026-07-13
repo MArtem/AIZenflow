@@ -1,11 +1,11 @@
 ---
-name: tchop-packages
-description: Use this skill whenever the task touches TchopApp packages, managers, SyncCore, database/runtime ownership, package extraction, package integration, or app-vs-package responsibility decisions. Trigger even if the user only mentions managers, package cleanup, wrappers, adapters, sync, persistence, or reusable infrastructure.
+name: ios-reusable-packages
+description: Use this skill whenever the task touches source-app packages, managers, SyncCore, database/runtime ownership, package extraction, package integration, or app-vs-package responsibility decisions. Trigger even if the user only mentions managers, package cleanup, wrappers, adapters, sync, persistence, or reusable infrastructure.
 ---
 
-# Tchop Packages
+# source-app Packages
 
-Use this skill for `TchopApp` work involving:
+Use this skill for `source-app` work involving:
 - package boundaries
 - manager ownership
 - package-first cleanup
@@ -31,9 +31,9 @@ Use this skill for `TchopApp` work involving:
 - `./PackagesInUse` for active source-only package code compiled into app/share/widget targets
 - `./PackagesForReuse` for validated reusable package vault code
 - `./Packages` for SDK/package creation docs/templates only
-- `./TchopApp/Repositories/AppContentRepository.swift`
-- `./TchopApp/Persistence/AppDatabase.swift`
-- `./TchopApp/Repositories/UserRepository.swift`
+- `./source-app/Repositories/AppContentRepository.swift`
+- `./source-app/Persistence/AppDatabase.swift`
+- `./source-app/Repositories/UserRepository.swift`
 
 ## Output Expectation
 When changing this area:

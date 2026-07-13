@@ -47,12 +47,12 @@ Always include the context-transfer rule when handing off:
 - `./PackagesInUse` contains active source-only reusable package code compiled into app/share/widget targets.
 - `./PackagesForReuse` contains the full reviewed reusable package vault.
 - `./Packages` contains SDK/package creation docs, templates, reports, and optional copy-file helpers only.
-- Do not reintroduce `./Packages/TchopInfrastructure` as an active runtime package path.
+- Do not reintroduce `./Packages/source-app infrastructure` as an active runtime package path.
 - Do not use SwiftPM for app integration unless there is an explicit current reason.
 
 ## Tests And Verification
 - Do not write or modify tests unless the user explicitly opens a test-writing phase or asks to fix a specific failing test.
-- Do not touch `./TchopAppTests` or UI/package test files unless explicitly allowed.
+- Do not touch `./app test targets` or UI/package test files unless explicitly allowed.
 - Do not run builds/tests/simulator UI/Instruments unless explicitly requested or already approved for the current block.
 - `git diff --check`, docs index checks, and read-only/static checks are allowed when useful.
 

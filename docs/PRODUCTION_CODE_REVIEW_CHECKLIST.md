@@ -1,7 +1,7 @@
 # Production Code Review Checklist
 
 ## Purpose
-This checklist is mandatory for any non-trivial implementation, refactor, cleanup, or review in `TchopApp`.
+This checklist is mandatory for any non-trivial implementation, refactor, cleanup, or review in `source-app`.
 
 It exists to prevent hidden production defects before the project grows: scroll jank, broad state invalidation, bad persistence access, unsafe network/sync behavior, memory leaks, duplicated domain concepts, and speculative architecture.
 
@@ -66,7 +66,7 @@ Every meaningful change must be checked against these areas.
 
 ### Architecture And Abstractions
 - No speculative layers, protocols, factories, adapters, managers, UseCases, services, or per-view models without one concrete current problem.
-- App-specific product policy stays in `./TchopApp`.
+- App-specific product policy stays in `./source-app`.
 - Reusable entity-agnostic mechanics belong in the current package layer: `./PackagesInUse` for active source-only app integration and `./PackagesForReuse` for validated reusable package vault code.
 - Package APIs should be used directly when they already fit; do not wrap them decoratively.
 - Use `./docs/IOS_UI_STATE_RENDERING_STANDARD.md` as the decision gate before adding a dedicated model/view model to any view.

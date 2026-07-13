@@ -89,4 +89,4 @@ This is the exact Codex App saved prompt body. The active project-specific evolv
 
 - `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
 
-Use the active task rule file as authoritative for current TchopApp services/package work; keep this file as the preserved Codex App saved-prompt snapshot.
+Use the active task rule file as authoritative for current source-app services/package work; keep this file as the preserved Codex App saved-prompt snapshot.

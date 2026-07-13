@@ -1,7 +1,7 @@
-# TchopApp Testing Instructions
+# source-app Testing Instructions
 
 ## Purpose
-This file defines the active verification policy for `TchopApp`.
+This file defines the active verification policy for `source-app`.
 
 Use it for:
 - build/test scope selection

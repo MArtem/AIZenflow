@@ -25,5 +25,5 @@ All saved prompts visible in the screenshot were recovered from the local Zenflo
 
 ## Usage Rule
 - These files preserve Codex App saved prompt bodies.
-- For current TchopApp work, apply active project/task rules first: `./AGENTS.md`, `./docs/README.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and task handoff/plan.
+- For current source-app work, apply active project/task rules first: `./AGENTS.md`, `./docs/README.md`, `./docs/CURRENT_USER_OVERRIDES.md`, and task handoff/plan.
 - If Codex App saved prompts change, update this folder and the matching `./documentation-vault/reusable/saved-prompts/` mirror in the same block.

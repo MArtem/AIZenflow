@@ -1,7 +1,7 @@
 # Project Health
 
 ## Purpose
-This document is the package and manager ownership map for `TchopApp`.
+This document is the package and manager ownership map for `source-app`.
 
 Read it when you need to answer:
 - what is reusable
@@ -14,7 +14,7 @@ Read it when you need to answer:
 - Do not add extra shim or protocol layers on top of a good reusable package unless there is a real seam requirement.
 
 ## Reusable Package Inventory
-### `TchopNetworking`
+### `source-appNetworking`
 Owns:
 - request execution
 - upload/download
@@ -28,7 +28,7 @@ Must not know about:
 - app localization keys
 - app bundle semantics
 
-### `TchopDatabaseCore`
+### `source-appDatabaseCore`
 Owns:
 - backend-neutral DB contracts
 - migration primitives
@@ -39,7 +39,7 @@ Must not know about:
 - app entities
 - app migration policy
 
-### `TchopSwiftDataDatabase`
+### `source-appSwiftDataDatabase`
 Owns:
 - SwiftData-backed `DatabaseManaging` implementation
 
@@ -47,7 +47,7 @@ Must not know about:
 - app schema
 - app bootstrap policy
 
-### `TchopCoreDataDatabase`
+### `source-appCoreDataDatabase`
 Owns:
 - Core Data-backed `DatabaseManaging` implementation
 
@@ -55,7 +55,7 @@ Must not know about:
 - app model objects
 - app migration policy
 
-### `TchopDatabaseComposition`
+### `source-appDatabaseComposition`
 Owns:
 - DB factory composition
 - backend resolver/factory APIs
@@ -78,7 +78,7 @@ Must not know about:
 - app DTO naming
 - app route or UI semantics
 
-### `TchopNavigation`
+### `source-appNavigation`
 Owns:
 - generic tab/router primitives
 - navigation snapshot persistence contract
@@ -88,7 +88,7 @@ Must not know about:
 - app route payloads
 - app URL structure
 
-### `TchopLocalization`
+### `source-appLocalization`
 Owns:
 - localization facade
 - locale override support
@@ -96,7 +96,7 @@ Owns:
 Must not know about:
 - app copy itself
 
-### `TchopBranding`
+### `source-appBranding`
 Owns:
 - target-driven branding
 - semantic tokens
@@ -104,12 +104,12 @@ Owns:
 Current note:
 - keep extending semantic tokens instead of introducing one-off view-level colors
 
-### `TchopUIConfiguration`
+### `source-appUIConfiguration`
 Owns:
 - configuration snapshot model
 - refresh/store behavior
 
-### `TchopWidgets`
+### `source-appWidgets`
 Owns:
 - widget snapshot primitives
 
@@ -117,22 +117,22 @@ Must not know about:
 - app DI
 - app navigation
 
-### `TchopPushNotifications`
+### `source-appPushNotifications`
 Owns:
 - APNs state
 - token handling
 - payload parsing
 - persistent push state
 
-### `TchopAnalytics`
+### `source-appAnalytics`
 Owns:
 - reusable analytics/event primitives
 
-### `TchopAppleAuthentication`
+### `source-appleAuthentication`
 Owns:
 - Apple auth integration primitives
 
-## What Must Stay In `TchopApp`
+## What Must Stay In `source-app`
 - app DTO to domain mapping policy
 - app persistence schema and records
 - feature-specific repository composition

@@ -18,7 +18,7 @@ When a new project starts:
 4. Keep reusable rules here only if they are valid across projects.
 
 ## Rule Of Thumb
-- If the rule mentions `TchopApp`, concrete app files, feed cards, SwiftData schema details, channel names, task ids, or current worktree paths, it belongs in the project-specific folder.
+- If the rule mentions `source-app`, concrete app files, feed cards, SwiftData schema details, channel names, task ids, or current worktree paths, it belongs in the project-specific folder.
 - If the rule describes general working style, prompt workflow, no-overengineering policy, documentation hygiene, or debugging/review/test methodology, it belongs here.
 
 ## Additional Reusable Production Coverage

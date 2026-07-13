@@ -1,7 +1,7 @@
 # Agent Rules (Short, Mandatory)
 
 ## Purpose
-This file is the short mandatory rule set for coding work in `TchopApp`.
+This file is the short mandatory rule set for coding work in `source-app`.
 
 Use `docs/IOS_ARCHITECTURE_REFERENCE.md` as **reference**, not as a mechanical checklist. Use `docs/PRODUCTION_QUALITY_GATES.md` and `docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` as mandatory quality gates/checklists for implementation, refactor, and review work.
 
@@ -60,10 +60,10 @@ Do not add abstractions unless they solve a concrete current problem.
 
 ## Global vs Project Knowledge Rule
 - Durable agent-used docs/rules/prompts/skills/templates must be mirrored into `./documentation-vault` in the `AIZenflow` repo.
-- Keep reusable docs and app-specific docs separated in the vault: `./documentation-vault/reusable/`, `./documentation-vault/apps/TchopApp/`, `./documentation-vault/apps/MVVMExample/`.
+- Keep reusable docs and app-specific docs separated in the vault: `./documentation-vault/reusable/`, `./documentation-vault/apps/source-app/`, `./documentation-vault/apps/MVVMExample/`.
 - When changing a durable rule or prompt, update the worktree copy and the vault copy together before reporting completion.
 - Reusable cross-project rules and prompts live in `docs/knowledge/global/`.
-- TchopApp-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/TchopApp/` or in the canonical docs indexed there.
+- source-app-specific rules, contracts, paths, entities, and current task context live in `docs/knowledge/source-app/` or in the canonical docs indexed there.
 - When a new project starts, create a new sibling project folder under `docs/knowledge/` and keep app-specific knowledge out of `global`.
 
 ## ViewModel Intent API Rule
@@ -160,7 +160,7 @@ Do not add abstractions unless they solve a concrete current problem.
 - If a concern is not applicable, mark it not applicable with a reason instead of silently skipping it.
 - For full production readiness claims, fill or summarize `./docs/IOS_PRODUCTION_SCORECARD.md`; any score below production threshold must be reported as remaining risk.
 
-## Project-Calibrated Working Rules (TchopApp)
+## Project-Calibrated Working Rules (source-app)
 1. Runtime code has priority over test-debt cleanup unless task explicitly says otherwise.
 2. Do not introduce app-local wrappers around reusable package APIs when one direct call is enough.
 3. SwiftUI composition details are governed by `.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`; do not duplicate conflicting local style rules.

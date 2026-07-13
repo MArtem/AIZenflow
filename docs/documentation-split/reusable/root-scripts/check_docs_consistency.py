@@ -23,8 +23,8 @@ CHECKS: list[tuple[str, re.Pattern[str]]] = [
         re.compile(r"use/report `GPT-5\.5`|GPT-5\.5 for all work|forced `GPT-5\.5`", re.IGNORECASE),
     ),
     (
-        "retired active TchopInfrastructure package boundary",
-        re.compile(r"belong in `\.?/?Packages/TchopInfrastructure|Important Areas\s*- \[Packages/TchopInfrastructure", re.IGNORECASE),
+        "retired active monolithic source-app package boundary",
+        re.compile(r"belong in `\.?/?Packages/SourceAppInfrastructure|Important Areas\s*- \[Packages/SourceAppInfrastructure", re.IGNORECASE),
     ),
     (
         "absolute workspace markdown link",

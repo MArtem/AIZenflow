@@ -1,7 +1,7 @@
 # Work Continuity
 
 ## Purpose
-Durable resume checkpoint for `TchopApp` when chat/task context is lost.
+Durable resume checkpoint for `source-app` when chat/task context is lost.
 
 ## Chat Transition Rule (Universal)
 - Keep this file compact and current; long historical implementation logs belong in `./.zenflow/tasks/new-task-be0b/plan.md` or archives.
@@ -22,7 +22,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - All project work, build output, package verification output, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts must stay inside `/Users/Artem/.zenflow`.
 - Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow` for project work.
 - If a command/tool would default outside the Zenflow sandbox, override its output paths before running it.
-- The only allowed external filesystem action is deleting previously created TchopApp/MVVMExample traces outside the sandbox when explicitly requested by the user.
+- The only allowed external filesystem action is deleting previously created source-app/MVVMExample traces outside the sandbox when explicitly requested by the user.
 
 ## Mandatory Startup Read Order
 1. `./docs/README.md`
@@ -37,7 +37,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 10. `./.zenflow/tasks/new-task-be0b/plan.md`
 11. `./PackagesForReuse/README.md`
 12. `./PackagesInUse/README.md`
-13. `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
+13. `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
 14. `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md`
 15. `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`
 16. `./docs/agent-prompts/README.md`
@@ -46,7 +46,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Apply `./docs/MODEL_ROUTING_RULE.md`: `GPT-5.4` only for approved low-risk execution; `GPT-5.5` for planning, architecture, high-risk domains, package adoption/app integration, and final gates.
 - Every working/status/readiness/planning response must start with model, phase, files, next safe step, build need, and sandbox confirmation.
 - Do not run builds, tests, simulator UI, or Instruments unless explicitly requested or already approved for the current block.
-- Do not touch `./TchopAppTests` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
+- Do not touch `./app test targets` or UI/package test files unless the user explicitly reopens test-writing work or asks to fix a specific failing test.
 - No speculative UI, speculative business logic, decorative wrappers/protocols/factories/adapters/use cases, or per-view models without a concrete current problem.
 - Reviews/audits/planning must provide full unbiased analysis and prioritized recommendations.
 
@@ -54,7 +54,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - `./PackagesInUse` contains active source-only package copies compiled directly into app/share/widget targets.
 - `./PackagesForReuse` contains the complete reviewed reusable package vault.
 - `./Packages` contains SDK/package creation docs, templates, reports, and optional copy-file helpers only.
-- Do not reintroduce `./Packages/TchopInfrastructure` as an active runtime package path.
+- Do not reintroduce `./Packages/source-app infrastructure` as an active runtime package path.
 - Do not use SwiftPM for app integration unless there is an explicit current reason; source-only mode is the active disk-control strategy.
 
 ## Current Functional Baseline
@@ -62,7 +62,7 @@ Durable resume checkpoint for `TchopApp` when chat/task context is lost.
 - Feed/composer product contract: `text`, `photo`, `video`, `audio`, `pdf` cards.
 - Text order: `text`, `headline`, `subheadline`, `source`.
 - Composer/share/feed runtime is source-neutral and local-first.
-- Product-specific behavior stays in `./TchopApp`; reusable mechanics stay in `./PackagesInUse` / `./PackagesForReuse`.
+- Product-specific behavior stays in `./source-app`; reusable mechanics stay in `./PackagesInUse` / `./PackagesForReuse`.
 
 ## Current Task State
 The current approved block is documentation/rules/skills cleanup after a read-only audit of active docs, task docs, reusable baseline, prompt presets, saved prompt snippets, local skills, package usage docs, continuity/handoff/model-routing rules, and reusable templates.
@@ -82,7 +82,7 @@ Latest user approvals:
 
 ## Context Transfer Prompt Template
 ```text
-Работаем в проекте `TchopApp` в worktree:
+Работаем в проекте `source-app` в worktree:
 `/Users/Artem/.zenflow/worktrees/new-task-be0b`
 
 Локальная sandbox-граница для этой задачи расширена пользователем до:
@@ -102,7 +102,7 @@ Latest user approvals:
 10) ./.zenflow/tasks/new-task-be0b/plan.md
 11) ./PackagesForReuse/README.md
 12) ./PackagesInUse/README.md
-13) ./docs/PACKAGE_USAGE_IN_TCHOPAPP.md
+13) ./docs/PACKAGE_USAGE_SOURCE_ONLY.md
 14) ./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md
 15) ./docs/documentation-split/reusable/REUSABLE_MANIFEST.md
 16) ./docs/agent-prompts/README.md
@@ -114,6 +114,6 @@ Latest user approvals:
 - Использовать ./docs/MODEL_ROUTING_RULE.md.
 - Начинать рабочие ответы с обязательного response header.
 - Не запускать build/tests/simulator/Instruments без явного разрешения.
-- Не трогать ./TchopAppTests без явного разрешения.
+- Не трогать ./app test targets без явного разрешения.
 - Package mode: ./PackagesInUse = active source-only packages; ./PackagesForReuse = reusable package vault; ./Packages = SDK/package docs/templates only.
 ```

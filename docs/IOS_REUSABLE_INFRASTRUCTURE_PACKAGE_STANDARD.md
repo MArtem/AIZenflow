@@ -44,7 +44,7 @@ AppPayments
 ## Naming Rule
 Reusable infrastructure copied into a new generic project must use neutral names such as `AppInfrastructure`, `AppNetworking`, `AppLocalization`, or `AppConfiguration`.
 
-Do not copy source-app branded names such as `Tchop*` into unrelated projects unless the user explicitly accepts that branding.
+Do not copy source-app branded names such as `source-app*` into unrelated projects unless the user explicitly accepts that branding.
 
 ## Promotion Rule
 When promoting behavior from an existing app package into the reusable baseline:

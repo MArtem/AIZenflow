@@ -1,7 +1,7 @@
 # App-Specific Documentation Manifest
 
 ## Purpose
-Files in this group are tied to `TchopApp`, its current task, feed/composer/card contract, package names, paths, or runtime state. Do not copy this group into a new unrelated project as baseline documentation.
+Files in this group are tied to `source-app`, its current task, feed/composer/card contract, package names, paths, or runtime state. Do not copy this group into a new unrelated project as baseline documentation.
 
 ## Files
 - `./AGENTS.md`
@@ -18,15 +18,15 @@ Files in this group are tied to `TchopApp`, its current task, feed/composer/card
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
-- `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
+- `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
-- `./docs/knowledge/TchopApp/README.md`
-- `./docs/knowledge/TchopApp/feed-and-composer-summary.md`
-- `./.codex/skills/tchop-feed-cards/SKILL.md`
-- `./.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
-- `./.codex/skills/tchop-packages/SKILL.md`
-- `./.codex/skills/tchop-packages/references/package-rules.md`
+- `./docs/knowledge/source-app/README.md`
+- `./docs/knowledge/source-app/feed-and-composer-summary.md`
+- `./.codex/skills/ios-content-cards/SKILL.md`
+- `./.codex/skills/ios-content-cards/references/feed-card-contract.md`
+- `./.codex/skills/ios-reusable-packages/SKILL.md`
+- `./.codex/skills/ios-reusable-packages/references/package-rules.md`
 - `./.zenflow/tasks/new-task-be0b/handoff.md`
 - `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 - `./.zenflow/tasks/new-task-be0b/plan.md`

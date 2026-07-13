@@ -16,7 +16,7 @@ Before applying any prompt here, apply the current project/task rules first:
 5. Repository protocols, ViewState, Action enums, and extra layers are allowed only when they protect a real boundary or solve a concrete current problem.
 6. SwiftUI design work from screenshots/Figma/PDF/CSS uses `GPT-5.5` and must stay pixel-focused. When the user provides a Figma link or asks to start from Figma, read `figma-mcp-swiftui-implementation.md` before Figma MCP inspection or code changes.
 7. Verification commands follow `../../TESTING_INSTRUCTIONS.md`; do not run builds/tests unless the user asks or the current agreed verification policy allows it.
-8. Preserve `TchopApp` conventions, design tokens, localization, SwiftData-first persistence, and feed/composer card contract.
+8. Preserve `source-app` conventions, design tokens, localization, SwiftData-first persistence, and feed/composer card contract.
 
 ## Prompt Selection Index
 
@@ -49,4 +49,4 @@ Before applying any prompt here, apply the current project/task rules first:
 - Several prompts recommend generating tests as part of feature work. In this project, tests remain opt-in unless the user explicitly asks.
 - Several prompts mention repository protocols and Action enums as defaults. In this project, those are not default boilerplate; use them only for real boundaries or domain/state-machine contracts.
 - Model selection is governed by the project-local model routing rule: save limits on low-risk execution, but use `GPT-5.5` for irreversible planning, architecture, safety, persistence, concurrency, package adoption, and high-risk final gates.
-- The prompts are generic iOS production templates. Existing `TchopApp` architecture, task rules, feed/composer contract, localization, design tokens, and verification policy are higher priority.
+- The prompts are generic iOS production templates. Existing `source-app` architecture, task rules, feed/composer contract, localization, design tokens, and verification policy are higher priority.

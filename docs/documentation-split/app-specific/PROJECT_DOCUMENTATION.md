@@ -1,7 +1,7 @@
-# TchopApp Developer Onboarding Guide
+# source-app Developer Onboarding Guide
 
 ## Purpose
-This is the stable onboarding document for `TchopApp`.
+This is the stable onboarding document for `source-app`.
 
 Read this file for:
 - app shape
@@ -31,7 +31,7 @@ For context transfer, include this exact rule:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
 ## Quick Orientation
-`TchopApp` is a SwiftUI iOS application with:
+`source-app` is a SwiftUI iOS application with:
 - coordinator-driven navigation
 - app-level session and shell state
 - local-first persistence
@@ -40,7 +40,7 @@ For context transfer, include this exact rule:
 - feed/composer runtime built around `text/photo/video/audio/pdf` cards
 
 The primary separation is:
-- `TchopApp` = product-specific composition, features, UI, app policies, DTO/app mapping, persistence schema, routing
+- `source-app` = product-specific composition, features, UI, app policies, DTO/app mapping, persistence schema, routing
 - `./PackagesInUse` = active source-only reusable managers; `./PackagesForReuse` = reviewed reusable package vault
 
 ## Stable Runtime Baselines
@@ -64,27 +64,27 @@ Current user/task overrides live in:
 Important current overrides:
 - apply `./docs/MODEL_ROUTING_RULE.md`: use `GPT-5.4` only for approved low-risk execution and `GPT-5.5` for planning, architecture, high-risk, and final-gate work
 - do not run builds/tests/simulator UI unless user explicitly asks
-- do not touch `./TchopAppTests` unless user explicitly asks
+- do not touch `./app test targets` unless user explicitly asks
 - UI/design work from screenshots/Figma/PDF/CSS must be pixel-focused and use `GPT-5.5`
 
 ## Knowledge Organization
 Reusable cross-project knowledge lives in:
 - [docs/knowledge/global/README.md](./docs/knowledge/global/README.md)
 
-TchopApp-specific knowledge lives in:
-- [docs/knowledge/TchopApp/README.md](./docs/knowledge/TchopApp/README.md)
+source-app-specific knowledge lives in:
+- [docs/knowledge/source-app/README.md](./docs/knowledge/source-app/README.md)
 
 Rule of thumb:
 - reusable prompts/rules → `docs/knowledge/global/`
-- concrete TchopApp files/entities/contracts/current task rules → `docs/knowledge/TchopApp/` or the canonical app doc indexed there
+- concrete source-app files/entities/contracts/current task rules → `docs/knowledge/source-app/` or the canonical app doc indexed there
 
 ## Feed / Composer Baseline
 The app currently centers on a local-first feed/composer runtime.
 
 Canonical contracts:
-- [feed-card-contract.md](./.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
+- [feed-card-contract.md](./.codex/skills/ios-content-cards/references/feed-card-contract.md)
 - [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
-- [docs/knowledge/TchopApp/feed-and-composer-summary.md](./docs/knowledge/TchopApp/feed-and-composer-summary.md)
+- [docs/knowledge/source-app/feed-and-composer-summary.md](./docs/knowledge/source-app/feed-and-composer-summary.md)
 
 Current product baseline:
 - card kinds: `text`, `photo`, `video`, `audio`, `pdf`
@@ -94,7 +94,7 @@ Current product baseline:
 
 ## Dependency Map
 ```text
-TchopApp.swift
+source-app.swift
   -> AppDIContainer
     -> AppState
       -> AppCoordinator
@@ -107,23 +107,23 @@ AppShellViewModel
   -> NewsFeedViewModel
     -> FeedCardStore
       -> FeedCardRepository
-        -> TchopDatabase / SwiftData
+        -> source-appDatabase / SwiftData
     -> SharedFeedCardSyncManager
-      -> TchopShareSupport app-group storage
+      -> source-appShareSupport app-group storage
 ```
 
 Use [PROJECT_HEALTH.md](./PROJECT_HEALTH.md) for package boundaries and manager ownership.
 
 ## Top-Level Structure
 ### App
-- `TchopApp/App`: app entry points, DI, app-global state, bridges, theme/localization
-- `TchopApp/Models`: app-local models and feature contracts
-- `TchopApp/Navigation`: coordinator, routes, deep links, navigation snapshot integration
-- `TchopApp/Persistence`: app schema, bootstrap, seeding, persistence policy
-- `TchopApp/Repositories`: feature-facing repository orchestration
-- `TchopApp/Services`: app services and API-facing managers
-- `TchopApp/ViewModels`: UI-facing state owners
-- `TchopApp/Views`: SwiftUI screens and reusable view pieces
+- `source-app/App`: app entry points, DI, app-global state, bridges, theme/localization
+- `source-app/Models`: app-local models and feature contracts
+- `source-app/Navigation`: coordinator, routes, deep links, navigation snapshot integration
+- `source-app/Persistence`: app schema, bootstrap, seeding, persistence policy
+- `source-app/Repositories`: feature-facing repository orchestration
+- `source-app/Services`: app services and API-facing managers
+- `source-app/ViewModels`: UI-facing state owners
+- `source-app/Views`: SwiftUI screens and reusable view pieces
 
 ### Infrastructure Package
 `./PackagesInUse` contains active reusable source packages for:
@@ -149,7 +149,7 @@ Use [PROJECT_HEALTH.md](./PROJECT_HEALTH.md) for package boundaries and manager 
 - [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md): local feed persistence and sync direction
 - [docs/WORK_CONTINUITY.md](./docs/WORK_CONTINUITY.md): durable resume state and transition prompt
 - [docs/knowledge/global/README.md](./docs/knowledge/global/README.md): reusable cross-project knowledge
-- [docs/knowledge/TchopApp/README.md](./docs/knowledge/TchopApp/README.md): TchopApp-specific knowledge index
+- [docs/knowledge/source-app/README.md](./docs/knowledge/source-app/README.md): source-app-specific knowledge index
 - [TESTING_INSTRUCTIONS.md](./TESTING_INSTRUCTIONS.md): verification and testing workflow
 - [APPLE_SIGN_IN_SETUP.md](./APPLE_SIGN_IN_SETUP.md): Sign in with Apple setup
 - [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md): current task resume state
@@ -167,7 +167,7 @@ Use [PROJECT_HEALTH.md](./PROJECT_HEALTH.md) for package boundaries and manager 
 - UI/design workflow:
   update [docs/UI_PIXEL_PERFECT_WORKFLOW.md](./docs/UI_PIXEL_PERFECT_WORKFLOW.md)
 - Feed/composer product contract:
-  update [feed-card-contract.md](./.codex/skills/tchop-feed-cards/references/feed-card-contract.md)
+  update [feed-card-contract.md](./.codex/skills/ios-content-cards/references/feed-card-contract.md)
 - Local feed persistence/sync contract:
   update [docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md](./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md)
 - Current task state:

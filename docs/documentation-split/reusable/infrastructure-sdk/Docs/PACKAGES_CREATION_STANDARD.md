@@ -24,7 +24,7 @@ Bad package responsibility:
 News screen state
 Profile edit copy
 Feed-specific routing
-Tchop-specific flags
+source-app-specific flags
 Product-specific analytics domains
 ```
 

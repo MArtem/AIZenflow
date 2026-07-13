@@ -71,7 +71,7 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./docs/MODEL_ROUTING_RULE.md`
 - `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
-- `./docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
+- `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
 - `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
 - `./docs/PRODUCTION_QUALITY_GATES.md`
 - `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
@@ -88,8 +88,8 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./docs/archive/PROJECT_DOCUMENTATION.legacy.md`
 - `./docs/archive/PROJECT_HEALTH.legacy.md`
 - `./docs/archive/TESTING_INSTRUCTIONS.legacy.md`
-- `./docs/knowledge/TchopApp/README.md`
-- `./docs/knowledge/TchopApp/feed-and-composer-summary.md`
+- `./docs/knowledge/source-app/README.md`
+- `./docs/knowledge/source-app/feed-and-composer-summary.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/agent-working-rules.md`
 - `./docs/knowledge/global/ios/README.md`
@@ -228,12 +228,12 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./PackagesInUse/IntegrationHelpers/LOCAL_USE.md`
 - `./PackagesInUse/IntegrationHelpers/README.md`
 - `./PackagesInUse/README.md`
-- `./PackagesInUse/TchopProductLocalizationResources/LOCAL_USE.md`
-- `./PackagesInUse/TchopProductLocalizationResources/PackageContract.md`
-- `./PackagesInUse/TchopProductLocalizationResources/README.md`
-- `./PackagesInUse/TchopProductLocalizationResources/Scripts/verify_package.sh`
-- `./PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Documentation.docc/TchopProductLocalizationResources.md`
-- `./PackagesInUse/TchopProductLocalizationResources/USAGE.md`
+- `./PackagesInUse/source-appProductLocalizationResources/LOCAL_USE.md`
+- `./PackagesInUse/source-appProductLocalizationResources/PackageContract.md`
+- `./PackagesInUse/source-appProductLocalizationResources/README.md`
+- `./PackagesInUse/source-appProductLocalizationResources/Scripts/verify_package.sh`
+- `./PackagesInUse/source-appProductLocalizationResources/Sources/source-appProductLocalizationResources/Documentation.docc/source-appProductLocalizationResources.md`
+- `./PackagesInUse/source-appProductLocalizationResources/USAGE.md`
 
 ## Codex App saved prompt snapshots
 - `./docs/saved-prompts/README.md`
@@ -247,10 +247,10 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 
 ## Documentation split / reusable transfer baseline
 - `./docs/documentation-split/README.md`
-- `./docs/documentation-split/app-specific/.codex/skills/tchop-feed-cards/SKILL.md`
-- `./docs/documentation-split/app-specific/.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
-- `./docs/documentation-split/app-specific/.codex/skills/tchop-packages/SKILL.md`
-- `./docs/documentation-split/app-specific/.codex/skills/tchop-packages/references/package-rules.md`
+- `./docs/documentation-split/app-specific/.codex/skills/ios-content-cards/SKILL.md`
+- `./docs/documentation-split/app-specific/.codex/skills/ios-content-cards/references/feed-card-contract.md`
+- `./docs/documentation-split/app-specific/.codex/skills/ios-reusable-packages/SKILL.md`
+- `./docs/documentation-split/app-specific/.codex/skills/ios-reusable-packages/references/package-rules.md`
 - `./docs/documentation-split/app-specific/.zenflow/tasks/new-task-be0b/archive/handoff.legacy.md`
 - `./docs/documentation-split/app-specific/.zenflow/tasks/new-task-be0b/archive/ios-engineering-rules.legacy.md`
 - `./docs/documentation-split/app-specific/.zenflow/tasks/new-task-be0b/archive/plan.before-cleanup-2026-05-20.md`
@@ -274,7 +274,7 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./docs/documentation-split/app-specific/docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/documentation-split/app-specific/docs/MODEL_ROUTING_RULE.md`
 - `./docs/documentation-split/app-specific/docs/PACKAGES_AND_MANAGERS.md`
-- `./docs/documentation-split/app-specific/docs/PACKAGE_USAGE_IN_TCHOPAPP.md`
+- `./docs/documentation-split/app-specific/docs/PACKAGE_USAGE_SOURCE_ONLY.md`
 - `./docs/documentation-split/app-specific/docs/README.md`
 - `./docs/documentation-split/app-specific/docs/SHARE_EXTENSION_VALIDATION.md`
 - `./docs/documentation-split/app-specific/docs/UI_PIXEL_PERFECT_WORKFLOW.md`
@@ -285,8 +285,8 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./docs/documentation-split/app-specific/docs/archive/PROJECT_DOCUMENTATION.legacy.md`
 - `./docs/documentation-split/app-specific/docs/archive/PROJECT_HEALTH.legacy.md`
 - `./docs/documentation-split/app-specific/docs/archive/TESTING_INSTRUCTIONS.legacy.md`
-- `./docs/documentation-split/app-specific/docs/knowledge/TchopApp/README.md`
-- `./docs/documentation-split/app-specific/docs/knowledge/TchopApp/feed-and-composer-summary.md`
+- `./docs/documentation-split/app-specific/docs/knowledge/source-app/README.md`
+- `./docs/documentation-split/app-specific/docs/knowledge/source-app/feed-and-composer-summary.md`
 - `./docs/documentation-split/app-specific/docs/knowledge/global/README.md`
 - `./docs/documentation-split/app-specific/docs/knowledge/global/prompt-presets/README.md`
 - `./docs/documentation-split/app-specific/docs/knowledge/global/prompt-presets/figma-mcp-swiftui-implementation.md`
@@ -806,10 +806,10 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./.codex/skills/ios-release-engineering/SKILL.md`
 - `./.codex/skills/ios-security-privacy/SKILL.md`
 - `./.codex/skills/ios-test-strategy/SKILL.md`
-- `./.codex/skills/tchop-feed-cards/SKILL.md`
-- `./.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
-- `./.codex/skills/tchop-packages/SKILL.md`
-- `./.codex/skills/tchop-packages/references/package-rules.md`
+- `./.codex/skills/ios-content-cards/SKILL.md`
+- `./.codex/skills/ios-content-cards/references/feed-card-contract.md`
+- `./.codex/skills/ios-reusable-packages/SKILL.md`
+- `./.codex/skills/ios-reusable-packages/references/package-rules.md`
 
 ## Package SDK/template docs/scripts
 - `./Packages/Docs/Archive/PACKAGE_HARDENING_REPORT_vNext2.md`
@@ -1195,18 +1195,18 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration/REUSE.md`
 - `./PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration/Scripts/verify_package.sh`
 - `./PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration/Sources/AppErrorsNetworkingIntegration/Documentation.docc/AppErrorsNetworkingIntegration.md`
-- `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration/PackageContract.md`
-- `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration/README.md`
-- `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration/REUSE.md`
-- `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration/Scripts/verify_package.sh`
-- `./PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration/Sources/TchopProductLocalizationResourcesAppLocalizationIntegration/Documentation.docc/TchopProductLocalizationResourcesAppLocalizationIntegration.md`
+- `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration/PackageContract.md`
+- `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration/README.md`
+- `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration/REUSE.md`
+- `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration/Scripts/verify_package.sh`
+- `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration/Sources/source-appProductLocalizationResourcesAppLocalizationIntegration/Documentation.docc/source-appProductLocalizationResourcesAppLocalizationIntegration.md`
 - `./PackagesForReuse/README.md`
-- `./PackagesForReuse/TchopProductLocalizationResources/PackageContract.md`
-- `./PackagesForReuse/TchopProductLocalizationResources/README.md`
-- `./PackagesForReuse/TchopProductLocalizationResources/REUSE.md`
-- `./PackagesForReuse/TchopProductLocalizationResources/Scripts/verify_package.sh`
-- `./PackagesForReuse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Documentation.docc/TchopProductLocalizationResources.md`
-- `./PackagesForReuse/TchopProductLocalizationResources/USAGE.md`
+- `./PackagesForReuse/source-appProductLocalizationResources/PackageContract.md`
+- `./PackagesForReuse/source-appProductLocalizationResources/README.md`
+- `./PackagesForReuse/source-appProductLocalizationResources/REUSE.md`
+- `./PackagesForReuse/source-appProductLocalizationResources/Scripts/verify_package.sh`
+- `./PackagesForReuse/source-appProductLocalizationResources/Sources/source-appProductLocalizationResources/Documentation.docc/source-appProductLocalizationResources.md`
+- `./PackagesForReuse/source-appProductLocalizationResources/USAGE.md`
 
 ## Root project docs
 - `./AGENTS.md`
@@ -1729,6 +1729,6 @@ Complete generated inventory of physical documentation, prompt, skill, task-cont
 - `./.zenflow/tasks/new-task-be0b/traces/smoke-hitches.trace/form.template`
 - `./.zenflow/tasks/new-task-be0b/traces/smoke-system.trace/form.template`
 - `./.zenflow/tasks/new-task-be0b/traces/smoke-time-profiler.trace/form.template`
-- `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-after-lazy-inline.analysis.json`
-- `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-repeat.analysis.json`
-- `./.zenflow/tasks/new-task-be0b/traces/tchop-feed-scroll-repeat.trace/form.template`
+- `./.zenflow/tasks/new-task-be0b/traces/source-app-feed-scroll-after-lazy-inline.analysis.json`
+- `./.zenflow/tasks/new-task-be0b/traces/source-app-feed-scroll-repeat.analysis.json`
+- `./.zenflow/tasks/new-task-be0b/traces/source-app-feed-scroll-repeat.trace/form.template`

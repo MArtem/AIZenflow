@@ -60,7 +60,7 @@ Next planned iteration: AppPermissions or another user-approved infrastructure p
 ```
 
 
-## TchopApp adaptation note
+## source-app adaptation note
 
 This baseline was adopted from `InfrastructureSDK_Iteration00.zip` and hardened to match the current repository contract:
 

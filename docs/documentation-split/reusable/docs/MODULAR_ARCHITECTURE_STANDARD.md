@@ -19,7 +19,7 @@ Rules for scaling large iOS codebases with modules/packages.
 
 
 ## Reusable Infrastructure Naming
-For new unrelated projects, reusable infrastructure packages must use neutral names such as `AppInfrastructure`, `AppNetworking`, `AppLocalization`, or `AppConfiguration`. Do not copy source-app branded package names such as `Tchop*` into a new generic project unless the user explicitly accepts that branding.
+For new unrelated projects, reusable infrastructure packages must use neutral names such as `AppInfrastructure`, `AppNetworking`, `AppLocalization`, or `AppConfiguration`. Do not copy source-app branded package names such as `source-app*` into a new generic project unless the user explicitly accepts that branding.
 
 When promoting reusable behavior from one app to the baseline:
 - generalize naming first;

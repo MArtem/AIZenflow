@@ -1,11 +1,11 @@
 ---
-name: tchop-feed-cards
-description: Use this skill whenever the task touches TchopApp feed cards, the composer, card publishing, media card rendering, teaser handling, draft validation, or any of the text/photo/video/audio/pdf card rules. Trigger even if the user only mentions the feed, composer, card creation, card types, media actions, card metadata, or local published cards.
+name: ios-content-cards
+description: Use this skill whenever the task touches source-app feed cards, the composer, card publishing, media card rendering, teaser handling, draft validation, or any of the text/photo/video/audio/pdf card rules. Trigger even if the user only mentions the feed, composer, card creation, card types, media actions, card metadata, or local published cards.
 ---
 
-# Tchop Feed Cards
+# source-app Feed Cards
 
-Use this skill for `TchopApp` tasks involving:
+Use this skill for `source-app` tasks involving:
 - feed/composer card contracts
 - card draft validation
 - media asset rules
@@ -29,10 +29,10 @@ Read code only after the contract is clear.
 - If a card flow looks generic, check whether it belongs in the model layer instead of a screen convenience branch.
 
 ## Important Code
-- [NewsFeedModels.swift](./TchopApp/Models/NewsFeedModels.swift)
-- [AppShellViewModel.swift](./TchopApp/ViewModels/AppShellViewModel.swift)
-- [ShellContentView.swift](./TchopApp/Views/ShellContentView.swift)
-- [NewsFeedView.swift](./TchopApp/Views/News/NewsFeedView.swift)
+- [NewsFeedModels.swift](./source-app/Models/NewsFeedModels.swift)
+- [AppShellViewModel.swift](./source-app/ViewModels/AppShellViewModel.swift)
+- [ShellContentView.swift](./source-app/Views/ShellContentView.swift)
+- [NewsFeedView.swift](./source-app/Views/News/NewsFeedView.swift)
 
 ## Output Expectation
 When changing this area:

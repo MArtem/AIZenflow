@@ -1,7 +1,7 @@
 # Production Quality Gates
 
 ## Purpose
-This document defines mandatory production-quality review gates for any `TchopApp` implementation, refactor, review, or cleanup.
+This document defines mandatory production-quality review gates for any `source-app` implementation, refactor, review, or cleanup.
 
 These gates are intentionally broader than the current app surface. They apply to future features as the project grows.
 
@@ -40,7 +40,7 @@ Stop and fix or escalate before continuing if any of these appear:
 ## Architecture And Ownership Gate
 Check:
 
-- App-specific product policy stays in `TchopApp`.
+- App-specific product policy stays in `source-app`.
 - Reusable, entity-agnostic mechanics belong in the current package layer: `./PackagesInUse` for active source-only app integration and `./PackagesForReuse` for validated reusable package vault code.
 - DTO/domain/UI models are not collapsed unless the type is truly local and trivial.
 - View code does not own business rules, persistence policy, retry policy, or backend mapping.

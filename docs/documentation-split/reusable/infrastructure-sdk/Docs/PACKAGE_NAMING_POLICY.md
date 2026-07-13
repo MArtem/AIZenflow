@@ -18,8 +18,8 @@ This is a neutral app-infrastructure namespace, not a product namespace.
 Avoid:
 
 ```text
-TchopNews
-TchopProfile
+source-appNews
+source-appProfile
 FeedCardManager
 ProfileRouter
 ```
@@ -29,7 +29,7 @@ inside reusable root packages.
 Product-specific packages must be clearly marked:
 
 ```text
-TchopProductLocalizationResources
+source-appProductLocalizationResources
 ```
 
 ## Type names
@@ -49,7 +49,7 @@ Avoid app-specific names:
 ```swift
 NewsAnalyticsEvent
 ProfileFeatureFlag
-TchopUserSession
+source-appUserSession
 ```
 
 ## Integration helpers

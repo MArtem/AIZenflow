@@ -103,7 +103,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
 - `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
 
-### TchopApp-Specific Runtime Docs
+### source-app-Specific Runtime Docs
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
@@ -114,7 +114,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/agent-prompts/README.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
-- `./docs/knowledge/TchopApp/README.md`
+- `./docs/knowledge/source-app/README.md`
 
 
 ### Documentation Split / Transfer Baseline
@@ -132,10 +132,10 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`
 
 ### Local Skills
-- `./.codex/skills/tchop-feed-cards/SKILL.md`
-- `./.codex/skills/tchop-feed-cards/references/feed-card-contract.md`
-- `./.codex/skills/tchop-packages/SKILL.md`
-- `./.codex/skills/tchop-packages/references/package-rules.md`
+- `./.codex/skills/ios-content-cards/SKILL.md`
+- `./.codex/skills/ios-content-cards/references/feed-card-contract.md`
+- `./.codex/skills/ios-reusable-packages/SKILL.md`
+- `./.codex/skills/ios-reusable-packages/references/package-rules.md`
 - `./.codex/skills/ios-production-auditor/SKILL.md`
 - `./.codex/skills/ios-performance-profiler/SKILL.md`
 - `./.codex/skills/ios-security-privacy/SKILL.md`

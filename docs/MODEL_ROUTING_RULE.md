@@ -3,6 +3,30 @@
 ## Purpose
 Use models by task risk, not habit. Save limits on reversible execution work, but do not lower model quality on decisions that shape architecture, data ownership, user data, security, or long-term maintenance.
 
+
+## User-Approved Model Selection Autonomy
+The user authorizes the assistant to choose the most suitable model before each task, recommend a model change mid-task when risk changes, and use available lower-cost or higher-quality model workers when the environment supports it.
+
+Important limitation:
+- the assistant can select, route, and recommend models inside available tooling;
+- if Zenflow or the chat UI fixes the primary model for the current session, the assistant cannot physically switch that primary model by itself;
+- when an actual primary-model switch is required for quality, the assistant must say so clearly and ask the user to switch, or continue with the best available model while reporting the residual risk.
+
+Use this quality/resource heuristic until replaced by measured evidence from this project:
+
+| Model | Relative quality | Relative token/limit cost | Preferred use |
+|---|---:|---:|---|
+| `GPT-5.5` | `100%` baseline | `100%` baseline | safe default, planning, high-risk decisions, final gates |
+| `GPT-5.6 sol` | `103–108%` | `90–110%` | preferred daily default when available and stable |
+| `GPT-5.6 tera` | `110–120%` | `130–180%` | highest-risk planning/review/final gates only |
+| `GPT-5.6 luna` | `88–96%` | `45–70%` | low-risk mechanical/read-only/docs inventory work |
+
+Routing guidance:
+- prefer `GPT-5.6 sol` or `GPT-5.5` for most real project work;
+- use `GPT-5.6 tera` only when the cost is justified by risk: architecture, security/privacy, persistence, concurrency, package adoption, app integration, performance-sensitive decisions, or final gates;
+- use `GPT-5.6 luna` only for reversible mechanical work, read-only scans, simple inventories, formatting, and draft summaries;
+- never choose a cheaper model when doing so would reduce correctness, safety, maintainability, or verification confidence.
+
 ## Mandatory Task Classification
 Before editing code or documentation for a task, classify it as one of:
 

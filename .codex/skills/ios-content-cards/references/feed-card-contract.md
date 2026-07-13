@@ -59,14 +59,14 @@ If a field is absent, order still stays fixed for the remaining fields.
 - Do not add speculative actions or extra menus.
 - Optional text/media metadata fields should be removable.
 - Placeholder and real text should use one input surface, not duplicated layers.
-- Local published cards should use the same card semantics as feed runtime.
+- Locally published cards should use the same card semantics as feed runtime.
 
 ## Publish And Feed Rules
 - Composer starts from the currently selected feed channel.
 - Draft channel selection may diverge from the currently visible feed channel.
 - Publish writes to the selected draft channel.
-- Local published cards appear only in their own channel feed scope.
-- Search applies only to cards visible in the current channel, including local published cards.
+- Locally published cards appear only in their own channel feed scope.
+- Search applies only to cards visible in the current channel, including locally published cards.
 
 ## Published Feed Rendering Rules
 - Media renders first when present.

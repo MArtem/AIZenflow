@@ -17,7 +17,7 @@
 - `SyncCore` is active and should absorb reusable sync behavior.
 
 ## App-Layer Ownership
-Keep these in `TchopApp`:
+Keep these in the app target:
 - endpoint semantics
 - DTO/app model mapping
 - local schema application

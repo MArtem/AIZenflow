@@ -207,4 +207,4 @@ This is the exact Codex App saved prompt body. The active project-specific evolv
 
 - `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
 
-Use the active task rule file as authoritative for current TchopApp work; keep this file as the preserved Codex App saved-prompt snapshot.
+Use the active task rule file as authoritative for current source-app work; keep this file as the preserved Codex App saved-prompt snapshot.

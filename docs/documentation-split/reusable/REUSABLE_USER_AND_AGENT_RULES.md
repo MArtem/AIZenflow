@@ -72,7 +72,7 @@ Every context-transfer prompt must include:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
 ## Neutral Reusable Package Rule
-- New unrelated projects should receive neutral reusable package naming such as `AppInfrastructure`, not source-app branding such as `Tchop*`, unless the user explicitly asks otherwise.
+- New unrelated projects should receive neutral reusable package naming such as `AppInfrastructure`, not source-app branding such as `source-app*`, unless the user explicitly asks otherwise.
 - Promote generic mechanics from prior apps only after removing app-specific policy, names, paths, endpoints, copy, and product assumptions.
 - Start with currently needed infrastructure only: networking, errors, localization, configuration, logging/analytics/cache. Add database/sync/media/widgets/push/share/AI/payments only when current requirements exist.
 

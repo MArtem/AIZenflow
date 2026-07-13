@@ -10,8 +10,8 @@ Single uninterrupted pass (automation + static runtime contract verification).
 1. Build/runtime preflight:
    - `./scripts/verify.sh low` => `BUILD SUCCEEDED`.
 2. Import/runtime contract consistency reviewed in code:
-   - `./Packages/TchopInfrastructure/Sources/TchopShareSupport/ShareItemImporter.swift`
-   - `./TchopApp/Models/NewsFeedModels.swift`
+   - `./Packages/source-app infrastructure/Sources/source-appShareSupport/ShareItemImporter.swift`
+   - `./source-app/Models/NewsFeedModels.swift`
 3. Confirmed by code paths:
    - supported import kinds: `image`, `video`, `audio`, `pdf`, `text`
    - mixed media (`image + non-image`) => explicit failure
@@ -25,7 +25,7 @@ Single uninterrupted pass (automation + static runtime contract verification).
 ### Runtime scenarios (interactive)
 | ID | Scenario | Status |
 |---|---|---|
-| S1 | share text only from a real source app | Pending interactive run |
+| S1 | share text only from a real source-app | Pending interactive run |
 | S2 | share one image | Pending interactive run |
 | S3 | share multiple images | Pending interactive run |
 | S4 | share one video | Pending interactive run |

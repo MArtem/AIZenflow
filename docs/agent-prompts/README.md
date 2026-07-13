@@ -16,12 +16,13 @@ Before applying any prompt here, apply the current project/task rules first:
 5. Repository protocols, ViewState, and extra layers are allowed only when they protect a real boundary or solve a concrete current problem. UI action enums / `send(_ action:)` dispatch are not default MVVM boilerplate; use explicit ViewModel intent methods unless reducer/state-machine architecture is explicitly approved and documented.
 6. SwiftUI design work from screenshots/Figma/PDF/CSS uses `GPT-5.5` and must stay pixel-focused. When the user provides a Figma link or asks to start from Figma, read `figma-mcp-swiftui-implementation.md` before Figma MCP inspection or code changes.
 7. Verification commands follow `../../TESTING_INSTRUCTIONS.md`; do not run builds/tests unless the user asks or the current agreed verification policy allows it.
-8. Preserve `TchopApp` conventions, design tokens, localization, SwiftData-first persistence, and feed/composer card contract.
+8. Preserve `source-app` conventions, design tokens, localization, SwiftData-first persistence, and feed/composer card contract.
 
 ## Prompt Selection Index
 
 | Case | Use prompt | Notes |
 |---|---|---|
+| AI/ML/Apple Intelligence/App Intents/RAG/agent work | `AI_iOS_MASTER_PROMPT.md` | Mandatory AI-specific reference. Read it completely, then apply only relevant sections under current user/project rules. Tests, builds, extra layers, cloud, and providers remain conditional. |
 | New production feature | `feature-generation-master.md` | Use only when the user asks for a full feature and scope is broad enough. Adapt to project rules; do not generate tests unless asked. |
 | Small concrete feature | `feature-specific-quick.md` | Use for narrower feature work; keep implementation minimal. |
 | SwiftUI screen from Figma/PNG/PDF/SVG/CSS | `swiftui-design-generation-master.md` | Use for design-driven UI. Must use `GPT-5.5`; ask questions if measurements/behavior are unclear. |
@@ -74,8 +75,9 @@ Before applying any prompt here, apply the current project/task rules first:
 
 ## Conflict Notes Found During Import
 
+- `AI_iOS_MASTER_PROMPT.md` was normalized before adoption: mandatory tests/build/lint, universal AI layers, provider abstractions, mocks, and feature flags are conditional on current requirements and permissions.
 - Several prompts recommend generating tests as part of feature work. In this project, tests remain opt-in unless the user explicitly asks.
 - Several prompts mention repository protocols and Action enums as defaults. In this project, repository protocols are allowed only at real seams, and UI action enums / `send(_ action:)` dispatch are not default MVVM boilerplate. Use explicit ViewModel intent methods unless reducer/state-machine architecture is explicitly approved and documented.
 - Model selection is governed by `../MODEL_ROUTING_RULE.md`: save limits on low-risk execution, but use `GPT-5.5` for irreversible planning, architecture, safety, persistence, concurrency, package adoption, and high-risk final gates.
-- The prompts are generic iOS production templates. Existing `TchopApp` architecture, task rules, feed/composer contract, localization, design tokens, and verification policy are higher priority.
+- The prompts are generic iOS production templates. Existing `source-app` architecture, task rules, feed/composer contract, localization, design tokens, and verification policy are higher priority.
 - Evidence-based completion prompt is mandatory before claiming work is done when verification is non-trivial.

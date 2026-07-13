@@ -1,15 +1,15 @@
 # Apple Sign In Setup
 
 ## Purpose
-This file records the practical setup required to make `Sign in with Apple` work reliably in `TchopApp`.
+This file records the practical setup required to make `Sign in with Apple` work reliably in `source-app`.
 The current code-level integration is already in place, but real authorization depends on Apple platform configuration, signing, and runtime environment.
 
 ## Current Project State
-- App target bundle id: `com.example.TchopApp`
-- Secondary app target bundle id: `com.example.TchopAppOcean`
+- App target bundle id: `com.example.source-app`
+- Secondary app target bundle id: `com.example.source-appOcean`
 - App and widget entitlements are now prepared to resolve the shared app group from build setting `APP_GROUP_IDENTIFIER`
 - Current entitlement file:
-  `TchopApp/TchopApp.entitlements`
+  `source-app/source-app.entitlements`
 - Current code already includes:
   - Apple sign-in button in the login screen
   - Apple credential handling in `LoginViewModel`
@@ -43,8 +43,8 @@ For each app bundle identifier that should support Apple login:
 
 ### 1. Register the real App ID
 Create or confirm the App ID in Apple Developer for:
-- `com.example.TchopApp` replacement with the real production or development bundle id
-- `com.example.TchopAppOcean` replacement too, if that target should also support Apple login
+- `com.example.source-app` replacement with the real production or development bundle id
+- `com.example.source-appOcean` replacement too, if that target should also support Apple login
 
 ### 2. Enable Sign in with Apple capability
 Inside Apple Developer:
@@ -84,8 +84,8 @@ That is correct, but it must match:
 
 ### 4. Check both app targets separately
 The project has two app targets:
-- `TchopApp`
-- `TchopAppOcean`
+- `source-app`
+- `source-appOcean`
 
 If both are meant to support Apple login, both need:
 - valid App IDs
@@ -167,7 +167,7 @@ Once real Apple sign-in is verified, the next reasonable product-level follow-up
 
 ## What Was Prepared Locally In This Phase
 - Apple auth flow is already implemented in app code
-- Apple-specific credential parsing was extracted into infrastructure package `TchopAppleAuthentication`
+- Apple-specific credential parsing was extracted into infrastructure package `source-appleAuthentication`
 - profile and shell now reflect Apple-vs-local account state
 - the simulator login screen now explicitly warns that simulator-only Apple validation is not a reliable final signal
 - app-group entitlements were prepared for build-setting-based replacement instead of hardcoded `group.com.example...`

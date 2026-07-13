@@ -1,7 +1,7 @@
 # UI Pixel-Perfect Workflow
 
 ## Purpose
-Rules for implementing UI/design tasks in `TchopApp` from screenshots, Figma, PDFs, SVG, CSS export, or visual references.
+Rules for implementing UI/design tasks in `source-app` from screenshots, Figma, PDFs, SVG, CSS export, or visual references.
 
 ## Mandatory Model Rule
 - Use `GPT-5.5` for all UI/design tasks based on screenshots, Figma, PDF, SVG, CSS, or visual comparison.
@@ -15,7 +15,7 @@ Rules for implementing UI/design tasks in `TchopApp` from screenshots, Figma, PD
 Use this priority order:
 1. explicit user-provided numeric values
 2. user-provided screenshot/reference
-3. existing `TchopApp` design tokens and nearby app patterns
+3. existing `source-app` design tokens and nearby app patterns
 4. reasonable platform default only if not visible and not specified
 
 If the user explicitly provides a value such as spacing, size, radius, font size, or hex color, that value wins over an existing token.

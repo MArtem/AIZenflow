@@ -53,7 +53,7 @@ What remains is runtime validation.
   - current result: explicit failure instead of being guessed as `pdf`
 
 ### Still Needs Manual Runtime Validation
-- share text only from a real source app
+- share text only from a real source-app
 - share one image
 - share multiple images
 - share one video

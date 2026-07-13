@@ -1,7 +1,7 @@
 # Neutral Package Promotion Guide
 
 ## Purpose
-Reusable infrastructure copied from an app worktree must be promoted with neutral package, product, target, and symbol names. Source-app prefixes such as `Tchop*` are allowed only in the source app worktree; they are not acceptable in a generic destination project.
+Reusable infrastructure copied from an app worktree must be promoted with neutral package, product, target, and symbol names. Source-app prefixes such as `source-app*` are allowed only in the source-app worktree; they are not acceptable in a generic destination project.
 
 ## Default Names For New Projects
 Use these names unless the destination project already has a documented naming convention:
