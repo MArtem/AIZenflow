@@ -1,16 +1,7 @@
 # Document Boundary Standard
 
 ## Purpose
-This standard prevents reusable knowledge and app-specific knowledge from mixing.
-
-It applies to every current and future project in this Zenflow workspace:
-- Tchop;
-- MVVMExample;
-- BattleshipGame;
-- AIFieldbook;
-- the architecture catalog;
-- reusable packages/managers;
-- future apps and experiments.
+This standard prevents reusable, app-specific, and task-specific knowledge from mixing. It applies to every current and future project, architecture reference, reusable package, and experiment managed through the shared documentation repository.
 
 ## Canonical Roots
 The durable documentation library lives at:

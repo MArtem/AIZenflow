@@ -13,18 +13,7 @@ Read this file for:
 Do not use this file for current task history, temporary debugging notes, or app-specific implementation logs.
 
 ## First Read For Agents
-When starting or resuming work in a worktree, read in this order:
-
-1. `./docs/README.md`
-2. `./PROJECT_DOCUMENTATION.md`
-3. `./PROJECT_HEALTH.md`
-4. `./docs/CURRENT_USER_OVERRIDES.md`
-5. `./docs/AGENT_RULES.md`
-6. `./docs/WORK_CONTINUITY.md`
-7. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-8. `./docs/SOURCE_OF_TRUTH_MAP.md`
-9. `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
-10. current task docs under `./.zenflow/tasks/<task-id>/` when available
+Use `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`. This onboarding document is loaded for project/code/package orientation; it is not an always-read startup document.
 
 For context transfer, include this exact rule:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

@@ -1,16 +1,7 @@
 # Document Boundary Standard
 
 ## Purpose
-This standard prevents reusable knowledge and app-specific knowledge from mixing.
-
-It applies to every current and future project in this Zenflow workspace:
-- Tchop;
-- MVVMExample;
-- BattleshipGame;
-- AIFieldbook;
-- the architecture catalog;
-- reusable packages/managers;
-- future apps and experiments.
+This standard prevents reusable, app-specific, and task-specific knowledge from mixing. It applies to every current and future project, architecture reference, reusable package, and experiment managed through the shared documentation repository.
 
 ## Canonical Roots
 The durable documentation library lives at:
@@ -25,14 +16,7 @@ Use these roots:
 - worktree-local docs: small operational copies needed by the current task/worktree only.
 
 ## App-Specific Roots
-Each app owns its own documentation boundary:
-
-- `apps/Tchop/`
-- `apps/MVVMExample/`
-- `apps/BattleshipGame/`
-- `apps/AIFieldbook/`
-
-If legacy folders exist under older names, treat them as app-specific recovery snapshots. Do not copy them into `reusable/` without the promotion process below.
+Each app owns a separate `apps/<AppName>/` boundary. Legacy folders under older names remain app-specific recovery snapshots and must not be copied into `reusable/` without the promotion process below.
 
 ## Reusable Roots
 Reusable material belongs only when it is app-neutral and useful across projects:

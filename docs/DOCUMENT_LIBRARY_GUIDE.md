@@ -4,7 +4,7 @@
 Keep the shared documentation library complete without making every task pay the cost of reading every document.
 
 ## Canonical Location
-The shared documentation library for all Zenflow tasks is:
+The shared documentation library for Codex app tasks and local worktrees is:
 
 - GitHub repository: `MArtem/AIZenflowDocumentation`
 - Remote URL: `https://github.com/MArtem/AIZenflowDocumentation`
@@ -20,20 +20,7 @@ Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before moving, copying, promoting, 
 Local project exceptions stay under the matching app or task area and never weaken reusable rules without explicit promotion approval.
 
 ## Startup / Current Task Rules
-Read these first when a new chat/task requires bootstrap:
-
-- `./AGENTS.md`
-- `./docs/README.md`
-- `./PROJECT_DOCUMENTATION.md`
-- `./PROJECT_HEALTH.md`
-- `./docs/CURRENT_USER_OVERRIDES.md`
-- `./docs/AGENT_RULES.md`
-- `./docs/WORK_CONTINUITY.md`
-- `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
-- `./docs/MODEL_ROUTING_RULE.md`
-- `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-- `./.zenflow/tasks/new-task-be0b/handoff.md`
-- `./.zenflow/tasks/new-task-be0b/plan.md`
+Use the active worktree's `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` as the sole source of truth for Level 0. Read Level 0 once, including the current task handoff/plan when present, then select only task-relevant routes.
 
 ### Scope-Specific Active Docs
 After startup, read only the docs needed for the actual task scope:
@@ -55,11 +42,16 @@ After startup, read only the docs needed for the actual task scope:
 ## Resource Rule
 Default to the smallest sufficient document set:
 
-1. Startup docs.
-2. The document-boundary standard.
-3. Task-specific docs.
-4. Prompt/skill docs only when triggered.
-5. Full inventory/vault only for documentation-library, transfer, recovery, or completeness tasks.
+1. Router-defined Level 0.
+2. Task-specific routed standards.
+3. Prompt/skill/package docs only when triggered.
+4. Full inventory/vault only for documentation-library, transfer, recovery, or completeness tasks.
+
+## Machine-Readable Operations
+- Resolve exact ordered routes with `./scripts/resolve_docs_route.py <route> [<route> ...]`.
+- Measure route words/bytes, overlap, budgets, and reachability with `./scripts/report_documentation_context_cost.py`.
+- Compare canonical exact mirrors and allowed local overlays with `./scripts/check_reusable_baseline_drift.py --canonical-root <baseline-root>`.
+- These tools are read-only. They report missing, stale, unexpected, or unclassified files and never synchronize automatically.
 
 ## Consistency Rule
 When a durable reusable doc/rule/prompt/skill/template changes:

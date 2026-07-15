@@ -4,17 +4,7 @@
 Entry point for active project documentation, production standards, prompt presets, reusable skills, and static quality gates.
 
 ## Default Read Order
-1. `./PROJECT_DOCUMENTATION.md`
-2. `./PROJECT_HEALTH.md`
-3. `./docs/CURRENT_USER_OVERRIDES.md`
-4. `./docs/AGENT_RULES.md`
-5. `./docs/WORK_CONTINUITY.md`
-6. `./docs/MODEL_ROUTING_RULE.md`
-7. `./docs/DOCUMENT_LIBRARY_GUIDE.md`
-8. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-9. `./docs/ALL_DOCUMENTS_INVENTORY.md`
-10. current task handoff/plan under `./.zenflow/tasks/<task-id>/` when available
-11. scope-specific docs from this index
+Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, then its current Level 0 set once, then only the selected task routes. The router is the sole source of truth for the numbered startup list.
 
 ## Mandatory Active Documentation Index
 

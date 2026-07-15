@@ -1,117 +1,63 @@
-# New Chat Handoff
+# Current Task Handoff
 
 ## Identifiers
 - Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`
 - Task: `new-task-be0b`
-- Task ID: `be0b925f-37c1-468e-a4b0-061fc6ae30cd`
-- Active app: `AI Fieldbook`
-- Active app path: `./AIFieldbook`
-- Model routing: apply `./docs/MODEL_ROUTING_RULE.md`; high-risk planning/architecture/final gates require the best available high-quality model.
+- Active app: `AI Fieldbook` at `./AIFieldbook`
+- Canonical documentation repo: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 
-## Mandatory Startup Rule
-Before any code, documentation, git, project, build, or task action:
-
+## Mandatory Context Rule
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
-## Local Sandbox Rule
-The user explicitly expanded the local sandbox for this task:
+Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 set once, then load only the routes required by the task.
 
-- Allowed root: `/Users/Artem/.zenflow`
-- Current worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`
-- Do not write project artifacts, caches, logs, temporary package verification output, DerivedData, traces, or cloned package state outside `/Users/Artem/.zenflow`.
-- Do not use `/tmp`, `/Users/Artem/Library`, global SwiftPM/Xcode caches, or any path outside `/Users/Artem/.zenflow` for project work.
+## Current User Restrictions
+- Project work stays inside `/Users/Artem/.zenflow`.
+- Do not write/modify tests or run build/tests/simulator/Instruments for documentation-only work.
+- Agents may autonomously commit/push only `MArtem/AIZenflowDocumentation`; no commit/push in other repositories without an explicit user request.
+- Preserve the highest reusable architecture, security/privacy, persistence, navigation/state ownership, SwiftUI performance, accessibility/localization, and evidence standards.
 
-## Mandatory Startup Read Order
-1. `./docs/README.md`
-2. `./PROJECT_DOCUMENTATION.md`
-3. `./PROJECT_HEALTH.md`
-4. `./docs/CURRENT_USER_OVERRIDES.md`
-5. `./docs/AGENT_RULES.md`
-6. `./docs/WORK_CONTINUITY.md`
-7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
-8. `./docs/MODEL_ROUTING_RULE.md`
-9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-10. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
-11. `./.zenflow/tasks/new-task-be0b/handoff.md`
-12. `./.zenflow/tasks/new-task-be0b/plan.md`
-13. task-relevant package, prompt, skill, and deep-reference docs selected by the router.
+## Completed Documentation Governance Block
+`docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md` is now the reusable Level 1 source of truth for adding, changing, splitting, merging, routing, maintaining, superseding, archiving, and removing rules, docs, prompts, skills, templates, registries, validators, and package docs.
 
-## Mandatory Working Response Header
-Every working, status, readiness, planning, confirmation, or task-orientation response must start with:
+The standard defines:
+- an admission gate that requires a concrete problem, search of existing sources, action choice, boundary, authority, consumers, context cost, and verification plan;
+- a smallest-correct-artifact decision table and rejection conditions for duplicate, transient, mixed-scope, or ownerless documents;
+- required purpose/scope/authority/trigger/maintenance/lifecycle information without mandatory decorative boilerplate;
+- reusable/app/package/task boundaries, promotion and exception rules, and conflict/precedence handling;
+- index, registry, task-route, baseline-policy, manifest, bootstrap, schema, and validator obligations;
+- migration, split/merge, supersession, archive, removal, recovery, and completion checklists.
 
-- model
-- active phase
-- files being inspected or changed
-- next safe step
-- whether a build is needed
-- sandbox/worktree confirmation inside `/Users/Artem/.zenflow`
+Integration completed:
+- primary classification: Level 1;
+- task route: `governance-documentation`;
+- active and canonical docs indexes, agent rules, reusable manifest, bootstrap contract, and documentation-vault presence check updated;
+- exact active mirror and canonical baseline source are byte-identical;
+- canonical implementation commit `24faadf` is pushed to `origin/main`.
 
-## Current User Rules
-- Treat every implementation/review as product-staff-level production work; demo/test/sample/prototype/pre-release labels do not lower quality.
-- Even the smallest test app must have proper project structure, composition root, coordinator/router navigation, feature state ownership, model boundaries, view-state rendering, accessibility/localization posture, and verification gates.
-- Do not defer those foundations until future complexity appears.
-- For reviews, audits, planning, and requirement analysis, provide full unbiased analysis with priorities.
-- Do not guess product decisions. Ask when behavior, ownership, state flow, or acceptance criteria are ambiguous.
-- Avoid speculative UI/logic and decorative wrappers, protocols, factories, adapters, use cases, or managers.
-- Reusable packages provide mechanisms; app/feature layers provide product decisions.
-- ViewModels expose explicit intent methods. Do not use generic `send(_:)`, `dispatch(_:)`, or UI action enums as boilerplate without explicit approval and documented rationale.
-- Do not modify app/UI/package test files unless the user explicitly allows test writing again or asks to fix a specific failing test.
-- Build/simulator validation is allowed when it materially protects quality; tests remain prohibited.
-- Keep `./.zenflow/tasks/new-task-be0b/plan.md` updated before finishing a work block.
-- Documentation boundary rule: reusable/global docs stay under `documentation-vault/reusable`, app-specific docs stay under `documentation-vault/apps/<AppName>`, task history stays under task docs. Local exceptions do not affect reusable rules without explicit promotion approval.
-- Documentation/context loading rule: use `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`; read Level 0 once, then only task-specific routed docs. The full docs index is a map, not an always-read list.
-- Default quality rule: any project is developed according to the highest reusable standards and best current rules unless the user explicitly approves a narrower local exception.
-- Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/COMPLETION_REPORT_CONTRACT.md`, and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` for non-trivial work and completion reports.
-- Apply `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`: Level 0 once, then task-specific routed docs only. The full docs index is a map, not an always-read list.
+## Verification Evidence
+- Local router: 86 classified documents; static Level 0 is 2,034/3,500 words.
+- Full local Level 0 with task plan/handoff: 2,833/3,500 words; dynamic task state contributes 799 words.
+- Canonical router: 82 classified documents; static Level 0 is 2,010/3,500 words.
+- Governance-documentation route: 4 documents, 2,469 words; the new standard is 1,256 words and is not in Level 0.
+- Baseline drift: 169 exact mirrors, 27 allowed overlays, 1 canonical-only file, 617 allowed local-only files; zero missing, stale, unexpected, or policy failures.
+- Docs index, router, consistency, boundaries, bootstrap, route resolver, context-cost report, vault shape, and both `git diff --check` checks pass.
+- All registered documents are reachable; no required routed documents are missing or unclassified.
+- `check_documentation_remote_state.py` passes after push.
+- Secret scan still reports seven pre-existing token-like test-fixture assignments in unchanged `TchopAppTests/AppStateTests.swift`; test files were not modified because tests are outside this block.
+- No application/runtime code or test file was changed by this block.
 
-## Current Package Mode
-- `./PackagesInUse` = active source-only reusable package subset compiled into app targets.
-- `./PackagesForReuse` = complete reviewed reusable package vault.
-- `./Packages` = SDK/package creation documentation, templates, reports, and optional copy-file helpers only.
-- Do not use SwiftPM for app integration unless there is an explicit current reason.
-- Do not use source-app branding in reusable package docs, skill names, prompts, or shared rules.
+## App State Preserved
+- AI Fieldbook Iteration 1 remains unchanged.
+- Manual acceptance gate 1.26 remains open.
+- Iteration 2, App Intents, and AI implementation remain blocked until that gate is accepted.
+- The current project repository remains uncommitted and unpushed by design.
 
-## Documentation Boundary State
-- Current app-specific canonical target: `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/AIFieldbook`.
-- Current task canonical target: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b`.
-- Reusable canonical target: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable`.
-- Canonical global documentation remote: `https://github.com/MArtem/AIZenflowDocumentation`.
-- Global documentation work is complete only after commit and push to `MArtem/AIZenflowDocumentation`; use `./scripts/check_documentation_remote_state.py` to verify the local checkout is clean and synced.
-- Other app docs are reference-only unless the user explicitly asks for cross-app comparison.
-- Global reusable documentation now includes `TASK_TYPE_DOCUMENTATION_ROUTER.md` and a router path validator. The current local worktree has active copies, but only the global documentation repo is committed/pushed automatically.
-
-## Current AI Fieldbook State
-- Independent internal-only learning app with working name `AI Fieldbook`; project exists at `./AIFieldbook/AIFieldbook.xcodeproj`.
-- Toolchain previously verified: Xcode 26.5 (`17F42`), iOS Simulator SDK 26.5, installed runtimes iOS 18.2 and iOS 26.5.
-- No backend, cloud-provider budget, cloud data transfer, credentials, or test-writing permission is approved.
-- Iteration 1 implementation blocks 1.1-1.25 are complete except that App Intents were explicitly moved to Iteration 2 block 2.0.
-- Human/manual acceptance gate 1.26 remains open.
-- The explicit acceptance checklist is `./.zenflow/tasks/new-task-be0b/ai-fieldbook-iteration-1-acceptance-gate.md`.
-- App Intents and AI work must not start before the Iteration 1 acceptance gate is accepted.
-- AI work must first read `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`; current user/project rules override generic examples in that prompt.
-
-## Architecture Baseline
-- `AppComposition` owns services and screen/modal state.
-- `AppCoordinator` owns selected tab, typed per-tab routers, modal presentation, and deep-link routing.
-- Routes carry IDs/value objects.
-- Feature views do not construct repositories or ViewModels.
-- Physical and Xcode structure mirrors `App`, `Navigation`, `Core`, `Features`, `Resources`, plus source-only `PackagesInUse/AppNavigation`.
-- This baseline is mandatory for small apps too; do not simplify it away.
-
-## Verification Baseline
-- Latest known verification: custom plist and Russian strings linted; `git diff --check` passed; generic iOS Simulator Debug build succeeded with DerivedData/TMPDIR under `./.zenflow-build`; app installed/launched on iOS 26.5; simulator recognized the custom URL scheme and displayed the system open confirmation.
-- Remaining manual gate: CRUD/picker fixtures, actual mic recording/playback, URL edit/open, populated migration, VoiceOver/Dynamic Type, confirmed deep-link routing, export/delete-all, and saved-record relaunch.
-- Tests remain prohibited and were not created/run.
+## Next Safe Step
+For every future documentation-system change, load the `governance-documentation` route and apply `DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md` before creating or restructuring an artifact.
 
 ## Must Not Do
-- Do not start Iteration 2, App Intents, or AI implementation until the user accepts the Iteration 1 manual gate.
-- Do not lower architecture quality because the app is internal or educational.
-- Do not add speculative backend/cloud behavior.
-- Do not write tests without explicit permission.
-- Do not run traces or broad simulator automation unless useful and resource-justified.
-
-## Completion Rule
-After each coherent block:
-1. update `./.zenflow/tasks/new-task-be0b/plan.md`;
-2. run relevant static/docs verification;
-3. report changed files, verification, remaining risks, and whether build/tests were intentionally skipped.
+- Do not create a new durable rule or document before checking the existing canonical owner and completing the admission gate.
+- Do not place app/task decisions in the reusable baseline without explicit approved promotion and app-neutral rewriting.
+- Do not expand Level 0 merely because a document is important.
+- Do not commit or push the current project repository without explicit user authorization.

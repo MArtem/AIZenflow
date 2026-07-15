@@ -23,10 +23,27 @@ ALLOWED_REUSABLE_TOKEN_FILES = {
     "SOURCE_OF_TRUTH_MAP.md",
     "CLONE_CREATION_PLAYBOOK.md",
 }
+CORE_FORBIDDEN_PHRASES = [
+    "new-task-be0b",
+    "feed/composer card",
+    "Работаем в ",
+    "Zenflow workspace",
+    "Zenflow sandbox",
+    "Zenflow tasks",
+]
+CORE_REUSABLE_NAMES = {
+    "AGENTS.md",
+    "PROJECT_DOCUMENTATION.md",
+    "PROJECT_HEALTH.md",
+    "CURRENT_USER_OVERRIDES.md",
+    "AGENT_RULES.md",
+    "WORK_CONTINUITY.md",
+    "TASK_TYPE_DOCUMENTATION_ROUTER.md",
+}
 
 
 def is_allowed_reusable_token_file(path: Path) -> bool:
-    return path.name in ALLOWED_REUSABLE_TOKEN_FILES or "templates" in path.parts
+    return path.name in ALLOWED_REUSABLE_TOKEN_FILES
 
 
 def main() -> int:
@@ -71,9 +88,14 @@ def main() -> int:
         reusable = vault / "reusable"
         if reusable.is_dir():
             for path in reusable.rglob("*.md"):
+                text = path.read_text(encoding="utf-8", errors="replace")
+                if path.name in CORE_REUSABLE_NAMES and "baseline" in path.parts:
+                    for phrase in CORE_FORBIDDEN_PHRASES:
+                        if phrase in text:
+                            rel = path.relative_to(vault)
+                            failures.append(f"{rel}: non-neutral core phrase `{phrase}`")
                 if is_allowed_reusable_token_file(path):
                     continue
-                text = path.read_text(encoding="utf-8", errors="replace")
                 hits = [token for token in APP_TOKENS if token in text]
                 if hits:
                     rel = path.relative_to(vault)

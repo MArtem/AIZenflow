@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "ignored_local_patterns": [
+    "**/.DS_Store"
+  ],
+  "file_mappings": [
+    {
+      "source": "AGENTS.md",
+      "target": "AGENTS.md",
+      "mode": "exact"
+    },
+    {
+      "source": "PROJECT_DOCUMENTATION.md",
+      "target": "PROJECT_DOCUMENTATION.md",
+      "mode": "overlay"
+    },
+    {
+      "source": "PROJECT_HEALTH.md",
+      "target": "PROJECT_HEALTH.md",
+      "mode": "overlay"
+    }
+  ],
+  "tree_mappings": [
+    {
+      "source": "docs",
+      "target": "docs",
+      "default_mode": "exact",
+      "overlay_patterns": [
+        "CI_CD_QUALITY_GATES.md",
+        "CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+        "DESIGN_SYSTEM_GOVERNANCE.md",
+        "DOCS_REPO_OPERATIONS.md",
+        "DOCUMENT_LIBRARY_GUIDE.md",
+        "DOCUMENT_ROUTING_REGISTRY.json",
+        "IOS_OFFLINE_SYNC_STANDARD.md",
+        "IOS_PERFORMANCE_BUDGETS.md",
+        "IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+        "IOS_SECURITY_PRIVACY_GATE.md",
+        "PACKAGES_AND_MANAGERS.md",
+        "README.md",
+        "TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "UI_PIXEL_PERFECT_WORKFLOW.md",
+        "agent-prompts/README.md",
+        "knowledge/global/prompt-presets/README.md"
+      ],
+      "canonical_only_patterns": [
+        "IOS_SENIOR_LEAD_ARCHITECT_STAFF_HANDBOOK_OUTLINE.md"
+      ],
+      "local_only_patterns": [
+        "ALL_DOCUMENTS_INVENTORY.md",
+        "IOS_ARCHITECTURE_REFERENCE.md",
+        "LOCAL_FEED_PERSISTENCE_CONTRACT.md",
+        "PACKAGE_USAGE_SOURCE_ONLY.md",
+        "SHARE_EXTENSION_VALIDATION.md",
+        "agent-prompts/AI_iOS_MASTER_PROMPT.md",
+        "agent-prompts/swiftui-design-generation-master.md",
+        "archive/**",
+        "documentation-split/**",
+        "knowledge/global/README.md",
+        "knowledge/global/prompt-presets/swiftui-design-generation-master.md",
+        "knowledge/source-app/**",
+        "saved-prompts/**"
+      ]
+    },
+    {
+      "source": "root-scripts",
+      "target": "scripts",
+      "default_mode": "exact",
+      "overlay_patterns": [
+        "check_docs_index.py",
+        "check_forbidden_patterns.py",
+        "check_large_files.py",
+        "check_localization.py",
+        "check_secrets.py",
+        "check_swiftui_hot_path_patterns.py",
+        "run_static_quality_gates.sh",
+        "validate_ios_production_framework.py"
+      ],
+      "canonical_only_patterns": [],
+      "local_only_patterns": [
+        "api_http_trace",
+        "api_method_trace",
+        "migrate_packages_in_use_project.py",
+        "static_gate_scope.py",
+        "verify.sh"
+      ]
+    },
+    {
+      "source": ".codex",
+      "target": ".codex",
+      "default_mode": "exact",
+      "overlay_patterns": [
+        "skills/ios-code-documentation/SKILL.md"
+      ],
+      "canonical_only_patterns": [],
+      "local_only_patterns": [
+        "skills/ios-content-cards/**",
+        "skills/ios-reusable-packages/**"
+      ]
+    }
+  ]
+}

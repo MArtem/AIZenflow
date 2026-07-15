@@ -1,7 +1,7 @@
 # Packages And Managers Guide
 
 ## Purpose
-This document explains the reusable package and manager layer in `source-app`.
+This document explains the reusable package and manager layer for an active app worktree.
 
 Use it for:
 - package integration work
@@ -14,9 +14,9 @@ Do not use it for:
 - temporary debugging notes
 
 
-## Current source-app integration mode
+## Source-only integration mode
 
-`source-app` currently uses reusable package code in source-only local mode:
+When a project selects source-only local integration, use this layout:
 
 - `./PackagesInUse` contains the active package subset compiled directly into app/share/widget targets.
 - `./PackagesForReuse` contains the full reviewed reusable package vault.
@@ -273,9 +273,9 @@ When using a package or manager in app code:
 
 ## Reuse In Other Projects
 When reusing these packages elsewhere:
-- start from the package contract, not from `source-app` wrappers
+- start from the package contract, not from app-specific wrappers
 - reimplement only the project-specific mapping and policies
-- do not cargo-cult `source-app` repository shapes if the new project does not need them
+- do not cargo-cult another app's repository shape if the new project does not need it
 
 ## Related Sources
 - [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
@@ -284,7 +284,7 @@ When reusing these packages elsewhere:
 
 
 ## Neutral Reuse For New Projects
-The old `source-app infrastructure` compatibility bundle has been retired from this worktree. New projects should copy only the needed standalone package folders, using neutral package names such as:
+The old app-specific monolithic infrastructure compatibility bundle is not part of the reusable baseline. New projects should copy only the needed standalone package folders, using neutral package names such as:
 
 - `AppInfrastructure`
 - `AppNetworking`
@@ -303,4 +303,4 @@ For small demo/test projects, start with networking, errors, localization, confi
 
 ## Xcode Project Organization For Source-Only Packages
 
-Active package source files must be grouped in `./source-app.xcodeproj/project.pbxproj` under a logical `PackagesInUse` group with one subgroup per package. This is an Xcode navigation rule only; physical files remain under `./PackagesInUse/<PackageName>`. Future package additions must keep this structure and must not leave package files only in `Recovered References`.
+Active package source files must be grouped in the active Xcode project's `project.pbxproj` under a logical `PackagesInUse` group with one subgroup per package. This is an Xcode navigation rule only; physical files remain under `./PackagesInUse/<PackageName>`. Future package additions must keep this structure and must not leave package files only in `Recovered References`.

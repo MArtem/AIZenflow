@@ -23,31 +23,42 @@ REQUIRED_FILES = [
     "docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
     "docs/MODEL_ROUTING_RULE.md",
     "docs/DOCUMENT_BOUNDARY_STANDARD.md",
+    "docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+    "docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "docs/DOCUMENT_ROUTING_REGISTRY.json",
+    "docs/TASK_DOCUMENT_ROUTES.json",
+    "docs/REUSABLE_BASELINE_POLICY.json",
+    "scripts/resolve_docs_route.py",
+    "scripts/report_documentation_context_cost.py",
+    "scripts/check_reusable_baseline_drift.py",
 ]
 
 REQUIRED_TEXT = {
     "AGENTS.md": [
         "DOCUMENT_BOUNDARY_STANDARD.md",
         "MODEL_ROUTING_RULE.md",
-        "AIZenflowDocumentation",
+        "TASK_TYPE_DOCUMENTATION_ROUTER.md",
         "/Users/Artem/.zenflow",
         "перечитать весь актуальный набор документации и правил",
     ],
     "docs/README.md": [
         "DOCUMENT_BOUNDARY_STANDARD.md",
+        "DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
         "MODEL_ROUTING_RULE.md",
+        "DOCUMENT_ROUTING_REGISTRY.json",
+        "TASK_DOCUMENT_ROUTES.json",
+        "REUSABLE_BASELINE_POLICY.json",
     ],
     "PROJECT_DOCUMENTATION.md": [
         "DOCUMENT_BOUNDARY_STANDARD.md",
     ],
     "docs/CURRENT_USER_OVERRIDES.md": [
-        "AIZenflowDocumentation",
         "DOCUMENT_BOUNDARY_STANDARD.md",
-        "Product-Staff Quality Bar",
+        "highest reusable standards",
     ],
     "docs/WORK_CONTINUITY.md": [
-        "AIZenflowDocumentation",
-        "DOCUMENT_BOUNDARY_STANDARD.md",
+        "TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "TASK_STATE_DOCUMENTATION_STANDARD.md",
         "перечитать весь актуальный набор документации и правил",
     ],
 }

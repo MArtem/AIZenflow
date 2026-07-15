@@ -11,37 +11,12 @@ Entry point for active project documentation, production standards, prompt prese
 - Documentation is part of the product baseline, not optional commentary.
 
 ## Default Read Order
-Read the compact operating baseline first, then route by task type:
-
-1. `./PROJECT_DOCUMENTATION.md`
-2. `./PROJECT_HEALTH.md`
-3. `./docs/CURRENT_USER_OVERRIDES.md`
-4. `./docs/AGENT_RULES.md`
-5. `./docs/WORK_CONTINUITY.md`
-6. `./docs/MODEL_ROUTING_RULE.md`
-7. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-8. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
-9. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
-10. Scope-specific docs selected by the router.
-
-## One-Time Bootstrap After Chat Reset
-On a new chat/context reset, read once:
-1. this file
-2. `./PROJECT_DOCUMENTATION.md`
-3. `./PROJECT_HEALTH.md`
-4. `./docs/WORK_CONTINUITY.md`
-5. `./docs/CURRENT_USER_OVERRIDES.md`
-6. `./docs/AGENT_RULES.md`
-7. `./docs/MODEL_ROUTING_RULE.md`
-8. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-9. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
-10. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
-11. relevant prompt/skill/standard docs selected by the router.
-
-Re-read the full stack only when architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
+Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, then its current Level 0 set once, then only the selected task routes. The router is the sole source of truth for the numbered startup list.
 
 ## Context Load Policy
 The index below is a map, not an always-read list. Use it to resolve routed documents after `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` selects the task type.
+
+Clean as found: when duplicated long rules, stale always-read lists, broken links, or misplaced app-specific content are found during normal work, fix them if safe and in scope; otherwise record the follow-up. Every new reusable doc/prompt/skill/package reference must be assigned to the router before completion.
 
 ## Mandatory Active Documentation Index
 
@@ -55,9 +30,13 @@ The index below is a map, not an always-read list. Use it to resolve routed docu
 - `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 - `./docs/CURRENT_USER_OVERRIDES.md`
 - `./docs/MODEL_ROUTING_RULE.md`
+- `./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md`
 - `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
 - `./docs/DOCUMENT_LIBRARY_GUIDE.md`
 - `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
+- `./docs/DOCUMENT_ROUTING_REGISTRY.json`
+- `./docs/TASK_DOCUMENT_ROUTES.json`
+- `./docs/REUSABLE_BASELINE_POLICY.json`
 - `./docs/SOURCE_OF_TRUTH_MAP.md`
 - `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
 - `./docs/COMPLETION_REPORT_CONTRACT.md`
@@ -248,6 +227,9 @@ The index below is a map, not an always-read list. Use it to resolve routed docu
 - `./scripts/check_forbidden_patterns.py`
 - `./scripts/check_secrets.py`
 - `./scripts/check_task_type_documentation_router.py`
+- `./scripts/resolve_docs_route.py`
+- `./scripts/report_documentation_context_cost.py`
+- `./scripts/check_reusable_baseline_drift.py`
 - `./scripts/check_large_files.py`
 - `./scripts/check_localization.py`
 - `./scripts/check_swiftui_hot_path_patterns.py`

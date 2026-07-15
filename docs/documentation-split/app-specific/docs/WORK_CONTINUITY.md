@@ -21,7 +21,7 @@ Durable resume checkpoint for `source-app` when chat/task context is lost.
 - The user explicitly expanded the local sandbox for this task from `/Users/Artem/.zenflow/worktrees` to `/Users/Artem/.zenflow`.
 - All project work, build output, package verification output, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts must stay inside `/Users/Artem/.zenflow`.
 - Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside `/Users/Artem/.zenflow` for project work.
-- If a command/tool would default outside the Zenflow sandbox, override its output paths before running it.
+- If a command/tool would default outside the local sandbox, override its output paths before running it.
 - The only allowed external filesystem action is deleting previously created source-app/MVVMExample traces outside the sandbox when explicitly requested by the user.
 
 ## Mandatory Startup Read Order
@@ -82,7 +82,7 @@ Latest user approvals:
 
 ## Context Transfer Prompt Template
 ```text
-Работаем в проекте `source-app` в worktree:
+Рабочий контекст: проект `source-app`, worktree:
 `/Users/Artem/.zenflow/worktrees/new-task-be0b`
 
 Локальная sandbox-граница для этой задачи расширена пользователем до:

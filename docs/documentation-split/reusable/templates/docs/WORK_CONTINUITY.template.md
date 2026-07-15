@@ -11,20 +11,10 @@ Durable resume checkpoint for `<AppName>` when chat/task context is lost.
 
 ## Universal Transition Prompt Template
 ```text
-Работаем в проекте `<AppName>` в worktree:
+Рабочий контекст: проект `<AppName>`, worktree:
 `<worktree-path>`
 
-Перед началом прочитай:
-1) ./docs/README.md
-2) ./PROJECT_DOCUMENTATION.md
-3) ./PROJECT_HEALTH.md
-4) ./docs/CURRENT_USER_OVERRIDES.md
-5) ./docs/AGENT_RULES.md
-6) ./docs/WORK_CONTINUITY.md
-7) ./docs/MODEL_ROUTING_RULE.md
-8) ./docs/DOCUMENT_LIBRARY_GUIDE.md
-9) ./docs/DOCUMENT_BOUNDARY_STANDARD.md
-10) текущие task docs under ./.zenflow/tasks/<task-id>/ если есть
+Перед началом прочитай `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, затем его текущий Level 0 один раз и только task-relevant routes. Текущие task handoff/plan входят в Level 0, если существуют.
 
 Правило после очистки контекста:
 - перечитать весь актуальный набор документации и правил для этого worktree и task-контекста

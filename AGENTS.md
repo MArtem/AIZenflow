@@ -13,23 +13,13 @@ Every working, status, readiness, confirmation, task-orientation, planning, or c
 Short answers such as “готов”, “да, всё ясно”, “готов к новым задачам”, or “можешь присылать” are not exempt.
 
 ## Startup Read Rule
-Before code, docs, git, project, build, or task changes, read:
+Before code, docs, git, project, build, or task changes:
 
-1. `./docs/README.md`
-2. `./PROJECT_DOCUMENTATION.md`
-3. `./PROJECT_HEALTH.md`
-4. `./docs/CURRENT_USER_OVERRIDES.md`
-5. `./docs/AGENT_RULES.md`
-6. `./docs/WORK_CONTINUITY.md`
-7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
-8. `./docs/MODEL_ROUTING_RULE.md`
-9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-10. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
-11. `./.zenflow/tasks/new-task-be0b/handoff.md`
-12. `./.zenflow/tasks/new-task-be0b/plan.md`
-13. task-relevant package/prompt/skill docs selected by `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`.
+1. Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`.
+2. Read its current Level 0 set once, including current task handoff/plan when present.
+3. Load only the task-relevant routes before acting.
 
-Do not read the whole documentation index by default. Read `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/AGENT_PREFLIGHT_CHECKLIST.md`, `./docs/COMPLETION_REPORT_CONTRACT.md`, and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` when the selected route or task phase requires them.
+The router is the sole source of truth for the numbered Level 0 list. Do not duplicate that list here or treat `./docs/README.md` as an always-read library.
 
 ## AI Task Prompt Routing
 - For work involving AI, ML, Apple Intelligence, Foundation Models, Core AI,
@@ -64,6 +54,7 @@ Always include the context-transfer rule when handing off:
 - Durable reusable rules, prompts, skills, templates, package docs, and shared app snapshots live in the GitHub repository `MArtem/AIZenflowDocumentation`.
 - The local checkout for that repository is `/Users/Artem/.zenflow/worktrees/documentation-vault`.
 - Global documentation work is not complete until the relevant changes are committed in that checkout and pushed to `https://github.com/MArtem/AIZenflowDocumentation`.
+- Agents may autonomously commit and push only `MArtem/AIZenflowDocumentation`; commits and pushes in all other repositories require an explicit user request for that repository/action.
 - Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before documentation moves, reusable rule updates, app-specific docs updates, prompt/skill changes, package-doc updates, or new-project bootstrapping.
 - Apply `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` after Level 0 startup to select only task-relevant standards, prompts, package docs, and skills.
 - Apply `./docs/SOURCE_OF_TRUTH_MAP.md` before deciding where durable knowledge belongs.
@@ -75,7 +66,7 @@ Always include the context-transfer rule when handing off:
 - `./PackagesInUse` contains active source-only reusable package code compiled into app/share/widget targets.
 - `./PackagesForReuse` contains the full reviewed reusable package vault.
 - `./Packages` contains SDK/package creation docs, templates, reports, and optional copy-file helpers only.
-- Do not reintroduce retired monolithic source-app infrastructure bundles as active runtime package paths.
+- Do not reintroduce retired app-specific monolithic infrastructure bundles as active reusable runtime paths.
 - Do not use SwiftPM for app integration unless there is an explicit current reason.
 
 ## Tests And Verification
@@ -97,4 +88,4 @@ Always include the context-transfer rule when handing off:
 - ViewModels expose explicit intent methods by default; generic `send(_:)`, `dispatch(_:)`, or UI action enums require explicit approval and documented rationale.
 
 ## Plan Rule
-If new approved work benefits from a breakdown, update `./.zenflow/tasks/new-task-be0b/plan.md` with checkbox steps and mark completed steps before reporting completion.
+If new approved work benefits from a breakdown, update the current task `plan.md` with checkbox steps and mark completed steps before reporting completion.

@@ -18,15 +18,7 @@ Do not use this file for:
 For the full documentation map, use [docs/README.md](./docs/README.md).
 
 ## First Read For Agents
-When starting or resuming work in this worktree, read in this order:
-1. [docs/README.md](./docs/README.md)
-2. this file
-3. [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
-4. [docs/CURRENT_USER_OVERRIDES.md](./docs/CURRENT_USER_OVERRIDES.md)
-5. [docs/AGENT_RULES.md](./docs/AGENT_RULES.md)
-6. [docs/WORK_CONTINUITY.md](./docs/WORK_CONTINUITY.md)
-7. [docs/DOCUMENT_BOUNDARY_STANDARD.md](./docs/DOCUMENT_BOUNDARY_STANDARD.md)
-8. current task docs under `.zenflow/tasks/new-task-be0b/`
+Use `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`. This app onboarding document is loaded for project/code/package orientation; it is not an always-read startup document.
 
 For context transfer, include this exact rule:
 **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.

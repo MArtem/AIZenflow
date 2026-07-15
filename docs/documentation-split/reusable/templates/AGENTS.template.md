@@ -18,19 +18,13 @@ Short answers such as “готов”, “да, всё ясно”, “гото
 - Use `GPT-5.4` only for approved-plan low-risk execution; use `GPT-5.5` for architecture, persistence, concurrency, navigation, state ownership, public APIs, package boundaries/adoption, security/privacy, data-loss/sync, performance-sensitive work, and high-risk final reviews.
 
 ## Startup Read Rule
-Before code, docs, git, or project changes, read:
-1. `./docs/README.md`
-2. `./PROJECT_DOCUMENTATION.md`
-3. `./PROJECT_HEALTH.md`
-4. `./docs/CURRENT_USER_OVERRIDES.md`
-5. `./docs/AGENT_RULES.md`
-6. `./docs/WORK_CONTINUITY.md`
-7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
-8. `./docs/DOCUMENT_LIBRARY_GUIDE.md`
-9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-10. `./docs/ALL_DOCUMENTS_INVENTORY.md`
-11. current Zenflow task handoff/plan if present
-12. task-relevant package/prompt/skill docs selected through the guide and inventory.
+Before code, docs, git, or project changes:
+
+1. Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`.
+2. Read its current Level 0 set once, including current task handoff/plan when present.
+3. Load only the task-relevant routes before acting.
+
+The router is the sole source of truth for the numbered startup list. Do not treat the documentation index as an always-read library.
 
 
 ## Documentation Vault
@@ -43,7 +37,7 @@ Before code, docs, git, or project changes, read:
 
 ## Filesystem Sandbox
 - Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active worktree sandbox.
-- Do not use global SwiftPM/Xcode caches, `/tmp`, user-library caches, or any path outside the active Zenflow sandbox for project work.
+- Do not use global SwiftPM/Xcode caches, `/tmp`, user-library caches, or any path outside the active local sandbox for project work.
 - If a tool defaults outside the sandbox, override its output/cache/DerivedData paths before running it.
 
 ## MVVM ViewModel API

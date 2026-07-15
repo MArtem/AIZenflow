@@ -1,7 +1,7 @@
 # Shared Document Library Guide
 
 ## Canonical Location
-The shared documentation library for all Zenflow tasks is here:
+The shared documentation library for Codex app tasks and local worktrees is here:
 
 - `/Users/Artem/.zenflow/worktrees/documentation-vault`
 

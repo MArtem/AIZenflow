@@ -21,10 +21,10 @@ Every working response should start with:
 - Readiness/status answers such as “готов к новым задачам” are not exempt.
 
 ## Filesystem Sandbox Rule
-- Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active Zenflow sandbox.
+- Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside the active local sandbox.
 - For Artem's local environment, the hard boundary is `/Users/Artem/.zenflow`.
-- Never use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside the active Zenflow sandbox for project work.
-- If a tool defaults outside the Zenflow sandbox, override its output/cache/DerivedData paths before running it.
+- Never use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or any other path outside the active local sandbox for project work.
+- If a tool defaults outside the sandbox, override its output/cache/DerivedData paths before running it.
 - The only allowed external filesystem action is deleting previously created project traces outside the sandbox when the user explicitly requests cleanup.
 
 ## MVVM ViewModel API Rule

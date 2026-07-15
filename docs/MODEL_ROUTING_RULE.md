@@ -1,159 +1,72 @@
 # Model Routing Rule
 
 ## Purpose
-Use models by task risk, not habit. Save limits on reversible execution work, but do not lower model quality on decisions that shape architecture, data ownership, user data, security, or long-term maintenance.
+Choose model quality and reasoning effort by task risk, reversibility, and evidence needs. Save resources only where doing so cannot reduce correctness, safety, maintainability, or verification confidence.
 
+## Selection Authority
+The user authorizes the assistant to choose the best available model for each task and to recommend a change when risk changes.
 
-## User-Approved Model Selection Autonomy
-The user authorizes the assistant to choose the most suitable model before each task, recommend a model change mid-task when risk changes, and use available lower-cost or higher-quality model workers when the environment supports it.
+If Codex app fixes the primary model, the assistant cannot switch that primary model by itself. When a real switch is needed, ask the user to switch or continue with the best available model and report residual risk.
 
-Important limitation:
-- the assistant can select, route, and recommend models inside available tooling;
-- if Zenflow or the chat UI fixes the primary model for the current session, the assistant cannot physically switch that primary model by itself;
-- when an actual primary-model switch is required for quality, the assistant must say so clearly and ask the user to switch, or continue with the best available model while reporting the residual risk.
+## Stable Risk Classification
+Before editing code or documentation, classify meaningful work as one of:
 
-Use this quality/resource heuristic until replaced by measured evidence from this project:
+1. **Low-risk execution** — reversible mechanical work with architecture and ownership already decided.
+2. **Standard high-quality task** — normal planning, implementation, review, or documentation work requiring full context discipline.
+3. **High-risk planning + final review** — execution may be routine, but architecture/data/security/performance decisions and the final gate need the strongest available model.
+4. **High-risk full task** — risk remains high throughout implementation and verification.
 
-| Model | Relative quality | Relative token/limit cost | Preferred use |
-|---|---:|---:|---|
-| `GPT-5.5` | `100%` baseline | `100%` baseline | safe default, planning, high-risk decisions, final gates |
-| `GPT-5.6 sol` | `103–108%` | `90–110%` | preferred daily default when available and stable |
-| `GPT-5.6 tera` | `110–120%` | `130–180%` | highest-risk planning/review/final gates only |
-| `GPT-5.6 luna` | `88–96%` | `45–70%` | low-risk mechanical/read-only/docs inventory work |
+Report the risk class, actual selected model, and reasoning level. Do not encode a model version into the class name; model availability changes faster than the risk taxonomy.
 
-Routing guidance:
-- prefer `GPT-5.6 sol` or `GPT-5.5` for most real project work;
-- use `GPT-5.6 tera` only when the cost is justified by risk: architecture, security/privacy, persistence, concurrency, package adoption, app integration, performance-sensitive decisions, or final gates;
-- use `GPT-5.6 luna` only for reversible mechanical work, read-only scans, simple inventories, formatting, and draft summaries;
-- never choose a cheaper model when doing so would reduce correctness, safety, maintainability, or verification confidence.
+## Current Model Mapping
+- **GPT-5.6 sol**: preferred daily high-quality default when available and stable.
+- **GPT-5.6 tera**: highest-risk architecture, security/privacy, persistence/data-loss, concurrency, package-boundary, performance, and final-review work when its extra cost is justified.
+- **GPT-5.6 luna**: low-risk read-only inventory, formatting, mechanical migration, and reversible execution only.
+- **GPT-5.5**: high-quality fallback for planning, high-risk decisions, and final gates when GPT-5.6 variants are unavailable or unsuitable.
+- **GPT-5.4**: approved-plan low-risk execution fallback when available; it must not invent architecture.
 
-## Mandatory Task Classification
-Before editing code or documentation for a task, classify it as one of:
+These are qualitative routing preferences, not measured quality percentages. Change them only from actual tool behavior, evaluation results, or explicit user direction.
 
-1. `GPT-5.5 Planning Required`
-2. `GPT-5.4 Execution Only`
-3. `GPT-5.4 Execution + GPT-5.5 Final Review`
-4. `GPT-5.5 Full Task Required`
+## High-Risk Triggers
+Use **high-risk planning + final review** or **high-risk full task** for:
 
-Explain the classification in 3–5 bullets before making changes. For tiny conversational answers with no file/tool work, keep the answer concise and do not force a heavy ceremony.
+- architecture, module/package boundaries, public APIs, composition, navigation, or app-wide state ownership;
+- persistence, migration, data loss, offline/sync, cache durability, files, uploads/downloads, or app groups;
+- concurrency, actors, cancellation, `Sendable`, or main-thread ownership;
+- security, privacy, authentication, authorization, tokens, secrets, or sensitive logging;
+- performance-sensitive SwiftUI/render/media paths;
+- package adoption, Xcode integration, target membership, signing, release, or broad multi-file refactors;
+- ambiguous product behavior or decisions that establish a repeated pattern;
+- important final reviews where failure would be expensive or hard to reverse.
 
-## Default Executor: GPT-5.4
-Use `GPT-5.4` for routine implementation when the architecture and ownership are already decided.
+UI/design work from Figma, screenshots, PDF/SVG/CSS, or pixel-perfect references is standard/high-risk work unless the user explicitly relaxes it.
 
-Appropriate `GPT-5.4` work includes:
-- small and medium changes that follow an approved plan;
-- implementation of an already chosen pattern;
-- local SwiftUI updates from an accepted spec;
-- DTO/model mapping after the data flow is defined;
-- repository/use-case/view-model wiring when the boundary is already chosen;
-- unit tests for known behavior when tests are allowed;
-- compiler-error fixes with a clear cause;
-- renaming, moving files, formatting, cleanup, and documentation/comments for accepted code;
-- simple bug fixes with a concrete local cause.
+## Low-Risk Execution Boundary
+Low-risk execution is appropriate only when:
 
-`GPT-5.4` must not invent architecture. If the work raises ownership, boundary, data-flow, persistence, concurrency, navigation, public API, or long-term structure questions, stop and escalate to `GPT-5.5`.
+- the intended behavior and ownership are already approved;
+- the change is local, reversible, and does not establish a new pattern;
+- persistence, security/privacy, navigation/state, public API, package, data-loss, and performance-sensitive decisions are absent;
+- verification is known and permitted.
 
-## Critical Gate: GPT-5.5
-Use `GPT-5.5` for irreversible, high-risk, or quality-gate decisions.
+If any of those conditions becomes false, escalate instead of improvising.
 
-`GPT-5.5` is required for:
-- initial task decomposition and implementation contracts;
-- choosing between implementation strategies;
-- architecture, module boundaries, public protocols, and reusable package boundaries;
-- data flow design from API DTO to domain/UI model to database model;
-- SwiftData/CoreData/UserDefaults/files/app-group persistence strategy;
-- concurrency, `@MainActor`, actor ownership, cancellation, and `Sendable` decisions;
-- navigation architecture and app-wide state ownership;
-- large refactors or changes touching many unrelated files;
-- performance-sensitive SwiftUI decisions and scroll/media hot paths;
-- security, privacy, authentication, authorization, token storage, data loss, migration, synchronization, offline/cache, uploads/downloads, or file-system safety;
-- package adoption into `./PackagesInUse`, Xcode integration, or app runtime changes;
-- important final reviews before merge/completion.
+## Two-Phase Workflow
+For non-trivial work that can be safely split:
 
-UI/design work from screenshots, Figma, PDF, SVG, CSS, visual references, or pixel-perfect comparison remains `GPT-5.5` unless the user explicitly relaxes that requirement. Routine SwiftUI implementation from an already approved spec may use `GPT-5.4`.
+1. The high-quality planner defines goal, affected files, ownership, invariants, rejected alternatives, implementation steps, verification, rollback, and executor limits.
+2. A lower-cost executor implements only that contract.
+3. The strongest required model reviews deviations, warnings, and high-risk surfaces before completion.
 
-## Two-Phase Workflow For Non-Trivial Tasks
-### Phase 1 — `GPT-5.5` Planning Gate
-`GPT-5.5` creates a concise implementation contract:
+Keep the work on the primary high-quality model when delegation is unavailable, would add context overhead, or would reduce confidence.
 
-1. goal;
-2. affected files;
-3. chosen architecture;
-4. rejected alternatives and why;
-5. step-by-step implementation plan;
-6. invariants that must not be broken;
-7. test/verification plan;
-8. rollback plan;
-9. exact limits for `GPT-5.4` execution.
+## Context And Output Budget
+- Load router-defined Level 0 once, then only task-relevant docs and directly affected code/contracts.
+- Prefer diffs and focused files over full-repository loading.
+- Do not skip task-routed architecture, security/privacy, persistence, performance, navigation/state, accessibility/localization, or evidence gates to save tokens.
+- Keep execution reports concise; planning reports must contain enough reasoning to prevent ownership or architecture mistakes.
 
-The plan must be specific enough that `GPT-5.4` can implement without rethinking architecture.
+## Final Review
+Use a high-quality final review when the change touches high-risk triggers, more than five meaningfully related files, failed/warning checks, plan deviations, hard-to-revert behavior, or future repeated patterns.
 
-### Phase 2 — `GPT-5.4` Execution
-`GPT-5.4` implements only the approved contract.
-
-`GPT-5.4` must:
-- follow the contract exactly;
-- avoid broad refactoring unless explicitly included;
-- touch the minimum necessary files;
-- keep diffs small;
-- report ambiguity before changing architecture;
-- run approved checks/tests;
-- summarize changed files and important decisions without long theory.
-
-If the plan is wrong, incomplete, unsafe, or starts requiring new architecture, stop and request `GPT-5.5` review instead of improvising.
-
-## Final Review Rule
-Use `GPT-5.5` for final review when:
-- the diff touches architecture, persistence, concurrency, navigation, public protocols, app-wide state, package adoption, security/privacy, user data, cache, database, API contracts, or sync;
-- the diff touches more than five files;
-- the change is hard to revert;
-- tests/checks fail or warnings appear;
-- implementation deviated from the approved plan;
-- the result affects future extensibility or repeated patterns.
-
-For small isolated low-risk changes, `GPT-5.4` may self-review.
-
-## Context Budget Rule
-Do not load the full repository unless necessary.
-
-Before starting, select only:
-- directly edited files;
-- protocols/interfaces used by those files;
-- nearby tests when tests are allowed or verification requires them;
-- architecture notes relevant to the task.
-
-Prefer summaries over full files when the file is not directly edited. For review, prefer diffs over full files when possible.
-
-## Output Budget Rule
-Responses are concise by default.
-
-For implementation tasks:
-- no long theory;
-- no repeated explanations;
-- no full-file rewrites unless needed;
-- summarize decisions in 5–10 bullets maximum.
-
-For planning tasks:
-- include enough reasoning to prevent architectural mistakes;
-- do not generate implementation code unless requested;
-- produce an executable plan.
-
-## Escalation Triggers
-Escalate from `GPT-5.4` to `GPT-5.5` immediately if any of these appear:
-
-- “Where should this logic live?”
-- “Should this be ViewModel, UseCase, Repository, Service, Actor, Store, or Environment?”
-- “Should this be cached, persisted, mocked, or fetched?”
-- “Does this affect offline behavior?”
-- “Does this affect `MainActor` or async flow?”
-- “Does this affect navigation or app-wide state?”
-- “Does this create a new abstraction?”
-- “Will this pattern be repeated across screens?”
-- “Could this cause data loss or inconsistent UI?”
-- “Does this touch security, privacy, auth, token storage, files, uploads/downloads, or app groups?”
-- “The fix requires touching many unrelated files.”
-
-## Current Session Implementation Note
-If the primary assistant in a session is already `GPT-5.5`, use `GPT-5.4` through available subagents/tools for suitable execution/review blocks when that actually saves resources. `GPT-5.5` remains the planner, orchestrator, escalation target, and final decision model for high-risk work.
-
-If `GPT-5.4` is unavailable, unsuitable for the tool, repeatedly fails, or produces lower-quality output, keep the work on `GPT-5.5` and report the reason briefly.
+Small isolated low-risk changes may self-review if all required evidence is available.

@@ -11,11 +11,7 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 SKIP_PARTS = {
     "archive",
 }
-SKIP_FILES = {
-    # Historical task logs intentionally preserve old decisions and paths.
-    ROOT / ".zenflow/tasks/new-task-be0b/plan.md",
-    ROOT / "docs/documentation-split/app-specific/.zenflow/tasks/new-task-be0b/plan.md",
-}
+SKIP_FILES: set[pathlib.Path] = set()
 
 CHECKS: list[tuple[str, re.Pattern[str]]] = [
     (
@@ -23,8 +19,8 @@ CHECKS: list[tuple[str, re.Pattern[str]]] = [
         re.compile(r"use/report `GPT-5\.5`|GPT-5\.5 for all work|forced `GPT-5\.5`", re.IGNORECASE),
     ),
     (
-        "retired active TchopInfrastructure package boundary",
-        re.compile(r"belong in `\.?/?Packages/TchopInfrastructure|Important Areas\s*- \[Packages/TchopInfrastructure", re.IGNORECASE),
+        "retired active SourceAppInfrastructure package boundary",
+        re.compile(r"belong in `\.?/?Packages/SourceAppInfrastructure|Important Areas\s*- \[Packages/SourceAppInfrastructure", re.IGNORECASE),
     ),
     (
         "absolute workspace markdown link",
@@ -38,6 +34,10 @@ CHECKS: list[tuple[str, re.Pattern[str]]] = [
         "required external assistant-home link",
         re.compile(r"^- \[/Users/Artem/\.zenflow/assistant", re.MULTILINE),
     ),
+    (
+        "obsolete environment-only wording",
+        re.compile(r"\bZenflow (?:tasks|workspace|sandbox)\b|Работаем в ", re.IGNORECASE),
+    ),
 ]
 
 
@@ -47,7 +47,7 @@ def iter_docs() -> list[pathlib.Path]:
         ROOT / "PROJECT_DOCUMENTATION.md",
         ROOT / "PROJECT_HEALTH.md",
         ROOT / "docs",
-        ROOT / ".zenflow/tasks/new-task-be0b",
+        ROOT / ".zenflow/tasks",
         ROOT / ".codex/skills",
     ]
     files: list[pathlib.Path] = []
