@@ -1,6 +1,14 @@
 import Foundation
 import Observation
 
+/// Owns Workspace tab list state.
+///
+/// Ownership:
+/// Created by `AppComposition` and reused for the app scene lifetime.
+///
+/// Failure behavior:
+/// Loading failures keep the previous list when present and expose a localized error for the
+/// view to render.
 @Observable
 @MainActor
 final class WorkspaceListViewModel {
@@ -31,6 +39,14 @@ final class WorkspaceListViewModel {
     }
 }
 
+/// Owns detail state and destructive deletion for one workspace.
+///
+/// Ownership:
+/// Created by `AppComposition` for a workspace route and cached as runtime UI state.
+///
+/// Side effects:
+/// Deletion stages app-owned files before removing SwiftData records, then commits file
+/// deletion only after the repository mutation succeeds.
 @Observable
 @MainActor
 final class WorkspaceDetailViewModel {
@@ -85,6 +101,11 @@ final class WorkspaceDetailViewModel {
     }
 }
 
+/// Owns create/rename form state for a workspace.
+///
+/// Invariant:
+/// Empty names are rejected, and rename is disabled until the value differs from the original
+/// name captured at initialization.
 @Observable
 @MainActor
 final class WorkspaceEditorViewModel {

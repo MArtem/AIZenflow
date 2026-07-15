@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""Validate that the reusable iOS production framework index is present.
+
+This gate ensures broad production reviews can load every required standard before claiming
+quality or readiness. It checks presence only; semantic consistency is covered elsewhere.
+"""
+
 from pathlib import Path
 import sys
 

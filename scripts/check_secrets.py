@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""Scan repository text files for common committed-secret patterns.
+
+The scanner avoids large/binary files and known dev placeholders, then reports candidate
+secrets as blocking findings because token leakage is a security/privacy stop condition.
+"""
+
 import re
 
 from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots

@@ -73,6 +73,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/DEFINITION_OF_DONE.md`
 - `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
 - `./docs/STATIC_QUALITY_GATE_POLICY.md`
+- `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`
 
 ### Product, Governance, And Operating Model
 - `./docs/NEW_PROJECT_START_CONTRACT.md`

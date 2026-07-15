@@ -1,6 +1,15 @@
 import Foundation
 import SwiftData
 
+/// Value criteria for background search snapshots.
+///
+/// Responsibilities:
+/// - carries only Sendable filter values across actor boundaries;
+/// - keeps UI/search feature code independent from live SwiftData records.
+///
+/// Important:
+/// Empty criteria intentionally return no results so search screens do not accidentally
+/// fetch the whole local database during first render.
 struct FieldbookSearchCriteria: Equatable, Sendable {
     let query: String
     let workspaceID: UUID?
@@ -13,6 +22,10 @@ struct FieldbookSearchCriteria: Equatable, Sendable {
     }
 }
 
+/// Sendable snapshot used by optional system indexing.
+///
+/// The value contains only user-visible metadata approved by the local privacy contract.
+/// It must not contain full note bodies, imported file payloads, audio data, or provider URLs.
 struct SpotlightIndexEntry: Sendable {
     enum Kind: Sendable {
         case workspace
@@ -40,6 +53,19 @@ struct SpotlightIndexEntry: Sendable {
 actor FieldbookSearchIndex {
     private let maximumSearchResultCount = 100
 
+    /// Searches local knowledge items without exposing live SwiftData records to the UI.
+    ///
+    /// External usage:
+    /// Called by query/filter-driven search flows after debounce/cancellation has already
+    /// been decided by the feature state owner.
+    ///
+    /// Behavior:
+    /// - returns an empty result for empty criteria;
+    /// - applies workspace, kind, tag, and text filters together;
+    /// - caps results to keep UI rendering bounded as the local database grows.
+    ///
+    /// Errors:
+    /// Propagates SwiftData fetch failures so the caller can render an explicit error state.
     func search(criteria: FieldbookSearchCriteria) throws -> [KnowledgeItemSummary] {
         guard criteria.hasActiveCriteria else { return [] }
 
@@ -70,6 +96,16 @@ actor FieldbookSearchIndex {
             .prefix(maximumSearchResultCount))
     }
 
+    /// Builds privacy-scoped snapshots for optional Spotlight indexing.
+    ///
+    /// External usage:
+    /// Called by app-owned indexing maintenance after the product privacy setting permits
+    /// indexing. Iteration 1 keeps indexing disabled by default but still clears stale
+    /// system indexes during delete-all flows.
+    ///
+    /// Side effects:
+    /// This method performs read-only SwiftData access. It does not write to Core Spotlight;
+    /// `SpotlightIndexService` owns system indexing and deletion side effects.
     func spotlightEntries() throws -> [SpotlightIndexEntry] {
         let workspaceDescriptor = FetchDescriptor<WorkspaceRecord>(
             sortBy: [SortDescriptor(\WorkspaceRecord.updatedAt, order: .reverse)]

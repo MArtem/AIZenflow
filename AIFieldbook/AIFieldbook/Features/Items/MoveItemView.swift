@@ -1,5 +1,9 @@
 import SwiftUI
 
+/// Sheet UI for moving an item to another workspace.
+///
+/// The view owns no persistence state; it renders workspace choices and forwards the move
+/// intent to `MoveItemViewModel`.
 struct MoveItemView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: MoveItemViewModel

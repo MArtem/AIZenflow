@@ -1,4 +1,10 @@
 #!/usr/bin/env bash
+# Run the repository's lightweight static quality gates for an optional scope.
+#
+# Contract:
+# - path arguments are forwarded to scope-aware checks;
+# - blocking gates fail the script;
+# - SwiftUI hot-path output remains review-candidate evidence, not an automatic failure.
 set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SCOPE=("$@")

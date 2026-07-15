@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""Report SwiftUI performance and task-lifecycle review candidates.
+
+Findings from this script are intentionally non-blocking because patterns such as `Task {}` can
+be correct when owned by a user action, `.task(id:)`, a model lifecycle, or app maintenance.
+"""
+
 import re
 
 from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots

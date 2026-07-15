@@ -1,4 +1,10 @@
 #!/usr/bin/env python3
+"""Scan Swift source for blocked or review-required high-risk patterns.
+
+The scanner is deliberately conservative and scope-aware. Blocking findings fail the gate,
+while review candidates are reported for human/agent triage without automatically blocking.
+"""
+
 import re
 
 from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots

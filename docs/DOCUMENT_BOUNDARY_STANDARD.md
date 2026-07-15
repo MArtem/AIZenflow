@@ -64,6 +64,12 @@ Reusable material belongs only when it is app-neutral and useful across projects
 6. Task docs are not durable reusable rules.
    Task plans, handoffs, and temporary decisions may summarize reusable rules, but they do not replace the canonical reusable copy.
 
+7. Codex app bootstrap creates docs by default.
+   When a new task/project/worktree/Xcode project/app is created through Codex app, the assistant must create and maintain the correct task and app-specific documentation boundaries automatically. The user should not need to separately request plan/handoff/app-specific docs for normal project bootstrap.
+
+8. One task can contain multiple apps, but docs stay separate.
+   If a single task creates or changes multiple Xcode projects/apps, each app keeps its own `apps/<AppName>/` documentation boundary. Shared task coordination may live in `tasks/<TaskId>/`, but app decisions, histories, ADRs, local rules, product plans, runtime assumptions, bundle identifiers, and exceptions must remain under the corresponding app root.
+
 ## Promotion Gate
 A local app decision becomes reusable only through an explicit promotion step.
 

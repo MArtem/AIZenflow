@@ -1,5 +1,11 @@
 import SwiftUI
 
+/// Workspace tab list UI.
+///
+/// Responsibilities:
+/// - renders loading, empty, failure, and populated workspace states;
+/// - forwards create/open intents to app composition;
+/// - keeps row rendering value-based through `WorkspaceSummary`.
 struct WorkspaceListView: View {
     @Bindable var viewModel: WorkspaceListViewModel
     let createWorkspace: () -> Void
@@ -59,6 +65,10 @@ struct WorkspaceListView: View {
     }
 }
 
+/// Lightweight row for a workspace summary.
+///
+/// Rendering contract:
+/// Uses only immutable summary values so list rows do not observe broad feature state.
 private struct WorkspaceRow: View {
     let workspace: WorkspaceSummary
 
@@ -79,6 +89,10 @@ private struct WorkspaceRow: View {
     }
 }
 
+/// Detail UI for one workspace and its local items.
+///
+/// The view owns only confirmation UI state. Data loading and destructive file/database
+/// coordination belong to `WorkspaceDetailViewModel`.
 struct WorkspaceDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: WorkspaceDetailViewModel
@@ -170,6 +184,10 @@ struct WorkspaceDetailView: View {
     }
 }
 
+/// Shared row for local knowledge item summaries.
+///
+/// Rendering contract:
+/// The row accepts a narrow immutable snapshot and performs no file, database, or media work.
 struct KnowledgeItemRow: View {
     let item: KnowledgeItemSummary
 
@@ -197,6 +215,10 @@ struct KnowledgeItemRow: View {
     }
 }
 
+/// Sheet UI for creating or renaming a workspace.
+///
+/// Durable state changes are delegated to `WorkspaceEditorViewModel`; the view owns only focus
+/// and discard-confirmation state.
 struct WorkspaceEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: WorkspaceEditorViewModel

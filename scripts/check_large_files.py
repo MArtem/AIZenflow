@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""Detect oversized files that should not enter normal source/documentation commits.
+
+Large artifacts often indicate build output, traces, media fixtures, or accidental exports.
+The script respects explicit scan scope through `static_gate_scope`.
+"""
 
 from static_gate_scope import display_path, iter_files, parse_scope_args, resolve_scan_roots
 

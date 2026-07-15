@@ -1,6 +1,7 @@
 import Foundation
 import SwiftData
 
+/// Workspace list row snapshot used by SwiftUI and navigation decisions.
 struct WorkspaceSummary: Identifiable, Hashable, Sendable {
     let id: UUID
     let name: String
@@ -8,11 +9,16 @@ struct WorkspaceSummary: Identifiable, Hashable, Sendable {
     let updatedAt: Date
 }
 
+/// Lightweight tag snapshot detached from live SwiftData records.
 struct TagSummary: Identifiable, Hashable, Sendable {
     let id: UUID
     let name: String
 }
 
+/// Lightweight item snapshot used in lists, search results, and route labels.
+///
+/// Rendering contract:
+/// Computed display values stay cheap because SwiftUI can read them during body evaluation.
 struct KnowledgeItemSummary: Identifiable, Hashable, Sendable {
     let id: UUID
     let kind: KnowledgeItemKind
@@ -36,6 +42,7 @@ struct KnowledgeItemSummary: Identifiable, Hashable, Sendable {
     }
 }
 
+/// Text-note-only summary derived from a workspace detail item list.
 struct TextNoteSummary: Identifiable, Hashable, Sendable {
     let id: UUID
     let title: String
@@ -46,6 +53,7 @@ struct TextNoteSummary: Identifiable, Hashable, Sendable {
     }
 }
 
+/// Full workspace detail state returned to the workspace feature.
 struct WorkspaceDetailState: Equatable, Sendable {
     let id: UUID
     let name: String
@@ -59,6 +67,7 @@ struct WorkspaceDetailState: Equatable, Sendable {
     }
 }
 
+/// Text note detail snapshot used by read and edit flows.
 struct TextNoteDetailState: Equatable, Sendable {
     let id: UUID
     let workspaceID: UUID
@@ -73,6 +82,7 @@ struct TextNoteDetailState: Equatable, Sendable {
     }
 }
 
+/// Imported-file item detail snapshot with validated app-owned file metadata.
 struct ImportedItemDetailState: Equatable, Sendable {
     let id: UUID
     let workspaceID: UUID
@@ -95,6 +105,7 @@ struct ImportedItemDetailState: Equatable, Sendable {
     }
 }
 
+/// Web-link detail snapshot storing URL and notes as product text, not external provider state.
 struct URLReferenceDetailState: Equatable, Sendable {
     let id: UUID
     let workspaceID: UUID
@@ -111,6 +122,7 @@ private struct URLReferencePayload: Codable {
     let notes: String
 }
 
+/// Repository failures that map missing local records into explicit UI error states.
 enum FieldbookRepositoryError: Error {
     case workspaceNotFound
     case itemNotFound

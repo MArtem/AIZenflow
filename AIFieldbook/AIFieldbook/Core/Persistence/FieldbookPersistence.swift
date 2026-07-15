@@ -5,6 +5,11 @@ import ImageIO
 import SwiftData
 import UniformTypeIdentifiers
 
+/// Bootstraps the app's local SwiftData container.
+///
+/// Behavior:
+/// Returns a value result instead of throwing so the app entry point can render a stable
+/// startup failure screen without constructing partial dependencies.
 enum PersistenceBootstrap {
     case ready(ModelContainer)
     case failed
@@ -27,6 +32,12 @@ enum PersistenceBootstrap {
     }
 }
 
+/// Durable relative reference to an app-owned file.
+///
+/// Invariant:
+/// The path is normalized and must remain relative to the app-managed storage root. Absolute
+/// paths and parent-directory escapes are rejected so picker/provider URLs never become
+/// durable product state.
 struct DurableFileReference: Codable, Hashable, Sendable {
     let relativePath: String
 
@@ -39,6 +50,10 @@ struct DurableFileReference: Codable, Hashable, Sendable {
     }
 }
 
+/// Validated metadata returned after a file has been copied into app-owned storage.
+///
+/// The value is safe to persist because it contains a `DurableFileReference`, not the original
+/// temporary document-picker URL.
 struct ImportedFileMetadata: Sendable {
     let reference: DurableFileReference
     let originalFilename: String
@@ -50,16 +65,19 @@ struct ImportedFileMetadata: Sendable {
     let pageCount: Int?
 }
 
+/// Temporary move record used to make file deletion rollbackable around database mutations.
 struct StagedDeletion: Sendable {
     let originalReference: DurableFileReference
     let stagedRelativePath: String
 }
 
+/// Policy for destructive flows when a SwiftData record points at an already-missing file.
 enum MissingFileDeletionPolicy: Sendable {
     case fail
     case ignoreMissing
 }
 
+/// User-selectable import category and its validation policy.
 enum ImportKind: String, CaseIterable, Hashable, Identifiable, Sendable {
     case image
     case pdf
@@ -98,6 +116,7 @@ enum ImportKind: String, CaseIterable, Hashable, Identifiable, Sendable {
     }
 }
 
+/// User-presentable failures produced by app-managed file validation and storage.
 enum AppFileStoreError: LocalizedError {
     case invalidRelativePath
     case invalidFileExtension

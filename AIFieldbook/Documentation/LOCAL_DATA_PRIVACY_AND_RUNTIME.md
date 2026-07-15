@@ -4,6 +4,10 @@
 
 This document is app-specific to AI Fieldbook Iteration 1. It does not define reusable Zenflow rules.
 
+The file is intentionally stored in the project-level `AIFieldbook/Documentation/` folder and
+referenced as a top-level Xcode documentation group. It must not be placed under the app source
+folder because it is product/runtime documentation, not compiled app source.
+
 ## Local-Only Contract
 
 - AI Fieldbook has no account, backend, analytics, or cloud processing in Iteration 1.

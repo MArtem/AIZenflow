@@ -3,6 +3,15 @@ import Observation
 import SwiftUI
 import UIKit
 
+/// Owns Settings screen state and local data lifecycle actions.
+///
+/// Ownership:
+/// Created by `AppComposition` and reused for the app lifetime.
+///
+/// Side effects:
+/// Export and cleanup actions touch app-owned files. Delete-all removes SwiftData records,
+/// app-owned files, temporary exports, and Core Spotlight indexes so private local content
+/// does not survive the destructive flow in another local system surface.
 @MainActor
 @Observable
 final class SettingsViewModel {
@@ -14,15 +23,6 @@ final class SettingsViewModel {
     private(set) var errorMessage: String?
     private(set) var isWorking = false
 
-    /// Owns settings-screen state and destructive local-data actions.
-    ///
-    /// Ownership:
-    /// Created by `AppComposition` and reused for the app lifetime.
-    ///
-    /// Side effects:
-    /// Export and cleanup actions touch app-owned files. Delete-all removes SwiftData records,
-    /// app-owned files, temporary exports, and Core Spotlight indexes so private local content
-    /// does not survive the destructive flow in another local system surface.
     init(repository: FieldbookRepository, fileStore: AppFileStore, spotlight: SpotlightIndexService) {
         self.repository = repository
         self.fileStore = fileStore
@@ -71,6 +71,10 @@ final class SettingsViewModel {
     }
 }
 
+/// Settings tab UI for privacy, storage, export, permissions, and destructive reset.
+///
+/// The view owns confirmation UI only. Storage/export/delete side effects are owned by
+/// `SettingsViewModel`, and navigation reset after delete-all is delegated to app composition.
 struct SettingsView: View {
     @Environment(\.openURL) private var openURL
     @Bindable var viewModel: SettingsViewModel

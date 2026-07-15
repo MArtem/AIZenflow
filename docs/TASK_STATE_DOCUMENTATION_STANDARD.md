@@ -14,6 +14,8 @@ Keep task state concise and prevent task documents from becoming a mixed archive
 ## Rules
 - Do not store durable reusable rules in task docs.
 - Do not store durable app decisions only in task docs.
+- When a Codex app task creates or modifies a new project/app, create and maintain `plan.md`, `handoff.md`, and the relevant app-specific documentation without waiting for the user to ask for those files explicitly.
+- If one task contains multiple Xcode projects/apps, keep each app's product plans, architecture decisions, ADRs, histories, local rules, and exceptions in its own app-specific documentation boundary.
 - Do not let handoff become a full implementation log.
 - Move superseded detail into archive or app-specific docs.
 - Handoff must include the context transfer rule:

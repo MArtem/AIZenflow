@@ -1,5 +1,14 @@
 import SwiftUI
 
+/// Search tab UI for local-only item discovery.
+///
+/// Responsibilities:
+/// - renders filters and results from `SearchViewModel`;
+/// - forwards item-opening intents to app composition;
+/// - triggers debounced local search when query/filter values change.
+///
+/// Privacy contract:
+/// Search runs against local SwiftData snapshots only; no query text leaves the device.
 struct SearchView: View {
     @Bindable var viewModel: SearchViewModel
     let openItem: (UUID, KnowledgeItemKind) -> Void
@@ -89,6 +98,9 @@ struct SearchView: View {
     }
 }
 
+/// Sheet UI for creating tags and assigning them to one item.
+///
+/// Persistence and validation belong to `TagManagerViewModel`; this view owns only dismissal UI.
 struct TagManagerView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: TagManagerViewModel
@@ -150,6 +162,10 @@ struct TagManagerView: View {
     }
 }
 
+/// Horizontal tag display used by detail screens.
+///
+/// Rendering contract:
+/// Accepts immutable tag snapshots and performs no persistence lookups during body evaluation.
 struct TagListView: View {
     let tags: [TagSummary]
 

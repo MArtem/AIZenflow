@@ -1,6 +1,10 @@
 import Foundation
 import Observation
 
+/// Top-level tabs available in the app shell.
+///
+/// The enum is the stable selection value for `TabView` and must stay value-only so it can
+/// be used by navigation code without retaining views or state owners.
 enum AppTab: Hashable {
     case workspace
     case capture
@@ -8,25 +12,37 @@ enum AppTab: Hashable {
     case settings
 }
 
+/// Route values owned by the Workspace tab navigation stack.
+///
+/// Routes carry stable record identifiers plus item kind only; destination views resolve
+/// current data through composition-owned models.
 enum WorkspaceRoute: Hashable {
     case workspace(UUID)
     case item(UUID, KnowledgeItemKind)
 }
 
+/// Route values owned by the Capture tab navigation stack.
 enum CaptureRoute: Hashable {
     case item(UUID, KnowledgeItemKind)
 }
 
+/// Route values owned by the Search tab navigation stack.
 enum SearchRoute: Hashable {
     case item(UUID, KnowledgeItemKind)
 }
 
+/// Route values reserved for Settings tab subsections.
 enum SettingsRoute: Hashable {
     case storage
     case permissions
     case dataLifecycle
 }
 
+/// Modal presentation state for app-wide sheets.
+///
+/// Invariant:
+/// The value must remain lightweight and identifier-based. Modal content is created by
+/// `AppShellView` from `AppComposition`, not stored inside the route itself.
 enum AppPresentation: Hashable, Identifiable {
     case createWorkspace
     case renameWorkspace(UUID)
@@ -56,6 +72,14 @@ enum AppPresentation: Hashable, Identifiable {
 }
 
 /// Owns app-level tab selection, modal presentation, and one typed stack per tab.
+///
+/// Ownership:
+/// Created and retained by `AppComposition` for one app scene.
+///
+/// Responsibilities:
+/// - selects tabs before pushing cross-tab destinations;
+/// - keeps each tab's path isolated in its own typed router;
+/// - stores modal intent values without owning feature view models or SwiftUI views.
 @MainActor
 @Observable
 final class AppCoordinator {

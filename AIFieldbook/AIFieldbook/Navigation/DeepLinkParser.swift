@@ -1,5 +1,10 @@
 import Foundation
 
+/// Value-only destination decoded from an external app URL.
+///
+/// Security contract:
+/// The destination is not trusted until the app composition layer verifies that the referenced
+/// local record still exists before mutating navigation state.
 enum DeepLinkDestination: Equatable {
     case workspace(UUID)
     case item(UUID, KnowledgeItemKind?)

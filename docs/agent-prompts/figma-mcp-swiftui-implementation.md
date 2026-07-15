@@ -44,6 +44,60 @@ iOS / SwiftUI
 Нужно использовать существующий DesignSystem.  
 ]
 
+## 0.1. Figma Design Intake Gate
+
+После получения Figma-ссылки не начинай имплементацию сразу, если пользователь явно не дал полный implementation contract.
+
+Сначала через Figma MCP проверь доступность файла/узла и собери минимальный intake:
+
+1. Точный frame/node, который нужно реализовать.
+2. Экран, компонент или flow это должен быть.
+3. Целевой режим точности:
+   - `pixel-perfect` — максимально сохранять Figma numbers, даже если часть значений локальна для экрана;
+   - `native-adaptive` — сохранять визуальную идею и hierarchy, но адаптировать к SwiftUI, Dynamic Type, safe area и project tokens;
+   - `design-system-first` — использовать existing tokens/components как приоритет, а Figma считать визуальной reference.
+4. Целевые устройства/ориентации: один simulator size, все iPhone widths, iPad, landscape, keyboard states.
+5. Нужные states/variants: empty, filled, loading, error, disabled, selected, pressed, focused, keyboard opened, dark mode.
+6. Наличие design-system page или component library, если Figma frame использует shared components.
+7. Assets/icons/images/fonts: есть ли их можно экспортировать/заменять SF Symbols/существующими assets, или нужен список missing assets.
+8. Product behavior для интерактивных controls: что является navigation, modal, submit, validation, picker, destructive action.
+9. Localization/accessibility expectation: production strings, dynamic type, VoiceOver labels/order, contrast constraints.
+10. Что нельзя менять: architecture, existing components, tokens, product behavior, assets, backend/data layer.
+
+Если данных достаточно, ответь перед кодом:
+
+```text
+Figma intake:
+- Access: ok
+- Target node:
+- Implementation mode:
+- Required states:
+- Assets/fonts:
+- Open questions: none
+- Safe to implement: yes
+```
+
+Если данных недостаточно, задай короткий список блокирующих вопросов, разделив их по приоритету:
+
+```text
+Blocking before implementation:
+1.
+2.
+
+Can proceed with assumptions if approved:
+1.
+2.
+```
+
+Не задавай вопросы ради формальности. Если разумная assumption безопасна и не меняет продуктовый смысл, предложи её явно и продолжай только после user approval или если пользователь заранее разрешил reasonable assumptions.
+
+Для максимальной точности по Figma по умолчанию проси у пользователя только:
+
+- ссылку на конкретный frame/node;
+- желаемый режим точности (`pixel-perfect`, `native-adaptive`, `design-system-first`);
+- список states/variants, если они не видны в переданном node;
+- решение по missing assets/fonts, если Figma MCP показывает, что они нужны.
+
 # 1. Главная цель
 
 Сконвертируй дизайн из Figma в production-ready SwiftUI implementation.

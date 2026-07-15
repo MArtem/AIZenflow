@@ -1,5 +1,11 @@
 import SwiftUI
 
+/// Capture tab entry screen for manually creating local content.
+///
+/// Responsibilities:
+/// - gates capture actions behind workspace availability;
+/// - forwards create/import/record intents to app composition;
+/// - renders loading, empty, and failure states from the workspace model.
 struct CaptureView: View {
     @Bindable var workspaceModel: WorkspaceListViewModel
     let createTextNote: () -> Void
@@ -67,6 +73,10 @@ struct CaptureView: View {
     }
 }
 
+/// Form UI for creating or editing a text note.
+///
+/// The view owns only transient focus/discard-confirmation UI state. Durable form state and
+/// persistence side effects belong to `TextNoteEditorViewModel`.
 struct TextNoteEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: TextNoteEditorViewModel
@@ -154,6 +164,10 @@ struct TextNoteEditorView: View {
     }
 }
 
+/// Detail UI for a locally stored text note.
+///
+/// The view renders repository snapshots and forwards edit/tag/delete intents upward; it does
+/// not hold SwiftData records or perform persistence itself.
 struct TextNoteDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: TextNoteDetailViewModel

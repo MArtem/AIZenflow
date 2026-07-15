@@ -5,6 +5,7 @@ Mandatory review gate for secure storage, privacy, logging, permissions, and sen
 
 ## Required Checks
 ### Secrets And Tokens
+- Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md` before creating, importing, auditing, or remediating a project that may contain local secrets.
 - Store tokens/secrets in Keychain or approved secure storage.
 - Never store tokens in plain UserDefaults, logs, analytics, screenshots, or crash metadata.
 - Define token refresh, logout, revocation, and expired-session behavior.
@@ -41,3 +42,4 @@ P0/P1 by default:
 - unintended backup of sensitive data
 - unvalidated external file/URL execution path
 - missing permission/privacy explanation for shipped capability
+- real secrets present in tracked files, normal AI-readable workspace files, or app bundle resources

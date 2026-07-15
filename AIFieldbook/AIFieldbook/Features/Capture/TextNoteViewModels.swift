@@ -1,6 +1,17 @@
 import Foundation
 import Observation
 
+/// Owns create/edit state for a text note form.
+///
+/// Ownership:
+/// Created by `AppComposition` for text-note sheets. The model owns unsaved form state until
+/// the user saves or dismisses the sheet.
+///
+/// Side effects:
+/// Writes to SwiftData through `FieldbookRepository` only from `saveTapped()`.
+///
+/// Invariant:
+/// Empty notes are not saved; either title or body must contain user text.
 @Observable
 @MainActor
 final class TextNoteEditorViewModel {
@@ -136,6 +147,14 @@ final class TextNoteEditorViewModel {
     }
 }
 
+/// Owns read/delete state for a text note detail screen.
+///
+/// Ownership:
+/// Created by `AppComposition` for the current note route and cached only as a bounded runtime
+/// convenience. SwiftData remains the source of truth.
+///
+/// Side effects:
+/// Delete mutates local SwiftData through the repository; callers own navigation dismissal.
 @Observable
 @MainActor
 final class TextNoteDetailViewModel {

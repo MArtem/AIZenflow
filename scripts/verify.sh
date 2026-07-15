@@ -1,4 +1,11 @@
 #!/usr/bin/env bash
+#
+# Legacy app verification helper.
+#
+# Scope:
+# This script still targets the original Tchop app and is not the verification entry point for
+# AIFieldbook. Keep it documented so future agents do not mistake it for the current app build
+# command or route AIFieldbook artifacts into old DerivedData/cache locations.
 
 set -euo pipefail
 

@@ -1,6 +1,13 @@
 import Foundation
 import Observation
 
+/// Owns tag creation and assignment state for a single local item.
+///
+/// Ownership:
+/// Created by `AppComposition` for the manage-tags sheet.
+///
+/// Side effects:
+/// Tag creation and assignment immediately mutate local SwiftData through `FieldbookRepository`.
 @Observable
 @MainActor
 final class TagManagerViewModel {
@@ -175,6 +182,14 @@ final class SearchViewModel {
     }
 }
 
+/// Owns file import state after the user chooses an import category.
+///
+/// Ownership:
+/// Created by `AppComposition` for one import sheet.
+///
+/// Side effects:
+/// Copies the provider file into app-owned storage first, then creates the SwiftData item. If
+/// database persistence fails, the copied file is removed to avoid orphaned private data.
 @Observable
 @MainActor
 final class ImportItemViewModel {
@@ -241,6 +256,14 @@ final class ImportItemViewModel {
     }
 }
 
+/// Owns imported-item detail state and local file URL resolution.
+///
+/// Ownership:
+/// Created by `AppComposition` for one imported-item route.
+///
+/// Side effects:
+/// Delete stages app-owned files before removing the SwiftData item, then commits file deletion
+/// after the repository mutation succeeds.
 @Observable
 @MainActor
 final class ImportedItemDetailViewModel {
@@ -306,6 +329,10 @@ final class ImportedItemDetailViewModel {
     }
 }
 
+/// Owns move-item sheet state for selecting a destination workspace.
+///
+/// Side effects:
+/// `moveTapped()` updates the local SwiftData relationship through the repository.
 @Observable
 @MainActor
 final class MoveItemViewModel {

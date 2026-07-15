@@ -4,6 +4,15 @@ import Observation
 import QuickLook
 import SwiftUI
 
+/// Sheet UI for importing one user-selected file into app-owned local storage.
+///
+/// Responsibilities:
+/// - requests a document picker URL for the selected `ImportKind`;
+/// - forwards the provider URL immediately to `ImportItemViewModel`;
+/// - disables dismissal while validation/copy is in progress.
+///
+/// Privacy contract:
+/// The picker/provider URL is never stored by the view; durable storage uses app-owned copies.
 struct ImportItemView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: ImportItemViewModel
@@ -79,6 +88,7 @@ struct ImportItemView: View {
     }
 }
 
+/// User-facing import limits for the selected file category.
 private struct ImportLimitDescription: View {
     let kind: ImportKind
 
@@ -102,6 +112,12 @@ private struct ImportLimitDescription: View {
     }
 }
 
+/// Detail UI for imported image, PDF, text, and audio items.
+///
+/// Responsibilities:
+/// - renders already-resolved app-owned file URLs;
+/// - delegates playback state to `AudioPlaybackModel`;
+/// - forwards tag/move/delete intents without owning persistence.
 struct ImportedItemDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: ImportedItemDetailViewModel
@@ -176,6 +192,11 @@ struct ImportedItemDetailView: View {
     }
 }
 
+/// Chooses a safe preview surface for an app-owned imported file.
+///
+/// Rendering contract:
+/// The view does not synchronously decode heavyweight document/media content in its body.
+/// PDF and generic previews go through Quick Look, while audio uses a model-owned player.
 private struct ImportedContentPreview: View {
     let detail: ImportedItemDetailState
     let fileURL: URL
@@ -205,6 +226,9 @@ private struct ImportedContentPreview: View {
     }
 }
 
+/// Metadata section for an imported item snapshot.
+///
+/// Uses precomputed metadata from persistence and performs no file inspection during render.
 private struct ImportedMetadataView: View {
     let detail: ImportedItemDetailState
 
@@ -264,6 +288,11 @@ private actor ImageDownsampler {
     }
 }
 
+/// Displays an imported image through bounded downsampling.
+///
+/// Performance contract:
+/// The image is decoded off the render path at a target size, then displayed from prepared
+/// SwiftUI state so large image files do not create repeated row/detail memory spikes.
 private struct DownsampledImageView: View {
     let url: URL
     @State private var image: CGImage?
@@ -296,6 +325,11 @@ private struct DownsampledImageView: View {
     }
 }
 
+/// UIKit bridge for Quick Look previews of app-owned files.
+///
+/// Ownership:
+/// SwiftUI owns the bridge; the coordinator owns the current URL for `QLPreviewController`.
+/// The URL must already point to app-managed storage.
 private struct QuickLookPreviewView: UIViewControllerRepresentable {
     let url: URL
 
@@ -339,6 +373,14 @@ private struct QuickLookPreviewView: UIViewControllerRepresentable {
     }
 }
 
+/// Owns audio playback state for an imported local audio file.
+///
+/// Ownership:
+/// Created by `ImportedItemDetailViewModel` and reused while that detail model is alive.
+///
+/// Side effects:
+/// Holds an `AVAudioPlayer` and a timer; callers must invoke `stopped()` when the containing
+/// view disappears or when playback should stop.
 @Observable
 @MainActor
 final class AudioPlaybackModel {
@@ -405,6 +447,9 @@ final class AudioPlaybackModel {
     }
 }
 
+/// Playback controls for an imported audio item.
+///
+/// The view owns no `AVAudioPlayer`; it only binds to `AudioPlaybackModel` state and intents.
 private struct AudioPlaybackView: View {
     let url: URL
     @Bindable var model: AudioPlaybackModel

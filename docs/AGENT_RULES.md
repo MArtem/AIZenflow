@@ -146,6 +146,9 @@ This rule does not permit skipping required architecture. The simplest correct s
 ## Product / Process Governance Rule
 - Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md` before non-trivial implementation, refactor, documentation migration, package adoption, review, or new project/task bootstrap.
 - Use `./docs/NEW_PROJECT_START_CONTRACT.md` before creating or bootstrapping a new project, task, or worktree.
+- Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md` before creating, importing, auditing, or remediating a project that may contain local secrets; `.gitignore` is required but not sufficient because AI-readable workspace exposure is a separate risk.
+- When creating or bootstrapping a new task, project, worktree, Xcode project, or app through Codex app, create and maintain the task plan/handoff and app-specific documentation boundaries automatically; do not wait for the user to explicitly request them.
+- If one task contains multiple Xcode projects/apps, keep each project's app-specific docs, ADRs, plans, local rules, histories, and exceptions separate under its own app root.
 - Before implementing non-trivial feature behavior, apply `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`; do not guess acceptance criteria, empty/error/offline states, rollout behavior, analytics, accessibility, or localization requirements.
 - If a decision changes architecture, public API, persistence, security/privacy, release behavior, or cross-team ownership, apply `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md` and record the decision before coding.
 - If a project intentionally violates a reusable rule, record it with `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md` in app/task-specific docs. Do not promote it globally without explicit user approval.
@@ -180,7 +183,7 @@ This rule does not permit skipping required architecture. The simplest correct s
 
 
 ## Generic iOS Coverage Rule
-- Inline Swift/iOS code documentation must follow `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`: document contracts, ownership/lifecycle, external usage/call context, side effects, concurrency, errors, invariants, and rationale where relevant; do not document obvious code.
+- Inline Swift/iOS code documentation must follow `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`: if the user asks to add or improve project documentation/comments without naming exact files, cover every logically significant executable file in the project. Document contracts, ownership/lifecycle, external usage/call context, side effects, concurrency, errors, invariants, and rationale where relevant; do not document obvious code mechanically.
 - For any iOS implementation/review, consider generic iOS concerns before app-specific assumptions: concurrency/runtime, memory/cache/media, UI state/rendering, network resilience, offline/sync, lifecycle/background, error handling, analytics/telemetry, configuration/environments, input validation/content safety, StoreKit/payments when applicable, and platform permissions.
 - Apply these documents when relevant: `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`, `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`, `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`, `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`, `./docs/IOS_OFFLINE_SYNC_STANDARD.md`, `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`, `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`, `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`, `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`, `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`, `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`, and `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`.
 - If a concern is not applicable, mark it not applicable with a reason instead of silently skipping it.

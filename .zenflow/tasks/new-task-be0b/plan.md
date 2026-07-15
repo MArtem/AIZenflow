@@ -85,6 +85,53 @@ Manual validation still needed:
 - Keep SwiftUI hot-path task findings non-blocking review candidates while forbidden patterns, localization gaps, secrets, and large files remain blocking.
 - Update `run_static_quality_gates.sh` to pass scope arguments through to scoped checks.
 
+### [x] AI Fieldbook project-wide code documentation pass
+- Add contract-level documentation to every significant executable AIFieldbook app target file.
+- Include the active `PackagesInUse/AppNavigation` source compiled into the app target.
+- Add script-level documentation to project quality-gate scripts that affect AIFieldbook work.
+- Keep comments focused on ownership, lifecycle, side effects, concurrency, privacy, persistence, and runtime invariants.
+
+### [x] Figma design implementation intake rule
+- Add a reusable Figma Design Intake Gate before any Figma-to-SwiftUI implementation.
+- Require exact node/frame, fidelity mode, states/variants, assets/fonts policy, interaction behavior, and accessibility/localization expectations when they are not inferable from Figma.
+- Add app-neutral `UI_PIXEL_PERFECT_WORKFLOW.md` to the reusable baseline so future projects start with the same Figma intake rule.
+- Keep legacy app-specific Figma snapshots untouched.
+
+### [x] Codex app project/task documentation bootstrap rule
+- Record that Codex app-created tasks/projects/worktrees/Xcode projects/apps must receive task `plan.md`, task `handoff.md`, and the correct app-specific documentation boundary automatically.
+- Require the assistant to maintain those docs throughout the project lifecycle without waiting for the user to request them every time.
+- Require separate app-specific docs for each Xcode project/app, even when multiple projects are created or modified inside one task.
+- Update reusable bootstrap docs/templates and local active rule copies.
+
+### [x] Secret handling and security intake standard
+- Add reusable rules for keeping real secrets out of chat, git, app bundles, and normal AI-readable workspace files.
+- Add a reusable `.gitignore` secret baseline template for local secrets, private configs, signing material, service credentials, logs, traces, and exports.
+- Define the preferred local secret root as `/Users/Artem/.zenflow-secrets/<ProjectName>/`, with the assistant receiving only file names or env var names.
+- Add an explicit security intake/remediation workflow for imported projects that may already contain secrets, with redacted reporting and mandatory rotation/revocation guidance for exposed secrets.
+- Wire the standard into new-project bootstrap, security/privacy gate, agent rules, docs index, and reusable templates.
+
+### [ ] Backlog: documentation routing and context-load optimization
+Goal: reduce context/limit cost without lowering the project quality bar by routing agents to the right documents instead of expanding the always-read set.
+
+Planned sequence:
+1. Run a read-only audit of current mandatory read paths, task docs, reusable docs, prompts, skills, and duplicated rules.
+2. Classify docs into levels:
+   - Level 0: always-read minimal operating baseline.
+   - Level 1: task routers and source-of-truth maps.
+   - Level 2: task-specific standards such as Figma/UI, AI/App Intents, concurrency, persistence, navigation, security/privacy, accessibility, localization, testing, release, and code documentation.
+   - Level 3: deep references such as production matrices, architecture catalog, full audits, and playbooks.
+   - Archive: legacy/history/recovery material not read without a specific reason.
+3. Draft `TASK_TYPE_DOCUMENTATION_ROUTER.md` that maps task types to the exact docs/prompts/skills to read.
+4. Replace repeated long rules in startup docs with canonical summaries and links to the source-of-truth document.
+5. Move nonessential documents out of mandatory startup read paths and into routed read paths.
+6. Keep global reusable routing rules in `AIZenflowDocumentation`; keep local task/app state in the current task/app docs only.
+7. Add or update lightweight checks for missing router paths, invalid docs links, app-specific leakage in reusable docs, and conflicting duplicate rules.
+8. Adopt a short reporting convention for future work:
+   - `Docs route: Level 0 + <task-specific route>`
+   - `Deep references skipped/applied: <reason>`
+
+Do not execute this backlog item until the user explicitly asks to start the documentation-routing optimization pass.
+
 ### [ ] Iteration 2 block 2.0: App Intents foundation
 Do not start until gate 1.26 is accepted.
 

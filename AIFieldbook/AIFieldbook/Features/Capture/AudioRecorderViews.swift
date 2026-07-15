@@ -3,6 +3,20 @@ import Foundation
 import Observation
 import SwiftUI
 
+/// Owns microphone permission, recording session, and save flow for local audio notes.
+///
+/// Ownership:
+/// Created by `AppComposition` for the record-audio sheet. One instance owns one draft
+/// recording lifecycle.
+///
+/// Side effects:
+/// Requests microphone permission, activates `AVAudioSession`, creates a temporary recording
+/// draft through `AppFileStore`, and persists the final imported audio item through the
+/// repository only after validation/copy succeeds.
+///
+/// Cancellation:
+/// `cancelled()` must be called by dismiss flows that abandon the sheet so temporary audio
+/// drafts and active audio sessions do not outlive the UI.
 @MainActor
 @Observable
 final class AudioRecorderViewModel {
@@ -135,6 +149,10 @@ final class AudioRecorderViewModel {
     private func stopTimer() { timer?.invalidate(); timer = nil }
 }
 
+/// Sheet UI for a single local audio recording flow.
+///
+/// The view owns no audio resources directly; it forwards user intents to
+/// `AudioRecorderViewModel` and calls cleanup on cancellation.
 struct AudioRecorderView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL

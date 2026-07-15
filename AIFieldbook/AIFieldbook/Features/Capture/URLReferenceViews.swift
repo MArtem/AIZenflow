@@ -2,6 +2,14 @@ import Foundation
 import Observation
 import SwiftUI
 
+/// Owns create/edit state for a local web-link item.
+///
+/// Ownership:
+/// Created by `AppComposition` for URL reference sheets.
+///
+/// Validation:
+/// Only normalized `http` and `https` URLs with a host are accepted; the app stores user-entered
+/// link metadata locally and does not fetch remote page content in Iteration 1.
 @MainActor
 @Observable
 final class URLReferenceEditorViewModel {
@@ -90,6 +98,11 @@ final class URLReferenceEditorViewModel {
     }
 }
 
+/// Owns read/delete state for a local web-link detail screen.
+///
+/// Side effects:
+/// Delete mutates SwiftData through the repository. Opening the URL is a view/environment
+/// action so external navigation stays visible at the UI boundary.
 @MainActor
 @Observable
 final class URLReferenceDetailViewModel {
@@ -116,6 +129,10 @@ final class URLReferenceDetailViewModel {
     }
 }
 
+/// Sheet UI for creating or editing a web-link item.
+///
+/// The view owns focus/dismiss behavior only; validation and persistence belong to
+/// `URLReferenceEditorViewModel`.
 struct URLReferenceEditorView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: URLReferenceEditorViewModel
@@ -157,6 +174,9 @@ struct URLReferenceEditorView: View {
     }
 }
 
+/// Detail UI for a local web-link item.
+///
+/// The view renders local metadata and opens the external URL only from explicit user action.
 struct URLReferenceDetailView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var viewModel: URLReferenceDetailViewModel

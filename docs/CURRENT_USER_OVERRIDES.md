@@ -20,6 +20,10 @@ Applies to the current worktree/task:
 - New reusable/shared documentation changes must be made in `/Users/Artem/.zenflow/worktrees/documentation-vault`; app-local docs may keep a small operational copy only when the project needs it.
 - Do not place another app's docs into this worktree's task docs; cross-app context belongs under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`.
 - Local project exceptions, compromises, or intentional rule violations must remain app-specific. They must not change reusable/global rules unless the user explicitly approves promotion to reusable.
+- When the assistant creates or bootstraps a new task, project, worktree, Xcode project, or app through Codex app, it must create and maintain the task `plan.md`, task `handoff.md`, and the correct app-specific documentation boundary automatically.
+- If one task includes multiple Xcode projects/apps, each project/app must keep separate app-specific docs, plans, ADRs, local rules, histories, and exceptions.
+- New/imported projects must apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`: real secrets stay out of chat, git, app bundles, and normal AI-readable workspace files; `.gitignore` is required but not sufficient.
+- The preferred local secret root is outside project worktrees: `/Users/Artem/.zenflow-secrets/<ProjectName>/`. The assistant may receive secret file names or env var names, not secret values.
 
 
 ### Model Routing
@@ -130,6 +134,8 @@ Every working response must start with:
 
 ### Code Documentation
 - Document contracts, not obvious code.
+- If the user asks to add documentation/comments to a project and does not name exact files, the default scope is every logically significant executable file plus project documentation surfaces.
+- A documentation pass is incomplete unless significant Swift/source/script files have contract-level comments for their main responsibility or an explicit trivial-file rationale.
 - For methods used outside their declaring type, include stable external usage/call context when it helps understand who calls it, when, and why.
 - For key entities, include runtime ownership/created-by information when lifecycle matters.
 - Avoid fragile exhaustive caller lists unless the caller is part of the API contract.

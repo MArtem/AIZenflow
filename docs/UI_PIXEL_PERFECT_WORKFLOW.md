@@ -11,6 +11,17 @@ Rules for implementing UI/design tasks in `source-app` from screenshots, Figma, 
 - Use Figma MCP as the source of design context: hierarchy, frame size, Auto Layout, spacing, colors, typography, radii, strokes, effects, assets, component instances, variants/states, text, visibility, layer names, and repeated patterns.
 - Treat CSS/web-oriented Figma output only as intermediate design description; translate it manually into native SwiftUI primitives.
 
+## Figma Intake Gate
+- A Figma link alone is not a complete implementation contract.
+- Before code changes, confirm access to the exact file/node and extract enough design context to identify layout, styles, assets, states, and interaction intent.
+- Ask only blocking questions. Do not ask ritual questions when a safe assumption is obvious and does not change product behavior.
+- The default question set for maximum design fidelity is:
+  1. Which exact frame/node should be implemented if the link points to a broader page?
+  2. Which fidelity mode should be used: `pixel-perfect`, `native-adaptive`, or `design-system-first`?
+  3. Which states/variants must be implemented if they are not present in the selected node?
+  4. What should happen with missing assets/fonts: export, replace with existing assets/SF Symbols, or leave explicit TODOs?
+- If the user already answered these items or the Figma context makes them unambiguous, state `Open questions: none` and proceed with the approved scope.
+
 ## Source Of Truth
 Use this priority order:
 1. explicit user-provided numeric values

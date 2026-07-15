@@ -1,4 +1,11 @@
 #!/usr/bin/env python3
+"""Validate that markdown-indexed project documentation paths still exist.
+
+This gate protects agent bootstrap quality: if `docs/README.md` points at a missing file,
+new tasks may silently skip required rules. The script is intentionally path-based and does
+not validate document semantics.
+"""
+
 from pathlib import Path
 import re, sys
 root = Path(__file__).resolve().parents[1]

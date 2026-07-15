@@ -1,6 +1,16 @@
 import SwiftData
 import SwiftUI
 
+/// Root scene view that wires app composition into tab navigation.
+///
+/// Responsibilities:
+/// - owns one `AppComposition` for the scene through SwiftUI state;
+/// - renders the four app tabs and delegates route construction to the coordinator;
+/// - hosts modal presentations and deep-link error UI at the app boundary.
+///
+/// Invariants:
+/// Feature views receive state owners and intent callbacks from composition; they do not
+/// create repositories, file stores, search actors, or navigation routers directly.
 struct AppShellView: View {
     @State private var composition: AppComposition
 
@@ -180,6 +190,9 @@ struct AppShellView: View {
     }
 }
 
+/// Fallback destination for route types that are intentionally reserved for later flows.
+///
+/// This keeps route expansion explicit without silently navigating to an empty or wrong screen.
 struct PlaceholderDestinationView: View {
     let title: LocalizedStringKey
     let systemImage: String
@@ -191,6 +204,10 @@ struct PlaceholderDestinationView: View {
     }
 }
 
+/// Startup failure surface shown when local SwiftData storage cannot be opened.
+///
+/// The view has no recovery side effects because persistence bootstrapping belongs to
+/// `AIFieldbookApp`; users receive a clear blocking state instead of a partially functional UI.
 struct PersistenceFailureView: View {
     var body: some View {
         ContentUnavailableView(

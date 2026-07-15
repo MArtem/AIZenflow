@@ -1,6 +1,11 @@
 import Foundation
 import SwiftData
 
+/// Product-level item categories persisted in SwiftData and rendered by feature UI.
+///
+/// Persistence contract:
+/// Raw values are stored locally. Renaming or removing cases requires an explicit migration
+/// decision because existing local records may already contain these values.
 enum KnowledgeItemKind: String, Codable, CaseIterable, Hashable, Sendable {
     case textNote
     case image
@@ -138,6 +143,14 @@ enum AIFieldbookSchemaV1: VersionedSchema {
     }
 }
 
+/// Current persisted schema for AI Fieldbook local content.
+///
+/// Ownership:
+/// Used by `PersistenceBootstrap` to open the app's SwiftData container.
+///
+/// Migration contract:
+/// Additive schema changes belong here after a migration decision. Destructive changes require
+/// an app-local exception because Iteration 1 treats user-created local content as valuable.
 enum AIFieldbookSchemaV2: VersionedSchema {
     static let versionIdentifier = Schema.Version(2, 0, 0)
 

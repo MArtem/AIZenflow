@@ -1,4 +1,12 @@
 #!/usr/bin/env python3
+"""Shared scope helper for repository-local static quality gates.
+
+The gate scripts import this module so every scanner resolves requested paths the same way:
+inside the current repository, with build artifacts and VCS folders excluded. Keeping this
+logic centralized prevents a scoped gate such as `AIFieldbook` from accidentally reporting
+findings from sibling apps or legacy folders.
+"""
+
 from __future__ import annotations
 
 import argparse
@@ -16,10 +24,12 @@ DEFAULT_EXCLUDES = {
 
 
 def repo_root() -> Path:
+    """Return the repository root inferred from this script's stable location."""
     return Path(__file__).resolve().parents[1]
 
 
 def parse_scope_args(description: str) -> argparse.Namespace:
+    """Parse common scanner arguments used by static gate scripts."""
     parser = argparse.ArgumentParser(description=description)
     parser.add_argument(
         "paths",
@@ -36,6 +46,14 @@ def parse_scope_args(description: str) -> argparse.Namespace:
 
 
 def resolve_scan_roots(paths: Iterable[str]) -> list[Path]:
+    """Resolve user-provided scan roots and reject paths outside the repository.
+
+    External usage:
+    Called by every static gate before walking files.
+
+    Failure behavior:
+    Exits with a clear message when a requested path does not exist or escapes the repo root.
+    """
     root = repo_root()
     requested = list(paths)
     if not requested:
@@ -58,6 +76,7 @@ def resolve_scan_roots(paths: Iterable[str]) -> list[Path]:
 
 
 def should_exclude(path: Path, extra_excludes: set[str] | None = None) -> bool:
+    """Return whether a candidate path belongs to excluded repository/runtime folders."""
     root = repo_root()
     excludes = DEFAULT_EXCLUDES | (extra_excludes or set())
     try:
@@ -72,6 +91,7 @@ def iter_files(
     pattern: str = "*",
     extra_excludes: set[str] | None = None,
 ) -> Iterable[Path]:
+    """Yield files under the resolved scan roots while preserving scope boundaries."""
     for scan_root in roots:
         if scan_root.is_file():
             if scan_root.match(pattern) and not should_exclude(scan_root, extra_excludes):
@@ -84,5 +104,6 @@ def iter_files(
 
 
 def display_path(path: Path) -> str:
+    """Format paths consistently for gate output and reviewer triage."""
     root = repo_root()
     return f"./{path.relative_to(root)}"
