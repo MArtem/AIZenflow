@@ -43,15 +43,16 @@ Before implementation:
 1. Run or satisfy `scripts/check_bootstrap_contract.py`.
 2. Read `./docs/DOCUMENT_BOUNDARY_STANDARD.md`.
 3. Read `./docs/SOURCE_OF_TRUTH_MAP.md`.
-4. Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md`.
-5. Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`.
-6. Confirm `.gitignore` covers local secret files, signing material, private configs, sensitive logs, traces, and exports.
-7. Confirm real secrets are stored outside the AI-readable workspace or intentionally deferred with a documented reason.
-8. Confirm app-specific docs are not copied from another app.
-9. Confirm local exceptions are recorded only in app/task docs.
-10. Confirm task plan/handoff docs exist or are intentionally deferred with a reason.
-11. Confirm every Xcode project/app in scope has its own app-specific docs boundary.
-12. Confirm reusable/global documentation changes are committed and pushed to `MArtem/AIZenflowDocumentation`.
+4. Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` and select only task-relevant bootstrap, app, package, prompt, skill, and deep-reference docs.
+5. Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md`.
+6. Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`.
+7. Confirm `.gitignore` covers local secret files, signing material, private configs, sensitive logs, traces, and exports.
+8. Confirm real secrets are stored outside the AI-readable workspace or intentionally deferred with a documented reason.
+9. Confirm app-specific docs are not copied from another app.
+10. Confirm local exceptions are recorded only in app/task docs.
+11. Confirm task plan/handoff docs exist or are intentionally deferred with a reason.
+12. Confirm every Xcode project/app in scope has its own app-specific docs boundary.
+13. Confirm reusable/global documentation changes are committed and pushed to `MArtem/AIZenflowDocumentation`.
 
 ## Highest-Quality Default
 All projects use the strongest reusable engineering rules by default:
@@ -72,6 +73,7 @@ The project start contract is satisfied only when:
 - bootstrap contract passes or remaining risks are recorded;
 - documentation boundary is active;
 - source-of-truth locations are known;
+- task-specific docs were selected through `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` instead of loading unrelated library material;
 - secret handling standard is applied;
 - `.gitignore` or equivalent secret ignore baseline exists;
 - real secrets are outside normal AI-readable workspace files or documented as an explicit security-intake/remediation risk;

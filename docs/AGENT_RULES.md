@@ -52,8 +52,10 @@ This rule does not permit skipping required architecture. The simplest correct s
 ## Context-Reset Bootstrap Rule
 - After a new chat/context reset, re-read the required bootstrap docs **once** before coding.
 - Do not repeatedly re-read the same full set during the same chat unless architecture/rules changed.
+- After Level 0 startup, apply `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` and read only the task-relevant standards, prompts, skills, package docs, and deep references.
+- Treat `./docs/README.md` as an index/map, not an instruction to load every listed document.
 - Use the transition prompt from `docs/WORK_CONTINUITY.md` to keep bootstrap consistent.
-- If the user asks to refresh documentation state, re-read the active documentation set from `docs/README.md` and treat that read as the new current baseline.
+- If the user asks to refresh documentation state, re-read Level 0 and the currently selected route, then treat that read as the new current baseline.
 - For every context-transfer prompt, include the rule to **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.
 - Apply `docs/CURRENT_USER_OVERRIDES.md` before general project defaults.
 
@@ -164,6 +166,7 @@ This rule does not permit skipping required architecture. The simplest correct s
 - If only the primary assistant model worked, state that explicitly, for example: `GPT-5.5 — reviewed/implemented/verified the block`.
 - If subagents or lower-cost models were used, list each model separately with its role, scope, and output.
 - In the same result block, assess whether the current chat/context should be refreshed or replaced with a new chat. State one of: `контекст обновлять не нужно`, `желательно обновить контекст`, or `нужен новый чат`, with a short reason.
+- For meaningful work, include the selected documentation route: `Docs route: Level 0 + <task-specific route>`.
 - Do not hide context risk: recommend a new chat proactively when context size, phase changes, stale rules, or accumulated history can reduce reliability.
 - Apply `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md` before saying a task is done, production-ready, verified, fixed, faster, safe, or clean.
 - Claims must cite evidence: affected files, command output, static proof, build/test/profiler/manual validation, or explicit remaining risk.

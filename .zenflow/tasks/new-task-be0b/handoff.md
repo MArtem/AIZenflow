@@ -31,9 +31,10 @@ The user explicitly expanded the local sandbox for this task:
 7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 8. `./docs/MODEL_ROUTING_RULE.md`
 9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-10. `./.zenflow/tasks/new-task-be0b/handoff.md`
-11. `./.zenflow/tasks/new-task-be0b/plan.md`
-12. task-relevant package, prompt, and skill docs.
+10. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
+11. `./.zenflow/tasks/new-task-be0b/handoff.md`
+12. `./.zenflow/tasks/new-task-be0b/plan.md`
+13. task-relevant package, prompt, skill, and deep-reference docs selected by the router.
 
 ## Mandatory Working Response Header
 Every working, status, readiness, planning, confirmation, or task-orientation response must start with:
@@ -58,8 +59,10 @@ Every working, status, readiness, planning, confirmation, or task-orientation re
 - Build/simulator validation is allowed when it materially protects quality; tests remain prohibited.
 - Keep `./.zenflow/tasks/new-task-be0b/plan.md` updated before finishing a work block.
 - Documentation boundary rule: reusable/global docs stay under `documentation-vault/reusable`, app-specific docs stay under `documentation-vault/apps/<AppName>`, task history stays under task docs. Local exceptions do not affect reusable rules without explicit promotion approval.
+- Documentation/context loading rule: use `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`; read Level 0 once, then only task-specific routed docs. The full docs index is a map, not an always-read list.
 - Default quality rule: any project is developed according to the highest reusable standards and best current rules unless the user explicitly approves a narrower local exception.
 - Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/COMPLETION_REPORT_CONTRACT.md`, and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` for non-trivial work and completion reports.
+- Apply `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`: Level 0 once, then task-specific routed docs only. The full docs index is a map, not an always-read list.
 
 ## Current Package Mode
 - `./PackagesInUse` = active source-only reusable package subset compiled into app targets.
@@ -75,6 +78,7 @@ Every working, status, readiness, planning, confirmation, or task-orientation re
 - Canonical global documentation remote: `https://github.com/MArtem/AIZenflowDocumentation`.
 - Global documentation work is complete only after commit and push to `MArtem/AIZenflowDocumentation`; use `./scripts/check_documentation_remote_state.py` to verify the local checkout is clean and synced.
 - Other app docs are reference-only unless the user explicitly asks for cross-app comparison.
+- Global reusable documentation now includes `TASK_TYPE_DOCUMENTATION_ROUTER.md` and a router path validator. The current local worktree has active copies, but only the global documentation repo is committed/pushed automatically.
 
 ## Current AI Fieldbook State
 - Independent internal-only learning app with working name `AI Fieldbook`; project exists at `./AIFieldbook/AIFieldbook.xcodeproj`.

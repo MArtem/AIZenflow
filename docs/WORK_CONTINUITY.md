@@ -12,7 +12,7 @@ Durable resume checkpoint for this iOS worktree when chat/task context is lost.
 - Keep this file compact and current; long historical implementation logs belong in `./.zenflow/tasks/new-task-be0b/plan.md` or archives.
 - When context gets large or a phase boundary is reached, propose a new chat proactively.
 - After reset, run bootstrap read **once per new chat**.
-- If the user asks to refresh docs/rules state, re-read the active documentation set listed in `./docs/README.md` before continuing.
+- If the user asks to refresh docs/rules state, re-read Level 0 from `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, then select only task-relevant routed docs before continuing.
 - Every context-transfer prompt must explicitly include this rule:
   **"перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"**.
 
@@ -49,17 +49,14 @@ Durable resume checkpoint for this iOS worktree when chat/task context is lost.
 7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 8. `./docs/MODEL_ROUTING_RULE.md`
 9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-10. `./.zenflow/tasks/new-task-be0b/handoff.md`
-11. `./.zenflow/tasks/new-task-be0b/plan.md`
-12. `./PackagesForReuse/README.md`
-13. `./PackagesInUse/README.md`
-14. `./docs/PACKAGES_AND_MANAGERS.md`
-15. `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md`
-16. `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`
-17. `./docs/agent-prompts/README.md`
+10. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
+11. `./.zenflow/tasks/new-task-be0b/handoff.md`
+12. `./.zenflow/tasks/new-task-be0b/plan.md`
+13. task-relevant package, prompt, skill, and deep-reference docs selected by the router.
 
 ## Current Working Baseline
 - Apply `./docs/MODEL_ROUTING_RULE.md`: the assistant may choose the suitable model per task and adjust routing when risk changes, subject to available Zenflow/tool support.
+- Apply `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` after Level 0 startup; do not load package vaults, prompt libraries, production matrices, or archives unless the selected route needs them.
 - Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md` before non-trivial work and `./docs/COMPLETION_REPORT_CONTRACT.md` before reporting completion.
 - Apply `./docs/SOURCE_OF_TRUTH_MAP.md` and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` before moving durable knowledge between reusable/app/task areas.
 - For new project/task/worktree bootstrap, apply `./docs/NEW_PROJECT_START_CONTRACT.md` and verify with `./scripts/check_bootstrap_contract.py`.
@@ -121,21 +118,17 @@ Latest user approvals:
 7) ./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md
 8) ./docs/MODEL_ROUTING_RULE.md
 9) ./docs/DOCUMENT_BOUNDARY_STANDARD.md
-10) ./.zenflow/tasks/new-task-be0b/handoff.md
-11) ./.zenflow/tasks/new-task-be0b/plan.md
-12) ./PackagesForReuse/README.md
-13) ./PackagesInUse/README.md
-14) ./docs/PACKAGES_AND_MANAGERS.md
-15) ./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md
-16) ./docs/documentation-split/reusable/REUSABLE_MANIFEST.md
-17) ./docs/agent-prompts/README.md
-18) For Figma-link/design work: ./docs/agent-prompts/figma-mcp-swiftui-implementation.md
+10) ./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md
+11) ./.zenflow/tasks/new-task-be0b/handoff.md
+12) ./.zenflow/tasks/new-task-be0b/plan.md
+13) task-relevant package/prompt/skill/deep-reference docs selected by ./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md
 
 Обязательное правило переноса контекста:
 перечитать весь актуальный набор документации и правил для этого worktree и task-контекста
 
 Критичные правила:
 - Использовать ./docs/MODEL_ROUTING_RULE.md.
+- Использовать ./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md: Level 0 once, then only task-specific routed docs.
 - Начинать рабочие ответы с обязательного response header.
 - Не запускать build/tests/simulator/Instruments без явного разрешения.
 - Не трогать test targets без явного разрешения.

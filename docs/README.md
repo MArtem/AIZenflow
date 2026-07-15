@@ -5,11 +5,14 @@ Entry point for active project documentation, production standards, prompt prese
 
 - Read active docs before substantive work.
 - Apply `./docs/CURRENT_USER_OVERRIDES.md` before general defaults.
+- Use `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` to select task-specific standards instead of reading the whole library by default.
 - Use archives only when active docs are insufficient.
 - If a rule/contract changed, refresh this map before continuing.
 - Documentation is part of the product baseline, not optional commentary.
 
 ## Default Read Order
+Read the compact operating baseline first, then route by task type:
+
 1. `./PROJECT_DOCUMENTATION.md`
 2. `./PROJECT_HEALTH.md`
 3. `./docs/CURRENT_USER_OVERRIDES.md`
@@ -17,8 +20,9 @@ Entry point for active project documentation, production standards, prompt prese
 5. `./docs/WORK_CONTINUITY.md`
 6. `./docs/MODEL_ROUTING_RULE.md`
 7. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-8. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
-9. Scope-specific docs from the index below.
+8. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
+9. Current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`, task rules
+10. Scope-specific docs selected by the router.
 
 ## One-Time Bootstrap After Chat Reset
 On a new chat/context reset, read once:
@@ -30,10 +34,14 @@ On a new chat/context reset, read once:
 6. `./docs/AGENT_RULES.md`
 7. `./docs/MODEL_ROUTING_RULE.md`
 8. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-9. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
-10. relevant prompt/skill/standard docs for the task.
+9. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
+10. current task docs: `./.zenflow/tasks/new-task-be0b/handoff.md`, `./.zenflow/tasks/new-task-be0b/plan.md`
+11. relevant prompt/skill/standard docs selected by the router.
 
 Re-read the full stack only when architecture/rules/phase changed, continuity is unclear, or the user explicitly asks to refresh documentation state.
+
+## Context Load Policy
+The index below is a map, not an always-read list. Use it to resolve routed documents after `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` selects the task type.
 
 ## Mandatory Active Documentation Index
 
@@ -49,6 +57,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./docs/MODEL_ROUTING_RULE.md`
 - `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
 - `./docs/DOCUMENT_LIBRARY_GUIDE.md`
+- `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
 - `./docs/SOURCE_OF_TRUTH_MAP.md`
 - `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
 - `./docs/COMPLETION_REPORT_CONTRACT.md`
@@ -238,6 +247,7 @@ Re-read the full stack only when architecture/rules/phase changed, continuity is
 - `./scripts/check_docs_consistency.py`
 - `./scripts/check_forbidden_patterns.py`
 - `./scripts/check_secrets.py`
+- `./scripts/check_task_type_documentation_router.py`
 - `./scripts/check_large_files.py`
 - `./scripts/check_localization.py`
 - `./scripts/check_swiftui_hot_path_patterns.py`

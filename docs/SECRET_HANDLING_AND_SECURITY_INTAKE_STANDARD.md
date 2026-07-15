@@ -16,7 +16,7 @@ Secrets must also stay out of AI-readable workspaces unless the user explicitly 
 - Do not store real secrets inside an iOS app bundle. Anything shipped in the app can be extracted by a user.
 - `.gitignore` reduces commit risk, but it does not prevent an AI agent from reading files inside the workspace.
 - Prefer storing real local secrets outside the project/worktree and outside the AI-readable root.
-- The assistant may receive secret file names, environment variable names, and expected configuration keys, but not secret values.
+- The assistant may receive logical placeholder file names, environment variable names, build setting names, and expected configuration keys, but not secret values or accessible real paths to secret files.
 - If a secret is exposed in chat, logs, committed history, or an AI-readable scan, treat it as compromised and rotate/revoke it.
 
 ## Sensitive Material Inventory
@@ -63,7 +63,7 @@ Allowed in the repository:
 
 - `*.example`, `*.template`, `*.sample`, and placeholder config files with fake values only;
 - build setting keys without values;
-- documentation that names environment variables or secret file names without revealing values.
+- documentation that names environment variables, build settings, placeholder file names, or expected config keys without revealing values or accessible real secret paths.
 
 Not allowed in the repository or AI-readable root:
 
@@ -148,8 +148,24 @@ Before giving an AI agent a project:
 1. Remove or move real secrets out of the workspace.
 2. Confirm `.gitignore` covers common secret file names.
 3. Add only fake examples/templates to the repo.
-4. Tell the assistant secret file names or env var names only.
+4. Tell the assistant logical placeholder file names, env var names, build setting names, or config keys only.
 5. Do not ask the assistant to open external secret folders unless performing an explicitly approved security intake.
+
+Do not give the assistant a full real path to a secret file if that path may be readable by the assistant. For normal work, say:
+
+```text
+The app expects LocalSecrets.xcconfig, but the real file lives outside your readable workspace.
+Use build setting API_KEY; I will provide the value locally.
+Use env var OPENAI_API_KEY; do not read or print its value.
+```
+
+Avoid:
+
+```text
+Read /Users/<name>/.zenflow-secrets/MyApp/LocalSecrets.xcconfig
+```
+
+The only exception is an explicitly approved security intake/remediation pass, where the user accepts that the assistant may see sensitive material once so it can be removed and rotated.
 
 The recommended local secret root is outside project worktrees:
 
@@ -206,6 +222,7 @@ A project passes the secret-handling gate only when:
 - no real secrets are present in tracked files;
 - no real secrets are present in normal AI-readable workspace files unless intentionally accepted for local-only development and documented as a temporary risk;
 - `.gitignore` or equivalent covers project-specific secret paths;
+- the assistant was given only logical placeholder names, env var names, build setting names, or config keys, not accessible real secret file paths;
 - placeholder/example config exists for required keys;
 - the assistant can build/review without reading secret values;
 - exposed secrets from intake have been rotated/revoked or explicitly tracked as remaining risk.

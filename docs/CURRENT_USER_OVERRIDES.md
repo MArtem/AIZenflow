@@ -23,7 +23,8 @@ Applies to the current worktree/task:
 - When the assistant creates or bootstraps a new task, project, worktree, Xcode project, or app through Codex app, it must create and maintain the task `plan.md`, task `handoff.md`, and the correct app-specific documentation boundary automatically.
 - If one task includes multiple Xcode projects/apps, each project/app must keep separate app-specific docs, plans, ADRs, local rules, histories, and exceptions.
 - New/imported projects must apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`: real secrets stay out of chat, git, app bundles, and normal AI-readable workspace files; `.gitignore` is required but not sufficient.
-- The preferred local secret root is outside project worktrees: `/Users/Artem/.zenflow-secrets/<ProjectName>/`. The assistant may receive secret file names or env var names, not secret values.
+- The preferred local secret root is outside project worktrees: `/Users/Artem/.zenflow-secrets/<ProjectName>/`. The assistant may receive logical placeholder names, env var names, build setting names, and config keys, but not secret values or accessible real paths to secret files.
+- Documentation/context loading must use `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`: read Level 0 once, then only task-relevant standards/prompts/skills/package docs/deep references. Do not treat the full docs index as an always-read list.
 
 
 ### Model Routing
@@ -70,6 +71,7 @@ Every working response must start with:
 - Simulator UI automation may be used when it materially improves repro/verification confidence; if UI automation access is insufficient, state what is missing, whether simulator/logs/code analysis can substitute, and what risk remains.
 - `git diff --check` or read-only/static documentation checks are allowed when useful.
 - Low-resource mode: minimum reading, minimum commands, one meaningful verification when sufficient; resource savings must never reduce quality or confidence.
+- Context optimization must reduce irrelevant reading only; it must not skip gates required by the selected task route.
 
 ### MVVM / ViewModel API
 - Do not use `send(_ action:)`, `dispatch(_:)`, or UI action enums as the default ViewModel API in any project, including test/demo projects.

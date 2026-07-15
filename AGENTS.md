@@ -24,12 +24,12 @@ Before code, docs, git, project, build, or task changes, read:
 7. `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
 8. `./docs/MODEL_ROUTING_RULE.md`
 9. `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
-10. `./docs/SOURCE_OF_TRUTH_MAP.md`
-11. `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
-12. `./docs/COMPLETION_REPORT_CONTRACT.md`
-13. `./.zenflow/tasks/new-task-be0b/handoff.md`
-14. `./.zenflow/tasks/new-task-be0b/plan.md`
-15. task-relevant package/prompt/skill docs.
+10. `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
+11. `./.zenflow/tasks/new-task-be0b/handoff.md`
+12. `./.zenflow/tasks/new-task-be0b/plan.md`
+13. task-relevant package/prompt/skill docs selected by `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`.
+
+Do not read the whole documentation index by default. Read `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/AGENT_PREFLIGHT_CHECKLIST.md`, `./docs/COMPLETION_REPORT_CONTRACT.md`, and `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md` when the selected route or task phase requires them.
 
 ## AI Task Prompt Routing
 - For work involving AI, ML, Apple Intelligence, Foundation Models, Core AI,
@@ -65,6 +65,7 @@ Always include the context-transfer rule when handing off:
 - The local checkout for that repository is `/Users/Artem/.zenflow/worktrees/documentation-vault`.
 - Global documentation work is not complete until the relevant changes are committed in that checkout and pushed to `https://github.com/MArtem/AIZenflowDocumentation`.
 - Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before documentation moves, reusable rule updates, app-specific docs updates, prompt/skill changes, package-doc updates, or new-project bootstrapping.
+- Apply `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` after Level 0 startup to select only task-relevant standards, prompts, package docs, and skills.
 - Apply `./docs/SOURCE_OF_TRUTH_MAP.md` before deciding where durable knowledge belongs.
 - When changing reusable/shared agent docs, update `/Users/Artem/.zenflow/worktrees/documentation-vault` as the canonical source; keep worktree-local docs limited to project/task state or explicit app-local operational docs.
 - Keep reusable docs under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` and app-specific docs under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`.
