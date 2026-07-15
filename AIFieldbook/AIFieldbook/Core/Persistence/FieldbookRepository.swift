@@ -296,14 +296,18 @@ final class FieldbookRepository {
         )
     }
 
-    func updateURLReference(id: UUID, title: String, url: URL, notes: String) throws {
+    func updateURLReference(id: UUID, workspaceID: UUID, title: String, url: URL, notes: String) throws {
         let item = try itemRecord(id: id)
         guard item.kind == .urlReference else { throw FieldbookRepositoryError.itemNotFound }
+        let destination = try workspaceRecord(id: workspaceID)
+        let source = item.workspace
         let payload = URLReferencePayload(url: url.absoluteString, notes: notes)
         item.title = title
         item.textContent = String(decoding: try JSONEncoder().encode(payload), as: UTF8.self)
+        item.workspace = destination
         item.updatedAt = .now
-        item.workspace?.updatedAt = .now
+        source?.updatedAt = .now
+        destination.updatedAt = .now
         try context.save()
     }
 
@@ -444,50 +448,6 @@ final class FieldbookRepository {
         try context.fetch(FetchDescriptor<AttachmentRecord>()).map {
             try DurableFileReference(relativePath: $0.relativePath)
         }
-    }
-
-    func exportManifestData() throws -> Data {
-        struct Manifest: Codable {
-            struct Workspace: Codable {
-                let id: UUID
-                let name: String
-                let items: [Item]
-            }
-            struct Item: Codable {
-                let id: UUID
-                let kind: String
-                let title: String
-                let textContent: String
-                let tags: [String]
-                let files: [String]
-                let updatedAt: Date
-            }
-            let formatVersion: Int
-            let exportedAt: Date
-            let workspaces: [Workspace]
-        }
-
-        let workspaces = try context.fetch(FetchDescriptor<WorkspaceRecord>()).map { workspace in
-            Manifest.Workspace(
-                id: workspace.id,
-                name: workspace.name,
-                items: workspace.items.map { item in
-                    Manifest.Item(
-                        id: item.id,
-                        kind: item.kindRawValue,
-                        title: item.title,
-                        textContent: item.textContent,
-                        tags: item.tags.map(\.name),
-                        files: item.attachments.map(\.relativePath),
-                        updatedAt: item.updatedAt
-                    )
-                }
-            )
-        }
-        let encoder = JSONEncoder()
-        encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
-        encoder.dateEncodingStrategy = .iso8601
-        return try encoder.encode(Manifest(formatVersion: 1, exportedAt: .now, workspaces: workspaces))
     }
 
     func deleteAllData() throws {

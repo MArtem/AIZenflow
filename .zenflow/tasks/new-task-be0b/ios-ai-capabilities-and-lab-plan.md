@@ -6,7 +6,7 @@
 - **Purpose**: define a complete theoretical and practical learning program for modern AI work in iOS apps.
 - **Primary outcome**: build one independent iOS app that demonstrates local, Apple-system, private-cloud, and third-party cloud AI patterns without collapsing them into one opaque chat screen.
 - **Proposed app name**: `AI Fieldbook` (working title).
-- **Current implementation state**: research and planning only; no app project has been created by this document.
+- **Current implementation state**: the independent AI Fieldbook project exists and its non-AI Iteration 1 implementation plus static remediation are complete through Block 1.25A. Manual acceptance gate 1.26 remains open; no App Intent or AI runtime has started.
 - **Governing AI prompt**: `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`; apply only task-relevant sections under current user/project rules.
 - **Important platform note**: iOS 27 / Xcode 27 APIs referenced below are beta as of this plan. Stable and beta work must be isolated by availability checks and explicit experimental feature gates.
 
@@ -846,16 +846,13 @@ Before cloud or iOS 27 implementation begins, confirm:
 
 ### Must Do Now
 
-- approve the one-app `AI Fieldbook` direction;
-- choose whether the new project is fully independent from source-app (recommended: yes);
-- approve target strategy: iOS 17 base plus iOS 27 experimental paths;
-- choose the first cloud provider and backend approach;
-- decide cloud data-consent boundaries and budget;
-- identify available physical devices and Xcode 27 beta access.
+- complete and accept Iteration 1 manual gate 1.26;
+- validate crash recovery, relaunch durability, migration, permissions, accessibility, localization, privacy report, and performance on authorized runtimes;
+- keep App Intents, AI, cloud providers, credentials, backend work, and beta SDK integration blocked until their later gates.
 
 ### Should Do Next
 
-- create ADRs and the independent project shell;
+- after gate 1.26 acceptance, start Iteration 2 with the bounded App Intents foundation;
 - implement deterministic Apple frameworks before generative features;
 - build evaluation fixtures at the same time as each AI feature;
 - complete on-device Foundation Models and App Intents before cloud-agent complexity.
@@ -907,15 +904,9 @@ Canonical product/architecture/sequence details:
 
 ## 15. Recommended Immediate Next Step
 
-After user approval, begin **Phase 0 only**:
-
-1. record the product decisions above;
-2. inspect local Xcode/SDK/device availability without creating the app yet;
-3. choose the stable/beta target strategy;
-4. write the three ADRs;
-5. convert Phases 1–13 into approved implementation blocks with verification gates and estimated resource/cost requirements.
-
-Do not start cloud credentials, backend provisioning, project creation, or beta SDK integration until Phase 0 decisions are approved.
+Complete Iteration 1 gate 1.26 under an explicitly authorized validation block. Do not start
+App Intents, AI, cloud credentials, backend provisioning, or beta SDK integration until the
+gate is accepted and the corresponding Iteration 2 decision is opened.
 
 ## 16. Authoritative Reading List
 

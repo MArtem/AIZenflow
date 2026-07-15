@@ -17,26 +17,27 @@ import Observation
 @MainActor
 @Observable
 final class AppComposition {
-    private let detailCacheLimit = 24
-
     let coordinator = AppCoordinator()
     let fileStore = AppFileStore()
     let spotlight = SpotlightIndexService()
     let searchIndex: FieldbookSearchIndex
+    let exportService: FieldbookExportService
     let repository: FieldbookRepository
 
     let workspaceListModel: WorkspaceListViewModel
     let captureWorkspaceModel: WorkspaceListViewModel
     let searchModel: SearchViewModel
     let settingsModel: SettingsViewModel
-    var deepLinkErrorMessage: String?
+    private(set) var alertTitle: String?
+    private(set) var alertMessage: String?
 
-    private var workspaceDetails: [UUID: WorkspaceDetailViewModel] = [:]
-    private var textDetails: [UUID: TextNoteDetailViewModel] = [:]
-    private var importedDetails: [UUID: ImportedItemDetailViewModel] = [:]
-    private var urlDetails: [UUID: URLReferenceDetailViewModel] = [:]
+    private var workspaceDetails = DetailModelCache<WorkspaceDetailViewModel>(limit: 24)
+    private var textDetails = DetailModelCache<TextNoteDetailViewModel>(limit: 24)
+    private var importedDetails = DetailModelCache<ImportedItemDetailViewModel>(limit: 24)
+    private var urlDetails = DetailModelCache<URLReferenceDetailViewModel>(limit: 24)
     @ObservationIgnored private var postMutationMaintenanceTask: Task<Void, Never>?
     @ObservationIgnored private var importedDetailReloadTasks: [UUID: Task<Void, Never>] = [:]
+    @ObservationIgnored private var activePresentation: AppPresentation?
 
     private(set) var workspaceEditorModel: WorkspaceEditorViewModel?
     private(set) var textEditorModel: TextNoteEditorViewModel?
@@ -50,47 +51,49 @@ final class AppComposition {
         let repository = FieldbookRepository(context: container.mainContext)
         self.repository = repository
         self.searchIndex = FieldbookSearchIndex(modelContainer: container)
+        self.exportService = FieldbookExportService(modelContainer: container)
         workspaceListModel = WorkspaceListViewModel(repository: repository)
         captureWorkspaceModel = WorkspaceListViewModel(repository: repository)
         searchModel = SearchViewModel(repository: repository, searchIndex: searchIndex)
-        settingsModel = SettingsViewModel(repository: repository, fileStore: fileStore, spotlight: spotlight)
+        settingsModel = SettingsViewModel(
+            repository: repository,
+            exportService: exportService,
+            fileStore: fileStore,
+            spotlight: spotlight
+        )
     }
 
     func workspaceDetailModel(id: UUID) -> WorkspaceDetailViewModel {
-        if let model = workspaceDetails[id] { return model }
-        trimDetailCacheIfNeeded(&workspaceDetails)
+        if let model = workspaceDetails.value(for: id) { return model }
         let model = WorkspaceDetailViewModel(repository: repository, fileStore: fileStore, workspaceID: id)
-        workspaceDetails[id] = model
+        _ = workspaceDetails.insert(model, for: id)
         return model
     }
 
     func textDetailModel(id: UUID) -> TextNoteDetailViewModel {
-        if let model = textDetails[id] { return model }
-        trimDetailCacheIfNeeded(&textDetails)
+        if let model = textDetails.value(for: id) { return model }
         let model = TextNoteDetailViewModel(repository: repository, noteID: id)
-        textDetails[id] = model
+        _ = textDetails.insert(model, for: id)
         return model
     }
 
     func importedDetailModel(id: UUID) -> ImportedItemDetailViewModel {
-        if let model = importedDetails[id] { return model }
-        trimDetailCacheIfNeeded(&importedDetails)
+        if let model = importedDetails.value(for: id) { return model }
         let model = ImportedItemDetailViewModel(repository: repository, fileStore: fileStore, itemID: id)
-        importedDetails[id] = model
+        importedDetails.insert(model, for: id)?.playbackModel.releaseResources()
         return model
     }
 
     func urlDetailModel(id: UUID) -> URLReferenceDetailViewModel {
-        if let model = urlDetails[id] { return model }
-        trimDetailCacheIfNeeded(&urlDetails)
+        if let model = urlDetails.value(for: id) { return model }
         let model = URLReferenceDetailViewModel(repository: repository, itemID: id)
-        urlDetails[id] = model
+        _ = urlDetails.insert(model, for: id)
         return model
     }
 
     func presentCreateWorkspace() {
         workspaceEditorModel = WorkspaceEditorViewModel(repository: repository, mode: .create)
-        coordinator.present(.createWorkspace)
+        present(.createWorkspace)
     }
 
     func presentRenameWorkspace(id: UUID, name: String) {
@@ -98,7 +101,7 @@ final class AppComposition {
             repository: repository,
             mode: .rename(id: id, currentName: name)
         )
-        coordinator.present(.renameWorkspace(id))
+        present(.renameWorkspace(id))
     }
 
     func presentCreateTextNote(workspaceID: UUID?) {
@@ -106,46 +109,47 @@ final class AppComposition {
             repository: repository,
             mode: .create(preselectedWorkspaceID: workspaceID)
         )
-        coordinator.present(.createTextNote(workspaceID))
+        present(.createTextNote(workspaceID))
     }
 
     func presentEditTextNote(id: UUID) {
         textEditorModel = TextNoteEditorViewModel(repository: repository, mode: .edit(noteID: id))
-        coordinator.present(.editTextNote(id))
+        present(.editTextNote(id))
     }
 
     func presentTagManager(itemID: UUID) {
         tagManagerModel = TagManagerViewModel(repository: repository, itemID: itemID)
-        coordinator.present(.manageTags(itemID))
+        present(.manageTags(itemID))
     }
 
     func presentImport(kind: ImportKind) {
         importItemModel = ImportItemViewModel(repository: repository, fileStore: fileStore, kind: kind)
-        coordinator.present(.importItem(kind))
+        present(.importItem(kind))
     }
 
     func presentCreateURLReference() {
         urlEditorModel = URLReferenceEditorViewModel(repository: repository, mode: .create)
-        coordinator.present(.createURLReference)
+        present(.createURLReference)
     }
 
     func presentAudioRecorder() {
         audioRecorderModel = AudioRecorderViewModel(repository: repository, fileStore: fileStore)
-        coordinator.present(.recordAudio)
+        present(.recordAudio)
     }
 
     func presentMoveItem(id: UUID) {
         moveItemModel = MoveItemViewModel(repository: repository, itemID: id)
-        coordinator.present(.moveItem(id))
+        present(.moveItem(id))
     }
 
     func presentEditURLReference(id: UUID) {
         urlEditorModel = URLReferenceEditorViewModel(repository: repository, mode: .edit(id))
-        coordinator.present(.editURLReference(id))
+        present(.editURLReference(id))
     }
 
     func presentationDismissed() {
-        let dismissedPresentation = coordinator.presentation
+        let dismissedPresentation = activePresentation
+        activePresentation = nil
         coordinator.dismissPresentation()
         workspaceEditorModel = nil
         textEditorModel = nil
@@ -186,13 +190,23 @@ final class AppComposition {
     }
 
     func started() async {
-        await fileStore.cleanupAbandonedStaging()
+        do {
+            try await fileStore.recoverAbandonedStaging(activeReferences: repository.allFileReferences())
+        } catch {
+            presentAlert(
+                title: String(localized: "Local File Recovery Needed"),
+                message: String(localized: "Local files need recovery before cleanup can continue.")
+            )
+        }
         await spotlight.rebuildIfAllowed(searchIndex: searchIndex)
     }
 
     func handleOpenURL(_ url: URL) {
         guard let destination = DeepLinkParser.destination(for: url) else {
-            deepLinkErrorMessage = String(localized: "This AI Fieldbook link is not supported.")
+            presentAlert(
+                title: String(localized: "Link Unavailable"),
+                message: String(localized: "This AI Fieldbook link is not supported.")
+            )
             return
         }
         do {
@@ -201,19 +215,28 @@ final class AppComposition {
                 _ = try repository.fetchWorkspaceDetail(id: id)
                 coordinator.openWorkspace(id: id)
             case let .item(id, suppliedKind):
-                let kind: KnowledgeItemKind
-                if let suppliedKind { kind = suppliedKind }
-                else { kind = try repository.itemKind(id: id) }
+                let kind = try repository.itemKind(id: id)
+                guard suppliedKind == nil || suppliedKind == kind else {
+                    presentAlert(
+                        title: String(localized: "Link Unavailable"),
+                        message: String(localized: "This AI Fieldbook link doesn’t match the saved item type.")
+                    )
+                    return
+                }
                 coordinator.openItem(id: id, kind: kind, from: .workspace)
             }
         } catch {
             coordinator.selectedTab = .workspace
-            deepLinkErrorMessage = String(localized: "The linked item is no longer available.")
+            presentAlert(
+                title: String(localized: "Link Unavailable"),
+                message: String(localized: "The linked item is no longer available.")
+            )
         }
     }
 
-    func deepLinkErrorDismissed() {
-        deepLinkErrorMessage = nil
+    func alertDismissed() {
+        alertTitle = nil
+        alertMessage = nil
     }
 
     /// Clears runtime-only navigation and detail state after a confirmed destructive data reset.
@@ -223,9 +246,9 @@ final class AppComposition {
     /// are already cleared by then; this method removes stale in-memory detail models and routes
     /// so relaunch is not required to leave deleted records.
     func localDataResetCompleted() {
+        importedDetails.removeAll().forEach { $0.playbackModel.releaseResources() }
         workspaceDetails.removeAll()
         textDetails.removeAll()
-        importedDetails.removeAll()
         urlDetails.removeAll()
         workspaceListModel.reloadRequested()
         captureWorkspaceModel.reloadRequested()
@@ -237,9 +260,28 @@ final class AppComposition {
         coordinator.settingsRouter.popToRoot()
     }
 
-    private func trimDetailCacheIfNeeded<Model>(_ cache: inout [UUID: Model]) {
-        guard cache.count >= detailCacheLimit, let firstKey = cache.keys.first else { return }
-        cache[firstKey] = nil
+    /// Drops scene-local detail caches when iOS reports memory pressure.
+    ///
+    /// Views already on screen retain their current observable model until they disappear;
+    /// later navigation recreates a fresh model from SwiftData. Media players are released
+    /// immediately because they are the most expensive cache-owned resource.
+    func memoryPressureReceived() {
+        importedDetailReloadTasks.values.forEach { $0.cancel() }
+        importedDetailReloadTasks.removeAll()
+        importedDetails.removeAll().forEach { $0.playbackModel.releaseResources() }
+        workspaceDetails.removeAll()
+        textDetails.removeAll()
+        urlDetails.removeAll()
+    }
+
+    private func present(_ presentation: AppPresentation) {
+        activePresentation = presentation
+        coordinator.present(presentation)
+    }
+
+    private func presentAlert(title: String, message: String) {
+        alertTitle = title
+        alertMessage = message
     }
 
     private func reloadImportedDetailIfCached(id: UUID) {
@@ -260,5 +302,60 @@ final class AppComposition {
         postMutationMaintenanceTask = Task { [spotlight, searchIndex] in
             await spotlight.rebuildIfAllowed(searchIndex: searchIndex)
         }
+    }
+}
+
+/// Small scene-local least-recently-used cache for detail state owners.
+///
+/// SwiftData remains the source of truth. This cache only prevents repeated state-owner
+/// construction during navigation and returns evicted values so resource-owning models can
+/// release media before deallocation.
+private struct DetailModelCache<Value> {
+    private let limit: Int
+    private var storage: [UUID: Value] = [:]
+    private var accessOrder: [UUID] = []
+
+    init(limit: Int) {
+        self.limit = max(limit, 1)
+    }
+
+    subscript(id: UUID) -> Value? {
+        storage[id]
+    }
+
+    mutating func value(for id: UUID) -> Value? {
+        guard let value = storage[id] else { return nil }
+        touch(id)
+        return value
+    }
+
+    @discardableResult
+    mutating func insert(_ value: Value, for id: UUID) -> Value? {
+        if storage[id] != nil {
+            storage[id] = value
+            touch(id)
+            return nil
+        }
+        var evictedValue: Value?
+        if storage.count >= limit, let evictedID = accessOrder.first {
+            accessOrder.removeFirst()
+            evictedValue = storage.removeValue(forKey: evictedID)
+        }
+        storage[id] = value
+        accessOrder.append(id)
+        return evictedValue
+    }
+
+    @discardableResult
+    mutating func removeAll() -> [Value] {
+        let values = Array(storage.values)
+        storage.removeAll()
+        accessOrder.removeAll()
+        return values
+    }
+
+    private mutating func touch(_ id: UUID) {
+        accessOrder.removeAll { $0 == id }
+        accessOrder.append(id)
     }
 }

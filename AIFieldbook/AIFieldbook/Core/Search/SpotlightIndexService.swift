@@ -1,5 +1,6 @@
 import CoreSpotlight
 import Foundation
+import OSLog
 import UniformTypeIdentifiers
 
 /// Owns optional Core Spotlight indexing for local fieldbook content.
@@ -12,6 +13,7 @@ import UniformTypeIdentifiers
 actor SpotlightIndexService {
     private let index = CSSearchableIndex.default()
     private let isIndexingEnabled: Bool
+    private let logger = Logger(subsystem: "com.zenflow.AIFieldbook", category: "Spotlight")
 
     init(isIndexingEnabled: Bool = false) {
         self.isIndexingEnabled = isIndexingEnabled
@@ -51,10 +53,21 @@ actor SpotlightIndexService {
             try await index.deleteAllSearchableItems()
             if !searchableItems.isEmpty { try await index.indexSearchableItems(searchableItems) }
         } catch {
-            // Spotlight is supplementary; local content remains available in-app.
-            // Revisit when a privacy-safe diagnostics surface is added.
+            let nsError = error as NSError
+            logger.error(
+                "Spotlight rebuild failed domain=\(nsError.domain, privacy: .public) code=\(nsError.code)"
+            )
         }
     }
 
-    func clear() async { try? await index.deleteAllSearchableItems() }
+    func clear() async {
+        do {
+            try await index.deleteAllSearchableItems()
+        } catch {
+            let nsError = error as NSError
+            logger.error(
+                "Spotlight cleanup failed domain=\(nsError.domain, privacy: .public) code=\(nsError.code)"
+            )
+        }
+    }
 }

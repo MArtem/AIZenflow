@@ -70,30 +70,50 @@ actor FieldbookSearchIndex {
         guard criteria.hasActiveCriteria else { return [] }
 
         let trimmedQuery = criteria.query.trimmingCharacters(in: .whitespacesAndNewlines)
-        let descriptor = FetchDescriptor<KnowledgeItemRecord>(
+        let predicate: Predicate<KnowledgeItemRecord>?
+        switch (criteria.workspaceID, criteria.kind?.rawValue) {
+        case let (workspaceID?, kindRawValue?):
+            predicate = #Predicate {
+                $0.workspace?.id == workspaceID && $0.kindRawValue == kindRawValue
+            }
+        case let (workspaceID?, nil):
+            predicate = #Predicate { $0.workspace?.id == workspaceID }
+        case let (nil, kindRawValue?):
+            predicate = #Predicate { $0.kindRawValue == kindRawValue }
+        case (nil, nil):
+            predicate = nil
+        }
+        var descriptor = FetchDescriptor<KnowledgeItemRecord>(
+            predicate: predicate,
             sortBy: [SortDescriptor(\KnowledgeItemRecord.updatedAt, order: .reverse)]
         )
+        if trimmedQuery.isEmpty, criteria.tagID == nil {
+            descriptor.fetchLimit = maximumSearchResultCount
+        }
 
-        return Array(try modelContext.fetch(descriptor)
-            .lazy
-            .filter { item in
-                guard criteria.workspaceID == nil || item.workspace?.id == criteria.workspaceID else { return false }
-                guard criteria.kind == nil || item.kind == criteria.kind else { return false }
-                guard criteria.tagID == nil || item.tags.contains(where: { $0.id == criteria.tagID }) else { return false }
-                guard !trimmedQuery.isEmpty else { return true }
-
+        var results: [KnowledgeItemSummary] = []
+        for item in try modelContext.fetch(descriptor) {
+            try Task.checkCancellation()
+            guard criteria.tagID == nil || item.tags.contains(where: { $0.id == criteria.tagID }) else {
+                continue
+            }
+            if !trimmedQuery.isEmpty {
                 let searchableValues = [
                     item.title,
                     item.textContent,
                     item.attachments.first?.originalFilename ?? "",
                     item.tags.map(\.name).joined(separator: " ")
                 ]
-                return searchableValues.contains { value in
-                    value.localizedStandardContains(trimmedQuery)
+                guard searchableValues.contains(where: { $0.localizedStandardContains(trimmedQuery) }) else {
+                    continue
                 }
             }
-            .compactMap(makeItemSummary)
-            .prefix(maximumSearchResultCount))
+            if let summary = makeItemSummary(item) {
+                results.append(summary)
+                if results.count == maximumSearchResultCount { break }
+            }
+        }
+        return results
     }
 
     /// Builds privacy-scoped snapshots for optional Spotlight indexing.

@@ -14,6 +14,10 @@ folder because it is product/runtime documentation, not compiled app source.
 - User-created content is stored in app-owned local SwiftData records and Application Support files.
 - Imported files are copied into app-owned storage; temporary picker/provider URLs are not persisted.
 - Generated exports are user-initiated and temporary.
+- The app privacy manifest declares no tracking or collected data and declares app-only
+  `UserDefaults` access with required reason `CA92.1` for compiled navigation support.
+- Privacy-safe OSLog diagnostics record only operation category plus system error domain/code;
+  they never include user content, filenames, URLs, or raw paths.
 
 ## Spotlight Contract
 
@@ -25,19 +29,23 @@ Search and future Spotlight snapshots are read through `FieldbookSearchIndex`, a
 
 ## File Backup Contract
 
-Iteration 1 has no approved cloud data path. App-owned content, staging files, and generated exports are marked excluded from system backup. This intentionally favors local-only privacy over device-to-device cloud restore.
+Iteration 1 has no approved cloud data path. App-owned content, staging files, and generated exports use complete file protection and are marked excluded from system backup. This intentionally favors locked-device and local-only privacy over background access and device-to-device cloud restore.
 
 If the product later needs backup/restore, that must be a separate app-specific decision with explicit user-facing privacy copy.
 
 Preparing a new export removes older generated exports first. Exports are temporary user-share artifacts, not durable secondary storage.
 
-Delete-all is allowed to ignore already-missing app-owned files while still deleting SwiftData records, generated exports, runtime detail caches, navigation stacks, and Spotlight indexes. This prevents stale or previously-corrupted file state from blocking a full local reset.
+Delete-all is allowed to ignore already-missing app-owned files while still deleting SwiftData records, generated exports, runtime detail caches, navigation stacks, and Spotlight indexes. Every destructive file batch writes a durable manifest before moving content. Relaunch reconciliation restores files still referenced by SwiftData or finalizes files whose record deletion committed; invalid/conflicting recovery state is preserved instead of blanket-deleted.
+
+New imported files embed a streaming SHA-256 digest in their opaque app-owned filename and are
+verified when resolved. Legacy files remain readable without a destructive migration.
 
 ## Runtime Ownership
 
 - `AppComposition` owns long-lived services, repositories, feature state owners, and modal state.
 - `FieldbookRepository` owns SwiftData main-context access and maps records to UI/domain state.
 - `FieldbookSearchIndex` owns background SwiftData read snapshots for search/indexing.
+- `FieldbookExportService` owns background SwiftData export snapshots and JSON encoding.
 - `AppFileStore` owns app-managed files, import validation, staged deletion, cleanup, and exports.
 - `SpotlightIndexService` owns optional system search indexing and clearing.
 

@@ -1,5 +1,6 @@
 import SwiftData
 import SwiftUI
+import UIKit
 
 /// Root scene view that wires app composition into tab navigation.
 ///
@@ -45,17 +46,20 @@ struct AppShellView: View {
         .task {
             await composition.started()
         }
+        .onReceive(NotificationCenter.default.publisher(for: UIApplication.didReceiveMemoryWarningNotification)) { _ in
+            composition.memoryPressureReceived()
+        }
         .onOpenURL(perform: composition.handleOpenURL)
         .alert(
-            "Link Unavailable",
+            composition.alertTitle ?? String(localized: "AI Fieldbook Alert"),
             isPresented: Binding(
-                get: { composition.deepLinkErrorMessage != nil },
-                set: { if !$0 { composition.deepLinkErrorDismissed() } }
+                get: { composition.alertMessage != nil },
+                set: { if !$0 { composition.alertDismissed() } }
             )
         ) {
-            Button("OK") { composition.deepLinkErrorDismissed() }
+            Button("OK") { composition.alertDismissed() }
         } message: {
-            Text(composition.deepLinkErrorMessage ?? "")
+            Text(composition.alertMessage ?? "")
         }
     }
 
@@ -209,11 +213,27 @@ struct PlaceholderDestinationView: View {
 /// The view has no recovery side effects because persistence bootstrapping belongs to
 /// `AIFieldbookApp`; users receive a clear blocking state instead of a partially functional UI.
 struct PersistenceFailureView: View {
+    let referenceID: String
+    let retry: () -> Void
+
     var body: some View {
-        ContentUnavailableView(
-            "Local Storage Unavailable",
-            systemImage: "externaldrive.badge.exclamationmark",
-            description: Text(String(localized: "AI Fieldbook couldn’t open its local database. Close and reopen the app to try again."))
-        )
+        ContentUnavailableView {
+            Label("Local Storage Unavailable", systemImage: "externaldrive.badge.exclamationmark")
+        } description: {
+            VStack(spacing: FieldbookSpacing.compact) {
+                Text(String(localized: "AI Fieldbook couldn’t open its local database. Your data was not reset."))
+                Text(
+                    String.localizedStringWithFormat(
+                        String(localized: "Reference: %@"),
+                        referenceID
+                    )
+                )
+                    .font(.caption.monospaced())
+                    .textSelection(.enabled)
+            }
+        } actions: {
+            Button("Try Again", action: retry)
+                .buttonStyle(.borderedProminent)
+        }
     }
 }

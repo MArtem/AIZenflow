@@ -5,8 +5,10 @@
 - Approved for planning: 2026-07-12.
 - Product: independent internal-only iOS learning application.
 - Working name: `AI Fieldbook`.
-- Current implementation state: native app shell, SwiftData schema v2, workspace and text-note CRUD, tags, deterministic search, and validated app-owned image/PDF/plain-text/audio import and viewing exist; no package, test target, audio recording, URL references, App Intent, or AI capability has been added.
-- Current completed block: Iteration 1 / Block 1.17.
+- Current implementation state: the non-AI Iteration 1 app includes workspace/item CRUD, text notes, tags, deterministic local search, validated app-owned image/PDF/plain-text/audio import, audio recording/playback, URL references, export/delete-all, deep links, disabled-by-default Spotlight integration, Russian localization, and accessibility foundations.
+- Current completed implementation block: Iteration 1 / Block 1.25 plus the 2026-07-15 static production-remediation pass.
+- Current gate: Block 1.26 remains open; build, Simulator/device, migration, crash-recovery, VoiceOver/Dynamic Type, privacy-report, archive, and performance evidence are not yet complete.
+- No test target, App Intent, AI capability, backend, analytics, or cloud runtime has been added.
 - Governing AI prompt: `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`.
 
 ## Product Goal
@@ -71,15 +73,16 @@ product. It can be introduced later as a separate approved block.
 
 ## Primary Navigation
 
-The initial product shell contains:
+The Iteration 1 product shell contains:
 
 - **Workspace**: workspaces and their knowledge items.
 - **Capture**: entry points for supported content types.
 - **Search**: deterministic local search and filters.
-- **Labs**: non-functional informational destination until Iteration 2; it must
-  not simulate working AI.
 - **Settings**: local-only disclosure, storage/data lifecycle, permissions,
   diagnostics preferences, export, and delete-all entry points.
+
+**Labs** is introduced only when Iteration 2 begins. Iteration 1 must not reserve a fake or
+non-functional AI destination in the primary tab bar.
 
 Navigation is native SwiftUI with an app coordinator/router foundation from the
 initial app shell. The coordinator owns selected tab, per-tab stacks, modal
@@ -267,7 +270,8 @@ document contents, audio, images, or raw file paths in analytics/log exports.
 ## Verification Policy
 
 - Test-writing remains prohibited.
-- Xcode build and manual Simulator validation are allowed when useful.
+- Xcode build, tests, Simulator, physical-device QA, Instruments, archive, and signing checks
+  require explicit authorization for the current block.
 - Resource policy: do not rebuild after every cosmetic line; build after project
   configuration, persistence, file/audio integration, App Intents, and coherent
   user-flow blocks.
@@ -290,7 +294,7 @@ The non-AI product is complete only when the user can:
 9. Move, export/share, and delete supported content.
 10. Relaunch without losing valid content.
 11. Recover from permission, corrupt-file, missing-file, and storage failures.
-12. Use basic non-AI Shortcuts/App Intents and Spotlight flows.
+12. Use validated deep links and the approved Spotlight policy; App Intents begin in Iteration 2.
 13. Export or delete all local data.
 14. Use the app offline with no cloud dependency.
 15. Use core flows with accessibility and localized UI foundations.
@@ -311,6 +315,7 @@ The non-AI product is complete only when the user can:
 
 ## Open Questions
 
-No question currently blocks Block 1.18 audio-recording work. Content-specific limits,
-exact copy, and interaction details are intentionally decided immediately before
-their corresponding small implementation block rather than guessed now.
+No product question blocks the remaining Iteration 1 validation gate. External inputs still
+needed for release evidence are an authorized build/runtime-validation phase, physical-device
+availability, signing team selection, archive/privacy-report evidence, and the user's final gate
+acceptance. App Intents and AI remain blocked until that acceptance.

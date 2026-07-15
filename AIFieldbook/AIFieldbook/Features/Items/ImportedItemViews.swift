@@ -379,51 +379,78 @@ private struct QuickLookPreviewView: UIViewControllerRepresentable {
 /// Created by `ImportedItemDetailViewModel` and reused while that detail model is alive.
 ///
 /// Side effects:
-/// Holds an `AVAudioPlayer` and a timer; callers must invoke `stopped()` when the containing
-/// view disappears or when playback should stop.
+/// Holds a streaming `AVPlayer` and a bounded UI timer. Asset metadata loads asynchronously;
+/// callers must invoke `releaseResources()` when the containing view disappears or is evicted.
 @Observable
 @MainActor
 final class AudioPlaybackModel {
-    private var player: AVAudioPlayer?
+    private var player: AVPlayer?
     private var timer: Timer?
+    private var preparedURL: URL?
 
     private(set) var isPlaying = false
+    private(set) var isPreparing = false
     private(set) var currentTime: TimeInterval = 0
     private(set) var duration: TimeInterval = 0
     private(set) var errorMessage: String?
 
-    func prepare(url: URL) {
-        guard player == nil else { return }
+    func prepare(url: URL) async {
+        guard preparedURL != url || player == nil else { return }
+        releaseResources()
+        isPreparing = true
+        errorMessage = nil
+        defer { isPreparing = false }
+
         do {
-            let player = try AVAudioPlayer(contentsOf: url)
-            player.prepareToPlay()
-            self.player = player
-            duration = player.duration
+            let asset = AVURLAsset(url: url)
+            let isPlayable = try await asset.load(.isPlayable)
+            let loadedDuration = try await asset.load(.duration).seconds
+            try Task.checkCancellation()
+            guard isPlayable, loadedDuration.isFinite, loadedDuration > 0 else {
+                throw AppFileStoreError.audioNotPlayable
+            }
+            player = AVPlayer(playerItem: AVPlayerItem(asset: asset))
+            preparedURL = url
+            duration = loadedDuration
         } catch {
+            guard !(error is CancellationError) else { return }
             errorMessage = String(localized: "The audio player couldn’t be prepared.")
         }
     }
 
     func playPauseTapped() {
         guard let player else { return }
-        if player.isPlaying {
+        if player.timeControlStatus == .playing {
             player.pause()
             stopTimer()
         } else {
+            if currentTime >= duration {
+                seek(to: 0)
+            }
             player.play()
+            isPlaying = true
             startTimer()
         }
-        isPlaying = player.isPlaying
     }
 
     func seek(to time: TimeInterval) {
-        player?.currentTime = time
-        currentTime = time
+        let boundedTime = min(max(time, 0), duration)
+        player?.seek(
+            to: CMTime(seconds: boundedTime, preferredTimescale: 600),
+            toleranceBefore: .zero,
+            toleranceAfter: .zero
+        )
+        currentTime = boundedTime
     }
 
-    func stopped() {
+    func releaseResources() {
         player?.pause()
+        player?.replaceCurrentItem(with: nil)
+        player = nil
+        preparedURL = nil
         isPlaying = false
+        currentTime = 0
+        duration = 0
         stopTimer()
     }
 
@@ -432,9 +459,13 @@ final class AudioPlaybackModel {
         timer = Timer.scheduledTimer(withTimeInterval: 0.25, repeats: true) { [weak self] _ in
             Task { @MainActor in
                 guard let self, let player = self.player else { return }
-                self.currentTime = player.currentTime
-                self.isPlaying = player.isPlaying
-                if !player.isPlaying {
+                let seconds = player.currentTime().seconds
+                if seconds.isFinite {
+                    self.currentTime = min(max(seconds, 0), self.duration)
+                }
+                let playbackActive = player.rate > 0 || player.timeControlStatus == .waitingToPlayAtSpecifiedRate
+                self.isPlaying = playbackActive
+                if !playbackActive, self.currentTime >= max(self.duration - 0.1, 0) {
                     self.stopTimer()
                 }
             }
@@ -449,7 +480,7 @@ final class AudioPlaybackModel {
 
 /// Playback controls for an imported audio item.
 ///
-/// The view owns no `AVAudioPlayer`; it only binds to `AudioPlaybackModel` state and intents.
+/// The view owns no `AVPlayer`; it only binds to `AudioPlaybackModel` state and intents.
 private struct AudioPlaybackView: View {
     let url: URL
     @Bindable var model: AudioPlaybackModel
@@ -463,6 +494,11 @@ private struct AudioPlaybackView: View {
                 model.playPauseTapped()
             }
             .buttonStyle(.borderedProminent)
+            .disabled(model.isPreparing || model.duration <= 0)
+
+            if model.isPreparing {
+                ProgressView("Preparing Audio")
+            }
 
             Slider(
                 value: Binding(
@@ -487,11 +523,11 @@ private struct AudioPlaybackView: View {
                     .foregroundStyle(FieldbookColor.destructive)
             }
         }
-        .onAppear {
-            model.prepare(url: url)
+        .task(id: url) {
+            await model.prepare(url: url)
         }
         .onDisappear {
-            model.stopped()
+            model.releaseResources()
         }
     }
 }

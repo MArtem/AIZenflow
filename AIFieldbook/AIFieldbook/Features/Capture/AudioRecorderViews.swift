@@ -36,6 +36,8 @@ final class AudioRecorderViewModel {
     private var timer: Timer?
     private var draftURL: URL?
     private var didFinish = false
+    @ObservationIgnored private var interruptionObserver: NSObjectProtocol?
+    @ObservationIgnored private var routeChangeObserver: NSObjectProtocol?
 
     var selectedWorkspaceID: UUID?
     var title = ""
@@ -52,6 +54,7 @@ final class AudioRecorderViewModel {
     var canSave: Bool { state == .recorded && selectedWorkspaceID != nil && duration > 0 }
 
     func appeared() {
+        startObservingAudioSession()
         do {
             workspaces = try repository.fetchWorkspaces()
             selectedWorkspaceID = selectedWorkspaceID ?? workspaces.first?.id
@@ -66,14 +69,23 @@ final class AudioRecorderViewModel {
             stopRecording()
             return
         }
+        if let draftURL {
+            await fileStore.discardRecordingDraft(at: draftURL)
+            self.draftURL = nil
+            duration = 0
+        }
+        errorMessage = nil
         state = .requestingPermission
         let granted = await AVAudioApplication.requestRecordPermission()
         guard granted else { state = .permissionDenied; return }
+        var preparedDraftURL: URL?
         do {
             let session = AVAudioSession.sharedInstance()
             try session.setCategory(.record, mode: .spokenAudio)
             try session.setActive(true)
             let url = try await fileStore.prepareRecordingDraft()
+            preparedDraftURL = url
+            draftURL = url
             let recorder = try AVAudioRecorder(
                 url: url,
                 settings: [
@@ -84,12 +96,18 @@ final class AudioRecorderViewModel {
                 ]
             )
             guard recorder.record() else { throw CocoaError(.fileWriteUnknown) }
-        self.recorder = recorder
-            draftURL = url
+            self.recorder = recorder
             duration = 0
             state = .recording
             startTimer()
         } catch {
+            recorder = nil
+            stopTimer()
+            if let preparedDraftURL {
+                await fileStore.discardRecordingDraft(at: preparedDraftURL)
+            }
+            draftURL = nil
+            try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
             state = .unavailable
             errorMessage = String(localized: "Audio recording isn’t available right now.")
         }
@@ -110,6 +128,7 @@ final class AudioRecorderViewModel {
                 await fileStore.discardRecordingDraft(at: draftURL)
                 self.draftURL = nil
                 didFinish = true
+                stopObservingAudioSession()
                 return true
             } catch {
                 try? await fileStore.remove(metadata.reference)
@@ -123,11 +142,19 @@ final class AudioRecorderViewModel {
     }
 
     func cancelled() async {
+        stopObservingAudioSession()
         guard !didFinish else { return }
         stopRecording()
         if let draftURL { await fileStore.discardRecordingDraft(at: draftURL) }
         draftURL = nil
         try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
+    }
+
+    /// Stops recording when the scene can no longer safely own foreground audio capture.
+    func scenePhaseChanged(_ phase: ScenePhase) {
+        guard phase != .active, state == .recording else { return }
+        stopRecording()
+        errorMessage = String(localized: "Recording stopped because AI Fieldbook left the foreground.")
     }
 
     private func stopRecording() {
@@ -147,6 +174,47 @@ final class AudioRecorderViewModel {
     }
 
     private func stopTimer() { timer?.invalidate(); timer = nil }
+
+    private func startObservingAudioSession() {
+        guard interruptionObserver == nil, routeChangeObserver == nil else { return }
+        interruptionObserver = NotificationCenter.default.addObserver(
+            forName: AVAudioSession.interruptionNotification,
+            object: AVAudioSession.sharedInstance(),
+            queue: .main
+        ) { [weak self] notification in
+            let rawValue = notification.userInfo?[AVAudioSessionInterruptionTypeKey] as? UInt
+            Task { @MainActor [weak self] in
+                guard rawValue.flatMap(AVAudioSession.InterruptionType.init(rawValue:)) == .began,
+                      self?.state == .recording else { return }
+                self?.stopRecording()
+                self?.errorMessage = String(localized: "Recording stopped because the audio session was interrupted.")
+            }
+        }
+        routeChangeObserver = NotificationCenter.default.addObserver(
+            forName: AVAudioSession.routeChangeNotification,
+            object: AVAudioSession.sharedInstance(),
+            queue: .main
+        ) { [weak self] notification in
+            let rawValue = notification.userInfo?[AVAudioSessionRouteChangeReasonKey] as? UInt
+            Task { @MainActor [weak self] in
+                guard rawValue.flatMap(AVAudioSession.RouteChangeReason.init(rawValue:)) == .oldDeviceUnavailable,
+                      self?.state == .recording else { return }
+                self?.stopRecording()
+                self?.errorMessage = String(localized: "Recording stopped because the audio input changed.")
+            }
+        }
+    }
+
+    private func stopObservingAudioSession() {
+        if let interruptionObserver {
+            NotificationCenter.default.removeObserver(interruptionObserver)
+            self.interruptionObserver = nil
+        }
+        if let routeChangeObserver {
+            NotificationCenter.default.removeObserver(routeChangeObserver)
+            self.routeChangeObserver = nil
+        }
+    }
 }
 
 /// Sheet UI for a single local audio recording flow.
@@ -156,6 +224,7 @@ final class AudioRecorderViewModel {
 struct AudioRecorderView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.openURL) private var openURL
+    @Environment(\.scenePhase) private var scenePhase
     @Bindable var viewModel: AudioRecorderViewModel
 
     var body: some View {
@@ -193,6 +262,9 @@ struct AudioRecorderView: View {
             }
         }
         .onAppear { viewModel.appeared() }
+        .onChange(of: scenePhase) { _, newPhase in
+            viewModel.scenePhaseChanged(newPhase)
+        }
         .onDisappear { Task { await viewModel.cancelled() } }
     }
 }

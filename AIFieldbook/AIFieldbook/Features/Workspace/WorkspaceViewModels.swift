@@ -82,17 +82,21 @@ final class WorkspaceDetailViewModel {
 
     func deleteConfirmed() async -> Bool {
         errorMessage = nil
-        var staged: [StagedDeletion] = []
+        var staged = StagedDeletionBatch.empty
         do {
             let references = try repository.workspaceFileReferences(id: workspaceID)
             staged = try await fileStore.stageDeletion(references, missingFilePolicy: .ignoreMissing)
             do {
                 try repository.deleteWorkspace(id: workspaceID)
             } catch {
-                try? await fileStore.rollbackDeletion(staged)
+                do {
+                    try await fileStore.rollbackDeletion(staged)
+                } catch {
+                    throw AppFileStoreError.deletionRecoveryConflict
+                }
                 throw error
             }
-            await fileStore.commitDeletion(staged)
+            try await fileStore.commitDeletion(staged)
             return true
         } catch {
             errorMessage = String(localized: "The workspace couldn’t be deleted completely.")

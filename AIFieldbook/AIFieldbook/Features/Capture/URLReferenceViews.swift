@@ -42,6 +42,10 @@ final class URLReferenceEditorViewModel {
 
     var canSave: Bool { normalizedURL != nil && selectedWorkspaceID != nil && !title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }
 
+    var usesInsecureHTTP: Bool {
+        normalizedURL?.scheme?.lowercased() == "http"
+    }
+
     func appeared() {
         guard workspaces.isEmpty else { return }
         do {
@@ -78,7 +82,13 @@ final class URLReferenceEditorViewModel {
             case .create:
                 try repository.createURLReference(workspaceID: workspaceID, title: cleanTitle, url: url, notes: notes)
             case let .edit(id):
-                try repository.updateURLReference(id: id, title: cleanTitle, url: url, notes: notes)
+                try repository.updateURLReference(
+                    id: id,
+                    workspaceID: workspaceID,
+                    title: cleanTitle,
+                    url: url,
+                    notes: notes
+                )
             }
             return true
         } catch {
@@ -89,10 +99,13 @@ final class URLReferenceEditorViewModel {
 
     private var normalizedURL: URL? {
         let trimmed = urlText.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard var components = URLComponents(string: trimmed),
+        guard trimmed.utf8.count <= 2_048,
+              var components = URLComponents(string: trimmed),
               let scheme = components.scheme?.lowercased(),
               scheme == "http" || scheme == "https",
-              components.host?.isEmpty == false else { return nil }
+              components.host?.isEmpty == false,
+              components.user == nil,
+              components.password == nil else { return nil }
         components.scheme = scheme
         return components.url
     }
@@ -154,6 +167,15 @@ struct URLReferenceEditorView: View {
                         .autocorrectionDisabled()
                     TextField("Notes (optional)", text: $viewModel.notes, axis: .vertical)
                         .lineLimit(3...8)
+                }
+                if viewModel.usesInsecureHTTP {
+                    Section("Connection Warning") {
+                        Label(
+                            "This HTTP address is not encrypted. Avoid opening it with private information in the URL.",
+                            systemImage: "lock.open.trianglebadge.exclamationmark"
+                        )
+                        .foregroundStyle(FieldbookColor.destructive)
+                    }
                 }
                 if let error = viewModel.errorMessage {
                     Label(error, systemImage: "exclamationmark.triangle")

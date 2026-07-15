@@ -32,6 +32,9 @@
 		6B1A00000000000000000019 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000119 /* Localizable.strings */; };
 		6B1A0000000000000000001A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011A /* InfoPlist.strings */; };
 		6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011C /* FieldbookSearchIndex.swift */; };
+		6B1A0000000000000000001C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */; };
+		6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011E /* FieldbookExportService.swift */; };
+		6B1A0000000000000000001E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011F /* Localizable.stringsdict */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,6 +66,9 @@
 		6B1A0000000000000000011A /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LOCAL_DATA_PRIVACY_AND_RUNTIME.md; sourceTree = "<group>"; };
 		6B1A0000000000000000011C /* FieldbookSearchIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookSearchIndex.swift; sourceTree = "<group>"; };
+		6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6B1A0000000000000000011E /* FieldbookExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookExportService.swift; sourceTree = "<group>"; };
+		6B1A0000000000000000011F /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Localizable.stringsdict; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -141,6 +147,7 @@
 				6B1A00000000000000000104 /* FieldbookModels.swift */,
 				6B1A00000000000000000105 /* FieldbookPersistence.swift */,
 				6B1A00000000000000000106 /* FieldbookRepository.swift */,
+				6B1A0000000000000000011E /* FieldbookExportService.swift */,
 			);
 			path = Persistence;
 			sourceTree = "<group>";
@@ -158,8 +165,10 @@
 			isa = PBXGroup;
 			children = (
 				6B1A00000000000000000117 /* Info.plist */,
+				6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */,
 				6B1A00000000000000000119 /* Localizable.strings */,
 				6B1A0000000000000000011A /* InfoPlist.strings */,
+				6B1A0000000000000000011F /* Localizable.stringsdict */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -314,8 +323,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6B1A0000000000000000001C /* PrivacyInfo.xcprivacy in Resources */,
 				6B1A00000000000000000019 /* Localizable.strings in Resources */,
 				6B1A0000000000000000001A /* InfoPlist.strings in Resources */,
+				6B1A0000000000000000001E /* Localizable.stringsdict in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +360,7 @@
 				6B1A00000000000000000017 /* DeepLinkParser.swift in Sources */,
 				6B1A00000000000000000018 /* MoveItemView.swift in Sources */,
 				6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */,
+				6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

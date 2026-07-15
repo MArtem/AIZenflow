@@ -16,15 +16,23 @@ import UIKit
 @Observable
 final class SettingsViewModel {
     private let repository: FieldbookRepository
+    private let exportService: FieldbookExportService
     private let fileStore: AppFileStore
     private let spotlight: SpotlightIndexService
     private(set) var storageBytes: Int64 = 0
     private(set) var exportURL: URL?
     private(set) var errorMessage: String?
     private(set) var isWorking = false
+    @ObservationIgnored private var exportTask: Task<Void, Never>?
 
-    init(repository: FieldbookRepository, fileStore: AppFileStore, spotlight: SpotlightIndexService) {
+    init(
+        repository: FieldbookRepository,
+        exportService: FieldbookExportService,
+        fileStore: AppFileStore,
+        spotlight: SpotlightIndexService
+    ) {
         self.repository = repository
+        self.exportService = exportService
         self.fileStore = fileStore
         self.spotlight = spotlight
     }
@@ -32,33 +40,72 @@ final class SettingsViewModel {
     func appeared() async { storageBytes = await fileStore.storageByteCount() }
 
     func cleanupTemporaryFilesTapped() async {
-        await fileStore.cleanupAbandonedStaging()
-        await fileStore.cleanupExports()
-        exportURL = nil
-        storageBytes = await fileStore.storageByteCount()
-    }
-
-    func exportTapped() async {
+        guard !isWorking else { return }
         isWorking = true
+        errorMessage = nil
         defer { isWorking = false }
         do {
-            exportURL = try await fileStore.createExport(manifest: repository.exportManifestData())
+            try await fileStore.recoverAbandonedStaging(activeReferences: repository.allFileReferences())
+            await fileStore.cleanupExports()
+            exportURL = nil
             storageBytes = await fileStore.storageByteCount()
-        } catch { errorMessage = String(localized: "Local data couldn’t be exported.") }
+        } catch {
+            errorMessage = String(localized: "Temporary files need recovery before cleanup can continue.")
+        }
+    }
+
+    func exportTapped() {
+        guard !isWorking else { return }
+        exportTask?.cancel()
+        isWorking = true
+        errorMessage = nil
+        exportTask = Task { [weak self, exportService, fileStore] in
+            do {
+                let manifest = try await exportService.manifestData()
+                try Task.checkCancellation()
+                let exportURL = try await fileStore.createExport(manifest: manifest)
+                let storageBytes = await fileStore.storageByteCount()
+                if Task.isCancelled {
+                    await fileStore.cleanupExports()
+                    self?.exportCancelled()
+                    return
+                }
+                self?.exportCompleted(url: exportURL, storageBytes: storageBytes)
+            } catch is CancellationError {
+                self?.exportCancelled()
+            } catch {
+                self?.exportFailed()
+            }
+        }
+    }
+
+    func disappeared() {
+        exportTask?.cancel()
+        exportTask = nil
+        isWorking = false
     }
 
     func deleteAllConfirmed() async -> Bool {
+        guard !isWorking else { return false }
         isWorking = true
+        errorMessage = nil
         defer { isWorking = false }
-        var staged: [StagedDeletion] = []
+        var staged = StagedDeletionBatch.empty
         do {
             staged = try await fileStore.stageDeletion(
                 repository.allFileReferences(),
                 missingFilePolicy: .ignoreMissing
             )
             do { try repository.deleteAllData() }
-            catch { try? await fileStore.rollbackDeletion(staged); throw error }
-            await fileStore.commitDeletion(staged)
+            catch {
+                do {
+                    try await fileStore.rollbackDeletion(staged)
+                } catch {
+                    throw AppFileStoreError.deletionRecoveryConflict
+                }
+                throw error
+            }
+            try await fileStore.commitDeletion(staged)
             await fileStore.cleanupExports()
             await spotlight.clear()
             exportURL = nil
@@ -68,6 +115,24 @@ final class SettingsViewModel {
             errorMessage = String(localized: "Local data couldn’t be deleted completely.")
             return false
         }
+    }
+
+    private func exportCompleted(url: URL, storageBytes: Int64) {
+        exportURL = url
+        self.storageBytes = storageBytes
+        exportTask = nil
+        isWorking = false
+    }
+
+    private func exportCancelled() {
+        exportTask = nil
+        isWorking = false
+    }
+
+    private func exportFailed() {
+        errorMessage = String(localized: "Local data couldn’t be exported.")
+        exportTask = nil
+        isWorking = false
     }
 }
 
@@ -95,9 +160,10 @@ struct SettingsView: View {
             Section("Storage") {
                 LabeledContent("App-owned data", value: ByteCountFormatter.string(fromByteCount: viewModel.storageBytes, countStyle: .file))
                 Button("Clean Temporary Files", systemImage: "trash.slash") { Task { await viewModel.cleanupTemporaryFilesTapped() } }
+                    .disabled(viewModel.isWorking)
             }
             Section("Export") {
-                Button("Prepare Local Export", systemImage: "square.and.arrow.up") { Task { await viewModel.exportTapped() } }
+                Button("Prepare Local Export", systemImage: "square.and.arrow.up") { viewModel.exportTapped() }
                     .disabled(viewModel.isWorking)
                 if let url = viewModel.exportURL { ShareLink(item: url) { Label("Share Export Folder", systemImage: "square.and.arrow.up") } }
             }
@@ -111,8 +177,16 @@ struct SettingsView: View {
             }
             Section("Data Lifecycle") {
                 Button("Delete All Local Data", systemImage: "trash", role: .destructive) { confirmsDeleteAll = true }
+                    .disabled(viewModel.isWorking)
             }
-            if let error = viewModel.errorMessage { Label(error, systemImage: "exclamationmark.triangle").foregroundStyle(FieldbookColor.destructive) }
+            if viewModel.isWorking {
+                ProgressView("Working")
+            }
+            if let error = viewModel.errorMessage {
+                Label(error, systemImage: "exclamationmark.triangle")
+                    .foregroundStyle(FieldbookColor.destructive)
+                    .accessibilityLabel("Error: \(error)")
+            }
         }
         .navigationTitle("Settings")
         .alert("Delete All Local Data?", isPresented: $confirmsDeleteAll) {
@@ -126,5 +200,6 @@ struct SettingsView: View {
             Button("Cancel", role: .cancel) {}
         } message: { Text(String(localized: "This permanently deletes every workspace, item, tag, and app-owned file.")) }
         .task { await viewModel.appeared() }
+        .onDisappear { viewModel.disappeared() }
     }
 }

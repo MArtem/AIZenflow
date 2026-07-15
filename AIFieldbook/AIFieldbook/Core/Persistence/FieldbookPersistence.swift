@@ -1,7 +1,9 @@
 import AVFoundation
 import CoreGraphics
+import CryptoKit
 import Foundation
 import ImageIO
+import OSLog
 import SwiftData
 import UniformTypeIdentifiers
 
@@ -12,7 +14,12 @@ import UniformTypeIdentifiers
 /// startup failure screen without constructing partial dependencies.
 enum PersistenceBootstrap {
     case ready(ModelContainer)
-    case failed
+    case failed(referenceID: String)
+
+    private static let logger = Logger(
+        subsystem: "com.zenflow.AIFieldbook",
+        category: "Persistence"
+    )
 
     @MainActor
     static func load() -> PersistenceBootstrap {
@@ -27,7 +34,12 @@ enum PersistenceBootstrap {
             )
             return .ready(container)
         } catch {
-            return .failed
+            let referenceID = UUID().uuidString
+            let nsError = error as NSError
+            logger.error(
+                "SwiftData bootstrap failed [\(referenceID, privacy: .public)] domain=\(nsError.domain, privacy: .public) code=\(nsError.code)"
+            )
+            return .failed(referenceID: referenceID)
         }
     }
 }
@@ -65,10 +77,22 @@ struct ImportedFileMetadata: Sendable {
     let pageCount: Int?
 }
 
-/// Temporary move record used to make file deletion rollbackable around database mutations.
-struct StagedDeletion: Sendable {
+/// One durable file move recorded inside a staged deletion transaction.
+struct StagedDeletion: Codable, Sendable {
     let originalReference: DurableFileReference
     let stagedRelativePath: String
+}
+
+/// Handle for one file-deletion transaction spanning app-owned storage and SwiftData.
+///
+/// The batch manifest is written before files move. If the process terminates before the
+/// database mutation finishes, startup reconciliation uses current SwiftData references to
+/// restore or finalize every recorded move without guessing from temporary-file age.
+struct StagedDeletionBatch: Sendable {
+    let batchRelativePath: String?
+    let entries: [StagedDeletion]
+
+    static let empty = StagedDeletionBatch(batchRelativePath: nil, entries: [])
 }
 
 /// Policy for destructive flows when a SwiftData record points at an already-missing file.
@@ -125,11 +149,15 @@ enum AppFileStoreError: LocalizedError {
     case fileTooLarge(maximumMegabytes: Int)
     case corruptFile
     case imageDimensionsTooLarge
+    case tooManyImageFrames
     case tooManyPDFPages
     case unsupportedTextEncoding
     case audioTooLong
     case audioNotPlayable
     case missingFile
+    case fileIntegrityMismatch
+    case deletionRecoveryConflict
+    case invalidDeletionManifest
 
     var errorDescription: String? {
         switch self {
@@ -143,6 +171,8 @@ enum AppFileStoreError: LocalizedError {
             String(localized: "The selected file is corrupt or can’t be read.")
         case .imageDimensionsTooLarge:
             String(localized: "The image exceeds the 20,000-pixel dimension limit.")
+        case .tooManyImageFrames:
+            String(localized: "The image contains too many frames.")
         case .tooManyPDFPages:
             String(localized: "The PDF exceeds the 500-page limit.")
         case .unsupportedTextEncoding:
@@ -153,6 +183,12 @@ enum AppFileStoreError: LocalizedError {
             String(localized: "The selected audio file can’t be played.")
         case .missingFile:
             String(localized: "The local file is missing.")
+        case .fileIntegrityMismatch:
+            String(localized: "The local file failed its integrity check.")
+        case .deletionRecoveryConflict:
+            String(localized: "Local file cleanup needs recovery before it can continue.")
+        case .invalidDeletionManifest:
+            String(localized: "Local file recovery information is invalid.")
         }
     }
 }
@@ -171,10 +207,14 @@ enum AppFileStoreError: LocalizedError {
 /// an export explicitly through the Settings screen.
 actor AppFileStore {
     private let fileManager: FileManager
+    private let logger = Logger(subsystem: "com.zenflow.AIFieldbook", category: "FileStorage")
     private let rootURL: URL
     private let contentURL: URL
     private let stagingURL: URL
+    private let deletionStagingURL: URL
     private let exportsURL: URL
+
+    private static let deletionManifestFilename = "deletion-manifest.json"
 
     init(
         fileManager: FileManager = .default,
@@ -185,13 +225,16 @@ actor AppFileStore {
         self.rootURL = rootURL
         self.contentURL = rootURL.appending(path: "Content", directoryHint: .isDirectory)
         self.stagingURL = rootURL.appending(path: "Staging", directoryHint: .isDirectory)
+        self.deletionStagingURL = stagingURL.appending(path: "Deletion", directoryHint: .isDirectory)
         self.exportsURL = rootURL.appending(path: "Exports", directoryHint: .isDirectory)
     }
 
     func prepareRecordingDraft() throws -> URL {
         try prepareDirectories()
         let url = stagingURL.appending(path: "recording-\(UUID().uuidString).m4a")
-        fileManager.createFile(atPath: url.path, contents: nil)
+        guard fileManager.createFile(atPath: url.path, contents: nil) else {
+            throw CocoaError(.fileWriteUnknown)
+        }
         try applyProtectionAndBackupPolicy(to: url)
         return url
     }
@@ -227,17 +270,17 @@ actor AppFileStore {
             byteCount: byteCount,
             kind: kind
         )
-        let reference = try copyDurably(
+        let storedFile = try copyDurably(
             from: sourceURL,
             kind: kind,
             contentType: contentType
         )
 
         return ImportedFileMetadata(
-            reference: reference,
+            reference: storedFile.reference,
             originalFilename: sanitizedDisplayFilename(sourceURL.lastPathComponent),
             contentType: contentType.identifier,
-            byteCount: byteCount,
+            byteCount: storedFile.byteCount,
             durationSeconds: validation.durationSeconds,
             pixelWidth: validation.pixelWidth,
             pixelHeight: validation.pixelHeight,
@@ -251,6 +294,12 @@ actor AppFileStore {
         guard fileManager.fileExists(atPath: url.path) else {
             throw AppFileStoreError.missingFile
         }
+        try applyProtectionAndBackupPolicy(to: url)
+        if let expectedDigest = embeddedIntegrityDigest(in: url),
+           try sha256Digest(of: url) != expectedDigest {
+            logger.error("App-owned file integrity verification failed")
+            throw AppFileStoreError.fileIntegrityMismatch
+        }
         return url
     }
 
@@ -262,67 +311,117 @@ actor AppFileStore {
     func stageDeletion(
         _ references: [DurableFileReference],
         missingFilePolicy: MissingFileDeletionPolicy = .fail
-    ) throws -> [StagedDeletion] {
-        guard !references.isEmpty else { return [] }
+    ) throws -> StagedDeletionBatch {
+        guard !references.isEmpty else { return .empty }
         try prepareDirectories()
 
-        let batchPath = "Staging/Deletion/\(UUID().uuidString)"
-        let batchURL = rootURL.appending(path: batchPath, directoryHint: .isDirectory)
-        try createManagedDirectory(batchURL)
+        let batchRelativePath = "Staging/Deletion/\(UUID().uuidString)"
+        var seenReferences = Set<DurableFileReference>()
+        var entries: [StagedDeletion] = []
+        for reference in references where seenReferences.insert(reference).inserted {
+            let sourceURL: URL
+            do {
+                sourceURL = try resolvedURL(for: reference)
+            } catch AppFileStoreError.missingFile where missingFilePolicy == .ignoreMissing {
+                continue
+            }
+            entries.append(
+                StagedDeletion(
+                    originalReference: reference,
+                    stagedRelativePath: "\(batchRelativePath)/\(entries.count)-\(sourceURL.lastPathComponent)"
+                )
+            )
+        }
+        guard !entries.isEmpty else { return .empty }
 
-        var staged: [StagedDeletion] = []
+        let batch = StagedDeletionBatch(batchRelativePath: batchRelativePath, entries: entries)
+        let batchURL = try validatedBatchURL(for: batch)
+        try createManagedDirectory(batchURL)
+        try writeDeletionManifest(for: batch, at: batchURL)
+
         do {
-            for reference in references {
-                let sourceURL: URL
-                do {
-                    sourceURL = try resolvedURL(for: reference)
-                } catch AppFileStoreError.missingFile where missingFilePolicy == .ignoreMissing {
-                    continue
-                }
-                let destinationRelativePath = "\(batchPath)/\(sourceURL.lastPathComponent)"
-                let destinationURL = rootURL.appending(path: destinationRelativePath)
+            for entry in entries {
+                let sourceURL = rootURL.appending(path: entry.originalReference.relativePath)
+                let destinationURL = rootURL.appending(path: entry.stagedRelativePath)
                 try fileManager.moveItem(at: sourceURL, to: destinationURL)
                 try applyProtectionAndBackupPolicy(to: destinationURL)
-                staged.append(
-                    StagedDeletion(
-                        originalReference: reference,
-                        stagedRelativePath: destinationRelativePath
-                    )
-                )
             }
-            return staged
+            return batch
         } catch {
-            try? rollbackDeletion(staged)
-            try? fileManager.removeItem(at: batchURL)
-            throw error
+            let stagingError = error
+            do {
+                try rollbackDeletion(batch)
+            } catch {
+                logger.error("Staged deletion rollback requires relaunch recovery")
+                throw AppFileStoreError.deletionRecoveryConflict
+            }
+            throw stagingError
         }
     }
 
-    func rollbackDeletion(_ staged: [StagedDeletion]) throws {
-        for entry in staged.reversed() {
+    /// Restores all files recorded by a prepared deletion and removes its durable manifest.
+    ///
+    /// Failure behavior:
+    /// A conflicting original file is never overwritten. The manifest and staged content are
+    /// preserved so startup reconciliation or a later support flow can recover them safely.
+    func rollbackDeletion(_ batch: StagedDeletionBatch) throws {
+        guard !batch.entries.isEmpty else { return }
+        let batchURL = try validatedBatchURL(for: batch)
+        for entry in batch.entries.reversed() {
             let stagedURL = rootURL.appending(path: entry.stagedRelativePath)
             let originalURL = rootURL.appending(path: entry.originalReference.relativePath)
             guard fileManager.fileExists(atPath: stagedURL.path) else { continue }
+            guard !fileManager.fileExists(atPath: originalURL.path) else {
+                throw AppFileStoreError.deletionRecoveryConflict
+            }
+            try fileManager.createDirectory(
+                at: originalURL.deletingLastPathComponent(),
+                withIntermediateDirectories: true
+            )
             try fileManager.moveItem(at: stagedURL, to: originalURL)
+            try applyProtectionAndBackupPolicy(to: originalURL)
         }
-        try removeEmptyDeletionParents(from: staged)
+        if fileManager.fileExists(atPath: batchURL.path) {
+            try fileManager.removeItem(at: batchURL)
+        }
     }
 
-    func commitDeletion(_ staged: [StagedDeletion]) {
-        for entry in staged {
-            let stagedURL = rootURL.appending(path: entry.stagedRelativePath)
-            if fileManager.fileExists(atPath: stagedURL.path) {
-                try? fileManager.removeItem(at: stagedURL)
+    /// Finalizes a deletion only after its SwiftData mutation has committed successfully.
+    func commitDeletion(_ batch: StagedDeletionBatch) throws {
+        guard !batch.entries.isEmpty else { return }
+        let batchURL = try validatedBatchURL(for: batch)
+        if fileManager.fileExists(atPath: batchURL.path) {
+            try fileManager.removeItem(at: batchURL)
+        }
+    }
+
+    /// Reconciles interrupted deletions and removes only regenerable, non-transaction staging.
+    ///
+    /// SwiftData references are authoritative: referenced files are restored, while files from
+    /// committed record deletions are finalized. Invalid or conflicting batches are retained and
+    /// surfaced as errors instead of being destroyed by a blanket startup cleanup.
+    func recoverAbandonedStaging(activeReferences: [DurableFileReference]) throws {
+        try prepareDirectories()
+        let activeReferences = Set(activeReferences)
+        if fileManager.fileExists(atPath: deletionStagingURL.path) {
+            let batchURLs = try fileManager.contentsOfDirectory(
+                at: deletionStagingURL,
+                includingPropertiesForKeys: [.isDirectoryKey],
+                options: [.skipsHiddenFiles]
+            )
+            for batchURL in batchURLs {
+                do {
+                    try reconcileDeletionBatch(at: batchURL, activeReferences: activeReferences)
+                } catch {
+                    let nsError = error as NSError
+                    logger.error(
+                        "Deletion recovery stopped domain=\(nsError.domain, privacy: .public) code=\(nsError.code)"
+                    )
+                    throw error
+                }
             }
         }
-        try? removeEmptyDeletionParents(from: staged)
-    }
-
-    func cleanupAbandonedStaging() {
-        if fileManager.fileExists(atPath: stagingURL.path) {
-            try? fileManager.removeItem(at: stagingURL)
-        }
-        try? createManagedDirectory(stagingURL)
+        try cleanupTransientStaging()
     }
 
     func storageByteCount() -> Int64 {
@@ -345,6 +444,7 @@ actor AppFileStore {
     /// Export folders are app-owned, excluded from backup, and intentionally regenerated on
     /// demand instead of becoming a permanent second copy of private local content.
     func createExport(manifest: Data) throws -> URL {
+        try Task.checkCancellation()
         cleanupExports()
         try createManagedDirectory(exportsURL)
         let exportURL = exportsURL.appending(path: "AIFieldbook-Export-\(UUID().uuidString)", directoryHint: .isDirectory)
@@ -352,10 +452,12 @@ actor AppFileStore {
         try manifest.write(to: exportURL.appending(path: "manifest.json"), options: .atomic)
         try applyProtectionAndBackupPolicy(to: exportURL.appending(path: "manifest.json"))
         if fileManager.fileExists(atPath: contentURL.path) {
+            try Task.checkCancellation()
             let exportedContentURL = exportURL.appending(path: "Content", directoryHint: .isDirectory)
             try fileManager.copyItem(at: contentURL, to: exportedContentURL)
             try applyProtectionAndBackupPolicy(to: exportedContentURL)
         }
+        try Task.checkCancellation()
         return exportURL
     }
 
@@ -367,18 +469,19 @@ actor AppFileStore {
         from sourceURL: URL,
         kind: ImportKind,
         contentType: UTType
-    ) throws -> DurableFileReference {
+    ) throws -> StoredFile {
         try prepareDirectories()
 
-        let normalizedExtension = sourceURL.pathExtension.lowercased()
+        let normalizedExtension = contentType.preferredFilenameExtension?.lowercased() ?? ""
         guard !normalizedExtension.isEmpty,
+              normalizedExtension.count <= 12,
               normalizedExtension.unicodeScalars.allSatisfy(CharacterSet.alphanumerics.contains) else {
             throw AppFileStoreError.invalidFileExtension
         }
 
-        let filename = "\(UUID().uuidString).\(normalizedExtension)"
-        let stagedURL = stagingURL.appending(path: filename)
-        let destinationURL = contentURL.appending(path: filename)
+        let identifier = UUID().uuidString
+        let stagedURL = stagingURL.appending(path: "\(identifier).\(normalizedExtension)")
+        var destinationURL: URL?
 
         do {
             if kind == .image {
@@ -391,15 +494,26 @@ actor AppFileStore {
                 try fileManager.copyItem(at: sourceURL, to: stagedURL)
             }
             try fileManager.setAttributes(
-                [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+                [.protectionKey: FileProtectionType.complete],
                 ofItemAtPath: stagedURL.path
             )
             try applyProtectionAndBackupPolicy(to: stagedURL)
-            try fileManager.moveItem(at: stagedURL, to: destinationURL)
-            return try DurableFileReference(relativePath: "Content/\(filename)")
+            let digest = try sha256Digest(of: stagedURL)
+            let filename = "\(identifier)-\(digest).\(normalizedExtension)"
+            let finalURL = contentURL.appending(path: filename)
+            destinationURL = finalURL
+            try fileManager.moveItem(at: stagedURL, to: finalURL)
+            try applyProtectionAndBackupPolicy(to: finalURL)
+            let values = try finalURL.resourceValues(forKeys: [.fileSizeKey])
+            return StoredFile(
+                reference: try DurableFileReference(relativePath: "Content/\(filename)"),
+                byteCount: Int64(values.fileSize ?? 0)
+            )
         } catch {
             try? fileManager.removeItem(at: stagedURL)
-            try? fileManager.removeItem(at: destinationURL)
+            if let destinationURL {
+                try? fileManager.removeItem(at: destinationURL)
+            }
             throw error
         }
     }
@@ -441,15 +555,37 @@ actor AppFileStore {
         switch kind {
         case .image:
             try enforceFileLimit(byteCount, maximumMegabytes: 25)
-            guard let source = CGImageSourceCreateWithURL(sourceURL as CFURL, nil),
-                  CGImageSourceGetCount(source) > 0,
+            guard let source = CGImageSourceCreateWithURL(sourceURL as CFURL, nil) else {
+                throw AppFileStoreError.corruptFile
+            }
+            let frameCount = CGImageSourceGetCount(source)
+            guard frameCount > 0 else {
+                throw AppFileStoreError.corruptFile
+            }
+            guard frameCount <= 100 else {
+                throw AppFileStoreError.tooManyImageFrames
+            }
+            guard
                   let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any],
                   let width = properties[kCGImagePropertyPixelWidth] as? Int,
                   let height = properties[kCGImagePropertyPixelHeight] as? Int else {
                 throw AppFileStoreError.corruptFile
             }
-            guard width > 0, height > 0, width <= 20_000, height <= 20_000 else {
-                throw AppFileStoreError.imageDimensionsTooLarge
+            for frameIndex in 0..<frameCount {
+                guard let frameProperties = CGImageSourceCopyPropertiesAtIndex(
+                    source,
+                    frameIndex,
+                    nil
+                ) as? [CFString: Any],
+                let frameWidth = frameProperties[kCGImagePropertyPixelWidth] as? Int,
+                let frameHeight = frameProperties[kCGImagePropertyPixelHeight] as? Int,
+                frameWidth > 0,
+                frameHeight > 0,
+                frameWidth <= 20_000,
+                frameHeight <= 20_000,
+                Int64(frameWidth) * Int64(frameHeight) <= 100_000_000 else {
+                    throw AppFileStoreError.imageDimensionsTooLarge
+                }
             }
             return ImportValidationMetadata(pixelWidth: width, pixelHeight: height)
 
@@ -507,6 +643,7 @@ actor AppFileStore {
         try createManagedDirectory(rootURL)
         try createManagedDirectory(contentURL)
         try createManagedDirectory(stagingURL)
+        try createManagedDirectory(deletionStagingURL)
     }
 
     private func createManagedDirectory(_ url: URL) throws {
@@ -517,7 +654,7 @@ actor AppFileStore {
     private func applyProtectionAndBackupPolicy(to url: URL) throws {
         if fileManager.fileExists(atPath: url.path) {
             try fileManager.setAttributes(
-                [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+                [.protectionKey: FileProtectionType.complete],
                 ofItemAtPath: url.path
             )
         }
@@ -527,15 +664,133 @@ actor AppFileStore {
         try mutableURL.setResourceValues(resourceValues)
     }
 
-    private func removeEmptyDeletionParents(from staged: [StagedDeletion]) throws {
-        guard let first = staged.first else { return }
-        let batchURL = rootURL
-            .appending(path: first.stagedRelativePath)
-            .deletingLastPathComponent()
-        if fileManager.fileExists(atPath: batchURL.path) {
-            try fileManager.removeItem(at: batchURL)
+    private func writeDeletionManifest(for batch: StagedDeletionBatch, at batchURL: URL) throws {
+        let manifest = DeletionManifest(version: 1, entries: batch.entries)
+        let data = try JSONEncoder().encode(manifest)
+        let manifestURL = batchURL.appending(path: Self.deletionManifestFilename)
+        try data.write(to: manifestURL, options: .atomic)
+        try applyProtectionAndBackupPolicy(to: manifestURL)
+    }
+
+    private func validatedBatchURL(for batch: StagedDeletionBatch) throws -> URL {
+        guard let relativePath = batch.batchRelativePath else {
+            throw AppFileStoreError.invalidDeletionManifest
+        }
+        let validated = try DurableFileReference(relativePath: relativePath)
+        let batchURL = rootURL.appending(path: validated.relativePath, directoryHint: .isDirectory)
+        guard batchURL.deletingLastPathComponent().standardizedFileURL == deletionStagingURL.standardizedFileURL else {
+            throw AppFileStoreError.invalidDeletionManifest
+        }
+        return batchURL
+    }
+
+    private func reconcileDeletionBatch(
+        at batchURL: URL,
+        activeReferences: Set<DurableFileReference>
+    ) throws {
+        let values = try batchURL.resourceValues(forKeys: [.isDirectoryKey])
+        guard values.isDirectory == true else {
+            throw AppFileStoreError.invalidDeletionManifest
+        }
+        let manifestURL = batchURL.appending(path: Self.deletionManifestFilename)
+        guard let data = try? readDeletionManifestData(at: manifestURL),
+              let manifest = try? JSONDecoder().decode(DeletionManifest.self, from: data),
+              manifest.version == 1 else {
+            throw AppFileStoreError.invalidDeletionManifest
+        }
+        let batchRelativePath = "Staging/Deletion/\(batchURL.lastPathComponent)"
+        let batch = StagedDeletionBatch(batchRelativePath: batchRelativePath, entries: manifest.entries)
+        _ = try validatedBatchURL(for: batch)
+
+        for entry in batch.entries {
+            let originalReference = try DurableFileReference(
+                relativePath: entry.originalReference.relativePath
+            )
+            let validatedStagedReference = try DurableFileReference(relativePath: entry.stagedRelativePath)
+            guard validatedStagedReference.relativePath.hasPrefix("\(batchRelativePath)/") else {
+                throw AppFileStoreError.invalidDeletionManifest
+            }
+            let originalURL = rootURL.appending(path: originalReference.relativePath)
+            let stagedURL = rootURL.appending(path: validatedStagedReference.relativePath)
+            let originalExists = fileManager.fileExists(atPath: originalURL.path)
+            let stagedExists = fileManager.fileExists(atPath: stagedURL.path)
+
+            if activeReferences.contains(originalReference) {
+                if !originalExists, stagedExists {
+                    try fileManager.createDirectory(
+                        at: originalURL.deletingLastPathComponent(),
+                        withIntermediateDirectories: true
+                    )
+                    try fileManager.moveItem(at: stagedURL, to: originalURL)
+                    try applyProtectionAndBackupPolicy(to: originalURL)
+                } else if originalExists, stagedExists {
+                    throw AppFileStoreError.deletionRecoveryConflict
+                } else if !originalExists, !stagedExists {
+                    throw AppFileStoreError.deletionRecoveryConflict
+                }
+            } else if originalExists {
+                throw AppFileStoreError.deletionRecoveryConflict
+            }
+        }
+
+        try fileManager.removeItem(at: batchURL)
+    }
+
+    private func cleanupTransientStaging() throws {
+        let children = try fileManager.contentsOfDirectory(
+            at: stagingURL,
+            includingPropertiesForKeys: nil,
+            options: [.skipsHiddenFiles]
+        )
+        for child in children where child.standardizedFileURL != deletionStagingURL.standardizedFileURL {
+            try fileManager.removeItem(at: child)
         }
     }
+
+    private func readDeletionManifestData(at url: URL) throws -> Data {
+        let maximumManifestBytes = 1_048_576
+        let values = try url.resourceValues(forKeys: [.isRegularFileKey, .fileSizeKey])
+        guard values.isRegularFile == true,
+              let fileSize = values.fileSize,
+              fileSize > 0,
+              fileSize <= maximumManifestBytes else {
+            throw AppFileStoreError.invalidDeletionManifest
+        }
+        let handle = try FileHandle(forReadingFrom: url)
+        defer { try? handle.close() }
+        guard let data = try handle.read(upToCount: maximumManifestBytes + 1),
+              data.count == fileSize else {
+            throw AppFileStoreError.invalidDeletionManifest
+        }
+        return data
+    }
+
+    private func sha256Digest(of url: URL) throws -> String {
+        let handle = try FileHandle(forReadingFrom: url)
+        defer { try? handle.close() }
+        var hasher = SHA256()
+        while let chunk = try handle.read(upToCount: 1_048_576), !chunk.isEmpty {
+            hasher.update(data: chunk)
+        }
+        return hasher.finalize().map { String(format: "%02x", $0) }.joined()
+    }
+
+    private func embeddedIntegrityDigest(in url: URL) -> String? {
+        let stem = url.deletingPathExtension().lastPathComponent
+        guard let separator = stem.lastIndex(of: "-") else { return nil }
+        let digest = String(stem[stem.index(after: separator)...])
+        guard digest.count == 64,
+              digest.unicodeScalars.allSatisfy({
+                  CharacterSet(charactersIn: "0123456789abcdef").contains($0)
+              })
+        else { return nil }
+        return digest
+    }
+}
+
+private struct DeletionManifest: Codable {
+    let version: Int
+    let entries: [StagedDeletion]
 }
 
 private struct ImportValidationMetadata {
@@ -543,4 +798,9 @@ private struct ImportValidationMetadata {
     var pixelWidth: Int?
     var pixelHeight: Int?
     var pageCount: Int?
+}
+
+private struct StoredFile {
+    let reference: DurableFileReference
+    let byteCount: Int64
 }

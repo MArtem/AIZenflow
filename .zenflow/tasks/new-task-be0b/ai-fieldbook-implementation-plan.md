@@ -45,9 +45,9 @@ Completed evidence:
 
 ### [x] 1.4 Add App Shell And Navigation Skeleton
 
-- Add Workspace, Capture, Search, Labs, and Settings destinations.
+- Add Workspace, Capture, Search, and Settings destinations.
 - Implement native tab/navigation behavior and empty destination screens.
-- Labs explicitly states that AI arrives in Iteration 2; no fake results.
+- Defer the Labs destination itself until Iteration 2; no fake AI surface appears in Iteration 1.
 
 ### [x] 1.5 Add SwiftData And File-Storage Foundations
 
@@ -86,9 +86,8 @@ Completed evidence for blocks 1.3-1.10:
 
 - Added system-semantic light/dark colors, Dynamic Type typography, spacing,
   radii, and a reusable card surface without custom Liquid Glass effects.
-- Added the five approved native `Tab` destinations and routing foundations;
-  Search and Labs remain honest informational destinations rather than fake
-  functionality.
+- Added the four approved native `Tab` destinations and routing foundations;
+  Search remains deterministic product behavior and Labs remains absent until Iteration 2.
 - Added explicit SwiftData schema v1 and migration plan for workspace,
   knowledge-item, attachment, and tag records; bootstrap failure renders a
   user-visible local-storage failure instead of silently using volatile data.
@@ -227,6 +226,16 @@ Completed evidence for blocks 1.11-1.17:
 
 - Review VoiceOver, Dynamic Type, focus, contrast, localized copy, error copy,
   permission copy, and destructive confirmation.
+
+### [x] 1.25A Static Production Remediation
+
+- Replace blanket staging cleanup with manifest-based crash recovery and honest rollback/finalization errors.
+- Fix modal mutation refresh identity, URL workspace edits, and deep-link kind verification.
+- Add digest-bearing app-owned filenames for new imports, stricter input limits, complete file protection, and retryable persistence startup diagnostics.
+- Move export reads/encoding to a SwiftData model actor and replace eager audio decoding with streaming playback/resource release.
+- Add recorder interruption, route-change, foreground, draft-replacement, and setup-failure cleanup behavior.
+- Add bounded LRU detail caches, database-scoped search filters, a privacy manifest, privacy-safe OSLog failures, Russian plural rules, and expanded translations.
+- Static implementation evidence includes Swift 6 compiler type-check. Xcode build, Simulator/device behavior, crash injection, migration, accessibility, privacy report, archive, and Instruments remain part of gate 1.26.
 
 ### [ ] 1.26 Iteration 1 Manual Completion Gate
 

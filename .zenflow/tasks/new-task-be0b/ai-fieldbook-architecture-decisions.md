@@ -246,3 +246,55 @@ explicit consent, and current official API verification.
 ### Owner
 
 AI Fieldbook privacy and routing policy.
+
+## ADR-006 — Crash-Recoverable Local File Transactions
+
+### Status
+
+Accepted on 2026-07-15 for the Iteration 1 remediation pass.
+
+### Context
+
+SwiftData records and app-owned files cannot participate in one native atomic transaction.
+Moving a file into temporary deletion storage and then mutating SwiftData is rollbackable during
+normal execution, but process termination between those steps can otherwise leave a record
+without its file or cause startup cleanup to destroy the only recoverable copy.
+
+### Decision
+
+- Every destructive file batch writes a versioned manifest before moving any content.
+- SwiftData remains the source of truth during relaunch reconciliation: referenced content is
+  restored and content whose record deletion committed is finalized.
+- Invalid, conflicting, or incomplete recovery state is preserved and surfaced; startup must
+  never blanket-delete transactional staging.
+- New imported files embed a streaming SHA-256 digest in their opaque app-owned filename and are
+  verified when resolved. Existing legacy filenames remain readable without a destructive
+  migration.
+- Private content, manifests, drafts, and exports use complete file protection and remain
+  excluded from backup under the current local-only contract.
+
+### Consequences
+
+- Delete flows may report incomplete cleanup instead of claiming success after a rollback or
+  finalization failure.
+- Interrupted transactions can be reconciled after relaunch without a database schema change.
+- Integrity verification adds bounded off-main file I/O when newly imported content is opened.
+- Runtime crash-injection and locked-device verification remain mandatory before declaring the
+  policy production-proven.
+
+### Rollback
+
+The manifest reader and hashed-filename support must remain compatible with data already written.
+Future replacement may stop creating new manifests, but it must reconcile existing batches and
+continue reading both legacy and digest-bearing filenames.
+
+### Revisit Trigger
+
+- A backend/sync layer changes the source of truth.
+- App Group or extension access is approved.
+- Runtime evidence shows integrity hashing or complete protection conflicts with an approved
+  background workflow.
+
+### Owner
+
+AI Fieldbook persistence and local file lifecycle.

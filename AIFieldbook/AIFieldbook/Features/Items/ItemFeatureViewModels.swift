@@ -310,7 +310,7 @@ final class ImportedItemDetailViewModel {
 
     func deleteConfirmed() async -> Bool {
         errorMessage = nil
-        var staged: [StagedDeletion] = []
+        var staged = StagedDeletionBatch.empty
 
         do {
             let references = try repository.itemFileReferences(id: itemID)
@@ -318,9 +318,14 @@ final class ImportedItemDetailViewModel {
             do {
                 try repository.deleteItem(id: itemID)
             } catch {
-                try? await fileStore.rollbackDeletion(staged)
+                do {
+                    try await fileStore.rollbackDeletion(staged)
+                } catch {
+                    throw AppFileStoreError.deletionRecoveryConflict
+                }
+                throw error
             }
-            await fileStore.commitDeletion(staged)
+            try await fileStore.commitDeletion(staged)
             return true
         } catch {
             errorMessage = String(localized: "The item couldn’t be deleted completely.")
