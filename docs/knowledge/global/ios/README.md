@@ -1,7 +1,31 @@
 # Global iOS Production Knowledge
 
 ## Purpose
-Reusable iOS production rules that are not tied to one app.
+Reusable iOS production knowledge that is not tied to one app. The mandatory core covers iPhone and iPad. watchOS, visionOS, tvOS, and macOS-specific guidance is added only when an explicit task trigger requires it.
+
+## Scope And Maturity
+- `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
+- `./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json`
+- `./scripts/validate_ios_knowledge_system.py`
+
+## Modular Deep References
+- `./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
+- `./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md`
+- `./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md`
+- `./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md`
+- `./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`
+- `./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md`
+- `./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md`
+- `./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md`
+- `./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md`
+- `./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md`
+- `./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md`
+- `./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md`
+
+Load these through `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`; do not read the complete set for every task.
+
+## Legacy Coverage Backlog
+The former monolithic senior/lead/staff handbook is retained only in the canonical documentation vault at `reusable/knowledge-global/ios/legacy/IOS_SENIOR_LEAD_ARCHITECT_STAFF_HANDBOOK_OUTLINE.md`. It is historical coverage-planning material, not an active routed authority and not part of the reusable baseline.
 
 ## Framework Entry Points
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`

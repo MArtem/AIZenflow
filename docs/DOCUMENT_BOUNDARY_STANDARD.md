@@ -54,6 +54,13 @@ Reusable material belongs only when it is app-neutral and useful across projects
 8. One task can contain multiple apps, but docs stay separate.
    If a single task creates or changes multiple Xcode projects/apps, each app keeps its own `apps/<AppName>/` documentation boundary. Shared task coordination may live in `tasks/<TaskId>/`, but app decisions, histories, ADRs, local rules, product plans, runtime assumptions, bundle identifiers, and exceptions must remain under the corresponding app root.
 
+## Active Authority And Historical Evidence
+Active documentation is authority only in its declared reusable, app, or task boundary. Active app docs contain the app's product decisions, exceptions, plans, contracts, and evidence; they link to reusable rules instead of copying them. Active reusable docs contain only app-neutral rules and examples.
+
+Historical snapshots may preserve mixed material only under a clearly named `legacy-reference/`, `history/`, or `archive/` area. Its top-level `README.md` must state that it is non-authoritative, excluded from normal routing and bootstrap, and retained solely for recovery or provenance. Do not leave a snapshot in a directory that appears to be active app documentation.
+
+Reusable indexes and boundary maps may name app roots when describing the library structure. They must not use an app's product policy, local preference, runtime constraint, task state, or exception as a reusable rule.
+
 ## Promotion Gate
 A local app decision becomes reusable only through an explicit promotion step.
 
@@ -91,8 +98,9 @@ If an app integrates a package in a special way, document that integration under
 ## Required Checks
 After changing documentation boundaries:
 
-- search reusable docs for app-specific names and source-app branding;
-- search app-specific docs for misplaced reusable policy that should be promoted separately;
+- search reusable docs for app-specific names and app-specific branding;
+- search active app docs for copied reusable policy or generic baseline files;
+- verify that every historical snapshot is clearly marked non-authoritative and excluded from routing;
 - run docs index/static checks when the local worktree has them;
 - report any legacy folders that remain as app-specific recovery snapshots.
 

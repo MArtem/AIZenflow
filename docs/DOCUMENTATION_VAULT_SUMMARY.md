@@ -1,7 +1,7 @@
 # Documentation Vault Summary
 
 ## Purpose
-Human-readable summary of the global documentation repository layout. Use this before opening the generated full manifest.
+Human-readable summary of the global documentation repository layout. Use this before opening the generated root manifest; retired component inventories are not authoritative.
 
 ## Canonical Repository
 - GitHub: `https://github.com/MArtem/AIZenflowDocumentation`

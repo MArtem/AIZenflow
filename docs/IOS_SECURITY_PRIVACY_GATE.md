@@ -3,12 +3,16 @@
 ## Purpose
 Mandatory review gate for secure storage, privacy, logging, permissions, and sensitive data handling in iOS apps.
 
+For identity, OAuth/OIDC/PKCE, passkeys, Sign in with Apple, sessions, LocalAuthentication, cryptography, App Attest, and authorization design, also load `./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`.
+
 ## Required Checks
 ### Secrets And Tokens
 - Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md` before creating, importing, auditing, or remediating a project that may contain local secrets.
 - Store tokens/secrets in Keychain or approved secure storage.
 - Never store tokens in plain UserDefaults, logs, analytics, screenshots, or crash metadata.
 - Define token refresh, logout, revocation, and expired-session behavior.
+- Separate remote identity/authentication, local user-presence checks, authorization, and fraud signals.
+- Do not treat client logic as an authoritative security boundary.
 
 ### Files And App Groups
 - Review file protection class for persisted user data.

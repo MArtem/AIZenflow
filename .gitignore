@@ -46,6 +46,11 @@ temp/
 *.xcresult
 *.resultbundle
 
+# Local documentation-cleanup quarantine (canonical copies live in AIZenflowDocumentation)
+.zenflow/tasks/*/retired-generated-artifacts/
+.zenflow/tasks/*/retired-*-task-copies/
+docs/archive/retired-documentation-cleanup/
+
 # Node / web tooling if ever present
 node_modules/
 

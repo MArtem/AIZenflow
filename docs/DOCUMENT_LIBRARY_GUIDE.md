@@ -27,7 +27,7 @@ After startup, read only the docs needed for the actual task scope:
 
 - UI/design/Figma: `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
 - Saved Codex App prompts: `./docs/saved-prompts/README.md`
-- Full document inventory: `./docs/ALL_DOCUMENTS_INVENTORY.md`
+- Full canonical inventory: `/Users/Artem/.zenflow/worktrees/documentation-vault/MANIFEST.md`
 - iOS production standards: route through `./docs/IOS_AGENT_PROMPT_ROUTER.md`
 - Package/source-only mode: `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`, `./PackagesInUse/README.md`, `./PackagesForReuse/README.md`
 
@@ -45,12 +45,13 @@ Default to the smallest sufficient document set:
 1. Router-defined Level 0.
 2. Task-specific routed standards.
 3. Prompt/skill/package docs only when triggered.
-4. Full inventory/vault only for documentation-library, transfer, recovery, or completeness tasks.
+4. The canonical root manifest only for documentation-library, transfer, recovery, or completeness tasks.
 
 ## Machine-Readable Operations
 - Resolve exact ordered routes with `./scripts/resolve_docs_route.py <route> [<route> ...]`.
 - Measure route words/bytes, overlap, budgets, and reachability with `./scripts/report_documentation_context_cost.py`.
 - Compare canonical exact mirrors and allowed local overlays with `./scripts/check_reusable_baseline_drift.py --canonical-root <baseline-root>`.
+- From the canonical checkout, verify inventory freshness with `python3 scripts/generate_manifest.py --check`; use `--write` only after intentional repository changes.
 - These tools are read-only. They report missing, stale, unexpected, or unclassified files and never synchronize automatically.
 
 ## Consistency Rule

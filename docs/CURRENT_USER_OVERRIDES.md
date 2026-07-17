@@ -13,9 +13,11 @@ Compact cross-project user constraints that override general defaults. App/produ
 
 ## Model And Reporting
 - Apply `./docs/MODEL_ROUTING_RULE.md` before planning, implementation, review, package adoption, or documentation changes.
-- Prefer `GPT-5.6 sol` or `GPT-5.5` for normal high-quality work, `GPT-5.6 tera` only for highest-risk gates, and `GPT-5.6 luna` only for low-risk reversible work when available.
-- If Codex app fixes the primary model and a real switch is required, ask the user to switch or continue with the best available model and report residual risk.
-- Every working/status/readiness/planning/clarification response starts with model, phase, files, next safe step, build/tests need, and sandbox confirmation.
+- The available models are `GPT-5.6 sol`, `GPT-5.6 tera`, and `GPT-5.6 luna`; each offers `low`, `medium`, and `high` reasoning. Do not route to retired or unavailable models.
+- Prioritize quality, correctness, safety, maintainability, and evidence above resource efficiency, while treating economy as a close secondary goal. Under the user-approved policy, `sol` is the maximum-quality route at the same reasoning level, `tera` is the resource-efficient high-quality route for bounded and strongly verifiable work, and `luna` is limited to low-risk reversible work. Select the model from expected quality and risk first, then the lowest reasoning level that preserves the required result; a higher level does not make an unsuitable model appropriate.
+- Before meaningful work, report the factual model and reasoning level plus `Смена модели: не требуется` or `Смена модели: требуется: <model>, <level>`. When the routed route differs, state the needed switch before acting. Codex may not change the primary model selector itself.
+- If Codex app fixes the primary model and a real switch is required, ask the user to switch. If the user explicitly directs work to continue first, state the residual risk and reserve the strongest available route for final high-risk review.
+- Every working/status/readiness/planning/clarification response starts with model and reasoning level, switch state, phase, files, next safe step, build/tests need, and sandbox confirmation.
 - Meaningful results state which model(s) worked, the selected docs route, and context health.
 
 ## Filesystem Sandbox
@@ -37,6 +39,10 @@ Compact cross-project user constraints that override general defaults. App/produ
 - Prefer the simplest correct design. Do not add speculative UI/business logic or decorative protocols, factories, adapters, use cases, wrappers, or managers.
 - ViewModels expose explicit intent methods by default. Generic `send(_:)`, `dispatch(_:)`, or UI action-enum dispatch requires explicit approval and documented rationale.
 - Do not guess product behavior, ownership, persistence, navigation, state flow, privacy, or acceptance criteria.
+
+## Collaboration Quality
+- Ask a focused clarification whenever a user answer can improve correctness, scope, UX, sequencing, acceptance evidence, or another meaningful aspect of the result, even when the potential benefit appears small. Do not ask duplicate or ceremonial questions.
+- For planning, design, analysis, and decisions, present viable alternatives with material advantages, disadvantages, and the reason for the recommended choice. State explicitly when constraints leave only one viable option.
 
 ## Review And Completion
 - Audits and reviews must be unbiased and evidence-based, with severity, files, evidence, impact, target state, remediation, and required verification.

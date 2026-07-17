@@ -237,12 +237,21 @@ Completed evidence for blocks 1.11-1.17:
 - Add bounded LRU detail caches, database-scoped search filters, a privacy manifest, privacy-safe OSLog failures, Russian plural rules, and expanded translations.
 - Static implementation evidence includes Swift 6 compiler type-check. Xcode build, Simulator/device behavior, crash injection, migration, accessibility, privacy report, archive, and Instruments remain part of gate 1.26.
 
-### [ ] 1.26 Iteration 1 Manual Completion Gate
+### [ ] 1.26-S Iteration 1 Simulator Gate
 
-- Execute the approved end-to-end local content matrix.
-- Verify relaunch, offline operation, storage cleanup, and unsupported states.
-- Record Simulator-only and no-tests remaining risks.
-- Do not begin Iteration 2 until the user accepts the gate.
+- Execute the Simulator-verifiable matrix in the acceptance gate: CRUD, fixtures,
+  imported-audio playback, migration/relaunch, crash recovery, deep links,
+  export/delete-all, Dynamic Type, and supported system-integration smoke flows.
+- Record Simulator boundaries and no-tests remaining risks.
+- Do not begin Simulator-first Iteration 2 until the user accepts this gate.
+
+### [ ] 1.26-D Iteration 1 Physical-Device Gate
+
+- Keep microphone capture, real audio-session lifecycle, locked-device file
+  protection, full VoiceOver/touch behavior, representative performance, and
+  device system-surface checks as documentation-only work until hardware exists.
+- Do not write device-only code before a physical-device validation block is
+  authorized.
 
 Implementation evidence for blocks 1.18-1.25 and the architecture completion pass:
 
@@ -278,7 +287,25 @@ Implementation evidence for blocks 1.18-1.25 and the architecture completion pas
   VoiceOver/Dynamic Type, deep-link confirmation/routing, export/delete-all, and
   relaunch durability. No test files were created and no tests were run.
 
-## Iteration 2 — Add AI One Capability At A Time
+## Iteration 2 — Simulator-First Runtime Labs And Tutorial Curriculum
+
+No Iteration 2 implementation is authorized by this plan alone. After the user
+accepts `1.26-S`, implement only the blocks in the Simulator-first stage, one
+self-contained capability at a time. Do not use mocks or synthetic AI output to
+claim that a physical-device capability works.
+
+Each capability has one of two deliverables:
+
+1. **Runtime lab** — app code only when the core path can be exercised in the
+   approved Simulator environment.
+2. **Tutorial module** — theory, official references, architecture diagram,
+   illustrative code, safety/privacy notes, expected states, and the future
+   evidence matrix when runtime implementation is blocked.
+
+Tutorial modules must visibly say that they are not connected to the app and
+must never include credentials or a direct-cloud integration recipe.
+
+### Simulator-First Stage — Eligible Only After `1.26-S`
 
 ### [ ] 2.0 Basic App Intents Foundation
 
@@ -287,6 +314,10 @@ Implementation evidence for blocks 1.18-1.25 and the architecture completion pas
 - Add `WorkspaceEntity` and `KnowledgeItemEntity` only as required.
 - Keep persistence/product logic outside `perform()` and reuse the app-owned
   navigation/deep-link boundary.
+- The create-note intent opens a prefilled draft editor. It must not persist a
+  `KnowledgeItem` until the user explicitly saves from the app UI.
+- Validate through the Shortcuts app in Simulator. Siri voice invocation and
+  Apple Intelligence-specific surfaces remain physical-device evidence.
 
 ### [ ] 2.1 Capability And Provenance Foundation
 
@@ -294,27 +325,32 @@ Implementation evidence for blocks 1.18-1.25 and the architecture completion pas
   begins.
 - Do not add a model router while only one route exists.
 
-### [ ] 2.2 Vision OCR
+### [ ] 2.2 Vision OCR With Imported Fixtures
 
-### [ ] 2.3 Barcode Recognition
+### [ ] 2.3 Barcode Recognition With Imported Fixtures
 
-### [ ] 2.4 Deterministic Document Text Extraction
+### [ ] 2.4 Deterministic Document Text Extraction With Fixtures
 
 ### [ ] 2.5 Natural Language Identification
 
 ### [ ] 2.6 Natural Language Tokenization And Entities
 
-### [ ] 2.7 Translation
+### [ ] 2.7 Translation Where Simulator Language Assets Are Available
 
-### [ ] 2.8 Speech Transcription
+### [ ] 2.8 Speech Transcription From Imported Audio Only
 
-### [ ] 2.9 Sound Analysis
+### [ ] 2.9 Sound Analysis From Imported Audio Only
 
-### [ ] 2.10 Sensitive Content Analysis
+### [ ] 2.10 Sensitive Content Analysis With Static Fixtures When Available
 
 ### [ ] 2.11 Deterministic Local Processing Pipeline
 
-### [ ] 2.12 Foundation Models Availability Only
+### [ ] 2.12 Foundation Models Availability And Unavailable UX Only
+
+- The Simulator may prove capability detection and unavailable-state UX, not an
+  Apple Intelligence generation path.
+
+### Physical-Device Tutorial Modules — Foundation Models (No Code Yet)
 
 ### [ ] 2.13 Bounded Local Text Summary
 
@@ -326,28 +362,39 @@ Implementation evidence for blocks 1.18-1.25 and the architecture completion pas
 
 ### [ ] 2.17 First Read-Only Local Tool
 
+### Simulator-First Stage — Continued
+
 ### [ ] 2.18 Local Retrieval Index
 
-### [ ] 2.19 Grounded Local Answer With Citations
+- Limit this stage to lexical/Core Spotlight lifecycle behavior that is available
+  in the active Simulator runtime. Semantic tool-based RAG remains deferred.
 
-### [ ] 2.20 Outline Generation
+### Physical-Device Tutorial Modules — Generative Results And AI Intents (No Code Yet)
 
-### [ ] 2.21 Flashcard Generation
+### [ ] 2.19 Grounded Local Answer With Citations — Physical Device Stage
 
-### [ ] 2.22 Quiz Generation
+### [ ] 2.20 Outline Generation — Physical Device Stage
 
-### [ ] 2.23 Action-Plan Draft Generation
+### [ ] 2.21 Flashcard Generation — Physical Device Stage
 
-### [ ] 2.24 Task-Draft Generation
+### [ ] 2.22 Quiz Generation — Physical Device Stage
 
-### [ ] 2.25 AI-Enhanced App Intents
+### [ ] 2.23 Action-Plan Draft Generation — Physical Device Stage
+
+### [ ] 2.24 Task-Draft Generation — Physical Device Stage
+
+### [ ] 2.25 AI-Enhanced App Intents — Physical Device Stage
 
 - Add local summarize, ask workspace, and study-material drafts one at a time.
 - No cloud fallback and no unconfirmed committed mutation.
 
-### [ ] 2.26 Create ML/Core ML Experiment
+### Simulator-Eligible Follow-Up Labs
+
+### [ ] 2.26 Create ML/Core ML Functional Experiment
 
 - Select one bounded classifier only after the earlier local flows are stable.
+- Simulator evidence can prove functional integration; hardware performance,
+  memory, energy, and compute-unit behavior remain physical-device evidence.
 
 ### [ ] 2.27 AI Diagnostics
 
@@ -356,14 +403,40 @@ Implementation evidence for blocks 1.18-1.25 and the architecture completion pas
 - This is an explicit internal product Lab, not a hidden replacement for banned
   test targets.
 
+### Physical-Device Tutorial Module — Iteration 2 Completion Gate
+
 ### [ ] 2.29 Iteration 2 Local-AI Completion Gate
 
 - Compare deterministic/local routes, quality, privacy, latency, memory,
   cancellation, unsupported-device behavior, and provenance.
 
-## Deferred iOS 27 Track
+### Physical-Device Runtime Prerequisites
 
-Do not schedule until Xcode 27 is available and the APIs are revalidated:
+- Complete `1.26-D` before device-only implementation begins.
+- Implement actual microphone recording/transcription, live sound analysis, and
+  audio-session interruption/route/background scenarios only with device
+  validation in the same authorized block.
+- Implement real Foundation Models availability, summary, structured extraction,
+  streaming, cancellation, context budgeting, read-only tools, grounded answers,
+  and generated study drafts only on an Apple Intelligence-capable device.
+- Implement AI-enhanced App Intents only after their underlying device-proven AI
+  capability exists; validate Siri voice, on-screen context, and any system
+  surface on hardware.
+- Re-run the Core ML experiment for representative device performance before
+  drawing any latency, memory, energy, or thermal conclusion.
+
+### Separately Gated, Not Merely Device-Deferred
+
+- iOS 27 APIs remain blocked by the missing Xcode 27 SDK and require fresh API
+  verification; a physical device alone does not unblock them.
+- Cloud capabilities have no approved runtime path because the project has no
+  backend, provider, budget, consent flow, or security/privacy ADR. A physical
+  device alone does not change that decision.
+
+## iOS 27 Tutorial Curriculum — No SDK Or Runtime Code Yet
+
+Document these topics now; do not schedule runtime code until Xcode 27 is
+available and the APIs are revalidated:
 
 - Core AI;
 - `LanguageModel` abstraction;
@@ -375,10 +448,10 @@ Do not schedule until Xcode 27 is available and the APIs are revalidated:
 - Evaluations framework;
 - latest App Schemas and Music Understanding.
 
-## Deferred Cloud Track
+## Cloud And Global-Model Tutorial Curriculum — No Runtime
 
-Do not schedule until backend, provider, budget, consent, and security ADR are
-approved:
+Document the following as trusted-backend patterns. The app does not implement,
+mock, or directly call them while no backend exists:
 
 1. backend/security boundary;
 2. authentication and secrets;
@@ -391,3 +464,10 @@ approved:
 9. constrained backend tool workflow;
 10. one bounded agent workflow;
 11. second provider only after measured justification.
+
+Every cloud tutorial must cover the server-owned credential boundary, consent,
+data retention, cost/rate limits, streaming/cancellation, error states,
+observability, and why a long-lived provider key cannot be shipped in an iOS
+app. Provider examples may compare OpenAI, Anthropic, Gemini/Vertex, Azure AI
+Foundry, and Bedrock only as documented alternatives, never as active app
+dependencies.

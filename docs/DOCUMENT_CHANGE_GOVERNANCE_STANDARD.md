@@ -62,6 +62,7 @@ Normative requirements must use unambiguous language. Examples and rationale mus
 ## Boundary And Promotion Rules
 - Reusable artifacts must be app-neutral and must not encode app names, feature policy, current task state, local paths, or temporary acceptance decisions.
 - App-specific and task-specific knowledge stays in its matching boundary until the user explicitly approves promotion.
+- Active app docs link to reusable policy rather than copying it. Mixed historical imports are allowed only in a clearly named non-authoritative `legacy-reference/`, `history/`, or `archive/` area with a provenance README and no normal routing/bootstrapping role.
 - Promotion requires a new app-neutral formulation, conflict review against the reusable baseline, and updates to all affected consumers. Copying an app document into reusable storage is not promotion.
 - Rules that affect repository authority, security/privacy, persistence/data loss, public APIs, package ownership, or completion evidence require high-risk review before adoption.
 - A new rule must not weaken an existing higher-authority rule. Any approved exception remains explicit, scoped, owned, and reviewable.

@@ -5,6 +5,8 @@ Defines when production iOS work requires unit, integration, UI, manual, relaunc
 
 This does not override task-local instructions that tests are opt-in. It defines what a production strategy should require when the user opens testing or release-readiness work.
 
+Use `./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md` for Swift Testing/XCTest selection, deterministic test design, doubles, flaky tests, LLDB, sanitizers, memory graph, crash/hang triage, and evidence limits.
+
 ## Test Decision Matrix
 ### Unit Tests
 Use for:
@@ -39,6 +41,8 @@ Use for:
 - keyboard/focus behavior
 - device-size-specific layouts
 - share extension and system integration flows
+- iPhone and iPad adaptive layouts, resizing, keyboard, pointer, and multi-window behavior where supported
+- physical-device-only hardware, protected-data, biometrics, thermal, and background behavior
 
 ### Instruments / Performance Verification
 Use for:

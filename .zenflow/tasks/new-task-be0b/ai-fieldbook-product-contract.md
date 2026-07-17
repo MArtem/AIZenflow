@@ -7,7 +7,7 @@
 - Working name: `AI Fieldbook`.
 - Current implementation state: the non-AI Iteration 1 app includes workspace/item CRUD, text notes, tags, deterministic local search, validated app-owned image/PDF/plain-text/audio import, audio recording/playback, URL references, export/delete-all, deep links, disabled-by-default Spotlight integration, Russian localization, and accessibility foundations.
 - Current completed implementation block: Iteration 1 / Block 1.25 plus the 2026-07-15 static production-remediation pass.
-- Current gate: Block 1.26 remains open; build, Simulator/device, migration, crash-recovery, VoiceOver/Dynamic Type, privacy-report, archive, and performance evidence are not yet complete.
+- Current gates: `1.26-S` (Simulator) is open and `1.26-D` (physical device) is blocked by unavailable hardware. Only user acceptance of `1.26-S` can unlock the documented Simulator-first Iteration 2 subset; it does not authorize device-only code or a full runtime-completion claim.
 - No test target, App Intent, AI capability, backend, analytics, or cloud runtime has been added.
 - Governing AI prompt: `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`.
 
@@ -20,15 +20,20 @@ the finished product one bounded capability at a time.
 
 The app is a learning product, but authored runtime behavior must keep the same
 correctness, privacy, accessibility, localization, and failure-state quality bar
-as a production application.
+as a production application. The learning program has two deliberately distinct
+outputs: executable, evidence-backed local labs, and app-specific tutorial
+modules for capabilities that need unavailable hardware, Xcode 27, a backend,
+provider credentials, or another unapproved external dependency.
 
 ## Target User
 
 - Primary user: the developer/owner learning modern Apple-platform AI.
 - Distribution: internal-only.
 - Accounts: none in Iteration 1.
-- Sync/backend: none in Iteration 1.
-- Cloud processing: forbidden until separately approved.
+- Sync/backend: none in the approved learning-program scope.
+- Cloud processing: no runtime cloud path is approved. Provider and backend
+  designs remain tutorial-only until a future explicit product decision changes
+  this boundary.
 
 ## Approved Platform Baseline
 
@@ -50,10 +55,21 @@ router, AI result schema, cloud provider, or fake AI response is added.
 
 ### Iteration 2 — AI Capabilities
 
-AI begins only after the Iteration 1 completion gate is accepted. Deterministic
-Apple intelligence frameworks come first, then local generative capabilities,
-App Intents enhanced with AI, custom ML, evaluation, and later gated iOS 27 and
-cloud tracks.
+After `1.26-S` is accepted, begin only Simulator-verifiable App Intents/Shortcuts
+and deterministic-framework work over imported fixtures. Real Foundation Models
+generation, Siri voice, microphone-dependent processing, hardware performance,
+and other device-only paths remain unimplemented until `1.26-D` can be validated
+on physical hardware. Until then, those paths are documented as tutorial modules
+with verified API references, illustrative code, prerequisites, privacy notes,
+and a future evidence matrix; they are not represented as working app features.
+Deterministic frameworks precede local generative capabilities; iOS 27 remains
+separately gated. Cloud/global-model capability is tutorial-only because no
+backend, provider account, budget, consent flow, or credential boundary is in
+scope.
+
+For the first mutating Shortcut, `Create Text Note` opens the app's prefilled
+draft editor. It does not persist a note until the person explicitly saves in the
+app UI; this keeps a system-triggered action reversible and reviewable.
 
 ## Iteration 1 Content Types
 
@@ -203,6 +219,9 @@ defined owner, cancellation behavior, or failure path.
 ## Privacy And Data Lifecycle
 
 - All content stays local in Iteration 1.
+- The approved learning-program runtime has no backend or third-party AI upload.
+- Tutorial snippets for cloud/global models never contain credentials, endpoint
+  configuration, or an instruction to embed a provider key in the app.
 - No analytics or logging of user content.
 - No backend, account, provider credential, or network upload.
 - Imported content is untrusted and validated before durable storage.
@@ -315,7 +334,8 @@ The non-AI product is complete only when the user can:
 
 ## Open Questions
 
-No product question blocks the remaining Iteration 1 validation gate. External inputs still
-needed for release evidence are an authorized build/runtime-validation phase, physical-device
-availability, signing team selection, archive/privacy-report evidence, and the user's final gate
-acceptance. App Intents and AI remain blocked until that acceptance.
+No product question blocks the remaining Simulator gate. External inputs still needed are an
+authorized Simulator validation block and its user acceptance, then physical-device availability
+for `1.26-D`, signing-team selection, archive/privacy-report evidence, and final release
+acceptance. Only the documented Simulator-first App Intents and deterministic work may begin
+after `1.26-S`; device-only AI remains blocked.

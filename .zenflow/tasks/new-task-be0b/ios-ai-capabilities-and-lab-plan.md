@@ -4,7 +4,11 @@
 
 - **Prepared on**: 2026-07-12.
 - **Purpose**: define a complete theoretical and practical learning program for modern AI work in iOS apps.
-- **Primary outcome**: build one independent iOS app that demonstrates local, Apple-system, private-cloud, and third-party cloud AI patterns without collapsing them into one opaque chat screen.
+- **Primary outcome**: build one independent local-runtime iOS app and an
+  app-specific tutorial curriculum. The app demonstrates only evidence-backed
+  local and Simulator-verifiable patterns; hardware-, iOS 27-, backend-, and
+  third-party-cloud-dependent patterns are taught as explicitly non-runtime
+  tutorials rather than hidden or simulated features.
 - **Proposed app name**: `AI Fieldbook` (working title).
 - **Current implementation state**: the independent AI Fieldbook project exists and its non-AI Iteration 1 implementation plus static remediation are complete through Block 1.25A. Manual acceptance gate 1.26 remains open; no App Intent or AI runtime has started.
 - **Governing AI prompt**: `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`; apply only task-relevant sections under current user/project rules.
@@ -14,14 +18,20 @@
 
 Build **one modular learning app**, not many disconnected sample apps.
 
-`AI Fieldbook` should be a multimodal personal research and learning workspace. A person can capture text, a photo, a scanned document, a PDF, an audio recording, or a web reference; enrich it locally; ask deeper cloud questions; create derived content; search private knowledge; and expose safe actions through Siri, Shortcuts, Spotlight, and Visual Intelligence.
+`AI Fieldbook` is a multimodal personal research and learning workspace. A
+person can capture text, a photo, a scanned document, a PDF, an audio recording,
+or a web reference; enrich it locally; search private knowledge; and expose safe
+available actions through Shortcuts and system integration. Unavailable cloud,
+hardware, and beta-SDK routes are taught beside the working labs with their real
+architecture and code examples, not claimed as app features.
 
 One app is preferable because it lets us learn the difficult production concerns that isolated demos hide:
 
 - capability and model routing;
 - device and OS availability;
 - offline behavior;
-- local versus cloud privacy boundaries;
+- local versus cloud privacy boundaries, including why the cloud side needs a
+  backend even though this app does not have one;
 - streaming and cancellation;
 - persistent AI artifacts and provenance;
 - prompt/version management;
@@ -453,7 +463,10 @@ Do not store chain-of-thought or private hidden reasoning. Store only the useful
 - SwiftData for local app-owned persistence.
 - Capability-specific services; avoid one giant universal `AIManager`.
 - Reusable packages own mechanisms; the app owns product prompts, routing policy, privacy decisions, schemas, and UI.
-- Backend owns cloud credentials, provider APIs, server-side tools, quotas, and provider telemetry.
+- No backend exists in the approved app architecture. The tutorial curriculum
+  explains how a backend would own cloud credentials, provider APIs,
+  server-side tools, quotas, and provider telemetry if that boundary were ever
+  approved.
 
 ### 7.2 High-Level Flow
 
@@ -463,14 +476,12 @@ flowchart TD
     VM --> Policy["AI capability and routing policy"]
     Policy --> Deterministic["Deterministic Apple frameworks"]
     Policy --> Local["On-device Foundation Models / Core ML / Core AI"]
-    Policy --> PCC["Apple Private Cloud Compute"]
-    Policy --> Backend["Trusted app backend"]
-    Backend --> Provider["Approved cloud model provider"]
+    Policy --> PCC["Apple Private Cloud Compute (device-gated tutorial now)"]
+    Policy -. "tutorial only" .-> Backend["Trusted app backend (not present)"]
+    Backend -. "tutorial only" .-> Provider["Cloud model provider (not connected)"]
     Deterministic --> Result["Validated domain result + provenance"]
     Local --> Result
     PCC --> Result
-    Provider --> Backend
-    Backend --> Result
     Result --> Store["SwiftData + files + Spotlight index"]
     Store --> UI
     Intents["Siri / Shortcuts / Spotlight / Visual Intelligence"] --> AppActions["App-owned safe actions"]
@@ -493,9 +504,9 @@ Prefer narrow responsibilities such as:
 
 Do not force every provider into a lowest-common-denominator protocol. Normalize the product result, while allowing route-specific capability and diagnostics where they materially differ.
 
-### 7.4 Backend Responsibilities
+### 7.4 Backend Tutorial Requirements (Not App Architecture)
 
-The cloud path requires a small trusted backend with:
+Any future cloud path requires a small trusted backend with:
 
 - app/user authentication;
 - no long-lived provider keys in the app;
@@ -557,6 +568,9 @@ Classify each input before routing:
 
 Apple’s current App Review Guidelines explicitly require disclosure and permission before sharing personal data with third-party AI.
 
+No content leaves this app in the current program. Cloud-consent UI, provider
+policies, and server requests are tutorial material only.
+
 ### 8.3 Agent Safety
 
 - Read-only tools may run automatically only within user-selected scope.
@@ -581,11 +595,13 @@ Apple’s current App Review Guidelines explicitly require disclosure and permis
 
 ### 9.1 Recommended Deployment Strategy
 
-To learn all current capabilities without making beta APIs the only app path:
+The approved base target is iOS 26.0. Do not describe iOS 17+ as the current
+deployment strategy: it conflicts with the accepted project target.
 
-- **Base app target**: iOS 17+ for capture, persistence, mature Vision/Natural Language/Speech/Core ML, and cloud API paths.
-- **iOS 18+ paths**: modern Vision APIs, semantic Core Spotlight behavior, Translation APIs as available.
-- **iOS 26+ paths**: on-device Foundation Models, Writing Tools/Image Playground generation based on supported device state.
+- **Base app target**: iOS 26.0 for capture, persistence, mature deterministic
+  frameworks, and availability-gated Apple Intelligence paths.
+- **iOS 26 paths**: Foundation Models, Writing Tools, and Image Playground only
+  when the physical device, language, region, and system model report support.
 - **iOS 27 beta experimental paths**: Core AI, PCC model, model abstraction, multimodal Foundation Models, Dynamic Profiles, Evaluations, Spotlight tool, latest App Intents/App Schemas, Music Understanding.
 
 If maintaining a single source target becomes unreasonably constrained by beta SDK use, create one project with two app schemes/targets sharing the same product modules:
@@ -603,23 +619,45 @@ This is still one application concept, not two unrelated apps. Start with a sing
 - Apple silicon Mac with enough storage/memory for Core AI/MLX experiments;
 - microphone/camera access for real speech/vision verification.
 
+### 9.3 Simulator-First Execution Policy
+
+Accepted on 2026-07-16 to make measurable progress without falsely treating a
+Simulator as equivalent to hardware.
+
+- `1.26-S` is the prerequisite for Simulator-first Iteration 2. It can unlock
+  only App Intents through Shortcuts, deterministic framework work over imported
+  fixtures, Simulator-capability/unavailable UX, persistence/relaunch/recovery,
+  and functional Core ML integration where the active runtime supports them.
+- `1.26-D` is the prerequisite for physical-device-only work. Until a device is
+  available, retain microphone capture, audio routes/interruptions, locked-device
+  file protection, real Foundation Models inference, Siri voice, full hardware
+  accessibility, and performance/energy conclusions as documentation-only plans.
+- iOS 27 and cloud tracks keep their own gates. Neither is unlocked by simulator
+  acceptance or by obtaining a device alone.
+
+The detailed block mapping and verification boundary live in the AI Fieldbook
+implementation plan and Iteration 1 acceptance gate.
+
 ## 10. Implementation Roadmap
 
-### Phase 0 — Product And Technical Decisions
+### Phase 0 — Execution Boundary And Tutorial Curriculum
 
 Deliverables:
 
 - approve app concept/name and whether it is independent from source-app;
 - decide stable minimum OS and iOS 27 experimental strategy;
-- choose first cloud provider and backend platform;
-- decide allowed data classes for cloud processing;
-- define accounts, budget, and hardware;
-- write ADRs for AI routing, backend/provider security, and beta API isolation;
+- classify every topic as Simulator runtime lab, physical-device tutorial, iOS 27
+  tutorial, or cloud/global-model tutorial;
+- define the common tutorial shape: official sources, architecture, illustrative
+  code, privacy/security risks, states, and future evidence;
+- define available fixture media and Simulator verification for each runtime lab;
+- record future backend/provider decisions as prerequisites, not app work;
 - define initial evaluation datasets before feature code.
 
 Exit criteria:
 
-- no unresolved decision that would alter persistence, privacy, backend, or target structure.
+- no planned app runtime path depends on unavailable hardware, a backend, a
+  provider account, or an unavailable SDK.
 
 ### Phase 1 — Independent App Foundation
 
@@ -634,24 +672,25 @@ Deliverables:
 
 AI content: none required yet; this creates the reliable substrate AI needs.
 
-### Phase 2 — Deterministic Apple Intelligence Baseline
+### Phase 2 — Deterministic Simulator Runtime Labs
 
 Implement:
 
-- Vision OCR, barcode, document recognition, classification/similarity, segmentation;
-- Natural Language language ID, tokens, entities, sentiment/embedding experiment;
-- SpeechAnalyzer transcription;
-- Sound Analysis;
-- Translation;
+- Vision OCR and barcode recognition from imported fixtures; document scanning,
+  camera capture, and unsupported Vision APIs as tutorials;
+- Natural Language language ID, tokens, entities, and only runtime-available
+  sentiment/embedding experiments;
+- SpeechAnalyzer transcription and Sound Analysis from imported audio only;
+- Translation only where the Simulator language assets are available;
 - Sensitive Content Analysis where applicable.
 
 Learning goal: recognize when a specialized framework is better than an LLM.
 
-### Phase 3 — On-Device Foundation Models
+### Phase 3 — On-Device Foundation Models Tutorial (Device-Gated)
 
-Implement:
+Implement availability/unavailable UX in the Simulator lab. Document the real
+device implementation and evidence for:
 
-- availability and locale handling;
 - bounded summarization;
 - guided structured extraction;
 - streaming and cancellation;
@@ -660,34 +699,34 @@ Implement:
 - result provenance and prompt versions;
 - unavailable/disabled/not-ready fallback UX.
 
-### Phase 4 — Local Search And RAG
+### Phase 4 — Local Search Runtime And Semantic-RAG Tutorial
 
 Implement:
 
-- Core Spotlight indexing and lifecycle;
-- lexical and semantic in-app search;
-- iOS 27 `SpotlightSearchTool` local RAG;
-- citations to local items;
-- no-evidence refusal;
+- lexical in-app search and Core Spotlight indexing/lifecycle only where
+  Simulator proves it;
+- semantic in-app search, iOS 27 `SpotlightSearchTool` local RAG, citations,
+  and no-evidence refusal as device/iOS 27 tutorials;
 - deletion and stale-index verification.
 
-### Phase 5 — App Intents And Apple-System Integration
+### Phase 5 — App Intents Runtime And System-Integration Tutorials
 
-Implement:
+Implement only the Simulator-verifiable subset:
 
 - app entities and queries;
-- intents for capture, summarize, ask workspace, and create study material;
-- App Shortcuts and localized phrases;
-- interactive snippets;
-- Spotlight donations/indexing;
-- Siri onscreen entity context;
-- Visual Intelligence match/open path;
+- read-only intents for open/find before mutation intents;
+- `Create Text Note` opens a prefilled in-app draft editor and persists only
+  after explicit user save; it does not create a record directly from Shortcuts;
+- App Shortcuts and localized phrases in Simulator where supported;
+- interactive snippets, Spotlight donations/indexing, Siri onscreen entity
+  context, Visual Intelligence, audio/camera intents, and AI intents as
+  device-gated tutorials;
 - confirmation for mutating/sensitive actions;
 - App Intents error states and availability.
 
-### Phase 6 — Cloud Backend And First Global Model
+### Phase 6 — Cloud Backend And Global Models Tutorial (No Runtime)
 
-Implement:
+Document the trusted-backend implementation pattern for:
 
 - trusted backend and app authentication;
 - one provider adapter;
@@ -697,11 +736,13 @@ Implement:
 - quotas, cost caps, cancellation, errors, and observability;
 - explicit cloud consent and local-only mode.
 
-Do not add a second provider in this phase.
+Compare a second provider only in documentation after a first-provider pattern is
+understood. Do not add provider SDKs, Firebase configuration, credentials, or
+mock cloud results to the app.
 
-### Phase 7 — Cloud RAG And Grounded Research
+### Phase 7 — Cloud RAG And Grounded Research Tutorial (No Runtime)
 
-Implement:
+Document:
 
 - ingestion and chunking;
 - embeddings and vector retrieval;
@@ -711,9 +752,9 @@ Implement:
 - grounded web research through an approved search tool;
 - local-versus-cloud RAG comparison.
 
-### Phase 8 — Realtime Voice And Multimodal Conversation
+### Phase 8 — Realtime Voice And Multimodal Tutorial (No Runtime)
 
-Implement:
+Document:
 
 - low-latency voice session;
 - interruption/turn detection;
@@ -722,9 +763,10 @@ Implement:
 - reconnect, cancellation, background/interruption handling;
 - local fallback: Speech transcription → local text model → system TTS.
 
-### Phase 9 — Content Creation
+### Phase 9 — Content-Creation Tutorial (Device/Cloud-Gated)
 
-Implement:
+Document the integration, disclosure, persistence, deletion, and verification
+paths for:
 
 - Writing Tools integration;
 - Image Playground sheet and durable result copying;
@@ -734,7 +776,8 @@ Implement:
 
 ### Phase 10 — Custom ML With Create ML And Core ML
 
-Implement a deliberately small, measurable model, for example:
+Implement a bounded Core ML functional lab only if it runs in Simulator;
+otherwise document it. Use the following curriculum for either form:
 
 - personalized item-category classifier;
 - custom sound classifier; or
@@ -750,9 +793,9 @@ Exercise:
 - optional on-device update/personalization;
 - model version migration and rollback.
 
-### Phase 11 — Core AI And Open Models
+### Phase 11 — Core AI And Open Models Tutorial (iOS 27-Gated)
 
-Implement one iOS 27 experimental path:
+Document one iOS 27 experimental path:
 
 - select a small supported open model from Apple’s Core AI model ecosystem;
 - convert/package as `.aimodel`;
@@ -764,9 +807,9 @@ Implement one iOS 27 experimental path:
 
 Optional follow-up: repeat with MLX Swift only if the comparison adds unique learning value.
 
-### Phase 12 — Agentic Workflow
+### Phase 12 — Agentic Workflow Tutorial (Device/Backend-Gated)
 
-Build one constrained agent workflow:
+Document one constrained agent workflow:
 
 > “Use my selected sources to create a study plan, draft five flashcards, and propose three tasks.”
 
@@ -789,16 +832,14 @@ Required controls:
 - audit/provenance;
 - partial success recovery.
 
-### Phase 13 — Evaluations, Performance, Security, And Release Gate
+### Phase 13 — Simulator Evaluation Lab And Deferred Evidence Tutorials
 
 Deliverables:
 
-- Apple Evaluations suites for compatible model paths;
-- provider-independent app evaluation dataset and runner;
-- prompt/model regression dashboard;
-- local/cloud quality-cost-latency comparison report;
-- Instruments runs for Foundation Models/Core AI;
-- Time Profiler, memory, energy, and network checks;
+- manual fixture/evaluation lab and privacy-safe diagnostics for Simulator paths;
+- Apple Evaluations, provider evaluation data, prompt/model regression, cloud
+  quality/cost/latency, Instruments, Time Profiler, memory, energy, and network
+  checks as tutorial evidence plans;
 - prompt injection and tool authorization review;
 - privacy manifest/App Privacy assessment;
 - data retention/deletion verification;
@@ -808,34 +849,36 @@ Deliverables:
 
 ## 11. Acceptance Criteria For The Finished Learning Program
 
-The program is complete only when:
+The current no-backend, Simulator-only program is complete when:
 
-1. The app works as a useful capture/search workspace without AI.
-2. At least five task-specific Apple frameworks are implemented and compared with an LLM approach where relevant.
-3. On-device Foundation Models supports structured output, streaming, cancellation, availability, and one safe tool.
-4. Local semantic search and grounded answers include source references.
-5. App Intents expose actions and entities through Shortcuts/Siri with correct errors and confirmation.
-6. One cloud provider supports secure backend-mediated streaming, multimodal input, structured output, and tools.
-7. One realtime voice flow works with interruption and fallback behavior.
-8. One generated-image flow works with disclosure, persistence, and deletion.
-9. One custom model is trained, evaluated, deployed, and versioned.
-10. One Core AI open-model experiment is profiled on a physical supported device.
-11. One constrained agent workflow is safe, bounded, cancellable, and auditable.
-12. Every persisted AI result carries route/model/prompt/source provenance.
-13. Users can choose local-only mode and understand when data leaves the device.
-14. Evaluation data catches prompt/model regressions.
-15. The final report compares quality, privacy, latency, energy, memory, token usage, and monetary cost.
+1. The app works as a useful local capture/search workspace without AI.
+2. Every Simulator-eligible lab has manual evidence or an explicit unavailable
+   result; unsupported capabilities are never claimed as working.
+3. App Intents expose safe find/open actions and draft-only note creation through
+   Shortcuts with correct errors and confirmation.
+4. Deterministic framework labs have provenance, privacy-safe diagnostics,
+   accessible/localized states, and fixture-based manual evaluation.
+5. The Core ML lab has functional Simulator evidence or an explicit unavailable
+   result, without a performance claim.
+6. Every cloud, hardware, and iOS 27 topic has a tutorial module with official
+   sources, architecture, code examples, safety constraints, and a future proof
+   plan.
+7. No app bundle, repository, or tutorial contains a provider credential or
+   pretends that a backend/cloud call occurred.
 
-## 12. Required Accounts, Tools, And Budget Inputs
+A future device or backend may open a separate implementation phase, but it is
+not an acceptance condition for this current learning program.
 
-Before cloud or iOS 27 implementation begins, confirm:
+## 12. Current And Future Prerequisites
+
+Current runtime labs need only the approved Simulator gate and fixture media.
+Future tutorial examples may state, but do not provision, the following:
 
 - Apple Developer Program membership;
 - Xcode 27 beta availability and a compatible beta test device;
 - Apple Intelligence enabled and supported language/region;
 - required Apple entitlements for PCC/adapters/sensitive-content features where applicable;
-- first cloud provider account and billing cap;
-- backend hosting and secrets manager;
+- a cloud provider account, billing cap, backend hosting, and secrets manager;
 - App Attest/App Check strategy where applicable;
 - test media/document dataset licensing;
 - maximum monthly experiment budget;
@@ -846,22 +889,26 @@ Before cloud or iOS 27 implementation begins, confirm:
 
 ### Must Do Now
 
-- complete and accept Iteration 1 manual gate 1.26;
-- validate crash recovery, relaunch durability, migration, permissions, accessibility, localization, privacy report, and performance on authorized runtimes;
-- keep App Intents, AI, cloud providers, credentials, backend work, and beta SDK integration blocked until their later gates.
+- complete and accept the authorized `1.26-S` Simulator gate;
+- validate Simulator-appropriate recovery, relaunch, migration, imported-media,
+  Dynamic Type, and system-integration behavior without claiming hardware proof;
+- keep device-only code, cloud providers, credentials, backend work, and beta SDK
+  integration blocked until their distinct gates.
 
 ### Should Do Next
 
-- after gate 1.26 acceptance, start Iteration 2 with the bounded App Intents foundation;
-- implement deterministic Apple frameworks before generative features;
+- after `1.26-S` acceptance, start with the bounded App Intents/Shortcuts
+  foundation and deterministic fixture-driven frameworks;
+- defer actual Foundation Models generation and Siri voice to the physical-device
+  stage instead of substituting mock output;
 - build evaluation fixtures at the same time as each AI feature;
-- complete on-device Foundation Models and App Intents before cloud-agent complexity.
+- pair each approved runtime lab with its matching tutorial module.
 
 ### Later / Only If Needed
 
-- second cloud provider;
-- MLX comparison after Core AI;
-- custom Foundation Models adapters (especially because the iOS 26 toolkit is not compatible with iOS 27);
+- physical-device implementation after `1.26-D`;
+- any backend or provider decision after an explicit security/privacy ADR;
+- MLX/Core AI and custom Foundation Models adapters after Xcode 27 is available;
 - low-level Metal/MPS custom operations;
 - multiple app targets if a single availability-gated target proves impractical;
 - production App Store distribution.
@@ -895,6 +942,11 @@ Approved on 2026-07-12:
 10. Tests: writing or modifying test targets remains prohibited.
 11. Design: native SwiftUI MVP designed in-project, without a required Figma source.
 12. Iteration sequence: finish the complete non-AI user product first, then add AI capabilities one bounded block at a time.
+13. Gate sequencing: `1.26-S` can unlock only Simulator-verifiable Iteration 2;
+    `1.26-D` retains device-only implementation and evidence until hardware is
+    available.
+14. No-backend learning program: cloud/global-model runtime is not in scope;
+    those capabilities are tutorial-only until an explicit future decision.
 
 Canonical product/architecture/sequence details:
 
@@ -904,9 +956,11 @@ Canonical product/architecture/sequence details:
 
 ## 15. Recommended Immediate Next Step
 
-Complete Iteration 1 gate 1.26 under an explicitly authorized validation block. Do not start
-App Intents, AI, cloud credentials, backend provisioning, or beta SDK integration until the
-gate is accepted and the corresponding Iteration 2 decision is opened.
+Complete `1.26-S` under an explicitly authorized Simulator validation block. After the user
+accepts it, open only the documented Simulator-first App Intents and deterministic-framework
+blocks, pairing each with its tutorial module. Do not start device-only AI/runtime
+code, cloud credentials, backend provisioning, or beta SDK integration until the
+corresponding gate is open.
 
 ## 16. Authoritative Reading List
 

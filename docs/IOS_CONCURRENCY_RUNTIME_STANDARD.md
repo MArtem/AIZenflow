@@ -3,6 +3,8 @@
 ## Purpose
 Prevent data races, main-thread stalls, unbounded tasks, and lifecycle leaks in iOS apps.
 
+Load `./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md` for isolation design, structured and unstructured task ownership, cancellation, continuation/stream contracts, ordering, and Swift language-mode migration.
+
 ## Required Rules
 - UI state mutations happen on the main actor.
 - Long-running file, media, crypto, database, parsing, and network work must not run on the main actor.
@@ -11,6 +13,7 @@ Prevent data races, main-thread stalls, unbounded tasks, and lifecycle leaks in 
 - Avoid fire-and-forget work for user-visible operations unless failure is intentionally non-blocking and observable.
 - Do not capture `self` in async work without checking owner lifetime and cancellation.
 - Swift 6 warnings must be treated as future production failures, not cosmetic noise.
+- Record compiler version, Swift language mode, strict-concurrency settings, default actor isolation, and upcoming features separately when diagnostics or behavior depend on them.
 
 ## Review Checklist
 - Which actor owns the state?

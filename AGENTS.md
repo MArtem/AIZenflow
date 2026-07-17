@@ -4,6 +4,7 @@
 Every working, status, readiness, confirmation, task-orientation, planning, or clarification response must start with:
 
 - **Модель:** current model
+- **Смена модели:** whether a switch is required; when required, target model and reasoning level
 - **Фаза:** current phase
 - **Файлы:** files being inspected/changed, or `none`
 - **Следующий безопасный шаг:** next safe step
@@ -39,8 +40,8 @@ Always include the context-transfer rule when handing off:
 ## Model Routing
 - Apply `./docs/MODEL_ROUTING_RULE.md` before implementation, planning, review, or package-adoption work.
 - Classify tasks before editing code or documentation.
-- Use `GPT-5.4` only for approved-plan low-risk execution.
-- Use `GPT-5.5` for planning, architecture, persistence, concurrency, navigation, state ownership, public APIs, package boundaries/adoption, security/privacy, data-loss/sync, performance-sensitive work, Xcode/app runtime integration, and high-risk final reviews.
+- The available models are `GPT-5.6 sol`, `GPT-5.6 tera`, and `GPT-5.6 luna`, each with `low`, `medium`, and `high` reasoning. The routing rule is the sole authority for selecting both model and level.
+- Before meaningful work, report the factual model and reasoning level plus `Смена модели: не требуется` or `Смена модели: требуется: <model>, <level>`. Codex cannot change the app's primary model selector itself.
 
 ## Filesystem Sandbox
 - The user explicitly expanded this task's local sandbox to `/Users/Artem/.zenflow`.

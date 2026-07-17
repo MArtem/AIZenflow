@@ -64,6 +64,7 @@ Read only when the route requires it:
 | StoreKit/payments | `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md` |
 | Figma/design-to-SwiftUI | `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`, `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, `./docs/DESIGN_SYSTEM_GOVERNANCE.md` |
 | AI/App Intents/Foundation Models | `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`, relevant package README when package adoption is in scope |
+| Deep iOS specialist knowledge | Select the matching `ios-*` machine route; scope and maturity start at `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md` and `./docs/knowledge/global/ios/README.md` |
 | Code comments/documentation pass | `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`, `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` |
 | Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog |
 | Current content/feed persistence contract | `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`, persistence/migration/data-loss route |
@@ -78,9 +79,11 @@ Read only when Level 2 requires more depth, the task is broad/high-risk, or the 
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
 - `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
 - `./docs/IOS_PRODUCTION_SCORECARD.md`
+- `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
+- `./docs/knowledge/global/ios/*.md`
 - `./docs/IOS_AGENT_PROMPT_ROUTER.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
-- `./docs/ALL_DOCUMENTS_INVENTORY.md`
+- root `MANIFEST.md` in the canonical documentation repository, only for library completeness/recovery work
 - architecture catalog under the canonical documentation repository
 - complete package-vault documentation
 

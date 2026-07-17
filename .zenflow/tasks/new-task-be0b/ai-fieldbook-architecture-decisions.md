@@ -189,8 +189,10 @@ providers, prompts, schemas, and mocks.
 ### Decision
 
 Iteration 1 contains no AI inference, AI provider abstraction, model router,
-prompt registry, AI result schema, or fake AI response. Iteration 2 begins only
-after the non-AI completion gate is accepted.
+prompt registry, AI result schema, or fake AI response. The opening condition
+for Iteration 2 is refined by ADR-007: only a user-accepted Simulator gate may
+open the Simulator-verifiable subset, while physical-device-only code remains
+blocked until the matching device gate.
 
 Spotlight and deep links remain in Iteration 1 as system discovery/navigation
 mechanisms. By explicit user sequencing decision, all App Intents — including
@@ -214,6 +216,117 @@ Not applicable; this is a sequencing rule.
 ### Owner
 
 AI Fieldbook product roadmap.
+
+## ADR-007 — Simulator-First Implementation And Device-Deferred Evidence
+
+### Status
+
+Accepted on 2026-07-16 by explicit user decision.
+
+### Context
+
+The active environment has iOS Simulator but no physical device. The simulator
+can prove many product, persistence, fixture-driven deterministic-framework, and
+Shortcuts flows, but it cannot prove microphone capture, hardware audio routes,
+locked-device file protection, actual Apple Intelligence generation, Siri voice,
+or representative hardware performance. Writing those paths now would create
+unverified code without a usable success-path evaluation.
+
+### Options Considered
+
+1. Keep one all-or-nothing Iteration 1 gate and block every Iteration 2 block
+   until a device is available.
+2. Implement all planned work now and defer device proof.
+3. Split evidence into a Simulator gate and a physical-device gate, then write
+   only code whose core path can be verified in the available environment.
+
+### Decision
+
+Use option 3. `1.26-S` validates and, after explicit user acceptance, unlocks
+only Simulator-verifiable Iteration 2 blocks. `1.26-D` retains all
+physical-device-only implementation and evidence until a device is available.
+Do not substitute mocks or synthetic AI output for device capability proof. Keep
+the deferred scope as a precise plan rather than pre-writing unverified code.
+
+### Consequences
+
+- App Intents via Shortcuts and fixture-driven deterministic processing can make
+  measured progress after `1.26-S`.
+- Foundation Models generation, Siri voice, live microphone work, locked-device
+  protection, and hardware performance remain intentionally absent from code.
+- No stage permits a full production/runtime-completion claim without its
+  corresponding evidence.
+- iOS 27 and cloud tracks remain independently gated.
+
+### Rollback
+
+If a physical device becomes available before `1.26-S` is accepted, the user may
+authorize a combined validation block. Existing documentation still distinguishes
+which scenarios need hardware.
+
+### Revisit Trigger
+
+- A physical device is available.
+- Apple changes Simulator support for a currently device-only capability.
+- The user changes the evidence or sequencing policy.
+
+### Owner
+
+AI Fieldbook product roadmap and validation policy.
+
+## ADR-008 — Local Runtime Labs With Tutorial-Only External Paths
+
+### Status
+
+Accepted on 2026-07-16 by explicit user decision.
+
+### Context
+
+AI Fieldbook is a teaching application meant to cover the modern iOS AI
+landscape, but the project has no backend, provider account, cloud budget,
+credential boundary, or physical Apple Intelligence device. Direct client use
+of a third-party provider would not solve the product, privacy, billing, or
+secret-management problems; it would merely move them into the app bundle.
+
+### Options Considered
+
+1. Omit backend-, cloud-, iOS 27-, and hardware-dependent topics from the
+   learning program.
+2. Add direct provider SDKs or long-lived credentials to the app to demonstrate
+   cloud features without a backend.
+3. Implement only locally executable and Simulator-verifiable labs, while
+   documenting unavailable routes as app-specific tutorial modules.
+
+### Decision
+
+Use option 3. The app has no cloud/global-model runtime. A capability may be
+implemented only when its core success path is locally executable and can be
+verified in the currently approved environment. Every blocked but relevant
+capability becomes a tutorial module that states its user value, prerequisites,
+architecture, privacy/security boundary, illustrative code, unavailable evidence,
+and the concrete gate required before any runtime implementation.
+
+### Consequences
+
+- The executable program remains local-first and does not contain provider
+  credentials, Firebase setup, a hidden direct-client path, or a speculative
+  backend abstraction.
+- Cloud models, cloud RAG, agents, web grounding, realtime provider voice, and
+  provider-hosted media generation are documented rather than simulated.
+- Device-only Apple Intelligence, Siri, camera/microphone, and performance
+  paths are tutorial-only until their device gate is opened.
+- The curriculum stays complete without making unsupported runtime claims.
+
+### Revisit Trigger
+
+- The user explicitly approves backend ownership, provider, budget, consent,
+  data classes, and a security/privacy ADR; or
+- the required physical hardware and an authorized device-validation block become
+  available.
+
+### Owner
+
+AI Fieldbook product roadmap and tutorial curriculum.
 
 ## ADR-005 — Local-Only Iteration 1 And Deferred Cloud
 

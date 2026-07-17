@@ -11,6 +11,7 @@ Local checkout: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 | Knowledge type | Source of truth |
 |---|---|
 | Reusable/global rule | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` |
+| Reusable deep iOS theory | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/` |
 | Reusable baseline copied into a worktree | `./docs/` plus root project docs |
 | App-specific decision | `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/` |
 | App-specific local operational copy | current worktree app/task docs only when needed |

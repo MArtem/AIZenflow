@@ -4,7 +4,7 @@
 Rules for implementing UI/design tasks in `source-app` from screenshots, Figma, PDFs, SVG, CSS export, or visual references.
 
 ## Mandatory Model Rule
-- Use `GPT-5.5` for all UI/design tasks based on screenshots, Figma, PDF, SVG, CSS, or visual comparison.
+- Apply `MODEL_ROUTING_RULE.md`. UI/design work based on screenshots, Figma, PDF, SVG, CSS, or visual comparison starts at `GPT-5.6 sol` with high reasoning. Use `tera` only for bounded work with strong visual evidence when the expected fidelity is unchanged; high-risk work and final high-risk review remain on `sol` high.
 
 ## Figma MCP Prompt Rule
 - If the user provides a Figma link or says the work starts from Figma, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before Figma MCP inspection or code changes.

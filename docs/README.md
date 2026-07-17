@@ -1,7 +1,7 @@
 # Documentation Map
 
 ## Purpose
-Entry point for active project documentation, production standards, prompt presets, local skills, and static quality gates.
+Entry point for active project documentation, production standards, prompt templates, local skills, and static quality gates.
 
 - Read active docs before substantive work.
 - Apply `./docs/CURRENT_USER_OVERRIDES.md` before general defaults.
@@ -80,6 +80,8 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/TECH_DEBT_REGISTER.md`
 
 ### iOS Production Standards
+- `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
+- `./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json`
 - `./docs/IOS_TESTING_STRATEGY.md`
 - `./docs/IOS_SECURITY_PRIVACY_GATE.md`
 - `./docs/IOS_OBSERVABILITY_STANDARD.md`
@@ -151,33 +153,36 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 
-### Prompt Presets And Knowledge
+### Prompt Templates And Knowledge
 - `./docs/agent-prompts/README.md`
 - `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`
 - `./docs/agent-prompts/ios-architecture-style-review.md`
 - `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
+- `./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
+- `./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md`
+- `./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md`
+- `./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md`
+- `./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`
+- `./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md`
+- `./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md`
+- `./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md`
+- `./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md`
+- `./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md`
+- `./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md`
+- `./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md`
 
 
 ### Reference Inventories And Saved Prompts
 - `./docs/DOCS_REPO_OPERATIONS.md`
 - `./docs/DOCUMENTATION_VAULT_SUMMARY.md`
 - `./docs/saved-prompts/README.md`
-- `./docs/ALL_DOCUMENTS_INVENTORY.md`
 
-### Documentation Split / Transfer Baseline
-- `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
+### Historical Documentation Split
+The following export is retained for provenance only. It is not an active bootstrap source, routing source, or current rule set.
+
 - `./docs/documentation-split/README.md`
-- `./docs/documentation-split/app-specific/APP_SPECIFIC_MANIFEST.md`
-- `./docs/documentation-split/reusable/REUSABLE_MANIFEST.md`
-- `./docs/documentation-split/reusable/REUSABLE_USER_AND_AGENT_RULES.md`
-- `./docs/documentation-split/reusable/NEW_PROJECT_PORTING_GUIDE.md`
-- `./docs/documentation-split/reusable/NEUTRAL_PACKAGE_PROMOTION_GUIDE.md`
-- `./docs/documentation-split/reusable/EXTERNAL_SKILL_DEPENDENCIES.md`
-- `./docs/documentation-split/reusable/TRANSFER_CHECKLIST.md`
-- `./docs/documentation-split/reusable/infrastructure-sdk/README.md`
-- `./docs/documentation-split/reusable/scripts/install_reusable_baseline.sh`
 
 ### Task Docs
 - `./.zenflow/tasks/new-task-be0b/handoff.md`
@@ -186,9 +191,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./.zenflow/tasks/new-task-be0b/ai-fieldbook-architecture-decisions.md`
 - `./.zenflow/tasks/new-task-be0b/ai-fieldbook-implementation-plan.md`
 - `./.zenflow/tasks/new-task-be0b/ios-ai-capabilities-and-lab-plan.md`
-- `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
-- `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
-- `./.zenflow/tasks/new-task-be0b/share-extension-validation-report.md`
+- `./.zenflow/tasks/new-task-be0b/documentation-cleanup-audit.md`
 
 ### Local Skills
 - `./.codex/skills/ios-content-cards/SKILL.md`
@@ -218,6 +221,12 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./.codex/skills/ios-configuration-environments/SKILL.md`
 - `./.codex/skills/ios-input-validation/SKILL.md`
 - `./.codex/skills/ios-code-documentation/SKILL.md`
+- `./.codex/skills/ios-swift-runtime/SKILL.md`
+- `./.codex/skills/ios-identity-authentication/SKILL.md`
+- `./.codex/skills/ios-testing-debugging/SKILL.md`
+- `./.codex/skills/ios-build-system/SKILL.md`
+- `./.codex/skills/ios-platform-capabilities/SKILL.md`
+- `./.codex/skills/ios-app-store-compliance/SKILL.md`
 
 ### Static Quality Gate Scripts
 - `./scripts/check_bootstrap_contract.py`
@@ -235,6 +244,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./scripts/check_swiftui_hot_path_patterns.py`
 - `./scripts/run_static_quality_gates.sh`
 - `./scripts/validate_ios_production_framework.py`
+- `./scripts/validate_ios_knowledge_system.py`
 
 ## Canonical Document Roles
 
@@ -258,6 +268,8 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 ### Review And Completion
 - **`./docs/COMPLETION_REPORT_CONTRACT.md`**: mandatory report shape before claiming done/fixed/verified/safe/clean/production-ready.
 - **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.
+- **`./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`**: mandatory iPhone+iPad scope, deferred-platform rules, source authority, coverage unit, and freshness contract.
+- **`./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json`**: machine-readable iOS topic maturity, route, source-review, and evidence ownership registry.
 - **`./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`**: end-to-end feature workflow from intake to operation.
 - **`./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`**: uniform broad audit matrix and finding format.
 - **`./docs/IOS_PR_REVIEW_TEMPLATE.md`**: reusable iOS PR review template.
@@ -286,6 +298,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - **`./docs/TECH_DEBT_REGISTER.md`**: intentional debt, owner, expiry, and paydown policy.
 
 ### iOS Engineering Standards
+- **`./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`**: reusable iPhone+iPad core and knowledge-completeness policy; watchOS, visionOS, tvOS, and macOS remain route-on-demand.
 - **`./docs/IOS_TESTING_STRATEGY.md`**: production test/verification decision matrix.
 - **`./docs/IOS_SECURITY_PRIVACY_GATE.md`**: security/privacy/logging/sensitive-data gate.
 - **`./docs/IOS_OBSERVABILITY_STANDARD.md`**: crash, analytics, logs, and performance signal rules.

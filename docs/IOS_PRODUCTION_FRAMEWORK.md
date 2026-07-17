@@ -10,6 +10,8 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 
 
 ## Framework Operating Documents
+- `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
+- `./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json`
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
 - `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
 - `./docs/IOS_PR_REVIEW_TEMPLATE.md`
@@ -47,6 +49,8 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 | Area | Standard |
 |---|---|
 | Product requirements | `./docs/PRODUCT_REQUIREMENTS_STANDARD.md` |
+| Platform scope and knowledge completeness | `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md` |
+| Knowledge maturity registry | `./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json` |
 | Definition of done | `./docs/DEFINITION_OF_DONE.md` |
 | Evidence | `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md` |
 | Production gates | `./docs/PRODUCTION_QUALITY_GATES.md` |

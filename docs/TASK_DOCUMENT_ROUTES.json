@@ -102,7 +102,8 @@
     },
     "ios-concurrency-runtime": {
       "documents": [
-        "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md"
+        "./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+        "./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"
       ]
     },
     "ios-swiftui-performance": {
@@ -114,13 +115,15 @@
     "ios-memory-cache-media-files": {
       "documents": [
         "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
-        "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md"
+        "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+        "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
       ]
     },
     "ios-persistence-migration-data-loss": {
       "documents": [
         "./docs/IOS_DATA_MIGRATION_STANDARD.md",
-        "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md"
+        "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+        "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md"
       ],
       "optional_documents": [
         "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md"
@@ -130,7 +133,8 @@
       "documents": [
         "./docs/API_CONTRACT_AND_INTEGRATION_RULES.md",
         "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
-        "./docs/IOS_OFFLINE_SYNC_STANDARD.md"
+        "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+        "./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md"
       ]
     },
     "ios-security-privacy-intake": {
@@ -165,7 +169,8 @@
         "./docs/INCIDENT_RESPONSE_STANDARD.md",
         "./docs/PRODUCT_HEALTH_SLO.md",
         "./docs/RISK_REGISTER.md",
-        "./docs/TECH_DEBT_REGISTER.md"
+        "./docs/TECH_DEBT_REGISTER.md",
+        "./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md"
       ]
     },
     "ios-lifecycle-background": {
@@ -187,6 +192,65 @@
         "./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md"
       ]
     },
+    "ios-knowledge-governance": {
+      "documents": [
+        "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md"
+      ]
+    },
+    "ios-swift-language-runtime": {
+      "documents": [
+        "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+        "./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"
+      ]
+    },
+    "ios-ui-adaptive": {
+      "documents": [
+        "./docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+        "./docs/IOS_ACCESSIBILITY_STANDARD.md",
+        "./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"
+      ]
+    },
+    "ios-identity-authentication": {
+      "documents": [
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+        "./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md"
+      ]
+    },
+    "ios-testing-debugging": {
+      "documents": [
+        "./docs/IOS_TESTING_STRATEGY.md",
+        "./docs/QA_TEST_PLAN_STANDARD.md",
+        "./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md"
+      ]
+    },
+    "ios-build-binary-supply-chain": {
+      "documents": [
+        "./docs/DEPENDENCY_POLICY.md",
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md"
+      ]
+    },
+    "ios-platform-capabilities-extended": {
+      "documents": [
+        "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+        "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+        "./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md"
+      ]
+    },
+    "ios-media-sensors-device": {
+      "documents": [
+        "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+        "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+        "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+      ]
+    },
+    "ios-app-store-compliance": {
+      "documents": [
+        "./docs/IOS_RELEASE_CHECKLIST.md",
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md",
+        "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"
+      ]
+    },
     "ios-figma-design": {
       "documents": [
         "./docs/agent-prompts/figma-mcp-swiftui-implementation.md",
@@ -195,8 +259,7 @@
       ]
     },
     "ios-ai-app-intents": {
-      "documents": [],
-      "optional_documents": [
+      "documents": [
         "./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"
       ],
       "trigger_patterns": [
@@ -252,9 +315,7 @@
         "./docs/IOS_AGENT_PROMPT_ROUTER.md"
       ],
       "optional_documents": [
-        "./docs/ALL_DOCUMENTS_INVENTORY.md",
-        "./docs/IOS_ARCHITECTURE_REFERENCE.md",
-        "./docs/IOS_SENIOR_LEAD_ARCHITECT_STAFF_HANDBOOK_OUTLINE.md"
+        "./docs/IOS_ARCHITECTURE_REFERENCE.md"
       ],
       "trigger_patterns": [
         "./docs/architecture-cases/**",

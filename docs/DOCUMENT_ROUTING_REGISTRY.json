@@ -55,6 +55,7 @@
     "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
     "./docs/IOS_OBSERVABILITY_STANDARD.md",
     "./docs/IOS_OFFLINE_SYNC_STANDARD.md",
+    "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
     "./docs/IOS_PERFORMANCE_BUDGETS.md",
     "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
     "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
@@ -85,7 +86,6 @@
     "./docs/UI_PIXEL_PERFECT_WORKFLOW.md"
   ],
   "level3": [
-    "./docs/ALL_DOCUMENTS_INVENTORY.md",
     "./docs/IOS_AGENT_PROMPT_ROUTER.md",
     "./docs/IOS_ARCHITECTURE_REFERENCE.md",
     "./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
@@ -101,7 +101,8 @@
     ],
     "level3": [
       "./PackagesForReuse/**",
-      "./docs/architecture-cases/**"
+      "./docs/architecture-cases/**",
+      "./docs/knowledge/global/ios/*.md"
     ],
     "archive": [
       "./docs/archive/**",

@@ -10,6 +10,8 @@ ROOT = pathlib.Path(__file__).resolve().parents[1]
 
 SKIP_PARTS = {
     "archive",
+    # Task-local audit staging preserves historical evidence; it is not active guidance.
+    "boundary-audit",
 }
 SKIP_FILES: set[pathlib.Path] = set()
 

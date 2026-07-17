@@ -2501,6 +2501,18 @@ AI FEATURE PLAN
 24. Tests
 25. Files
 26. Risks
+
+Дополнительные обязательные AI guardrails:
+
+- AI-ready не означает “LLM на каждом экране”. Сначала проверь deterministic baseline и добавляй модель только там, где она улучшает пользовательскую задачу.
+- `LanguageModelSession` stateful: планируй lifecycle transcript, context-window limits, summarization/compaction, reset policy и privacy retention. Не веди бесконечный чат в одной session без контроля.
+- Любой AI provider должен иметь mock/fake implementation для разработки, previews, ручной проверки и evaluation без реального provider call.
+- Local/cloud/hybrid routing должен учитывать availability, device/OS requirements, sensitive data, large context, internet freshness, cost, latency, offline behavior и user consent.
+- Cloud AI вызовы с секретами идут через backend; app bundle не хранит постоянные provider secrets.
+- Structured AI output требует deterministic validation перед persistence/action execution.
+- Semantic search/recommendation не заменяет access filters, business rules, date/status filters, blocklists, deduplication и user-visible explanation.
+- Документный AI pipeline должен начинаться с deterministic preprocessing where possible: import validation, OCR/structure extraction, normalization, chunking, retrieval, structured extraction, validation, user review, then persistence.
+- Image, speech, translation, OCR, and Foundation Models capabilities require explicit availability and permission handling before UI promises the feature.
 92. ФОРМАТ ФИНАЛЬНОГО ОТЧЕТА
 
 После реализации выдай:

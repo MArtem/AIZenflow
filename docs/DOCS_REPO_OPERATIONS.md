@@ -39,6 +39,8 @@ git diff --check
 From `/Users/Artem/.zenflow/worktrees/documentation-vault`:
 
 ```bash
+python3 scripts/generate_manifest.py --check
+python3 scripts/check_documentation_vault.py
 git status --short --branch
 git log --oneline --decorate -5
 ```
@@ -48,3 +50,10 @@ git log --oneline --decorate -5
 - App-specific docs belong under `apps/<AppName>/`.
 - Task recovery/history belongs under `tasks/<TaskId>/`.
 - Local app exceptions never change reusable/global rules without explicit promotion approval.
+
+## Inventory And Retention
+- `MANIFEST.md` and `MANIFEST_SUMMARY.md` are the only generated whole-vault inventories.
+- Regenerate them with `python3 scripts/generate_manifest.py --write`; never rebuild `reusable/`, `apps/`, or `tasks/` from worktrees by deleting destination trees.
+- Raw build products, DerivedData, Instruments trace bundles, caches, and temporary staging directories do not belong in the documentation repository.
+- Retain compact human-readable evidence when it has recovery or decision value, under the owning app/task boundary.
+- Before deleting uncertain or unique material, preserve it and record why it remains. Tracked removals must have a documented recovery commit.

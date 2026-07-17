@@ -11,6 +11,8 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 REQUIRED = [
     './docs/IOS_PRODUCTION_FRAMEWORK.md',
+    './docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md',
+    './docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json',
     './docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md',
     './docs/IOS_PRODUCTION_AUDIT_MATRIX.md',
     './docs/IOS_PR_REVIEW_TEMPLATE.md',

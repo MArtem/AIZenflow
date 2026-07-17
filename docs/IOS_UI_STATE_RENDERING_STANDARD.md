@@ -3,6 +3,8 @@
 ## Purpose
 Make SwiftUI/UIKit UI predictable, performant, accessible, and maintainable.
 
+For UIKit interoperability and the mandatory iPhone+iPad adaptive core, including multitasking, multiple windows, keyboard, pointer, drag and drop, and resizing, load `./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md`.
+
 ## Required Rules
 - Repeated rows receive narrow immutable input and explicit callbacks, not broad global state unless justified.
 - Derived presentation state should be precomputed or memoized when it is read in hot paths.
@@ -11,6 +13,7 @@ Make SwiftUI/UIKit UI predictable, performant, accessible, and maintainable.
 - Avoid side effects in `body`, layout callbacks, and computed view properties.
 - Avoid broad animations without a specific `value` and review repeated shadows, blurs, masks, and clips.
 - Keep empty/loading/error/offline/permission states explicit.
+- Do not treat a scaled phone layout as sufficient iPad support when the workflow requires simultaneous context, stable selection, resizable windows, or keyboard/pointer interaction.
 
 
 ## ViewModel API Rule
