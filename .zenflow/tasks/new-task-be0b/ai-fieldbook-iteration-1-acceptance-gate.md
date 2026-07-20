@@ -3,6 +3,8 @@
 ## Purpose
 The non-AI baseline is accepted in two evidence stages because only Simulator is currently available. `1.26-S` may unlock only the documented Simulator-verifiable subset of Iteration 2. `1.26-D` remains mandatory before device-only implementation or any full runtime-completion claim.
 
+AI Fieldbook is an iPhone-only product. All Simulator and physical-device evidence in this gate targets iPhone; iPad/iPadOS behavior is outside acceptance scope.
+
 ## Current Gate Status
 Status: `1.26-S` open; `1.26-D` blocked by missing physical hardware.
 
@@ -13,7 +15,7 @@ Status: `1.26-S` open; `1.26-D` blocked by missing physical hardware.
 - URL create/edit/move/open flow, including credential rejection, HTTP warning, and deep-link kind mismatch.
 - Populated V1-to-V2 migration and saved-record relaunch durability.
 - Crash injection at every staged-deletion boundary for item, workspace, and delete-all flows, followed by relaunch reconciliation.
-- Dynamic Type pass on primary flows, including Russian text expansion and plural forms; Simulator accessibility inspection may support this evidence but does not replace physical-device VoiceOver.
+- Dynamic Type pass on primary iPhone flows, including Russian text expansion and plural forms; Simulator accessibility inspection may support this evidence but does not replace physical-iPhone VoiceOver.
 - Deep-link routing after accepting the system open confirmation.
 - Export success, cancellation, functional responsiveness, share availability, cleanup, and insufficient-storage behavior to the extent Simulator can reproduce them.
 - Delete-all confirmation, Spotlight cleanup, runtime-cache reset, and result state.
@@ -21,6 +23,7 @@ Status: `1.26-S` open; `1.26-D` blocked by missing physical hardware.
 `1.26-S` can be accepted only after the user explicitly authorizes and reviews this validation block. It permits no microphone capture, real audio-session hardware lifecycle, locked-device file-protection claim, full VoiceOver/touch claim, hardware-performance claim, Foundation Models inference, or Siri voice claim.
 
 ## 1.26-D — Physical-Device Validation
+- Use a supported physical iPhone; iPad evidence is neither required nor accepted as a substitute.
 - Actual microphone permission, recording, playback, interruption, route-change, foreground/background, cancel, re-record, and save-failure behavior.
 - Locked-device verification for complete file protection.
 - Physical-device VoiceOver, focus, touch-target, and full Dynamic Type pass on primary flows and every error/progress state.

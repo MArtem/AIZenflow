@@ -104,6 +104,31 @@
 			path = AIFieldbook;
 			sourceTree = "<group>";
 		};
+		6B1A00000000000000000032 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000010 /* AIFieldbook.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000033 /* PackagesInUse */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000034 /* AppNavigation/Sources/AppNavigation */,
+			);
+			name = PackagesInUse;
+			path = ../PackagesInUse;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000034 /* AppNavigation/Sources/AppNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000111 /* AppNavigation.swift */,
+			);
+			path = AppNavigation/Sources/AppNavigation;
+			sourceTree = "<group>";
+		};
 		6B1A00000000000000000035 /* App */ = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +158,18 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
+		6B1A00000000000000000038 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A0000000000000000003B /* Workspace */,
+				6B1A0000000000000000003C /* Capture */,
+				6B1A0000000000000000003D /* Items */,
+				6B1A0000000000000000003E /* Search */,
+				6B1A0000000000000000003F /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
 		6B1A00000000000000000039 /* DesignSystem */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,47 +187,6 @@
 				6B1A0000000000000000011E /* FieldbookExportService.swift */,
 			);
 			path = Persistence;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000000045 /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000000115 /* SpotlightIndexService.swift */,
-				6B1A0000000000000000011C /* FieldbookSearchIndex.swift */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000000046 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000000117 /* Info.plist */,
-				6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */,
-				6B1A00000000000000000119 /* Localizable.strings */,
-				6B1A0000000000000000011A /* InfoPlist.strings */,
-				6B1A0000000000000000011F /* Localizable.stringsdict */,
-			);
-			path = Resources;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000000047 /* Documentation */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */,
-			);
-			path = Documentation;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000000038 /* Features */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A0000000000000000003B /* Workspace */,
-				6B1A0000000000000000003C /* Capture */,
-				6B1A0000000000000000003D /* Items */,
-				6B1A0000000000000000003E /* Search */,
-				6B1A0000000000000000003F /* Settings */,
-			);
-			path = Features;
 			sourceTree = "<group>";
 		};
 		6B1A0000000000000000003B /* Workspace */ = {
@@ -239,29 +235,33 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000033 /* PackagesInUse */ = {
+		6B1A00000000000000000045 /* Search */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000000034 /* AppNavigation */,
+				6B1A00000000000000000115 /* SpotlightIndexService.swift */,
+				6B1A0000000000000000011C /* FieldbookSearchIndex.swift */,
 			);
-			name = PackagesInUse;
-			path = ../PackagesInUse;
+			path = Search;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000034 /* AppNavigation */ = {
+		6B1A00000000000000000046 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000000111 /* AppNavigation.swift */,
+				6B1A00000000000000000117 /* Info.plist */,
+				6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */,
+				6B1A00000000000000000119 /* Localizable.strings */,
+				6B1A0000000000000000011A /* InfoPlist.strings */,
+				6B1A0000000000000000011F /* Localizable.stringsdict */,
 			);
-			path = AppNavigation/Sources/AppNavigation;
+			path = Resources;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000032 /* Products */ = {
+		6B1A00000000000000000047 /* Documentation */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000000010 /* AIFieldbook.app */,
+				6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */,
 			);
-			name = Products;
+			path = Documentation;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

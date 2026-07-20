@@ -2,6 +2,7 @@
 
 ## Execution Rule
 
+- Supported product family is iPhone only. Do not add or validate iPad behavior without a new explicit product decision.
 - Work one self-contained block at a time.
 - Do not start the next block before reporting the current block.
 - Keep one block focused on one user capability or foundation decision.

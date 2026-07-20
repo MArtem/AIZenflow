@@ -4,7 +4,8 @@
 Every working, status, readiness, confirmation, task-orientation, planning, or clarification response must start with:
 
 - **Модель:** current model
-- **Смена модели:** whether a switch is required; when required, target model and reasoning level
+- **Режим:** active operating mode (`качество`, `сбалансированный`, or `эконом`)
+- **Смена модели:** `не требуется`, `рекомендуется`, or `требуется`; include target model and reasoning level for the latter two
 - **Фаза:** current phase
 - **Файлы:** files being inspected/changed, or `none`
 - **Следующий безопасный шаг:** next safe step
@@ -41,7 +42,8 @@ Always include the context-transfer rule when handing off:
 - Apply `./docs/MODEL_ROUTING_RULE.md` before implementation, planning, review, or package-adoption work.
 - Classify tasks before editing code or documentation.
 - The available models are `GPT-5.6 sol`, `GPT-5.6 tera`, and `GPT-5.6 luna`, each with `low`, `medium`, and `high` reasoning. The routing rule is the sole authority for selecting both model and level.
-- Before meaningful work, report the factual model and reasoning level plus `Смена модели: не требуется` or `Смена модели: требуется: <model>, <level>`. Codex cannot change the app's primary model selector itself.
+- The user selects the operating mode; it persists in the current task/thread until explicitly changed. Use `качество` when no explicit or handed-off mode exists. Do not change modes silently.
+- Before meaningful work, report the active mode, factual model, and reasoning level plus `Смена модели: не требуется`, `Смена модели: рекомендуется: <model>, <level>`, or `Смена модели: требуется: <model>, <level>`. Codex cannot change the app's primary model selector itself.
 
 ## Filesystem Sandbox
 - The user explicitly expanded this task's local sandbox to `/Users/Artem/.zenflow`.

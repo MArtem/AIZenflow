@@ -8,6 +8,8 @@
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
+Active operating mode: `сбалансированный`. The user temporarily selected `GPT-5.6 sol` with high reasoning for exact planning and product-scope decisions. Before implementation, use `GPT-5.6 tera` with medium reasoning. The user may switch explicitly to `качество` or `эконом`; a one-off model selection does not change the active mode.
+
 Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 set once, then load only the routes required by the task.
 
 ## Completed AI Fieldbook Remediation
@@ -21,6 +23,8 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
 - Preserved Iteration 1 as local-only: no backend, analytics, cloud processing, App Intents, or AI runtime were introduced.
 - Recorded Simulator-first execution: accepted `1.26-S` unlocks only Simulator-verifiable labs; `1.26-D` retains device-only code and evidence.
 - Classified backend, cloud-model, unavailable iOS 27, and unavailable-hardware paths as tutorial-only until their prerequisites are approved.
+- Defined AI Fieldbook as fully iPhone-only by explicit user decision. The existing Xcode target already uses `TARGETED_DEVICE_FAMILY = 1`; ADR-009 records the app-specific exception and excludes iPad from product, App Intents, acceptance, and release scope.
+- Removed the pre-existing mandatory AI provider configuration from the active app/build graph without touching the preserved user-owned xcconfig/index state or unrelated project-file changes.
 
 ## Static Evidence
 - Swift 6 strict-concurrency whole-source type-check passes with source-only `AppNavigation` included.
@@ -30,14 +34,18 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
 - Documentation index, consistency, boundary, router, and reusable-baseline drift checks pass; `git diff --check` passes.
 - Reusable saved prompts and architecture cases are app-neutral; active app boundaries link to reusable guidance instead of copying it. MVVMExample and Tchop legacy snapshots are isolated under non-authoritative `legacy-reference/` areas, and the boundary validator hard-fails active reusable/app leakage.
 - Documentation cleanup replaced the destructive worktree sync with a non-destructive deterministic manifest generator, reduced active inventories to root `MANIFEST.md` and `MANIFEST_SUMMARY.md`, corrected quality-first `sol`/`tera`/`luna` routing, and moved obsolete duplicates, misplaced task files, and raw traces into non-authoritative `retired/` quarantine without deleting their content.
+- Three supplied 20-page model-routing documents were structurally and visually reviewed. Their useful mode distinctions were normalized into the single reusable routing rule: persistent `качество`/`сбалансированный`/`эконом` modes, mode-aware optional versus required model switches, stable high-risk floors, and no duplicated price or provider-positioning claims.
 - The non-empty readable Tchop trace analysis is retained under `apps/Tchop/legacy-reference/evidence/`; unique archive intake, assistant history, saved-prompt provenance, legacy handbooks, and historical documentation-split material remain retained.
 - Canonical manifest freshness and vault-shape checks pass with `3608` files and four app boundaries; active routes have zero missing, optional-missing, unreachable, or unclassified documents.
 - Documentation-scoped secret scan passes. The full repository scan still reports seven pre-existing generic-token test fixtures in `TchopAppTests/AppStateTests.swift`; that file is unchanged and tests were not modified under the current restriction.
-- No tests were created or modified. No Xcode build, tests, Simulator, device run, crash injection, Instruments, Privacy Report, or archive was performed.
+- No tests were created, modified, or run. The user authorized the complete `1.26-S` build/Simulator block: Debug build succeeded with worktree-scoped artifacts, and the app installed and reached the expected empty state on a representative iPhone Simulator. No physical-device run, crash injection, Instruments, Privacy Report, archive, or signing was performed.
 
 ## Remaining Gates And Risks
+- AI Fieldbook is fully iPhone-only by explicit user decision. The Xcode target already uses `TARGETED_DEVICE_FAMILY = 1`; iPad/iPadOS implementation, validation, App Intents/Shortcuts behavior, accessibility, localization, and release are outside scope. This is an app-specific exception to the reusable iPhone+iPad baseline, recorded in ADR-009.
 - Acceptance gate 1.26 is split into `1.26-S` (Simulator) and `1.26-D` (physical device). No Iteration 2 code has started; only a user-accepted `1.26-S` can unblock the documented Simulator subset.
 - Simulator evidence still needs CRUD, picker fixtures, imported-audio playback, migration/relaunch, crash recovery, deep links, export/delete-all, Dynamic Type, and system-integration smoke validation. Physical-device evidence still needs microphone recording and lifecycle, locked-device protection, Siri voice, full VoiceOver/touch behavior, and representative performance.
+- Simulator UI automation is blocked because macOS denied Apple Events/Accessibility control. A custom URL request reaches the iOS open-confirmation dialog, but accepting it and the remaining interactive matrix require the user to grant UI-control permission or perform the documented manual iPhone validation.
+- `G1.P1-001` blocks `1.26-S`: on the supported iPhone at Accessibility XXXL, the first-launch empty-state CTA is partially obscured by the tab bar and the content is not visibly scrollable. The task plan defines a narrowly scoped `G1.R1` remediation proposal; do not implement it without separate user approval.
 - Text/tag search is improved but not backed by FTS; export still materializes one JSON manifest; legacy imported files are readable but are not retroactively renamed or hash-migrated.
 - App-owned content files use complete protection, while an explicit migration/protection policy for pre-existing SwiftData store files remains a separate persistence decision.
 - Signing team, CI runner, crash-reporting provider, and remote release observability require user/environment decisions; no provider or telemetry was guessed.
@@ -46,10 +54,11 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
 ## Repository State And Restrictions
 - The project worktree contains uncommitted remediation changes by design; do not commit or push this repository without explicit user authorization.
 - Canonical AI Fieldbook documentation must be mirrored, validated, committed, and pushed only in `MArtem/AIZenflowDocumentation`.
+- The iPhone-only product contract, ADR-009, acceptance gate, detailed App Intents plan, and task state were validated and published to canonical documentation in commit `fd9d9ad`.
 - The reusable iOS knowledge expansion and preservation-first cleanup are synced and validated for publication in the canonical documentation commit containing this handoff.
 - Final review added AI/commerce registry coverage, an exact AI prompt bootstrap mirror, required route/context/drift tools, and `sol`/`tera`/`luna` model-plus-reasoning routing.
 - Keep all project/build/cache/log/temp artifacts inside `/Users/Artem/.zenflow`.
-- Do not write/modify tests or run builds/tests/Simulator/Instruments without explicit authorization.
+- Do not write/modify tests. Build and Simulator remain authorized only for the active `1.26-S` block; tests, physical-device QA, Instruments, archive, and signing remain unauthorized.
 
 ## Next Safe Step
-After confirming the canonical documentation repository is committed, pushed, clean, and synchronized, request authorization for `1.26-S`. Only its acceptance unlocks a selected Simulator lab and paired tutorial; device-only, iOS 27, backend, and cloud runtime remain gated.
+Complete the remaining interactive iPhone-only `1.26-S` matrix after the user grants Simulator UI control or performs the manual checklist. Record every pass, failure, and explicit deferral, then obtain explicit user acceptance. Before any App Intents A1 implementation, switch to `GPT-5.6 tera` with medium reasoning. Device-only, iOS 27, backend, cloud runtime, and Siri voice remain gated.

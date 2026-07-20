@@ -10,6 +10,7 @@
   third-party-cloud-dependent patterns are taught as explicitly non-runtime
   tutorials rather than hidden or simulated features.
 - **Proposed app name**: `AI Fieldbook` (working title).
+- **Supported product family**: iPhone only. iPad/iPadOS implementation, App Intents behavior, validation, and release are out of scope unless reopened by a new explicit product decision.
 - **Current implementation state**: the independent AI Fieldbook project exists and its non-AI Iteration 1 implementation plus static remediation are complete through Block 1.25A. Manual acceptance gate 1.26 remains open; no App Intent or AI runtime has started.
 - **Governing AI prompt**: `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`; apply only task-relevant sections under current user/project rules.
 - **Important platform note**: iOS 27 / Xcode 27 APIs referenced below are beta as of this plan. Stable and beta work must be isolated by availability checks and explicit experimental feature gates.

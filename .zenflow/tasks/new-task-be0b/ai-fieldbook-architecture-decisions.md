@@ -411,3 +411,67 @@ continue reading both legacy and digest-bearing filenames.
 ### Owner
 
 AI Fieldbook persistence and local file lifecycle.
+
+## ADR-009 — iPhone-Only Product Scope
+
+### Status
+
+Accepted on 2026-07-20 by explicit user decision.
+
+### Context
+
+The reusable iOS baseline requires iPhone and iPad unless an app records a local
+exception. AI Fieldbook was already configured with `TARGETED_DEVICE_FAMILY = 1`,
+and its implementation plan recorded an iPhone target family, but the current
+App Intents task plan incorrectly expanded acceptance to representative iPad
+runtime coverage. The user explicitly removed iPad from the complete product
+scope rather than only from the current validation block.
+
+### Options Considered
+
+1. Support iPhone and iPad as one adaptive product and retain iPad acceptance.
+2. Implement iPhone now while treating iPad as a deferred surface of the same product.
+3. Define AI Fieldbook as iPhone-only; any future iPad app or expansion requires a new product decision.
+
+### Decision
+
+Use option 3. AI Fieldbook supports iPhone only across product requirements,
+runtime implementation, App Intents/Shortcuts, accessibility, localization,
+validation, release, and completion claims. Keep `TARGETED_DEVICE_FAMILY = 1`.
+Do not spend implementation or gate effort on iPad layouts, multitasking,
+multiple windows, keyboard/pointer adaptation, iPad Siri/Shortcuts behavior, or
+iPad QA. This is an app-specific exception and does not weaken reusable iOS
+standards for other products.
+
+### Consequences
+
+- Representative iPhone Simulator and, when available, physical iPhone evidence
+  are sufficient for AI Fieldbook platform claims within their existing gates.
+- Existing iPad Simulator observations are outside acceptance scope and do not
+  create AI Fieldbook remediation work.
+- App Intents blocks and tutorials must use iPhone-only examples and evidence.
+- iPad installation, adaptive layout, accessibility, localization, performance,
+  Siri, Shortcuts, and release behavior are unsupported and must not be claimed.
+
+### Migration Plan
+
+- Reconcile the product contract, acceptance gate, implementation/lab plans,
+  task plan, and handoff with this decision.
+- Confirm the existing Xcode target remains iPhone-only; no source or persistence
+  migration is required.
+
+### Rollback Plan
+
+Reopening iPad support requires a new approved product scope, adaptive UI and
+navigation review, iPad-specific acceptance matrix, target-family change, and
+fresh Simulator/device evidence. Do not re-enable iPad by changing only the
+Xcode target family.
+
+### Review / Revisit Trigger
+
+- The user explicitly requests an iPad product or iPad support for AI Fieldbook.
+- A distribution requirement makes iPad support mandatory.
+
+### Owner
+
+AI Fieldbook product and platform scope.

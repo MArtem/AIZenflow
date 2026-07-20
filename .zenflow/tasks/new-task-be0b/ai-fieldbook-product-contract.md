@@ -4,6 +4,7 @@
 
 - Approved for planning: 2026-07-12.
 - Product: independent internal-only iOS learning application.
+- Supported device family: iPhone only. iPad and iPadOS are outside the complete product, implementation, validation, and release scope.
 - Working name: `AI Fieldbook`.
 - Current implementation state: the non-AI Iteration 1 app includes workspace/item CRUD, text notes, tags, deterministic local search, validated app-owned image/PDF/plain-text/audio import, audio recording/playback, URL references, export/delete-all, deep links, disabled-by-default Spotlight integration, Russian localization, and accessibility foundations.
 - Current completed implementation block: Iteration 1 / Block 1.25 plus the 2026-07-15 static production-remediation pass.
@@ -37,6 +38,8 @@ provider credentials, or another unapproved external dependency.
 
 ## Approved Platform Baseline
 
+- Product platform: iPhone only with `TARGETED_DEVICE_FAMILY = 1` in the app target.
+- iPad is not a supported adaptive layout, runtime, App Intents/Shortcuts, accessibility, localization, QA, or release surface. A future iPad product requires a new explicit product decision and acceptance plan.
 - Toolchain verified locally: Xcode 26.5 (`17F42`).
 - Simulator SDK verified locally: iOS 26.5.
 - Installed runtimes observed: iOS 18.2 and iOS 26.5.
@@ -296,7 +299,7 @@ document contents, audio, images, or raw file paths in analytics/log exports.
   user-flow blocks.
 - Strong claims require static/build/manual evidence or an explicit remaining
   risk.
-- Physical-device-only behavior remains a documented risk.
+- Physical-iPhone-only behavior remains a documented risk.
 
 ## Iteration 1 Completion Criteria
 
@@ -329,6 +332,7 @@ The non-AI product is complete only when the user can:
 - Image generation.
 - Autonomous agent/tool loop.
 - Video content.
+- iPad/iPadOS support, iPad multitasking, pointer/keyboard adaptation, multi-window behavior, and iPad validation.
 - Widgets, share extension, collaboration, or multi-device sync unless separately
   approved later.
 
