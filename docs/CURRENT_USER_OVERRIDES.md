@@ -13,13 +13,18 @@ Compact cross-project user constraints that override general defaults. App/produ
 
 ## Model And Reporting
 - Apply `./docs/MODEL_ROUTING_RULE.md` before planning, implementation, review, package adoption, or documentation changes.
-- The available models are `GPT-5.6 sol`, `GPT-5.6 tera`, and `GPT-5.6 luna`; each offers `low`, `medium`, and `high` reasoning. Do not route to retired or unavailable models.
-- The user selects one persistent operating mode: `качество`, `сбалансированный`, or `эконом`. The latest explicit choice wins for the current task/thread; a one-off model selection does not change the mode. Default to `качество` when no explicit or handed-off mode exists, report the active mode in every mandatory header, and record it in context handoffs. Never switch modes silently.
-- Prioritize quality, correctness, safety, maintainability, and evidence above resource efficiency, while treating economy as a close secondary goal. Under the user-approved policy, `sol` is the maximum-quality route at the same reasoning level, `tera` is the resource-efficient high-quality route for bounded and strongly verifiable work, and `luna` is limited to low-risk reversible work. Select the model from expected quality and risk first, then the lowest reasoning level that preserves the required result; a higher level does not make an unsuitable model appropriate.
-- Before meaningful work, report the factual model and reasoning level plus `Смена модели: не требуется`, `Смена модели: рекомендуется: <model>, <level>`, or `Смена модели: требуется: <model>, <level>`. A recommendation is an optional economy improvement while the current stronger route remains valid; a requirement means the current route is below the quality/risk floor. Codex may not change the primary model selector itself.
-- If Codex app fixes the primary model and a real switch is required, ask the user to switch. If the user explicitly directs work to continue first, state the residual risk and reserve the strongest available route for final high-risk review.
+- The active model rule is command-driven: if the current route is adequate, proceed; if inadequate, stop before task actions and require the documented switch with quality, cost, trade-off, and alternative analysis.
 - Every working/status/readiness/planning/clarification response starts with model and reasoning level, active operating mode, switch state, phase, files, next safe step, build/tests need, and sandbox confirmation.
 - Meaningful results state which model(s) worked, the selected docs route, and context health.
+
+## Token-Efficient Collaboration Protocol
+- The user prioritizes a code-first cadence: one self-contained implementation iteration at a time, then stop for user-run build and UI feedback.
+- Before any optional or expansive action — subagent, model/reasoning switch, browsing, extended research, broad documentation reread, runtime verification, or scope sweep — explain why it is needed, its expected token cost, benefits, trade-offs, and the smaller alternative; wait for the user's decision.
+- Load mandatory documentation once per route and use exact targeted reads thereafter. Do not repeat broad reads or produce broad diffs unless a conflict or decision requires them.
+- A normal approved coding block is: targeted inspection → one patch → one relevant static check → user-run build/UI QA → stop. Do not make related fixes without a separate bounded approval.
+- The user owns builds, tests, Simulator UI, screenshots, Instruments, archive, and signing until explicitly delegating a specific verification action back to the agent.
+- One approved same-pattern sweep may cover at most two or three source files. Before a block expected to touch more than three source files or consume roughly more than 2–3% of the weekly budget, provide a compact checkpoint and wait for approval.
+- Canonical documentation synchronization happens once at a meaningful boundary or on explicit request, never as repeated intermediate work. This protocol is expected to reduce per-iteration token use by approximately 30–40% while preserving the code-quality bar; it is a planning heuristic, not a guarantee.
 
 ## Filesystem Sandbox
 - Keep project work, build output, package caches, DerivedData, logs, traces, and temporary artifacts inside `/Users/Artem/.zenflow`.

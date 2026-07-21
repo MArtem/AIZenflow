@@ -8,7 +8,14 @@
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
-Active operating mode: `сбалансированный`. The user temporarily selected `GPT-5.6 sol` with high reasoning for exact planning and product-scope decisions. Before implementation, use `GPT-5.6 tera` with medium reasoning. The user may switch explicitly to `качество` or `эконом`; a one-off model selection does not change the active mode.
+Active operating mode: `сбалансированный`. The current route is `GPT-5.6 tera`, medium reasoning. Apply the canonical command-time model decision: proceed when this route is adequate; otherwise stop before task actions and require the documented switch. The user may switch explicitly to `качество` or `эконом`; a one-off model selection does not change the active mode.
+
+## Active Collaboration Protocol
+- Work code-first in self-contained iterations: targeted inspection → one patch → one relevant static check → stop for the user's build/UI QA.
+- The user runs builds, tests, Simulator UI, screenshots, Instruments, archive, and signing until explicitly delegating a specific verification action.
+- Do not use subagents, model/reasoning switches, browsing, extended research, broad documentation rereads, runtime verification, or scope sweeps without first stating need, expected token cost, benefits, trade-offs, and the smaller alternative, then receiving approval.
+- A same-pattern sweep needs explicit approval and may touch no more than two or three source files. Seek a checkpoint before work expected to touch more than three files or consume roughly more than 2–3% of the weekly budget.
+- Mandatory documentation is read once per selected route; later reads and diffs must be targeted. Synchronize canonical documentation only at meaningful boundaries or when explicitly requested.
 
 Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 set once, then load only the routes required by the task.
 
@@ -45,7 +52,7 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
 - Acceptance gate 1.26 is split into `1.26-S` (Simulator) and `1.26-D` (physical device). No Iteration 2 code has started; only a user-accepted `1.26-S` can unblock the documented Simulator subset.
 - Simulator evidence still needs CRUD, picker fixtures, imported-audio playback, migration/relaunch, crash recovery, deep links, export/delete-all, Dynamic Type, and system-integration smoke validation. Physical-device evidence still needs microphone recording and lifecycle, locked-device protection, Siri voice, full VoiceOver/touch behavior, and representative performance.
 - Simulator UI automation is blocked because macOS denied Apple Events/Accessibility control. A custom URL request reaches the iOS open-confirmation dialog, but accepting it and the remaining interactive matrix require the user to grant UI-control permission or perform the documented manual iPhone validation.
-- `G1.P1-001` blocks `1.26-S`: on the supported iPhone at Accessibility XXXL, the first-launch empty-state CTA is partially obscured by the tab bar and the content is not visibly scrollable. The task plan defines a narrowly scoped `G1.R1` remediation proposal; do not implement it without separate user approval.
+- `G1.P1-001` was remediated in the workspace empty/error state and the user reported the resulting layout as visually acceptable. It no longer blocks `1.26-S`; the remaining manual matrix and explicit user acceptance still do.
 - Text/tag search is improved but not backed by FTS; export still materializes one JSON manifest; legacy imported files are readable but are not retroactively renamed or hash-migrated.
 - App-owned content files use complete protection, while an explicit migration/protection policy for pre-existing SwiftData store files remains a separate persistence decision.
 - Signing team, CI runner, crash-reporting provider, and remote release observability require user/environment decisions; no provider or telemetry was guessed.
@@ -54,11 +61,11 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
 ## Repository State And Restrictions
 - The project worktree contains uncommitted remediation changes by design; do not commit or push this repository without explicit user authorization.
 - Canonical AI Fieldbook documentation must be mirrored, validated, committed, and pushed only in `MArtem/AIZenflowDocumentation`.
-- The iPhone-only product contract, ADR-009, acceptance gate, detailed App Intents plan, and task state were validated and published to canonical documentation in commit `fd9d9ad`.
+- The iPhone-only product contract, ADR-009, acceptance gate, and task state are canonical in the documentation vault. The durable discrete App Intents plan is `apps/AIFieldbook/plans/app-intents-discrete-implementation-plan.md`; the local `plan.md` is deliberately limited to the active executable checklist.
 - The reusable iOS knowledge expansion and preservation-first cleanup are synced and validated for publication in the canonical documentation commit containing this handoff.
 - Final review added AI/commerce registry coverage, an exact AI prompt bootstrap mirror, required route/context/drift tools, and `sol`/`tera`/`luna` model-plus-reasoning routing.
 - Keep all project/build/cache/log/temp artifacts inside `/Users/Artem/.zenflow`.
 - Do not write/modify tests. Build and Simulator remain authorized only for the active `1.26-S` block; tests, physical-device QA, Instruments, archive, and signing remain unauthorized.
 
 ## Next Safe Step
-Complete the remaining interactive iPhone-only `1.26-S` matrix after the user grants Simulator UI control or performs the manual checklist. Record every pass, failure, and explicit deferral, then obtain explicit user acceptance. Before any App Intents A1 implementation, switch to `GPT-5.6 tera` with medium reasoning. Device-only, iOS 27, backend, cloud runtime, and Siri voice remain gated.
+Complete the remaining interactive iPhone-only `1.26-S` matrix after the user grants Simulator UI control or performs the manual checklist. Record every pass, failure, and explicit deferral, then obtain explicit user acceptance. After acceptance, propose only App Intents A1 under the active `GPT-5.6 tera`, medium route; device-only, iOS 27, backend, cloud runtime, and Siri voice remain gated.

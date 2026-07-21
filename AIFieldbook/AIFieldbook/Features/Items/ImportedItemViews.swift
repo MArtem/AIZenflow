@@ -127,20 +127,7 @@ struct ImportedItemDetailView: View {
 
     var body: some View {
         Group {
-            if viewModel.isLoading && viewModel.detail == nil {
-                ProgressView("Loading Item")
-            } else if let errorMessage = viewModel.errorMessage,
-                      viewModel.detail == nil {
-                ContentUnavailableView {
-                    Label("Item Unavailable", systemImage: "exclamationmark.triangle")
-                } description: {
-                    Text(errorMessage)
-                } actions: {
-                    Button("Try Again") {
-                        Task { await viewModel.reloadRequested() }
-                    }
-                }
-            } else if let detail = viewModel.detail, let fileURL = viewModel.fileURL {
+            if let detail = viewModel.detail, let fileURL = viewModel.fileURL {
                 ScrollView {
                     VStack(alignment: .leading, spacing: FieldbookSpacing.section) {
                         ImportedContentPreview(
@@ -158,6 +145,18 @@ struct ImportedItemDetailView: View {
                     .padding(FieldbookSpacing.standard)
                 }
                 .background(FieldbookColor.canvas)
+            } else if let errorMessage = viewModel.errorMessage {
+                ContentUnavailableView {
+                    Label("Item Unavailable", systemImage: "exclamationmark.triangle")
+                } description: {
+                    Text(errorMessage)
+                } actions: {
+                    Button("Try Again") {
+                        Task { await viewModel.reloadRequested() }
+                    }
+                }
+            } else {
+                ProgressView("Loading Item")
             }
         }
         .navigationTitle(viewModel.detail?.displayTitle ?? String(localized: "Item"))
@@ -186,7 +185,7 @@ struct ImportedItemDetailView: View {
         } message: {
             Text(String(localized: "This permanently deletes the item and its app-owned local file."))
         }
-        .task {
+        .task(id: viewModel.itemID) {
             await viewModel.appeared()
         }
     }

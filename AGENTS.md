@@ -43,7 +43,15 @@ Always include the context-transfer rule when handing off:
 - Classify tasks before editing code or documentation.
 - The available models are `GPT-5.6 sol`, `GPT-5.6 tera`, and `GPT-5.6 luna`, each with `low`, `medium`, and `high` reasoning. The routing rule is the sole authority for selecting both model and level.
 - The user selects the operating mode; it persists in the current task/thread until explicitly changed. Use `качество` when no explicit or handed-off mode exists. Do not change modes silently.
-- Before meaningful work, report the active mode, factual model, and reasoning level plus `Смена модели: не требуется`, `Смена модели: рекомендуется: <model>, <level>`, or `Смена модели: требуется: <model>, <level>`. Codex cannot change the app's primary model selector itself.
+- Before meaningful work, apply the command-time decision rule in `./docs/MODEL_ROUTING_RULE.md`: proceed on an adequate current route; otherwise stop and require the stated model switch before task actions. Codex cannot change the app's primary model selector itself.
+
+## Compact, User-Controlled Execution
+- Do not propose a model change when the current route is adequate. If it is inadequate, stop before task actions and require a switch under `./docs/MODEL_ROUTING_RULE.md`; the proposal must explain need, expected token cost, benefits, trade-offs, and a bounded alternative.
+- After the required route is loaded once, inspect only the symbols and documents needed for the approved block. Do not repeat broad documentation passes unless the route or source changed.
+- Default execution cycle: targeted inspection → one self-contained patch → one relevant static check → user-run build/UI verification → stop. Do not expand scope because a related issue may exist; report it and request approval for a separately bounded follow-up.
+- When the user owns runtime verification, do not run builds, tests, Simulator UI, screenshots, Instruments, archive, or signing. Use only the static checks needed for the patch unless the user explicitly reauthorizes runtime work.
+- Use a same-pattern sweep only after explicit approval and keep it to two or three source files per iteration. Run `git diff --check` once per agreed iteration, not once per file.
+- Before a block expected to touch more than three source files or consume more than roughly 2–3% of the weekly budget, ask for approval with a compact estimate and alternatives. Treat documentation as lookup and durable synchronization work, not as implementation progress; synchronize it only at meaningful boundaries or when the user explicitly requests it.
 
 ## Filesystem Sandbox
 - The user explicitly expanded this task's local sandbox to `/Users/Artem/.zenflow`.
