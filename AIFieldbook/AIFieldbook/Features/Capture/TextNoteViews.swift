@@ -178,20 +178,7 @@ struct TextNoteDetailView: View {
 
     var body: some View {
         Group {
-            if viewModel.isLoading && viewModel.detail == nil {
-                ProgressView("Loading Note")
-            } else if let errorMessage = viewModel.errorMessage,
-                      viewModel.detail == nil {
-                ContentUnavailableView {
-                    Label("Note Unavailable", systemImage: "exclamationmark.triangle")
-                } description: {
-                    Text(errorMessage)
-                } actions: {
-                    Button("Try Again") {
-                        viewModel.reloadRequested()
-                    }
-                }
-            } else if let detail = viewModel.detail {
+            if let detail = viewModel.detail {
                 ScrollView {
                     VStack(alignment: .leading, spacing: FieldbookSpacing.section) {
                         Text(detail.body.isEmpty ? String(localized: "No note text.") : detail.body)
@@ -214,6 +201,18 @@ struct TextNoteDetailView: View {
                     .padding(FieldbookSpacing.screen)
                 }
                 .background(FieldbookColor.canvas)
+            } else if let errorMessage = viewModel.errorMessage {
+                ContentUnavailableView {
+                    Label("Note Unavailable", systemImage: "exclamationmark.triangle")
+                } description: {
+                    Text(errorMessage)
+                } actions: {
+                    Button("Try Again") {
+                        viewModel.reloadRequested()
+                    }
+                }
+            } else {
+                ProgressView("Loading Note")
             }
         }
         .navigationTitle(viewModel.detail?.displayTitle ?? String(localized: "Text Note"))
@@ -256,7 +255,7 @@ struct TextNoteDetailView: View {
         } message: {
             Text(viewModel.errorMessage ?? "")
         }
-        .onAppear {
+        .task(id: viewModel.noteID) {
             viewModel.appeared()
         }
     }
