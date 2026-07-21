@@ -7,6 +7,7 @@ import SwiftUI
 /// - forwards create/open intents to app composition;
 /// - keeps row rendering value-based through `WorkspaceSummary`.
 struct WorkspaceListView: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @Bindable var viewModel: WorkspaceListViewModel
     let createWorkspace: () -> Void
     let openWorkspace: (UUID) -> Void
@@ -17,25 +18,29 @@ struct WorkspaceListView: View {
                     ProgressView("Loading Workspaces")
                 } else if let errorMessage = viewModel.errorMessage,
                           viewModel.workspaces.isEmpty {
-                    ContentUnavailableView {
-                        Label("Workspaces Unavailable", systemImage: "exclamationmark.triangle")
-                    } description: {
-                        Text(errorMessage)
-                    } actions: {
-                        Button("Try Again") {
-                            viewModel.reloadRequested()
+                    accessibilityOverflowContainer {
+                        ContentUnavailableView {
+                            Label("Workspaces Unavailable", systemImage: "exclamationmark.triangle")
+                        } description: {
+                            Text(errorMessage)
+                        } actions: {
+                            Button("Try Again") {
+                                viewModel.reloadRequested()
+                            }
                         }
                     }
                 } else if viewModel.workspaces.isEmpty {
-                    ContentUnavailableView {
-                        Label("No Workspaces", systemImage: "square.grid.2x2")
-                    } description: {
-                        Text(String(localized: "Create a local workspace to organize your notes."))
-                    } actions: {
-                        Button("Create Workspace") {
-                            createWorkspace()
+                    accessibilityOverflowContainer {
+                        ContentUnavailableView {
+                            Label("No Workspaces", systemImage: "square.grid.2x2")
+                        } description: {
+                            Text(String(localized: "Create a local workspace to organize your notes."))
+                        } actions: {
+                            Button("Create Workspace") {
+                                createWorkspace()
+                            }
+                            .buttonStyle(.borderedProminent)
                         }
-                        .buttonStyle(.borderedProminent)
                     }
                 } else {
                     List(viewModel.workspaces) { workspace in
@@ -43,6 +48,8 @@ struct WorkspaceListView: View {
                             openWorkspace(workspace.id)
                         } label: {
                             WorkspaceRow(workspace: workspace)
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .contentShape(.rect)
                         }
                         .buttonStyle(.plain)
                     }
@@ -61,6 +68,21 @@ struct WorkspaceListView: View {
             }
         .onAppear {
             viewModel.appeared()
+        }
+    }
+
+    @ViewBuilder
+    private func accessibilityOverflowContainer<Content: View>(
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        if dynamicTypeSize.isAccessibilitySize {
+            ScrollView {
+                content()
+                    .frame(maxWidth: .infinity)
+                    .safeAreaPadding(.bottom)
+            }
+        } else {
+            content()
         }
     }
 }
@@ -103,20 +125,7 @@ struct WorkspaceDetailView: View {
 
     var body: some View {
         Group {
-            if viewModel.isLoading && viewModel.detail == nil {
-                ProgressView("Loading Workspace")
-            } else if let errorMessage = viewModel.errorMessage,
-                      viewModel.detail == nil {
-                ContentUnavailableView {
-                    Label("Workspace Unavailable", systemImage: "exclamationmark.triangle")
-                } description: {
-                    Text(errorMessage)
-                } actions: {
-                    Button("Try Again") {
-                        viewModel.reloadRequested()
-                    }
-                }
-            } else if let detail = viewModel.detail {
+            if let detail = viewModel.detail {
                 List {
                     Section("Items") {
                         if detail.items.isEmpty {
@@ -134,6 +143,18 @@ struct WorkspaceDetailView: View {
                         }
                     }
                 }
+            } else if let errorMessage = viewModel.errorMessage {
+                ContentUnavailableView {
+                    Label("Workspace Unavailable", systemImage: "exclamationmark.triangle")
+                } description: {
+                    Text(errorMessage)
+                } actions: {
+                    Button("Try Again") {
+                        viewModel.reloadRequested()
+                    }
+                }
+            } else {
+                ProgressView("Loading Workspace")
             }
         }
         .navigationTitle(viewModel.detail?.name ?? String(localized: "Workspace"))
@@ -178,7 +199,7 @@ struct WorkspaceDetailView: View {
         } message: {
             Text(viewModel.errorMessage ?? "")
         }
-        .onAppear {
+        .task(id: viewModel.workspaceID) {
             viewModel.appeared()
         }
     }
