@@ -108,10 +108,17 @@ private enum WorkspaceIntentError: LocalizedError {
 }
 
 struct WorkspaceEntity: AppEntity {
-    static let typeDisplayRepresentation = TypeDisplayRepresentation(name: "Workspace")
-    static let defaultQuery = WorkspaceEntityQuery()
+    typealias ID = UUID
 
-    let id: UUID
+    static var typeDisplayRepresentation: TypeDisplayRepresentation {
+        TypeDisplayRepresentation(name: "Workspace")
+    }
+
+    static var defaultQuery: WorkspaceEntityQuery {
+        WorkspaceEntityQuery()
+    }
+
+    let id: ID
     let name: String
 
     var displayRepresentation: DisplayRepresentation {
@@ -187,6 +194,24 @@ struct OpenWorkspaceIntent: AppIntent {
     @MainActor
     private func openWorkspace(_ url: URL) async -> Bool {
         await UIApplication.shared.open(url)
+    }
+}
+
+/// Registers AI Fieldbook as a Shortcuts app and exposes the workspace-opening action.
+///
+/// The action intentionally leaves workspace selection to the system parameter UI. It does
+/// not donate user-specific shortcuts or expose additional workspace metadata.
+struct AIFieldbookShortcuts: AppShortcutsProvider {
+    static var appShortcuts: [AppShortcut] {
+        AppShortcut(
+            intent: OpenWorkspaceIntent(),
+            phrases: [
+                "Open a workspace in \(.applicationName)",
+                "Open \(.applicationName)"
+            ],
+            shortTitle: "Open Workspace",
+            systemImageName: "square.grid.2x2"
+        )
     }
 }
 

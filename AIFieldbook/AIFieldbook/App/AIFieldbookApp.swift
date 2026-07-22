@@ -1,3 +1,4 @@
+import AppIntents
 import SwiftUI
 
 /// Process entry point for the local-only AI Fieldbook app.
@@ -11,6 +12,10 @@ import SwiftUI
 /// Created by the SwiftUI runtime once per app process.
 @main
 struct AIFieldbookApp: App {
+    init() {
+        AIFieldbookShortcuts.updateAppShortcutParameters()
+    }
+
     var body: some Scene {
         WindowGroup {
             PersistenceRootView()
