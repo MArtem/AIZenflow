@@ -35,6 +35,7 @@
 		6B1A0000000000000000001C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */; };
 		6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011E /* FieldbookExportService.swift */; };
 		6B1A0000000000000000001E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011F /* Localizable.stringsdict */; };
+		6B1A0000000000000000001F /* OpenWorkspaceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -69,6 +70,7 @@
 		6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		6B1A0000000000000000011E /* FieldbookExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookExportService.swift; sourceTree = "<group>"; };
 		6B1A0000000000000000011F /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Localizable.stringsdict; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWorkspaceIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +101,7 @@
 				6B1A00000000000000000036 /* Navigation */,
 				6B1A00000000000000000037 /* Core */,
 				6B1A00000000000000000038 /* Features */,
+				6B1A00000000000000000048 /* SystemIntegration */,
 				6B1A00000000000000000046 /* Resources */,
 			);
 			path = AIFieldbook;
@@ -264,6 +267,22 @@
 			path = Documentation;
 			sourceTree = "<group>";
 		};
+		6B1A00000000000000000048 /* SystemIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000049 /* AppIntents */,
+			);
+			path = SystemIntegration;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000049 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */,
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -361,6 +380,7 @@
 				6B1A00000000000000000018 /* MoveItemView.swift in Sources */,
 				6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */,
 				6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */,
+				6B1A0000000000000000001F /* OpenWorkspaceIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,6 +6,9 @@
 "Settings" = "Настройки";
 "Create Workspace" = "Создать пространство";
 "New Workspace" = "Новое пространство";
+"Open Workspace" = "Открыть пространство";
+"Open a workspace in AI Fieldbook." = "Открыть пространство в AI Fieldbook.";
+"Open %@" = "Открыть %@";
 "Rename Workspace" = "Переименовать пространство";
 "No Workspaces" = "Нет пространств";
 "New Text Note" = "Новая текстовая заметка";
@@ -43,6 +46,7 @@
 "Loading Workspaces" = "Загрузка пространств";
 "Search Local Content" = "Поиск по локальным данным";
 "AI Fieldbook couldn’t open its local database. Your data was not reset." = "AI Fieldbook не смог открыть локальную базу данных. Ваши данные не были сброшены.";
+"AI Fieldbook couldn’t open the selected workspace." = "AI Fieldbook не смог открыть выбранное пространство.";
 "AI Fieldbook has no account, backend, analytics, or cloud processing in Iteration 1." = "В Iteration 1 у AI Fieldbook нет аккаунта, backend, аналитики или облачной обработки.";
 "System Spotlight indexing is disabled until a separate opt-in privacy control is added." = "Индексация Spotlight отключена, пока не будет добавлен отдельный privacy-переключатель с явным согласием.";
 "Microphone access is requested only when you start recording." = "Доступ к микрофону запрашивается только при начале записи.";
@@ -182,6 +186,7 @@
 "The selected file is larger than the %lld MB limit." = "Размер выбранного файла превышает ограничение в %lld МБ.";
 "The selected file path is invalid." = "Путь к выбранному файлу недопустим.";
 "The selected file type isn’t supported for this import." = "Тип выбранного файла не поддерживается для этого импорта.";
+"The selected workspace no longer exists." = "Выбранное пространство больше не существует.";
 "The tag assignment couldn’t be changed." = "Не удалось изменить назначение тега.";
 "The tag couldn’t be created." = "Не удалось создать тег.";
 "The web link couldn’t be deleted." = "Не удалось удалить веб-ссылку.";

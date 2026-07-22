@@ -16,6 +16,8 @@ enum PersistenceBootstrap {
     case ready(ModelContainer)
     case failed(referenceID: String)
 
+    @MainActor private static var cachedContainer: ModelContainer?
+
     private static let logger = Logger(
         subsystem: "com.zenflow.AIFieldbook",
         category: "Persistence"
@@ -23,6 +25,10 @@ enum PersistenceBootstrap {
 
     @MainActor
     static func load() -> PersistenceBootstrap {
+        if let cachedContainer {
+            return .ready(cachedContainer)
+        }
+
         let schema = Schema(AIFieldbookSchemaV2.models)
         let configuration = ModelConfiguration("AIFieldbook", schema: schema)
 
@@ -32,6 +38,7 @@ enum PersistenceBootstrap {
                 migrationPlan: AIFieldbookMigrationPlan.self,
                 configurations: [configuration]
             )
+            cachedContainer = container
             return .ready(container)
         } catch {
             let referenceID = UUID().uuidString
