@@ -36,6 +36,10 @@
 		6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011E /* FieldbookExportService.swift */; };
 		6B1A0000000000000000001E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011F /* Localizable.stringsdict */; };
 		6B1A0000000000000000001F /* OpenWorkspaceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */; };
+		6B1A00000000000000000201 /* FieldbookIntentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */; };
+		6B1A00000000000000000202 /* WorkspaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000206 /* WorkspaceEntity.swift */; };
+		6B1A00000000000000000203 /* KnowledgeItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000207 /* KnowledgeItemEntity.swift */; };
+		6B1A00000000000000000204 /* FindKnowledgeItemsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -71,6 +75,10 @@
 		6B1A0000000000000000011E /* FieldbookExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookExportService.swift; sourceTree = "<group>"; };
 		6B1A0000000000000000011F /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Localizable.stringsdict; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
 		6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWorkspaceIntent.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookIntentDataSource.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000206 /* WorkspaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEntity.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000207 /* KnowledgeItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeItemEntity.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindKnowledgeItemsIntent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -278,7 +286,11 @@
 		6B1A00000000000000000049 /* AppIntents */ = {
 			isa = PBXGroup;
 			children = (
+				6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */,
+				6B1A00000000000000000206 /* WorkspaceEntity.swift */,
 				6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */,
+				6B1A00000000000000000207 /* KnowledgeItemEntity.swift */,
+				6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */,
 			);
 			path = AppIntents;
 			sourceTree = "<group>";
@@ -381,6 +393,10 @@
 				6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */,
 				6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */,
 				6B1A0000000000000000001F /* OpenWorkspaceIntent.swift in Sources */,
+				6B1A00000000000000000201 /* FieldbookIntentDataSource.swift in Sources */,
+				6B1A00000000000000000202 /* WorkspaceEntity.swift in Sources */,
+				6B1A00000000000000000203 /* KnowledgeItemEntity.swift in Sources */,
+				6B1A00000000000000000204 /* FindKnowledgeItemsIntent.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -26,6 +26,11 @@ Compact cross-project user constraints that override general defaults. App/produ
 - One approved same-pattern sweep may cover at most two or three source files. Before a block expected to touch more than three source files or consume roughly more than 2–3% of the weekly budget, provide a compact checkpoint and wait for approval.
 - Canonical documentation synchronization happens once at a meaningful boundary or on explicit request, never as repeated intermediate work. This protocol is expected to reduce per-iteration token use by approximately 30–40% while preserving the code-quality bar; it is a planning heuristic, not a guarantee.
 
+## Tool Capability Escalation
+- Do not recommend or install an external development tool merely for convenience.
+- If an approved task is materially blocked by a missing capability and XcodeBuildMCP can specifically provide it, stop before the blocked action and explain: the missing capability, why XcodeBuildMCP is relevant, the expected benefit, cost/privacy trade-offs, and the smallest viable alternative. Ask the user whether to install it.
+- Do not treat XcodeBuildMCP as a substitute for a known Xcode/iOS platform bug, missing macOS permission, device-only evidence, signing authority, or an approved product decision.
+
 ## Filesystem Sandbox
 - Keep project work, build output, package caches, DerivedData, logs, traces, and temporary artifacts inside `/Users/Artem/.zenflow`.
 - Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or other paths outside `/Users/Artem/.zenflow` for project work.

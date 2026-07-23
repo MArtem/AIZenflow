@@ -15,16 +15,19 @@ Prepare the iPhone-only, Simulator-verifiable App Intents / Shortcuts phase in i
 - Preserve all existing uncommitted changes; do not create tests, a backend, provider credentials, cloud infrastructure, App Groups, or a destructive SwiftData migration.
 - iPad is out of product, acceptance, and release scope.
 
-## Current Gate
+## Current State
 
-- [ ] `1.26-S` remains open. User-run Simulator acceptance is required before Iteration 2 App Intents code.
+- [x] `1.26-S` was explicitly accepted by the user. The Simulator-verifiable App Intents subset is open; `1.26-D` remains device-only and closed.
 - [x] The accessible workspace empty/error-state remediation was implemented and user-reported as visually acceptable.
 - [x] Workspace and text-note detail loading blank-screen defects were remediated and user-reported as functional.
-- [ ] The user must complete or explicitly defer the remaining `1.26-S` manual matrix and explicitly accept the gate.
+- [x] A1 — Open Workspace vertical slice was implemented: a privacy-minimal `WorkspaceEntity`, bounded local query, and validated deep-link handoff.
+- [x] A1 was built and installed during the user-authorized Shortcuts investigation; no tests were created or run.
+- [ ] A1 Shortcuts runtime verification is blocked by a confirmed iOS 26.5 Simulator / `linkd` regression. The same unsigned TchopApp provider registers normally on a clean iOS 18.2 Simulator; no signing workaround is approved.
+- [x] A2 — Find Knowledge Items implemented as its own bounded local-discovery slice. A1/A2 data source, entities, and intents are separated into dedicated files; the agent-built Debug app installed and reached the iPhone Simulator UI without a crash. Shortcuts runtime remains blocked by the known iOS 26.5 Simulator regression.
 
 ## Next Executable Step
 
-Wait for the user's `1.26-S` acceptance decision. After acceptance, propose only block A1 (Open Workspace vertical slice) with its exact files, static evidence, Simulator-verifiable behavior, and device-only exclusions; do not begin A2 automatically.
+Present only the exact A2 proposal. Do not begin code until the user accepts its bounded scope. Keep A1 runtime evidence explicitly blocked by the iOS 26.5 Simulator regression; do not add signing, device work, or a workaround without separate approval.
 
 ## Context Transfer Rule
 
