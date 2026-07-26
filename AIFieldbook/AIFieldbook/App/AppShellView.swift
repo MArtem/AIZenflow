@@ -66,7 +66,7 @@ struct AppShellView: View {
     private var workspaceScene: some View {
         @Bindable var router = composition.coordinator.workspaceRouter
         return NavigationStack(path: $router.path) {
-            WorkspaceListView(
+            WorkspaceListScreen(
                 viewModel: composition.workspaceListModel,
                 createWorkspace: composition.presentCreateWorkspace,
                 openWorkspace: composition.coordinator.openWorkspace
@@ -74,7 +74,7 @@ struct AppShellView: View {
             .navigationDestination(for: WorkspaceRoute.self) { route in
                 switch route {
                 case let .workspace(id):
-                    WorkspaceDetailView(
+                    WorkspaceDetailScreen(
                         viewModel: composition.workspaceDetailModel(id: id),
                         openItem: { itemID, kind in
                             composition.coordinator.openItem(id: itemID, kind: kind, from: .workspace)
@@ -92,7 +92,7 @@ struct AppShellView: View {
     private var captureScene: some View {
         @Bindable var router = composition.coordinator.captureRouter
         return NavigationStack(path: $router.path) {
-            CaptureView(
+            CaptureScreen(
                 workspaceModel: composition.captureWorkspaceModel,
                 createTextNote: { composition.presentCreateTextNote(workspaceID: nil) },
                 importItem: composition.presentImport,
@@ -110,7 +110,7 @@ struct AppShellView: View {
     private var searchScene: some View {
         @Bindable var router = composition.coordinator.searchRouter
         return NavigationStack(path: $router.path) {
-            SearchView(
+            SearchScreen(
                 viewModel: composition.searchModel,
                 openItem: { id, kind in
                     composition.coordinator.openItem(id: id, kind: kind, from: .search)
@@ -127,9 +127,11 @@ struct AppShellView: View {
     private var settingsScene: some View {
         @Bindable var router = composition.coordinator.settingsRouter
         return NavigationStack(path: $router.path) {
-            SettingsView(
+            SettingsScreen(
                 viewModel: composition.settingsModel,
-                localDataResetCompleted: composition.localDataResetCompleted
+                localDataResetCompleted: {
+                    composition.localDataResetCompleted()
+                }
             )
         }
     }
@@ -137,21 +139,21 @@ struct AppShellView: View {
     @ViewBuilder
     private func itemDetailView(id: UUID, kind: KnowledgeItemKind) -> some View {
         if kind == .textNote {
-            TextNoteDetailView(
+            TextNoteDetailScreen(
                 viewModel: composition.textDetailModel(id: id),
                 editNote: { composition.presentEditTextNote(id: id) },
                 manageTags: { composition.presentTagManager(itemID: id) },
                 moveItem: { composition.presentMoveItem(id: id) }
             )
         } else if kind == .urlReference {
-            URLReferenceDetailView(
+            URLReferenceDetailScreen(
                 viewModel: composition.urlDetailModel(id: id),
                 edit: { composition.presentEditURLReference(id: id) },
                 manageTags: { composition.presentTagManager(itemID: id) },
                 moveItem: { composition.presentMoveItem(id: id) }
             )
         } else {
-            ImportedItemDetailView(
+            ImportedItemDetailScreen(
                 viewModel: composition.importedDetailModel(id: id),
                 manageTags: { composition.presentTagManager(itemID: id) },
                 moveItem: { composition.presentMoveItem(id: id) }
@@ -164,31 +166,31 @@ struct AppShellView: View {
         switch presentation {
         case .createWorkspace, .renameWorkspace:
             if let model = composition.workspaceEditorModel {
-                WorkspaceEditorView(viewModel: model)
+                WorkspaceEditorScreen(viewModel: model)
             }
         case .createTextNote, .editTextNote:
             if let model = composition.textEditorModel {
-                TextNoteEditorView(viewModel: model)
+                TextNoteEditorScreen(viewModel: model)
             }
         case .manageTags:
             if let model = composition.tagManagerModel {
-                TagManagerView(viewModel: model)
+                TagManagerScreen(viewModel: model)
             }
         case .importItem:
             if let model = composition.importItemModel {
-                ImportItemView(viewModel: model)
+                ImportItemScreen(viewModel: model)
             }
         case .createURLReference, .editURLReference:
             if let model = composition.urlEditorModel {
-                URLReferenceEditorView(viewModel: model)
+                URLReferenceEditorScreen(viewModel: model)
             }
         case .recordAudio:
             if let model = composition.audioRecorderModel {
-                AudioRecorderView(viewModel: model)
+                AudioRecorderScreen(viewModel: model)
             }
         case .moveItem:
             if let model = composition.moveItemModel {
-                MoveItemView(viewModel: model)
+                MoveItemScreen(viewModel: model)
             }
         }
     }

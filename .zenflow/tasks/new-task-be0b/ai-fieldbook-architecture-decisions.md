@@ -475,3 +475,121 @@ Xcode target family.
 ### Owner
 
 AI Fieldbook product and platform scope.
+
+## ADR-010 — Screen-Oriented MVVM Presentation Structure
+
+### Status
+
+Accepted on 2026-07-24 by explicit user decision.
+
+### Context
+
+AI Fieldbook already uses the accepted `AppComposition + AppCoordinator + MVVM`
+architecture from ADR-002. The composition root owns screen models and dependencies,
+the coordinator owns typed navigation, and repositories/file services stay outside
+SwiftUI rendering.
+
+Several Presentation files nevertheless contain multiple screens and models, and many
+screens render combinations of independent properties such as data, `isLoading`, and
+`errorMessage`. Domain snapshots are also formatted inside screen or row bodies. This
+makes legal states less explicit, increases the chance of contradictory UI combinations,
+and makes an individual screen harder to study or review as one coherent unit.
+
+The user supplied the MVVMExample News List feature as the structural reference: a
+screen owns or receives its screen model, the model publishes explicit render state, a
+pure builder maps domain/error values into presentation values, a renderer selects the
+visible state, and passive components receive narrow inputs and callbacks.
+
+### Problem
+
+Adopt that presentation flow consistently without replacing the working composition,
+coordinator, persistence, resource-lifecycle, or explicit-intent boundaries, and without
+creating generic architecture scaffolding whose only purpose is symmetry.
+
+### Options Considered
+
+1. Keep the current aggregate Presentation files and independent observable properties.
+2. Replace the app with a reducer/UDF framework and generic actions.
+3. Introduce generic base ViewModels, state protocols, builders, and screen factories.
+4. Migrate one screen at a time to screen-oriented MVVM with explicit ViewState and
+   selective pure ViewStateBuilder/StateRenderer types.
+
+### Decision
+
+Use option 4.
+
+Each stateful product screen is organized as an independently reviewable presentation
+slice under its feature. Its default flow is:
+
+`Screen -> explicit ViewModel intent -> dependency/domain work -> ViewStateBuilder -> ViewState -> Screen/StateRenderer -> passive Components`
+
+- `...Screen` receives an existing ViewModel and external navigation/dismissal callbacks.
+  It owns only SwiftUI-local visual interaction state such as focus, confirmation dialogs,
+  and picker presentation.
+- `@MainActor @Observable ...ViewModel` owns screen lifecycle, task cancellation, side
+  effects, and one authoritative render state. Its public UI API uses explicit intent
+  methods; no generic `send(_:)`, dispatcher, or UI action enum is introduced.
+- `...ViewState` contains render-ready values and explicit mutually exclusive lifecycle
+  states appropriate to the screen. Rows and repeated components receive narrow immutable
+  presentation values rather than repositories or broad feature state.
+- `...ViewStateBuilder` is a pure value mapper used when domain/error mapping or derived
+  presentation decisions are non-trivial. It does not create SwiftUI views and owns no
+  repository, navigation, async task, file I/O, or runtime resource. It is omitted when it
+  would only mirror inputs.
+- `...StateRenderer` is used when a screen genuinely switches among loading, content,
+  empty, error, working, or permission states. It is omitted for a stateless or single-state
+  component where it would add only indirection.
+- Passive components receive immutable state and callbacks. A component gets its own model
+  only for a demonstrated independent lifecycle or resource boundary.
+
+`AppComposition`, `AppCoordinator`, typed routes, repository and file-store boundaries,
+and the existing data model remain unchanged. `AudioPlaybackModel` remains an independent
+media-resource owner because it owns `AVPlayer`, a timer, cancellation, and cleanup; it is
+not flattened into passive screen state.
+
+Do not introduce generic presentation protocols, base classes, factories, Use Cases,
+adapters, new packages, or one Builder per type merely for naming symmetry.
+
+### Consequences
+
+- Legal UI states and transitions become explicit and contradictory combinations are
+  reduced.
+- Domain-to-display formatting moves out of SwiftUI render paths and can be reviewed in one
+  pure mapping boundary.
+- A screen's model, render contract, state renderer, and passive components become readable
+  as one physical feature slice.
+- The project gains more small files and explicit Xcode source references.
+- Form bindings may require explicit ViewModel change methods or narrow bindings so the
+  View remains declarative without bypassing the state owner.
+- Some simple screens intentionally have no ViewModel, Builder, or StateRenderer; consistency
+  is defined by ownership and data flow, not by empty ceremonial files.
+
+### Migration Plan
+
+- Migrate one screen per iteration and keep the app buildable after every iteration.
+- Begin with Workspace List as the representative vertical slice.
+- Preserve each screen's current product behavior and side-effect ownership during its move.
+- Update only the migrated screen's composition call sites and explicit Xcode references.
+- Use targeted static checks, then stop for user-run compile and UI verification.
+- Migrate complex resource screens only after the list/detail/editor pattern is established.
+
+The executable screen order and acceptance checks live in the current task `plan.md`.
+
+### Rollback Plan
+
+Each screen iteration can be reverted independently because no shared generic framework or
+new data/persistence contract is introduced. Reverting a slice restores its previous View,
+ViewModel, call-site name, and Xcode references without changing other migrated screens.
+
+### Review / Revisit Trigger
+
+- Repeated builders/renderers become pass-through ceremony rather than real presentation
+  mapping.
+- A feature develops reducer/effect requirements that explicit MVVM methods cannot model
+  clearly.
+- A component gains or loses an independent async/resource lifecycle.
+- AppComposition or coordinator ownership must change for a new product flow.
+
+### Owner
+
+AI Fieldbook presentation/application composition.

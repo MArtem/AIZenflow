@@ -15,6 +15,25 @@ For UIKit interoperability and the mandatory iPhone+iPad adaptive core, includin
 - Keep empty/loading/error/offline/permission states explicit.
 - Do not treat a scaled phone layout as sufficient iPad support when the workflow requires simultaneous context, stable selection, resizable windows, or keyboard/pointer interaction.
 
+## Stateful Screen MVVM Baseline
+For every new stateful product screen, establish the project-approved MVVM presentation shape
+from its first implementation rather than planning a later structural refactor:
+
+`Screen -> explicit ViewModel intent -> dependency/domain work -> ViewStateBuilder (when mapping is non-trivial) -> ViewState -> StateRenderer -> passive Components`
+
+- The Screen receives an existing ViewModel and external navigation or dismissal callbacks.
+- The `@MainActor @Observable` ViewModel owns lifecycle, domain/dependency work, state
+  transitions, and explicit public intent methods.
+- `ViewState` contains mutually exclusive render-ready states; a screen must not expose a
+  parallel collection of independently mutable loading/data/error flags.
+- `ViewStateBuilder` is a pure mapper and is required only when domain/error-to-presentation
+  mapping or derived display decisions are non-trivial. It never creates SwiftUI views.
+- `StateRenderer` selects the visual branch for a ViewState. Components receive narrow immutable
+  input and callbacks only; they do not receive repositories or broad ViewModels.
+
+This baseline applies to a stateful screen, not to every small visual component. Do not add
+builders, renderers, or ViewModels merely for symmetry when a passive component is sufficient.
+
 
 ## ViewModel API Rule
 ViewModels expose explicit intent methods by default. Do not use `send(_ action:)` or UI action enums as default MVVM boilerplate. Apply `./docs/IOS_MVVM_INTENT_API_STANDARD.md` before adding or reviewing ViewModel public APIs.
@@ -67,3 +86,5 @@ If a dedicated model/view model is introduced, document its ownership, creation 
 - No heavy sync work in render path.
 - No hidden eager rendering inside an opaque section wrapper for large feeds/lists.
 - No production screen without explicit failure/empty state.
+- Do not initially implement a new stateful screen with ad-hoc observable flags when this
+  baseline is applicable and defer its MVVM/ViewState structure to a later refactor.
