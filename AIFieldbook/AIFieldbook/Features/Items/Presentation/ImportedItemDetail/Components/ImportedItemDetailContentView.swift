@@ -4,6 +4,8 @@ import SwiftUI
 struct ImportedItemDetailContentView: View {
     let content: ImportedItemDetailContentState
     let playbackModel: AudioPlaybackModel
+    let recognizeText: () -> Void
+    let cancelTextRecognition: () -> Void
 
     var body: some View {
         ScrollView {
@@ -14,11 +16,77 @@ struct ImportedItemDetailContentView: View {
                     TagListView(tags: content.tags)
                 }
 
+                if let textRecognition = content.textRecognition {
+                    ImportedItemTextRecognitionView(
+                        state: textRecognition,
+                        recognizeText: recognizeText,
+                        cancel: cancelTextRecognition
+                    )
+                }
+
                 ImportedItemMetadataView(metadata: content.metadata)
             }
             .padding(FieldbookSpacing.standard)
         }
         .background(FieldbookColor.canvas)
+    }
+}
+
+/// Presents explicit local-AI execution, result, provenance, and uncertainty states.
+private struct ImportedItemTextRecognitionView: View {
+    let state: ImportedItemTextRecognitionState
+    let recognizeText: () -> Void
+    let cancel: () -> Void
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: FieldbookSpacing.compact) {
+            Label("Recognized Text", systemImage: "text.viewfinder")
+                .font(FieldbookTypography.sectionTitle)
+
+            if let result = state.result {
+                if result.isEmpty {
+                    Text("No text was recognized in this image.")
+                        .foregroundStyle(.secondary)
+                } else {
+                    Text(result.text)
+                        .textSelection(.enabled)
+                }
+
+                Divider()
+                Label(result.provenanceText, systemImage: "iphone")
+                Text(
+                    String.localizedStringWithFormat(
+                        String(localized: "Recognized %@"),
+                        result.createdAtText
+                    )
+                )
+            } else if state.phase == .idle {
+                Text("Extract text from this image locally on this device.")
+                    .foregroundStyle(.secondary)
+            }
+
+            Text("AI-generated text may contain mistakes. Check it against the original image.")
+                .font(FieldbookTypography.supporting)
+                .foregroundStyle(.secondary)
+
+            switch state.phase {
+            case .idle:
+                Button(state.result == nil ? "Recognize Text" : "Recognize Again") {
+                    recognizeText()
+                }
+                .buttonStyle(.borderedProminent)
+            case .processing:
+                HStack(spacing: FieldbookSpacing.compact) {
+                    ProgressView()
+                    Text("Recognizing Text")
+                    Spacer()
+                    Button("Cancel", role: .cancel, action: cancel)
+                }
+                .accessibilityElement(children: .combine)
+            }
+        }
+        .font(FieldbookTypography.body)
+        .fieldbookCard()
     }
 }
 

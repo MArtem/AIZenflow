@@ -21,6 +21,24 @@ struct ImportedItemDetailViewStateBuilder {
         .actionFailure(content: content, message: message)
     }
 
+    func recognizingText(content: ImportedItemDetailContentState) -> ImportedItemDetailViewState {
+        guard let recognition = content.textRecognition else { return .content(content) }
+        return .content(
+            content.replacingTextRecognition(
+                ImportedItemTextRecognitionState(phase: .processing, result: recognition.result)
+            )
+        )
+    }
+
+    func recognitionStopped(content: ImportedItemDetailContentState) -> ImportedItemDetailViewState {
+        guard let recognition = content.textRecognition else { return .content(content) }
+        return .content(
+            content.replacingTextRecognition(
+                ImportedItemTextRecognitionState(phase: .idle, result: recognition.result)
+            )
+        )
+    }
+
     private func content(
         detail: ImportedItemDetailState,
         fileURL: URL
@@ -45,7 +63,30 @@ struct ImportedItemDetailViewStateBuilder {
                     Duration.seconds($0).formatted(.time(pattern: .minuteSecond))
                 }
             ),
+            textRecognition: textRecognition(detail: detail),
             shareURL: fileURL
+        )
+    }
+
+    private func textRecognition(
+        detail: ImportedItemDetailState
+    ) -> ImportedItemTextRecognitionState? {
+        guard ImageTextRecognitionCapability.availability(for: detail.kind) == .available else {
+            return nil
+        }
+        return ImportedItemTextRecognitionState(
+            phase: .idle,
+            result: detail.recognizedImageText.map { result in
+                ImportedItemRecognizedTextState(
+                    text: result.text,
+                    isEmpty: result.provenance.completionState == .empty,
+                    createdAtText: result.provenance.createdAt.formatted(
+                        date: .abbreviated,
+                        time: .shortened
+                    ),
+                    provenanceText: String(localized: "On-device Apple Vision")
+                )
+            }
         )
     }
 

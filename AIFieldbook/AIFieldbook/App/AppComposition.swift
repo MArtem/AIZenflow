@@ -11,7 +11,8 @@ import Observation
 /// objects themselves.
 ///
 /// Invariants:
-/// - App Intents and AI surfaces are not composed during Iteration 1.
+/// - AI execution services are composed once here and injected into explicit feature owners.
+/// - The first AI route is local Apple Vision; no provider router exists while only one route does.
 /// - Detail models are cached only as a bounded runtime convenience; SwiftData remains the
 ///   source of truth.
 @MainActor
@@ -23,6 +24,7 @@ final class AppComposition {
     let searchIndex: FieldbookSearchIndex
     let exportService: FieldbookExportService
     let repository: FieldbookRepository
+    let visionTextRecognition = VisionTextRecognitionService()
 
     let workspaceListModel: WorkspaceListViewModel
     let captureWorkspaceModel: WorkspaceListViewModel
@@ -79,7 +81,12 @@ final class AppComposition {
 
     func importedDetailModel(id: UUID) -> ImportedItemDetailViewModel {
         if let model = importedDetails.value(for: id) { return model }
-        let model = ImportedItemDetailViewModel(repository: repository, fileStore: fileStore, itemID: id)
+        let model = ImportedItemDetailViewModel(
+            repository: repository,
+            fileStore: fileStore,
+            textRecognitionService: visionTextRecognition,
+            itemID: id
+        )
         importedDetails.insert(model, for: id)?.playbackModel.releaseResources()
         return model
     }

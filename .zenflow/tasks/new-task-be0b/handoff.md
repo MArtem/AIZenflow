@@ -8,7 +8,7 @@
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
-Active operating mode: `сбалансированный`. The current user-selected route is `GPT-5.6 tera`, medium reasoning. Apply the canonical command-time model decision: proceed when this route is adequate; otherwise stop before task actions and require the documented switch. The user may switch explicitly to `качество` or `эконом`; a one-off model selection does not change the active mode.
+Active operating mode: `сбалансированный`. The current user-selected route is `GPT-5.6 sol`, high reasoning. Apply the canonical command-time model decision: proceed when this route is adequate; otherwise stop before task actions and require the documented switch. The user may switch explicitly to `качество` or `эконом`; a one-off model selection does not change the active mode.
 
 ## Active Collaboration Protocol
 - Work code-first in self-contained iterations: targeted inspection → one patch → one relevant static check → stop for the user's build/UI QA.
@@ -27,7 +27,8 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
   file previews, image downsampling, and audio playback to their feature-owned physical folders.
 - M12 Imported Item Detail and M13 Audio Recorder both pass the authorized Debug generic iOS
   Simulator build. The user reported the current M15 Debug build succeeded, confirming compile
-  integration for the M1–M15 graph. M14/M15 UI/runtime verification remains user-owned and pending.
+  integration for the M1–M15 graph, and subsequently reported that the complete M14–M15 UI
+  verification passed, including the Settings edge-flow.
 - Replaced best-effort file deletion with durable manifest-backed staging, startup recovery, conflict-preserving rollback, and honest finalization errors.
 - Fixed modal mutation reload identity, workspace movement during URL edits, deep-link kind validation, URL credential rejection, HTTP warnings, and URL size limits.
 - Added bounded image validation, SHA-256 verification for new imports, opaque filenames, complete file protection, backup exclusion, and retryable persistence startup diagnostics.
@@ -41,12 +42,30 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
 - Defined AI Fieldbook as fully iPhone-only by explicit user decision. The existing Xcode target already uses `TARGETED_DEVICE_FAMILY = 1`; ADR-009 records the app-specific exception and excludes iPad from product, App Intents, acceptance, and release scope.
 - Removed the pre-existing mandatory AI provider configuration from the active app/build graph without touching the preserved user-owned xcconfig/index state or unrelated project-file changes.
 
+## Active Iteration 2 AI Slice
+- M16 implements the approved combined `2.1` capability/provenance foundation and `2.2` image
+  OCR slice. Imported images expose a manual local Apple Vision action; PDF, text-document, and
+  audio details do not expose it.
+- `RecognizeTextRequest.revision3` runs in a composition-owned actor outside `MainActor`. The
+  ViewModel owns task identity, cancellation, stale-result rejection, and explicit UI state.
+- Additive SwiftData V3 stores only the latest local OCR result with source IDs, capability,
+  route/provider/model labels, processor version, source revision, completion state, timestamp,
+  confidence, latency, and user-edited flag. Source deletion cascades to derived results; export
+  format V2 includes the result; failed persistence rolls back without changing the original.
+- The UI shows processing/cancel, completed, empty, failure, provenance, and uncertainty copy.
+  Result text is selectable. No network, cloud provider, permission, automatic execution, PDF OCR,
+  editing, batch processing, or model router was added.
+
 ## Static Evidence
 - M15 Swift syntax parse, Xcode project plist validation, source membership/path inspection,
   stale-symbol/path scans, and `git diff --check` pass. No old aggregate presentation filename or
   duplicate `CaptureView` symbol remains in the app source graph.
-- M15 user-reported build evidence: the current Debug build completed successfully. Tests and
-  Simulator UI verification were not reported or run by the agent.
+- M14–M15 user-reported verification: the current Debug build and complete UI verification passed,
+  including the Settings edge-flow. Tests were not reported or run by the agent.
+- M16 static evidence: current SDK/API inspection, Swift syntax parse, project plist/source-path
+  validation, Russian localization key inspection, and Swift 6 complete strict-concurrency
+  whole-source type-check pass. The type-check used a worktree-scoped module cache. No build,
+  tests, or Simulator run was performed for M16.
 - Swift 6 strict-concurrency whole-source type-check passes with source-only `AppNavigation` included.
 - Secret, large-file, forbidden-pattern, localization, and iOS production-framework checks pass.
 - SwiftUI hot-path scan reports only reviewed Task-lifecycle candidates; owned export/maintenance tasks cancel or replace prior work, observer tasks follow recorder lifecycle, and remaining view Tasks are user/lifecycle initiated.
@@ -61,10 +80,9 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
 - No tests were created, modified, or run. The user authorized the complete `1.26-S` build/Simulator block: Debug build succeeded with worktree-scoped artifacts, and the app installed and reached the expected empty state on a representative iPhone Simulator. No physical-device run, crash injection, Instruments, Privacy Report, archive, or signing was performed.
 
 ## Remaining Gates And Risks
-- The user reported a successful M15 build. User-owned UI/runtime verification for M14/M15 remains pending.
-  Settings runtime coverage should include export preparation/cancellation, temporary cleanup,
-  delete-all rollback/success, and navigation reset; Capture should cover loading, unavailable,
-  empty, and available-action states.
+- M16 still needs the user's build and focused runtime verification: V2 → V3 migration/relaunch,
+  text/empty/cancel/failure/retry OCR states, result persistence and copy, non-image exclusion,
+  export/delete lifecycle, and preservation of the original imported image.
 - AI Fieldbook is fully iPhone-only by explicit user decision. The Xcode target already uses `TARGETED_DEVICE_FAMILY = 1`; iPad/iPadOS implementation, validation, App Intents/Shortcuts behavior, accessibility, localization, and release are outside scope. This is an app-specific exception to the reusable iPhone+iPad baseline, recorded in ADR-009.
 - Acceptance gate 1.26 is split into `1.26-S` (Simulator) and `1.26-D` (physical device). The user explicitly accepted `1.26-S`; `1.26-D` remains device-only and closed.
 - App Intents A1 is implemented in `AIFieldbook/AIFieldbook/SystemIntegration/AppIntents/OpenWorkspaceIntent.swift`: a detached privacy-minimal `WorkspaceEntity`, bounded model-actor reads, a discoverable `OpenWorkspaceIntent`, and validated workspace deep-link handoff. `AIFieldbook/AIFieldbook/App/AIFieldbookApp.swift` refreshes App Shortcut parameters at launch. No tests were changed.
@@ -91,7 +109,8 @@ Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 
   user-owned unless the user explicitly authorizes a new bounded block.
 
 ## Next Safe Step
-Wait for the user's M15 UI verification result, then record the final runtime result for the
-M1–M15 Presentation migration. Keep A1/A2 Shortcuts runtime evidence recorded as blocked by the
+The user runs the M16 build and focused OCR/migration/UI matrix recorded in `plan.md`. After the
+user reports results, fix only demonstrated M16 defects or accept the block and synchronize the
+canonical AI Fieldbook roadmap. Keep A1/A2 Shortcuts runtime evidence recorded as blocked by the
 iOS 26.5 Simulator regression; device-only Siri voice, iOS 27, backend, and cloud runtime remain
-gated. Do not begin A3 automatically.
+gated. Do not begin A3 or another AI capability automatically.

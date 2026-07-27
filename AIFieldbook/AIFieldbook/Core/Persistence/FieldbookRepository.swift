@@ -86,6 +86,7 @@ struct TextNoteDetailState: Equatable, Sendable {
 struct ImportedItemDetailState: Equatable, Sendable {
     let id: UUID
     let workspaceID: UUID
+    let attachmentID: UUID
     let kind: KnowledgeItemKind
     let title: String
     let tags: [TagSummary]
@@ -97,6 +98,7 @@ struct ImportedItemDetailState: Equatable, Sendable {
     let pixelWidth: Int?
     let pixelHeight: Int?
     let pageCount: Int?
+    let recognizedImageText: RecognizedImageText?
     let createdAt: Date
     let updatedAt: Date
 
@@ -364,6 +366,7 @@ final class FieldbookRepository {
         return ImportedItemDetailState(
             id: item.id,
             workspaceID: workspaceID,
+            attachmentID: attachment.id,
             kind: item.kind ?? .plainTextDocument,
             title: item.title,
             tags: tagSummaries(item.tags),
@@ -375,9 +378,60 @@ final class FieldbookRepository {
             pixelWidth: attachment.pixelWidth,
             pixelHeight: attachment.pixelHeight,
             pageCount: attachment.pageCount,
+            recognizedImageText: recognizedImageText(
+                records: item.aiResults,
+                itemID: item.id,
+                attachment: attachment
+            ),
             createdAt: item.createdAt,
             updatedAt: item.updatedAt
         )
+    }
+
+    /// Replaces the latest result for the image OCR capability after validating source identity.
+    ///
+    /// The validation prevents a completed task from attaching output to a replaced or stale
+    /// source file. The original imported image and its user-visible modification date are not
+    /// changed by derived enrichment.
+    func replaceRecognizedImageText(itemID: UUID, result: RecognizedImageText) throws {
+        let item = try itemRecord(id: itemID)
+        let provenance = result.provenance
+        guard item.kind == .image,
+              provenance.sourceItemID == item.id,
+              provenance.capability == ImageTextRecognitionCapability.identifier,
+              let attachment = item.attachments.first(where: { $0.id == provenance.sourceAttachmentID }),
+              attachment.relativePath == provenance.inputRevision else {
+            throw FieldbookRepositoryError.attachmentNotFound
+        }
+
+        for existing in item.aiResults where
+            existing.capabilityRawValue == ImageTextRecognitionCapability.identifier.rawValue {
+            context.delete(existing)
+        }
+        let record = AIResultRecord(
+            id: provenance.resultID,
+            sourceAttachmentID: provenance.sourceAttachmentID,
+            capability: provenance.capability,
+            routeIdentifier: provenance.routeIdentifier,
+            providerIdentifier: provenance.providerIdentifier,
+            modelIdentifier: provenance.modelIdentifier,
+            processorVersion: provenance.processorVersion,
+            createdAt: provenance.createdAt,
+            inputRevision: provenance.inputRevision,
+            completionState: provenance.completionState,
+            outputText: result.text,
+            userEdited: provenance.userEdited,
+            meanConfidence: provenance.meanConfidence,
+            latencyMilliseconds: provenance.latencyMilliseconds,
+            item: item
+        )
+        context.insert(record)
+        do {
+            try context.save()
+        } catch {
+            context.rollback()
+            throw error
+        }
     }
 
     func itemFileReferences(id: UUID) throws -> [DurableFileReference] {
@@ -451,11 +505,52 @@ final class FieldbookRepository {
     }
 
     func deleteAllData() throws {
+        try context.delete(model: AIResultRecord.self)
         try context.delete(model: AttachmentRecord.self)
         try context.delete(model: KnowledgeItemRecord.self)
         try context.delete(model: WorkspaceRecord.self)
         try context.delete(model: TagRecord.self)
         try context.save()
+    }
+
+    private func recognizedImageText(
+        records: [AIResultRecord],
+        itemID: UUID,
+        attachment: AttachmentRecord
+    ) -> RecognizedImageText? {
+        guard let record = records
+            .filter({
+                $0.capabilityRawValue == ImageTextRecognitionCapability.identifier.rawValue
+                    && $0.sourceAttachmentID == attachment.id
+                    && $0.inputRevision == attachment.relativePath
+            })
+            .max(by: { $0.createdAt < $1.createdAt }),
+              let capability = AICapabilityIdentifier(rawValue: record.capabilityRawValue),
+              let completionState = AIResultCompletionState(
+                rawValue: record.completionStateRawValue
+              ) else {
+            return nil
+        }
+
+        return RecognizedImageText(
+            text: record.outputText,
+            provenance: AIResultProvenance(
+                resultID: record.id,
+                sourceItemID: itemID,
+                sourceAttachmentID: record.sourceAttachmentID,
+                capability: capability,
+                routeIdentifier: record.routeIdentifier,
+                providerIdentifier: record.providerIdentifier,
+                modelIdentifier: record.modelIdentifier,
+                processorVersion: record.processorVersion,
+                createdAt: record.createdAt,
+                inputRevision: record.inputRevision,
+                completionState: completionState,
+                userEdited: record.userEdited,
+                meanConfidence: record.meanConfidence,
+                latencyMilliseconds: record.latencyMilliseconds
+            )
+        )
     }
 
     private func workspaceRecord(id: UUID) throws -> WorkspaceRecord {

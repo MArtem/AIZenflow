@@ -21,12 +21,30 @@ actor FieldbookExportService {
             }
 
             struct Item: Codable {
+                struct AIResult: Codable {
+                    let id: UUID
+                    let sourceAttachmentID: UUID
+                    let capability: String
+                    let route: String
+                    let provider: String
+                    let model: String
+                    let processorVersion: String
+                    let createdAt: Date
+                    let inputRevision: String
+                    let completionState: String
+                    let outputText: String
+                    let userEdited: Bool
+                    let meanConfidence: Double?
+                    let latencyMilliseconds: Int64
+                }
+
                 let id: UUID
                 let kind: String
                 let title: String
                 let textContent: String
                 let tags: [String]
                 let files: [String]
+                let aiResults: [AIResult]
                 let updatedAt: Date
             }
 
@@ -52,6 +70,26 @@ actor FieldbookExportService {
                         textContent: item.textContent,
                         tags: item.tags.map(\.name).sorted(),
                         files: item.attachments.map(\.relativePath).sorted(),
+                        aiResults: item.aiResults
+                            .sorted(by: { $0.createdAt < $1.createdAt })
+                            .map {
+                                Manifest.Item.AIResult(
+                                    id: $0.id,
+                                    sourceAttachmentID: $0.sourceAttachmentID,
+                                    capability: $0.capabilityRawValue,
+                                    route: $0.routeIdentifier,
+                                    provider: $0.providerIdentifier,
+                                    model: $0.modelIdentifier,
+                                    processorVersion: $0.processorVersion,
+                                    createdAt: $0.createdAt,
+                                    inputRevision: $0.inputRevision,
+                                    completionState: $0.completionStateRawValue,
+                                    outputText: $0.outputText,
+                                    userEdited: $0.userEdited,
+                                    meanConfidence: $0.meanConfidence,
+                                    latencyMilliseconds: $0.latencyMilliseconds
+                                )
+                            },
                         updatedAt: item.updatedAt
                     )
                 )
@@ -65,7 +103,7 @@ actor FieldbookExportService {
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         encoder.dateEncodingStrategy = .iso8601
         return try encoder.encode(
-            Manifest(formatVersion: 1, exportedAt: .now, workspaces: workspaceSnapshots)
+            Manifest(formatVersion: 2, exportedAt: .now, workspaces: workspaceSnapshots)
         )
     }
 }
