@@ -125,6 +125,8 @@
 		6B1A00000000000000001707 /* DownsampledImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001717 /* DownsampledImageView.swift */; };
 		6B1A00000000000000001708 /* QuickLookPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001718 /* QuickLookPreviewView.swift */; };
 		6B1A00000000000000001709 /* AudioPlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001719 /* AudioPlaybackView.swift */; };
+		6B1A00000000000000001801 /* AIFoundation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001811 /* AIFoundation.swift */; };
+		6B1A00000000000000001802 /* VisionTextRecognitionService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001812 /* VisionTextRecognitionService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -249,6 +251,8 @@
 		6B1A00000000000000001717 /* DownsampledImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownsampledImageView.swift; sourceTree = "<group>"; };
 		6B1A00000000000000001718 /* QuickLookPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookPreviewView.swift; sourceTree = "<group>"; };
 		6B1A00000000000000001719 /* AudioPlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlaybackView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001811 /* AIFoundation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFoundation.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001812 /* VisionTextRecognitionService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisionTextRecognitionService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -332,11 +336,21 @@
 		6B1A00000000000000000037 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				6B1A00000000000000001821 /* AI */,
 				6B1A00000000000000000039 /* DesignSystem */,
 				6B1A0000000000000000003A /* Persistence */,
 				6B1A00000000000000000045 /* Search */,
 			);
 			path = Core;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001821 /* AI */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001811 /* AIFoundation.swift */,
+				6B1A00000000000000001812 /* VisionTextRecognitionService.swift */,
+			);
+			path = AI;
 			sourceTree = "<group>";
 		};
 		6B1A00000000000000000038 /* Features */ = {
@@ -913,6 +927,8 @@
 			files = (
 				6B1A00000000000000000001 /* AIFieldbookApp.swift in Sources */,
 				6B1A00000000000000000003 /* FieldbookDesign.swift in Sources */,
+				6B1A00000000000000001801 /* AIFoundation.swift in Sources */,
+				6B1A00000000000000001802 /* VisionTextRecognitionService.swift in Sources */,
 				6B1A00000000000000000004 /* FieldbookModels.swift in Sources */,
 				6B1A00000000000000000005 /* FieldbookPersistence.swift in Sources */,
 				6B1A00000000000000000006 /* FieldbookRepository.swift in Sources */,

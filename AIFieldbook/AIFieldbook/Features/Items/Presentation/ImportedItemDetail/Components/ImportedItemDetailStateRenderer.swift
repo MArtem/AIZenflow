@@ -5,6 +5,8 @@ struct ImportedItemDetailStateRenderer: View {
     let state: ImportedItemDetailViewState
     let playbackModel: AudioPlaybackModel
     let reload: () async -> Void
+    let recognizeText: () -> Void
+    let cancelTextRecognition: () -> Void
 
     var body: some View {
         Group {
@@ -22,7 +24,12 @@ struct ImportedItemDetailStateRenderer: View {
                     }
                 }
             case let .content(content), let .actionFailure(content, _):
-                ImportedItemDetailContentView(content: content, playbackModel: playbackModel)
+                ImportedItemDetailContentView(
+                    content: content,
+                    playbackModel: playbackModel,
+                    recognizeText: recognizeText,
+                    cancelTextRecognition: cancelTextRecognition
+                )
             }
         }
     }

@@ -16,7 +16,9 @@ struct ImportedItemDetailScreen: View {
         ImportedItemDetailStateRenderer(
             state: viewModel.state,
             playbackModel: viewModel.playbackModel,
-            reload: viewModel.reloadRequested
+            reload: viewModel.reloadRequested,
+            recognizeText: viewModel.recognizeTextRequested,
+            cancelTextRecognition: viewModel.textRecognitionCancellationRequested
         )
         .navigationTitle(viewModel.state.navigationTitle)
         .navigationBarTitleDisplayMode(.inline)
@@ -59,6 +61,9 @@ struct ImportedItemDetailScreen: View {
         }
         .task(id: viewModel.itemID) {
             await viewModel.appeared()
+        }
+        .onDisappear {
+            viewModel.disappeared()
         }
     }
 }

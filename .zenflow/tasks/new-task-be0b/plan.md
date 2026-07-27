@@ -83,9 +83,15 @@ The accepted app-specific decision is ADR-010 in:
   rollback behavior.
 - [x] M14 — Settings vertical slice: explicit content/working/export-ready/error state while
   preserving cleanup, export cancellation, destructive reset, and navigation reset behavior.
+  The user reported that the complete UI verification included the Settings edge-flow.
 - [x] M15 — Capture chooser and physical cleanup: split the stateless chooser into its own Screen
   and passive components without inventing a ViewModel/Builder; remove the final obsolete
-  aggregate presentation files and verify naming/folder consistency.
+  aggregate presentation files and verify naming/folder consistency. The user reported the M15
+  build and UI verification passed.
+- [ ] M16 — Iteration 2.1 + 2.2 local image OCR: add explicit capability/provenance contracts,
+  additive SwiftData V3 storage, local Apple Vision execution, cancellation, export/delete
+  lifecycle, and a manual Imported Item Detail result surface. Static implementation is complete;
+  user-owned build, migration/relaunch, and UI verification remain open.
 
 ## Per-Iteration Static Acceptance
 
@@ -100,8 +106,11 @@ The accepted app-specific decision is ADR-010 in:
 
 ## Next Executable Step
 
-The user reported the M15 build succeeded. Record the user-owned UI verification result for M15
-before closing the final runtime result for the completed M1–M15 presentation migration.
+Run the user-owned M16 build and focused UI check: migrate/relaunch with existing content, import
+an image containing text, recognize/copy/persist/recognize-again, cancel an in-flight request,
+verify an image with no readable text, and verify the failure path leaves the original intact.
+Also confirm non-image imported items do not expose OCR. Do not begin another AI capability until
+this block is accepted.
 
 ## Deferred App Intents State
 

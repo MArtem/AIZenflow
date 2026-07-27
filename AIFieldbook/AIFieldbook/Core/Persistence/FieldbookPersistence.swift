@@ -29,7 +29,7 @@ enum PersistenceBootstrap {
             return .ready(cachedContainer)
         }
 
-        let schema = Schema(AIFieldbookSchemaV2.models)
+        let schema = Schema(AIFieldbookSchemaV3.models)
         let configuration = ModelConfiguration("AIFieldbook", schema: schema)
 
         do {

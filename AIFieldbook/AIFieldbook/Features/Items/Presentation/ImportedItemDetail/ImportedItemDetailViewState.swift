@@ -37,7 +37,21 @@ struct ImportedItemDetailContentState: Equatable {
     let preview: ImportedItemPreviewState
     let tags: [TagSummary]
     let metadata: ImportedItemMetadataState
+    let textRecognition: ImportedItemTextRecognitionState?
     let shareURL: URL
+
+    func replacingTextRecognition(
+        _ textRecognition: ImportedItemTextRecognitionState?
+    ) -> ImportedItemDetailContentState {
+        ImportedItemDetailContentState(
+            title: title,
+            preview: preview,
+            tags: tags,
+            metadata: metadata,
+            textRecognition: textRecognition,
+            shareURL: shareURL
+        )
+    }
 }
 
 enum ImportedItemPreviewState: Equatable {
@@ -54,4 +68,23 @@ struct ImportedItemMetadataState: Equatable {
     let dimensionsText: String?
     let pageCountText: String?
     let durationText: String?
+}
+
+/// Render-ready execution state for the image-only local OCR capability.
+struct ImportedItemTextRecognitionState: Equatable {
+    enum Phase: Equatable {
+        case idle
+        case processing
+    }
+
+    let phase: Phase
+    let result: ImportedItemRecognizedTextState?
+}
+
+/// Persisted OCR output and user-safe provenance prepared for display.
+struct ImportedItemRecognizedTextState: Equatable {
+    let text: String
+    let isEmpty: Bool
+    let createdAtText: String
+    let provenanceText: String
 }
