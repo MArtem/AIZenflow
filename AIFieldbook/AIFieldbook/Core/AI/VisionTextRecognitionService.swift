@@ -1,5 +1,10 @@
 import Foundation
+import ImageIO
 import Vision
+
+private enum VisionTextRecognitionError: Error {
+    case imageDecodingFailed
+}
 
 /// Performs image text recognition entirely on device with Apple Vision.
 ///
@@ -9,11 +14,14 @@ import Vision
 ///
 /// Privacy:
 /// The service reads one app-owned local image URL and does not perform network requests.
+/// ImageIO applies orientation and bounds the decoded OCR input before Vision sees it.
 actor VisionTextRecognitionService {
     private static let routeIdentifier = "on-device"
     private static let providerIdentifier = "apple.vision"
     private static let modelIdentifier = "recognize-text-revision-3"
-    private static let processorVersion = "1"
+    private static let processorVersion = "2"
+    // Bounds the OCR decode to at most 16.8 MP; the stored source remains unchanged.
+    private static let maximumInputDimension = 4_096
 
     func recognizeText(
         in imageURL: URL,
@@ -23,12 +31,14 @@ actor VisionTextRecognitionService {
     ) async throws -> RecognizedImageText {
         try Task.checkCancellation()
         let startedAt = Date()
+        let image = try downsampledImage(at: imageURL)
+        try Task.checkCancellation()
         var request = RecognizeTextRequest(.revision3)
         request.recognitionLevel = .accurate
         request.automaticallyDetectsLanguage = true
         request.usesLanguageCorrection = true
 
-        let observations = try await request.perform(on: imageURL)
+        let observations = try await request.perform(on: image)
         try Task.checkCancellation()
 
         let lines = observations
@@ -65,5 +75,23 @@ actor VisionTextRecognitionService {
                 latencyMilliseconds: latencyMilliseconds
             )
         )
+    }
+
+    private func downsampledImage(at imageURL: URL) throws -> CGImage {
+        let sourceOptions = [kCGImageSourceShouldCache: false] as CFDictionary
+        guard let source = CGImageSourceCreateWithURL(imageURL as CFURL, sourceOptions) else {
+            throw VisionTextRecognitionError.imageDecodingFailed
+        }
+
+        let thumbnailOptions = [
+            kCGImageSourceCreateThumbnailFromImageAlways: true,
+            kCGImageSourceThumbnailMaxPixelSize: Self.maximumInputDimension,
+            kCGImageSourceCreateThumbnailWithTransform: true,
+            kCGImageSourceShouldCacheImmediately: true
+        ] as CFDictionary
+        guard let image = CGImageSourceCreateThumbnailAtIndex(source, 0, thumbnailOptions) else {
+            throw VisionTextRecognitionError.imageDecodingFailed
+        }
+        return image
     }
 }
