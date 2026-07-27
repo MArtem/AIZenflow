@@ -1,0 +1,70 @@
+# {{PackageName}}
+
+## Purpose
+
+`{{PackageName}}` is a single-folder standalone infrastructure package.
+
+It provides:
+
+```text
+Describe the mechanism here.
+```
+
+It does **not** provide app-specific product behavior.
+
+## Standalone status
+
+```text
+Standalone: yes
+Requires sibling packages: no
+Requires IntegrationHelpers: no
+```
+
+## Installation
+
+Copy this folder into a project or add it as a Swift Package.
+
+```bash
+cd {{PackageName}}
+./Scripts/verify_package.sh
+```
+
+## What belongs here
+
+```text
+- generic mechanisms;
+- typed models;
+- protocols;
+- test doubles;
+- package-local utilities.
+```
+
+## What must not belong here
+
+```text
+- app-specific strings;
+- feature-specific routes;
+- product-specific models;
+- sibling package imports;
+- raw sensitive telemetry.
+```
+
+## Basic usage
+
+```swift
+import {{PackageName}}
+
+// Add package usage example here.
+```
+
+## Concurrency
+
+Document actor isolation, `Sendable` behavior, and cancellation expectations here.
+
+## Privacy
+
+Document whether this package handles sensitive data, telemetry, logs, or diagnostics.
+
+## Integration helpers
+
+List optional helpers here, if any.

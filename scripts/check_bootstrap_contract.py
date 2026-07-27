@@ -1,0 +1,104 @@
+#!/usr/bin/env python3
+"""Validate that a project/worktree can bootstrap with the required agent rules.
+
+The check is intentionally small and dependency-free so it can run in any new
+worktree before implementation starts.
+"""
+
+from __future__ import annotations
+
+import argparse
+import sys
+from pathlib import Path
+
+
+REQUIRED_FILES = [
+    "AGENTS.md",
+    "PROJECT_DOCUMENTATION.md",
+    "PROJECT_HEALTH.md",
+    "docs/README.md",
+    "docs/CURRENT_USER_OVERRIDES.md",
+    "docs/AGENT_RULES.md",
+    "docs/WORK_CONTINUITY.md",
+    "docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+    "docs/MODEL_ROUTING_RULE.md",
+    "docs/DOCUMENT_BOUNDARY_STANDARD.md",
+    "docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+    "docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "docs/DOCUMENT_ROUTING_REGISTRY.json",
+    "docs/TASK_DOCUMENT_ROUTES.json",
+    "docs/REUSABLE_BASELINE_POLICY.json",
+    "scripts/resolve_docs_route.py",
+    "scripts/report_documentation_context_cost.py",
+    "scripts/check_reusable_baseline_drift.py",
+]
+
+REQUIRED_TEXT = {
+    "AGENTS.md": [
+        "DOCUMENT_BOUNDARY_STANDARD.md",
+        "MODEL_ROUTING_RULE.md",
+        "TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "/Users/Artem/.zenflow",
+        "перечитать весь актуальный набор документации и правил",
+    ],
+    "docs/README.md": [
+        "DOCUMENT_BOUNDARY_STANDARD.md",
+        "DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+        "MODEL_ROUTING_RULE.md",
+        "DOCUMENT_ROUTING_REGISTRY.json",
+        "TASK_DOCUMENT_ROUTES.json",
+        "REUSABLE_BASELINE_POLICY.json",
+    ],
+    "PROJECT_DOCUMENTATION.md": [
+        "DOCUMENT_BOUNDARY_STANDARD.md",
+    ],
+    "docs/CURRENT_USER_OVERRIDES.md": [
+        "DOCUMENT_BOUNDARY_STANDARD.md",
+        "highest reusable standards",
+    ],
+    "docs/WORK_CONTINUITY.md": [
+        "TASK_TYPE_DOCUMENTATION_ROUTER.md",
+        "TASK_STATE_DOCUMENTATION_STANDARD.md",
+        "перечитать весь актуальный набор документации и правил",
+    ],
+}
+
+
+def main() -> int:
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "root",
+        nargs="?",
+        default=Path(__file__).resolve().parents[1],
+        type=Path,
+        help="Project/worktree root to validate.",
+    )
+    args = parser.parse_args()
+    root = args.root.resolve()
+
+    failures: list[str] = []
+    for rel in REQUIRED_FILES:
+        if not (root / rel).is_file():
+            failures.append(f"missing required file: {rel}")
+
+    for rel, needles in REQUIRED_TEXT.items():
+        path = root / rel
+        if not path.is_file():
+            continue
+        text = path.read_text(encoding="utf-8", errors="replace")
+        for needle in needles:
+            if needle not in text:
+                failures.append(f"{rel}: missing required text `{needle}`")
+
+    if failures:
+        print("Bootstrap contract FAILED:")
+        for failure in failures:
+            print(f"- {failure}")
+        return 1
+
+    print(f"Bootstrap contract OK: {root}")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())

@@ -1,25 +1,37 @@
 import SwiftUI
 
-struct StubTabDetailView: View {
+/// Generic destination view used by scaffolded feature-tab routes.
+struct FeatureTabDetailView: View {
     let title: String
     let description: String
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 18) {
+        VStack(alignment: .leading, spacing: AppSpacing.cardSection) {
             Text(title)
-                .font(.system(size: 28, weight: .bold))
-                .foregroundStyle(Color(red: 0.24, green: 0.25, blue: 0.36))
+                .font(AppTypography.profileDisplay)
+                .foregroundStyle(AppTheme.textPrimary)
 
             Text(description)
-                .font(.system(size: 16, weight: .regular))
-                .foregroundStyle(Color(red: 0.35, green: 0.36, blue: 0.44))
+                .font(AppTypography.bodyRegular)
+                .foregroundStyle(AppTheme.textSecondary)
                 .lineSpacing(3)
 
             Spacer()
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .topLeading)
-        .padding(20)
-        .background(Color(red: 0.97, green: 0.96, blue: 0.94))
+        .padding(AppSpacing.cardPadding)
+        .background(AppTheme.canvasBackground)
         .navigationBarTitleDisplayMode(.inline)
     }
 }
+
+#if DEBUG
+#Preview("Feature Tab Detail") {
+    NavigationStack {
+        FeatureTabDetailView(
+            title: "Preview Detail",
+            description: "This preview keeps scaffolded destination copy visible and current."
+        )
+    }
+}
+#endif

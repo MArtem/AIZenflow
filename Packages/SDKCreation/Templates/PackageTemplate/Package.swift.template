@@ -1,0 +1,31 @@
+// swift-tools-version: 6.0
+
+import PackageDescription
+
+let package = Package(
+    name: "{{PackageName}}",
+    platforms: [
+        .iOS(.v17),
+        .macOS(.v14),
+        .tvOS(.v17),
+        .watchOS(.v10),
+        .visionOS(.v1)
+    ],
+    products: [
+        .library(
+            name: "{{PackageName}}",
+            targets: ["{{PackageName}}"]
+        )
+    ],
+    targets: [
+        .target(
+            name: "{{PackageName}}",
+            path: "Sources/{{PackageName}}"
+        ),
+        .testTarget(
+            name: "{{PackageName}}Tests",
+            dependencies: ["{{PackageName}}"],
+            path: "Tests/{{PackageName}}Tests"
+        )
+    ]
+)

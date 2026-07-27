@@ -1,348 +1,97 @@
-# Handoff
+# Current Task Handoff
 
-## TL;DR
-- Project: `TchopApp`
-- Status: working iOS SwiftUI app built from screenshot, now on MVVM + SwiftData + coordinator-based navigation + login flow + session restoration
-- Last confirmed state: app builds successfully with app-level state, DI environment, tab coordinators, login/logout flow, and restored active user session across relaunch
-- Resume point: continue from existing Xcode project, not from scratch
+## Identifiers And Mandatory Context
+- Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`
+- Task: `new-task-be0b`
+- Active app: `AI Fieldbook` at `./AIFieldbook`
+- Canonical documentation repo: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 
-## Paths
-- Root: `/Users/Artem/.zenflow/worktrees/new-task-be0b`
-- Xcode project: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp.xcodeproj`
-- App folder: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp`
-- Infrastructure package: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure`
-- This handoff: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md`
-- Engineering rules: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md`
-- Services rules: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
-## Active Prompt Memory
-- The project has an active persistent iOS ruleset in `ios-engineering-rules.md`.
-- The project also has an active persistent services and infrastructure ruleset in `services-engineering-rules.md`.
-- A standing merge instruction also exists:
-  when asked to merge from `main`, merge the latest changes from `main` and ask the user if any conflict resolution is unclear.
-- The user may refer to these as `/ios` and `/services` shorthand. Treat them as active instructions for future chats after reading the two rules files.
+Active operating mode: `сбалансированный`. The current user-selected route is `GPT-5.6 tera`, medium reasoning. Apply the canonical command-time model decision: proceed when this route is adequate; otherwise stop before task actions and require the documented switch. The user may switch explicitly to `качество` or `эконом`; a one-off model selection does not change the active mode.
 
-## What Was Built
-- Full iOS SwiftUI app project created from scratch.
-- Screen recreated from screenshot.
-- Pinned top bar.
-- Bottom tab bar.
-- Side menu with tap open and swipe open/close.
-- Side menu and tab bar synchronized through shared tab state.
-- MVVM baseline for shell and news feed.
-- SwiftData-backed local content storage with first-launch seeding.
-- Generic tab routers with a shared app coordinator and per-tab navigation stacks.
-- Login screen with username-only sign-in and logout back to auth flow.
+## Active Collaboration Protocol
+- Work code-first in self-contained iterations: targeted inspection → one patch → one relevant static check → stop for the user's build/UI QA.
+- The user runs builds, tests, Simulator UI, screenshots, Instruments, archive, and signing until explicitly delegating a specific verification action.
+- Do not use subagents, model/reasoning switches, browsing, extended research, broad documentation rereads, runtime verification, or scope sweeps without first stating need, expected token cost, benefits, trade-offs, and the smaller alternative, then receiving approval.
+- A same-pattern sweep needs explicit approval and may touch no more than two or three source files. Seek a checkpoint before work expected to touch more than three files or consume roughly more than 2–3% of the weekly budget.
+- Mandatory documentation is read once per selected route; later reads and diffs must be targeted. Synchronize canonical documentation only at meaningful boundaries or when explicitly requested.
 
-## Current Architecture
-- App entry: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/TchopApp.swift`
-- App DI container: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppDIContainer.swift`
-- App state source of truth: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/App/AppState.swift`
-- App database backend selection and adapters: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDatabase.swift`
-- Shell and navigation state: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/AppShellView.swift`
-- App root auth switch: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/AppRootView.swift`
-- Shell content view: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/ShellContentView.swift`
-- Tab content switcher: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TabContentView.swift`
-- Tab enum/model: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/AppTab.swift`
-- User model: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/AppUser.swift`
-- Channel header model: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/ChannelHeaderInfo.swift`
-- Feed models: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Models/NewsFeedModels.swift`
-- App shell view model: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/AppShellViewModel.swift`
-- News feed view model: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/NewsFeedViewModel.swift`
-- Login view model: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/ViewModels/LoginViewModel.swift`
-- App coordinator: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/AppCoordinator.swift`
-- Generic tab router: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/TabRouter.swift`
-- Tab route structs: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Navigation/TabRoutes.swift`
-- SwiftData database bootstrap: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDatabase.swift`
-- SwiftData records: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppContentRecord.swift`
-- SwiftData seed service: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Persistence/AppDataSeeder.swift`
-- Content repository: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/AppContentRepository.swift`
-- User repository: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Repositories/UserRepository.swift`
-- Session service: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/UserSessionService.swift`
-- Feed API manager: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Services/FeedAPIManager.swift`
-- Networking module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopNetworking/TchopNetworking.swift`
-- Database module: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Sources/TchopDatabase/TchopDatabase.swift`
-- Networking tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopNetworkingTests/TchopNetworkingTests.swift`
-- Database tests: `/Users/Artem/.zenflow/worktrees/new-task-be0b/Packages/TchopInfrastructure/Tests/TchopDatabaseTests/TchopDatabaseTests.swift`
-- Login screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Auth/LoginScreenView.swift`
-- Header: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/TopBarView.swift`
-- Side menu: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Menu/SideMenuView.swift`
-- Bottom tabs: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/BottomTabBar.swift`
-- News feed root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/NewsFeedView.swift`
-- News tab navigation root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/NewsTabRootView.swift`
-- News tab destinations: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/NewsDestinationView.swift`
-- Featured card: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/FeaturedArticleCard.swift`
-- News action row: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/ArticleActionView.swift`
-- Discussion card: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/News/DiscussionCard.swift`
-- Stub tabs: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Stub/TabStubView.swift`
-- Stub tab navigation root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/StubTabNavigationRootView.swift`
-- Stub tab detail: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/StubTabDetailView.swift`
-- Profile tab root: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Views/Tabs/ProfileTabRootView.swift`
-- Launch screen: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/LaunchScreen.storyboard`
-- App metadata: `/Users/Artem/.zenflow/worktrees/new-task-be0b/TchopApp/Info.plist`
+Start with `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, read its current Level 0 set once, then load only the routes required by the task.
 
-## Code Style Decision
-- Do not use computed properties like `private var something: some View` for view composition.
-- Do not use helper methods that return `some View` for reusable UI pieces.
-- Prefer:
-  separate `View` structs in separate files,
-  direct composition inside `body`,
-  plain state/data helpers that do not return views.
-- This preference was explicitly requested by the user and should be preserved in future edits.
-- Nested reusable `View` types inside other view files should also be avoided when they can be first-class screen/component files.
-- In addition to project state, a reusable instruction file now exists:
-  `ios-engineering-rules.md`
-  This file should be treated as the persistent engineering ruleset for future chats.
+## Completed AI Fieldbook Remediation
+- Completed the static M1–M15 Presentation migration. Feature screens now use explicit
+  `Screen → ViewModel/ViewState/Builder → passive Components` slices where state ownership is
+  required; the stateless Capture chooser deliberately uses only `Screen → passive Components`.
+- Removed the final obsolete aggregate presentation files after relocating shared tags, imported
+  file previews, image downsampling, and audio playback to their feature-owned physical folders.
+- M12 Imported Item Detail and M13 Audio Recorder both pass the authorized Debug generic iOS
+  Simulator build. The user reported the current M15 Debug build succeeded, confirming compile
+  integration for the M1–M15 graph. M14/M15 UI/runtime verification remains user-owned and pending.
+- Replaced best-effort file deletion with durable manifest-backed staging, startup recovery, conflict-preserving rollback, and honest finalization errors.
+- Fixed modal mutation reload identity, workspace movement during URL edits, deep-link kind validation, URL credential rejection, HTTP warnings, and URL size limits.
+- Added bounded image validation, SHA-256 verification for new imports, opaque filenames, complete file protection, backup exclusion, and retryable persistence startup diagnostics.
+- Moved export snapshot/encoding to a model actor with cancellation; changed audio playback to streaming `AVPlayer`; added recording interruption/route/background cleanup.
+- Added database-side search filters and bounded unfiltered results, LRU detail caches, media release on eviction/reset, and memory-warning cache cleanup.
+- Added `PrivacyInfo.xcprivacy`, privacy-safe OSLog diagnostics, expanded Russian localization and plural rules, and accessible error/progress states.
+- Reconciled the product contract, architecture decisions, implementation plan, Iteration 1 acceptance gate, AI/lab plan, and local privacy/runtime notes.
+- Preserved Iteration 1 as local-only: no backend, analytics, cloud processing, App Intents, or AI runtime were introduced.
+- Recorded Simulator-first execution: accepted `1.26-S` unlocks only Simulator-verifiable labs; `1.26-D` retains device-only code and evidence.
+- Classified backend, cloud-model, unavailable iOS 27, and unavailable-hardware paths as tutorial-only until their prerequisites are approved.
+- Defined AI Fieldbook as fully iPhone-only by explicit user decision. The existing Xcode target already uses `TARGETED_DEVICE_FAMILY = 1`; ADR-009 records the app-specific exception and excludes iPad from product, App Intents, acceptance, and release scope.
+- Removed the pre-existing mandatory AI provider configuration from the active app/build graph without touching the preserved user-owned xcconfig/index state or unrelated project-file changes.
 
-## Important Fixes Already Done
-- Fixed `Missing bundle ID` by adding required bundle keys into `Info.plist`.
-- Fixed non-fullscreen presentation cause:
-  the real issue was missing launch screen, which caused compatibility-style presentation on simulator/device.
-- Added `UILaunchStoryboardName = LaunchScreen`.
-- Added `LaunchScreen.storyboard` to Xcode project resources.
-- Rebuilt and reinstalled the app in simulator.
-- Verified fullscreen rendering after reinstall.
+## Static Evidence
+- M15 Swift syntax parse, Xcode project plist validation, source membership/path inspection,
+  stale-symbol/path scans, and `git diff --check` pass. No old aggregate presentation filename or
+  duplicate `CaptureView` symbol remains in the app source graph.
+- M15 user-reported build evidence: the current Debug build completed successfully. Tests and
+  Simulator UI verification were not reported or run by the agent.
+- Swift 6 strict-concurrency whole-source type-check passes with source-only `AppNavigation` included.
+- Secret, large-file, forbidden-pattern, localization, and iOS production-framework checks pass.
+- SwiftUI hot-path scan reports only reviewed Task-lifecycle candidates; owned export/maintenance tasks cancel or replace prior work, observer tasks follow recorder lifecycle, and remaining view Tasks are user/lifecycle initiated.
+- App plist, privacy manifest, Russian strings/stringsdict, and Xcode project plist validation pass; localization keys have no duplicates.
+- Documentation index, consistency, boundary, router, and reusable-baseline drift checks pass; `git diff --check` passes.
+- Reusable saved prompts and architecture cases are app-neutral; active app boundaries link to reusable guidance instead of copying it. MVVMExample and Tchop legacy snapshots are isolated under non-authoritative `legacy-reference/` areas, and the boundary validator hard-fails active reusable/app leakage.
+- Documentation cleanup replaced the destructive worktree sync with a non-destructive deterministic manifest generator, reduced active inventories to root `MANIFEST.md` and `MANIFEST_SUMMARY.md`, corrected quality-first `sol`/`tera`/`luna` routing, and moved obsolete duplicates, misplaced task files, and raw traces into non-authoritative `retired/` quarantine without deleting their content.
+- Three supplied 20-page model-routing documents were structurally and visually reviewed. Their useful mode distinctions were normalized into the single reusable routing rule: persistent `качество`/`сбалансированный`/`эконом` modes, mode-aware optional versus required model switches, stable high-risk floors, and no duplicated price or provider-positioning claims.
+- The non-empty readable Tchop trace analysis is retained under `apps/Tchop/legacy-reference/evidence/`; unique archive intake, assistant history, saved-prompt provenance, legacy handbooks, and historical documentation-split material remain retained.
+- Canonical manifest freshness and vault-shape checks pass with `3608` files and four app boundaries; active routes have zero missing, optional-missing, unreachable, or unclassified documents.
+- Documentation-scoped secret scan passes. The full repository scan still reports seven pre-existing generic-token test fixtures in `TchopAppTests/AppStateTests.swift`; that file is unchanged and tests were not modified under the current restriction.
+- No tests were created, modified, or run. The user authorized the complete `1.26-S` build/Simulator block: Debug build succeeded with worktree-scoped artifacts, and the app installed and reached the expected empty state on a representative iPhone Simulator. No physical-device run, crash injection, Instruments, Privacy Report, archive, or signing was performed.
 
-## Simulator Notes
-- Bundle ID: `com.example.TchopApp`
-- Last used booted simulator: `iPhone 17 Pro`
-- Last successful reinstall flow:
-```sh
-xcrun simctl uninstall <device-id> com.example.TchopApp || true
-xcrun simctl install <device-id> <path-to-app>
-xcrun simctl launch <device-id> com.example.TchopApp
-```
+## Remaining Gates And Risks
+- The user reported a successful M15 build. User-owned UI/runtime verification for M14/M15 remains pending.
+  Settings runtime coverage should include export preparation/cancellation, temporary cleanup,
+  delete-all rollback/success, and navigation reset; Capture should cover loading, unavailable,
+  empty, and available-action states.
+- AI Fieldbook is fully iPhone-only by explicit user decision. The Xcode target already uses `TARGETED_DEVICE_FAMILY = 1`; iPad/iPadOS implementation, validation, App Intents/Shortcuts behavior, accessibility, localization, and release are outside scope. This is an app-specific exception to the reusable iPhone+iPad baseline, recorded in ADR-009.
+- Acceptance gate 1.26 is split into `1.26-S` (Simulator) and `1.26-D` (physical device). The user explicitly accepted `1.26-S`; `1.26-D` remains device-only and closed.
+- App Intents A1 is implemented in `AIFieldbook/AIFieldbook/SystemIntegration/AppIntents/OpenWorkspaceIntent.swift`: a detached privacy-minimal `WorkspaceEntity`, bounded model-actor reads, a discoverable `OpenWorkspaceIntent`, and validated workspace deep-link handoff. `AIFieldbook/AIFieldbook/App/AIFieldbookApp.swift` refreshes App Shortcut parameters at launch. No tests were changed.
+- App Intents A2 is implemented as separate source contracts: `FieldbookIntentDataSource.swift`, `WorkspaceEntity.swift`, `OpenWorkspaceIntent.swift`, `KnowledgeItemEntity.swift`, and `FindKnowledgeItemsIntent.swift`. It finds at most 20 local items with a required non-empty query and optional workspace scope. System-visible results contain only title, localized kind, and workspace name; search-only body/tag/filename matching never escapes the model actor. No mutation, Spotlight, open-item action, or App Shortcut was added.
+- During the user-authorized A2 diagnosis, the initial project-file object-ID collision and one entity initializer access error were corrected. A Debug build then succeeded, installed, and launched to the iPhone Simulator workspace UI without a crash. Tests were not run.
+- A1 static/build evidence completed during the user-authorized Shortcuts investigation. Runtime execution in the iOS 26.5 Simulator is blocked outside app code: `linkd` reports missing `AppShortcutEntity` in `com.apple.siriactionsd` and cannot resolve providers. Restarting the Simulator did not help. On a clean iOS 18.2 Simulator, the same unsigned/no-Team-ID TchopApp registers its App Shortcuts provider normally. Do not add signing as a workaround; the user explicitly declined it.
+- Simulator evidence still needs CRUD, picker fixtures, imported-audio playback, migration/relaunch, crash recovery, deep links, export/delete-all, Dynamic Type, and system-integration smoke validation. Physical-device evidence still needs microphone recording and lifecycle, locked-device protection, Siri voice, full VoiceOver/touch behavior, and representative performance.
+- Simulator UI automation is blocked because macOS denied Apple Events/Accessibility control. A custom URL request reaches the iOS open-confirmation dialog, but accepting it and the remaining interactive matrix require the user to grant UI-control permission or perform the documented manual iPhone validation.
+- `G1.P1-001` was remediated in the workspace empty/error state and the user reported the resulting layout as visually acceptable. It no longer blocks `1.26-S`; the remaining manual matrix and explicit user acceptance still do.
+- Text/tag search is improved but not backed by FTS; export still materializes one JSON manifest; legacy imported files are readable but are not retroactively renamed or hash-migrated.
+- App-owned content files use complete protection, while an explicit migration/protection policy for pre-existing SwiftData store files remains a separate persistence decision.
+- Signing team, CI runner, crash-reporting provider, and remote release observability require user/environment decisions; no provider or telemetry was guessed.
+- There is no approved backend, provider account, cloud budget, consent flow, or credential boundary. Do not add Firebase/direct-client cloud code as a shortcut; cloud/global-model material is tutorial-only unless the user explicitly reopens that architecture decision.
 
-## Verification Commands
-- Build:
-```sh
-xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build
-```
-- Package tests:
-```sh
-swift test --package-path Packages/TchopInfrastructure
-```
-- App tests:
-```sh
-xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -configuration Debug CODE_SIGNING_ALLOWED=NO test
-```
-- Find booted simulator:
-```sh
-xcrun simctl list devices | grep Booted
-```
+## Repository State And Restrictions
+- The project worktree contains uncommitted remediation changes by design; do not commit or push this repository without explicit user authorization.
+- Canonical AI Fieldbook documentation must be mirrored, validated, committed, and pushed only in `MArtem/AIZenflowDocumentation`.
+- The iPhone-only product contract, ADR-009, acceptance gate, and task state are canonical in the documentation vault. The durable discrete App Intents plan is `apps/AIFieldbook/plans/app-intents-discrete-implementation-plan.md`; the local `plan.md` is deliberately limited to the active executable checklist.
+- The reusable iOS knowledge expansion and preservation-first cleanup are synced and validated for publication in the canonical documentation commit containing this handoff.
+- Final review added AI/commerce registry coverage, an exact AI prompt bootstrap mirror, required route/context/drift tools, and `sol`/`tera`/`luna` model-plus-reasoning routing.
+- Keep all project/build/cache/log/temp artifacts inside `/Users/Artem/.zenflow`.
+- Do not write or modify tests. There is no current authorization to run another build, tests,
+  Simulator UI, physical-device QA, Instruments, archive, or signing. Keep runtime verification
+  user-owned unless the user explicitly authorizes a new bounded block.
 
-## Current Truth
-- The latest verified screenshot after uninstall + reinstall showed the UI occupying the full screen correctly.
-- If fullscreen issue appears again, first suspect stale simulator-installed app and repeat uninstall/install.
-- The codebase now follows the user's SwiftUI identity rule:
-  no computed properties returning `some View`,
-  no helper methods returning `some View`,
-  only `body` on concrete `View` types should return views.
-- The codebase also follows the stronger structure rule:
-  reusable UI must be extracted into separate configurable types in separate files, not nested inside parent views.
-- `AppShellView` composition is now split into standalone files:
-  `ShellContentView.swift` and `TabContentView.swift`.
-- `FeaturedArticleCard` action rows are now extracted into standalone `ArticleActionView.swift`.
-- `BrandMarkView` no longer uses a view-returning helper method.
-- Step 1 of the new roadmap is complete:
-  the project is now on a real MVVM baseline.
-- `TchopApp` owns a root `@StateObject` of `AppShellViewModel`.
-- Root shell state (`selectedTab`, menu state, header info, current screen coordination) moved from views into `AppShellViewModel`.
-- News screen content moved to `NewsFeedViewModel` plus typed models in `NewsFeedModels.swift`.
-- `View` files are now dumber:
-  `TopBarView`, `SideMenuView`, `BottomTabBar`, `FeaturedArticleCard`, `DiscussionCard`, and `NewsFeedView`
-  render injected state instead of owning screen data.
-- Current feed data is still local fixture content,
-  but it is now represented by model types instead of inline hardcoded strings inside views.
-- This prepares roadmap step 2 cleanly:
-  replacing fixture content with real services / repositories / persistence
-  without rewriting the view layer again.
-- Step 2 of the roadmap is now also complete:
-  local fixture-backed data has been replaced with a real `SwiftData` source.
-- `TchopApp` now creates a shared `ModelContainer`, seeds it on first launch, and injects a repository-backed root view model.
-- Current implementation uses a single `SwiftDataAppContentRepository` that provides:
-  channel header data and news feed content.
-- On first launch the app seeds local records for:
-  channel,
-  featured article,
-  article actions,
-  discussion preview,
-  discussion participants.
-- The current data layer is intentionally simple and local-first,
-  but already structured so it can be replaced later by DI-driven services / repositories without reworking the views again.
-- Step 3 of the roadmap is complete:
-  navigation is no longer a single flat tab switch.
-- The app now uses:
-  one shared `AppCoordinator`,
-  one generic `TabRouter<Route>` per tab,
-  route structs instead of enum routes,
-  independent `NavigationStack` state per tab that is preserved while switching tabs.
-- The route design intentionally keeps routes as data structs.
-  Screen construction happens in destination views / coordinator-owned composition, not by storing `ViewBuilder` closures in routes.
-- Step 4 is also in place:
-  app composition now has explicit DI and app-wide state.
-- `TchopApp` creates:
-  repositories,
-  session service,
-  `AppCoordinator`,
-  and a single `@StateObject` `AppState`.
-- `AppState` is the current app-level source of truth for:
-  signed-in user,
-  logout behavior,
-  coordinator reset on auth changes.
-- The app now also has a real DI root:
-  `AppDIContainer`.
-- `TchopApp` creates one container and injects it into the app root.
-- The container owns and wires:
-  `ModelContainer`,
-  `DatabaseManaging`,
-  `APIManaging`,
-  feature API managers,
-  repositories,
-  session service.
-- The persistence layer no longer depends directly on `ModelContext` in repositories.
-- Repositories now depend on `DatabaseManaging` instead.
-- The infrastructure layer has now been extracted into a local Swift package:
-  `Packages/TchopInfrastructure`.
-- `TchopApp` now links two local package products:
-  `TchopNetworking` and `TchopDatabase`.
-- Old app-local infra files for `APIManager`, `DatabaseManaging`, and `DatabaseManager` were removed after the module split.
-- The `TchopDatabase` module currently provides `SwiftDataDatabaseManager` and `DatabaseManaging` with:
-  fetch,
-  fetchFirst,
-  fetchCount,
-  insert,
-  bulk insert,
-  delete,
-  deleteAll,
-  save,
-  rollback,
-  transaction support,
-  soft-delete and timestamp extension points.
-- The `TchopNetworking` module currently provides:
-  `APIManager`,
-  `MockAPIManager`,
-  `APIConfiguration`,
-  request cancellation,
-  interceptor pipeline,
-  retry and logging interceptors,
-  typed request/response boundaries.
-- The app now also has an Xcode unit test target:
-  `TchopAppTests`.
-- Current app-level unit coverage includes:
-  `AppStateTests`,
-  `LoginViewModelTests`,
-  `NewsFeedViewModelTests`,
-  `TabRouterTests`,
-  `AppCoordinatorTests`,
-  `UserRepositoryTests`,
-  `AppContentRepositoryTests`.
-- The latest verified test status is green for both layers:
-  `swift test --package-path Packages/TchopInfrastructure`
-  and
-  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -destination 'platform=iOS Simulator,name=iPhone 17 Pro' -configuration Debug CODE_SIGNING_ALLOWED=NO test`.
-- The app persistence layer is no longer bound directly to `SwiftData` in repositories.
-  Repositories now depend on `AppDatabaseManaging`, an app-facing backend adapter contract.
-- Two concrete app persistence adapters now exist:
-  `SwiftDataAppDatabaseAdapter`
-  and
-  `CoreDataAppDatabaseAdapter`.
-- `AppDIContainer` now chooses the persistence backend through `AppDatabaseConfiguration` and `AppDatabaseBackendSelectionPolicy`.
-  The default production policy is `automatic`, which resolves to `SwiftData` on iOS 17+ and falls back to `Core Data` otherwise.
-- The persisted local model is intentionally reduced to the records the app truly reads locally today:
-  the primary channel metadata and users.
-  Feed cards continue to come from the API layer.
-  `APIRequest`,
-  `APIManaging`,
-  interceptor protocols,
-  logging interceptor,
-  retry interceptor,
-  cancellation token support.
-- `StubFeedAPIManager` now uses the generic `APIManager` instead of returning raw synchronous data directly.
-- Feed loading is now async end-to-end from the feed API manager through repository into `NewsFeedViewModel`.
-- `NewsFeedViewModel` now owns:
-  loading state,
-  error state,
-  cancellation of in-flight feed loading.
-- Transitional `AppEnvironment` has now been removed.
-- `AppState` no longer depends on the full DI container.
-- `AppState` depends only on `UserSessionManaging`, which reduces container coupling and keeps the composition root explicit.
-- Public APIs inside the infrastructure package are now documented with DocC-style comments.
-- Current networking setup intentionally uses no auth, with the interceptor pipeline left as the extension point for future auth strategies.
-- Current database backend is `SwiftData`, which implies an iOS 17+ floor for the infrastructure package.
-- Local persistent instructions were also updated:
-  `ios-engineering-rules.md` now explicitly includes SOLID,
-  and `services-engineering-rules.md` was added for service-layer guidance.
-- Step 5 is complete:
-  the app now has a simple login flow backed by persisted users.
-- `LoginScreenView` accepts a username.
-- On login:
-  the username is normalized,
-  a user is looked up or created in SwiftData,
-  and `AppState.currentUser` becomes the single source of truth for the active user in memory.
-- On logout:
-  `AppState` clears the current user,
-  resets all tab navigation stacks back to root,
-  closes the side menu,
-  and returns the app to the login screen.
-- `UserRecord` is persisted in SwiftData,
-  so every new username is stored in the local database.
-- The current signed-in session is now restored automatically on app launch.
-- `UserSessionService` persists the active username in `UserDefaults`.
-- On app launch, `AppState` restores the active user through `UserSessionService.restoreSession()`.
-- If the stored username no longer exists in SwiftData, the stale session key is cleared automatically.
-- The news feed structure is now card-based instead of hardcoded as two fixed top-level fields.
-- Each feed card has its own model:
-  `FeaturedArticleCardModel`,
-  `DiscussionCardModel`,
-  and the list is represented as `[NewsFeedCard]`.
-- `NewsFeedView` now renders a typed card list from `NewsFeedContent.cards`.
-- A stub service layer for feed loading now exists in `FeedAPIManager.swift`.
-- `SwiftDataAppContentRepository` depends on `FeedAPIManaging` and maps DTOs into domain card models.
-- Current setup is intentionally stubbed:
-  the feed API manager returns local stub DTOs,
-  while the repository keeps the service/repository separation ready for a real backend later.
-- The feed stub flow is now backed by `TchopNetworking` instead of an app-local API manager file.
-- Repositories and the seeder now import `TchopDatabase` instead of app-local database manager files.
-- A documentation pass has now been applied across the app layer as well, not only the package modules.
-- App models, repositories, services, navigation types, state objects, persistence records, and key view models now contain inline code documentation explaining their role and important methods.
-- Small readability refactors were also applied without behavior changes:
-  the feed API stub payload was moved into a private fixture factory,
-  shell channel fallback resolution was extracted into a helper,
-  and news feed fallback content now lives in a dedicated private fixture namespace.
-- Latest verification:
-  `xcodebuild -project TchopApp.xcodeproj -scheme TchopApp -sdk iphonesimulator -configuration Debug CODE_SIGNING_ALLOWED=NO build`
-  succeeded after this refactor.
-  `swift test --package-path Packages/TchopInfrastructure`
-  also succeeded after the module split.
-
-## Next Recommended Step
-- Next logical work is refinement, not foundational architecture.
-- Good candidates:
-  replacing stub tab content with feature modules,
-  moving repositories behind protocols per feature,
-  refining side menu destinations and deep-link handling,
-  or adding network-backed services on top of the current local-first data layer.
-
-## If You Continue In A New Chat
-- Ask the new chat to read both this file and `ios-engineering-rules.md`.
-- Also read `services-engineering-rules.md` when service / repository / infra work is involved.
-- Use the handoff as project state and the rules files as the working style and architecture contract.
-- Recommended prompt:
-```text
-Прочитай /Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/handoff.md.
-Потом прочитай /Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/ios-engineering-rules.md.
-Потом прочитай /Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/tasks/new-task-be0b/services-engineering-rules.md.
-Первый файл — это актуальное состояние задачи. Второй файл — постоянные инженерные правила для iOS части. Третий файл — правила для services / infra слоя.
-Используй все три файла как источник истины и продолжай работу оттуда.
-```
-
-## Working Agreement
-- Keep this file updated after every substantial change.
-- Prefer recording:
-  what changed,
-  why it changed,
-  what was verified,
-  what the next chat should assume as current truth.
-- Keep `ios-engineering-rules.md` updated only if the user changes permanent engineering expectations.
-- Keep `services-engineering-rules.md` updated only if the user changes permanent services / infra expectations.
+## Next Safe Step
+Wait for the user's M15 UI verification result, then record the final runtime result for the
+M1–M15 Presentation migration. Keep A1/A2 Shortcuts runtime evidence recorded as blocked by the
+iOS 26.5 Simulator regression; device-only Siri voice, iOS 27, backend, and cloud runtime remain
+gated. Do not begin A3 automatically.

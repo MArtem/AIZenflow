@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "scope_policy": "./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md",
+  "mandatory_platforms": ["iOS", "iPadOS"],
+  "deferred_platforms": ["watchOS", "visionOS", "tvOS", "macOS"],
+  "maturity_values": ["missing", "outline", "operational", "complete", "deferred"],
+  "verification": {
+    "last_primary_source_review": "2026-07-17",
+    "toolchain_reference": "Xcode 27 beta, Swift 6.4 beta, iOS/iPadOS 27 SDK beta",
+    "stable_baseline_rule": "Beta-specific guidance remains labelled and does not replace the active stable project toolchain without an explicit adoption decision."
+  },
+  "domains": [
+    {
+      "id": "swift-language-runtime-api-design",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-swift-language-runtime",
+      "operating_documents": ["./docs/IOS_CODE_DOCUMENTATION_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md"],
+      "skills": ["./.codex/skills/ios-swift-runtime/SKILL.md"],
+      "review_triggers": ["Swift release", "language-mode change", "public API or binary boundary change"]
+    },
+    {
+      "id": "swift-concurrency",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-concurrency-runtime",
+      "operating_documents": ["./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md"],
+      "skills": ["./.codex/skills/ios-concurrency-runtime/SKILL.md"],
+      "review_triggers": ["Swift release", "default isolation change", "strict-concurrency migration"]
+    },
+    {
+      "id": "swiftui-uikit-adaptive-ui",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-ui-adaptive",
+      "operating_documents": ["./docs/IOS_UI_STATE_RENDERING_STANDARD.md", "./docs/IOS_ACCESSIBILITY_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md"],
+      "skills": [],
+      "review_triggers": ["SwiftUI or UIKit release", "iPad product support", "new window or input mode"]
+    },
+    {
+      "id": "ai-ml-intelligence-and-app-intents",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-ai-app-intents",
+      "operating_documents": ["./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"],
+      "deep_references": ["./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md"],
+      "skills": [],
+      "review_triggers": ["Apple Intelligence, Foundation Models, Core ML, Vision, Speech, Translation, App Intents, or AI provider change"]
+    },
+    {
+      "id": "architecture-modularization-state",
+      "tier": "core",
+      "maturity": "complete",
+      "route": "ios-architecture-navigation-state",
+      "operating_documents": ["./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md", "./docs/MODULAR_ARCHITECTURE_STANDARD.md", "./docs/IOS_MVVM_INTENT_API_STANDARD.md"],
+      "deep_references": [],
+      "skills": ["./.codex/skills/ios-architecture-router/SKILL.md", "./.codex/skills/ios-modular-architecture/SKILL.md"],
+      "review_triggers": ["new architecture pattern", "module boundary change", "app-wide ownership change"]
+    },
+    {
+      "id": "networking-api-web-realtime",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-network-api-offline-sync",
+      "operating_documents": ["./docs/API_CONTRACT_AND_INTEGRATION_RULES.md", "./docs/IOS_NETWORK_RESILIENCE_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md"],
+      "skills": ["./.codex/skills/ios-network-resilience/SKILL.md", "./.codex/skills/ios-api-contracts/SKILL.md"],
+      "review_triggers": ["protocol change", "authentication change", "background transfer or WebKit adoption"]
+    },
+    {
+      "id": "identity-authentication-authorization",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-identity-authentication",
+      "operating_documents": ["./docs/IOS_SECURITY_PRIVACY_GATE.md"],
+      "deep_references": ["./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md"],
+      "skills": ["./.codex/skills/ios-identity-authentication/SKILL.md"],
+      "review_triggers": ["login or session design", "passkey adoption", "sensitive local authorization"]
+    },
+    {
+      "id": "security-privacy-cryptography",
+      "tier": "core",
+      "maturity": "complete",
+      "route": "ios-security-privacy-intake",
+      "operating_documents": ["./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md", "./docs/IOS_SECURITY_PRIVACY_GATE.md"],
+      "deep_references": ["./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md", "./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"],
+      "skills": ["./.codex/skills/ios-security-privacy/SKILL.md"],
+      "review_triggers": ["sensitive data", "new permission or entitlement", "security advisory", "privacy requirement change"]
+    },
+    {
+      "id": "persistence-migration-sync-cloudkit",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-persistence-migration-data-loss",
+      "operating_documents": ["./docs/IOS_DATA_MIGRATION_STANDARD.md", "./docs/IOS_OFFLINE_SYNC_STANDARD.md", "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md"],
+      "deep_references": ["./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md"],
+      "skills": ["./.codex/skills/ios-data-migration/SKILL.md", "./.codex/skills/ios-offline-sync/SKILL.md"],
+      "review_triggers": ["schema change", "store technology change", "sync or CloudKit adoption", "data-loss incident"]
+    },
+    {
+      "id": "testing-debugging-diagnostics",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-testing-debugging",
+      "operating_documents": ["./docs/IOS_TESTING_STRATEGY.md", "./docs/QA_TEST_PLAN_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md"],
+      "skills": ["./.codex/skills/ios-test-strategy/SKILL.md", "./.codex/skills/ios-testing-debugging/SKILL.md"],
+      "review_triggers": ["test framework change", "flaky suite", "hard-to-reproduce crash", "new diagnostics tooling"]
+    },
+    {
+      "id": "build-binary-dependencies-supply-chain",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-build-binary-supply-chain",
+      "operating_documents": ["./docs/DEPENDENCY_POLICY.md", "./docs/CI_CD_QUALITY_GATES.md"],
+      "deep_references": ["./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md"],
+      "skills": ["./.codex/skills/ios-build-system/SKILL.md"],
+      "review_triggers": ["Xcode release", "link or archive failure", "binary dependency", "supply-chain advisory"]
+    },
+    {
+      "id": "platform-capabilities-extensions",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-platform-capabilities-extended",
+      "operating_documents": ["./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md", "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md"],
+      "skills": ["./.codex/skills/ios-platform-capabilities/SKILL.md"],
+      "review_triggers": ["new capability", "new target or extension", "entitlement change", "WWDC framework change"]
+    },
+    {
+      "id": "media-sensors-device-integrations",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-media-sensors-device",
+      "operating_documents": ["./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md", "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"],
+      "skills": ["./.codex/skills/ios-memory-cache-media/SKILL.md"],
+      "review_triggers": ["camera, audio, location, Bluetooth, NFC, HealthKit, or hardware integration"]
+    },
+    {
+      "id": "performance-observability-operations",
+      "tier": "core",
+      "maturity": "complete",
+      "route": "ios-observability-incidents-rollout",
+      "operating_documents": ["./docs/IOS_PERFORMANCE_BUDGETS.md", "./docs/IOS_OBSERVABILITY_STANDARD.md", "./docs/INCIDENT_RESPONSE_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md"],
+      "skills": ["./.codex/skills/ios-performance-profiler/SKILL.md", "./.codex/skills/ios-incident-ops/SKILL.md"],
+      "review_triggers": ["performance regression", "production incident", "telemetry or rollout change"]
+    },
+    {
+      "id": "app-store-release-compliance",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-app-store-compliance",
+      "operating_documents": ["./docs/IOS_RELEASE_CHECKLIST.md", "./docs/IOS_SECURITY_PRIVACY_GATE.md"],
+      "deep_references": ["./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"],
+      "skills": ["./.codex/skills/ios-release-engineering/SKILL.md", "./.codex/skills/ios-app-store-compliance/SKILL.md"],
+      "review_triggers": ["App Review change", "privacy manifest change", "submission or distribution change"]
+    },
+    {
+      "id": "storekit-and-commerce",
+      "tier": "core",
+      "maturity": "operational",
+      "route": "ios-storekit-payments",
+      "operating_documents": ["./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md"],
+      "deep_references": ["./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md"],
+      "skills": [],
+      "review_triggers": ["StoreKit product, entitlement, subscription, payment, or App Review requirement change"]
+    },
+    {
+      "id": "accessibility-localization-inclusive-ux",
+      "tier": "core",
+      "maturity": "complete",
+      "route": "ios-accessibility-localization-qa",
+      "operating_documents": ["./docs/IOS_ACCESSIBILITY_STANDARD.md", "./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md"],
+      "deep_references": [],
+      "skills": ["./.codex/skills/ios-accessibility/SKILL.md", "./.codex/skills/ios-qa-localization/SKILL.md"],
+      "review_triggers": ["new interaction", "new locale", "assistive-technology defect", "platform accessibility change"]
+    },
+    {
+      "id": "watchos",
+      "tier": "deferred-platform",
+      "maturity": "deferred",
+      "route": null,
+      "operating_documents": [],
+      "deep_references": [],
+      "skills": [],
+      "review_triggers": ["explicit watchOS target or requirement"]
+    },
+    {
+      "id": "visionos",
+      "tier": "deferred-platform",
+      "maturity": "deferred",
+      "route": null,
+      "operating_documents": [],
+      "deep_references": [],
+      "skills": [],
+      "review_triggers": ["explicit visionOS target or requirement"]
+    },
+    {
+      "id": "tvos",
+      "tier": "deferred-platform",
+      "maturity": "deferred",
+      "route": null,
+      "operating_documents": [],
+      "deep_references": [],
+      "skills": [],
+      "review_triggers": ["explicit tvOS target or requirement"]
+    },
+    {
+      "id": "macos",
+      "tier": "deferred-platform",
+      "maturity": "deferred",
+      "route": null,
+      "operating_documents": [],
+      "deep_references": [],
+      "skills": [],
+      "review_triggers": ["explicit macOS target or requirement"]
+    }
+  ]
+}

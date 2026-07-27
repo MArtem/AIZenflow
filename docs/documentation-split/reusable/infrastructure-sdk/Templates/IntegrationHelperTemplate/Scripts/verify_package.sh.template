@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ROOT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+cd "$ROOT_DIR"
+
+if grep -R "String(describing: error)" Sources Tests >/dev/null 2>&1; then
+  echo "❌ Raw String(describing: error) found. Use sanitized error category/code instead."
+  exit 1
+fi
+
+BUILD_DIR="${SWIFTPM_BUILD_PATH:-$(mktemp -d)}"
+cleanup_build_dir() {
+  if [[ -z "${SWIFTPM_BUILD_PATH:-}" ]]; then
+    rm -rf "$BUILD_DIR"
+  fi
+  rm -rf "$ROOT_DIR/.swiftpm" "$ROOT_DIR/.build"
+}
+trap cleanup_build_dir EXIT
+
+swift test --build-path "$BUILD_DIR"
+
+if find . \( -name ".build" -o -name ".swiftpm" \) | grep .; then
+  echo "❌ Package-local SwiftPM generated state remained after verification"
+  exit 1
+fi
+
+echo "✅ {{HelperName}} verification passed"

@@ -1,0 +1,1238 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		6B1A00000000000000000001 /* AIFieldbookApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000101 /* AIFieldbookApp.swift */; };
+		6B1A00000000000000000003 /* FieldbookDesign.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000103 /* FieldbookDesign.swift */; };
+		6B1A00000000000000000004 /* FieldbookModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000104 /* FieldbookModels.swift */; };
+		6B1A00000000000000000005 /* FieldbookPersistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000105 /* FieldbookPersistence.swift */; };
+		6B1A00000000000000000006 /* FieldbookRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000106 /* FieldbookRepository.swift */; };
+		6B1A00000000000000000009 /* AppShellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000109 /* AppShellView.swift */; };
+		6B1A0000000000000000000F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000010F /* AppCoordinator.swift */; };
+		6B1A00000000000000000011 /* AppComposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000110 /* AppComposition.swift */; };
+		6B1A00000000000000000012 /* AppNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000111 /* AppNavigation.swift */; };
+		6B1A00000000000000000016 /* SpotlightIndexService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000115 /* SpotlightIndexService.swift */; };
+		6B1A00000000000000000017 /* DeepLinkParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000116 /* DeepLinkParser.swift */; };
+		6B1A00000000000000000019 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000119 /* Localizable.strings */; };
+		6B1A0000000000000000001A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011A /* InfoPlist.strings */; };
+		6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011C /* FieldbookSearchIndex.swift */; };
+		6B1A0000000000000000001C /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */; };
+		6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011E /* FieldbookExportService.swift */; };
+		6B1A0000000000000000001E /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = 6B1A0000000000000000011F /* Localizable.stringsdict */; };
+		6B1A0000000000000000001F /* OpenWorkspaceIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */; };
+		6B1A00000000000000000201 /* FieldbookIntentDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */; };
+		6B1A00000000000000000202 /* WorkspaceEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000206 /* WorkspaceEntity.swift */; };
+		6B1A00000000000000000203 /* KnowledgeItemEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000207 /* KnowledgeItemEntity.swift */; };
+		6B1A00000000000000000204 /* FindKnowledgeItemsIntent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */; };
+		6B1A00000000000000000301 /* WorkspaceListScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000311 /* WorkspaceListScreen.swift */; };
+		6B1A00000000000000000302 /* WorkspaceListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000312 /* WorkspaceListViewModel.swift */; };
+		6B1A00000000000000000303 /* WorkspaceListViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000313 /* WorkspaceListViewState.swift */; };
+		6B1A00000000000000000304 /* WorkspaceListViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000314 /* WorkspaceListViewStateBuilder.swift */; };
+		6B1A00000000000000000305 /* WorkspaceListStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000315 /* WorkspaceListStateRenderer.swift */; };
+		6B1A00000000000000000306 /* WorkspaceListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000316 /* WorkspaceListRow.swift */; };
+		6B1A00000000000000000401 /* WorkspaceDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000411 /* WorkspaceDetailScreen.swift */; };
+		6B1A00000000000000000402 /* WorkspaceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000412 /* WorkspaceDetailViewModel.swift */; };
+		6B1A00000000000000000403 /* WorkspaceDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000413 /* WorkspaceDetailViewState.swift */; };
+		6B1A00000000000000000404 /* WorkspaceDetailViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000414 /* WorkspaceDetailViewStateBuilder.swift */; };
+		6B1A00000000000000000405 /* WorkspaceDetailStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000415 /* WorkspaceDetailStateRenderer.swift */; };
+		6B1A00000000000000000406 /* WorkspaceDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000416 /* WorkspaceDetailContentView.swift */; };
+		6B1A00000000000000000407 /* WorkspaceDetailItemRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000417 /* WorkspaceDetailItemRow.swift */; };
+		6B1A00000000000000000501 /* WorkspaceEditorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000511 /* WorkspaceEditorScreen.swift */; };
+		6B1A00000000000000000502 /* WorkspaceEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000512 /* WorkspaceEditorViewModel.swift */; };
+		6B1A00000000000000000503 /* WorkspaceEditorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000513 /* WorkspaceEditorViewState.swift */; };
+		6B1A00000000000000000504 /* WorkspaceEditorViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000514 /* WorkspaceEditorViewStateBuilder.swift */; };
+		6B1A00000000000000000505 /* WorkspaceEditorStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000515 /* WorkspaceEditorStateRenderer.swift */; };
+		6B1A00000000000000000506 /* WorkspaceEditorFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000516 /* WorkspaceEditorFormView.swift */; };
+		6B1A00000000000000000601 /* TextNoteDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000611 /* TextNoteDetailScreen.swift */; };
+		6B1A00000000000000000602 /* TextNoteDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000612 /* TextNoteDetailViewModel.swift */; };
+		6B1A00000000000000000603 /* TextNoteDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000613 /* TextNoteDetailViewState.swift */; };
+		6B1A00000000000000000604 /* TextNoteDetailViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000614 /* TextNoteDetailViewStateBuilder.swift */; };
+		6B1A00000000000000000605 /* TextNoteDetailStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000615 /* TextNoteDetailStateRenderer.swift */; };
+		6B1A00000000000000000606 /* TextNoteDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000616 /* TextNoteDetailContentView.swift */; };
+		6B1A00000000000000000701 /* TextNoteEditorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000711 /* TextNoteEditorScreen.swift */; };
+		6B1A00000000000000000702 /* TextNoteEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000712 /* TextNoteEditorViewModel.swift */; };
+		6B1A00000000000000000703 /* TextNoteEditorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000713 /* TextNoteEditorViewState.swift */; };
+		6B1A00000000000000000704 /* TextNoteEditorViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000714 /* TextNoteEditorViewStateBuilder.swift */; };
+		6B1A00000000000000000705 /* TextNoteEditorStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000715 /* TextNoteEditorStateRenderer.swift */; };
+		6B1A00000000000000000706 /* TextNoteEditorFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000716 /* TextNoteEditorFormView.swift */; };
+		6B1A00000000000000000801 /* URLReferenceDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000811 /* URLReferenceDetailScreen.swift */; };
+		6B1A00000000000000000802 /* URLReferenceDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000812 /* URLReferenceDetailViewModel.swift */; };
+		6B1A00000000000000000803 /* URLReferenceDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000813 /* URLReferenceDetailViewState.swift */; };
+		6B1A00000000000000000804 /* URLReferenceDetailViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000814 /* URLReferenceDetailViewStateBuilder.swift */; };
+		6B1A00000000000000000805 /* URLReferenceDetailStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000815 /* URLReferenceDetailStateRenderer.swift */; };
+		6B1A00000000000000000806 /* URLReferenceDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000816 /* URLReferenceDetailContentView.swift */; };
+		6B1A00000000000000000901 /* URLReferenceEditorScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000911 /* URLReferenceEditorScreen.swift */; };
+		6B1A00000000000000000902 /* URLReferenceEditorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000912 /* URLReferenceEditorViewModel.swift */; };
+		6B1A00000000000000000903 /* URLReferenceEditorViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000913 /* URLReferenceEditorViewState.swift */; };
+		6B1A00000000000000000904 /* URLReferenceEditorViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000914 /* URLReferenceEditorViewStateBuilder.swift */; };
+		6B1A00000000000000000905 /* URLReferenceEditorStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000915 /* URLReferenceEditorStateRenderer.swift */; };
+		6B1A00000000000000000906 /* URLReferenceEditorFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000000916 /* URLReferenceEditorFormView.swift */; };
+		6B1A00000000000000001001 /* SearchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001011 /* SearchScreen.swift */; };
+		6B1A00000000000000001002 /* SearchViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001012 /* SearchViewModel.swift */; };
+		6B1A00000000000000001003 /* SearchViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001013 /* SearchViewState.swift */; };
+		6B1A00000000000000001004 /* SearchViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001014 /* SearchViewStateBuilder.swift */; };
+		6B1A00000000000000001005 /* SearchStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001015 /* SearchStateRenderer.swift */; };
+		6B1A00000000000000001006 /* SearchFilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001016 /* SearchFilterView.swift */; };
+		6B1A00000000000000001007 /* SearchResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001017 /* SearchResultsView.swift */; };
+		6B1A00000000000000001008 /* SearchResultRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001018 /* SearchResultRow.swift */; };
+		6B1A00000000000000001101 /* TagManagerScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001111 /* TagManagerScreen.swift */; };
+		6B1A00000000000000001102 /* TagManagerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001112 /* TagManagerViewModel.swift */; };
+		6B1A00000000000000001103 /* TagManagerViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001113 /* TagManagerViewState.swift */; };
+		6B1A00000000000000001104 /* TagManagerViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001114 /* TagManagerViewStateBuilder.swift */; };
+		6B1A00000000000000001105 /* TagManagerStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001115 /* TagManagerStateRenderer.swift */; };
+		6B1A00000000000000001106 /* TagManagerFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001116 /* TagManagerFormView.swift */; };
+		6B1A00000000000000001201 /* MoveItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001211 /* MoveItemScreen.swift */; };
+		6B1A00000000000000001202 /* MoveItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001212 /* MoveItemViewModel.swift */; };
+		6B1A00000000000000001203 /* MoveItemViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001213 /* MoveItemViewState.swift */; };
+		6B1A00000000000000001204 /* MoveItemViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001214 /* MoveItemViewStateBuilder.swift */; };
+		6B1A00000000000000001205 /* MoveItemStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001215 /* MoveItemStateRenderer.swift */; };
+		6B1A00000000000000001206 /* MoveItemFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001216 /* MoveItemFormView.swift */; };
+		6B1A00000000000000001301 /* ImportedItemDetailScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001311 /* ImportedItemDetailScreen.swift */; };
+		6B1A00000000000000001302 /* ImportedItemDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001312 /* ImportedItemDetailViewModel.swift */; };
+		6B1A00000000000000001303 /* ImportedItemDetailViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001313 /* ImportedItemDetailViewState.swift */; };
+		6B1A00000000000000001304 /* ImportedItemDetailViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001314 /* ImportedItemDetailViewStateBuilder.swift */; };
+		6B1A00000000000000001305 /* ImportedItemDetailStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001315 /* ImportedItemDetailStateRenderer.swift */; };
+		6B1A00000000000000001306 /* ImportedItemDetailContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001316 /* ImportedItemDetailContentView.swift */; };
+		6B1A00000000000000001401 /* ImportItemScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001411 /* ImportItemScreen.swift */; };
+		6B1A00000000000000001402 /* ImportItemViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001412 /* ImportItemViewModel.swift */; };
+		6B1A00000000000000001403 /* ImportItemViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001413 /* ImportItemViewState.swift */; };
+		6B1A00000000000000001404 /* ImportItemViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001414 /* ImportItemViewStateBuilder.swift */; };
+		6B1A00000000000000001405 /* ImportItemStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001415 /* ImportItemStateRenderer.swift */; };
+		6B1A00000000000000001406 /* ImportItemFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001416 /* ImportItemFormView.swift */; };
+		6B1A00000000000000001501 /* AudioRecorderScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001511 /* AudioRecorderScreen.swift */; };
+		6B1A00000000000000001502 /* AudioRecorderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001512 /* AudioRecorderViewModel.swift */; };
+		6B1A00000000000000001503 /* AudioRecorderViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001513 /* AudioRecorderViewState.swift */; };
+		6B1A00000000000000001504 /* AudioRecorderViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001514 /* AudioRecorderViewStateBuilder.swift */; };
+		6B1A00000000000000001505 /* AudioRecorderStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001515 /* AudioRecorderStateRenderer.swift */; };
+		6B1A00000000000000001506 /* AudioRecorderFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001516 /* AudioRecorderFormView.swift */; };
+		6B1A00000000000000001601 /* SettingsScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001611 /* SettingsScreen.swift */; };
+		6B1A00000000000000001602 /* SettingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001612 /* SettingsViewModel.swift */; };
+		6B1A00000000000000001603 /* SettingsViewState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001613 /* SettingsViewState.swift */; };
+		6B1A00000000000000001604 /* SettingsViewStateBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001614 /* SettingsViewStateBuilder.swift */; };
+		6B1A00000000000000001605 /* SettingsStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001615 /* SettingsStateRenderer.swift */; };
+		6B1A00000000000000001606 /* SettingsContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001616 /* SettingsContentView.swift */; };
+		6B1A00000000000000001701 /* CaptureScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001711 /* CaptureScreen.swift */; };
+		6B1A00000000000000001702 /* CaptureStateRenderer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001712 /* CaptureStateRenderer.swift */; };
+		6B1A00000000000000001703 /* CaptureOptionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001713 /* CaptureOptionsView.swift */; };
+		6B1A00000000000000001704 /* TagListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001714 /* TagListView.swift */; };
+		6B1A00000000000000001705 /* ImageDownsampler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001715 /* ImageDownsampler.swift */; };
+		6B1A00000000000000001706 /* AudioPlaybackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001716 /* AudioPlaybackModel.swift */; };
+		6B1A00000000000000001707 /* DownsampledImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001717 /* DownsampledImageView.swift */; };
+		6B1A00000000000000001708 /* QuickLookPreviewView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001718 /* QuickLookPreviewView.swift */; };
+		6B1A00000000000000001709 /* AudioPlaybackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B1A00000000000000001719 /* AudioPlaybackView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		6B1A00000000000000000010 /* AIFieldbook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AIFieldbook.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		6B1A00000000000000000101 /* AIFieldbookApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AIFieldbookApp.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000103 /* FieldbookDesign.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookDesign.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000104 /* FieldbookModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookModels.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000105 /* FieldbookPersistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookPersistence.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000106 /* FieldbookRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookRepository.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000109 /* AppShellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppShellView.swift; sourceTree = "<group>"; };
+		6B1A0000000000000000010F /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000110 /* AppComposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppComposition.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000111 /* AppNavigation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppNavigation.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000115 /* SpotlightIndexService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotlightIndexService.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000116 /* DeepLinkParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeepLinkParser.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000117 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6B1A00000000000000000119 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = ru.lproj/Localizable.strings; sourceTree = "<group>"; };
+		6B1A0000000000000000011A /* InfoPlist.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = InfoPlist.strings; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = LOCAL_DATA_PRIVACY_AND_RUNTIME.md; sourceTree = "<group>"; };
+		6B1A0000000000000000011C /* FieldbookSearchIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookSearchIndex.swift; sourceTree = "<group>"; };
+		6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		6B1A0000000000000000011E /* FieldbookExportService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookExportService.swift; sourceTree = "<group>"; };
+		6B1A0000000000000000011F /* Localizable.stringsdict */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = Localizable.stringsdict; path = ru.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
+		6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenWorkspaceIntent.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FieldbookIntentDataSource.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000206 /* WorkspaceEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEntity.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000207 /* KnowledgeItemEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KnowledgeItemEntity.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindKnowledgeItemsIntent.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000311 /* WorkspaceListScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000312 /* WorkspaceListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000313 /* WorkspaceListViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000314 /* WorkspaceListViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000315 /* WorkspaceListStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000316 /* WorkspaceListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceListRow.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000411 /* WorkspaceDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDetailScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000412 /* WorkspaceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDetailViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000413 /* WorkspaceDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDetailViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000414 /* WorkspaceDetailViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDetailViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000415 /* WorkspaceDetailStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDetailStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000416 /* WorkspaceDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDetailContentView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000417 /* WorkspaceDetailItemRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceDetailItemRow.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000511 /* WorkspaceEditorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEditorScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000512 /* WorkspaceEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEditorViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000513 /* WorkspaceEditorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEditorViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000514 /* WorkspaceEditorViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEditorViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000515 /* WorkspaceEditorStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEditorStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000516 /* WorkspaceEditorFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorkspaceEditorFormView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000611 /* TextNoteDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteDetailScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000612 /* TextNoteDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteDetailViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000613 /* TextNoteDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteDetailViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000614 /* TextNoteDetailViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteDetailViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000615 /* TextNoteDetailStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteDetailStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000616 /* TextNoteDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteDetailContentView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000711 /* TextNoteEditorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteEditorScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000712 /* TextNoteEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteEditorViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000713 /* TextNoteEditorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteEditorViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000714 /* TextNoteEditorViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteEditorViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000715 /* TextNoteEditorStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteEditorStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000716 /* TextNoteEditorFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextNoteEditorFormView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000811 /* URLReferenceDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceDetailScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000812 /* URLReferenceDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceDetailViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000813 /* URLReferenceDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceDetailViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000814 /* URLReferenceDetailViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceDetailViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000815 /* URLReferenceDetailStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceDetailStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000816 /* URLReferenceDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceDetailContentView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000911 /* URLReferenceEditorScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceEditorScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000912 /* URLReferenceEditorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceEditorViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000913 /* URLReferenceEditorViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceEditorViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000914 /* URLReferenceEditorViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceEditorViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000915 /* URLReferenceEditorStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceEditorStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000000916 /* URLReferenceEditorFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLReferenceEditorFormView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001011 /* SearchScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001012 /* SearchViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001013 /* SearchViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001014 /* SearchViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001015 /* SearchStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001016 /* SearchFilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFilterView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001017 /* SearchResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001018 /* SearchResultRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultRow.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001111 /* TagManagerScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagerScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001112 /* TagManagerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagerViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001113 /* TagManagerViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagerViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001114 /* TagManagerViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagerViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001115 /* TagManagerStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagerStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001116 /* TagManagerFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagManagerFormView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001211 /* MoveItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItemScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001212 /* MoveItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItemViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001213 /* MoveItemViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItemViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001214 /* MoveItemViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItemViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001215 /* MoveItemStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItemStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001216 /* MoveItemFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveItemFormView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001311 /* ImportedItemDetailScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedItemDetailScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001312 /* ImportedItemDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedItemDetailViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001313 /* ImportedItemDetailViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedItemDetailViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001314 /* ImportedItemDetailViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedItemDetailViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001315 /* ImportedItemDetailStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedItemDetailStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001316 /* ImportedItemDetailContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportedItemDetailContentView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001411 /* ImportItemScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportItemScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001412 /* ImportItemViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportItemViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001413 /* ImportItemViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportItemViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001414 /* ImportItemViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportItemViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001415 /* ImportItemStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportItemStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001416 /* ImportItemFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportItemFormView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001511 /* AudioRecorderScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001512 /* AudioRecorderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001513 /* AudioRecorderViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001514 /* AudioRecorderViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001515 /* AudioRecorderStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001516 /* AudioRecorderFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioRecorderFormView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001611 /* SettingsScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001612 /* SettingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001613 /* SettingsViewState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewState.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001614 /* SettingsViewStateBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewStateBuilder.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001615 /* SettingsStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001616 /* SettingsContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsContentView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001711 /* CaptureScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureScreen.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001712 /* CaptureStateRenderer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureStateRenderer.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001713 /* CaptureOptionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureOptionsView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001714 /* TagListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagListView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001715 /* ImageDownsampler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownsampler.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001716 /* AudioPlaybackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlaybackModel.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001717 /* DownsampledImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownsampledImageView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001718 /* QuickLookPreviewView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickLookPreviewView.swift; sourceTree = "<group>"; };
+		6B1A00000000000000001719 /* AudioPlaybackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioPlaybackView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		6B1A00000000000000000020 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		6B1A00000000000000000030 = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000031 /* AIFieldbook */,
+				6B1A00000000000000000047 /* Documentation */,
+				6B1A00000000000000000033 /* PackagesInUse */,
+				6B1A00000000000000000032 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000031 /* AIFieldbook */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000035 /* App */,
+				6B1A00000000000000000036 /* Navigation */,
+				6B1A00000000000000000037 /* Core */,
+				6B1A00000000000000000038 /* Features */,
+				6B1A00000000000000000048 /* SystemIntegration */,
+				6B1A00000000000000000046 /* Resources */,
+			);
+			path = AIFieldbook;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000032 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000010 /* AIFieldbook.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000033 /* PackagesInUse */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000034 /* AppNavigation/Sources/AppNavigation */,
+			);
+			name = PackagesInUse;
+			path = ../PackagesInUse;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000034 /* AppNavigation/Sources/AppNavigation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000111 /* AppNavigation.swift */,
+			);
+			path = AppNavigation/Sources/AppNavigation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000035 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000101 /* AIFieldbookApp.swift */,
+				6B1A00000000000000000110 /* AppComposition.swift */,
+				6B1A00000000000000000109 /* AppShellView.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000036 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A0000000000000000010F /* AppCoordinator.swift */,
+				6B1A00000000000000000116 /* DeepLinkParser.swift */,
+			);
+			path = Navigation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000037 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000039 /* DesignSystem */,
+				6B1A0000000000000000003A /* Persistence */,
+				6B1A00000000000000000045 /* Search */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000038 /* Features */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A0000000000000000003B /* Workspace */,
+				6B1A0000000000000000003C /* Capture */,
+				6B1A0000000000000000003D /* Items */,
+				6B1A0000000000000000003E /* Search */,
+				6B1A0000000000000000003F /* Settings */,
+			);
+			path = Features;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000039 /* DesignSystem */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000103 /* FieldbookDesign.swift */,
+			);
+			path = DesignSystem;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003A /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000104 /* FieldbookModels.swift */,
+				6B1A00000000000000000105 /* FieldbookPersistence.swift */,
+				6B1A00000000000000000106 /* FieldbookRepository.swift */,
+				6B1A0000000000000000011E /* FieldbookExportService.swift */,
+			);
+			path = Persistence;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003B /* Workspace */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000321 /* Presentation */,
+			);
+			path = Workspace;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000321 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000322 /* List */,
+				6B1A00000000000000000421 /* Detail */,
+				6B1A00000000000000000521 /* Editor */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000322 /* List */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000311 /* WorkspaceListScreen.swift */,
+				6B1A00000000000000000312 /* WorkspaceListViewModel.swift */,
+				6B1A00000000000000000313 /* WorkspaceListViewState.swift */,
+				6B1A00000000000000000314 /* WorkspaceListViewStateBuilder.swift */,
+				6B1A00000000000000000323 /* Components */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000323 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000315 /* WorkspaceListStateRenderer.swift */,
+				6B1A00000000000000000316 /* WorkspaceListRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000421 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000411 /* WorkspaceDetailScreen.swift */,
+				6B1A00000000000000000412 /* WorkspaceDetailViewModel.swift */,
+				6B1A00000000000000000413 /* WorkspaceDetailViewState.swift */,
+				6B1A00000000000000000414 /* WorkspaceDetailViewStateBuilder.swift */,
+				6B1A00000000000000000422 /* Components */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000422 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000415 /* WorkspaceDetailStateRenderer.swift */,
+				6B1A00000000000000000416 /* WorkspaceDetailContentView.swift */,
+				6B1A00000000000000000417 /* WorkspaceDetailItemRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000521 /* Editor */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000511 /* WorkspaceEditorScreen.swift */,
+				6B1A00000000000000000512 /* WorkspaceEditorViewModel.swift */,
+				6B1A00000000000000000513 /* WorkspaceEditorViewState.swift */,
+				6B1A00000000000000000514 /* WorkspaceEditorViewStateBuilder.swift */,
+				6B1A00000000000000000522 /* Components */,
+			);
+			path = Editor;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000522 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000515 /* WorkspaceEditorStateRenderer.swift */,
+				6B1A00000000000000000516 /* WorkspaceEditorFormView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003C /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000621 /* Presentation */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000621 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001722 /* Chooser */,
+				6B1A00000000000000000622 /* TextNoteDetail */,
+				6B1A00000000000000000722 /* TextNoteEditor */,
+				6B1A00000000000000000822 /* URLReferenceDetail */,
+				6B1A00000000000000000922 /* URLReferenceEditor */,
+				6B1A00000000000000001522 /* AudioRecorder */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000622 /* TextNoteDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000611 /* TextNoteDetailScreen.swift */,
+				6B1A00000000000000000612 /* TextNoteDetailViewModel.swift */,
+				6B1A00000000000000000613 /* TextNoteDetailViewState.swift */,
+				6B1A00000000000000000614 /* TextNoteDetailViewStateBuilder.swift */,
+				6B1A00000000000000000623 /* Components */,
+			);
+			path = TextNoteDetail;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000623 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000615 /* TextNoteDetailStateRenderer.swift */,
+				6B1A00000000000000000616 /* TextNoteDetailContentView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000722 /* TextNoteEditor */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000711 /* TextNoteEditorScreen.swift */,
+				6B1A00000000000000000712 /* TextNoteEditorViewModel.swift */,
+				6B1A00000000000000000713 /* TextNoteEditorViewState.swift */,
+				6B1A00000000000000000714 /* TextNoteEditorViewStateBuilder.swift */,
+				6B1A00000000000000000723 /* Components */,
+			);
+			path = TextNoteEditor;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000723 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000715 /* TextNoteEditorStateRenderer.swift */,
+				6B1A00000000000000000716 /* TextNoteEditorFormView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000822 /* URLReferenceDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000811 /* URLReferenceDetailScreen.swift */,
+				6B1A00000000000000000812 /* URLReferenceDetailViewModel.swift */,
+				6B1A00000000000000000813 /* URLReferenceDetailViewState.swift */,
+				6B1A00000000000000000814 /* URLReferenceDetailViewStateBuilder.swift */,
+				6B1A00000000000000000823 /* Components */,
+			);
+			path = URLReferenceDetail;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000823 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000815 /* URLReferenceDetailStateRenderer.swift */,
+				6B1A00000000000000000816 /* URLReferenceDetailContentView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000922 /* URLReferenceEditor */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000911 /* URLReferenceEditorScreen.swift */,
+				6B1A00000000000000000912 /* URLReferenceEditorViewModel.swift */,
+				6B1A00000000000000000913 /* URLReferenceEditorViewState.swift */,
+				6B1A00000000000000000914 /* URLReferenceEditorViewStateBuilder.swift */,
+				6B1A00000000000000000923 /* Components */,
+			);
+			path = URLReferenceEditor;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000923 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000915 /* URLReferenceEditorStateRenderer.swift */,
+				6B1A00000000000000000916 /* URLReferenceEditorFormView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001522 /* AudioRecorder */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001511 /* AudioRecorderScreen.swift */,
+				6B1A00000000000000001512 /* AudioRecorderViewModel.swift */,
+				6B1A00000000000000001513 /* AudioRecorderViewState.swift */,
+				6B1A00000000000000001514 /* AudioRecorderViewStateBuilder.swift */,
+				6B1A00000000000000001523 /* Components */,
+			);
+			path = AudioRecorder;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001523 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001515 /* AudioRecorderStateRenderer.swift */,
+				6B1A00000000000000001516 /* AudioRecorderFormView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001722 /* Chooser */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001711 /* CaptureScreen.swift */,
+				6B1A00000000000000001723 /* Components */,
+			);
+			path = Chooser;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001723 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001712 /* CaptureStateRenderer.swift */,
+				6B1A00000000000000001713 /* CaptureOptionsView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003D /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001121 /* Presentation */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001121 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001724 /* Shared */,
+				6B1A00000000000000001122 /* TagManager */,
+				6B1A00000000000000001222 /* MoveItem */,
+				6B1A00000000000000001322 /* ImportedItemDetail */,
+				6B1A00000000000000001422 /* ImportItem */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001122 /* TagManager */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001111 /* TagManagerScreen.swift */,
+				6B1A00000000000000001112 /* TagManagerViewModel.swift */,
+				6B1A00000000000000001113 /* TagManagerViewState.swift */,
+				6B1A00000000000000001114 /* TagManagerViewStateBuilder.swift */,
+				6B1A00000000000000001123 /* Components */,
+			);
+			path = TagManager;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001123 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001115 /* TagManagerStateRenderer.swift */,
+				6B1A00000000000000001116 /* TagManagerFormView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001222 /* MoveItem */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001211 /* MoveItemScreen.swift */,
+				6B1A00000000000000001212 /* MoveItemViewModel.swift */,
+				6B1A00000000000000001213 /* MoveItemViewState.swift */,
+				6B1A00000000000000001214 /* MoveItemViewStateBuilder.swift */,
+				6B1A00000000000000001223 /* Components */,
+			);
+			path = MoveItem;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001223 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001215 /* MoveItemStateRenderer.swift */,
+				6B1A00000000000000001216 /* MoveItemFormView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001322 /* ImportedItemDetail */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001311 /* ImportedItemDetailScreen.swift */,
+				6B1A00000000000000001312 /* ImportedItemDetailViewModel.swift */,
+				6B1A00000000000000001313 /* ImportedItemDetailViewState.swift */,
+				6B1A00000000000000001314 /* ImportedItemDetailViewStateBuilder.swift */,
+				6B1A00000000000000001715 /* ImageDownsampler.swift */,
+				6B1A00000000000000001716 /* AudioPlaybackModel.swift */,
+				6B1A00000000000000001323 /* Components */,
+			);
+			path = ImportedItemDetail;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001323 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001315 /* ImportedItemDetailStateRenderer.swift */,
+				6B1A00000000000000001316 /* ImportedItemDetailContentView.swift */,
+				6B1A00000000000000001717 /* DownsampledImageView.swift */,
+				6B1A00000000000000001718 /* QuickLookPreviewView.swift */,
+				6B1A00000000000000001719 /* AudioPlaybackView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001422 /* ImportItem */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001411 /* ImportItemScreen.swift */,
+				6B1A00000000000000001412 /* ImportItemViewModel.swift */,
+				6B1A00000000000000001413 /* ImportItemViewState.swift */,
+				6B1A00000000000000001414 /* ImportItemViewStateBuilder.swift */,
+				6B1A00000000000000001423 /* Components */,
+			);
+			path = ImportItem;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001423 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001415 /* ImportItemStateRenderer.swift */,
+				6B1A00000000000000001416 /* ImportItemFormView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001724 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001725 /* Components */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001725 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001714 /* TagListView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001021 /* Presentation */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001021 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001011 /* SearchScreen.swift */,
+				6B1A00000000000000001012 /* SearchViewModel.swift */,
+				6B1A00000000000000001013 /* SearchViewState.swift */,
+				6B1A00000000000000001014 /* SearchViewStateBuilder.swift */,
+				6B1A00000000000000001022 /* Components */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001022 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001015 /* SearchStateRenderer.swift */,
+				6B1A00000000000000001016 /* SearchFilterView.swift */,
+				6B1A00000000000000001017 /* SearchResultsView.swift */,
+				6B1A00000000000000001018 /* SearchResultRow.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001621 /* Presentation */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001621 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001622 /* Settings */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001622 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001611 /* SettingsScreen.swift */,
+				6B1A00000000000000001612 /* SettingsViewModel.swift */,
+				6B1A00000000000000001613 /* SettingsViewState.swift */,
+				6B1A00000000000000001614 /* SettingsViewStateBuilder.swift */,
+				6B1A00000000000000001623 /* Components */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000001623 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001615 /* SettingsStateRenderer.swift */,
+				6B1A00000000000000001616 /* SettingsContentView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000045 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000115 /* SpotlightIndexService.swift */,
+				6B1A0000000000000000011C /* FieldbookSearchIndex.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000046 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000117 /* Info.plist */,
+				6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */,
+				6B1A00000000000000000119 /* Localizable.strings */,
+				6B1A0000000000000000011A /* InfoPlist.strings */,
+				6B1A0000000000000000011F /* Localizable.stringsdict */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000047 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000048 /* SystemIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000049 /* AppIntents */,
+			);
+			path = SystemIntegration;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000049 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */,
+				6B1A00000000000000000206 /* WorkspaceEntity.swift */,
+				6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */,
+				6B1A00000000000000000207 /* KnowledgeItemEntity.swift */,
+				6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */,
+			);
+			path = AppIntents;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		6B1A00000000000000000040 /* AIFieldbook */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6B1A00000000000000000041 /* Build configuration list for PBXNativeTarget "AIFieldbook" */;
+			buildPhases = (
+				6B1A00000000000000000050 /* Sources */,
+				6B1A00000000000000000020 /* Frameworks */,
+				6B1A00000000000000000060 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AIFieldbook;
+			productName = AIFieldbook;
+			productReference = 6B1A00000000000000000010 /* AIFieldbook.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		6B1A00000000000000000070 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 2650;
+				LastUpgradeCheck = 2650;
+				TargetAttributes = {
+					6B1A00000000000000000040 = {
+						CreatedOnToolsVersion = 26.5;
+					};
+				};
+			};
+			buildConfigurationList = 6B1A00000000000000000071 /* Build configuration list for PBXProject "AIFieldbook" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				ru,
+				Base,
+			);
+			mainGroup = 6B1A00000000000000000030;
+			productRefGroup = 6B1A00000000000000000032 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				6B1A00000000000000000040 /* AIFieldbook */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		6B1A00000000000000000060 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B1A0000000000000000001C /* PrivacyInfo.xcprivacy in Resources */,
+				6B1A00000000000000000019 /* Localizable.strings in Resources */,
+				6B1A0000000000000000001A /* InfoPlist.strings in Resources */,
+				6B1A0000000000000000001E /* Localizable.stringsdict in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6B1A00000000000000000050 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6B1A00000000000000000001 /* AIFieldbookApp.swift in Sources */,
+				6B1A00000000000000000003 /* FieldbookDesign.swift in Sources */,
+				6B1A00000000000000000004 /* FieldbookModels.swift in Sources */,
+				6B1A00000000000000000005 /* FieldbookPersistence.swift in Sources */,
+				6B1A00000000000000000006 /* FieldbookRepository.swift in Sources */,
+				6B1A00000000000000000009 /* AppShellView.swift in Sources */,
+				6B1A0000000000000000000F /* AppCoordinator.swift in Sources */,
+				6B1A00000000000000000011 /* AppComposition.swift in Sources */,
+				6B1A00000000000000000012 /* AppNavigation.swift in Sources */,
+				6B1A00000000000000000016 /* SpotlightIndexService.swift in Sources */,
+				6B1A00000000000000000017 /* DeepLinkParser.swift in Sources */,
+				6B1A0000000000000000001B /* FieldbookSearchIndex.swift in Sources */,
+				6B1A0000000000000000001D /* FieldbookExportService.swift in Sources */,
+				6B1A0000000000000000001F /* OpenWorkspaceIntent.swift in Sources */,
+				6B1A00000000000000000201 /* FieldbookIntentDataSource.swift in Sources */,
+				6B1A00000000000000000202 /* WorkspaceEntity.swift in Sources */,
+				6B1A00000000000000000203 /* KnowledgeItemEntity.swift in Sources */,
+				6B1A00000000000000000204 /* FindKnowledgeItemsIntent.swift in Sources */,
+				6B1A00000000000000000301 /* WorkspaceListScreen.swift in Sources */,
+				6B1A00000000000000000302 /* WorkspaceListViewModel.swift in Sources */,
+				6B1A00000000000000000303 /* WorkspaceListViewState.swift in Sources */,
+				6B1A00000000000000000304 /* WorkspaceListViewStateBuilder.swift in Sources */,
+				6B1A00000000000000000305 /* WorkspaceListStateRenderer.swift in Sources */,
+				6B1A00000000000000000306 /* WorkspaceListRow.swift in Sources */,
+				6B1A00000000000000000401 /* WorkspaceDetailScreen.swift in Sources */,
+				6B1A00000000000000000402 /* WorkspaceDetailViewModel.swift in Sources */,
+				6B1A00000000000000000403 /* WorkspaceDetailViewState.swift in Sources */,
+				6B1A00000000000000000404 /* WorkspaceDetailViewStateBuilder.swift in Sources */,
+				6B1A00000000000000000405 /* WorkspaceDetailStateRenderer.swift in Sources */,
+				6B1A00000000000000000406 /* WorkspaceDetailContentView.swift in Sources */,
+				6B1A00000000000000000407 /* WorkspaceDetailItemRow.swift in Sources */,
+				6B1A00000000000000000501 /* WorkspaceEditorScreen.swift in Sources */,
+				6B1A00000000000000000502 /* WorkspaceEditorViewModel.swift in Sources */,
+				6B1A00000000000000000503 /* WorkspaceEditorViewState.swift in Sources */,
+				6B1A00000000000000000504 /* WorkspaceEditorViewStateBuilder.swift in Sources */,
+				6B1A00000000000000000505 /* WorkspaceEditorStateRenderer.swift in Sources */,
+				6B1A00000000000000000506 /* WorkspaceEditorFormView.swift in Sources */,
+				6B1A00000000000000000601 /* TextNoteDetailScreen.swift in Sources */,
+				6B1A00000000000000000602 /* TextNoteDetailViewModel.swift in Sources */,
+				6B1A00000000000000000603 /* TextNoteDetailViewState.swift in Sources */,
+				6B1A00000000000000000604 /* TextNoteDetailViewStateBuilder.swift in Sources */,
+				6B1A00000000000000000605 /* TextNoteDetailStateRenderer.swift in Sources */,
+				6B1A00000000000000000606 /* TextNoteDetailContentView.swift in Sources */,
+				6B1A00000000000000000701 /* TextNoteEditorScreen.swift in Sources */,
+				6B1A00000000000000000702 /* TextNoteEditorViewModel.swift in Sources */,
+				6B1A00000000000000000703 /* TextNoteEditorViewState.swift in Sources */,
+				6B1A00000000000000000704 /* TextNoteEditorViewStateBuilder.swift in Sources */,
+				6B1A00000000000000000705 /* TextNoteEditorStateRenderer.swift in Sources */,
+				6B1A00000000000000000706 /* TextNoteEditorFormView.swift in Sources */,
+				6B1A00000000000000000801 /* URLReferenceDetailScreen.swift in Sources */,
+				6B1A00000000000000000802 /* URLReferenceDetailViewModel.swift in Sources */,
+				6B1A00000000000000000803 /* URLReferenceDetailViewState.swift in Sources */,
+				6B1A00000000000000000804 /* URLReferenceDetailViewStateBuilder.swift in Sources */,
+				6B1A00000000000000000805 /* URLReferenceDetailStateRenderer.swift in Sources */,
+				6B1A00000000000000000806 /* URLReferenceDetailContentView.swift in Sources */,
+				6B1A00000000000000000901 /* URLReferenceEditorScreen.swift in Sources */,
+				6B1A00000000000000000902 /* URLReferenceEditorViewModel.swift in Sources */,
+				6B1A00000000000000000903 /* URLReferenceEditorViewState.swift in Sources */,
+				6B1A00000000000000000904 /* URLReferenceEditorViewStateBuilder.swift in Sources */,
+				6B1A00000000000000000905 /* URLReferenceEditorStateRenderer.swift in Sources */,
+				6B1A00000000000000000906 /* URLReferenceEditorFormView.swift in Sources */,
+				6B1A00000000000000001001 /* SearchScreen.swift in Sources */,
+				6B1A00000000000000001002 /* SearchViewModel.swift in Sources */,
+				6B1A00000000000000001003 /* SearchViewState.swift in Sources */,
+				6B1A00000000000000001004 /* SearchViewStateBuilder.swift in Sources */,
+				6B1A00000000000000001005 /* SearchStateRenderer.swift in Sources */,
+				6B1A00000000000000001006 /* SearchFilterView.swift in Sources */,
+				6B1A00000000000000001007 /* SearchResultsView.swift in Sources */,
+				6B1A00000000000000001008 /* SearchResultRow.swift in Sources */,
+				6B1A00000000000000001101 /* TagManagerScreen.swift in Sources */,
+				6B1A00000000000000001102 /* TagManagerViewModel.swift in Sources */,
+				6B1A00000000000000001103 /* TagManagerViewState.swift in Sources */,
+				6B1A00000000000000001104 /* TagManagerViewStateBuilder.swift in Sources */,
+				6B1A00000000000000001105 /* TagManagerStateRenderer.swift in Sources */,
+				6B1A00000000000000001106 /* TagManagerFormView.swift in Sources */,
+				6B1A00000000000000001201 /* MoveItemScreen.swift in Sources */,
+				6B1A00000000000000001202 /* MoveItemViewModel.swift in Sources */,
+				6B1A00000000000000001203 /* MoveItemViewState.swift in Sources */,
+				6B1A00000000000000001204 /* MoveItemViewStateBuilder.swift in Sources */,
+				6B1A00000000000000001205 /* MoveItemStateRenderer.swift in Sources */,
+				6B1A00000000000000001206 /* MoveItemFormView.swift in Sources */,
+				6B1A00000000000000001301 /* ImportedItemDetailScreen.swift in Sources */,
+				6B1A00000000000000001302 /* ImportedItemDetailViewModel.swift in Sources */,
+				6B1A00000000000000001303 /* ImportedItemDetailViewState.swift in Sources */,
+				6B1A00000000000000001304 /* ImportedItemDetailViewStateBuilder.swift in Sources */,
+				6B1A00000000000000001305 /* ImportedItemDetailStateRenderer.swift in Sources */,
+				6B1A00000000000000001306 /* ImportedItemDetailContentView.swift in Sources */,
+				6B1A00000000000000001401 /* ImportItemScreen.swift in Sources */,
+				6B1A00000000000000001402 /* ImportItemViewModel.swift in Sources */,
+				6B1A00000000000000001403 /* ImportItemViewState.swift in Sources */,
+				6B1A00000000000000001404 /* ImportItemViewStateBuilder.swift in Sources */,
+				6B1A00000000000000001405 /* ImportItemStateRenderer.swift in Sources */,
+				6B1A00000000000000001406 /* ImportItemFormView.swift in Sources */,
+				6B1A00000000000000001501 /* AudioRecorderScreen.swift in Sources */,
+				6B1A00000000000000001502 /* AudioRecorderViewModel.swift in Sources */,
+				6B1A00000000000000001503 /* AudioRecorderViewState.swift in Sources */,
+				6B1A00000000000000001504 /* AudioRecorderViewStateBuilder.swift in Sources */,
+				6B1A00000000000000001505 /* AudioRecorderStateRenderer.swift in Sources */,
+				6B1A00000000000000001506 /* AudioRecorderFormView.swift in Sources */,
+				6B1A00000000000000001601 /* SettingsScreen.swift in Sources */,
+				6B1A00000000000000001602 /* SettingsViewModel.swift in Sources */,
+				6B1A00000000000000001603 /* SettingsViewState.swift in Sources */,
+				6B1A00000000000000001604 /* SettingsViewStateBuilder.swift in Sources */,
+				6B1A00000000000000001605 /* SettingsStateRenderer.swift in Sources */,
+				6B1A00000000000000001606 /* SettingsContentView.swift in Sources */,
+				6B1A00000000000000001701 /* CaptureScreen.swift in Sources */,
+				6B1A00000000000000001702 /* CaptureStateRenderer.swift in Sources */,
+				6B1A00000000000000001703 /* CaptureOptionsView.swift in Sources */,
+				6B1A00000000000000001704 /* TagListView.swift in Sources */,
+				6B1A00000000000000001705 /* ImageDownsampler.swift in Sources */,
+				6B1A00000000000000001706 /* AudioPlaybackModel.swift in Sources */,
+				6B1A00000000000000001707 /* DownsampledImageView.swift in Sources */,
+				6B1A00000000000000001708 /* QuickLookPreviewView.swift in Sources */,
+				6B1A00000000000000001709 /* AudioPlaybackView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		6B1A00000000000000000080 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_STRICT_CONCURRENCY = complete;
+			};
+			name = Debug;
+		};
+		6B1A00000000000000000081 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_STRICT_CONCURRENCY = complete;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		6B1A00000000000000000082 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AIFieldbook/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Fieldbook";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.AIFieldbook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		6B1A00000000000000000083 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = AIFieldbook/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "AI Fieldbook";
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.AIFieldbook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 6.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		6B1A00000000000000000041 /* Build configuration list for PBXNativeTarget "AIFieldbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B1A00000000000000000082 /* Debug */,
+				6B1A00000000000000000083 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6B1A00000000000000000071 /* Build configuration list for PBXProject "AIFieldbook" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6B1A00000000000000000080 /* Debug */,
+				6B1A00000000000000000081 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 6B1A00000000000000000070 /* Project object */;
+}

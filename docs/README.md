@@ -1,0 +1,389 @@
+# Documentation Map
+
+## Purpose
+Entry point for active project documentation, production standards, prompt templates, local skills, and static quality gates.
+
+- Read active docs before substantive work.
+- Apply `./docs/CURRENT_USER_OVERRIDES.md` before general defaults.
+- Use `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` to select task-specific standards instead of reading the whole library by default.
+- Use archives only when active docs are insufficient.
+- If a rule/contract changed, refresh this map before continuing.
+- Documentation is part of the product baseline, not optional commentary.
+
+## Default Read Order
+Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`, then its current Level 0 set once, then only the selected task routes. The router is the sole source of truth for the numbered startup list.
+
+## Context Load Policy
+The index below is a map, not an always-read list. Use it to resolve routed documents after `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` selects the task type.
+
+Clean as found: when duplicated long rules, stale always-read lists, broken links, or misplaced app-specific content are found during normal work, fix them if safe and in scope; otherwise record the follow-up. Every new reusable doc/prompt/skill/package reference must be assigned to the router before completion.
+
+## Mandatory Active Documentation Index
+
+### Project Baseline
+- `./AGENTS.md`
+- `./PROJECT_DOCUMENTATION.md`
+- `./PROJECT_HEALTH.md`
+- `./TESTING_INSTRUCTIONS.md`
+- `./docs/AGENT_RULES.md`
+- `./docs/WORK_CONTINUITY.md`
+- `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`
+- `./docs/CURRENT_USER_OVERRIDES.md`
+- `./docs/MODEL_ROUTING_RULE.md`
+- `./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md`
+- `./docs/DOCUMENT_BOUNDARY_STANDARD.md`
+- `./docs/DOCUMENT_LIBRARY_GUIDE.md`
+- `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
+- `./docs/DOCUMENT_ROUTING_REGISTRY.json`
+- `./docs/TASK_DOCUMENT_ROUTES.json`
+- `./docs/REUSABLE_BASELINE_POLICY.json`
+- `./docs/SOURCE_OF_TRUTH_MAP.md`
+- `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
+- `./docs/COMPLETION_REPORT_CONTRACT.md`
+- `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
+
+### Production Quality And Review Gates
+- `./docs/IOS_PRODUCTION_FRAMEWORK.md`
+- `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
+- `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
+- `./docs/IOS_PR_REVIEW_TEMPLATE.md`
+- `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`
+- `./docs/IOS_AGENT_PROMPT_ROUTER.md`
+- `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`
+- `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
+- `./docs/IOS_PRODUCTION_SCORECARD.md`
+- `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`
+- `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
+- `./docs/PRODUCTION_QUALITY_GATES.md`
+- `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
+- `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`
+- `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
+- `./docs/DEFINITION_OF_DONE.md`
+- `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+- `./docs/STATIC_QUALITY_GATE_POLICY.md`
+- `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`
+
+### Product, Governance, And Operating Model
+- `./docs/NEW_PROJECT_START_CONTRACT.md`
+- `./docs/SOURCE_OF_TRUTH_MAP.md`
+- `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
+- `./docs/COMPLETION_REPORT_CONTRACT.md`
+- `./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`
+- `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
+- `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`
+- `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`
+- `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`
+- `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
+- `./docs/INCIDENT_RESPONSE_STANDARD.md`
+- `./docs/PRODUCT_HEALTH_SLO.md`
+- `./docs/RISK_REGISTER.md`
+- `./docs/TECH_DEBT_REGISTER.md`
+
+### iOS Production Standards
+- `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
+- `./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json`
+- `./docs/IOS_TESTING_STRATEGY.md`
+- `./docs/IOS_SECURITY_PRIVACY_GATE.md`
+- `./docs/IOS_OBSERVABILITY_STANDARD.md`
+- `./docs/IOS_RELEASE_CHECKLIST.md`
+- `./docs/IOS_ACCESSIBILITY_STANDARD.md`
+- `./docs/IOS_PERFORMANCE_BUDGETS.md`
+- `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`
+- `./docs/IOS_DATA_MIGRATION_STANDARD.md`
+- `./docs/DESIGN_SYSTEM_GOVERNANCE.md`
+- `./docs/CI_CD_QUALITY_GATES.md`
+- `./docs/DEPENDENCY_POLICY.md`
+- `./docs/MODULAR_ARCHITECTURE_STANDARD.md`
+- `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`
+- `./docs/DEVELOPER_EXPERIENCE_STANDARD.md`
+- `./docs/QA_TEST_PLAN_STANDARD.md`
+- `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
+- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+- `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`
+- `./docs/COMPATIBILITY_MATRIX.md`
+- `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`
+- `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
+- `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`
+- `./docs/IOS_MVVM_INTENT_API_STANDARD.md`
+- `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`
+- `./docs/IOS_OFFLINE_SYNC_STANDARD.md`
+- `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+- `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`
+- `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`
+- `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`
+- `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`
+- `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`
+- `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`
+
+### Reusable Package And App Runtime Docs
+- `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
+- `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
+- `./docs/PACKAGES_AND_MANAGERS.md`
+- `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
+- `./Packages/SDKCreation/README.md`
+- `./PackagesForReuse/AppBackgroundTasks/README.md`
+- `./PackagesForReuse/AppSecureStorage/README.md`
+- `./PackagesForReuse/AppFeatureFlags/README.md`
+- `./PackagesForReuse/AppFileStorage/README.md`
+- `./PackagesForReuse/AppFormValidation/README.md`
+- `./PackagesForReuse/AppImagePipeline/README.md`
+- `./PackagesForReuse/AppInputFormatting/README.md`
+- `./PackagesForReuse/AppIntentSupport/README.md`
+- `./PackagesForReuse/AppLogging/README.md`
+- `./PackagesForReuse/AppObservability/README.md`
+- `./PackagesForReuse/AppConnectivity/README.md`
+- `./PackagesForReuse/AppDeviceInfo/README.md`
+- `./PackagesForReuse/AppDownloads/README.md`
+- `./PackagesForReuse/AppEnvironment/README.md`
+- `./PackagesForReuse/AppLifecycle/README.md`
+- `./PackagesForReuse/AppPagination/README.md`
+- `./PackagesForReuse/AppPermissions/README.md`
+- `./PackagesForReuse/AppUploads/README.md`
+- `./PackagesForReuse/AppRemoteAssets/README.md`
+- `./PackagesForReuse/AppRateLimiter/README.md`
+- `./PackagesForReuse/AppStateMachine/README.md`
+- `./PackagesForReuse/AppTaskQueue/README.md`
+- `./PackagesForReuse/AppValidationCore/README.md`
+- `./PackagesInUse/README.md`
+- `./PackagesInUse/PACKAGE_CATALOG.md`
+- `./PackagesForReuse/README.md`
+- `./PackagesForReuse/PACKAGE_CATALOG.md`
+- `./PackagesForReuse/CONNECTING_PACKAGES.md`
+- `./PackagesForReuse/ADOPTION_AUDIT.md`
+- `./docs/IOS_ARCHITECTURE_REFERENCE.md`
+- `./docs/SHARE_EXTENSION_VALIDATION.md`
+
+### Prompt Templates And Knowledge
+- `./docs/agent-prompts/README.md`
+- `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`
+- `./docs/agent-prompts/ios-architecture-style-review.md`
+- `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
+- `./docs/knowledge/global/README.md`
+- `./docs/knowledge/global/ios/README.md`
+- `./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
+- `./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md`
+- `./docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md`
+- `./docs/knowledge/global/ios/NETWORKING_WEB_AND_REALTIME_SYSTEMS.md`
+- `./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`
+- `./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md`
+- `./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md`
+- `./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md`
+- `./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md`
+- `./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md`
+- `./docs/knowledge/global/ios/PERFORMANCE_OBSERVABILITY_AND_OPERATIONS.md`
+- `./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md`
+
+
+### Reference Inventories And Saved Prompts
+- `./docs/DOCS_REPO_OPERATIONS.md`
+- `./docs/DOCUMENTATION_VAULT_SUMMARY.md`
+- `./docs/saved-prompts/README.md`
+
+### Historical Documentation Split
+The following export is retained for provenance only. It is not an active bootstrap source, routing source, or current rule set.
+
+- `./docs/documentation-split/README.md`
+
+### Task Docs
+- `./.zenflow/tasks/new-task-be0b/handoff.md`
+- `./.zenflow/tasks/new-task-be0b/plan.md`
+- `./.zenflow/tasks/new-task-be0b/ai-fieldbook-product-contract.md`
+- `./.zenflow/tasks/new-task-be0b/ai-fieldbook-architecture-decisions.md`
+- `./.zenflow/tasks/new-task-be0b/ai-fieldbook-implementation-plan.md`
+- `./.zenflow/tasks/new-task-be0b/ios-ai-capabilities-and-lab-plan.md`
+- `./.zenflow/tasks/new-task-be0b/documentation-cleanup-audit.md`
+
+### Local Skills
+- `./.codex/skills/ios-content-cards/SKILL.md`
+- `./.codex/skills/ios-content-cards/references/feed-card-contract.md`
+- `./.codex/skills/ios-reusable-packages/SKILL.md`
+- `./.codex/skills/ios-reusable-packages/references/package-rules.md`
+- `./.codex/skills/ios-production-auditor/SKILL.md`
+- `./.codex/skills/ios-performance-profiler/SKILL.md`
+- `./.codex/skills/ios-security-privacy/SKILL.md`
+- `./.codex/skills/ios-accessibility/SKILL.md`
+- `./.codex/skills/ios-release-engineering/SKILL.md`
+- `./.codex/skills/ios-data-migration/SKILL.md`
+- `./.codex/skills/ios-api-contracts/SKILL.md`
+- `./.codex/skills/ios-test-strategy/SKILL.md`
+- `./.codex/skills/ios-product-governance/SKILL.md`
+- `./.codex/skills/ios-architecture-router/SKILL.md`
+- `./.codex/skills/ios-incident-ops/SKILL.md`
+- `./.codex/skills/ios-modular-architecture/SKILL.md`
+- `./.codex/skills/ios-qa-localization/SKILL.md`
+- `./.codex/skills/ios-evidence-gate/SKILL.md`
+- `./.codex/skills/ios-concurrency-runtime/SKILL.md`
+- `./.codex/skills/ios-memory-cache-media/SKILL.md`
+- `./.codex/skills/ios-network-resilience/SKILL.md`
+- `./.codex/skills/ios-offline-sync/SKILL.md`
+- `./.codex/skills/ios-lifecycle-background/SKILL.md`
+- `./.codex/skills/ios-error-handling/SKILL.md`
+- `./.codex/skills/ios-configuration-environments/SKILL.md`
+- `./.codex/skills/ios-input-validation/SKILL.md`
+- `./.codex/skills/ios-code-documentation/SKILL.md`
+- `./.codex/skills/ios-swift-runtime/SKILL.md`
+- `./.codex/skills/ios-identity-authentication/SKILL.md`
+- `./.codex/skills/ios-testing-debugging/SKILL.md`
+- `./.codex/skills/ios-build-system/SKILL.md`
+- `./.codex/skills/ios-platform-capabilities/SKILL.md`
+- `./.codex/skills/ios-app-store-compliance/SKILL.md`
+
+### Static Quality Gate Scripts
+- `./scripts/check_bootstrap_contract.py`
+- `./scripts/check_documentation_boundaries.py`
+- `./scripts/check_docs_index.py`
+- `./scripts/check_docs_consistency.py`
+- `./scripts/check_forbidden_patterns.py`
+- `./scripts/check_secrets.py`
+- `./scripts/check_task_type_documentation_router.py`
+- `./scripts/resolve_docs_route.py`
+- `./scripts/report_documentation_context_cost.py`
+- `./scripts/check_reusable_baseline_drift.py`
+- `./scripts/check_large_files.py`
+- `./scripts/check_localization.py`
+- `./scripts/check_swiftui_hot_path_patterns.py`
+- `./scripts/run_static_quality_gates.sh`
+- `./scripts/validate_ios_production_framework.py`
+- `./scripts/validate_ios_knowledge_system.py`
+
+## Canonical Document Roles
+
+### Core Rules
+- **`./AGENTS.md`**: root agent startup rules, response header, sandbox, model routing, package mode, and plan rule.
+- **`./PROJECT_DOCUMENTATION.md`**: stable iOS architecture and runtime baseline.
+- **`./PROJECT_HEALTH.md`**: reusable package/manager ownership boundaries.
+- **`./TESTING_INSTRUCTIONS.md`**: active verification workflow and levels for this project.
+- **`./docs/AGENT_RULES.md`**: short mandatory implementation guardrails.
+- **`./docs/CURRENT_USER_OVERRIDES.md`**: current task/user overrides that must be applied before general defaults.
+- **`./docs/WORK_CONTINUITY.md`**: durable resume state and universal transition prompt.
+- **`./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`**: proactive new-chat trigger and compact transition-spec requirements.
+- **`./docs/MODEL_ROUTING_RULE.md`**: model selection, escalation, and context/output budget rule for implementation, planning, and review work.
+- **`./docs/DOCUMENT_BOUNDARY_STANDARD.md`**: hard physical/logical separation rule for reusable, app-specific, architecture, package, and task documentation.
+- **`./docs/SOURCE_OF_TRUTH_MAP.md`**: canonical storage map for reusable rules, app decisions, task state, packages, prompts, and temporary notes.
+- **`./docs/NEW_PROJECT_START_CONTRACT.md`**: mandatory bootstrap contract for new projects, tasks, and worktrees.
+- **`./docs/AGENT_PREFLIGHT_CHECKLIST.md`**: preflight gate before non-trivial work, package adoption, docs migration, review, or bootstrap.
+- **`./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`**: local exception ADR format for app/task-specific deviations from reusable rules.
+- **`./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`**: ownership boundary for `plan.md`, `handoff.md`, task archives, and recovery snapshots.
+
+### Review And Completion
+- **`./docs/COMPLETION_REPORT_CONTRACT.md`**: mandatory report shape before claiming done/fixed/verified/safe/clean/production-ready.
+- **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.
+- **`./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`**: mandatory iPhone+iPad scope, deferred-platform rules, source authority, coverage unit, and freshness contract.
+- **`./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json`**: machine-readable iOS topic maturity, route, source-review, and evidence ownership registry.
+- **`./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`**: end-to-end feature workflow from intake to operation.
+- **`./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`**: uniform broad audit matrix and finding format.
+- **`./docs/IOS_PR_REVIEW_TEMPLATE.md`**: reusable iOS PR review template.
+- **`./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`**: template for installing the framework into a new app.
+- **`./docs/IOS_AGENT_PROMPT_ROUTER.md`**: routing table from task type to prompt/skill.
+- **`./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`**: explicit exception/waiver policy.
+- **`./docs/IOS_PRODUCTION_SCORECARD.md`**: production-readiness scoring model.
+- **`./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`**: documentation ownership and freshness rules.
+- **`./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`**: inline Swift/iOS documentation comment standard for contracts, ownership, external usage, side effects, concurrency, errors, invariants, and rationale.
+- **`./docs/PRODUCTION_QUALITY_GATES.md`**: mandatory broad production-quality review gates.
+- **`./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`**: concrete audit/review checklist and forbidden-pattern stop list.
+- **`./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`**: broad review trigger and completeness gate for `ревью`/review/audit.
+- **`./docs/IOS_PRODUCTION_READINESS_STANDARD.md`**: cross-cutting iOS production-ready definition.
+- **`./docs/DEFINITION_OF_DONE.md`**: task completion contract.
+- **`./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`**: proof requirements for claims, completion reports, and “done” status.
+- **`./docs/STATIC_QUALITY_GATE_POLICY.md`**: severity and exception policy for static quality scripts.
+
+### Product And Governance
+- **`./docs/PRODUCT_REQUIREMENTS_STANDARD.md`**: product behavior, states, acceptance criteria, and non-goal requirements.
+- **`./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`**: ADR threshold, decision ownership, and reversal rules.
+- **`./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md`**: ownership, review routing, and blocked-change criteria.
+- **`./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`**: flag lifecycle, rollout controls, rollback expectations.
+- **`./docs/INCIDENT_RESPONSE_STANDARD.md`**: severity, triage, mitigation, and postmortem expectations.
+- **`./docs/PRODUCT_HEALTH_SLO.md`**: product health signals, budgets, and escalation thresholds.
+- **`./docs/RISK_REGISTER.md`**: known risks, owners, mitigation, and review cadence.
+- **`./docs/TECH_DEBT_REGISTER.md`**: intentional debt, owner, expiry, and paydown policy.
+
+### iOS Engineering Standards
+- **`./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`**: reusable iPhone+iPad core and knowledge-completeness policy; watchOS, visionOS, tvOS, and macOS remain route-on-demand.
+- **`./docs/IOS_TESTING_STRATEGY.md`**: production test/verification decision matrix.
+- **`./docs/IOS_SECURITY_PRIVACY_GATE.md`**: security/privacy/logging/sensitive-data gate.
+- **`./docs/IOS_OBSERVABILITY_STANDARD.md`**: crash, analytics, logs, and performance signal rules.
+- **`./docs/IOS_RELEASE_CHECKLIST.md`**: TestFlight/App Store/signing/release checklist.
+- **`./docs/IOS_ACCESSIBILITY_STANDARD.md`**: accessibility gate.
+- **`./docs/IOS_PERFORMANCE_BUDGETS.md`**: measurable performance expectations.
+- **`./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`**: API/backend integration rules.
+- **`./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`**: neutral reusable infrastructure package rules for new iOS projects.
+- **`./docs/IOS_DATA_MIGRATION_STANDARD.md`**: data migration and compatibility rules.
+- **`./docs/DESIGN_SYSTEM_GOVERNANCE.md`**: token/component/visual-effect governance.
+- **`./docs/CI_CD_QUALITY_GATES.md`**: automated quality gates.
+- **`./docs/DEPENDENCY_POLICY.md`**: third-party dependency policy.
+- **`./docs/MODULAR_ARCHITECTURE_STANDARD.md`**: module boundaries, dependency direction, package/API ownership.
+- **`./docs/DEVELOPER_EXPERIENCE_STANDARD.md`**: local setup, diagnostics, scripts, and repeatable workflows.
+- **`./docs/QA_TEST_PLAN_STANDARD.md`**: manual/automated QA plan structure.
+- **`./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`**: localization, pluralization, length, RTL, locale formatting.
+- **`./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`**: entitlements, app groups, background modes, extensions, widgets, deep links.
+- **`./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`**: data classification, retention, export/delete, and compliance expectations.
+- **`./docs/COMPATIBILITY_MATRIX.md`**: supported OS/devices/features and degradation expectations.
+- **`./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`**: async/await, actor ownership, task lifecycle, cancellation, Sendable, Swift 6 readiness.
+- **`./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`**: memory, cache, media, file, thumbnail, and large-asset rules.
+- **`./docs/IOS_MVVM_INTENT_API_STANDARD.md`**: default ViewModel API standard: explicit intent methods, no generic `send(_ action:)` dispatcher by default.
+- **`./docs/IOS_UI_STATE_RENDERING_STANDARD.md`**: SwiftUI/UIKit state invalidation, lazy rendering, row identity, and render-path rules.
+- **`./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`**: mobile network reliability, retries, cancellation, idempotency, and error taxonomy.
+- **`./docs/IOS_OFFLINE_SYNC_STANDARD.md`**: offline mutations, pending sync, conflicts, app-group durability.
+- **`./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`**: launch, scenes, background work, push, deep links, widgets, extensions.
+- **`./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`**: user-visible failure states, retry, optimistic UI, localized errors.
+- **`./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`**: analytics event ownership, privacy, bounded properties, product signals.
+- **`./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`**: dev/staging/prod config, secrets, debug gating, flags, diagnostics.
+- **`./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`**: imported content, external URLs, rich text, payload validation.
+- **`./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`**: StoreKit/payments/subscription production rules when applicable.
+- **`./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`**: permissions, files, photos, camera, security-scoped resources.
+
+## Placement Rules For New Information
+- **Product requirements / acceptance criteria** → `./docs/PRODUCT_REQUIREMENTS_STANDARD.md` or feature-specific task docs.
+- **Architecture/runtime baseline** → `./PROJECT_DOCUMENTATION.md`.
+- **Architecture decisions** → `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md` plus an ADR if needed.
+- **Package/module ownership** → `./PROJECT_HEALTH.md`, `./docs/PACKAGES_AND_MANAGERS.md`, or `./docs/MODULAR_ARCHITECTURE_STANDARD.md`.
+- **Verification workflow** → `./TESTING_INSTRUCTIONS.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/QA_TEST_PLAN_STANDARD.md`, or `./docs/CI_CD_QUALITY_GATES.md`.
+- **Short implementation guardrails** → `./docs/AGENT_RULES.md`.
+- **Current task/user overrides** → `./docs/CURRENT_USER_OVERRIDES.md`.
+- **Reusable iOS framework / umbrella coverage** → `./docs/IOS_PRODUCTION_FRAMEWORK.md`.
+- **Feature lifecycle** → `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`.
+- **Broad audit matrix** → `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`.
+- **PR review template** → `./docs/IOS_PR_REVIEW_TEMPLATE.md`.
+- **New project bootstrap** → `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`.
+- **Prompt/skill routing** → `./docs/IOS_AGENT_PROMPT_ROUTER.md`.
+- **Exceptions/waivers** → `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`.
+- **Readiness scoring** → `./docs/IOS_PRODUCTION_SCORECARD.md`.
+- **Documentation maintenance** → `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md`.
+- **Inline code documentation/comments** → `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`.
+- **Production gates/checklists** → `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`.
+- **Security/privacy/data compliance** → `./docs/IOS_SECURITY_PRIVACY_GATE.md` or `./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md`.
+- **Observability/incidents/SLOs** → `./docs/IOS_OBSERVABILITY_STANDARD.md`, `./docs/INCIDENT_RESPONSE_STANDARD.md`, or `./docs/PRODUCT_HEALTH_SLO.md`.
+- **Rollouts/release** → `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md` or `./docs/IOS_RELEASE_CHECKLIST.md`.
+- **Accessibility** → `./docs/IOS_ACCESSIBILITY_STANDARD.md`.
+- **Performance budgets** → `./docs/IOS_PERFORMANCE_BUDGETS.md`.
+- **API/backend contracts** → `./docs/API_CONTRACT_AND_INTEGRATION_RULES.md`.
+- **Data migration** → `./docs/IOS_DATA_MIGRATION_STANDARD.md`.
+- **Design system** → `./docs/DESIGN_SYSTEM_GOVERNANCE.md`.
+- **Dependencies** → `./docs/DEPENDENCY_POLICY.md`.
+- **Concurrency/runtime** → `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`.
+- **Memory/cache/media/files** → `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`.
+- **UI rendering/state** → `./docs/IOS_UI_STATE_RENDERING_STANDARD.md`.
+- **Network resilience** → `./docs/IOS_NETWORK_RESILIENCE_STANDARD.md`.
+- **Offline/sync** → `./docs/IOS_OFFLINE_SYNC_STANDARD.md`.
+- **Lifecycle/background/deep links/push/widgets/extensions** → `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`.
+- **Error handling/user feedback** → `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md`.
+- **Analytics/telemetry taxonomy** → `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`.
+- **Configuration/environments** → `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`.
+- **Input validation/content safety** → `./docs/IOS_INPUT_VALIDATION_CONTENT_SAFETY_STANDARD.md`.
+- **StoreKit/payments** → `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md`.
+- **Camera/photos/files/permissions** → `./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`.
+- **Reusable prompt presets** → `./docs/agent-prompts/`.
+- **Reusable cross-project knowledge** → `./docs/knowledge/global/`.
+- **Project-specific knowledge** → project-specific folder under `./docs/knowledge/`.
+- **Current task state** → `./.zenflow/tasks/new-task-be0b/handoff.md`.
+- **Current task plan/steps** → `./.zenflow/tasks/new-task-be0b/plan.md`.
+- **Obsolete history** → `./docs/archive/` or task archive folder.
+
+## Hierarchy Of Truth
+1. Current explicit user instruction for this worktree/task.
+2. Global assistant policy.
+3. Current user overrides.
+4. Canonical project docs.
+5. Task overlay rules.
+6. Current task docs.
+7. Archives.

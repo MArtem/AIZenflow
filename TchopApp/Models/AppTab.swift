@@ -1,7 +1,7 @@
 import Foundation
 
 /// Top-level application tabs shared by the tab bar and side menu.
-enum AppTab: String, CaseIterable, Identifiable {
+enum AppTab: String, CaseIterable, Identifiable, Codable {
     case news
     case mixes
     case pinned
@@ -14,11 +14,16 @@ enum AppTab: String, CaseIterable, Identifiable {
     /// Human-readable title rendered in the bottom tab bar and menu.
     var title: String {
         switch self {
-        case .news: "News"
-        case .mixes: "Mixes"
-        case .pinned: "Pinned"
-        case .chat: "Chat"
-        case .profile: "Profile"
+        case .news:
+            AppLocalization.text("tab.news.title")
+        case .mixes:
+            AppLocalization.text("tab.mixes.title")
+        case .pinned:
+            AppLocalization.text("tab.pinned.title")
+        case .chat:
+            AppLocalization.text("tab.chat.title")
+        case .profile:
+            AppLocalization.text("tab.profile.title")
         }
     }
 
@@ -44,14 +49,19 @@ enum AppTab: String, CaseIterable, Identifiable {
         }
     }
 
-    /// Placeholder copy used by stub screens.
-    var stubDescription: String {
+    /// Placeholder copy used by placeholder feature screens.
+    var placeholderDescription: String {
         switch self {
-        case .news: "Latest stories and channel updates."
-        case .mixes: "Curated collections and recommended posts."
-        case .pinned: "Saved highlights and priority content."
-        case .chat: "Direct messages and team conversations."
-        case .profile: "Account settings, activity, and preferences."
+        case .news:
+            AppLocalization.text("tab.news.placeholderDescription")
+        case .mixes:
+            AppLocalization.text("tab.mixes.placeholderDescription")
+        case .pinned:
+            AppLocalization.text("tab.pinned.placeholderDescription")
+        case .chat:
+            AppLocalization.text("tab.chat.placeholderDescription")
+        case .profile:
+            AppLocalization.text("tab.profile.placeholderDescription")
         }
     }
 }

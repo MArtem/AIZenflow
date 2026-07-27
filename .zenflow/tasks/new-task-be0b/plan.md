@@ -1,46 +1,114 @@
-# Auto
+# Current Plan
 
-## Configuration
-- **Artifacts Path**: {@artifacts_path} → `.zenflow/tasks/{task_id}`
+## Goal
 
----
+Migrate AI Fieldbook's iPhone Presentation layer, one independently buildable screen at a time,
+to the approved screen architecture:
 
-## Agent Instructions
+`Screen -> ViewModel -> ViewState -> StateRenderer/Components`
 
-Ask the user questions when anything is unclear or needs their input. This includes:
-- Ambiguous or incomplete requirements
-- Technical decisions that affect architecture or user experience
-- Trade-offs that require business context
+Use a pure `ViewStateBuilder` only where a screen has real domain-to-presentation mapping or
+non-trivial derived display state. Preserve `AppComposition`, `AppCoordinator`, repositories,
+persistence, file ownership, routes, and product behavior.
 
-Do not make assumptions on important decisions — get clarification first.
+The accepted app-specific decision is ADR-010 in:
 
----
+`/Users/Artem/.zenflow/worktrees/documentation-vault/apps/AIFieldbook/product/architecture-decisions.md`
 
-## Workflow Steps
+## Active Constraints
 
-### [x] Step: Implementation
-<!-- chat-id: e77a8cef-de0f-455a-9ecb-2d90a1f622a9 -->
+- Active mode: `сбалансированный`.
+- Architecture planning uses `GPT-5.6 sol`, `high`; bounded screen implementation uses
+  `GPT-5.6 tera`, `medium` unless the routing rule identifies a concrete escalation need.
+- Work on one self-contained screen iteration at a time, then stop for user-run build/UI QA.
+- Each screen iteration may add several small source files plus update the Xcode project because
+  this project uses explicit file references. Do not combine two screens in one iteration.
+- Do not run builds, tests, Simulator UI, screenshots, Instruments, archive, or signing unless
+  the user specifically delegates it for the current block.
+- Do not write or modify tests without explicit user permission.
+- Do not commit or push the app repository.
+- Preserve behavior and all existing changes; no backend, provider credentials, cloud
+  infrastructure, destructive SwiftData migration, or automatic data reset.
+- iPad is outside product and verification scope.
+- App Intents A1/A2 remain implemented. Their iOS 26.5 Simulator runtime limitation is not part
+  of this Presentation migration.
 
-Implemented this as a standalone SwiftUI feed screen because the worktree does not contain the existing iOS app source files. The added view recreates the screenshot with a top bar, featured article card, discussion preview, floating action button, and bottom tab bar so it can be pasted into an app and refined there.
-The implementation has since been expanded into a full Xcode project with the SwiftUI code split across app shell, tab, menu, and news component files so it is easier to evolve as a real iOS app.
-The infrastructure layer has now been split into a local Swift package at `Packages/TchopInfrastructure` with two separate modules: `TchopNetworking` and `TchopDatabase`. The app target now links those package products, the old app-local API/database manager files were removed, public module APIs were documented, package tests were added, and both the package test suite and the main app build now pass.
-After the module split, an additional refactoring and documentation pass was applied across the app layer. Core app types now contain inline documentation, and a few large stub/fallback builders were extracted into private helpers to keep runtime logic smaller and easier to maintain.
-The app now also has an Xcode unit test target, `TchopAppTests`, covering `AppState`, `LoginViewModel`, and `NewsFeedViewModel`. Both the package suite and `xcodebuild test` for the app now pass, so the current baseline includes automated verification for infrastructure and app-level state logic.
-The app-level test coverage was then extended to include `TabRouter`, `AppCoordinator`, `UserRepository`, and `AppContentRepository`, so the current app behavior around navigation and repository mapping is now verified. The persistence layer was also refactored behind a common `AppDatabaseManaging` adapter contract with both `SwiftDataAppDatabaseAdapter` and `CoreDataAppDatabaseAdapter`, and the DI container now selects the concrete backend through runtime policy instead of binding repositories directly to SwiftData types.
+## Architecture Contract For Every Screen Iteration
 
-**Debug requests, questions, and investigations:** answer or investigate first. Do not create a plan upfront — the user needs an answer, not a plan. A plan may become relevant later once the investigation reveals what needs to change.
+- `...Screen` receives an existing ViewModel and external navigation/dismissal callbacks.
+- `@MainActor @Observable ...ViewModel` owns screen lifecycle, side effects, cancellation, and
+  one authoritative render state; public UI APIs remain explicit intent methods.
+- `...ViewState` contains render-ready values and explicit loading/content/empty/error/working
+  states appropriate to that screen.
+- `...ViewStateBuilder` is a pure presentation mapper. It performs no persistence, file I/O,
+  navigation, task creation, or resource ownership, and is omitted when it would only mirror
+  inputs.
+- `...StateRenderer` switches mutually exclusive render states when such switching exists.
+- Child components receive narrow immutable state and callbacks; they do not receive the broad
+  feature ViewModel without an independent lifecycle reason.
+- Local confirmation, focus, picker-presentation, and other visual-only state remains in SwiftUI.
+- No generic base ViewModel, generic state protocol, action dispatcher, factory layer, Use Case,
+  repository protocol, adapter, or new package.
 
-**For all other tasks**, before writing any code, assess the scope of the actual change (not the prompt length — a one-sentence prompt can describe a large feature). Scale your approach:
+## Migration Iterations
 
-- **Trivial** (typo, config tweak, single obvious change): implement directly, no plan needed.
-- **Small** (a few files, clear what to do): write 2–3 sentences in `plan.md` describing what and why, then implement. No substeps.
-- **Medium** (multiple components, design decisions, edge cases): write a plan in `plan.md` with requirements, affected files, key decisions, verification. Break into 3–5 steps.
-- **Large** (new feature, cross-cutting, unclear scope): gather requirements and write a technical spec first (`requirements.md`, `spec.md` in `{@artifacts_path}/`). Then write `plan.md` with concrete steps referencing the spec.
+- [x] M0 — Record ADR-010 and replace the stale task plan with this migration sequence.
+- [x] M1 — Workspace List vertical slice: extract the screen, model, render state, pure builder,
+  renderer, and row component; update only its composition call site.
+- [x] M2 — Workspace Detail vertical slice: explicit loading/content/empty/error/action-failure
+  states and render-ready item rows; retain deletion transaction behavior.
+- [x] M3 — Workspace Editor vertical slice: explicit form state, validation, saving/error state,
+  and unsaved-change behavior.
+- [x] M4 — Text Note Detail vertical slice: explicit detail/error/action-failure state and pure
+  display mapping; retain tag/move/edit/delete callbacks.
+- [x] M5 — Text Note Editor vertical slice: explicit form/loading/saving/failure state and
+  create/edit mode mapping.
+- [x] M6 — URL Reference Detail vertical slice: explicit detail/error/action-failure state while
+  preserving share/open/tag/move/delete behavior.
+- [x] M7 — URL Reference Editor vertical slice: explicit form/loading/saving/validation state and
+  normalized URL rules.
+- [x] M8 — Search vertical slice: explicit criteria/searching/results/empty/error state, immutable
+  result rows, and existing debounce/cancellation/stale-result protection.
+- [x] M9 — Tag Manager vertical slice: explicit loading/content/empty/error/mutation state and
+  immutable tag-row presentation.
+- [x] M10 — Move Item vertical slice: explicit destination loading/content/empty/error/moving
+  state while preserving repository mutation behavior.
+- [x] M11 — Import Item vertical slice: explicit destination/ready/importing/error state while
+  preserving file validation, copy, and rollback behavior.
+- [x] M12 — Imported Item Detail vertical slice: explicit loading/content/error/action-failure
+  state; split preview and metadata components. Keep `AudioPlaybackModel` as an independent
+  media-resource owner rather than folding it into passive view state.
+- [x] M13 — Audio Recorder vertical slice: separate recorder runtime status from render-ready
+  screen state while preserving permission, interruption, route-change, draft cleanup, and save
+  rollback behavior.
+- [x] M14 — Settings vertical slice: explicit content/working/export-ready/error state while
+  preserving cleanup, export cancellation, destructive reset, and navigation reset behavior.
+- [x] M15 — Capture chooser and physical cleanup: split the stateless chooser into its own Screen
+  and passive components without inventing a ViewModel/Builder; remove the final obsolete
+  aggregate presentation files and verify naming/folder consistency.
 
-**Skip planning and implement directly when** the task is trivial, or the user explicitly asks to "just do it" / gives a clear direct instruction.
+## Per-Iteration Static Acceptance
 
-To reflect the actual purpose of the first step, you can rename it to something more relevant (e.g., Planning, Investigation). Do NOT remove meta information like comments for any step.
+- The iteration changes one screen only and leaves all later screens working in their current
+  architecture.
+- No product behavior, persistence contract, navigation route, or resource lifecycle is expanded.
+- Xcode source references match the new physical files.
+- Targeted symbol/reference inspection finds no duplicate or stale type names for that screen.
+- Run `git diff --check` once for the complete iteration.
+- Stop for user-run compile and UI verification; do not claim runtime completion before that
+  evidence.
 
-Rule of thumb for step size: each step = a coherent unit of work (component, endpoint, test suite). Not too granular (single function), not too broad (entire feature). Unit tests are part of each step, not separate.
+## Next Executable Step
 
-Update `{@artifacts_path}/plan.md`.
+The user reported the M15 build succeeded. Record the user-owned UI verification result for M15
+before closing the final runtime result for the completed M1–M15 presentation migration.
+
+## Deferred App Intents State
+
+- Gate `1.26-S` is accepted; A1 Open Workspace and A2 Find Knowledge Items are implemented.
+- Shortcuts runtime verification remains blocked by the confirmed iOS 26.5 Simulator / `linkd`
+  regression; do not add signing, device work, or a workaround without separate approval.
+
+## Context Transfer Rule
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

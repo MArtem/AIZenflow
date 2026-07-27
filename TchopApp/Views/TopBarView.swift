@@ -1,74 +1,243 @@
 import SwiftUI
 
+/// Reusable top bar with menu trigger and channel metadata.
 struct TopBarView: View {
-    let channelInfo: ChannelHeaderInfo
+    @State private var isChannelPickerPresented = false
+
+    let channelsStore: ChannelsStore
+    let isSearchPresented: Bool
     var onMenuTap: () -> Void
-    var onChannelTap: () -> Void
+    var onSelectChannel: (String) -> Void
     var onSearchTap: () -> Void
     var onNotificationsTap: () -> Void
 
     var body: some View {
-        VStack(spacing: 0) {
-            HStack(spacing: 12) {
-                Button(action: onMenuTap) {
-                    Image(systemName: "line.3.horizontal")
-                        .font(.system(size: 20, weight: .medium))
-                        .foregroundStyle(Color(red: 0.31, green: 0.33, blue: 0.40))
-                        .frame(width: 32, height: 32)
+        HStack(spacing: AppSpacing.sm) {
+            Button(action: onMenuTap) {
+                Image(systemName: "line.3.horizontal")
+                    .font(AppTypography.shellMenuIcon)
+                    .foregroundStyle(AppTheme.iconPrimary)
+                    .frame(width: 32, height: 32)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(AppLocalization.text("accessibility.topBar.menu"))
+            .accessibilityHint(AppLocalization.text("accessibility.topBar.menuHint"))
+
+            ZStack(alignment: .topLeading) {
+                TopBarChannelButtonView(
+                    channelInfo: channelInfo,
+                    isPresented: isChannelPickerPresented,
+                    onTap: presentChannelPicker
+                )
+
+                if isChannelPickerPresented {
+                    TopBarChannelPickerMenuView(
+                        channels: channelsStore.channels,
+                        selectedChannelID: channelsStore.selectedChannelID,
+                        onSelect: handleChannelSelection
+                    )
                 }
-                .buttonStyle(.plain)
+            }
+            .zIndex(isChannelPickerPresented ? 10 : 1)
 
-                Button(action: onChannelTap) {
-                    HStack(spacing: 12) {
-                        BrandMarkView(iconSize: 48, cardSize: CGSize(width: 28, height: 34))
+            Spacer()
 
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(channelInfo.title)
-                                .font(.system(size: 16, weight: .semibold))
-                                .foregroundStyle(Color(red: 0.20, green: 0.22, blue: 0.30))
+            TopBarTrailingActionsView(
+                isSearchPresented: isSearchPresented,
+                onSearchTap: onSearchTap,
+                onNotificationsTap: onNotificationsTap
+            )
+        }
+        .padding(.horizontal, AppSpacing.shellHorizontal)
+        .padding(.vertical, 14)
+        .appGlassChrome(
+            in: RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous),
+            fallbackBackground: AppTheme.surfacePrimary,
+            fallbackShadowColor: AppTheme.shadow.opacity(0.25),
+            fallbackShadowRadius: 6,
+            fallbackShadowY: 2
+        )
+        .padding(.horizontal, AppSpacing.shellHorizontal)
+        .padding(.top, AppSpacing.xs)
+        .zIndex(1)
+    }
 
-                            HStack(spacing: 4) {
-                                Text(channelInfo.subtitle)
-                                    .font(.system(size: 13, weight: .regular))
-                                    .foregroundStyle(.gray)
+    /// Opens the controlled channel picker sheet.
+    private func presentChannelPicker() {
+        withAnimation(.easeInOut(duration: 0.16)) {
+            isChannelPickerPresented.toggle()
+        }
+    }
 
-                                Image(systemName: "chevron.down")
-                                    .font(.system(size: 10, weight: .semibold))
-                                    .foregroundStyle(.gray)
-                            }
-                        }
+    /// Current channel header derived from the source-of-truth channels store.
+    private var channelInfo: ChannelHeaderInfo {
+        channelsStore.selectionSnapshot.selectedChannel?.headerInfo ??
+            channelsStore.selectionSnapshot.availableChannels.first?.headerInfo ??
+            AppChannel.defaultChannel.headerInfo
+    }
+
+    /// Applies a new active channel and closes the picker immediately.
+    private func handleChannelSelection(_ channelID: String) {
+        onSelectChannel(channelID)
+        withAnimation(.easeInOut(duration: 0.16)) {
+            isChannelPickerPresented = false
+        }
+    }
+}
+
+private struct TopBarChannelButtonView: View {
+    let channelInfo: ChannelHeaderInfo
+    let isPresented: Bool
+    let onTap: () -> Void
+
+    var body: some View {
+        Button(action: onTap) {
+            HStack(spacing: AppSpacing.sm) {
+                BrandMarkView(iconSize: 48, cardSize: CGSize(width: 28, height: 34))
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(channelInfo.title)
+                        .font(AppTypography.channelTitle)
+                        .foregroundStyle(AppTheme.textPrimary)
+
+                    HStack(spacing: AppSpacing.xxs) {
+                        Text(channelInfo.subtitle)
+                            .font(AppTypography.channelSubtitle)
+                            .foregroundStyle(AppTheme.textTertiary)
+
+                        Image(systemName: isPresented ? "chevron.up" : "chevron.down")
+                            .font(AppTypography.microLabel)
+                            .foregroundStyle(AppTheme.textTertiary)
                     }
                 }
-                .buttonStyle(.plain)
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel(
+            AppLocalization.text(
+                "accessibility.topBar.channel",
+                channelInfo.title,
+                channelInfo.subtitle
+            )
+        )
+        .accessibilityHint(AppLocalization.text("accessibility.topBar.channelHint"))
+    }
+}
+
+private struct TopBarChannelPickerMenuView: View {
+    let channels: [AppChannel]
+    let selectedChannelID: String?
+    let onSelect: (String) -> Void
+
+    var body: some View {
+        VStack(spacing: AppSpacing.xs) {
+            ForEach(channels) { channel in
+                TopBarChannelPickerRowView(
+                    channel: channel,
+                    isSelected: channel.id == selectedChannelID,
+                    onTap: { onSelect(channel.id) }
+                )
+            }
+        }
+        .padding(AppSpacing.sm)
+        .background(AppTheme.menuSurface)
+        .clipShape(RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous))
+        .shadow(color: AppTheme.shadow.opacity(0.22), radius: 14, y: 6)
+        .overlay(
+            RoundedRectangle(cornerRadius: AppRadius.card, style: .continuous)
+                .stroke(AppTheme.borderSubtle, lineWidth: 1)
+        )
+        .padding(.top, 56)
+        .zIndex(10)
+        .transition(.opacity.combined(with: .move(edge: .top)))
+    }
+}
+
+private struct TopBarChannelPickerRowView: View {
+    let channel: AppChannel
+    let isSelected: Bool
+    let onTap: () -> Void
+
+    var body: some View {
+        Button(action: onTap) {
+            HStack(spacing: AppSpacing.sm) {
+                VStack(alignment: .leading, spacing: AppSpacing.xxs) {
+                    Text(channel.title)
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppTheme.textPrimary)
+
+                    Text(channel.subtitle)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppTheme.textTertiary)
+                }
 
                 Spacer()
 
-                HStack(spacing: 18) {
-                    Button(action: onSearchTap) {
-                        Image(systemName: "magnifyingglass")
-                            .frame(width: 24, height: 24)
-                    }
-                    .buttonStyle(.plain)
-
-                    Button(action: onNotificationsTap) {
-                        Image(systemName: "bell")
-                            .frame(width: 24, height: 24)
-                    }
-                    .buttonStyle(.plain)
+                if isSelected {
+                    Image(systemName: "checkmark")
+                        .font(AppTypography.microLabel)
+                        .foregroundStyle(AppTheme.iconPrimary)
                 }
-                .font(.system(size: 18, weight: .regular))
-                .foregroundStyle(Color(red: 0.62, green: 0.64, blue: 0.69))
             }
-            .padding(.horizontal, 16)
-            .padding(.top, 12)
-            .padding(.bottom, 14)
-            .background(Color.white)
-
-            Divider()
-                .overlay(Color.gray.opacity(0.12))
+            .padding(.horizontal, AppSpacing.md)
+            .padding(.vertical, AppSpacing.sm)
+            .frame(width: 260, alignment: .leading)
+            .background(AppTheme.surfacePrimary)
+            .clipShape(
+                RoundedRectangle(
+                    cornerRadius: AppRadius.buttonField,
+                    style: .continuous
+                )
+            )
         }
-        .background(Color.white)
-        .shadow(color: .black.opacity(0.03), radius: 6, y: 2)
-        .zIndex(1)
+        .buttonStyle(.plain)
+        .accessibilityHint(AppLocalization.text("accessibility.channel.selectHint"))
     }
 }
+
+private struct TopBarTrailingActionsView: View {
+    let isSearchPresented: Bool
+    let onSearchTap: () -> Void
+    let onNotificationsTap: () -> Void
+
+    var body: some View {
+        HStack(spacing: AppSpacing.cardSection) {
+            Button(action: onSearchTap) {
+                Image(systemName: isSearchPresented ? "xmark.circle.fill" : "magnifyingglass")
+                    .frame(width: 24, height: 24)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(AppLocalization.text("accessibility.topBar.search"))
+            .accessibilityHint(AppLocalization.text("accessibility.topBar.searchHint"))
+
+            Button(action: onNotificationsTap) {
+                Image(systemName: "bell")
+                    .frame(width: 24, height: 24)
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(AppLocalization.text("accessibility.topBar.notifications"))
+            .accessibilityHint(AppLocalization.text("accessibility.topBar.notificationsHint"))
+        }
+        .font(AppTypography.shellIcon)
+        .foregroundStyle(AppTheme.iconSecondary)
+    }
+}
+
+#if DEBUG
+#Preview("Top Bar") {
+    TopBarView(
+        channelsStore: {
+            let store = ChannelsStore(selectionStore: UserDefaultsChannelSelectionStore())
+            store.setAvailableChannels(ViewPreviewSupport.sampleChannels)
+            store.selectChannel(id: ViewPreviewSupport.sampleChannels.first?.id)
+            return store
+        }(),
+        isSearchPresented: false,
+        onMenuTap: {},
+        onSelectChannel: { _ in },
+        onSearchTap: {},
+        onNotificationsTap: {}
+    )
+}
+#endif

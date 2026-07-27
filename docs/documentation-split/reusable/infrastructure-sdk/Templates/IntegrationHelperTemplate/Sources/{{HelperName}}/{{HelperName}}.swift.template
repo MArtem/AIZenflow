@@ -1,0 +1,6 @@
+import Foundation
+
+/// Root namespace for the `{{HelperName}}` integration helper.
+public enum {{HelperName}}Info {
+    public static let helperName = "{{HelperName}}"
+}
