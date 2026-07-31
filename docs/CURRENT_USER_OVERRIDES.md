@@ -6,8 +6,11 @@ Compact cross-project user constraints that override general defaults. App/produ
 ## Documentation And Repository Authority
 - `MArtem/AIZenflowDocumentation` is the canonical repository for reusable rules, prompts, skills, templates, package docs, scripts, and app/task documentation snapshots.
 - Its local checkout is `/Users/Artem/.zenflow/worktrees/documentation-vault`.
-- Global documentation work is complete only after the canonical checkout is committed, pushed, clean, and synced with `origin/main`.
-- Agents may autonomously commit and push only `MArtem/AIZenflowDocumentation`. Every other repository requires an explicit user request for commit or push.
+- Global documentation work is complete only after the canonical checkout is committed, pushed, clean, and synced with `origin/main`; the required push still needs explicit user approval.
+- Every push to every repository requires a separate explicit user decision. Before requesting it,
+  state the repository, branch, commit, exact scope, and why the push is needed. A permission applies
+  only to that push unless the user explicitly says otherwise. If the user declines, do not repeat
+  or work around the push; revise the plan for local-only progress or report the resulting blocker.
 - Documentation loading follows `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`: Level 0 once, then only the selected task routes.
 - Documentation movement or reusable-rule changes require `./docs/DOCUMENT_BOUNDARY_STANDARD.md` and `./docs/SOURCE_OF_TRUTH_MAP.md`.
 

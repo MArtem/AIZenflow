@@ -60,6 +60,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/DEFINITION_OF_DONE.md`
 - `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+- `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`
 - `./docs/STATIC_QUALITY_GATE_POLICY.md`
 - `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`
 
