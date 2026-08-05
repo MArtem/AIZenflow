@@ -47,6 +47,19 @@ Default to the smallest sufficient document set:
 3. Prompt/skill/package docs only when triggered.
 4. The canonical root manifest only for documentation-library, transfer, recovery, or completeness tasks.
 
+## Route Cache Contract
+
+- Treat the active worktree, task ID, selected route names, and documentation revision as the cache
+  key. Within one task/thread, reuse already-read documents and compact working notes while that key
+  is unchanged.
+- Reread only a document whose source changed, a newly selected route, a directly referenced deep
+  contract required by new risk, or an explicit user-requested refresh. Do not reread a route merely
+  because a command, model, or implementation iteration changed.
+- Resolve and deduplicate combined routes before opening files. Descend to Level 3, package docs,
+  skills, app history, or manifests only when triggered.
+- Persistent memory is versioned task/app documentation and the canonical repository. Do not rely
+  on an unversioned hidden summary across tasks or reuse one app's cached decisions in another app.
+
 ## Machine-Readable Operations
 - Resolve exact ordered routes with `./scripts/resolve_docs_route.py <route> [<route> ...]`.
 - Measure route words/bytes, overlap, budgets, and reachability with `./scripts/report_documentation_context_cost.py`.

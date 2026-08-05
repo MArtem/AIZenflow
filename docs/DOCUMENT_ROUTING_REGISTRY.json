@@ -16,6 +16,7 @@
     "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
     "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
     "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
     "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
     "./docs/NEW_PROJECT_START_CONTRACT.md",
     "./docs/README.md",
@@ -110,5 +111,6 @@
       "./.zenflow/tasks/**/archive/**"
     ]
   },
-  "level0_max_words": 5000
+  "level0_max_words": 5000,
+  "dynamic_task_max_words": 3500
 }

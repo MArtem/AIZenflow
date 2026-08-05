@@ -13,10 +13,11 @@ quality metrics.
 
 - This is the canonical human-readable governance entry point in
   `MArtem/AIZenflowDocumentation`.
-- Status: active human policy; the separate executable quality engine is planned but does not yet
-  exist as an authoritative implementation.
-- Machine schemas, adapters, fixtures, workflows, and verifier self-tests belong in the future
-  versioned `MArtem/AIZenflowQualityControl` repository after its creation and validation.
+- Status: active human policy. The public `MArtem/AIZenflowQualityControl` repository now owns the
+  bounded Stage 5 executable foundation, but it is not yet a verified verifier or stable release.
+- Machine schemas, adapters, fixtures, workflows, and verifier self-tests belong in the versioned
+  `MArtem/AIZenflowQualityControl` repository. Missing or not-yet-validated executable behavior
+  remains governed by this human policy and cannot be represented as normal `PASS` evidence.
 - Project facts and selected permissions belong in each project profile and local exception
   records, not in this reusable rule.
 - Task audits and rollout evidence remain task recovery until explicitly promoted.
@@ -89,6 +90,17 @@ time budgets are 5 minutes for `static`, 15 for `build`, 30 for `build-and-tests
 `full`.
 
 Apply `./docs/CI_CD_QUALITY_GATES.md` for workflow reproducibility, evidence, and safety details.
+
+## Pre-Push Local Review Gate
+
+Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` to every material quality-control engine,
+policy/schema, workflow, bootstrap, adapter, evidence, or fail-closed verdict change. The change
+contract must explicitly cover trust authority, producer/verifier agreement, aggregate resource
+limits, process/filesystem boundaries, time ordering, and every route that could emit false `PASS`.
+
+Tests and static checks remain permission-bound supporting evidence. High-risk control-plane work
+uses an independent reviewer when available and receives an exhaustive review recommendation for
+the final pushed SHA. Missing independent or runtime evidence remains residual risk, never `PASS`.
 
 ## Codex Review
 

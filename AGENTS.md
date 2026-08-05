@@ -53,6 +53,19 @@ Always include the context-transfer rule when handing off:
 - Use a same-pattern sweep only after explicit approval and keep it to two or three source files per iteration. Run `git diff --check` once per agreed iteration, not once per file.
 - Before a block expected to touch more than three source files or consume more than roughly 2–3% of the weekly budget, ask for approval with a compact estimate and alternatives. Treat documentation as lookup and durable synchronization work, not as implementation progress; synchronize it only at meaningful boundaries or when the user explicitly requests it.
 
+## Mandatory Engineering Quality Gate
+- Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` to every non-trivial implementation and
+  pre-push review. Before editing, define the compact change contract: behavior, authority,
+  producer/consumer agreement, state/time ordering, input and resource envelopes, failure
+  semantics, and affected consumers/claims that are relevant to the change.
+- Derive implementation and permitted tests from those invariants. Before commit or push, review
+  the complete final diff against the contract, search affected call sites and mirrored claims,
+  and inspect every credible route to false success or irreversible state.
+- Passing builds, tests, linters, schemas, or `git diff --check` supports but never replaces
+  semantic review. Reuse unchanged PASS evidence and do not widen checks without a new risk.
+- P0–P2 findings block commit and push. P3 must be fixed or explicitly reported. Repeat one full
+  final-diff review after fixes; use an independent reviewer when available for high-risk work.
+
 ## Filesystem Sandbox
 - The user explicitly expanded this task's local sandbox to `/Users/Artem/.zenflow`.
 - Keep all project work, build output, package caches, Xcode DerivedData, cloned package state, logs, traces, and temporary project artifacts inside `/Users/Artem/.zenflow`.

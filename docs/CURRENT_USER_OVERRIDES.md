@@ -6,11 +6,14 @@ Compact cross-project user constraints that override general defaults. App/produ
 ## Documentation And Repository Authority
 - `MArtem/AIZenflowDocumentation` is the canonical repository for reusable rules, prompts, skills, templates, package docs, scripts, and app/task documentation snapshots.
 - Its local checkout is `/Users/Artem/.zenflow/worktrees/documentation-vault`.
-- Global documentation work is complete only after the canonical checkout is committed, pushed, clean, and synced with `origin/main`; the required push still needs explicit user approval.
-- Every push to every repository requires a separate explicit user decision. Before requesting it,
-  state the repository, branch, commit, exact scope, and why the push is needed. A permission applies
-  only to that push unless the user explicitly says otherwise. If the user declines, do not repeat
-  or work around the push; revise the plan for local-only progress or report the resulting blocker.
+- Global documentation work is complete only after the canonical checkout is committed, pushed,
+  clean, and synced with `origin/main`; bounded canonical documentation commits and pushes are
+  standing-authorized after the required checks and do not need repeated confirmation.
+- For other repositories, a current task plan or handoff may grant standing authorization for
+  exact push targets and bounded scope. While that authorization remains current, commit, push,
+  and PR updates within those targets do not need repeated confirmation. Ask again only when the
+  target repository, authorized scope, material risk, paid/external authority, or user decision
+  changes. Without standing authorization, obtain an explicit decision before the remote write.
 - Documentation loading follows `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`: Level 0 once, then only the selected task routes.
 - Documentation movement or reusable-rule changes require `./docs/DOCUMENT_BOUNDARY_STANDARD.md` and `./docs/SOURCE_OF_TRUTH_MAP.md`.
 
@@ -21,13 +24,28 @@ Compact cross-project user constraints that override general defaults. App/produ
 - Meaningful results state which model(s) worked, the selected docs route, and context health.
 
 ## Token-Efficient Collaboration Protocol
+- Persistent priority order: quality first, then token/resource economy, then minimum user
+  involvement. Economy must remove repetition and process overhead, not required correctness or
+  evidence.
 - The user prioritizes a code-first cadence: one self-contained implementation iteration at a time, then stop for user-run build and UI feedback.
 - Before any optional or expansive action — subagent, model/reasoning switch, browsing, extended research, broad documentation reread, runtime verification, or scope sweep — explain why it is needed, its expected token cost, benefits, trade-offs, and the smaller alternative; wait for the user's decision.
 - Load mandatory documentation once per route and use exact targeted reads thereafter. Do not repeat broad reads or produce broad diffs unless a conflict or decision requires them.
-- A normal approved coding block is: targeted inspection → one patch → one relevant static check → user-run build/UI QA → stop. Do not make related fixes without a separate bounded approval.
+- A normal approved coding block is: targeted inspection → one consolidated patch → one targeted
+  check during development → one final full relevant gate immediately before push when required →
+  user-run build/UI QA → stop. Do not rerun an unchanged PASS gate without new code, changed input,
+  a concrete failure, or a newly identified risk.
+- Keep successful command output out of conversation context: report only the compact result,
+  counts, exact failures, and evidence identifiers needed for the next decision. Do not paste full
+  successful build or test logs.
 - The user owns builds, tests, Simulator UI, screenshots, Instruments, archive, and signing until explicitly delegating a specific verification action back to the agent.
 - One approved same-pattern sweep may cover at most two or three source files. Before a block expected to touch more than three source files or consume roughly more than 2–3% of the weekly budget, provide a compact checkpoint and wait for approval.
-- Canonical documentation synchronization happens once at a meaningful boundary or on explicit request, never as repeated intermediate work. This protocol is expected to reduce per-iteration token use by approximately 30–40% while preserving the code-quality bar; it is a planning heuristic, not a guarantee.
+- Canonical documentation synchronization happens once at a meaningful boundary, preferably after
+  merge, or on explicit request; do not rewrite plan/inventory documents after every corrective
+  revision.
+- Follow the approved roadmap in order. Do not start an adjacent residual-risk block or optional
+  stage merely because it is discoverable; report the next blocker or decision compactly first.
+- This protocol is intended to minimize total task cost, including rereads, tool output, repeated
+  gates, model handoffs, and rework; do not promise a fixed percentage saving.
 
 ## Tool Capability Escalation
 - Do not recommend or install an external development tool merely for convenience.

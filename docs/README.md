@@ -43,6 +43,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
 
 ### Production Quality And Review Gates
+- `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
 - `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
@@ -267,6 +268,7 @@ The following export is retained for provenance only. It is not an active bootst
 - **`./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`**: ownership boundary for `plan.md`, `handoff.md`, task archives, and recovery snapshots.
 
 ### Review And Completion
+- **`./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`**: app-neutral change contract, verification ladder, adversarial final-diff review, and escaped-finding feedback loop.
 - **`./docs/COMPLETION_REPORT_CONTRACT.md`**: mandatory report shape before claiming done/fixed/verified/safe/clean/production-ready.
 - **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.
 - **`./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`**: mandatory iPhone+iPad scope, deferred-platform rules, source authority, coverage unit, and freshness contract.

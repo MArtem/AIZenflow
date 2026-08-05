@@ -33,7 +33,8 @@ Level 0 only establishes authority, model choice, current task state, and routin
 Read only when the route requires it:
 
 - Project/code/package orientation: `./PROJECT_DOCUMENTATION.md`, `./PROJECT_HEALTH.md`, `./docs/AGENT_RULES.md`.
-- Non-trivial planning or execution: `./docs/AGENT_PREFLIGHT_CHECKLIST.md`.
+- Non-trivial planning or execution: `./docs/AGENT_PREFLIGHT_CHECKLIST.md`,
+  `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`.
 - Documentation/rule/prompt/skill/template/package-doc changes: `./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md`, `./docs/DOCUMENT_BOUNDARY_STANDARD.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/DOCS_REPO_OPERATIONS.md`.
 - Documentation library inventory/operations: `./docs/README.md`, `./docs/DOCUMENT_LIBRARY_GUIDE.md`, `./docs/DOCUMENTATION_VAULT_SUMMARY.md`.
 - Task plan/handoff/archive changes: `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`.

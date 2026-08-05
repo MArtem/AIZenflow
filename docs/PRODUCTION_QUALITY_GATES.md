@@ -10,6 +10,10 @@ A change is not production-ready just because it compiles or matches the visible
 
 When reviewing or implementing code, explicitly check the relevant gates below. If a gate is skipped because it is not relevant, say so in the task notes. Apply `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` together with this file; its forbidden-pattern stop list is blocking by default.
 
+Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` first for the app-neutral change contract,
+verification ladder, final adversarial review, and escaped-finding feedback loop. The gates below
+add iOS-specific product and runtime checks; they do not replace or duplicate that standard.
+
 ## Universal Definition Of Done
 Every non-trivial code change must answer:
 
