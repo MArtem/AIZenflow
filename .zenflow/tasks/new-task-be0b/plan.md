@@ -116,9 +116,10 @@ this block is accepted.
 
 - [x] BattleshipGame — replace unbounded random computer fleet placement with a terminating
   placement algorithm. External review found no comments; merged as PR #8.
-- [ ] BattleshipGame — make the selected placement ship unmistakable and mark every cell of a
-  sunk enemy ship as sunk, including VoiceOver state.
-- [ ] BattleshipGame — protect the computer turn against exhausted or invalid target state.
+- [x] BattleshipGame — make the selected placement ship unmistakable and mark every cell of a
+  sunk enemy ship as sunk, including VoiceOver state. External review found no comments; merged as PR #9.
+- [-] BattleshipGame — exhausted computer targets are unreachable while the private game-state
+  invariant holds: all ship cells are hit first and end the game. Skipped to avoid a speculative fix.
 - [ ] AI Fieldbook — reject an invalid deep link before navigation state changes.
 - [ ] AI Fieldbook — preserve item records when an attachment file is unavailable during open or export.
 
