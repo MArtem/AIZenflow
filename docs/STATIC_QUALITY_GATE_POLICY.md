@@ -24,8 +24,10 @@ profiles own only project facts and selected configuration.
   shipped sources were checked. Until that contract is implemented, report only the actual narrowed
   scope and never represent the result as a whole-target PASS. This policy does not treat an
   existing repository-root scan as authoritative membership merely because it exits successfully.
-- Every comparison-based check must name and validate the complete trusted base-to-head range.
-  Do not silently default a review to the final commit or to an empty working-tree diff.
+- Every check that compares repository changes or a review diff must name and validate the complete
+  trusted base-to-head range. Do not silently default a review to the final commit or to an empty
+  working-tree diff. Cross-tree parity and other non-history comparisons instead state their full
+  input roots, authoritative source, and freshness contract.
 - A newly created or materially revised credential gate may claim that a scope is credential-clean
   only when its classifier is kept in parity with the repository's declared credential inventory
   (for example, its ignore/security policy). A partial hard-coded list must state its actual
