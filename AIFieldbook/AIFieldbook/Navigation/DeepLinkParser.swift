@@ -17,15 +17,31 @@ enum DeepLinkDestination: Equatable {
 /// until `AppComposition` verifies that the target record exists before routing.
 enum DeepLinkParser {
     static func destination(for url: URL) -> DeepLinkDestination? {
-        guard url.scheme?.lowercased() == "aifieldbook" else { return nil }
-        let components = [url.host].compactMap { $0 } + url.pathComponents.filter { $0 != "/" }
-        guard components.count >= 2, let id = UUID(uuidString: components[1]) else { return nil }
-        switch components[0].lowercased() {
-        case "workspace": return .workspace(id)
+        guard
+            url.scheme?.lowercased() == "aifieldbook",
+            let urlComponents = URLComponents(url: url, resolvingAgainstBaseURL: false),
+            urlComponents.user == nil,
+            urlComponents.password == nil,
+            urlComponents.port == nil,
+            urlComponents.fragment == nil,
+            let host = urlComponents.host?.lowercased()
+        else {
+            return nil
+        }
+
+        let path = urlComponents.path.split(separator: "/")
+        guard path.count == 1, let id = UUID(uuidString: String(path[0])) else { return nil }
+
+        let queryItems = urlComponents.queryItems ?? []
+        switch host {
+        case "workspace":
+            guard queryItems.isEmpty else { return nil }
+            return .workspace(id)
         case "item":
-            let kind = URLComponents(url: url, resolvingAgainstBaseURL: false)?
-                .queryItems?.first(where: { $0.name == "kind" })?.value
-                .flatMap(KnowledgeItemKind.init(rawValue:))
+            guard queryItems.count <= 1 else { return nil }
+            guard let queryItem = queryItems.first else { return .item(id, nil) }
+            guard queryItem.name == "kind", let value = queryItem.value,
+                  let kind = KnowledgeItemKind(rawValue: value) else { return nil }
             return .item(id, kind)
         default: return nil
         }
