@@ -40,8 +40,16 @@ correct atomic fix.
 - Approval condition:
 
 ## Review Receipt
-- Trusted base SHA → reviewed HEAD SHA:
-- Self-review: proposed diff / exact committed SHA:
-- Relevant checks and results:
+- Trusted base SHA:
+- Reviewed HEAD SHA and range:
+- Clean-worktree result:
+- Change-contract / risk-card rows reviewed:
+- Proposed-diff self-review:
+- Exact-SHA self-review:
+- Findings and disposition:
+- Relevant commands and results:
+- Evidence reused:
+- Evidence intentionally omitted and why:
 - External review recommendation/result:
+- Residual risk:
 - Escaped finding feedback record, if any:

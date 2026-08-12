@@ -54,7 +54,11 @@ Compact cross-project user constraints that override general defaults. App/produ
 
 ## Filesystem Sandbox
 - **Absolute boundary:** without a separate, explicit user authorization naming the action and path, do not read, list, inspect, create, modify, move, download into, delete, or execute against any filesystem or OS-managed location outside `/Users/Artem/.zenflow`.
-- Project authorization never implies permission to access `/Users/Artem/Library`, `/tmp`, `/Library`, `/Applications`, global SwiftPM/Xcode caches, Simulator runtimes, or any other external path. If required input or tooling is absent inside the sandbox, report the exact blocker and stop.
+- An explicit authorization for a named build, test, or static command also permits only the
+  read-only execution of the already-installed system executable and SDK files required by that
+  command. It does not permit browsing external directories, reading unrelated files, writing
+  outside the sandbox, or installing/downloading toolchains or Simulator runtimes.
+- Project authorization never implies permission to access `/Users/Artem/Library`, `/tmp`, `/Library`, `/Applications`, global SwiftPM/Xcode caches, Simulator runtimes, or any other external path for unrelated work. If a required input, toolchain, or SDK cannot be used under the authorized command boundary, report the exact blocker and stop.
 - Do not install, download, replace, detach, mount, unmount, or delete Simulator runtimes or other machine-wide developer assets without that separate authorization.
 - Keep project work, build output, package caches, DerivedData, logs, traces, and temporary artifacts inside `/Users/Artem/.zenflow`.
 - Real secrets stay out of chat, git, app bundles, and normal AI-readable worktree files. Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md` when secrets may be present.

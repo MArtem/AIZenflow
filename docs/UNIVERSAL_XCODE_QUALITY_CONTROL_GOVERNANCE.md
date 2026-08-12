@@ -122,8 +122,9 @@ Use a bounded two-phase sequence: complete the local proposed-diff and exact-SHA
 then request one user-controlled external review for the final SHA. A material P0–P2 correction
 receives one consolidated patch, a new local receipt, and one new external-review recommendation.
 If the next round introduces an unrelated risk class or quality-tool expansion, stop for the
-user's choice of one required fix, backlog, or merge/stop; do not allow a product PR to become an
-open-ended verifier project.
+user's choice of one required fix, backlog, or merge/stop; the latter two are available only when
+no P0–P2 finding remains. With an unresolved P0–P2, require the fix or an explicit documented
+higher-authority exception. Do not allow a product PR to become an open-ended verifier project.
 
 ## Required Recommendation Output
 

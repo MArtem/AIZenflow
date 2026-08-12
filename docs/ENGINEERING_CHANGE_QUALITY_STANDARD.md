@@ -40,8 +40,8 @@ implementation. Do not invent speculative cases unrelated to the changed boundar
 Use the compact risk card in `IOS_PR_REVIEW_TEMPLATE.md` for every non-trivial PR. It is the
 review-facing projection of the change contract, not a second competing checklist. Choose one
 primary high-risk class: UI/accessibility, state/concurrency, persistence/import/export, external
-input, dependency, or build graph/workflow. A PR may include more than one only when they are
-inseparable; name the dependency and cover both evidence paths.
+input, dependency, build graph/workflow, security/privacy, or control-plane. A PR may include more
+than one only when they are inseparable; name the dependency and cover both evidence paths.
 
 Select the smallest sufficient evidence from this matrix:
 
@@ -53,6 +53,8 @@ Select the smallest sufficient evidence from this matrix:
 | External input | Strict form, malformed, boundary, and ownership validation at the entry boundary. |
 | Dependency | Dependency diff/security review and explicit version, license, maintenance, and ownership decision. |
 | Build graph/workflow | Authoritative target/scheme/workflow inspection and the relevant build or static evidence. |
+| Security/privacy | Threat/authority review, secret/privacy-data boundary inspection, and the permitted negative or static evidence. |
+| Control-plane | Authority/provenance, producer-consumer/schema parity, failure-closed, and aggregate-resource review; use an independent reviewer when available. |
 
 This matrix does not grant permission to create or run tests, builds, CI, simulators, or external
 services. Report missing user-owned evidence as residual risk.
@@ -78,8 +80,10 @@ Use the smallest sufficient ladder and stop when its evidence is current:
 4. Commit only when no P0–P2 finding remains; record or close each P3.
 5. Review the exact committed `HEAD` against its trusted base, confirm a clean worktree, and run the
    final relevant checks at that SHA. A later commit invalidates this receipt.
-6. Verify that `HEAD` did not change, push, then confirm the remote branch points to the reviewed
-   SHA. Only then recommend any user-triggered external review.
+6. If push authority is explicitly granted or in current standing scope, verify that `HEAD` did not
+   change, push, and confirm the remote branch points to the reviewed SHA. Otherwise retain the
+   local exact-SHA receipt and report that remote review remains pending the user's push decision.
+   Recommend user-triggered external review only for the final remote SHA.
 7. User-owned build, UI, device, performance, GitHub, or external review when required.
 
 Do not rerun an unchanged PASS. A changed source, input, configuration, toolchain, new risk, or
@@ -108,12 +112,12 @@ inspect the exact diff for:
 - filesystem containment, symlinks, TOCTOU, and cleanup; and
 - all producers, consumers, call sites, fixtures, and human claims that depend on the contract.
 
-For static gates and workflows, additionally confirm that the reported source universe is derived
-from the authoritative target/package/repository membership and that every review comparison uses
-the complete trusted base-to-HEAD range. A partial path list, last-commit-only range, or empty
-working-tree comparison is insufficient evidence for a PASS. Keep credential classifiers aligned
-with the repository's declared credential inventory, rather than asserting cleanliness from an
-ad hoc subset of patterns.
+For newly introduced or materially revised whole-target static gates and workflows, additionally
+confirm that the reported source universe is derived from authoritative target/package/repository
+membership and that every review comparison uses the complete trusted base-to-HEAD range. A partial
+path list, last-commit-only range, or empty working-tree comparison is insufficient evidence for a
+whole-target PASS. Keep credential classifiers aligned with the repository's declared credential
+inventory before asserting inventory-wide cleanliness; otherwise report the actual limited scope.
 
 Record findings. P0–P2 block commit and push. P3 must be fixed or explicitly reported. After a
 fix, repeat the complete final-diff review once; do not start an unbounded review loop.
@@ -164,7 +168,9 @@ new SHA.
 If a further round reveals an unrelated risk class or starts expanding tools, policies, or
 infrastructure rather than correcting the approved product change, stop and report: completed
 work, remaining concrete risk, cost of continuation, and the bounded choices of merge/stop, one
-required fix, or backlog. Do not convert a product PR into an unbounded quality-tool project.
+required fix, or backlog. Merge/stop or backlog is available only when no P0–P2 finding remains.
+With an unresolved P0–P2, the only choices are the required fix or an explicit higher-authority
+user exception. Do not convert a product PR into an unbounded quality-tool project.
 
 ## Completion Contract
 
