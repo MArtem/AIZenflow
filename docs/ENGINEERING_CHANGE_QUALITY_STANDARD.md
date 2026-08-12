@@ -78,13 +78,18 @@ Use the smallest sufficient ladder and stop when its evidence is current:
 2. One targeted test or type/build check during development when permitted and relevant.
 3. Review the complete final diff against every relevant change-contract row before committing.
 4. Commit only when no P0–P2 finding remains; record or close each P3.
-5. Review the exact committed `HEAD` against its trusted base, confirm a clean worktree, and run the
-   final relevant checks at that SHA. A later commit invalidates this receipt.
-6. If push authority is explicitly granted or in current standing scope, verify that `HEAD` did not
+5. Derive the trusted base from the actual PR target remote ref, not `HEAD^`: identify the target
+   branch from the PR or approved target, resolve and record that remote ref and SHA, then derive
+   and record `merge-base(<target remote ref>, HEAD)`. Review the complete
+   `<merge-base>..HEAD` range. If the target ref or merge base cannot be validated, block the
+   remote-review claim rather than substituting a last-commit range.
+6. Review the exact committed `HEAD` against that recorded trusted base, confirm a clean worktree,
+   and run the final relevant checks at that SHA. A later commit invalidates this receipt.
+7. If push authority is explicitly granted or in current standing scope, verify that `HEAD` did not
    change, push, and confirm the remote branch points to the reviewed SHA. Otherwise retain the
    local exact-SHA receipt and report that remote review remains pending the user's push decision.
    Recommend user-triggered external review only for the final remote SHA.
-7. User-owned build, UI, device, performance, GitHub, or external review when required.
+8. User-owned build, UI, device, performance, GitHub, or external review when required.
 
 Do not rerun an unchanged PASS. A changed source, input, configuration, toolchain, new risk, or
 finding is required before repeating or widening a check.
@@ -128,7 +133,7 @@ report that limitation and recommend the appropriate user-triggered review for t
 ## 5. Exact-SHA Review Receipt
 
 Before push, retain a compact receipt in the completion report or task evidence. It must name the
-trusted base SHA, reviewed HEAD SHA and range, clean-worktree result, contract rows reviewed,
+target remote ref and resolved SHA, derived merge-base SHA, reviewed HEAD SHA and range, clean-worktree result, contract rows reviewed,
 findings and disposition, commands and results, reused or intentionally omitted evidence, and
 residual risk. The receipt is invalid if HEAD, relevant inputs, configuration, or toolchain changes.
 
