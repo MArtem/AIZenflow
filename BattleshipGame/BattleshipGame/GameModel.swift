@@ -97,10 +97,14 @@ final class BattleshipGame: ObservableObject {
 
     func startGame() {
         guard canStart else { return }
-        computerBoard = Self.emptyBoard()
+        guard let fleet = makeComputerFleet() else {
+            statusText = "Unable to start the battle. Please try again."
+            return
+        }
+
+        computerBoard = fleet.board
+        computerShipCells = fleet.shipCells
         targetBoard = Self.emptyBoard()
-        computerShipCells = []
-        placeComputerShips()
         phase = .playing
         statusText = "Your turn. Fire at the enemy board."
     }
@@ -165,25 +169,40 @@ final class BattleshipGame: ObservableObject {
         }
     }
 
-    private func placeComputerShips() {
-        for ship in Self.defaultShips {
-            var placed = false
-            while !placed {
-                let coordinate = Coordinate(
-                    row: Int.random(in: 0..<Self.boardSize),
-                    column: Int.random(in: 0..<Self.boardSize)
-                )
-                let randomOrientation: Orientation = Bool.random() ? .horizontal : .vertical
+    private func makeComputerFleet() -> (board: [[CellState]], shipCells: Set<Coordinate>)? {
+        func placeShips(
+            _ ships: ArraySlice<ShipDefinition>,
+            on board: [[CellState]],
+            shipCells: Set<Coordinate>
+        ) -> (board: [[CellState]], shipCells: Set<Coordinate>)? {
+            guard let ship = ships.first else {
+                return (board, shipCells)
+            }
 
-                if canPlaceShip(length: ship.length, at: coordinate, orientation: randomOrientation, on: computerBoard) {
-                    for cell in cells(for: ship.length, from: coordinate, orientation: randomOrientation) {
-                        computerBoard[cell.row][cell.column] = .ship
-                        computerShipCells.insert(cell)
-                    }
-                    placed = true
+            let placements = allCoordinates().flatMap { coordinate in
+                [Orientation.horizontal, .vertical].compactMap { orientation -> [Coordinate]? in
+                    let cells = cells(for: ship.length, from: coordinate, orientation: orientation)
+                    return cells.count == ship.length && cells.allSatisfy { board[$0.row][$0.column] == .empty }
+                        ? cells
+                        : nil
+                }
+            }.shuffled()
+
+            for placement in placements {
+                var nextBoard = board
+                var nextShipCells = shipCells
+                for cell in placement {
+                    nextBoard[cell.row][cell.column] = .ship
+                    nextShipCells.insert(cell)
+                }
+                if let fleet = placeShips(ships.dropFirst(), on: nextBoard, shipCells: nextShipCells) {
+                    return fleet
                 }
             }
+            return nil
         }
+
+        return placeShips(Self.defaultShips[...], on: Self.emptyBoard(), shipCells: [])
     }
 
     private func canPlaceShip(
