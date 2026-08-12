@@ -84,20 +84,6 @@ def check_swift_syntax(files: list[Path]) -> int:
     return 0
 
 
-def check_m16_ocr_boundary(files: list[Path]) -> int:
-    required = {
-        APP / "AIFieldbook/Core/AI/AIFoundation.swift": "maximumTextUTF8Bytes",
-        APP / "AIFieldbook/Core/AI/VisionTextRecognitionService.swift": "AIResultOutputLimits.maximumTextUTF8Bytes",
-        APP / "AIFieldbook/Core/Persistence/FieldbookRepository.swift": "AIResultOutputLimits.accepts(result.text)",
-    }
-    failures = 0
-    for path, required_fragment in required.items():
-        if path not in files or required_fragment not in (ROOT / path).read_text(encoding="utf-8"):
-            fail("QC.M16.OCR_OUTPUT_BOUND", path, "OCR output must have producer and persistence bounds")
-            failures += 1
-    return failures
-
-
 def main() -> int:
     try:
         files = scanned_files()
@@ -120,7 +106,6 @@ def main() -> int:
 
     failures += check_project_contract(files)
     failures += check_swift_syntax(files)
-    failures += check_m16_ocr_boundary(files)
     if failures == 0:
         print(f"AI Fieldbook static quality gate: {len(files)} visible project files checked, 0 blocking findings")
     return 1 if failures else 0

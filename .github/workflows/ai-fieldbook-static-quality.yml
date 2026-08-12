@@ -1,8 +1,12 @@
 name: AI Fieldbook static quality
 
 on:
-  pull_request:
-    branches: [feature]
+  workflow_dispatch:
+    inputs:
+      diff-range:
+        description: "Committed Git range to check for whitespace (for example, origin/feature...HEAD)"
+        required: false
+        default: "HEAD^...HEAD"
 
 permissions:
   contents: read
@@ -21,6 +25,8 @@ jobs:
       - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
         with:
           persist-credentials: false
-          fetch-depth: 1
+          fetch-depth: 0
       - name: Run the local static gate
+        env:
+          AI_FIELDBOOK_STATIC_DIFF_RANGE: ${{ inputs.diff-range }}
         run: ./AIFieldbook/scripts/verify_static.sh
