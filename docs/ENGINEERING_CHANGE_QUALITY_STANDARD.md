@@ -41,7 +41,8 @@ Use the compact risk card in `IOS_PR_REVIEW_TEMPLATE.md` for every non-trivial P
 review-facing projection of the change contract, not a second competing checklist. Choose one
 primary high-risk class: UI/accessibility, state/concurrency, persistence/import/export, external
 input, dependency, build graph/workflow, security/privacy, or control-plane. A PR may include more
-than one only when they are inseparable; name the dependency and cover both evidence paths.
+than one only when they are inseparable; name the dependency and cover both evidence paths. Use
+domain/product logic when the primary risk is correctness of the product rule or algorithm itself.
 
 Select the smallest sufficient evidence from this matrix:
 
@@ -55,6 +56,7 @@ Select the smallest sufficient evidence from this matrix:
 | Build graph/workflow | Authoritative target/scheme/workflow inspection and the relevant build or static evidence. |
 | Security/privacy | Threat/authority review, secret/privacy-data boundary inspection, and the permitted negative or static evidence. |
 | Control-plane | Authority/provenance, producer-consumer/schema parity, failure-closed, and aggregate-resource review; use an independent reviewer when available. |
+| Domain/product logic | Explicit domain invariants plus success, failure, boundary, and state-order scenarios; use a targeted test or user-owned scenario when permitted. |
 
 This matrix does not grant permission to create or run tests, builds, CI, simulators, or external
 services. Report missing user-owned evidence as residual risk.

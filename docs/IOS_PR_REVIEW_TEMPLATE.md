@@ -6,7 +6,7 @@
 - Out of scope:
 
 ## Risk Card (complete before implementation)
-- Primary risk class: UI/accessibility | state/concurrency | persistence/import/export | external input | dependency | build graph/workflow | security/privacy | control-plane | other:
+- Primary risk class: UI/accessibility | state/concurrency | persistence/import/export | external input | dependency | build graph/workflow | security/privacy | control-plane | domain/product logic | other (define evidence):
 - Required invariant and explicitly unchanged behavior:
 - State ordering to preserve (success / empty / error / cancellation / retry / concurrent action):
 - Authority and data-safety boundary (trusted input, untrusted input, or data that must not be lost):
@@ -40,7 +40,9 @@ correct atomic fix.
 - Approval condition:
 
 ## Review Receipt
-- Trusted base SHA:
+- Target remote ref:
+- Target remote SHA:
+- Derived merge-base SHA:
 - Reviewed HEAD SHA and range:
 - Clean-worktree result:
 - Change-contract / risk-card rows reviewed:

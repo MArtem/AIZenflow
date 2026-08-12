@@ -34,6 +34,7 @@ If one task creates or modifies multiple Xcode projects/apps, each project/app m
 - Sandbox root:
 - Build/test policy:
 - Model routing classification:
+- Static-gate adoption: project-specific source membership, deterministic rules/remediation, or explicit deferral with owner and revisit condition:
 - Approved local exceptions:
 - Explicit non-goals:
 
@@ -55,6 +56,9 @@ Before implementation:
 13. Confirm reusable/global documentation changes are committed and pushed to `MArtem/AIZenflowDocumentation`.
 14. Install or explicitly reference the reusable `IOS_PR_REVIEW_TEMPLATE.md` risk card in the
     project's PR/review workflow, and record any equivalent local form as a documented overlay.
+15. Complete static-gate adoption: define the project-specific source membership and deterministic
+    rules/remediation, or record an explicit deferral with owner and revisit condition. A copied
+    generic gate alone is not adoption and may not claim whole-target coverage.
 
 ## Highest-Quality Default
 All projects use the strongest reusable engineering rules by default:
@@ -81,4 +85,6 @@ The project start contract is satisfied only when:
 - real secrets are outside normal AI-readable workspace files or documented as an explicit security-intake/remediation risk;
 - task plan/handoff exists and points to the correct docs, or the intentional deferral is recorded;
 - app-specific vault area exists for every app/Xcode project in scope, or the intentional deferral is recorded;
+- the PR risk card is installed or explicitly referenced in the review workflow, or its deferral is recorded;
+- static-gate adoption is complete, or its explicit deferral has an owner and revisit condition;
 - any reusable/global docs touched during bootstrap are pushed to `MArtem/AIZenflowDocumentation`.

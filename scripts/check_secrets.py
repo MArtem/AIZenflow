@@ -49,7 +49,7 @@ def main() -> int:
             print(f"... {len(findings) - args.max_findings} more")
         return 1
 
-    print("Secret scan OK")
+    print("Secret pattern scan OK (limited patterns: private-key headers, AWS access-key IDs, quoted token assignments)")
     return 0
 
 

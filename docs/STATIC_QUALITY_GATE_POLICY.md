@@ -14,7 +14,7 @@ profiles own only project facts and selected configuration.
 - **Allowed Exception**: explicitly documented tradeoff with owner, reason, scope, and expiry/revisit condition.
 
 ## Rules For Scripts
-- Every active project maintains a project-specific local static gate that a developer or agent can run before review. It must reflect the current source graph, architecture, configuration, platform risks, and approved project facts; a copied generic template is not sufficient.
+- Every active project that has completed static-gate adoption maintains a project-specific local static gate that a developer or agent can run before review. It must reflect the current source graph, architecture, configuration, platform risks, and approved project facts; a copied generic template is not sufficient. Before adoption, report baseline checks only as their actual limited scope and record the adoption deferral under `NEW_PROJECT_START_CONTRACT.md`.
 - The local gate evolves with the project. Reassess and update it when a feature, dependency, persistence/configuration boundary, build graph, or externally found escaped defect establishes a new deterministic high-signal risk. Do not add speculative or duplicate rules merely to make the gate larger.
 - Each project-specific rule must be executable locally and identify its scope and remediation. In a project that has explicitly adopted GitHub static verification, its authoritative implementation or contract must also be shared with that workflow so the two gates cannot silently diverge.
 - Scripts must prefer deterministic checks over subjective style opinions.

@@ -28,6 +28,8 @@ REQUIRED_FILES = [
     "docs/DOCUMENT_ROUTING_REGISTRY.json",
     "docs/TASK_DOCUMENT_ROUTES.json",
     "docs/REUSABLE_BASELINE_POLICY.json",
+    "docs/IOS_PR_REVIEW_TEMPLATE.md",
+    "docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
     "scripts/resolve_docs_route.py",
     "scripts/report_documentation_context_cost.py",
     "scripts/check_reusable_baseline_drift.py",
@@ -55,6 +57,13 @@ REQUIRED_TEXT = {
     "docs/CURRENT_USER_OVERRIDES.md": [
         "DOCUMENT_BOUNDARY_STANDARD.md",
         "highest reusable standards",
+    ],
+    "docs/NEW_PROJECT_START_CONTRACT.md": [
+        "IOS_PR_REVIEW_TEMPLATE.md",
+        "Static-gate adoption",
+    ],
+    "docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md": [
+        "Static-gate adoption",
     ],
     "docs/WORK_CONTINUITY.md": [
         "TASK_TYPE_DOCUMENTATION_ROUTER.md",

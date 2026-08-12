@@ -37,5 +37,7 @@ Create a project-specific docs area for:
 - localization/design tokens
 - release runbooks
 - known risks/debt
+- Static-gate adoption: authoritative source membership, deterministic project risks, rule IDs,
+  scope/remediation, and either a local runner or an explicit deferral with owner and revisit date.
 
 Do not put project-specific facts into the generic global framework.
