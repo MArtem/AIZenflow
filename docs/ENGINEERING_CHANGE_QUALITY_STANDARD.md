@@ -35,6 +35,28 @@ that can affect the requested change:
 Resolve product behavior, ownership, persistence, privacy, and public-contract ambiguity before
 implementation. Do not invent speculative cases unrelated to the changed boundary.
 
+## 1A. PR Risk Card And Scope
+
+Use the compact risk card in `IOS_PR_REVIEW_TEMPLATE.md` for every non-trivial PR. It is the
+review-facing projection of the change contract, not a second competing checklist. Choose one
+primary high-risk class: UI/accessibility, state/concurrency, persistence/import/export, external
+input, dependency, or build graph/workflow. A PR may include more than one only when they are
+inseparable; name the dependency and cover both evidence paths.
+
+Select the smallest sufficient evidence from this matrix:
+
+| Primary risk | Minimum evidence in addition to final-diff review |
+| --- | --- |
+| UI/accessibility | Relevant static inspection plus the user-owned interaction/accessibility scenario. |
+| State/concurrency | Ordering/cancellation/retry reasoning; targeted test or runtime/sanitizer evidence only when permitted and relevant. |
+| Persistence/import/export | Data-preservation and failure-path scenario; migration or legacy-read evidence when compatibility changes. |
+| External input | Strict form, malformed, boundary, and ownership validation at the entry boundary. |
+| Dependency | Dependency diff/security review and explicit version, license, maintenance, and ownership decision. |
+| Build graph/workflow | Authoritative target/scheme/workflow inspection and the relevant build or static evidence. |
+
+This matrix does not grant permission to create or run tests, builds, CI, simulators, or external
+services. Report missing user-owned evidence as residual risk.
+
 ## 2. Implementation From Invariants
 
 - Enforce each relevant invariant at the narrowest authoritative boundary.
@@ -125,6 +147,24 @@ changes; do not add a permanent rule for a one-off typo. For each escaped P0–P
 ID/severity, reviewed SHA, primary and secondary cause, missing gate, fix SHA, regression evidence,
 and whether the correction is reusable or one-off. Track quality by new external findings on the
 final SHA, with zero new P0–P2 as the target rather than a guaranteed claim.
+
+Keep this feedback as a compact entry in the PR receipt, task evidence, or project risk record;
+do not create a second global log per project. Promote a reusable rule only after the same failure
+class occurs in two independent real PRs. Revisit a promoted deterministic rule after ten relevant
+PRs if it has prevented no recurrence: retain it only when the risk is still material, otherwise
+demote it to a review candidate or remove it.
+
+## 7. Bounded External-Review Loop
+
+External review is requested only after the exact-SHA self-review and relevant evidence are
+complete. If it finds P0–P2 issues, make one consolidated corrective patch for the approved scope,
+repeat the full self-review and exact-SHA receipt, then recommend one fresh external review of the
+new SHA.
+
+If a further round reveals an unrelated risk class or starts expanding tools, policies, or
+infrastructure rather than correcting the approved product change, stop and report: completed
+work, remaining concrete risk, cost of continuation, and the bounded choices of merge/stop, one
+required fix, or backlog. Do not convert a product PR into an unbounded quality-tool project.
 
 ## Completion Contract
 

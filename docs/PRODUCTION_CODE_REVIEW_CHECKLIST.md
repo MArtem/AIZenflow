@@ -20,7 +20,9 @@ Every meaningful change must be checked against these areas.
 
 The final diff must first satisfy the standard's change contract: authority and trust boundaries,
 producer/consumer agreement, time ordering, aggregate input/resource limits, failure/rollback
-semantics, and affected call sites or mirrored claims. The sections below add iOS-specific lenses.
+semantics, and affected call sites or mirrored claims. Before push, review the committed `HEAD` from
+its trusted base, retain the exact-SHA receipt, and repeat it after any new commit. The sections
+below add iOS-specific lenses.
 
 ### UI Hot Path
 - SwiftUI `body`, row builders, layout callbacks, scroll callbacks, gestures, and animations must stay cheap and side-effect free.

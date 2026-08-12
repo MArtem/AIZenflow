@@ -53,6 +53,8 @@ Before implementation:
 11. Confirm task plan/handoff docs exist or are intentionally deferred with a reason.
 12. Confirm every Xcode project/app in scope has its own app-specific docs boundary.
 13. Confirm reusable/global documentation changes are committed and pushed to `MArtem/AIZenflowDocumentation`.
+14. Install or explicitly reference the reusable `IOS_PR_REVIEW_TEMPLATE.md` risk card in the
+    project's PR/review workflow, and record any equivalent local form as a documented overlay.
 
 ## Highest-Quality Default
 All projects use the strongest reusable engineering rules by default:
