@@ -131,7 +131,6 @@ enum FieldbookRepositoryError: Error {
     case noteNotFound
     case attachmentNotFound
     case tagNotFound
-    case aiResultOutputTooLarge
 }
 
 /// App-specific SwiftData repository and domain mapping boundary.
@@ -403,9 +402,6 @@ final class FieldbookRepository {
               let attachment = item.attachments.first(where: { $0.id == provenance.sourceAttachmentID }),
               attachment.relativePath == provenance.inputRevision else {
             throw FieldbookRepositoryError.attachmentNotFound
-        }
-        guard AIResultOutputLimits.accepts(result.text) else {
-            throw FieldbookRepositoryError.aiResultOutputTooLarge
         }
 
         for existing in item.aiResults where

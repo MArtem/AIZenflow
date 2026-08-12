@@ -4,7 +4,6 @@ import Vision
 
 private enum VisionTextRecognitionError: Error {
     case imageDecodingFailed
-    case outputTooLarge
 }
 
 /// Performs image text recognition entirely on device with Apple Vision.
@@ -42,18 +41,10 @@ actor VisionTextRecognitionService {
         let observations = try await request.perform(on: image)
         try Task.checkCancellation()
 
-        var lines: [String] = []
-        var outputByteCount = 0
-        for observation in observations {
-            let line = observation.transcript.trimmingCharacters(in: .whitespacesAndNewlines)
-            guard !line.isEmpty else { continue }
-            let additionalBytes = line.utf8.count + (lines.isEmpty ? 0 : 1)
-            guard outputByteCount <= AIResultOutputLimits.maximumTextUTF8Bytes - additionalBytes else {
-                throw VisionTextRecognitionError.outputTooLarge
-            }
-            outputByteCount += additionalBytes
-            lines.append(line)
-        }
+        let lines = observations
+            .map(\.transcript)
+            .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
+            .filter { !$0.isEmpty }
         let text = lines.joined(separator: "\n")
         let confidence = observations.isEmpty
             ? nil
