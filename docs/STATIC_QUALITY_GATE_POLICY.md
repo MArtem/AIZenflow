@@ -14,7 +14,19 @@ profiles own only project facts and selected configuration.
 - **Allowed Exception**: explicitly documented tradeoff with owner, reason, scope, and expiry/revisit condition.
 
 ## Rules For Scripts
+- Every active project maintains a project-specific local static gate that a developer or agent can run before review. It must reflect the current source graph, architecture, configuration, platform risks, and approved project facts; a copied generic template is not sufficient.
+- The local gate evolves with the project. Reassess and update it when a feature, dependency, persistence/configuration boundary, build graph, or externally found escaped defect establishes a new deterministic high-signal risk. Do not add speculative or duplicate rules merely to make the gate larger.
+- Each project-specific rule must be executable locally, identify its scope and remediation, and share its authoritative implementation or contract with the project's GitHub static workflow so the two gates cannot silently diverge.
 - Scripts must prefer deterministic checks over subjective style opinions.
+- A gate must derive the full checked source universe from an authoritative build, target, package,
+  or repository membership contract. A convenient directory filter is not proof that all compiled
+  or shipped sources were checked. If that contract cannot be resolved, report the scope as
+  `SKIPPED` or `BLOCKED`; never publish a whole-target PASS.
+- Every comparison-based check must name and validate the complete trusted base-to-head range.
+  Do not silently default a review to the final commit or to an empty working-tree diff.
+- Secret and credential classifiers must be kept in parity with the repository's declared
+  credential inventory (for example, its ignore/security policy). A partial hard-coded list must
+  not claim that the scoped tree is credential-clean.
 - A script that produces broad pattern matches must state whether output is fail, warning, or review candidate.
 - Generated files, build outputs, dependency caches, traces, and task attachments should be excluded unless the script explicitly audits artifacts.
 - False positives should be reduced by scope, naming, allowlist comments, or severity downgrade; they must not be silently ignored.

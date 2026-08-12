@@ -120,8 +120,10 @@ this block is accepted.
   sunk enemy ship as sunk, including VoiceOver state. External review found no comments; merged as PR #9.
 - [-] BattleshipGame — exhausted computer targets are unreachable while the private game-state
   invariant holds: all ship cells are hit first and end the game. Skipped to avoid a speculative fix.
-- [ ] AI Fieldbook — reject an invalid deep link before navigation state changes.
-- [ ] AI Fieldbook — preserve item records when an attachment file is unavailable during open or export.
+- [x] AI Fieldbook — reject an invalid deep link before navigation state changes. One parser-shape
+  defect found by external review was corrected; final review found no comments; merged as PR #10.
+- [-] AI Fieldbook — attachment open already surfaces `missingFile` without deleting the item;
+  export reads persisted metadata and does not dereference attachments. Skipped to avoid a redundant fix.
 
 Each pilot is one PR with one self-review, the relevant static evidence, and one external review.
 Promote an escaped-finding rule only after the same class appears in two independent real PRs.
