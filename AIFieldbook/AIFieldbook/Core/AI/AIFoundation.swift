@@ -20,6 +20,18 @@ enum AIResultCompletionState: String, Codable, Sendable {
     case empty
 }
 
+/// Shared output envelope for one persisted local AI result.
+///
+/// The limit keeps one OCR pass from making the detail screen, SwiftData store, or export
+/// manifest disproportionately large. Results over the limit fail rather than being truncated.
+enum AIResultOutputLimits {
+    static let maximumTextUTF8Bytes = 512 * 1_024
+
+    static func accepts(_ text: String) -> Bool {
+        text.utf8.count <= maximumTextUTF8Bytes
+    }
+}
+
 /// Auditable metadata for one persisted AI result.
 ///
 /// Privacy:

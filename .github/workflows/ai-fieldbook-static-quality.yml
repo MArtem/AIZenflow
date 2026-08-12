@@ -1,0 +1,25 @@
+name: AI Fieldbook static quality
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ai-fieldbook-static-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: AI Fieldbook static gate
+    runs-on: macos-15
+    timeout-minutes: 5
+    steps:
+      # actions/checkout v5.0.1
+      - uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd
+        with:
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Run the local static gate
+        run: ./AIFieldbook/scripts/verify_static.sh
