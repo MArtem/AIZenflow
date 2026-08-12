@@ -29,8 +29,15 @@ enum DeepLinkParser {
             return nil
         }
 
-        let path = urlComponents.path.split(separator: "/")
-        guard path.count == 1, let id = UUID(uuidString: String(path[0])) else { return nil }
+        let encodedPath = urlComponents.percentEncodedPath
+        guard
+            encodedPath.hasPrefix("/"),
+            !encodedPath.hasSuffix("/"),
+            !encodedPath.dropFirst().contains("/"),
+            let id = UUID(uuidString: String(encodedPath.dropFirst()))
+        else {
+            return nil
+        }
 
         let queryItems = urlComponents.queryItems ?? []
         switch host {
