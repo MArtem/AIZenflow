@@ -112,6 +112,19 @@ verify an image with no readable text, and verify the failure path leaves the or
 Also confirm non-image imported items do not expose OCR. Do not begin another AI capability until
 this block is accepted.
 
+## Cross-Project Quality Pilots
+
+- [x] BattleshipGame — replace unbounded random computer fleet placement with a terminating
+  placement algorithm. External review found no comments; merged as PR #8.
+- [ ] BattleshipGame — make the selected placement ship unmistakable and mark every cell of a
+  sunk enemy ship as sunk, including VoiceOver state.
+- [ ] BattleshipGame — protect the computer turn against exhausted or invalid target state.
+- [ ] AI Fieldbook — reject an invalid deep link before navigation state changes.
+- [ ] AI Fieldbook — preserve item records when an attachment file is unavailable during open or export.
+
+Each pilot is one PR with one self-review, the relevant static evidence, and one external review.
+Promote an escaped-finding rule only after the same class appears in two independent real PRs.
+
 ## Deferred App Intents State
 
 - Gate `1.26-S` is accepted; A1 Open Workspace and A2 Find Knowledge Items are implemented.

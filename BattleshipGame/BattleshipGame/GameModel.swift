@@ -5,6 +5,7 @@ enum CellState: Equatable {
     case empty
     case ship
     case hit
+    case sunk
     case miss
 }
 
@@ -39,6 +40,11 @@ struct ShipDefinition: Identifiable, Equatable {
     let length: Int
 }
 
+private struct PlacedShip {
+    let name: String
+    let cells: Set<Coordinate>
+}
+
 @MainActor
 final class BattleshipGame: ObservableObject {
     static let boardSize = 10
@@ -54,6 +60,7 @@ final class BattleshipGame: ObservableObject {
     private var computerTargets: Set<Coordinate> = []
     private var humanShipCells: Set<Coordinate> = []
     private var computerShipCells: Set<Coordinate> = []
+    private var computerShips: [PlacedShip] = []
 
     init() {
         humanBoard = Self.emptyBoard()
@@ -104,6 +111,7 @@ final class BattleshipGame: ObservableObject {
 
         computerBoard = fleet.board
         computerShipCells = fleet.shipCells
+        computerShips = fleet.ships
         targetBoard = Self.emptyBoard()
         phase = .playing
         statusText = "Your turn. Fire at the enemy board."
@@ -120,6 +128,24 @@ final class BattleshipGame: ObservableObject {
             targetBoard[coordinate.row][coordinate.column] = .hit
             computerBoard[coordinate.row][coordinate.column] = .hit
             computerShipCells.remove(coordinate)
+
+            if let sunkShip = computerShips.first(where: { $0.cells.contains(coordinate) }),
+               sunkShip.cells.allSatisfy({ targetBoard[$0.row][$0.column] == .hit }) {
+                for cell in sunkShip.cells {
+                    targetBoard[cell.row][cell.column] = .sunk
+                    computerBoard[cell.row][cell.column] = .sunk
+                }
+                if computerShipCells.isEmpty {
+                    phase = .finished(winner: .human)
+                    statusText = "You sank the \(sunkShip.name) and won!"
+                    return
+                }
+                let sunkMessage = "You sank the \(sunkShip.name)!"
+                computerTurn()
+                statusText = "\(sunkMessage) \(statusText)"
+                return
+            }
+
             if computerShipCells.isEmpty {
                 phase = .finished(winner: .human)
                 statusText = "You won!"
@@ -144,6 +170,7 @@ final class BattleshipGame: ObservableObject {
         computerTargets = []
         humanShipCells = []
         computerShipCells = []
+        computerShips = []
         statusText = "Place your Carrier."
     }
 
@@ -169,14 +196,15 @@ final class BattleshipGame: ObservableObject {
         }
     }
 
-    private func makeComputerFleet() -> (board: [[CellState]], shipCells: Set<Coordinate>)? {
+    private func makeComputerFleet() -> (board: [[CellState]], shipCells: Set<Coordinate>, ships: [PlacedShip])? {
         func placeShips(
             _ ships: ArraySlice<ShipDefinition>,
             on board: [[CellState]],
-            shipCells: Set<Coordinate>
-        ) -> (board: [[CellState]], shipCells: Set<Coordinate>)? {
+            shipCells: Set<Coordinate>,
+            placedShips: [PlacedShip]
+        ) -> (board: [[CellState]], shipCells: Set<Coordinate>, ships: [PlacedShip])? {
             guard let ship = ships.first else {
-                return (board, shipCells)
+                return (board, shipCells, placedShips)
             }
 
             let placements = allCoordinates().flatMap { coordinate in
@@ -195,14 +223,20 @@ final class BattleshipGame: ObservableObject {
                     nextBoard[cell.row][cell.column] = .ship
                     nextShipCells.insert(cell)
                 }
-                if let fleet = placeShips(ships.dropFirst(), on: nextBoard, shipCells: nextShipCells) {
+                let nextPlacedShips = placedShips + [PlacedShip(name: ship.name, cells: Set(placement))]
+                if let fleet = placeShips(
+                    ships.dropFirst(),
+                    on: nextBoard,
+                    shipCells: nextShipCells,
+                    placedShips: nextPlacedShips
+                ) {
                     return fleet
                 }
             }
             return nil
         }
 
-        return placeShips(Self.defaultShips[...], on: Self.emptyBoard(), shipCells: [])
+        return placeShips(Self.defaultShips[...], on: Self.emptyBoard(), shipCells: [], placedShips: [])
     }
 
     private func canPlaceShip(
