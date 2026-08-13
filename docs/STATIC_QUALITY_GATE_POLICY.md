@@ -48,7 +48,9 @@ profiles own only project facts and selected configuration.
 - A missing dependency, malformed profile, invalid scope, stale result, or skipped command must not
   be converted into a successful finding set.
 - Static gates must emit enough structured evidence to identify the source SHA, rule version,
-  executed scope, and classified findings without logging source secrets.
+  executed scope, input identity state, and classified findings without logging source secrets. A
+  clean committed input may emit `PASS`; dirty or unborn input is `PROVISIONAL` and cannot support
+  an exact-SHA claim; unavailable cleanliness is `FAIL`.
 
 ## Review Rules
 - Passing scripts is not enough to claim production-ready.

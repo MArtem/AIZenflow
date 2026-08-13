@@ -9,7 +9,18 @@ set -euo pipefail
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 SCOPE=("$@")
 export PYTHONDONTWRITEBYTECODE=1
-SOURCE_SHA="$(git -C "$ROOT" rev-parse HEAD)"
+EMPTY_TREE_SHA="4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+if SOURCE_SHA="$(git -C "$ROOT" rev-parse --verify HEAD 2>/dev/null)"; then
+  SOURCE_IDENTITY_KIND=commit
+else
+  SOURCE_SHA="$EMPTY_TREE_SHA"
+  SOURCE_IDENTITY_KIND=unborn-worktree
+fi
+if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
+  printf 'Usage: %s [path ...]\n' "${0##*/}"
+  printf 'Runs repository static gates. Dirty or unborn worktrees emit PROVISIONAL evidence.\n'
+  exit 0
+fi
 RULE_FILES=(
   scripts/run_static_quality_gates.sh
   scripts/static_gate_scope.py
@@ -42,6 +53,8 @@ emit_receipt() {
   else
     worktree_clean=false
   fi
+  local encoder_exit_code
+  set +e
   printf '%s' "$output" | python3 -c '
 import json
 import sys
@@ -52,9 +65,10 @@ counts = {
     "warning": sum("[warning]" in line for line in output.splitlines()),
     "review_candidate": sum("[review-candidate]" in line for line in output.splitlines()),
 }
-exit_code = int(sys.argv[4])
+exit_code = int(sys.argv[5])
 cleanliness_established = sys.argv[3] != "unknown"
-status = "FAIL" if exit_code or not cleanliness_established else "WARN" if counts["warning"] else "REVIEW_CANDIDATE" if counts["review_candidate"] else "PASS"
+exact_identity = sys.argv[4] == "commit" and sys.argv[3] == "true"
+status = "FAIL" if exit_code or not cleanliness_established else "PROVISIONAL" if not exact_identity else "WARN" if counts["warning"] else "REVIEW_CANDIDATE" if counts["review_candidate"] else "PASS"
 print(json.dumps({
     "kind": "static-gate-evidence",
     "status": status,
@@ -62,12 +76,18 @@ print(json.dumps({
     "rule_version": sys.argv[2],
     "worktree_clean": None if sys.argv[3] == "unknown" else sys.argv[3] == "true",
     "cleanliness_established": cleanliness_established,
-    "check": sys.argv[5],
-    "scope": json.loads(sys.argv[6]),
+    "source_identity_kind": sys.argv[4],
+    "check": sys.argv[6],
+    "scope": json.loads(sys.argv[7]),
     "exit_code": exit_code,
     "finding_counts": counts,
 }, sort_keys=True))
-' "$SOURCE_SHA" "$RULE_VERSION" "$worktree_clean" "$exit_code" "$check" "$scope_json"
+' "$SOURCE_SHA" "$RULE_VERSION" "$worktree_clean" "$SOURCE_IDENTITY_KIND" "$exit_code" "$check" "$scope_json"
+  encoder_exit_code=$?
+  set -e
+  if [[ "$encoder_exit_code" -ne 0 ]]; then
+    return "$encoder_exit_code"
+  fi
   if [[ "$cleanliness_exit_code" -ne 0 ]]; then
     return 2
   fi

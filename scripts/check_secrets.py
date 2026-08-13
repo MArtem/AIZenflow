@@ -15,6 +15,7 @@ PATTERNS = [
     ("aws access key", re.compile(r"AKIA[0-9A-Z]{16}")),
     ("generic token assignment", re.compile(r'(?i)(api[_-]?key|secret|token|password)\s*[:=]\s*["\'][^"\']{16,}["\']')),
 ]
+MAX_SECRET_SCAN_BYTES = 5 * 1024 * 1024
 
 
 def main() -> int:
@@ -23,7 +24,7 @@ def main() -> int:
     findings = []
 
     for path in iter_files(scan_roots, "*", {".zenflow", "traces"}):
-        if path.stat().st_size > 2_000_000:
+        if path.stat().st_size > MAX_SECRET_SCAN_BYTES:
             continue
         try:
             text = path.read_text(errors="ignore")

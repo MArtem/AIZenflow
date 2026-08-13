@@ -83,19 +83,22 @@ Use the smallest sufficient ladder and stop when its evidence is current:
    P0–P2 finding remains; record or close each P3. Otherwise retain the proposed-diff review and
    report that the commit and exact-SHA stages are pending the user's authorization.
 5. When commit authority is in scope, derive the trusted base from the actual PR target remote ref,
-   not `HEAD^`: identify the target
-   branch from the PR or approved target, resolve and record that remote ref and SHA, then derive
-   and record `merge-base(<target remote ref>, HEAD)`. Review the complete
-   `<merge-base>..HEAD` range. If the target ref or merge base cannot be validated, block the
-   remote-review claim rather than substituting a last-commit range.
+   not `HEAD^`: identify the target branch from the PR or approved target, resolve and record that
+   remote ref and SHA, then derive and record `merge-base(<target remote ref>, HEAD)`. Review the
+   complete `<merge-base>..HEAD` range. If the target ref or merge base cannot be validated, block
+   the remote-review claim rather than substituting a last-commit range. For a local-only repository
+   with no remote, record an explicitly approved local base; if history is unborn, use Git's empty
+   tree as the base. Mark target-remote freshness and push fields not applicable rather than
+   blocking the local exact-HEAD review.
 6. When commit authority is in scope, review the exact committed `HEAD` against that recorded trusted base, confirm a clean worktree,
    and run the final relevant checks at that SHA. A later commit invalidates this receipt.
 7. Immediately before an authorized push, refresh or directly query the authoritative target
    remote ref, record its current SHA, and recompute the merge base. If remote freshness cannot be
-   established, block the current-base claim. Then revalidate or compare the recorded identity of
-   every receipt input that can invalidate evidence: `HEAD`, target ref/merge base, relevant
-   profile or configuration, selected permissions, and toolchain version. If any recorded input
-   changed, invalidate and refresh the receipt before pushing.
+   established, block the current-base claim. For a local-only repository, instead revalidate the
+   recorded approved local base and mark remote freshness/push not applicable. Then revalidate or
+   compare the recorded identity of every receipt input that can invalidate evidence: `HEAD`, target
+   ref/merge base, relevant profile or configuration, selected permissions, and toolchain version.
+   If any recorded input changed, invalidate and refresh the receipt before pushing.
 8. If push authority is explicitly granted or in current standing scope, push and confirm the
    remote branch points to the reviewed SHA. Otherwise retain the local exact-SHA receipt and
    report that remote review remains pending the user's push decision.
