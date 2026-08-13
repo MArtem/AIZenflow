@@ -42,6 +42,7 @@ correct atomic fix.
 ## Review Receipt
 - Target remote ref:
 - Target remote SHA:
+- Target ref freshness check before push:
 - Derived merge-base SHA:
 - Reviewed HEAD SHA and range:
 - Relevant profile identity / not applicable:

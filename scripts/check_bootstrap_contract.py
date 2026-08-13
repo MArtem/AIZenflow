@@ -32,6 +32,7 @@ REQUIRED_FILES = [
     "docs/IOS_PR_REVIEW_TEMPLATE.md",
     "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
     "docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+    "docs/STATIC_GATE_ADOPTION.md",
     "scripts/resolve_docs_route.py",
     "scripts/report_documentation_context_cost.py",
     "scripts/check_reusable_baseline_drift.py",
@@ -60,13 +61,10 @@ REQUIRED_TEXT = {
         "DOCUMENT_BOUNDARY_STANDARD.md",
         "highest reusable standards",
     ],
-    "docs/NEW_PROJECT_START_CONTRACT.md": [
-        "IOS_PR_REVIEW_TEMPLATE.md",
-        "Static-gate adoption",
-    ],
+    "docs/NEW_PROJECT_START_CONTRACT.md": ["IOS_PR_REVIEW_TEMPLATE.md", "STATIC_GATE_ADOPTION.md"],
     "docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md": [
         "ENGINEERING_CHANGE_QUALITY_STANDARD.md",
-        "Static-gate adoption",
+        "STATIC_GATE_ADOPTION.md",
     ],
     "docs/WORK_CONTINUITY.md": [
         "TASK_TYPE_DOCUMENTATION_ROUTER.md",
@@ -74,6 +72,54 @@ REQUIRED_TEXT = {
         "перечитать весь актуальный набор документации и правил",
     ],
 }
+
+ADOPTION_RECORD = "docs/STATIC_GATE_ADOPTION.md"
+ADOPTION_FIELDS = ("Status", "Owner", "Revisit condition")
+ADOPTION_DETAILS = ("Source membership authority", "Local runner", "Deterministic rules and remediation")
+DEFERRAL_REASON = "Deferral reason"
+ADOPTION_RECORD_FIELDS = (*ADOPTION_FIELDS, *ADOPTION_DETAILS, DEFERRAL_REASON)
+
+
+def field_value(text: str, field: str) -> str | None:
+    prefix = f"- {field}:"
+    for line in text.splitlines():
+        if line.startswith(prefix):
+            value = line.removeprefix(prefix).strip().strip("`")
+            return value or None
+    return None
+
+
+def is_filled(value: str | None) -> bool:
+    if value is None:
+        return False
+    normalized = value.lower()
+    return normalized not in {"<fill>", "tbd", "n/a", "not applicable"} and not (
+        normalized.startswith("<") and normalized.endswith(">")
+    )
+
+
+def validate_static_gate_adoption(root: Path) -> list[str]:
+    path = root / ADOPTION_RECORD
+    if not path.is_file():
+        return [f"static-gate adoption BLOCKED: missing completed record: {ADOPTION_RECORD}"]
+
+    text = path.read_text(encoding="utf-8", errors="replace")
+    values = {field: field_value(text, field) for field in ADOPTION_RECORD_FIELDS}
+    missing = [field for field in ADOPTION_FIELDS if not is_filled(values[field])]
+    if missing:
+        return [f"static-gate adoption BLOCKED: {ADOPTION_RECORD} missing {', '.join(missing)}"]
+
+    status = values["Status"]
+    if status == "ADOPTED":
+        missing = [field for field in ADOPTION_DETAILS if not is_filled(values[field])]
+        if missing:
+            return [f"static-gate adoption BLOCKED: ADOPTED record missing {', '.join(missing)}"]
+        return []
+    if status == "DEFERRED":
+        if not is_filled(values[DEFERRAL_REASON]):
+            return [f"static-gate adoption BLOCKED: DEFERRED record missing {DEFERRAL_REASON}"]
+        return []
+    return [f"static-gate adoption BLOCKED: Status must be ADOPTED or DEFERRED, found `{status}`"]
 
 
 def main() -> int:
@@ -101,6 +147,8 @@ def main() -> int:
         for needle in needles:
             if needle not in text:
                 failures.append(f"{rel}: missing required text `{needle}`")
+
+    failures.extend(validate_static_gate_adoption(root))
 
     if failures:
         print("Bootstrap contract FAILED:")

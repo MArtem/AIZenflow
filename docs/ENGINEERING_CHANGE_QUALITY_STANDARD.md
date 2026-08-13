@@ -90,10 +90,12 @@ Use the smallest sufficient ladder and stop when its evidence is current:
    remote-review claim rather than substituting a last-commit range.
 6. When commit authority is in scope, review the exact committed `HEAD` against that recorded trusted base, confirm a clean worktree,
    and run the final relevant checks at that SHA. A later commit invalidates this receipt.
-7. Immediately before an authorized push, revalidate or compare the recorded identity of every
-   receipt input that can invalidate evidence: `HEAD`, target ref/merge base, relevant profile or
-   configuration, selected permissions, and toolchain version. If any recorded input changed,
-   invalidate and refresh the receipt before pushing.
+7. Immediately before an authorized push, refresh or directly query the authoritative target
+   remote ref, record its current SHA, and recompute the merge base. If remote freshness cannot be
+   established, block the current-base claim. Then revalidate or compare the recorded identity of
+   every receipt input that can invalidate evidence: `HEAD`, target ref/merge base, relevant
+   profile or configuration, selected permissions, and toolchain version. If any recorded input
+   changed, invalidate and refresh the receipt before pushing.
 8. If push authority is explicitly granted or in current standing scope, push and confirm the
    remote branch points to the reviewed SHA. Otherwise retain the local exact-SHA receipt and
    report that remote review remains pending the user's push decision.
