@@ -62,6 +62,45 @@ validate_rule_files() {
 if ! validate_rule_files; then
   exit 2
 fi
+validate_metadata_inputs() {
+  python3 - "$ROOT" <<'PY'
+import os
+import sys
+from pathlib import Path
+
+root = Path(sys.argv[1]).resolve()
+inputs = (
+    "AGENTS.md",
+    "PROJECT_DOCUMENTATION.md",
+    "PROJECT_HEALTH.md",
+    "docs",
+    ".zenflow/tasks",
+    ".codex/skills",
+)
+
+for relative in inputs:
+    candidate = root / relative
+    if candidate.is_symlink():
+        raise SystemExit(f"Static metadata input must not be a symlink: {relative}")
+    if not candidate.exists():
+        continue
+    try:
+        candidate.resolve().relative_to(root)
+    except ValueError as error:
+        raise SystemExit(f"Static metadata input escapes repository root: {relative}") from error
+    if candidate.is_file():
+        continue
+    for directory, directories, files in os.walk(candidate, followlinks=False):
+        directory_path = Path(directory)
+        for name in [*directories, *files]:
+            path = directory_path / name
+            if path.is_symlink():
+                raise SystemExit(f"Static metadata input must not be a symlink: {path.relative_to(root)}")
+PY
+}
+if ! validate_metadata_inputs; then
+  exit 2
+fi
 RULE_VERSION="$({ for path in "${RULE_FILES[@]}"; do git -C "$ROOT" hash-object "$path"; done; } | git -C "$ROOT" hash-object --stdin)"
 METADATA_SCOPE_JSON='["repository-documentation-contract"]'
 
@@ -112,7 +151,7 @@ exact_identity = sys.argv[4] == "commit" and sys.argv[3] == "true"
 head_unchanged = sys.argv[8] == "true"
 not_applicable = sys.argv[9] == "not-applicable"
 advisory = "warning" if counts["warning"] else "review_candidate" if counts["review_candidate"] else "none"
-status = "FAIL" if exit_code or not cleanliness_established or not head_unchanged else "NOT_APPLICABLE" if not_applicable else "BLOCKED" if not exact_identity else "PASS"
+status = "FAIL" if exit_code or not cleanliness_established or not head_unchanged else "BLOCKED" if not exact_identity else "NOT_APPLICABLE" if not_applicable else "PASS"
 print(json.dumps({
     "kind": "static-gate-evidence",
     "status": status,
