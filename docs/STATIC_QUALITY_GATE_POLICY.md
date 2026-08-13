@@ -51,9 +51,10 @@ profiles own only project facts and selected configuration.
   executed scope, input identity state, and classified findings without logging source secrets. A
   clean committed input may emit `PASS`; dirty or unborn input is `BLOCKED` and cannot support an
   exact-SHA claim; unavailable cleanliness is `FAIL`.
-- SHA-bound scans exclude Git-ignored untracked content and mutable submodule worktrees. A user
-  who needs a secret/configuration check for such content must run a separate, explicitly scoped
-  local check; it is not evidence for the committed source revision.
+- SHA-bound scans exclude Git-ignored untracked content and mutable submodule worktrees, and
+  reject sparse or assume-unchanged index entries. A user who needs a secret/configuration check
+  for such content must run a separate, explicitly scoped local check; it is not evidence for the
+  committed source revision.
 - A requested scan root that is excluded or has no eligible source universe is invalid scope and
   must produce non-PASS evidence rather than a vacuous success.
 

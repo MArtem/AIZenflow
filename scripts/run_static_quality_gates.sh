@@ -20,7 +20,10 @@ for argument in "$@"; do
     exit 0
   fi
 done
-EMPTY_TREE_SHA="4b825dc642cb6eb9a060e54bf8d69288fbee4904"
+if ! EMPTY_TREE_SHA="$(git -C "$ROOT" hash-object -t tree --stdin </dev/null)"; then
+  printf 'Cannot derive the repository empty-tree identifier.\n' >&2
+  exit 2
+fi
 if SOURCE_SHA="$(git -C "$ROOT" rev-parse --verify HEAD 2>/dev/null)"; then
   SOURCE_IDENTITY_KIND=commit
 else
@@ -39,6 +42,26 @@ RULE_FILES=(
   scripts/check_localization.py
   scripts/check_swiftui_hot_path_patterns.py
 )
+validate_rule_files() {
+  local path resolved
+  for path in "${RULE_FILES[@]}"; do
+    if [[ -L "$ROOT/$path" ]]; then
+      printf 'Static gate implementation must not be a symlink: %s\n' "$path" >&2
+      return 1
+    fi
+    resolved="$(cd -P "$(dirname "$ROOT/$path")" && printf '%s/%s' "$(pwd)" "$(basename "$path")")"
+    case "$resolved" in
+      "$ROOT"/*) ;;
+      *)
+        printf 'Static gate implementation escapes repository root: %s\n' "$path" >&2
+        return 1
+        ;;
+    esac
+  done
+}
+if ! validate_rule_files; then
+  exit 2
+fi
 RULE_VERSION="$({ for path in "${RULE_FILES[@]}"; do git -C "$ROOT" hash-object "$path"; done; } | git -C "$ROOT" hash-object --stdin)"
 METADATA_SCOPE_JSON='["repository-documentation-contract"]'
 
