@@ -22,6 +22,7 @@ Before coding, define:
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
 - `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
 - `./docs/IOS_PR_REVIEW_TEMPLATE.md`
+- `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`
 - all standards referenced by `./docs/IOS_PRODUCTION_FRAMEWORK.md`
 - relevant prompts under `./docs/agent-prompts/`
 - relevant skills under `./.codex/skills/ios-*`

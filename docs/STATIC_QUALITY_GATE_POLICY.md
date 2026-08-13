@@ -37,8 +37,10 @@ profiles own only project facts and selected configuration.
 - Generated files, build outputs, dependency caches, traces, and task attachments should be excluded unless the script explicitly audits artifacts.
 - False positives should be reduced by scope, naming, allowlist comments, or severity downgrade; they must not be silently ignored.
 - New forbidden-pattern rules should include target state and remediation guidance.
-- Every blocking rule must have a stable identifier, bounded scope, positive and negative fixtures,
-  and a documented failure/remediation contract before universal adoption.
+- Every blocking project static-gate rule must have a stable identifier, bounded scope, positive
+  and negative fixtures, and a documented failure/remediation contract before universal adoption.
+  Bootstrap and documentation-integrity validators instead fail only for a missing or inconsistent
+  declared contract and identify the missing contract element directly.
 - Heuristic regex matches default to Warn or Review Candidate unless fixtures demonstrate a
   deterministic unsafe subset.
 - App names, scheme names, test-folder names, bundle identifiers, user paths, and product token

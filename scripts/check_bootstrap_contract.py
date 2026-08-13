@@ -30,6 +30,7 @@ REQUIRED_FILES = [
     "docs/TASK_DOCUMENT_ROUTES.json",
     "docs/REUSABLE_BASELINE_POLICY.json",
     "docs/IOS_PR_REVIEW_TEMPLATE.md",
+    "docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
     "docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
     "scripts/resolve_docs_route.py",
     "scripts/report_documentation_context_cost.py",
@@ -64,6 +65,7 @@ REQUIRED_TEXT = {
         "Static-gate adoption",
     ],
     "docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md": [
+        "ENGINEERING_CHANGE_QUALITY_STANDARD.md",
         "Static-gate adoption",
     ],
     "docs/WORK_CONTINUITY.md": [

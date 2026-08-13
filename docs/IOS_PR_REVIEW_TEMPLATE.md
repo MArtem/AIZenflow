@@ -44,12 +44,17 @@ correct atomic fix.
 - Target remote SHA:
 - Derived merge-base SHA:
 - Reviewed HEAD SHA and range:
+- Relevant profile identity / not applicable:
+- Relevant configuration identity / not applicable:
+- Selected permission-set identity / not applicable:
+- Toolchain identity / not applicable:
 - Clean-worktree result:
 - Change-contract / risk-card rows reviewed:
 - Proposed-diff self-review:
 - Exact-SHA self-review:
 - Findings and disposition:
 - Relevant commands and results:
+- Pre-push receipt-input revalidation:
 - Evidence reused:
 - Evidence intentionally omitted and why:
 - External review recommendation/result:
