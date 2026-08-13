@@ -138,6 +138,26 @@ def is_ignored_path(path: Path, ignored_paths: set[Path]) -> bool:
     return any(path == ignored or path.is_relative_to(ignored) for ignored in ignored_paths)
 
 
+def is_ignored_untracked_target(root: Path, path: Path, ignored_paths: set[Path]) -> bool:
+    """Fail closed when a tracked symlink resolves to ignored mutable content."""
+    if is_ignored_path(path, ignored_paths):
+        return True
+    try:
+        relative = path.relative_to(root)
+    except ValueError:
+        return False
+    result = subprocess.run(
+        ["git", "-C", str(root), "check-ignore", "-q", "--", relative.as_posix()],
+        stdout=subprocess.DEVNULL,
+        stderr=subprocess.DEVNULL,
+    )
+    if result.returncode == 0:
+        return True
+    if result.returncode == 1:
+        return False
+    raise SystemExit("Cannot establish Git-ignored target exclusions.")
+
+
 def iter_files(
     roots: Iterable[Path],
     pattern: str = "*",
@@ -156,6 +176,10 @@ def iter_files(
         if resolved_root.is_file():
             if (
                 not is_ignored_path(lexical_root, ignored_paths)
+                and (
+                    not lexical_root.is_symlink()
+                    or not is_ignored_untracked_target(root, resolved_root, ignored_paths)
+                )
                 and resolved_root.match(pattern)
                 and not should_exclude(resolved_root, extra_excludes)
             ):
@@ -172,6 +196,10 @@ def iter_files(
                 continue
             if (
                 resolved_path.is_file()
+                and (
+                    not path.is_symlink()
+                    or not is_ignored_untracked_target(root, resolved_path, ignored_paths)
+                )
                 and not should_exclude(resolved_path, extra_excludes)
             ):
                 yield resolved_path
