@@ -54,6 +54,8 @@ profiles own only project facts and selected configuration.
 - SHA-bound scans exclude Git-ignored untracked content. A user who needs a secret/configuration
   check for such content must run a separate, explicitly scoped local check; it is not evidence
   for the committed source revision.
+- A requested scan root that is excluded or has no eligible source universe is invalid scope and
+  must produce non-PASS evidence rather than a vacuous success.
 
 ## Review Rules
 - Passing scripts is not enough to claim production-ready.
