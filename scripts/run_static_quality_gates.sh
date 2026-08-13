@@ -16,7 +16,7 @@ export PYTHONDONTWRITEBYTECODE=1
 for argument in "$@"; do
   if [[ "$argument" == "-h" || "$argument" == "--help" ]]; then
     printf 'Usage: %s [path ...]\n' "${0##*/}"
-    printf 'Runs repository static gates. Dirty or unborn worktrees emit PROVISIONAL evidence.\n'
+    printf 'Runs repository static gates. Dirty or unborn worktrees emit BLOCKED exact-SHA evidence.\n'
     exit 0
   fi
 done
@@ -88,7 +88,8 @@ cleanliness_established = sys.argv[3] != "unknown"
 exact_identity = sys.argv[4] == "commit" and sys.argv[3] == "true"
 head_unchanged = sys.argv[8] == "true"
 not_applicable = sys.argv[9] == "not-applicable"
-status = "FAIL" if exit_code or not cleanliness_established or not head_unchanged else "NOT_APPLICABLE" if not_applicable else "PROVISIONAL" if not exact_identity else "WARN" if counts["warning"] else "REVIEW_CANDIDATE" if counts["review_candidate"] else "PASS"
+advisory = "warning" if counts["warning"] else "review_candidate" if counts["review_candidate"] else "none"
+status = "FAIL" if exit_code or not cleanliness_established or not head_unchanged else "NOT_APPLICABLE" if not_applicable else "BLOCKED" if not exact_identity else "PASS"
 print(json.dumps({
     "kind": "static-gate-evidence",
     "status": status,
@@ -102,6 +103,7 @@ print(json.dumps({
     "scope": json.loads(sys.argv[7]),
     "exit_code": exit_code,
     "finding_counts": counts,
+    "advisory": advisory,
 }, sort_keys=True))
 ' "$SOURCE_SHA" "$RULE_VERSION" "$worktree_clean" "$SOURCE_IDENTITY_KIND" "$exit_code" "$check" "$scope_json" "$head_unchanged" "$applicability"
   encoder_exit_code=$?

@@ -49,8 +49,8 @@ profiles own only project facts and selected configuration.
   be converted into a successful finding set.
 - Static gates must emit enough structured evidence to identify the source SHA, rule version,
   executed scope, input identity state, and classified findings without logging source secrets. A
-  clean committed input may emit `PASS`; dirty or unborn input is `PROVISIONAL` and cannot support
-  an exact-SHA claim; unavailable cleanliness is `FAIL`.
+  clean committed input may emit `PASS`; dirty or unborn input is `BLOCKED` and cannot support an
+  exact-SHA claim; unavailable cleanliness is `FAIL`.
 - SHA-bound scans exclude Git-ignored untracked content and mutable submodule worktrees. A user
   who needs a secret/configuration check for such content must run a separate, explicitly scoped
   local check; it is not evidence for the committed source revision.

@@ -81,6 +81,8 @@ def resolve_scan_roots(paths: Iterable[str]) -> list[Path]:
     for path in resolved:
         if is_ignored_path(path, ignored_paths):
             raise SystemExit(f"Scan path is Git-ignored and excluded from static evidence: {path}")
+    if has_skip_worktree_entries(root, resolved):
+        raise SystemExit("Scan scope contains sparse skip-worktree entries and cannot produce exact-SHA evidence.")
     if not any(iter_files(resolved)):
         raise SystemExit("Scan scope has no eligible files for static evidence.")
     return resolved
@@ -132,6 +134,24 @@ def ignored_untracked_paths(root: Path, roots: Iterable[Path]) -> set[Path]:
             continue
         ignored.add(root / raw_path.decode("utf-8", errors="surrogateescape"))
     return ignored
+
+
+def has_skip_worktree_entries(root: Path, roots: Iterable[Path]) -> bool:
+    """Reject sparse-checkout entries that are absent from the filesystem scan universe."""
+    pathspecs = []
+    for scan_root in roots:
+        try:
+            relative = scan_root.relative_to(root)
+        except ValueError:
+            continue
+        pathspecs.append(relative.as_posix())
+    result = subprocess.run(
+        ["git", "-C", str(root), "ls-files", "-t", "-z", "--", *pathspecs],
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        raise SystemExit("Cannot establish Git sparse-checkout exclusions.")
+    return any(entry.startswith(b"S ") for entry in result.stdout.split(b"\0") if entry)
 
 
 def is_ignored_path(path: Path, ignored_paths: set[Path]) -> bool:
