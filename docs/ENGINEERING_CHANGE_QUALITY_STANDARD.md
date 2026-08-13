@@ -79,19 +79,26 @@ Use the smallest sufficient ladder and stop when its evidence is current:
 1. Targeted source/call-site inspection and deterministic static checks.
 2. One targeted test or type/build check during development when permitted and relevant.
 3. Review the complete final diff against every relevant change-contract row before committing.
-4. Commit only when no P0–P2 finding remains; record or close each P3.
-5. Derive the trusted base from the actual PR target remote ref, not `HEAD^`: identify the target
+4. If commit authority is explicitly granted or in current standing scope, commit only when no
+   P0–P2 finding remains; record or close each P3. Otherwise retain the proposed-diff review and
+   report that the commit and exact-SHA stages are pending the user's authorization.
+5. When commit authority is in scope, derive the trusted base from the actual PR target remote ref,
+   not `HEAD^`: identify the target
    branch from the PR or approved target, resolve and record that remote ref and SHA, then derive
    and record `merge-base(<target remote ref>, HEAD)`. Review the complete
    `<merge-base>..HEAD` range. If the target ref or merge base cannot be validated, block the
    remote-review claim rather than substituting a last-commit range.
-6. Review the exact committed `HEAD` against that recorded trusted base, confirm a clean worktree,
+6. When commit authority is in scope, review the exact committed `HEAD` against that recorded trusted base, confirm a clean worktree,
    and run the final relevant checks at that SHA. A later commit invalidates this receipt.
-7. If push authority is explicitly granted or in current standing scope, verify that `HEAD` did not
-   change, push, and confirm the remote branch points to the reviewed SHA. Otherwise retain the
-   local exact-SHA receipt and report that remote review remains pending the user's push decision.
+7. Immediately before an authorized push, revalidate or compare the recorded identity of every
+   receipt input that can invalidate evidence: `HEAD`, target ref/merge base, relevant profile or
+   configuration, selected permissions, and toolchain version. If any recorded input changed,
+   invalidate and refresh the receipt before pushing.
+8. If push authority is explicitly granted or in current standing scope, push and confirm the
+   remote branch points to the reviewed SHA. Otherwise retain the local exact-SHA receipt and
+   report that remote review remains pending the user's push decision.
    Recommend user-triggered external review only for the final remote SHA.
-8. User-owned build, UI, device, performance, GitHub, or external review when required.
+9. User-owned build, UI, device, performance, GitHub, or external review when required.
 
 Do not rerun an unchanged PASS. A changed source, input, configuration, toolchain, new risk, or
 finding is required before repeating or widening a check.
@@ -138,6 +145,8 @@ Before push, retain a compact receipt in the completion report or task evidence.
 target remote ref and resolved SHA, derived merge-base SHA, reviewed HEAD SHA and range, clean-worktree result, contract rows reviewed,
 findings and disposition, commands and results, reused or intentionally omitted evidence, and
 residual risk. The receipt is invalid if HEAD, relevant inputs, configuration, or toolchain changes.
+When commit authority is not in scope, retain the proposed-diff review record instead and state
+that an exact-SHA receipt is pending authorization.
 
 External review is an independent second barrier, never a substitute for this local receipt.
 

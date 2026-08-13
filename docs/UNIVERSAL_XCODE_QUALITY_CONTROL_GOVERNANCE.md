@@ -102,11 +102,14 @@ Tests and static checks remain permission-bound supporting evidence. High-risk c
 uses an independent reviewer when available and receives an exhaustive review recommendation for
 the final pushed SHA. Missing independent or runtime evidence remains residual risk, never `PASS`.
 
-The local gate has two required points: review the full proposed diff before commit, then review the
-exact committed SHA against its trusted base before push. The second review records the compact
-receipt required by `ENGINEERING_CHANGE_QUALITY_STANDARD.md`; any later commit invalidates it. Verify
-the remote branch resolves to that reviewed SHA after push. Static checks and user-triggered Codex
-Review are supporting, independent barriers and cannot replace the exact-SHA semantic review.
+The local gate has two required points when commit authority is in scope: review the full proposed
+diff before commit, then review the exact committed SHA against its trusted base before push. Without
+commit authority, retain the proposed-diff review and report the exact-SHA receipt as pending. The
+second review records the compact receipt required by `ENGINEERING_CHANGE_QUALITY_STANDARD.md`; any
+later commit or recorded-input change invalidates it. Revalidate its inputs immediately before an
+authorized push and verify the remote branch resolves to that reviewed SHA after push. Static checks
+and user-triggered Codex Review are supporting, independent barriers and cannot replace the
+exact-SHA semantic review.
 
 ## Codex Review
 

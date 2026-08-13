@@ -28,7 +28,7 @@ If one task creates or modifies multiple Xcode projects/apps, each project/app m
 - Task vault path: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/<TaskId>/`
 - Reusable baseline path: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/`
 - If multiple Xcode projects/apps are in scope: separate app-specific vault path for each project/app:
-- Secret storage root or local-only reason for no secrets: prefer `/Users/Artem/.zenflow-secrets/<ProjectName>/`
+- Secret storage root or local-only reason for no secrets: prefer `/Users/Artem/.zenflow/secrets/<ProjectName>/` (agent-denied during normal work)
 - Secret placeholder/example config path:
 - `.gitignore` secret baseline applied: yes/no
 - Sandbox root:
