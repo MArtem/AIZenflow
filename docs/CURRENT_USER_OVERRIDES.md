@@ -62,6 +62,10 @@ Compact cross-project user constraints that override general defaults. App/produ
 - Project authorization never implies permission to access `/Users/Artem/Library`, `/tmp`, `/Library`, `/Applications`, global SwiftPM/Xcode caches, Simulator runtimes, or any other external path for unrelated work. If a required input, toolchain, or SDK cannot be used under the authorized command boundary, report the exact blocker and stop.
 - Do not install, download, replace, detach, mount, unmount, or delete Simulator runtimes or other machine-wide developer assets without that separate authorization.
 - Keep project work, build output, package caches, DerivedData, logs, traces, and temporary artifacts inside `/Users/Artem/.zenflow`.
+- **Secret deny boundary:** do not read, list, inspect, modify, move, execute, or clean up
+  `/Users/Artem/.zenflow/secrets/` during normal work, even though it lies inside the sandbox.
+  Only an explicit user-authorized security intake/remediation pass naming that path may override
+  this deny boundary.
 - Real secrets stay out of chat, git, app bundles, and normal AI-readable worktree files. Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md` when secrets may be present.
 
 ## Tests And Verification

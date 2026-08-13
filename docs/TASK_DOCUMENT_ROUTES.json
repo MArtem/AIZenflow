@@ -303,6 +303,7 @@
       "documents": [
         "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
         "./docs/STATIC_QUALITY_GATE_POLICY.md",
+        "./docs/STATIC_GATE_ADOPTION.md",
         "./docs/CI_CD_QUALITY_GATES.md",
         "./docs/IOS_TESTING_STRATEGY.md",
         "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
@@ -311,7 +312,8 @@
     },
     "static-gates": {
       "documents": [
-        "./docs/STATIC_QUALITY_GATE_POLICY.md"
+        "./docs/STATIC_QUALITY_GATE_POLICY.md",
+        "./docs/STATIC_GATE_ADOPTION.md"
       ],
       "trigger_patterns": [
         "./scripts/check_*.py",

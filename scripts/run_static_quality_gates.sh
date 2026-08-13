@@ -98,9 +98,6 @@ for relative in inputs:
                 raise SystemExit(f"Static metadata input must not be a symlink: {path.relative_to(root)}")
 PY
 }
-if ! validate_metadata_inputs; then
-  exit 2
-fi
 RULE_VERSION="$({ for path in "${RULE_FILES[@]}"; do git -C "$ROOT" hash-object "$path"; done; } | git -C "$ROOT" hash-object --stdin)"
 METADATA_SCOPE_JSON='["repository-documentation-contract"]'
 
@@ -193,6 +190,18 @@ run_gate() {
   fi
   return "$exit_code"
 }
+
+set +e
+metadata_output="$(validate_metadata_inputs 2>&1)"
+metadata_exit_code=$?
+set -e
+if [[ "$metadata_exit_code" -ne 0 ]]; then
+  printf '%s\n' "$metadata_output"
+  if ! emit_receipt "metadata-preflight" "$METADATA_SCOPE_JSON" "$metadata_exit_code" "$metadata_output"; then
+    exit 2
+  fi
+  exit "$metadata_exit_code"
+fi
 
 scope_has_eligible_files() {
   local pattern="$1"

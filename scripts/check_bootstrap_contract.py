@@ -99,19 +99,30 @@ def is_filled(value: str | None) -> bool:
     )
 
 
-def validate_static_gate_adoption(root: Path) -> list[str]:
-    path = root / ADOPTION_RECORD
+def contained_file(root: Path, relative: str) -> tuple[Path | None, str | None]:
+    """Return a regular project-owned file without following a symlink boundary."""
+    path = root / relative
     if path.is_symlink():
-        return [f"static-gate adoption BLOCKED: {ADOPTION_RECORD} must not be a symlink"]
+        return None, f"{relative} must not be a symlink"
     try:
         resolved = path.resolve(strict=True)
         resolved.relative_to(root)
     except FileNotFoundError:
-        return [f"static-gate adoption BLOCKED: missing completed record: {ADOPTION_RECORD}"]
+        return None, f"missing required file: {relative}"
     except (OSError, ValueError):
-        return [f"static-gate adoption BLOCKED: {ADOPTION_RECORD} must remain inside the project root"]
+        return None, f"{relative} must remain inside the project root"
     if not resolved.is_file():
+        return None, f"missing required file: {relative}"
+    return resolved, None
+
+
+def validate_static_gate_adoption(root: Path) -> list[str]:
+    resolved, failure = contained_file(root, ADOPTION_RECORD)
+    if failure == f"missing required file: {ADOPTION_RECORD}":
         return [f"static-gate adoption BLOCKED: missing completed record: {ADOPTION_RECORD}"]
+    if failure:
+        return [f"static-gate adoption BLOCKED: {failure}"]
+    assert resolved is not None
 
     text = resolved.read_text(encoding="utf-8", errors="replace")
     values = {field: field_value(text, field) for field in ADOPTION_RECORD_FIELDS}
@@ -145,13 +156,18 @@ def main() -> int:
     root = args.root.resolve()
 
     failures: list[str] = []
+    files: dict[str, Path] = {}
     for rel in REQUIRED_FILES:
-        if not (root / rel).is_file():
-            failures.append(f"missing required file: {rel}")
+        path, failure = contained_file(root, rel)
+        if failure:
+            failures.append(failure)
+            continue
+        assert path is not None
+        files[rel] = path
 
     for rel, needles in REQUIRED_TEXT.items():
-        path = root / rel
-        if not path.is_file():
+        path = files.get(rel)
+        if path is None:
             continue
         text = path.read_text(encoding="utf-8", errors="replace")
         for needle in needles:
