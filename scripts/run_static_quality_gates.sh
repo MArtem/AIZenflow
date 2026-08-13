@@ -59,12 +59,10 @@ validate_rule_files() {
     esac
   done
 }
-if ! validate_rule_files; then
-  exit 2
-fi
 validate_metadata_inputs() {
   python3 - "$ROOT" <<'PY'
 import os
+import subprocess
 import sys
 from pathlib import Path
 
@@ -96,9 +94,28 @@ for relative in inputs:
             path = directory_path / name
             if path.is_symlink():
                 raise SystemExit(f"Static metadata input must not be a symlink: {path.relative_to(root)}")
+
+result = subprocess.run(
+    [
+        "git", "-C", str(root), "ls-files", "--others", "--ignored", "--exclude-standard",
+        "--directory", "--no-empty-directory", "-z", "--", *inputs,
+    ],
+    capture_output=True,
+)
+if result.returncode != 0:
+    raise SystemExit("Cannot establish Git-ignored metadata exclusions.")
+ignored = [entry.decode("utf-8", errors="surrogateescape") for entry in result.stdout.split(b"\0") if entry]
+if ignored:
+    raise SystemExit(f"Static metadata inputs include Git-ignored content: {ignored[0]}")
 PY
 }
-RULE_VERSION="$({ for path in "${RULE_FILES[@]}"; do git -C "$ROOT" hash-object "$path"; done; } | git -C "$ROOT" hash-object --stdin)"
+RULE_VERSION="$({ for path in "${RULE_FILES[@]}"; do
+  if index_blob="$(git -C "$ROOT" rev-parse --verify ":$path" 2>/dev/null)"; then
+    printf '%s %s\n' "$path" "$index_blob"
+  else
+    printf '%s missing\n' "$path"
+  fi
+done; } | git -C "$ROOT" hash-object --stdin)"
 METADATA_SCOPE_JSON='["repository-documentation-contract"]'
 
 emit_receipt() {
@@ -107,7 +124,7 @@ emit_receipt() {
   local exit_code="$3"
   local output="$4"
   local applicability="${5:-applicable}"
-  local worktree_clean cleanliness_exit_code cleanliness_output observed_sha observed_identity_kind head_unchanged
+  local worktree_clean cleanliness_exit_code cleanliness_output observed_sha observed_identity_kind head_unchanged exact_identity
   set +e
   cleanliness_output="$(git -C "$ROOT" status --porcelain --untracked-files=normal --ignore-submodules=none 2>&1)"
   cleanliness_exit_code=$?
@@ -129,6 +146,11 @@ emit_receipt() {
     head_unchanged=true
   else
     head_unchanged=false
+  fi
+  if [[ "$SOURCE_IDENTITY_KIND" == commit && "$worktree_clean" == true ]]; then
+    exact_identity=true
+  else
+    exact_identity=false
   fi
   local encoder_exit_code
   set +e
@@ -170,7 +192,7 @@ print(json.dumps({
   if [[ "$encoder_exit_code" -ne 0 ]]; then
     return "$encoder_exit_code"
   fi
-  if [[ "$cleanliness_exit_code" -ne 0 || "$head_unchanged" != true ]]; then
+  if [[ "$cleanliness_exit_code" -ne 0 || "$head_unchanged" != true || "$exact_identity" != true ]]; then
     return 2
   fi
 }
@@ -190,6 +212,19 @@ run_gate() {
   fi
   return "$exit_code"
 }
+
+set +e
+rule_output="$(validate_rule_files 2>&1)"
+rule_exit_code=$?
+set -e
+if [[ "$rule_exit_code" -ne 0 ]]; then
+  printf '%s\n' "$rule_output"
+  if ! emit_receipt "rule-file-preflight" "$METADATA_SCOPE_JSON" "$rule_exit_code" "$rule_output"; then
+    exit 2
+  fi
+  exit "$rule_exit_code"
+fi
+RULE_VERSION="$({ for path in "${RULE_FILES[@]}"; do git -C "$ROOT" hash-object "$path"; done; } | git -C "$ROOT" hash-object --stdin)"
 
 set +e
 metadata_output="$(validate_metadata_inputs 2>&1)"
