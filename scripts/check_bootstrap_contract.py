@@ -101,10 +101,19 @@ def is_filled(value: str | None) -> bool:
 
 def validate_static_gate_adoption(root: Path) -> list[str]:
     path = root / ADOPTION_RECORD
-    if not path.is_file():
+    if path.is_symlink():
+        return [f"static-gate adoption BLOCKED: {ADOPTION_RECORD} must not be a symlink"]
+    try:
+        resolved = path.resolve(strict=True)
+        resolved.relative_to(root)
+    except FileNotFoundError:
+        return [f"static-gate adoption BLOCKED: missing completed record: {ADOPTION_RECORD}"]
+    except (OSError, ValueError):
+        return [f"static-gate adoption BLOCKED: {ADOPTION_RECORD} must remain inside the project root"]
+    if not resolved.is_file():
         return [f"static-gate adoption BLOCKED: missing completed record: {ADOPTION_RECORD}"]
 
-    text = path.read_text(encoding="utf-8", errors="replace")
+    text = resolved.read_text(encoding="utf-8", errors="replace")
     values = {field: field_value(text, field) for field in ADOPTION_RECORD_FIELDS}
     missing = [field for field in ADOPTION_FIELDS if not is_filled(values[field])]
     if missing:

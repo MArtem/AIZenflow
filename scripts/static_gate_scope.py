@@ -11,6 +11,7 @@ from __future__ import annotations
 
 import argparse
 import subprocess
+from functools import lru_cache
 from pathlib import Path
 from typing import Iterable
 
@@ -158,6 +159,33 @@ def is_ignored_untracked_target(root: Path, path: Path, ignored_paths: set[Path]
     raise SystemExit("Cannot establish Git-ignored target exclusions.")
 
 
+@lru_cache(maxsize=None)
+def submodule_paths(root: Path) -> frozenset[Path]:
+    """Return tracked Gitlinks so mutable nested worktrees never enter a parent receipt."""
+    result = subprocess.run(
+        ["git", "-C", str(root), "ls-files", "--stage", "-z"],
+        capture_output=True,
+    )
+    if result.returncode != 0:
+        raise SystemExit("Cannot establish Git submodule scan exclusions.")
+
+    paths: set[Path] = set()
+    for entry in result.stdout.split(b"\0"):
+        if not entry:
+            continue
+        header, separator, raw_path = entry.partition(b"\t")
+        if not separator:
+            raise SystemExit("Cannot decode Git submodule scan exclusions.")
+        if header.split(b" ", maxsplit=1)[0] == b"160000":
+            paths.add(root / raw_path.decode("utf-8", errors="surrogateescape"))
+    return frozenset(paths)
+
+
+def is_submodule_path(path: Path, paths: frozenset[Path]) -> bool:
+    """Return whether a lexical path belongs to a tracked nested worktree."""
+    return any(path == submodule or path.is_relative_to(submodule) for submodule in paths)
+
+
 def iter_files(
     roots: Iterable[Path],
     pattern: str = "*",
@@ -166,8 +194,11 @@ def iter_files(
     """Yield files under the resolved scan roots while preserving scope boundaries."""
     root = repo_root().resolve()
     ignored_paths = ignored_untracked_paths(root, roots)
+    nested_submodules = submodule_paths(root)
     for scan_root in roots:
         lexical_root = scan_root.absolute()
+        if is_submodule_path(lexical_root, nested_submodules):
+            continue
         resolved_root = lexical_root.resolve()
         try:
             resolved_root.relative_to(root)
@@ -187,7 +218,7 @@ def iter_files(
             continue
 
         for path in lexical_root.rglob(pattern):
-            if is_ignored_path(path, ignored_paths):
+            if is_ignored_path(path, ignored_paths) or is_submodule_path(path, nested_submodules):
                 continue
             resolved_path = path.resolve()
             try:
