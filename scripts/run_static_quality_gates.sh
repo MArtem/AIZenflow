@@ -30,8 +30,14 @@ emit_receipt() {
   local scope_json="$2"
   local exit_code="$3"
   local output="$4"
-  local worktree_clean
-  if [[ -z "$(git -C "$ROOT" status --porcelain --untracked-files=normal)" ]]; then
+  local worktree_clean cleanliness_exit_code cleanliness_output
+  set +e
+  cleanliness_output="$(git -C "$ROOT" status --porcelain --untracked-files=normal 2>&1)"
+  cleanliness_exit_code=$?
+  set -e
+  if [[ "$cleanliness_exit_code" -ne 0 ]]; then
+    worktree_clean=unknown
+  elif [[ -z "$cleanliness_output" ]]; then
     worktree_clean=true
   else
     worktree_clean=false
@@ -47,19 +53,24 @@ counts = {
     "review_candidate": sum("[review-candidate]" in line for line in output.splitlines()),
 }
 exit_code = int(sys.argv[4])
-status = "FAIL" if exit_code else "WARN" if counts["warning"] else "REVIEW_CANDIDATE" if counts["review_candidate"] else "PASS"
+cleanliness_established = sys.argv[3] != "unknown"
+status = "FAIL" if exit_code or not cleanliness_established else "WARN" if counts["warning"] else "REVIEW_CANDIDATE" if counts["review_candidate"] else "PASS"
 print(json.dumps({
     "kind": "static-gate-evidence",
     "status": status,
     "source_sha": sys.argv[1],
     "rule_version": sys.argv[2],
-    "worktree_clean": sys.argv[3] == "true",
+    "worktree_clean": None if sys.argv[3] == "unknown" else sys.argv[3] == "true",
+    "cleanliness_established": cleanliness_established,
     "check": sys.argv[5],
     "scope": json.loads(sys.argv[6]),
     "exit_code": exit_code,
     "finding_counts": counts,
 }, sort_keys=True))
 ' "$SOURCE_SHA" "$RULE_VERSION" "$worktree_clean" "$exit_code" "$check" "$scope_json"
+  if [[ "$cleanliness_exit_code" -ne 0 ]]; then
+    return 2
+  fi
 }
 
 run_gate() {
@@ -72,7 +83,9 @@ run_gate() {
   exit_code=$?
   set -e
   printf '%s\n' "$output"
-  emit_receipt "$check" "$scope_json" "$exit_code" "$output"
+  if ! emit_receipt "$check" "$scope_json" "$exit_code" "$output"; then
+    return 2
+  fi
   return "$exit_code"
 }
 
@@ -89,7 +102,9 @@ scope_exit_code=$?
 set -e
 if [[ "$scope_exit_code" -ne 0 ]]; then
   printf '%s\n' "$scope_output"
-  emit_receipt "scope-validation" '[]' "$scope_exit_code" "$scope_output"
+  if ! emit_receipt "scope-validation" '[]' "$scope_exit_code" "$scope_output"; then
+    exit 2
+  fi
   exit "$scope_exit_code"
 fi
 SCAN_SCOPE_JSON="$scope_output"
