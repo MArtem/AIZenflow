@@ -143,10 +143,13 @@ report that limitation and recommend the appropriate user-triggered review for t
 
 ## 5. Exact-SHA Review Receipt
 
-Before push, retain a compact receipt in the completion report or task evidence. It must name the
-target remote ref and resolved SHA, derived merge-base SHA, reviewed HEAD SHA and range, clean-worktree result, contract rows reviewed,
-findings and disposition, commands and results, reused or intentionally omitted evidence, and
-residual risk. The receipt is invalid if HEAD, relevant inputs, configuration, or toolchain changes.
+Before push, retain a compact receipt in the completion report, PR description/comment, or other
+external or untracked evidence. Never modify a tracked task or project file to add a pre-push
+receipt: that would create a new commit and invalidate the SHA being reviewed. The receipt must
+name the target remote ref and resolved SHA, derived merge-base SHA, reviewed HEAD SHA and range,
+clean-worktree result, contract rows reviewed, findings and disposition, commands and results,
+reused or intentionally omitted evidence, and residual risk. The receipt is invalid if HEAD,
+relevant inputs, configuration, or toolchain changes.
 When commit authority is not in scope, retain the proposed-diff review record instead and state
 that an exact-SHA receipt is pending authorization.
 

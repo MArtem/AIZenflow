@@ -93,7 +93,8 @@ def is_filled(value: str | None) -> bool:
     if value is None:
         return False
     normalized = value.lower()
-    return normalized not in {"<fill>", "tbd", "n/a", "not applicable"} and not (
+    rejected = {"<fill>", "tbd", "todo", "to do", "n/a", "not applicable", "none", "not configured", "not yet created", "unavailable"}
+    return normalized not in rejected and not (
         normalized.startswith("<") and normalized.endswith(">")
     )
 

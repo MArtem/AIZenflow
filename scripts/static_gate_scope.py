@@ -92,15 +92,26 @@ def iter_files(
     extra_excludes: set[str] | None = None,
 ) -> Iterable[Path]:
     """Yield files under the resolved scan roots while preserving scope boundaries."""
+    root = repo_root().resolve()
     for scan_root in roots:
-        if scan_root.is_file():
-            if scan_root.match(pattern) and not should_exclude(scan_root, extra_excludes):
-                yield scan_root
+        resolved_root = scan_root.resolve()
+        try:
+            resolved_root.relative_to(root)
+        except ValueError:
+            continue
+        if resolved_root.is_file():
+            if resolved_root.match(pattern) and not should_exclude(resolved_root, extra_excludes):
+                yield resolved_root
             continue
 
-        for path in scan_root.rglob(pattern):
-            if path.is_file() and not should_exclude(path, extra_excludes):
-                yield path
+        for path in resolved_root.rglob(pattern):
+            resolved_path = path.resolve()
+            try:
+                resolved_path.relative_to(root)
+            except ValueError:
+                continue
+            if resolved_path.is_file() and not should_exclude(resolved_path, extra_excludes):
+                yield resolved_path
 
 
 def display_path(path: Path) -> str:
