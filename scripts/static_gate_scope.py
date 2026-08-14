@@ -57,9 +57,9 @@ def resolve_scan_roots(paths: Iterable[str]) -> list[Path]:
     Exits with a clear message when a requested path does not exist or escapes the repo root.
     """
     root = repo_root()
-    requested = list(paths)
-    if not requested:
-        return [root]
+    # An omitted path means the repository root, not an unvalidated fast path.
+    # The same index-integrity checks must protect option-only invocations.
+    requested = list(paths) or ["."]
 
     resolved: list[Path] = []
     for raw_path in requested:
@@ -264,6 +264,10 @@ def iter_files(
             try:
                 resolved_path.relative_to(root)
             except ValueError:
+                if path.is_symlink():
+                    raise SystemExit(
+                        f"Static scan symlink escapes repository root: {path}"
+                    )
                 continue
             if (
                 resolved_path.is_file()

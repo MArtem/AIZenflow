@@ -49,6 +49,10 @@ validate_rule_files() {
       printf 'Static gate implementation must not be a symlink: %s\n' "$path" >&2
       return 1
     fi
+    if [[ ! -f "$ROOT/$path" || ! -r "$ROOT/$path" ]]; then
+      printf 'Static gate implementation must be a readable regular file: %s\n' "$path" >&2
+      return 1
+    fi
     resolved="$(cd -P "$(dirname "$ROOT/$path")" && printf '%s/%s' "$(pwd)" "$(basename "$path")")"
     case "$resolved" in
       "$ROOT"/*) ;;
