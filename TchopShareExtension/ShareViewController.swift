@@ -91,7 +91,8 @@ final class ShareViewController: UIViewController {
             else {
                 installRootView(
                     state: .signInRequired(
-                        message: AppLocalization.text("share.signInRequired.message")
+                        message: AppLocalization.text("share.signInRequired.message"),
+                        openAppErrorMessage: nil
                     )
                 )
                 return
@@ -175,16 +176,32 @@ final class ShareViewController: UIViewController {
     private func openContainingApp() {
         guard
             let scheme = Bundle.main.object(forInfoDictionaryKey: "TchopContainingAppURLScheme") as? String,
-            let url = URL(string: "\(scheme)://")
+            let url = URL(string: "\(scheme)://"),
+            let extensionContext
         else {
+            showOpenAppFailure()
             return
         }
 
-        extensionContext?.open(url) { [weak self] _ in
+        extensionContext.open(url) { [weak self] didOpen in
             Task { @MainActor [weak self] in
-                self?.extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
+                guard let self else { return }
+                guard didOpen else {
+                    self.showOpenAppFailure()
+                    return
+                }
+                self.extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
             }
         }
+    }
+
+    private func showOpenAppFailure() {
+        installRootView(
+            state: .signInRequired(
+                message: AppLocalization.text("share.signInRequired.message"),
+                openAppErrorMessage: AppLocalization.text("share.failure.openApp.message")
+            )
+        )
     }
 
     private var inputItemProviders: [NSItemProvider] {
