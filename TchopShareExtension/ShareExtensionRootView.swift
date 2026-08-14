@@ -68,7 +68,7 @@ enum State {
                 if let openAppErrorMessage {
                     Text(openAppErrorMessage)
                         .font(AppTypography.bodyRegular)
-                        .foregroundStyle(.red)
+                        .foregroundStyle(AppTheme.destructive)
                 }
 
                 Button(AppLocalization.text("shareExtension.openApp"), action: onOpenApp)

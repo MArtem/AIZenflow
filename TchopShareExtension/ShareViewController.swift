@@ -196,12 +196,14 @@ final class ShareViewController: UIViewController {
     }
 
     private func showOpenAppFailure() {
+        let message = AppLocalization.text("share.failure.openApp.message")
         installRootView(
             state: .signInRequired(
                 message: AppLocalization.text("share.signInRequired.message"),
-                openAppErrorMessage: AppLocalization.text("share.failure.openApp.message")
+                openAppErrorMessage: message
             )
         )
+        UIAccessibility.post(notification: .announcement, argument: message)
     }
 
     private var inputItemProviders: [NSItemProvider] {
