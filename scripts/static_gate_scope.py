@@ -81,9 +81,13 @@ def resolve_scan_roots(paths: Iterable[str]) -> list[Path]:
     for path in resolved:
         if is_ignored_path(path, ignored_paths):
             raise SystemExit(f"Scan path is Git-ignored and excluded from static evidence: {path}")
-    if has_skip_worktree_entries(root, resolved):
+    index_validation_paths = [
+        *resolved,
+        *(path.resolve() for path in resolved if path.is_symlink()),
+    ]
+    if has_skip_worktree_entries(root, index_validation_paths):
         raise SystemExit("Scan scope contains sparse skip-worktree entries and cannot produce exact-SHA evidence.")
-    if has_assume_unchanged_entries(root, resolved):
+    if has_assume_unchanged_entries(root, index_validation_paths):
         raise SystemExit("Scan scope contains assume-unchanged entries and cannot produce exact-SHA evidence.")
     if not any(iter_files(resolved)):
         raise SystemExit("Scan scope has no eligible files for static evidence.")

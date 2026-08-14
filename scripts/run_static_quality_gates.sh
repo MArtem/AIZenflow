@@ -111,6 +111,15 @@ if result.returncode != 0:
 ignored = [entry.decode("utf-8", errors="surrogateescape") for entry in result.stdout.split(b"\0") if entry]
 if ignored:
     raise SystemExit(f"Static metadata inputs include Git-ignored content: {ignored[0]}")
+
+flags = subprocess.run(
+    ["git", "-C", str(root), "ls-files", "-v", "-z", "--", *inputs],
+    capture_output=True,
+)
+if flags.returncode != 0:
+    raise SystemExit("Cannot establish Git metadata index flags.")
+if any(entry[:1].islower() for entry in flags.stdout.split(b"\0") if entry):
+    raise SystemExit("Static metadata inputs contain assume-unchanged entries.")
 PY
 }
 RULE_VERSION="$({ for path in "${RULE_FILES[@]}"; do
@@ -156,9 +165,9 @@ emit_receipt() {
   else
     exact_identity=false
   fi
-  local encoder_exit_code
+  local encoder_exit_code receipt receipt_validation_exit_code
   set +e
-  printf '%s' "$output" | python3 -c '
+  receipt="$(printf '%s' "$output" | python3 -I -c '
 import json
 import sys
 
@@ -191,11 +200,28 @@ print(json.dumps({
     "advisory": advisory,
 }, sort_keys=True))
 ' "$SOURCE_SHA" "$RULE_VERSION" "$worktree_clean" "$SOURCE_IDENTITY_KIND" "$exit_code" "$check" "$scope_json" "$head_unchanged" "$applicability"
+  )"
   encoder_exit_code=$?
   set -e
-  if [[ "$encoder_exit_code" -ne 0 ]]; then
-    return "$encoder_exit_code"
+  if [[ "$encoder_exit_code" -ne 0 || -z "$receipt" ]]; then
+    return 2
   fi
+  set +e
+  printf '%s' "$receipt" | python3 -I -c '
+import json
+import sys
+
+receipt = json.load(sys.stdin)
+required = {"kind", "status", "source_sha", "rule_version", "scope", "check"}
+if receipt.get("kind") != "static-gate-evidence" or not required.issubset(receipt):
+    raise SystemExit(1)
+'
+  receipt_validation_exit_code=$?
+  set -e
+  if [[ "$receipt_validation_exit_code" -ne 0 ]]; then
+    return 2
+  fi
+  printf '%s\n' "$receipt"
   if [[ "$cleanliness_exit_code" -ne 0 || "$head_unchanged" != true || "$exact_identity" != true ]]; then
     return 2
   fi
