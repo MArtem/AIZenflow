@@ -67,7 +67,7 @@ enum State {
 
                 if let openAppErrorMessage {
                     Text(openAppErrorMessage)
-                        .font(AppTypography.bodyRegular)
+                        .font(.body)
                         .foregroundStyle(AppTheme.destructive)
                 }
 
