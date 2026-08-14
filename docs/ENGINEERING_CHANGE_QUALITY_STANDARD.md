@@ -35,6 +35,32 @@ that can affect the requested change:
 Resolve product behavior, ownership, persistence, privacy, and public-contract ambiguity before
 implementation. Do not invent speculative cases unrelated to the changed boundary.
 
+## 1A. PR Risk Card And Scope
+
+Use the compact risk card in `IOS_PR_REVIEW_TEMPLATE.md` for every non-trivial PR. It is the
+review-facing projection of the change contract, not a second competing checklist. Choose one
+primary high-risk class: UI/accessibility, state/concurrency, persistence/import/export, external
+input, dependency, build graph/workflow, security/privacy, or control-plane. A PR may include more
+than one only when they are inseparable; name the dependency and cover both evidence paths. Use
+domain/product logic when the primary risk is correctness of the product rule or algorithm itself.
+
+Select the smallest sufficient evidence from this matrix:
+
+| Primary risk | Minimum evidence in addition to final-diff review |
+| --- | --- |
+| UI/accessibility | Relevant static inspection plus the user-owned interaction/accessibility scenario. |
+| State/concurrency | Ordering/cancellation/retry reasoning; targeted test or runtime/sanitizer evidence only when permitted and relevant. |
+| Persistence/import/export | Data-preservation and failure-path scenario; migration or legacy-read evidence when compatibility changes. |
+| External input | Strict form, malformed, boundary, and ownership validation at the entry boundary. |
+| Dependency | Dependency diff/security review and explicit version, license, maintenance, and ownership decision. |
+| Build graph/workflow | Authoritative target/scheme/workflow inspection and the relevant build or static evidence. |
+| Security/privacy | Threat/authority review, secret/privacy-data boundary inspection, and the permitted negative or static evidence. |
+| Control-plane | Authority/provenance, producer-consumer/schema parity, failure-closed, and aggregate-resource review; use an independent reviewer when available. |
+| Domain/product logic | Explicit domain invariants plus success, failure, boundary, and state-order scenarios; use a targeted test or user-owned scenario when permitted. |
+
+This matrix does not grant permission to create or run tests, builds, CI, simulators, or external
+services. Report missing user-owned evidence as residual risk.
+
 ## 2. Implementation From Invariants
 
 - Enforce each relevant invariant at the narrowest authoritative boundary.
@@ -52,10 +78,32 @@ Use the smallest sufficient ladder and stop when its evidence is current:
 
 1. Targeted source/call-site inspection and deterministic static checks.
 2. One targeted test or type/build check during development when permitted and relevant.
-3. Review the complete final diff against every relevant change-contract row.
-4. One full relevant gate before push only when risk, repository policy, or changed integration
-   evidence requires it.
-5. User-owned build, UI, device, performance, GitHub, or external review when required.
+3. Review the complete final diff against every relevant change-contract row before committing.
+4. If commit authority is explicitly granted or in current standing scope, commit only when no
+   P0–P2 finding remains; record or close each P3. Otherwise retain the proposed-diff review and
+   report that the commit and exact-SHA stages are pending the user's authorization.
+5. When commit authority is in scope, derive the trusted base from the actual PR target remote ref,
+   not `HEAD^`: identify the target branch from the PR or approved target, resolve and record that
+   remote ref and SHA, then derive and record `merge-base(<target remote ref>, HEAD)`. Review the
+   complete `<merge-base>..HEAD` range. If the target ref or merge base cannot be validated, block
+   the remote-review claim rather than substituting a last-commit range. For a local-only repository
+   with no remote, record an explicitly approved local base; if history is unborn, use Git's empty
+   tree as the base. Mark target-remote freshness and push fields not applicable rather than
+   blocking the local exact-HEAD review.
+6. When commit authority is in scope, review the exact committed `HEAD` against that recorded trusted base, confirm a clean worktree,
+   and run the final relevant checks at that SHA. A later commit invalidates this receipt.
+7. Immediately before an authorized push, refresh or directly query the authoritative target
+   remote ref, record its current SHA, and recompute the merge base. If remote freshness cannot be
+   established, block the current-base claim. For a local-only repository, instead revalidate the
+   recorded approved local base and mark remote freshness/push not applicable. Then revalidate or
+   compare the recorded identity of every receipt input that can invalidate evidence: `HEAD`, target
+   ref/merge base, relevant profile or configuration, selected permissions, and toolchain version.
+   If any recorded input changed, invalidate and refresh the receipt before pushing.
+8. If push authority is explicitly granted or in current standing scope, push and confirm the
+   remote branch points to the reviewed SHA. Otherwise retain the local exact-SHA receipt and
+   report that remote review remains pending the user's push decision.
+   Recommend user-triggered external review only for the final remote SHA.
+9. User-owned build, UI, device, performance, GitHub, or external review when required.
 
 Do not rerun an unchanged PASS. A changed source, input, configuration, toolchain, new risk, or
 finding is required before repeating or widening a check.
@@ -72,30 +120,85 @@ Review the final diff from a clean perspective, not only the previously edited l
 - confirm cleanup, rollback, cancellation, timeout, and partial-output behavior;
 - inspect every route that could emit false success, trusted evidence, or irreversible state.
 
+For executable policy, schema, verifier, workflow, bootstrap, or other control-plane work, also
+inspect the exact diff for:
+
+- authority and provenance: no untrusted input may authorize itself, supply a trusted expected
+  outcome, or inject an identity/hash;
+- schema/runtime parity and explicit version handling, including unknown-version failure;
+- aggregate encoded and decoded resource bounds, including escaped Unicode or other expansion;
+- public APIs that bypass verification or permit false success;
+- filesystem containment, symlinks, TOCTOU, and cleanup; and
+- all producers, consumers, call sites, fixtures, and human claims that depend on the contract.
+
+For newly introduced or materially revised whole-target static gates and workflows, additionally
+confirm that the reported source universe is derived from authoritative target/package/repository
+membership and that every review comparison uses the complete trusted base-to-HEAD range. A partial
+path list, last-commit-only range, or empty working-tree comparison is insufficient evidence for a
+whole-target PASS. Keep credential classifiers aligned with the repository's declared credential
+inventory before asserting inventory-wide cleanliness; otherwise report the actual limited scope.
+
 Record findings. P0–P2 block commit and push. P3 must be fixed or explicitly reported. After a
 fix, repeat the complete final-diff review once; do not start an unbounded review loop.
 
 Use an independent reviewer when available for high-risk or control-plane work. If unavailable,
 report that limitation and recommend the appropriate user-triggered review for the final SHA.
 
-## 5. Escaped-Finding Feedback
+## 5. Exact-SHA Review Receipt
+
+Before push, retain a compact receipt in the completion report, PR description/comment, or other
+external or untracked evidence. Never modify a tracked task or project file to add a pre-push
+receipt: that would create a new commit and invalidate the SHA being reviewed. The receipt must
+name the target remote ref and resolved SHA, derived merge-base SHA, reviewed HEAD SHA and range,
+clean-worktree result, contract rows reviewed, findings and disposition, commands and results,
+reused or intentionally omitted evidence, and residual risk. The receipt is invalid if HEAD,
+relevant inputs, configuration, or toolchain changes.
+When commit authority is not in scope, retain the proposed-diff review record instead and state
+that an exact-SHA receipt is pending authorization.
+
+External review is an independent second barrier, never a substitute for this local receipt.
+
+## 6. Escaped-Finding Feedback
 
 For every external-review finding that escaped the local gate, classify the cause as one of:
 
-- missing invariant;
-- incomplete affected-surface search;
-- incorrect ownership or trust model;
-- inadequate boundary/regression evidence;
-- stale documentation or consumer contract;
+- missing or incorrect invariant;
+- authority, provenance, or ownership-model error;
+- producer/consumer/schema disagreement;
+- incomplete affected-surface or public-API exposure review;
+- inadequate adversarial or boundary evidence;
+- stale documentation or claim; or
 - implementation defect despite a correct contract.
 
 Fix the code first. Update this or a specialized standard only when the cause is reusable across
-changes; do not add a permanent rule for a one-off typo. Track quality by the number and severity of
-new external findings on the final SHA, with zero new P0–P2 as the target rather than a guaranteed
-claim.
+changes; do not add a permanent rule for a one-off typo. For each escaped P0–P2 retain the finding
+ID/severity, reviewed SHA, primary and secondary cause, missing gate, fix SHA, regression evidence,
+and whether the correction is reusable or one-off. Track quality by new external findings on the
+final SHA, with zero new P0–P2 as the target rather than a guaranteed claim.
+
+Keep this feedback as a compact entry in the PR receipt, task evidence, or project risk record;
+do not create a second global log per project. Promote a reusable rule only after the same failure
+class occurs in two independent real PRs. Revisit a promoted deterministic rule after ten relevant
+PRs if it has prevented no recurrence: retain it only when the risk is still material, otherwise
+demote it to a review candidate or remove it.
+
+## 7. Bounded External-Review Loop
+
+External review is requested only after the exact-SHA self-review and relevant evidence are
+complete. If it finds P0–P2 issues, make one consolidated corrective patch for the approved scope,
+repeat the full self-review and exact-SHA receipt, then recommend one fresh external review of the
+new SHA.
+
+If a further round reveals an unrelated risk class or starts expanding tools, policies, or
+infrastructure rather than correcting the approved product change, stop and report: completed
+work, remaining concrete risk, cost of continuation, and the bounded choices of merge/stop, one
+required fix, or backlog. Merge/stop or backlog is available only when no P0–P2 finding remains.
+With an unresolved P0–P2, the only choices are the required fix or an explicit higher-authority
+user exception. Do not convert a product PR into an unbounded quality-tool project.
 
 ## Completion Contract
 
 Report the change contract applied, relevant checks run, checks intentionally not run, external
-review still required, and residual risk. Completion means no known unresolved blocking finding
-after the checked gates—not that unperformed runtime or independent review has implicitly passed.
+review still required, exact-SHA receipt, and residual risk. Completion means no known unresolved
+blocking finding after the checked gates—not that unperformed runtime or independent review has
+implicitly passed.

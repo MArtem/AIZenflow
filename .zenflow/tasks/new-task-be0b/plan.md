@@ -112,19 +112,16 @@ verify an image with no readable text, and verify the failure path leaves the or
 Also confirm non-image imported items do not expose OCR. Do not begin another AI capability until
 this block is accepted.
 
-## Cross-Project Quality Pilots
+## Closed Quality-Pilot Decisions
 
-- [x] BattleshipGame — replace unbounded random computer fleet placement with a terminating
-  placement algorithm. External review found no comments; merged as PR #8.
-- [x] BattleshipGame — make the selected placement ship unmistakable and mark every cell of a
-  sunk enemy ship as sunk, including VoiceOver state. External review found no comments; merged as PR #9.
-- [-] BattleshipGame — exhausted computer targets are unreachable while the private game-state
-  invariant holds: all ship cells are hit first and end the game. Skipped to avoid a speculative fix.
-- [ ] AI Fieldbook — reject an invalid deep link before navigation state changes.
-- [ ] AI Fieldbook — preserve item records when an attachment file is unavailable during open or export.
+No quality pilot remains executable. Terminal outcomes, including the completed invalid-deep-link
+pilot and the two no-change dispositions below, are retained in the canonical task archive:
+`/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/archive/CROSS_PROJECT_QUALITY_PILOTS.md`.
 
-Each pilot is one PR with one self-review, the relevant static evidence, and one external review.
-Promote an escaped-finding rule only after the same class appears in two independent real PRs.
+- BattleshipGame exhausted-computer-targets pilot: closed, not deferred; the private game-state
+  invariant makes the condition unreachable, so a fix would be speculative.
+- AI Fieldbook unavailable-attachment pilot: closed, not deferred; opening already surfaces
+  `missingFile` without deleting the item, and export does not dereference attachments.
 
 ## Deferred App Intents State
 

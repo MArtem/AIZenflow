@@ -22,6 +22,7 @@ Before coding, define:
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
 - `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
 - `./docs/IOS_PR_REVIEW_TEMPLATE.md`
+- `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`
 - all standards referenced by `./docs/IOS_PRODUCTION_FRAMEWORK.md`
 - relevant prompts under `./docs/agent-prompts/`
 - relevant skills under `./.codex/skills/ios-*`
@@ -37,5 +38,10 @@ Create a project-specific docs area for:
 - localization/design tokens
 - release runbooks
 - known risks/debt
+- Static-gate adoption: authoritative source membership, deterministic project risks, rule IDs,
+  scope/remediation, and either a local runner or an explicit deferral with owner and revisit date.
+
+Create `./docs/STATIC_GATE_ADOPTION.md` from the reusable template and fill it before claiming the
+bootstrap contract passes. The bootstrap checker blocks an empty template record.
 
 Do not put project-specific facts into the generic global framework.

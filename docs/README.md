@@ -67,6 +67,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 
 ### Product, Governance, And Operating Model
 - `./docs/NEW_PROJECT_START_CONTRACT.md`
+- `./docs/STATIC_GATE_ADOPTION.md`
 - `./docs/SOURCE_OF_TRUTH_MAP.md`
 - `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
 - `./docs/COMPLETION_REPORT_CONTRACT.md`
@@ -263,6 +264,7 @@ The following export is retained for provenance only. It is not an active bootst
 - **`./docs/DOCUMENT_BOUNDARY_STANDARD.md`**: hard physical/logical separation rule for reusable, app-specific, architecture, package, and task documentation.
 - **`./docs/SOURCE_OF_TRUTH_MAP.md`**: canonical storage map for reusable rules, app decisions, task state, packages, prompts, and temporary notes.
 - **`./docs/NEW_PROJECT_START_CONTRACT.md`**: mandatory bootstrap contract for new projects, tasks, and worktrees.
+- **`./docs/STATIC_GATE_ADOPTION.md`**: project-owned adoption or deferral record required by the bootstrap contract.
 - **`./docs/AGENT_PREFLIGHT_CHECKLIST.md`**: preflight gate before non-trivial work, package adoption, docs migration, review, or bootstrap.
 - **`./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`**: local exception ADR format for app/task-specific deviations from reusable rules.
 - **`./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`**: ownership boundary for `plan.md`, `handoff.md`, task archives, and recovery snapshots.

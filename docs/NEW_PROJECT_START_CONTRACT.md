@@ -28,12 +28,13 @@ If one task creates or modifies multiple Xcode projects/apps, each project/app m
 - Task vault path: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/<TaskId>/`
 - Reusable baseline path: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/`
 - If multiple Xcode projects/apps are in scope: separate app-specific vault path for each project/app:
-- Secret storage root or local-only reason for no secrets: prefer `/Users/Artem/.zenflow-secrets/<ProjectName>/`
+- Secret storage root or local-only reason for no secrets: prefer `/Users/Artem/.zenflow/secrets/<ProjectName>/` (agent-denied during normal work)
 - Secret placeholder/example config path:
 - `.gitignore` secret baseline applied: yes/no
 - Sandbox root:
 - Build/test policy:
 - Model routing classification:
+- Static-gate adoption record: `./docs/STATIC_GATE_ADOPTION.md`
 - Approved local exceptions:
 - Explicit non-goals:
 
@@ -53,6 +54,11 @@ Before implementation:
 11. Confirm task plan/handoff docs exist or are intentionally deferred with a reason.
 12. Confirm every Xcode project/app in scope has its own app-specific docs boundary.
 13. Confirm reusable/global documentation changes are committed and pushed to `MArtem/AIZenflowDocumentation`.
+14. Install or explicitly reference the reusable `IOS_PR_REVIEW_TEMPLATE.md` risk card in the
+    project's PR/review workflow, and record any equivalent local form as a documented overlay.
+15. Complete `./docs/STATIC_GATE_ADOPTION.md`: define the project-specific source membership and
+    deterministic rules/remediation, or record an explicit deferral with owner and revisit
+    condition. A copied generic gate alone is not adoption and may not claim whole-target coverage.
 
 ## Highest-Quality Default
 All projects use the strongest reusable engineering rules by default:
@@ -79,4 +85,7 @@ The project start contract is satisfied only when:
 - real secrets are outside normal AI-readable workspace files or documented as an explicit security-intake/remediation risk;
 - task plan/handoff exists and points to the correct docs, or the intentional deferral is recorded;
 - app-specific vault area exists for every app/Xcode project in scope, or the intentional deferral is recorded;
+- the PR risk card is installed or explicitly referenced in the review workflow, or its deferral is recorded;
+- `STATIC_GATE_ADOPTION.md` records completed adoption, or its explicit deferral with owner and
+  revisit condition;
 - any reusable/global docs touched during bootstrap are pushed to `MArtem/AIZenflowDocumentation`.

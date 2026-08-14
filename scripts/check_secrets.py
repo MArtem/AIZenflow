@@ -15,19 +15,22 @@ PATTERNS = [
     ("aws access key", re.compile(r"AKIA[0-9A-Z]{16}")),
     ("generic token assignment", re.compile(r'(?i)(api[_-]?key|secret|token|password)\s*[:=]\s*["\'][^"\']{16,}["\']')),
 ]
+MAX_SECRET_SCAN_BYTES = 5 * 1024 * 1024
 
 
 def main() -> int:
     args = parse_scope_args("Scan potential committed secrets.")
     scan_roots = resolve_scan_roots(args.paths)
     findings = []
+    unreadable = []
 
     for path in iter_files(scan_roots, "*", {".zenflow", "traces"}):
-        if path.stat().st_size > 2_000_000:
-            continue
         try:
+            if path.stat().st_size > MAX_SECRET_SCAN_BYTES:
+                continue
             text = path.read_text(errors="ignore")
-        except Exception:
+        except OSError:
+            unreadable.append(path)
             continue
         for name, rx in PATTERNS:
             for match in rx.finditer(text):
@@ -41,15 +44,18 @@ def main() -> int:
                 line = text[:match.start()].count("\n") + 1
                 findings.append((name, path, line))
 
-    if findings:
-        print("Potential secrets found (blocking until reviewed):")
+    if findings or unreadable:
+        print("Secret scan failed (blocking until reviewed):")
+        for path in unreadable[:args.max_findings]:
+            print(f"- [blocking] unreadable file: {display_path(path)}")
         for name, path, line in findings[:args.max_findings]:
             print(f"- [blocking] {name}: {display_path(path)}:{line}")
-        if len(findings) > args.max_findings:
-            print(f"... {len(findings) - args.max_findings} more")
+        remaining = len(unreadable) + len(findings) - args.max_findings
+        if remaining > 0:
+            print(f"... {remaining} more")
         return 1
 
-    print("Secret scan OK")
+    print("Secret pattern scan OK (limited patterns: private-key headers, AWS access-key IDs, quoted token assignments)")
     return 0
 
 

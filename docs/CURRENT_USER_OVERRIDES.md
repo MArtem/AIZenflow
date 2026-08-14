@@ -53,9 +53,19 @@ Compact cross-project user constraints that override general defaults. App/produ
 - Do not treat XcodeBuildMCP as a substitute for a known Xcode/iOS platform bug, missing macOS permission, device-only evidence, signing authority, or an approved product decision.
 
 ## Filesystem Sandbox
+- **Absolute boundary:** without a separate, explicit user authorization naming the action and path, do not read, list, inspect, create, modify, move, download into, delete, or execute against any filesystem or OS-managed location outside `/Users/Artem/.zenflow`.
+- When project work or a static check is otherwise authorized under the current instructions, that
+  authorization also permits only the read-only execution of already-installed system executables
+  and SDK files required by the authorized command. It does not permit browsing external
+  directories, reading unrelated files, writing outside the sandbox, or installing/downloading
+  toolchains or Simulator runtimes.
+- Project authorization never implies permission to access `/Users/Artem/Library`, `/tmp`, `/Library`, `/Applications`, global SwiftPM/Xcode caches, Simulator runtimes, or any other external path for unrelated work. If a required input, toolchain, or SDK cannot be used under the authorized command boundary, report the exact blocker and stop.
+- Do not install, download, replace, detach, mount, unmount, or delete Simulator runtimes or other machine-wide developer assets without that separate authorization.
 - Keep project work, build output, package caches, DerivedData, logs, traces, and temporary artifacts inside `/Users/Artem/.zenflow`.
-- Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or other paths outside `/Users/Artem/.zenflow` for project work.
-- Override tools that default outside the sandbox.
+- **Secret deny boundary:** do not read, list, inspect, modify, move, execute, or clean up
+  `/Users/Artem/.zenflow/secrets/` during normal work, even though it lies inside the sandbox.
+  Only an explicit user-authorized security intake/remediation pass naming that path may override
+  this deny boundary.
 - Real secrets stay out of chat, git, app bundles, and normal AI-readable worktree files. Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md` when secrets may be present.
 
 ## Tests And Verification

@@ -102,6 +102,15 @@ Tests and static checks remain permission-bound supporting evidence. High-risk c
 uses an independent reviewer when available and receives an exhaustive review recommendation for
 the final pushed SHA. Missing independent or runtime evidence remains residual risk, never `PASS`.
 
+The local gate has two required points when commit authority is in scope: review the full proposed
+diff before commit, then review the exact committed SHA against its trusted base before push. Without
+commit authority, retain the proposed-diff review and report the exact-SHA receipt as pending. The
+second review records the compact receipt required by `ENGINEERING_CHANGE_QUALITY_STANDARD.md`; any
+later commit or recorded-input change invalidates it. Revalidate its inputs immediately before an
+authorized push and verify the remote branch resolves to that reviewed SHA after push. Static checks
+and user-triggered Codex Review are supporting, independent barriers and cannot replace the
+exact-SHA semantic review.
+
 ## Codex Review
 
 Codex Review is always user-triggered and advisory. A high recommendation does not authorize the
@@ -111,6 +120,14 @@ and requires a new recommendation; the user decides whether to request another r
 Normal review is the default recommendation for substantial but bounded risk. Exhaustive review is
 reserved for broad, ambiguous, security/privacy, persistence/migration, concurrency, control-plane,
 or otherwise high-risk changes where repeated search can materially reduce missed findings.
+
+Use a bounded two-phase sequence: complete the local proposed-diff and exact-SHA reviews first,
+then request one user-controlled external review for the final SHA. A material P0–P2 correction
+receives one consolidated patch, a new local receipt, and one new external-review recommendation.
+If the next round introduces an unrelated risk class or quality-tool expansion, stop for the
+user's choice of one required fix, backlog, or merge/stop; the latter two are available only when
+no P0–P2 finding remains. With an unresolved P0–P2, require the fix or an explicit documented
+higher-authority exception. Do not allow a product PR to become an open-ended verifier project.
 
 ## Required Recommendation Output
 
@@ -163,6 +180,12 @@ migrator.
 
 Proven behavior progresses through canary, first project pilot, second different pilot, and only
 then explicit reusable promotion. No project-specific workaround becomes an engine default.
+
+Every adopting project uses the reusable PR risk card and the risk-to-evidence matrix from
+`ENGINEERING_CHANGE_QUALITY_STANDARD.md`. Existing projects receive them during their next
+meaningful baseline synchronization; new projects receive them at bootstrap. The format is
+project-neutral and may be represented in a repository pull-request template or an equivalent
+documented review form.
 
 ## Explicit Non-Goals
 
