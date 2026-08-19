@@ -25,21 +25,26 @@ final class ShareViewController: UIViewController {
     private var hostingController: UIHostingController<ShareExtensionRootView>?
     private var composerViewModel: FeedComposerViewModel?
     private var publishFailureMessage: String?
+    private var initialLoadTask: Task<Void, Never>?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         installRootView(state: .loading)
-        Task { @MainActor in
-            await loadInitialState()
+        initialLoadTask = Task { @MainActor [weak self] in
+            await self?.loadInitialState()
         }
+    }
+
+    deinit {
+        initialLoadTask?.cancel()
     }
 
     private func installRootView(state: ShareExtensionRootView.State) {
         let rootView = ShareExtensionRootView(
             state: state,
             onClose: { [weak self] in
-                self?.extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
+                self?.cancelShareRequest()
             },
             onOpenApp: { [weak self] in
                 self?.openContainingApp()
@@ -70,11 +75,14 @@ final class ShareViewController: UIViewController {
 
     @MainActor
     private func loadInitialState() async {
+        defer { initialLoadTask = nil }
+
         guard
             let importer,
             let shareExtensionSessionContextManager,
             let sharedFeedCardSyncManager
         else {
+            guard !Task.isCancelled else { return }
             installRootView(
                 state: .failed(
                     title: AppLocalization.text("share.failure.unavailable.title"),
@@ -89,6 +97,7 @@ final class ShareViewController: UIViewController {
                 let sessionContext = try shareExtensionSessionContextManager.loadContext(),
                 sessionContext.isAuthenticated
             else {
+                guard !Task.isCancelled else { return }
                 installRootView(
                     state: .signInRequired(
                         message: AppLocalization.text("share.signInRequired.message"),
@@ -100,17 +109,28 @@ final class ShareViewController: UIViewController {
 
             let itemProviders = inputItemProviders
             let importedItems = try await importer.loadItems(from: itemProviders)
+            try Task.checkCancellation()
             let composerViewModel = try makeComposerViewModel(
                 sessionContext: sessionContext,
                 importedItems: importedItems,
                 sharedFeedCardSyncManager: sharedFeedCardSyncManager
             )
+            try Task.checkCancellation()
             self.composerViewModel = composerViewModel
             installRootView(state: .composer(composerViewModel))
+        } catch is CancellationError {
+            return
         } catch {
+            guard !Task.isCancelled else { return }
             let failure = failurePresentation(for: error)
             installRootView(state: .failed(title: failure.title, message: failure.message))
         }
+    }
+
+    private func cancelShareRequest() {
+        initialLoadTask?.cancel()
+        initialLoadTask = nil
+        extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
     }
 
     private func makeComposerViewModel(
