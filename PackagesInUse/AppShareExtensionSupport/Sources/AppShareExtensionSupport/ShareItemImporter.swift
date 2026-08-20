@@ -66,6 +66,43 @@ public enum ShareItemImportError: Error, Equatable, Sendable {
     case unsupportedProvider
     case unableToDecodeText
     case unableToLoadFileRepresentation(typeIdentifier: String)
+    case unsupportedMixedMediaAttachments
+    case tooManyImageFiles(maximum: Int)
+    case tooManyNonImageFiles(maximum: Int)
+    case fileTooLarge(maximumBytes: Int64)
+    case totalFileSizeExceeded(maximumBytes: Int64)
+}
+
+/// Host-owned limits for one share-import session.
+public struct ShareItemImportBudget: Equatable, Sendable {
+    public let maximumImageFileCount: Int
+    public let maximumNonImageFileCount: Int
+    public let maximumFileBytes: Int64
+    public let maximumTotalFileBytes: Int64
+    public let allowsMixedFileKinds: Bool
+
+    public init(
+        maximumImageFileCount: Int,
+        maximumNonImageFileCount: Int,
+        maximumFileBytes: Int64,
+        maximumTotalFileBytes: Int64,
+        allowsMixedFileKinds: Bool = true
+    ) {
+        self.maximumImageFileCount = maximumImageFileCount
+        self.maximumNonImageFileCount = maximumNonImageFileCount
+        self.maximumFileBytes = maximumFileBytes
+        self.maximumTotalFileBytes = maximumTotalFileBytes
+        self.allowsMixedFileKinds = allowsMixedFileKinds
+    }
+
+    /// Preserves prior behaviour for hosts that have not defined a product import policy.
+    public static let unbounded = ShareItemImportBudget(
+        maximumImageFileCount: .max,
+        maximumNonImageFileCount: .max,
+        maximumFileBytes: .max,
+        maximumTotalFileBytes: .max,
+        allowsMixedFileKinds: true
+    )
 }
 
 @MainActor
@@ -81,13 +118,17 @@ public final class NSItemProviderShareItemImporter {
     private static let importedFilesDirectoryName = "share-imported-items"
 
     private let fileManager: FileManager
-    private let importedFilesRootURL: URL
+    private let importedFilesSessionURL: URL
+    private let budget: ShareItemImportBudget
+    private var activeCopyTask: Task<Int64, Error>?
 
     public init(
         groupIdentifier: String? = nil,
-        fileManager: FileManager = .default
+        fileManager: FileManager = .default,
+        budget: ShareItemImportBudget = .unbounded
     ) throws {
         self.fileManager = fileManager
+        self.budget = budget
 
         let rootURL: URL
         if let groupIdentifier {
@@ -104,11 +145,13 @@ public final class NSItemProviderShareItemImporter {
             rootURL = fileManager.temporaryDirectory
         }
 
-        self.importedFilesRootURL = rootURL
+        let importedFilesRootURL = rootURL
             .appendingPathComponent(Self.importedFilesDirectoryName, isDirectory: true)
+        self.importedFilesSessionURL = importedFilesRootURL
+            .appendingPathComponent(UUID().uuidString, isDirectory: true)
 
         try fileManager.createDirectory(
-            at: importedFilesRootURL,
+            at: importedFilesSessionURL,
             withIntermediateDirectories: true,
             attributes: nil
         )
@@ -120,36 +163,153 @@ public final class NSItemProviderShareItemImporter {
     /// Called by share-extension controllers after receiving `NSExtensionItem` providers.
     public func loadItems(from providers: [NSItemProvider]) async throws -> [ShareImportedItem] {
         var items: [ShareImportedItem] = []
+        var imageFileCount = 0
+        var nonImageFileCount = 0
+        var totalFileBytes: Int64 = 0
 
-        for provider in providers {
-            if provider.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) {
-                items.append(.text(try await loadTextItem(from: provider)))
-                continue
+        do {
+            for provider in providers {
+                try Task.checkCancellation()
+
+                if provider.hasItemConformingToTypeIdentifier(UTType.plainText.identifier) {
+                    items.append(.text(try await loadTextItem(from: provider)))
+                    continue
+                }
+
+                guard let supportedFile = supportedFileKind(for: provider) else {
+                    continue
+                }
+
+                switch supportedFile.kind {
+                case .image:
+                    guard budget.allowsMixedFileKinds || nonImageFileCount == 0 else {
+                        throw ShareItemImportError.unsupportedMixedMediaAttachments
+                    }
+                    guard imageFileCount < budget.maximumImageFileCount else {
+                        throw ShareItemImportError.tooManyImageFiles(maximum: budget.maximumImageFileCount)
+                    }
+                    imageFileCount += 1
+                case .video, .pdf, .audio:
+                    guard budget.allowsMixedFileKinds || imageFileCount == 0 else {
+                        throw ShareItemImportError.unsupportedMixedMediaAttachments
+                    }
+                    guard nonImageFileCount < budget.maximumNonImageFileCount else {
+                        throw ShareItemImportError.tooManyNonImageFiles(maximum: budget.maximumNonImageFileCount)
+                    }
+                    nonImageFileCount += 1
+                }
+
+                let importedFile = try await loadFileItem(
+                    from: provider,
+                    kind: supportedFile,
+                    totalFileBytes: totalFileBytes
+                )
+                totalFileBytes += importedFile.sizeInBytes
+                items.append(.file(importedFile.item))
             }
 
-            guard let supportedFile = supportedFileKind(for: provider) else {
-                continue
+            if items.isEmpty {
+                throw ShareItemImportError.unsupportedProvider
             }
 
-            items.append(.file(try await loadFileItem(from: provider, kind: supportedFile)))
+            return items
+        } catch {
+            try discardImportSession()
+            throw error
         }
-
-        if items.isEmpty {
-            throw ShareItemImportError.unsupportedProvider
-        }
-
-        return items
     }
 
-    private static func copyImportedFile(from sourceURL: URL, to destinationURL: URL) async throws {
-        try await Task.detached(priority: .utility) {
-            let fileManager = FileManager.default
-            if fileManager.fileExists(atPath: destinationURL.path) {
-                try fileManager.removeItem(at: destinationURL)
+    /// Deletes imported file copies when a share session ends before they are transferred to the containing app.
+    public func discardImportedFiles(in items: [ShareImportedItem]) {
+        discardImportedFiles(at: items.compactMap { item in
+            guard case let .file(file) = item else {
+                return nil
             }
+            return file.fileURL
+        })
+    }
 
-            try fileManager.copyItem(at: sourceURL, to: destinationURL)
-        }.value
+    /// Deletes an import session after its file-copy work has completed.
+    public func discardImportSession() throws {
+        guard fileManager.fileExists(atPath: importedFilesSessionURL.path) else {
+            return
+        }
+        try fileManager.removeItem(at: importedFilesSessionURL)
+    }
+
+    /// Cancels and joins the only active file copy before removing its isolated session.
+    public func cancelAndDiscardImportSession() async throws {
+        if let activeCopyTask {
+            activeCopyTask.cancel()
+            _ = try? await activeCopyTask.value
+        }
+        try discardImportSession()
+    }
+
+    private func copyImportedFile(
+        from sourceURL: URL,
+        to destinationURL: URL,
+        remainingTotalFileBytes: Int64
+    ) async throws -> Int64 {
+        let maximumFileBytes = budget.maximumFileBytes
+        let maximumTotalFileBytes = budget.maximumTotalFileBytes
+        let copyTask = Task.detached(priority: .utility) {
+            let fileManager = FileManager.default
+            do {
+                if fileManager.fileExists(atPath: destinationURL.path) {
+                    try fileManager.removeItem(at: destinationURL)
+                }
+                guard fileManager.createFile(atPath: destinationURL.path, contents: nil) else {
+                    throw CocoaError(.fileWriteUnknown)
+                }
+
+                let sourceHandle = try FileHandle(forReadingFrom: sourceURL)
+                defer { try? sourceHandle.close() }
+                let destinationHandle = try FileHandle(forWritingTo: destinationURL)
+                defer { try? destinationHandle.close() }
+
+                var copiedBytes: Int64 = 0
+                while let data = try sourceHandle.read(upToCount: 1_048_576), !data.isEmpty {
+                    try Task.checkCancellation()
+                    let nextByteCount = Int64(data.count)
+                    guard
+                        nextByteCount <= maximumFileBytes,
+                        copiedBytes <= maximumFileBytes - nextByteCount
+                    else {
+                        throw ShareItemImportError.fileTooLarge(maximumBytes: maximumFileBytes)
+                    }
+                    guard
+                        nextByteCount <= remainingTotalFileBytes,
+                        copiedBytes <= remainingTotalFileBytes - nextByteCount
+                    else {
+                        throw ShareItemImportError.totalFileSizeExceeded(
+                            maximumBytes: maximumTotalFileBytes
+                        )
+                    }
+                    try destinationHandle.write(contentsOf: data)
+                    copiedBytes += nextByteCount
+                }
+                try Task.checkCancellation()
+                try destinationHandle.synchronize()
+
+                let copiedSize = try destinationURL.resourceValues(forKeys: [.fileSizeKey]).fileSize
+                guard copiedSize.map(Int64.init) == copiedBytes else {
+                    throw CocoaError(.fileWriteUnknown)
+                }
+                return copiedBytes
+            } catch {
+                try? fileManager.removeItem(at: destinationURL)
+                throw error
+            }
+        }
+        activeCopyTask = copyTask
+        defer { activeCopyTask = nil }
+
+        return try await withTaskCancellationHandler {
+            try await copyTask.value
+        } onCancel: {
+            copyTask.cancel()
+        }
     }
 
     private func loadTextItem(from provider: NSItemProvider) async throws -> ShareImportedTextItem {
@@ -178,8 +338,9 @@ public final class NSItemProviderShareItemImporter {
 
     private func loadFileItem(
         from provider: NSItemProvider,
-        kind: SupportedShareFile
-    ) async throws -> ShareImportedFileItem {
+        kind: SupportedShareFile,
+        totalFileBytes: Int64
+    ) async throws -> (item: ShareImportedFileItem, sizeInBytes: Int64) {
         let sourceURL: URL = try await withCheckedThrowingContinuation {
             (continuation: CheckedContinuation<URL, Error>) in
             provider.loadFileRepresentation(forTypeIdentifier: kind.contentType.identifier) { url, error in
@@ -200,19 +361,59 @@ public final class NSItemProviderShareItemImporter {
                 continuation.resume(returning: url)
             }
         }
+        try Task.checkCancellation()
 
-        let destinationURL = importedFilesRootURL
+        let resourceValues = try sourceURL.resourceValues(forKeys: [.fileSizeKey, .isRegularFileKey])
+        guard
+            resourceValues.isRegularFile == true,
+            let sourceFileSize = resourceValues.fileSize,
+            sourceFileSize >= 0
+        else {
+            throw ShareItemImportError.unableToLoadFileRepresentation(
+                typeIdentifier: kind.contentType.identifier
+            )
+        }
+
+        let sizeInBytes = Int64(sourceFileSize)
+        guard sizeInBytes <= budget.maximumFileBytes else {
+            throw ShareItemImportError.fileTooLarge(maximumBytes: budget.maximumFileBytes)
+        }
+        guard sizeInBytes <= budget.maximumTotalFileBytes - totalFileBytes else {
+            throw ShareItemImportError.totalFileSizeExceeded(maximumBytes: budget.maximumTotalFileBytes)
+        }
+
+        let destinationURL = importedFilesSessionURL
             .appendingPathComponent(UUID().uuidString)
             .appendingPathExtension(sourceURL.pathExtension)
 
-        try await Self.copyImportedFile(from: sourceURL, to: destinationURL)
-
-        return ShareImportedFileItem(
-            kind: kind.kind,
-            originalFilename: sourceURL.lastPathComponent,
-            contentTypeIdentifier: kind.contentType.identifier,
-            fileURL: destinationURL
+        let copiedSizeInBytes = try await copyImportedFile(
+            from: sourceURL,
+            to: destinationURL,
+            remainingTotalFileBytes: budget.maximumTotalFileBytes - totalFileBytes
         )
+        try Task.checkCancellation()
+
+        return (
+            item: ShareImportedFileItem(
+                kind: kind.kind,
+                originalFilename: sourceURL.lastPathComponent,
+                contentTypeIdentifier: kind.contentType.identifier,
+                fileURL: destinationURL
+            ),
+            sizeInBytes: copiedSizeInBytes
+        )
+    }
+
+    private func discardImportedFiles(at fileURLs: [URL]) {
+        let sessionPath = importedFilesSessionURL.standardizedFileURL.path
+
+        for fileURL in fileURLs {
+            let standardizedURL = fileURL.standardizedFileURL
+            guard standardizedURL.deletingLastPathComponent().path == sessionPath else {
+                continue
+            }
+            try? fileManager.removeItem(at: standardizedURL)
+        }
     }
 
     private func supportedFileKind(for provider: NSItemProvider) -> SupportedShareFile? {

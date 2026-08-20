@@ -57,12 +57,18 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             withIntermediateDirectories: true,
             attributes: nil
         )
+        try Self.applyPrivacyAttributes(to: directoryURL, fileManager: fileManager)
     }
 
     /// Atomically saves one identifiable item as an individual JSON file, replacing the current value for its ID.
     public func save(_ item: Item) throws {
         let data = try JSONEncoder().encode(item)
-        try data.write(to: fileURL(for: item.id), options: [.atomic])
+        try Self.writePreparedItem(
+            data,
+            to: fileURL(for: item.id),
+            in: directoryURL,
+            fileManager: fileManager
+        )
     }
 
     /// Saves one item on a utility task, replacing the current value for its ID.
@@ -73,7 +79,12 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             let fileURL = directoryURL
                 .appendingPathComponent(Self.safeFileName(for: item.id))
                 .appendingPathExtension("json")
-            try data.write(to: fileURL, options: [.atomic])
+            try Self.writePreparedItem(
+                data,
+                to: fileURL,
+                in: directoryURL,
+                fileManager: .default
+            )
         }.value
     }
 
@@ -202,6 +213,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             withIntermediateDirectories: true,
             attributes: nil
         )
+        try applyPrivacyAttributes(to: quarantineDirectoryURL, fileManager: fileManager)
 
         for fileURL in fileURLs {
             guard fileManager.fileExists(atPath: fileURL.path) else {
@@ -223,6 +235,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
                 try fileManager.removeItem(at: quarantineURL)
             }
             try fileManager.moveItem(at: fileURL, to: quarantineURL)
+            try applyPrivacyAttributes(to: quarantineURL, fileManager: fileManager)
         }
     }
 
@@ -234,7 +247,38 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
         .filter { $0.pathExtension == "json" }
     }
 
+    private static func writePreparedItem(
+        _ data: Data,
+        to itemURL: URL,
+        in directoryURL: URL,
+        fileManager: FileManager
+    ) throws {
+        let stagingURL = directoryURL.appendingPathComponent(".\(UUID().uuidString).staging")
+
+        do {
+            try data.write(to: stagingURL, options: .withoutOverwriting)
+            try applyPrivacyAttributes(to: stagingURL, fileManager: fileManager)
+
+            if fileManager.fileExists(atPath: itemURL.path) {
+                _ = try fileManager.replaceItemAt(itemURL, withItemAt: stagingURL)
+            } else {
+                try fileManager.moveItem(at: stagingURL, to: itemURL)
+            }
+        } catch {
+            try? fileManager.removeItem(at: stagingURL)
+            throw error
+        }
+    }
+
     private static func safeFileName(for id: String) -> String {
         id.replacingOccurrences(of: "/", with: "_")
+    }
+
+    private static func applyPrivacyAttributes(to url: URL, fileManager: FileManager) throws {
+        try (url as NSURL).setResourceValue(true, forKey: .isExcludedFromBackupKey)
+        try fileManager.setAttributes(
+            [.protectionKey: FileProtectionType.completeUntilFirstUserAuthentication],
+            ofItemAtPath: url.path
+        )
     }
 }

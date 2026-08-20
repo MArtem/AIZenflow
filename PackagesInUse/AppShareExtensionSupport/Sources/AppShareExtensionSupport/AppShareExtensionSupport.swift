@@ -63,9 +63,12 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
     /// Atomically saves one identifiable item as an individual JSON file, replacing the current value for its ID.
     public func save(_ item: Item) throws {
         let data = try JSONEncoder().encode(item)
-        let itemURL = fileURL(for: item.id)
-        try data.write(to: itemURL, options: [.atomic])
-        try Self.applyPrivacyAttributes(to: itemURL, fileManager: fileManager)
+        try Self.writePreparedItem(
+            data,
+            to: fileURL(for: item.id),
+            in: directoryURL,
+            fileManager: fileManager
+        )
     }
 
     /// Saves one item on a utility task, replacing the current value for its ID.
@@ -76,8 +79,12 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             let fileURL = directoryURL
                 .appendingPathComponent(Self.safeFileName(for: item.id))
                 .appendingPathExtension("json")
-            try data.write(to: fileURL, options: [.atomic])
-            try Self.applyPrivacyAttributes(to: fileURL, fileManager: .default)
+            try Self.writePreparedItem(
+                data,
+                to: fileURL,
+                in: directoryURL,
+                fileManager: .default
+            )
         }.value
     }
 
@@ -238,6 +245,29 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             includingPropertiesForKeys: nil
         )
         .filter { $0.pathExtension == "json" }
+    }
+
+    private static func writePreparedItem(
+        _ data: Data,
+        to itemURL: URL,
+        in directoryURL: URL,
+        fileManager: FileManager
+    ) throws {
+        let stagingURL = directoryURL.appendingPathComponent(".\(UUID().uuidString).staging")
+
+        do {
+            try data.write(to: stagingURL, options: .withoutOverwriting)
+            try applyPrivacyAttributes(to: stagingURL, fileManager: fileManager)
+
+            if fileManager.fileExists(atPath: itemURL.path) {
+                _ = try fileManager.replaceItemAt(itemURL, withItemAt: stagingURL)
+            } else {
+                try fileManager.moveItem(at: stagingURL, to: itemURL)
+            }
+        } catch {
+            try? fileManager.removeItem(at: stagingURL)
+            throw error
+        }
     }
 
     private static func safeFileName(for id: String) -> String {

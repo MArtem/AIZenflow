@@ -313,6 +313,12 @@
 "share.failure.multipleFiles.message" = "A single card can start with one imported video, audio file, or PDF. Share one file at a time.";
 "share.failure.incompatible.title" = "This content can't be combined";
 "share.failure.incompatible.message" = "The imported content doesn't fit the current card media rules. Remove the conflicting media and try again.";
+"share.failure.selectionLimit.title" = "This selection has too many attachments";
+"share.failure.selectionLimit.message" = "Share up to 10 images or one video, audio file, or PDF at a time.";
+"share.failure.fileTooLarge.title" = "This file is too large";
+"share.failure.fileTooLarge.message" = "Choose a file smaller than 100 MB and try again.";
+"share.failure.totalTooLarge.title" = "These files are too large together";
+"share.failure.totalTooLarge.message" = "Keep shared file attachments below 200 MB in total.";
 "composer.placeholder.copyright" = "© Copyright text";
 "composer.placeholder.caption" = "Write a caption...";
 "composer.placeholder.addCaption" = "Add caption";
