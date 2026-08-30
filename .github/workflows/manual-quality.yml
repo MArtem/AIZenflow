@@ -1,0 +1,90 @@
+name: Manual Quality Check
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: manual-quality-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static:
+    name: Repository static gate
+    runs-on: macos-15
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Check out pinned quality engine
+        uses: actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1
+        with:
+          repository: MArtem/AIZenflowQualityControl
+          ref: 9f3f3676b56e41e56bc30cd9c6d155738df32f6a
+          path: .quality-engine
+          fetch-depth: 1
+          persist-credentials: false
+      - name: Run tracked-secret check
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 .quality-engine/adapters/deterministic_checks.py \
+            --repository-root "${GITHUB_WORKSPACE}" \
+            --catalog "${GITHUB_WORKSPACE}/.quality-engine/policies/check-catalog.json" \
+            --check QC.SECRETS.TRACKED \
+            > "${RUNNER_TEMP}/tchop-secrets.json"
+          python3 - <<'PY'
+          import json
+          import os
+
+          with open(os.path.join(os.environ["RUNNER_TEMP"], "tchop-secrets.json"), encoding="utf-8") as source:
+              report = json.load(source)
+          if report.get("status") != "PASS":
+              raise SystemExit("Tracked-secret check did not report PASS")
+          PY
+      - name: Run TODO ownership check
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 .quality-engine/adapters/deterministic_checks.py \
+            --repository-root "${GITHUB_WORKSPACE}" \
+            --catalog "${GITHUB_WORKSPACE}/.quality-engine/policies/check-catalog.json" \
+            --check QC.TODO.OWNER \
+            > "${RUNNER_TEMP}/tchop-todo.json"
+          python3 - <<'PY'
+          import json
+          import os
+
+          with open(os.path.join(os.environ["RUNNER_TEMP"], "tchop-todo.json"), encoding="utf-8") as source:
+              report = json.load(source)
+          if report.get("status") != "PASS":
+              raise SystemExit("TODO ownership check did not report PASS")
+          PY
+      - name: Run pinned policy-driven static check
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p .quality-control-cache/cache
+          swift run \
+            --package-path "${GITHUB_WORKSPACE}/.quality-engine" \
+            --scratch-path "${RUNNER_TEMP}/quality-engine-scratch" \
+            -Xswiftc -warnings-as-errors \
+            quality static \
+            --profile "${GITHUB_WORKSPACE}/.quality-control/profile.json" \
+            --policy "${GITHUB_WORKSPACE}/.quality-engine/policies/static-policy.json" \
+            --repository-root "${GITHUB_WORKSPACE}" \
+            > "${RUNNER_TEMP}/tchop-quality.json"
+          python3 - <<'PY'
+          import json
+          import os
+
+          with open(os.path.join(os.environ["RUNNER_TEMP"], "tchop-quality.json"), encoding="utf-8") as source:
+              report = json.load(source)
+          if report.get("status") != "PASS":
+              raise SystemExit("Policy-driven static check did not report PASS")
+          PY
