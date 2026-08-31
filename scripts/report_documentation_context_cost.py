@@ -51,11 +51,15 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
     route_names = list(route_registry.get("routes", {}))
     resolved = resolve_routes(root, route_names, task_id)
 
-    level0 = summarize(root, resolved["level0_documents"])
     dynamic_paths = [
         path for path in resolved["level0_documents"] if path.startswith("./.zenflow/tasks/")
     ]
+    static_level0_paths = [
+        path for path in resolved["level0_documents"] if path not in dynamic_paths
+    ]
+    level0 = summarize(root, static_level0_paths)
     dynamic = summarize(root, dynamic_paths)
+    startup = summarize(root, resolved["level0_documents"])
 
     route_summaries: dict[str, Any] = {}
     route_sets: dict[str, set[str]] = {}
@@ -105,6 +109,7 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
     )[:top]
 
     level0_max = levels.get("level0_max_words")
+    dynamic_task_max = levels.get("dynamic_task_max_words")
     return {
         "root": str(root),
         "task_id": resolved["task_id"],
@@ -119,7 +124,16 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
             "documents": dynamic["documents"],
             "words": dynamic["words"],
             "bytes": dynamic["bytes"],
+            "max_words": dynamic_task_max,
+            "budget_exceeded": (
+                isinstance(dynamic_task_max, int) and dynamic["words"] > dynamic_task_max
+            ),
             "files": dynamic["files"],
+        },
+        "startup_total": {
+            "documents": startup["documents"],
+            "words": startup["words"],
+            "bytes": startup["bytes"],
         },
         "routes": route_summaries,
         "overlaps": overlaps,
@@ -136,14 +150,20 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
 def print_text(report: dict[str, Any]) -> None:
     level0 = report["level0"]
     print(
-        "Level 0: "
+        "Level 0 baseline: "
         f"{level0['documents']} docs; {level0['words']}/{level0['max_words']} words; "
         f"{level0['bytes']} bytes"
     )
     dynamic = report["dynamic_task_documents"]
     print(
         "Dynamic task state: "
-        f"{dynamic['documents']} docs; {dynamic['words']} words; {dynamic['bytes']} bytes"
+        f"{dynamic['documents']} docs; {dynamic['words']}/{dynamic['max_words']} words; "
+        f"{dynamic['bytes']} bytes"
+    )
+    startup = report["startup_total"]
+    print(
+        "Startup total: "
+        f"{startup['documents']} docs; {startup['words']} words; {startup['bytes']} bytes"
     )
     print("Routes (route-only -> with Level 0):")
     for name, values in report["routes"].items():
@@ -206,6 +226,7 @@ def main() -> int:
     failed = any(
         (
             report["level0"]["budget_exceeded"],
+            report["dynamic_task_documents"]["budget_exceeded"],
             route_budget_failure,
             report["unreachable_registered_documents"],
             report["missing"],

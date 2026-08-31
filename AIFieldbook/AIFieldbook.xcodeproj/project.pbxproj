@@ -344,15 +344,6 @@
 			path = Core;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000001821 /* AI */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001811 /* AIFoundation.swift */,
-				6B1A00000000000000001812 /* VisionTextRecognitionService.swift */,
-			);
-			path = AI;
-			sourceTree = "<group>";
-		};
 		6B1A00000000000000000038 /* Features */ = {
 			isa = PBXGroup;
 			children = (
@@ -390,6 +381,87 @@
 				6B1A00000000000000000321 /* Presentation */,
 			);
 			path = Workspace;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003C /* Capture */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000621 /* Presentation */,
+			);
+			path = Capture;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003D /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001121 /* Presentation */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003E /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001021 /* Presentation */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		6B1A0000000000000000003F /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000001621 /* Presentation */,
+			);
+			path = Settings;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000045 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000115 /* SpotlightIndexService.swift */,
+				6B1A0000000000000000011C /* FieldbookSearchIndex.swift */,
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000046 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000117 /* Info.plist */,
+				6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */,
+				6B1A00000000000000000119 /* Localizable.strings */,
+				6B1A0000000000000000011A /* InfoPlist.strings */,
+				6B1A0000000000000000011F /* Localizable.stringsdict */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000047 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */,
+			);
+			path = Documentation;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000048 /* SystemIntegration */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000049 /* AppIntents */,
+			);
+			path = SystemIntegration;
+			sourceTree = "<group>";
+		};
+		6B1A00000000000000000049 /* AppIntents */ = {
+			isa = PBXGroup;
+			children = (
+				6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */,
+				6B1A00000000000000000206 /* WorkspaceEntity.swift */,
+				6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */,
+				6B1A00000000000000000207 /* KnowledgeItemEntity.swift */,
+				6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */,
+			);
+			path = AppIntents;
 			sourceTree = "<group>";
 		};
 		6B1A00000000000000000321 /* Presentation */ = {
@@ -464,14 +536,6 @@
 				6B1A00000000000000000516 /* WorkspaceEditorFormView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		6B1A0000000000000000003C /* Capture */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000000621 /* Presentation */,
-			);
-			path = Capture;
 			sourceTree = "<group>";
 		};
 		6B1A00000000000000000621 /* Presentation */ = {
@@ -571,51 +635,27 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000001522 /* AudioRecorder */ = {
+		6B1A00000000000000001021 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000001511 /* AudioRecorderScreen.swift */,
-				6B1A00000000000000001512 /* AudioRecorderViewModel.swift */,
-				6B1A00000000000000001513 /* AudioRecorderViewState.swift */,
-				6B1A00000000000000001514 /* AudioRecorderViewStateBuilder.swift */,
-				6B1A00000000000000001523 /* Components */,
+				6B1A00000000000000001011 /* SearchScreen.swift */,
+				6B1A00000000000000001012 /* SearchViewModel.swift */,
+				6B1A00000000000000001013 /* SearchViewState.swift */,
+				6B1A00000000000000001014 /* SearchViewStateBuilder.swift */,
+				6B1A00000000000000001022 /* Components */,
 			);
-			path = AudioRecorder;
+			path = Presentation;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000001523 /* Components */ = {
+		6B1A00000000000000001022 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000001515 /* AudioRecorderStateRenderer.swift */,
-				6B1A00000000000000001516 /* AudioRecorderFormView.swift */,
+				6B1A00000000000000001015 /* SearchStateRenderer.swift */,
+				6B1A00000000000000001016 /* SearchFilterView.swift */,
+				6B1A00000000000000001017 /* SearchResultsView.swift */,
+				6B1A00000000000000001018 /* SearchResultRow.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000001722 /* Chooser */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001711 /* CaptureScreen.swift */,
-				6B1A00000000000000001723 /* Components */,
-			);
-			path = Chooser;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000001723 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001712 /* CaptureStateRenderer.swift */,
-				6B1A00000000000000001713 /* CaptureOptionsView.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		6B1A0000000000000000003D /* Items */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001121 /* Presentation */,
-			);
-			path = Items;
 			sourceTree = "<group>";
 		};
 		6B1A00000000000000001121 /* Presentation */ = {
@@ -719,59 +759,25 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000001724 /* Shared */ = {
+		6B1A00000000000000001522 /* AudioRecorder */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000001725 /* Components */,
+				6B1A00000000000000001511 /* AudioRecorderScreen.swift */,
+				6B1A00000000000000001512 /* AudioRecorderViewModel.swift */,
+				6B1A00000000000000001513 /* AudioRecorderViewState.swift */,
+				6B1A00000000000000001514 /* AudioRecorderViewStateBuilder.swift */,
+				6B1A00000000000000001523 /* Components */,
 			);
-			path = Shared;
+			path = AudioRecorder;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000001725 /* Components */ = {
+		6B1A00000000000000001523 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000001714 /* TagListView.swift */,
+				6B1A00000000000000001515 /* AudioRecorderStateRenderer.swift */,
+				6B1A00000000000000001516 /* AudioRecorderFormView.swift */,
 			);
 			path = Components;
-			sourceTree = "<group>";
-		};
-		6B1A0000000000000000003E /* Search */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001021 /* Presentation */,
-			);
-			path = Search;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000001021 /* Presentation */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001011 /* SearchScreen.swift */,
-				6B1A00000000000000001012 /* SearchViewModel.swift */,
-				6B1A00000000000000001013 /* SearchViewState.swift */,
-				6B1A00000000000000001014 /* SearchViewStateBuilder.swift */,
-				6B1A00000000000000001022 /* Components */,
-			);
-			path = Presentation;
-			sourceTree = "<group>";
-		};
-		6B1A00000000000000001022 /* Components */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001015 /* SearchStateRenderer.swift */,
-				6B1A00000000000000001016 /* SearchFilterView.swift */,
-				6B1A00000000000000001017 /* SearchResultsView.swift */,
-				6B1A00000000000000001018 /* SearchResultRow.swift */,
-			);
-			path = Components;
-			sourceTree = "<group>";
-		};
-		6B1A0000000000000000003F /* Settings */ = {
-			isa = PBXGroup;
-			children = (
-				6B1A00000000000000001621 /* Presentation */,
-			);
-			path = Settings;
 			sourceTree = "<group>";
 		};
 		6B1A00000000000000001621 /* Presentation */ = {
@@ -803,53 +809,47 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000045 /* Search */ = {
+		6B1A00000000000000001722 /* Chooser */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000000115 /* SpotlightIndexService.swift */,
-				6B1A0000000000000000011C /* FieldbookSearchIndex.swift */,
+				6B1A00000000000000001711 /* CaptureScreen.swift */,
+				6B1A00000000000000001723 /* Components */,
 			);
-			path = Search;
+			path = Chooser;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000046 /* Resources */ = {
+		6B1A00000000000000001723 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000000117 /* Info.plist */,
-				6B1A0000000000000000011D /* PrivacyInfo.xcprivacy */,
-				6B1A00000000000000000119 /* Localizable.strings */,
-				6B1A0000000000000000011A /* InfoPlist.strings */,
-				6B1A0000000000000000011F /* Localizable.stringsdict */,
+				6B1A00000000000000001712 /* CaptureStateRenderer.swift */,
+				6B1A00000000000000001713 /* CaptureOptionsView.swift */,
 			);
-			path = Resources;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000047 /* Documentation */ = {
+		6B1A00000000000000001724 /* Shared */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A0000000000000000011B /* LOCAL_DATA_PRIVACY_AND_RUNTIME.md */,
+				6B1A00000000000000001725 /* Components */,
 			);
-			path = Documentation;
+			path = Shared;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000048 /* SystemIntegration */ = {
+		6B1A00000000000000001725 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000000049 /* AppIntents */,
+				6B1A00000000000000001714 /* TagListView.swift */,
 			);
-			path = SystemIntegration;
+			path = Components;
 			sourceTree = "<group>";
 		};
-		6B1A00000000000000000049 /* AppIntents */ = {
+		6B1A00000000000000001821 /* AI */ = {
 			isa = PBXGroup;
 			children = (
-				6B1A00000000000000000205 /* FieldbookIntentDataSource.swift */,
-				6B1A00000000000000000206 /* WorkspaceEntity.swift */,
-				6B1A00000000000000000120 /* OpenWorkspaceIntent.swift */,
-				6B1A00000000000000000207 /* KnowledgeItemEntity.swift */,
-				6B1A00000000000000000208 /* FindKnowledgeItemsIntent.swift */,
+				6B1A00000000000000001811 /* AIFoundation.swift */,
+				6B1A00000000000000001812 /* VisionTextRecognitionService.swift */,
 			);
-			path = AppIntents;
+			path = AI;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1098,7 +1098,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1154,7 +1154,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1178,7 +1178,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1209,7 +1209,7 @@
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

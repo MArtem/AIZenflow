@@ -6,8 +6,14 @@ Compact cross-project user constraints that override general defaults. App/produ
 ## Documentation And Repository Authority
 - `MArtem/AIZenflowDocumentation` is the canonical repository for reusable rules, prompts, skills, templates, package docs, scripts, and app/task documentation snapshots.
 - Its local checkout is `/Users/Artem/.zenflow/worktrees/documentation-vault`.
-- Global documentation work is complete only after the canonical checkout is committed, pushed, clean, and synced with `origin/main`.
-- Agents may autonomously commit and push only `MArtem/AIZenflowDocumentation`. Every other repository requires an explicit user request for commit or push.
+- Global documentation work is complete only after the canonical checkout is committed, pushed,
+  clean, and synced with `origin/main`; bounded canonical documentation commits and pushes are
+  standing-authorized after the required checks and do not need repeated confirmation.
+- For other repositories, a current task plan or handoff may grant standing authorization for
+  exact push targets and bounded scope. While that authorization remains current, commit, push,
+  and PR updates within those targets do not need repeated confirmation. Ask again only when the
+  target repository, authorized scope, material risk, paid/external authority, or user decision
+  changes. Without standing authorization, obtain an explicit decision before the remote write.
 - Documentation loading follows `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`: Level 0 once, then only the selected task routes.
 - Documentation movement or reusable-rule changes require `./docs/DOCUMENT_BOUNDARY_STANDARD.md` and `./docs/SOURCE_OF_TRUTH_MAP.md`.
 
@@ -18,13 +24,28 @@ Compact cross-project user constraints that override general defaults. App/produ
 - Meaningful results state which model(s) worked, the selected docs route, and context health.
 
 ## Token-Efficient Collaboration Protocol
+- Persistent priority order: quality first, then token/resource economy, then minimum user
+  involvement. Economy must remove repetition and process overhead, not required correctness or
+  evidence.
 - The user prioritizes a code-first cadence: one self-contained implementation iteration at a time, then stop for user-run build and UI feedback.
 - Before any optional or expansive action — subagent, model/reasoning switch, browsing, extended research, broad documentation reread, runtime verification, or scope sweep — explain why it is needed, its expected token cost, benefits, trade-offs, and the smaller alternative; wait for the user's decision.
 - Load mandatory documentation once per route and use exact targeted reads thereafter. Do not repeat broad reads or produce broad diffs unless a conflict or decision requires them.
-- A normal approved coding block is: targeted inspection → one patch → one relevant static check → user-run build/UI QA → stop. Do not make related fixes without a separate bounded approval.
+- A normal approved coding block is: targeted inspection → one consolidated patch → one targeted
+  check during development → one final full relevant gate immediately before push when required →
+  user-run build/UI QA → stop. Do not rerun an unchanged PASS gate without new code, changed input,
+  a concrete failure, or a newly identified risk.
+- Keep successful command output out of conversation context: report only the compact result,
+  counts, exact failures, and evidence identifiers needed for the next decision. Do not paste full
+  successful build or test logs.
 - The user owns builds, tests, Simulator UI, screenshots, Instruments, archive, and signing until explicitly delegating a specific verification action back to the agent.
 - One approved same-pattern sweep may cover at most two or three source files. Before a block expected to touch more than three source files or consume roughly more than 2–3% of the weekly budget, provide a compact checkpoint and wait for approval.
-- Canonical documentation synchronization happens once at a meaningful boundary or on explicit request, never as repeated intermediate work. This protocol is expected to reduce per-iteration token use by approximately 30–40% while preserving the code-quality bar; it is a planning heuristic, not a guarantee.
+- Canonical documentation synchronization happens once at a meaningful boundary, preferably after
+  merge, or on explicit request; do not rewrite plan/inventory documents after every corrective
+  revision.
+- Follow the approved roadmap in order. Do not start an adjacent residual-risk block or optional
+  stage merely because it is discoverable; report the next blocker or decision compactly first.
+- This protocol is intended to minimize total task cost, including rereads, tool output, repeated
+  gates, model handoffs, and rework; do not promise a fixed percentage saving.
 
 ## Tool Capability Escalation
 - Do not recommend or install an external development tool merely for convenience.
@@ -32,9 +53,19 @@ Compact cross-project user constraints that override general defaults. App/produ
 - Do not treat XcodeBuildMCP as a substitute for a known Xcode/iOS platform bug, missing macOS permission, device-only evidence, signing authority, or an approved product decision.
 
 ## Filesystem Sandbox
+- **Absolute boundary:** without a separate, explicit user authorization naming the action and path, do not read, list, inspect, create, modify, move, download into, delete, or execute against any filesystem or OS-managed location outside `/Users/Artem/.zenflow`.
+- When project work or a static check is otherwise authorized under the current instructions, that
+  authorization also permits only the read-only execution of already-installed system executables
+  and SDK files required by the authorized command. It does not permit browsing external
+  directories, reading unrelated files, writing outside the sandbox, or installing/downloading
+  toolchains or Simulator runtimes.
+- Project authorization never implies permission to access `/Users/Artem/Library`, `/tmp`, `/Library`, `/Applications`, global SwiftPM/Xcode caches, Simulator runtimes, or any other external path for unrelated work. If a required input, toolchain, or SDK cannot be used under the authorized command boundary, report the exact blocker and stop.
+- Do not install, download, replace, detach, mount, unmount, or delete Simulator runtimes or other machine-wide developer assets without that separate authorization.
 - Keep project work, build output, package caches, DerivedData, logs, traces, and temporary artifacts inside `/Users/Artem/.zenflow`.
-- Do not use `/Users/Artem/Library`, `/tmp`, global SwiftPM/Xcode caches, or other paths outside `/Users/Artem/.zenflow` for project work.
-- Override tools that default outside the sandbox.
+- **Secret deny boundary:** do not read, list, inspect, modify, move, execute, or clean up
+  `/Users/Artem/.zenflow/secrets/` during normal work, even though it lies inside the sandbox.
+  Only an explicit user-authorized security intake/remediation pass naming that path may override
+  this deny boundary.
 - Real secrets stay out of chat, git, app bundles, and normal AI-readable worktree files. Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md` when secrets may be present.
 
 ## Tests And Verification

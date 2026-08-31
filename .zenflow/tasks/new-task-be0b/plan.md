@@ -112,6 +112,17 @@ verify an image with no readable text, and verify the failure path leaves the or
 Also confirm non-image imported items do not expose OCR. Do not begin another AI capability until
 this block is accepted.
 
+## Closed Quality-Pilot Decisions
+
+No quality pilot remains executable. Terminal outcomes, including the completed invalid-deep-link
+pilot and the two no-change dispositions below, are retained in the canonical task archive:
+`/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/archive/CROSS_PROJECT_QUALITY_PILOTS.md`.
+
+- BattleshipGame exhausted-computer-targets pilot: closed, not deferred; the private game-state
+  invariant makes the condition unreachable, so a fix would be speculative.
+- AI Fieldbook unavailable-attachment pilot: closed, not deferred; opening already surfaces
+  `missingFile` without deleting the item, and export does not dereference attachments.
+
 ## Deferred App Intents State
 
 - Gate `1.26-S` is accepted; A1 Open Workspace and A2 Find Knowledge Items are implemented.

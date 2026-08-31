@@ -7,6 +7,23 @@ This does not override task-local instructions that tests are opt-in. It defines
 
 Use `./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md` for Swift Testing/XCTest selection, deterministic test design, doubles, flaky tests, LLDB, sanitizers, memory graph, crash/hang triage, and evidence limits.
 
+## Permission Boundary
+
+Test need and test authority are separate decisions. The assistant may recommend tests while still
+being forbidden to create, modify, or execute them.
+
+Track independently:
+
+- test creation: `allow`, `deny`, or `ask`;
+- test modification: `allow`, `deny`, or `ask`;
+- local execution: `allow`, `deny`, or `ask`;
+- GitHub execution: `off` or `manual`;
+- UI tests, Simulator/device work, and performance/Instruments work: separate permission states.
+
+Project-mode defaults and the controlling user policy live in
+`./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`. A denied, unavailable, or unrun test must be
+reported with residual risk and must not be replaced by a hidden test-like artifact or false PASS.
+
 ## Test Decision Matrix
 ### Unit Tests
 Use for:
@@ -76,3 +93,5 @@ For production-ready claims, state:
 2. Test types executed.
 3. Test types intentionally deferred and why.
 4. Remaining risk if any required test was not run.
+5. Permission state for creation, modification, local execution, GitHub execution, UI/device, and
+   performance work where relevant.

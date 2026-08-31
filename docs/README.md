@@ -43,6 +43,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`
 
 ### Production Quality And Review Gates
+- `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`
 - `./docs/IOS_PRODUCTION_FRAMEWORK.md`
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
 - `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
@@ -60,11 +61,13 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`
 - `./docs/DEFINITION_OF_DONE.md`
 - `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+- `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`
 - `./docs/STATIC_QUALITY_GATE_POLICY.md`
 - `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`
 
 ### Product, Governance, And Operating Model
 - `./docs/NEW_PROJECT_START_CONTRACT.md`
+- `./docs/STATIC_GATE_ADOPTION.md`
 - `./docs/SOURCE_OF_TRUTH_MAP.md`
 - `./docs/AGENT_PREFLIGHT_CHECKLIST.md`
 - `./docs/COMPLETION_REPORT_CONTRACT.md`
@@ -261,11 +264,13 @@ The following export is retained for provenance only. It is not an active bootst
 - **`./docs/DOCUMENT_BOUNDARY_STANDARD.md`**: hard physical/logical separation rule for reusable, app-specific, architecture, package, and task documentation.
 - **`./docs/SOURCE_OF_TRUTH_MAP.md`**: canonical storage map for reusable rules, app decisions, task state, packages, prompts, and temporary notes.
 - **`./docs/NEW_PROJECT_START_CONTRACT.md`**: mandatory bootstrap contract for new projects, tasks, and worktrees.
+- **`./docs/STATIC_GATE_ADOPTION.md`**: project-owned adoption or deferral record required by the bootstrap contract.
 - **`./docs/AGENT_PREFLIGHT_CHECKLIST.md`**: preflight gate before non-trivial work, package adoption, docs migration, review, or bootstrap.
 - **`./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md`**: local exception ADR format for app/task-specific deviations from reusable rules.
 - **`./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`**: ownership boundary for `plan.md`, `handoff.md`, task archives, and recovery snapshots.
 
 ### Review And Completion
+- **`./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`**: app-neutral change contract, verification ladder, adversarial final-diff review, and escaped-finding feedback loop.
 - **`./docs/COMPLETION_REPORT_CONTRACT.md`**: mandatory report shape before claiming done/fixed/verified/safe/clean/production-ready.
 - **`./docs/IOS_PRODUCTION_FRAMEWORK.md`**: canonical reusable iOS production framework and coverage matrix.
 - **`./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`**: mandatory iPhone+iPad scope, deferred-platform rules, source authority, coverage unit, and freshness contract.

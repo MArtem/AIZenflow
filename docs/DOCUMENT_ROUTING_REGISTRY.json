@@ -16,10 +16,12 @@
     "./docs/DOCUMENT_BOUNDARY_STANDARD.md",
     "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
     "./docs/DOCUMENT_LIBRARY_GUIDE.md",
+    "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
     "./docs/LOCAL_EXCEPTION_ADR_TEMPLATE.md",
     "./docs/NEW_PROJECT_START_CONTRACT.md",
     "./docs/README.md",
     "./docs/SOURCE_OF_TRUTH_MAP.md",
+    "./docs/STATIC_GATE_ADOPTION.md",
     "./docs/TASK_STATE_DOCUMENTATION_STANDARD.md",
     "./docs/WORK_CONTINUITY.md"
   ],
@@ -83,6 +85,7 @@
     "./docs/SHARE_EXTENSION_VALIDATION.md",
     "./docs/STATIC_QUALITY_GATE_POLICY.md",
     "./docs/TECH_DEBT_REGISTER.md",
+    "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
     "./docs/UI_PIXEL_PERFECT_WORKFLOW.md"
   ],
   "level3": [
@@ -109,5 +112,6 @@
       "./.zenflow/tasks/**/archive/**"
     ]
   },
-  "level0_max_words": 5000
+  "level0_max_words": 5000,
+  "dynamic_task_max_words": 3500
 }

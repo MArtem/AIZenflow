@@ -62,9 +62,19 @@ private struct HeaderView: View {
                 .font(.title3.weight(.semibold))
 
             if let currentShip {
-                Text("Next ship: \(currentShip.name), \(currentShip.length) cells")
+                Text("Placing: \(currentShip.name) — \(currentShip.length) cells")
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
+
+                HStack(spacing: 4) {
+                    ForEach(0..<currentShip.length, id: \.self) { _ in
+                        RoundedRectangle(cornerRadius: 3)
+                            .fill(.gray.opacity(0.75))
+                            .frame(width: 20, height: 20)
+                    }
+                }
+                .accessibilityElement(children: .ignore)
+                .accessibilityLabel("Selected ship: \(currentShip.name), length \(currentShip.length) cells")
             }
 
             HStack {
@@ -191,6 +201,8 @@ private struct BoardCellButton: View {
             return hidesShip ? .blue.opacity(0.18) : .gray.opacity(0.75)
         case .hit:
             return .red
+        case .sunk:
+            return .black.opacity(0.8)
         case .miss:
             return .cyan.opacity(0.55)
         }
@@ -204,6 +216,8 @@ private struct BoardCellButton: View {
             return hidesShip ? nil : "shield.fill"
         case .hit:
             return "flame.fill"
+        case .sunk:
+            return "xmark.octagon.fill"
         case .miss:
             return "circle"
         }
@@ -218,6 +232,8 @@ private struct BoardCellButton: View {
             return Text(hidesShip ? "Unknown cell, \(position)" : "Ship cell, \(position)")
         case .hit:
             return Text("Hit, \(position)")
+        case .sunk:
+            return Text("Sunk ship, \(position)")
         case .miss:
             return Text("Miss, \(position)")
         }

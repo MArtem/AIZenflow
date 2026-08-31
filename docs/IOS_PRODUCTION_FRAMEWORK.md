@@ -15,6 +15,7 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 - `./docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md`
 - `./docs/IOS_PRODUCTION_AUDIT_MATRIX.md`
 - `./docs/IOS_PR_REVIEW_TEMPLATE.md`
+- `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`
 - `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`
 - `./docs/IOS_AGENT_PROMPT_ROUTER.md`
 - `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md`
@@ -40,7 +41,7 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 4. If architecture changes, apply `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`.
 5. Implement the simplest correct solution.
 6. Apply `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`.
-7. Apply `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md` before claiming completion.
+7. Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` and `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md` before claiming completion.
 8. Run appropriate static/build/test/manual/profiler gates.
 9. Record remaining risks, exceptions, or deferred debt.
 10. Update docs/risk/debt/runbooks when behavior or ownership changes.
@@ -53,6 +54,7 @@ A feature is not production-grade because it compiles or looks correct. It is pr
 | Knowledge maturity registry | `./docs/IOS_KNOWLEDGE_COVERAGE_REGISTRY.json` |
 | Definition of done | `./docs/DEFINITION_OF_DONE.md` |
 | Evidence | `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md` |
+| Change quality and review receipt | `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` |
 | Production gates | `./docs/PRODUCTION_QUALITY_GATES.md` |
 | Review completeness | `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md` |
 | Code review checklist | `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md` |

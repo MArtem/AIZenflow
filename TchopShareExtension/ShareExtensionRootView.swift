@@ -8,7 +8,7 @@ struct ShareExtensionRootView: View {
         /// Explicit extension UI state owned by `ShareViewController`.
 enum State {
         case loading
-        case signInRequired(message: String)
+        case signInRequired(message: String, openAppErrorMessage: String?)
         case composer(FeedComposerViewModel)
         case failed(title: String, message: String)
     }
@@ -22,8 +22,8 @@ enum State {
         switch state {
         case .loading:
             loadingView
-        case let .signInRequired(message):
-            signInRequiredView(message: message)
+        case let .signInRequired(message, openAppErrorMessage):
+            signInRequiredView(message: message, openAppErrorMessage: openAppErrorMessage)
         case let .composer(viewModel):
             SharedCardComposerView(
                 viewModel: viewModel,
@@ -51,7 +51,10 @@ enum State {
         }
     }
 
-    private func signInRequiredView(message: String) -> some View {
+    private func signInRequiredView(
+        message: String,
+        openAppErrorMessage: String?
+    ) -> some View {
         NavigationStack {
             VStack(alignment: .leading, spacing: AppSpacing.lg) {
                 Text(AppLocalization.text("shareExtension.signInRequired.title"))
@@ -61,6 +64,12 @@ enum State {
                 Text(message)
                     .font(AppTypography.bodyRegular)
                     .foregroundStyle(AppTheme.textSecondary)
+
+                if let openAppErrorMessage {
+                    Text(openAppErrorMessage)
+                        .font(.body)
+                        .foregroundStyle(AppTheme.destructive)
+                }
 
                 Button(AppLocalization.text("shareExtension.openApp"), action: onOpenApp)
                     .buttonStyle(.borderedProminent)

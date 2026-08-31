@@ -15,7 +15,8 @@ Secrets must also stay out of AI-readable workspaces unless the user explicitly 
 - Do not store real secrets in Swift source, plist files, asset catalogs, tracked xcconfig files, checked-in scripts, documentation, examples, tests, fixtures, or generated reports.
 - Do not store real secrets inside an iOS app bundle. Anything shipped in the app can be extracted by a user.
 - `.gitignore` reduces commit risk, but it does not prevent an AI agent from reading files inside the workspace.
-- Prefer storing real local secrets outside the project/worktree and outside the AI-readable root.
+- Prefer storing real local secrets in the sandboxed secret root outside project/worktrees and deny
+  the assistant normal access to that root.
 - The assistant may receive logical placeholder file names, environment variable names, build setting names, and expected configuration keys, but not secret values or accessible real paths to secret files.
 - If a secret is exposed in chat, logs, committed history, or an AI-readable scan, treat it as compromised and rotate/revoke it.
 
@@ -50,7 +51,7 @@ Preferred storage order:
 3. Local secret files outside the AI-readable project root, for example:
 
    ```text
-   /Users/Artem/.zenflow-secrets/<ProjectName>/
+   /Users/Artem/.zenflow/secrets/<ProjectName>/
      LocalSecrets.xcconfig
      signing/
      api/
@@ -162,15 +163,15 @@ Use env var OPENAI_API_KEY; do not read or print its value.
 Avoid:
 
 ```text
-Read /Users/<name>/.zenflow-secrets/MyApp/LocalSecrets.xcconfig
+Read /Users/Artem/.zenflow/secrets/MyApp/LocalSecrets.xcconfig
 ```
 
 The only exception is an explicitly approved security intake/remediation pass, where the user accepts that the assistant may see sensitive material once so it can be removed and rotated.
 
-The recommended local secret root is outside project worktrees:
+The recommended local secret root is inside the user-authorized sandbox but outside project worktrees:
 
 ```text
-/Users/Artem/.zenflow-secrets/<ProjectName>/
+/Users/Artem/.zenflow/secrets/<ProjectName>/
 ```
 
 The assistant must not read this root during normal work. If a build needs values from that root, the user or local tooling should wire them into Xcode/build settings without exposing the values in chat or logs.

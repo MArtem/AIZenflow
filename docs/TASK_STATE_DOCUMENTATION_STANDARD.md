@@ -20,6 +20,11 @@ Keep task state concise and prevent task documents from becoming a mixed archive
 - Move superseded detail into archive or app-specific docs.
 - Handoff must include the context transfer rule:
   **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+- The combined active `handoff.md` and `plan.md` budget is 3,500 words. Before handoff or route
+  validation exceeds that budget, compact completed detail into app/task history and retain only
+  current evidence, restrictions, decisions, risks, and next steps.
+- Completed implementation history should collapse to one durable outcome plus evidence references;
+  it must not grow as a chronological transcript of every corrective iteration.
 
 ## Handoff Maximum Shape
 - identifiers;

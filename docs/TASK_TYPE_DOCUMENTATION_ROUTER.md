@@ -33,7 +33,8 @@ Level 0 only establishes authority, model choice, current task state, and routin
 Read only when the route requires it:
 
 - Project/code/package orientation: `./PROJECT_DOCUMENTATION.md`, `./PROJECT_HEALTH.md`, `./docs/AGENT_RULES.md`.
-- Non-trivial planning or execution: `./docs/AGENT_PREFLIGHT_CHECKLIST.md`.
+- Non-trivial planning or execution: `./docs/AGENT_PREFLIGHT_CHECKLIST.md`,
+  `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`.
 - Documentation/rule/prompt/skill/template/package-doc changes: `./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md`, `./docs/DOCUMENT_BOUNDARY_STANDARD.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/DOCS_REPO_OPERATIONS.md`.
 - Documentation library inventory/operations: `./docs/README.md`, `./docs/DOCUMENT_LIBRARY_GUIDE.md`, `./docs/DOCUMENTATION_VAULT_SUMMARY.md`.
 - Task plan/handoff/archive changes: `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`.
@@ -68,7 +69,8 @@ Read only when the route requires it:
 | Code comments/documentation pass | `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`, `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` |
 | Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog |
 | Current content/feed persistence contract | `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`, persistence/migration/data-loss route |
-| New iOS app/project bootstrap | `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`, `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`, architecture route, `./docs/DEVELOPER_EXPERIENCE_STANDARD.md` |
+| New iOS app/project bootstrap | `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`, `./docs/STATIC_GATE_ADOPTION.md`, `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`, architecture route, `./docs/DEVELOPER_EXPERIENCE_STANDARD.md` |
+| Universal Xcode quality control, manual GitHub checks, Codex Review policy, verifier/bootstrap design | `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`, `./docs/CI_CD_QUALITY_GATES.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md` |
 | Static gates/scripts | `./docs/STATIC_QUALITY_GATE_POLICY.md`, relevant `./scripts/check_*.py` or `./scripts/run_static_quality_gates.sh` |
 
 ## Level 3 — Deep references

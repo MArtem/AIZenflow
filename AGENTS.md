@@ -1,5 +1,17 @@
 # Agent Instructions
 
+## Global Rules Bootstrap
+<!-- AIZENFLOW_GLOBAL_RULES_BOOTSTRAP_V1 -->
+Before any project action, read and apply
+`/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md`.
+It activates the current reusable rules directly from the canonical documentation repository.
+This repository file is an app/task overlay only: it may strengthen the global baseline, but it
+must not silently replace or weaken it. If the canonical checkout is unavailable, require the
+tracked `./GLOBAL_RULES_PORTABLE_SNAPSHOT.md` snapshot with marker
+`AIZENFLOW_GLOBAL_RULES_PORTABLE_SNAPSHOT_V1`; report `canonical-baseline-unavailable` and do not
+claim that the current canonical revision was applied. The user does not need to remind the agent
+to load it.
+
 ## Mandatory Response Header
 Every working, status, readiness, confirmation, task-orientation, planning, or clarification response must start with:
 
@@ -52,6 +64,24 @@ Always include the context-transfer rule when handing off:
 - When the user owns runtime verification, do not run builds, tests, Simulator UI, screenshots, Instruments, archive, or signing. Use only the static checks needed for the patch unless the user explicitly reauthorizes runtime work.
 - Use a same-pattern sweep only after explicit approval and keep it to two or three source files per iteration. Run `git diff --check` once per agreed iteration, not once per file.
 - Before a block expected to touch more than three source files or consume more than roughly 2–3% of the weekly budget, ask for approval with a compact estimate and alternatives. Treat documentation as lookup and durable synchronization work, not as implementation progress; synchronize it only at meaningful boundaries or when the user explicitly requests it.
+- Proactively stop and report when work no longer materially advances the approved goal, enters a repeating correction loop, exceeds its agreed resource/scope boundary, or shifts from product quality to speculative tool-building. State what is complete, the concrete remaining risk, why continuation is not economical, and the bounded choices: merge/stop, one required fix, or backlog. Merge/stop or backlog is available only when no P0–P2 finding remains; otherwise require the fix or an explicit higher-authority user exception. Do not wait for the user to notice or intervene.
+
+## Mandatory Engineering Quality Gate
+- Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` to every non-trivial implementation and
+  pre-push review. Before editing, define the compact change contract: behavior, authority,
+  producer/consumer agreement, state/time ordering, input and resource envelopes, failure
+  semantics, and affected consumers/claims that are relevant to the change.
+- Derive implementation and permitted tests from those invariants. Before commit or push, review
+  the complete final diff against the contract, search affected call sites and mirrored claims,
+  and inspect every credible route to false success or irreversible state.
+- Passing builds, tests, linters, schemas, or `git diff --check` supports but never replaces
+  semantic review. Reuse unchanged PASS evidence and do not widen checks without a new risk.
+- P0–P2 findings block commit and push. P3 must be fixed or explicitly reported. Repeat one full
+  final-diff review after fixes; use an independent reviewer when available for high-risk work.
+- After committing, review the exact `HEAD` against its trusted base, record a compact receipt
+  (range, clean state, contract, findings, checks, omitted/reused evidence, residual risk), verify
+  `HEAD` is unchanged before push, and confirm the remote points to that SHA after push. A new
+  commit invalidates the receipt; external review is a second barrier, never its replacement.
 
 ## Filesystem Sandbox
 - The user explicitly expanded this task's local sandbox to `/Users/Artem/.zenflow`.
