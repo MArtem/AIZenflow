@@ -64,7 +64,6 @@ struct FeedHeadlineWidgetProvider: TimelineProvider {
             suiteName: AppGroupConfiguration.widgetsSuiteName,
             snapshotKey: FeedHeadlineWidgetConstants.snapshotKey
         )) ?? UserDefaultsWidgetSnapshotStore<FeedHeadlineWidgetSnapshot>(
-            userDefaults: .standard,
             snapshotKey: FeedHeadlineWidgetConstants.snapshotKey
         )
     }

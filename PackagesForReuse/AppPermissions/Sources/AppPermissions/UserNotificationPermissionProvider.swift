@@ -1,23 +1,20 @@
 #if canImport(UserNotifications)
-@preconcurrency import UserNotifications
+import UserNotifications
 import Foundation
 
 public struct UserNotificationPermissionProvider: PermissionProviding {
     public let supportedKinds: Set<PermissionKind> = [.notifications]
-    private let notificationCenter: UNUserNotificationCenter
     private let options: UNAuthorizationOptions
 
     public init(
-        notificationCenter: UNUserNotificationCenter = .current(),
         options: UNAuthorizationOptions = [.alert, .badge, .sound]
     ) {
-        self.notificationCenter = notificationCenter
         self.options = options
     }
 
     public func state(for kind: PermissionKind) async -> PermissionState {
         guard kind == .notifications else { return .unavailable }
-        let settings = await notificationCenter.notificationSettings()
+        let settings = await UNUserNotificationCenter.current().notificationSettings()
         return map(settings.authorizationStatus)
     }
 
@@ -25,7 +22,7 @@ public struct UserNotificationPermissionProvider: PermissionProviding {
         guard kind == .notifications else { throw PermissionError.unsupportedKind(kind) }
         let previous = await state(for: kind)
         do {
-            _ = try await notificationCenter.requestAuthorization(options: options)
+            _ = try await UNUserNotificationCenter.current().requestAuthorization(options: options)
             let next = await state(for: kind)
             return PermissionRequestOutcome(kind: kind, state: next, didPromptUser: previous == .notDetermined)
         } catch {

@@ -47,14 +47,11 @@ final class AppPushNotificationBridge: AppPushNotificationBridging {
     init(
         manager: any PushNotificationManaging,
         errorManager: any AppErrorManaging,
-        notificationCenter: UNUserNotificationCenter = .current(),
         notificationPermissionProvider: (any PermissionProviding)? = nil
     ) {
         self.manager = manager
         self.errorManager = errorManager
-        self.notificationPermissionProvider = notificationPermissionProvider ?? UserNotificationPermissionProvider(
-            notificationCenter: notificationCenter
-        )
+        self.notificationPermissionProvider = notificationPermissionProvider ?? UserNotificationPermissionProvider()
     }
 
     /// Handles start.

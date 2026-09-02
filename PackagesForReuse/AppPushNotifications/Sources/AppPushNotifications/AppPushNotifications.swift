@@ -88,11 +88,11 @@ public struct PushNotificationState: Codable, Equatable, Sendable {
 /// Store abstraction that keeps the reusable push state independent from the host app.
 public protocol PushNotificationStateStoring: Sendable {
     /// Saves this operation.
-    func save(_ state: PushNotificationState) throws
+    func save(_ state: PushNotificationState) async throws
     /// Loads this operation.
-    func load() throws -> PushNotificationState?
+    func load() async throws -> PushNotificationState?
     /// Clears this operation.
-    func clear() throws
+    func clear() async throws
 }
 
 /// Payload parser abstraction for host apps that may need a custom APNs contract later.
@@ -175,17 +175,16 @@ public struct PushNotificationNoopEventCollector: PushNotificationEventCollectin
 }
 
 /// Errors produced by the default state store.
-public enum PushNotificationStateStoreError: Error {
+public enum PushNotificationStateStoreError: Error, Sendable {
     case unavailableUserDefaults(suiteName: String)
 }
 
 /// UserDefaults-backed push state storage used by the app by default.
 ///
-/// Thread safety:
-/// `UserDefaults` supports concurrent access for individual operations, and this store retains only immutable
-/// key/defaults references. Encoding and decoding use operation-local instances. The unchecked conformance is
-/// limited to Foundation's imported `UserDefaults` reference.
-public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, PushNotificationStateStoring {
+/// Isolation:
+/// The actor owns the imported `UserDefaults` reference and performs all persistence through its
+/// isolated executor. Callers cross this boundary with the async storage contract.
+public actor UserDefaultsPushNotificationStateStore: PushNotificationStateStoring {
     private let userDefaults: UserDefaults
     private let storageKey: String
 
@@ -199,7 +198,7 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
     }
 
     /// Creates a new UserDefaultsPushNotificationStateStore instance.
-    public convenience init(
+    public init(
         suiteName: String,
         storageKey: String = "push-notifications.state"
     ) throws {
@@ -207,17 +206,18 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
             throw PushNotificationStateStoreError.unavailableUserDefaults(suiteName: suiteName)
         }
 
-        self.init(userDefaults: userDefaults, storageKey: storageKey)
+        self.userDefaults = userDefaults
+        self.storageKey = storageKey
     }
 
     /// Saves this operation.
-    public func save(_ state: PushNotificationState) throws {
+    public func save(_ state: PushNotificationState) async throws {
         let data = try JSONEncoder().encode(state)
         userDefaults.set(data, forKey: storageKey)
     }
 
     /// Loads this operation.
-    public func load() throws -> PushNotificationState? {
+    public func load() async throws -> PushNotificationState? {
         guard let data = userDefaults.data(forKey: storageKey) else {
             return nil
         }
@@ -226,17 +226,17 @@ public final class UserDefaultsPushNotificationStateStore: @unchecked Sendable, 
     }
 
     /// Clears this operation.
-    public func clear() throws {
+    public func clear() async throws {
         userDefaults.removeObject(forKey: storageKey)
     }
 }
 
 /// In-memory push state storage useful for previews, tests, and ephemeral hosts.
 ///
-/// Thread safety:
-/// `lock` protects every access to the mutable state so synchronous callers may use one store across tasks.
-public final class InMemoryPushNotificationStateStore: @unchecked Sendable, PushNotificationStateStoring {
-    private let lock = NSLock()
+/// Isolation:
+/// The actor owns the mutable in-memory state and provides the same async persistence contract as
+/// the production store.
+public actor InMemoryPushNotificationStateStore: PushNotificationStateStoring {
     private var state: PushNotificationState?
 
     /// Creates a new InMemoryPushNotificationStateStore instance.
@@ -245,24 +245,18 @@ public final class InMemoryPushNotificationStateStore: @unchecked Sendable, Push
     }
 
     /// Saves this operation.
-    public func save(_ state: PushNotificationState) throws {
-        lock.lock()
+    public func save(_ state: PushNotificationState) async throws {
         self.state = state
-        lock.unlock()
     }
 
     /// Loads this operation.
-    public func load() throws -> PushNotificationState? {
-        lock.lock()
-        defer { lock.unlock() }
+    public func load() async throws -> PushNotificationState? {
         return state
     }
 
     /// Clears this operation.
-    public func clear() throws {
-        lock.lock()
+    public func clear() async throws {
         state = nil
-        lock.unlock()
     }
 }
 
@@ -354,6 +348,7 @@ public actor PushNotificationManager: PushNotificationManaging {
     private let store: any PushNotificationStateStoring
     private let eventCollector: any PushNotificationEventCollecting
     private var state: PushNotificationState
+    private var didLoadPersistedState = false
 
     /// Creates a new PushNotificationManager instance.
     public init(
@@ -362,16 +357,18 @@ public actor PushNotificationManager: PushNotificationManaging {
     ) {
         self.store = store
         self.eventCollector = eventCollector
-        self.state = (try? store.load()) ?? PushNotificationState()
+        self.state = PushNotificationState()
     }
 
     /// Returns state.
     public func currentState() async -> PushNotificationState {
-        state
+        await loadPersistedStateIfNeeded()
+        return state
     }
 
     /// Updates authorization status.
     public func updateAuthorizationStatus(_ status: PushNotificationAuthorizationStatus) async throws -> PushNotificationState {
+        await loadPersistedStateIfNeeded()
         try await updateState(
             to: makeState(authorizationStatus: status),
             event: .authorizationStatusUpdated(status)
@@ -381,6 +378,7 @@ public actor PushNotificationManager: PushNotificationManaging {
 
     /// Updates remote registration.
     public func updateRemoteRegistration(isRegistered: Bool) async throws -> PushNotificationState {
+        await loadPersistedStateIfNeeded()
         try await updateState(
             to: makeState(isRegisteredForRemoteNotifications: isRegistered),
             event: .remoteRegistrationUpdated(isRegistered: isRegistered)
@@ -390,6 +388,7 @@ public actor PushNotificationManager: PushNotificationManaging {
 
     /// Handles device token.
     public func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState {
+        await loadPersistedStateIfNeeded()
         let normalizedToken = APNsDeviceToken(data: deviceToken)
         try await updateState(
             to: makeState(
@@ -404,6 +403,7 @@ public actor PushNotificationManager: PushNotificationManaging {
 
     /// Handles registration failure.
     public func handleRegistrationFailure(_ errorDescription: String) async throws -> PushNotificationState {
+        await loadPersistedStateIfNeeded()
         try await updateState(
             to: makeState(
                 isRegisteredForRemoteNotifications: false,
@@ -416,6 +416,7 @@ public actor PushNotificationManager: PushNotificationManaging {
 
     /// Handles remote notification.
     public func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload {
+        await loadPersistedStateIfNeeded()
         try await updateState(
             to: makeState(
                 lastReceivedPayload: payload.source == .opened ? state.lastReceivedPayload : payload,
@@ -432,14 +433,15 @@ public actor PushNotificationManager: PushNotificationManaging {
 
     /// Clears state.
     public func clearState() async throws {
+        await loadPersistedStateIfNeeded()
         state = PushNotificationState()
-        try store.clear()
+        try await store.clear()
         await eventCollector.record(.stateCleared)
     }
 
     /// Handles persist state.
-    private func persistState() throws {
-        try store.save(state)
+    private func persistState() async throws {
+        try await store.save(state)
     }
 
     /// Builds the next persisted state while preserving every unchanged field.
@@ -467,7 +469,14 @@ public actor PushNotificationManager: PushNotificationManaging {
         event: PushNotificationEvent
     ) async throws {
         state = newState
-        try persistState()
+        try await persistState()
         await eventCollector.record(event)
+    }
+
+    private func loadPersistedStateIfNeeded() async {
+        guard !didLoadPersistedState else { return }
+        didLoadPersistedState = true
+        guard let loadedState = try? await store.load() else { return }
+        state = loadedState
     }
 }
