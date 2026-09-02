@@ -2,6 +2,7 @@ import AppIntents
 import Foundation
 
 /// Finds up to twenty local knowledge items without exposing their private content.
+@available(iOS 26.0, *)
 struct FindKnowledgeItemsIntent: AppIntent {
     static let title: LocalizedStringResource = "Find Knowledge Items"
     static let description = IntentDescription("Find local knowledge items in AI Fieldbook.")
