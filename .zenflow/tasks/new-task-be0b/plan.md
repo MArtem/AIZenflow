@@ -16,7 +16,7 @@ while retaining PR merge and GitHub `workflow_dispatch` control.
   snapshots, and task-created duplicates from mutation.
 - [x] Inspect effective `SWIFT_STRICT_CONCURRENCY` for every target/configuration/xcconfig and
   record projects that already equal `targeted`.
-- [x] Apply only missing/incorrect `SWIFT_STRICT_CONCURRENCY = targeted` settings in bounded,
+- [x] Apply only missing/incorrect `SWIFT_STRICT_CONCURRENCY = complete` settings in bounded,
   reviewable repository patches; preserve unrelated dirty files.
 - [x] Build and launch each changed project with task-local DerivedData/logs; fix only proven
   concurrency/compiler/runtime failures and repeat the affected verification.
@@ -24,25 +24,25 @@ while retaining PR merge and GitHub `workflow_dispatch` control.
   the main plan. PR creation, merge, and manual workflow dispatch are deferred to the next user-
   authorized phase.
 
-### Temporary detour result (2026-09-02)
+### Maximum strict-concurrency result (2026-09-02)
 
-- Audited 20 canonical active Xcode projects: MVVMExample root plus 14 architecture cases (15),
-  AIZenflow Tchop/AIFieldbook/BattleshipGame (3), QualityControlCanary (1), and PanModalDemo (1).
-  Fixtures, historical/task worktrees, generated copies, and repositories without Xcode projects
-  were excluded from mutation.
-- Every inspected project file now declares `SWIFT_STRICT_CONCURRENCY = targeted` in all checked
-  build-setting blocks. Swift 5 projects emitted `-strict-concurrency=targeted`; Swift 6 projects
-  use Swift 6's complete default semantics while retaining the requested explicit setting.
-- All 20 projects passed task-local Debug build, install, and launch checks. Logs and DerivedData
-  are under `runtime/concurrency-audit/`; no test files or test commands were changed or run.
-- Proven compatibility fixes were limited to Tchop's `@MainActor` default construction and
-  AIFieldbook's iOS 26 App Intents/Vision availability boundaries. PanModal retains a pre-existing
-  deployment-target warning (iOS 10 versus Xcode-supported 12–26.5); no unrelated cleanup was made.
-- Pushed commits: MVVMExample `e048fc6799713c24a0fd27a364286a7eab5cda4d` on `Development`;
-  AIZenflow `2d1e7229b914d477162507bc3377543d9a1dce22` and
-  `f9df70dbc4820724970877d3f418d3e50c25e62e` on `codex/sync-quality-baseline`; Canary
-  `77cb34c8f598c82c895bc58b04ede677f7af9357`; PanModal `a4955f8e2633d61b909da9b8008b8c53fe2608a5`.
-  Remote parity was confirmed after push. Receipt: `runtime/concurrency-audit/receipt.json`.
+- Audited all 80 tracked real `.xcodeproj/project.pbxproj` files across 13 authoritative Git
+  worktrees (MVVMExample, AIZenflow, QualityControlCanary, PanModal, and Documentation Vault
+  architecture cases). The physical inventory also contained 33 non-tracked/generated or retired
+  copies and 3 fixture containers without `project.pbxproj`; those were excluded from mutation and
+  commits because they are not authoritative repository sources.
+- All 644 discovered `buildSettings` blocks now declare `SWIFT_STRICT_CONCURRENCY = complete`;
+  no tracked project retains `targeted`. Swift 5 builds therefore use the maximum explicit mode;
+  Swift 6 projects already receive complete semantics by language mode and retain the explicit
+  setting for profile consistency.
+- Final matrix result is 80/80 PASS for task-local Debug build, install, and launch (Canary's
+  macOS executable was run). Logs, result bundles, and DerivedData are under
+  `runtime/concurrency-audit/max-complete/`; no test files or test commands were changed or run.
+- The only compatibility fixes were the proven iOS 26 availability boundaries in five historical
+  AIFieldbook clones. PanModal retains its pre-existing iOS 10 deployment-target warning; no
+  unrelated cleanup was made.
+- All 13 logical commits were reviewed, committed, pushed to same-named branches, and remote SHA
+  parity was confirmed. Full commit/branch receipt: `runtime/concurrency-audit/max-complete/receipt.json`.
 
 Canonical ownership stays split:
 

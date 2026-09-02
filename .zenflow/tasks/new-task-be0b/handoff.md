@@ -8,11 +8,11 @@
   projects. Documentation owns policy; QualityControl owns execution; apps own facts/permissions.
 - Required transfer: **перечитать весь актуальный набор документации и правил для этого worktree и
   task-контекста**. After Level 0, load only this plan/handoff and the active task route.
-- Completed temporary detour: audited canonical active iOS/Xcode repositories for effective
-  `SWIFT_STRICT_CONCURRENCY = targeted`, apply only missing settings, and perform authorized
-  build/run verification. The user explicitly kept the current Luna xhigh route for this detour;
-  PR creation/merges and manual `workflow_dispatch` remain user-operated. Continue with the main
-  plan only after the user starts the next PR phase.
+- Completed temporary detour: audited all authoritative tracked iOS/Xcode project copies and set
+  maximum `SWIFT_STRICT_CONCURRENCY = complete`, then performed authorized build/install/launch
+  verification. The user explicitly kept the current Luna xhigh route; PR creation/merges and
+  manual `workflow_dispatch` remain user-operated. Continue with the main plan after the user
+  starts the next PR phase.
 
 ## Evidence-backed completed state
 
@@ -141,25 +141,21 @@
   independently verified green after merge; run IDs and successful generated-ownership steps are
   recorded in `runtime/generated-ownership-adoption/receipt.json`.
 
-## Completed temporary detour — Swift strict concurrency audit
+## Completed temporary detour — maximum Swift strict-concurrency audit
 
-- Audited 20 canonical active Xcode projects: 15 in MVVMExample, 3 in AIZenflow, 1 Canary, and 1
-  PanModalDemo. Fixtures, historical/task worktrees, generated copies, and non-Xcode repositories
-  were excluded.
-- All checked build-setting blocks now contain `SWIFT_STRICT_CONCURRENCY = targeted`. Swift 5
-  compiler logs contain `-strict-concurrency=targeted`; Swift 6 projects retain the setting and
-  receive Swift 6 complete-default semantics.
-- Every project passed task-local Debug build, install, and launch verification. Evidence is in
-  `runtime/concurrency-audit/receipt.json` and per-project logs/DerivedData under that directory.
-  Tests were not run and no test files were changed.
-- Only proven source fixes were made: Tchop `NewsFeedViewModel` actor-safe dependency creation;
-  AIFieldbook iOS 26 availability guards for App Intents, shortcuts, and Vision transcripts.
-  PanModal's existing iOS 10 deployment-target warning remains documented and unchanged.
-- Pushed commits: MVVMExample `e048fc6799713c24a0fd27a364286a7eab5cda4d`; AIZenflow
-  `2d1e7229b914d477162507bc3377543d9a1dce22` and `f9df70dbc4820724970877d3f418d3e50c25e62e`;
-  Canary `77cb34c8f598c82c895bc58b04ede677f7af9357`; PanModal
-  `a4955f8e2633d61b909da9b8008b8c53fe2608a5`. PR creation/merge and manual workflow dispatch
-  remain the next user-controlled phase.
+- Audited all 80 tracked real `.xcodeproj/project.pbxproj` files across 13 authoritative Git
+  worktrees. The physical inventory also contained 33 non-tracked/generated or retired copies and
+  3 fixture containers without `project.pbxproj`; these were excluded from mutation and commits.
+- All 644 discovered `buildSettings` blocks now contain `SWIFT_STRICT_CONCURRENCY = complete`; no
+  tracked project retains `targeted`. Swift 5 builds therefore use the maximum explicit mode;
+  Swift 6 projects already have complete language-mode semantics and retain the setting for parity.
+- Final matrix is 80/80 PASS for task-local Debug build, install, and launch; Canary's macOS
+  executable also ran. Evidence is in `runtime/concurrency-audit/max-complete/`.
+- Tests were not run or modified. The only source compatibility fixes were the proven iOS 26
+  availability boundaries in five historical AIFieldbook clones. PanModal's existing iOS 10
+  deployment-target warning remains documented and unchanged.
+- All 13 logical commits were reviewed, committed, pushed to same-named branches, and verified for
+  remote SHA parity. Full receipt: `runtime/concurrency-audit/max-complete/receipt.json`.
 
 ## Active continuation
 
