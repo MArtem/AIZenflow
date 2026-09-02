@@ -3,6 +3,7 @@ import Foundation
 import UIKit
 
 /// Opens one selected workspace through the app's validated deep-link boundary.
+@available(iOS 26.0, *)
 struct OpenWorkspaceIntent: AppIntent {
     static let title: LocalizedStringResource = "Open Workspace"
     static let description = IntentDescription("Open a workspace in AI Fieldbook.")
@@ -53,6 +54,7 @@ struct OpenWorkspaceIntent: AppIntent {
 ///
 /// The action intentionally leaves workspace selection to the system parameter UI. It does
 /// not donate user-specific shortcuts or expose additional workspace metadata.
+@available(iOS 26.0, *)
 struct AIFieldbookShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
