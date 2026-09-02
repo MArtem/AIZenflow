@@ -1,5 +1,15 @@
 # Agent Instructions
 
+## Global Rules Bootstrap
+<!-- AIZENFLOW_GLOBAL_RULES_BOOTSTRAP_V1 -->
+Before any project action, read and apply
+`/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md`.
+It activates the current reusable rules directly from the canonical documentation repository.
+This repository file is an app/task overlay only: it may strengthen the global baseline, but it
+must not silently replace or weaken it. If the canonical bootstrap is unavailable, stop before
+changing the project and report the missing global-rule source; the user does not need to remind
+the agent to load it.
+
 ## Mandatory Response Header
 Every working, status, readiness, confirmation, task-orientation, planning, or clarification response must start with:
 
@@ -27,12 +37,14 @@ The router is the sole source of truth for the numbered Level 0 list. Do not dup
 - For work involving AI, ML, Apple Intelligence, Foundation Models, Core AI,
   Core ML/Create ML, Vision, Speech, Translation, App Intents, RAG, agents,
   model providers, tool calling, or AI evaluations, first read
-  `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md` completely.
-- Apply only its task-relevant sections and keep the current user instruction,
-  project rules, task overrides, approved scope, and test/build restrictions at
-  higher priority.
-- The canonical reusable mirror lives at
-  `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md`.
+  `./docs/agent-prompts/AI_iOS_TASK_ROUTER.md` completely.
+- Open only the task-relevant section ranges in `AI_iOS_MASTER_PROMPT.md`. Read
+  the complete master only for a broad AI-platform audit, cross-cutting AI
+  architecture, or edits to that master itself.
+- Keep current user instructions, project rules, task overrides, approved
+  scope, and test/build restrictions at higher priority.
+- Canonical sources live under
+  `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/agent-prompts/`.
 
 Always include the context-transfer rule when handing off:
 

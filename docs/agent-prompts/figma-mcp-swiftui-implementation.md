@@ -1,7 +1,9 @@
 # Figma MCP → Native SwiftUI Implementation Prompt
 
 ## Trigger Rule
-Use this prompt whenever work starts from a Figma design, Figma selection/frame URL, or the user provides a Figma link and asks to implement, inspect, compare, or adapt a design for iOS/SwiftUI.
+This is the deep reference for Figma implementation. Start with `FIGMA_TASK_ROUTER.md`; load this
+prompt when that router identifies complex layout/components, unclear assets or behavior, repeated
+visual mismatch, or an explicit request for a full Figma implementation plan.
 
 Ты Senior iOS Engineer, SwiftUI Architect и Design Systems Engineer.
 

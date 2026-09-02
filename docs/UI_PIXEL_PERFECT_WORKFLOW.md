@@ -7,7 +7,9 @@ Rules for implementing UI/design tasks in `source-app` from screenshots, Figma, 
 - Apply `MODEL_ROUTING_RULE.md`. UI/design work based on screenshots, Figma, PDF, SVG, CSS, or visual comparison starts at `GPT-5.6 sol` with high reasoning. Use `tera` only for bounded work with strong visual evidence when the expected fidelity is unchanged; high-risk work and final high-risk review remain on `sol` high.
 
 ## Figma MCP Prompt Rule
-- If the user provides a Figma link or says the work starts from Figma, read `./docs/agent-prompts/figma-mcp-swiftui-implementation.md` before Figma MCP inspection or code changes.
+- If the user provides a Figma link or says the work starts from Figma, read
+  `./docs/agent-prompts/FIGMA_TASK_ROUTER.md` before Figma MCP inspection or code changes. Load
+  `figma-mcp-swiftui-implementation.md` only when that router requires the deep reference.
 - Use Figma MCP as the source of design context: hierarchy, frame size, Auto Layout, spacing, colors, typography, radii, strokes, effects, assets, component instances, variants/states, text, visibility, layer names, and repeated patterns.
 - Treat CSS/web-oriented Figma output only as intermediate design description; translate it manually into native SwiftUI primitives.
 

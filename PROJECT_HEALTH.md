@@ -55,11 +55,10 @@ The current package catalog is the source of truth for exact package availabilit
 - local-only/cloud/privacy policy;
 - product copy, localization strings, and accessibility labels.
 
-## Current Runtime Notes
-- Reusable package code is integrated source-only from `./PackagesInUse` unless a task-specific ADR explicitly chooses SwiftPM.
-- `./PackagesForReuse` is the reusable package vault.
-- `./Packages` is documentation/template/helper material, not an active runtime source folder.
-- Current AI Fieldbook work uses `PackagesInUse/AppNavigation` source-only.
+## Runtime Notes
+- Integration mode is project-specific and must be recorded in the active app/task docs.
+- `./PackagesInUse`, `./PackagesForReuse`, SwiftPM, or another integration path may be selected only through the current project contract or ADR.
+- Reusable baseline docs must not encode one app's active package list or integration decision.
 
 ## Placement Rule
 If a new package or manager rule changes ownership boundaries, update this file.
@@ -67,3 +66,9 @@ If it changes only current task behavior, update task docs instead.
 
 For hands-on integration guidance and reuse notes, use:
 - [docs/PACKAGES_AND_MANAGERS.md](./docs/PACKAGES_AND_MANAGERS.md)
+
+## Current Project Overlay
+
+Package adoption and source-integration decisions for AI Fieldbook are app-specific. Load them
+from `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/AIFieldbook/` only when that app is
+in scope; do not promote its current package list into this reusable ownership map.

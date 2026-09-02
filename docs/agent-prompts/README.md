@@ -14,7 +14,7 @@ Before applying any prompt here, apply the current project/task rules first:
 3. Do not add speculative UI, logic, tests, layers, protocols, UseCases, factories, or adapters.
 4. Tests are not written or run by default. Use test prompts only when the user explicitly asks for tests, test review, flaky-test diagnosis, or when a separately justified verification strategy requires it.
 5. Repository protocols, ViewState, and extra layers are allowed only when they protect a real boundary or solve a concrete current problem. UI action enums / `send(_ action:)` dispatch are not default MVVM boilerplate; use explicit ViewModel intent methods unless reducer/state-machine architecture is explicitly approved and documented.
-6. SwiftUI design work from screenshots/Figma/PDF/CSS uses the model and reasoning level routed by `../MODEL_ROUTING_RULE.md` and must stay pixel-focused. When the user provides a Figma link or asks to start from Figma, read `figma-mcp-swiftui-implementation.md` before Figma MCP inspection or code changes.
+6. SwiftUI design work from screenshots/Figma/PDF/CSS uses the model and reasoning level routed by `../MODEL_ROUTING_RULE.md` and must stay pixel-focused. When the user provides a Figma link or asks to start from Figma, read `FIGMA_TASK_ROUTER.md`; load `figma-mcp-swiftui-implementation.md` only when the router requires deep reference.
 7. Verification commands follow `../../TESTING_INSTRUCTIONS.md`; do not run builds/tests unless the user asks or the current agreed verification policy allows it.
 8. Preserve the current app's conventions, design tokens, localization, persistence model, and product contracts.
 
@@ -22,11 +22,12 @@ Before applying any prompt here, apply the current project/task rules first:
 
 | Case | Use prompt | Notes |
 |---|---|---|
-| AI/ML/Apple Intelligence/App Intents/RAG/agent work | `AI_iOS_MASTER_PROMPT.md` | Mandatory AI-specific reference. Read it completely, then apply only relevant sections under current user/project rules. Tests, builds, extra layers, cloud, and providers remain conditional. |
+| AI/ML/Apple Intelligence/App Intents/RAG/agent work | `AI_iOS_TASK_ROUTER.md` | Mandatory compact entry. Read only the routed ranges in `AI_iOS_MASTER_PROMPT.md`; load the complete master only for broad/cross-cutting AI work or master maintenance. |
 | New production feature | `feature-generation-master.md` | Use only when the user asks for a full feature and scope is broad enough. Adapt to project rules; do not generate tests unless asked. |
 | Small concrete feature | `feature-specific-quick.md` | Use for narrower feature work; keep implementation minimal. |
 | SwiftUI screen from Figma/PNG/PDF/SVG/CSS | `swiftui-design-generation-master.md` | Use for design-driven UI. Apply the routed model and reasoning level; ask questions if measurements/behavior are unclear. |
-| Figma MCP → native SwiftUI implementation | `figma-mcp-swiftui-implementation.md` | Mandatory when the user provides a Figma link or asks to start design work from Figma. Use Figma MCP as source of truth; do not generate web code. |
+| Figma task intake | `FIGMA_TASK_ROUTER.md` | Mandatory first read for a Figma URL or Figma-started design task. Selects the deep reference only when needed. |
+| Deep Figma MCP → native SwiftUI implementation | `figma-mcp-swiftui-implementation.md` | Load for complex layouts/components, uncertain assets or behavior, repeated visual mismatch, or an explicit full implementation plan. Use Figma MCP as design context; do not generate web code. |
 | Quick SwiftUI design task | `swiftui-design-generation-quick.md` | Use for smaller pixel-focused design fixes. |
 | Refactoring | `refactoring-master.md` | Use for broad refactor requests. Prefer small PR-sized changes. |
 | Quick refactoring | `refactoring-quick.md` | Use for local code-quality cleanup. |

@@ -6,6 +6,7 @@ from __future__ import annotations
 import argparse
 import fnmatch
 import json
+import subprocess
 import sys
 from pathlib import Path
 from typing import Any
@@ -39,6 +40,21 @@ def files_under(root: Path) -> dict[str, Path]:
     }
 
 
+def git_head_revision(root: Path) -> str | None:
+    """Return the containing checkout's committed HEAD without mutating it."""
+    try:
+        completed = subprocess.run(
+            ["git", "-C", str(root), "rev-parse", "--verify", "HEAD"],
+            capture_output=True,
+            text=True,
+            check=False,
+        )
+    except OSError:
+        return None
+    revision = completed.stdout.strip()
+    return revision if completed.returncode == 0 and revision else None
+
+
 def compare(canonical_root: Path, worktree_root: Path, policy_path: Path) -> dict[str, Any]:
     canonical_root = canonical_root.resolve()
     worktree_root = worktree_root.resolve()
@@ -52,6 +68,7 @@ def compare(canonical_root: Path, worktree_root: Path, policy_path: Path) -> dic
     ]
     result: dict[str, Any] = {
         "canonical_root": str(canonical_root),
+        "canonical_revision": git_head_revision(canonical_root),
         "worktree_root": str(worktree_root),
         "policy": str(policy_path.resolve()),
         "exact": [],
@@ -173,6 +190,7 @@ def compare(canonical_root: Path, worktree_root: Path, policy_path: Path) -> dic
 
 def print_text(result: dict[str, Any]) -> None:
     print(f"Canonical baseline: {result['canonical_root']}")
+    print(f"Canonical baseline revision: {result['canonical_revision'] or 'unknown'}")
     print(f"Active worktree: {result['worktree_root']}")
     for label, key in (
         ("Exact mirrors", "exact"),

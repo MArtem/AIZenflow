@@ -12,6 +12,9 @@ The shared documentation library for Codex app tasks and local worktrees is:
 
 This is the single shared source for reusable agent rules, prompt presets, skills, templates, package documentation, architecture cases, and app-specific documentation snapshots.
 
+`reusable/baseline/` is a governed project-distribution mirror, not a second source of truth. See
+root `DOCUMENTATION_ARCHITECTURE.md` and `./docs/REUSABLE_BASELINE_POLICY.json`.
+
 Global documentation work is complete only after changes are committed in the local checkout and pushed to `MArtem/AIZenflowDocumentation`.
 
 ## Boundary Rule
@@ -64,17 +67,19 @@ Default to the smallest sufficient document set:
 - Resolve exact ordered routes with `./scripts/resolve_docs_route.py <route> [<route> ...]`.
 - Measure route words/bytes, overlap, budgets, and reachability with `./scripts/report_documentation_context_cost.py`.
 - Compare canonical exact mirrors and allowed local overlays with `./scripts/check_reusable_baseline_drift.py --canonical-root <baseline-root>`.
+  It is read-only and emits the canonical baseline revision; record that value (or `unknown`) in
+  the PR receipt rather than claiming an unrecorded baseline is current.
 - From the canonical checkout, verify inventory freshness with `python3 scripts/generate_manifest.py --check`; use `--write` only after intentional repository changes.
 - These tools are read-only. They report missing, stale, unexpected, or unclassified files and never synchronize automatically.
 
 ## Consistency Rule
 When a durable reusable doc/rule/prompt/skill/template changes:
 
-1. update the active canonical file;
-2. update the matching vault copy under `documentation-vault/reusable/`;
-3. update `./docs/README.md` if the file should be discoverable from the active index;
-4. run docs/vault static checks;
-5. commit and push the corresponding `documentation-vault` changes to `MArtem/AIZenflowDocumentation`.
+1. update its canonical source under `documentation-vault/reusable/`;
+2. refresh any governed distribution mirror under `reusable/baseline/`;
+3. update the routed index only when discoverability or loading changes;
+4. run docs/vault static checks and mirror/drift validation;
+5. commit and push the canonical repository to `MArtem/AIZenflowDocumentation`.
 
 When an app-specific rule, plan, ADR, exception, prompt, skill, or history changes, update only the matching `documentation-vault/apps/<AppName>/` area.
 

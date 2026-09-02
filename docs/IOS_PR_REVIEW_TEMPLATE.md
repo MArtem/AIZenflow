@@ -40,6 +40,7 @@ correct atomic fix.
 - Approval condition:
 
 ## Review Receipt
+- Global baseline revision / unavailable:
 - Target remote ref:
 - Target remote SHA:
 - Target ref freshness check before push:

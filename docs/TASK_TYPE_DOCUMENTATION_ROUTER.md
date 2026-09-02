@@ -63,8 +63,8 @@ Read only when the route requires it:
 | Lifecycle/background/deep links/widgets/extensions | `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`, `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`, current `./docs/SHARE_EXTENSION_VALIDATION.md` when share-extension behavior is in scope |
 | Error handling/user feedback | `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md` |
 | StoreKit/payments | `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md` |
-| Figma/design-to-SwiftUI | `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`, `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, `./docs/DESIGN_SYSTEM_GOVERNANCE.md` |
-| AI/App Intents/Foundation Models | `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`, relevant package README when package adoption is in scope |
+| Figma/design-to-SwiftUI | `./docs/agent-prompts/FIGMA_TASK_ROUTER.md`, `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, `./docs/DESIGN_SYSTEM_GOVERNANCE.md`; load `figma-mcp-swiftui-implementation.md` only when the router requires deep Figma reference |
+| AI/App Intents/Foundation Models | `./docs/agent-prompts/AI_iOS_TASK_ROUTER.md`, routed ranges from `AI_iOS_MASTER_PROMPT.md`, relevant package README only when package adoption is in scope |
 | Deep iOS specialist knowledge | Select the matching `ios-*` machine route; scope and maturity start at `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md` and `./docs/knowledge/global/ios/README.md` |
 | Code comments/documentation pass | `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`, `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` |
 | Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog |
