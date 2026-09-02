@@ -49,8 +49,8 @@ while retaining PR merge and GitHub `workflow_dispatch` control.
 The user authorizes a complete pass over the same 80 authoritative tracked Xcode project files:
 move each target/configuration that is not already in Swift 6 language mode, build/install/launch
 each project with task-local artifacts, repair only proven compiler/runtime failures, and remove
-task-created DerivedData after evidence is captured. Tests remain out of scope. Commit/push/PR
-authority is not implied by this new detour.
+task-created DerivedData after evidence is captured. Tests remain out of scope. Commit authority was
+subsequently granted; push/PR authority remains absent.
 
 - [x] Inventory effective and declared `SWIFT_VERSION`, configurations, schemes, and language-mode
   inheritance for all 80 tracked project files; exclude non-authoritative generated/retired copies.
@@ -59,7 +59,7 @@ authority is not implied by this new detour.
 - [x] Build, install, and launch each affected project from clean task-local DerivedData; repair
   only causal Swift 6 diagnostics and repeat the affected verification.
 - [x] Review exact diffs, record a compact receipt with omissions/residual risk, remove only
-  task-created DerivedData/logs, and leave commits/pushes pending explicit authorization.
+  task-created DerivedData/logs, and commit the migration while preserving user-owned changes.
 
 Swift 6 completion receipt: 80/80 authoritative projects passed build/install/launch under task-local
 DerivedData. Production unsafe concurrency escapes were removed with actor/Sendable ownership

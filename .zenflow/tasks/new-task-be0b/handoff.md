@@ -164,14 +164,15 @@
 - User-approved scope: migrate all 80 authoritative tracked Xcode projects to `SWIFT_VERSION = 6.0`,
   keep `SWIFT_STRICT_CONCURRENCY = complete`, build/install/launch with task-local artifacts,
   repair only real diagnostics using architectural actor/sendability ownership, and clean only
-  task-created DerivedData. Tests remain out of scope. Commit/push/PR authority is not implied.
+  task-created DerivedData. Tests remain out of scope. The user subsequently authorized commits;
+  push and PR authority remains absent.
 - Current model/override: `GPT-5.6 luna`, xhigh, `эконом`; user explicitly requires no hacks,
   warning suppressions, `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, or fake
   `@MainActor` boundaries. A Sol route is normally recommended, but the user explicitly permits
   this constrained execution on the current Luna route.
-- Project-setting inventory/mutation is complete but uncommitted: all 80 authoritative project
-  files now declare `SWIFT_VERSION = 6.0` and `SWIFT_STRICT_CONCURRENCY = complete`; `swift5=0`.
-  Preserve user-owned dirty `AGENTS.md` files and do not stage anything yet.
+- Project-setting inventory/mutation is complete and committed: all 80 authoritative project files
+  now declare `SWIFT_VERSION = 6.0` and `SWIFT_STRICT_CONCURRENCY = complete`; `swift5=0`.
+  User-owned dirty `AGENTS.md` files were preserved and excluded from commits.
 - Swift 6 runner root: `.zenflow/tasks/new-task-be0b/runtime/concurrency-audit/swift6/`; runner:
   `runtime/concurrency-audit/max-complete/run-authoritative-matrix.sh`. It deletes only its own
   per-project DerivedData before each build and after success. Existing failure DerivedData must
@@ -187,8 +188,9 @@
   immutable Sendable values, async storage contracts, and explicit main-actor UI ownership.
 - Tests were not modified or run. Remaining prohibited markers, if any, are confined to existing
   test fixtures or verifier-script text and are intentionally outside this migration scope.
-- Commits, pushes, and PRs remain pending explicit authorization. Return to the saved Universal
-  iOS/Xcode Quality-Control plan.
+- Swift 6 migration changes are committed in each affected branch; user-owned `AGENTS.md` changes
+  remain intentionally uncommitted. Pushes and PRs remain pending explicit authorization. Return to
+  the saved Universal iOS/Xcode Quality-Control plan.
 
 - `QC.DEPENDENCY.LOCK_DRIFT` is implemented and published as engine PR #22:
   https://github.com/MArtem/AIZenflowQualityControl/pull/22. Exact head is
