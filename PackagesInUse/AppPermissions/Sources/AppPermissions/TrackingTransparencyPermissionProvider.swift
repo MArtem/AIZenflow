@@ -1,5 +1,5 @@
 #if canImport(AppTrackingTransparency)
-@preconcurrency import AppTrackingTransparency
+import AppTrackingTransparency
 import Foundation
 
 public struct TrackingTransparencyPermissionProvider: PermissionProviding {

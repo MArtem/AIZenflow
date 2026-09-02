@@ -149,9 +149,9 @@ public struct UIConfigurationRuntimeMetadata: Codable, Equatable, Sendable {
 public protocol UIConfigurationSnapshotStoring<Payload>: Sendable {
     associatedtype Payload: Codable & Equatable & Sendable
 
-    func save(_ snapshot: UIConfigurationSnapshot<Payload>) throws
-    func load() throws -> UIConfigurationSnapshot<Payload>?
-    func clear() throws
+    func save(_ snapshot: UIConfigurationSnapshot<Payload>) async throws
+    func load() async throws -> UIConfigurationSnapshot<Payload>?
+    func clear() async throws
 }
 
 /// Errors emitted by the default configuration snapshot store.
@@ -166,12 +166,10 @@ public enum UIConfigurationManagerError: Error, Equatable, Sendable {
 
 /// UserDefaults-backed generic configuration snapshot storage.
 ///
-/// Thread safety:
-/// `UserDefaults` supports concurrent access for individual operations. This class stores immutable
-/// key/configuration state only, and encoding/decoding uses operation-local instances. The unchecked
-/// conformance is limited to Foundation's imported `UserDefaults` reference.
-public final class UserDefaultsUIConfigurationSnapshotStore<Payload>:
-    @unchecked Sendable,
+/// Isolation:
+/// The actor owns the imported `UserDefaults` reference and performs every read/write operation
+/// through its isolated executor. Callers cross this boundary with the async storage contract.
+public actor UserDefaultsUIConfigurationSnapshotStore<Payload>:
     UIConfigurationSnapshotStoring
 where Payload: Codable & Equatable & Sendable {
     private let userDefaults: UserDefaults
@@ -182,62 +180,55 @@ where Payload: Codable & Equatable & Sendable {
         self.storageKey = storageKey
     }
 
-    public convenience init(suiteName: String, storageKey: String = "ui-configuration.snapshot") throws {
+    public init(suiteName: String, storageKey: String = "ui-configuration.snapshot") throws {
         guard let userDefaults = UserDefaults(suiteName: suiteName) else {
             throw UIConfigurationSnapshotStoreError.unavailableUserDefaults(suiteName: suiteName)
         }
-        self.init(userDefaults: userDefaults, storageKey: storageKey)
+        self.userDefaults = userDefaults
+        self.storageKey = storageKey
     }
 
-    public func save(_ snapshot: UIConfigurationSnapshot<Payload>) throws {
+    public func save(_ snapshot: UIConfigurationSnapshot<Payload>) async throws {
         let data = try JSONEncoder().encode(snapshot)
         userDefaults.set(data, forKey: storageKey)
     }
 
-    public func load() throws -> UIConfigurationSnapshot<Payload>? {
+    public func load() async throws -> UIConfigurationSnapshot<Payload>? {
         guard let data = userDefaults.data(forKey: storageKey) else {
             return nil
         }
         return try JSONDecoder().decode(UIConfigurationSnapshot<Payload>.self, from: data)
     }
 
-    public func clear() throws {
+    public func clear() async throws {
         userDefaults.removeObject(forKey: storageKey)
     }
 }
 
 /// In-memory configuration snapshot storage for previews, tests, and ephemeral hosts.
 ///
-/// Thread safety:
-/// A small `NSLock` protects the mutable snapshot so the store can satisfy the synchronous storage
-/// protocol without forcing all store implementations to become actors.
-public final class InMemoryUIConfigurationSnapshotStore<Payload>:
-    @unchecked Sendable,
+/// Isolation:
+/// The actor owns the mutable preview snapshot and exposes it through the same async contract as
+/// the production store.
+public actor InMemoryUIConfigurationSnapshotStore<Payload>:
     UIConfigurationSnapshotStoring
 where Payload: Codable & Equatable & Sendable {
-    private let lock = NSLock()
     private var snapshot: UIConfigurationSnapshot<Payload>?
 
     public init(snapshot: UIConfigurationSnapshot<Payload>? = nil) {
         self.snapshot = snapshot
     }
 
-    public func save(_ snapshot: UIConfigurationSnapshot<Payload>) throws {
-        lock.lock()
+    public func save(_ snapshot: UIConfigurationSnapshot<Payload>) async throws {
         self.snapshot = snapshot
-        lock.unlock()
     }
 
-    public func load() throws -> UIConfigurationSnapshot<Payload>? {
-        lock.lock()
-        defer { lock.unlock() }
+    public func load() async throws -> UIConfigurationSnapshot<Payload>? {
         return snapshot
     }
 
-    public func clear() throws {
-        lock.lock()
+    public func clear() async throws {
         snapshot = nil
-        lock.unlock()
     }
 }
 
@@ -253,6 +244,7 @@ where Payload: Codable & Equatable & Sendable {
     private var currentSnapshot: UIConfigurationSnapshot<Payload>
     private var runtime: UIConfigurationRuntimeMetadata
     private var lastRefreshAttempt: Date?
+    private var didLoadPersistedSnapshot = false
 
     public init(
         remoteProvider: any UIConfigurationRemoteProviding<Payload>,
@@ -268,29 +260,27 @@ where Payload: Codable & Equatable & Sendable {
         self.refreshThrottling = refreshThrottling
         self.dateProvider = dateProvider
         self.fallbackSnapshot = fallbackSnapshot
-        let loadedSnapshot = try? store?.load()
-        self.currentSnapshot = Self.sanitizedSnapshot(
-            loadedSnapshot,
-            fallbackSnapshot: fallbackSnapshot
-        )
-        self.runtime = UIConfigurationRuntimeMetadata(
-            currentSource: loadedSnapshot == nil ? .fallback : .cache
-        )
+        self.currentSnapshot = fallbackSnapshot
+        self.runtime = UIConfigurationRuntimeMetadata(currentSource: .fallback)
     }
 
     public func currentConfiguration() async -> UIConfigurationSnapshot<Payload> {
-        currentSnapshot
+        await loadPersistedSnapshotIfNeeded()
+        return currentSnapshot
     }
 
     public func runtimeMetadata() async -> UIConfigurationRuntimeMetadata {
-        runtime
+        await loadPersistedSnapshotIfNeeded()
+        return runtime
     }
 
     public func isCurrentConfigurationStale() async -> Bool {
-        isSnapshotStale(currentSnapshot, now: dateProvider())
+        await loadPersistedSnapshotIfNeeded()
+        return isSnapshotStale(currentSnapshot, now: dateProvider())
     }
 
     public func refreshConfiguration() async throws -> UIConfigurationSnapshot<Payload> {
+        await loadPersistedSnapshotIfNeeded()
         let now = dateProvider()
         if shouldThrottleRefresh(now: now) {
             return currentSnapshot
@@ -307,7 +297,7 @@ where Payload: Codable & Equatable & Sendable {
                 lastFailedFetchAt: runtime.lastFailedFetchAt,
                 lastFailure: nil
             )
-            try store?.save(sanitized)
+            try await store?.save(sanitized)
             return sanitized
         } catch {
             runtime = UIConfigurationRuntimeMetadata(
@@ -318,6 +308,18 @@ where Payload: Codable & Equatable & Sendable {
             )
             throw error
         }
+    }
+
+    private func loadPersistedSnapshotIfNeeded() async {
+        guard !didLoadPersistedSnapshot else { return }
+        didLoadPersistedSnapshot = true
+        guard let store else { return }
+
+        guard let loadedSnapshot = try? await store.load() else { return }
+        guard let validated = try? Self.validatedSnapshot(loadedSnapshot) else { return }
+
+        currentSnapshot = validated
+        runtime = UIConfigurationRuntimeMetadata(currentSource: .cache)
     }
 
     private func shouldThrottleRefresh(now: Date) -> Bool {

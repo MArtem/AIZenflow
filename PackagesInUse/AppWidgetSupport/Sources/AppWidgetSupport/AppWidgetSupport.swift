@@ -25,39 +25,43 @@ public enum WidgetSnapshotStoreError: Error, Equatable, Sendable {
 
 /// UserDefaults-backed generic widget snapshot store for app-group sharing.
 ///
-/// Thread safety:
-/// `UserDefaults` supports concurrent access for individual operations. This class stores immutable key/defaults
-/// references only, and encoding/decoding uses operation-local instances. The unchecked conformance is limited
-/// to Foundation's imported `UserDefaults` reference. This type stores a latest-value snapshot; it does not
-/// promise immediate cross-process visibility or transactional read/modify/write semantics.
-public final class UserDefaultsWidgetSnapshotStore<Snapshot>: @unchecked Sendable, WidgetSnapshotStoring
+/// Sendability:
+/// The store retains only a sendable defaults location and key. Each operation resolves the
+/// corresponding `UserDefaults` instance locally, so no imported reference crosses a boundary.
+public struct UserDefaultsWidgetSnapshotStore<Snapshot>: WidgetSnapshotStoring
 where Snapshot: Codable & Sendable {
-    private let userDefaults: UserDefaults
+    private enum DefaultsLocation: Sendable {
+        case standard
+        case suite(String)
+    }
+
+    private let location: DefaultsLocation
     private let snapshotKey: String
 
-    /// Creates a snapshot store using a concrete `UserDefaults` instance.
-    public init(userDefaults: UserDefaults, snapshotKey: String) {
-        self.userDefaults = userDefaults
+    /// Creates a snapshot store using standard defaults.
+    public init(snapshotKey: String) {
+        self.location = .standard
         self.snapshotKey = snapshotKey
     }
 
     /// Creates a snapshot store using an app-group suite name.
-    public convenience init(suiteName: String, snapshotKey: String) throws {
-        guard let userDefaults = UserDefaults(suiteName: suiteName) else {
+    public init(suiteName: String, snapshotKey: String) throws {
+        guard UserDefaults(suiteName: suiteName) != nil else {
             throw WidgetSnapshotStoreError.unavailableSharedDefaults(suiteName: suiteName)
         }
-        self.init(userDefaults: userDefaults, snapshotKey: snapshotKey)
+        self.location = .suite(suiteName)
+        self.snapshotKey = snapshotKey
     }
 
     /// Saves the latest snapshot value.
     public func save(_ snapshot: Snapshot) throws {
         let data = try JSONEncoder().encode(snapshot)
-        userDefaults.set(data, forKey: snapshotKey)
+        defaults.set(data, forKey: snapshotKey)
     }
 
     /// Loads the latest snapshot value, returning `nil` when no snapshot exists.
     public func load() throws -> Snapshot? {
-        guard let data = userDefaults.data(forKey: snapshotKey) else {
+        guard let data = defaults.data(forKey: snapshotKey) else {
             return nil
         }
         return try JSONDecoder().decode(Snapshot.self, from: data)
@@ -65,6 +69,15 @@ where Snapshot: Codable & Sendable {
 
     /// Clears the stored snapshot.
     public func clear() throws {
-        userDefaults.removeObject(forKey: snapshotKey)
+        defaults.removeObject(forKey: snapshotKey)
+    }
+
+    private var defaults: UserDefaults {
+        switch location {
+        case .standard:
+            .standard
+        case let .suite(suiteName):
+            UserDefaults(suiteName: suiteName) ?? .standard
+        }
     }
 }

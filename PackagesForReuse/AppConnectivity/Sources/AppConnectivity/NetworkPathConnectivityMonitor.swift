@@ -1,5 +1,5 @@
 #if canImport(Network)
-@preconcurrency import Network
+import Network
 import Dispatch
 import Foundation
 

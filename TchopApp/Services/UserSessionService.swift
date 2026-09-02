@@ -28,9 +28,9 @@ struct AuthTokenSet: Codable, Equatable, Sendable {
 
 /// Contract used by auth-aware network layers to persist and restore secure token material.
 protocol AuthTokenStoring: Sendable {
-    func loadTokenSet() throws -> AuthTokenSet?
-    func saveTokenSet(_ tokenSet: AuthTokenSet) throws
-    func clearTokenSet() throws
+    func loadTokenSet() async throws -> AuthTokenSet?
+    func saveTokenSet(_ tokenSet: AuthTokenSet) async throws
+    func clearTokenSet() async throws
 }
 
 /// Contract for auth API calls that mutate or refresh backend session credentials.
@@ -56,7 +56,7 @@ enum AuthenticationSessionError: Error, Equatable {
 }
 
 /// Keychain-backed token store used for production credentials.
-final class KeychainAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
+actor KeychainAuthTokenStore: AuthTokenStoring {
     private let service: String
     private let account: String
     private let encoder = JSONEncoder()
@@ -70,7 +70,7 @@ final class KeychainAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
         self.account = account
     }
 
-    func loadTokenSet() throws -> AuthTokenSet? {
+    func loadTokenSet() async throws -> AuthTokenSet? {
         var query = makeBaseQuery()
         query[kSecReturnData as String] = kCFBooleanTrue
         query[kSecMatchLimit as String] = kSecMatchLimitOne
@@ -94,7 +94,7 @@ final class KeychainAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
         }
     }
 
-    func saveTokenSet(_ tokenSet: AuthTokenSet) throws {
+    func saveTokenSet(_ tokenSet: AuthTokenSet) async throws {
         let encodedTokenSet = try encoder.encode(tokenSet)
         var query = makeBaseQuery()
         let attributes: [String: Any] = [
@@ -116,7 +116,7 @@ final class KeychainAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
         }
     }
 
-    func clearTokenSet() throws {
+    func clearTokenSet() async throws {
         let status = SecItemDelete(makeBaseQuery() as CFDictionary)
         guard status == errSecSuccess || status == errSecItemNotFound else {
             throw NSError(domain: NSOSStatusErrorDomain, code: Int(status))
@@ -137,18 +137,18 @@ final class KeychainAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
 /// UI-driven API tests should exercise the full auth/request/session chain without depending on
 /// simulator-specific Keychain availability. This store keeps the same contract while removing the
 /// platform storage variable from those tests.
-final class InMemoryAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
+actor InMemoryAuthTokenStore: AuthTokenStoring {
     private var tokenSet: AuthTokenSet?
 
-    func loadTokenSet() throws -> AuthTokenSet? {
+    func loadTokenSet() async throws -> AuthTokenSet? {
         tokenSet
     }
 
-    func saveTokenSet(_ tokenSet: AuthTokenSet) throws {
+    func saveTokenSet(_ tokenSet: AuthTokenSet) async throws {
         self.tokenSet = tokenSet
     }
 
-    func clearTokenSet() throws {
+    func clearTokenSet() async throws {
         tokenSet = nil
     }
 }
@@ -169,7 +169,7 @@ actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
     }
 
     func authorizationHeaders() async throws -> [String: String] {
-        guard let tokenSet = try tokenStore.loadTokenSet() else {
+        guard let tokenSet = try await tokenStore.loadTokenSet() else {
             return [:]
         }
 
@@ -188,7 +188,7 @@ actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
             return makeAuthorizationHeaders(from: refreshedTokenSet)
         }
 
-        guard let tokenSet = try tokenStore.loadTokenSet() else {
+        guard let tokenSet = try await tokenStore.loadTokenSet() else {
             throw AuthenticationSessionError.missingRefreshToken
         }
 
@@ -203,7 +203,7 @@ actor SessionAuthenticationProvider: APIAuthenticationRefreshing {
 
         do {
             let refreshedTokenSet = try await refreshTask.value
-            try tokenStore.saveTokenSet(refreshedTokenSet)
+            try await tokenStore.saveTokenSet(refreshedTokenSet)
             self.refreshTask = nil
             return makeAuthorizationHeaders(from: refreshedTokenSet)
         } catch {
@@ -285,7 +285,7 @@ final class UserSessionService: UserSessionManaging {
     func signIn(username: String) async throws -> AppUser {
         if let authenticationAPIManager, let tokenStore {
             let tokenSet = try await authenticationAPIManager.signIn(username: username)
-            return try completeTokenBackedSignIn(
+            return try await completeTokenBackedSignIn(
                 tokenStore: tokenStore,
                 tokenSet: tokenSet,
                 resolveUser: { try userRepository.findOrCreateUser(username: username) }
@@ -308,7 +308,7 @@ final class UserSessionService: UserSessionManaging {
         }
 
         let tokenSet = try await authenticationAPIManager.signIn(email: email, password: password)
-        return try completeTokenBackedSignIn(
+        return try await completeTokenBackedSignIn(
             tokenStore: tokenStore,
             tokenSet: tokenSet,
             resolveUser: { try userRepository.findOrCreateUser(username: email) }
@@ -322,7 +322,7 @@ final class UserSessionService: UserSessionManaging {
         }
 
         let tokenSet = try await authenticationAPIManager.register(email: email, password: password)
-        return try completeTokenBackedSignIn(
+        return try await completeTokenBackedSignIn(
             tokenStore: tokenStore,
             tokenSet: tokenSet,
             resolveUser: { try userRepository.findOrCreateUser(username: email) }
@@ -336,7 +336,7 @@ final class UserSessionService: UserSessionManaging {
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AppUser {
         if let authenticationAPIManager, let tokenStore {
             let tokenSet = try await authenticationAPIManager.signInWithApple(identity: identity)
-            return try completeTokenBackedSignIn(
+            return try await completeTokenBackedSignIn(
                 tokenStore: tokenStore,
                 tokenSet: tokenSet,
                 resolveUser: {
@@ -368,12 +368,12 @@ final class UserSessionService: UserSessionManaging {
         tokenStore: any AuthTokenStoring,
         tokenSet: AuthTokenSet,
         resolveUser: () throws -> AppUser
-    ) throws -> AppUser {
-        try tokenStore.saveTokenSet(tokenSet)
+    ) async throws -> AppUser {
+        try await tokenStore.saveTokenSet(tokenSet)
         do {
             return try persistSessionUser(resolveUser)
         } catch {
-            try? tokenStore.clearTokenSet()
+            try? await tokenStore.clearTokenSet()
             throw error
         }
     }
@@ -393,17 +393,17 @@ final class UserSessionService: UserSessionManaging {
 
         let tokenSet: AuthTokenSet?
         do {
-            tokenSet = try tokenStore.loadTokenSet()
+            tokenSet = try await tokenStore.loadTokenSet()
         } catch {
             // Startup restore should degrade to a clean signed-out state if secure storage is
             // temporarily unavailable or corrupted. Crashing here prevents the user from ever
             // reaching the login screen that could establish a fresh session.
-            clearPersistedSessionState()
+            await clearPersistedSessionState()
             return nil
         }
 
         guard let restoredUser else {
-            clearSecureCredentials()
+            await clearSecureCredentials()
             return nil
         }
 
@@ -416,12 +416,12 @@ final class UserSessionService: UserSessionManaging {
         }
 
         guard !tokenSet.refreshToken.isEmpty else {
-            clearPersistedSessionState()
+            await clearPersistedSessionState()
             return nil
         }
 
         guard let authenticationAPIManager else {
-            clearPersistedSessionState()
+            await clearPersistedSessionState()
             return nil
         }
 
@@ -429,10 +429,10 @@ final class UserSessionService: UserSessionManaging {
             let refreshedTokenSet = try await authenticationAPIManager.refreshToken(
                 using: tokenSet.refreshToken
             )
-            try tokenStore.saveTokenSet(refreshedTokenSet)
+            try await tokenStore.saveTokenSet(refreshedTokenSet)
             return restoredUser
         } catch {
-            clearPersistedSessionState()
+            await clearPersistedSessionState()
             throw error
         }
     }
@@ -453,22 +453,16 @@ final class UserSessionService: UserSessionManaging {
 
     /// Clears the active persisted session.
     func signOut() {
-        let accessToken: String?
-        if let tokenStore {
-            accessToken = try? tokenStore.loadTokenSet()?.accessToken
-        } else {
-            accessToken = nil
-        }
-
         userDefaults.removeObject(forKey: Keys.activeUserID)
         userDefaults.removeObject(forKey: Keys.legacyActiveUsername)
-        try? tokenStore?.clearTokenSet()
-
-        guard let authenticationAPIManager else {
+        guard let tokenStore else {
             return
         }
 
-        Task {
+        Task { [tokenStore, authenticationAPIManager] in
+            let accessToken = try? await tokenStore.loadTokenSet()?.accessToken
+            try? await tokenStore.clearTokenSet()
+            guard let authenticationAPIManager else { return }
             do {
                 try await authenticationAPIManager.revokeSession(accessToken: accessToken)
             } catch {
@@ -484,17 +478,17 @@ final class UserSessionService: UserSessionManaging {
     }
 
     /// Clears secure credentials without touching user-facing session revoke semantics.
-    private func clearSecureCredentials() {
-        try? tokenStore?.clearTokenSet()
+    private func clearSecureCredentials() async {
+        try? await tokenStore?.clearTokenSet()
     }
 
     /// Clears the locally persisted session state during startup/session-recovery cleanup paths.
     ///
     /// This differs from `signOut()`: restore-time corruption or stale local state should not
     /// trigger a best-effort remote revoke because the app may no longer have coherent credentials.
-    private func clearPersistedSessionState() {
+    private func clearPersistedSessionState() async {
         clearSessionState()
-        clearSecureCredentials()
+        await clearSecureCredentials()
     }
 
     /// Resolves the current persisted user identifier and upgrades legacy username-based session storage.

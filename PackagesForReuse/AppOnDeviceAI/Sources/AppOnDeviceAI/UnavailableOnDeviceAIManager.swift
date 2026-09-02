@@ -9,7 +9,7 @@ public struct UnavailableOnDeviceAIManager: OnDeviceAIManaging, Sendable {
     }
 
         /// Always reports the configured unavailable reason.
-public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
+    public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
         .unavailable(reason)
     }
 

@@ -1,5 +1,5 @@
 #if canImport(Photos)
-@preconcurrency import Photos
+import Photos
 import Foundation
 
 public struct PhotoLibraryPermissionProvider: PermissionProviding {
