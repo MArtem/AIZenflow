@@ -42,7 +42,12 @@ actor VisionTextRecognitionService {
         try Task.checkCancellation()
 
         let lines = observations
-            .map(\.transcript)
+            .map { observation in
+                if #available(iOS 26.0, *) {
+                    return observation.transcript
+                }
+                return observation.topCandidates(1).first?.string ?? ""
+            }
             .map { $0.trimmingCharacters(in: .whitespacesAndNewlines) }
             .filter { !$0.isEmpty }
         let text = lines.joined(separator: "\n")

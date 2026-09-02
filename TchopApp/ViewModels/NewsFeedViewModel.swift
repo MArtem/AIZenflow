@@ -293,7 +293,7 @@ final class NewsFeedViewModel {
         feedCardStore: FeedCardStore,
         sharedFeedCardSyncManager: SharedFeedCardSyncManager? = nil,
         onDeviceAIManager: any OnDeviceAIManaging = OnDeviceAIManagerFactory.makeDefaultManager(),
-        cardTranslationStore: CardTranslationStore = CardTranslationStore()
+        cardTranslationStore: CardTranslationStore? = nil
     ) {
         self.channelsStore = channelsStore
         self.widgetContentSyncManager = widgetContentSyncManager
@@ -301,7 +301,7 @@ final class NewsFeedViewModel {
         self.feedCardStore = feedCardStore
         self.sharedFeedCardSyncManager = sharedFeedCardSyncManager
         self.onDeviceAIManager = onDeviceAIManager
-        self.cardTranslationStore = cardTranslationStore
+        self.cardTranslationStore = cardTranslationStore ?? CardTranslationStore()
         self.state = .empty(Self.emptyContent)
         refreshVisibleContent()
         widgetContentSyncManager.syncFeed(content: visibleContent)
