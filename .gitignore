@@ -51,6 +51,19 @@ temp/
 .zenflow/tasks/*/retired-*-task-copies/
 docs/archive/retired-documentation-cleanup/
 
+# Zenflow task/build artifacts (regenerable; never commit)
+.engine-validation-*/
+.swiftpm-security/
+.zenflow-artifacts/
+.zenflow-attachments/
+.zenflow/cache/
+.zenflow/canary-verification/
+.zenflow/task-artifacts/
+.zenflow/tasks/*/incoming/
+.zenflow/tasks/*/quality-doc-closeout/
+.zenflow/tasks/*/runtime/
+runtime/
+
 # Node / web tooling if ever present
 node_modules/
 
