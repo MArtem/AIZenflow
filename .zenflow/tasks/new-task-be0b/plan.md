@@ -44,6 +44,28 @@ while retaining PR merge and GitHub `workflow_dispatch` control.
 - All 13 logical commits were reviewed, committed, pushed to same-named branches, and remote SHA
   parity was confirmed. Full commit/branch receipt: `runtime/concurrency-audit/max-complete/receipt.json`.
 
+## Temporary Detour — Swift 6 Language-Mode Migration
+
+The user authorizes a complete pass over the same 80 authoritative tracked Xcode project files:
+move each target/configuration that is not already in Swift 6 language mode, build/install/launch
+each project with task-local artifacts, repair only proven compiler/runtime failures, and remove
+task-created DerivedData after evidence is captured. Tests remain out of scope. Commit/push/PR
+authority is not implied by this new detour.
+
+- [x] Inventory effective and declared `SWIFT_VERSION`, configurations, schemes, and language-mode
+  inheritance for all 80 tracked project files; exclude non-authoritative generated/retired copies.
+- [x] Apply the smallest project-setting change needed to place every eligible target/configuration
+  in Swift 6 language mode while preserving strict-concurrency `complete` and unrelated settings.
+- [x] Build, install, and launch each affected project from clean task-local DerivedData; repair
+  only causal Swift 6 diagnostics and repeat the affected verification.
+- [x] Review exact diffs, record a compact receipt with omissions/residual risk, remove only
+  task-created DerivedData/logs, and leave commits/pushes pending explicit authorization.
+
+Swift 6 completion receipt: 80/80 authoritative projects passed build/install/launch under task-local
+DerivedData. Production unsafe concurrency escapes were removed with actor/Sendable ownership
+boundaries; tests remained unchanged and unrun. Remaining work returns to the Universal iOS/Xcode
+Quality-Control plan.
+
 Canonical ownership stays split:
 
 - `AIZenflowDocumentation`: policy, routing, templates, bootstrap contract, interpretation.

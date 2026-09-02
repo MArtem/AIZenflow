@@ -1,5 +1,5 @@
 #if canImport(AVFoundation)
-@preconcurrency import AVFoundation
+import AVFoundation
 import Foundation
 
 public struct AVFoundationPermissionProvider: PermissionProviding {

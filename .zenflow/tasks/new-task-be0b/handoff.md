@@ -159,6 +159,37 @@
 
 ## Active continuation
 
+## Completed temporary detour — Swift 6 language-mode migration (2026-09-02–03)
+
+- User-approved scope: migrate all 80 authoritative tracked Xcode projects to `SWIFT_VERSION = 6.0`,
+  keep `SWIFT_STRICT_CONCURRENCY = complete`, build/install/launch with task-local artifacts,
+  repair only real diagnostics using architectural actor/sendability ownership, and clean only
+  task-created DerivedData. Tests remain out of scope. Commit/push/PR authority is not implied.
+- Current model/override: `GPT-5.6 luna`, xhigh, `эконом`; user explicitly requires no hacks,
+  warning suppressions, `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, or fake
+  `@MainActor` boundaries. A Sol route is normally recommended, but the user explicitly permits
+  this constrained execution on the current Luna route.
+- Project-setting inventory/mutation is complete but uncommitted: all 80 authoritative project
+  files now declare `SWIFT_VERSION = 6.0` and `SWIFT_STRICT_CONCURRENCY = complete`; `swift5=0`.
+  Preserve user-owned dirty `AGENTS.md` files and do not stage anything yet.
+- Swift 6 runner root: `.zenflow/tasks/new-task-be0b/runtime/concurrency-audit/swift6/`; runner:
+  `runtime/concurrency-audit/max-complete/run-authoritative-matrix.sh`. It deletes only its own
+  per-project DerivedData before each build and after success. Existing failure DerivedData must
+  be removed only after evidence is recorded/final verification passes.
+- All 80 authoritative tracked Xcode projects now declare `SWIFT_VERSION = 6.0` and
+  `SWIFT_STRICT_CONCURRENCY = complete`.
+- Canonical architecture cases 01–14, three MVVMExample worktrees (45 projects), three new-task
+  app projects, five AIZenflow/Tchop app worktrees (15 projects), two canary projects, and PanModal
+  all passed clean Swift 6 build/install/launch verification. Logs are under
+  `.zenflow/tasks/new-task-be0b/runtime/concurrency-audit/swift6/`.
+- Production Swift sources across all authoritative worktrees contain no
+  `@unchecked Sendable`, `nonisolated(unsafe)`, or `@preconcurrency`. Real boundaries are actors,
+  immutable Sendable values, async storage contracts, and explicit main-actor UI ownership.
+- Tests were not modified or run. Remaining prohibited markers, if any, are confined to existing
+  test fixtures or verifier-script text and are intentionally outside this migration scope.
+- Commits, pushes, and PRs remain pending explicit authorization. Return to the saved Universal
+  iOS/Xcode Quality-Control plan.
+
 - `QC.DEPENDENCY.LOCK_DRIFT` is implemented and published as engine PR #22:
   https://github.com/MArtem/AIZenflowQualityControl/pull/22. Exact head is
   `0972bf2033e432952fb7eed2583266ea96aeb660`; trusted base is

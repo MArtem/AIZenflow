@@ -1,5 +1,5 @@
 #if canImport(CoreLocation)
-@preconcurrency import CoreLocation
+import CoreLocation
 import Foundation
 
 /// Status-oriented CoreLocation provider.
