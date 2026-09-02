@@ -3,16 +3,16 @@
 ## Orientation
 
 - Worktree/task: `/Users/Artem/.zenflow/worktrees/new-task-be0b`, `new-task-be0b`.
-- Mode: `эконом`; execution model: `GPT-5.6 luna`, high, with no later switch.
+- Mode: `эконом`; execution model: `GPT-5.6 luna`, xhigh, with no later switch.
 - Scope: universal governed quality system for current/future Git repositories containing Xcode iOS
   projects. Documentation owns policy; QualityControl owns execution; apps own facts/permissions.
 - Required transfer: **перечитать весь актуальный набор документации и правил для этого worktree и
   task-контекста**. After Level 0, load only this plan/handoff and the active task route.
-- Active temporary detour: audit canonical active iOS/Xcode repositories for effective
+- Completed temporary detour: audited canonical active iOS/Xcode repositories for effective
   `SWIFT_STRICT_CONCURRENCY = targeted`, apply only missing settings, and perform authorized
-  build/run verification. The user explicitly keeps the current Luna high route for this detour;
-  PR merges and manual `workflow_dispatch` remain user-operated. Return to the main plan after
-  receipts are recorded.
+  build/run verification. The user explicitly kept the current Luna xhigh route for this detour;
+  PR creation/merges and manual `workflow_dispatch` remain user-operated. Continue with the main
+  plan only after the user starts the next PR phase.
 
 ## Evidence-backed completed state
 
@@ -141,6 +141,26 @@
   independently verified green after merge; run IDs and successful generated-ownership steps are
   recorded in `runtime/generated-ownership-adoption/receipt.json`.
 
+## Completed temporary detour — Swift strict concurrency audit
+
+- Audited 20 canonical active Xcode projects: 15 in MVVMExample, 3 in AIZenflow, 1 Canary, and 1
+  PanModalDemo. Fixtures, historical/task worktrees, generated copies, and non-Xcode repositories
+  were excluded.
+- All checked build-setting blocks now contain `SWIFT_STRICT_CONCURRENCY = targeted`. Swift 5
+  compiler logs contain `-strict-concurrency=targeted`; Swift 6 projects retain the setting and
+  receive Swift 6 complete-default semantics.
+- Every project passed task-local Debug build, install, and launch verification. Evidence is in
+  `runtime/concurrency-audit/receipt.json` and per-project logs/DerivedData under that directory.
+  Tests were not run and no test files were changed.
+- Only proven source fixes were made: Tchop `NewsFeedViewModel` actor-safe dependency creation;
+  AIFieldbook iOS 26 availability guards for App Intents, shortcuts, and Vision transcripts.
+  PanModal's existing iOS 10 deployment-target warning remains documented and unchanged.
+- Pushed commits: MVVMExample `e048fc6799713c24a0fd27a364286a7eab5cda4d`; AIZenflow
+  `2d1e7229b914d477162507bc3377543d9a1dce22` and `f9df70dbc4820724970877d3f418d3e50c25e62e`;
+  Canary `77cb34c8f598c82c895bc58b04ede677f7af9357`; PanModal
+  `a4955f8e2633d61b909da9b8008b8c53fe2608a5`. PR creation/merge and manual workflow dispatch
+  remain the next user-controlled phase.
+
 ## Active continuation
 
 - `QC.DEPENDENCY.LOCK_DRIFT` is implemented and published as engine PR #22:
@@ -190,9 +210,10 @@
 
 ## Guardrails and next route
 
-- No branch protection, external Codex Review, app source change, Simulator/device,
-  archive/signing/release, or unrelated app build/test is authorized. The user authorized the
-  full PRs and pilot corrective PRs within this plan. Within this plan, engine,
+- No branch protection, external Codex Review, archive/signing/release, or unrelated app
+  build/test is authorized for the main continuation. The user authorized this bounded concurrency
+  build/run detour and the resulting source/config commits. The user performs all PR creation,
+  merges, and manual workflow dispatch. Within this plan, engine,
   canary, and these pilot commits/pushes are authorized; future app-repository pushes remain
   bounded to separately authorized pilots.
 - Existing permission covers engine package compile/tests and current public canary build proofs.
@@ -207,7 +228,7 @@
   already canonical and audited, then Phase J pilots/publication/rollout. Do not mark an item complete without
   evidence.
 - Task-created disposable clone, diagnostic worktrees/binaries, stale reports/caches, and final build
-  cache were removed using explicit paths; final proof receipts remain under runtime.
-  Do not touch canonical repositories or user files.
+  cache remain governed by the task boundary; proof receipts remain under runtime. Do not touch
+  repositories or user files outside the explicitly listed audit scope.
 - `BLOCKED` is never PASS. Fix P0–P2 before promotion; fix or report P3. Keep all artifacts under
   `/Users/Artem/.zenflow`.

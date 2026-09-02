@@ -1,4 +1,4 @@
-# Universal iOS/Xcode Quality-Control — Luna High Execution Plan
+# Universal iOS/Xcode Quality-Control — Luna xHigh Execution Plan
 
 ## Outcome
 
@@ -9,19 +9,40 @@ skipped, unauthorized, or unverifiable evidence can never be reported as success
 ## Temporary Detour — Swift Strict Concurrency Audit
 
 This bounded detour preserves the plan below and returns to it after the concurrency baseline is
-verified. The user explicitly authorizes build/run verification on the current Luna high route,
+verified. The user explicitly authorizes build/run verification on the current Luna xhigh route,
 while retaining PR merge and GitHub `workflow_dispatch` control.
 
-- [ ] Inventory canonical active Git repositories and Xcode projects; exclude fixtures, archived
+- [x] Inventory canonical active Git repositories and Xcode projects; exclude fixtures, archived
   snapshots, and task-created duplicates from mutation.
-- [ ] Inspect effective `SWIFT_STRICT_CONCURRENCY` for every target/configuration/xcconfig and
+- [x] Inspect effective `SWIFT_STRICT_CONCURRENCY` for every target/configuration/xcconfig and
   record projects that already equal `targeted`.
-- [ ] Apply only missing/incorrect `SWIFT_STRICT_CONCURRENCY = targeted` settings in bounded,
+- [x] Apply only missing/incorrect `SWIFT_STRICT_CONCURRENCY = targeted` settings in bounded,
   reviewable repository patches; preserve unrelated dirty files.
-- [ ] Build and launch each changed project with task-local DerivedData/logs; fix only proven
+- [x] Build and launch each changed project with task-local DerivedData/logs; fix only proven
   concurrency/compiler/runtime failures and repeat the affected verification.
-- [ ] Review exact diffs/SHAs, prepare and push PRs where needed, then report for user merge and
-  manual workflow dispatch; record evidence and return to the main plan.
+- [x] Review exact diffs/SHAs, commit and push the bounded changes, record evidence, and return to
+  the main plan. PR creation, merge, and manual workflow dispatch are deferred to the next user-
+  authorized phase.
+
+### Temporary detour result (2026-09-02)
+
+- Audited 20 canonical active Xcode projects: MVVMExample root plus 14 architecture cases (15),
+  AIZenflow Tchop/AIFieldbook/BattleshipGame (3), QualityControlCanary (1), and PanModalDemo (1).
+  Fixtures, historical/task worktrees, generated copies, and repositories without Xcode projects
+  were excluded from mutation.
+- Every inspected project file now declares `SWIFT_STRICT_CONCURRENCY = targeted` in all checked
+  build-setting blocks. Swift 5 projects emitted `-strict-concurrency=targeted`; Swift 6 projects
+  use Swift 6's complete default semantics while retaining the requested explicit setting.
+- All 20 projects passed task-local Debug build, install, and launch checks. Logs and DerivedData
+  are under `runtime/concurrency-audit/`; no test files or test commands were changed or run.
+- Proven compatibility fixes were limited to Tchop's `@MainActor` default construction and
+  AIFieldbook's iOS 26 App Intents/Vision availability boundaries. PanModal retains a pre-existing
+  deployment-target warning (iOS 10 versus Xcode-supported 12–26.5); no unrelated cleanup was made.
+- Pushed commits: MVVMExample `e048fc6799713c24a0fd27a364286a7eab5cda4d` on `Development`;
+  AIZenflow `2d1e7229b914d477162507bc3377543d9a1dce22` and
+  `f9df70dbc4820724970877d3f418d3e50c25e62e` on `codex/sync-quality-baseline`; Canary
+  `77cb34c8f598c82c895bc58b04ede677f7af9357`; PanModal `a4955f8e2633d61b909da9b8008b8c53fe2608a5`.
+  Remote parity was confirmed after push. Receipt: `runtime/concurrency-audit/receipt.json`.
 
 Canonical ownership stays split:
 
@@ -42,7 +63,7 @@ Canonical ownership stays split:
   canary builds, not unrelated application runtime work.
 - [x] All caches, DerivedData, clones, logs, and temporary artifacts stay under
   `/Users/Artem/.zenflow`; secrets are never inspected.
-- [x] Luna high executes this route without model switching. It loads only Level 0, current
+- [x] Luna xhigh executes this route without model switching. It loads only Level 0, current
   plan/handoff, and the route needed for the active batch. A failure triggers bounded diagnosis,
   not a broad context refresh or weaker gate.
 - [x] Keep implementation batches self-contained and normally within three source files. If a
