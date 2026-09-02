@@ -9,14 +9,11 @@ import FoundationModels
 /// Ownership:
 /// Created by `OnDeviceAIManagerFactory` or dependency composition when platform support is available.
 ///
-/// Thread safety:
-/// `SystemLanguageModel` is `Sendable`, each translation creates its own `LanguageModelSession`, and the only
-/// manager-owned mutable state is protected by `stateLock`. The unchecked conformance exposes that lock-protected
-/// invariant because Swift cannot prove synchronization of the stored unavailable-reason value.
-public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unchecked Sendable {
+/// Sendability:
+/// The manager is an immutable value around the SDK's `Sendable` model reference. Each translation
+/// creates its own session, so no mutable session state crosses task boundaries.
+public struct FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, Sendable {
     private let model: SystemLanguageModel
-    private let stateLock = NSLock()
-    private var sessionUnavailableReason: OnDeviceAIUnavailableReason?
 
     public init(
         model: SystemLanguageModel = .default
@@ -26,10 +23,6 @@ public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unche
 
     /// Reports whether translation can run for the requested source language on this device.
     public func translationAvailability(for localeIdentifier: String?) -> OnDeviceAIAvailability {
-        if let sessionUnavailableReason = currentSessionUnavailableReason {
-            return .unavailable(sessionUnavailableReason)
-        }
-
         let availability = model.availability
 
         switch availability {
@@ -97,7 +90,6 @@ public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unche
             )
         } catch {
             if isModelCatalogAssetsFailure(error) {
-                markSessionUnavailable(.modelAssetsUnavailable)
                 throw OnDeviceAIError.unavailable(.modelAssetsUnavailable)
             }
 
@@ -162,18 +154,6 @@ public final class FoundationModelsOnDeviceAIManager: OnDeviceAIManaging, @unche
         @unknown default:
             return .modelNotReady
         }
-    }
-
-    private var currentSessionUnavailableReason: OnDeviceAIUnavailableReason? {
-        stateLock.lock()
-        defer { stateLock.unlock() }
-        return sessionUnavailableReason
-    }
-
-    private func markSessionUnavailable(_ reason: OnDeviceAIUnavailableReason) {
-        stateLock.lock()
-        sessionUnavailableReason = reason
-        stateLock.unlock()
     }
 
     private func isModelCatalogAssetsFailure(_ error: Error) -> Bool {
