@@ -13,7 +13,9 @@ import SwiftUI
 @main
 struct AIFieldbookApp: App {
     init() {
-        AIFieldbookShortcuts.updateAppShortcutParameters()
+        if #available(iOS 26.0, *) {
+            AIFieldbookShortcuts.updateAppShortcutParameters()
+        }
     }
 
     var body: some Scene {
