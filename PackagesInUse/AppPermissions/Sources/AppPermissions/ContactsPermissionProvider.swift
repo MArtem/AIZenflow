@@ -1,5 +1,5 @@
 #if canImport(Contacts)
-@preconcurrency import Contacts
+import Contacts
 import Foundation
 
 public struct ContactsPermissionProvider: PermissionProviding {
