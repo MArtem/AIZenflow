@@ -1,84 +1,109 @@
-# Documentation System Audit — Active Plan
+# Universal iOS/Xcode Quality-Control — Active Execution Plan
 
-## Goal
+## Outcome
 
-Restore a coherent, authoritative, low-cost documentation system after the Git/Xcode work. Audit
-canonical reusable rules, baseline mirrors, routing/indexes, task-state, and four app boundaries;
-repair only evidence-backed defects, preserve historical material, and publish the verified
-repository state without losing source or documentation.
+Every eligible Git repository containing an iOS/Xcode project receives one governed, versioned,
+fail-closed quality system. Policy remains canonical in Documentation Vault, executable behavior in
+`AIZenflowQualityControl`, and project facts/permissions in each app repository. Missing, stale,
+skipped, unauthorized, or unverifiable evidence must never become `PASS`.
 
-## Scope and authority
+The detailed historical execution plan remains recoverable in Git history (including the prior
+Universal plan revisions); this file is the compact executable state required for continuation.
 
-- Canonical reusable source: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/`.
-- Canonical app/task recovery: `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/` and
-  `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/`.
-- Active project overlay: this worktree; exact baseline files follow the governed policy.
-- Never inspect `/Users/Artem/.zenflow/secrets/`; never edit user-owned `AGENTS.md`.
-- No product source, tests, builds, Simulator, signing, or PR work in this documentation audit;
-  repository publication is limited to the explicitly authorized dev/main synchronization.
-- Preserve archives, legacy references, app boundaries, and uncertain material unless a validator
-  proves it is an unsafe active surface.
+## Current authority and restrictions
 
-## User and execution rules
+- Mode/model: **эконом / GPT-5.6 luna**; no switch is required for the current bounded route.
+- All work, caches, logs, DerivedData, and temporary artifacts stay under
+  `/Users/Artem/.zenflow`; never inspect `/Users/Artem/.zenflow/secrets/`.
+- Do not edit or stage user-owned `AGENTS.md`; do not modify tests unless the active adapter block
+  explicitly reopens test-writing. User controls PR merges, GitHub `workflow_dispatch`, external
+  Codex Review, and app/runtime verification unless explicitly reopened.
+- Strict Swift concurrency remains mandatory: no `@unchecked Sendable`, `nonisolated(unsafe)`,
+  `@preconcurrency`, warning suppression, or fake/blanket `@MainActor`.
+- Every non-trivial change uses the engineering change contract, complete final-diff review, and
+  exact-SHA receipt before an authorized push.
 
-- **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
-  before handoff or context transfer.
-- Current route is GPT-5.6 luna / эконом; no model switch is required.
-- Use canonical source first, then governed baseline mirrors, then explicit project overlays.
-- Prefer compact routing and measured context cost; never remove safety, authority, permission, or
-  semantic-review requirements to save tokens.
-- Canonical vault commits/pushes are standing-authorized after checks. Other repositories require
-  explicit action authority.
+## Completed baseline
 
-## Completed evidence
+- [x] Canonical documentation, routing, manifests, boundaries, baseline mirrors, and task-state
+  integrity repaired and synchronized; final Documentation Vault receipt is pushed and clean.
+- [x] Swift strict-concurrency and Swift 6 language-mode migrations are complete for all 80
+  authoritative tracked Xcode projects; production forbidden escapes were removed with real
+  ownership/isolation boundaries. Build/install/launch evidence and residual limits are recorded
+  under `.zenflow/tasks/new-task-be0b/runtime/concurrency-audit/`.
+- [x] QualityControl engine foundation, evidence identity/aggregation, reversible bootstrap,
+  permission-aware mode planning/execution, and catalog schema are implemented and fail closed.
+- [x] Executable adapters through `QC.RESOURCES.ASSETS` are implemented with bounded fixtures and
+  documented evidence. Consumer wiring for the completed adapters is merged where authorized.
+- [x] Manual-only workflow governance, PR contract, applicability/release audits, and pilot
+  discovery/bootstrap boundary are recorded. Stale branches and replaced artifacts were not merged
+  or deleted when that could lose history.
 
-- Startup bootstrap, Level 0, task-state, governance, boundary, source-of-truth, routing, and
-  Universal Xcode quality-control routes were reread.
-- Documentation vault: `generate_manifest.py --check` and `check_documentation_vault.py` pass.
-- Active worktree: docs index, task-type router, consistency, boundary, bootstrap, and remote-state
-  checks pass.
-- Exact baseline drift is clean: 175 mirrors, 0 stale/missing/unexpected/policy failures after
-  canonical source and baseline synchronization.
-- Historical implementation detail remains recoverable in Git history and existing task archives.
-- MVVMExample's static gate was repaired from a stale Swift 5 expectation to Swift 6 with complete
-  strict concurrency, and the missing required task-type router was restored byte-identically from
-  the canonical baseline. Static verification passes with zero blocking/advisory findings.
-- MVVMExample commit `bc7c65dd4994ca5ea0d63d176e7dfdff277887d8` is exact on `Development`, `main`,
-  and both corresponding remote refs.
-- AIZenflow documentation synchronization and final task-state receipt are published to both
-  `development` and `main`; final local/remote SHA parity was verified after the last receipt
-  correction.
-- QualityControl `origin/main` already contains the semantic expectation-validation implementation;
-  stale `c1c8d1b` was not merged because its production delta is superseded and its fixture change is
-  outside the approved test scope.
+## Remaining implementation route
 
-## Repairs applied to canonical
+### Phase H — executable quality-control contract
 
-- Restored `reusable/agent-prompts/FIGMA_TASK_ROUTER.md` and aligned canonical Figma routing/deep
-  reference wording.
-- Made external skill snapshots recovery-only and explicit-transfer gated.
-- Promoted newer portable snapshot, code-documentation skill, SDK documentation, and strict
-  concurrency guidance; corrected baseline package links.
-- Removed stale AIFieldbook model/mode pinning and undefined M16 completion claims.
-- Regenerated and validated canonical `MANIFEST.md` and `MANIFEST_SUMMARY.md`.
+- [ ] Complete the remaining permission-aware mode orchestration without synthesizing composite
+  `PASS`; keep `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`, `NOT_RUN_BY_USER_DECISION`, `SKIPPED`,
+  and `BYPASSED` consistent across local and manual GitHub paths.
+- [ ] Implement the next staged deterministic catalog adapter only after inspecting its current
+  producer/consumer surface. Each adapter needs stable ID, bounded scope/resources, applicability,
+  remediation, positive/negative/boundary fixtures, and evidence identity binding.
+- [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
+  contract proves a deterministic unsafe subset. Keep SwiftLint/SwiftFormat staged until immutable
+  tool versions and fixtures demonstrate net value.
+- [ ] Keep workflows manual-only, least-privilege, action-pinned, bounded, and free of paid AI.
 
-## Final verification
+### Agreed pre-resume improvements
 
-- Canonical manifest/vault/boundary checks, active index/router/consistency/bootstrap/remote-state
-  checks, context-cost check, baseline drift, and `git diff --check` pass.
-- Canonical synchronization commit `2be69b6c946dd0562138da62c6efe36d71eec738` was pushed to
-  `origin/main`; remote SHA matched before this receipt finalization.
-- Receipt finalization commit `e8dd3219010c50970c030c04f82736033c9df9dd` was also pushed; this
-  final task-state correction records the completed audit.
-- No product source, tests, builds, Simulator, signing, or runtime artifacts were touched.
-- Historical Tchop rules remain tracked under the canonical legacy boundary and are not duplicated as
-  active task authority.
-- No current working-tree deletions remain in the audited repositories; replaced AIFieldbook
-  presentation files remain represented by the real feature-sliced implementation and were not
-  restored as duplicate artifacts.
+- [ ] Add one explicit, read-only repository-integrity receipt/check for an allowlisted repository
+  set. It must validate the complete trusted target ref, local/remote branch parity, current
+  tracked deletion diff, and clean/dirty state without treating ignored files as committed evidence.
+  It must not guess repositories, schemes, or destinations and must not mutate anything.
+- [ ] Add a short canonical policy note for retention/deletion safety: preserve branches and refs
+  when they may contain unique history; delete only exact task-created disposable worktrees/clones
+  or proven generated outputs; preserve potentially user-owned `xcuserdata` unless explicitly
+  confirmed disposable. Keep this policy in Documentation Vault, not in app product code.
+- [ ] Add a deterministic regression guard for quality-gate contract drift: when a project contract
+  is Swift 6, a gate must not require `SWIFT_VERSION = 5.0`; the guard must identify the affected
+  profile/target/configuration and remediation. Use a positive and negative fixture; do not weaken
+  the gate or add a broad filename heuristic.
 
-## Stop conditions
+### Phase I — review, flags, and release safety
 
-Do not build a new documentation engine, mass-delete archives, overwrite app overlays, merge stale
-branches, or modify product code. Record the final task-state receipt and canonical sync, then
-resume the saved Universal iOS/Xcode Quality-Control plan.
+- [x] Canonical PR template, feature-flag applicability, and release-applicability coverage are
+  audited and require explicit residual-risk states.
+- [ ] Apply the internal pre-PR contract to each new engine/consumer change: target freshness,
+  merge-base, complete range review, adversarial failure-route review, exact committed HEAD, and
+  remote parity after authorized push.
+
+### Phase J — pilots, publication, and rollout
+
+- [x] Pilot discovery, bounded inventory/dry-run, and consumer boundary preservation are recorded.
+- [ ] Prove for each authorized pilot: dry-run safety, apply, idempotence, rollback, exact-SHA static
+  evidence, one authorized runtime mode, deliberate failure, local/GitHub parity, and pre-PR receipt.
+  Unrun app build/test/runtime/release evidence remains an explicit residual risk.
+- [ ] Stop promotion for false `PASS`, destructive migration, permission bypass, unbounded process/
+  artifact, or project-specific reusable default.
+- [ ] Adopt current repositories in bounded clean batches; preserve and record dirty/conflicting
+  repositories as deferred with owner/revisit trigger. Make future-repository admission and
+  periodic read-only drift inventory mandatory without automatic project rewriting.
+
+## Final closure
+
+- [ ] Review exact final diffs and authority/consumer claims for Documentation, engine, canary, and
+  authorized pilots; resolve P0–P2 and fix or report P3.
+- [ ] Record compact receipts with trusted bases/HEADs, toolchains, permissions, checks, omitted or
+  reused evidence, findings, residual risks, remote parity, and rollback path.
+- [ ] Remove only explicitly task-created worktrees, clones, result bundles, caches, and scratch
+  builds; preserve canonical commits, historical refs, user files, and user-owned `AGENTS.md`.
+- [ ] Update this plan and `handoff.md` within the task-state budget with only evidence-backed
+  completion claims, then synchronize the canonical task recovery copy.
+
+## Next bounded block
+
+Inspect `AIZenflowQualityControl` at its current trusted branch/remote state and select the first
+still-staged deterministic adapter or orchestration defect. Before editing, write its compact change
+contract and keep the implementation patch within the normal three-source-file boundary. Run only
+the relevant static/fixture evidence permitted for that block; do not broaden into app runtime or
+tests unless the block explicitly reopens that permission.

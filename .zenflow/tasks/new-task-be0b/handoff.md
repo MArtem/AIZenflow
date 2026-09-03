@@ -5,8 +5,9 @@
 - Worktree/task: `/Users/Artem/.zenflow/worktrees/new-task-be0b`, `new-task-be0b`
 - Canonical vault: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 - Current mode/model: **эконом / GPT-5.6 luna**; switch not required.
-- Scope: documentation integrity, static-gate contract recovery, repository publication, and
-  context economy; no product source or tests.
+- Scope: Universal iOS/Xcode Quality-Control implementation after the completed documentation
+  integrity audit; app product source remains out of scope unless a bounded quality-control
+  consumer change requires it.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
@@ -25,7 +26,11 @@
   is published to both `Development` and `main` with exact remote-SHA parity.
 - AIZenflow documentation/task-state receipt is published to both `development` and `main`; final
   local/remote SHA parity was verified after the last receipt correction.
-- No app builds, tests, Simulator, signing, or runtime checks were run or changed.
+- The compact Universal execution plan now records the remaining engine/adoption phases and three
+  approved pre-resume improvements: read-only repository-integrity receipt, retention/deletion
+  safety policy, and a Swift 6 quality-gate contract-drift regression guard.
+- No new app builds, tests, Simulator, signing, or runtime checks are authorized in this continuation
+  without a block-specific permission; existing migration evidence remains unchanged.
 
 ## Completed canonical repair
 
@@ -40,8 +45,10 @@
 
 ## Next safe steps
 
-- After the final receipt and canonical synchronization, resume the saved Universal iOS/Xcode
-  Quality-Control plan. Do not merge stale superseded branches or recreate replaced artifacts.
+- Continue the saved Universal iOS/Xcode Quality-Control plan from the first still-staged
+  deterministic engine adapter or orchestration defect. Inspect the current `origin/main` engine
+  surface first, keep the next patch within three source files, and do not merge stale superseded
+  branches or recreate replaced artifacts.
 
 ## Must not do
 
