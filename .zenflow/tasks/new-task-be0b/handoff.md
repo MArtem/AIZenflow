@@ -77,6 +77,11 @@
   fixture smoke returned `PASS`/`FAIL` with exits `0`/`1`; no app tests/builds were run.
 - No new app builds, tests, Simulator, signing, or runtime checks are authorized in this continuation
   without a block-specific permission; existing migration evidence remains unchanged.
+- A production-only Swift scan for both AIZenflow and MVVMExample found no `@unchecked Sendable`,
+  `nonisolated(unsafe)`, or `@preconcurrency`. Test-only helper types still contain
+  `@unchecked Sendable`; they were neither changed nor run because the active task restriction
+  forbids test modification/execution. Do not claim a repository-wide zero-escape result until a
+  separately authorized test-target migration block is opened.
 - Branch audit after explicit consolidation authorization found no code unique to the stale
   AIZenflow/MVVMExample migration/gate refs: AIFieldbook gate, Tchop share import/localization,
   actor/concurrency changes, and MVVM Swift 6 changes are already present in current development
