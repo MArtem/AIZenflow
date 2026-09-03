@@ -83,12 +83,14 @@
   weakened metadata and were not merged or deleted. QualityControl's explicitly requested
   expectation-validation experiment contributed only its missing fixture/cleanup correction as
   `4cb9cd6`; its already-present core validation was not duplicated.
-- Source-level remote parity was verified immediately before this task-state-only update:
-  AIZenflow `development` and `main` both pointed to `8e503ad78b14585fab948c08ffbf2e4f0e16be6b`,
-  Documentation Vault `main` pointed to `49fe73832d4a7c8eeb0707124868b8214254f908`, and
-  QualityControl `origin/main` pointed to `8bf87c38353fb19664aa3069b6db953c3bf790f1`. The QC
-  source worktree remains dirty only in the user-owned `AGENTS.md`; no task-created linked checkout
-  or generated build artifact remains.
+- The parity SHAs in the preceding historical checkpoint predate the privacy-adapter correction,
+  consumer workflow wiring, and subsequent task-state receipts; they are retained as historical
+  evidence and must not be read as the current branch tips. The current state was re-queried during
+  this continuation: AIZenflow `development` and `main` both point to the privacy workflow/task-state
+  publication, MVVMExample `Development` and `main` point to the same privacy workflow publication,
+  QualityControl `origin/main` points to the corrected privacy adapter, and Documentation Vault
+  `origin/main` contains the synchronized task-state copy. The QC source worktree remains dirty only
+  in the user-owned `AGENTS.md`; no task-created linked checkout or generated build artifact remains.
 
 ## Completed canonical repair
 
