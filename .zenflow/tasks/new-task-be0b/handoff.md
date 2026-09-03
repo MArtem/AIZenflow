@@ -23,9 +23,8 @@
   and a missing required task-type router. The gate now passes with Swift 6/complete strict
   concurrency, zero blocking/advisory findings; commit `bc7c65dd4994ca5ea0d63d176e7dfdff277887d8`
   is published to both `Development` and `main` with exact remote-SHA parity.
-- AIZenflow documentation/task-state publication commit `58e863a84f31e527fd16b454630028710b3efe27`
-  is published to both `development` and `main` with exact remote-SHA parity; this follow-up will
-  record the final task-state receipt.
+- AIZenflow documentation/task-state receipt is published to both `development` and `main`; final
+  local/remote SHA parity was verified after the last receipt correction.
 - No app builds, tests, Simulator, signing, or runtime checks were run or changed.
 
 ## Completed canonical repair
