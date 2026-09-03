@@ -54,13 +54,13 @@ Catalog/SDK_PACKAGE_ROADMAP_50.md
 ```text
 Iteration: 00
 Status: SDK standard/template created
-Production packages adopted in this repository: 5
-Latest adopted production package: AppConnectivity
+Production packages added in this baseline: 5
+Latest production package: AppConnectivity
 Next planned iteration: AppPermissions or another user-approved infrastructure package
 ```
 
 
-## TchopApp adaptation note
+## source-app adaptation note
 
 This baseline was adopted from `InfrastructureSDK_Iteration00.zip` and hardened to match the current repository contract:
 
@@ -73,3 +73,51 @@ This baseline was adopted from `InfrastructureSDK_Iteration00.zip` and hardened 
 ## Multi-target note
 
 Multi-target packages are allowed when the targets are inside the same package folder and remain app-independent. The standalone verifier requires at least one source target, at least one test target, and source-owned DocC, but it does not require every package to have exactly one target named after the package.
+
+## Iteration 01 note
+
+`./PackagesForReuse/AppSecureStorage` was adopted as the secure-storage runtime package after additional local hardening:
+
+- Keychain writes now prefer an in-place update for existing values and reserve delete/add for synchronizable-scope changes.
+- Package verification fails if compiler warnings are emitted.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 03 note
+
+`./PackagesForReuse/AppFeatureFlags` was adopted as the feature-flag runtime package after additional local hardening:
+
+- Snapshot validation rejects empty keys, dictionary/payload key mismatch, and invalid rollout percentages.
+- UserDefaults-backed snapshot and override stores were added so the package is useful without a sibling configuration package.
+- Package verification fails if compiler warnings are emitted.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 04 note
+
+`./PackagesForReuse/AppLogging` was adopted as the structured logging package after additional local hardening:
+
+- Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
+- Package verification fails if compiler warnings are emitted.
+- Documentation now clarifies that `NoopLogger` is the safe default, `MemoryLogger` is primarily for tests/local diagnostics, and public messages require explicit host-app privacy classification.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 05 note
+
+`./PackagesForReuse/AppObservability` was adopted as the observability package after additional local hardening:
+
+- Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
+- URL redaction now removes query/fragment data from absolute URLs, relative paths, and scheme-less URL strings.
+- `measure(...)` records `CancellationError` as `.cancelled`.
+- `ObservabilitySpan.end(...)` is single-shot so duplicate end calls do not emit duplicate events.
+- Package verification fails if compiler warnings are emitted and must not create package-local SwiftPM artifacts.
+- Documentation now clarifies privacy, cancellation, span lifecycle, and caller-owned correlation policy.
+- The package is indexed in the active package inventory and root package verification scripts.
+
+## Iteration 06 note
+
+`./PackagesForReuse/AppConnectivity` was adopted as the connectivity package after additional local hardening:
+
+- Swift tools version was normalized to 5.9 for consistency with the current standalone package baseline while keeping strict-concurrency verification in scripts.
+- Native `NetworkPathConnectivityMonitor.start()` is idempotent while active and `stop()` is documented as terminal because `NWPathMonitor` cancellation is terminal.
+- Package-owned tests cover native monitor start/stop idempotency on Apple platforms, manual/static monitors, transition streams, waiter behavior, cost policy, and privacy-safe diagnostics.
+- Package verification fails if compiler warnings are emitted and must not create package-local SwiftPM artifacts.
+- The package is indexed in the active package inventory and root package verification scripts.

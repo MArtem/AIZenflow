@@ -84,9 +84,13 @@ Status: complete exact export from Zenflow/Codex App `saved_prompts` table.
 - App-updated timestamp: `2026-04-06 19:50:58.332`
 
 
-## Active Worktree Rule Note
+## Historical Rule Reference
 This is the exact Codex App saved prompt body. The active project-specific evolved rule file for this task is:
 
-- `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
+- `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/legacy-reference/TchopApp/baseline/.zenflow/tasks/new-task-be0b/services-engineering-rules.md`
 
-Use the active task rule file as authoritative for current source-app services/package work; keep this file as the preserved Codex App saved-prompt snapshot.
+This is a tracked canonical historical Tchop rule copy, retained for recovery and provenance. It is
+not an active authority. For current source-app services/package work, use the routed baseline and current
+task state: `../../AGENTS.md`, `../../docs/README.md`, `../../docs/CURRENT_USER_OVERRIDES.md`,
+`../../.zenflow/tasks/new-task-be0b/handoff.md`, and `../../.zenflow/tasks/new-task-be0b/plan.md`.
+Keep this file as the preserved Codex App saved-prompt snapshot.

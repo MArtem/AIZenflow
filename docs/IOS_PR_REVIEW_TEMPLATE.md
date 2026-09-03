@@ -5,6 +5,18 @@
 - User-visible behavior:
 - Out of scope:
 
+## PR Authority And Internal Gate
+- Implementation reported ready at:
+- User explicitly authorized PR creation at:
+- Intended target remote ref:
+- Internal Exhaustive candidate-range review: pending | pass | findings
+- Corrective findings resolved and complete review repeated: not needed | pending | pass
+
+Readiness is not PR authority. Complete this gate only after the user says to create the PR. The
+implementing agent performs it directly over the complete target merge-base through candidate diff;
+it does not invoke external Codex Review or grant build, test, Simulator, GitHub-run, or paid-service
+permission. Do not push or create the PR while a P0–P2 remains.
+
 ## Risk Card (complete before implementation)
 - Primary risk class: UI/accessibility | state/concurrency | persistence/import/export | external input | dependency | build graph/workflow | security/privacy | control-plane | domain/product logic | other (define evidence):
 - Required invariant and explicitly unchanged behavior:
@@ -30,6 +42,10 @@ correct atomic fix.
 - [ ] Memory/cache/media behavior is bounded where applicable.
 - [ ] Observability is sufficient.
 - [ ] Verification evidence is attached.
+- [ ] Every selected check has an honest terminal result; missing/skipped/unavailable evidence is
+      not represented as PASS.
+- [ ] The complete candidate PR range was internally reviewed after PR authorization.
+- [ ] After fixes, the complete review was repeated and the exact committed PR range was reviewed.
 - [ ] Risks/debt/exceptions are recorded.
 
 ## Reviewer Output
@@ -53,12 +69,16 @@ correct atomic fix.
 - Clean-worktree result:
 - Change-contract / risk-card rows reviewed:
 - Proposed-diff self-review:
-- Exact-SHA self-review:
+- Internal Exhaustive candidate-range review and findings:
+- Full candidate-range repeat after fixes / not needed:
+- Exact-SHA complete PR-range self-review:
 - Findings and disposition:
 - Relevant commands and results:
 - Pre-push receipt-input revalidation:
 - Evidence reused:
 - Evidence intentionally omitted and why:
-- External review recommendation/result:
+- GitHub manual check recommendation/result (`NOT_RUN_BY_USER_DECISION` until the user runs it):
+- External Codex Review recommendation/user-provided result (never agent-triggered):
+- Whole-project or feature review user-provided result / not requested:
 - Residual risk:
 - Escaped finding feedback record, if any:

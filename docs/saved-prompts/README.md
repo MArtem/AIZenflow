@@ -20,8 +20,8 @@ All saved prompts visible in the screenshot were recovered from the local Zenflo
 | `/pr-comments` | `./docs/saved-prompts/pr-comments.md` | complete exact export | GitHub PR comment planning guard |
 | `/review` | `./docs/saved-prompts/review.md` | complete exact export | General code-review shortcut |
 | `/update-branch` | `./docs/saved-prompts/update-branch.md` | complete exact export | Main-merge/conflict shortcut |
-| `/ios` | `./docs/saved-prompts/ios.md` | complete exact export plus active-rule link | Active evolved rule: `./.zenflow/tasks/new-task-be0b/ios-engineering-rules.md` |
-| `/services` | `./docs/saved-prompts/services.md` | complete exact export plus active-rule link | Active evolved rule: `./.zenflow/tasks/new-task-be0b/services-engineering-rules.md` |
+| `/ios` | `./docs/saved-prompts/ios.md` | complete exact export plus canonical historical-rule reference | Tracked canonical recovery copy under `documentation-vault/apps/Tchop/legacy-reference/TchopApp/baseline/` |
+| `/services` | `./docs/saved-prompts/services.md` | complete exact export plus canonical historical-rule reference | Tracked canonical recovery copy under `documentation-vault/apps/Tchop/legacy-reference/TchopApp/baseline/` |
 
 ## Usage Rule
 - These files preserve Codex App saved prompt bodies.

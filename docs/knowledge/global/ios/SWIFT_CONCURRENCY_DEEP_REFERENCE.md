@@ -51,7 +51,9 @@ Awaiting does not guarantee that an older request finishes first. Use task repla
 
 ## Swift 6.x Discipline
 - Record compiler version, language mode, strict-concurrency settings, default actor isolation, and enabled upcoming features separately.
-- Resolve warnings by expressing actual ownership; do not scatter `@unchecked Sendable`, `nonisolated(unsafe)`, or broad `@MainActor` annotations.
+- Resolve warnings by expressing actual ownership; do not use or retain `@unchecked Sendable`,
+  `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions, or broad/fake `@MainActor`
+  annotations as workarounds.
 - Migrate incrementally by module when a direct switch creates excessive ambiguity.
 - Re-check third-party modules and generated code under the intended language mode.
 - Revisit guidance after Swift releases because default isolation and diagnostics can change materially.

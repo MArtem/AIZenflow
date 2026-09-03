@@ -59,6 +59,7 @@
     "governance-new-project": {
       "documents": [
         "./docs/NEW_PROJECT_START_CONTRACT.md",
+        "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
         "./docs/STATIC_GATE_ADOPTION.md"
       ]
     },
@@ -255,7 +256,7 @@
     },
     "ios-figma-design": {
       "documents": [
-        "./docs/agent-prompts/figma-mcp-swiftui-implementation.md",
+        "./docs/agent-prompts/FIGMA_TASK_ROUTER.md",
         "./docs/UI_PIXEL_PERFECT_WORKFLOW.md",
         "./docs/DESIGN_SYSTEM_GOVERNANCE.md"
       ]
@@ -289,7 +290,9 @@
     },
     "ios-new-app-bootstrap": {
       "documents": [
+        "./docs/NEW_PROJECT_START_CONTRACT.md",
         "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+        "./docs/STATIC_GATE_ADOPTION.md",
         "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
         "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
         "./docs/MODULAR_ARCHITECTURE_STANDARD.md",
@@ -306,6 +309,7 @@
         "./docs/STATIC_GATE_ADOPTION.md",
         "./docs/CI_CD_QUALITY_GATES.md",
         "./docs/IOS_TESTING_STRATEGY.md",
+        "./docs/IOS_PR_REVIEW_TEMPLATE.md",
         "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
         "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md"
       ]
@@ -313,7 +317,8 @@
     "static-gates": {
       "documents": [
         "./docs/STATIC_QUALITY_GATE_POLICY.md",
-        "./docs/STATIC_GATE_ADOPTION.md"
+        "./docs/STATIC_GATE_ADOPTION.md",
+        "./docs/CI_CD_QUALITY_GATES.md"
       ],
       "trigger_patterns": [
         "./scripts/check_*.py",

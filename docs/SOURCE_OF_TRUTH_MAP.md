@@ -10,6 +10,7 @@ Local checkout: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 
 | Knowledge type | Source of truth |
 |---|---|
+| Automatic global-rule activation | Canonical: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md`; portable fallback: governed root `GLOBAL_RULES_PORTABLE_SNAPSHOT.md` with an explicit unavailable-canonical report |
 | Reusable/global rule | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` |
 | Reusable deep iOS theory | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/knowledge-global/ios/` |
 | Project-distribution mirror | `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/`; never an independent authority |

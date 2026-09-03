@@ -240,7 +240,9 @@ Follow these strictly:
 - avoid heavy work on MainActor;
 - shared mutable state must be protected by actor, lock, or appropriate isolation;
 - use Sendable where appropriate;
-- avoid @unchecked Sendable unless explicitly justified.
+- never use or retain `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning
+  suppressions, or blanket/fake `@MainActor` annotations to silence Swift 6 diagnostics; resolve
+  them through actual actor isolation, ownership, lifecycle, or value/sendability boundaries.
 
 9. State management rules.
 Prefer explicit enum state over many booleans.

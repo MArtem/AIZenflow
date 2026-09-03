@@ -173,7 +173,9 @@ Check:
 - Are there Task leaks?
 - Are actors used appropriately?
 - Is shared mutable state protected?
-- Are Sendable issues ignored or hidden with unjustified @unchecked Sendable?
+- Are unsafe-concurrency workarounds (`@unchecked Sendable`, `nonisolated(unsafe)`,
+  `@preconcurrency`, warning suppressions, or blanket/fake `@MainActor`) absent? Treat any active
+  occurrence as a blocking finding.
 - Are async sequences terminated correctly?
 - Does AsyncStream have onTermination if wrapping callbacks?
 - Are callbacks/continuations resumed exactly once?

@@ -29,6 +29,13 @@ report.
 - Do not run build, tests, Simulator, signing, archive, or external services unless authorized.
 - Use one bounded patch, targeted inspection, and relevant static evidence. Do not expand a
   documentation or product PR into speculative tooling, broad cleanup, or unrelated review work.
+- A new iOS/Xcode Git repository must receive the governed bootstrap before project work. When an
+  externally created repository lacks it, block project work until bootstrap or an explicit owned
+  deferral is recorded.
+- GitHub verification remains user-triggered; reusable workflows use `workflow_dispatch` only.
+  Missing, skipped, stale, denied, or unavailable evidence is never normal PASS.
+- After the user explicitly authorizes a new PR, perform the internal Exhaustive candidate-range and
+  exact-SHA review, resolve P0–P2, and keep external Codex Review user-triggered.
 - Do not claim current global-rule compliance, exact canonical revision, passing unrun checks, or
   production readiness while operating through this fallback.
 

@@ -278,9 +278,9 @@ When reusing these packages elsewhere:
 - do not cargo-cult another app's repository shape if the new project does not need it
 
 ## Related Sources
-- [PROJECT_HEALTH.md](./PROJECT_HEALTH.md)
-- [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)
-- [.codex/skills/ios-reusable-packages/SKILL.md](./.codex/skills/ios-reusable-packages/SKILL.md)
+- [PROJECT_HEALTH.md](../PROJECT_HEALTH.md)
+- [PROJECT_DOCUMENTATION.md](../PROJECT_DOCUMENTATION.md)
+- [.codex/skills/ios-reusable-packages/SKILL.md](../.codex/skills/ios-reusable-packages/SKILL.md)
 
 
 ## Neutral Reuse For New Projects

@@ -1,5 +1,9 @@
 # Legacy Documentation Process Audit
 
+> **Historical record.** This audit predates the current governed baseline and is retained for
+> provenance. Its “safe target state” rows are not current instructions; use
+> `documentation-system-audit.md`, the canonical router, and the current baseline instead.
+
 ## Scope
 Read-only classification of legacy sync tooling, generated inventories, saved prompts,
 external-environment snapshots, baseline transfer references, and canonical CI state.

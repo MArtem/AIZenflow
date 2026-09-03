@@ -32,16 +32,10 @@ public actor InMemoryStore<Value: Sendable> { }
 
 ### Sendable
 
-Public models used across async boundaries should conform to `Sendable` when possible.
-
-Avoid `@unchecked Sendable`. If unavoidable, document:
-
-```text
-why it is needed;
-what protects mutable state;
-which methods are thread-safe;
-which methods are not.
-```
+Public models used across async boundaries should conform to `Sendable` when possible. Do not use
+or retain `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions,
+or blanket/fake `@MainActor` annotations as workarounds. Resolve diagnostics through actors,
+global-actor ownership, immutable `Sendable` values, or correctly isolated APIs.
 
 ### Cancellation
 

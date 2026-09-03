@@ -19,6 +19,10 @@ WORD_PATTERN = re.compile(r"\b\w+[\w.-]*\b")
 
 def file_cost(root: Path, path: str) -> dict[str, Any]:
     candidate = relative_path(root, path)
+    return candidate_cost(candidate, path)
+
+
+def candidate_cost(candidate: Path, path: str) -> dict[str, Any]:
     if not candidate.is_file():
         return {"path": path, "exists": False, "words": 0, "bytes": 0}
     data = candidate.read_bytes()
@@ -28,6 +32,68 @@ def file_cost(root: Path, path: str) -> dict[str, Any]:
         "exists": True,
         "words": len(WORD_PATTERN.findall(text)),
         "bytes": len(data),
+    }
+
+
+def instruction_envelope(root: Path, startup: dict[str, Any]) -> dict[str, Any]:
+    bootstrap = candidate_cost(
+        root.parent / "GLOBAL_RULES_BOOTSTRAP.md",
+        "../GLOBAL_RULES_BOOTSTRAP.md",
+    )
+    agent_instructions = candidate_cost(root / "AGENTS.md", "./AGENTS.md")
+    components = {
+        "bootstrap": bootstrap,
+        "agent_instructions": agent_instructions,
+        "level0_and_task_state": startup,
+    }
+    return {
+        "documents": sum(
+            item["documents"] if "documents" in item else int(item["exists"])
+            for item in components.values()
+        ),
+        "existing_documents": sum(
+            item["existing_documents"] if "existing_documents" in item else int(item["exists"])
+            for item in components.values()
+        ),
+        "words": sum(item["words"] for item in components.values()),
+        "bytes": sum(item["bytes"] for item in components.values()),
+        "components": components,
+    }
+
+
+def task_state_candidate(root: Path, path: str) -> Path:
+    candidate = relative_path(root, path)
+    if candidate.is_file() or not path.startswith("./.zenflow/tasks/"):
+        return candidate
+    task_relative_path = Path(path.removeprefix("./.zenflow/tasks/"))
+    return root.parent.parent / "tasks" / task_relative_path
+
+
+def summarize_task_state(root: Path, paths: list[str]) -> dict[str, Any]:
+    unique, duplicates = ordered_unique(paths)
+    costs = [candidate_cost(task_state_candidate(root, path), path) for path in unique]
+    return {
+        "documents": len(unique),
+        "existing_documents": sum(1 for item in costs if item["exists"]),
+        "words": sum(item["words"] for item in costs),
+        "bytes": sum(item["bytes"] for item in costs),
+        "duplicates": duplicates,
+        "files": costs,
+    }
+
+
+def combine_summaries(*summaries: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "documents": sum(summary["documents"] for summary in summaries),
+        "existing_documents": sum(summary["existing_documents"] for summary in summaries),
+        "words": sum(summary["words"] for summary in summaries),
+        "bytes": sum(summary["bytes"] for summary in summaries),
+        "duplicates": [
+            duplicate
+            for summary in summaries
+            for duplicate in summary.get("duplicates", [])
+        ],
+        "files": [item for summary in summaries for item in summary.get("files", [])],
     }
 
 
@@ -58,8 +124,9 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
         path for path in resolved["level0_documents"] if path not in dynamic_paths
     ]
     level0 = summarize(root, static_level0_paths)
-    dynamic = summarize(root, dynamic_paths)
-    startup = summarize(root, resolved["level0_documents"])
+    dynamic = summarize_task_state(root, dynamic_paths)
+    startup = combine_summaries(level0, dynamic)
+    envelope = instruction_envelope(root, startup)
 
     route_summaries: dict[str, Any] = {}
     route_sets: dict[str, set[str]] = {}
@@ -76,6 +143,9 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
             "with_level0_documents": with_level0["documents"],
             "with_level0_words": with_level0["words"],
             "with_level0_bytes": with_level0["bytes"],
+            "with_instruction_envelope_documents": envelope["documents"] + own["documents"],
+            "with_instruction_envelope_words": envelope["words"] + own["words"],
+            "with_instruction_envelope_bytes": envelope["bytes"] + own["bytes"],
             "max_words": configured_budget,
             "budget_exceeded": isinstance(configured_budget, int) and own["words"] > configured_budget,
         }
@@ -135,11 +205,16 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
             "words": startup["words"],
             "bytes": startup["bytes"],
         },
+        "instruction_envelope": envelope,
         "routes": route_summaries,
         "overlaps": overlaps,
         "heaviest_documents": heaviest,
         "unreachable_registered_documents": unreachable,
-        "missing": resolved["missing"],
+        "missing": [
+            path
+            for path in resolved["missing"]
+            if path not in dynamic_paths or not task_state_candidate(root, path).is_file()
+        ],
         "optional_missing": resolved["optional_missing"],
         "unclassified": resolved["unclassified"],
         "failures": resolved["failures"],
@@ -165,7 +240,12 @@ def print_text(report: dict[str, Any]) -> None:
         "Startup total: "
         f"{startup['documents']} docs; {startup['words']} words; {startup['bytes']} bytes"
     )
-    print("Routes (route-only -> with Level 0):")
+    envelope = report["instruction_envelope"]
+    print(
+        "Instruction envelope: "
+        f"{envelope['documents']} docs; {envelope['words']} words; {envelope['bytes']} bytes"
+    )
+    print("Routes (route-only -> with Level 0 -> with instruction envelope):")
     for name, values in report["routes"].items():
         budget = ""
         if values["max_words"] is not None:
@@ -173,6 +253,8 @@ def print_text(report: dict[str, Any]) -> None:
         print(
             f"- {name}: {values['documents']} docs, {values['words']} words, {values['bytes']} bytes"
             f" -> {values['with_level0_documents']} docs, {values['with_level0_words']} words"
+            f" -> {values['with_instruction_envelope_documents']} docs, "
+            f"{values['with_instruction_envelope_words']} words"
             f"{budget}"
         )
     print(f"Route overlaps: {len(report['overlaps'])} pairs")

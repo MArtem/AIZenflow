@@ -13,6 +13,10 @@ Apply this standard to every non-trivial source, executable policy/schema, workf
 migration, security/privacy, persistence, concurrency, or quality-control change. Mechanical edits
 may use a smaller verification set when correctness is directly observable.
 
+For every new PR, the user instruction to create the PR activates the mandatory internal Exhaustive
+pre-PR gate in Section 4A. It is distinct from optional, user-triggered external Codex Review and is
+not waived merely because the implementation risk appears low.
+
 Quality is the first priority. Economy removes duplicate reading, repeated passing checks,
 unrelated sweeps, and review theatre; it never removes a relevant invariant or required evidence.
 
@@ -144,6 +148,30 @@ fix, repeat the complete final-diff review once; do not start an unbounded revie
 Use an independent reviewer when available for high-risk or control-plane work. If unavailable,
 report that limitation and recommend the appropriate user-triggered review for the final SHA.
 
+## 4A. Mandatory Internal Exhaustive Pre-PR Gate
+
+When implementation is ready, report readiness and wait for explicit PR authority. After the user
+says to create the PR, the implementing agent must:
+
+1. freeze the intended scope and identify the actual PR target remote ref;
+2. review the complete target merge-base through candidate working-tree diff, including every
+   changed source, project, workflow, configuration, generated, and documentation file;
+3. apply the full change contract, affected-consumer search, failure-route review, and credible
+   security/privacy/build/release checks without inventing permission for runtime work;
+4. fix every P0–P2, fix or report every P3, and repeat one complete candidate-range review after
+   corrective changes;
+5. commit only the reviewed candidate, then review the exact committed `HEAD` and complete PR range
+   again, recording the Section 5 receipt;
+6. immediately before push, revalidate HEAD, target freshness, merge base, profile/configuration,
+   permissions, and toolchain inputs; and
+7. push/create the PR only if the receipt remains valid, then confirm the remote branch points to
+   the reviewed SHA.
+
+This is a direct responsibility of the implementing agent. An independent reviewer may strengthen
+high-risk work but does not replace the implementing agent's own exhaustive pass. External Codex
+Review, whole-project review, and feature review remain separate and user-triggered. Any material
+commit after the receipt invalidates it and repeats this gate before PR update.
+
 ## 5. Exact-SHA Review Receipt
 
 Before push, retain a compact receipt in the completion report, PR description/comment, or other
@@ -184,10 +212,11 @@ demote it to a review candidate or remove it.
 
 ## 7. Bounded External-Review Loop
 
-External review is requested only after the exact-SHA self-review and relevant evidence are
-complete. If it finds P0–P2 issues, make one consolidated corrective patch for the approved scope,
-repeat the full self-review and exact-SHA receipt, then recommend one fresh external review of the
-new SHA.
+External review remains user-triggered. Recommend it only after the exact-SHA self-review and
+relevant evidence are complete; the recommendation does not authorize the implementing agent to
+invoke the service. If a user-requested external review finds P0–P2 issues, make one consolidated
+corrective patch for the approved scope, repeat the full self-review and exact-SHA receipt, then
+recommend one fresh external review of the new SHA.
 
 If a further round reveals an unrelated risk class or starts expanding tools, policies, or
 infrastructure rather than correcting the approved product change, stop and report: completed

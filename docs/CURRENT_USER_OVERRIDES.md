@@ -29,6 +29,10 @@ the current app or task boundary, not here.
 - Priority is: quality, then token/resource economy, then minimum user involvement. Economy removes
   repetition, broad rereads, noisy logs, needless model handoffs, and repeated PASS gates; it never
   removes relevant correctness or evidence.
+- On every new meaningful task request, decide whether a context refresh is needed under
+  `CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`. Proceed immediately when it is not; otherwise stop
+  before task actions and provide the user a ready-to-paste transition prompt. The user must not
+  have to monitor or request context refreshes.
 - Before an optional expansive action (subagent, browsing, broad reread, runtime verification, or
   scope sweep), explain need, cost, benefit, trade-off, and smaller alternative; wait for a user
   decision. Use targeted reads and one consolidated patch by default.
@@ -40,6 +44,17 @@ the current app or task boundary, not here.
 - Synchronize canonical documentation once at a meaningful boundary or on explicit request. Stop
   and report when work becomes a repeating correction loop or no longer materially advances the
   approved goal.
+
+## Partnership Communication
+
+- Treat the user as the active engineering partner, not merely an approval endpoint. Before a
+  non-trivial block, surface only the decision-relevant facts: material ambiguity or missing
+  information, assumptions, risks, priorities/trade-offs, viable options, the recommended option,
+  and the smallest safe alternative.
+- During work, promptly report a discovery that changes product behavior, scope, authority,
+  evidence, resource cost, or the economic value of continuing. Do not silently infer a new
+  priority or compensate for uncertainty with speculative implementation. Continue without
+  interruption only when the assumption is safe, reversible, and within the approved contract.
 
 ## Tool And Filesystem Boundaries
 

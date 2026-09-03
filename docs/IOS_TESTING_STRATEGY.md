@@ -24,6 +24,16 @@ Project-mode defaults and the controlling user policy live in
 `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`. A denied, unavailable, or unrun test must be
 reported with residual risk and must not be replaced by a hidden test-like artifact or false PASS.
 
+`manual` means the user chooses whether and when to trigger the GitHub workflow; it does not
+authorize the agent to start it. A selected workflow mode may execute existing tests only when the
+current profile permits that test phase. If a requested mode requires tests but permission,
+toolchain, runtime, scheme, destination, or test plan is unavailable, report `BLOCKED` or
+`NOT_RUN_BY_USER_DECISION` as applicable; do not downgrade silently to a passing build-only run.
+
+Test applicability belongs in the project profile: authoritative schemes/targets, test plans,
+destinations, release-critical UI/snapshot suites, migration fixtures, and capabilities that are
+truly absent. `NOT_APPLICABLE` requires a validated project fact, not convenience or missing setup.
+
 ## Test Decision Matrix
 ### Unit Tests
 Use for:
@@ -95,3 +105,9 @@ For production-ready claims, state:
 4. Remaining risk if any required test was not run.
 5. Permission state for creation, modification, local execution, GitHub execution, UI/device, and
    performance work where relevant.
+6. Exact source SHA, profile/engine/toolchain identity, selected mode, and terminal result for each
+   applicable test phase.
+
+Passing the selected tests reduces known risk; it never proves that all possible defects were
+found. A production-ready verdict requires the relevant non-test review, build, privacy,
+accessibility, release, and product evidence in addition to the test report.

@@ -18,7 +18,7 @@ The index below is a map, not an always-read list. Use it to resolve routed docu
 
 Clean as found: when duplicated long rules, stale always-read lists, broken links, or misplaced app-specific content are found during normal work, fix them if safe and in scope; otherwise record the follow-up. Every new reusable doc/prompt/skill/package reference must be assigned to the router before completion.
 
-## Mandatory Active Documentation Index
+## Indexed Active Documentation (not an always-read list)
 
 ### Project Baseline
 - `./AGENTS.md`
@@ -160,7 +160,9 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/agent-prompts/README.md`
 - `./docs/agent-prompts/AI_iOS_MASTER_PROMPT.md`
 - `./docs/agent-prompts/ios-architecture-style-review.md`
+- `./docs/agent-prompts/FIGMA_TASK_ROUTER.md`
 - `./docs/agent-prompts/figma-mcp-swiftui-implementation.md`
+- `./docs/agent-prompts/swiftui-design-generation-master.md`
 - `./docs/knowledge/global/README.md`
 - `./docs/knowledge/global/ios/README.md`
 - `./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
@@ -190,6 +192,7 @@ The following export is retained for provenance only. It is not an active bootst
 ### Task Docs
 - `./.zenflow/tasks/new-task-be0b/handoff.md`
 - `./.zenflow/tasks/new-task-be0b/plan.md`
+- `./.zenflow/tasks/new-task-be0b/documentation-system-audit.md`
 - `./.zenflow/tasks/new-task-be0b/ai-fieldbook-product-contract.md`
 - `./.zenflow/tasks/new-task-be0b/ai-fieldbook-architecture-decisions.md`
 - `./.zenflow/tasks/new-task-be0b/ai-fieldbook-implementation-plan.md`

@@ -13,10 +13,22 @@ profiles own only project facts and selected configuration.
 - **Review Candidate**: context-dependent signal that must be checked during review but should not block alone.
 - **Allowed Exception**: explicitly documented tradeoff with owner, reason, scope, and expiry/revisit condition.
 
+These classify findings, not execution outcomes. Machine results use `PASS`, `FAIL`, `BLOCKED`,
+`NOT_APPLICABLE`, `NOT_RUN_BY_USER_DECISION`, `SKIPPED`, and `BYPASSED` from
+`./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`. Missing, malformed, stale, skipped,
+unavailable, or bypassed evidence cannot produce overall PASS.
+
 ## Rules For Scripts
-- Every active project that has completed static-gate adoption maintains a project-specific local static gate that a developer or agent can run before review. It must reflect the current source graph, architecture, configuration, platform risks, and approved project facts; a copied generic template is not sufficient. Before adoption, report baseline checks only as their actual limited scope and record the adoption deferral under `NEW_PROJECT_START_CONTRACT.md`.
+- Every active project that has completed quality-control adoption maintains a project-specific
+  local static launcher and a user-triggered `workflow_dispatch` static mode backed by the same
+  versioned engine contract. They must reflect the current source graph, architecture,
+  configuration, platform risks, and approved project facts; a copied generic template is not
+  sufficient. Before executable adoption, report baseline checks only as their actual limited scope
+  and record the owned deferral under `NEW_PROJECT_START_CONTRACT.md`.
 - The local gate evolves with the project. Reassess and update it when a feature, dependency, persistence/configuration boundary, build graph, or externally found escaped defect establishes a new deterministic high-signal risk. Do not add speculative or duplicate rules merely to make the gate larger.
-- Each project-specific rule must be executable locally and identify its scope and remediation. In a project that has explicitly adopted GitHub static verification, its authoritative implementation or contract must also be shared with that workflow so the two gates cannot silently diverge.
+- Each project-specific rule must be executable locally and identify its scope and remediation. Its
+  authoritative implementation and profile are shared with the manual GitHub workflow so local and
+  remote gates cannot silently diverge. The workflow must not add automatic PR/push triggers.
 - Scripts must prefer deterministic checks over subjective style opinions.
 - A newly created or materially revised gate may publish a whole-target or whole-repository PASS
   only when it derives the checked source universe from an authoritative build, target, package, or
@@ -45,12 +57,14 @@ profiles own only project facts and selected configuration.
   deterministic unsafe subset.
 - App names, scheme names, test-folder names, bundle identifiers, user paths, and product token
   allowlists must not be embedded in reusable scanner defaults.
-- A missing dependency, malformed profile, invalid scope, stale result, or skipped command must not
-  be converted into a successful finding set.
+- A missing dependency, malformed profile, invalid scope, stale result, unavailable tool, timeout,
+  or skipped command must produce its honest non-PASS terminal state rather than a successful
+  finding set.
 - Static gates must emit enough structured evidence to identify the source SHA, rule version,
   executed scope, input identity state, and classified findings without logging source secrets. A
-  clean committed input may emit `PASS`; dirty or unborn input is `BLOCKED` and cannot support an
-  exact-SHA claim; unavailable cleanliness is `FAIL`.
+  clean committed input may emit `PASS`; dirty or unborn input cannot support an exact-SHA claim
+  and is `BLOCKED` for that purpose. A proposed working-tree review may still report its explicitly
+  scoped findings without claiming committed-SHA coverage. Unavailable cleanliness is `BLOCKED`.
 - SHA-bound scans exclude Git-ignored untracked content and mutable submodule worktrees, and
   reject sparse or assume-unchanged index entries. A user who needs a secret/configuration check
   for such content must run a separate, explicitly scoped local check; it is not evidence for the
@@ -63,4 +77,6 @@ profiles own only project facts and selected configuration.
 - Failing scripts must be either fixed, classified, or recorded as remaining risk.
 - Allowed exceptions are temporary; permanent exceptions should become documented architecture rules.
 - Static execution remains user-controlled under
-  `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`; absence of a run is not a failure or PASS.
+  `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`; the user triggers GitHub execution, while
+  permitted local static inspection remains part of the agent quality gate. Absence of a run is not
+  a failure or PASS.

@@ -52,7 +52,7 @@ The user retains independent control over:
 - UI tests;
 - Simulator or physical-device work;
 - performance and Instruments work;
-- requesting normal or exhaustive Codex Review;
+- requesting external normal or exhaustive Codex Review;
 - approving HIGH/CRITICAL exceptions and emergency bypasses.
 
 One permission never implies another. An unavailable or denied check must be reported as not run
@@ -72,7 +72,9 @@ mode unless the user changes them.
 
 ## Manual GitHub Verification
 
-GitHub verification is advisory and manually triggered for every project. Supported planned modes
+GitHub verification is advisory and manually triggered by the user for every project. The reusable
+workflow trigger is `workflow_dispatch`. Do not add `pull_request`, `push`, `schedule`, merge-queue,
+or another automatic trigger unless the user approves a project-local exception. Supported modes
 are:
 
 - `static` — deterministic source/repository checks;
@@ -80,9 +82,11 @@ are:
 - `build-and-tests` — build plus tests only when test execution is permitted;
 - `full` — the approved maximum project-specific verification within all current permissions.
 
-The absence of a run is not PASS or FAIL and must not silently block merge. A failing run may make
-the engineering verdict `NOT_READY`, but GitHub branch protection remains deferred unless the user
-explicitly reopens and approves it for a real release project.
+The absence of a run is not PASS or FAIL and must not silently block merge. Once the user requests
+a mode, however, every applicable check in that mode must run to a terminal result or report
+`BLOCKED`; missing, skipped, unavailable, or stale evidence cannot be summarized as success. A
+failing run may make the engineering verdict `NOT_READY`, but GitHub branch protection remains
+deferred unless the user explicitly reopens and approves it for a real release project.
 
 GitHub Actions must add no monetary charge: use standard included runners where available, never
 use larger paid runners by default, stop before paid overage, and do not call paid AI APIs. Initial
@@ -91,7 +95,7 @@ time budgets are 5 minutes for `static`, 15 for `build`, 30 for `build-and-tests
 
 Apply `./docs/CI_CD_QUALITY_GATES.md` for workflow reproducibility, evidence, and safety details.
 
-## Pre-Push Local Review Gate
+## Mandatory Internal Pre-PR Review Gate
 
 Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md` to every material quality-control engine,
 policy/schema, workflow, bootstrap, adapter, evidence, or fail-closed verdict change. The change
@@ -102,19 +106,30 @@ Tests and static checks remain permission-bound supporting evidence. High-risk c
 uses an independent reviewer when available and receives an exhaustive review recommendation for
 the final pushed SHA. Missing independent or runtime evidence remains residual risk, never `PASS`.
 
-The local gate has two required points when commit authority is in scope: review the full proposed
-diff before commit, then review the exact committed SHA against its trusted base before push. Without
-commit authority, retain the proposed-diff review and report the exact-SHA receipt as pending. The
-second review records the compact receipt required by `ENGINEERING_CHANGE_QUALITY_STANDARD.md`; any
+When the implementing agent reports that a change is ready for a PR, that report does not authorize
+commit, push, or PR creation. After the user explicitly says to create the PR, the same agent must
+perform an internal Exhaustive review of the complete candidate PR range against its trusted target
+before committing or pushing. This gate is mandatory for every new PR, independent of the risk-based
+recommendation for external Codex Review. It grants no permission to run builds, tests, Simulator,
+paid services, or other separately controlled evidence.
+
+The local gate has two required points when PR/commit authority is in scope: review the full proposed
+PR diff before commit, then review the exact committed SHA and complete PR range against its trusted
+base before push. Resolve all P0–P2 findings, record or resolve P3, and repeat one complete review
+after corrective changes. Without commit authority, retain the proposed-diff review and report the
+exact-SHA receipt as pending. The second review records the compact receipt required by
+`ENGINEERING_CHANGE_QUALITY_STANDARD.md`; any
 later commit or recorded-input change invalidates it. Revalidate its inputs immediately before an
 authorized push and verify the remote branch resolves to that reviewed SHA after push. Static checks
-and user-triggered Codex Review are supporting, independent barriers and cannot replace the
-exact-SHA semantic review.
+and user-triggered external Codex Review are supporting, independent barriers and cannot replace the
+internal Exhaustive review or exact-SHA semantic receipt.
 
-## Codex Review
+## External Codex Review
 
-Codex Review is always user-triggered and advisory. A high recommendation does not authorize the
-assistant to request or purchase a review automatically. A material push changes the reviewed SHA
+External Codex Review is always user-triggered and advisory. The internal Exhaustive pre-PR gate
+above is a separate agent responsibility and must not invoke the external service. A high external
+recommendation does not authorize the assistant to request or purchase a review automatically. A
+material push changes the reviewed SHA
 and requires a new recommendation; the user decides whether to request another review.
 
 Normal review is the default recommendation for substantial but bounded risk. Exhaustive review is
@@ -134,6 +149,9 @@ higher-authority exception. Do not allow a product PR to become an open-ended ve
 Before a PR and after a material push, report separately:
 
 ```text
+Internal Exhaustive pre-PR review: pending | pass | findings
+Reviewed target/range/HEAD: <target ref and SHA> | <range> | <HEAD or pending>
+
 GitHub Manual Check: <0-100%>
 Recommended mode: none | static | build | build-and-tests | full
 Expected monetary cost: $0 | blocked
@@ -173,10 +191,18 @@ the reusable rule to hide a project-specific deviation.
 
 ## Bootstrap And Adoption
 
-Adoption remains explicit opt-in until two structurally different pilots validate the system.
-Existing-project migration must use inventory, dry-run conflict reporting, explicit apply,
-post-check, and reversible rollback. Broad file copying or replacement is not an acceptable
-migrator.
+The human policy is global for every current and future iOS/Xcode Git repository. A repository
+created through Codex must receive the governed bootstrap before its first project action. When
+Codex first encounters an externally created repository without that bootstrap, project work is
+blocked until bootstrap completes or the user records an explicit, owned deferral. Existing-project
+migration must use inventory, dry-run conflict reporting, explicit apply, post-check, and reversible
+rollback. Broad file copying or replacement is not an acceptable migrator.
+
+Only the delivery/consumer layer belongs in an app repository: bootstrap activation, the governed
+portable fallback, project profile and facts, thin workflow/launcher wiring, adoption state, and
+explicit local exceptions. Reusable policy and engine behavior remain owned by their canonical
+repositories. Executable rollout may remain staged until two structurally different pilots validate
+it; staged rollout does not make the global human policy optional.
 
 Proven behavior progresses through canary, first project pilot, second different pilot, and only
 then explicit reusable promotion. No project-specific workaround becomes an engine default.
