@@ -66,6 +66,9 @@ Universal plan revisions); this file is the compact executable state required fo
     Git-HEAD Swift bytes through stdin, records tool/configuration digests, and never writes files.
     Positive/negative fixtures returned `PASS`/`FAIL` with exit codes `0`/`1`; app tests/builds remain
     unrun.
+  - [x] SwiftFormat tracked configuration resolution is pinned to the authenticated repository
+    root, independent of caller CWD; commit `ce8ec84355afd6d7f6d7b5b994c055c0ecb7b53f` is
+    published on `main` and a cross-CWD positive smoke returned `PASS`.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
   contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
   version and fixtures demonstrate net value.

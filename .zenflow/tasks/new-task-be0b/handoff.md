@@ -55,6 +55,10 @@
   failure envelopes instead of emitting a misleading static-mode result. QualityControl commit
   `b529226c5313f96be1f1aaecfc3a65e3429f9b42` is published on `origin/main`; Swift parse,
   assertions, and diff-check passed.
+- SwiftFormat adapter hardening is published in QualityControl commit
+  `ce8ec84355afd6d7f6d7b5b994c055c0ecb7b53f`: the tracked configuration is resolved from the
+  authenticated repository root rather than caller CWD. Python compile, cross-CWD positive fixture
+  smoke, and diff-check passed; prior negative smoke evidence is reused unchanged.
 - Permission-aware mode orchestration is complete for the currently implemented boundaries:
   status vocabulary and precedence are aligned, deferred/N/A/prohibited capability states are
   truthful, all eight profile capabilities are represented, and unsupported dedicated boundaries
