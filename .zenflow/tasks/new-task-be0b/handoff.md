@@ -92,6 +92,10 @@
   QualityControl `origin/main` points to the corrected privacy adapter, and Documentation Vault
   `origin/main` contains the synchronized task-state copy. The QC source worktree remains dirty only
   in the user-owned `AGENTS.md`; no task-created linked checkout or generated build artifact remains.
+- Cleanup after publication removed the task-local QualityControl contract checkout and two clean,
+  superseded MVVMExample linked checkouts; their branch refs and commit history remain preserved.
+  Dirty checkouts containing user-owned `AGENTS.md`, and all linked worktrees owned by the separate
+  `AIZenflowRelease` repository, were intentionally left untouched.
 
 ## Completed canonical repair
 
