@@ -29,6 +29,13 @@
 - The compact Universal execution plan now records the remaining engine/adoption phases and three
   approved pre-resume improvements: read-only repository-integrity receipt, retention/deletion
   safety policy, and a Swift 6 quality-gate contract-drift regression guard.
+- The read-only repository-integrity checker is implemented at `scripts/check_repository_integrity.py`.
+  Its first allowlisted receipt records local SHA/cleanliness/deletion facts for AIZenflow,
+  MVVMExample, Documentation Vault, QualityControl, and QualityControlCanary. Remote parity is
+  intentionally `BLOCKED` in the current DNS/network sandbox; no remote success is claimed.
+- Canonical retention/deletion policy is synchronized and pushed in Documentation Vault commit
+  `caa64d9`; it preserves unique refs and potentially user-owned `xcuserdata`, and permits deletion
+  only for exact task-created disposable paths or proven generated outputs.
 - No new app builds, tests, Simulator, signing, or runtime checks are authorized in this continuation
   without a block-specific permission; existing migration evidence remains unchanged.
 
@@ -48,7 +55,8 @@
 - Continue the saved Universal iOS/Xcode Quality-Control plan from the first still-staged
   deterministic engine adapter or orchestration defect. Inspect the current `origin/main` engine
   surface first, keep the next patch within three source files, and do not merge stale superseded
-  branches or recreate replaced artifacts.
+  branches or recreate replaced artifacts. The Swift 6 quality-gate contract-drift guard remains
+  planned and must use an explicit project-contract fixture rather than a filename heuristic.
 
 ## Must not do
 
