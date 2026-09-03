@@ -69,13 +69,17 @@ Universal plan revisions); this file is the compact executable state required fo
   - [x] SwiftFormat tracked configuration resolution is pinned to the authenticated repository
     root, independent of caller CWD; commit `ce8ec84355afd6d7f6d7b5b994c055c0ecb7b53f` is
     published on `main` and a cross-CWD positive smoke returned `PASS`.
-  - [x] `QC.PRIVACY.MANIFEST` is implemented in QualityControl commit `8bf87c38353fb19664aa3069b6db953c3bf790f1`.
+  - [x] `QC.PRIVACY.MANIFEST` is implemented in QualityControl commit `cb81e49662d90c06c8618747bc7f8a760d79fae6`.
     It scans exact clean Git `HEAD` manifests, enforces the required `PrivacyInfo.xcprivacy` name,
     validates bounded plist structure, duplicate keys/categories, allowed Apple manifest keys,
     value types, and non-empty arrays, and returns `BLOCKED` for malformed or unsupported input.
     Positive, duplicate-key, and filename-boundary fixture smoke produced the expected `PASS` /
     `BLOCKED` results. It does not claim target membership, actual API/data use, SDK coverage,
     required-reason approval, runtime lifecycle, or App Store acceptance.
+  - [x] Manual-only consumer workflows pin the corrected engine and run the privacy gate after
+    resources: AIZenflow `4677bc8d42367ed4395a77b922e03d0b8d9954e0` and MVVMExample
+    `0e2e4f5016b28aca311d8e683bc679f97d3799b0`, both published to their development/default and
+    `main` branches. Workflow dispatch remains user-controlled; no GitHub run is claimed here.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
   contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
   version and fixtures demonstrate net value.
