@@ -56,14 +56,19 @@ Universal plan revisions); this file is the compact executable state required fo
 
 ### Agreed pre-resume improvements
 
-- [ ] Add one explicit, read-only repository-integrity receipt/check for an allowlisted repository
+- [x] Add one explicit, read-only repository-integrity receipt/check for an allowlisted repository
   set. It must validate the complete trusted target ref, local/remote branch parity, current
   tracked deletion diff, and clean/dirty state without treating ignored files as committed evidence.
-  It must not guess repositories, schemes, or destinations and must not mutate anything.
-- [ ] Add a short canonical policy note for retention/deletion safety: preserve branches and refs
+  It must not guess repositories, schemes, or destinations and must not mutate anything. The
+  read-only implementation is `scripts/check_repository_integrity.py`; its first five-repository
+  receipt is `.zenflow/tasks/new-task-be0b/runtime/repository-integrity-receipt.json`. Local SHA,
+  cleanliness, and deletion facts were captured; all remote parity queries were `BLOCKED` by the
+  current DNS/network sandbox, so no remote PASS is claimed.
+- [x] Add a short canonical policy note for retention/deletion safety: preserve branches and refs
   when they may contain unique history; delete only exact task-created disposable worktrees/clones
   or proven generated outputs; preserve potentially user-owned `xcuserdata` unless explicitly
-  confirmed disposable. Keep this policy in Documentation Vault, not in app product code.
+  confirmed disposable. Keep this policy in Documentation Vault, not in app product code. Canonical
+  policy commit `caa64d9` is pushed to `AIZenflowDocumentation/main`.
 - [ ] Add a deterministic regression guard for quality-gate contract drift: when a project contract
   is Swift 6, a gate must not require `SWIFT_VERSION = 5.0`; the guard must identify the affected
   profile/target/configuration and remediation. Use a positive and negative fixture; do not weaken
