@@ -54,6 +54,9 @@ Universal plan revisions); this file is the compact executable state required fo
   - [x] `build-and-tests`/`full` expose every profile-governed capability, including snapshot tests,
     observability, and platform capabilities, without synthesizing unsupported evidence;
     QualityControl commit `1d224ad66673bd9cd6e65587f0139a6139b18e53` is published on `main`.
+  - [x] `mode-execute` preserves the requested mode in invalid-argument and bounded-output failure
+    envelopes instead of hardcoding `static`; QualityControl commit
+    `b529226c5313f96be1f1aaecfc3a65e3429f9b42` is published on `main`.
 - [ ] Implement the next staged deterministic catalog adapter only after inspecting its current
   producer/consumer surface. Each adapter needs stable ID, bounded scope/resources, applicability,
   remediation, positive/negative/boundary fixtures, and evidence identity binding.
