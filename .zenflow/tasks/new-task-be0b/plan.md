@@ -80,6 +80,10 @@ Universal plan revisions); this file is the compact executable state required fo
     resources: AIZenflow `4677bc8d42367ed4395a77b922e03d0b8d9954e0` and MVVMExample
     `0e2e4f5016b28aca311d8e683bc679f97d3799b0`, both published to their development/default and
     `main` branches. Workflow dispatch remains user-controlled; no GitHub run is claimed here.
+  - [x] After narrowing the privacy catalog contract, both consumers repinned the immutable
+    QualityControl revision `0d3045921727720b357590f94488a57ce687c363`: AIZenflow
+    `7b2d3e40` and MVVMExample `100b883`, each published to its development/default and `main`
+    branches. The workflow remains manual-only and no dispatch result is claimed.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
   contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
   version and fixtures demonstrate net value.

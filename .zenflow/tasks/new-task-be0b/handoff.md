@@ -39,16 +39,17 @@
 - The post-resume QualityControl adapters are complete through `QC.RESOURCES.ASSETS` and the
   structural `QC.PRIVACY.MANIFEST` boundary. The formatter hardening remains at `ce8ec843`; the
   expectation-validation fixture correction is `4cb9cd6` and the privacy adapter correction is
-  `cb81e49` (`origin/main` exact SHA `cb81e49662d90c06c8618747bc7f8a760d79fae6`). Privacy checks read exact
+  `cb81e49`; the subsequent catalog-contract correction is `0d3045921727720b357590f94488a57ce687c363`
+  (`origin/main` exact SHA). Privacy checks read exact
   clean Git `HEAD`, validate `PrivacyInfo.xcprivacy` plist shape, keys, types, duplicates, and
   bounds, and emit `BLOCKED` for malformed/unsupported input. Positive, duplicate-key, and
   filename-boundary fixture smoke returned the expected `PASS` / `BLOCKED` results. SwiftLint,
   build warnings, concurrency diagnostics, signing, and disabled-test adapters remain staged;
   app tests/builds were not run.
-- Consumer workflow wiring is published and pins `cb81e49`: AIZenflow `4677bc8d` in development/main
-  and MVVMExample `0e2e4f5` in Development/main. Both add a manual-only privacy-manifest step after
-  the resource gate and assert the exact check ID/status. No GitHub dispatch or app runtime result
-  is claimed; dispatch remains user-controlled.
+- Consumer workflow wiring is published and now pins the corrected catalog revision `0d304592`:
+  AIZenflow `7b2d3e40` in development/main and MVVMExample `100b883` in Development/main. Both
+  add a manual-only privacy-manifest step after the resource gate and assert the exact check
+  ID/status. No GitHub dispatch or app runtime result is claimed; dispatch remains user-controlled.
 - The next orchestration block is also published on QualityControl `origin/main`: commit
   `0429c48b871c19457433155e814909451dd25e9a` preserves deferred-vs-not-applicable semantics and
   blocks prohibited actions during mode planning; commit
