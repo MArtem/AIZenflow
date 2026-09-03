@@ -49,9 +49,14 @@ Universal plan revisions); this file is the compact executable state required fo
 - [ ] Implement the next staged deterministic catalog adapter only after inspecting its current
   producer/consumer surface. Each adapter needs stable ID, bounded scope/resources, applicability,
   remediation, positive/negative/boundary fixtures, and evidence identity binding.
+  - [x] `QC.FORMAT.SWIFTFORMAT` is implemented in QualityControl commit `342d4358efa9309f8cf417d35152e70a183a107e`.
+    It requires caller-pinned `swift-format` path/version and a tracked configuration, scans clean
+    Git-HEAD Swift bytes through stdin, records tool/configuration digests, and never writes files.
+    Positive/negative fixtures returned `PASS`/`FAIL` with exit codes `0`/`1`; app tests/builds remain
+    unrun.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
-  contract proves a deterministic unsafe subset. Keep SwiftLint/SwiftFormat staged until immutable
-  tool versions and fixtures demonstrate net value.
+  contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
+  version and fixtures demonstrate net value.
 - [ ] Keep workflows manual-only, least-privilege, action-pinned, bounded, and free of paid AI.
 
 ### Agreed pre-resume improvements
