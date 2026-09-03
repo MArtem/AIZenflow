@@ -69,6 +69,13 @@ Universal plan revisions); this file is the compact executable state required fo
   - [x] SwiftFormat tracked configuration resolution is pinned to the authenticated repository
     root, independent of caller CWD; commit `ce8ec84355afd6d7f6d7b5b994c055c0ecb7b53f` is
     published on `main` and a cross-CWD positive smoke returned `PASS`.
+  - [x] `QC.PRIVACY.MANIFEST` is implemented in QualityControl commit `8bf87c38353fb19664aa3069b6db953c3bf790f1`.
+    It scans exact clean Git `HEAD` manifests, enforces the required `PrivacyInfo.xcprivacy` name,
+    validates bounded plist structure, duplicate keys/categories, allowed Apple manifest keys,
+    value types, and non-empty arrays, and returns `BLOCKED` for malformed or unsupported input.
+    Positive, duplicate-key, and filename-boundary fixture smoke produced the expected `PASS` /
+    `BLOCKED` results. It does not claim target membership, actual API/data use, SDK coverage,
+    required-reason approval, runtime lifecycle, or App Store acceptance.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
   contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
   version and fixtures demonstrate net value.
@@ -132,7 +139,8 @@ Universal plan revisions); this file is the compact executable state required fo
 Inspect `AIZenflowQualityControl` at the current trusted `origin/main` and select the next
 still-staged deterministic adapter with a closed producer/consumer contract. SwiftLint remains
 staged until an immutable executable/version and fixtures are available; build-warning and
-concurrency adapters require an authorized authenticated build-report producer. Before editing,
-write the compact change contract and keep the patch within the normal three-source-file boundary.
-Run only relevant static/fixture evidence permitted for that block; do not broaden into app runtime
-or tests unless the block explicitly reopens that permission.
+concurrency adapters require an authorized authenticated build-report producer. Privacy-manifest
+structure is implemented, but its runtime/data-use and bundle-membership limits remain explicit.
+Before editing, write the compact change contract and keep the patch within the normal
+three-source-file boundary. Run only relevant static/fixture evidence permitted for that block;
+do not broaden into app runtime or tests unless the block explicitly reopens that permission.

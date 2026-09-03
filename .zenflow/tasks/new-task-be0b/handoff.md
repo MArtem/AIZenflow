@@ -36,12 +36,15 @@
 - Canonical retention/deletion policy is synchronized and pushed in Documentation Vault commit
   `caa64d9`; it preserves unique refs and potentially user-owned `xcuserdata`, and permits deletion
   only for exact task-created disposable paths or proven generated outputs.
-- The first post-resume QualityControl adapter is complete and published: `QC.FORMAT.SWIFTFORMAT`
-  at commit `342d4358efa9309f8cf417d35152e70a183a107e` on `origin/main`. It binds exact clean
-  Git-HEAD Swift bytes to a caller-pinned `swift-format` executable/version and tracked config,
-  reports tool/configuration digests, and has positive/negative fixture smoke evidence (`PASS`/`FAIL`,
-  exits `0`/`1`). SwiftLint, build warnings, concurrency diagnostics, privacy, signing, and test
-  disabled adapters remain staged; no app tests/builds were run.
+- The post-resume QualityControl adapters are complete through `QC.RESOURCES.ASSETS` and the
+  structural `QC.PRIVACY.MANIFEST` boundary. The formatter hardening remains at `ce8ec843`; the
+  expectation-validation fixture correction is `4cb9cd6` and the privacy adapter is `8bf87c3`
+  (`origin/main` exact SHA `8bf87c38353fb19664aa3069b6db953c3bf790f1`). Privacy checks read exact
+  clean Git `HEAD`, validate `PrivacyInfo.xcprivacy` plist shape, keys, types, duplicates, and
+  bounds, and emit `BLOCKED` for malformed/unsupported input. Positive, duplicate-key, and
+  filename-boundary fixture smoke returned the expected `PASS` / `BLOCKED` results. SwiftLint,
+  build warnings, concurrency diagnostics, signing, and disabled-test adapters remain staged;
+  app tests/builds were not run.
 - The next orchestration block is also published on QualityControl `origin/main`: commit
   `0429c48b871c19457433155e814909451dd25e9a` preserves deferred-vs-not-applicable semantics and
   blocks prohibited actions during mode planning; commit
@@ -69,10 +72,17 @@
   fixture smoke returned `PASS`/`FAIL` with exits `0`/`1`; no app tests/builds were run.
 - No new app builds, tests, Simulator, signing, or runtime checks are authorized in this continuation
   without a block-specific permission; existing migration evidence remains unchanged.
+- Branch audit after explicit consolidation authorization found no code unique to the stale
+  AIZenflow/MVVMExample migration/gate refs: AIFieldbook gate, Tchop share import/localization,
+  actor/concurrency changes, and MVVM Swift 6 changes are already present in current development
+  and main trees. Remaining branch-only differences are older task-state/documentation removals or
+  weakened metadata and were not merged or deleted. QualityControl's explicitly requested
+  expectation-validation experiment contributed only its missing fixture/cleanup correction as
+  `4cb9cd6`; its already-present core validation was not duplicated.
 - Source-level remote parity was verified immediately before this task-state-only update:
-  AIZenflow `development` and `main` both pointed to `eace5b5d6b2a4d89539414ba0c0af9a50e824c1f`,
-  Documentation Vault `main` pointed to `4871bea8e40490e8ae4753dd27cc5ab8b616e2de`, and
-  QualityControl `origin/main` pointed to `ce8ec84355afd6d7f6d7b5b994c055c0ecb7b53f`. The QC
+  AIZenflow `development` and `main` both pointed to `8e503ad78b14585fab948c08ffbf2e4f0e16be6b`,
+  Documentation Vault `main` pointed to `49fe73832d4a7c8eeb0707124868b8214254f908`, and
+  QualityControl `origin/main` pointed to `8bf87c38353fb19664aa3069b6db953c3bf790f1`. The QC
   source worktree remains dirty only in the user-owned `AGENTS.md`; no task-created linked checkout
   or generated build artifact remains.
 
