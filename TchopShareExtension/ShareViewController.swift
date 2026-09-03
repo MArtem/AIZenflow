@@ -12,8 +12,17 @@ import UIKit
 /// Ownership:
 /// Created by the extension runtime for one share request.
 final class ShareViewController: UIViewController {
+    private static let importBudget = ShareItemImportBudget(
+        maximumImageFileCount: 10,
+        maximumNonImageFileCount: 1,
+        maximumFileBytes: 100_000_000,
+        maximumTotalFileBytes: 200_000_000,
+        allowsMixedFileKinds: false
+    )
+
     private let importer: NSItemProviderShareItemImporter? = try? NSItemProviderShareItemImporter(
-        groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
+        groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier,
+        budget: ShareViewController.importBudget
     )
     private let shareExtensionSessionContextManager: ShareExtensionSessionContextManager? = try? ShareExtensionSessionContextManager(
         groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
@@ -26,6 +35,9 @@ final class ShareViewController: UIViewController {
     private var composerViewModel: FeedComposerViewModel?
     private var publishFailureMessage: String?
     private var initialLoadTask: Task<Void, Never>?
+    private var requestCancellationTask: Task<Void, Never>?
+    private var importedItemsForCleanup: [ShareImportedItem] = []
+    private var publishedImportedFileURLStrings: Set<String> = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -109,13 +121,20 @@ final class ShareViewController: UIViewController {
 
             let itemProviders = inputItemProviders
             let importedItems = try await importer.loadItems(from: itemProviders)
-            try Task.checkCancellation()
-            let composerViewModel = try makeComposerViewModel(
-                sessionContext: sessionContext,
-                importedItems: importedItems,
-                sharedFeedCardSyncManager: sharedFeedCardSyncManager
-            )
-            try Task.checkCancellation()
+            let composerViewModel: FeedComposerViewModel
+            do {
+                try Task.checkCancellation()
+                composerViewModel = try makeComposerViewModel(
+                    sessionContext: sessionContext,
+                    importedItems: importedItems,
+                    sharedFeedCardSyncManager: sharedFeedCardSyncManager
+                )
+                try Task.checkCancellation()
+            } catch {
+                try importer.discardImportSession()
+                throw error
+            }
+            importedItemsForCleanup = importedItems
             self.composerViewModel = composerViewModel
             installRootView(state: .composer(composerViewModel))
         } catch is CancellationError {
@@ -128,9 +147,29 @@ final class ShareViewController: UIViewController {
     }
 
     private func cancelShareRequest() {
+        guard requestCancellationTask == nil else {
+            return
+        }
         initialLoadTask?.cancel()
         initialLoadTask = nil
-        extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
+        composerViewModel = nil
+        requestCancellationTask = Task { @MainActor [weak self] in
+            guard let self else { return }
+            do {
+                try await importer?.cancelAndDiscardImportSession()
+                importedItemsForCleanup.removeAll()
+                publishedImportedFileURLStrings.removeAll()
+                extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
+            } catch {
+                requestCancellationTask = nil
+                installRootView(
+                    state: .failed(
+                        title: AppLocalization.text("share.failure.unavailable.title"),
+                        message: AppLocalization.text("share.failure.unavailable.message")
+                    )
+                )
+            }
+        }
     }
 
     private func makeComposerViewModel(
@@ -161,6 +200,7 @@ final class ShareViewController: UIViewController {
 
                 do {
                     try sharedFeedCardSyncManager.publishImportedCard(feedCard)
+                    self.publishedImportedFileURLStrings = Self.importedFileURLStrings(in: feedCard)
                 } catch {
                     self.publishFailureMessage = AppLocalization.text("share.failure.publish.message")
                 }
@@ -176,6 +216,7 @@ final class ShareViewController: UIViewController {
         }
 
         publishFailureMessage = nil
+        publishedImportedFileURLStrings.removeAll()
         guard composerViewModel.publish() else {
             return
         }
@@ -190,7 +231,39 @@ final class ShareViewController: UIViewController {
             return
         }
 
+        let omittedImportedItems = importedItemsForCleanup.filter { item in
+            guard case let .file(file) = item else {
+                return false
+            }
+            return !publishedImportedFileURLStrings.contains(file.fileURL.absoluteString)
+        }
+        let retainsImportedFile = importedItemsForCleanup.contains { item in
+            guard case let .file(file) = item else {
+                return false
+            }
+            return publishedImportedFileURLStrings.contains(file.fileURL.absoluteString)
+        }
+        if !retainsImportedFile {
+            try? importer?.discardImportSession()
+        } else {
+            importer?.discardImportedFiles(in: omittedImportedItems)
+        }
+        importedItemsForCleanup.removeAll()
+        publishedImportedFileURLStrings.removeAll()
         extensionContext?.completeRequest(returningItems: nil, completionHandler: nil)
+    }
+
+    private static func importedFileURLStrings(in feedCard: FeedCard) -> Set<String> {
+        guard let media = feedCard.mediaContent else {
+            return []
+        }
+
+        switch media {
+        case let .photos(items):
+            return Set(items.compactMap(\.fileURLString))
+        case let .file(file):
+            return Set([file.fileURLString, file.teaserImage?.fileURLString].compactMap { $0 })
+        }
     }
 
     private func openContainingApp() {
@@ -210,7 +283,7 @@ final class ShareViewController: UIViewController {
                     self.showOpenAppFailure()
                     return
                 }
-                self.extensionContext?.cancelRequest(withError: ShareExtensionError.cancelled)
+                self.cancelShareRequest()
             }
         }
     }
@@ -250,6 +323,26 @@ final class ShareViewController: UIViewController {
             return ShareFailurePresentation(
                 title: AppLocalization.text("share.failure.fileLoad.title"),
                 message: AppLocalization.text("share.failure.fileLoad.message")
+            )
+        case ShareItemImportError.unsupportedMixedMediaAttachments:
+            return ShareFailurePresentation(
+                title: AppLocalization.text("share.failure.mixedMedia.title"),
+                message: AppLocalization.text("share.failure.mixedMedia.message")
+            )
+        case ShareItemImportError.tooManyImageFiles, ShareItemImportError.tooManyNonImageFiles:
+            return ShareFailurePresentation(
+                title: AppLocalization.text("share.failure.selectionLimit.title"),
+                message: AppLocalization.text("share.failure.selectionLimit.message")
+            )
+        case ShareItemImportError.fileTooLarge:
+            return ShareFailurePresentation(
+                title: AppLocalization.text("share.failure.fileTooLarge.title"),
+                message: AppLocalization.text("share.failure.fileTooLarge.message")
+            )
+        case ShareItemImportError.totalFileSizeExceeded:
+            return ShareFailurePresentation(
+                title: AppLocalization.text("share.failure.totalTooLarge.title"),
+                message: AppLocalization.text("share.failure.totalTooLarge.message")
             )
         case FeedComposerImportError.unsupportedMixedMediaAttachments:
             return ShareFailurePresentation(

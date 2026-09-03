@@ -313,6 +313,12 @@
 "share.failure.multipleFiles.message" = "Одна карточка может начинаться с одного video, audio или PDF. Отправьте один файл за раз.";
 "share.failure.incompatible.title" = "Этот контент нельзя объединить";
 "share.failure.incompatible.message" = "Импортированный контент не подходит под правила media card. Уберите конфликтующее media и попробуйте снова.";
+"share.failure.selectionLimit.title" = "В выборе слишком много вложений";
+"share.failure.selectionLimit.message" = "Одновременно можно отправить до 10 изображений или один video, audio либо PDF.";
+"share.failure.fileTooLarge.title" = "Этот файл слишком большой";
+"share.failure.fileTooLarge.message" = "Выберите файл меньше 100 МБ и попробуйте снова.";
+"share.failure.totalTooLarge.title" = "Вместе эти файлы слишком большие";
+"share.failure.totalTooLarge.message" = "Общий размер вложений не должен превышать 200 МБ.";
 "composer.placeholder.copyright" = "© Текст copyright";
 "composer.placeholder.caption" = "Введите caption...";
 "composer.placeholder.addCaption" = "Добавить caption";
