@@ -51,6 +51,9 @@ Universal plan revisions); this file is the compact executable state required fo
     capability-specific remediation. QualityControl commit `0429c48b871c19457433155e814909451dd25e9a`.
   - [x] `mode-plan` and `mode-execute` use the same conservative top-level status precedence;
     QualityControl commit `f1548d6621c89ae57f281b0b7013156ec17ffd39` is published on `main`.
+  - [x] `build-and-tests`/`full` expose every profile-governed capability, including snapshot tests,
+    observability, and platform capabilities, without synthesizing unsupported evidence;
+    QualityControl commit `1d224ad66673bd9cd6e65587f0139a6139b18e53` is published on `main`.
 - [ ] Implement the next staged deterministic catalog adapter only after inspecting its current
   producer/consumer surface. Each adapter needs stable ID, bounded scope/resources, applicability,
   remediation, positive/negative/boundary fixtures, and evidence identity binding.

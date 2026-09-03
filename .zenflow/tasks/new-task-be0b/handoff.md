@@ -47,6 +47,10 @@
   blocks prohibited actions during mode planning; commit
   `f1548d6621c89ae57f281b0b7013156ec17ffd39` aligns `mode-plan` status precedence with
   `mode-execute`. Both commits are source-only and have parse/diff/schema static evidence.
+- Capability coverage is now explicit for `build-and-tests`/`full`: snapshot tests, observability,
+  and platform capabilities are represented as bounded non-success/N/A steps until their dedicated
+  boundaries exist. QualityControl commit `1d224ad66673bd9cd6e65587f0139a6139b18e53` is published
+  on `origin/main`; no unsupported evidence is synthesized.
 - The Swift 6 gate-contract drift guard is complete at `scripts/check_swift6_gate_contract.py`.
   It requires an explicit closed project contract, detects only AST-bound `SWIFT_VERSION = 5.0`
   pairs/maps/comparisons, and reports project/target/configuration/remediation. Positive/negative
@@ -72,7 +76,7 @@
   patch within three source files, and do not merge stale superseded branches. SwiftLint is deferred
   until a caller-pinned immutable tool/version is available; build-warning and concurrency adapters
   need an authorized authenticated build-report producer. The exact disposable linked checkouts
-  used for the two orchestration commits were removed after publication.
+  used for the three orchestration commits were removed after publication.
 
 ## Must not do
 
