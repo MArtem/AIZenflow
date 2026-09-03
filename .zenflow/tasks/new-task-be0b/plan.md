@@ -4,7 +4,8 @@
 
 Restore a coherent, authoritative, low-cost documentation system after the Git/Xcode work. Audit
 canonical reusable rules, baseline mirrors, routing/indexes, task-state, and four app boundaries;
-repair only evidence-backed defects and preserve historical material.
+repair only evidence-backed defects, preserve historical material, and publish the verified
+repository state without losing source or documentation.
 
 ## Scope and authority
 
@@ -13,7 +14,8 @@ repair only evidence-backed defects and preserve historical material.
   `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/`.
 - Active project overlay: this worktree; exact baseline files follow the governed policy.
 - Never inspect `/Users/Artem/.zenflow/secrets/`; never edit user-owned `AGENTS.md`.
-- No product source, tests, builds, Simulator, signing, or PR work in this documentation audit.
+- No product source, tests, builds, Simulator, signing, or PR work in this documentation audit;
+  repository publication is limited to the explicitly authorized dev/main synchronization.
 - Preserve archives, legacy references, app boundaries, and uncertain material unless a validator
   proves it is an unsafe active surface.
 
@@ -38,6 +40,16 @@ repair only evidence-backed defects and preserve historical material.
 - Exact baseline drift is clean: 175 mirrors, 0 stale/missing/unexpected/policy failures after
   canonical source and baseline synchronization.
 - Historical implementation detail remains recoverable in Git history and existing task archives.
+- MVVMExample's static gate was repaired from a stale Swift 5 expectation to Swift 6 with complete
+  strict concurrency, and the missing required task-type router was restored byte-identically from
+  the canonical baseline. Static verification passes with zero blocking/advisory findings.
+- MVVMExample commit `bc7c65dd4994ca5ea0d63d176e7dfdff277887d8` is exact on `Development`, `main`,
+  and both corresponding remote refs.
+- AIZenflow documentation synchronization commit `39997ef21eb97bc8879f571a9ed91e8a90c957f9` is
+  exact on `development`, `main`, and both corresponding remote refs.
+- QualityControl `origin/main` already contains the semantic expectation-validation implementation;
+  stale `c1c8d1b` was not merged because its production delta is superseded and its fixture change is
+  outside the approved test scope.
 
 ## Repairs applied to canonical
 
@@ -60,9 +72,12 @@ repair only evidence-backed defects and preserve historical material.
 - No product source, tests, builds, Simulator, signing, or runtime artifacts were touched.
 - Historical Tchop rules remain tracked under the canonical legacy boundary and are not duplicated as
   active task authority.
+- No current working-tree deletions remain in the audited repositories; replaced AIFieldbook
+  presentation files remain represented by the real feature-sliced implementation and were not
+  restored as duplicate artifacts.
 
 ## Stop conditions
 
-Do not build a new documentation engine, mass-delete archives, overwrite app overlays, or modify
-product code. The documentation audit is complete; resume the saved Universal iOS/Xcode Quality-
-Control plan only after this receipt is recorded.
+Do not build a new documentation engine, mass-delete archives, overwrite app overlays, merge stale
+branches, or modify product code. Record the final task-state receipt and canonical sync, then
+resume the saved Universal iOS/Xcode Quality-Control plan.

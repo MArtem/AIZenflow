@@ -5,7 +5,9 @@
 Audit date: 2026-09-03. Scope is the canonical Documentation Vault, its governed baseline, the
 active AIZenflow project overlay, and the four app documentation boundaries. Historical/archive and
 external-environment snapshots were inspected for classification, not treated as active guidance.
-No product source, test, build, Simulator, signing, or runtime artifact was changed or run.
+No product source, test, build, Simulator, signing, or runtime artifact was changed or run. A
+documentation/static-gate contract repair was made in MVVMExample after audit exposed a stale
+Swift 5 expectation and a missing required router entrypoint.
 
 ## Evidence-backed state
 
@@ -21,6 +23,13 @@ No product source, test, build, Simulator, signing, or runtime artifact was chan
   Active task state was compacted from a mixed implementation log; previous detail remains in Git
   history and task archives.
 - Relative links in active canonical docs resolve; JSON route/policy files parse successfully.
+- MVVMExample static verification now passes with Swift 6 and complete strict concurrency, with
+  zero blocking or advisory findings. The required task-type router was restored byte-identically
+  from the canonical baseline (SHA-256
+  `999f384ba8fb3585939279af282b544ef67c21f3958249be9e03276793d56769`).
+- AIZenflow commit `39997ef21eb97bc8879f571a9ed91e8a90c957f9` and MVVMExample commit
+  `bc7c65dd4994ca5ea0d63d176e7dfdff277887d8` are each published with exact parity on their
+  respective development and main remote refs.
 
 ## Defects found
 
@@ -66,6 +75,10 @@ No product source, test, build, Simulator, signing, or runtime artifact was chan
     policy in `reusable/baseline/AGENTS.md`: no `@unchecked Sendable`, `nonisolated(unsafe)`,
     `@preconcurrency`, warning suppression, or fake/blanket `@MainActor`; active code must use
     actual ownership/isolation boundaries. No duplicate local rule is needed.
+11. **Static-gate contract drift:** MVVMExample's gate still required `SWIFT_VERSION = 5.0` and
+    lacked the required task-type router despite the project already being Swift 6/strict. The
+    expectation was corrected to Swift 6 plus `SWIFT_STRICT_CONCURRENCY = complete`, the canonical
+    router was restored exactly, and the static gate now reports zero blocking/advisory findings.
 
 ## Repairs completed in this worktree
 
@@ -82,5 +95,6 @@ No product source, test, build, Simulator, signing, or runtime artifact was chan
 
 The reviewed source and baseline repairs are applied in the canonical vault, manifests are
 regenerated, all documentation/boundary/drift checks pass, and the sync commit is pushed with an
-exact remote-SHA match. This follow-up receipt update records that result; no archives or user-owned
-`AGENTS.md` files were copied, deleted, or modified.
+exact remote-SHA match. AIZenflow and MVVMExample are likewise published to their development and
+main refs with exact SHA parity. This follow-up receipt update records that result; no archives or
+user-owned `AGENTS.md` files were copied, deleted, or modified.

@@ -5,7 +5,8 @@
 - Worktree/task: `/Users/Artem/.zenflow/worktrees/new-task-be0b`, `new-task-be0b`
 - Canonical vault: `/Users/Artem/.zenflow/worktrees/documentation-vault`
 - Current mode/model: **эконом / GPT-5.6 luna**; switch not required.
-- Scope: documentation integrity and context economy only; no app source or tests.
+- Scope: documentation integrity, static-gate contract recovery, repository publication, and
+  context economy; no product source or tests.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
@@ -18,7 +19,14 @@
 - Existing validators pass: manifest/index/router/consistency/boundary/bootstrap/remote-state.
 - Context-cost report previously exposed oversized dynamic task state; active `plan.md` and
   `handoff.md` are now compact and keep the detailed history in Git/archive.
-- No builds, tests, Simulator, signing, or runtime checks were run or changed.
+- MVVMExample static verification exposed and repaired a stale Swift 5 build-contract expectation
+  and a missing required task-type router. The gate now passes with Swift 6/complete strict
+  concurrency, zero blocking/advisory findings; commit `bc7c65dd4994ca5ea0d63d176e7dfdff277887d8`
+  is published to both `Development` and `main` with exact remote-SHA parity.
+- AIZenflow documentation/task-state publication commit `39997ef21eb97bc8879f571a9ed91e8a90c957f9`
+  is published to both `development` and `main` with exact remote-SHA parity; this follow-up will
+  record the final task-state receipt.
+- No app builds, tests, Simulator, signing, or runtime checks were run or changed.
 
 ## Completed canonical repair
 
@@ -33,8 +41,8 @@
 
 ## Next safe steps
 
-- Resume the saved Universal iOS/Xcode Quality-Control plan. Do not commit/push the AIZenflow
-  project worktree in this documentation-only block.
+- After the final receipt and canonical synchronization, resume the saved Universal iOS/Xcode
+  Quality-Control plan. Do not merge stale superseded branches or recreate replaced artifacts.
 
 ## Must not do
 
