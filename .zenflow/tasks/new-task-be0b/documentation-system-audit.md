@@ -27,7 +27,7 @@ Swift 5 expectation and a missing required router entrypoint.
   zero blocking or advisory findings. The required task-type router was restored byte-identically
   from the canonical baseline (SHA-256
   `999f384ba8fb3585939279af282b544ef67c21f3958249be9e03276793d56769`).
-- AIZenflow commit `b80ae7fa3565a7fa75e5c7aeee1ae622ec9bfa3d` and MVVMExample commit
+- AIZenflow commit `58e863a84f31e527fd16b454630028710b3efe27` and MVVMExample commit
   `bc7c65dd4994ca5ea0d63d176e7dfdff277887d8` are each published with exact parity on their
   respective development and main remote refs.
 

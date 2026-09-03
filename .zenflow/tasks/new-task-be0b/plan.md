@@ -45,7 +45,7 @@ repository state without losing source or documentation.
   the canonical baseline. Static verification passes with zero blocking/advisory findings.
 - MVVMExample commit `bc7c65dd4994ca5ea0d63d176e7dfdff277887d8` is exact on `Development`, `main`,
   and both corresponding remote refs.
-- AIZenflow documentation synchronization commit `b80ae7fa3565a7fa75e5c7aeee1ae622ec9bfa3d` is
+- AIZenflow documentation synchronization commit `58e863a84f31e527fd16b454630028710b3efe27` is
   exact on `development`, `main`, and both corresponding remote refs.
 - QualityControl `origin/main` already contains the semantic expectation-validation implementation;
   stale `c1c8d1b` was not merged because its production delta is superseded and its fixture change is
