@@ -42,6 +42,10 @@
   reports tool/configuration digests, and has positive/negative fixture smoke evidence (`PASS`/`FAIL`,
   exits `0`/`1`). SwiftLint, build warnings, concurrency diagnostics, privacy, signing, and test
   disabled adapters remain staged; no app tests/builds were run.
+- The Swift 6 gate-contract drift guard is complete at `scripts/check_swift6_gate_contract.py`.
+  It requires an explicit closed project contract, detects only AST-bound `SWIFT_VERSION = 5.0`
+  pairs/maps/comparisons, and reports project/target/configuration/remediation. Positive/negative
+  fixture smoke returned `PASS`/`FAIL` with exits `0`/`1`; no app tests/builds were run.
 - No new app builds, tests, Simulator, signing, or runtime checks are authorized in this continuation
   without a block-specific permission; existing migration evidence remains unchanged.
 
@@ -62,8 +66,8 @@
   deterministic engine adapter or orchestration defect. Inspect the current `origin/main` engine
   surface first, keep the next patch within three source files, and do not merge stale superseded
   branches or recreate replaced artifacts. The Swift 6 quality-gate contract-drift guard remains
-  planned and must use an explicit project-contract fixture rather than a filename heuristic. The
-  temporary linked checkout `qc-next` can be removed after this state is synchronized.
+  implemented with an explicit project-contract fixture rather than a filename heuristic. The
+  temporary linked checkout `qc-next` was removed after its QualityControl commit was published.
 
 ## Must not do
 

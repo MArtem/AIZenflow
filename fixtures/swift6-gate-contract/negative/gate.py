@@ -1,0 +1,3 @@
+EXPECTED_BUILD_SETTINGS = (
+    ("SWIFT_VERSION", "5.0"),
+)

@@ -74,10 +74,12 @@ Universal plan revisions); this file is the compact executable state required fo
   or proven generated outputs; preserve potentially user-owned `xcuserdata` unless explicitly
   confirmed disposable. Keep this policy in Documentation Vault, not in app product code. Canonical
   policy commit `caa64d9` is pushed to `AIZenflowDocumentation/main`.
-- [ ] Add a deterministic regression guard for quality-gate contract drift: when a project contract
+- [x] Add a deterministic regression guard for quality-gate contract drift: when a project contract
   is Swift 6, a gate must not require `SWIFT_VERSION = 5.0`; the guard must identify the affected
   profile/target/configuration and remediation. Use a positive and negative fixture; do not weaken
-  the gate or add a broad filename heuristic.
+  the gate or add a broad filename heuristic. `scripts/check_swift6_gate_contract.py` uses an
+  explicit closed contract plus AST-bound structural checks; its fixtures returned `PASS`/`FAIL`
+  with exits `0`/`1` and reported target/configuration remediation.
 
 ### Phase I — review, flags, and release safety
 
