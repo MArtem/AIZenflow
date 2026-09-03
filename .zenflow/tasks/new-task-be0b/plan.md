@@ -46,6 +46,11 @@ Universal plan revisions); this file is the compact executable state required fo
 - [ ] Complete the remaining permission-aware mode orchestration without synthesizing composite
   `PASS`; keep `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`, `NOT_RUN_BY_USER_DECISION`, `SKIPPED`,
   and `BYPASSED` consistent across local and manual GitHub paths.
+  - [x] Mode planning preserves profile `deferred` as `NOT_RUN_BY_USER_DECISION`, keeps factual
+    `notApplicable` as `NOT_APPLICABLE`, blocks prohibited actions before execution, and emits
+    capability-specific remediation. QualityControl commit `0429c48b871c19457433155e814909451dd25e9a`.
+  - [x] `mode-plan` and `mode-execute` use the same conservative top-level status precedence;
+    QualityControl commit `f1548d6621c89ae57f281b0b7013156ec17ffd39` is published on `main`.
 - [ ] Implement the next staged deterministic catalog adapter only after inspecting its current
   producer/consumer surface. Each adapter needs stable ID, bounded scope/resources, applicability,
   remediation, positive/negative/boundary fixtures, and evidence identity binding.
@@ -114,8 +119,10 @@ Universal plan revisions); this file is the compact executable state required fo
 
 ## Next bounded block
 
-Inspect `AIZenflowQualityControl` at its current trusted branch/remote state and select the first
-still-staged deterministic adapter or orchestration defect. Before editing, write its compact change
-contract and keep the implementation patch within the normal three-source-file boundary. Run only
-the relevant static/fixture evidence permitted for that block; do not broaden into app runtime or
-tests unless the block explicitly reopens that permission.
+Inspect `AIZenflowQualityControl` at the current trusted `origin/main` and select the next
+still-staged deterministic adapter with a closed producer/consumer contract. SwiftLint remains
+staged until an immutable executable/version and fixtures are available; build-warning and
+concurrency adapters require an authorized authenticated build-report producer. Before editing,
+write the compact change contract and keep the patch within the normal three-source-file boundary.
+Run only relevant static/fixture evidence permitted for that block; do not broaden into app runtime
+or tests unless the block explicitly reopens that permission.

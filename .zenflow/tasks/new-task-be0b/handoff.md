@@ -42,6 +42,11 @@
   reports tool/configuration digests, and has positive/negative fixture smoke evidence (`PASS`/`FAIL`,
   exits `0`/`1`). SwiftLint, build warnings, concurrency diagnostics, privacy, signing, and test
   disabled adapters remain staged; no app tests/builds were run.
+- The next orchestration block is also published on QualityControl `origin/main`: commit
+  `0429c48b871c19457433155e814909451dd25e9a` preserves deferred-vs-not-applicable semantics and
+  blocks prohibited actions during mode planning; commit
+  `f1548d6621c89ae57f281b0b7013156ec17ffd39` aligns `mode-plan` status precedence with
+  `mode-execute`. Both commits are source-only and have parse/diff/schema static evidence.
 - The Swift 6 gate-contract drift guard is complete at `scripts/check_swift6_gate_contract.py`.
   It requires an explicit closed project contract, detects only AST-bound `SWIFT_VERSION = 5.0`
   pairs/maps/comparisons, and reports project/target/configuration/remediation. Positive/negative
@@ -62,12 +67,12 @@
 
 ## Next safe steps
 
-- Continue the saved Universal iOS/Xcode Quality-Control plan from the first still-staged
-  deterministic engine adapter or orchestration defect. Inspect the current `origin/main` engine
-  surface first, keep the next patch within three source files, and do not merge stale superseded
-  branches or recreate replaced artifacts. The Swift 6 quality-gate contract-drift guard remains
-  implemented with an explicit project-contract fixture rather than a filename heuristic. The
-  temporary linked checkout `qc-next` was removed after its QualityControl commit was published.
+- Continue the saved Universal iOS/Xcode Quality-Control plan from the next still-staged
+  deterministic adapter with a closed contract. Inspect current `origin/main` first, keep the next
+  patch within three source files, and do not merge stale superseded branches. SwiftLint is deferred
+  until a caller-pinned immutable tool/version is available; build-warning and concurrency adapters
+  need an authorized authenticated build-report producer. The exact disposable linked checkouts
+  used for the two orchestration commits were removed after publication.
 
 ## Must not do
 
