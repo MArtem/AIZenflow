@@ -43,9 +43,10 @@ Universal plan revisions); this file is the compact executable state required fo
 
 ### Phase H — executable quality-control contract
 
-- [ ] Complete the remaining permission-aware mode orchestration without synthesizing composite
-  `PASS`; keep `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`, `NOT_RUN_BY_USER_DECISION`, `SKIPPED`,
-  and `BYPASSED` consistent across local and manual GitHub paths.
+- [x] Complete permission-aware mode orchestration without synthesizing composite `PASS`; keep
+  `PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`, `NOT_RUN_BY_USER_DECISION`, `SKIPPED`, and
+  `BYPASSED` consistent across local and manual GitHub paths. Unsupported dedicated evidence
+  boundaries remain explicit terminal non-success/N/A states.
   - [x] Mode planning preserves profile `deferred` as `NOT_RUN_BY_USER_DECISION`, keeps factual
     `notApplicable` as `NOT_APPLICABLE`, blocks prohibited actions before execution, and emits
     capability-specific remediation. QualityControl commit `0429c48b871c19457433155e814909451dd25e9a`.

@@ -55,6 +55,10 @@
   failure envelopes instead of emitting a misleading static-mode result. QualityControl commit
   `b529226c5313f96be1f1aaecfc3a65e3429f9b42` is published on `origin/main`; Swift parse,
   assertions, and diff-check passed.
+- Permission-aware mode orchestration is complete for the currently implemented boundaries:
+  status vocabulary and precedence are aligned, deferred/N/A/prohibited capability states are
+  truthful, all eight profile capabilities are represented, and unsupported dedicated boundaries
+  never synthesize PASS. The next work is staged-adapter implementation, not app migration.
 - The Swift 6 gate-contract drift guard is complete at `scripts/check_swift6_gate_contract.py`.
   It requires an explicit closed project contract, detects only AST-bound `SWIFT_VERSION = 5.0`
   pairs/maps/comparisons, and reports project/target/configuration/remediation. Positive/negative
