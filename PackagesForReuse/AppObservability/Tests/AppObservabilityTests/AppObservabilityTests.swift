@@ -21,16 +21,20 @@ private struct StepClock: ObservabilityClock {
     }
 }
 
-private final class Counter: @unchecked Sendable {
-    private var value = 0
-    private let lock = NSLock()
+private final class Counter: Sendable {
+    private let queue = DispatchQueue(label: "AppObservabilityTests.Counter")
+    private let key = DispatchSpecificKey<Int>()
+
+    init() {
+        queue.setSpecific(key: key, value: 0)
+    }
 
     func next() -> Int {
-        lock.lock()
-        defer { lock.unlock() }
-        let current = value
-        value += 1
-        return current
+        queue.sync {
+            let current = queue.getSpecific(key: key) ?? 0
+            queue.setSpecific(key: key, value: current + 1)
+            return current
+        }
     }
 }
 

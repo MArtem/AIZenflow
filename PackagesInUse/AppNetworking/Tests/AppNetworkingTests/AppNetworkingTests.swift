@@ -1085,44 +1085,62 @@ private actor RefreshingTestAuthenticationProvider: APIAuthenticationRefreshing 
     }
 }
 
-private final class LockedCounter: @unchecked Sendable {
-    private let lock = NSLock()
-    private var value = 0
+private final class LockedCounter: Sendable {
+    private let queue = DispatchQueue(label: "AppNetworkingTests.LockedCounter")
+    private let key = DispatchSpecificKey<Int>()
+
+    init() {
+        queue.setSpecific(key: key, value: 0)
+    }
 
     func increment() -> Int {
-        lock.withLock {
-            value += 1
-            return value
+        queue.sync {
+            let next = (queue.getSpecific(key: key) ?? 0) + 1
+            queue.setSpecific(key: key, value: next)
+            return next
         }
     }
 }
 
-private final class URLProtocolStubState: @unchecked Sendable {
-    private let lock = NSLock()
-    private var lockedRequestHandler: (@Sendable (URLRequest) throws -> (HTTPURLResponse, Data))?
-    private var lockedObservedRequests: [URLRequest] = []
+private final class URLProtocolStubState: Sendable {
+    private struct State: Sendable {
+        var requestHandler: (@Sendable (URLRequest) throws -> (HTTPURLResponse, Data))?
+        var observedRequests: [URLRequest] = []
+    }
+
+    private let queue = DispatchQueue(label: "AppNetworkingTests.URLProtocolStubState")
+    private let key = DispatchSpecificKey<State>()
+
+    init() {
+        queue.setSpecific(key: key, value: State(requestHandler: nil))
+    }
 
     var requestHandler: (@Sendable (URLRequest) throws -> (HTTPURLResponse, Data))? {
-        get {
-            lock.withLock { lockedRequestHandler }
-        }
+        get { queue.sync { queue.getSpecific(key: key)?.requestHandler } }
         set {
-            lock.withLock { lockedRequestHandler = newValue }
+            queue.sync {
+                var state = queue.getSpecific(key: key) ?? State(requestHandler: nil)
+                state.requestHandler = newValue
+                queue.setSpecific(key: key, value: state)
+            }
         }
     }
 
     var observedRequests: [URLRequest] {
-        lock.withLock { lockedObservedRequests }
+        queue.sync { queue.getSpecific(key: key)?.observedRequests ?? [] }
     }
 
     func recordObservedRequest(_ request: URLRequest) {
-        lock.withLock { lockedObservedRequests.append(request) }
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(requestHandler: nil)
+            state.observedRequests.append(request)
+            queue.setSpecific(key: key, value: state)
+        }
     }
 
     func reset() {
-        lock.withLock {
-            lockedRequestHandler = nil
-            lockedObservedRequests = []
+        queue.sync {
+            queue.setSpecific(key: key, value: State(requestHandler: nil))
         }
     }
 }

@@ -21,18 +21,24 @@ final class LoggerTests: XCTestCase {
     }
 
     func testConsoleLoggerFormatsAndRedactsOutput() async {
-        final class OutputBox: @unchecked Sendable {
-            private let lock = NSLock()
-            private var storage: [String] = []
+        final class OutputBox: Sendable {
+            private let queue = DispatchQueue(label: "AppLoggingTests.OutputBox")
+            private let key = DispatchSpecificKey<[String]>()
+
+            init() {
+                queue.setSpecific(key: key, value: [])
+            }
 
             func append(_ value: String) {
-                lock.withLock {
-                    storage.append(value)
+                queue.sync {
+                    var values = queue.getSpecific(key: key) ?? []
+                    values.append(value)
+                    queue.setSpecific(key: key, value: values)
                 }
             }
 
             var values: [String] {
-                lock.withLock { storage }
+                queue.sync { queue.getSpecific(key: key) ?? [] }
             }
         }
         let box = OutputBox()

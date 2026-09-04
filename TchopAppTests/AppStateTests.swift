@@ -1406,43 +1406,92 @@ final class UserSessionServiceTests: XCTestCase {
     }
 }
 
-private final class RecordingAuthTokenStore: AuthTokenStoring, @unchecked Sendable {
-    private var tokenSet: AuthTokenSet?
-    private(set) var savedTokenSets: [AuthTokenSet] = []
-    private(set) var clearCallCount = 0
+private final class RecordingAuthTokenStore: AuthTokenStoring, Sendable {
+    private struct State: Sendable {
+        var tokenSet: AuthTokenSet?
+        var savedTokenSets: [AuthTokenSet] = []
+        var clearCallCount = 0
+    }
+
+    private let queue = DispatchQueue(label: "TchopAppTests.RecordingAuthTokenStore")
+    private let key = DispatchSpecificKey<State>()
+
+    var savedTokenSets: [AuthTokenSet] {
+        queue.sync { queue.getSpecific(key: key)?.savedTokenSets ?? [] }
+    }
+
+    var clearCallCount: Int {
+        queue.sync { queue.getSpecific(key: key)?.clearCallCount ?? 0 }
+    }
 
     init(initialTokenSet: AuthTokenSet? = nil) {
-        self.tokenSet = initialTokenSet
+        queue.setSpecific(key: key, value: State(tokenSet: initialTokenSet))
     }
 
     func loadTokenSet() throws -> AuthTokenSet? {
-        tokenSet
+        queue.sync { queue.getSpecific(key: key)?.tokenSet }
     }
 
     func saveTokenSet(_ tokenSet: AuthTokenSet) throws {
-        self.tokenSet = tokenSet
-        savedTokenSets.append(tokenSet)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(tokenSet: nil)
+            state.tokenSet = tokenSet
+            state.savedTokenSets.append(tokenSet)
+            queue.setSpecific(key: key, value: state)
+        }
     }
 
     func clearTokenSet() throws {
-        tokenSet = nil
-        clearCallCount += 1
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(tokenSet: nil)
+            state.tokenSet = nil
+            state.clearCallCount += 1
+            queue.setSpecific(key: key, value: state)
+        }
     }
 }
 
-private final class RecordingAuthenticationAPIManager: AuthenticationAPIManaging, @unchecked Sendable {
+private final class RecordingAuthenticationAPIManager: AuthenticationAPIManaging, Sendable {
+    private struct State: Sendable {
+        var refreshTokenResult: Result<AuthTokenSet, Error>
+        var signInUsernameRequests: [String] = []
+        var signInEmailRequests: [(email: String, password: String)] = []
+        var registerRequests: [(email: String, password: String)] = []
+        var appleRequests: [AppleAuthenticationIdentity] = []
+        var refreshTokenRequests: [String] = []
+        var revokeSessionRequests: [String?] = []
+    }
+
     private let signInUsernameToken: AuthTokenSet
     private let signInEmailToken: AuthTokenSet
     private let registerToken: AuthTokenSet
     private let appleToken: AuthTokenSet
-    private let refreshTokenResult: Result<AuthTokenSet, Error>
+    private let queue = DispatchQueue(label: "TchopAppTests.RecordingAuthenticationAPIManager")
+    private let key = DispatchSpecificKey<State>()
 
-    private(set) var signInUsernameRequests: [String] = []
-    private(set) var signInEmailRequests: [(email: String, password: String)] = []
-    private(set) var registerRequests: [(email: String, password: String)] = []
-    private(set) var appleRequests: [AppleAuthenticationIdentity] = []
-    private(set) var refreshTokenRequests: [String] = []
-    private(set) var revokeSessionRequests: [String?] = []
+    var signInUsernameRequests: [String] {
+        queue.sync { queue.getSpecific(key: key)?.signInUsernameRequests ?? [] }
+    }
+
+    var signInEmailRequests: [(email: String, password: String)] {
+        queue.sync { queue.getSpecific(key: key)?.signInEmailRequests ?? [] }
+    }
+
+    var registerRequests: [(email: String, password: String)] {
+        queue.sync { queue.getSpecific(key: key)?.registerRequests ?? [] }
+    }
+
+    var appleRequests: [AppleAuthenticationIdentity] {
+        queue.sync { queue.getSpecific(key: key)?.appleRequests ?? [] }
+    }
+
+    var refreshTokenRequests: [String] {
+        queue.sync { queue.getSpecific(key: key)?.refreshTokenRequests ?? [] }
+    }
+
+    var revokeSessionRequests: [String?] {
+        queue.sync { queue.getSpecific(key: key)?.revokeSessionRequests ?? [] }
+    }
 
     init(
         signInUsernameToken: AuthTokenSet = AuthTokenSet(
@@ -1477,36 +1526,62 @@ private final class RecordingAuthenticationAPIManager: AuthenticationAPIManaging
         self.signInEmailToken = signInEmailToken
         self.registerToken = registerToken
         self.appleToken = appleToken
-        self.refreshTokenResult = refreshTokenResult
+        queue.setSpecific(key: key, value: State(refreshTokenResult: refreshTokenResult))
     }
 
     func signIn(username: String) async throws -> AuthTokenSet {
-        signInUsernameRequests.append(username)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(refreshTokenResult: .success(signInUsernameToken))
+            state.signInUsernameRequests.append(username)
+            queue.setSpecific(key: key, value: state)
+        }
         return signInUsernameToken
     }
 
     func signIn(email: String, password: String) async throws -> AuthTokenSet {
-        signInEmailRequests.append((email, password))
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(refreshTokenResult: .success(signInEmailToken))
+            state.signInEmailRequests.append((email, password))
+            queue.setSpecific(key: key, value: state)
+        }
         return signInEmailToken
     }
 
     func register(email: String, password: String) async throws -> AuthTokenSet {
-        registerRequests.append((email, password))
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(refreshTokenResult: .success(registerToken))
+            state.registerRequests.append((email, password))
+            queue.setSpecific(key: key, value: state)
+        }
         return registerToken
     }
 
     func signInWithApple(identity: AppleAuthenticationIdentity) async throws -> AuthTokenSet {
-        appleRequests.append(identity)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(refreshTokenResult: .success(appleToken))
+            state.appleRequests.append(identity)
+            queue.setSpecific(key: key, value: state)
+        }
         return appleToken
     }
 
     func refreshToken(using refreshToken: String) async throws -> AuthTokenSet {
-        refreshTokenRequests.append(refreshToken)
-        return try refreshTokenResult.get()
+        let result = queue.sync { () -> Result<AuthTokenSet, Error> in
+            var state = queue.getSpecific(key: key) ?? State(refreshTokenResult: .success(signInUsernameToken))
+            state.refreshTokenRequests.append(refreshToken)
+            let result = state.refreshTokenResult
+            queue.setSpecific(key: key, value: state)
+            return result
+        }
+        return try result.get()
     }
 
     func revokeSession(accessToken: String?) async throws {
-        revokeSessionRequests.append(accessToken)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(refreshTokenResult: .success(signInUsernameToken))
+            state.revokeSessionRequests.append(accessToken)
+            queue.setSpecific(key: key, value: state)
+        }
     }
 }
 
@@ -1695,52 +1770,95 @@ final class AppBridgeTests: XCTestCase {
 
 private final class RecordingFeedHeadlineWidgetSnapshotManager:
     WidgetSnapshotStoring,
-    @unchecked Sendable
+    Sendable
 {
-    private let saveError: Error?
-    private let clearError: Error?
+    private struct State: Sendable {
+        let saveError: Error?
+        let clearError: Error?
+        var savedSnapshots: [FeedHeadlineWidgetSnapshot] = []
+        var clearCallCount = 0
+    }
 
-    private(set) var savedSnapshots: [FeedHeadlineWidgetSnapshot] = []
-    private(set) var clearCallCount = 0
+    private let queue = DispatchQueue(label: "TchopAppTests.RecordingFeedHeadlineWidgetSnapshotManager")
+    private let key = DispatchSpecificKey<State>()
+
+    var savedSnapshots: [FeedHeadlineWidgetSnapshot] {
+        queue.sync { queue.getSpecific(key: key)?.savedSnapshots ?? [] }
+    }
+
+    var clearCallCount: Int {
+        queue.sync { queue.getSpecific(key: key)?.clearCallCount ?? 0 }
+    }
 
     init(saveError: Error? = nil, clearError: Error? = nil) {
-        self.saveError = saveError
-        self.clearError = clearError
+        queue.setSpecific(key: key, value: State(saveError: saveError, clearError: clearError))
     }
 
     func save(_ snapshot: FeedHeadlineWidgetSnapshot) throws {
-        if let saveError {
+        if let saveError = queue.sync(execute: { queue.getSpecific(key: key)?.saveError }) {
             throw saveError
         }
 
-        savedSnapshots.append(snapshot)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(saveError: nil, clearError: nil)
+            state.savedSnapshots.append(snapshot)
+            queue.setSpecific(key: key, value: state)
+        }
     }
 
     func load() throws -> FeedHeadlineWidgetSnapshot? {
-        savedSnapshots.last
+        queue.sync { queue.getSpecific(key: key)?.savedSnapshots.last }
     }
 
     func clear() throws {
-        if let clearError {
+        if let clearError = queue.sync(execute: { queue.getSpecific(key: key)?.clearError }) {
             throw clearError
         }
 
-        clearCallCount += 1
-        savedSnapshots.removeAll()
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(saveError: nil, clearError: nil)
+            state.clearCallCount += 1
+            state.savedSnapshots.removeAll()
+            queue.setSpecific(key: key, value: state)
+        }
     }
 }
 
-private final class RecordingPushNotificationManager: PushNotificationManaging, @unchecked Sendable {
-    private let deviceTokenError: Error?
+private final class RecordingPushNotificationManager: PushNotificationManaging, Sendable {
+    private struct State: Sendable {
+        let deviceTokenError: Error?
+        var authorizationStatuses: [PushNotificationAuthorizationStatus] = []
+        var remoteRegistrationStates: [Bool] = []
+        var deviceTokens: [Data] = []
+        var registrationFailures: [String] = []
+        var remotePayloads: [PushNotificationPayload] = []
+    }
 
-    private(set) var authorizationStatuses: [PushNotificationAuthorizationStatus] = []
-    private(set) var remoteRegistrationStates: [Bool] = []
-    private(set) var deviceTokens: [Data] = []
-    private(set) var registrationFailures: [String] = []
-    private(set) var remotePayloads: [PushNotificationPayload] = []
+    private let queue = DispatchQueue(label: "TchopAppTests.RecordingPushNotificationManager")
+    private let key = DispatchSpecificKey<State>()
+
+    var authorizationStatuses: [PushNotificationAuthorizationStatus] {
+        queue.sync { queue.getSpecific(key: key)?.authorizationStatuses ?? [] }
+    }
+
+    var remoteRegistrationStates: [Bool] {
+        queue.sync { queue.getSpecific(key: key)?.remoteRegistrationStates ?? [] }
+    }
+
+    var deviceTokens: [Data] {
+        queue.sync { queue.getSpecific(key: key)?.deviceTokens ?? [] }
+    }
+
+    var registrationFailures: [String] {
+        queue.sync { queue.getSpecific(key: key)?.registrationFailures ?? [] }
+    }
+
+    var remotePayloads: [PushNotificationPayload] {
+        queue.sync { queue.getSpecific(key: key)?.remotePayloads ?? [] }
+    }
 
     init(deviceTokenError: Error? = nil) {
-        self.deviceTokenError = deviceTokenError
+        queue.setSpecific(key: key, value: State(deviceTokenError: deviceTokenError))
     }
 
     func currentState() async -> PushNotificationState {
@@ -1748,46 +1866,79 @@ private final class RecordingPushNotificationManager: PushNotificationManaging, 
     }
 
     func updateAuthorizationStatus(_ status: PushNotificationAuthorizationStatus) async throws -> PushNotificationState {
-        authorizationStatuses.append(status)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(deviceTokenError: nil)
+            state.authorizationStatuses.append(status)
+            queue.setSpecific(key: key, value: state)
+        }
         return PushNotificationState(authorizationStatus: status)
     }
 
     func updateRemoteRegistration(isRegistered: Bool) async throws -> PushNotificationState {
-        remoteRegistrationStates.append(isRegistered)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(deviceTokenError: nil)
+            state.remoteRegistrationStates.append(isRegistered)
+            queue.setSpecific(key: key, value: state)
+        }
         return PushNotificationState(isRegisteredForRemoteNotifications: isRegistered)
     }
 
     func handleDeviceToken(_ deviceToken: Data) async throws -> PushNotificationState {
-        if let deviceTokenError {
+        if let deviceTokenError = queue.sync(execute: { queue.getSpecific(key: key)?.deviceTokenError }) {
             throw deviceTokenError
         }
 
-        deviceTokens.append(deviceToken)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(deviceTokenError: nil)
+            state.deviceTokens.append(deviceToken)
+            queue.setSpecific(key: key, value: state)
+        }
         return PushNotificationState(deviceToken: APNsDeviceToken(data: deviceToken))
     }
 
     func handleRegistrationFailure(_ errorDescription: String) async throws -> PushNotificationState {
-        registrationFailures.append(errorDescription)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(deviceTokenError: nil)
+            state.registrationFailures.append(errorDescription)
+            queue.setSpecific(key: key, value: state)
+        }
         return PushNotificationState(lastRegistrationErrorDescription: errorDescription)
     }
 
     func handleRemoteNotification(_ payload: PushNotificationPayload) async throws -> PushNotificationPayload {
-        remotePayloads.append(payload)
+        queue.sync {
+            var state = queue.getSpecific(key: key) ?? State(deviceTokenError: nil)
+            state.remotePayloads.append(payload)
+            queue.setSpecific(key: key, value: state)
+        }
         return payload
     }
 
     func clearState() async throws {}
 }
 
-private final class RecordingAppErrorManager: AppErrorManaging, @unchecked Sendable {
-    private(set) var contexts: [AppErrorContext] = []
+private final class RecordingAppErrorManager: AppErrorManaging, Sendable {
+    private let queue = DispatchQueue(label: "TchopAppTests.RecordingAppErrorManager")
+    private let key = DispatchSpecificKey<[AppErrorContext]>()
+
+    init() {
+        queue.setSpecific(key: key, value: [])
+    }
+
+    var contexts: [AppErrorContext] {
+        queue.sync { queue.getSpecific(key: key) ?? [] }
+    }
 
     func presentableError(
         from error: Error,
         context: AppErrorContext?
     ) async -> AppErrorPresentation {
         if let context {
-            contexts.append(context)
+            queue.sync {
+                var contexts = queue.getSpecific(key: key) ?? []
+                contexts.append(context)
+                queue.setSpecific(key: key, value: contexts)
+            }
         }
 
         return AppErrorPresentation(

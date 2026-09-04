@@ -324,23 +324,19 @@ private enum SensitiveUIConfigurationTestError: Error, CustomStringConvertible {
     }
 }
 
-private final class LockedDateProvider: @unchecked Sendable {
-    private let lock = NSLock()
-    private var date: Date
+private final class LockedDateProvider: Sendable {
+    private let queue = DispatchQueue(label: "AppConfigurationTests.LockedDateProvider")
+    private let key = DispatchSpecificKey<Date>()
 
     init(_ date: Date) {
-        self.date = date
+        queue.setSpecific(key: key, value: date)
     }
 
     func now() -> Date {
-        lock.lock()
-        defer { lock.unlock() }
-        return date
+        queue.sync { queue.getSpecific(key: key)! }
     }
 
     func set(_ date: Date) {
-        lock.lock()
-        self.date = date
-        lock.unlock()
+        queue.sync { queue.setSpecific(key: key, value: date) }
     }
 }

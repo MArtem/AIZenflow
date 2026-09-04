@@ -336,7 +336,7 @@ private struct ProfileTestErrorManager: AppErrorManaging {
     }
 }
 
-private final class ShellTestAppGroupFileManager: FileManager, @unchecked Sendable {
+private final class ShellTestAppGroupFileManager: FileManager {
     private let sharedContainerURL: URL
 
     init(containerURL: URL) {

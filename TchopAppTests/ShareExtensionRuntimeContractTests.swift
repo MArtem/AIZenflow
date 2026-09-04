@@ -458,7 +458,7 @@ final class ShareExtensionSessionContextManagerTests: XCTestCase {
     }
 }
 
-private final class TestAppGroupFileManager: FileManager, @unchecked Sendable {
+private final class TestAppGroupFileManager: FileManager {
     private let sharedContainerURL: URL
 
     init(containerURL: URL) {
