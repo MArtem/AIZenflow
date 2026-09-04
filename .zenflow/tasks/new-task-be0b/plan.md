@@ -103,6 +103,10 @@ Universal plan revisions); this file is the compact executable state required fo
     `FAIL`, while missing, unsafe, non-regular, non-UTF-8, or over-limit scopes return `BLOCKED`.
     Fixture smoke returned `PASS`/`FAIL`; Python contract tests `45/45` and the Swift package suite
     `164/164` passed. Target membership and conditional skip behavior remain outside the claim.
+- [ ] The AIZenflow static gate at `460c27ce` passes documentation, framework, secret, large-file,
+  and diff checks, but correctly remains `FAIL` on 22 pre-existing shipped-source blockers: three
+  synchronous PDF/media loads and nineteen `Data(contentsOf:)` file reads in Tchop and reusable
+  package sources. These are production-source remediation work, not suppressed or reclassified.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
   contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
   version and fixtures demonstrate net value.

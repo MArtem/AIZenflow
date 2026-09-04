@@ -55,6 +55,11 @@
   target membership or conditional skips. SwiftLint, build warnings, and concurrency diagnostics
   remain staged; app project tests/builds were not run. QualityControl `origin/main` is now exact
   at `839b600c`.
+- AIZenflow static gate verification on `460c27ce` passed docs index/consistency, iOS framework,
+  secrets, large-file, and diff checks, but remains `FAIL` on 22 pre-existing shipped-source
+  blockers (three synchronous PDF/media loads and nineteen `Data(contentsOf:)` reads in Tchop and
+  reusable packages). They are recorded as production remediation residuals; no suppression or
+  false PASS was introduced.
 - Consumer workflow wiring is published and now pins the corrected catalog revision `0d304592`:
   AIZenflow `7b2d3e40` in development/main and MVVMExample `100b883` in Development/main. Both
   add a manual-only privacy-manifest step after the resource gate and assert the exact check
