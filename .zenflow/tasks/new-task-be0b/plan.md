@@ -31,10 +31,12 @@ Universal plan revisions); this file is the compact executable state required fo
   authoritative tracked Xcode projects; production forbidden escapes were removed with real
   ownership/isolation boundaries. Build/install/launch evidence and residual limits are recorded
   under `.zenflow/tasks/new-task-be0b/runtime/concurrency-audit/`.
-- [ ] Test-target strict-concurrency cleanup remains deferred: the current read-only scan finds
-  test-only `@unchecked Sendable` helpers, while this task explicitly forbids modifying or running
-  tests. The production-only no-escape result must not be generalized to test targets until a
-  separately authorized test migration block.
+- [x] Test-target strict-concurrency cleanup was completed in the explicitly authorized
+  concurrency-test block. AIZenflow commit `f4054aac` and MVVMExample commit `739a7ea` replace
+  test-only unchecked references with checked queue-owned state or remove invalid FileManager
+  sendability claims. Full tracked-Swift scans now find no `@unchecked Sendable`,
+  `nonisolated(unsafe)`, or `@preconcurrency`; parser and diff checks pass. Project tests/builds
+  remain intentionally unrun.
 - [x] QualityControl engine foundation, evidence identity/aggregation, reversible bootstrap,
   permission-aware mode planning/execution, and catalog schema are implemented and fail closed.
 - [x] Executable adapters through `QC.RESOURCES.ASSETS` are implemented with bounded fixtures and

@@ -77,11 +77,16 @@
   fixture smoke returned `PASS`/`FAIL` with exits `0`/`1`; no app tests/builds were run.
 - No new app builds, tests, Simulator, signing, or runtime checks are authorized in this continuation
   without a block-specific permission; existing migration evidence remains unchanged.
-- A production-only Swift scan for both AIZenflow and MVVMExample found no `@unchecked Sendable`,
-  `nonisolated(unsafe)`, or `@preconcurrency`. Test-only helper types still contain
-  `@unchecked Sendable`; they were neither changed nor run because the active task restriction
-  forbids test modification/execution. Do not claim a repository-wide zero-escape result until a
-  separately authorized test-target migration block is opened.
+- The explicitly authorized concurrency-test migration is complete. AIZenflow commit `f4054aac`
+  and MVVMExample commit `739a7ea` replace test-only unchecked references with checked
+  queue-owned state (`DispatchQueue` + `DispatchSpecificKey`) where the minimum deployment target
+  is macOS 12, use the existing checked `OSAllocatedUnfairLock` where the iOS 17 target permits it,
+  and remove invalid `FileManager` sendability claims. Full tracked-Swift scans in both repositories
+  now find no `@unchecked Sendable`, `nonisolated(unsafe)`, or `@preconcurrency`; parser and
+  diff-check evidence passed. Project tests/builds remain intentionally unrun.
+- After that migration, AIZenflow `development` and `main` both point to `f4054aac`, and
+  MVVMExample `Development` and `main` both point to `739a7ea`; these are the current remote tips
+  and include the workflow/task-state history above.
 - Branch audit after explicit consolidation authorization found no code unique to the stale
   AIZenflow/MVVMExample migration/gate refs: AIFieldbook gate, Tchop share import/localization,
   actor/concurrency changes, and MVVM Swift 6 changes are already present in current development
@@ -97,7 +102,7 @@
   QualityControl `origin/main` points to the corrected privacy adapter, and Documentation Vault
   `origin/main` contains the synchronized task-state copy. The QC source worktree remains dirty only
   in the user-owned `AGENTS.md`; no task-created linked checkout or generated build artifact remains.
-- Cleanup after publication removed the task-local QualityControl contract checkout and two clean,
+  - Cleanup after publication removed the task-local QualityControl contract checkout and two clean,
   superseded MVVMExample linked checkouts; their branch refs and commit history remain preserved.
   Dirty checkouts containing user-owned `AGENTS.md`, and all linked worktrees owned by the separate
   `AIZenflowRelease` repository, were intentionally left untouched.
