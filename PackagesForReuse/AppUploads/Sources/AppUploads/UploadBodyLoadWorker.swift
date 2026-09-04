@@ -16,7 +16,7 @@ public actor UploadBodyLoadWorker {
             )
         case .file(let file):
             try validateFileReference(file, maximumPayloadBytes: request.maximumPayloadBytes)
-            let data = try readFile(file.fileURL)
+            let data = try await readFile(file.fileURL)
             prepared = try PreparedUpload(
                 id: request.id,
                 url: request.url,
@@ -26,7 +26,7 @@ public actor UploadBodyLoadWorker {
             )
         case .multipart(let form):
             try validateMultipartFilePayload(form, maximumPayloadBytes: request.maximumPayloadBytes)
-            let encoded = try encodeMultipart(form)
+            let encoded = try await encodeMultipart(form)
             prepared = try PreparedUpload(
                 id: request.id,
                 url: request.url,
@@ -92,18 +92,20 @@ public actor UploadBodyLoadWorker {
         }
     }
 
-    private func readFile(_ fileURL: URL) throws -> Data {
+    private func readFile(_ fileURL: URL) async throws -> Data {
         guard fileURL.isFileURL else {
             throw UploadFailure(.invalidPayload, operation: .validation)
         }
         do {
-            return try Data(contentsOf: fileURL, options: [.mappedIfSafe])
+            return try await AsyncFileDataReader.read(from: fileURL)
+        } catch let error as CancellationError {
+            throw error
         } catch {
             throw UploadFailure(.fileReadFailed, operation: .fileSystem)
         }
     }
 
-    private func encodeMultipart(_ form: UploadMultipartForm) throws -> (data: Data, boundary: String) {
+    private func encodeMultipart(_ form: UploadMultipartForm) async throws -> (data: Data, boundary: String) {
         let boundary = "AppUploadsBoundary-\(UUID().uuidString)"
         var data = Data()
 
@@ -115,7 +117,7 @@ public actor UploadBodyLoadWorker {
         }
 
         for file in form.files {
-            let fileData = try readFile(file.fileURL)
+            let fileData = try await readFile(file.fileURL)
             append("--\(boundary)\r\n", to: &data)
             append("Content-Disposition: form-data; name=\"\(file.fieldName.value)\"; filename=\"\(file.fileName.value)\"\r\n", to: &data)
             append("Content-Type: \(file.mediaType.value)\r\n\r\n", to: &data)
@@ -132,5 +134,27 @@ public actor UploadBodyLoadWorker {
 
     private func append(_ string: String, to data: inout Data) {
         data.append(contentsOf: string.utf8)
+    }
+}
+
+/// Performs blocking file reads away from the caller's actor executor.
+///
+/// The detached operation captures only the sendable URL and propagates cancellation before and
+/// after the blocking read. The upload worker remains the owner of payload validation and encoding.
+private enum AsyncFileDataReader {
+    static func read(from url: URL) async throws -> Data {
+        let operation = Task.detached(priority: nil) {
+            try Task.checkCancellation()
+            let handle = try FileHandle(forReadingFrom: url)
+            defer { try? handle.close() }
+            let data = try handle.readToEnd() ?? Data()
+            try Task.checkCancellation()
+            return data
+        }
+        return try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 }

@@ -223,7 +223,7 @@ public actor FileLocalCacheManager: LocalCacheManaging {
             return nil
         }
 
-        let entryData = try Data(contentsOf: fileURL)
+        let entryData = try await AsyncFileDataReader.read(from: fileURL)
         let entry: StoredCacheEntry = try decodeCacheValue(entryData, as: StoredCacheEntry.self)
         let now = dateProvider()
         guard !entry.isExpired(now: now) else {
@@ -253,12 +253,14 @@ public actor FileLocalCacheManager: LocalCacheManaging {
         var removedCount = 0
         for item in items where item.pathExtension == "cache" {
             do {
-                let data = try Data(contentsOf: item)
+                let data = try await AsyncFileDataReader.read(from: item)
                 let entry: StoredCacheEntry = try decodeCacheValue(data, as: StoredCacheEntry.self)
                 if entry.isExpired(now: now) {
                     try fileManager.removeItem(at: item)
                     removedCount += 1
                 }
+            } catch let error as CancellationError {
+                throw error
             } catch {
                 // Cache is disposable infrastructure. Corrupted/unreadable entries are not
                 // surfaced to callers during cleanup because that would make one bad file block
@@ -363,5 +365,27 @@ private func decodeCacheValue<T: Decodable>(_ data: Data, as type: T.Type) throw
         return try JSONDecoder().decode(type, from: data)
     } catch {
         throw LocalCacheError.deserializationFailed
+    }
+}
+
+/// Performs blocking file reads away from the caller's actor executor.
+///
+/// The detached operation captures only the sendable URL and propagates cancellation before and
+/// after the blocking read. The cache actor remains the owner of expiration and cleanup decisions.
+private enum AsyncFileDataReader {
+    static func read(from url: URL) async throws -> Data {
+        let operation = Task.detached(priority: nil) {
+            try Task.checkCancellation()
+            let handle = try FileHandle(forReadingFrom: url)
+            defer { try? handle.close() }
+            let data = try handle.readToEnd() ?? Data()
+            try Task.checkCancellation()
+            return data
+        }
+        return try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 }
