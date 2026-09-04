@@ -341,10 +341,12 @@ public actor ImageDiskCache: ImageDiskCaching {
         let fileURL = url(for: key)
         guard FileManager.default.fileExists(atPath: fileURL.path) else { return nil }
         do {
-            let data = try Data(contentsOf: fileURL)
+            let data = try await AsyncFileDataReader.read(from: fileURL)
             guard !data.isEmpty else { return nil }
             try? FileManager.default.setAttributes([.modificationDate: Date()], ofItemAtPath: fileURL.path)
             return ImageResponse(data: data, source: .diskCache)
+        } catch let error as CancellationError {
+            throw error
         } catch {
             throw ImagePipelineError.storageFailed(code: "disk_read_failed")
         }
@@ -439,6 +441,28 @@ public actor ImageDiskCache: ImageDiskCaching {
                 modifiedAt: values.contentModificationDate ?? .distantPast
             )
         }
+    }
+}
+
+/// Performs blocking file reads away from the caller's actor executor.
+///
+/// The detached operation captures only the sendable URL and propagates cancellation before and
+/// after the blocking read. The disk-cache actor remains the owner of cache identity and eviction.
+private enum AsyncFileDataReader {
+    static func read(from url: URL) async throws -> Data {
+        let operation = Task.detached(priority: nil) {
+            try Task.checkCancellation()
+            let handle = try FileHandle(forReadingFrom: url)
+            defer { try? handle.close() }
+            let data = try handle.readToEnd() ?? Data()
+            try Task.checkCancellation()
+            return data
+        }
+        return try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 }
 

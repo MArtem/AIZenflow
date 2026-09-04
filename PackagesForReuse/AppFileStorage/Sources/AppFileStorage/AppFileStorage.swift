@@ -497,7 +497,9 @@ public actor LocalFileStorage: FileStoring {
             }
         }
         do {
-            return try Data(contentsOf: url)
+            return try await AsyncFileDataReader.read(from: url)
+        } catch let error as CancellationError {
+            throw error
         } catch {
             throw FileStorageError.readFailed(code: "read_failed")
         }
@@ -771,5 +773,27 @@ public actor LocalFileStorage: FileStoring {
             return now.timeIntervalSince(modifiedAt) > maximumAge
         }
         return true
+    }
+}
+
+/// Performs blocking file reads away from the caller's actor executor.
+///
+/// The detached operation captures only the sendable URL and propagates cancellation before and
+/// after the blocking read. The storage actor remains the owner of path validation and error mapping.
+private enum AsyncFileDataReader {
+    static func read(from url: URL) async throws -> Data {
+        let operation = Task.detached(priority: nil) {
+            try Task.checkCancellation()
+            let handle = try FileHandle(forReadingFrom: url)
+            defer { try? handle.close() }
+            let data = try handle.readToEnd() ?? Data()
+            try Task.checkCancellation()
+            return data
+        }
+        return try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 }
