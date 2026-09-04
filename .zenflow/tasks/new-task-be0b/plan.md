@@ -96,6 +96,13 @@ Universal plan revisions); this file is the compact executable state required fo
     for no listed changes, `FAIL` for changed paths, and `BLOCKED` for malformed/untrusted input;
     it does not claim signing, provisioning, entitlements, or App Store correctness. Consumer
     workflows remain unchanged until an explicit baseline-input contract is adopted.
+  - [x] `QC.TESTS.DISABLED` is implemented in QualityControl commit
+    `839b600c8401deca8fb72d73c72429603e7df65a`, published to `origin/main`. It requires explicit
+    tracked Swift `--test-path` scopes, bounded file/byte envelopes, and clean authenticated
+    `HEAD` bytes; unconditional `XCTSkip(...)` and Swift Testing `.disabled` markers return
+    `FAIL`, while missing, unsafe, non-regular, non-UTF-8, or over-limit scopes return `BLOCKED`.
+    Fixture smoke returned `PASS`/`FAIL`; Python contract tests `45/45` and the Swift package suite
+    `164/164` passed. Target membership and conditional skip behavior remain outside the claim.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
   contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
   version and fixtures demonstrate net value.

@@ -36,8 +36,9 @@
 - Canonical retention/deletion policy is synchronized and pushed in Documentation Vault commit
   `caa64d9`; it preserves unique refs and potentially user-owned `xcuserdata`, and permits deletion
   only for exact task-created disposable paths or proven generated outputs.
-- The post-resume QualityControl adapters are complete through `QC.RESOURCES.ASSETS`, the
-  structural `QC.PRIVACY.MANIFEST` boundary, and the exact-baseline `QC.CONFIGURATION.SIGNING`
+- The post-resume QualityControl adapters are complete through `QC.TESTS.DISABLED`, including
+  `QC.RESOURCES.ASSETS`, the structural `QC.PRIVACY.MANIFEST` boundary, and the exact-baseline
+  `QC.CONFIGURATION.SIGNING`
   change detector. The formatter hardening remains at `ce8ec843`; the
   expectation-validation fixture correction is `4cb9cd6` and the privacy adapter correction is
   `cb81e49`; the subsequent catalog-contract correction is `0d3045921727720b357590f94488a57ce687c363`
@@ -48,8 +49,12 @@
   signing compares a clean `HEAD` with a caller-supplied trusted ancestor and exact tracked path
   policy; positive, changed-path, and traversal fixture smoke returned `PASS` / `FAIL` / `BLOCKED`.
   It does not claim signing, provisioning, entitlements, target membership, or App Store correctness.
-  SwiftLint, build warnings, concurrency diagnostics, and disabled-test adapters remain staged;
-  app tests/builds were not run. QualityControl `origin/main` is now exact at `92e37dc`.
+  `QC.TESTS.DISABLED` is published at `839b600c8401deca8fb72d73c72429603e7df65a` on
+  `origin/main`; its explicit-scope fixture smoke returned `PASS`/`FAIL`, Python contract tests
+  returned `45/45`, and the Swift package suite returned `164/164`. The adapter does not infer
+  target membership or conditional skips. SwiftLint, build warnings, and concurrency diagnostics
+  remain staged; app project tests/builds were not run. QualityControl `origin/main` is now exact
+  at `839b600c`.
 - Consumer workflow wiring is published and now pins the corrected catalog revision `0d304592`:
   AIZenflow `7b2d3e40` in development/main and MVVMExample `100b883` in Development/main. Both
   add a manual-only privacy-manifest step after the resource gate and assert the exact check
