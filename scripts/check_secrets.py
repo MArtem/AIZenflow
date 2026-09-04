@@ -16,6 +16,19 @@ PATTERNS = [
     ("generic token assignment", re.compile(r'(?i)(api[_-]?key|secret|token|password)\s*[:=]\s*["\'][^"\']{16,}["\']')),
 ]
 MAX_SECRET_SCAN_BYTES = 5 * 1024 * 1024
+SAFE_TEST_FIXTURE_LITERALS = frozenset(
+    {
+        "access-rollback",
+        "refresh-rollback",
+        "expired-access",
+        "refresh-token",
+        "access-to-revoke",
+        "username-refresh",
+        "register-refresh",
+        "refreshed-access",
+        "refreshed-refresh",
+    }
+)
 
 
 def main() -> int:
@@ -39,6 +52,9 @@ def main() -> int:
                 if name == "generic token assignment" and (
                     literal.startswith(("dev-access-", "dev-refresh-", "reqres-demo-refresh-"))
                     or literal.startswith("${")
+                    # These exact values are bounded authentication fixtures in XCTest sources,
+                    # not credentials. Keep the allowlist literal- and path-specific.
+                    or (path.name.endswith("Tests.swift") and literal in SAFE_TEST_FIXTURE_LITERALS)
                 ):
                     continue
                 line = text[:match.start()].count("\n") + 1

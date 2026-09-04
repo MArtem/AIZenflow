@@ -25,7 +25,13 @@ def main() -> int:
     scan_roots = resolve_scan_roots(args.paths)
     findings = []
 
-    for path in iter_files(scan_roots, "*.swift", {"TchopAppTests", "docs", ".zenflow"}):
+    # Test fixtures are not shipped SwiftUI/source hot paths; keep this production-pattern gate
+    # aligned across app and package test targets without weakening the shipped-source scan.
+    for path in iter_files(
+        scan_roots,
+        "*.swift",
+        {"TchopAppTests", "Tests", "UITests", "docs", ".zenflow"},
+    ):
         text = path.read_text(errors="ignore")
         for severity, name, rx in PATTERNS:
             for match in rx.finditer(text):

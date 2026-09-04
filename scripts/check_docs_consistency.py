@@ -13,6 +13,13 @@ SKIP_PARTS = {
     # Task-local audit staging preserves historical evidence; it is not active guidance.
     "boundary-audit",
 }
+TASK_ARTIFACT_PARTS = {
+    "incoming",
+    "quality-doc-closeout",
+    "runtime",
+    "retired-generated-artifacts",
+    "retired-tchop-task-copies",
+}
 SKIP_FILES: set[pathlib.Path] = set()
 
 CHECKS: list[tuple[str, re.Pattern[str]]] = [
@@ -62,7 +69,10 @@ def iter_docs() -> list[pathlib.Path]:
         for path in root.rglob("*"):
             if not path.is_file():
                 continue
-            if any(part in SKIP_PARTS for part in path.relative_to(ROOT).parts):
+            relative_parts = path.relative_to(ROOT).parts
+            if any(part in SKIP_PARTS for part in relative_parts):
+                continue
+            if _is_task_artifact(relative_parts):
                 continue
             if path in SKIP_FILES:
                 continue
@@ -70,6 +80,15 @@ def iter_docs() -> list[pathlib.Path]:
                 continue
             files.append(path)
     return sorted(set(files))
+
+
+def _is_task_artifact(relative_parts: tuple[str, ...]) -> bool:
+    """Exclude only documented task evidence/attachment subtrees from active-doc scanning."""
+    for index in range(len(relative_parts) - 2):
+        if relative_parts[index : index + 2] != (".zenflow", "tasks"):
+            continue
+        return any(part in TASK_ARTIFACT_PARTS for part in relative_parts[index + 2 :])
+    return False
 
 
 def main() -> int:

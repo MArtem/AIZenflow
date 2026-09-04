@@ -69,6 +69,12 @@ unavailable, or bypassed evidence cannot produce overall PASS.
   reject sparse or assume-unchanged index entries. A user who needs a secret/configuration check
   for such content must run a separate, explicitly scoped local check; it is not evidence for the
   committed source revision.
+- Task-scoped generated attachments and retained recovery evidence may be explicitly excluded from
+  metadata preflight only through a narrow, documented allowlist (`incoming`,
+  `quality-doc-closeout`, `runtime`, `retired-generated-artifacts`, and
+  `retired-*-task-copies` under a task, plus the documented `docs/archive/retired-documentation-cleanup`
+  quarantine). Ignored content outside those roots remains a fail-closed finding; excluded
+  evidence never supports a committed-SHA claim.
 - A requested scan root that is excluded or has no eligible source universe is invalid scope and
   must produce non-PASS evidence rather than a vacuous success.
 

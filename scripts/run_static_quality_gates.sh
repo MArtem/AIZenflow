@@ -68,6 +68,7 @@ validate_metadata_inputs() {
 import os
 import subprocess
 import sys
+from fnmatch import fnmatch
 from pathlib import Path
 
 root = Path(sys.argv[1]).resolve()
@@ -78,6 +79,19 @@ inputs = (
     "docs",
     ".zenflow/tasks",
     ".codex/skills",
+)
+
+# Task attachments and retained recovery evidence are intentionally Git-ignored and are not
+# authoritative inputs to a committed-SHA metadata gate. Keep this allowlist narrow: an ignored
+# path anywhere else under the metadata roots must still fail closed rather than being silently
+# treated as evidence for the committed revision.
+ALLOWED_IGNORED_TASK_ARTIFACTS = (
+    ".zenflow/tasks/*/incoming/",
+    ".zenflow/tasks/*/quality-doc-closeout/",
+    ".zenflow/tasks/*/runtime/",
+    ".zenflow/tasks/*/retired-generated-artifacts/",
+    ".zenflow/tasks/*/retired-*-task-copies/",
+    "docs/archive/retired-documentation-cleanup/",
 )
 
 for relative in inputs:
@@ -109,8 +123,13 @@ result = subprocess.run(
 if result.returncode != 0:
     raise SystemExit("Cannot establish Git-ignored metadata exclusions.")
 ignored = [entry.decode("utf-8", errors="surrogateescape") for entry in result.stdout.split(b"\0") if entry]
-if ignored:
-    raise SystemExit(f"Static metadata inputs include Git-ignored content: {ignored[0]}")
+unexpected_ignored = [
+    entry
+    for entry in ignored
+    if not any(fnmatch(entry, pattern) for pattern in ALLOWED_IGNORED_TASK_ARTIFACTS)
+]
+if unexpected_ignored:
+    raise SystemExit(f"Static metadata inputs include Git-ignored content: {unexpected_ignored[0]}")
 
 flags = subprocess.run(
     ["git", "-C", str(root), "ls-files", "-v", "-z", "--", *inputs],
