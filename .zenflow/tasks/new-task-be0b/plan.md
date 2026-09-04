@@ -90,6 +90,12 @@ Universal plan revisions); this file is the compact executable state required fo
     QualityControl revision `0d3045921727720b357590f94488a57ce687c363`: AIZenflow
     `7b2d3e40` and MVVMExample `100b883`, each published to its development/default and `main`
     branches. The workflow remains manual-only and no dispatch result is claimed.
+  - [x] `QC.CONFIGURATION.SIGNING` is implemented in QualityControl commit
+    `92e37dc87d1c3034cd8cd3b09de4ce9deebdd912`, published to `origin/main`. It compares a clean
+    `HEAD` with an explicit trusted ancestor using a tracked exact-path policy, emits `PASS` only
+    for no listed changes, `FAIL` for changed paths, and `BLOCKED` for malformed/untrusted input;
+    it does not claim signing, provisioning, entitlements, or App Store correctness. Consumer
+    workflows remain unchanged until an explicit baseline-input contract is adopted.
 - [ ] Keep architecture/literal/complexity checks as review candidates unless a narrow project
   contract proves a deterministic unsafe subset. Keep SwiftLint staged until an immutable tool
   version and fixtures demonstrate net value.
@@ -151,10 +157,11 @@ Universal plan revisions); this file is the compact executable state required fo
 ## Next bounded block
 
 Inspect `AIZenflowQualityControl` at the current trusted `origin/main` and select the next
-still-staged deterministic adapter with a closed producer/consumer contract. SwiftLint remains
-staged until an immutable executable/version and fixtures are available; build-warning and
+still-staged adapter with a closed producer/consumer contract. The configuration/signing change
+detector is now implemented, but its consumer baseline-input contract remains explicit. SwiftLint
+remains staged until an immutable executable/version and fixtures are available; build-warning and
 concurrency adapters require an authorized authenticated build-report producer. Privacy-manifest
-structure is implemented, but its runtime/data-use and bundle-membership limits remain explicit.
-Before editing, write the compact change contract and keep the patch within the normal
+structure and configuration/signing change detection do not claim runtime, release, or App Store
+correctness. Before editing, write the compact change contract and keep the patch within the normal
 three-source-file boundary. Run only relevant static/fixture evidence permitted for that block;
 do not broaden into app runtime or tests unless the block explicitly reopens that permission.

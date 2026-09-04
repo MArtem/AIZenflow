@@ -36,16 +36,20 @@
 - Canonical retention/deletion policy is synchronized and pushed in Documentation Vault commit
   `caa64d9`; it preserves unique refs and potentially user-owned `xcuserdata`, and permits deletion
   only for exact task-created disposable paths or proven generated outputs.
-- The post-resume QualityControl adapters are complete through `QC.RESOURCES.ASSETS` and the
-  structural `QC.PRIVACY.MANIFEST` boundary. The formatter hardening remains at `ce8ec843`; the
+- The post-resume QualityControl adapters are complete through `QC.RESOURCES.ASSETS`, the
+  structural `QC.PRIVACY.MANIFEST` boundary, and the exact-baseline `QC.CONFIGURATION.SIGNING`
+  change detector. The formatter hardening remains at `ce8ec843`; the
   expectation-validation fixture correction is `4cb9cd6` and the privacy adapter correction is
   `cb81e49`; the subsequent catalog-contract correction is `0d3045921727720b357590f94488a57ce687c363`
   (`origin/main` exact SHA). Privacy checks read exact
   clean Git `HEAD`, validate `PrivacyInfo.xcprivacy` plist shape, keys, types, duplicates, and
   bounds, and emit `BLOCKED` for malformed/unsupported input. Positive, duplicate-key, and
-  filename-boundary fixture smoke returned the expected `PASS` / `BLOCKED` results. SwiftLint,
-  build warnings, concurrency diagnostics, signing, and disabled-test adapters remain staged;
-  app tests/builds were not run.
+  filename-boundary fixture smoke returned the expected `PASS` / `BLOCKED` results. Configuration/
+  signing compares a clean `HEAD` with a caller-supplied trusted ancestor and exact tracked path
+  policy; positive, changed-path, and traversal fixture smoke returned `PASS` / `FAIL` / `BLOCKED`.
+  It does not claim signing, provisioning, entitlements, target membership, or App Store correctness.
+  SwiftLint, build warnings, concurrency diagnostics, and disabled-test adapters remain staged;
+  app tests/builds were not run. QualityControl `origin/main` is now exact at `92e37dc`.
 - Consumer workflow wiring is published and now pins the corrected catalog revision `0d304592`:
   AIZenflow `7b2d3e40` in development/main and MVVMExample `100b883` in Development/main. Both
   add a manual-only privacy-manifest step after the resource gate and assert the exact check
@@ -77,6 +81,10 @@
   fixture smoke returned `PASS`/`FAIL` with exits `0`/`1`; no app tests/builds were run.
 - No new app builds, tests, Simulator, signing, or runtime checks are authorized in this continuation
   without a block-specific permission; existing migration evidence remains unchanged.
+- The user-owned `AGENTS.md` from `mvvmexample-static-quality-gate` was copied byte-for-byte to
+  `.zenflow/tasks/new-task-be0b/runtime/preserved-user-files/MVVMExample-static-quality-gate-AGENTS.md`
+  (SHA-256 `43413a0f...8f013bce`). The original worktree and file remain untouched until the user
+  decides its cleanup.
 - The explicitly authorized concurrency-test migration is complete. AIZenflow commit `f4054aac`
   and MVVMExample commit `739a7ea` replace test-only unchecked references with checked
   queue-owned state (`DispatchQueue` + `DispatchSpecificKey`) where the minimum deployment target
@@ -94,6 +102,11 @@
   weakened metadata and were not merged or deleted. QualityControl's explicitly requested
   expectation-validation experiment contributed only its missing fixture/cleanup correction as
   `4cb9cd6`; its already-present core validation was not duplicated.
+- After the user deleted the six stale app branches, a read-only recovery audit found no files
+  present only in their retained tip commits; no code restoration was required. The six worktrees
+  were detached before deletion, and three dirty user-owned `AGENTS.md` files were preserved
+  byte-for-byte. AIZenflow still has two remote-tracking codex refs until the user removes them;
+  GitHub remote freshness is currently blocked by DNS, so no remote deletion or parity claim is made.
 - The parity SHAs in the preceding historical checkpoint predate the privacy-adapter correction,
   consumer workflow wiring, and subsequent task-state receipts; they are retained as historical
   evidence and must not be read as the current branch tips. The current state was re-queried during
