@@ -70,11 +70,8 @@ struct CreateTextFeedCardIntent: AppIntent {
 
 private extension CreateTextFeedCardIntent {
     func loadSessionContext() async throws -> ShareExtensionSessionContext? {
-        try await MainActor.run {
-            let manager = try ShareExtensionSessionContextManager(
-                groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
-            )
-            return try manager.loadContext()
-        }
+        try await ShareExtensionSessionContextManager.loadFromSharedContainer(
+            groupIdentifier: AppGroupConfiguration.sharedContainerIdentifier
+        )
     }
 }

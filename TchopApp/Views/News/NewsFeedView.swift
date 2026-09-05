@@ -5,6 +5,7 @@ import os
 import PDFKit
 import SwiftUI
 import UIKit
+import UniformTypeIdentifiers
 
 private let feedPerformanceLog = OSLog(
     subsystem: Bundle.main.bundleIdentifier ?? "com.example.TchopApp",
@@ -1206,6 +1207,7 @@ private final class FeedMediaPreviewMemoryCache {
     }
 }
 
+@MainActor
 private enum FeedMediaPreviewLoader {
     static func preview(fileURLString: String?, kind: FeedMediaPreviewKind) async -> UIImage? {
         guard let fileURLString, !fileURLString.isEmpty else {
@@ -1213,7 +1215,7 @@ private enum FeedMediaPreviewLoader {
         }
 
         let cacheKey = "\(kind.rawValue)|\(fileURLString)"
-        if let cachedImage = await FeedMediaPreviewMemoryCache.shared.image(for: cacheKey) {
+        if let cachedImage = FeedMediaPreviewMemoryCache.shared.image(for: cacheKey) {
             return cachedImage
         }
 
@@ -1225,29 +1227,53 @@ private enum FeedMediaPreviewLoader {
             FeedPerformanceSignpost.endMediaPreviewLoad(signpostID)
         }
 
-        let image = await Task.detached(priority: .utility) {
-            guard let fileURL = ComposerMediaPathResolver.resolve(fileURLString: fileURLString) else {
-                return nil as UIImage?
-            }
-
-            switch kind {
-            case .image:
-                return downsampledImage(at: fileURL, maxPixelSize: 1200)
-            case .video:
-                return videoThumbnail(at: fileURL)
-            case .pdf:
-                return pdfThumbnail(at: fileURL)
-            }
-        }.value
-
-        if let image {
-            await FeedMediaPreviewMemoryCache.shared.setImage(image, for: cacheKey)
+        guard let imageData = await FeedMediaPreviewRenderer.previewData(
+            fileURLString: fileURLString,
+            kind: kind
+        ) else {
+            return nil
         }
+
+        guard let image = image(from: imageData) else {
+            return nil
+        }
+
+        FeedMediaPreviewMemoryCache.shared.setImage(image, for: cacheKey)
 
         return image
     }
 
-    private static func downsampledImage(at url: URL, maxPixelSize: CGFloat) -> UIImage? {
+    private static func image(from data: Data) -> UIImage? {
+        guard let source = CGImageSourceCreateWithData(data as CFData, nil),
+              let cgImage = CGImageSourceCreateImageAtIndex(source, 0, nil) else {
+            return nil
+        }
+
+        return UIImage(cgImage: cgImage)
+    }
+}
+
+/// Performs media decoding and file access away from the main actor and returns only sendable
+/// image bytes. UI image ownership stays on the main actor where the preview cache is owned.
+private enum FeedMediaPreviewRenderer {
+    static func previewData(fileURLString: String?, kind: FeedMediaPreviewKind) async -> Data? {
+        guard let fileURL = ComposerMediaPathResolver.resolve(fileURLString: fileURLString) else {
+            return nil
+        }
+
+        switch kind {
+        case .image:
+            return await detachedData {
+                downsampledImageData(at: fileURL, maxPixelSize: 1200)
+            }
+        case .video:
+            return await videoPreviewData(at: fileURL)
+        case .pdf:
+            return await pdfPreviewData(at: fileURL)
+        }
+    }
+
+    private static func downsampledImageData(at url: URL, maxPixelSize: CGFloat) -> Data? {
         let options = [kCGImageSourceShouldCache: false] as CFDictionary
         guard let source = CGImageSourceCreateWithURL(url as CFURL, options) else {
             return nil
@@ -1264,27 +1290,125 @@ private enum FeedMediaPreviewLoader {
             return nil
         }
 
-        return UIImage(cgImage: cgImage)
+        return encodedPNGData(for: cgImage)
     }
 
-    private static func videoThumbnail(at url: URL) -> UIImage? {
-        let asset = AVURLAsset(url: url)
-        let generator = AVAssetImageGenerator(asset: asset)
-        generator.appliesPreferredTrackTransform = true
-        guard let cgImage = try? generator.copyCGImage(at: .zero, actualTime: nil) else {
-            return nil
+    private static func videoPreviewData(at url: URL) async -> Data? {
+        let operation = Task.detached(priority: .utility) { () -> Data? in
+            do {
+                try Task.checkCancellation()
+                let asset = AVURLAsset(url: url)
+                let generator = AVAssetImageGenerator(asset: asset)
+                generator.appliesPreferredTrackTransform = true
+                let result = try await generator.image(at: .zero)
+                try Task.checkCancellation()
+                return encodedPNGData(for: result.image)
+            } catch {
+                return nil
+            }
         }
 
-        return UIImage(cgImage: cgImage)
+        return await withTaskCancellationHandler(operation: {
+            await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 
-    private static func pdfThumbnail(at url: URL) -> UIImage? {
-        guard let document = PDFDocument(url: url),
+    private static func pdfPreviewData(at url: URL) async -> Data? {
+        await detachedData {
+            do {
+                let handle = try FileHandle(forReadingFrom: url)
+                defer { try? handle.close() }
+                let data = try handle.readToEnd() ?? Data()
+                try Task.checkCancellation()
+                return pdfThumbnailData(from: data)
+            } catch {
+                return nil
+            }
+        }
+    }
+
+    private static func pdfThumbnailData(from data: Data) -> Data? {
+        guard let document = PDFDocument(data: data),
               let page = document.page(at: 0) else {
             return nil
         }
 
-        return page.thumbnail(of: CGSize(width: 640, height: 420), for: .mediaBox)
+        let pageBounds = page.bounds(for: .mediaBox)
+        guard pageBounds.width > 0, pageBounds.height > 0 else {
+            return nil
+        }
+
+        let targetSize = CGSize(width: 640, height: 420)
+        let scale = min(targetSize.width / pageBounds.width, targetSize.height / pageBounds.height)
+        let pixelWidth = max(Int(ceil(pageBounds.width * scale)), 1)
+        let pixelHeight = max(Int(ceil(pageBounds.height * scale)), 1)
+        guard let colorSpace = CGColorSpace(name: CGColorSpace.sRGB),
+              let context = CGContext(
+                  data: nil,
+                  width: pixelWidth,
+                  height: pixelHeight,
+                  bitsPerComponent: 8,
+                  bytesPerRow: 0,
+                  space: colorSpace,
+                  bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue
+              ) else {
+            return nil
+        }
+
+        context.setFillColor(gray: 1, alpha: 1)
+        context.fill(CGRect(x: 0, y: 0, width: pixelWidth, height: pixelHeight))
+        context.saveGState()
+        context.translateBy(x: 0, y: CGFloat(pixelHeight))
+        context.scaleBy(x: scale, y: -scale)
+        context.translateBy(x: -pageBounds.minX, y: -pageBounds.minY)
+        page.draw(with: .mediaBox, to: context)
+        context.restoreGState()
+
+        guard let cgImage = context.makeImage() else {
+            return nil
+        }
+        return encodedPNGData(for: cgImage)
+    }
+
+    private static func encodedPNGData(for image: CGImage) -> Data? {
+        let data = NSMutableData()
+        guard let destination = CGImageDestinationCreateWithData(
+            data,
+            UTType.png.identifier as CFString,
+            1,
+            nil
+        ) else {
+            return nil
+        }
+
+        CGImageDestinationAddImage(destination, image, nil)
+        guard CGImageDestinationFinalize(destination) else {
+            return nil
+        }
+        return data as Data
+    }
+
+    private static func detachedData(
+        _ operationBody: @escaping @Sendable () -> Data?
+    ) async -> Data? {
+        let operation = Task.detached(priority: .utility) { () -> Data? in
+            do {
+                try Task.checkCancellation()
+                let data = operationBody()
+                try Task.checkCancellation()
+                return data
+            } catch {
+                return nil
+            }
+        }
+
+        return await withTaskCancellationHandler(operation: {
+            await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 }
 

@@ -41,13 +41,40 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
         try data.write(to: fileURL, options: [.atomic])
     }
 
+    /// Atomically writes a snapshot without performing encoding or file I/O on the caller's executor.
+    @MainActor
+    public func saveAsync(_ item: Item) async throws {
+        let fileURL = fileURL
+        let operation = Task.detached(priority: .utility) {
+            try Task.checkCancellation()
+            let data = try JSONEncoder().encode(item)
+            try data.write(to: fileURL, options: [.atomic])
+            try Task.checkCancellation()
+        }
+
+        try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
+    }
+
     /// Loads the current snapshot value, returning `nil` when the file does not exist.
     public func load() throws -> Item? {
         guard fileManager.fileExists(atPath: fileURL.path()) else {
             return nil
         }
 
-        let data = try Data(contentsOf: fileURL)
+        let data = try Self.readData(from: fileURL)
+        return try decoder.decode(Item.self, from: data)
+    }
+
+    /// Loads a snapshot without performing file I/O or decoding on the caller's executor.
+    @MainActor
+    public func loadAsync() async throws -> Item? {
+        guard let data = try await Self.readDataIfPresentAsync(from: fileURL) else {
+            return nil
+        }
         return try decoder.decode(Item.self, from: data)
     }
 
@@ -58,5 +85,29 @@ public final class AppGroupJSONFileStore<Item> where Item: Codable & Sendable {
         }
 
         try fileManager.removeItem(at: fileURL)
+    }
+
+    private static func readData(from url: URL) throws -> Data {
+        let handle = try FileHandle(forReadingFrom: url)
+        defer { try? handle.close() }
+        return try handle.readToEnd() ?? Data()
+    }
+
+    private static func readDataIfPresentAsync(from url: URL) async throws -> Data? {
+        let operation = Task.detached(priority: .utility) { () -> Data? in
+            try Task.checkCancellation()
+            guard FileManager.default.fileExists(atPath: url.path) else {
+                return nil
+            }
+            let data = try Self.readData(from: url)
+            try Task.checkCancellation()
+            return data
+        }
+
+        return try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 }

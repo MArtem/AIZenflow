@@ -14,7 +14,9 @@ PATTERNS = [
     ("blocking", "UIImage(contentsOfFile:) in SwiftUI/source", re.compile(r"UIImage\s*\(\s*contentsOfFile\s*:")),
     ("blocking", "Data(contentsOf:) sync file read", re.compile(r"Data\s*\(\s*contentsOf\s*:")),
     ("blocking", "PDFDocument(url:) sync PDF load", re.compile(r"PDFDocument\s*\(\s*url\s*:")),
-    ("blocking", "AVAssetImageGenerator usage", re.compile(r"AVAssetImageGenerator")),
+    # Async AVAssetImageGenerator.image(at:) is the supported non-blocking API. The
+    # synchronous copyCGImage path remains forbidden because it can block a UI executor.
+    ("blocking", "AVAssetImageGenerator synchronous frame generation", re.compile(r"\.copyCGImage\s*\(")),
     ("review-candidate", "ForEach(Array(...))", re.compile(r"ForEach\s*\(\s*Array\s*\(")),
     ("review-candidate", "AnyView usage", re.compile(r"\bAnyView\s*\(")),
 ]

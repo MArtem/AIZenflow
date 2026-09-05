@@ -86,20 +86,36 @@ public protocol APIOfflineQueueStoring: Sendable {
     /// Loads all persisted queue entries.
     func loadEntries() throws -> [APIOfflineQueueEntry<Payload>]
 
+    /// Loads all persisted queue entries without performing file I/O on the caller's executor.
+    func loadEntries() async throws -> [APIOfflineQueueEntry<Payload>]
+
     /// Persists queue entries atomically.
     func saveEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws
 
     /// Loads all persisted dead-letter entries.
     func loadDeadLetterEntries() throws -> [APIOfflineQueueEntry<Payload>]
 
+    /// Loads all persisted dead-letter entries without performing file I/O on the caller's executor.
+    func loadDeadLetterEntries() async throws -> [APIOfflineQueueEntry<Payload>]
+
     /// Persists dead-letter entries atomically.
     func saveDeadLetterEntries(_ entries: [APIOfflineQueueEntry<Payload>]) throws
 }
 
 public extension APIOfflineQueueStoring {
+    /// Compatibility implementation for stores that have no asynchronous read path yet.
+    func loadEntries() async throws -> [APIOfflineQueueEntry<Payload>] {
+        try loadEntries()
+    }
+
     /// Loads dead letter entries.
     func loadDeadLetterEntries() throws -> [APIOfflineQueueEntry<Payload>] {
         []
+    }
+
+    /// Compatibility implementation for stores that have no asynchronous read path yet.
+    func loadDeadLetterEntries() async throws -> [APIOfflineQueueEntry<Payload>] {
+        try loadDeadLetterEntries()
     }
 
     /// Saves dead letter entries.
@@ -146,7 +162,22 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         }
 
         do {
-            let data = try Data(contentsOf: fileURL)
+            let data = try Self.readData(from: fileURL)
+            return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        } catch let decodingError as DecodingError {
+            return try recoverOrThrow(for: fileURL, error: decodingError)
+        } catch {
+            throw error
+        }
+    }
+
+    /// Loads entries without blocking the caller's executor during file access.
+    public func loadEntries() async throws -> [APIOfflineQueueEntry<Payload>] {
+        guard let data = try await Self.readDataIfPresentAsync(from: fileURL) else {
+            return []
+        }
+
+        do {
             return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
         } catch let decodingError as DecodingError {
             return try recoverOrThrow(for: fileURL, error: decodingError)
@@ -176,7 +207,22 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
         }
 
         do {
-            let data = try Data(contentsOf: deadLetterFileURL)
+            let data = try Self.readData(from: deadLetterFileURL)
+            return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
+        } catch let decodingError as DecodingError {
+            return try recoverOrThrow(for: deadLetterFileURL, error: decodingError)
+        } catch {
+            throw error
+        }
+    }
+
+    /// Loads dead-letter entries without blocking the caller's executor during file access.
+    public func loadDeadLetterEntries() async throws -> [APIOfflineQueueEntry<Payload>] {
+        guard let data = try await Self.readDataIfPresentAsync(from: deadLetterFileURL) else {
+            return []
+        }
+
+        do {
             return try decoder.decode([APIOfflineQueueEntry<Payload>].self, from: data)
         } catch let decodingError as DecodingError {
             return try recoverOrThrow(for: deadLetterFileURL, error: decodingError)
@@ -212,6 +258,30 @@ public struct FileAPIOfflineQueueStore<Payload>: APIOfflineQueueStoring where Pa
             try? FileManager.default.moveItem(at: url, to: backupURL)
             return []
         }
+    }
+
+    private static func readData(from url: URL) throws -> Data {
+        let handle = try FileHandle(forReadingFrom: url)
+        defer { try? handle.close() }
+        return try handle.readToEnd() ?? Data()
+    }
+
+    private static func readDataIfPresentAsync(from url: URL) async throws -> Data? {
+        let operation = Task.detached(priority: .utility) { () -> Data? in
+            try Task.checkCancellation()
+            guard FileManager.default.fileExists(atPath: url.path) else {
+                return nil
+            }
+            let data = try Self.readData(from: url)
+            try Task.checkCancellation()
+            return data
+        }
+
+        return try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
     }
 }
 
@@ -314,6 +384,17 @@ public actor APIPersistedOfflineQueue<Store>: Sendable where Store: APIOfflineQu
         self.configuration = configuration
         self.entries = try store.loadEntries().sorted { $0.createdAt < $1.createdAt }
         self.deadLetterEntries = try store.loadDeadLetterEntries().sorted { $0.createdAt < $1.createdAt }
+    }
+
+    /// Creates a persisted queue without performing initial file reads on the caller's executor.
+    public init(
+        store: Store,
+        configuration: Configuration = .init()
+    ) async throws {
+        self.store = store
+        self.configuration = configuration
+        self.entries = try await store.loadEntries().sorted { $0.createdAt < $1.createdAt }
+        self.deadLetterEntries = try await store.loadDeadLetterEntries().sorted { $0.createdAt < $1.createdAt }
     }
 
     /// Number of entries waiting for execution.

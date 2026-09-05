@@ -78,7 +78,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
     public func loadAll() throws -> [Item] {
         let result = try loadAllSafely()
         if let failedFileURL = result.failedFileURLs.first {
-            let data = try Data(contentsOf: failedFileURL)
+            let data = try Self.readData(from: failedFileURL)
             _ = try JSONDecoder().decode(Item.self, from: data)
         }
         return result.items
@@ -174,7 +174,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
 
         for fileURL in fileURLs {
             do {
-                let data = try Data(contentsOf: fileURL)
+                let data = try readData(from: fileURL)
                 items.append(try decoder.decode(Item.self, from: data))
             } catch {
                 failedFileURLs.append(fileURL)
@@ -208,7 +208,7 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
             // A producer may have replaced a previously corrupt file with a valid current value.
             // Revalidate immediately before quarantine so a stale load result does not discard that recovery.
             if
-                let data = try? Data(contentsOf: fileURL),
+                let data = try? readData(from: fileURL),
                 (try? JSONDecoder().decode(Item.self, from: data)) != nil
             {
                 continue
@@ -233,5 +233,11 @@ where Item: Codable & Identifiable & Sendable, Item.ID == String {
 
     private static func safeFileName(for id: String) -> String {
         id.replacingOccurrences(of: "/", with: "_")
+    }
+
+    private static func readData(from url: URL) throws -> Data {
+        let handle = try FileHandle(forReadingFrom: url)
+        defer { try? handle.close() }
+        return try handle.readToEnd() ?? Data()
     }
 }
