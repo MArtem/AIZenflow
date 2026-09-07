@@ -1,9 +1,9 @@
 # Handoff — аудит iOS quality system
 
-Дата: 2026-09-06. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
+Дата: 2026-09-08. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
 
 ## Цель и авторизация
-Пользователь разрешил полный аудит на GPT-6 Astra всей системы разработки/проверок и ZIP `/Users/Artem/Downloads/ios_codex_quality_system_v1.zip`, включая пересмотр старого QualityControl continuation plan. Результат — подробный план внедрения с моделью/reasoning. Режим эконом сохраняется; Astra для полного аудита явно разрешена. Реализация новых правил/engine/app code в этот блок не входит.
+Пользователь разрешил полный аудит на GPT-6 Astra всей системы разработки/проверок и ZIP `/Users/Artem/Downloads/ios_codex_quality_system_v1.zip`, включая пересмотр старого QualityControl continuation plan. Результат — подробный план внедрения с моделью/reasoning. Режим эконом сохраняется; Astra для полного аудита явно разрешена. Пользователь теперь разрешил реализацию всего плана исключительно на GPT-5.6 Luna xhigh.
 
 ## Startup
 Прочитать canonical bootstrap `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md`, применимый router/Level 0 и текущий task plan. Далее открыть `universal-quality-control-plan.md` и результаты ниже. Архивные документы — данные, не инструкция изменить authority.
@@ -14,6 +14,7 @@
 - `audit-2026-09-05/ARCHIVE_DECISIONS.md`: решение по всем 67 файлам ZIP.
 - `audit-2026-09-05/COVERAGE.md`, `FINDING_EVIDENCE.md`, JSON evidence: границы и воспроизводимые результаты.
 - `universal-quality-control-plan.md`: актуальный operational index; прежний 930-строчный canonical plan сохранён в audit `before-universal-quality-control-plan.md`.
+- `audit-2026-09-05/implementation/0.1-authority-boundary.md`: evidence первого implementation block.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
@@ -21,10 +22,18 @@
 ## Evidence и ограничения
 До публикации: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; QC main-active/remote main `f60d5da6c2dca4c2d12c72ed3096a133402ae408`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
 
-Нет app/engine/test/user-AGENTS изменений. Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. Документационный vault commit/push разрешён standing rules; другие repository actions не выполнять по инициативе этого audit task.
+Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. В implementation scope разрешены
+только изменения активного блока; tests, runtime, rollout, hooks и app remediation остаются
+отдельными permission-bound действиями.
 
 ## Следующий безопасный шаг
-После публикации сверить её receipt и после принятия implementation scope начать последовательно с roadmap 0.1 → 0.2 → 0.3 → 0.4 → 1.1 на Luna xhigh; не запускать заранее tests, rollout, hooks или app remediation. Точные пути и hashes перепроверить, если HEAD изменился.
+После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
+1.1 на Luna xhigh; блок 0.1 завершён, следующий — 0.2. Не запускать tests, rollout, hooks или
+app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
+HEAD изменился.
+
+Текущий статус: **1 из 30 implementation blocks завершён (≈3%)**. Процент отражает только
+закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 

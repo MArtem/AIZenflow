@@ -1,7 +1,7 @@
 # Полный аудит документации и QualityControl — 2026-09-05
 
 ## Авторизация и результат
-Пользователь разрешил полный аудит на GPT-6 Astra, включая старый план QualityControl, и подготовку поэтапного плана внедрения с моделью/reasoning. Режим эконом сохранён; приоритет результата — максимальное качество. Изменение действующих правил и реализация engine не входят в текущий блок. Переработка task-плана разрешена.
+Пользователь разрешил полный аудит на GPT-6 Astra, включая старый план QualityControl, и подготовку поэтапного плана внедрения с моделью/reasoning. Режим эконом сохранён; приоритет результата — максимальное качество. Аудит завершён; с 2026-09-08 пользователь явно разрешил последовательную реализацию плана на GPT-5.6 Luna xhigh. Реализация идёт по `universal-quality-control-plan.md` и не расширяется за пределы активного блока.
 
 ## Этапы аудита
 - [x] Прочитать канонический bootstrap, Level 0, governance, текущие plan/handoff.
@@ -39,3 +39,13 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] Провести bounded review изменения плана и статические проверки; публикация подтверждается отдельным publication-receipt.json.
 
 Контракт: продуктового проекта ещё нет; текущие приложения — пробы. Корректировка только плана, без создания проекта/тестов/benchmark runner. Четыре улучшения приняты пользователем. Любой новый пункт исполнения и его review — Luna xhigh. Readiness подготовки не заменяет stable QC promotion и будущие app/release gates.
+
+## Реализация плана — 2026-09-08
+
+- [x] 0.1: зафиксировать Documentation / QualityControl / project-app / task evidence как разные владельцы и разделить global bootstrap от opt-in engine adoption.
+- [ ] 0.2: обновить свежий baseline evidence.
+- [ ] 0.3: начать компактные observations Luna без telemetry platform.
+- [ ] 0.4: описать пять app-neutral сценариев без test/runtime execution.
+- [ ] 1.1: согласовать authority, severity, applicability, evidence и readiness verdicts.
+
+Evidence блока 0.1: `audit-2026-09-05/implementation/0.1-authority-boundary.md`.
