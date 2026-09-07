@@ -22,12 +22,14 @@
 - `audit-2026-09-05/implementation/1.1-verdict-contract.md`: desk-review receipt единого authority/severity/evidence/readiness/exception contract.
 - `audit-2026-09-05/implementation/1.2-rule-catalog.md`: receipt 12 scoped Rule IDs и exception metadata contract.
 - `audit-2026-09-05/implementation/2.1-architecture-invariants.md`: desk-review receipt invariants-before-style и три neutral architecture examples.
+- `audit-2026-09-05/implementation/2.2-prompt-routing.md`: receipt нормализации active prompts,
+  AI route IDs, specialist ownership и local skill provenance.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
 
 ## Evidence и ограничения
-До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; QC main-active/remote main `f60d5da6c2dca4c2d12c72ed3096a133402ae408`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
+До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; QC main-active/remote main `f60d5da6c2dca4c2d12c72ed3096a133402ae408`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
 
 Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. В implementation scope разрешены
 только изменения активного блока; tests, runtime, rollout, hooks и app remediation остаются
@@ -35,11 +37,11 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 → 1.2 → 2.1 → 2.2 на Luna xhigh; блоки 0.1–2.1 завершены, следующий — 2.2. Не запускать tests, rollout, hooks или
+1.1 → 1.2 → 2.1 → 2.2 → 2.3 на Luna xhigh; блоки 0.1–2.2 завершены, следующий — 2.3. Не запускать tests, rollout, hooks или
 app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
 HEAD изменился.
 
-Текущий статус: **7 из 30 implementation blocks завершены (≈23%)**. Процент отражает только
+Текущий статус: **8 из 30 implementation blocks завершены (≈27%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
