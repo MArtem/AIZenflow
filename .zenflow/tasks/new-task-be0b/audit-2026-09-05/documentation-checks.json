@@ -1,0 +1,52 @@
+[
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "-B",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/check_task_type_documentation_router.py"
+    ],
+    "exit": 0,
+    "stdout": "Task type documentation router OK: 86 documents classified; Level 0 2746/5000 words\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "-B",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/check_docs_index.py"
+    ],
+    "exit": 1,
+    "stdout": "Missing indexed docs/files:\n- ./TESTING_INSTRUCTIONS.md\n- ./scripts/check_bootstrap_contract.py\n- ./scripts/check_documentation_boundaries.py\n- ./scripts/check_task_type_documentation_router.py\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "-B",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/check_docs_consistency.py"
+    ],
+    "exit": 0,
+    "stdout": "Documentation consistency OK\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "-B",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/check_documentation_boundaries.py"
+    ],
+    "exit": 0,
+    "stdout": "Documentation boundary OK: /Users/Artem/.zenflow/worktrees/documentation-vault\n",
+    "stderr": ""
+  },
+  {
+    "command": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/python3",
+      "-B",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/root-scripts/validate_ios_knowledge_system.py"
+    ],
+    "exit": 0,
+    "stdout": "iOS knowledge system OK: 18 active domains, 5 complete, 4 deferred\n",
+    "stderr": ""
+  }
+]

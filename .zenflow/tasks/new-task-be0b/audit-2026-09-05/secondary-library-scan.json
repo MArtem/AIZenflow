@@ -1,0 +1,3757 @@
+[
+  {
+    "path": "reusable/package-vault-docs/ADOPTION_AUDIT.md",
+    "words": 1090,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 5,
+          "text": "Evidence-based record for which reusable packages are connected to `source-app` and which are preserved only in `./PackagesForReuse` until a concrete need exists."
+        },
+        {
+          "line": 14,
+          "text": "| `./Packages/source-appProductLocalizationResources` | connected | Used by app/widget/share product strings. |"
+        },
+        {
+          "line": 26,
+          "text": "| `./Packages/AppFileStorage` | connected | Used source-only through `./PackagesInUse/AppFileStorage` for composer/feed media storage path safety and stable `source-appComposerMedia` fallback resolution. |"
+        },
+        {
+          "line": 54,
+          "text": "| `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration` | vault-only | Not linked by current Xcode targets; keep for future localization-resource composition. |"
+        },
+        {
+          "line": 75,
+          "text": "- **Reason**: package is useful as reusable input-formatting infrastructure, but current source-app has no active product requirement that needs it in runtime. Connecting it to `./PackagesInUse` now would be speculative."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAnalytics/PackageContract.md",
+    "words": 155,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAnalytics/README.md",
+    "words": 490,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAnalytics/REUSE.md",
+    "words": 101,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAnalytics/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAnalytics/Sources/AppAnalytics/Documentation.docc/AppAnalytics.md",
+    "words": 54,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAnalytics/Sources/AppAnalyticsCore/Documentation.docc/AppAnalyticsCore.md",
+    "words": 85,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAnalytics/USAGE.md",
+    "words": 139,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAppleAuthentication/PackageContract.md",
+    "words": 155,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAppleAuthentication/README.md",
+    "words": 476,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAppleAuthentication/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAppleAuthentication/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAppleAuthentication/Sources/AppAppleAuthentication/Documentation.docc/AppAppleAuthentication.md",
+    "words": 78,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppAppleAuthentication/USAGE.md",
+    "words": 138,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBackgroundTasks/Docs/README.md",
+    "words": 16,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBackgroundTasks/PackageContract.md",
+    "words": 392,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBackgroundTasks/README.md",
+    "words": 461,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBackgroundTasks/REUSE.md",
+    "words": 93,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 5,
+          "text": "## Current source-app state"
+        },
+        {
+          "line": 7,
+          "text": "`source-app` does not currently register or submit native background tasks, and adding background refresh/processing jobs would require product decisions, entitlements, Info.plist identifiers, scheduling policy, failure policy, and manual QA."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBackgroundTasks/Scripts/verify_package.sh",
+    "words": 435,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 70,
+          "text": "if grep -R \"String(describing: *error)\\|localizedDescription\\|@unchecked Sendable\\|stablePrivacyHash\\|raw telemetry\\|bodyText\\|Authorization\\|Cookie\" -n Sources Package.swift README.md PackageContract.md Docs 2>/dev/null; then"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBackgroundTasks/Sources/AppBackgroundTasks/Documentation.docc/AppBackgroundTasks.md",
+    "words": 106,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBranding/PackageContract.md",
+    "words": 154,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBranding/README.md",
+    "words": 463,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBranding/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBranding/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBranding/Sources/AppBranding/Documentation.docc/AppBranding.md",
+    "words": 76,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppBranding/USAGE.md",
+    "words": 140,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppCache/PackageContract.md",
+    "words": 152,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppCache/README.md",
+    "words": 460,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppCache/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppCache/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppCache/Sources/AppCache/Documentation.docc/AppCache.md",
+    "words": 81,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppCache/USAGE.md",
+    "words": 139,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConfiguration/PackageContract.md",
+    "words": 151,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConfiguration/README.md",
+    "words": 457,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConfiguration/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConfiguration/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConfiguration/Sources/AppConfiguration/Documentation.docc/AppConfiguration.md",
+    "words": 86,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConfiguration/USAGE.md",
+    "words": 137,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConnectivity/Docs/README.md",
+    "words": 22,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConnectivity/PackageContract.md",
+    "words": 433,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConnectivity/README.md",
+    "words": 456,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConnectivity/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConnectivity/Scripts/verify_package.sh",
+    "words": 401,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 6,
+          "text": "SCRATCH_BASE=\"${TMPDIR:-/tmp}/InfrastructureSDKBuild\""
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppConnectivity/Sources/AppConnectivity/Documentation.docc/AppConnectivity.md",
+    "words": 161,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/PackageContract.md",
+    "words": 152,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/README.md",
+    "words": 477,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 40,
+          "text": "- **Library products**: `AppDatabaseCore`, `AppSwiftDataDatabase`, `AppCoreDataDatabase`, `AppDatabaseComposition`, `AppDatabase`"
+        },
+        {
+          "line": 41,
+          "text": "- **SwiftPM targets**: `AppDatabaseCore`, `AppSwiftDataDatabase`, `AppCoreDataDatabase`, `AppDatabaseComposition`, `AppDatabase`"
+        },
+        {
+          "line": 84,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 86,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 91,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 113,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/REUSE.md",
+    "words": 107,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 11,
+          "text": "- `AppCoreDataDatabase`"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/Sources/AppCoreDataDatabase/Documentation.docc/AppCoreDataDatabase.md",
+    "words": 75,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# ``AppCoreDataDatabase``"
+        },
+        {
+          "line": 4,
+          "text": "    @DisplayName(\"AppCoreDataDatabase\")"
+        },
+        {
+          "line": 13,
+          "text": "`AppCoreDataDatabase` is reusable infrastructure. It must expose mechanisms and stable contracts, not app-specific product decisions."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/Sources/AppDatabase/Documentation.docc/AppDatabase.md",
+    "words": 69,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/Sources/AppDatabaseComposition/Documentation.docc/AppDatabaseComposition.md",
+    "words": 73,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/Sources/AppDatabaseCore/Documentation.docc/AppDatabaseCore.md",
+    "words": 76,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/Sources/AppSwiftDataDatabase/Documentation.docc/AppSwiftDataDatabase.md",
+    "words": 73,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDatabase/USAGE.md",
+    "words": 137,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDeviceInfo/Docs/README.md",
+    "words": 25,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDeviceInfo/PackageContract.md",
+    "words": 354,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDeviceInfo/README.md",
+    "words": 449,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDeviceInfo/Scripts/verify_package.sh",
+    "words": 397,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 67,
+          "text": "if grep -R \"String(describing: *error)\\|localizedDescription\\|@unchecked Sendable\\|stablePrivacyHash\\|raw telemetry\\|bodyText\\|Authorization\\|Cookie\" -n Sources Tests Package.swift README.md PackageContract.md Docs 2>/dev/null; then"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDeviceInfo/Sources/AppDeviceInfo/Documentation.docc/AppDeviceInfo.md",
+    "words": 162,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDownloads/Docs/Iteration14_Report.md",
+    "words": 246,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDownloads/PackageContract.md",
+    "words": 494,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDownloads/README.md",
+    "words": 457,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDownloads/REUSE.md",
+    "words": 225,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 3,
+          "text": "## Current source-app state"
+        },
+        {
+          "line": 7,
+          "text": "It is not copied into `./PackagesInUse` in this block because current `source-app` does not have a product-level generic download feature to migrate. The active `./PackagesInUse/AppNetworking` package already owns API-oriented request/download behavior used by networking clients. Replacing or layering that with `AppDownloads` now would duplicate me"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDownloads/Scripts/verify_package.sh",
+    "words": 613,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 108,
+          "text": "  \"@unchecked Sendable\" \\"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppDownloads/Sources/AppDownloads/Documentation.docc/AppDownloads.md",
+    "words": 241,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppEnvironment/Docs/README.md",
+    "words": 13,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppEnvironment/PackageContract.md",
+    "words": 260,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppEnvironment/README.md",
+    "words": 450,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppEnvironment/Scripts/verify_package.sh",
+    "words": 309,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 51,
+          "text": "if grep -R \"String(describing: *error)\\|localizedDescription\\|@unchecked Sendable\\|stablePrivacyHash\\|raw telemetry\\|bodyText\\|Authorization\\|Cookie\" -n Sources Tests Package.swift README.md PackageContract.md Docs 2>/dev/null; then"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppEnvironment/Sources/AppEnvironment/Documentation.docc/AppEnvironment.md",
+    "words": 163,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppErrors/PackageContract.md",
+    "words": 152,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppErrors/README.md",
+    "words": 464,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppErrors/REUSE.md",
+    "words": 101,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppErrors/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppErrors/Sources/AppErrors/Documentation.docc/AppErrors.md",
+    "words": 55,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppErrors/Sources/AppErrorsCore/Documentation.docc/AppErrorsCore.md",
+    "words": 90,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppErrors/USAGE.md",
+    "words": 137,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFeatureFlags/Docs/README.md",
+    "words": 22,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFeatureFlags/PackageContract.md",
+    "words": 268,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFeatureFlags/README.md",
+    "words": 450,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFeatureFlags/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFeatureFlags/Scripts/verify_package.sh",
+    "words": 402,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 6,
+          "text": "SCRATCH_BASE=\"${TMPDIR:-/tmp}/InfrastructureSDKBuild\""
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFeatureFlags/Sources/AppFeatureFlags/Documentation.docc/AppFeatureFlags.md",
+    "words": 97,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFileStorage/Docs/README.md",
+    "words": 14,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFileStorage/PackageContract.md",
+    "words": 270,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFileStorage/README.md",
+    "words": 461,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFileStorage/REUSE.md",
+    "words": 226,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 3,
+          "text": "## Current source-app state"
+        },
+        {
+          "line": 9,
+          "text": "- composer media writes use `LocalFileStorage` under the stable `Documents/source-appComposerMedia` namespace;"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFileStorage/Scripts/verify_package.sh",
+    "words": 270,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 52,
+          "text": "if grep -R \"String(describing: error)\\|localizedDescription\\|@unchecked Sendable\\|stablePrivacyHash\" \"${PACKAGE_DIR}/Sources\" >/dev/null 2>&1; then"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFileStorage/Sources/AppFileStorage/Documentation.docc/AppFileStorage.md",
+    "words": 141,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFormValidation/Docs/Iteration21_Report.md",
+    "words": 118,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFormValidation/PackageContract.md",
+    "words": 308,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFormValidation/README.md",
+    "words": 461,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFormValidation/REUSE.md",
+    "words": 191,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 41,
+          "text": "## Текущее решение для source-app"
+        },
+        {
+          "line": 43,
+          "text": "Connected source-only. `source-app` использует `./PackagesInUse/AppFormValidation` в `./source-app/ViewModels/LoginViewModel.swift` для product-neutral механики валидации login form."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFormValidation/Scripts/verify_package.sh",
+    "words": 375,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppFormValidation/Sources/AppFormValidation/Documentation.docc/AppFormValidation.md",
+    "words": 207,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppGlassUI/PackageContract.md",
+    "words": 128,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppGlassUI/README.md",
+    "words": 455,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppGlassUI/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppGlassUI/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppGlassUI/Sources/AppGlassUI/Documentation.docc/AppGlassUI.md",
+    "words": 105,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppGlassUI/USAGE.md",
+    "words": 140,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppImagePipeline/Docs/README.md",
+    "words": 15,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppImagePipeline/PackageContract.md",
+    "words": 237,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppImagePipeline/README.md",
+    "words": 455,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppImagePipeline/REUSE.md",
+    "words": 213,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 3,
+          "text": "## Current source-app state"
+        },
+        {
+          "line": 7,
+          "text": "It is not copied into `./PackagesInUse` in this block because current `source-app` image usage is local composer/feed media preview generation with platform-specific downsampling and stable local file references. `AppImagePipeline` owns generic remote/provided image-byte loading and bounded byte caching; adopting it now would not replace a current "
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppImagePipeline/Scripts/verify_package.sh",
+    "words": 288,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 35,
+          "text": "if grep -R --exclude='verify_package.sh' 'String(describing:[[:space:]]*error)\\|localizedDescription\\|@unchecked Sendable\\|stablePrivacyHash' \"$PACKAGE_DIR/Sources\" >/dev/null 2>&1; then"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppImagePipeline/Sources/AppImagePipeline/Documentation.docc/AppImagePipeline.md",
+    "words": 141,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppInputFormatting/PackageContract.md",
+    "words": 305,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 72,
+          "text": "It does not use `/tmp`, `${TMPDIR}`, `TMPDIR`, `/Users/Artem/Library`, or any global scratch path. It cleans scratch/build artifacts after verification and fails when SwiftPM emits `warning:` or `error:` lines."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppInputFormatting/README.md",
+    "words": 750,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 93,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 95,
+          "text": "Current `source-app` integration is source-only. If this package becomes needed by source-app:"
+        },
+        {
+          "line": 100,
+          "text": "4. Keep product-specific input policy and UI behavior in `./source-app`."
+        },
+        {
+          "line": 147,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppInputFormatting/REUSE.md",
+    "words": 174,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppInputFormatting/USAGE.md",
+    "words": 175,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppIntentSupport/PackageContract.md",
+    "words": 157,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppIntentSupport/README.md",
+    "words": 479,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppIntentSupport/REUSE.md",
+    "words": 66,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppIntentSupport/USAGE.md",
+    "words": 35,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLifecycle/Docs/README.md",
+    "words": 18,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLifecycle/PackageContract.md",
+    "words": 317,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLifecycle/README.md",
+    "words": 450,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLifecycle/Scripts/verify_package.sh",
+    "words": 431,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 68,
+          "text": "if grep -R \"String(describing: *error)\\|localizedDescription\\|@unchecked Sendable\\|stablePrivacyHash\\|raw telemetry\\|bodyText\\|Authorization\\|Cookie\" -n Sources Tests Package.swift README.md PackageContract.md Docs 2>/dev/null; then"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLifecycle/Sources/AppLifecycle/Documentation.docc/AppLifecycle.md",
+    "words": 119,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLocalization/PackageContract.md",
+    "words": 146,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLocalization/README.md",
+    "words": 461,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLocalization/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLocalization/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLocalization/Sources/AppLocalization/Documentation.docc/AppLocalization.md",
+    "words": 75,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLocalization/USAGE.md",
+    "words": 134,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLogging/Docs/README.md",
+    "words": 22,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLogging/PackageContract.md",
+    "words": 390,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLogging/README.md",
+    "words": 455,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLogging/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLogging/Scripts/verify_package.sh",
+    "words": 402,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 6,
+          "text": "SCRATCH_BASE=\"${TMPDIR:-/tmp}/InfrastructureSDKBuild\""
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppLogging/Sources/AppLogging/Documentation.docc/AppLogging.md",
+    "words": 190,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNavigation/PackageContract.md",
+    "words": 149,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNavigation/README.md",
+    "words": 455,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNavigation/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNavigation/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNavigation/Sources/AppNavigation/Documentation.docc/AppNavigation.md",
+    "words": 51,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNavigation/USAGE.md",
+    "words": 137,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNetworking/PackageContract.md",
+    "words": 153,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNetworking/README.md",
+    "words": 475,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 84,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 86,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 91,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 113,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNetworking/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNetworking/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNetworking/Sources/AppNetworking/Documentation.docc/AppNetworking.md",
+    "words": 101,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppNetworking/USAGE.md",
+    "words": 144,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppObservability/Docs/README.md",
+    "words": 22,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppObservability/PackageContract.md",
+    "words": 489,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppObservability/README.md",
+    "words": 446,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppObservability/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppObservability/Scripts/verify_package.sh",
+    "words": 387,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 6,
+          "text": "SCRATCH_BASE=\"${TMPDIR:-/tmp}/InfrastructureSDKBuild\""
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppObservability/Sources/AppObservability/Documentation.docc/AppObservability.md",
+    "words": 234,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppOnDeviceAI/PackageContract.md",
+    "words": 150,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppOnDeviceAI/README.md",
+    "words": 460,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppOnDeviceAI/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppOnDeviceAI/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppOnDeviceAI/Sources/AppOnDeviceAI/Documentation.docc/AppOnDeviceAI.md",
+    "words": 73,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppOnDeviceAI/USAGE.md",
+    "words": 140,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPagination/Docs/Iteration20_Report.md",
+    "words": 123,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPagination/PackageContract.md",
+    "words": 389,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 80,
+          "text": "The verifier must not use `/tmp`, `${TMPDIR}`, `TMPDIR`, or any external scratch path."
+        }
+      ],
+      "app_leak": [
+        {
+          "line": 26,
+          "text": "5. No feed/news/profile/source-app-specific logic."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPagination/README.md",
+    "words": 449,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPagination/REUSE.md",
+    "words": 218,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 28,
+          "text": "## Current source-app Decision"
+        },
+        {
+          "line": 30,
+          "text": "Vault-only. Current `source-app` has no active backend pagination/feed pagination runtime to migrate. The existing feed is local-first and channel-scoped, so connecting `AppPagination` now would add unused infrastructure."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPagination/Scripts/verify_package.sh",
+    "words": 364,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPagination/Sources/AppPagination/Documentation.docc/AppPagination.md",
+    "words": 183,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPermissions/Docs/README.md",
+    "words": 22,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPermissions/PackageContract.md",
+    "words": 284,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPermissions/README.md",
+    "words": 445,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPermissions/Scripts/verify_package.sh",
+    "words": 384,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPermissions/Sources/AppPermissions/Documentation.docc/AppPermissions.md",
+    "words": 100,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppProductLocalizationResources/PackageContract.md",
+    "words": 154,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# source-appProductLocalizationResources Package Contract"
+        },
+        {
+          "line": 10,
+          "text": "source-appProductLocalizationResources/"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppProductLocalizationResources/README.md",
+    "words": 458,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# source-appProductLocalizationResources"
+        },
+        {
+          "line": 5,
+          "text": "source-app-specific localization resource package."
+        },
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 13,
+          "text": "- Keeps source-app product strings/resources portable with the app."
+        },
+        {
+          "line": 25,
+          "text": "- working on source-app or a source-app-derived target."
+        },
+        {
+          "line": 26,
+          "text": "- multiple source-app targets need the same localized resources."
+        },
+        {
+          "line": 35,
+          "text": "This is intentionally product-specific. Generic projects should copy/adapt only if they also adopt source-app product resources."
+        },
+        {
+          "line": 39,
+          "text": "- **Library products**: `source-appProductLocalizationResources`"
+        },
+        {
+          "line": 40,
+          "text": "- **SwiftPM targets**: `source-appProductLocalizationResources`"
+        },
+        {
+          "line": 41,
+          "text": "- **Repository path**: `./PackagesForReuse/source-appProductLocalizationResources`"
+        },
+        {
+          "line": 49,
+          "text": "    .package(path: \"../PackagesForReuse/source-appProductLocalizationResources\")"
+        },
+        {
+          "line": 55,
+          "text": "            \"source-appProductLocalizationResources\""
+        },
+        {
+          "line": 61,
+          "text": "For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/source-appProductLocalizationResources`."
+        },
+        {
+          "line": 69,
+          "text": "    .package(url: \"https://github.com/<org>/source-appProductLocalizationResources.git\", from: \"0.1.0\")"
+        },
+        {
+          "line": 75,
+          "text": "            \"source-appProductLocalizationResources\""
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 87,
+          "text": "1. Keep the reviewed package in `./PackagesForReuse/source-appProductLocalizationResources`."
+        },
+        {
+          "line": 88,
+          "text": "2. Copy/sync it into `./PackagesInUse/source-appProductLocalizationResources`."
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 96,
+          "text": "import source-appProductLocalizationResources"
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppProductLocalizationResources/REUSE.md",
+    "words": 99,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# Reuse Guide — source-appProductLocalizationResources"
+        },
+        {
+          "line": 9,
+          "text": "- `source-appProductLocalizationResources`"
+        },
+        {
+          "line": 13,
+          "text": "1. Copy this folder into the target project under `./Packages/source-appProductLocalizationResources`."
+        },
+        {
+          "line": 17,
+          "text": "cd ./Packages/source-appProductLocalizationResources"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppProductLocalizationResources/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppProductLocalizationResources/Sources/AppProductLocalizationResources/Documentation.docc/AppProductLocalizationResources.md",
+    "words": 50,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# ``source-appProductLocalizationResources``"
+        },
+        {
+          "line": 4,
+          "text": "    @DisplayName(\"source-appProductLocalizationResources\")"
+        },
+        {
+          "line": 7,
+          "text": "source-app product localization resource bundle package."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppProductLocalizationResources/USAGE.md",
+    "words": 133,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# source-appProductLocalizationResources Usage Guide"
+        },
+        {
+          "line": 5,
+          "text": "`source-appProductLocalizationResources` is a single-folder standalone package. Copy the whole folder when moving this capability into another project."
+        },
+        {
+          "line": 9,
+          "text": "- source-app product localization bundle lookup."
+        },
+        {
+          "line": 13,
+          "text": "- generic localization mechanics and non-source-app product copy."
+        },
+        {
+          "line": 17,
+          "text": "1. Import `source-appProductLocalizationResources` directly where the reusable API is needed."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPushNotifications/PackageContract.md",
+    "words": 149,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPushNotifications/README.md",
+    "words": 464,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPushNotifications/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPushNotifications/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPushNotifications/Sources/AppPushNotifications/Documentation.docc/AppPushNotifications.md",
+    "words": 74,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppPushNotifications/USAGE.md",
+    "words": 139,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRateLimiter/Docs/Iteration18_Report.md",
+    "words": 132,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRateLimiter/PackageContract.md",
+    "words": 412,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRateLimiter/README.md",
+    "words": 450,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRateLimiter/REUSE.md",
+    "words": 224,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 28,
+          "text": "## Current source-app Decision"
+        },
+        {
+          "line": 30,
+          "text": "Vault-only. Current `source-app` has a small synchronous login submission throttle and no product-level generic rate-limit policy/runtime to migrate. Replacing that one local UI throttle with an async actor-backed package path now would add unnecessary complexity without a current broader rate-limiting requirement."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRateLimiter/Scripts/verify_package.sh",
+    "words": 364,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRateLimiter/Sources/AppRateLimiter/Documentation.docc/AppRateLimiter.md",
+    "words": 156,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRemoteAssets/Docs/Iteration16_Report.md",
+    "words": 185,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRemoteAssets/PackageContract.md",
+    "words": 472,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRemoteAssets/README.md",
+    "words": 449,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRemoteAssets/REUSE.md",
+    "words": 238,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 3,
+          "text": "## Current source-app state"
+        },
+        {
+          "line": 7,
+          "text": "It is not copied into `./PackagesInUse` in this block because current `source-app` has no product-level remote asset manifest runtime to migrate. Feed/composer media currently uses local persisted card media and app-owned file references; connecting a remote asset manifest planner now would add unused infrastructure."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRemoteAssets/Scripts/verify_package.sh",
+    "words": 600,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 104,
+          "text": "  \"@unchecked Sendable\" \\"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppRemoteAssets/Sources/AppRemoteAssets/Documentation.docc/AppRemoteAssets.md",
+    "words": 204,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSecureStorage/Docs/README.md",
+    "words": 22,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSecureStorage/PackageContract.md",
+    "words": 416,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSecureStorage/README.md",
+    "words": 453,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSecureStorage/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSecureStorage/Scripts/verify_package.sh",
+    "words": 421,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 6,
+          "text": "SCRATCH_BASE=\"${TMPDIR:-/tmp}/InfrastructureSDKBuild\""
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSecureStorage/Sources/AppSecureStorage/Documentation.docc/AppSecureStorage.md",
+    "words": 166,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppShareExtensionSupport/PackageContract.md",
+    "words": 148,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppShareExtensionSupport/README.md",
+    "words": 468,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppShareExtensionSupport/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppShareExtensionSupport/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppShareExtensionSupport/Sources/AppShareExtensionSupport/Documentation.docc/AppShareExtensionSupport.md",
+    "words": 113,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppShareExtensionSupport/USAGE.md",
+    "words": 135,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppStateMachine/Docs/Iteration19_Report.md",
+    "words": 229,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppStateMachine/PackageContract.md",
+    "words": 485,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppStateMachine/README.md",
+    "words": 454,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppStateMachine/REUSE.md",
+    "words": 228,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 28,
+          "text": "## Current source-app Decision"
+        },
+        {
+          "line": 30,
+          "text": "Vault-only. Current `source-app` already has product-specific app/session/navigation/lifecycle state owners. There is no direct generic state-machine runtime to migrate now; adopting this package would require a product/architecture decision and should not be done mechanically."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppStateMachine/Scripts/verify_package.sh",
+    "words": 364,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppStateMachine/Sources/AppStateMachine/Documentation.docc/AppStateMachine.md",
+    "words": 280,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSync/PackageContract.md",
+    "words": 147,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSync/README.md",
+    "words": 460,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSync/REUSE.md",
+    "words": 101,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSync/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSync/Sources/AppSyncCore/Documentation.docc/AppSyncCore.md",
+    "words": 90,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSync/Sources/AppSyncObservation/Documentation.docc/AppSyncObservation.md",
+    "words": 51,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppSync/USAGE.md",
+    "words": 141,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppTaskQueue/Docs/Iteration17_Report.md",
+    "words": 184,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppTaskQueue/PackageContract.md",
+    "words": 459,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 28,
+          "text": "5. No source-app/news/profile/feed-specific models."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppTaskQueue/README.md",
+    "words": 449,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppTaskQueue/REUSE.md",
+    "words": 211,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 28,
+          "text": "## Current source-app Decision"
+        },
+        {
+          "line": 30,
+          "text": "Vault-only. Current `source-app` has no generic product task queue runtime to migrate. `./PackagesInUse/AppNetworking` already owns API-specific offline queue behavior, and connecting `AppTaskQueue` now would duplicate mechanisms without a current app flow."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppTaskQueue/Scripts/verify_package.sh",
+    "words": 364,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppTaskQueue/Sources/AppTaskQueue/Documentation.docc/AppTaskQueue.md",
+    "words": 200,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppUploads/Docs/Iteration15_Report.md",
+    "words": 147,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppUploads/PackageContract.md",
+    "words": 455,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppUploads/README.md",
+    "words": 451,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppUploads/REUSE.md",
+    "words": 234,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 3,
+          "text": "## Current source-app state"
+        },
+        {
+          "line": 7,
+          "text": "It is not copied into `./PackagesInUse` in this block because current `source-app` has no product-level generic upload feature to migrate. The active `./PackagesInUse/AppNetworking` package already owns API-oriented file upload behavior for networking clients. Connecting `AppUploads` now would duplicate mechanisms and risk weakening existing endpoi"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppUploads/Scripts/verify_package.sh",
+    "words": 600,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 104,
+          "text": "  \"@unchecked Sendable\" \\"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppUploads/Sources/AppUploads/Documentation.docc/AppUploads.md",
+    "words": 176,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppValidationCore/Docs/Iteration22_Report.md",
+    "words": 146,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppValidationCore/PackageContract.md",
+    "words": 284,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppValidationCore/README.md",
+    "words": 458,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppValidationCore/REUSE.md",
+    "words": 227,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 43,
+          "text": "## Текущее решение для source-app"
+        },
+        {
+          "line": 45,
+          "text": "Vault-only. `source-app` уже использует более высокий form-specific пакет `./PackagesInUse/AppFormValidation` для login form validation. Подключать `AppValidationCore` в `./PackagesInUse` сейчас не нужно: это создало бы параллельную validation surface без текущего app-level потребителя."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppValidationCore/Scripts/verify_package.sh",
+    "words": 433,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppValidationCore/Sources/AppValidationCore/Documentation.docc/AppValidationCore.md",
+    "words": 148,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppWidgetSupport/PackageContract.md",
+    "words": 151,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppWidgetSupport/README.md",
+    "words": 459,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 83,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 85,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 90,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 112,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/AppWidgetSupport/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppWidgetSupport/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppWidgetSupport/Sources/AppWidgetSupport/Documentation.docc/AppWidgetSupport.md",
+    "words": 78,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/AppWidgetSupport/USAGE.md",
+    "words": 133,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/CONNECTING_PACKAGES.md",
+    "words": 431,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 119,
+          "text": "All verification/build/cache output for this worktree must stay under `/Users/Artem/.zenflow/worktrees/`. Do not route outputs to `/Users/Artem/Library`, `/tmp`, or other external paths."
+        }
+      ],
+      "app_leak": [
+        {
+          "line": 5,
+          "text": "## Mode 1: source-app source-only adoption"
+        },
+        {
+          "line": 7,
+          "text": "Use this mode in the current `source-app` worktree to avoid SwiftPM `.build` and cloned package growth."
+        },
+        {
+          "line": 39,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNavigationIntegration/PackageContract.md",
+    "words": 137,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNavigationIntegration/README.md",
+    "words": 457,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 82,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 84,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 89,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 111,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNavigationIntegration/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNavigationIntegration/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNavigationIntegration/Sources/AppAnalyticsNavigationIntegration/Documentation.docc/AppAnalyticsNavigationIntegration.md",
+    "words": 66,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNetworkingIntegration/PackageContract.md",
+    "words": 146,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNetworkingIntegration/README.md",
+    "words": 455,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 82,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 84,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 89,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 111,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNetworkingIntegration/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNetworkingIntegration/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsNetworkingIntegration/Sources/AppAnalyticsNetworkingIntegration/Documentation.docc/AppAnalyticsNetworkingIntegration.md",
+    "words": 75,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/PackageContract.md",
+    "words": 144,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/README.md",
+    "words": 454,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 82,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 84,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 89,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 111,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/Sources/AppAnalyticsPushNotificationsIntegration/Documentation.docc/AppAnalyticsPushNotificationsIntegration.md",
+    "words": 73,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppErrorsNetworkingIntegration/PackageContract.md",
+    "words": 144,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppErrorsNetworkingIntegration/README.md",
+    "words": 458,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 82,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 84,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 89,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 111,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppErrorsNetworkingIntegration/REUSE.md",
+    "words": 99,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppErrorsNetworkingIntegration/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppErrorsNetworkingIntegration/Sources/AppErrorsNetworkingIntegration/Documentation.docc/AppErrorsNetworkingIntegration.md",
+    "words": 73,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppProductLocalizationResourcesAppLocalizationIntegration/PackageContract.md",
+    "words": 137,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# source-appProductLocalizationResourcesAppLocalizationIntegration Integration Helper Contract"
+        },
+        {
+          "line": 9,
+          "text": "source-appProductLocalizationResources + AppLocalization"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppProductLocalizationResourcesAppLocalizationIntegration/README.md",
+    "words": 451,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# source-appProductLocalizationResourcesAppLocalizationIntegration"
+        },
+        {
+          "line": 5,
+          "text": "Integration helper connecting source-appProductLocalizationResources to AppLocalization."
+        },
+        {
+          "line": 9,
+          "text": "Reusable vault package stored under `./PackagesForReuse`; not connected to `source-app` unless copied into `./PackagesInUse`."
+        },
+        {
+          "line": 15,
+          "text": "- Keeps generic AppLocalization independent from source-app resources."
+        },
+        {
+          "line": 16,
+          "text": "- Provides optional composition for source-app resource lookup."
+        },
+        {
+          "line": 25,
+          "text": "- a source-app target uses AppLocalization and source-appProductLocalizationResources together."
+        },
+        {
+          "line": 29,
+          "text": "- an unrelated app should not depend on source-app resources."
+        },
+        {
+          "line": 34,
+          "text": "Helper owns source-app resource integration; host apps own product strings and localization QA."
+        },
+        {
+          "line": 38,
+          "text": "- **Library products**: `source-appProductLocalizationResourcesAppLocalizationIntegration`"
+        },
+        {
+          "line": 39,
+          "text": "- **SwiftPM targets**: `source-appProductLocalizationResourcesAppLocalizationIntegration`"
+        },
+        {
+          "line": 40,
+          "text": "- **Repository path**: `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration`"
+        },
+        {
+          "line": 48,
+          "text": "    .package(path: \"../PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration\")"
+        },
+        {
+          "line": 54,
+          "text": "            \"source-appProductLocalizationResourcesAppLocalizationIntegration\""
+        },
+        {
+          "line": 60,
+          "text": "For Xcode, use **File → Add Package Dependencies… → Add Local…** and select `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration`."
+        },
+        {
+          "line": 68,
+          "text": "    .package(url: \"https://github.com/<org>/source-appProductLocalizationResourcesAppLocalizationIntegration.git\", from: \"0.1.0\")"
+        },
+        {
+          "line": 74,
+          "text": "            \"source-appProductLocalizationResourcesAppLocalizationIntegration\""
+        },
+        {
+          "line": 82,
+          "text": "## Current source-app Source-Only Usage"
+        },
+        {
+          "line": 84,
+          "text": "Current `source-app` integration is source-only. If this package is needed by the app now:"
+        },
+        {
+          "line": 86,
+          "text": "1. Keep the reviewed package in `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration`."
+        },
+        {
+          "line": 87,
+          "text": "2. Copy/sync it into `./PackagesInUse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration`."
+        },
+        {
+          "line": 88,
+          "text": "3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration` Xcode group."
+        },
+        {
+          "line": 89,
+          "text": "4. Keep product-specific policy in `./source-app`; do not add decorative wrappers around package APIs."
+        },
+        {
+          "line": 95,
+          "text": "import source-appProductLocalizationResourcesAppLocalizationIntegration"
+        },
+        {
+          "line": 111,
+          "text": "plutil -lint ./source-app.xcodeproj/project.pbxproj"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppProductLocalizationResourcesAppLocalizationIntegration/REUSE.md",
+    "words": 99,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# Reuse Guide — source-appProductLocalizationResourcesAppLocalizationIntegration"
+        },
+        {
+          "line": 9,
+          "text": "- `source-appProductLocalizationResourcesAppLocalizationIntegration`"
+        },
+        {
+          "line": 13,
+          "text": "1. Copy this folder into the target project under `./Packages/source-appProductLocalizationResourcesAppLocalizationIntegration`."
+        },
+        {
+          "line": 17,
+          "text": "cd ./Packages/source-appProductLocalizationResourcesAppLocalizationIntegration"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppProductLocalizationResourcesAppLocalizationIntegration/Scripts/verify_package.sh",
+    "words": 70,
+    "hits": {}
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/AppProductLocalizationResourcesAppLocalizationIntegration/Sources/AppProductLocalizationResourcesAppLocalizationIntegration/Documentation.docc/AppProductLocalizationResourcesAppLocalizationIntegration.md",
+    "words": 66,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 1,
+          "text": "# ``source-appProductLocalizationResourcesAppLocalizationIntegration``"
+        },
+        {
+          "line": 15,
+          "text": "source-appProductLocalizationResources + AppLocalization"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/IntegrationHelpers/README.md",
+    "words": 388,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 43,
+          "text": "| `./source-appProductLocalizationResourcesAppLocalizationIntegration` | `source-appProductLocalizationResources`, `AppLocalization` | Connects source-app product resources to generic localization lookup. |"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/PACKAGE_CATALOG.md",
+    "words": 2976,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 17,
+          "text": "| Package | Active In source-app | Products | Short Summary | Expanded Description | Host/App Keeps |"
+        },
+        {
+          "line": 26,
+          "text": "| `./PackagesForReuse/AppDatabase` | Yes | `AppDatabaseCore, AppSwiftDataDatabase, AppCoreDataDatabase, AppDatabaseComposition, AppDatabase` | Database abstractions/composition plus SwiftData/Core Data execution boundaries. | Use when persistence code needs explicit database operation contracts, SwiftData/Core Data managers, model-actor/background "
+        },
+        {
+          "line": 58,
+          "text": "| `./PackagesForReuse/source-appProductLocalizationResources` | Yes | `source-appProductLocalizationResources` | source-app-specific localization resources; portable with source-app but not generic. | Use with source-app-family targets that need the same product strings and resources. It is packaged for portability with the app, not as a neutral in"
+        },
+        {
+          "line": 64,
+          "text": "| Helper | Active In source-app | Products | Short Summary | Expanded Description | Host/App Keeps |"
+        },
+        {
+          "line": 70,
+          "text": "| `./PackagesForReuse/IntegrationHelpers/source-appProductLocalizationResourcesAppLocalizationIntegration` | No | `source-appProductLocalizationResourcesAppLocalizationIntegration` | Bridges source-appProductLocalizationResources into AppLocalization. | Use only for source-app-family targets that intentionally combine the product-specific string bu"
+        },
+        {
+          "line": 89,
+          "text": "- if active in source-app, a matching `./PackagesInUse/<PackageName>/README.md` and `./PackagesInUse/PACKAGE_CATALOG.md` entry with the same description quality."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/package-vault-docs/README.md",
+    "words": 353,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 5,
+          "text": "This folder is the central documentation-vault mirror of the reusable package library from `./PackagesForReuse` in the active source-app worktree."
+        },
+        {
+          "line": 17,
+          "text": "- active/inactive status for source-app;"
+        },
+        {
+          "line": 50,
+          "text": "4. For current source-app source-only mode, copy/sync the package to `./PackagesInUse/<PackageName>` and update Xcode with `./scripts/migrate_packages_in_use_project.py`."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Catalog/INTEGRATION_HELPERS_CATALOG.md",
+    "words": 116,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Catalog/PACKAGE_STATUS_MATRIX.md",
+    "words": 579,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Catalog/SDK_PACKAGE_ROADMAP_50.md",
+    "words": 223,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/CONCURRENCY_POLICY.md",
+    "words": 219,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 36,
+          "text": "or retain `@unchecked Sendable`, `nonisolated(unsafe)`, `@preconcurrency`, warning suppressions,"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/INTEGRATION_HELPERS_RULES.md",
+    "words": 221,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/ITERATION_00_REPORT.md",
+    "words": 156,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/PACKAGES_CREATION_STANDARD.md",
+    "words": 367,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 27,
+          "text": "source-app-specific flags"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/PACKAGE_CHECKLIST.md",
+    "words": 320,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 44,
+          "text": "[ ] No unnecessary @unchecked Sendable"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/PACKAGE_NAMING_POLICY.md",
+    "words": 87,
+    "hits": {
+      "app_leak": [
+        {
+          "line": 21,
+          "text": "source-appNews"
+        },
+        {
+          "line": 22,
+          "text": "source-appProfile"
+        },
+        {
+          "line": 32,
+          "text": "source-appProductLocalizationResources"
+        },
+        {
+          "line": 52,
+          "text": "source-appUserSession"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/PRIVACY_TELEMETRY_POLICY.md",
+    "words": 138,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/RELEASE_PROCESS.md",
+    "words": 170,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/SINGLE_FOLDER_STANDALONE_RULES.md",
+    "words": 274,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/TEMPLATE_VERIFICATION_REPORT.md",
+    "words": 103,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Docs/TESTING_POLICY.md",
+    "words": 153,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 5,
+          "text": "Every package must have tests. The minimum useful test count depends on complexity:"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/README.md",
+    "words": 802,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 3,
+          "text": "This archive is the **baseline standard** for building a large set of app-independent iOS infrastructure packages."
+        }
+      ],
+      "app_leak": [
+        {
+          "line": 63,
+          "text": "## source-app adaptation note"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/create_integration_helper_from_template.sh",
+    "words": 171,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/create_package_from_template.sh",
+    "words": 182,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/normalize_archive.sh",
+    "words": 63,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/verify_all_packages.sh",
+    "words": 72,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/verify_archive_hygiene.sh",
+    "words": 43,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/verify_no_forbidden_content.sh",
+    "words": 62,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/verify_package_structure.sh",
+    "words": 253,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Scripts/verify_single_folder_standalone.sh",
+    "words": 60,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/IntegrationHelperTemplate/Package.swift.template",
+    "words": 112,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/IntegrationHelperTemplate/PackageContract.md.template",
+    "words": 73,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/IntegrationHelperTemplate/README.md.template",
+    "words": 105,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/IntegrationHelperTemplate/Scripts/verify_package.sh.template",
+    "words": 93,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 12,
+          "text": "BUILD_DIR=\"${SWIFTPM_BUILD_PATH:-$(mktemp -d)}\""
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/IntegrationHelperTemplate/Sources/{{HelperName}}/Documentation.docc/{{HelperName}}.md.template",
+    "words": 22,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/IntegrationHelperTemplate/Sources/{{HelperName}}/{{HelperName}}.swift.template",
+    "words": 21,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/IntegrationHelperTemplate/Tests/{{HelperName}}Tests/{{HelperName}}Tests.swift.template",
+    "words": 17,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/PackageTemplate/Package.swift.template",
+    "words": 46,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/PackageTemplate/PackageContract.md.template",
+    "words": 182,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/PackageTemplate/README.md.template",
+    "words": 151,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/PackageTemplate/Scripts/verify_package.sh.template",
+    "words": 132,
+    "hits": {
+      "sandbox_examples": [
+        {
+          "line": 22,
+          "text": "BUILD_DIR=\"${SWIFTPM_BUILD_PATH:-$(mktemp -d)}\""
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/PackageTemplate/Sources/{{PackageName}}/Documentation.docc/{{PackageName}}.md.template",
+    "words": 31,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/PackageTemplate/Sources/{{PackageName}}/{{PackageName}}.swift.template",
+    "words": 101,
+    "hits": {}
+  },
+  {
+    "path": "reusable/sdk-creation/Templates/PackageTemplate/Tests/{{PackageName}}Tests/{{PackageName}}Tests.swift.template",
+    "words": 32,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/ARCHITECTURE_CASE.md",
+    "words": 420,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 30,
+          "text": "- **Rejected for this case**: no prior-project identity, no previous presentation-role naming, no generic `send(_:)`, no action-enum reducer loop, no local package reintroduction."
+        },
+        {
+          "line": 37,
+          "text": "- Role/API grep for stale presentation-role names, generic `send(_:)`, `dispatch(_:)`, and action-enum reducer boilerplate"
+        },
+        {
+          "line": 41,
+          "text": "This case intentionally demonstrates **SwiftUI Native State / MV with screen lifecycle models**, not a pure no-owner toy MV variant. SwiftUI views still own rendering and local UI composition, while lightweight `*Model` objects own async lifecycle, cancellation, pagination, persistence reconciliation, and navigation callbacks needed to preserve the"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/README.md",
+    "words": 129,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 17,
+          "text": "This case intentionally demonstrates **SwiftUI Native State / MV with screen lifecycle models**, not a pure no-owner toy MV variant. SwiftUI views still own rendering and local UI composition, while lightweight `*Model` objects own async lifecycle, cancellation, pagination, persistence reconciliation, and navigation callbacks needed to preserve the"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/SwiftUINativeStateCase/SwiftUINativeStateCaseApp/README.md",
+    "words": 119,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/01-swiftui-native-state-mv/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/ARCHITECTURE_CASE.md",
+    "words": 247,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 26,
+          "text": "- **Rejected for this case**: no generic `send(_:)`, no UI action-enum reducer loop, no TCA/UDF scaffolding, no decorative use-case layer."
+        },
+        {
+          "line": 33,
+          "text": "- Architecture grep for generic `send(_:)`, `dispatch(_:)`, and action-enum reducer boilerplate"
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/ExplicitIntentMVVMCase/ExplicitIntentMVVMCaseApp/README.md",
+    "words": 116,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/README.md",
+    "words": 102,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/02-mvvm-explicit-intents/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/ARCHITECTURE_CASE.md",
+    "words": 225,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/CoordinatorFlowCase/CoordinatorFlowCaseApp/README.md",
+    "words": 116,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/README.md",
+    "words": 113,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/03-coordinator-flow/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/04-clean-layered/ARCHITECTURE_CASE.md",
+    "words": 238,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/04-clean-layered/CleanLayeredCase/CleanLayeredCaseApp/README.md",
+    "words": 116,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/04-clean-layered/README.md",
+    "words": 98,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/04-clean-layered/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/04-clean-layered/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/05-modular-feature-sliced/ARCHITECTURE_CASE.md",
+    "words": 509,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 33,
+          "text": "- Do not use generic `send(_:)`, `dispatch(_:)`, or UI action enums as MVVM boilerplate."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/05-modular-feature-sliced/ModularFeatureSlicedCase/ModularFeatureSlicedCaseApp/README.md",
+    "words": 183,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/05-modular-feature-sliced/README.md",
+    "words": 277,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/05-modular-feature-sliced/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/05-modular-feature-sliced/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/06-hexagonal-ports-adapters/ARCHITECTURE_CASE.md",
+    "words": 514,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 34,
+          "text": "- Do not use generic `send(_:)`, `dispatch(_:)`, or UI action enums as MVVM boilerplate."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/06-hexagonal-ports-adapters/HexagonalPortsAdaptersCase/HexagonalPortsAdaptersCaseApp/README.md",
+    "words": 171,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/06-hexagonal-ports-adapters/README.md",
+    "words": 287,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/06-hexagonal-ports-adapters/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/06-hexagonal-ports-adapters/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/07-redux-elm-udf/ARCHITECTURE_CASE.md",
+    "words": 603,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 21,
+          "text": "- **Store**: the observable state owner used by SwiftUI. It exposes explicit product intents to views and keeps generic `send(_:)`/`dispatch(_:)` out of the public UI API."
+        },
+        {
+          "line": 35,
+          "text": "- Do not use generic `send(_:)` or `dispatch(_:)` as public Store API."
+        },
+        {
+          "line": 48,
+          "text": "- Architecture grep/review for Store/Action/Mutation/Reducer evidence and for absence of public generic `send(_:)`/`dispatch(_:)` UI APIs."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/07-redux-elm-udf/README.md",
+    "words": 272,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/07-redux-elm-udf/ReduxElmUDFCase/ReduxElmUDFCaseApp/README.md",
+    "words": 214,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/07-redux-elm-udf/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/07-redux-elm-udf/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/08-tca/ARCHITECTURE_CASE.md",
+    "words": 495,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 22,
+          "text": "- **Store**: SwiftUI-facing observable object exposing explicit product intent methods, not public generic `send(_:)` or `dispatch(_:)`."
+        },
+        {
+          "line": 34,
+          "text": "- Do not use public generic `send(_:)` or `dispatch(_:)` as the Store API."
+        },
+        {
+          "line": 46,
+          "text": "- Architecture grep/review for `State`/`Action`/`Effect`/reducer evidence and absence of public generic `send(_:)`/`dispatch(_:)` APIs."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/08-tca/README.md",
+    "words": 217,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/08-tca/TCACase/TCACaseApp/README.md",
+    "words": 163,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/08-tca/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/08-tca/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/09-reactorkit-reactor-style/ARCHITECTURE_CASE.md",
+    "words": 456,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 34,
+          "text": "- Do not use public generic `send(_:)` or `dispatch(_:)` as the UI API."
+        },
+        {
+          "line": 46,
+          "text": "- Architecture grep/review for `State`/`Action`/`Mutation`/`mutate`/`reduce` evidence and absence of public generic `send(_:)`/`dispatch(_:)` APIs."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/09-reactorkit-reactor-style/README.md",
+    "words": 206,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/09-reactorkit-reactor-style/ReactorStyleCase/ReactorStyleCaseApp/README.md",
+    "words": 162,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/09-reactorkit-reactor-style/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/09-reactorkit-reactor-style/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/10-mvc-massive-viewcontroller-migration/ARCHITECTURE_CASE.md",
+    "words": 347,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 36,
+          "text": "- Do not add generic `send(_:)` or `dispatch(_:)` APIs."
+        },
+        {
+          "line": 43,
+          "text": "- Public generic `send(_:)` / `dispatch(_:)` grep."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/10-mvc-massive-viewcontroller-migration/MVCMigrationCase/MVCMigrationCaseApp/README.md",
+    "words": 143,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/10-mvc-massive-viewcontroller-migration/README.md",
+    "words": 188,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/10-mvc-massive-viewcontroller-migration/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/10-mvc-massive-viewcontroller-migration/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/11-mvp-passive-view/ARCHITECTURE_CASE.md",
+    "words": 357,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 37,
+          "text": "- Do not add generic `send(_:)` or `dispatch(_:)` APIs."
+        },
+        {
+          "line": 44,
+          "text": "- Public generic `send(_:)` / `dispatch(_:)` grep."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/11-mvp-passive-view/MVPPassiveViewCase/MVPPassiveViewCaseApp/README.md",
+    "words": 132,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/11-mvp-passive-view/README.md",
+    "words": 181,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/11-mvp-passive-view/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/11-mvp-passive-view/scripts/verify.sh",
+    "words": 314,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/12-vip-clean-swift/ARCHITECTURE_CASE.md",
+    "words": 345,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/12-vip-clean-swift/README.md",
+    "words": 110,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/12-vip-clean-swift/VIPCleanSwiftCase/VIPCleanSwiftCaseApp/README.md",
+    "words": 86,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/12-vip-clean-swift/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/12-vip-clean-swift/scripts/verify.sh",
+    "words": 315,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/13-viper/ARCHITECTURE_CASE.md",
+    "words": 256,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/13-viper/README.md",
+    "words": 47,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/13-viper/VIPERArchitectureCase/VIPERArchitectureCaseApp/README.md",
+    "words": 117,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/13-viper/scripts/verify.sh",
+    "words": 307,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/14-ribs/ARCHITECTURE_CASE.md",
+    "words": 254,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/14-ribs/README.md",
+    "words": 152,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/14-ribs/RIBsCase/RIBsCaseApp/README.md",
+    "words": 109,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/14-ribs/scripts/run_static_quality_gates.sh",
+    "words": 24,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/14-ribs/scripts/verify.sh",
+    "words": 315,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/CASES.md",
+    "words": 121,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/CLONE_CREATION_PLAYBOOK.md",
+    "words": 1712,
+    "hits": {
+      "policy_conflicts": [
+        {
+          "line": 219,
+          "text": "3. **No stale architecture API**: no generic `send(_:)`, `dispatch(_:)`, UI action enum boilerplate unless the selected architecture explicitly requires it and the user approved it."
+        }
+      ]
+    }
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/PROGRESS.md",
+    "words": 93,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/AllArchitectureCases/README.md",
+    "words": 20,
+    "hits": {}
+  },
+  {
+    "path": "reusable/architecture-cases/README.md",
+    "words": 79,
+    "hits": {}
+  }
+]

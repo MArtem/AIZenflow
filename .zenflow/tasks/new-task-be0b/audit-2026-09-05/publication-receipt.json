@@ -1,0 +1,25 @@
+{
+  "date": "2026-09-07",
+  "base": "78353bc3176d05d3a086f267ae7c2ff9b1d42f54",
+  "commit": "4afb57bca3dc767bb339a0bcbcaa90b7ca5cde98",
+  "reviewed_tree": "611765314f6ae79bee42474283158f582f59633b",
+  "independent_review": "Astra bounded delta PASS; AM-01 closed",
+  "reviewed_document_hashes": {
+    "IMPLEMENTATION_ROADMAP.md": "46e26d857a38386d9bc7333517675ce920ca58c21c8a9d94b6ec511ce361f89d",
+    "LUNA_EXECUTION_GUIDE.md": "4457077a5708e9d25f569e041b77da3aab2397667123916a57616e149d44ef61"
+  },
+  "checks": [
+    "30 roadmap/guide IDs and Luna model clauses",
+    "67 source archive hashes unchanged",
+    "two independent reviewer hashes match",
+    "prior independent receipt unchanged",
+    "manifest/vault PASS:3723",
+    "staged diff check PASS",
+    "exact HEAD equals reviewed tree"
+  ],
+  "runtime": "not run; no project/test/engine implementation",
+  "publication": "verified",
+  "publication_date": "2026-09-08",
+  "remote_main": "4afb57bca3dc767bb339a0bcbcaa90b7ca5cde98",
+  "clean": true
+}

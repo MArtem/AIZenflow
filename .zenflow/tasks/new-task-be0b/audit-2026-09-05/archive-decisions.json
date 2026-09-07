@@ -1,0 +1,605 @@
+[
+  {
+    "file": "AGENTS.md",
+    "sha256": "05a086a0d4c5db650292616e1fbc77b3da40d9388d3bb9093cc93678ff29b71f",
+    "decision": "НЕ УСТАНАВЛИВАТЬ",
+    "destination": "reusable/GLOBAL_RULES_BOOTSTRAP.md",
+    "reason": "Архивная точка входа не заменяет текущую authority; взять только компактность.",
+    "step": "4.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "INSTALL.md",
+    "sha256": "e311173b12a66651b596d177e5aeee53bb8fef78e6893a96b4c7006e7b142c74",
+    "decision": "ПЕРЕПИСАТЬ",
+    "destination": "QC bootstrap + consumer adoption",
+    "reason": "Нет автоматического копирования runner; versioned dry-run/conflict/rollback.",
+    "step": "9.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/LIBRARY_STRUCTURE.md",
+    "sha256": "906e31d32695b9ddec2342b3de6b181ec4ab8dd38661f48cb6274cb9baa648c7",
+    "decision": "ВЗЯТЬ ИДЕЮ",
+    "destination": "DOCUMENT_BOUNDARY_STANDARD.md",
+    "reason": "Сохранить четыре существующих owner boundaries, не создавать второй vault.",
+    "step": "1.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/MANIFEST.sha256",
+    "sha256": "1dcdd0b7dd9c3748eae87b59a563997ab1889b465c75c8b41b71d05c3bea633e",
+    "decision": "СОХРАНИТЬ PROVENANCE",
+    "destination": "task archive",
+    "reason": "66 hashes проверены; integrity не quality verdict.",
+    "step": "0.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/MANIFEST.txt",
+    "sha256": "d794e9b5932c0e7bec0e33ea9457de47df9ece5cdf85ef6a600429b82cf9fadb",
+    "decision": "СОХРАНИТЬ PROVENANCE",
+    "destination": "task archive",
+    "reason": "Полный исходный file list, не active index.",
+    "step": "0.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/MASTER_PLAN.md",
+    "sha256": "7ebe7b432556794c1cb64458dde0ae7e254a2b7bc0b1806f2d4e10d82bb0b5f7",
+    "decision": "ОБЪЕДИНИТЬ",
+    "destination": "IMPLEMENTATION_ROADMAP.md",
+    "reason": "Заменить параллельный план единой очередью с текущим QC progress.",
+    "step": "0.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/POLICY_ROUTER.md",
+    "sha256": "c0b37ccf009b4fa7e04dc010952dbececc10dddf0d9861334fd7e12671988b2b",
+    "decision": "ПЕРЕРАБОТАТЬ",
+    "destination": "TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "reason": "Сохранить selective loading, убрать universal eager bundle и duplicate routes.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/README.md",
+    "sha256": "ad9ee95686af49cbd676a3feac862dc062ed09b63ae4186bc81452b15f5f16e4",
+    "decision": "ОБЪЕДИНИТЬ",
+    "destination": "DOCUMENT_LIBRARY_GUIDE.md",
+    "reason": "Короткий intake, реальные limitations, без нового authority owner.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/checklists/concurrency.md",
+    "sha256": "c619d969329d02f308015f76adde556860267d8ee82524bdd3a1ac6eebd1d072",
+    "decision": "СЛИТЬ",
+    "destination": "IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+    "reason": "Оставить workflow/output форму; требования брать по Rule IDs из единой нормы.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/checklists/migration.md",
+    "sha256": "7f5a26b61f6206f86dac2c5db098745f26e04813e35410aa0401763c3d7d2a48",
+    "decision": "СЛИТЬ",
+    "destination": "IOS_DATA_MIGRATION_STANDARD.md",
+    "reason": "Оставить workflow/output форму; требования брать по Rule IDs из единой нормы.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/checklists/pre-change.md",
+    "sha256": "a264ee33e6fa3121c97ddc2ea22df14ea4fd897dc55da5040e17648179e26b52",
+    "decision": "СЛИТЬ",
+    "destination": "AGENT_PREFLIGHT_CHECKLIST.md",
+    "reason": "Оставить workflow/output форму; требования брать по Rule IDs из единой нормы.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/checklists/pre-commit.md",
+    "sha256": "cf4ceeef3d9d06e4e4662292bec2f3e02683a6d7c52d955f1c1812b77d7c4f23",
+    "decision": "СЛИТЬ",
+    "destination": "ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "reason": "Оставить workflow/output форму; требования брать по Rule IDs из единой нормы.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/checklists/pre-pr.md",
+    "sha256": "76d8832e4853155595a50c0cb6e0ceb43ee4a66639ca17f0f18c07edc3e0f056",
+    "decision": "СЛИТЬ",
+    "destination": "IOS_PR_REVIEW_TEMPLATE.md",
+    "reason": "Оставить workflow/output форму; требования брать по Rule IDs из единой нормы.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/checklists/security-privacy.md",
+    "sha256": "ead07b757621c50baf57319f7d530add64219e4de2c7eee3e2b28e64b1f6b20f",
+    "decision": "СЛИТЬ",
+    "destination": "IOS_SECURITY_PRIVACY_GATE.md",
+    "reason": "Оставить workflow/output форму; требования брать по Rule IDs из единой нормы.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/checklists/ui-accessibility-localization.md",
+    "sha256": "53299d5d1b3a42efed8d4868694f61749c8ebfa1b97ec16f2b8578895725d6d8",
+    "decision": "СЛИТЬ",
+    "destination": "IOS_ACCESSIBILITY_STANDARD.md + LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+    "reason": "Оставить workflow/output форму; требования брать по Rule IDs из единой нормы.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/config/PROJECT_PROFILE.example.yaml",
+    "sha256": "28055c1e124241d8249f34b13d580a263b235b67d037ba6d84508a2679fc720c",
+    "decision": "ОБЪЕДИНИТЬ",
+    "destination": "QC project profile schema",
+    "reason": "Toolchain/isolation/targets полезны; одна schema, не YAML+env truth.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/config/project.env.example",
+    "sha256": "012acb26565b83c0daaf6dfbd2a46cd59ae12a486b1a3b325d802bc2ab9ccc37",
+    "decision": "НЕ ПЕРЕНОСИТЬ ИСПОЛНЕНИЕ",
+    "destination": "QC typed profile",
+    "reason": "Shell-sourced env не является granular permission/validated config.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/config/risk-policy.yaml",
+    "sha256": "76cd4c3340d869b6e3d336d57408210dd563167ac80e8e2d9937ba0b21c5869b",
+    "decision": "ПЕРЕРАБОТАТЬ",
+    "destination": "QC policy + human risk contract",
+    "reason": "Не добавлять R0–R5 к существующим risk/severity без mapping.",
+    "step": "1.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/gates/GATE_CATALOG.md",
+    "sha256": "ec92fa79c9f755f0e8b7c1eaa9325a976ba52e8060fc0909a6da71a63a2f0c13",
+    "decision": "ОБЪЕДИНИТЬ",
+    "destination": "QC policies/check-catalog.json + README",
+    "reason": "Каждый claim связан с actual adapter/maturity/limitations.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/gates/GATE_MATRIX.md",
+    "sha256": "176f4ea0a6558b8fe0dac68799e33fa8446bed818b231df1c3589a5a17affa99",
+    "decision": "ПЕРЕРАБОТАТЬ",
+    "destination": "QC mode contract",
+    "reason": "Human matrix должна совпадать с machine policy и permissions.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/gates/gates.yaml",
+    "sha256": "7fb3f6fcc42e9e1c3e83245ce1a807bd3d7dbead6d0ad7a0b485507fbef13fed",
+    "decision": "НЕ УСТАНАВЛИВАТЬ",
+    "destination": "QC typed catalog",
+    "reason": "Runner не потребляет как authority; R4 parity gaps; перенести semantic mapping.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/00-engineering-principles.md",
+    "sha256": "63f0351ede71f8b44d4ebb6122d43a2e3d01756700f210cb94256380b7b5ad9d",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "reason": "Нормативная сила MUST/SHOULD, корректность и простота; один contract вместо дубля.",
+    "step": "1.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/01-task-repository-analysis.md",
+    "sha256": "72e5e2167046702256fb21e56ef6dc43baa5fbcb071ec7ddb2287335af5d71a6",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+    "reason": "Project facts, trust boundaries и текущий scope; не все discovery fields для любой мелочи.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/02-architecture-boundaries.md",
+    "sha256": "22186ac73c12927bb1aebd4bbc6040e7ce94158920c9c2a9b1b6df85b0422679",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+    "reason": "Границы по реальной необходимости, без обязательной architecture stack.",
+    "step": "2.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/03-swift-language.md",
+    "sha256": "45927927e8d9b20f3995079723546f45a6ab36152915be6dcc3baeb38540e3ea",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md",
+    "reason": "Современный Swift по compiler/language-mode, отдельная availability.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/04-swift-concurrency.md",
+    "sha256": "3b7ffdfd0f17da0660e562bbc54a030f39c7dc2baddad857b5a7de371ff764e4",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+    "reason": "Ownership, reentrancy, cancellation; reconcile strict local ban и legitimate language mechanisms.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/05-swiftui.md",
+    "sha256": "42c9b91fb7e8b5ddde4a6ee9c1364abbdf2f09ae4e91448759a7de637abdbd83",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+    "reason": "SwiftUI state/identity/invalidation; исправить термин structured для lifecycle Task.",
+    "step": "2.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/06-uikit.md",
+    "sha256": "7f3e2a73327682c939f965a8fe2156d32f41df560fcf2e3e693625b670b76ae0",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/knowledge/global/ios/SWIFTUI_UIKIT_AND_ADAPTIVE_IPAD_UI.md",
+    "reason": "UIKit lifecycle/containment/bridging без blanket prohibition.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/07-state-navigation.md",
+    "sha256": "cd990cbc7fd2621c066e48814d45c5761c27c954984dde302cf6ec5999e28dec",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+    "reason": "Один navigation/state owner; Coordinator только по текущему профилю.",
+    "step": "2.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/08-networking.md",
+    "sha256": "8debfd07456d4b93e600bb2b841888dd4c675d790d3f3ba743a04fda81d630ae",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_NETWORK_RESILIENCE_STANDARD.md",
+    "reason": "Timeout, cancellation, retry/idempotency, DTO/error boundaries; без protocol boilerplate.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/09-persistence-migrations.md",
+    "sha256": "2553c247faed7ad2223f08ae46fe0776b73e0dcd2c84ac0fd5d9af12b1944b9e",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+    "reason": "Durability, old-data, recovery и rollback; cache reset не заменяет миграцию пользовательских данных.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/10-security-privacy.md",
+    "sha256": "71342e6b608c1e917ca507ad5799d734f6120bccf598676726a44d86fb863805",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_SECURITY_PRIVACY_GATE.md",
+    "reason": "Threat/data flow и redaction; связать с действующим permission/exception contract.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/11-memory-lifetime.md",
+    "sha256": "f4215e2a8ff1ea976c48c48a69ee4e0ce033f36e39a28436e558d26432f2db0a",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+    "reason": "ARC, callbacks, tasks и resource lifetime; ownership важнее weak-self ритуала.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/12-performance.md",
+    "sha256": "3b895500bbddd454ae93cdfac5458f91c962f0fcffbe1d2e4e8ac11b3cc4e1ab",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md",
+    "reason": "Измеримый scenario budget; разделить hot path review и общий API ban.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/13-error-resilience.md",
+    "sha256": "7496c21b44d0029e77691241e04cc290dc1505107e6d532096069b8327a31021",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md",
+    "reason": "Failure/cancellation/partial success и честный UX; retry только по semantics.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/14-testing.md",
+    "sha256": "69e100fe35c2b5f42fb14eda6018a6c15e0644bda6a32f6e2e3bb0a0bb3e3e02",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+    "reason": "Risk-based tests и framework choice; написание/запуск только по разрешённой фазе.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/15-accessibility.md",
+    "sha256": "f529018e6186f8cf720432a1392e618bac7953618b6ae7ac648f9ef9529a8155",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md",
+    "reason": "VoiceOver/Dynamic Type/focus/tap target и manual evidence.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/16-localization.md",
+    "sha256": "2e5a9fd2e4c6570d5dd06230338c6874ee822809cd2a61bee8b3b743b5012612",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md",
+    "reason": "Source locale, plural/format/RTL, semantic quality отдельно от key scan.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/17-dependencies-spm.md",
+    "sha256": "08ccae0f32835f7f97ecaca117b08f581b934e453500cf4d59fb620d0ba6977c",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/DEPENDENCY_POLICY.md",
+    "reason": "Pinned resolution/tooling и supply chain; SwiftPM допустим по project decision.",
+    "step": "2.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/18-logging-observability.md",
+    "sha256": "25a4d7a5d3b170d5421acc6bfe934f2bacc32e9d8ed0eea542d3345b52b77171",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_OBSERVABILITY_STANDARD.md",
+    "reason": "Bounded private metadata; URL path не автоматически безопасен.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/19-background-lifecycle.md",
+    "sha256": "d88f6e02a71ef7e336db0a8805f9db787aad7c4cd916d4a698d45c9216eabe8b",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
+    "reason": "Scene/background/extension ownership, expiration и relaunch.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/20-api-modularity.md",
+    "sha256": "326662f856c07c7b194bfb08f0de13aaf6d0f0621cb7808c293655e6a05fcd81",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/MODULAR_ARCHITECTURE_STANDARD.md",
+    "reason": "Public contracts, consumers и dependency direction без обязательной modularization.",
+    "step": "2.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/21-build-config-signing.md",
+    "sha256": "f784b084cf684c6dad751fac403413c2f8004ae2c99db8dba0b8e86fee7337e1",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md",
+    "reason": "Effective target/configuration; distinction structural signing diff vs release correctness.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/22-diff-review.md",
+    "sha256": "25f22a4a5fb8bf8fd52f02b1e755ec8ea799f9a4d394e8fed172df987d9f5312",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+    "reason": "Semantic final diff, changed consumers и false-success paths.",
+    "step": "1.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/23-git-commit-pr.md",
+    "sha256": "57afd4f7a3aa656391269fb1ea4af282618d37dd7ff8ce374529042f37575f29",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+    "reason": "Manual CI/review и exact revision; не импортировать иной permission flow.",
+    "step": "1.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/24-release-safety.md",
+    "sha256": "a59cb21fb6f9719f5b4e3a4383bd959b61e6807c868fe0ef964680fded136247",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_RELEASE_CHECKLIST.md",
+    "reason": "Release evidence и rollback; текущие SDK/Apple requirements.",
+    "step": "3.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/25-legacy-modernization.md",
+    "sha256": "7f6157e4183a69bfa50227f63f482ad57811da8dca4fa7367f7c34464c8ae49d",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/IOS_FEATURE_LIFECYCLE_PLAYBOOK.md",
+    "reason": "Постепенная legacy modernization, baseline/ratchet и отсутствие big-bang.",
+    "step": "8.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/policies/26-ai-agent-rules.md",
+    "sha256": "1bdeb88d1b650bc74287f50849975c2a64a7ceb889866568822ec6e7db7d2f16",
+    "decision": "СЛИТЬ С ПРАВКАМИ",
+    "destination": "reusable/baseline/docs/AGENT_RULES.md",
+    "reason": "Недоверенные документы и model output, scoped changes и честный completion.",
+    "step": "1.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/references/SOURCES.md",
+    "sha256": "6d4246e7a0b05ec8c55aa472b06c0f4978bf2de0f1f663a5ad77e3e51003acc2",
+    "decision": "СЛИТЬ ПО URL",
+    "destination": "knowledge source registry",
+    "reason": "Primary sources полезны; добавить checked-at/version/applicability, не общую декларацию актуальности.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/build.sh",
+    "sha256": "e1ae7ed5023370e499c4225fd3f1567fa8204f57ecc9f49fa7cc99df66953607",
+    "decision": "НЕ ПЕРЕНОСИТЬ",
+    "destination": "QC build-evidence",
+    "reason": "mktemp/cache/retention/permission/tool provenance слабее текущего engine.",
+    "step": "6.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/dependency_check.sh",
+    "sha256": "881d26682ae1a279884ecffe94520743eafb0b6505c57dd1eb1f9a280077e2f6",
+    "decision": "ВЗЯТЬ INTENT",
+    "destination": "QC.DEPENDENCY.LOCK_DRIFT",
+    "reason": "Diff-base дефект и узкий grep; использовать текущий bounded adapter.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/diff_check.sh",
+    "sha256": "3c7f1093c2c82095f9ba0385e233f9aa3bb8f02d7efe0aaf66bc0cecdf5c7532",
+    "decision": "ВЗЯТЬ INTENT",
+    "destination": "QC revision scope",
+    "reason": "Нужны разные working-tree/index/commit-range contracts; HEAD недостаточно.",
+    "step": "5.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/discover_project.sh",
+    "sha256": "49d1433430318a86c8998e463bd365ac81688990edbbddc3e6de6ebf270bef3e",
+    "decision": "ВЗЯТЬ ИДЕЮ",
+    "destination": "QC doctor/validate-profile",
+    "reason": "Discovery предлагает facts, не выбирает scheme/permissions без authority.",
+    "step": "4.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/forbidden_patterns.sh",
+    "sha256": "fa247dd2b052024f468ab1d239f120c34c0b6a486216c1f6e98989afb5693c34",
+    "decision": "НЕ ПЕРЕНОСИТЬ",
+    "destination": "QC Swift source adapters",
+    "reason": "Regex reviews не объявлять semantic blockers; comments/strings/target scope.",
+    "step": "5.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/lib/common.sh",
+    "sha256": "08ce15ef4268e37e33a62bc3616438aaa5a42e61898e06a87e1032ba32a68b73",
+    "decision": "НЕ ПЕРЕНОСИТЬ",
+    "destination": "QC process/revision executor",
+    "reason": "HEAD diff, unborn/untracked/ошибки Git, shell config и resource boundaries.",
+    "step": "5.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/privacy_check.sh",
+    "sha256": "f82efc878a98209732cb4e7073a0419278eb28554e69b0de22faa4a9ee6452d3",
+    "decision": "ВЗЯТЬ INTENT",
+    "destination": "QC.PRIVACY.MANIFEST",
+    "reason": "Structural detection дополнить actual API/SDK review; не false compliance.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/quality_gate.sh",
+    "sha256": "2509c21b5ff152d6aec866e57fda05ffef44242118fd0347a419d9d855be6d33",
+    "decision": "ОТКЛОНИТЬ КАК RUNNER",
+    "destination": "QC mode-execute",
+    "reason": "Policy не исполняется, runtime/permissions не связаны; сохраняем текущий engine.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/secrets_check.sh",
+    "sha256": "ff7cbe77230e14f3a238951adf3ac3450748e32edce5d232abd43776eb78fc78",
+    "decision": "ОТКЛОНИТЬ РЕАЛИЗАЦИЮ",
+    "destination": "QC.SECRETS.TRACKED",
+    "reason": "grep option ambiguity + raw matched-line leakage; bounded redacted finding.",
+    "step": "5.3",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/static_checks.sh",
+    "sha256": "ec1d2a1af068625c028a3574f8d4e6618640fdae20f8788041bf77d8103dcc35",
+    "decision": "ВЗЯТЬ INTENT",
+    "destination": "QC tool adapters",
+    "reason": "Нужны pin/version/config digest, explicit unavailable и no autofix.",
+    "step": "6.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/scripts/test.sh",
+    "sha256": "5eefece45c9d9d77f841fef4059424d463d5fe036daf28c798c39e617eb20ad5",
+    "decision": "НЕ ПЕРЕНОСИТЬ",
+    "destination": "QC future authorized test-evidence",
+    "reason": "Результаты удаляются; cache paths и выполненные/пропущенные tests не доказаны.",
+    "step": "7.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/templates/ADR.md",
+    "sha256": "f99286be09b05ce4e34685b5c660e5cec8e208c3388ef251541543eac687417a",
+    "decision": "СЛИТЬ",
+    "destination": "ARCHITECTURE_DECISION_GOVERNANCE.md",
+    "reason": "Короткий decision/alternatives/consequences/revisit; не второй mandatory шаблон.",
+    "step": "1.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/templates/CHANGE_PLAN.md",
+    "sha256": "7f4a0d0b549c9606f55f07566e3e70fb0a0bf839a5dcdf734c4d108da40d3bf0",
+    "decision": "СЛИТЬ",
+    "destination": "task plan/change contract",
+    "reason": "Scope/invariants/evidence/rollback без повторения всей policy.",
+    "step": "0.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/templates/EXCEPTION.md",
+    "sha256": "ba9182db5753b43452ef3191271e53815b8fedfe11828f5512a8c7bdeec1830d",
+    "decision": "УСИЛИТЬ И СЛИТЬ",
+    "destination": "LOCAL_EXCEPTION_ADR_TEMPLATE.md",
+    "reason": "Rule version, owner/approver, expiry, compensation; proposal не approval.",
+    "step": "1.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/templates/PROJECT_PROFILE.yaml",
+    "sha256": "28055c1e124241d8249f34b13d580a263b235b67d037ba6d84508a2679fc720c",
+    "decision": "СЛИТЬ",
+    "destination": "QC project profile schema",
+    "reason": "Один typed profile; факты приложения отделены от engine policy.",
+    "step": "3.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/templates/PULL_REQUEST.md",
+    "sha256": "cadcab6e634a2cf177724dac4a1f432b525ce997761fa00fba1685d1d87ae244",
+    "decision": "СЛИТЬ",
+    "destination": "IOS_PR_REVIEW_TEMPLATE.md",
+    "reason": "Конкретный behavior/change/evidence; manual CI/review сохранены.",
+    "step": "1.1",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/templates/TASK_ANALYSIS.md",
+    "sha256": "9601ec00031797081d87c48cc8ad8e2e48eb307487a1d2f4705dc6b4283c3222",
+    "decision": "СЛИТЬ",
+    "destination": "AGENT_PREFLIGHT_CHECKLIST.md",
+    "reason": "Минимальный risk-oriented intake вместо обязательного полного опросника.",
+    "step": "2.2",
+    "coverage": "read; manifest integrity separately verified"
+  },
+  {
+    "file": "ios-quality/templates/VERIFICATION_REPORT.md",
+    "sha256": "24229783dd9b5f1bd3aebcf03cd758bcb89272920e0124639347db07d4b82f12",
+    "decision": "СЛИТЬ",
+    "destination": "COMPLETION_REPORT_CONTRACT.md",
+    "reason": "PASS scope, skipped/denied, exact inputs, remaining risk и ссылки на receipts.",
+    "step": "1.1",
+    "coverage": "read; manifest integrity separately verified"
+  }
+]

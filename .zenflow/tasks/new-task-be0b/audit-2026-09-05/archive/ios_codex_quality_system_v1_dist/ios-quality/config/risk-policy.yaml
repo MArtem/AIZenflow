@@ -1,0 +1,20 @@
+version: 1
+default_mode: STRICT
+fast_allowed_max_risk: R1
+
+impact_dimensions:
+  reach: [single_local_callsite, feature, module, app_wide, external_clients]
+  reversibility: [trivial, easy, moderate, difficult, irreversible]
+  data: [none, transient, cached, user_persistent, security_sensitive]
+  uncertainty: [low, medium, high]
+
+minimum_risk_triggers:
+  CONCURRENCY: R3
+  AUTH: R4
+  MIGRATION: R3
+  SECURITY: R4
+  DEPENDENCY: R3
+  BUILD_CONFIG: R3
+  BACKGROUND: R3
+  PUBLIC_API: R3
+  RELEASE: R4

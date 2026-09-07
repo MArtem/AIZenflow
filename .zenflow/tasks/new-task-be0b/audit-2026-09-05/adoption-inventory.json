@@ -1,0 +1,152 @@
+[
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/AIZenflowQualityControl",
+    "head": "9ac4cca4647cbd229a99250a4b60cd5ce27cca8c",
+    "branch": "codex/stage9d-static-evidence-execution",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": ".git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/AIZenflowQualityControl-main-active",
+    "head": "f60d5da6c2dca4c2d12c72ed3096a133402ae408",
+    "branch": "main",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": true,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/AIZenflowQualityControl/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/AIZenflowQualityControl-pilot-main",
+    "head": "df37af2437212b8a217744568623c52ae0369a97",
+    "branch": "",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/AIZenflowQualityControl/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/AIZenflowQualityControlCanary",
+    "head": "23ef3d3f8fea37abf94d641430d1f701a125a43f",
+    "branch": "codex/fix-main-entry-point",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": ".git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/aizenflow-global-rules",
+    "head": "3f6e02c1bf27663b2cb911386d42b06df7d8ac77",
+    "branch": "",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": true,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/aizenflow-pr11-merge",
+    "head": "3a390d60436c0f6ae0cabb93487988cb8e84ae82",
+    "branch": "",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/canary-global-rules",
+    "head": "bf70c39f5bd2a9795dde088288469549fb63c3ce",
+    "branch": "codex/global-rules-bootstrap-canary",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": true,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/AIZenflowQualityControlCanary/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/documentation-vault",
+    "head": "28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6",
+    "branch": "main",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": ".git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/mvvmexample-3c80",
+    "head": "739a7ea055efe49a3ce1eccec2b96c6ee6822fba",
+    "branch": "Development",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": true,
+    "git_common_dir": ".git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/mvvmexample-static-quality-gate",
+    "head": "f731a1b9cfd78a73c85327ea39210d9efc4f8e48",
+    "branch": "",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/mvvmexample-3c80/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "head": "7e51b0f450ef37bd04deab617940574bdac5ae02",
+    "branch": "development",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": true,
+    "git_common_dir": ".git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/panmodal-concurrency",
+    "head": "d314fe20a9943f5911a1466c7e6ac5a48c3ee77c",
+    "branch": "codex/swift-strict-concurrency-audit",
+    "agents": false,
+    "bootstrap_marker": false,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": ".git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/tchop-share-cancel-initial-load",
+    "head": "ddfd5bfeee4271c16e4ff3666e6eea50c72a5f10",
+    "branch": "",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": true,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/tchop-share-import-budget",
+    "head": "2a4dca3ca1044972a7f69a6118eb602724fc3ac6",
+    "branch": "",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": true,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.git"
+  },
+  {
+    "path": "/Users/Artem/.zenflow/worktrees/tchop-share-open-app-retry",
+    "head": "bd45dd5cf3bb87931aab50b9f15762f657e7518d",
+    "branch": "",
+    "agents": true,
+    "bootstrap_marker": true,
+    "override": false,
+    "snapshot": false,
+    "git_common_dir": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.git"
+  }
+]
