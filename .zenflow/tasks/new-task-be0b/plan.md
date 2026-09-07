@@ -50,7 +50,28 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 1.2: ввести минимальные Rule ID и единый exception metadata contract для активных норм.
 - [x] 2.1: отделить обязательные invariants от архитектурного вкуса.
 - [x] 2.2: нормализовать active prompts и specialist routes.
-- [ ] 2.3: зафиксировать ownership architecture/prompts/skills/packages перед toolchain baseline.
+- [x] 2.3: зафиксировать ownership architecture/prompts/skills/packages перед toolchain baseline.
+- [ ] 3.1: сформировать toolchain/isolation/availability contract по профилю проекта.
+- [ ] 3.2: сформировать release/privacy/performance matrices по профилю проекта.
+- [ ] 4.1: нормализовать global bootstrap и effective instruction inventory.
+- [ ] 4.2: проверить manifest, ссылочную целостность и dynamic app boundaries.
+- [ ] 4.3: пройти нейтральный new-project сценарий.
+- [ ] 5.1: проверить QC scope и source membership.
+- [ ] 5.2: проверить Swift patterns и disabled-tests claims.
+- [ ] 5.3: сверить каталог зрелости и mode coverage.
+- [ ] 6.1: зафиксировать SwiftLint config/contract.
+- [ ] 6.2: зафиксировать first-party warnings и concurrency diagnostics.
+- [ ] 7.1: выполнить разрешённую verifier-test/canary acceptance phase.
+- [ ] 7.2: разделить оценку генерации и detection ошибок.
+- [ ] 8.1: провести простой consumer pilot.
+- [ ] 8.2: провести сложный multi-target consumer pilot.
+- [ ] 8.3: проверить готовность подготовки к будущему продуктовому проекту.
+- [ ] 9.1: зафиксировать promotion/release contract.
+- [ ] 9.2: проверить existing/future project adoption.
+- [ ] 10.1: оптимизировать context budget и повторное использование evidence.
+- [ ] 10.2: откалибровать процесс Luna xhigh на типовых задачах.
+- [ ] 11.1: выполнить итоговый semantic audit.
+- [ ] 11.2: оформить лёгкую поддержку и recovery.
 
 Evidence блоков 0.1–0.4: `audit-2026-09-05/implementation/0.1-authority-boundary.md`,
 `audit-2026-09-05/implementation/0.2-baseline-receipt.json`,
@@ -62,4 +83,5 @@ Evidence блока 1.1: `audit-2026-09-05/implementation/1.1-verdict-contract.m
 Evidence блока 1.2: `audit-2026-09-05/implementation/1.2-rule-catalog.md`.
 Evidence блока 2.1: `audit-2026-09-05/implementation/2.1-architecture-invariants.md`.
 Evidence блока 2.2: `audit-2026-09-05/implementation/2.2-prompt-routing.md`.
-Завершено 8 из 30 implementation blocks (≈27%); это не процент production readiness.
+Evidence блока 2.3: `audit-2026-09-05/implementation/2.3-package-ownership.md`.
+Завершено 9 из 30 implementation blocks (30%); это не процент production readiness.
