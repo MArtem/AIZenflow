@@ -43,9 +43,10 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 ## Реализация плана — 2026-09-08
 
 - [x] 0.1: зафиксировать Documentation / QualityControl / project-app / task evidence как разные владельцы и разделить global bootstrap от opt-in engine adoption.
-- [ ] 0.2: обновить свежий baseline evidence.
+- [x] 0.2: обновить свежий baseline evidence.
 - [ ] 0.3: начать компактные observations Luna без telemetry platform.
 - [ ] 0.4: описать пять app-neutral сценариев без test/runtime execution.
 - [ ] 1.1: согласовать authority, severity, applicability, evidence и readiness verdicts.
 
-Evidence блока 0.1: `audit-2026-09-05/implementation/0.1-authority-boundary.md`.
+Evidence блоков 0.1–0.2: `audit-2026-09-05/implementation/0.1-authority-boundary.md` и
+`audit-2026-09-05/implementation/0.2-baseline-receipt.json`.
