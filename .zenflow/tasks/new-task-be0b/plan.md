@@ -49,7 +49,8 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 1.1: согласовать authority, severity, applicability, evidence и readiness verdicts.
 - [x] 1.2: ввести минимальные Rule ID и единый exception metadata contract для активных норм.
 - [x] 2.1: отделить обязательные invariants от архитектурного вкуса.
-- [ ] 2.2: нормализовать active prompts и specialist routes.
+- [x] 2.2: нормализовать active prompts и specialist routes.
+- [ ] 2.3: зафиксировать ownership architecture/prompts/skills/packages перед toolchain baseline.
 
 Evidence блоков 0.1–0.4: `audit-2026-09-05/implementation/0.1-authority-boundary.md`,
 `audit-2026-09-05/implementation/0.2-baseline-receipt.json`,
@@ -60,4 +61,5 @@ Evidence блоков 0.1–0.4: `audit-2026-09-05/implementation/0.1-authority-
 Evidence блока 1.1: `audit-2026-09-05/implementation/1.1-verdict-contract.md`.
 Evidence блока 1.2: `audit-2026-09-05/implementation/1.2-rule-catalog.md`.
 Evidence блока 2.1: `audit-2026-09-05/implementation/2.1-architecture-invariants.md`.
-Завершено 7 из 30 implementation blocks (≈23%); это не процент production readiness.
+Evidence блока 2.2: `audit-2026-09-05/implementation/2.2-prompt-routing.md`.
+Завершено 8 из 30 implementation blocks (≈27%); это не процент production readiness.
