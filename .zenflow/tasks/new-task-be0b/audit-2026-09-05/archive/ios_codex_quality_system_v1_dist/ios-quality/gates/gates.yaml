@@ -1,0 +1,34 @@
+version: 1
+completion_states: [PASS, NOT_APPLICABLE, APPROVED_EXCEPTION]
+blocking_states: [FAIL, SKIPPED, UNAVAILABLE]
+
+default_mode: STRICT
+
+risk_levels:
+  R0: {name: non_code, min_gates: [G00, G01, G02, G30]}
+  R1: {name: low_local, min_gates: [G00, G01, G02, G10, G11, G30, G31, G32, G33, G34]}
+  R2: {name: standard_product, min_gates: [G00, G01, G02, G03, G10, G11, G12, G30, G31, G32, G33, G34]}
+  R3: {name: high_risk, min_gates: [G00, G01, G02, G03, G04, G10, G11, G12, G30, G31, G32, G33, G34, G40]}
+  R4: {name: critical, min_gates: [G00, G01, G02, G03, G04, G05, G10, G11, G12, G13, G30, G31, G32, G33, G34, G40, G41, G42]}
+  R5: {name: systemic_release, min_gates: [G00, G01, G02, G03, G04, G05, G10, G11, G12, G13, G30, G31, G32, G33, G34, G40, G41, G42]}
+
+triggers:
+  CONCURRENCY: [G14, G15, G16]
+  SWIFTUI: [G21, G22]
+  UIKIT: [G16, G21, G22]
+  NAVIGATION: []
+  NETWORKING: [G17, G19]
+  AUTH: [G17, G19, G16]
+  PERSISTENCE: [G18, G19]
+  MIGRATION: [G18, G41]
+  SECURITY: [G19]
+  PRIVACY: [G19, G26]
+  MEMORY: [G15, G16]
+  PERFORMANCE: [G23]
+  ACCESSIBILITY: [G21]
+  LOCALIZATION: [G22]
+  DEPENDENCY: [G20, G26]
+  BACKGROUND: [G24, G26]
+  PUBLIC_API: [G25]
+  BUILD_CONFIG: [G26]
+  RELEASE: [G41, G42]

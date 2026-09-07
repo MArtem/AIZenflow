@@ -18,6 +18,13 @@ final class ShareExtensionSessionContextManager {
 
     private let store: AppGroupJSONFileStore<ShareExtensionSessionContext>
 
+    /// Loads the shared session snapshot through the main-actor-owned manager while keeping
+    /// blocking file work inside the store's detached operation.
+    static func loadFromSharedContainer(groupIdentifier: String) async throws -> ShareExtensionSessionContext? {
+        let manager = try ShareExtensionSessionContextManager(groupIdentifier: groupIdentifier)
+        return try await manager.loadContextAsync()
+    }
+
     init(groupIdentifier: String) throws {
         self.store = try AppGroupJSONFileStore(
             groupIdentifier: groupIdentifier,
@@ -52,5 +59,10 @@ final class ShareExtensionSessionContextManager {
 
     func loadContext() throws -> ShareExtensionSessionContext? {
         try store.load()
+    }
+
+    /// Loads the app-group snapshot without blocking the main actor on file I/O or decoding.
+    func loadContextAsync() async throws -> ShareExtensionSessionContext? {
+        try await store.loadAsync()
     }
 }

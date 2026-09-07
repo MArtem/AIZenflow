@@ -1,0 +1,76 @@
+profile_version: 1
+status: draft
+reviewed_by_human: false
+
+project:
+  name: ""
+  repository_type: app
+  default_branch: ""
+  integration_branch: ""
+  workspace: ""
+  xcodeproj: ""
+  primary_scheme: ""
+  test_plan: ""
+
+platform:
+  minimum_ios: ""
+  supported_devices: [iphone]
+  supports_ipad: false
+  supports_multiple_scenes: unknown
+
+swift:
+  xcode_version: ""
+  swift_version: ""
+  language_mode: ""
+  default_actor_isolation: unknown
+  strict_concurrency: unknown
+  approachable_concurrency: unknown
+
+ui:
+  technologies: [] # swiftui, uikit
+  observation_style: unknown # observation, observable_object, mixed
+  navigation_style: unknown
+
+testing:
+  frameworks: [] # swift-testing, xctest, xcuitest
+  fast_plan: ""
+  full_plan: ""
+  sanitizer_plans: []
+  warnings_as_errors: unknown
+
+architecture:
+  style: unknown
+  modules: []
+  dependency_rules: []
+
+networking:
+  stack: unknown
+  auth: unknown
+  pinning: unknown
+
+persistence:
+  stack: unknown
+  schema_versioning: unknown
+
+localization:
+  source_language: ""
+  supported_locales: []
+  string_catalogs: []
+
+privacy_security:
+  privacy_manifest: ""
+  entitlements: []
+  capabilities: []
+  keychain_groups: []
+
+packages:
+  manager: spm
+  package_resolved_path: ""
+  dependency_policy: "human-approval-required"
+
+ci:
+  provider: unknown
+  build_command: ""
+  test_command: ""
+
+project_exceptions: []

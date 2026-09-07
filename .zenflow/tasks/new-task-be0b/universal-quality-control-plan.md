@@ -1,0 +1,63 @@
+# QualityControl — актуальный план продолжения
+
+Обновлён 2026-09-06 по разрешённому полному аудиту на GPT-6 Astra. Это task recovery, не новая reusable policy и не разрешение запускать runtime/CI или менять apps. Предыдущий утверждённый план целиком сохранён в `audit-2026-09-05/before-universal-quality-control-plan.md`.
+
+## Новое ограничение исполнения
+
+Пользователь установил единственную модель для всего плана от начала до конца: **GPT-5.6 Luna xhigh**, включая проектирование, implementation, review и финальный аудит. Предыдущие модельные рекомендации отменены. Использовать `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`; при неоднозначности уточнять контракт, а не менять модель или снижать quality bar.
+
+## Текущее решение
+
+Сохранить QualityControl engine. Объединить лучшие человеческие правила нового ZIP с существующей системой после нормализации; shell runner ZIP не устанавливать. Исправить точность действующих gates перед массовым rollout. Полный подробный план с моделью/reasoning, dependencies, acceptance и rollback:
+
+- `audit-2026-09-05/IMPLEMENTATION_ROADMAP.md`
+- основания: `audit-2026-09-05/AUDIT_REPORT.md` и `FINDING_EVIDENCE.md`
+- 67 решений по ZIP: `audit-2026-09-05/ARCHIVE_DECISIONS.md`
+- покрытие/ограничения: `audit-2026-09-05/COVERAGE.md`
+
+## Проверенное состояние
+
+- Documentation remote main: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6` перед публикацией аудита.
+- QC remote main и `AIZenflowQualityControl-main-active`: `f60d5da6c2dca4c2d12c72ed3096a133402ae408`.
+- Catalog: 16 implemented, 3 staged, 1 review-candidate. Наличие adapter не равно mode coverage/pilot readiness.
+- Foundation, permissions, bounded evidence и canary существуют; не реализовывать их повторно.
+- H format/privacy/signing/disabled-test уже реализованы; Swift source gates также добавлены. Остались scope/lexical accuracy, maturity/fixture mapping, SwiftLint, first-party warnings/concurrency diagnostics.
+- I manual PR/governance сохраняется; per-change receipt — текущая операция, не одноразовый «готово».
+- J: два разных consumer pilots, rollback/idempotence и rollout не завершены.
+- Исторические app source blockers требуют свежей проверки в отдельном app scope.
+
+## Сохраняемые ограничения
+
+- Пользователь отдельно управляет созданием, изменением и запуском тестов, UI/Simulator/Instruments, CI/review. Отказ/отсутствие запуска не PASS.
+- CI и Codex Review ручные, advisory; отсутствие запуска само по себе не вводит mandatory merge block. Branch protection отложена.
+- Не использовать платные runners/API/services или автоматические расходы.
+- Policy weakening, HIGH/CRITICAL exceptions, release/promotion и новые consumers требуют соответствующего пользовательского решения.
+- Scope reset 2026-08-11 сохраняется по смыслу: новая engine сложность должна устранять реальный false-pass/false-fail/permission/usefulness gap. Hostile-runner attestation, hooks, automated scoring и telemetry platform не возобновляются автоматически.
+- App facts/ADR/exceptions остаются у приложения; generic standards — в Documentation; исполняемый код — в QualityControl.
+- Глобальные инженерные правила и opt-in adoption engine — отдельные механизмы.
+- В текущем блоке разрешены аудит и план. Предыдущая история разрешений не используется для незапрошенной реализации вместо результата аудита.
+
+## Следующие этапы
+
+- [ ] 0–1: authority/current state; единый severity/readiness/exception contract — Luna xhigh.
+- [ ] 2: architecture/prompts/skills/package ownership — Luna xhigh.
+- [ ] 3: toolchain-aware iOS baseline — Luna xhigh.
+- [ ] 4: global bootstrap/effective routes/distribution — Luna xhigh.
+- [ ] 5: QC source scope, Swift patterns, disabled-tests, catalog/mode claims — Luna xhigh.
+- [ ] 6: SwiftLint + warnings/concurrency diagnostics — Luna xhigh.
+- [ ] 7: разрешённая verifier-test/canary фаза — Luna xhigh.
+- [ ] 8: простой и сложный app pilots — Luna xhigh.
+- [ ] 9: release/promotion и reversible rollout — Luna xhigh.
+- [ ] 10: context/калибровка процесса Luna — Luna xhigh.
+- [ ] 11: итоговая проверка внедрения — Luna xhigh.
+
+Первый рекомендуемый implementation block: authority hierarchy и readiness/severity contract, без engine/app edits. Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не помечается выполненным только потому, что написан план.
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
+
+## Принятые улучшения подготовки — 2026-09-07
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Начать с 0.1 → 0.2 → 0.3 → 0.4 → 1.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+
+Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.

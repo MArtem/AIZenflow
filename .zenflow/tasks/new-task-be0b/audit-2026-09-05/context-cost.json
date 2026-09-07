@@ -1,0 +1,1038 @@
+{
+  "root": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+  "task_id": null,
+  "level0": {
+    "documents": 3,
+    "words": 2746,
+    "bytes": 23527,
+    "max_words": 5000,
+    "budget_exceeded": false
+  },
+  "dynamic_task_documents": {
+    "documents": 0,
+    "words": 0,
+    "bytes": 0,
+    "max_words": 3500,
+    "budget_exceeded": false,
+    "files": []
+  },
+  "startup_total": {
+    "documents": 3,
+    "words": 2746,
+    "bytes": 23527
+  },
+  "instruction_envelope": {
+    "documents": 5,
+    "existing_documents": 5,
+    "words": 4943,
+    "bytes": 40209,
+    "components": {
+      "bootstrap": {
+        "path": "../GLOBAL_RULES_BOOTSTRAP.md",
+        "exists": true,
+        "words": 515,
+        "bytes": 3897
+      },
+      "agent_instructions": {
+        "path": "./AGENTS.md",
+        "exists": true,
+        "words": 1682,
+        "bytes": 12785
+      },
+      "level0_and_task_state": {
+        "documents": 3,
+        "existing_documents": 3,
+        "words": 2746,
+        "bytes": 23527,
+        "duplicates": [],
+        "files": [
+          {
+            "path": "./docs/CURRENT_USER_OVERRIDES.md",
+            "exists": true,
+            "words": 863,
+            "bytes": 6602
+          },
+          {
+            "path": "./docs/MODEL_ROUTING_RULE.md",
+            "exists": true,
+            "words": 946,
+            "bytes": 6943
+          },
+          {
+            "path": "./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+            "exists": true,
+            "words": 937,
+            "bytes": 9982
+          }
+        ]
+      }
+    }
+  },
+  "routes": {
+    "orientation-project": {
+      "documents": 3,
+      "words": 1403,
+      "bytes": 11991,
+      "with_level0_documents": 6,
+      "with_level0_words": 4149,
+      "with_level0_bytes": 35518,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6346,
+      "with_instruction_envelope_bytes": 52200,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-non-trivial": {
+      "documents": 2,
+      "words": 2316,
+      "bytes": 16696,
+      "with_level0_documents": 5,
+      "with_level0_words": 5062,
+      "with_level0_bytes": 40223,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 7259,
+      "with_instruction_envelope_bytes": 56905,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-documentation": {
+      "documents": 4,
+      "words": 2819,
+      "bytes": 21831,
+      "with_level0_documents": 7,
+      "with_level0_words": 5565,
+      "with_level0_bytes": 45358,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 7762,
+      "with_instruction_envelope_bytes": 62040,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-documentation-library": {
+      "documents": 3,
+      "words": 1224,
+      "bytes": 10917,
+      "with_level0_documents": 6,
+      "with_level0_words": 3970,
+      "with_level0_bytes": 34444,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6167,
+      "with_instruction_envelope_bytes": 51126,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-task-state": {
+      "documents": 1,
+      "words": 282,
+      "bytes": 2168,
+      "with_level0_documents": 4,
+      "with_level0_words": 3028,
+      "with_level0_bytes": 25695,
+      "with_instruction_envelope_documents": 6,
+      "with_instruction_envelope_words": 5225,
+      "with_instruction_envelope_bytes": 42377,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-context-transfer": {
+      "documents": 2,
+      "words": 709,
+      "bytes": 4842,
+      "with_level0_documents": 5,
+      "with_level0_words": 3455,
+      "with_level0_bytes": 28369,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 5652,
+      "with_instruction_envelope_bytes": 45051,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-completion": {
+      "documents": 1,
+      "words": 114,
+      "bytes": 916,
+      "with_level0_documents": 4,
+      "with_level0_words": 2860,
+      "with_level0_bytes": 24443,
+      "with_instruction_envelope_documents": 6,
+      "with_instruction_envelope_words": 5057,
+      "with_instruction_envelope_bytes": 41125,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-new-project": {
+      "documents": 3,
+      "words": 1850,
+      "bytes": 14850,
+      "with_level0_documents": 6,
+      "with_level0_words": 4596,
+      "with_level0_bytes": 38377,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6793,
+      "with_instruction_envelope_bytes": 55059,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "governance-local-exception": {
+      "documents": 1,
+      "words": 112,
+      "bytes": 821,
+      "with_level0_documents": 4,
+      "with_level0_words": 2858,
+      "with_level0_bytes": 24348,
+      "with_instruction_envelope_documents": 6,
+      "with_instruction_envelope_words": 5055,
+      "with_instruction_envelope_bytes": 41030,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-implementation-refactor": {
+      "documents": 3,
+      "words": 3795,
+      "bytes": 28300,
+      "with_level0_documents": 6,
+      "with_level0_words": 6541,
+      "with_level0_bytes": 51827,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 8738,
+      "with_instruction_envelope_bytes": 68509,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-universal-quality": {
+      "documents": 6,
+      "words": 6452,
+      "bytes": 49561,
+      "with_level0_documents": 9,
+      "with_level0_words": 9198,
+      "with_level0_bytes": 73088,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 11395,
+      "with_instruction_envelope_bytes": 89770,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-review-audit": {
+      "documents": 6,
+      "words": 3195,
+      "bytes": 25433,
+      "with_level0_documents": 9,
+      "with_level0_words": 5941,
+      "with_level0_bytes": 48960,
+      "with_instruction_envelope_documents": 11,
+      "with_instruction_envelope_words": 8138,
+      "with_instruction_envelope_bytes": 65642,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-pr-review": {
+      "documents": 7,
+      "words": 3670,
+      "bytes": 29302,
+      "with_level0_documents": 10,
+      "with_level0_words": 6416,
+      "with_level0_bytes": 52829,
+      "with_instruction_envelope_documents": 12,
+      "with_instruction_envelope_words": 8613,
+      "with_instruction_envelope_bytes": 69511,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-architecture-navigation-state": {
+      "documents": 5,
+      "words": 1954,
+      "bytes": 14730,
+      "with_level0_documents": 8,
+      "with_level0_words": 4700,
+      "with_level0_bytes": 38257,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 6897,
+      "with_instruction_envelope_bytes": 54939,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-concurrency-runtime": {
+      "documents": 2,
+      "words": 820,
+      "bytes": 6543,
+      "with_level0_documents": 5,
+      "with_level0_words": 3566,
+      "with_level0_bytes": 30070,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 5763,
+      "with_instruction_envelope_bytes": 46752,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-swiftui-performance": {
+      "documents": 2,
+      "words": 1409,
+      "bytes": 10190,
+      "with_level0_documents": 5,
+      "with_level0_words": 4155,
+      "with_level0_bytes": 33717,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 6352,
+      "with_instruction_envelope_bytes": 50399,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-memory-cache-media-files": {
+      "documents": 3,
+      "words": 916,
+      "bytes": 7442,
+      "with_level0_documents": 6,
+      "with_level0_words": 3662,
+      "with_level0_bytes": 30969,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 5859,
+      "with_instruction_envelope_bytes": 47651,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-persistence-migration-data-loss": {
+      "documents": 3,
+      "words": 840,
+      "bytes": 6844,
+      "with_level0_documents": 6,
+      "with_level0_words": 3586,
+      "with_level0_bytes": 30371,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 5783,
+      "with_instruction_envelope_bytes": 47053,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-network-api-offline-sync": {
+      "documents": 4,
+      "words": 1060,
+      "bytes": 8266,
+      "with_level0_documents": 7,
+      "with_level0_words": 3806,
+      "with_level0_bytes": 31793,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 6003,
+      "with_instruction_envelope_bytes": 48475,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-security-privacy-intake": {
+      "documents": 4,
+      "words": 1904,
+      "bytes": 14109,
+      "with_level0_documents": 7,
+      "with_level0_words": 4650,
+      "with_level0_bytes": 37636,
+      "with_instruction_envelope_documents": 9,
+      "with_instruction_envelope_words": 6847,
+      "with_instruction_envelope_bytes": 54318,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-accessibility-localization-qa": {
+      "documents": 5,
+      "words": 853,
+      "bytes": 6775,
+      "with_level0_documents": 8,
+      "with_level0_words": 3599,
+      "with_level0_bytes": 30302,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 5796,
+      "with_instruction_envelope_bytes": 46984,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-release": {
+      "documents": 3,
+      "words": 1636,
+      "bytes": 12941,
+      "with_level0_documents": 6,
+      "with_level0_words": 4382,
+      "with_level0_bytes": 36468,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6579,
+      "with_instruction_envelope_bytes": 53150,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-observability-incidents-rollout": {
+      "documents": 8,
+      "words": 1307,
+      "bytes": 10211,
+      "with_level0_documents": 11,
+      "with_level0_words": 4053,
+      "with_level0_bytes": 33738,
+      "with_instruction_envelope_documents": 13,
+      "with_instruction_envelope_words": 6250,
+      "with_instruction_envelope_bytes": 50420,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-lifecycle-background": {
+      "documents": 2,
+      "words": 295,
+      "bytes": 2648,
+      "with_level0_documents": 5,
+      "with_level0_words": 3041,
+      "with_level0_bytes": 26175,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 5238,
+      "with_instruction_envelope_bytes": 42857,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-error-handling": {
+      "documents": 1,
+      "words": 116,
+      "bytes": 911,
+      "with_level0_documents": 4,
+      "with_level0_words": 2862,
+      "with_level0_bytes": 24438,
+      "with_instruction_envelope_documents": 6,
+      "with_instruction_envelope_words": 5059,
+      "with_instruction_envelope_bytes": 41120,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-storekit-payments": {
+      "documents": 1,
+      "words": 120,
+      "bytes": 932,
+      "with_level0_documents": 4,
+      "with_level0_words": 2866,
+      "with_level0_bytes": 24459,
+      "with_instruction_envelope_documents": 6,
+      "with_instruction_envelope_words": 5063,
+      "with_instruction_envelope_bytes": 41141,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-knowledge-governance": {
+      "documents": 1,
+      "words": 960,
+      "bytes": 7085,
+      "with_level0_documents": 4,
+      "with_level0_words": 3706,
+      "with_level0_bytes": 30612,
+      "with_instruction_envelope_documents": 6,
+      "with_instruction_envelope_words": 5903,
+      "with_instruction_envelope_bytes": 47294,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-swift-language-runtime": {
+      "documents": 2,
+      "words": 1812,
+      "bytes": 14147,
+      "with_level0_documents": 5,
+      "with_level0_words": 4558,
+      "with_level0_bytes": 37674,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 6755,
+      "with_instruction_envelope_bytes": 54356,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-ui-adaptive": {
+      "documents": 3,
+      "words": 1599,
+      "bytes": 12074,
+      "with_level0_documents": 6,
+      "with_level0_words": 4345,
+      "with_level0_bytes": 35601,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6542,
+      "with_instruction_envelope_bytes": 52283,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-identity-authentication": {
+      "documents": 2,
+      "words": 1329,
+      "bytes": 10585,
+      "with_level0_documents": 5,
+      "with_level0_words": 4075,
+      "with_level0_bytes": 34112,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 6272,
+      "with_instruction_envelope_bytes": 50794,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-testing-debugging": {
+      "documents": 3,
+      "words": 1340,
+      "bytes": 10531,
+      "with_level0_documents": 6,
+      "with_level0_words": 4086,
+      "with_level0_bytes": 34058,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6283,
+      "with_instruction_envelope_bytes": 50740,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-build-binary-supply-chain": {
+      "documents": 3,
+      "words": 1894,
+      "bytes": 14831,
+      "with_level0_documents": 6,
+      "with_level0_words": 4640,
+      "with_level0_bytes": 38358,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6837,
+      "with_instruction_envelope_bytes": 55040,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-platform-capabilities-extended": {
+      "documents": 3,
+      "words": 982,
+      "bytes": 8419,
+      "with_level0_documents": 6,
+      "with_level0_words": 3728,
+      "with_level0_bytes": 31946,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 5925,
+      "with_instruction_envelope_bytes": 48628,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-media-sensors-device": {
+      "documents": 3,
+      "words": 916,
+      "bytes": 7442,
+      "with_level0_documents": 6,
+      "with_level0_words": 3662,
+      "with_level0_bytes": 30969,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 5859,
+      "with_instruction_envelope_bytes": 47651,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-app-store-compliance": {
+      "documents": 3,
+      "words": 1554,
+      "bytes": 12519,
+      "with_level0_documents": 6,
+      "with_level0_words": 4300,
+      "with_level0_bytes": 36046,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6497,
+      "with_instruction_envelope_bytes": 52728,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-figma-design": {
+      "documents": 3,
+      "words": 1284,
+      "bytes": 9241,
+      "with_level0_documents": 6,
+      "with_level0_words": 4030,
+      "with_level0_bytes": 32768,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6227,
+      "with_instruction_envelope_bytes": 49450,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-ai-app-intents": {
+      "documents": 1,
+      "words": 507,
+      "bytes": 3909,
+      "with_level0_documents": 4,
+      "with_level0_words": 3253,
+      "with_level0_bytes": 27436,
+      "with_instruction_envelope_documents": 6,
+      "with_instruction_envelope_words": 5450,
+      "with_instruction_envelope_bytes": 44118,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-code-documentation": {
+      "documents": 2,
+      "words": 1151,
+      "bytes": 8921,
+      "with_level0_documents": 5,
+      "with_level0_words": 3897,
+      "with_level0_bytes": 32448,
+      "with_instruction_envelope_documents": 7,
+      "with_instruction_envelope_words": 6094,
+      "with_instruction_envelope_bytes": 49130,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-reusable-packages": {
+      "documents": 3,
+      "words": 2038,
+      "bytes": 16557,
+      "with_level0_documents": 6,
+      "with_level0_words": 4784,
+      "with_level0_bytes": 40084,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 6981,
+      "with_instruction_envelope_bytes": 56766,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-new-app-bootstrap": {
+      "documents": 10,
+      "words": 5075,
+      "bytes": 38867,
+      "with_level0_documents": 13,
+      "with_level0_words": 7821,
+      "with_level0_bytes": 62394,
+      "with_instruction_envelope_documents": 15,
+      "with_instruction_envelope_words": 10018,
+      "with_instruction_envelope_bytes": 79076,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "quality-control-governance": {
+      "documents": 9,
+      "words": 7060,
+      "bytes": 54924,
+      "with_level0_documents": 12,
+      "with_level0_words": 9806,
+      "with_level0_bytes": 78451,
+      "with_instruction_envelope_documents": 14,
+      "with_instruction_envelope_words": 12003,
+      "with_instruction_envelope_bytes": 95133,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "static-gates": {
+      "documents": 3,
+      "words": 2331,
+      "bytes": 17647,
+      "with_level0_documents": 6,
+      "with_level0_words": 5077,
+      "with_level0_bytes": 41174,
+      "with_instruction_envelope_documents": 8,
+      "with_instruction_envelope_words": 7274,
+      "with_instruction_envelope_bytes": 57856,
+      "max_words": null,
+      "budget_exceeded": false
+    },
+    "ios-deep-references": {
+      "documents": 5,
+      "words": 1289,
+      "bytes": 13392,
+      "with_level0_documents": 8,
+      "with_level0_words": 4035,
+      "with_level0_bytes": 36919,
+      "with_instruction_envelope_documents": 10,
+      "with_instruction_envelope_words": 6232,
+      "with_instruction_envelope_bytes": 53601,
+      "max_words": null,
+      "budget_exceeded": false
+    }
+  },
+  "overlaps": [
+    {
+      "left": "ios-review-audit",
+      "right": "ios-pr-review",
+      "count": 6,
+      "documents": [
+        "./docs/DEFINITION_OF_DONE.md",
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md"
+      ]
+    },
+    {
+      "left": "ios-architecture-navigation-state",
+      "right": "ios-new-app-bootstrap",
+      "count": 5,
+      "documents": [
+        "./docs/ARCHITECTURE_DECISION_GOVERNANCE.md",
+        "./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md",
+        "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+        "./docs/IOS_MVVM_INTENT_API_STANDARD.md",
+        "./docs/MODULAR_ARCHITECTURE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-pr-review",
+      "right": "quality-control-governance",
+      "count": 4,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/IOS_PR_REVIEW_TEMPLATE.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "quality-control-governance",
+      "count": 4,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+        "./docs/STATIC_QUALITY_GATE_POLICY.md"
+      ]
+    },
+    {
+      "left": "governance-new-project",
+      "right": "ios-new-app-bootstrap",
+      "count": 3,
+      "documents": [
+        "./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md",
+        "./docs/NEW_PROJECT_START_CONTRACT.md",
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "ios-memory-cache-media-files",
+      "right": "ios-media-sensors-device",
+      "count": 3,
+      "documents": [
+        "./docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+        "./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+        "./docs/knowledge/global/ios/MEDIA_SENSORS_AND_DEVICE_INTEGRATIONS.md"
+      ]
+    },
+    {
+      "left": "ios-review-audit",
+      "right": "quality-control-governance",
+      "count": 3,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-pr-review",
+      "count": 3,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-review-audit",
+      "count": 3,
+      "documents": [
+        "./docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+        "./docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+        "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "quality-control-governance",
+      "right": "static-gates",
+      "count": 3,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/STATIC_GATE_ADOPTION.md",
+        "./docs/STATIC_QUALITY_GATE_POLICY.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "ios-testing-debugging",
+      "count": 2,
+      "documents": [
+        "./docs/IOS_TESTING_STRATEGY.md",
+        "./docs/QA_TEST_PLAN_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-lifecycle-background",
+      "right": "ios-platform-capabilities-extended",
+      "count": 2,
+      "documents": [
+        "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md",
+        "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "static-gates",
+      "count": 2,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md",
+        "./docs/STATIC_QUALITY_GATE_POLICY.md"
+      ]
+    },
+    {
+      "left": "governance-new-project",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "governance-new-project",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "ios-ui-adaptive",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_ACCESSIBILITY_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-accessibility-localization-qa",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TESTING_STRATEGY.md"
+      ]
+    },
+    {
+      "left": "ios-build-binary-supply-chain",
+      "right": "ios-reusable-packages",
+      "count": 1,
+      "documents": [
+        "./docs/DEPENDENCY_POLICY.md"
+      ]
+    },
+    {
+      "left": "ios-build-binary-supply-chain",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-build-binary-supply-chain",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-identity-authentication",
+      "right": "ios-app-store-compliance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md"
+      ]
+    },
+    {
+      "left": "ios-implementation-refactor",
+      "right": "ios-universal-quality",
+      "count": 1,
+      "documents": [
+        "./docs/PRODUCTION_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-new-app-bootstrap",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "ios-new-app-bootstrap",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/STATIC_GATE_ADOPTION.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-app-store-compliance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_RELEASE_CHECKLIST.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-build-binary-supply-chain",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-lifecycle-background",
+      "count": 1,
+      "documents": [
+        "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "ios-platform-capabilities-extended",
+      "count": 1,
+      "documents": [
+        "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-release",
+      "right": "static-gates",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-app-store-compliance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-identity-authentication",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_SECURITY_PRIVACY_GATE.md"
+      ]
+    },
+    {
+      "left": "ios-security-privacy-intake",
+      "right": "ios-new-app-bootstrap",
+      "count": 1,
+      "documents": [
+        "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-swift-language-runtime",
+      "right": "ios-code-documentation",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_CODE_DOCUMENTATION_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-swiftui-performance",
+      "right": "ios-ui-adaptive",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_UI_STATE_RENDERING_STANDARD.md"
+      ]
+    },
+    {
+      "left": "ios-testing-debugging",
+      "right": "quality-control-governance",
+      "count": 1,
+      "documents": [
+        "./docs/IOS_TESTING_STRATEGY.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-build-binary-supply-chain",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    },
+    {
+      "left": "ios-universal-quality",
+      "right": "ios-release",
+      "count": 1,
+      "documents": [
+        "./docs/CI_CD_QUALITY_GATES.md"
+      ]
+    }
+  ],
+  "heaviest_documents": [
+    {
+      "path": "./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "exists": true,
+      "words": 2171,
+      "bytes": 15541
+    },
+    {
+      "path": "./docs/PRODUCTION_QUALITY_GATES.md",
+      "exists": true,
+      "words": 2040,
+      "bytes": 14921
+    },
+    {
+      "path": "./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "exists": true,
+      "words": 1836,
+      "bytes": 14867
+    },
+    {
+      "path": "./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "exists": true,
+      "words": 1653,
+      "bytes": 12460
+    },
+    {
+      "path": "./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "exists": true,
+      "words": 1650,
+      "bytes": 12381
+    },
+    {
+      "path": "./docs/PACKAGES_AND_MANAGERS.md",
+      "exists": true,
+      "words": 1432,
+      "bytes": 11661
+    },
+    {
+      "path": "./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md",
+      "exists": true,
+      "words": 1293,
+      "bytes": 9873
+    },
+    {
+      "path": "./docs/NEW_PROJECT_START_CONTRACT.md",
+      "exists": true,
+      "words": 1259,
+      "bytes": 10022
+    },
+    {
+      "path": "./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+      "exists": true,
+      "words": 1215,
+      "bytes": 8834
+    },
+    {
+      "path": "./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md",
+      "exists": true,
+      "words": 1142,
+      "bytes": 8355
+    }
+  ],
+  "unreachable_registered_documents": [],
+  "missing": [],
+  "optional_missing": [],
+  "unclassified": [],
+  "failures": [],
+  "notes": [
+    "dynamic task documents skipped: .zenflow/tasks is absent"
+  ]
+}

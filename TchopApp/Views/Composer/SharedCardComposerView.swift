@@ -2144,8 +2144,56 @@ private struct ComposerPDFDetailView: View {
     }
 }
 
-private struct ComposerPDFView: UIViewRepresentable {
+private struct ComposerPDFView: View {
     let fileURL: URL
+    @State private var document: PDFDocument?
+
+    var body: some View {
+        ComposerPDFDocumentView(document: document)
+            .task(id: fileURL) {
+                document = nil
+                do {
+                    document = try await ComposerPDFDocumentLoader.document(at: fileURL)
+                } catch is CancellationError {
+                    // The task was replaced by a new URL or the view was removed.
+                } catch {
+                    document = nil
+                }
+            }
+    }
+}
+
+@MainActor
+private enum ComposerPDFDocumentLoader {
+    static func document(at url: URL) async throws -> PDFDocument? {
+        let data = try await ComposerPDFDataReader.read(from: url)
+        try Task.checkCancellation()
+        return PDFDocument(data: data)
+    }
+}
+
+/// Performs blocking PDF file reads away from the main actor and returns sendable bytes.
+private enum ComposerPDFDataReader {
+    static func read(from url: URL) async throws -> Data {
+        let operation = Task.detached(priority: .utility) {
+            try Task.checkCancellation()
+            let handle = try FileHandle(forReadingFrom: url)
+            defer { try? handle.close() }
+            let data = try handle.readToEnd() ?? Data()
+            try Task.checkCancellation()
+            return data
+        }
+
+        return try await withTaskCancellationHandler(operation: {
+            try await operation.value
+        }, onCancel: {
+            operation.cancel()
+        })
+    }
+}
+
+private struct ComposerPDFDocumentView: UIViewRepresentable {
+    let document: PDFDocument?
 
     func makeUIView(context: Context) -> PDFView {
         let pdfView = PDFView()
@@ -2153,13 +2201,13 @@ private struct ComposerPDFView: UIViewRepresentable {
         pdfView.displayMode = .singlePageContinuous
         pdfView.displayDirection = .vertical
         pdfView.backgroundColor = .black
-        pdfView.document = PDFDocument(url: fileURL)
+        pdfView.document = document
         return pdfView
     }
 
     func updateUIView(_ pdfView: PDFView, context: Context) {
-        if pdfView.document?.documentURL != fileURL {
-            pdfView.document = PDFDocument(url: fileURL)
+        if pdfView.document !== document {
+            pdfView.document = document
         }
     }
 }
