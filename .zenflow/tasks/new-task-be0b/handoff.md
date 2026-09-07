@@ -16,6 +16,7 @@
 - `universal-quality-control-plan.md`: актуальный operational index; прежний 930-строчный canonical plan сохранён в audit `before-universal-quality-control-plan.md`.
 - `audit-2026-09-05/implementation/0.1-authority-boundary.md`: evidence первого implementation block.
 - `audit-2026-09-05/implementation/0.2-baseline-receipt.json`: свежие repository/branch/HEAD/dirty-state identities.
+- `audit-2026-09-05/implementation/0.3-luna-observations.md`: компактная таблица ранних observations без telemetry platform.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
@@ -29,11 +30,11 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 на Luna xhigh; блоки 0.1–0.2 завершены, следующий — 0.3. Не запускать tests, rollout, hooks или
+1.1 на Luna xhigh; блоки 0.1–0.3 завершены, следующий — 0.4. Не запускать tests, rollout, hooks или
 app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
 HEAD изменился.
 
-Текущий статус: **2 из 30 implementation blocks завершены (≈7%)**. Процент отражает только
+Текущий статус: **3 из 30 implementation blocks завершены (≈10%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
