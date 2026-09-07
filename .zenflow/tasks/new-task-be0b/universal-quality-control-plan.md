@@ -17,9 +17,9 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–2.2 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–2.3 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
-prompt/specialist-route normalization; это не означает готовность engine, пилотов или
+prompt/specialist-route normalization и package ownership; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
@@ -98,6 +98,22 @@ QualityControl engine, tests, runtime, CI и rollout в этом блоке не
 
 Evidence блока 2.2: `audit-2026-09-05/implementation/2.2-prompt-routing.md`.
 
+## Package ownership блока 2.3 — 2026-09-08
+
+Канонический Documentation Vault обновлён и опубликован в коммите
+`99124788b98faac34364704d3225be03b4bff777`. Добавлен `QC.PACKAGE.OWNERSHIP` и отдельный
+`PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md`: reusable catalog описывает neutral capability,
+revision/version policy и host-owned responsibilities; `PackagesInUse`, target membership,
+adoption, migration, rollout и rollback принадлежат consuming app. Source-app adoption history
+перенесена в `apps/Tchop/plans/package-adoption-audit.md`; старый 50-iteration roadmap оставлен
+только historical reference. SDK/testing/privacy/verification templates теперь требуют risk-based
+verification, explicit output/build/cache roots, permission state и URL classification.
+
+App source, package source, QualityControl engine, tests, runtime, CI и rollout в этом блоке не
+менялись.
+
+Evidence блока 2.3: `audit-2026-09-05/implementation/2.3-package-ownership.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -146,18 +162,30 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 1.2: Rule ID и минимальный exception metadata contract для активных норм — Luna xhigh.
 - [x] 2.1: invariants и архитектурный выбор — Luna xhigh.
 - [x] 2.2: prompts и specialist routes — Luna xhigh.
-- [ ] 2.3: architecture/prompts/skills/package ownership — Luna xhigh.
-- [ ] 3: toolchain-aware iOS baseline — Luna xhigh.
-- [ ] 4: global bootstrap/effective routes/distribution — Luna xhigh.
-- [ ] 5: QC source scope, Swift patterns, disabled-tests, catalog/mode claims — Luna xhigh.
-- [ ] 6: SwiftLint + warnings/concurrency diagnostics — Luna xhigh.
-- [ ] 7: разрешённая verifier-test/canary фаза — Luna xhigh.
-- [ ] 8: простой и сложный app pilots — Luna xhigh.
-- [ ] 9: release/promotion и reversible rollout — Luna xhigh.
-- [ ] 10: context/калибровка процесса Luna — Luna xhigh.
-- [ ] 11: итоговая проверка внедрения — Luna xhigh.
+- [x] 2.3: architecture/prompts/skills/package ownership — Luna xhigh.
+- [ ] 3.1: toolchain/isolation/availability contract — Luna xhigh.
+- [ ] 3.2: release/privacy/performance matrices — Luna xhigh.
+- [ ] 4.1: global bootstrap/effective instruction inventory — Luna xhigh.
+- [ ] 4.2: manifest, ссылочная целостность и dynamic app boundaries — Luna xhigh.
+- [ ] 4.3: нейтральный new-project сценарий — Luna xhigh.
+- [ ] 5.1: QC source scope и source membership — Luna xhigh.
+- [ ] 5.2: Swift patterns и disabled-tests claims — Luna xhigh.
+- [ ] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
+- [ ] 6.1: SwiftLint config/contract — Luna xhigh.
+- [ ] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh.
+- [ ] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh.
+- [ ] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh.
+- [ ] 8.1: простой consumer pilot — Luna xhigh.
+- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh.
+- [ ] 8.3: готовность подготовки к будущему продуктовому проекту — Luna xhigh.
+- [ ] 9.1: promotion/release contract — Luna xhigh.
+- [ ] 9.2: existing/future project adoption — Luna xhigh.
+- [ ] 10.1: context budget и повторное использование evidence — Luna xhigh.
+- [ ] 10.2: калибровка процесса Luna xhigh — Luna xhigh.
+- [ ] 11.1: итоговый semantic audit — Luna xhigh.
+- [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 2.3 — зафиксировать ownership architecture/prompts/skills/packages.
+Следующий implementation block: 3.1 — сформировать toolchain/isolation/availability contract.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -166,6 +194,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 2.2 закрыты task-level evidence; следующий 2.3. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 2.3 закрыты task-level evidence; следующий 3.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
