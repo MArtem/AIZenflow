@@ -17,9 +17,9 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блок 0.1 завершён task-level фиксацией владельцев и
-границ; это не означает готовность engine, пилотов или release. Все блоки реализации, review и
-итоговая проверка выполняются на GPT-5.6 Luna xhigh.
+Статус: **implementation in progress**. Блоки 0.1–1.1 завершены task-level фиксацией границ,
+baseline, сценариев и нормативного контракта; это не означает готовность engine, пилотов или
+release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -49,6 +49,18 @@ main проверены на чистое состояние; local HEAD сов�
 не подменяется engine revision и будет проверяться в соответствующем project/pilot scope.
 Build, tests, toolchain и runtime evidence в этом read-only блоке не создавались.
 
+## Нормативный контракт блока 1.1 — 2026-09-08
+
+Канонический Documentation Vault обновлён и опубликован в коммите
+`7dab2e7f4bb52bb02920030c7e14f3a879a53612`. Governance теперь задаёт единые оси
+`severity/confidence/applicability/evidence status/decision`, разделяет local/merge/release
+readiness, запрещает превращать отсутствующее evidence в normal `PASS`, и требует явного mapping
+legacy transport labels. Authority hierarchy согласована с system/developer/user scope; exception
+policy получила status, rule version, owner/approver, expiry, revalidation, rollback и containment.
+Model-routing override остаётся scoped к named task/plan и не меняет глобальный default.
+
+Evidence блока 1.1: `audit-2026-09-05/implementation/1.1-verdict-contract.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -59,7 +71,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 
 ## Проверенное состояние
 
-- Documentation remote main: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6` перед публикацией аудита.
+- Documentation remote main до implementation: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; текущий канонический SHA после блока 1.1: `7dab2e7f4bb52bb02920030c7e14f3a879a53612`.
 - QC remote main и `AIZenflowQualityControl-main-active`: `f60d5da6c2dca4c2d12c72ed3096a133402ae408`.
 - Catalog: 16 implemented, 3 staged, 1 review-candidate. Наличие adapter не равно mode coverage/pilot readiness.
 - Foundation, permissions, bounded evidence и canary существуют; не реализовывать их повторно.
@@ -93,7 +105,9 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 0.2: свежий baseline evidence — Luna xhigh.
 - [x] 0.3: ранние observations работы Luna — Luna xhigh; первые два значения времени/usage unknown.
 - [x] 0.4: пять нейтральных сценариев и отдельный evaluator key — Luna xhigh; runtime/test не выполнялись.
-- [ ] 1.1: единый severity/readiness/exception contract — Luna xhigh.
+- [x] 1.1: единый severity/readiness/exception contract — Luna xhigh.
+- [ ] 1.2: Rule ID и минимальный exception metadata contract для активных норм — Luna xhigh.
+- [ ] 1.2: Rule ID и минимальный exception metadata contract для активных норм — Luna xhigh.
 - [ ] 2: architecture/prompts/skills/package ownership — Luna xhigh.
 - [ ] 3: toolchain-aware iOS baseline — Luna xhigh.
 - [ ] 4: global bootstrap/effective routes/distribution — Luna xhigh.
@@ -105,15 +119,16 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 10: context/калибровка процесса Luna — Luna xhigh.
 - [ ] 11: итоговая проверка внедрения — Luna xhigh.
 
-Следующий implementation block: 0.4 — пять нейтральных app-agnostic сценариев, без test/runtime
-execution. Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation
-checkbox не помечается выполненным только потому, что написан план.
+Следующий implementation block: 1.2 — Rule ID и минимальный exception metadata contract для
+активных норм, без создания огромного реестра. Конкретика и критерии приёмки находятся в
+подробном roadmap. Ни один implementation checkbox не помечается выполненным только потому,
+что написан план.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 0.4 закрыты task-level evidence; следующий 1.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 1.1 закрыты task-level evidence; следующий 1.2. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.

@@ -19,12 +19,13 @@
 - `audit-2026-09-05/implementation/0.3-luna-observations.md`: компактная таблица ранних observations без telemetry platform.
 - `audit-2026-09-05/implementation/0.4-neutral-scenarios.md`: generator/detector-safe specification пяти app-neutral сценариев.
 - `audit-2026-09-05/implementation/0.4-scenario-answer-key.md`: evaluator-only key; не routed input и не independent detector evidence.
+- `audit-2026-09-05/implementation/1.1-verdict-contract.md`: desk-review receipt единого authority/severity/evidence/readiness/exception contract.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
 
 ## Evidence и ограничения
-До публикации: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; QC main-active/remote main `f60d5da6c2dca4c2d12c72ed3096a133402ae408`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
+До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.1 Documentation remote main `7dab2e7f4bb52bb02920030c7e14f3a879a53612`; QC main-active/remote main `f60d5da6c2dca4c2d12c72ed3096a133402ae408`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
 
 Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. В implementation scope разрешены
 только изменения активного блока; tests, runtime, rollout, hooks и app remediation остаются
@@ -32,11 +33,11 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 на Luna xhigh; блоки 0.1–0.4 завершены, следующий — 1.1. Не запускать tests, rollout, hooks или
+1.1 → 1.2 на Luna xhigh; блоки 0.1–1.1 завершены, следующий — 1.2. Не запускать tests, rollout, hooks или
 app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
 HEAD изменился.
 
-Текущий статус: **4 из 30 implementation blocks завершены (≈13%)**. Процент отражает только
+Текущий статус: **5 из 30 implementation blocks завершены (≈17%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
