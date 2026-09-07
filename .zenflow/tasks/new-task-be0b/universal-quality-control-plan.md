@@ -79,12 +79,20 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - Глобальные инженерные правила и opt-in adoption engine — отдельные механизмы.
 - В текущем блоке разрешены аудит и план. Предыдущая история разрешений не используется для незапрошенной реализации вместо результата аудита.
 
+## Нейтральные сценарии блока 0.4 — 2026-09-08
+
+Спецификация и evaluator-only key разделены: `implementation/0.4-neutral-scenarios.md` можно
+передавать generator/detector после удаления evaluator metadata, а
+`implementation/0.4-scenario-answer-key.md` не входит в routed input. Сценарии не являются
+тестовым кодом, benchmark runner или доказательством качества Luna. Holdout-варианты отмечены
+отдельно и требуют свежего разрешённого контекста для слепого detector review.
+
 ## Следующие этапы
 
 - [x] 0.1: authority/current state и четыре владельца — Luna xhigh.
 - [x] 0.2: свежий baseline evidence — Luna xhigh.
 - [x] 0.3: ранние observations работы Luna — Luna xhigh; первые два значения времени/usage unknown.
-- [ ] 0.4: пять нейтральных сценариев — Luna xhigh.
+- [x] 0.4: пять нейтральных сценариев и отдельный evaluator key — Luna xhigh; runtime/test не выполнялись.
 - [ ] 1.1: единый severity/readiness/exception contract — Luna xhigh.
 - [ ] 2: architecture/prompts/skills/package ownership — Luna xhigh.
 - [ ] 3: toolchain-aware iOS baseline — Luna xhigh.
@@ -106,6 +114,6 @@ checkbox не помечается выполненным только пото�
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Начать с 0.1 → 0.2 → 0.3 → 0.4 → 1.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 0.4 закрыты task-level evidence; следующий 1.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
