@@ -1,6 +1,6 @@
 # QualityControl — актуальный план продолжения
 
-Обновлён 2026-09-06 по разрешённому полному аудиту на GPT-6 Astra. Это task recovery, не новая reusable policy и не разрешение запускать runtime/CI или менять apps. Предыдущий утверждённый план целиком сохранён в `audit-2026-09-05/before-universal-quality-control-plan.md`.
+Обновлён 2026-09-08 по разрешённому полному аудиту на GPT-6 Astra. Это task recovery и operational index внедрения; он не заменяет reusable policy и не является разрешением запускать runtime/CI или менять apps без соответствующего блока. Предыдущий утверждённый план целиком сохранён в `audit-2026-09-05/before-universal-quality-control-plan.md`.
 
 ## Новое ограничение исполнения
 
@@ -14,6 +14,27 @@
 - основания: `audit-2026-09-05/AUDIT_REPORT.md` и `FINDING_EVIDENCE.md`
 - 67 решений по ZIP: `audit-2026-09-05/ARCHIVE_DECISIONS.md`
 - покрытие/ограничения: `audit-2026-09-05/COVERAGE.md`
+
+## Состояние внедрения — 2026-09-08
+
+Статус: **implementation in progress**. Блок 0.1 завершён task-level фиксацией владельцев и
+границ; это не означает готовность engine, пилотов или release. Все блоки реализации, review и
+итоговая проверка выполняются на GPT-5.6 Luna xhigh.
+
+| Владелец | Источник истины и ответственность | Что сюда не переносится |
+| --- | --- | --- |
+| Documentation Vault | reusable human policy, prompts, skills, templates, registries и boundary rules | app facts, локальные исключения, task history и исполняемый engine |
+| QualityControl | executable engine, schemas, adapters, fixtures, workflows и machine evidence | reusable human policy и product/app decisions |
+| Project/app repository | project profile/facts, app code, thin launcher/workflow wiring, adoption state и local exceptions | глобальная policy и чужие app overlays |
+| Task evidence | plan/handoff, implementation receipts, temporary decisions и recovery evidence | authority для reusable rules, engine или app behavior |
+
+Глобальная активация инженерных правил и подключение QualityControl остаются разными
+механизмами: bootstrap действует по canonical boundary, а engine adoption остаётся явным opt-in
+с profile, permissions, receipt и rollback. Ручные GitHub/Codex Review, создание/изменение/запуск
+тестов, UI/Simulator/Instruments, CI, branch protection и платные сервисы не активируются этим
+статусом. Вердикты local readiness, merge readiness и release readiness не объединяются.
+
+Evidence блока 0.1: `audit-2026-09-05/implementation/0.1-authority-boundary.md`.
 
 ## Проверенное состояние
 
@@ -39,7 +60,11 @@
 
 ## Следующие этапы
 
-- [ ] 0–1: authority/current state; единый severity/readiness/exception contract — Luna xhigh.
+- [x] 0.1: authority/current state и четыре владельца — Luna xhigh.
+- [ ] 0.2: свежий baseline evidence — Luna xhigh.
+- [ ] 0.3: ранние observations работы Luna — Luna xhigh.
+- [ ] 0.4: пять нейтральных сценариев — Luna xhigh.
+- [ ] 1.1: единый severity/readiness/exception contract — Luna xhigh.
 - [ ] 2: architecture/prompts/skills/package ownership — Luna xhigh.
 - [ ] 3: toolchain-aware iOS baseline — Luna xhigh.
 - [ ] 4: global bootstrap/effective routes/distribution — Luna xhigh.
