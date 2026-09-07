@@ -46,10 +46,14 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 0.2: обновить свежий baseline evidence.
 - [x] 0.3: начать компактные observations Luna без telemetry platform; первые elapsed/usage значения unknown.
 - [x] 0.4: описать пять app-neutral сценариев без test/runtime execution; evaluator key отделён.
-- [ ] 1.1: согласовать authority, severity, applicability, evidence и readiness verdicts.
+- [x] 1.1: согласовать authority, severity, applicability, evidence и readiness verdicts.
+- [ ] 1.2: ввести минимальные Rule ID и единый exception metadata contract для активных норм.
 
 Evidence блоков 0.1–0.4: `audit-2026-09-05/implementation/0.1-authority-boundary.md`,
 `audit-2026-09-05/implementation/0.2-baseline-receipt.json`,
 `audit-2026-09-05/implementation/0.3-luna-observations.md`,
 `audit-2026-09-05/implementation/0.4-neutral-scenarios.md` и
 `audit-2026-09-05/implementation/0.4-scenario-answer-key.md`.
+
+Evidence блока 1.1: `audit-2026-09-05/implementation/1.1-verdict-contract.md`.
+Завершено 5 из 30 implementation blocks (≈17%); это не процент production readiness.
