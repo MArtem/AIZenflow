@@ -49,6 +49,14 @@ main проверены на чистое состояние; local HEAD сов�
 не подменяется engine revision и будет проверяться в соответствующем project/pilot scope.
 Build, tests, toolchain и runtime evidence в этом read-only блоке не создавались.
 
+## Observations блока 0.3 — 2026-09-08
+
+Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
+task-level журнал наблюдений. Она не является telemetry platform и не превращает неизвестные
+elapsed/usage в ноль. Для блоков 0.1–0.2 строки восстановлены из доступного task trace после
+начала работы; поэтому эти два поля явно отмечены `unknown`, а будущие блоки должны записывать
+их до patch, если runtime предоставляет значения.
+
 ## Проверенное состояние
 
 - Documentation remote main: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6` перед публикацией аудита.
@@ -75,7 +83,7 @@ Build, tests, toolchain и runtime evidence в этом read-only блоке н�
 
 - [x] 0.1: authority/current state и четыре владельца — Luna xhigh.
 - [x] 0.2: свежий baseline evidence — Luna xhigh.
-- [ ] 0.3: ранние observations работы Luna — Luna xhigh.
+- [x] 0.3: ранние observations работы Luna — Luna xhigh; первые два значения времени/usage unknown.
 - [ ] 0.4: пять нейтральных сценариев — Luna xhigh.
 - [ ] 1.1: единый severity/readiness/exception contract — Luna xhigh.
 - [ ] 2: architecture/prompts/skills/package ownership — Luna xhigh.
@@ -89,10 +97,9 @@ Build, tests, toolchain и runtime evidence в этом read-only блоке н�
 - [ ] 10: context/калибровка процесса Luna — Luna xhigh.
 - [ ] 11: итоговая проверка внедрения — Luna xhigh.
 
-Следующий implementation block: 0.3 — компактные observations работы Luna, без telemetry platform и
-без ожидания статистической значимости. Конкретика и критерии приёмки находятся в подробном
-roadmap. Ни один implementation checkbox не помечается выполненным только потому, что написан
-план.
+Следующий implementation block: 0.4 — пять нейтральных app-agnostic сценариев, без test/runtime
+execution. Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation
+checkbox не помечается выполненным только потому, что написан план.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
