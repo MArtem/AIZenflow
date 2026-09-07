@@ -17,8 +17,8 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–1.2 завершены task-level фиксацией границ,
-baseline, сценариев, нормативного контракта и scoped Rule ID catalog; это не означает готовность engine, пилотов или
+Статус: **implementation in progress**. Блоки 0.1–2.1 завершены task-level фиксацией границ,
+baseline, сценариев, нормативного контракта, scoped Rule ID catalog и architecture invariants; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
@@ -71,6 +71,16 @@ Strict concurrency floor сохранён; generic exception flow не осла�
 
 Evidence блока 1.2: `audit-2026-09-05/implementation/1.2-rule-catalog.md`.
 
+## Architecture invariants блока 2.1 — 2026-09-08
+
+Architecture router и UI/bootstrap/package guidance теперь отделяют reusable floor от style choice.
+Обязательны ownership/state/IO/lifecycle/order/failure/availability и proportionate structure;
+ViewModel, Renderer, Coordinator, reducer/store, repository protocol и package/module boundaries
+выбираются по profile и текущему boundary pressure. Three desk examples зафиксированы в receipt;
+app ADR и app source не менялись.
+
+Evidence блока 2.1: `audit-2026-09-05/implementation/2.1-architecture-invariants.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -117,7 +127,8 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 0.4: пять нейтральных сценариев и отдельный evaluator key — Luna xhigh; runtime/test не выполнялись.
 - [x] 1.1: единый severity/readiness/exception contract — Luna xhigh.
 - [x] 1.2: Rule ID и минимальный exception metadata contract для активных норм — Luna xhigh.
-- [ ] 2.1: invariants и архитектурный выбор — Luna xhigh.
+- [x] 2.1: invariants и архитектурный выбор — Luna xhigh.
+- [ ] 2.2: prompts и specialist routes — Luna xhigh.
 - [ ] 2: architecture/prompts/skills/package ownership — Luna xhigh.
 - [ ] 3: toolchain-aware iOS baseline — Luna xhigh.
 - [ ] 4: global bootstrap/effective routes/distribution — Luna xhigh.
@@ -129,7 +140,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 10: context/калибровка процесса Luna — Luna xhigh.
 - [ ] 11: итоговая проверка внедрения — Luna xhigh.
 
-Следующий implementation block: 2.1 — отделить обязательные invariants от архитектурного вкуса.
+Следующий implementation block: 2.2 — нормализовать active prompts и specialist routes.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -138,6 +149,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 1.2 закрыты task-level evidence; следующий 2.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 2.1 закрыты task-level evidence; следующий 2.2. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.

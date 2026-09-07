@@ -21,6 +21,7 @@
 - `audit-2026-09-05/implementation/0.4-scenario-answer-key.md`: evaluator-only key; не routed input и не independent detector evidence.
 - `audit-2026-09-05/implementation/1.1-verdict-contract.md`: desk-review receipt единого authority/severity/evidence/readiness/exception contract.
 - `audit-2026-09-05/implementation/1.2-rule-catalog.md`: receipt 12 scoped Rule IDs и exception metadata contract.
+- `audit-2026-09-05/implementation/2.1-architecture-invariants.md`: desk-review receipt invariants-before-style и три neutral architecture examples.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
@@ -34,11 +35,11 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 → 1.2 → 2.1 на Luna xhigh; блоки 0.1–1.2 завершены, следующий — 2.1. Не запускать tests, rollout, hooks или
+1.1 → 1.2 → 2.1 → 2.2 на Luna xhigh; блоки 0.1–2.1 завершены, следующий — 2.2. Не запускать tests, rollout, hooks или
 app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
 HEAD изменился.
 
-Текущий статус: **6 из 30 implementation blocks завершены (20%)**. Процент отражает только
+Текущий статус: **7 из 30 implementation blocks завершены (≈23%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
