@@ -34,6 +34,8 @@
   bootstrap routing, portable fallback and current worktree inventory.
 - `audit-2026-09-05/implementation/4.2-manifest-boundary-integrity.md`: receipt dynamic app
   boundary discovery, generated-manifest authority, and active-consumer mirror parity.
+- `audit-2026-09-05/implementation/4.3-neutral-new-project.md`: receipt clean disposable consumer,
+  routed bootstrap, static S01 exercise, and handoff continuation.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
@@ -47,11 +49,11 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 → 1.2 → 2.1 → 2.2 → 2.3 → 3.1 → 3.2 → 4.1 → 4.2 на Luna xhigh; блоки 0.1–4.2 завершены, следующий — 4.3. Не запускать tests, rollout, hooks или
+1.1 → 1.2 → 2.1 → 2.2 → 2.3 → 3.1 → 3.2 → 4.1 → 4.2 → 4.3 на Luna xhigh; блоки 0.1–4.3 завершены, следующий — 5.1. Не запускать tests, rollout, hooks или
 app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
 HEAD изменился.
 
-Текущий статус: **13 из 30 implementation blocks завершены (43%)**. Процент отражает только
+Текущий статус: **14 из 30 implementation blocks завершены (47%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
