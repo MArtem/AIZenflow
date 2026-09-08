@@ -71,10 +71,10 @@ consumer pilots, rollout, hooks и CI не запускать до соотве�
 
 10.2 закрыт отдельным bounded Luna xhigh calibration receipt по уже имеющимся observations и
 representative receipts. 11.1 также закрыт closure map F01–F24 и traceability receipt с
-`PASS_WITH_LIMITATION`; это не заменяет consumer remediation, runtime evidence или promotion
-gates. Следующий независимый блок — 11.2 support and recovery.
+`PASS_WITH_LIMITATION`; 11.2 также зафиксировал trigger-based support/recovery без automation.
+Это не заменяет consumer remediation, runtime evidence или promotion gates.
 
-Текущий статус: **26 из 30 implementation blocks завершены (87%)**. Процент отражает только
+Текущий статус: **27 из 30 implementation blocks завершены (90%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
