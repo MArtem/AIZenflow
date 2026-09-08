@@ -361,7 +361,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh; 172/16 PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh; S01 open + S04 holdout, desk/static only.
 - [x] 8.1: простой consumer pilot — Luna xhigh; MVVMExample static pin/adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh.
+- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; static half PARTIAL из-за German localization parity, runtime/matrix не начаты.
 - [ ] 8.3: готовность подготовки к будущему продуктовому проекту — Luna xhigh.
 - [ ] 9.1: promotion/release contract — Luna xhigh.
 - [ ] 9.2: existing/future project adoption — Luna xhigh.
@@ -379,6 +379,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1 закрыты task-level evidence; следующий 8.2. 8.1 изменил только MVVMExample quality pinning и не создаёт build/runtime/release claim.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1 закрыты task-level evidence; 8.2 начат, но остаётся partial из-за consumer-owned German localization parity. 8.1 изменил только MVVMExample quality pinning и не создаёт build/runtime/release claim.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.

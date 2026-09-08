@@ -61,8 +61,10 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow теперь используют QC `b197bd5`,
-локальный static gate и семь clean-snapshot adapters PASS. Перейти к roadmap 8.2: сложный
-multi-target consumer pilot.
+локальный static gate и семь clean-snapshot adapters PASS. Блок 8.2 начат, но остаётся PARTIAL:
+Tchop German localization parity блокирует static half; runtime, controls, integration и local/GitHub
+parity не запускались. Следующий безопасный шаг — отдельная app-local remediation German catalog,
+затем повтор static half 8.2.
 Блоки 0.1–8.1 завершены; app remediation,
 consumer pilots, rollout, hooks и CI не запускать до соответствующих разрешённых блоков. Точные
 пути и hashes перепроверять, если HEAD изменился.
