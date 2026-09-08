@@ -179,7 +179,6 @@
 		B18EFC7790280D8DB59E79E4 /* AppAnalyticsNetworkingIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F18EFC7790280D8DB59E79E4 /* AppAnalyticsNetworkingIntegration.swift */; };
 		B1465A1AA7B57175F914FECB /* AppAnalyticsPushNotificationsIntegration.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1465A1AA7B57175F914FECB /* AppAnalyticsPushNotificationsIntegration.swift */; };
 		B1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift */; };
-		B2B909F531D30487F6FEA35E /* de.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F2B909F531D30487F6FEA35E /* de.lproj */; };
 		B282B563D6F0C9D5B1F473F3 /* en.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F282B563D6F0C9D5B1F473F3 /* en.lproj */; };
 		B214DC0A4405C1B7F4A631BB /* ru.lproj in Resources */ = {isa = PBXBuildFile; fileRef = F214DC0A4405C1B7F4A631BB /* ru.lproj */; };
 		B13AA7F9D10F170ACE435056 /* AVFoundationPermissionProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F13AA7F9D10F170ACE435056 /* AVFoundationPermissionProvider.swift */; };
@@ -449,7 +448,6 @@
 		F18EFC7790280D8DB59E79E4 /* AppAnalyticsNetworkingIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/IntegrationHelpers/AppAnalyticsNetworkingIntegration/Sources/AppAnalyticsNetworkingIntegration/AppAnalyticsNetworkingIntegration.swift; sourceTree = "<group>"; };
 		F1465A1AA7B57175F914FECB /* AppAnalyticsPushNotificationsIntegration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/Sources/AppAnalyticsPushNotificationsIntegration/AppAnalyticsPushNotificationsIntegration.swift; sourceTree = "<group>"; };
 		F1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift; sourceTree = "<group>"; };
-		F2B909F531D30487F6FEA35E /* de.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = de.lproj; path = PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/de.lproj; sourceTree = "<group>"; };
 		F282B563D6F0C9D5B1F473F3 /* en.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = en.lproj; path = PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj; sourceTree = "<group>"; };
 		F214DC0A4405C1B7F4A631BB /* ru.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = ru.lproj; path = PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj; sourceTree = "<group>"; };
 		F13AA7F9D10F170ACE435056 /* AVFoundationPermissionProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PackagesInUse/AppPermissions/Sources/AppPermissions/AVFoundationPermissionProvider.swift; sourceTree = "<group>"; };
@@ -1114,7 +1112,6 @@
 			isa = PBXGroup;
 			children = (
 				F1739E5934BD76F887F5D974 /* TchopProductLocalizationResources.swift */,
-				F2B909F531D30487F6FEA35E /* de.lproj */,
 				F282B563D6F0C9D5B1F473F3 /* en.lproj */,
 				F214DC0A4405C1B7F4A631BB /* ru.lproj */,
 			);
@@ -1411,7 +1408,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
-				B2B909F531D30487F6FEA35E /* de.lproj in Resources */,
 				B282B563D6F0C9D5B1F473F3 /* en.lproj in Resources */,
 				B214DC0A4405C1B7F4A631BB /* ru.lproj in Resources */,
 			);
@@ -1422,7 +1418,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A000001D0000000000000001 /* Assets.xcassets in Resources */,
-				B2B909F531D30487F6FEA35E /* de.lproj in Resources */,
 				B282B563D6F0C9D5B1F473F3 /* en.lproj in Resources */,
 				B214DC0A4405C1B7F4A631BB /* ru.lproj in Resources */,
 			);
@@ -1432,7 +1427,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2B909F531D30487F6FEA35E /* de.lproj in Resources */,
 				B282B563D6F0C9D5B1F473F3 /* en.lproj in Resources */,
 				B214DC0A4405C1B7F4A631BB /* ru.lproj in Resources */,
 			);
@@ -1442,7 +1436,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2B909F531D30487F6FEA35E /* de.lproj in Resources */,
 				B282B563D6F0C9D5B1F473F3 /* en.lproj in Resources */,
 				B214DC0A4405C1B7F4A631BB /* ru.lproj in Resources */,
 			);
@@ -1452,7 +1445,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2B909F531D30487F6FEA35E /* de.lproj in Resources */,
 				B282B563D6F0C9D5B1F473F3 /* en.lproj in Resources */,
 				B214DC0A4405C1B7F4A631BB /* ru.lproj in Resources */,
 			);
@@ -1462,7 +1454,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B2B909F531D30487F6FEA35E /* de.lproj in Resources */,
 				B282B563D6F0C9D5B1F473F3 /* en.lproj in Resources */,
 				B214DC0A4405C1B7F4A631BB /* ru.lproj in Resources */,
 			);
