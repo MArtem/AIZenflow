@@ -53,7 +53,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 2.3: зафиксировать ownership architecture/prompts/skills/packages перед toolchain baseline.
 - [x] 3.1: сформировать toolchain/isolation/availability contract по профилю проекта.
 - [x] 3.2: сформировать release/privacy/performance matrices по профилю проекта.
-- [ ] 4.1: нормализовать global bootstrap и effective instruction inventory.
+- [x] 4.1: нормализовать global bootstrap и effective instruction inventory.
 - [ ] 4.2: проверить manifest, ссылочную целостность и dynamic app boundaries.
 - [ ] 4.3: пройти нейтральный new-project сценарий.
 - [ ] 5.1: проверить QC scope и source membership.
@@ -86,4 +86,5 @@ Evidence блока 2.2: `audit-2026-09-05/implementation/2.2-prompt-routing.md`
 Evidence блока 2.3: `audit-2026-09-05/implementation/2.3-package-ownership.md`.
 Evidence блока 3.1: `audit-2026-09-05/implementation/3.1-toolchain-profile.md`.
 Evidence блока 3.2: `audit-2026-09-05/implementation/3.2-release-privacy-performance.md`.
-Завершено 11 из 30 implementation blocks (37%); это не процент production readiness.
+Evidence блока 4.1: `audit-2026-09-05/implementation/4.1-effective-instruction-inventory.md`.
+Завершено 12 из 30 implementation blocks (40%); это не процент production readiness.
