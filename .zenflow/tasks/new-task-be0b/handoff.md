@@ -63,10 +63,9 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow теперь используют QC `b197bd5`,
 локальный static gate и семь clean-snapshot adapters PASS. Блок 8.2 начат, но остаётся PARTIAL:
 German locale boundary теперь честно ограничен: incomplete `de.lproj` удалён из active/vault
-Tchop resources, commit `c0e8ec59`, семь clean-snapshot adapters PASS. 8.2 остаётся PARTIAL:
-profile/workflow ещё используют старые QC pins; runtime, controls, integration и local/GitHub
-parity не запускались. Следующий безопасный шаг — отдельно выровнять Tchop profile/workflow на
-QC `b197bd5`, повторить profile-driven static half и только затем рассматривать runtime rows.
+Tchop resources, profile/workflow выровнены на QC `b197bd5`, и семь clean-snapshot adapters PASS
+на финальном SHA `b58c797a`. 8.2 остаётся PARTIAL: runtime, controls, integration и local/GitHub
+parity не запускались. Следующий безопасный шаг — отдельное разрешение на runtime/matrix rows.
 Блоки 0.1–8.1, 8.3, 10.1, 10.2 и 11.1 завершены; app remediation,
 consumer pilots, rollout, hooks и CI не запускать до соответствующих разрешённых блоков. Точные
 пути и hashes перепроверять, если HEAD изменился.

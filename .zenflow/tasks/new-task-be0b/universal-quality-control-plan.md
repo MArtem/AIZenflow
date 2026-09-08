@@ -361,7 +361,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh; 172/16 PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh; S01 open + S04 holdout, desk/static only.
 - [x] 8.1: простой consumer pilot — Luna xhigh; MVVMExample static pin/adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary и семь clean-snapshot adapters PASS, но profile/workflow pin и runtime/matrix не завершены.
+- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin и семь clean-snapshot adapters PASS, но runtime/matrix не завершены.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [ ] 9.1: promotion/release contract — Luna xhigh.
 - [ ] 9.2: existing/future project adoption — Luna xhigh.

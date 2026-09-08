@@ -64,7 +64,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 7.1: выполнить разрешённую verifier-test/canary acceptance phase; 172 engine tests / 16 suites PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: разделить оценку генерации и detection ошибок; S01 open + S04 holdout receipts, без runtime claim.
 - [x] 8.1: провести простой consumer pilot; MVVMExample pinning и static adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: провести сложный multi-target consumer pilot; German locale boundary remediation PASS и семь clean-snapshot adapters PASS, но profile/workflow pin и runtime/matrix ещё не завершены.
+- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin и семь clean-snapshot adapters PASS, но runtime/matrix ещё не завершены.
 - [x] 8.3: проверить готовность подготовки; READY_WITH_ACCEPTED_RISK для старта требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для будущего продукта.
 - [ ] 9.1: зафиксировать promotion/release contract.
 - [ ] 9.2: проверить existing/future project adoption.
