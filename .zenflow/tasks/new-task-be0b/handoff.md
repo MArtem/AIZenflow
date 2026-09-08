@@ -26,6 +26,8 @@
   AI route IDs, specialist ownership и local skill provenance.
 - `audit-2026-09-05/implementation/2.3-package-ownership.md`: receipt package/SDK ownership,
   app adoption boundary, revision policy, verification roots, quota/privacy normalization.
+- `audit-2026-09-05/implementation/3.1-toolchain-profile.md`: receipt toolchain/compiler/SDK/
+  isolation/availability profile contract and primary-source boundaries.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
@@ -39,11 +41,11 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 → 1.2 → 2.1 → 2.2 → 2.3 → 3.1 на Luna xhigh; блоки 0.1–2.3 завершены, следующий — 3.1. Не запускать tests, rollout, hooks или
+1.1 → 1.2 → 2.1 → 2.2 → 2.3 → 3.1 на Luna xhigh; блоки 0.1–3.1 завершены, следующий — 3.2. Не запускать tests, rollout, hooks или
 app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
 HEAD изменился.
 
-Текущий статус: **9 из 30 implementation blocks завершены (30%)**. Процент отражает только
+Текущий статус: **10 из 30 implementation blocks завершены (33%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
