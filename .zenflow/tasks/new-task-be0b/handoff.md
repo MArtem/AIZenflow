@@ -36,12 +36,14 @@
   boundary discovery, generated-manifest authority, and active-consumer mirror parity.
 - `audit-2026-09-05/implementation/4.3-neutral-new-project.md`: receipt clean disposable consumer,
   routed bootstrap, static S01 exercise, and handoff continuation.
+- `audit-2026-09-05/implementation/5.1-scope-source-membership.md`: receipt for explicit QC scope,
+  authenticated compiler membership, structured build receipt, and bounded blocked states.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
 
 ## Evidence и ограничения
-До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; после блока 2.3 `99124788b98faac34364704d3225be03b4bff777`; QC main-active/remote main `f60d5da6c2dca4c2d12c72ed3096a133402ae408`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
+До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; после блока 2.3 `99124788b98faac34364704d3225be03b4bff777`; QC main-active/remote main после 5.1 `1561dce56148e068bc1f682025ad984f55c9b64b2`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
 
 Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. В implementation scope разрешены
 только изменения активного блока; tests, runtime, rollout, hooks и app remediation остаются
@@ -49,17 +51,17 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 
 ## Следующий безопасный шаг
 После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 → 1.2 → 2.1 → 2.2 → 2.3 → 3.1 → 3.2 → 4.1 → 4.2 → 4.3 на Luna xhigh; блоки 0.1–4.3 завершены, следующий — 5.1. Не запускать tests, rollout, hooks или
+1.1 → 1.2 → 2.1 → 2.2 → 2.3 → 3.1 → 3.2 → 4.1 → 4.2 → 4.3 → 5.1 на Luna xhigh; блоки 0.1–5.1 завершены, следующий — 5.2. Не запускать tests, rollout, hooks или
 app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
 HEAD изменился.
 
-Текущий статус: **14 из 30 implementation blocks завершены (47%)**. Процент отражает только
+Текущий статус: **15 из 30 implementation blocks завершены (50%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 ## Последнее решение пользователя
-Все этапы дальнейшего внедрения, review и итоговая проверка выполняются исключительно на **GPT-5.6 Luna xhigh**. Прежние рекомендации использовать другие модели отменены. Детализация: `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`. Сам текущий аудит — работа Astra; engine/app изменения ещё не выполнялись.
+Все этапы дальнейшего внедрения, review и итоговая проверка выполняются исключительно на **GPT-5.6 Luna xhigh**. Прежние рекомендации использовать другие модели отменены. Детализация: `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`. Сам исходный аудит — работа Astra; QualityControl engine block 5.1 уже опубликован, app remediation и runtime pilots ещё не выполнялись.
 
 Независимый review завершён Astra: `audit-2026-09-05/INDEPENDENT_REVIEW.md` даёт bounded PASS для исправленного audit/plan пакета. Одно P2 (pilot → promotion gate) и два P3 (phase semantics, legacy/xcstrings distinction) закрыты повторной проверкой. Проверены 11 content hashes. Это не закрытие исходных F01–F24 и не production readiness системы. Публикация сверяется по локальному publication-receipt.json; дата завершения публикационного блока — 2026-09-07.
 

@@ -56,7 +56,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 4.1: нормализовать global bootstrap и effective instruction inventory.
 - [x] 4.2: проверить manifest, ссылочную целостность и dynamic app boundaries.
 - [x] 4.3: пройти нейтральный new-project сценарий.
-- [ ] 5.1: проверить QC scope и source membership.
+- [x] 5.1: проверить QC scope и source membership.
 - [ ] 5.2: проверить Swift patterns и disabled-tests claims.
 - [ ] 5.3: сверить каталог зрелости и mode coverage.
 - [ ] 6.1: зафиксировать SwiftLint config/contract.
@@ -89,4 +89,5 @@ Evidence блока 3.2: `audit-2026-09-05/implementation/3.2-release-privacy-pe
 Evidence блока 4.1: `audit-2026-09-05/implementation/4.1-effective-instruction-inventory.md`.
 Evidence блока 4.2: `audit-2026-09-05/implementation/4.2-manifest-boundary-integrity.md`.
 Evidence блока 4.3: `audit-2026-09-05/implementation/4.3-neutral-new-project.md`.
-Завершено 14 из 30 implementation blocks (47%); это не процент production readiness.
+Evidence блока 5.1: `audit-2026-09-05/implementation/5.1-scope-source-membership.md`.
+Завершено 15 из 30 implementation blocks (50%); это не процент production readiness.
