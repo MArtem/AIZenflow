@@ -53,25 +53,25 @@
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
 
 ## Evidence и ограничения
-До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; после блока 2.3 `99124788b98faac34364704d3225be03b4bff777`; QC main после 5.1 `1561dce56148e068bc1f682025ad984f55c9b64b2`, после 5.2 `0266873b68948b596903388eba28a125fcd8990e`, после 5.3 `d75a0d590836edb4dc0ed29ab9ccc5ad0ce9717b`, после 6.1 `508381bd58ccf85580c89305c257d7ac351b7122`, после 6.2 local `6fde6fcac44371ce34c4d7e0fa3d520957d1e8d9`, после 7.1 local `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`. Exact-SHA review, parse, diff-check и 172-test suite для 7.1 pass locally; push 7.1 to `origin/main` is pending auto-review approval and is not claimed as remote evidence. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh app builds/Simulator/Instruments/CI/external review отсутствуют; claims ограничены scoped engine acceptance.
+До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; после блока 2.3 `99124788b98faac34364704d3225be03b4bff777`; QC main после 5.1 `1561dce56148e068bc1f682025ad984f55c9b64b2`, после 5.2 `0266873b68948b596903388eba28a125fcd8990e`, после 5.3 `d75a0d590836edb4dc0ed29ab9ccc5ad0ce9717b`, после 6.1 `508381bd58ccf85580c89305c257d7ac351b7122`, после 6.2 local `6fde6fcac44371ce34c4d7e0fa3d520957d1e8d9`, после 7.1/7.2 evidence local `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`; QC remote `main` подтверждён тем же SHA. Exact-SHA review, parse, diff-check и 172-test suite для 7.1 pass; 7.2 receipts — desk/static. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh app builds/Simulator/Instruments/CI/external review отсутствуют; claims ограничены scoped engine/evaluation acceptance.
 
 Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. В implementation scope разрешены
 только изменения активного блока; tests, runtime, rollout, hooks и app remediation остаются
 отдельными permission-bound действиями.
 
 ## Следующий безопасный шаг
-Сверить публикацию QC после отдельного разрешения auto-review и затем перейти к roadmap 7.2:
-раздельная оценка генерации и detection ошибок. Блоки 0.1–7.1 завершены; app remediation,
+Публикация QC 7.1 подтверждена remote SHA; перейти к roadmap 8.1: простой consumer pilot.
+Блоки 0.1–7.2 завершены; app remediation,
 consumer pilots, rollout, hooks и CI не запускать до соответствующих разрешённых блоков. Точные
 пути и hashes перепроверять, если HEAD изменился.
 
-Текущий статус: **20 из 30 implementation blocks завершены (67%)**. Процент отражает только
+Текущий статус: **21 из 30 implementation blocks завершены (70%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 ## Последнее решение пользователя
-Все этапы дальнейшего внедрения, review и итоговая проверка выполняются исключительно на **GPT-5.6 Luna xhigh**. Прежние рекомендации использовать другие модели отменены. Детализация: `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`. Сам исходный аудит — работа Astra; QualityControl engine blocks 5.1–7.1 реализованы локально, remote publication 7.1 pending auto-review, app remediation и runtime pilots ещё не выполнялись.
+Все этапы дальнейшего внедрения, review и итоговая проверка выполняются исключительно на **GPT-5.6 Luna xhigh**. Прежние рекомендации использовать другие модели отменены. Детализация: `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`. Сам исходный аудит — работа Astra; QualityControl engine blocks 5.1–7.1 реализованы и опубликованы, 7.2 evaluation receipts сохранены в task evidence; app remediation и runtime pilots ещё не выполнялись.
 
 Независимый review завершён Astra: `audit-2026-09-05/INDEPENDENT_REVIEW.md` даёт bounded PASS для исправленного audit/plan пакета. Одно P2 (pilot → promotion gate) и два P3 (phase semantics, legacy/xcstrings distinction) закрыты повторной проверкой. Проверены 11 content hashes. Это не закрытие исходных F01–F24 и не production readiness системы. Публикация сверяется по локальному publication-receipt.json; дата завершения публикационного блока — 2026-09-07.
 

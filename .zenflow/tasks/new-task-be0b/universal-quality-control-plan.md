@@ -17,11 +17,11 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–7.1 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–7.2 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
 prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **20 из 30 блоков (67%)**; это не процент production readiness.
+Прогресс реализации: **21 из 30 блоков (70%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -283,6 +283,21 @@ review не запускались и остаются unverified до соот�
 
 Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acceptance.md`.
 
+## Раздельная оценка генерации и detection блока 7.2 — 2026-09-08
+
+Выполнены два отдельных Luna xhigh evaluation passes без передачи evaluator key generator или
+blind detector. S01 использован как открытый пример: генератор получил PASS по initial correctness,
+а blind detector обнаружил deliberate stale-write Gamma и не превратил Beta robustness concern в
+ложный FAIL. S04 использован как holdout: ORBIT transactional replacement получил conditional
+generation PASS, а blind detector правильно классифицировал ORBIT как PASS и NOVA с destructive
+`delete → write` как FAIL. Evaluator key раскрыт только после фиксации findings.
+
+Generation quality и detection quality записаны раздельно; combined score не создавался. Все
+результаты desk/static: runtime, Swift compiler, persistence, UI, tests, build, consumer readiness
+и production claims остаются unverified. S01/S04 receipts:
+`audit-2026-09-05/implementation/7.2-s01-generation-detection.md` и
+`audit-2026-09-05/implementation/7.2-s04-holdout-generation-detection.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -294,8 +309,8 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 ## Проверенное состояние
 
 - Documentation remote main до implementation: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; SHA после блока 1.2: `9af48a9c61712fc66751e3c0270132f7f2aabb27`; текущий канонический SHA после блока 2.2: `b7a975b395e90937c38f86aa43c27a19c1108d29`.
-- QC local main-active: `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`; remote publication этого SHA
-  pending auto-review approval и не считается remote evidence.
+- QC local main-active и remote `main`: `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`; remote SHA
+  подтверждён после явного разрешения пользователя.
 - Catalog: 16 implemented, 3 staged, 1 review-candidate. Наличие adapter не равно mode coverage/pilot readiness.
 - Foundation, permissions, bounded evidence и canary существуют; не реализовывать их повторно.
 - H format/privacy/signing/disabled-test уже реализованы; Swift source gates также добавлены. Остались scope/lexical accuracy, maturity/fixture mapping, SwiftLint, first-party warnings/concurrency diagnostics.
@@ -342,9 +357,9 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 5.2: Swift patterns и disabled-tests claims — Luna xhigh.
 - [x] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
 - [x] 6.1: SwiftLint config/contract — Luna xhigh.
-- [x] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh; local SHA reviewed, remote push pending auto-review approval.
-- [x] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh; 172/16 PASS, local SHA `b197bd5`, remote push pending auto-review approval.
-- [ ] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh.
+- [x] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh; опубликовано в QC remote SHA `b197bd5`.
+- [x] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh; 172/16 PASS, QC remote SHA `b197bd5` подтверждён.
+- [x] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh; S01 open + S04 holdout, desk/static only.
 - [ ] 8.1: простой consumer pilot — Luna xhigh.
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh.
 - [ ] 8.3: готовность подготовки к будущему продуктовому проекту — Luna xhigh.
@@ -355,7 +370,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 11.1: итоговый semantic audit — Luna xhigh.
 - [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 7.2 — раздельная оценка генерации и detection ошибок.
+Следующий implementation block: 8.1 — простой consumer pilot.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -364,6 +379,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 7.1 закрыты task-level evidence; следующий 7.2. Никакого продукта, benchmark runner или runtime/app pilot текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 7.2 закрыты task-level evidence; следующий 8.1. Никакого продукта, benchmark runner или runtime/app pilot текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
