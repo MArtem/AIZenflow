@@ -60,12 +60,14 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 отдельными permission-bound действиями.
 
 ## Следующий безопасный шаг
-Публикация QC 7.1 подтверждена remote SHA; перейти к roadmap 8.1: простой consumer pilot.
-Блоки 0.1–7.2 завершены; app remediation,
+Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow теперь используют QC `b197bd5`,
+локальный static gate и семь clean-snapshot adapters PASS. Перейти к roadmap 8.2: сложный
+multi-target consumer pilot.
+Блоки 0.1–8.1 завершены; app remediation,
 consumer pilots, rollout, hooks и CI не запускать до соответствующих разрешённых блоков. Точные
 пути и hashes перепроверять, если HEAD изменился.
 
-Текущий статус: **21 из 30 implementation blocks завершены (70%)**. Процент отражает только
+Текущий статус: **22 из 30 implementation blocks завершены (73%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
