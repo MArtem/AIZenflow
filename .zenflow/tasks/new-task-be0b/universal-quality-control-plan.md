@@ -17,11 +17,11 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–5.3 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–6.1 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
 prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **17 из 30 блоков (57%)**; это не процент production readiness.
+Прогресс реализации: **18 из 30 блоков (60%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -229,6 +229,23 @@ expected PASS/FAIL exits. Это policy/metadata hardening; test runner, build, 
 
 Evidence блока 5.3: `audit-2026-09-05/implementation/5.3-catalog-maturity.md`.
 
+## SwiftLint contract блока 6.1 — 2026-09-08
+
+QualityControl commits `7b9958203f3c3b39d2e952aec36d4dced9462683` и corrective
+`508381bd58ccf85580c89305c257d7ac351b7122` добавили отдельный `QC.LINT.SWIFTLINT` adapter. Он
+проверяет pinned executable/version/digest, tracked YAML/digest, clean-HEAD source list,
+`SCRIPT_INPUT_FILE_*`, JSON reporter, no-autocorrect, bounded timeout/output и path normalization.
+Unapproved YAML suppressions и inline `swiftlint:disable/enable` не становятся PASS. Legacy
+`QC.FORMAT.SWIFTFORMAT` явно означает Apple `swift-format`; SwiftFormat и SwiftLint остаются
+отдельными инструментами. New gate implemented, но `verified=false`, `wired=false` и
+`pilotEnabled=false` до 7.1/8.
+
+AST/JSON/diff и direct lexical/config contract checks PASS. Missing tool/config invocation корректно
+BLOCKED с сохранённой source revision; SwiftLint executable не устанавливался и не запускался,
+inert fixtures остаются unverified.
+
+Evidence блока 6.1: `audit-2026-09-05/implementation/6.1-swiftlint-contract.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -286,7 +303,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 5.1: QC source scope и source membership — Luna xhigh.
 - [x] 5.2: Swift patterns и disabled-tests claims — Luna xhigh.
 - [x] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
-- [ ] 6.1: SwiftLint config/contract — Luna xhigh.
+- [x] 6.1: SwiftLint config/contract — Luna xhigh.
 - [ ] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh.
 - [ ] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh.
 - [ ] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh.
@@ -300,7 +317,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 11.1: итоговый semantic audit — Luna xhigh.
 - [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 6.1 — зафиксировать SwiftLint config/contract.
+Следующий implementation block: 6.2 — first-party warnings и concurrency diagnostics.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -309,6 +326,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 5.3 закрыты task-level evidence; следующий 6.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 6.1 закрыты task-level evidence; следующий 6.2. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
