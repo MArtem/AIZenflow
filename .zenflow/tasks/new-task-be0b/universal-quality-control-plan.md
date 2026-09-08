@@ -17,11 +17,11 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–6.2 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–7.1 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
 prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **19 из 30 блоков (63%)**; это не процент production readiness.
+Прогресс реализации: **20 из 30 блоков (67%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -238,7 +238,7 @@ QualityControl commits `7b9958203f3c3b39d2e952aec36d4dced9462683` и corrective
 Unapproved YAML suppressions и inline `swiftlint:disable/enable` не становятся PASS. Legacy
 `QC.FORMAT.SWIFTFORMAT` явно означает Apple `swift-format`; SwiftFormat и SwiftLint остаются
 отдельными инструментами. New gate implemented, но `verified=false`, `wired=false` и
-`pilotEnabled=false` до 7.1/8.
+`pilotEnabled=false` до real producer verification in 7.1 and consumer pilots in stage 8.
 
 AST/JSON/diff и direct lexical/config contract checks PASS. Missing tool/config invocation корректно
 BLOCKED с сохранённой source revision; SwiftLint executable не устанавливался и не запускался,
@@ -259,13 +259,29 @@ empty-membership и unsafe-path cases остаются non-PASS. Text-log tail �
 В этой версии baseline предупреждений намеренно не создаётся и не угадывается: authenticated
 first-party warning считается new и даёт `FAIL` до появления отдельного reviewed baseline
 contract. Обе проверки catalog maturity имеют `implemented=true`, `wired=true`,
-`verified=false`, `pilotEnabled=false`; canary/real Xcode wording и consumer verification отложены
-в 7.1. Build/tests/runtime не выполнялись.
+`verified=false`, `pilotEnabled=false`; engine verifier acceptance выполнена в 7.1, но real Xcode
+wording, SwiftLint invocation и consumer/runtime verification остаются unverified.
 
 Remote publication QC SHA пока не утверждена auto-review; local exact-SHA review и static checks
 зафиксированы в receipt. Это не отменяет implementation evidence и не объявляет engine release.
 
 Evidence блока 6.2: `audit-2026-09-05/implementation/6.2-first-party-warnings.md`.
+
+## Verifier-test и bounded canary acceptance блока 7.1 — 2026-09-08
+
+Пользователь отдельно разрешил создание, изменение и запуск engine tests для этой фазы. В QC
+commit `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15` исправлен unreachable precedence path для
+concurrency-only diagnostics и добавлены только cases для новых invariants блока 6.2: source
+normalization, external/non-selected/generated exclusion, malformed source, first-party warning,
+concurrency-only failure, unattributed membership и public evidence-free terminal outcomes.
+
+Baseline перед patch: 164 теста в 16 suites. Разрешённый итоговый QualityCore suite: **172 теста
+в 16 suites, 0 failures**, Swift warnings-as-errors. `swiftc -parse` и `git diff --check` прошли;
+exact diff review выполнен против `6fde6fc`. Synthetic canary ограничен authenticated engine
+observations. Реальные `xcodebuild`, SwiftLint, app consumers, device/runtime, CI и external
+review не запускались и остаются unverified до соответствующих pilot/review фаз.
+
+Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acceptance.md`.
 
 ## Observations блока 0.3 — 2026-09-08
 
@@ -278,7 +294,8 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 ## Проверенное состояние
 
 - Documentation remote main до implementation: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; SHA после блока 1.2: `9af48a9c61712fc66751e3c0270132f7f2aabb27`; текущий канонический SHA после блока 2.2: `b7a975b395e90937c38f86aa43c27a19c1108d29`.
-- QC remote main и `AIZenflowQualityControl-main-active`: `1561dce56148e068bc1f682025ad984f55c9b64b`.
+- QC local main-active: `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`; remote publication этого SHA
+  pending auto-review approval и не считается remote evidence.
 - Catalog: 16 implemented, 3 staged, 1 review-candidate. Наличие adapter не равно mode coverage/pilot readiness.
 - Foundation, permissions, bounded evidence и canary существуют; не реализовывать их повторно.
 - H format/privacy/signing/disabled-test уже реализованы; Swift source gates также добавлены. Остались scope/lexical accuracy, maturity/fixture mapping, SwiftLint, first-party warnings/concurrency diagnostics.
@@ -326,7 +343,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
 - [x] 6.1: SwiftLint config/contract — Luna xhigh.
 - [x] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh; local SHA reviewed, remote push pending auto-review approval.
-- [ ] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh.
+- [x] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh; 172/16 PASS, local SHA `b197bd5`, remote push pending auto-review approval.
 - [ ] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh.
 - [ ] 8.1: простой consumer pilot — Luna xhigh.
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh.
@@ -338,7 +355,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 11.1: итоговый semantic audit — Luna xhigh.
 - [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 7.1 — verifier-test/canary acceptance phase.
+Следующий implementation block: 7.2 — раздельная оценка генерации и detection ошибок.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -347,6 +364,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 6.2 закрыты task-level evidence; следующий 7.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 7.1 закрыты task-level evidence; следующий 7.2. Никакого продукта, benchmark runner или runtime/app pilot текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.

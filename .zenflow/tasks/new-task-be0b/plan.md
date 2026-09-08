@@ -61,7 +61,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 5.3: сверить каталог зрелости и mode coverage.
 - [x] 6.1: зафиксировать SwiftLint config/contract.
 - [x] 6.2: зафиксировать first-party warnings и concurrency diagnostics; QC local SHA reviewed, remote push pending auto-review approval.
-- [ ] 7.1: выполнить разрешённую verifier-test/canary acceptance phase.
+- [x] 7.1: выполнить разрешённую verifier-test/canary acceptance phase; 172 engine tests / 16 suites PASS, QC local SHA `b197bd5`, remote push pending auto-review approval.
 - [ ] 7.2: разделить оценку генерации и detection ошибок.
 - [ ] 8.1: провести простой consumer pilot.
 - [ ] 8.2: провести сложный multi-target consumer pilot.
@@ -94,4 +94,5 @@ Evidence блока 5.2: `audit-2026-09-05/implementation/5.2-swift-lexical-clai
 Evidence блока 5.3: `audit-2026-09-05/implementation/5.3-catalog-maturity.md`.
 Evidence блока 6.1: `audit-2026-09-05/implementation/6.1-swiftlint-contract.md`.
 Evidence блока 6.2: `audit-2026-09-05/implementation/6.2-first-party-warnings.md`.
-Завершено 19 из 30 implementation blocks (63%); это не процент production readiness.
+Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acceptance.md`.
+Завершено 20 из 30 implementation blocks (67%); это не процент production readiness.
