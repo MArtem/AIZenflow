@@ -65,15 +65,15 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 Tchop German localization parity блокирует static half; runtime, controls, integration и local/GitHub
 parity не запускались. Следующий безопасный шаг — отдельная app-local remediation German catalog,
 затем повтор static half 8.2.
-Блоки 0.1–8.1, 8.3 и 10.1 завершены; app remediation,
+Блоки 0.1–8.1, 8.3, 10.1 и 10.2 завершены; app remediation,
 consumer pilots, rollout, hooks и CI не запускать до соответствующих разрешённых блоков. Точные
 пути и hashes перепроверять, если HEAD изменился.
 
-Параллельно без обхода этого блокера можно закрыть 10.2: bounded Luna xhigh process calibration
-по уже имеющимся observations и representative receipts. Это не заменяет consumer remediation,
-runtime evidence или promotion gates.
+10.2 закрыт отдельным bounded Luna xhigh calibration receipt по уже имеющимся observations и
+representative receipts. Это не заменяет consumer remediation, runtime evidence или promotion
+gates; следующий независимый блок — 11.1 semantic audit.
 
-Текущий статус: **24 из 30 implementation blocks завершены (80%)**. Процент отражает только
+Текущий статус: **25 из 30 implementation blocks завершены (83%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

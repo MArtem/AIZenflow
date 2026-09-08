@@ -21,7 +21,7 @@
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
 prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **24 из 30 блоков (80%)**; это не процент production readiness.
+Прогресс реализации: **25 из 30 блоков (83%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -366,11 +366,11 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 9.1: promotion/release contract — Luna xhigh.
 - [ ] 9.2: existing/future project adoption — Luna xhigh.
 - [x] 10.1: context budget и повторное использование evidence — Luna xhigh; PASS_WITH_LIMITATION, route budget в норме, billed-token reduction не заявлена.
-- [ ] 10.2: калибровка процесса Luna xhigh — Luna xhigh.
+- [x] 10.2: калибровка процесса Luna xhigh — Luna xhigh; PASS_WITH_LIMITATION, targeted route default, broad route только для cross-cutting audit.
 - [ ] 11.1: итоговый semantic audit — Luna xhigh.
 - [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 8.2 — сложный multi-target consumer pilot.
+Следующий независимый implementation block: 11.1 — итоговый semantic audit.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -379,6 +379,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3 и 10.1 закрыты task-level evidence; 8.2 начат, но остаётся partial из-за consumer-owned German localization parity. 8.3 и 10.1 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3, 10.1 и 10.2 закрыты task-level evidence; 8.2 начат, но остаётся partial из-за consumer-owned German localization parity. 8.3, 10.1 и 10.2 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
