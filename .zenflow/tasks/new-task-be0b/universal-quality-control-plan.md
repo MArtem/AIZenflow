@@ -17,11 +17,11 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–5.2 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–5.3 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
 prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **16 из 30 блоков (53%)**; это не процент production readiness.
+Прогресс реализации: **17 из 30 блоков (57%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -212,6 +212,23 @@ fixture run. Test files, build, test runner, Xcode, Simulator, runtime и pilot 
 
 Evidence блока 5.2: `audit-2026-09-05/implementation/5.2-swift-lexical-claims.md`.
 
+## Catalog maturity и mode coverage блока 5.3 — 2026-09-08
+
+QualityControl commit `d75a0d590836edb4dc0ed29ab9ccc5ad0ce9717b` поднял catalog version до
+`1.1.0` и добавил обязательные `maturity.implemented`, `verified`, `wired`, `pilotEnabled` и
+bounded `evidence` для всех 20 IDs. `implemented` больше не означает автоматически verification,
+trusted mode wiring или pilot readiness. Wired отмечены только `QC.PROFILE.CONTRACT`,
+`QC.STATIC.SOURCE_BOUNDARY`, `QC.STATIC.FORBIDDEN_ARTIFACT` и `QC.BUILD.MEMBERSHIP`; три Swift
+deterministic gates verified на clean temporary Git fixture roots, остальные остаются pending, а
+все pilot flags false до canary и consumer-pilot promotion.
+
+New catalog validator blocks missing/malformed maturity, verified-without-evidence, and
+pilot-enabled-without-verified-and-wired states. Six disposable fixture invocations produced the
+expected PASS/FAIL exits. Это policy/metadata hardening; test runner, build, runtime, canary и pilot
+не запускались.
+
+Evidence блока 5.3: `audit-2026-09-05/implementation/5.3-catalog-maturity.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -268,7 +285,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 4.3: нейтральный new-project сценарий — Luna xhigh.
 - [x] 5.1: QC source scope и source membership — Luna xhigh.
 - [x] 5.2: Swift patterns и disabled-tests claims — Luna xhigh.
-- [ ] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
+- [x] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
 - [ ] 6.1: SwiftLint config/contract — Luna xhigh.
 - [ ] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh.
 - [ ] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh.
@@ -283,7 +300,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 11.1: итоговый semantic audit — Luna xhigh.
 - [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 5.3 — сверить каталог зрелости и mode coverage.
+Следующий implementation block: 6.1 — зафиксировать SwiftLint config/contract.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -292,6 +309,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 5.2 закрыты task-level evidence; следующий 5.3. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 5.3 закрыты task-level evidence; следующий 6.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
