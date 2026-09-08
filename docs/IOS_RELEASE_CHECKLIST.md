@@ -11,6 +11,11 @@ all evidence to the exact candidate SHA/profile/toolchain and requires every app
 to be `PASS` or valid `NOT_APPLICABLE`; `BLOCKED`, `SKIPPED`, missing, stale, unavailable, user-denied,
 or bypassed evidence is not normal release PASS.
 
+Use `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md` to keep the candidate's upload floor,
+deployment targets, privacy rows, platform matrix and performance evidence linked to one receipt.
+The App Store Connect upload SDK/Xcode floor is a distribution requirement; it is separate from the
+minimum runtime deployment target of any app or extension.
+
 ## Checklist
 ### Build And Signing
 - Correct bundle IDs.
@@ -41,6 +46,8 @@ or bypassed evidence is not normal release PASS.
 - dSYM upload verified.
 - Analytics/performance events verified.
 - Production logging redaction verified.
+- Experimental platform or model capabilities have an explicit availability, fallback and rollback
+  row; compilation alone is not availability evidence.
 
 ### Rollout
 - Feature-flag/remote-config applicability explicitly recorded; defaults are safe where applicable.

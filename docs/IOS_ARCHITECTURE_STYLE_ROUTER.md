@@ -18,6 +18,22 @@ This document is a **selection and review aid**, not a mandate to convert a proj
 4. If a proposed rule conflicts with active project rules, do not apply it. Report the conflict and ask the user if a deliberate architecture change is desired.
 5. For broad or irreversible architecture changes, use `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`.
 
+## Invariants Before Style
+
+These are the reusable floor regardless of the selected architecture:
+
+- each state concept has one explicit owner and a clear producer/consumer contract;
+- lifecycle, cancellation, ordering, persistence, availability, and failure semantics are named
+  where they can affect correctness;
+- rendering remains cheap and side-effect free, and I/O stays at an owning boundary;
+- loading, empty, failure, retry, offline, and permission states are represented when applicable;
+- the selected structure is proportionate to current complexity and leaves an evidence trail for
+  the choice.
+
+ViewModel, Renderer, Coordinator, repository protocol, reducer/store, and package boundaries are
+options selected by the project profile and current boundary pressure. They are not universal
+requirements or evidence of quality by their names alone.
+
 ## Architecture Detection And Review Gates
 
 | Style | Detection cues | Use when | Do not use when | Review gate |

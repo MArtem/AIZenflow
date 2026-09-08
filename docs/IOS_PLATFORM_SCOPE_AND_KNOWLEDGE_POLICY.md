@@ -5,6 +5,11 @@ Define the mandatory platform scope, authority model, completeness criteria, and
 
 This policy governs documentation coverage. It does not select product features, deployment targets, or supported devices for a specific app.
 
+The app-neutral operating contract for implementation, review, evidence, and release is
+`./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md`. This scope policy defines what must be
+covered; the universal standard defines how a project proves that coverage without relying on the
+architecture of a sample app.
+
 ## Mandatory Core Scope
 The reusable core must support production engineering for:
 

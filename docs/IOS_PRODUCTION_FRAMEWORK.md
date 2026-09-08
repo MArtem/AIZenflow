@@ -8,6 +8,10 @@ This framework is not app-specific. It defines the minimum operating system for 
 ## Non-Negotiable Principle
 A feature is not production-grade because it compiles or looks correct. It is production-grade only when product behavior, architecture, runtime performance, data safety, privacy/security, accessibility, observability, verification, release, rollback, and operational ownership are covered or explicitly marked not applicable with evidence.
 
+Readiness and review decisions use the shared Quality Control governance contract. Local readiness,
+merge readiness, and release readiness are separate decisions; a recorded risk or missing runtime
+evidence must remain visible rather than being promoted to normal PASS.
+
 
 ## Framework Operating Documents
 - `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`

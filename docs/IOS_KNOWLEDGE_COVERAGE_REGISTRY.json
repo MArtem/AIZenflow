@@ -11,6 +11,16 @@
   },
   "domains": [
     {
+      "id": "universal-ios-engineering-quality",
+      "tier": "core",
+      "maturity": "complete",
+      "route": "ios-universal-quality",
+      "operating_documents": ["./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md", "./docs/PRODUCTION_QUALITY_GATES.md"],
+      "deep_references": ["./docs/IOS_PRODUCTION_FRAMEWORK.md", "./docs/IOS_PRODUCTION_AUDIT_MATRIX.md"],
+      "skills": ["./.codex/skills/ios-production-auditor/SKILL.md", "./.codex/skills/ios-evidence-gate/SKILL.md"],
+      "review_triggers": ["new app or target", "cross-cutting quality-control change", "major Xcode, Swift, iOS, or App Review change"]
+    },
+    {
       "id": "swift-language-runtime-api-design",
       "tier": "core",
       "maturity": "operational",
