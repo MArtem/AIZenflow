@@ -17,11 +17,11 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–3.2 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–4.1 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
-prompt/specialist-route normalization, package ownership, toolchain/profile contract и release/privacy/performance matrices; это не означает готовность engine, пилотов или
+prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **11 из 30 блоков (37%)**; это не процент production readiness.
+Прогресс реализации: **12 из 30 блоков (40%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -141,6 +141,19 @@ signal явно не считаются доказательством соот�
 
 Evidence блока 3.2: `audit-2026-09-05/implementation/3.2-release-privacy-performance.md`.
 
+## Global bootstrap/effective instruction inventory блока 4.1 — 2026-09-08
+
+Documentation Vault опубликовал канонический commit
+`35c3124ffc4025c0c9525e57a0c065032190ad33`. Bootstrap, portable snapshot, baseline и new-project
+template теперь явно разделяют repository-root adoption, parent defense-in-depth, project-type
+routing и opt-in QualityControl adoption. Read-only inventory
+`audit-2026-09-05/implementation/4.1-effective-instruction-inventory.json` покрывает 15 текущих
+worktrees: 14 markers, 10 portable markers, 0 nested overrides, 1 missing bootstrap и 3
+marker-only worktrees без fallback. User-owned AGENTS не менялись; missing `panmodal-concurrency`
+остаётся явным blocked adoption finding.
+
+Evidence блока 4.1: `audit-2026-09-05/implementation/4.1-effective-instruction-inventory.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -192,7 +205,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 2.3: architecture/prompts/skills/package ownership — Luna xhigh.
 - [x] 3.1: toolchain/isolation/availability contract — Luna xhigh.
 - [x] 3.2: release/privacy/performance matrices — Luna xhigh.
-- [ ] 4.1: global bootstrap/effective instruction inventory — Luna xhigh.
+- [x] 4.1: global bootstrap/effective instruction inventory — Luna xhigh.
 - [ ] 4.2: manifest, ссылочная целостность и dynamic app boundaries — Luna xhigh.
 - [ ] 4.3: нейтральный new-project сценарий — Luna xhigh.
 - [ ] 5.1: QC source scope и source membership — Luna xhigh.
@@ -212,7 +225,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 11.1: итоговый semantic audit — Luna xhigh.
 - [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 4.1 — нормализовать global bootstrap и effective instruction inventory.
+Следующий implementation block: 4.2 — проверить manifest, ссылочную целостность и dynamic app boundaries.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -221,6 +234,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 3.2 закрыты task-level evidence; следующий 4.1. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 4.1 закрыты task-level evidence; следующий 4.2. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
