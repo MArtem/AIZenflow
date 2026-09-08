@@ -63,8 +63,10 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow теперь используют QC `b197bd5`,
 локальный static gate и семь clean-snapshot adapters PASS. Блок 8.2 начат, но остаётся PARTIAL:
 Tchop German localization parity блокирует static half; runtime, controls, integration и local/GitHub
-parity не запускались. Следующий безопасный шаг — отдельная app-local remediation German catalog,
-затем повтор static half 8.2.
+parity не запускались. Следующий безопасный шаг — выбрать app-local German locale contract
+(`8.2-german-locale-contract.md`); Option A (удалить incomplete locale до reviewed completion)
+рекомендован для текущей no-product фазы. После выбора выполнить одну bounded remediation и
+повторить static half 8.2.
 Блоки 0.1–8.1, 8.3, 10.1, 10.2 и 11.1 завершены; app remediation,
 consumer pilots, rollout, hooks и CI не запускать до соответствующих разрешённых блоков. Точные
 пути и hashes перепроверять, если HEAD изменился.

@@ -98,6 +98,7 @@ Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acce
 Evidence блока 7.2: `audit-2026-09-05/implementation/7.2-s01-generation-detection.md`, `audit-2026-09-05/implementation/7.2-s04-holdout-generation-detection.md`.
 Evidence блока 8.1: `audit-2026-09-05/implementation/8.1-mvvmexample-static-pilot.md`.
 Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
+Decision contract 8.2: `audit-2026-09-05/implementation/8.2-german-locale-contract.md`.
 Evidence блока 8.3: `audit-2026-09-05/implementation/8.3-preparation-readiness.md`.
 Evidence блока 10.1: `audit-2026-09-05/implementation/10.1-context-budget.md`.
 Evidence блока 10.2: `audit-2026-09-05/implementation/10.2-luna-calibration.md`.
