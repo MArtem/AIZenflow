@@ -42,8 +42,10 @@
         "IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
         "IOS_SECURITY_PRIVACY_GATE.md",
         "PACKAGES_AND_MANAGERS.md",
+        "REUSABLE_BASELINE_POLICY.json",
         "README.md",
         "STATIC_GATE_ADOPTION.md",
+        "TASK_DOCUMENT_ROUTES.json",
         "TASK_TYPE_DOCUMENTATION_ROUTER.md",
         "UI_PIXEL_PERFECT_WORKFLOW.md",
         "agent-prompts/README.md"
@@ -70,6 +72,7 @@
         "check_docs_index.py",
         "check_forbidden_patterns.py",
         "check_large_files.py",
+        "check_docs_consistency.py",
         "check_localization.py",
         "check_secrets.py",
         "check_swiftui_hot_path_patterns.py",
@@ -80,6 +83,8 @@
       "local_only_patterns": [
         "api_http_trace",
         "api_method_trace",
+        "check_repository_integrity.py",
+        "check_swift6_gate_contract.py",
         "migrate_packages_in_use_project.py",
         "verify.sh"
       ]

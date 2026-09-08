@@ -1,5 +1,7 @@
 # Engineering Change Quality Standard
 
+<!-- Rule ID: QC.CHANGE.CONTRACT v1.0 -->
+
 ## Purpose
 
 Produce correct, maintainable code before external review while spending only the evidence and
@@ -19,6 +21,10 @@ not waived merely because the implementation risk appears low.
 
 Quality is the first priority. Economy removes duplicate reading, repeated passing checks,
 unrelated sweeps, and review theatre; it never removes a relevant invariant or required evidence.
+
+Use the shared authority, severity, evidence-status, decision, and readiness vocabulary from
+`UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`. This standard adds the change-level contract and
+commit/push thresholds; it does not create a competing verdict dictionary.
 
 ## 1. Change Contract Before Implementation
 

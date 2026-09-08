@@ -3,6 +3,10 @@
 ## Purpose
 Accessibility gate for production iOS UI.
 
+Record supported iPhone/iPad/window, VoiceOver, Dynamic Type, RTL, keyboard/pointer, contrast and
+Reduce Motion rows in `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`. A screenshot is supporting
+visual evidence only; it does not prove assistive-technology or device behavior.
+
 ## Required Checks
 - VoiceOver labels, traits, hints, and grouping.
 - Logical focus order.

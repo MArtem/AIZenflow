@@ -1,5 +1,7 @@
 # iOS Testing Strategy
 
+<!-- Rule ID: QC.TEST.PERMISSIONS v1.0 -->
+
 ## Purpose
 Defines when production iOS work requires unit, integration, UI, manual, relaunch, offline, migration, or performance verification.
 

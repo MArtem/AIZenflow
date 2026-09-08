@@ -1,5 +1,7 @@
 # Evidence-Based Engineering Rules
 
+<!-- Rule ID: QC.EVIDENCE.FRESHNESS v1.0 -->
+
 ## Purpose
 Prevents unsupported claims such as “fixed”, “optimized”, “safe”, or “production-ready”.
 

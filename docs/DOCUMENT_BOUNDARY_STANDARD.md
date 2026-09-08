@@ -1,5 +1,7 @@
 # Document Boundary Standard
 
+<!-- Rule ID: QC.DOC.BOUNDARY v1.0 -->
+
 ## Purpose
 This standard prevents reusable, app-specific, and task-specific knowledge from mixing. It applies to every current and future project, architecture reference, reusable package, and experiment managed through the shared documentation repository.
 

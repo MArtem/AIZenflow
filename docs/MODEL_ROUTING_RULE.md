@@ -1,5 +1,7 @@
 # Model Selection Rule
 
+<!-- Rule ID: QC.MODEL.ROUTING v1.0 -->
+
 ## Authority
 
 This is the sole active rule for choosing a model and reasoning level. It supersedes earlier routing matrices, estimates, benchmark summaries, and model-selection guidance. The available routes are GPT-5.6 Sol, Terra, and Luna.
@@ -43,6 +45,12 @@ After every user request or command, assess the **currently selected** model and
 1. If the current route can meet the required quality and risk floor, report `Смена модели: не требуется` and proceed immediately. Do not propose a cheaper or stronger model merely as an optimization.
 2. If the current route is not adequate, do **not** inspect, plan, edit, run tools, or begin the requested task. Report `Смена модели: требуется: <model>, <level>` and wait for the user to switch or explicitly direct an exception.
 3. A required-switch proposal states: current route; target route; concrete risk that the current route cannot safely cover; expected quality/rework gain; relative token/limit cost; the smallest viable alternative; and what remains unverified if the user elects to continue unchanged.
+
+An explicit user or task instruction may select a model and reasoning level for that named task or
+implementation plan. That override is authoritative within its stated scope and duration; it does
+not rewrite this global default or impose the selected model on unrelated future tasks. The task
+record must carry the selected route and its duration so later work does not infer a permanent
+global change from a scoped override.
 
 Codex cannot change the primary selector. A one-off model selection does not change the operating mode. Never change either silently.
 

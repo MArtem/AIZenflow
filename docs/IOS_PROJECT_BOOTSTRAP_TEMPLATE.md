@@ -18,6 +18,10 @@ Before coding, define:
 - QA/manual validation process
 - risk/debt ownership
 
+These are project decisions and ownership records, not a prescribed architecture stack. A small
+screen may remain native SwiftUI state; ViewModels, reducers, coordinators, packages, and module
+boundaries are introduced only when the current state/lifecycle/dependency boundary requires them.
+
 ## Required Consumer Surface
 
 - repository-root `AGENTS.md` that activates the canonical global bootstrap;

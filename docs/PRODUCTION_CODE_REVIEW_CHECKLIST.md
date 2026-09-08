@@ -10,9 +10,14 @@ Before starting implementation or declaring a review complete:
 
 1. Read the active docs index in `./docs/README.md`.
 2. Apply `./docs/CURRENT_USER_OVERRIDES.md` before general defaults.
+
 3. Apply `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`, then this checklist together with
    `./docs/PRODUCTION_QUALITY_GATES.md`.
 4. If a section is irrelevant, explicitly state why in the completion report.
+
+Record the applicable rule IDs in the review receipt: `QC.CHANGE.CONTRACT` for the change
+contract and final diff, `QC.VERDICT.READINESS` for the decision/readiness axes,
+`QC.EVIDENCE.FRESHNESS` for claim evidence, and `QC.EXCEPTION.CONTRACT` for any accepted risk.
 5. If intent, ownership, state flow, or product behavior is unclear, stop and ask the user before implementing.
 
 ## Mandatory Review Areas
@@ -172,6 +177,10 @@ These patterns are blocked by default. If a change truly needs one, document the
 - **P1 Production Risk**: likely performance degradation, incorrect state ownership, broad invalidation, bad persistence/network/sync shape, memory growth, brittle migration.
 - **P2 Maintainability Risk**: duplicated concepts, naming confusion, unnecessary abstraction, unclear ownership, hard-to-test structure, hidden coupling.
 - **P3 Polish/Consistency**: wording, visual polish, documentation, naming consistency, or cleanup that does not threaten correctness/runtime quality.
+
+Use the shared Quality Control governance contract for confidence, applicability, evidence status,
+decision, and readiness level. A `READY_WITH_ACCEPTED_RISK` result is not normal `PASS`; unresolved
+P0–P2 findings require closure or an explicit higher-authority accepted-risk record.
 
 ## Required Audit/Review Output
 For each finding include:

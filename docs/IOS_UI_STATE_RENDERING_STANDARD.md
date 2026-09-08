@@ -15,24 +15,33 @@ For UIKit interoperability and the mandatory iPhone+iPad adaptive core, includin
 - Keep empty/loading/error/offline/permission states explicit.
 - Do not treat a scaled phone layout as sufficient iPad support when the workflow requires simultaneous context, stable selection, resizable windows, or keyboard/pointer interaction.
 
-## Stateful Screen MVVM Baseline
-For every new stateful product screen, establish the project-approved MVVM presentation shape
-from its first implementation rather than planning a later structural refactor:
+## Stateful Screen State Contract
 
-`Screen -> explicit ViewModel intent -> dependency/domain work -> ViewStateBuilder (when mapping is non-trivial) -> ViewState -> StateRenderer -> passive Components`
+Every new stateful product screen needs one explicit state owner, a render-ready state model, and
+named lifecycle/failure semantics when they affect correctness. Select the simplest project-approved
+shape that satisfies those invariants. MVVM is a common default for ordinary screen-level state when
+the project profile selects it, but a reducer/store, coordinator-owned flow, or native SwiftUI state
+can be correct when the current boundary justifies it.
 
-- The Screen receives an existing ViewModel and external navigation or dismissal callbacks.
-- The `@MainActor @Observable` ViewModel owns lifecycle, domain/dependency work, state
+When MVVM is selected and the mapping is non-trivial, this is a valid shape:
+
+`Screen -> explicit ViewModel intent -> dependency/domain work -> ViewStateBuilder -> ViewState -> StateRenderer -> passive Components`
+
+- The Screen receives an owning state object or narrow immutable state/callbacks appropriate to
+  the selected architecture, plus external navigation or dismissal callbacks.
+- An MVVM `@MainActor @Observable` ViewModel owns lifecycle, domain/dependency work, state
   transitions, and explicit public intent methods.
-- `ViewState` contains mutually exclusive render-ready states; a screen must not expose a
-  parallel collection of independently mutable loading/data/error flags.
-- `ViewStateBuilder` is a pure mapper and is required only when domain/error-to-presentation
-  mapping or derived display decisions are non-trivial. It never creates SwiftUI views.
-- `StateRenderer` selects the visual branch for a ViewState. Components receive narrow immutable
-  input and callbacks only; they do not receive repositories or broad ViewModels.
+- When a `ViewState` representation is used, its render states are mutually exclusive; do not
+  expose parallel mutable loading/data/error flags that can disagree.
+- `ViewStateBuilder` is a pure mapper and appears only when domain/error-to-presentation mapping
+  or derived display decisions are non-trivial. It never creates SwiftUI views.
+- `StateRenderer` selects visual branches only when that extraction improves clarity or reuse.
+  Components receive narrow immutable input and callbacks; they do not receive repositories or
+  broad ViewModels.
 
-This baseline applies to a stateful screen, not to every small visual component. Do not add
-builders, renderers, or ViewModels merely for symmetry when a passive component is sufficient.
+This contract applies to stateful screens, not every small visual component. Do not add builders,
+renderers, ViewModels, reducers, or protocols merely for symmetry when a passive component or
+native state is sufficient.
 
 
 ## ViewModel API Rule

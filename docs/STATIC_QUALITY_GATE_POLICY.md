@@ -1,5 +1,7 @@
 # Static Quality Gate Policy
 
+<!-- Rule ID: QC.STATIC.FAIL_CLOSED v1.0 -->
+
 ## Purpose
 Define how static scripts should be interpreted so they improve engineering quality without creating noisy or misleading CI failures.
 
@@ -13,8 +15,9 @@ profiles own only project facts and selected configuration.
 - **Review Candidate**: context-dependent signal that must be checked during review but should not block alone.
 - **Allowed Exception**: explicitly documented tradeoff with owner, reason, scope, and expiry/revisit condition.
 
-These classify findings, not execution outcomes. Machine results use `PASS`, `FAIL`, `BLOCKED`,
-`NOT_APPLICABLE`, `NOT_RUN_BY_USER_DECISION`, `SKIPPED`, and `BYPASSED` from
+These classify findings, not execution outcomes. Machine adapters may keep transport labels such as
+`PASS`, `FAIL`, `BLOCKED`, `NOT_APPLICABLE`, `NOT_RUN_BY_USER_DECISION`, `SKIPPED`, and `BYPASSED`,
+but their published gate decision must use the shared vocabulary from
 `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`. Missing, malformed, stale, skipped,
 unavailable, or bypassed evidence cannot produce overall PASS.
 
@@ -69,14 +72,25 @@ unavailable, or bypassed evidence cannot produce overall PASS.
   reject sparse or assume-unchanged index entries. A user who needs a secret/configuration check
   for such content must run a separate, explicitly scoped local check; it is not evidence for the
   committed source revision.
-- Task-scoped generated attachments and retained recovery evidence may be explicitly excluded from
-  metadata preflight only through a narrow, documented allowlist (`incoming`,
-  `quality-doc-closeout`, `runtime`, `retired-generated-artifacts`, and
-  `retired-*-task-copies` under a task, plus the documented `docs/archive/retired-documentation-cleanup`
-  quarantine). Ignored content outside those roots remains a fail-closed finding; excluded
-  evidence never supports a committed-SHA claim.
 - A requested scan root that is excluded or has no eligible source universe is invalid scope and
   must produce non-PASS evidence rather than a vacuous success.
+
+## Universal shipped-Swift controls
+
+The reusable QualityControl engine provides two blocking, app-neutral source contracts:
+
+- `QC.STATIC.SWIFT_HOT_PATH` covers only high-confidence synchronous file/data reads, image-file
+  decoding, PDF URL loads, and blocking `copyCGImage` extraction in shipped Swift source. It does
+  not treat the asynchronous `AVAssetImageGenerator.image(at:)` API as forbidden.
+- `QC.STATIC.SWIFT_CONCURRENCY_ESCAPE` rejects `@unchecked Sendable`, `nonisolated(unsafe)`,
+  `@preconcurrency`, and `@_unsafeInheritExecutor` in shipped Swift source. These patterns hide
+  ownership from the compiler and are not acceptable migration or synchronization strategies.
+
+Both checks scan a clean Git `HEAD`, exclude tests, fixtures, comments, and documentation, include
+bounded positive/negative fixtures, and fail closed on malformed or oversized input. They are
+complements to compiler diagnostics and semantic review, not proof of runtime or actor correctness.
+No project-specific suppression list may weaken them; a real platform exception belongs in an
+owned, expiring app/task ADR with independent evidence.
 
 ## Review Rules
 - Passing scripts is not enough to claim production-ready.

@@ -35,7 +35,7 @@ Read only when the route requires it:
 - Project/code/package orientation: `./PROJECT_DOCUMENTATION.md`, `./PROJECT_HEALTH.md`, `./docs/AGENT_RULES.md`.
 - Non-trivial planning or execution: `./docs/AGENT_PREFLIGHT_CHECKLIST.md`,
   `./docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md`.
-- Documentation/rule/prompt/skill/template/package-doc changes: `./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md`, `./docs/DOCUMENT_BOUNDARY_STANDARD.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/DOCS_REPO_OPERATIONS.md`.
+- Documentation/rule/prompt/skill/template/package-doc changes: `./docs/DOCUMENT_CHANGE_GOVERNANCE_STANDARD.md`, `./docs/DOCUMENT_BOUNDARY_STANDARD.md`, `./docs/SOURCE_OF_TRUTH_MAP.md`, `./docs/DOCS_REPO_OPERATIONS.md`, `./docs/QUALITY_RULE_CATALOG.md`.
 - Documentation library inventory/operations: `./docs/README.md`, `./docs/DOCUMENT_LIBRARY_GUIDE.md`, `./docs/DOCUMENTATION_VAULT_SUMMARY.md`.
 - Task plan/handoff/archive changes: `./docs/TASK_STATE_DOCUMENTATION_STANDARD.md`.
 - Context transfer or resume-state maintenance: `./docs/WORK_CONTINUITY.md`, `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`.
@@ -48,6 +48,7 @@ Read only when the route requires it:
 | Task type | Read |
 |---|---|
 | iOS implementation or refactor | `./docs/PRODUCT_REQUIREMENTS_STANDARD.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`, relevant iOS standards below |
+| Universal iOS quality standard or app-neutral quality-control design | `./docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md`, `./docs/PRODUCTION_QUALITY_GATES.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`, `./docs/CI_CD_QUALITY_GATES.md` |
 | iOS review/audit/production-ready claim | `./docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md`, `./docs/IOS_PRODUCTION_READINESS_STANDARD.md`, `./docs/DEFINITION_OF_DONE.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md` |
 | Pull request review | `./docs/IOS_PR_REVIEW_TEMPLATE.md`, review/audit route above |
 | Architecture/navigation/state ownership | `./docs/IOS_ARCHITECTURE_STYLE_ROUTER.md`, `./docs/MODULAR_ARCHITECTURE_STANDARD.md`, `./docs/IOS_MVVM_INTENT_API_STANDARD.md`, `./docs/ARCHITECTURE_DECISION_GOVERNANCE.md`, `./docs/CODE_OWNERSHIP_AND_REVIEW_POLICY.md` |
@@ -67,7 +68,9 @@ Read only when the route requires it:
 | AI/App Intents/Foundation Models | `./docs/agent-prompts/AI_iOS_TASK_ROUTER.md`, routed ranges from `AI_iOS_MASTER_PROMPT.md`, relevant package README only when package adoption is in scope |
 | Deep iOS specialist knowledge | Select the matching `ios-*` machine route; scope and maturity start at `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md` and `./docs/knowledge/global/ios/README.md` |
 | Code comments/documentation pass | `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`, `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` |
-| Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog |
+| Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`, `./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog |
+| Toolchain/compiler/SDK/isolation/availability profile | `./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md`, `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`, `./docs/COMPATIBILITY_MATRIX.md`, and the relevant platform/deep reference |
+| Release/privacy/performance/accessibility matrix | `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`, `./docs/IOS_RELEASE_CHECKLIST.md`, `./docs/IOS_SECURITY_PRIVACY_GATE.md`, `./docs/IOS_PERFORMANCE_BUDGETS.md`, and the relevant accessibility/platform route |
 | Current content/feed persistence contract | `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`, persistence/migration/data-loss route |
 | New iOS app/project bootstrap | `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`, `./docs/STATIC_GATE_ADOPTION.md`, `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`, architecture route, `./docs/DEVELOPER_EXPERIENCE_STANDARD.md` |
 | Universal Xcode quality control, manual GitHub checks, Codex Review policy, verifier/bootstrap design | `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`, `./docs/CI_CD_QUALITY_GATES.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md` |
@@ -85,6 +88,7 @@ Read only when Level 2 requires more depth, the task is broad/high-risk, or the 
 - `./docs/knowledge/global/ios/*.md`
 - `./docs/IOS_AGENT_PROMPT_ROUTER.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
+- architecture-case references from the canonical architecture catalog when the task requires them
 - root `MANIFEST.md` in the canonical documentation repository, only for library completeness/recovery work
 - architecture catalog under the canonical documentation repository
 - complete package-vault documentation
