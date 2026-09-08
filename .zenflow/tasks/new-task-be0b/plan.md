@@ -60,7 +60,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 5.2: проверить Swift patterns и disabled-tests claims.
 - [x] 5.3: сверить каталог зрелости и mode coverage.
 - [x] 6.1: зафиксировать SwiftLint config/contract.
-- [ ] 6.2: зафиксировать first-party warnings и concurrency diagnostics.
+- [x] 6.2: зафиксировать first-party warnings и concurrency diagnostics; QC local SHA reviewed, remote push pending auto-review approval.
 - [ ] 7.1: выполнить разрешённую verifier-test/canary acceptance phase.
 - [ ] 7.2: разделить оценку генерации и detection ошибок.
 - [ ] 8.1: провести простой consumer pilot.
@@ -93,4 +93,5 @@ Evidence блока 5.1: `audit-2026-09-05/implementation/5.1-scope-source-membe
 Evidence блока 5.2: `audit-2026-09-05/implementation/5.2-swift-lexical-claims.md`.
 Evidence блока 5.3: `audit-2026-09-05/implementation/5.3-catalog-maturity.md`.
 Evidence блока 6.1: `audit-2026-09-05/implementation/6.1-swiftlint-contract.md`.
-Завершено 18 из 30 implementation blocks (60%); это не процент production readiness.
+Evidence блока 6.2: `audit-2026-09-05/implementation/6.2-first-party-warnings.md`.
+Завершено 19 из 30 implementation blocks (63%); это не процент production readiness.
