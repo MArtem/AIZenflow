@@ -70,7 +70,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [ ] 9.2: проверить existing/future project adoption.
 - [x] 10.1: измерить context budget и повторное использование evidence; PASS_WITH_LIMITATION, без удаления обязательных routes или billed-token claim.
 - [x] 10.2: откалибровать процесс Luna xhigh по observations и receipts; PASS_WITH_LIMITATION, targeted route по умолчанию, broad route только для cross-cutting audit.
-- [ ] 11.1: выполнить итоговый semantic audit.
+- [x] 11.1: выполнить итоговый semantic audit и traceability F01–F24/67 archive decisions; PASS_WITH_LIMITATION, stable promotion остаётся NOT_READY.
 - [ ] 11.2: оформить лёгкую поддержку и recovery.
 
 Evidence блоков 0.1–0.4: `audit-2026-09-05/implementation/0.1-authority-boundary.md`,
@@ -101,4 +101,5 @@ Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-st
 Evidence блока 8.3: `audit-2026-09-05/implementation/8.3-preparation-readiness.md`.
 Evidence блока 10.1: `audit-2026-09-05/implementation/10.1-context-budget.md`.
 Evidence блока 10.2: `audit-2026-09-05/implementation/10.2-luna-calibration.md`.
-Завершено 25 из 30 implementation blocks (83%); это не процент production readiness.
+Evidence блока 11.1: `audit-2026-09-05/implementation/11.1-semantic-audit.md`.
+Завершено 26 из 30 implementation blocks (87%); это не процент production readiness.
