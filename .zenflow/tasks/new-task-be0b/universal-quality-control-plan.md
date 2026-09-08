@@ -361,7 +361,10 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh; 172/16 PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh; S01 open + S04 holdout, desk/static only.
 - [x] 8.1: простой consumer pilot — Luna xhigh; MVVMExample static pin/adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin и семь clean-snapshot adapters PASS, но runtime/matrix не завершены.
+- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
+  семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
+  fixtures и reversible bootstrap PASS. Xcode graph/build-evidence, test-target compilation,
+  extension lifecycle/accessibility и local/GitHub parity остаются открыты.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [ ] 9.1: promotion/release contract — Luna xhigh.
 - [ ] 9.2: existing/future project adoption — Luna xhigh.
@@ -379,7 +382,21 @@ consumer/promotion gates 8.2, 9.1 и 9.2; их нельзя закрывать �
 
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
+## Runtime continuation блока 8.2 — 2026-09-09
+
+Пользователь отдельно разрешил runtime/full matrix на Luna xhigh. Для Tchop HEAD
+`e24b7c8be50aad8777c47116b8ccb1e4ab3a9977` последовательно собраны шесть Debug schemes на iPhone
+17 Pro/iOS 26.5; clean signed-out и authenticated smoke launch прошли после исправления
+`AppState` session-restore race. QC engine `b197bd5e` собран с CDHash
+`84ba17cfe7fcc7fd3ea7d551b07bbaba4f6dd555`. Positive/negative static fixtures и synthetic
+inventory → dry-run → apply → post-check → repeat → rollback lifecycle дали ожидаемые статусы.
+Это расширяет evidence 8.2, но не закрывает block: `static-evidence` требует authoritative Xcode
+graph и блокируется engine profile validation, `build-evidence` блокируется preflight trust,
+Tchop tests не компилируются из-за stale test double, а extension lifecycle, VoiceOver, GitHub
+parity и pre-PR review ещё не выполнены. Поэтому 8.2, 9.1 и 9.2 остаются открытыми; production
+readiness или stable QC promotion не заявляются.
+
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3, 10.1, 10.2, 11.1 и 11.2 закрыты task-level evidence; 8.2 начат, но остаётся partial из-за consumer-owned German localization parity. 8.3, 10.1, 10.2, 11.1 и 11.2 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3, 10.1, 10.2, 11.1 и 11.2 закрыты task-level evidence; 8.2 расширен runtime/build/QC/bootstrap evidence, но остаётся partial из-за Xcode graph/build-evidence, test-target, extension/accessibility и parity blockers. 8.3, 10.1, 10.2, 11.1 и 11.2 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.

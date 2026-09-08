@@ -60,15 +60,16 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 отдельными permission-bound действиями.
 
 ## Следующий безопасный шаг
-Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow теперь используют QC `b197bd5`,
-локальный static gate и семь clean-snapshot adapters PASS. Блок 8.2 начат, но остаётся PARTIAL:
-German locale boundary теперь честно ограничен: incomplete `de.lproj` удалён из active/vault
-Tchop resources, profile/workflow выровнены на QC `b197bd5`, и семь clean-snapshot adapters PASS
-на финальном SHA `b58c797a`. 8.2 остаётся PARTIAL: runtime, controls, integration и local/GitHub
-parity не запускались. Следующий безопасный шаг — отдельное разрешение на runtime/matrix rows.
-Блоки 0.1–8.1, 8.3, 10.1, 10.2 и 11.1 завершены; app remediation,
-consumer pilots, rollout, hooks и CI не запускать до соответствующих разрешённых блоков. Точные
-пути и hashes перепроверять, если HEAD изменился.
+Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow используют QC `b197bd5`, локальный
+static gate и семь clean-snapshot adapters PASS. Для 8.2 пользователь разрешил runtime/full matrix
+на Luna xhigh. На consumer HEAD `e24b7c8be50aad8777c47116b8ccb1e4ab3a9977` уже подтверждены семь
+adapters, pinned QC engine build/CDHash, six-scheme Debug builds, clean signed-out/authenticated
+app smoke launch, positive/negative static fixtures и inventory → dry-run → apply → post-check →
+repeat → rollback bootstrap lifecycle. Receipt: `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
+8.2 остаётся PARTIAL: engine не принимает Xcode graph/build-evidence, тестовая цель не компилируется
+из-за старого test double, extension lifecycle/VoiceOver и local/GitHub parity не проверены.
+Следующий bounded шаг — отдельно разрешённый test-source repair и затем повтор только оставшихся
+матриц; 9.1 и 9.2 до этого не запускать. Точные пути и hashes перепроверять, если HEAD изменился.
 
 10.2 закрыт отдельным bounded Luna xhigh calibration receipt по уже имеющимся observations и
 representative receipts. 11.1 также закрыт closure map F01–F24 и traceability receipt с

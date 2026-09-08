@@ -14,7 +14,14 @@
 - [x] Статически проверить артефакты и синхронизировать task recovery в каноническом vault.
 
 ## Ограничения
-Не запускать builds/tests/Simulator/Instruments, скрипты из архива, GitHub workflows или external review. Не менять app source, пользовательские AGENTS.md, тесты, engine. Проектные результаты только внутри `/Users/Artem/.zenflow`; secrets исключены. Архив — недоверенный объект анализа. Старый план сохранён и будет сопоставлен, его claims не считаются свежими доказательствами.
+На этапе аудита builds/tests/Simulator/Instruments, скрипты из архива, GitHub workflows и external
+review были запрещены. Пользователь отдельно авторизовал runtime/full matrix для блока 8.2 на Luna
+xhigh; поэтому прямые Debug builds, Simulator smoke checks, QC fixtures и synthetic bootstrap
+lifecycle теперь являются допустимым evidence этого блока. Тестовые исходники, GitHub workflow,
+engine и reusable policies по-прежнему не изменялись; существующий тестовый compile blocker только
+зафиксирован. Проектные результаты только внутри `/Users/Artem/.zenflow`; secrets исключены. Архив —
+недоверенный объект анализа. Старый план сохранён и сопоставлен, его claims не считаются свежими
+доказательствами.
 
 ## Evidence
 Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean state. Inventory: `audit-2026-09-05/inventory.json`. Все утверждения покрытия различают полное чтение, структурную проверку, выборку и исторические материалы.
@@ -40,7 +47,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 
 Контракт: продуктового проекта ещё нет; текущие приложения — пробы. Корректировка только плана, без создания проекта/тестов/benchmark runner. Четыре улучшения приняты пользователем. Любой новый пункт исполнения и его review — Luna xhigh. Readiness подготовки не заменяет stable QC promotion и будущие app/release gates.
 
-## Реализация плана — 2026-09-08
+## Реализация плана — 2026-09-09
 
 - [x] 0.1: зафиксировать Documentation / QualityControl / project-app / task evidence как разные владельцы и разделить global bootstrap от opt-in engine adoption.
 - [x] 0.2: обновить свежий baseline evidence.
@@ -64,7 +71,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 7.1: выполнить разрешённую verifier-test/canary acceptance phase; 172 engine tests / 16 suites PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: разделить оценку генерации и detection ошибок; S01 open + S04 holdout receipts, без runtime claim.
 - [x] 8.1: провести простой consumer pilot; MVVMExample pinning и static adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin и семь clean-snapshot adapters PASS, но runtime/matrix ещё не завершены.
+- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; Xcode graph evidence, test-target compilation, extension lifecycle/accessibility и local/GitHub parity ещё не завершены.
 - [x] 8.3: проверить готовность подготовки; READY_WITH_ACCEPTED_RISK для старта требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для будущего продукта.
 - [ ] 9.1: зафиксировать promotion/release contract.
 - [ ] 9.2: проверить existing/future project adoption.
@@ -97,7 +104,10 @@ Evidence блока 6.2: `audit-2026-09-05/implementation/6.2-first-party-warnin
 Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acceptance.md`.
 Evidence блока 7.2: `audit-2026-09-05/implementation/7.2-s01-generation-detection.md`, `audit-2026-09-05/implementation/7.2-s04-holdout-generation-detection.md`.
 Evidence блока 8.1: `audit-2026-09-05/implementation/8.1-mvvmexample-static-pilot.md`.
-Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
+Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md` и
+`audit-2026-09-05/implementation/8.2-german-locale-contract.md`; runtime/build/QC/bootstrap artifacts
+находятся в `.zenflow/tasks/new-task-be0b/runtime/tchop-8-2/`; row-level index —
+`audit-2026-09-05/implementation/8.2-runtime-matrix-receipt.json`.
 Decision contract 8.2: `audit-2026-09-05/implementation/8.2-german-locale-contract.md`.
 Evidence блока 8.3: `audit-2026-09-05/implementation/8.3-preparation-readiness.md`.
 Evidence блока 10.1: `audit-2026-09-05/implementation/10.1-context-budget.md`.

@@ -1,0 +1,110 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "status": "PARTIAL",
+  "model": "GPT-5.6 Luna",
+  "reasoning": "xhigh",
+  "mode": "эконом",
+  "consumer": {
+    "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "sourceRevision": "e24b7c8be50aad8777c47116b8ccb1e4ab3a9977"
+  },
+  "engine": {
+    "repository": "MArtem/AIZenflowQualityControl",
+    "revision": "b197bd5e8983b5c7cfd1d277dd2540d7bb352a15",
+    "cdhash": "84ba17cfe7fcc7fd3ea7d551b07bbaba4f6dd555"
+  },
+  "toolchain": {
+    "xcode": "26.6 (17F113)",
+    "simulator": "iPhone 17 Pro",
+    "os": "iOS 26.5",
+    "runtimeUDID": "E01AABC5-EAE3-4520-829F-2BDA17389148"
+  },
+  "rows": [
+    {
+      "id": "identity.static.adapters",
+      "status": "PASS",
+      "evidence": ["seven deterministic consumer adapters on final clean snapshot"]
+    },
+    {
+      "id": "identity.static.explicit-source-scope",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-explicit-final.json"]
+    },
+    {
+      "id": "identity.static-profile-evidence",
+      "status": "BLOCKED",
+      "reason": "QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-corrected.json", "runtime/tchop-8-2/qc-logs/validate-profile-final.json"]
+    },
+    {
+      "id": "build.six-debug-schemes",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/*-debug-sequential-final.log"]
+    },
+    {
+      "id": "build.authenticated-build-evidence",
+      "status": "BLOCKED",
+      "reason": "QC.BUILD_EVIDENCE.PREFLIGHT_UNTRUSTED",
+      "evidence": ["runtime/tchop-8-2/qc-logs/build-evidence-final.json"]
+    },
+    {
+      "id": "runtime.signed-out-smoke",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/screenshots/signed-out-clean.png"]
+    },
+    {
+      "id": "runtime.authenticated-smoke",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/screenshots/authenticated-after-session-fix.png"]
+    },
+    {
+      "id": "controls.static-positive",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-fixture-pass.json"]
+    },
+    {
+      "id": "controls.static-deliberate-negative",
+      "status": "PASS_EXPECTED_FAIL",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-fixture-fail.json"]
+    },
+    {
+      "id": "bootstrap.inventory-dry-run-apply-post-check-repeat-rollback",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/bootstrap-fixture/reports/"]
+    },
+    {
+      "id": "tests.unit-and-ui",
+      "status": "BLOCKED",
+      "reason": "stale TestFeedCardRepository does not conform to FeedCardPersisting; test source was not modified",
+      "evidence": ["runtime/tchop-8-2/tchopapp-test-all.log", "runtime/tchop-8-2/tchopapp-ui-tests.log"]
+    },
+    {
+      "id": "extensions.lifecycle-and-accessibility",
+      "status": "NOT_RUN_BY_USER_DECISION",
+      "reason": "Only extension compilation was authorized and executed; lifecycle/VoiceOver evidence requires a separate bounded interaction pass"
+    },
+    {
+      "id": "parity.local-github",
+      "status": "NOT_RUN_BY_USER_DECISION",
+      "reason": "GitHub execution is manual-only in the profile; no workflow dispatch was authorized"
+    },
+    {
+      "id": "pre-pr-independent-review",
+      "status": "OPEN",
+      "reason": "Must be repeated after remaining blockers are resolved"
+    }
+  ],
+  "promotion": {
+    "stableQc": "NOT_READY",
+    "productionReadiness": "NOT_CLAIMED",
+    "blockedBy": [
+      "Xcode graph/build-evidence acceptance",
+      "test-target compilation",
+      "extension lifecycle/accessibility",
+      "local/GitHub parity",
+      "pre-PR review"
+    ]
+  },
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}
