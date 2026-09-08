@@ -55,7 +55,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 3.2: сформировать release/privacy/performance matrices по профилю проекта.
 - [x] 4.1: нормализовать global bootstrap и effective instruction inventory.
 - [x] 4.2: проверить manifest, ссылочную целостность и dynamic app boundaries.
-- [ ] 4.3: пройти нейтральный new-project сценарий.
+- [x] 4.3: пройти нейтральный new-project сценарий.
 - [ ] 5.1: проверить QC scope и source membership.
 - [ ] 5.2: проверить Swift patterns и disabled-tests claims.
 - [ ] 5.3: сверить каталог зрелости и mode coverage.
@@ -88,4 +88,5 @@ Evidence блока 3.1: `audit-2026-09-05/implementation/3.1-toolchain-profile.
 Evidence блока 3.2: `audit-2026-09-05/implementation/3.2-release-privacy-performance.md`.
 Evidence блока 4.1: `audit-2026-09-05/implementation/4.1-effective-instruction-inventory.md`.
 Evidence блока 4.2: `audit-2026-09-05/implementation/4.2-manifest-boundary-integrity.md`.
-Завершено 13 из 30 implementation blocks (43%); это не процент production readiness.
+Evidence блока 4.3: `audit-2026-09-05/implementation/4.3-neutral-new-project.md`.
+Завершено 14 из 30 implementation blocks (47%); это не процент production readiness.
