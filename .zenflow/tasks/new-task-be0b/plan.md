@@ -65,7 +65,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 7.2: разделить оценку генерации и detection ошибок; S01 open + S04 holdout receipts, без runtime claim.
 - [x] 8.1: провести простой consumer pilot; MVVMExample pinning и static adapters PASS, runtime/build не заявлены.
 - [ ] 8.2: провести сложный multi-target consumer pilot; static half PARTIAL из-за German localization parity, runtime/matrix не начаты.
-- [ ] 8.3: проверить готовность подготовки к будущему продуктовому проекту.
+- [x] 8.3: проверить готовность подготовки; READY_WITH_ACCEPTED_RISK для старта требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для будущего продукта.
 - [ ] 9.1: зафиксировать promotion/release contract.
 - [ ] 9.2: проверить existing/future project adoption.
 - [ ] 10.1: оптимизировать context budget и повторное использование evidence.
@@ -98,4 +98,5 @@ Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acce
 Evidence блока 7.2: `audit-2026-09-05/implementation/7.2-s01-generation-detection.md`, `audit-2026-09-05/implementation/7.2-s04-holdout-generation-detection.md`.
 Evidence блока 8.1: `audit-2026-09-05/implementation/8.1-mvvmexample-static-pilot.md`.
 Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
-Завершено 22 из 30 implementation blocks (73%); это не процент production readiness.
+Evidence блока 8.3: `audit-2026-09-05/implementation/8.3-preparation-readiness.md`.
+Завершено 23 из 30 implementation blocks (77%); это не процент production readiness.
