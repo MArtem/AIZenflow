@@ -17,11 +17,11 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–5.1 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–5.2 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
 prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **15 из 30 блоков (50%)**; это не процент production readiness.
+Прогресс реализации: **16 из 30 блоков (53%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -193,6 +193,25 @@ tests/build/runtime не запускались и test files не меняли�
 
 Evidence блока 5.1: `audit-2026-09-05/implementation/5.1-scope-source-membership.md`.
 
+## Swift lexical claims и disabled-test evidence блока 5.2 — 2026-09-08
+
+QualityControl commit `0266873b68948b596903388eba28a125fcd8990e` заменил comment-only masking
+bounded Swift lexical adapter. Он маскирует nested comments и normal/raw/multiline string text,
+оставляет code inside interpolation видимым, сохраняет line positions и блокирует malformed
+string/comment/interpolation вместо false PASS. `QC.STATIC.SWIFT_HOT_PATH` теперь явно является
+lexical API policy ban: он не утверждает UI executor, runtime hot path или достаточность async
+wrapper. `QC.TESTS.DISABLED` сообщает static disabled attributes и `XCTSkip` calls, а conditional
+или platform scope помечает консервативно; target membership, known issues и selected/executed
+runtime counts остаются отдельными evidence claims.
+
+На clean QC `HEAD` обе Swift static checks дали PASS; passing disabled-test fixture дал PASS,
+failing fixture дал ожидаемый FAIL с двумя findings. Прямые bounded lexer cases для comments,
+strings, interpolation, nesting и malformed input прошли. Fixture directories не являются Git
+roots, поэтому отдельный adapter invocation на них дал корректный BLOCKED и не был выдан за
+fixture run. Test files, build, test runner, Xcode, Simulator, runtime и pilot не запускались.
+
+Evidence блока 5.2: `audit-2026-09-05/implementation/5.2-swift-lexical-claims.md`.
+
 ## Observations блока 0.3 — 2026-09-08
 
 Таблица `audit-2026-09-05/implementation/0.3-luna-observations.md` — единственный компактный
@@ -248,7 +267,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 4.2: manifest, ссылочная целостность и dynamic app boundaries — Luna xhigh.
 - [x] 4.3: нейтральный new-project сценарий — Luna xhigh.
 - [x] 5.1: QC source scope и source membership — Luna xhigh.
-- [ ] 5.2: Swift patterns и disabled-tests claims — Luna xhigh.
+- [x] 5.2: Swift patterns и disabled-tests claims — Luna xhigh.
 - [ ] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
 - [ ] 6.1: SwiftLint config/contract — Luna xhigh.
 - [ ] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh.
@@ -264,7 +283,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 11.1: итоговый semantic audit — Luna xhigh.
 - [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
 
-Следующий implementation block: 5.2 — проверить Swift patterns и disabled-tests claims.
+Следующий implementation block: 5.3 — сверить каталог зрелости и mode coverage.
 Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
 помечается выполненным только потому, что написан план.
 
@@ -273,6 +292,6 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 5.1 закрыты task-level evidence; следующий 5.2. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 5.2 закрыты task-level evidence; следующий 5.3. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
