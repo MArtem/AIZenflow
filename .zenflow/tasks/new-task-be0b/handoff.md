@@ -74,6 +74,9 @@ checks; `validate-profile`/`static-evidence` остаются blocked на schem
 bounded doctor aggregate — на effective settings. Package inspection и Simulator app installation
 для extensions прошли, но Share activation/VoiceOver остаются BLOCKED из-за отсутствия approved
 host/UI interaction path; local/GitHub parity не выполнялась.
+Targeted terminal-only XCUITest probe reached Safari but found no accessible `Share` button and
+was removed after the run; receipt:
+`runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json`.
 Следующий bounded шаг — authoritative schema-v2 static/profile acceptance, затем
 lifecycle/accessibility, manual GitHub parity и pre-PR review; 9.1 и 9.2 остаются
 promotion/adoption gates с отдельными receipts. Текущий consumer HEAD для exact-SHA evidence —

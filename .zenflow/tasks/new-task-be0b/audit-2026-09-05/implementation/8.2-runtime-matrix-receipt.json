@@ -86,8 +86,8 @@
     {
       "id": "extensions.lifecycle-and-accessibility",
       "status": "BLOCKED",
-      "reason": "Package inspection and Simulator app installation passed, but Share activation and VoiceOver traversal are blocked by the unavailable host/UI interaction path; no lifecycle/accessibility PASS is claimed",
-      "evidence": ["runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json"]
+      "reason": "Package inspection and Simulator app installation passed, but a targeted Safari host probe found no accessible Share button; Share activation and VoiceOver traversal remain blocked, and no lifecycle/accessibility PASS is claimed",
+      "evidence": ["runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json", "runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json"]
     },
     {
       "id": "parity.local-github",
