@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "command": "build-evidence",
+  "status": "PASS",
+  "sourceRepository": "MArtem/AIZenflow",
+  "sourceRevision": "8fc0fae84b3c847c1f891a9e742b69d568cb4f70",
+  "profileSHA256": "b3b27f319aec1c53472084cac7b35fdf5cd8319568854ec40e238d7b049dfe9b",
+  "engineRepository": "MArtem/AIZenflowQualityControl",
+  "engineRevision": "c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880",
+  "engineCDHash": "fc8d8cd64035e301d0d37864fdbb964e500dc0a9",
+  "selection": {
+    "scheme": "TchopApp",
+    "configuration": "Debug",
+    "destination": "platform=iOS Simulator,name=iPhone 17 Pro",
+    "executionContext": "local"
+  },
+  "checks": [
+    "QC.BUILD",
+    "QC.BUILD.MEMBERSHIP",
+    "QC.BUILD.FIRST_PARTY_WARNINGS",
+    "QC.CONCURRENCY.DIAGNOSTICS"
+  ],
+  "sourceMembership": {
+    "authority": "xcode-build-graph",
+    "compiledSourceCount": 159,
+    "compilerSectionCount": 210,
+    "externalSourceInputCount": 0,
+    "claims": [
+      "explicit-profile-scopes",
+      "authenticated-compiled-inputs",
+      "generated-ownership-separate",
+      "external-package-inputs-counted",
+      "extension-inputs-included",
+      "path-boundary-enforced"
+    ]
+  },
+  "verification": {
+    "verdict": "READY",
+    "issues": []
+  },
+  "artifacts": {
+    "buildResultsSHA256": "6599ca572086abc6c5421f12e857351c149da21d28faf39f686bb3d240470bf3",
+    "buildLogSHA256": "2e748157d9c4f7f27a9b17646e07e6bc25f3b4a4da819f72403eed4c358a1530",
+    "resultBundle": "TchopApp/.quality-control-cache/cache/XcodeBuildEvidence/Invocation-17129A16-8CDB-4FE5-868D-1C2084C654D6/Build.xcresult"
+  },
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

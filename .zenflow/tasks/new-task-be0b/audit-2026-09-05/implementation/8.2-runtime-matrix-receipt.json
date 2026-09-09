@@ -7,12 +7,12 @@
   "mode": "эконом",
   "consumer": {
     "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
-    "sourceRevision": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
-    "implementationCommit": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
-    "evidenceCommit": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
+    "sourceRevision": "8fc0fae84b3c847c1f891a9e742b69d568cb4f70",
+    "implementationCommit": "52a6af81a33de6c21b6e434ada93eb5d5752fbdc",
+    "evidenceCommit": "8fc0fae84b3c847c1f891a9e742b69d568cb4f70",
     "githubMergeCommit": "16ae3f4ff7892d567eb0b4c89f775cd1d3685880",
     "workingTreeAtEvidenceGeneration": "clean tracked source/profile/task state after bounded fixture and evidence commits; local ignored QC cache/runtime evidence excluded",
-    "postCommitState": "exact-SHA UI-test contract commit reauthenticated; validate-profile and explicit static PASS, graph-scoped static-evidence remains blocked, doctor effective settings PASS, and Share provider runtime remains blocked"
+    "postCommitState": "current-head authenticated build-evidence and source-membership PASS; graph-scoped static-evidence remains blocked, doctor effective settings PASS, and bounded Share provider lifecycle/accessibility contract is PASS_WITH_LIMITATION"
   },
   "engine": {
     "repository": "MArtem/AIZenflowQualityControl",
@@ -39,8 +39,8 @@
     {
       "id": "identity.static-profile-evidence",
       "status": "BLOCKED",
-      "reason": "Exact-SHA identity is authenticated and structural validate-profile now passes, but graph-scoped static-evidence remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
-      "evidence": ["audit-2026-09-05/implementation/8.2-static-evidence-c0e7-receipt.json", "runtime/tchop-8-2/qc-logs/static-evidence-final-87d6.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
+      "reason": "Current-head identity is authenticated and the separate supervised build-evidence/source-membership gate passes, but graph-scoped static-evidence remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
+      "evidence": ["audit-2026-09-05/implementation/8.2-static-evidence-c0e7-current-2026-09-09.json", "audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json"]
     },
     {
       "id": "build.six-debug-schemes",
@@ -51,7 +51,7 @@
       "id": "build.authenticated-build-evidence",
       "status": "PASS",
       "reason": "Exact-SHA profile-boundary rerun authenticated the supervised Debug build and compiler source-membership evidence",
-      "evidence": ["runtime/tchop-8-2/qc-logs/exact-sha-profile-boundary-build-pass-2026-09-09.json"]
+      "evidence": ["audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-profile-boundary-build-pass-2026-09-09.json"]
     },
     {
       "id": "runtime.signed-out-smoke",

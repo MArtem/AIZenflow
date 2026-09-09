@@ -221,3 +221,21 @@ VoiceOver on iOS Simulator. The remaining 8.2 gates are graph-scoped static-evid
 source-membership evidence, physical-device VoiceOver, and independent pre-PR review. The current
 consumer branch must still receive a fresh manual GitHub workflow run for its current head before
 the parity receipt is reusable.
+
+## QC evidence continuation — 2026-09-09 current head
+
+The current consumer HEAD is `8fc0fae84b3c847c1f891a9e742b69d568cb4f70`. Authenticated merged-engine
+`build-evidence` passed for the declared `TchopApp` Debug / iPhone 17 Pro selection with
+`QC.BUILD`, `QC.BUILD.MEMBERSHIP`, `QC.BUILD.FIRST_PARTY_WARNINGS`, and
+`QC.CONCURRENCY.DIAGNOSTICS`; compiler membership covers 159 in-repository inputs, 210 compiler
+sections, and 0 external inputs. Receipt:
+`audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json`.
+
+Current-head graph-scoped `static-evidence` was also re-run. It remains `BLOCKED` only at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`; the separate authenticated build/source-membership
+gate is now PASS. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-current-2026-09-09.json`.
+
+The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
+and independent pre-PR review. The current branch still needs a fresh manual GitHub workflow run
+before the previous parity result can be reused.

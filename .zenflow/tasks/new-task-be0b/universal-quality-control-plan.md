@@ -526,3 +526,20 @@ Apple does not provide VoiceOver on iOS Simulator. Block 8.2 remains open only f
 static-evidence, source-membership evidence, physical-device VoiceOver, and independent pre-PR
 review. The current consumer head still requires a fresh manual workflow dispatch before GitHub
 parity evidence can be reused.
+
+## QC evidence continuation — 2026-09-09 current head
+
+Current consumer HEAD `8fc0fae84b3c847c1f891a9e742b69d568cb4f70` passed authenticated merged-engine
+`build-evidence` for the declared `TchopApp` Debug / iPhone 17 Pro selection. `QC.BUILD`,
+`QC.BUILD.MEMBERSHIP`, `QC.BUILD.FIRST_PARTY_WARNINGS`, and `QC.CONCURRENCY.DIAGNOSTICS` all pass;
+the receipt reports 159 in-repository compiled inputs, 210 compiler sections, and 0 external inputs:
+`audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json`.
+
+Current-head graph-scoped `static-evidence` was re-run and remains blocked only at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`. The separate build/source-membership evidence is now
+PASS. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-current-2026-09-09.json`.
+
+The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
+and independent pre-PR review. A fresh manual GitHub workflow dispatch is still required before
+the prior parity result can be reused for the current head.
