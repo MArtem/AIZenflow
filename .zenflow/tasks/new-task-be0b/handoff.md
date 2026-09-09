@@ -159,5 +159,7 @@ branch `codex/tchop-qc-continuation` from `origin/main`.
 Current plan count: 29/30 implementation blocks closed; only 8.2 remains open. Its four remaining
 sub-gates are graph-scoped schema-v2 static-evidence, doctor effective Xcode settings, Share
 Extension/VoiceOver runtime execution, and independent pre-PR review. The QC engine branch
-`codex/schema-v2-doctor` remains pushed without a PR; no stable QC promotion or release action is
-claimed.
+`codex/schema-v2-doctor` now has open PR #25:
+https://github.com/MArtem/AIZenflowQualityControl/pull/25. It has no configured remote check runs;
+local QC verification remains 175 tests / 16 suites PASS. No stable QC promotion or release action
+is claimed.

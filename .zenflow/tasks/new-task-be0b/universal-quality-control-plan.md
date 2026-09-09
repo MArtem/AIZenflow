@@ -479,5 +479,7 @@ dispatched GitHub Actions `Repository static gate` for consumer head
 Therefore `parity.local-github` is now PASS. The implementation plan has 29 of 30 checkboxes
 closed; the only open block is 8.2, with four remaining sub-gates: graph-scoped static-evidence,
 doctor effective settings, Share Extension/VoiceOver runtime, and pre-PR independent review.
-The QC engine branch `codex/schema-v2-doctor` is pushed but still has no PR; its creation remains
-an optional integration step before stable engine promotion, not evidence that 8.2 is complete.
+The QC engine branch `codex/schema-v2-doctor` now has open PR #25:
+https://github.com/MArtem/AIZenflowQualityControl/pull/25. It has no configured remote check runs;
+local QC verification remains 175 tests / 16 suites PASS. Its merge is an integration prerequisite
+for stable engine promotion, not evidence that 8.2 is complete.
