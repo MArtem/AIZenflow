@@ -7,10 +7,10 @@
   "mode": "эконом",
   "consumer": {
     "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
-    "sourceRevision": "6a96f97d88a1486b9976c7e72d5c97273c24048b",
+    "sourceRevision": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
-    "evidenceCommit": "6a96f97d88a1486b9976c7e72d5c97273c24048b",
-    "workingTreeAtEvidenceGeneration": "clean tracked source/profile state after bounded fixture commit; local ignored QC cache/runtime evidence excluded",
+    "evidenceCommit": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
+    "workingTreeAtEvidenceGeneration": "clean tracked source/profile/task state after bounded fixture and evidence commits; local ignored QC cache/runtime evidence excluded",
     "postCommitState": "exact-SHA fixture commit reauthenticated; validate-profile and explicit static PASS, static-evidence and doctor remain blocked at authoritative Xcode graph/effective-settings boundaries"
   },
   "engine": {
@@ -39,7 +39,7 @@
       "id": "identity.static-profile-evidence",
       "status": "BLOCKED",
       "reason": "Exact-SHA identity is authenticated and structural validate-profile now passes, but graph-scoped static-evidence remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
-      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-corrected.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-87d6.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
     },
     {
       "id": "build.six-debug-schemes",
