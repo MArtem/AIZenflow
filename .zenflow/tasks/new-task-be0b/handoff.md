@@ -114,3 +114,35 @@ representative receipts. 11.1 также закрыт closure map F01–F24 и t
 Принятые пользователем дополнения 2026-09-07: продукт пока не начат, подготовка приоритетна. 30 блоков Luna xhigh включают early measurement, neutral new-project scenario, separate generation/detection evaluation и preparation readiness. Старый INDEPENDENT_REVIEW относится к версии до этих дополнений; delta review хранится отдельно в PLAN_AMENDMENT_REVIEW.md.
 
 Delta-review дополнения завершён Astra: PLAN_AMENDMENT_REVIEW.md, PASS после закрытия P2 о key isolation для detector. Актуальные 30 блоков/микрошагов и сохранность pilot/release gate проверены. Отдельный publication-receipt.json связывает эту версию с remote SHA.
+
+## Latest continuation — 2026-09-09
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+Пользователь разрешил и завершил следующие bounded actions:
+
+- QualityControl schema-v2/doctor changes находятся в remote branch
+  `codex/schema-v2-doctor` at `bc2072b76df41a653f204861d60d9d602ac999af`; QC tests 175/16
+  suites PASS, executable CDHash `6a41e4aae31edded3342fe2ecc7f043383948e40`. PR creation link:
+  https://github.com/MArtem/AIZenflowQualityControl/pull/new/codex/schema-v2-doctor
+- Consumer branch `codex/tchop-qc-gates` локально содержит fixture commit
+  `6a96f97d88a1486b9976c7e72d5c97273c24048b` и evidence commit
+  `87d6ce2edd1ce59097888852fc3925ae527d51b3`; latest handoff metadata commit is
+  `d3942718`. Consumer branch не pushed.
+- Bounded Share host fixture построен и установлен; TchopApp build PASS; Swift parse, plist,
+  xcodeproj и diff checks PASS. Targeted XCUITest was attempted twice with
+  `TCHOP_SHARE_HOST_FIXTURE=1`, but CoreSimulatorService made the destination unavailable (exit
+  70), поэтому Share activation/VoiceOver PASS не заявляется.
+- Final `validate-profile` PASS and explicit-source static PASS. Final exact-SHA
+  `static-evidence` reached the authoritative graph gate and returned
+  `QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED` / `BLOCKED`. Doctor profile/repository/source/sandbox
+  checks pass, effective Xcode settings remain BLOCKED.
+- 9.1 promotion/release contract and options A/B/C are recorded in
+  `audit-2026-09-05/implementation/9.1-promotion-release-options-2026-09-09.md`. No archive,
+  signing, upload, TestFlight, App Store, or tag action was performed.
+- 9.2 is `PASS_WITH_LIMITATION` for bounded consumer-local adoption revalidation: exact QC pin,
+  profile/workflow boundary, and reversible local branch are recorded. No sibling/remote mutation,
+  broad bootstrap apply, or GitHub dispatch was performed.
+
+Remaining gates: graph-scoped static-evidence, doctor effective settings, Share Extension runtime
+and VoiceOver, manual GitHub parity after user publishes the branch, and pre-PR independent review.
