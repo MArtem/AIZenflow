@@ -134,8 +134,28 @@ final class TchopAppUITests: XCTestCase {
         XCTAssertTrue(presentShareButton.waitForExistence(timeout: launchTimeout))
         presentShareButton.tap()
 
-        let tchopShareAction = host.buttons["Tchop Share"].firstMatch
-        XCTAssertTrue(tchopShareAction.waitForExistence(timeout: launchTimeout))
+        // UIKit exposes activity providers in the host hierarchy as cells. On the
+        // restored iOS runtime, third-party providers are behind the More cell.
+        let directShareCandidates = [
+            host.cells["Tchop Share"].firstMatch,
+            host.buttons["Tchop Share"].firstMatch
+        ]
+        if !directShareCandidates.contains(where: {
+            $0.waitForExistence(timeout: launchTimeout / 3)
+        }) {
+            let moreAction = host.cells["More"].firstMatch
+            guard moreAction.waitForExistence(timeout: launchTimeout) else {
+                XCTFail("The system activity sheet did not expose More")
+                return
+            }
+            moreAction.tap()
+        }
+
+        let tchopShareAction = host.cells["Tchop Share"].firstMatch
+        guard tchopShareAction.waitForExistence(timeout: launchTimeout) else {
+            XCTFail("Tchop Share was not exposed by the system activity sheet")
+            return
+        }
         tchopShareAction.tap()
 
         let shareExtension = XCUIApplication(bundleIdentifier: "com.example.TchopApp.share")
