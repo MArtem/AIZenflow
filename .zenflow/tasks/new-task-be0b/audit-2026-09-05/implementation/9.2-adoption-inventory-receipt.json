@@ -6,16 +6,16 @@
   "status": "PASS_WITH_LIMITATION",
   "scope": "read-only existing/future project adoption inventory and conflict boundary",
   "inventorySource": "audit-2026-09-05/adoption-inventory.json",
-  "inventoryFreshness": "historical_snapshot_with_current_root_recheck",
+  "inventoryFreshness": "historical_snapshot_with_current_root_recheck_and_bounded_consumer_revalidation",
   "currentRootRecheck": {
     "path": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
     "repository": "MArtem/AIZenflow",
-    "head": "8ca3db126fb78582183b9c330496bd87d27ef0bc",
+    "head": "6a96f97d88a1486b9976c7e72d5c97273c24048b",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
-    "branch": "development",
+    "branch": "codex/tchop-qc-gates",
     "origin": "https://github.com/MArtem/AIZenflow.git",
-    "workingTreeAtInspection": "clean for tracked files; local ignored QC cache/runtime evidence excluded",
-    "postCommitExpectation": "current root rechecked clean; no sibling or remote mutations performed"
+    "workingTreeAtInspection": "clean for tracked source/profile/workflow files; local ignored QC cache/runtime evidence excluded",
+    "postCommitExpectation": "bounded consumer adoption is committed locally; branch remains unpublished and no sibling or remote mutations were performed"
   },
   "rootCount": 15,
   "canonicalGitIdentityCount": 6,
@@ -84,10 +84,27 @@
   },
   "applyPlan": {
     "sequence": ["inventory", "conflict-report", "generated-manifest", "apply", "post-check", "repeat", "rollback"],
-    "currentRun": "inventory_and_conflict_report_only",
-    "reason": "No broad mutation of sibling worktrees or remote repositories was authorized",
+    "currentRun": "inventory_conflict_report_and_bounded_consumer_adoption_recheck",
+    "reason": "Consumer-local opt-in adoption and bounded test-host fixture were authorized; no broad mutation of sibling worktrees or remote repositories was requested",
     "idempotenceEvidence": "Existing synthetic bootstrap lifecycle is referenced by 8.2; cross-repository adoption repeat was not claimed",
     "rollback": "precise generated-file manifest plus backup hashes; no recursive delete or rsync-delete"
+  },
+  "boundedConsumerAdoption": {
+    "status": "READY_WITH_LIMITATION",
+    "repository": "MArtem/AIZenflow",
+    "branch": "codex/tchop-qc-gates",
+    "consumerRevision": "6a96f97d88a1486b9976c7e72d5c97273c24048b",
+    "qualityProfile": ".quality-control/profile.json",
+    "workflow": ".github/workflows/manual-quality.yml",
+    "engineRevision": "bc2072b76df41a653f204861d60d9d602ac999af",
+    "profileValidation": "PASS",
+    "explicitSourceStatic": "PASS",
+    "rollbackBoundary": "consumer branch commit can be reverted; no sibling roots or remote branches changed",
+    "limitations": [
+      "branch is not pushed by user decision",
+      "manual GitHub parity remains NOT_RUN_BY_USER_DECISION",
+      "graph-scoped static and doctor effective-settings remain blocked"
+    ]
   },
   "limitations": [
     "The current AIZenflow worktree is dirty from authorized test/profile/task changes, so it cannot serve as an authenticated release snapshot.",

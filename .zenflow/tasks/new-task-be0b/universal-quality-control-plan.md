@@ -363,20 +363,26 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 8.1: простой consumer pilot — Luna xhigh; MVVMExample static pin/adapters PASS, runtime/build не заявлены.
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
   семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
-  fixtures и reversible bootstrap PASS. Xcode graph/build-evidence, extension lifecycle/accessibility
-  и local/GitHub parity остаются открыты; test-target compilation после authorized repair PASS.
+  fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
+  PASS и bounded host fixture build/install PASS. Graph-scoped static-evidence, doctor
+  effective-settings, extension lifecycle/accessibility и local/GitHub parity остаются открыты;
+  test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
-- [ ] 9.1: promotion/release contract — Luna xhigh.
-- [ ] 9.2: existing/future project adoption — Luna xhigh.
+- [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
+  фактическая promotion/release операция не выполнялась.
+- [x] 9.2: existing/future project adoption — Luna xhigh; bounded consumer-local adoption
+  revalidated with exact QC pin and rollback boundary; sibling/remote mutation и GitHub parity не
+  выполнялись.
 - [x] 10.1: context budget и повторное использование evidence — Luna xhigh; PASS_WITH_LIMITATION, route budget в норме, billed-token reduction не заявлена.
 - [x] 10.2: калибровка процесса Luna xhigh — Luna xhigh; PASS_WITH_LIMITATION, targeted route default, broad route только для cross-cutting audit.
 - [x] 11.1: итоговый semantic audit — Luna xhigh; PASS_WITH_LIMITATION, F01–F24 и 67 archive decisions mapped, stable promotion NOT_READY.
 - [x] 11.2: лёгкая поддержка и recovery — Luna xhigh; PASS_WITH_LIMITATION, trigger-based без automation, stable release не активируется.
 
-Все независимые preparation blocks 0.1–11.2 зафиксированы task-level evidence. Открыты только
-consumer/promotion gates 8.2, 9.1 и 9.2; их нельзя закрывать по наличию документационного плана.
-Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
-помечается выполненным только потому, что написан план.
+Все независимые preparation blocks 0.1–11.2 зафиксированы task-level evidence. Открытым
+consumer/promotion gate остаётся 8.2; 9.1 закрыт как contract/options artifact, а 9.2 закрыт
+как bounded adoption revalidation с ограничениями. Фактическая promotion по-прежнему запрещена
+до полного 8.2 и owner-selected release decision. Ни один implementation checkbox не помечается
+выполненным только потому, что написан план.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
@@ -427,16 +433,39 @@ App Store action was performed.
 ## Existing/future adoption contract блока 9.2 — 2026-09-09
 
 Receipt: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`. The historical
-inventory was rechecked for the current root at HEAD `8ca3db12`; the tracked state is clean and
-the read-only result groups 15 worktrees into 6
+inventory grouped 15 worktrees into 6 canonical Git identities; the latest bounded recheck is
+bound to consumer HEAD `6a96f97d`. The tracked consumer state is clean and the read-only result groups
+the roots into
 canonical Git identities and separates Documentation Vault,
 QualityControl engine/canary repositories, current AIZenflow consumers, MVVMExample and PanModal,
 and confirmed that global rules are distinct from explicit QC profile adoption. Verdict is
-`PASS_WITH_LIMITATION`: inventory and conflict boundary are complete; cross-repository apply,
-idempotence and rollback for sibling/future roots remain unexecuted because no broad mutation was
-authorized. No sibling worktree or remote repository was changed.
+`PASS_WITH_LIMITATION`: inventory, conflict boundary, and consumer-local opt-in adoption are
+complete; cross-repository apply, idempotence and rollback for sibling/future roots remain
+unexecuted because no broad mutation was authorized. No sibling worktree or remote repository was
+changed.
 
 ## Принятые улучшения подготовки — 2026-09-07
 Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3, 10.1, 10.2, 11.1 и 11.2 закрыты task-level evidence; 8.2 расширен runtime/build/QC/bootstrap evidence, но остаётся partial из-за Xcode graph/build-evidence, extension/accessibility и parity blockers; test-target compilation после authorized repair PASS. 8.3, 10.1, 10.2, 11.1 и 11.2 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
+
+## Latest continuation — 2026-09-09
+
+Consumer branch `codex/tchop-qc-gates` теперь содержит bounded standalone Share host fixture and
+accessibility identifiers in commit `6a96f97d88a1486b9976c7e72d5c97273c24048b`. Host fixture and
+TchopApp Debug builds, installation, structural `validate-profile`, and explicit-source static
+scan pass. Targeted UI execution was attempted twice with `TCHOP_SHARE_HOST_FIXTURE=1` and remains
+blocked at exit 70 because CoreSimulatorService made the known booted destination unavailable;
+Share activation and VoiceOver are not claimed.
+
+QC schema-v2/doctor changes are pinned to engine `bc2072b76df41a653f204861d60d9d602ac999af` and
+are pushed on `codex/schema-v2-doctor`. Doctor now fails only at effective Xcode settings in this
+environment; the profile/repository/source/sandbox checks pass. The consumer branch is not pushed
+by user decision. GitHub workflow parity remains manual-only and the user will run it after the
+branch is published.
+
+Promotion/release options are recorded in
+`audit-2026-09-05/implementation/9.1-promotion-release-options-2026-09-09.md`. No release action
+is authorized by those options. 9.2 is closed as `PASS_WITH_LIMITATION` for bounded consumer-local
+adoption revalidation; sibling/remote mutation, broad bootstrap apply, and GitHub parity remain
+unexecuted.
