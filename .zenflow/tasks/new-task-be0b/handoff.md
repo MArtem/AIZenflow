@@ -69,12 +69,13 @@ repeat → rollback bootstrap lifecycle. Receipt: `audit-2026-09-05/implementati
 8.2 остаётся PARTIAL: authorized test-source repairs применены, unit tests и все 7 UI tests
 проходят. App-local QC profile patch теперь выровнен с фактическим engine version
 `0.1.0-dev` и target graph (`TchopApp`); bounded doctor подтверждает
-`QC.DOCTOR.XCODE_GRAPH_SELECTION` PASS, но source-membership и authenticated evidence остаются
-BLOCKED до свежего exact-SHA rerun после implementation commit. Package inspection и
+`QC.DOCTOR.XCODE_GRAPH_SELECTION` PASS. Exact-SHA rerun authenticated source/engine/profile/toolchain
+identity; static evidence remains blocked by profile validation and build evidence by compiler
+source-membership. Package inspection и
 Simulator app installation для extensions прошли, но Share activation/VoiceOver остаются BLOCKED
 из-за отсутствия approved host/UI interaction path; local/GitHub parity не выполнялась.
-Следующий bounded шаг — после разрешённого implementation commit повторить authenticated graph/build
-evidence, затем lifecycle/accessibility; 9.1 и 9.2 остаются promotion/adoption gates с отдельными
+Следующий bounded шаг — устранить/принять remaining profile/source-membership gates, затем
+lifecycle/accessibility; 9.1 и 9.2 остаются promotion/adoption gates с отдельными
 receipts. Текущий consumer HEAD до implementation changes — `fe575e7c82a58dedb18728628fce59a46a2aa3e6`;
 текущая implementation change включает три разрешённых test-source файла, task receipts/docs и
 app-local `.quality-control/profile.json`; implementation commit —

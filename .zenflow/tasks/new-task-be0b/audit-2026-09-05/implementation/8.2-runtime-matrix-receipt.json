@@ -10,7 +10,7 @@
     "sourceRevision": "fe575e7c82a58dedb18728628fce59a46a2aa3e6",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
     "workingTreeAtEvidenceGeneration": "dirty in the three authorized test-source paths, app-local QC profile, and task receipts/docs",
-    "postCommitState": "requires fresh exact-SHA evidence rerun"
+    "postCommitState": "exact-SHA rerun recorded; static profile and build source-membership gates remain blocked"
   },
   "engine": {
     "repository": "MArtem/AIZenflowQualityControl",
@@ -37,8 +37,8 @@
     {
       "id": "identity.static-profile-evidence",
       "status": "BLOCKED",
-      "reason": "The app-local profile patch removes the target/version mismatch, but validate-profile remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED and the patched diagnostic clone is not an authenticated snapshot",
-      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-corrected.json", "runtime/tchop-8-2/qc-logs/validate-profile-final.json", "runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json"]
+      "reason": "Exact-SHA identity is authenticated, but validate-profile remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED and static-evidence returns QC.STATIC_EVIDENCE.INVALID_PROFILE",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-corrected.json", "runtime/tchop-8-2/qc-logs/validate-profile-final.json", "runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
     },
     {
       "id": "build.six-debug-schemes",
@@ -48,8 +48,8 @@
     {
       "id": "build.authenticated-build-evidence",
       "status": "BLOCKED",
-      "reason": "QC.BUILD_EVIDENCE.BOUNDARY_UNTRUSTED on the intentionally dirty diagnostic clone; authenticated build evidence still requires an explicitly authorized exact profile snapshot",
-      "evidence": ["runtime/tchop-8-2/qc-logs/build-evidence-final.json", "runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json"]
+      "reason": "Exact-SHA rerun reaches QC.BUILD.MEMBERSHIP.BLOCKED after identity authentication; authenticated build evidence still lacks compiler source-membership proof",
+      "evidence": ["runtime/tchop-8-2/qc-logs/build-evidence-final.json", "runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
     },
     {
       "id": "runtime.signed-out-smoke",

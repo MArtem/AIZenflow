@@ -392,9 +392,11 @@ Pilot → promotion: каждый из двух consumers закрывает п�
 inventory → dry-run → apply → post-check → repeat → rollback lifecycle дали ожидаемые статусы.
 Это расширяет evidence 8.2, но не закрывает block: app-local profile patch теперь согласован с
 фактическими engine version/target graph, и bounded doctor даёт `QC.DOCTOR.XCODE_GRAPH_SELECTION`
-PASS; `validate-profile` всё ещё требует authoritative schemaVersion 2 graph, а authenticated
-`static-evidence`/`build-evidence` остановились на trust boundary, потому что patched profile не
-закоммичен. Authorized test-source repairs применены, unit tests и все 7 UI tests проходят.
+PASS; `validate-profile` всё ещё требует authoritative schemaVersion 2 graph, exact-SHA
+`static-evidence` останавливается на `QC.STATIC_EVIDENCE.INVALID_PROFILE`, а exact-SHA
+`build-evidence` аутентифицирует identity boundary и останавливается на
+`QC.BUILD.MEMBERSHIP.BLOCKED`. Authorized test-source repairs применены, unit tests и все 7 UI
+tests проходят.
 Extension lifecycle, VoiceOver, GitHub parity и pre-PR review ещё не выполнены. Поэтому 8.2, 9.1
 и 9.2 остаются открытыми; production readiness или stable QC promotion не заявляются.
 
