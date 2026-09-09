@@ -364,8 +364,9 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
   семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
   fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
-  PASS и bounded host fixture build/install PASS. Graph-scoped static-evidence, doctor
-  effective-settings, extension lifecycle/accessibility и local/GitHub parity остаются открыты;
+  PASS, bounded host fixture build/install PASS и GitHub parity PASS after merge PR #23.
+  Graph-scoped static-evidence, doctor effective-settings, extension lifecycle/accessibility и
+  pre-PR review остаются открыты;
   test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
@@ -460,12 +461,23 @@ Share activation and VoiceOver are not claimed.
 
 QC schema-v2/doctor changes are pinned to engine `bc2072b76df41a653f204861d60d9d602ac999af` and
 are pushed on `codex/schema-v2-doctor`. Doctor now fails only at effective Xcode settings in this
-environment; the profile/repository/source/sandbox checks pass. The consumer branch is not pushed
-by user decision. GitHub workflow parity remains manual-only and the user will run it after the
-branch is published.
+environment; the profile/repository/source/sandbox checks pass. At that pre-merge point the
+consumer branch was not yet pushed and GitHub workflow parity was manual-only; the post-merge
+continuation below records the completed publication and run.
 
 Promotion/release options are recorded in
 `audit-2026-09-05/implementation/9.1-promotion-release-options-2026-09-09.md`. No release action
 is authorized by those options. 9.2 is closed as `PASS_WITH_LIMITATION` for bounded consumer-local
-adoption revalidation; sibling/remote mutation, broad bootstrap apply, and GitHub parity remain
-unexecuted.
+adoption revalidation; sibling mutation and broad bootstrap apply remain unexecuted. GitHub parity
+is recorded in the post-merge continuation below.
+
+## Post-merge continuation — 2026-09-09
+
+PR #23 was merged into `main` as `16ae3f4ff7892d567eb0b4c89f775cd1d3685880`. The manually
+dispatched GitHub Actions `Repository static gate` for consumer head
+`0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e` completed with `success` (run `34390669850`).
+Therefore `parity.local-github` is now PASS. The implementation plan has 29 of 30 checkboxes
+closed; the only open block is 8.2, with four remaining sub-gates: graph-scoped static-evidence,
+doctor effective settings, Share Extension/VoiceOver runtime, and pre-PR independent review.
+The QC engine branch `codex/schema-v2-doctor` is pushed but still has no PR; its creation remains
+an optional integration step before stable engine promotion, not evidence that 8.2 is complete.

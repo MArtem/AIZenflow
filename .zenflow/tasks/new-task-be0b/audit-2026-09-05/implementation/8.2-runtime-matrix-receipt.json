@@ -10,6 +10,7 @@
     "sourceRevision": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
     "evidenceCommit": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
+    "githubMergeCommit": "16ae3f4ff7892d567eb0b4c89f775cd1d3685880",
     "workingTreeAtEvidenceGeneration": "clean tracked source/profile/task state after bounded fixture and evidence commits; local ignored QC cache/runtime evidence excluded",
     "postCommitState": "exact-SHA fixture commit reauthenticated; validate-profile and explicit static PASS, static-evidence and doctor remain blocked at authoritative Xcode graph/effective-settings boundaries"
   },
@@ -97,8 +98,9 @@
     },
     {
       "id": "parity.local-github",
-      "status": "NOT_RUN_BY_USER_DECISION",
-      "reason": "GitHub execution is manual-only in the profile; no workflow dispatch was authorized"
+      "status": "PASS",
+      "reason": "User-confirmed PR #23 merge; GitHub Actions Repository static gate completed successfully for exact consumer head 0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e before merge",
+      "evidence": ["https://github.com/MArtem/AIZenflow/actions/runs/34390669850", "https://github.com/MArtem/AIZenflow/pull/23"]
     },
     {
       "id": "pre-pr-independent-review",
@@ -113,7 +115,6 @@
       "graph-scoped schema-v2 static-evidence acceptance",
       "bounded doctor effective-settings check",
       "extension lifecycle/accessibility runtime execution",
-      "local/GitHub parity",
       "pre-PR review"
     ]
   },

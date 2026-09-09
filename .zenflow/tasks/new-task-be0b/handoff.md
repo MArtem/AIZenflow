@@ -144,5 +144,20 @@ Delta-review дополнения завершён Astra: PLAN_AMENDMENT_REVIEW.
   profile/workflow boundary, and reversible local branch are recorded. No sibling/remote mutation,
   broad bootstrap apply, or GitHub dispatch was performed.
 
-Remaining gates: graph-scoped static-evidence, doctor effective settings, Share Extension runtime
-and VoiceOver, manual GitHub parity after user publishes the branch, and pre-PR independent review.
+At that pre-merge point the remaining gates were graph-scoped static-evidence, doctor effective
+settings, Share Extension runtime/VoiceOver, manual GitHub parity, and pre-PR independent review.
+The post-merge continuation below records parity as completed.
+
+## Post-merge continuation — 2026-09-09
+
+PR #23 (`codex/tchop-qc-gates`) is merged into `main` as
+`16ae3f4ff7892d567eb0b4c89f775cd1d3685880`. GitHub Actions `Repository static gate` for head
+`0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e` completed successfully in run
+`34390669850`; local/GitHub parity is therefore PASS. The continuation worktree is now on local
+branch `codex/tchop-qc-continuation` from `origin/main`.
+
+Current plan count: 29/30 implementation blocks closed; only 8.2 remains open. Its four remaining
+sub-gates are graph-scoped schema-v2 static-evidence, doctor effective Xcode settings, Share
+Extension/VoiceOver runtime execution, and independent pre-PR review. The QC engine branch
+`codex/schema-v2-doctor` remains pushed without a PR; no stable QC promotion or release action is
+claimed.
