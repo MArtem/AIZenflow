@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "command": "static-evidence",
+  "status": "BLOCKED",
+  "sourceRepository": "MArtem/AIZenflow",
+  "sourceRevision": "8fc0fae84b3c847c1f891a9e742b69d568cb4f70",
+  "engineRepository": "MArtem/AIZenflowQualityControl",
+  "engineRevision": "c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880",
+  "engineCDHash": "fc8d8cd64035e301d0d37864fdbb964e500dc0a9",
+  "profileSHA256": "b3b27f319aec1c53472084cac7b35fdf5cd8319568854ec40e238d7b049dfe9b",
+  "report": {
+    "check": "QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
+    "status": "BLOCKED",
+    "verificationVerdict": "BLOCKED",
+    "verificationIssues": []
+  },
+  "interpretation": "Current-head static-evidence authenticated the source and engine identities and returned the same schemaVersion 2 graph-membership gate. The separate current-head build-evidence receipt supplies authenticated compiler source-membership evidence; static-evidence itself remains blocked by the profile validator until the engine exposes an accepted graph-resolution handoff.",
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

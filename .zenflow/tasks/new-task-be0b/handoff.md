@@ -144,5 +144,98 @@ Delta-review дополнения завершён Astra: PLAN_AMENDMENT_REVIEW.
   profile/workflow boundary, and reversible local branch are recorded. No sibling/remote mutation,
   broad bootstrap apply, or GitHub dispatch was performed.
 
-Remaining gates: graph-scoped static-evidence, doctor effective settings, Share Extension runtime
-and VoiceOver, manual GitHub parity after user publishes the branch, and pre-PR independent review.
+At that pre-merge point the remaining gates were graph-scoped static-evidence, doctor effective
+settings, Share Extension runtime/VoiceOver, manual GitHub parity, and pre-PR independent review.
+The post-merge continuation below records parity as completed.
+
+## Post-merge continuation — 2026-09-09
+
+PR #23 (`codex/tchop-qc-gates`) is merged into `main` as
+`16ae3f4ff7892d567eb0b4c89f775cd1d3685880`. GitHub Actions `Repository static gate` for head
+`0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e` completed successfully in run
+`34390669850`; local/GitHub parity is therefore PASS. The continuation worktree is now on local
+branch `codex/tchop-qc-continuation` from `origin/main`.
+
+Current plan count: 29/30 implementation blocks closed; only 8.2 remains open. Its four remaining
+sub-gates are graph-scoped schema-v2 static-evidence, doctor effective Xcode settings, Share
+Extension/VoiceOver runtime execution, and independent pre-PR review. The QC engine branch
+`codex/schema-v2-doctor` was merged through PR #25:
+https://github.com/MArtem/AIZenflowQualityControl/pull/25, producing merge commit
+`1035b95273795bee8be242239036b45ec7e7ceff`; the tested tree head is
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`. Independent re-review after the symlink fix returned no
+findings, and local QC verification remains 176 tests / 16 suites PASS. No stable QC promotion or
+release action is claimed.
+
+The continuation branch contains consumer commit `b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071`, which
+updates the profile and manual workflow to the merged QC pin. It is pushed in PR #24:
+https://github.com/MArtem/AIZenflow/pull/24. After the user dispatches its manual GitHub workflow,
+that run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and
+Share Extension/VoiceOver runtime remain blocked.
+
+## Runtime/QC continuation — 2026-09-09
+
+The merged QC engine `c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880` was revalidated locally. Doctor now
+passes profile contract, repository/source/sandbox boundaries, Xcode graph selection, and effective
+settings; it remains BLOCKED only at the separate source-membership evidence boundary. Receipt:
+`runtime/tchop-8-2/qc-logs/doctor-c0e7-2026-09-09.json`.
+
+The exact-SHA graph-scoped `static-evidence` run authenticated source
+`938e2bd5cbfaba0047d71176ae0e71bd994190b8`, engine
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`, and engine CDHash
+`fc8d8cd64035e301d0d37864fdbb964e500dc0a9`, then stopped at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-receipt.json`.
+
+The bounded UI-test contract repair is committed at consumer SHA
+`6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1`: the test treats system activity providers as cells,
+opens `More`, and only then searches for `Tchop Share`. Build-for-testing passed. On the restored
+and rebooted iPhone 17 Pro Simulator, the host opened the system sheet and `More`, but the expanded
+Apps list contained `Reminders` and `TchopApp` only; `Tchop Share` was absent. The targeted test
+therefore fails at provider registration, and no Share activation, extension screen, close action,
+or VoiceOver traversal PASS is claimed. Receipt:
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json`.
+
+Current plan count remains 29/30 implementation blocks closed; 8.2 remains the only open block.
+Its remaining sub-gates are graph-scoped static-evidence, source-membership evidence, Share provider
+registration plus extension/accessibility runtime, and independent pre-PR review. The prior manual
+workflow success was bound to consumer head `938e2bd5cbfaba0047d71176ae0e71bd994190b8`; the new
+test-source commit changes the head, so PR #24 requires a fresh manual dispatch before parity can be
+reused. No promotion, release, archive, signing, or App Store action is claimed.
+
+## Runtime/QC continuation — 2026-09-09 follow-up
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+The bounded Share host fixture was re-run after the test-source repair at consumer commit
+`52a6af81a33de6c21b6e434ada93eb5d5752fbdc`. The restored/rebooted iPhone 17 Pro Simulator exposed
+the provider as the containing-app label `TchopApp`; selecting it launched
+`com.example.TchopApp.share`, exposed `shareExtension.screen`, and exposed a non-empty,
+hittable `shareExtension.closeButton` that completed the request. Build-for-testing and the
+targeted test both passed. Receipt/result:
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json` and
+`runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult`.
+
+The runtime/accessibility row is now `PASS_WITH_LIMITATION`: Simulator hierarchy and interaction
+are verified, but physical-device VoiceOver traversal is not claimed because Apple does not provide
+VoiceOver on iOS Simulator. The remaining 8.2 gates are graph-scoped static-evidence,
+source-membership evidence, physical-device VoiceOver, and independent pre-PR review. The current
+consumer branch must still receive a fresh manual GitHub workflow run for its current head before
+the parity receipt is reusable.
+
+## QC evidence continuation — 2026-09-09 current head
+
+The current consumer HEAD is `8fc0fae84b3c847c1f891a9e742b69d568cb4f70`. Authenticated merged-engine
+`build-evidence` passed for the declared `TchopApp` Debug / iPhone 17 Pro selection with
+`QC.BUILD`, `QC.BUILD.MEMBERSHIP`, `QC.BUILD.FIRST_PARTY_WARNINGS`, and
+`QC.CONCURRENCY.DIAGNOSTICS`; compiler membership covers 159 in-repository inputs, 210 compiler
+sections, and 0 external inputs. Receipt:
+`audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json`.
+
+Current-head graph-scoped `static-evidence` was also re-run. It remains `BLOCKED` only at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`; the separate authenticated build/source-membership
+gate is now PASS. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-current-2026-09-09.json`.
+
+The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
+and independent pre-PR review. The current branch still needs a fresh manual GitHub workflow run
+before the previous parity result can be reused.

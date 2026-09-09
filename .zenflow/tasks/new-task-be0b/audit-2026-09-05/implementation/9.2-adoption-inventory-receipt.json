@@ -10,12 +10,12 @@
   "currentRootRecheck": {
     "path": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
     "repository": "MArtem/AIZenflow",
-    "head": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
+    "head": "5b506a34b8c5e7b36b810d14c8efd0f17c3300e7",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
-    "branch": "codex/tchop-qc-gates",
+    "branch": "codex/tchop-qc-continuation",
     "origin": "https://github.com/MArtem/AIZenflow.git",
-    "workingTreeAtInspection": "clean for tracked source/profile/workflow files; local ignored QC cache/runtime evidence excluded",
-    "postCommitExpectation": "bounded consumer adoption is committed locally; branch remains unpublished and no sibling or remote mutations were performed"
+    "workingTreeAtInspection": "clean for tracked source/profile/workflow/task state after the merged-engine pin update; local ignored QC cache/runtime evidence excluded",
+    "postCommitExpectation": "bounded consumer adoption was explicitly pushed and merged through PR #23; merged QC engine pin update was pushed in PR #24 for manual GitHub parity, and no sibling repository was mutated"
   },
   "rootCount": 15,
   "canonicalGitIdentityCount": 6,
@@ -85,24 +85,26 @@
   "applyPlan": {
     "sequence": ["inventory", "conflict-report", "generated-manifest", "apply", "post-check", "repeat", "rollback"],
     "currentRun": "inventory_conflict_report_and_bounded_consumer_adoption_recheck",
-    "reason": "Consumer-local opt-in adoption and bounded test-host fixture were authorized; no broad mutation of sibling worktrees or remote repositories was requested",
+    "reason": "Consumer-local opt-in adoption, branch publication, PR merge, and merged-engine pin update were explicitly authorized; no broad mutation of sibling worktrees was requested",
     "idempotenceEvidence": "Existing synthetic bootstrap lifecycle is referenced by 8.2; cross-repository adoption repeat was not claimed",
     "rollback": "precise generated-file manifest plus backup hashes; no recursive delete or rsync-delete"
   },
   "boundedConsumerAdoption": {
     "status": "READY_WITH_LIMITATION",
     "repository": "MArtem/AIZenflow",
-    "branch": "codex/tchop-qc-gates",
-    "consumerRevision": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
+    "branch": "codex/tchop-qc-continuation",
+    "consumerRevision": "b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071",
+    "mergedFeatureRevision": "0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e",
+    "mergeCommit": "16ae3f4ff7892d567eb0b4c89f775cd1d3685880",
     "qualityProfile": ".quality-control/profile.json",
     "workflow": ".github/workflows/manual-quality.yml",
-    "engineRevision": "bc2072b76df41a653f204861d60d9d602ac999af",
+    "engineRevision": "c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880",
     "profileValidation": "PASS",
     "explicitSourceStatic": "PASS",
-    "rollbackBoundary": "consumer branch commit can be reverted; no sibling roots or remote branches changed",
+    "rollbackBoundary": "merged consumer change is recoverable through a dedicated revert PR; no sibling roots changed",
     "limitations": [
-      "branch is not pushed by user decision",
-      "manual GitHub parity remains NOT_RUN_BY_USER_DECISION",
+      "consumer pin update is open in PR #24 and is not yet merged",
+      "manual GitHub parity is PASS only for the merged feature head; pin-update parity is pending user dispatch",
       "graph-scoped static and doctor effective-settings remain blocked"
     ]
   },

@@ -134,8 +134,21 @@ final class TchopAppUITests: XCTestCase {
         XCTAssertTrue(presentShareButton.waitForExistence(timeout: launchTimeout))
         presentShareButton.tap()
 
-        let tchopShareAction = host.buttons["Tchop Share"].firstMatch
-        XCTAssertTrue(tchopShareAction.waitForExistence(timeout: launchTimeout))
+        // UIKit exposes activity providers in the host hierarchy as cells. On the
+        // restored iOS runtime, third-party providers are behind the More cell.
+        if shareExtensionActivity(in: host, timeout: launchTimeout / 3) == nil {
+            let moreAction = host.cells["More"].firstMatch
+            guard moreAction.waitForExistence(timeout: launchTimeout) else {
+                XCTFail("The system activity sheet did not expose More")
+                return
+            }
+            moreAction.tap()
+        }
+
+        guard let tchopShareAction = shareExtensionActivity(in: host, timeout: launchTimeout) else {
+            XCTFail("Tchop Share was not exposed by the system activity sheet")
+            return
+        }
         tchopShareAction.tap()
 
         let shareExtension = XCUIApplication(bundleIdentifier: "com.example.TchopApp.share")
@@ -148,7 +161,33 @@ final class TchopAppUITests: XCTestCase {
             .matching(identifier: "shareExtension.closeButton")
             .firstMatch
         XCTAssertTrue(closeButton.waitForExistence(timeout: launchTimeout))
+        XCTAssertFalse(closeButton.label.isEmpty)
+        XCTAssertTrue(closeButton.isHittable)
         closeButton.tap()
+    }
+
+    /// Resolves the provider label exposed by the system activity sheet.
+    ///
+    /// iOS may render a Share extension using the containing app's display name
+    /// (`TchopApp`) instead of the extension's own display name (`Tchop Share`).
+    /// The post-selection bundle identifier remains the authoritative contract.
+    private func shareExtensionActivity(
+        in host: XCUIApplication,
+        timeout: TimeInterval
+    ) -> XCUIElement? {
+        for label in ["Tchop Share", "TchopApp"] {
+            let cell = host.cells[label].firstMatch
+            if cell.waitForExistence(timeout: timeout) {
+                return cell
+            }
+
+            let button = host.buttons[label].firstMatch
+            if button.waitForExistence(timeout: timeout) {
+                return button
+            }
+        }
+
+        return nil
     }
 
     /// Creates a configured application instance for UI smoke coverage.

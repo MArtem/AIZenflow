@@ -364,8 +364,9 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
   семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
   fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
-  PASS и bounded host fixture build/install PASS. Graph-scoped static-evidence, doctor
-  effective-settings, extension lifecycle/accessibility и local/GitHub parity остаются открыты;
+  PASS, bounded host fixture build/install PASS и GitHub parity PASS after merge PR #23.
+  Doctor effective-settings PASS, while graph-scoped static-evidence, source-membership evidence,
+  Share provider registration/extension lifecycle/accessibility и pre-PR review остаются открыты;
   test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
@@ -460,12 +461,85 @@ Share activation and VoiceOver are not claimed.
 
 QC schema-v2/doctor changes are pinned to engine `bc2072b76df41a653f204861d60d9d602ac999af` and
 are pushed on `codex/schema-v2-doctor`. Doctor now fails only at effective Xcode settings in this
-environment; the profile/repository/source/sandbox checks pass. The consumer branch is not pushed
-by user decision. GitHub workflow parity remains manual-only and the user will run it after the
-branch is published.
+environment; the profile/repository/source/sandbox checks pass. At that pre-merge point the
+consumer branch was not yet pushed and GitHub workflow parity was manual-only; the post-merge
+continuation below records the completed publication and run.
 
 Promotion/release options are recorded in
 `audit-2026-09-05/implementation/9.1-promotion-release-options-2026-09-09.md`. No release action
 is authorized by those options. 9.2 is closed as `PASS_WITH_LIMITATION` for bounded consumer-local
-adoption revalidation; sibling/remote mutation, broad bootstrap apply, and GitHub parity remain
-unexecuted.
+adoption revalidation; sibling mutation and broad bootstrap apply remain unexecuted. GitHub parity
+is recorded in the post-merge continuation below.
+
+## Post-merge continuation — 2026-09-09
+
+PR #23 was merged into `main` as `16ae3f4ff7892d567eb0b4c89f775cd1d3685880`. The manually
+dispatched GitHub Actions `Repository static gate` for consumer head
+`0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e` completed with `success` (run `34390669850`).
+Therefore `parity.local-github` is now PASS. The implementation plan has 29 of 30 checkboxes
+closed; the only open block is 8.2, with four remaining sub-gates: graph-scoped static-evidence,
+doctor effective settings, Share Extension/VoiceOver runtime, and pre-PR independent review.
+The QC engine branch `codex/schema-v2-doctor` was merged through PR #25:
+https://github.com/MArtem/AIZenflowQualityControl/pull/25, producing merge commit
+`1035b95273795bee8be242239036b45ec7e7ceff`; the tested tree head is
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`. Independent re-review after the symlink fix returned no
+findings, and local QC verification is 176 tests / 16 suites PASS. The consumer pin update is
+prepared separately on the continuation branch; merge does not make 8.2 complete.
+
+## QC engine adoption continuation — 2026-09-09
+
+Consumer commit `b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071` updates `.quality-control/profile.json`
+and `.github/workflows/manual-quality.yml` from the pre-fix engine revision to merged-and-tested
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`. JSON validation, old-pin absence, and `git diff --check`
+pass. The pin update is pushed in consumer PR #24:
+https://github.com/MArtem/AIZenflow/pull/24. After the user dispatches its manual workflow,
+that run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and Share
+Extension/VoiceOver runtime remain blocked in the local environment.
+
+## Runtime/QC continuation — 2026-09-09
+
+Merged-engine doctor `c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880` now passes effective Xcode settings;
+source membership remains a separate BLOCKED evidence boundary. Graph-scoped static-evidence remains
+BLOCKED at `QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`; receipts are recorded in the 8.2 audit
+implementation directory.
+
+The bounded Share host UI test repair is committed at `6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1`.
+The test now follows the actual system hierarchy (`Cell` and `More`). A fresh installed app and a
+rebooted iPhone 17 Pro Simulator still expose only `Reminders` and `TchopApp` in the Apps list;
+`Tchop Share` is not registered. Share lifecycle and VoiceOver remain BLOCKED, with no false PASS.
+The current head requires a fresh manual workflow dispatch before the previous parity result can be
+reused. Pre-PR independent review remains open.
+
+## Runtime/QC continuation — 2026-09-09 follow-up
+
+The bounded Share host fixture was re-run after consumer commit
+`52a6af81a33de6c21b6e434ada93eb5d5752fbdc`. The system activity provider is rendered with the
+containing-app label `TchopApp`; selecting it launched `com.example.TchopApp.share`, exposed the
+extension screen, and exposed a non-empty/hittable Close control that completed the request.
+Build-for-testing and the targeted UI test passed. The authoritative receipt is
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json` and the
+result bundle is `runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult`.
+
+The extension lifecycle/accessibility row is now `PASS_WITH_LIMITATION`: Simulator hierarchy and
+interaction are verified, while physical-device VoiceOver traversal remains required because
+Apple does not provide VoiceOver on iOS Simulator. Block 8.2 remains open only for graph-scoped
+static-evidence, source-membership evidence, physical-device VoiceOver, and independent pre-PR
+review. The current consumer head still requires a fresh manual workflow dispatch before GitHub
+parity evidence can be reused.
+
+## QC evidence continuation — 2026-09-09 current head
+
+Current consumer HEAD `8fc0fae84b3c847c1f891a9e742b69d568cb4f70` passed authenticated merged-engine
+`build-evidence` for the declared `TchopApp` Debug / iPhone 17 Pro selection. `QC.BUILD`,
+`QC.BUILD.MEMBERSHIP`, `QC.BUILD.FIRST_PARTY_WARNINGS`, and `QC.CONCURRENCY.DIAGNOSTICS` all pass;
+the receipt reports 159 in-repository compiled inputs, 210 compiler sections, and 0 external inputs:
+`audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json`.
+
+Current-head graph-scoped `static-evidence` was re-run and remains blocked only at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`. The separate build/source-membership evidence is now
+PASS. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-current-2026-09-09.json`.
+
+The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
+and independent pre-PR review. A fresh manual GitHub workflow dispatch is still required before
+the prior parity result can be reused for the current head.

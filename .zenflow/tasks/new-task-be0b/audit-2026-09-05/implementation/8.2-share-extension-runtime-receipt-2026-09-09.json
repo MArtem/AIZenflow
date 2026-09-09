@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "status": "PASS_WITH_LIMITATION",
+  "sourceRevision": "52a6af81a33de6c21b6e434ada93eb5d5752fbdc",
+  "toolchain": {
+    "xcode": "26.6 (17F113)",
+    "simulator": "iPhone 17 Pro",
+    "os": "iOS 26.5",
+    "runtimeUDID": "E01AABC5-EAE3-4520-829F-2BDA17389148"
+  },
+  "fixture": {
+    "hostBundleIdentifier": "com.example.TchopShareHostFixture",
+    "shareExtensionBundleIdentifier": "com.example.TchopApp.share",
+    "hostBuild": "PASS",
+    "targetedAppBuildForTesting": "PASS",
+    "freshInstall": "PASS",
+    "simulatorReboot": "PASS"
+  },
+  "test": {
+    "identifier": "TchopAppUITests/testShareHostFixtureActivatesTchopShareExtension",
+    "resultBundle": "runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult",
+    "result": "PASS",
+    "providerLabel": "TchopApp",
+    "testSourceRepair": "Cell/More and containing-app-label contract is committed in 52a6af81a33de6c21b6e434ada93eb5d5752fbdc"
+  },
+  "observedAccessibilityHierarchy": [
+    "The host presents the system activity sheet successfully.",
+    "The provider row is exposed as Cell, not Button, and iOS renders the provider with the containing-app label TchopApp.",
+    "The More Cell is present and tappable when the provider is not in the direct row.",
+    "Selecting TchopApp launches com.example.TchopApp.share.",
+    "The extension screen identifier is present; the Close control has a non-empty label, is hittable, and closes the request successfully."
+  ],
+  "conclusion": "Bounded Share Extension registration, activation, screen discovery, labelled/hittable close interaction, and lifecycle completion PASS on the restored iPhone 17 Pro Simulator. Full VoiceOver traversal is not claimed because Apple does not provide VoiceOver on iOS Simulator; physical-device accessibility verification remains required.",
+  "evidence": [
+    "runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult",
+    "runtime/tchop-8-2/test-repair/TchopAppUITests-build-rerun-9.xcresult",
+    "TchopAppUITests/TchopAppUITests.swift"
+  ],
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}
