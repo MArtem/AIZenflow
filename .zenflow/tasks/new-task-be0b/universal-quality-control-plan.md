@@ -509,3 +509,20 @@ rebooted iPhone 17 Pro Simulator still expose only `Reminders` and `TchopApp` in
 `Tchop Share` is not registered. Share lifecycle and VoiceOver remain BLOCKED, with no false PASS.
 The current head requires a fresh manual workflow dispatch before the previous parity result can be
 reused. Pre-PR independent review remains open.
+
+## Runtime/QC continuation — 2026-09-09 follow-up
+
+The bounded Share host fixture was re-run after consumer commit
+`52a6af81a33de6c21b6e434ada93eb5d5752fbdc`. The system activity provider is rendered with the
+containing-app label `TchopApp`; selecting it launched `com.example.TchopApp.share`, exposed the
+extension screen, and exposed a non-empty/hittable Close control that completed the request.
+Build-for-testing and the targeted UI test passed. The authoritative receipt is
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json` and the
+result bundle is `runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult`.
+
+The extension lifecycle/accessibility row is now `PASS_WITH_LIMITATION`: Simulator hierarchy and
+interaction are verified, while physical-device VoiceOver traversal remains required because
+Apple does not provide VoiceOver on iOS Simulator. Block 8.2 remains open only for graph-scoped
+static-evidence, source-membership evidence, physical-device VoiceOver, and independent pre-PR
+review. The current consumer head still requires a fresh manual workflow dispatch before GitHub
+parity evidence can be reused.

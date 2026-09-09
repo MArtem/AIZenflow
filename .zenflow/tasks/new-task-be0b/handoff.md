@@ -201,3 +201,23 @@ registration plus extension/accessibility runtime, and independent pre-PR review
 workflow success was bound to consumer head `938e2bd5cbfaba0047d71176ae0e71bd994190b8`; the new
 test-source commit changes the head, so PR #24 requires a fresh manual dispatch before parity can be
 reused. No promotion, release, archive, signing, or App Store action is claimed.
+
+## Runtime/QC continuation — 2026-09-09 follow-up
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+The bounded Share host fixture was re-run after the test-source repair at consumer commit
+`52a6af81a33de6c21b6e434ada93eb5d5752fbdc`. The restored/rebooted iPhone 17 Pro Simulator exposed
+the provider as the containing-app label `TchopApp`; selecting it launched
+`com.example.TchopApp.share`, exposed `shareExtension.screen`, and exposed a non-empty,
+hittable `shareExtension.closeButton` that completed the request. Build-for-testing and the
+targeted test both passed. Receipt/result:
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json` and
+`runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult`.
+
+The runtime/accessibility row is now `PASS_WITH_LIMITATION`: Simulator hierarchy and interaction
+are verified, but physical-device VoiceOver traversal is not claimed because Apple does not provide
+VoiceOver on iOS Simulator. The remaining 8.2 gates are graph-scoped static-evidence,
+source-membership evidence, physical-device VoiceOver, and independent pre-PR review. The current
+consumer branch must still receive a fresh manual GitHub workflow run for its current head before
+the parity receipt is reusable.

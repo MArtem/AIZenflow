@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
   "block": "8.2",
-  "status": "BLOCKED",
-  "sourceRevision": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
+  "status": "PASS_WITH_LIMITATION",
+  "sourceRevision": "52a6af81a33de6c21b6e434ada93eb5d5752fbdc",
   "toolchain": {
     "xcode": "26.6 (17F113)",
     "simulator": "iPhone 17 Pro",
@@ -19,22 +19,23 @@
   },
   "test": {
     "identifier": "TchopAppUITests/testShareHostFixtureActivatesTchopShareExtension",
-    "resultBundle": "runtime/tchop-8-2/share-host-fixture/ShareExtensionTargetedRebooted.xcresult",
-    "result": "FAIL",
-    "failure": "Tchop Share was not exposed by the system activity sheet",
-    "testSourceRepair": "Cell/More contract is committed in 6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1"
+    "resultBundle": "runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult",
+    "result": "PASS",
+    "providerLabel": "TchopApp",
+    "testSourceRepair": "Cell/More and containing-app-label contract is committed in 52a6af81a33de6c21b6e434ada93eb5d5752fbdc"
   },
   "observedAccessibilityHierarchy": [
     "The host presents the system activity sheet successfully.",
-    "The provider row is exposed as Cell, not Button.",
-    "The More Cell is present and tappable.",
-    "After opening More, the Apps list contains Reminders and TchopApp; Tchop Share is absent."
+    "The provider row is exposed as Cell, not Button, and iOS renders the provider with the containing-app label TchopApp.",
+    "The More Cell is present and tappable when the provider is not in the direct row.",
+    "Selecting TchopApp launches com.example.TchopApp.share.",
+    "The extension screen identifier is present; the Close control has a non-empty label, is hittable, and closes the request successfully."
   ],
-  "conclusion": "Share provider registration remains BLOCKED. Share activation, extension screen, close interaction, and VoiceOver traversal are not claimed. The failure is reproducible after fresh installation and a target Simulator reboot, so it is not a stale test query or stale device registration.",
+  "conclusion": "Bounded Share Extension registration, activation, screen discovery, labelled/hittable close interaction, and lifecycle completion PASS on the restored iPhone 17 Pro Simulator. Full VoiceOver traversal is not claimed because Apple does not provide VoiceOver on iOS Simulator; physical-device accessibility verification remains required.",
   "evidence": [
-    "runtime/tchop-8-2/share-host-fixture/ShareExtensionTargetedRebooted.xcresult",
-    "runtime/tchop-8-2/share-host-fixture/xcresult-more-attachments/69520982-071D-4EFC-943B-37D72D941B9C.txt",
-    "runtime/tchop-8-2/share-host-fixture/xcresult-more-attachments/D3429432-9B1A-4356-8528-8022768B289B.txt"
+    "runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult",
+    "runtime/tchop-8-2/test-repair/TchopAppUITests-build-rerun-9.xcresult",
+    "TchopAppUITests/TchopAppUITests.swift"
   ],
   "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
 }

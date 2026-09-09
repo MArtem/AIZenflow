@@ -86,9 +86,9 @@
     },
     {
       "id": "extensions.lifecycle-and-accessibility",
-      "status": "BLOCKED",
-      "reason": "The bounded host fixture now executes on a booted iPhone 17 Pro and reaches the system activity sheet. The provider is represented as a Cell and More is reachable, but the Apps list contains only Reminders and TchopApp; Tchop Share is absent after fresh install and Simulator reboot. Share activation, extension screen, close interaction, and VoiceOver traversal remain unverified",
-      "evidence": ["audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json", "TchopAppUITests/ShareHostFixture/TchopShareHostFixture.xcodeproj", "runtime/tchop-8-2/share-host-fixture/", "runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json"]
+      "status": "PASS_WITH_LIMITATION",
+      "reason": "The bounded host fixture reaches the system activity sheet, resolves the containing-app provider label TchopApp, launches com.example.TchopApp.share, finds the extension screen and labelled/hittable Close control, and completes the request. Full VoiceOver traversal remains unverified because iOS Simulator does not provide VoiceOver; physical-device verification is still required",
+      "evidence": ["audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json", "TchopAppUITests/ShareHostFixture/TchopShareHostFixture.xcodeproj", "runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult"]
     },
     {
       "id": "doctor.effective-settings",
@@ -135,14 +135,14 @@
     "reason": "TchopAppTests pass and all 7 TchopAppUITests pass after aligning the helper with the Create action sheet"
   },
   "boundedShareHostFixture": {
-    "status": "BUILT_INSTALLED_RUNTIME_BLOCKED",
-    "commit": "6a96f97d88a1486b9976c7e72d5c97273c24048b",
+    "status": "BUILT_INSTALLED_RUNTIME_PASS_WITH_LIMITATION",
+    "commit": "52a6af81a33de6c21b6e434ada93eb5d5752fbdc",
     "hostBundleIdentifier": "com.example.TchopShareHostFixture",
     "shareExtensionBundleIdentifier": "com.example.TchopApp.share",
     "buildEvidence": "host fixture and TchopApp Debug builds PASS with CODE_SIGNING_ALLOWED=NO",
-    "runtimeEvidence": "targeted XCUITest executed after fresh install and target Simulator reboot; it opened the activity sheet and More, then failed because Tchop Share was absent from the registered Apps list; no activation or VoiceOver PASS claimed",
+    "runtimeEvidence": "targeted XCUITest executed after fresh install and target Simulator reboot; it resolved the provider as TchopApp, activated com.example.TchopApp.share, verified the extension screen and labelled/hittable close control, and completed the request; physical-device VoiceOver traversal remains required",
     "testEnvironmentVariable": "TCHOP_SHARE_HOST_FIXTURE=1",
-    "testSourceRepairCommit": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1"
+    "testSourceRepairCommit": "52a6af81a33de6c21b6e434ada93eb5d5752fbdc"
   },
   "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
 }
