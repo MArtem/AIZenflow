@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "command": "static-evidence",
+  "status": "BLOCKED",
+  "sourceRepository": "MArtem/AIZenflow",
+  "sourceRevision": "938e2bd5cbfaba0047d71176ae0e71bd994190b8",
+  "currentHeadAtReceipt": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
+  "engineRepository": "MArtem/AIZenflowQualityControl",
+  "engineRevision": "c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880",
+  "engineCDHash": "fc8d8cd64035e301d0d37864fdbb964e500dc0a9",
+  "profileSHA256": "b3b27f319aec1c53472084cac7b35fdf5cd8319568854ec40e238d7b049dfe9b",
+  "identityAuthenticated": true,
+  "report": {
+    "check": "QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
+    "status": "BLOCKED",
+    "verificationVerdict": "BLOCKED",
+    "verificationIssues": []
+  },
+  "interpretation": "The merged QC engine authenticated the source and engine identities and retained the structural profile contract, but the graph-scoped static-evidence worker still requires authoritative Xcode graph/source-membership resolution. Doctor separately resolved graph selection and effective settings; this receipt makes no compiled or shipped source-membership claim.",
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

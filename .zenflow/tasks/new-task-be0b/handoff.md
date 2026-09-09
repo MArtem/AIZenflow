@@ -171,3 +171,33 @@ updates the profile and manual workflow to the merged QC pin. It is pushed in PR
 https://github.com/MArtem/AIZenflow/pull/24. After the user dispatches its manual GitHub workflow,
 that run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and
 Share Extension/VoiceOver runtime remain blocked.
+
+## Runtime/QC continuation — 2026-09-09
+
+The merged QC engine `c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880` was revalidated locally. Doctor now
+passes profile contract, repository/source/sandbox boundaries, Xcode graph selection, and effective
+settings; it remains BLOCKED only at the separate source-membership evidence boundary. Receipt:
+`runtime/tchop-8-2/qc-logs/doctor-c0e7-2026-09-09.json`.
+
+The exact-SHA graph-scoped `static-evidence` run authenticated source
+`938e2bd5cbfaba0047d71176ae0e71bd994190b8`, engine
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`, and engine CDHash
+`fc8d8cd64035e301d0d37864fdbb964e500dc0a9`, then stopped at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-receipt.json`.
+
+The bounded UI-test contract repair is committed at consumer SHA
+`6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1`: the test treats system activity providers as cells,
+opens `More`, and only then searches for `Tchop Share`. Build-for-testing passed. On the restored
+and rebooted iPhone 17 Pro Simulator, the host opened the system sheet and `More`, but the expanded
+Apps list contained `Reminders` and `TchopApp` only; `Tchop Share` was absent. The targeted test
+therefore fails at provider registration, and no Share activation, extension screen, close action,
+or VoiceOver traversal PASS is claimed. Receipt:
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json`.
+
+Current plan count remains 29/30 implementation blocks closed; 8.2 remains the only open block.
+Its remaining sub-gates are graph-scoped static-evidence, source-membership evidence, Share provider
+registration plus extension/accessibility runtime, and independent pre-PR review. The prior manual
+workflow success was bound to consumer head `938e2bd5cbfaba0047d71176ae0e71bd994190b8`; the new
+test-source commit changes the head, so PR #24 requires a fresh manual dispatch before parity can be
+reused. No promotion, release, archive, signing, or App Store action is claimed.

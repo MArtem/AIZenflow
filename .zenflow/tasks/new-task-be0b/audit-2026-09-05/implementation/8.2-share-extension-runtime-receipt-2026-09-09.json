@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "status": "BLOCKED",
+  "sourceRevision": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
+  "toolchain": {
+    "xcode": "26.6 (17F113)",
+    "simulator": "iPhone 17 Pro",
+    "os": "iOS 26.5",
+    "runtimeUDID": "E01AABC5-EAE3-4520-829F-2BDA17389148"
+  },
+  "fixture": {
+    "hostBundleIdentifier": "com.example.TchopShareHostFixture",
+    "shareExtensionBundleIdentifier": "com.example.TchopApp.share",
+    "hostBuild": "PASS",
+    "targetedAppBuildForTesting": "PASS",
+    "freshInstall": "PASS",
+    "simulatorReboot": "PASS"
+  },
+  "test": {
+    "identifier": "TchopAppUITests/testShareHostFixtureActivatesTchopShareExtension",
+    "resultBundle": "runtime/tchop-8-2/share-host-fixture/ShareExtensionTargetedRebooted.xcresult",
+    "result": "FAIL",
+    "failure": "Tchop Share was not exposed by the system activity sheet",
+    "testSourceRepair": "Cell/More contract is committed in 6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1"
+  },
+  "observedAccessibilityHierarchy": [
+    "The host presents the system activity sheet successfully.",
+    "The provider row is exposed as Cell, not Button.",
+    "The More Cell is present and tappable.",
+    "After opening More, the Apps list contains Reminders and TchopApp; Tchop Share is absent."
+  ],
+  "conclusion": "Share provider registration remains BLOCKED. Share activation, extension screen, close interaction, and VoiceOver traversal are not claimed. The failure is reproducible after fresh installation and a target Simulator reboot, so it is not a stale test query or stale device registration.",
+  "evidence": [
+    "runtime/tchop-8-2/share-host-fixture/ShareExtensionTargetedRebooted.xcresult",
+    "runtime/tchop-8-2/share-host-fixture/xcresult-more-attachments/69520982-071D-4EFC-943B-37D72D941B9C.txt",
+    "runtime/tchop-8-2/share-host-fixture/xcresult-more-attachments/D3429432-9B1A-4356-8528-8022768B289B.txt"
+  ],
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

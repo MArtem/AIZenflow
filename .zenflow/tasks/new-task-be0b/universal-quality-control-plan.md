@@ -365,8 +365,8 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
   семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
   fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
   PASS, bounded host fixture build/install PASS и GitHub parity PASS after merge PR #23.
-  Graph-scoped static-evidence, doctor effective-settings, extension lifecycle/accessibility и
-  pre-PR review остаются открыты;
+  Doctor effective-settings PASS, while graph-scoped static-evidence, source-membership evidence,
+  Share provider registration/extension lifecycle/accessibility и pre-PR review остаются открыты;
   test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
@@ -495,3 +495,17 @@ pass. The pin update is pushed in consumer PR #24:
 https://github.com/MArtem/AIZenflow/pull/24. After the user dispatches its manual workflow,
 that run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and Share
 Extension/VoiceOver runtime remain blocked in the local environment.
+
+## Runtime/QC continuation — 2026-09-09
+
+Merged-engine doctor `c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880` now passes effective Xcode settings;
+source membership remains a separate BLOCKED evidence boundary. Graph-scoped static-evidence remains
+BLOCKED at `QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`; receipts are recorded in the 8.2 audit
+implementation directory.
+
+The bounded Share host UI test repair is committed at `6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1`.
+The test now follows the actual system hierarchy (`Cell` and `More`). A fresh installed app and a
+rebooted iPhone 17 Pro Simulator still expose only `Reminders` and `TchopApp` in the Apps list;
+`Tchop Share` is not registered. Share lifecycle and VoiceOver remain BLOCKED, with no false PASS.
+The current head requires a fresh manual workflow dispatch before the previous parity result can be
+reused. Pre-PR independent review remains open.

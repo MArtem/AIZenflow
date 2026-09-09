@@ -7,17 +7,17 @@
   "mode": "эконом",
   "consumer": {
     "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
-    "sourceRevision": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
-    "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
-    "evidenceCommit": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
+    "sourceRevision": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
+    "implementationCommit": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
+    "evidenceCommit": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1",
     "githubMergeCommit": "16ae3f4ff7892d567eb0b4c89f775cd1d3685880",
     "workingTreeAtEvidenceGeneration": "clean tracked source/profile/task state after bounded fixture and evidence commits; local ignored QC cache/runtime evidence excluded",
-    "postCommitState": "exact-SHA fixture commit reauthenticated; validate-profile and explicit static PASS, static-evidence and doctor remain blocked at authoritative Xcode graph/effective-settings boundaries"
+    "postCommitState": "exact-SHA UI-test contract commit reauthenticated; validate-profile and explicit static PASS, graph-scoped static-evidence remains blocked, doctor effective settings PASS, and Share provider runtime remains blocked"
   },
   "engine": {
     "repository": "MArtem/AIZenflowQualityControl",
-    "revision": "bc2072b76df41a653f204861d60d9d602ac999af",
-    "cdhash": "6a41e4aae31edded3342fe2ecc7f043383948e40"
+    "revision": "c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880",
+    "cdhash": "fc8d8cd64035e301d0d37864fdbb964e500dc0a9"
   },
   "toolchain": {
     "xcode": "26.6 (17F113)",
@@ -40,7 +40,7 @@
       "id": "identity.static-profile-evidence",
       "status": "BLOCKED",
       "reason": "Exact-SHA identity is authenticated and structural validate-profile now passes, but graph-scoped static-evidence remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
-      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-87d6.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
+      "evidence": ["audit-2026-09-05/implementation/8.2-static-evidence-c0e7-receipt.json", "runtime/tchop-8-2/qc-logs/static-evidence-final-87d6.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
     },
     {
       "id": "build.six-debug-schemes",
@@ -87,14 +87,14 @@
     {
       "id": "extensions.lifecycle-and-accessibility",
       "status": "BLOCKED",
-      "reason": "A bounded standalone share-host fixture was added, built, installed, and exposed deterministic accessibility identifiers; the targeted XCUITest could not execute because CoreSimulatorService made the destination unavailable, so Share activation and VoiceOver traversal remain unverified",
-      "evidence": ["TchopAppUITests/ShareHostFixture/TchopShareHostFixture.xcodeproj", "runtime/tchop-8-2/share-host-fixture/", "runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json"]
+      "reason": "The bounded host fixture now executes on a booted iPhone 17 Pro and reaches the system activity sheet. The provider is represented as a Cell and More is reachable, but the Apps list contains only Reminders and TchopApp; Tchop Share is absent after fresh install and Simulator reboot. Share activation, extension screen, close interaction, and VoiceOver traversal remain unverified",
+      "evidence": ["audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json", "TchopAppUITests/ShareHostFixture/TchopShareHostFixture.xcodeproj", "runtime/tchop-8-2/share-host-fixture/", "runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json"]
     },
     {
       "id": "doctor.effective-settings",
-      "status": "BLOCKED",
-      "reason": "QC doctor completed profile/repository/source/sandbox checks but could not obtain effective Xcode settings from the local CoreSimulator/Xcode environment within the bounded query budget",
-      "evidence": ["runtime/tchop-8-2/qc-logs/doctor-bc2072-2026-09-09.json"]
+      "status": "PASS",
+      "reason": "QC doctor on merged engine c0e7 resolved profile/repository/source/sandbox boundaries, Xcode graph selection, and effective settings. Source membership remains a separate BLOCKED evidence boundary and is not claimed by this row",
+      "evidence": ["runtime/tchop-8-2/qc-logs/doctor-c0e7-2026-09-09.json"]
     },
     {
       "id": "parity.local-github",
@@ -140,8 +140,9 @@
     "hostBundleIdentifier": "com.example.TchopShareHostFixture",
     "shareExtensionBundleIdentifier": "com.example.TchopApp.share",
     "buildEvidence": "host fixture and TchopApp Debug builds PASS with CODE_SIGNING_ALLOWED=NO",
-    "runtimeEvidence": "targeted test exited 70 twice because CoreSimulatorService reported the booted destination unavailable; no accessibility or activation PASS claimed",
-    "testEnvironmentVariable": "TCHOP_SHARE_HOST_FIXTURE=1"
+    "runtimeEvidence": "targeted XCUITest executed after fresh install and target Simulator reboot; it opened the activity sheet and More, then failed because Tchop Share was absent from the registered Apps list; no activation or VoiceOver PASS claimed",
+    "testEnvironmentVariable": "TCHOP_SHARE_HOST_FIXTURE=1",
+    "testSourceRepairCommit": "6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1"
   },
   "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
 }
