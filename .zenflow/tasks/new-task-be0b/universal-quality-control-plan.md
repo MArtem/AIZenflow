@@ -17,11 +17,11 @@
 
 ## Состояние внедрения — 2026-09-08
 
-Статус: **implementation in progress**. Блоки 0.1–6.1 завершены task-level фиксацией границ,
+Статус: **implementation in progress**. Блоки 0.1–7.2 завершены task-level фиксацией границ,
 baseline, сценариев, нормативного контракта, scoped Rule ID catalog, architecture invariants и
 prompt/specialist-route normalization, package ownership, toolchain/profile contract, release/privacy/performance matrices и effective bootstrap inventory; это не означает готовность engine, пилотов или
 release. Все блоки реализации, review и итоговая проверка выполняются на GPT-5.6 Luna xhigh.
-Прогресс реализации: **18 из 30 блоков (60%)**; это не процент production readiness.
+Прогресс реализации: **27 из 30 блоков (90%)**; это не процент production readiness.
 
 | Владелец | Источник истины и ответственность | Что сюда не переносится |
 | --- | --- | --- |
@@ -238,13 +238,65 @@ QualityControl commits `7b9958203f3c3b39d2e952aec36d4dced9462683` и corrective
 Unapproved YAML suppressions и inline `swiftlint:disable/enable` не становятся PASS. Legacy
 `QC.FORMAT.SWIFTFORMAT` явно означает Apple `swift-format`; SwiftFormat и SwiftLint остаются
 отдельными инструментами. New gate implemented, но `verified=false`, `wired=false` и
-`pilotEnabled=false` до 7.1/8.
+`pilotEnabled=false` до real producer verification in 7.1 and consumer pilots in stage 8.
 
 AST/JSON/diff и direct lexical/config contract checks PASS. Missing tool/config invocation корректно
 BLOCKED с сохранённой source revision; SwiftLint executable не устанавливался и не запускался,
 inert fixtures остаются unverified.
 
 Evidence блока 6.1: `audit-2026-09-05/implementation/6.1-swiftlint-contract.md`.
+
+## First-party warnings и concurrency diagnostics блока 6.2 — 2026-09-08
+
+QualityControl local commit `6fde6fcac44371ce34c4d7e0fa3d520957d1e8d9` добавляет две проверки,
+которые потребляют только стабильные structured `xcresult` reads из существующего authenticated
+build boundary. `QC.BUILD.FIRST_PARTY_WARNINGS` и `QC.CONCURRENCY.DIAGNOSTICS` сопоставляют
+selected target, exact source membership и toolchain-bound build artifacts. External/dependency,
+generated и non-selected-target diagnostics не приписываются текущей revision; selected-target
+diagnostic без подтверждённого membership даёт `BLOCKED`. Failed, partial, truncated, malformed,
+empty-membership и unsafe-path cases остаются non-PASS. Text-log tail не является evidence.
+
+В этой версии baseline предупреждений намеренно не создаётся и не угадывается: authenticated
+first-party warning считается new и даёт `FAIL` до появления отдельного reviewed baseline
+contract. Обе проверки catalog maturity имеют `implemented=true`, `wired=true`,
+`verified=false`, `pilotEnabled=false`; engine verifier acceptance выполнена в 7.1, но real Xcode
+wording, SwiftLint invocation и consumer/runtime verification остаются unverified.
+
+Remote publication QC SHA пока не утверждена auto-review; local exact-SHA review и static checks
+зафиксированы в receipt. Это не отменяет implementation evidence и не объявляет engine release.
+
+Evidence блока 6.2: `audit-2026-09-05/implementation/6.2-first-party-warnings.md`.
+
+## Verifier-test и bounded canary acceptance блока 7.1 — 2026-09-08
+
+Пользователь отдельно разрешил создание, изменение и запуск engine tests для этой фазы. В QC
+commit `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15` исправлен unreachable precedence path для
+concurrency-only diagnostics и добавлены только cases для новых invariants блока 6.2: source
+normalization, external/non-selected/generated exclusion, malformed source, first-party warning,
+concurrency-only failure, unattributed membership и public evidence-free terminal outcomes.
+
+Baseline перед patch: 164 теста в 16 suites. Разрешённый итоговый QualityCore suite: **172 теста
+в 16 suites, 0 failures**, Swift warnings-as-errors. `swiftc -parse` и `git diff --check` прошли;
+exact diff review выполнен против `6fde6fc`. Synthetic canary ограничен authenticated engine
+observations. Реальные `xcodebuild`, SwiftLint, app consumers, device/runtime, CI и external
+review не запускались и остаются unverified до соответствующих pilot/review фаз.
+
+Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acceptance.md`.
+
+## Раздельная оценка генерации и detection блока 7.2 — 2026-09-08
+
+Выполнены два отдельных Luna xhigh evaluation passes без передачи evaluator key generator или
+blind detector. S01 использован как открытый пример: генератор получил PASS по initial correctness,
+а blind detector обнаружил deliberate stale-write Gamma и не превратил Beta robustness concern в
+ложный FAIL. S04 использован как holdout: ORBIT transactional replacement получил conditional
+generation PASS, а blind detector правильно классифицировал ORBIT как PASS и NOVA с destructive
+`delete → write` как FAIL. Evaluator key раскрыт только после фиксации findings.
+
+Generation quality и detection quality записаны раздельно; combined score не создавался. Все
+результаты desk/static: runtime, Swift compiler, persistence, UI, tests, build, consumer readiness
+и production claims остаются unverified. S01/S04 receipts:
+`audit-2026-09-05/implementation/7.2-s01-generation-detection.md` и
+`audit-2026-09-05/implementation/7.2-s04-holdout-generation-detection.md`.
 
 ## Observations блока 0.3 — 2026-09-08
 
@@ -257,7 +309,8 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 ## Проверенное состояние
 
 - Documentation remote main до implementation: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; SHA после блока 1.2: `9af48a9c61712fc66751e3c0270132f7f2aabb27`; текущий канонический SHA после блока 2.2: `b7a975b395e90937c38f86aa43c27a19c1108d29`.
-- QC remote main и `AIZenflowQualityControl-main-active`: `1561dce56148e068bc1f682025ad984f55c9b64b`.
+- QC local main-active и remote `main`: `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`; remote SHA
+  подтверждён после явного разрешения пользователя.
 - Catalog: 16 implemented, 3 staged, 1 review-candidate. Наличие adapter не равно mode coverage/pilot readiness.
 - Foundation, permissions, bounded evidence и canary существуют; не реализовывать их повторно.
 - H format/privacy/signing/disabled-test уже реализованы; Swift source gates также добавлены. Остались scope/lexical accuracy, maturity/fixture mapping, SwiftLint, first-party warnings/concurrency diagnostics.
@@ -304,28 +357,115 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 5.2: Swift patterns и disabled-tests claims — Luna xhigh.
 - [x] 5.3: catalog maturity и честное mode coverage — Luna xhigh.
 - [x] 6.1: SwiftLint config/contract — Luna xhigh.
-- [ ] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh.
-- [ ] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh.
-- [ ] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh.
-- [ ] 8.1: простой consumer pilot — Luna xhigh.
-- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh.
-- [ ] 8.3: готовность подготовки к будущему продуктовому проекту — Luna xhigh.
-- [ ] 9.1: promotion/release contract — Luna xhigh.
-- [ ] 9.2: existing/future project adoption — Luna xhigh.
-- [ ] 10.1: context budget и повторное использование evidence — Luna xhigh.
-- [ ] 10.2: калибровка процесса Luna xhigh — Luna xhigh.
-- [ ] 11.1: итоговый semantic audit — Luna xhigh.
-- [ ] 11.2: лёгкая поддержка и recovery — Luna xhigh.
+- [x] 6.2: first-party warnings и concurrency diagnostics — Luna xhigh; опубликовано в QC remote SHA `b197bd5`.
+- [x] 7.1: разрешённая verifier-test/canary acceptance phase — Luna xhigh; 172/16 PASS, QC remote SHA `b197bd5` подтверждён.
+- [x] 7.2: раздельная оценка генерации и detection ошибок — Luna xhigh; S01 open + S04 holdout, desk/static only.
+- [x] 8.1: простой consumer pilot — Luna xhigh; MVVMExample static pin/adapters PASS, runtime/build не заявлены.
+- [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
+  семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
+  fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
+  PASS и bounded host fixture build/install PASS. Graph-scoped static-evidence, doctor
+  effective-settings, extension lifecycle/accessibility и local/GitHub parity остаются открыты;
+  test-target compilation после authorized repair PASS.
+- [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
+- [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
+  фактическая promotion/release операция не выполнялась.
+- [x] 9.2: existing/future project adoption — Luna xhigh; bounded consumer-local adoption
+  revalidated with exact QC pin and rollback boundary; sibling/remote mutation и GitHub parity не
+  выполнялись.
+- [x] 10.1: context budget и повторное использование evidence — Luna xhigh; PASS_WITH_LIMITATION, route budget в норме, billed-token reduction не заявлена.
+- [x] 10.2: калибровка процесса Luna xhigh — Luna xhigh; PASS_WITH_LIMITATION, targeted route default, broad route только для cross-cutting audit.
+- [x] 11.1: итоговый semantic audit — Luna xhigh; PASS_WITH_LIMITATION, F01–F24 и 67 archive decisions mapped, stable promotion NOT_READY.
+- [x] 11.2: лёгкая поддержка и recovery — Luna xhigh; PASS_WITH_LIMITATION, trigger-based без automation, stable release не активируется.
 
-Следующий implementation block: 6.2 — first-party warnings и concurrency diagnostics.
-Конкретика и критерии приёмки находятся в подробном roadmap. Ни один implementation checkbox не
-помечается выполненным только потому, что написан план.
+Все независимые preparation blocks 0.1–11.2 зафиксированы task-level evidence. Открытым
+consumer/promotion gate остаётся 8.2; 9.1 закрыт как contract/options artifact, а 9.2 закрыт
+как bounded adoption revalidation с ограничениями. Фактическая promotion по-прежнему запрещена
+до полного 8.2 и owner-selected release decision. Ни один implementation checkbox не помечается
+выполненным только потому, что написан план.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
 
+## Runtime continuation блока 8.2 — 2026-09-09
+
+Пользователь отдельно разрешил runtime/full matrix на Luna xhigh. Для Tchop HEAD
+`e24b7c8be50aad8777c47116b8ccb1e4ab3a9977` последовательно собраны шесть Debug schemes на iPhone
+17 Pro/iOS 26.5; clean signed-out и authenticated smoke launch прошли после исправления
+`AppState` session-restore race. QC engine `b197bd5e` собран с CDHash
+`84ba17cfe7fcc7fd3ea7d551b07bbaba4f6dd555`. Positive/negative static fixtures и synthetic
+inventory → dry-run → apply → post-check → repeat → rollback lifecycle дали ожидаемые статусы.
+Это расширяет evidence 8.2, но не закрывает block: app-local profile patch теперь согласован с
+фактическими engine version/target graph и переносит QC cache внутрь `TchopApp` source boundary.
+Explicit-source static scan PASS; supervised exact-SHA `build-evidence` PASS с
+`QC.BUILD.MEMBERSHIP`, first-party warnings и concurrency diagnostics. `validate-profile` и
+`static-evidence` всё ещё останавливаются на `QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED` /
+`QC.STATIC_EVIDENCE.INVALID_PROFILE`; bounded doctor aggregate остаётся blocked на effective
+settings. Authorized test-source repairs применены, unit tests и все 7 UI tests проходят.
+Extension lifecycle, VoiceOver, GitHub parity и pre-PR review ещё не выполнены. Поэтому 8.2, 9.1
+и 9.2 остаются открытыми; production readiness или stable QC promotion не заявляются.
+
+## Authorized test-source repair — 2026-09-09
+
+Пользователь разрешил bounded изменение только test-source файлов:
+`TchopAppTests/TestDoubles/TestAppContentRepository.swift` и
+`TchopAppTests/NewsFeedViewModelTests.swift`, а затем
+`TchopAppUITests/TchopAppUITests.swift`. Test double приведён к user-scoped
+`FeedCardPersisting`; затронутые store tests активируют `test-user`, а direct repository tests
+передают user identifier. `git diff --check`, stale-signature search, parse-only Swift syntax
+validation и affected call-site audit дали PASS: все четыре direct store setup активируют
+`test-user`.
+
+Повторный xcodebuild дал unit-test PASS (`TchopAppTests`), UI-test build PASS и UI execution PASS:
+7 из 7 UI tests завершились без failures после обновления test helper для Create → New post.
+Production source и Xcode project не менялись. Это закрывает test verification gate, но не 8.2 целиком.
+
+## Promotion/release contract блока 9.1 — 2026-09-09
+
+Receipt: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md`. Contract shape,
+compatibility/support/rollback rows and current Apple compliance inputs are recorded. Verdict is
+`BLOCKED / NOT_READY`: 8.2 is still partial, no exact approved release candidate exists, the
+implementation commit has not been re-authenticated as a release candidate, and no
+promotion/release approval was requested. No tag, signing, archive upload, TestFlight delivery or
+App Store action was performed.
+
+## Existing/future adoption contract блока 9.2 — 2026-09-09
+
+Receipt: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`. The historical
+inventory grouped 15 worktrees into 6 canonical Git identities; the latest bounded recheck is
+bound to consumer HEAD `87d6ce2e`. The tracked consumer state is clean and the read-only result groups
+the roots into
+canonical Git identities and separates Documentation Vault,
+QualityControl engine/canary repositories, current AIZenflow consumers, MVVMExample and PanModal,
+and confirmed that global rules are distinct from explicit QC profile adoption. Verdict is
+`PASS_WITH_LIMITATION`: inventory, conflict boundary, and consumer-local opt-in adoption are
+complete; cross-repository apply, idempotence and rollback for sibling/future roots remain
+unexecuted because no broad mutation was authorized. No sibling worktree or remote repository was
+changed.
+
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 6.1 закрыты task-level evidence; следующий 6.2. Никакого продукта, benchmark runner или тестового кода текущая корректировка не создаёт.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3, 10.1, 10.2, 11.1 и 11.2 закрыты task-level evidence; 8.2 расширен runtime/build/QC/bootstrap evidence, но остаётся partial из-за Xcode graph/build-evidence, extension/accessibility и parity blockers; test-target compilation после authorized repair PASS. 8.3, 10.1, 10.2, 11.1 и 11.2 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.
+
+## Latest continuation — 2026-09-09
+
+Consumer branch `codex/tchop-qc-gates` теперь содержит bounded standalone Share host fixture and
+accessibility identifiers in commit `6a96f97d88a1486b9976c7e72d5c97273c24048b`. Host fixture and
+TchopApp Debug builds, installation, structural `validate-profile`, and explicit-source static
+scan pass. Targeted UI execution was attempted twice with `TCHOP_SHARE_HOST_FIXTURE=1` and remains
+blocked at exit 70 because CoreSimulatorService made the known booted destination unavailable;
+Share activation and VoiceOver are not claimed.
+
+QC schema-v2/doctor changes are pinned to engine `bc2072b76df41a653f204861d60d9d602ac999af` and
+are pushed on `codex/schema-v2-doctor`. Doctor now fails only at effective Xcode settings in this
+environment; the profile/repository/source/sandbox checks pass. The consumer branch is not pushed
+by user decision. GitHub workflow parity remains manual-only and the user will run it after the
+branch is published.
+
+Promotion/release options are recorded in
+`audit-2026-09-05/implementation/9.1-promotion-release-options-2026-09-09.md`. No release action
+is authorized by those options. 9.2 is closed as `PASS_WITH_LIMITATION` for bounded consumer-local
+adoption revalidation; sibling/remote mutation, broad bootstrap apply, and GitHub parity remain
+unexecuted.

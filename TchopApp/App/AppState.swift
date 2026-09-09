@@ -235,7 +235,7 @@ final class AppState {
             let restoredUser = try await sessionService.restoreAuthenticatedSession()
             if let restoredUser {
                 activateAuthenticatedUser(restoredUser)
-            } else {
+            } else if sessionStore.currentUser == nil {
                 sessionStore.setSignedOut()
                 syncSessionStateFromStore()
                 appShellViewModel.clearFeedScope()

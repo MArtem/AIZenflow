@@ -46,8 +46,10 @@ enum State {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(AppLocalization.text("common.close"), action: onClose)
+                        .accessibilityIdentifier("shareExtension.closeButton")
                 }
             }
+            .accessibilityIdentifier("shareExtension.screen")
         }
     }
 
@@ -73,6 +75,7 @@ enum State {
 
                 Button(AppLocalization.text("shareExtension.openApp"), action: onOpenApp)
                     .buttonStyle(.borderedProminent)
+                    .accessibilityIdentifier("shareExtension.openAppButton")
 
                 Spacer(minLength: 0)
             }
@@ -82,8 +85,10 @@ enum State {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(AppLocalization.text("common.close"), action: onClose)
+                        .accessibilityIdentifier("shareExtension.closeButton")
                 }
             }
+            .accessibilityIdentifier("shareExtension.screen")
         }
     }
 
@@ -106,8 +111,10 @@ enum State {
             .toolbar {
                 ToolbarItem(placement: .cancellationAction) {
                     Button(AppLocalization.text("common.close"), action: onClose)
+                        .accessibilityIdentifier("shareExtension.closeButton")
                 }
             }
+            .accessibilityIdentifier("shareExtension.screen")
         }
     }
 }

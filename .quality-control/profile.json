@@ -12,8 +12,8 @@
   ],
   "mode": "controlled",
   "engine": {
-    "version": "git-6ebf4b6",
-    "revision": "6ebf4b6e41e501fb630da386cc5490bf1495d580"
+    "version": "0.1.0-dev",
+    "revision": "bc2072b76df41a653f204861d60d9d602ac999af"
   },
   "xcode": {
     "sourceMembership": {
@@ -23,9 +23,7 @@
       {
         "name": "TchopApp",
         "targets": [
-          "TchopApp",
-          "TchopAppTests",
-          "TchopAppUITests"
+          "TchopApp"
         ],
         "configurations": [
           "Debug",
@@ -120,7 +118,7 @@
     "performanceOrInstruments": "ask"
   },
   "sandbox": {
-    "root": ".quality-control-cache",
-    "cache": ".quality-control-cache/cache"
+    "root": "TchopApp/.quality-control-cache",
+    "cache": "TchopApp/.quality-control-cache/cache"
   }
 }

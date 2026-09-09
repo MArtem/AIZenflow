@@ -1,0 +1,146 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "status": "PARTIAL",
+  "model": "GPT-5.6 Luna",
+  "reasoning": "xhigh",
+  "mode": "эконом",
+  "consumer": {
+    "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "sourceRevision": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
+    "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
+    "evidenceCommit": "87d6ce2edd1ce59097888852fc3925ae527d51b3",
+    "workingTreeAtEvidenceGeneration": "clean tracked source/profile/task state after bounded fixture and evidence commits; local ignored QC cache/runtime evidence excluded",
+    "postCommitState": "exact-SHA fixture commit reauthenticated; validate-profile and explicit static PASS, static-evidence and doctor remain blocked at authoritative Xcode graph/effective-settings boundaries"
+  },
+  "engine": {
+    "repository": "MArtem/AIZenflowQualityControl",
+    "revision": "bc2072b76df41a653f204861d60d9d602ac999af",
+    "cdhash": "6a41e4aae31edded3342fe2ecc7f043383948e40"
+  },
+  "toolchain": {
+    "xcode": "26.6 (17F113)",
+    "simulator": "iPhone 17 Pro",
+    "os": "iOS 26.5",
+    "runtimeUDID": "E01AABC5-EAE3-4520-829F-2BDA17389148"
+  },
+  "rows": [
+    {
+      "id": "identity.static.adapters",
+      "status": "PASS",
+      "evidence": ["seven deterministic consumer adapters on final clean snapshot"]
+    },
+    {
+      "id": "identity.static.explicit-source-scope",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json"]
+    },
+    {
+      "id": "identity.static-profile-evidence",
+      "status": "BLOCKED",
+      "reason": "Exact-SHA identity is authenticated and structural validate-profile now passes, but graph-scoped static-evidence remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-87d6.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
+    },
+    {
+      "id": "build.six-debug-schemes",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/*-debug-sequential-final.log"]
+    },
+    {
+      "id": "build.authenticated-build-evidence",
+      "status": "PASS",
+      "reason": "Exact-SHA profile-boundary rerun authenticated the supervised Debug build and compiler source-membership evidence",
+      "evidence": ["runtime/tchop-8-2/qc-logs/exact-sha-profile-boundary-build-pass-2026-09-09.json"]
+    },
+    {
+      "id": "runtime.signed-out-smoke",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/screenshots/signed-out-clean.png"]
+    },
+    {
+      "id": "runtime.authenticated-smoke",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/screenshots/authenticated-after-session-fix.png"]
+    },
+    {
+      "id": "controls.static-positive",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-fixture-pass.json"]
+    },
+    {
+      "id": "controls.static-deliberate-negative",
+      "status": "PASS_EXPECTED_FAIL",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-fixture-fail.json"]
+    },
+    {
+      "id": "bootstrap.inventory-dry-run-apply-post-check-repeat-rollback",
+      "status": "PASS",
+      "evidence": ["runtime/tchop-8-2/bootstrap-fixture/reports/"]
+    },
+    {
+      "id": "tests.unit-and-ui",
+      "status": "PASS",
+      "reason": "unit tests pass, UI-test build passes, and UI execution runs 7 tests with 0 failures after the authorized Create → New post test-source repair",
+      "evidence": ["runtime/tchop-8-2/test-repair/tchopapp-test-unit-rerun-3.log", "runtime/tchop-8-2/test-repair/TchopAppTests-rerun-3.xcresult", "runtime/tchop-8-2/test-repair/tchopapp-ui-build-rerun-6.log", "runtime/tchop-8-2/test-repair/TchopAppUITests-build-rerun-6.xcresult", "runtime/tchop-8-2/test-repair/tchopapp-ui-tests-rerun-6.log", "runtime/tchop-8-2/test-repair/TchopAppUITests-rerun-6.xcresult"]
+    },
+    {
+      "id": "extensions.lifecycle-and-accessibility",
+      "status": "BLOCKED",
+      "reason": "A bounded standalone share-host fixture was added, built, installed, and exposed deterministic accessibility identifiers; the targeted XCUITest could not execute because CoreSimulatorService made the destination unavailable, so Share activation and VoiceOver traversal remain unverified",
+      "evidence": ["TchopAppUITests/ShareHostFixture/TchopShareHostFixture.xcodeproj", "runtime/tchop-8-2/share-host-fixture/", "runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json"]
+    },
+    {
+      "id": "doctor.effective-settings",
+      "status": "BLOCKED",
+      "reason": "QC doctor completed profile/repository/source/sandbox checks but could not obtain effective Xcode settings from the local CoreSimulator/Xcode environment within the bounded query budget",
+      "evidence": ["runtime/tchop-8-2/qc-logs/doctor-bc2072-2026-09-09.json"]
+    },
+    {
+      "id": "parity.local-github",
+      "status": "NOT_RUN_BY_USER_DECISION",
+      "reason": "GitHub execution is manual-only in the profile; no workflow dispatch was authorized"
+    },
+    {
+      "id": "pre-pr-independent-review",
+      "status": "OPEN",
+      "reason": "Must be repeated after remaining blockers are resolved"
+    }
+  ],
+  "promotion": {
+    "stableQc": "NOT_READY",
+    "productionReadiness": "NOT_CLAIMED",
+    "blockedBy": [
+      "graph-scoped schema-v2 static-evidence acceptance",
+      "bounded doctor effective-settings check",
+      "extension lifecycle/accessibility runtime execution",
+      "local/GitHub parity",
+      "pre-PR review"
+    ]
+  },
+  "testSourceRepair": {
+    "status": "APPLIED_WITH_RUNTIME_PASS",
+    "paths": [
+      "TchopAppTests/TestDoubles/TestAppContentRepository.swift",
+      "TchopAppTests/NewsFeedViewModelTests.swift",
+      "TchopAppUITests/TchopAppUITests.swift"
+    ],
+    "staticChecks": {
+      "gitDiffCheck": "PASS",
+      "staleProtocolSignatureSearch": "PASS",
+      "swiftParse": "PASS",
+      "affectedCallSiteAudit": "PASS"
+    },
+    "runtimeVerification": "UNIT_PASS_UI_BUILD_PASS_UI_PASS",
+    "reason": "TchopAppTests pass and all 7 TchopAppUITests pass after aligning the helper with the Create action sheet"
+  },
+  "boundedShareHostFixture": {
+    "status": "BUILT_INSTALLED_RUNTIME_BLOCKED",
+    "commit": "6a96f97d88a1486b9976c7e72d5c97273c24048b",
+    "hostBundleIdentifier": "com.example.TchopShareHostFixture",
+    "shareExtensionBundleIdentifier": "com.example.TchopApp.share",
+    "buildEvidence": "host fixture and TchopApp Debug builds PASS with CODE_SIGNING_ALLOWED=NO",
+    "runtimeEvidence": "targeted test exited 70 twice because CoreSimulatorService reported the booted destination unavailable; no accessibility or activation PASS claimed",
+    "testEnvironmentVariable": "TCHOP_SHARE_HOST_FIXTURE=1"
+  },
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

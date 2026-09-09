@@ -105,7 +105,8 @@ public protocol APIOfflineQueueStoring: Sendable {
 public extension APIOfflineQueueStoring {
     /// Compatibility implementation for stores that have no asynchronous read path yet.
     func loadEntries() async throws -> [APIOfflineQueueEntry<Payload>] {
-        try loadEntries()
+        let synchronousLoader: () throws -> [APIOfflineQueueEntry<Payload>] = self.loadEntries
+        return try synchronousLoader()
     }
 
     /// Loads dead letter entries.
@@ -115,7 +116,8 @@ public extension APIOfflineQueueStoring {
 
     /// Compatibility implementation for stores that have no asynchronous read path yet.
     func loadDeadLetterEntries() async throws -> [APIOfflineQueueEntry<Payload>] {
-        try loadDeadLetterEntries()
+        let synchronousLoader: () throws -> [APIOfflineQueueEntry<Payload>] = self.loadDeadLetterEntries
+        return try synchronousLoader()
     }
 
     /// Saves dead letter entries.

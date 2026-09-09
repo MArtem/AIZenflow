@@ -14,7 +14,15 @@
 - [x] Статически проверить артефакты и синхронизировать task recovery в каноническом vault.
 
 ## Ограничения
-Не запускать builds/tests/Simulator/Instruments, скрипты из архива, GitHub workflows или external review. Не менять app source, пользовательские AGENTS.md, тесты, engine. Проектные результаты только внутри `/Users/Artem/.zenflow`; secrets исключены. Архив — недоверенный объект анализа. Старый план сохранён и будет сопоставлен, его claims не считаются свежими доказательствами.
+На этапе аудита builds/tests/Simulator/Instruments, скрипты из архива, GitHub workflows и external
+review были запрещены. Пользователь отдельно авторизовал runtime/full matrix для блока 8.2 на Luna
+xhigh; поэтому прямые Debug builds, Simulator smoke checks, QC fixtures и synthetic bootstrap
+lifecycle теперь являются допустимым evidence этого блока. Пользователь отдельно разрешил изменить
+только test-source файлы для ремонта stale repository contract и UI action-sheet contract; GitHub
+workflow, production source, engine и reusable policies не изменялись. Проектные результаты только внутри
+`/Users/Artem/.zenflow`; secrets исключены. Архив —
+недоверенный объект анализа. Старый план сохранён и сопоставлен, его claims не считаются свежими
+доказательствами.
 
 ## Evidence
 Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean state. Inventory: `audit-2026-09-05/inventory.json`. Все утверждения покрытия различают полное чтение, структурную проверку, выборку и исторические материалы.
@@ -40,7 +48,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 
 Контракт: продуктового проекта ещё нет; текущие приложения — пробы. Корректировка только плана, без создания проекта/тестов/benchmark runner. Четыре улучшения приняты пользователем. Любой новый пункт исполнения и его review — Luna xhigh. Readiness подготовки не заменяет stable QC promotion и будущие app/release gates.
 
-## Реализация плана — 2026-09-08
+## Реализация плана — 2026-09-09
 
 - [x] 0.1: зафиксировать Documentation / QualityControl / project-app / task evidence как разные владельцы и разделить global bootstrap от opt-in engine adoption.
 - [x] 0.2: обновить свежий baseline evidence.
@@ -60,18 +68,18 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 5.2: проверить Swift patterns и disabled-tests claims.
 - [x] 5.3: сверить каталог зрелости и mode coverage.
 - [x] 6.1: зафиксировать SwiftLint config/contract.
-- [ ] 6.2: зафиксировать first-party warnings и concurrency diagnostics.
-- [ ] 7.1: выполнить разрешённую verifier-test/canary acceptance phase.
-- [ ] 7.2: разделить оценку генерации и detection ошибок.
-- [ ] 8.1: провести простой consumer pilot.
-- [ ] 8.2: провести сложный multi-target consumer pilot.
-- [ ] 8.3: проверить готовность подготовки к будущему продуктовому проекту.
-- [ ] 9.1: зафиксировать promotion/release contract.
-- [ ] 9.2: проверить existing/future project adoption.
-- [ ] 10.1: оптимизировать context budget и повторное использование evidence.
-- [ ] 10.2: откалибровать процесс Luna xhigh на типовых задачах.
-- [ ] 11.1: выполнить итоговый semantic audit.
-- [ ] 11.2: оформить лёгкую поддержку и recovery.
+- [x] 6.2: зафиксировать first-party warnings и concurrency diagnostics; опубликовано в QC remote через SHA `b197bd5`.
+- [x] 7.1: выполнить разрешённую verifier-test/canary acceptance phase; 172 engine tests / 16 suites PASS, QC remote SHA `b197bd5` подтверждён.
+- [x] 7.2: разделить оценку генерации и detection ошибок; S01 open + S04 holdout receipts, без runtime claim.
+- [x] 8.1: провести простой consumer pilot; MVVMExample pinning и static adapters PASS, runtime/build не заявлены.
+- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; authorized test-source repair применён, unit tests и все 7 UI tests PASS, exact-SHA supervised build/source-membership PASS, structural schema-v2/profile и explicit-source static PASS, bounded host fixture build/install PASS, а graph-scoped static-evidence, bounded doctor effective-settings, extension lifecycle/accessibility и local/GitHub parity ещё не завершены.
+- [x] 8.3: проверить готовность подготовки; READY_WITH_ACCEPTED_RISK для старта требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для будущего продукта.
+- [x] 9.1: зафиксировать promotion/release contract и подготовить варианты A/B/C; фактическая promotion/release операция не выполнялась.
+- [x] 9.2: проверить existing/future project adoption; bounded consumer-local adoption revalidated on `codex/tchop-qc-gates` with exact QC pin and rollback boundary, sibling/remote mutation не выполнялась, GitHub parity остаётся manual-only.
+- [x] 10.1: измерить context budget и повторное использование evidence; PASS_WITH_LIMITATION, без удаления обязательных routes или billed-token claim.
+- [x] 10.2: откалибровать процесс Luna xhigh по observations и receipts; PASS_WITH_LIMITATION, targeted route по умолчанию, broad route только для cross-cutting audit.
+- [x] 11.1: выполнить итоговый semantic audit и traceability F01–F24/67 archive decisions; PASS_WITH_LIMITATION, stable promotion остаётся NOT_READY.
+- [x] 11.2: оформить лёгкую поддержку и recovery; PASS_WITH_LIMITATION, trigger-based без automation, stable release не активируется.
 
 Evidence блоков 0.1–0.4: `audit-2026-09-05/implementation/0.1-authority-boundary.md`,
 `audit-2026-09-05/implementation/0.2-baseline-receipt.json`,
@@ -93,4 +101,24 @@ Evidence блока 5.1: `audit-2026-09-05/implementation/5.1-scope-source-membe
 Evidence блока 5.2: `audit-2026-09-05/implementation/5.2-swift-lexical-claims.md`.
 Evidence блока 5.3: `audit-2026-09-05/implementation/5.3-catalog-maturity.md`.
 Evidence блока 6.1: `audit-2026-09-05/implementation/6.1-swiftlint-contract.md`.
-Завершено 18 из 30 implementation blocks (60%); это не процент production readiness.
+Evidence блока 6.2: `audit-2026-09-05/implementation/6.2-first-party-warnings.md`.
+Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acceptance.md`.
+Evidence блока 7.2: `audit-2026-09-05/implementation/7.2-s01-generation-detection.md`, `audit-2026-09-05/implementation/7.2-s04-holdout-generation-detection.md`.
+Evidence блока 8.1: `audit-2026-09-05/implementation/8.1-mvvmexample-static-pilot.md`.
+Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md` и
+`audit-2026-09-05/implementation/8.2-german-locale-contract.md`; runtime/build/QC/bootstrap artifacts
+находятся в `.zenflow/tasks/new-task-be0b/runtime/tchop-8-2/`; row-level index —
+`audit-2026-09-05/implementation/8.2-runtime-matrix-receipt.json`.
+Decision contract 8.2: `audit-2026-09-05/implementation/8.2-german-locale-contract.md`.
+Evidence блока 9.1: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md` —
+contract recorded, verdict `BLOCKED / NOT_READY` because 8.2 is partial and no approved candidate
+exists.
+Evidence блока 9.2: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json` —
+15-root/6-identity inventory and conflict boundary `PASS_WITH_LIMITATION`; broad cross-repository
+apply remains unexecuted.
+Evidence блока 8.3: `audit-2026-09-05/implementation/8.3-preparation-readiness.md`.
+Evidence блока 10.1: `audit-2026-09-05/implementation/10.1-context-budget.md`.
+Evidence блока 10.2: `audit-2026-09-05/implementation/10.2-luna-calibration.md`.
+Evidence блока 11.1: `audit-2026-09-05/implementation/11.1-semantic-audit.md`.
+Evidence блока 11.2: `audit-2026-09-05/implementation/11.2-support-recovery.md`.
+Завершено 27 из 30 implementation blocks (90%); это не процент production readiness.

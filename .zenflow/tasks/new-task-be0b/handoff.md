@@ -1,6 +1,6 @@
 # Handoff — аудит iOS quality system
 
-Дата: 2026-09-08. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
+Дата: 2026-09-09. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
 
 ## Цель и авторизация
 Пользователь разрешил полный аудит на GPT-6 Astra всей системы разработки/проверок и ZIP `/Users/Artem/Downloads/ios_codex_quality_system_v1.zip`, включая пересмотр старого QualityControl continuation plan. Результат — подробный план внедрения с моделью/reasoning. Режим эконом сохраняется; Astra для полного аудита явно разрешена. Пользователь теперь разрешил реализацию всего плана исключительно на GPT-5.6 Luna xhigh.
@@ -45,30 +45,67 @@
 - `audit-2026-09-05/implementation/6.1-swiftlint-contract.md`: receipt for separate Apple
   `swift-format`/SwiftLint identity, pinned tool/config contract, bounded JSON lint path, and deferred
   canary verification.
+- `audit-2026-09-05/implementation/6.2-first-party-warnings.md`: receipt for authenticated
+  structured compiler diagnostics, first-party/dependency/generated attribution, four build gates,
+  conservative empty-baseline behavior, and static-only verification.
 - Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
 
 Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
 
 ## Evidence и ограничения
-До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; после блока 2.3 `99124788b98faac34364704d3225be03b4bff777`; QC main-active/remote main после 5.1 `1561dce56148e068bc1f682025ad984f55c9b64b2`, после 5.2 `0266873b68948b596903388eba28a125fcd8990e`, после 5.3 `d75a0d590836edb4dc0ed29ab9ccc5ad0ce9717b`, после 6.1 `508381bd58ccf85580c89305c257d7ac351b7122`. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh builds/tests/Simulator/Instruments/CI/external review отсутствуют; claims ограничены static audit.
+До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; после блока 2.3 `99124788b98faac34364704d3225be03b4bff777`; QC main после 5.1 `1561dce56148e068bc1f682025ad984f55c9b64b2`, после 5.2 `0266873b68948b596903388eba28a125fcd8990e`, после 5.3 `d75a0d590836edb4dc0ed29ab9ccc5ad0ce9717b`, после 6.1 `508381bd58ccf85580c89305c257d7ac351b7122`, после 6.2 local `6fde6fcac44371ce34c4d7e0fa3d520957d1e8d9`, после 7.1/7.2 evidence local `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`; QC remote `main` подтверждён тем же SHA. Exact-SHA review, parse, diff-check и 172-test suite для 7.1 pass; 7.2 receipts — desk/static. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh app builds/Simulator/Instruments/CI/external review отсутствуют; claims ограничены scoped engine/evaluation acceptance.
 
 Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. В implementation scope разрешены
 только изменения активного блока; tests, runtime, rollout, hooks и app remediation остаются
 отдельными permission-bound действиями.
 
 ## Следующий безопасный шаг
-После публикации сверить её receipt и последовательно выполнять roadmap 0.1 → 0.2 → 0.3 → 0.4 →
-1.1 → 1.2 → 2.1 → 2.2 → 2.3 → 3.1 → 3.2 → 4.1 → 4.2 → 4.3 → 5.1 → 5.2 → 5.3 → 6.1 на Luna xhigh; блоки 0.1–6.1 завершены, следующий — 6.2. Не запускать tests, rollout, hooks или
-app remediation до соответствующего разрешённого блока. Точные пути и hashes перепроверять, если
-HEAD изменился.
+Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow используют QC `b197bd5`, локальный
+static gate и семь clean-snapshot adapters PASS. Для 8.2 пользователь разрешил runtime/full matrix
+на Luna xhigh. На runtime-evidence commit `e24b7c8be50aad8777c47116b8ccb1e4ab3a9977` уже подтверждены семь
+adapters, pinned QC engine build/CDHash, six-scheme Debug builds, clean signed-out/authenticated
+app smoke launch, positive/negative static fixtures и inventory → dry-run → apply → post-check →
+repeat → rollback bootstrap lifecycle. Receipt: `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
+8.2 остаётся PARTIAL: authorized test-source repairs применены, unit tests и все 7 UI tests
+проходят. App-local QC profile patch теперь выровнен с фактическим engine version
+`0.1.0-dev` и target graph (`TchopApp`), а QC cache находится внутри объявленной source boundary.
+Exact-SHA supervised Debug build проходит compiler source-membership и связанные warning/concurrency
+checks; `validate-profile`/`static-evidence` остаются blocked на schemaVersion 2 graph gate, а
+bounded doctor aggregate — на effective settings. Package inspection и Simulator app installation
+для extensions прошли, но Share activation/VoiceOver остаются BLOCKED из-за отсутствия approved
+host/UI interaction path; local/GitHub parity не выполнялась.
+Targeted terminal-only XCUITest probe reached Safari but found no accessible `Share` button and
+was removed after the run; receipt:
+`runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json`.
+Следующий bounded шаг — authoritative schema-v2 static/profile acceptance, затем
+lifecycle/accessibility, manual GitHub parity и pre-PR review; 9.1 и 9.2 остаются
+promotion/adoption gates с отдельными receipts. Текущий consumer HEAD для exact-SHA evidence —
+`1366616b4fd882bd57f15567acd995eed3163638`; implementation commit —
+`7f6277ab5783dc764c60af339491991100119caa`, profile-boundary evidence commit —
+`1366616b4fd882bd57f15567acd995eed3163638`. Exact build receipt:
+`runtime/tchop-8-2/qc-logs/exact-sha-profile-boundary-build-pass-2026-09-09.json`.
+Точные пути и hashes перепроверять, если HEAD изменился.
 
-Текущий статус: **18 из 30 implementation blocks завершены (60%)**. Процент отражает только
+Для продолжения плана 9.1 оформлен promotion/release contract с verdict `BLOCKED / NOT_READY`,
+поскольку 8.2 partial и approved release candidate отсутствует. Для 9.2 оформлен read-only
+adoption inventory: 15 worktrees сгруппированы в 6 canonical Git identities; current root
+rechecked clean at HEAD `8ca3db12`. Broad apply/repeat/rollback по sibling/future roots не
+выполнялись, чтобы не мутировать соседние repos без отдельной авторизации. Receipts:
+`audit-2026-09-05/implementation/9.1-promotion-release-contract.md` и
+`audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`.
+
+10.2 закрыт отдельным bounded Luna xhigh calibration receipt по уже имеющимся observations и
+representative receipts. 11.1 также закрыт closure map F01–F24 и traceability receipt с
+`PASS_WITH_LIMITATION`; 11.2 также зафиксировал trigger-based support/recovery без automation.
+Это не заменяет consumer remediation, runtime evidence или promotion gates.
+
+Текущий статус: **27 из 30 implementation blocks завершены (90%)**. Процент отражает только
 закрытые блоки с evidence и не означает процент production readiness.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 ## Последнее решение пользователя
-Все этапы дальнейшего внедрения, review и итоговая проверка выполняются исключительно на **GPT-5.6 Luna xhigh**. Прежние рекомендации использовать другие модели отменены. Детализация: `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`. Сам исходный аудит — работа Astra; QualityControl engine blocks 5.1–6.1 уже опубликованы, app remediation и runtime pilots ещё не выполнялись.
+Все этапы дальнейшего внедрения, review и итоговая проверка выполняются исключительно на **GPT-5.6 Luna xhigh**. Прежние рекомендации использовать другие модели отменены. Детализация: `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`. Сам исходный аудит — работа Astra; QualityControl engine blocks 5.1–7.1 реализованы и опубликованы, 7.2 evaluation receipts сохранены в task evidence; app remediation и runtime pilots ещё не выполнялись.
 
 Независимый review завершён Astra: `audit-2026-09-05/INDEPENDENT_REVIEW.md` даёт bounded PASS для исправленного audit/plan пакета. Одно P2 (pilot → promotion gate) и два P3 (phase semantics, legacy/xcstrings distinction) закрыты повторной проверкой. Проверены 11 content hashes. Это не закрытие исходных F01–F24 и не production readiness системы. Публикация сверяется по локальному publication-receipt.json; дата завершения публикационного блока — 2026-09-07.
 
@@ -77,3 +114,35 @@ HEAD изменился.
 Принятые пользователем дополнения 2026-09-07: продукт пока не начат, подготовка приоритетна. 30 блоков Luna xhigh включают early measurement, neutral new-project scenario, separate generation/detection evaluation и preparation readiness. Старый INDEPENDENT_REVIEW относится к версии до этих дополнений; delta review хранится отдельно в PLAN_AMENDMENT_REVIEW.md.
 
 Delta-review дополнения завершён Astra: PLAN_AMENDMENT_REVIEW.md, PASS после закрытия P2 о key isolation для detector. Актуальные 30 блоков/микрошагов и сохранность pilot/release gate проверены. Отдельный publication-receipt.json связывает эту версию с remote SHA.
+
+## Latest continuation — 2026-09-09
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+Пользователь разрешил и завершил следующие bounded actions:
+
+- QualityControl schema-v2/doctor changes находятся в remote branch
+  `codex/schema-v2-doctor` at `bc2072b76df41a653f204861d60d9d602ac999af`; QC tests 175/16
+  suites PASS, executable CDHash `6a41e4aae31edded3342fe2ecc7f043383948e40`. PR creation link:
+  https://github.com/MArtem/AIZenflowQualityControl/pull/new/codex/schema-v2-doctor
+- Consumer branch `codex/tchop-qc-gates` локально содержит fixture commit
+  `6a96f97d88a1486b9976c7e72d5c97273c24048b` и evidence commit
+  `87d6ce2edd1ce59097888852fc3925ae527d51b3`; latest handoff metadata commit is
+  `d3942718`. Consumer branch не pushed.
+- Bounded Share host fixture построен и установлен; TchopApp build PASS; Swift parse, plist,
+  xcodeproj и diff checks PASS. Targeted XCUITest was attempted twice with
+  `TCHOP_SHARE_HOST_FIXTURE=1`, but CoreSimulatorService made the destination unavailable (exit
+  70), поэтому Share activation/VoiceOver PASS не заявляется.
+- Final `validate-profile` PASS and explicit-source static PASS. Final exact-SHA
+  `static-evidence` reached the authoritative graph gate and returned
+  `QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED` / `BLOCKED`. Doctor profile/repository/source/sandbox
+  checks pass, effective Xcode settings remain BLOCKED.
+- 9.1 promotion/release contract and options A/B/C are recorded in
+  `audit-2026-09-05/implementation/9.1-promotion-release-options-2026-09-09.md`. No archive,
+  signing, upload, TestFlight, App Store, or tag action was performed.
+- 9.2 is `PASS_WITH_LIMITATION` for bounded consumer-local adoption revalidation: exact QC pin,
+  profile/workflow boundary, and reversible local branch are recorded. No sibling/remote mutation,
+  broad bootstrap apply, or GitHub dispatch was performed.
+
+Remaining gates: graph-scoped static-evidence, doctor effective settings, Share Extension runtime
+and VoiceOver, manual GitHub parity after user publishes the branch, and pre-PR independent review.
