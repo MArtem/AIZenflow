@@ -479,7 +479,18 @@ dispatched GitHub Actions `Repository static gate` for consumer head
 Therefore `parity.local-github` is now PASS. The implementation plan has 29 of 30 checkboxes
 closed; the only open block is 8.2, with four remaining sub-gates: graph-scoped static-evidence,
 doctor effective settings, Share Extension/VoiceOver runtime, and pre-PR independent review.
-The QC engine branch `codex/schema-v2-doctor` now has open PR #25:
-https://github.com/MArtem/AIZenflowQualityControl/pull/25. It has no configured remote check runs;
-local QC verification remains 175 tests / 16 suites PASS. Its merge is an integration prerequisite
-for stable engine promotion, not evidence that 8.2 is complete.
+The QC engine branch `codex/schema-v2-doctor` was merged through PR #25:
+https://github.com/MArtem/AIZenflowQualityControl/pull/25, producing merge commit
+`1035b95273795bee8be242239036b45ec7e7ceff`; the tested tree head is
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`. Independent re-review after the symlink fix returned no
+findings, and local QC verification is 176 tests / 16 suites PASS. The consumer pin update is
+prepared separately on the continuation branch; merge does not make 8.2 complete.
+
+## QC engine adoption continuation — 2026-09-09
+
+Consumer commit `b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071` updates `.quality-control/profile.json`
+and `.github/workflows/manual-quality.yml` from the pre-fix engine revision to merged-and-tested
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`. JSON validation, old-pin absence, and `git diff --check`
+pass. The continuation branch is not yet pushed; after publication, the user-owned manual workflow
+run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and Share
+Extension/VoiceOver runtime remain blocked in the local environment.
