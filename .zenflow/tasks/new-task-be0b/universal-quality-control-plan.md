@@ -391,12 +391,12 @@ Pilot → promotion: каждый из двух consumers закрывает п�
 `84ba17cfe7fcc7fd3ea7d551b07bbaba4f6dd555`. Positive/negative static fixtures и synthetic
 inventory → dry-run → apply → post-check → repeat → rollback lifecycle дали ожидаемые статусы.
 Это расширяет evidence 8.2, но не закрывает block: app-local profile patch теперь согласован с
-фактическими engine version/target graph, и bounded doctor даёт `QC.DOCTOR.XCODE_GRAPH_SELECTION`
-PASS; `validate-profile` всё ещё требует authoritative schemaVersion 2 graph, exact-SHA
-`static-evidence` останавливается на `QC.STATIC_EVIDENCE.INVALID_PROFILE`, а exact-SHA
-`build-evidence` аутентифицирует identity boundary и останавливается на
-`QC.BUILD.MEMBERSHIP.BLOCKED`. Authorized test-source repairs применены, unit tests и все 7 UI
-tests проходят.
+фактическими engine version/target graph и переносит QC cache внутрь `TchopApp` source boundary.
+Explicit-source static scan PASS; supervised exact-SHA `build-evidence` PASS с
+`QC.BUILD.MEMBERSHIP`, first-party warnings и concurrency diagnostics. `validate-profile` и
+`static-evidence` всё ещё останавливаются на `QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED` /
+`QC.STATIC_EVIDENCE.INVALID_PROFILE`; bounded doctor aggregate остаётся blocked на effective
+settings. Authorized test-source repairs применены, unit tests и все 7 UI tests проходят.
 Extension lifecycle, VoiceOver, GitHub parity и pre-PR review ещё не выполнены. Поэтому 8.2, 9.1
 и 9.2 остаются открытыми; production readiness или stable QC promotion не заявляются.
 

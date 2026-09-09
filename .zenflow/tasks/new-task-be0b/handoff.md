@@ -68,18 +68,19 @@ app smoke launch, positive/negative static fixtures и inventory → dry-run →
 repeat → rollback bootstrap lifecycle. Receipt: `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
 8.2 остаётся PARTIAL: authorized test-source repairs применены, unit tests и все 7 UI tests
 проходят. App-local QC profile patch теперь выровнен с фактическим engine version
-`0.1.0-dev` и target graph (`TchopApp`); bounded doctor подтверждает
-`QC.DOCTOR.XCODE_GRAPH_SELECTION` PASS. Exact-SHA rerun authenticated source/engine/profile/toolchain
-identity; static evidence remains blocked by profile validation and build evidence by compiler
-source-membership. Package inspection и
-Simulator app installation для extensions прошли, но Share activation/VoiceOver остаются BLOCKED
-из-за отсутствия approved host/UI interaction path; local/GitHub parity не выполнялась.
-Следующий bounded шаг — устранить/принять remaining profile/source-membership gates, затем
-lifecycle/accessibility; 9.1 и 9.2 остаются promotion/adoption gates с отдельными
-receipts. Текущий consumer HEAD до implementation changes — `fe575e7c82a58dedb18728628fce59a46a2aa3e6`;
-текущая implementation change включает три разрешённых test-source файла, task receipts/docs и
-app-local `.quality-control/profile.json`; implementation commit —
-`7f6277ab5783dc764c60af339491991100119caa`. После commit рабочее дерево проверено clean.
+`0.1.0-dev` и target graph (`TchopApp`), а QC cache находится внутри объявленной source boundary.
+Exact-SHA supervised Debug build проходит compiler source-membership и связанные warning/concurrency
+checks; `validate-profile`/`static-evidence` остаются blocked на schemaVersion 2 graph gate, а
+bounded doctor aggregate — на effective settings. Package inspection и Simulator app installation
+для extensions прошли, но Share activation/VoiceOver остаются BLOCKED из-за отсутствия approved
+host/UI interaction path; local/GitHub parity не выполнялась.
+Следующий bounded шаг — authoritative schema-v2 static/profile acceptance, затем
+lifecycle/accessibility, manual GitHub parity и pre-PR review; 9.1 и 9.2 остаются
+promotion/adoption gates с отдельными receipts. Текущий consumer HEAD для exact-SHA evidence —
+`1366616b4fd882bd57f15567acd995eed3163638`; implementation commit —
+`7f6277ab5783dc764c60af339491991100119caa`, profile-boundary evidence commit —
+`1366616b4fd882bd57f15567acd995eed3163638`. Exact build receipt:
+`runtime/tchop-8-2/qc-logs/exact-sha-profile-boundary-build-pass-2026-09-09.json`.
 Точные пути и hashes перепроверять, если HEAD изменился.
 
 Для продолжения плана 9.1 оформлен promotion/release contract с verdict `BLOCKED / NOT_READY`,

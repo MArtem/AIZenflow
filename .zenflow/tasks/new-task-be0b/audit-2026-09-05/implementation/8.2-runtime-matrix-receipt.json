@@ -7,10 +7,11 @@
   "mode": "эконом",
   "consumer": {
     "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
-    "sourceRevision": "fe575e7c82a58dedb18728628fce59a46a2aa3e6",
+    "sourceRevision": "1366616b4fd882bd57f15567acd995eed3163638",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
-    "workingTreeAtEvidenceGeneration": "dirty in the three authorized test-source paths, app-local QC profile, and task receipts/docs",
-    "postCommitState": "exact-SHA rerun recorded; static profile and build source-membership gates remain blocked"
+    "evidenceCommit": "1366616b4fd882bd57f15567acd995eed3163638",
+    "workingTreeAtEvidenceGeneration": "clean tracked source/profile state; local ignored QC cache excluded",
+    "postCommitState": "exact-SHA profile-boundary rerun recorded; explicit static and supervised build evidence PASS, static-evidence profile gate remains blocked"
   },
   "engine": {
     "repository": "MArtem/AIZenflowQualityControl",
@@ -47,9 +48,9 @@
     },
     {
       "id": "build.authenticated-build-evidence",
-      "status": "BLOCKED",
-      "reason": "Exact-SHA rerun reaches QC.BUILD.MEMBERSHIP.BLOCKED after identity authentication; authenticated build evidence still lacks compiler source-membership proof",
-      "evidence": ["runtime/tchop-8-2/qc-logs/build-evidence-final.json", "runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json", "runtime/tchop-8-2/qc-logs/exact-sha-qc-rerun-2026-09-09.json"]
+      "status": "PASS",
+      "reason": "Exact-SHA profile-boundary rerun authenticated the supervised Debug build and compiler source-membership evidence",
+      "evidence": ["runtime/tchop-8-2/qc-logs/exact-sha-profile-boundary-build-pass-2026-09-09.json"]
     },
     {
       "id": "runtime.signed-out-smoke",
@@ -103,7 +104,8 @@
     "stableQc": "NOT_READY",
     "productionReadiness": "NOT_CLAIMED",
     "blockedBy": [
-      "Xcode graph/build-evidence acceptance",
+      "schema-v2 static/profile acceptance",
+      "bounded doctor aggregate",
       "extension lifecycle/accessibility",
       "local/GitHub parity",
       "pre-PR review"
