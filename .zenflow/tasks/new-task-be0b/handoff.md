@@ -88,9 +88,10 @@ promotion/adoption gates с отдельными receipts. Текущий consum
 
 Для продолжения плана 9.1 оформлен promotion/release contract с verdict `BLOCKED / NOT_READY`,
 поскольку 8.2 partial и approved release candidate отсутствует. Для 9.2 оформлен read-only
-adoption inventory: 15 worktrees сгруппированы в 6 canonical Git identities; broad apply/repeat/
-rollback по sibling/future roots не выполнялись, чтобы не мутировать соседние repos без отдельной
-авторизации. Receipts: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md` и
+adoption inventory: 15 worktrees сгруппированы в 6 canonical Git identities; current root
+rechecked clean at HEAD `8ca3db12`. Broad apply/repeat/rollback по sibling/future roots не
+выполнялись, чтобы не мутировать соседние repos без отдельной авторизации. Receipts:
+`audit-2026-09-05/implementation/9.1-promotion-release-contract.md` и
 `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`.
 
 10.2 закрыт отдельным bounded Luna xhigh calibration receipt по уже имеющимся observations и

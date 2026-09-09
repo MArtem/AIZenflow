@@ -427,7 +427,8 @@ App Store action was performed.
 ## Existing/future adoption contract блока 9.2 — 2026-09-09
 
 Receipt: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`. The historical
-inventory was rechecked for the current root; the read-only result groups 15 worktrees into 6
+inventory was rechecked for the current root at HEAD `8ca3db12`; the tracked state is clean and
+the read-only result groups 15 worktrees into 6
 canonical Git identities and separates Documentation Vault,
 QualityControl engine/canary repositories, current AIZenflow consumers, MVVMExample and PanModal,
 and confirmed that global rules are distinct from explicit QC profile adoption. Verdict is

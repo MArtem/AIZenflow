@@ -10,12 +10,12 @@
   "currentRootRecheck": {
     "path": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
     "repository": "MArtem/AIZenflow",
-    "head": "fe575e7c82a58dedb18728628fce59a46a2aa3e6",
+    "head": "8ca3db126fb78582183b9c330496bd87d27ef0bc",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
     "branch": "development",
     "origin": "https://github.com/MArtem/AIZenflow.git",
-    "workingTreeAtInspection": "dirty; authorized test/profile/task changes present",
-    "postCommitExpectation": "clean if no unrelated changes are introduced"
+    "workingTreeAtInspection": "clean for tracked files; local ignored QC cache/runtime evidence excluded",
+    "postCommitExpectation": "current root rechecked clean; no sibling or remote mutations performed"
   },
   "rootCount": 15,
   "canonicalGitIdentityCount": 6,
