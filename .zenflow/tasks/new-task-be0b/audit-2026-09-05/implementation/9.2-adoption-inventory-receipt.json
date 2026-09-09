@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "date": "2026-09-09",
+  "date": "2026-09-10",
   "model": "GPT-5.6 Luna xhigh",
   "mode": "эконом",
   "status": "PASS_WITH_LIMITATION",
@@ -10,12 +10,12 @@
   "currentRootRecheck": {
     "path": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
     "repository": "MArtem/AIZenflow",
-    "head": "5b506a34b8c5e7b36b810d14c8efd0f17c3300e7",
+    "head": "da41b11a7fc7bb1bd555c97d0b40f74cf58925c7",
     "implementationCommit": "7f6277ab5783dc764c60af339491991100119caa",
     "branch": "codex/tchop-qc-continuation",
     "origin": "https://github.com/MArtem/AIZenflow.git",
     "workingTreeAtInspection": "clean for tracked source/profile/workflow/task state after the merged-engine pin update; local ignored QC cache/runtime evidence excluded",
-    "postCommitExpectation": "bounded consumer adoption was explicitly pushed and merged through PR #23; merged QC engine pin update was pushed in PR #24 for manual GitHub parity, and no sibling repository was mutated"
+    "postCommitExpectation": "bounded consumer adoption was explicitly pushed and merged through PR #23; merged QC engine pin update was pushed and merged through PR #24 as ad0e3c545ff3a9918ced9829b4de344ee5c1ca71, with Manual Quality Check success confirmed by the user; no sibling repository was mutated"
   },
   "rootCount": 15,
   "canonicalGitIdentityCount": 6,
@@ -93,18 +93,17 @@
     "status": "READY_WITH_LIMITATION",
     "repository": "MArtem/AIZenflow",
     "branch": "codex/tchop-qc-continuation",
-    "consumerRevision": "b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071",
+    "consumerRevision": "da41b11a7fc7bb1bd555c97d0b40f74cf58925c7",
     "mergedFeatureRevision": "0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e",
-    "mergeCommit": "16ae3f4ff7892d567eb0b4c89f775cd1d3685880",
+    "mergeCommit": "ad0e3c545ff3a9918ced9829b4de344ee5c1ca71",
     "qualityProfile": ".quality-control/profile.json",
     "workflow": ".github/workflows/manual-quality.yml",
     "engineRevision": "c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880",
     "profileValidation": "PASS",
     "explicitSourceStatic": "PASS",
     "rollbackBoundary": "merged consumer change is recoverable through a dedicated revert PR; no sibling roots changed",
+    "manualParity": "USER_CONFIRMED_PASS; workflow run identifier not captured in local receipts",
     "limitations": [
-      "consumer pin update is open in PR #24 and is not yet merged",
-      "manual GitHub parity is PASS only for the merged feature head; pin-update parity is pending user dispatch",
       "graph-scoped static and doctor effective-settings remain blocked"
     ]
   },

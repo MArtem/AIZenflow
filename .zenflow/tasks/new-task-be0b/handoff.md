@@ -1,6 +1,6 @@
 # Handoff — аудит iOS quality system
 
-Дата: 2026-09-09. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
+Дата: 2026-09-10. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
 
 ## Цель и авторизация
 Пользователь разрешил полный аудит на GPT-6 Astra всей системы разработки/проверок и ZIP `/Users/Artem/Downloads/ios_codex_quality_system_v1.zip`, включая пересмотр старого QualityControl continuation plan. Результат — подробный план внедрения с моделью/reasoning. Режим эконом сохраняется; Astra для полного аудита явно разрешена. Пользователь теперь разрешил реализацию всего плана исключительно на GPT-5.6 Luna xhigh.
@@ -239,3 +239,20 @@ gate is now PASS. Receipt:
 The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
 and independent pre-PR review. The current branch still needs a fresh manual GitHub workflow run
 before the previous parity result can be reused.
+
+## Merge continuation — 2026-09-10
+
+The user confirmed that the Manual Quality Check for consumer PR #24 completed successfully.
+GitHub confirms PR #24 merged into `main` at `2026-09-09T21:11:00Z` as merge commit
+`ad0e3c545ff3a9918ced9829b4de344ee5c1ca71`; its reviewed head was
+`da41b11a7fc7bb1bd555c97d0b40f74cf58925c7`. The consumer-local adoption update is therefore
+published and the 9.2 merge/parity step is closed. The workflow run identifier was not captured
+in the local task receipts, so the parity claim remains explicitly user-confirmed rather than a
+locally reconstructed check-run receipt.
+
+The plan remains 29/30 implementation blocks closed; 8.2 is the only open block. Its remaining
+gates are graph-scoped static-evidence, physical-device VoiceOver traversal, and independent
+pre-PR review. Existing source/build/runtime receipts remain valid because the commits after
+`8fc0fae84b3c847c1f891a9e742b69d568cb4f70` changed only evidence/task documentation, not app source,
+profile, workflow, or QC engine inputs. No promotion, release, archive, signing, or App Store
+action is claimed.

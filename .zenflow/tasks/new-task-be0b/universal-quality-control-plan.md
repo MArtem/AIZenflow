@@ -364,16 +364,16 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
   семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
   fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
-  PASS, bounded host fixture build/install PASS и GitHub parity PASS after merge PR #23.
-  Doctor effective-settings PASS, while graph-scoped static-evidence, source-membership evidence,
-  Share provider registration/extension lifecycle/accessibility и pre-PR review остаются открыты;
-  test-target compilation после authorized repair PASS.
+  PASS, bounded host fixture build/install PASS и user-confirmed GitHub parity PASS for PR #24.
+  Doctor effective-settings PASS, bounded Share provider/extension lifecycle/accessibility is
+  PASS_WITH_LIMITATION, while graph-scoped static-evidence, physical-device VoiceOver traversal
+  и pre-PR review остаются открыты; test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
   фактическая promotion/release операция не выполнялась.
 - [x] 9.2: existing/future project adoption — Luna xhigh; bounded consumer-local adoption
-  revalidated with exact QC pin and rollback boundary; sibling/remote mutation и GitHub parity не
-  выполнялись.
+  revalidated with exact QC pin and rollback boundary; PR #24 merged and GitHub parity user-confirmed
+  PASS; sibling/remote mutation и broad bootstrap apply не выполнялись.
 - [x] 10.1: context budget и повторное использование evidence — Luna xhigh; PASS_WITH_LIMITATION, route budget в норме, billed-token reduction не заявлена.
 - [x] 10.2: калибровка процесса Luna xhigh — Luna xhigh; PASS_WITH_LIMITATION, targeted route default, broad route только для cross-cutting audit.
 - [x] 11.1: итоговый semantic audit — Luna xhigh; PASS_WITH_LIMITATION, F01–F24 и 67 archive decisions mapped, stable promotion NOT_READY.
@@ -543,3 +543,14 @@ PASS. Receipt:
 The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
 and independent pre-PR review. A fresh manual GitHub workflow dispatch is still required before
 the prior parity result can be reused for the current head.
+
+## Merge continuation — 2026-09-10
+
+The user confirmed that the Manual Quality Check for consumer PR #24 completed successfully.
+GitHub confirms PR #24 merged into `main` as `ad0e3c545ff3a9918ced9829b4de344ee5c1ca71` from
+reviewed head `da41b11a7fc7bb1bd555c97d0b40f74cf58925c7`. The bounded consumer-local adoption and
+manual parity step are therefore closed as user-confirmed PASS; the workflow run identifier was
+not captured in the local task receipts. The plan remains 29 of 30 checkboxes closed, with 8.2 as
+the only open block. Its remaining gates are graph-scoped static-evidence, physical-device
+VoiceOver traversal, and independent pre-PR review. No promotion, release, archive, signing,
+TestFlight, App Store, or stable QC promotion is claimed.
