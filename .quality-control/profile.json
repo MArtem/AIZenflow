@@ -12,7 +12,7 @@
   ],
   "mode": "controlled",
   "engine": {
-    "version": "git-b197bd5",
+    "version": "0.1.0-dev",
     "revision": "b197bd5e8983b5c7cfd1d277dd2540d7bb352a15"
   },
   "xcode": {
@@ -23,9 +23,7 @@
       {
         "name": "TchopApp",
         "targets": [
-          "TchopApp",
-          "TchopAppTests",
-          "TchopAppUITests"
+          "TchopApp"
         ],
         "configurations": [
           "Debug",

@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-09-09",
+  "model": "GPT-5.6 Luna xhigh",
+  "mode": "эконом",
+  "status": "PASS_WITH_LIMITATION",
+  "scope": "read-only existing/future project adoption inventory and conflict boundary",
+  "inventorySource": "audit-2026-09-05/adoption-inventory.json",
+  "inventoryFreshness": "historical_snapshot_with_current_root_recheck",
+  "currentRootRecheck": {
+    "path": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "repository": "MArtem/AIZenflow",
+    "head": "fe575e7c82a58dedb18728628fce59a46a2aa3e6",
+    "branch": "development",
+    "origin": "https://github.com/MArtem/AIZenflow.git",
+    "workingTreeAtInspection": "dirty; authorized test/profile/task changes present",
+    "postCommitExpectation": "clean if no unrelated changes are introduced"
+  },
+  "rootCount": 15,
+  "canonicalGitIdentityCount": 6,
+  "canonicalIdentities": [
+    {
+      "repository": "MArtem/AIZenflow",
+      "rootCount": 6,
+      "roots": [
+        "aizenflow-global-rules",
+        "aizenflow-pr11-merge",
+        "new-task-be0b",
+        "tchop-share-cancel-initial-load",
+        "tchop-share-import-budget",
+        "tchop-share-open-app-retry"
+      ],
+      "dirtyRootsAtInventory": ["new-task-be0b"],
+      "adoption": "global rules plus explicit app-local QC profile; sibling worktrees are not independent apps"
+    },
+    {
+      "repository": "MArtem/AIZenflowQualityControl",
+      "rootCount": 3,
+      "roots": [
+        "AIZenflowQualityControl",
+        "AIZenflowQualityControl-main-active",
+        "AIZenflowQualityControl-pilot-main"
+      ],
+      "dirtyRootsAtInventory": [],
+      "adoption": "engine repository; no consumer profile adoption inferred from the main-active checkout"
+    },
+    {
+      "repository": "MArtem/AIZenflowQualityControlCanary",
+      "rootCount": 2,
+      "roots": ["AIZenflowQualityControlCanary", "canary-global-rules"],
+      "dirtyRootsAtInventory": [],
+      "adoption": "canary repository; profile presence does not authorize consumer rollout"
+    },
+    {
+      "repository": "MArtem/AIZenflowDocumentation",
+      "rootCount": 1,
+      "roots": ["documentation-vault"],
+      "dirtyRootsAtInventory": [],
+      "adoption": "canonical documentation authority; no app-engine adoption"
+    },
+    {
+      "repository": "MArtem/MVVMExample",
+      "rootCount": 2,
+      "roots": ["mvvmexample-3c80", "mvvmexample-static-quality-gate"],
+      "dirtyRootsAtInventory": [],
+      "adoption": "separate consumer identity with explicit QC profile and completed static pilot"
+    },
+    {
+      "repository": "MArtem/PanModal",
+      "rootCount": 1,
+      "roots": ["panmodal-concurrency"],
+      "dirtyRootsAtInventory": [],
+      "adoption": "separate iOS repository; no QC consumer adoption inferred"
+    }
+  ],
+  "boundaryChecks": {
+    "currentTchopAgentsAndRouter": "PRESENT",
+    "currentTchopQualityProfile": "PRESENT",
+    "mvvmExampleAgentsRouterAndQualityProfile": "PRESENT",
+    "documentationVaultIsSeparateAuthority": "PASS",
+    "engineOptInIsSeparateFromGlobalRules": "PASS",
+    "outsideHostOrRemoteApply": "UNSUPPORTED_IN_THIS_RUN"
+  },
+  "applyPlan": {
+    "sequence": ["inventory", "conflict-report", "generated-manifest", "apply", "post-check", "repeat", "rollback"],
+    "currentRun": "inventory_and_conflict_report_only",
+    "reason": "No broad mutation of sibling worktrees or remote repositories was authorized",
+    "idempotenceEvidence": "Existing synthetic bootstrap lifecycle is referenced by 8.2; cross-repository adoption repeat was not claimed",
+    "rollback": "precise generated-file manifest plus backup hashes; no recursive delete or rsync-delete"
+  },
+  "limitations": [
+    "The current AIZenflow worktree is dirty from authorized test/profile/task changes, so it cannot serve as an authenticated release snapshot.",
+    "New Git roots require a fresh bootstrap read and explicit QC opt-in; this receipt does not activate engine adoption automatically.",
+    "A future project still needs its own product, toolchain, privacy, release, accessibility and runtime decisions."
+  ],
+  "evidence": [
+    "audit-2026-09-05/adoption-inventory.json",
+    "../../handoff.md",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/plans/package-adoption-audit.md"
+  ],
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

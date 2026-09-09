@@ -363,8 +363,8 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 8.1: простой consumer pilot — Luna xhigh; MVVMExample static pin/adapters PASS, runtime/build не заявлены.
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
   семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
-  fixtures и reversible bootstrap PASS. Xcode graph/build-evidence, test-target compilation,
-  extension lifecycle/accessibility и local/GitHub parity остаются открыты.
+  fixtures и reversible bootstrap PASS. Xcode graph/build-evidence, extension lifecycle/accessibility
+  и local/GitHub parity остаются открыты; test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [ ] 9.1: promotion/release contract — Luna xhigh.
 - [ ] 9.2: existing/future project adoption — Luna xhigh.
@@ -390,13 +390,50 @@ Pilot → promotion: каждый из двух consumers закрывает п�
 `AppState` session-restore race. QC engine `b197bd5e` собран с CDHash
 `84ba17cfe7fcc7fd3ea7d551b07bbaba4f6dd555`. Positive/negative static fixtures и synthetic
 inventory → dry-run → apply → post-check → repeat → rollback lifecycle дали ожидаемые статусы.
-Это расширяет evidence 8.2, но не закрывает block: `static-evidence` требует authoritative Xcode
-graph и блокируется engine profile validation, `build-evidence` блокируется preflight trust,
-Tchop tests не компилируются из-за stale test double, а extension lifecycle, VoiceOver, GitHub
-parity и pre-PR review ещё не выполнены. Поэтому 8.2, 9.1 и 9.2 остаются открытыми; production
-readiness или stable QC promotion не заявляются.
+Это расширяет evidence 8.2, но не закрывает block: app-local profile patch теперь согласован с
+фактическими engine version/target graph, и bounded doctor даёт `QC.DOCTOR.XCODE_GRAPH_SELECTION`
+PASS; `validate-profile` всё ещё требует authoritative schemaVersion 2 graph, а authenticated
+`static-evidence`/`build-evidence` остановились на trust boundary, потому что patched profile не
+закоммичен. Authorized test-source repairs применены, unit tests и все 7 UI tests проходят.
+Extension lifecycle, VoiceOver, GitHub parity и pre-PR review ещё не выполнены. Поэтому 8.2, 9.1
+и 9.2 остаются открытыми; production readiness или stable QC promotion не заявляются.
+
+## Authorized test-source repair — 2026-09-09
+
+Пользователь разрешил bounded изменение только test-source файлов:
+`TchopAppTests/TestDoubles/TestAppContentRepository.swift` и
+`TchopAppTests/NewsFeedViewModelTests.swift`, а затем
+`TchopAppUITests/TchopAppUITests.swift`. Test double приведён к user-scoped
+`FeedCardPersisting`; затронутые store tests активируют `test-user`, а direct repository tests
+передают user identifier. `git diff --check`, stale-signature search, parse-only Swift syntax
+validation и affected call-site audit дали PASS: все четыре direct store setup активируют
+`test-user`.
+
+Повторный xcodebuild дал unit-test PASS (`TchopAppTests`), UI-test build PASS и UI execution PASS:
+7 из 7 UI tests завершились без failures после обновления test helper для Create → New post.
+Production source и Xcode project не менялись. Это закрывает test verification gate, но не 8.2 целиком.
+
+## Promotion/release contract блока 9.1 — 2026-09-09
+
+Receipt: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md`. Contract shape,
+compatibility/support/rollback rows and current Apple compliance inputs are recorded. Verdict is
+`BLOCKED / NOT_READY`: 8.2 is still partial, no exact approved release candidate exists, the
+implementation commit has not been re-authenticated as a release candidate, and no
+promotion/release approval was requested. No tag, signing, archive upload, TestFlight delivery or
+App Store action was performed.
+
+## Existing/future adoption contract блока 9.2 — 2026-09-09
+
+Receipt: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`. The historical
+inventory was rechecked for the current root; the read-only result groups 15 worktrees into 6
+canonical Git identities and separates Documentation Vault,
+QualityControl engine/canary repositories, current AIZenflow consumers, MVVMExample and PanModal,
+and confirmed that global rules are distinct from explicit QC profile adoption. Verdict is
+`PASS_WITH_LIMITATION`: inventory and conflict boundary are complete; cross-repository apply,
+idempotence and rollback for sibling/future roots remain unexecuted because no broad mutation was
+authorized. No sibling worktree or remote repository was changed.
 
 ## Принятые улучшения подготовки — 2026-09-07
-Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3, 10.1, 10.2, 11.1 и 11.2 закрыты task-level evidence; 8.2 расширен runtime/build/QC/bootstrap evidence, но остаётся partial из-за Xcode graph/build-evidence, test-target, extension/accessibility и parity blockers. 8.3, 10.1, 10.2, 11.1 и 11.2 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
+Продуктового проекта пока нет; текущие apps — испытательные consumers. План теперь содержит 30 блоков. Добавлены 0.3 (ранние observations Luna), 0.4 (нейтральные сценарии/критерии), 4.3 (new-project flow), 7.2 (generation и detection отдельно), 8.3 (готовность подготовки). Все исполняются Luna xhigh. Блоки 0.1 → 8.1, 8.3, 10.1, 10.2, 11.1 и 11.2 закрыты task-level evidence; 8.2 расширен runtime/build/QC/bootstrap evidence, но остаётся partial из-за Xcode graph/build-evidence, extension/accessibility и parity blockers; test-target compilation после authorized repair PASS. 8.3, 10.1, 10.2, 11.1 и 11.2 не обходят phase-8/9 promotion gates и не создают product/build/runtime claim.
 
 Готовность подготовки по 8.3 отделена от stable QC release: обязательные два pilots и вся матрица этапа 8 сохранены. Массовые миграции остальных пробных apps не являются автоматическим prerequisite начала будущего проекта. Этап 10 использует данные с 0.3, а не начинает измерения с нуля.

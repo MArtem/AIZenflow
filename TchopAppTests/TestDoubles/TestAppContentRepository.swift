@@ -16,19 +16,23 @@ final class TestFeedCardRepository: FeedCardPersisting {
     private(set) var savedBatches: [[FeedCard]] = []
     private(set) var savedSingleCards: [FeedCard] = []
     private(set) var savedCards: [FeedCard]
+    private let userID: String
 
     /// Creates a feed-card repository double seeded with already persisted cards.
-    init(cards: [FeedCard] = []) {
+    init(cards: [FeedCard] = [], userID: String = "test-user") {
         self.savedCards = cards
+        self.userID = userID
     }
 
     /// Returns the current persisted card snapshot.
-    func loadCards() throws -> [FeedCard] {
-        savedCards
+    func loadCards(for userID: String) throws -> [FeedCard] {
+        try validate(userID)
+        return savedCards
     }
 
     /// Saves a batch of newly published cards.
-    func saveCards(_ cards: [FeedCard]) throws {
+    func saveCards(_ cards: [FeedCard], for userID: String) throws {
+        try validate(userID)
         savedBatches.append(cards)
         savedCards = cards + savedCards.filter { existingCard in
             !cards.contains(where: { $0.id == existingCard.id })
@@ -36,7 +40,8 @@ final class TestFeedCardRepository: FeedCardPersisting {
     }
 
     /// Saves or updates one persisted card.
-    func saveCard(_ card: FeedCard) throws {
+    func saveCard(_ card: FeedCard, for userID: String) throws {
+        try validate(userID)
         savedSingleCards.append(card)
         if let index = savedCards.firstIndex(where: { $0.id == card.id }) {
             savedCards[index] = card
@@ -44,6 +49,16 @@ final class TestFeedCardRepository: FeedCardPersisting {
             savedCards.insert(card, at: 0)
         }
     }
+
+    private func validate(_ requestedUserID: String) throws {
+        guard requestedUserID == userID else {
+            throw TestFeedCardRepositoryError.unexpectedUser
+        }
+    }
+}
+
+private enum TestFeedCardRepositoryError: Error {
+    case unexpectedUser
 }
 
 /// Creates a disposable in-memory SwiftData database manager for app tests.
@@ -78,8 +93,13 @@ func makeTestChannelsStore(
 
 /// Creates a feed-card store from an in-memory repository double.
 @MainActor
-func makeTestFeedCardStore(cards: [FeedCard] = []) -> FeedCardStore {
-    FeedCardStore(repository: TestFeedCardRepository(cards: cards))
+func makeTestFeedCardStore(
+    cards: [FeedCard] = [],
+    userID: String = "test-user"
+) -> FeedCardStore {
+    let store = FeedCardStore(repository: TestFeedCardRepository(cards: cards, userID: userID))
+    store.activateUser(id: userID)
+    return store
 }
 
 /// Creates a valid text feed card for app runtime tests.

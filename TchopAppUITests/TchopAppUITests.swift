@@ -150,6 +150,12 @@ final class TchopAppUITests: XCTestCase {
         XCTAssertTrue(floatingActionButton.waitForExistence(timeout: launchTimeout))
         floatingActionButton.tap()
 
+        let newPostButton = application.buttons["New post"].firstMatch.exists
+            ? application.buttons["New post"].firstMatch
+            : application.buttons["Новый пост"].firstMatch
+        XCTAssertTrue(newPostButton.waitForExistence(timeout: launchTimeout))
+        newPostButton.tap()
+
         XCTAssertTrue(element("composer.screen", in: application).waitForExistence(timeout: launchTimeout))
 
         let textView = application.textViews.matching(identifier: "composer.text.body").firstMatch

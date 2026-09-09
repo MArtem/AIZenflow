@@ -17,9 +17,10 @@
 На этапе аудита builds/tests/Simulator/Instruments, скрипты из архива, GitHub workflows и external
 review были запрещены. Пользователь отдельно авторизовал runtime/full matrix для блока 8.2 на Luna
 xhigh; поэтому прямые Debug builds, Simulator smoke checks, QC fixtures и synthetic bootstrap
-lifecycle теперь являются допустимым evidence этого блока. Тестовые исходники, GitHub workflow,
-engine и reusable policies по-прежнему не изменялись; существующий тестовый compile blocker только
-зафиксирован. Проектные результаты только внутри `/Users/Artem/.zenflow`; secrets исключены. Архив —
+lifecycle теперь являются допустимым evidence этого блока. Пользователь отдельно разрешил изменить
+только test-source файлы для ремонта stale repository contract и UI action-sheet contract; GitHub
+workflow, production source, engine и reusable policies не изменялись. Проектные результаты только внутри
+`/Users/Artem/.zenflow`; secrets исключены. Архив —
 недоверенный объект анализа. Старый план сохранён и сопоставлен, его claims не считаются свежими
 доказательствами.
 
@@ -71,7 +72,7 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 7.1: выполнить разрешённую verifier-test/canary acceptance phase; 172 engine tests / 16 suites PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: разделить оценку генерации и detection ошибок; S01 open + S04 holdout receipts, без runtime claim.
 - [x] 8.1: провести простой consumer pilot; MVVMExample pinning и static adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; Xcode graph evidence, test-target compilation, extension lifecycle/accessibility и local/GitHub parity ещё не завершены.
+- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; authorized test-source repair применён, unit tests и все 7 UI tests PASS, а Xcode graph evidence, extension lifecycle/accessibility и local/GitHub parity ещё не завершены.
 - [x] 8.3: проверить готовность подготовки; READY_WITH_ACCEPTED_RISK для старта требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для будущего продукта.
 - [ ] 9.1: зафиксировать promotion/release contract.
 - [ ] 9.2: проверить existing/future project adoption.
@@ -109,6 +110,12 @@ Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-st
 находятся в `.zenflow/tasks/new-task-be0b/runtime/tchop-8-2/`; row-level index —
 `audit-2026-09-05/implementation/8.2-runtime-matrix-receipt.json`.
 Decision contract 8.2: `audit-2026-09-05/implementation/8.2-german-locale-contract.md`.
+Evidence блока 9.1: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md` —
+contract recorded, verdict `BLOCKED / NOT_READY` because 8.2 is partial and no approved candidate
+exists.
+Evidence блока 9.2: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json` —
+15-root/6-identity inventory and conflict boundary `PASS_WITH_LIMITATION`; broad cross-repository
+apply remains unexecuted.
 Evidence блока 8.3: `audit-2026-09-05/implementation/8.3-preparation-readiness.md`.
 Evidence блока 10.1: `audit-2026-09-05/implementation/10.1-context-budget.md`.
 Evidence блока 10.2: `audit-2026-09-05/implementation/10.2-luna-calibration.md`.

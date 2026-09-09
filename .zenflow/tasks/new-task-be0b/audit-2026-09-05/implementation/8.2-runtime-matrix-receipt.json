@@ -7,7 +7,9 @@
   "mode": "эконом",
   "consumer": {
     "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
-    "sourceRevision": "e24b7c8be50aad8777c47116b8ccb1e4ab3a9977"
+    "sourceRevision": "fe575e7c82a58dedb18728628fce59a46a2aa3e6",
+    "workingTreeAtEvidenceGeneration": "dirty in the three authorized test-source paths, app-local QC profile, and task receipts/docs",
+    "postCommitState": "requires fresh exact-SHA evidence rerun"
   },
   "engine": {
     "repository": "MArtem/AIZenflowQualityControl",
@@ -34,8 +36,8 @@
     {
       "id": "identity.static-profile-evidence",
       "status": "BLOCKED",
-      "reason": "QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
-      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-corrected.json", "runtime/tchop-8-2/qc-logs/validate-profile-final.json"]
+      "reason": "The app-local profile patch removes the target/version mismatch, but validate-profile remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED and the patched diagnostic clone is not an authenticated snapshot",
+      "evidence": ["runtime/tchop-8-2/qc-logs/static-evidence-final-corrected.json", "runtime/tchop-8-2/qc-logs/validate-profile-final.json", "runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json"]
     },
     {
       "id": "build.six-debug-schemes",
@@ -45,8 +47,8 @@
     {
       "id": "build.authenticated-build-evidence",
       "status": "BLOCKED",
-      "reason": "QC.BUILD_EVIDENCE.PREFLIGHT_UNTRUSTED",
-      "evidence": ["runtime/tchop-8-2/qc-logs/build-evidence-final.json"]
+      "reason": "QC.BUILD_EVIDENCE.BOUNDARY_UNTRUSTED on the intentionally dirty diagnostic clone; authenticated build evidence still requires an explicitly authorized exact profile snapshot",
+      "evidence": ["runtime/tchop-8-2/qc-logs/build-evidence-final.json", "runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json"]
     },
     {
       "id": "runtime.signed-out-smoke",
@@ -75,14 +77,15 @@
     },
     {
       "id": "tests.unit-and-ui",
-      "status": "BLOCKED",
-      "reason": "stale TestFeedCardRepository does not conform to FeedCardPersisting; test source was not modified",
-      "evidence": ["runtime/tchop-8-2/tchopapp-test-all.log", "runtime/tchop-8-2/tchopapp-ui-tests.log"]
+      "status": "PASS",
+      "reason": "unit tests pass, UI-test build passes, and UI execution runs 7 tests with 0 failures after the authorized Create → New post test-source repair",
+      "evidence": ["runtime/tchop-8-2/test-repair/tchopapp-test-unit-rerun-3.log", "runtime/tchop-8-2/test-repair/TchopAppTests-rerun-3.xcresult", "runtime/tchop-8-2/test-repair/tchopapp-ui-build-rerun-6.log", "runtime/tchop-8-2/test-repair/TchopAppUITests-build-rerun-6.xcresult", "runtime/tchop-8-2/test-repair/tchopapp-ui-tests-rerun-6.log", "runtime/tchop-8-2/test-repair/TchopAppUITests-rerun-6.xcresult"]
     },
     {
       "id": "extensions.lifecycle-and-accessibility",
-      "status": "NOT_RUN_BY_USER_DECISION",
-      "reason": "Only extension compilation was authorized and executed; lifecycle/VoiceOver evidence requires a separate bounded interaction pass"
+      "status": "BLOCKED",
+      "reason": "Package inspection and Simulator app installation passed, but Share activation and VoiceOver traversal are blocked by the unavailable host/UI interaction path; no lifecycle/accessibility PASS is claimed",
+      "evidence": ["runtime/tchop-8-2/qc-logs/graph-and-extension-probe-2026-09-09.json"]
     },
     {
       "id": "parity.local-github",
@@ -100,11 +103,26 @@
     "productionReadiness": "NOT_CLAIMED",
     "blockedBy": [
       "Xcode graph/build-evidence acceptance",
-      "test-target compilation",
       "extension lifecycle/accessibility",
       "local/GitHub parity",
       "pre-PR review"
     ]
+  },
+  "testSourceRepair": {
+    "status": "APPLIED_WITH_RUNTIME_PASS",
+    "paths": [
+      "TchopAppTests/TestDoubles/TestAppContentRepository.swift",
+      "TchopAppTests/NewsFeedViewModelTests.swift",
+      "TchopAppUITests/TchopAppUITests.swift"
+    ],
+    "staticChecks": {
+      "gitDiffCheck": "PASS",
+      "staleProtocolSignatureSearch": "PASS",
+      "swiftParse": "PASS",
+      "affectedCallSiteAudit": "PASS"
+    },
+    "runtimeVerification": "UNIT_PASS_UI_BUILD_PASS_UI_PASS",
+    "reason": "TchopAppTests pass and all 7 TchopAppUITests pass after aligning the helper with the Create action sheet"
   },
   "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
 }

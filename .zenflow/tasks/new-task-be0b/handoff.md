@@ -1,6 +1,6 @@
 # Handoff — аудит iOS quality system
 
-Дата: 2026-09-08. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
+Дата: 2026-09-09. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
 
 ## Цель и авторизация
 Пользователь разрешил полный аудит на GPT-6 Astra всей системы разработки/проверок и ZIP `/Users/Artem/Downloads/ios_codex_quality_system_v1.zip`, включая пересмотр старого QualityControl continuation plan. Результат — подробный план внедрения с моделью/reasoning. Режим эконом сохраняется; Astra для полного аудита явно разрешена. Пользователь теперь разрешил реализацию всего плана исключительно на GPT-5.6 Luna xhigh.
@@ -62,14 +62,30 @@ Secrets не читать. Проектные artifacts внутри `/Users/Art
 ## Следующий безопасный шаг
 Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow используют QC `b197bd5`, локальный
 static gate и семь clean-snapshot adapters PASS. Для 8.2 пользователь разрешил runtime/full matrix
-на Luna xhigh. На consumer HEAD `e24b7c8be50aad8777c47116b8ccb1e4ab3a9977` уже подтверждены семь
+на Luna xhigh. На runtime-evidence commit `e24b7c8be50aad8777c47116b8ccb1e4ab3a9977` уже подтверждены семь
 adapters, pinned QC engine build/CDHash, six-scheme Debug builds, clean signed-out/authenticated
 app smoke launch, positive/negative static fixtures и inventory → dry-run → apply → post-check →
 repeat → rollback bootstrap lifecycle. Receipt: `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
-8.2 остаётся PARTIAL: engine не принимает Xcode graph/build-evidence, тестовая цель не компилируется
-из-за старого test double, extension lifecycle/VoiceOver и local/GitHub parity не проверены.
-Следующий bounded шаг — отдельно разрешённый test-source repair и затем повтор только оставшихся
-матриц; 9.1 и 9.2 до этого не запускать. Точные пути и hashes перепроверять, если HEAD изменился.
+8.2 остаётся PARTIAL: authorized test-source repairs применены, unit tests и все 7 UI tests
+проходят. App-local QC profile patch теперь выровнен с фактическим engine version
+`0.1.0-dev` и target graph (`TchopApp`); bounded doctor подтверждает
+`QC.DOCTOR.XCODE_GRAPH_SELECTION` PASS, но source-membership и authenticated evidence остаются
+BLOCKED до свежего exact-SHA rerun после implementation commit. Package inspection и
+Simulator app installation для extensions прошли, но Share activation/VoiceOver остаются BLOCKED
+из-за отсутствия approved host/UI interaction path; local/GitHub parity не выполнялась.
+Следующий bounded шаг — после разрешённого implementation commit повторить authenticated graph/build
+evidence, затем lifecycle/accessibility; 9.1 и 9.2 остаются promotion/adoption gates с отдельными
+receipts. Текущий consumer HEAD до implementation changes — `fe575e7c82a58dedb18728628fce59a46a2aa3e6`;
+текущая implementation change включает три разрешённых test-source файла, task receipts/docs и
+app-local `.quality-control/profile.json`.
+Точные пути и hashes перепроверять, если HEAD изменился.
+
+Для продолжения плана 9.1 оформлен promotion/release contract с verdict `BLOCKED / NOT_READY`,
+поскольку 8.2 partial и approved release candidate отсутствует. Для 9.2 оформлен read-only
+adoption inventory: 15 worktrees сгруппированы в 6 canonical Git identities; broad apply/repeat/
+rollback по sibling/future roots не выполнялись, чтобы не мутировать соседние repos без отдельной
+авторизации. Receipts: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md` и
+`audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`.
 
 10.2 закрыт отдельным bounded Luna xhigh calibration receipt по уже имеющимся observations и
 representative receipts. 11.1 также закрыт closure map F01–F24 и traceability receipt с

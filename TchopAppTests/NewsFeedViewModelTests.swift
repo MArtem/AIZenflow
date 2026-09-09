@@ -90,6 +90,7 @@ final class NewsFeedViewModelTests: XCTestCase {
             makeTextFeedCard(id: "card-1", text: "Text")
         ])
         let feedCardStore = FeedCardStore(repository: repository)
+        feedCardStore.activateUser(id: "test-user")
         let viewModel = makeViewModel(feedCardStore: feedCardStore)
 
         viewModel.send(.cardLikeTapped(cardID: "card-1"))
@@ -260,6 +261,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         let duplicateCard = makeTextFeedCard(id: "card-1", text: "Duplicate")
         let repository = TestFeedCardRepository(cards: [originalCard])
         let feedCardStore = FeedCardStore(repository: repository)
+        feedCardStore.activateUser(id: "test-user")
 
         try feedCardStore.sync([duplicateCard])
 
@@ -275,6 +277,7 @@ final class NewsFeedViewModelTests: XCTestCase {
         let secondCard = makeTextFeedCard(id: "second-card", text: "Second")
         let repository = TestFeedCardRepository(cards: [firstCard, secondCard])
         let feedCardStore = FeedCardStore(repository: repository)
+        feedCardStore.activateUser(id: "test-user")
 
         feedCardStore.updatePersistedCard(id: "second-card") { card in
             card.replacingInteractionState(isLiked: true, commentsCount: 3, displayMode: .compact)
@@ -295,6 +298,7 @@ final class NewsFeedViewModelTests: XCTestCase {
             makeTextFeedCard(id: "card-1", text: "Text")
         ])
         let feedCardStore = FeedCardStore(repository: repository)
+        feedCardStore.activateUser(id: "test-user")
 
         feedCardStore.updatePersistedCard(id: "missing-card") { card in
             card.replacingInteractionState(isLiked: true)
@@ -629,9 +633,10 @@ final class AppContentRepositoryTests: XCTestCase {
         let databaseManager = try makeInMemoryAppDatabaseManager()
         let repository = FeedCardRepository(databaseManager: databaseManager)
         let card = makeTextFeedCard(id: "card-1", text: "Text", headline: "Headline")
+        let userID = "test-user"
 
-        try repository.saveCards([card])
-        var loadedCards = try repository.loadCards()
+        try repository.saveCards([card], for: userID)
+        var loadedCards = try repository.loadCards(for: userID)
         XCTAssertEqual(loadedCards, [card])
 
         let updatedCard = card.replacingInteractionState(
@@ -639,9 +644,9 @@ final class AppContentRepositoryTests: XCTestCase {
             commentsCount: 2,
             displayMode: .compact
         )
-        try repository.saveCard(updatedCard)
+        try repository.saveCard(updatedCard, for: userID)
 
-        loadedCards = try repository.loadCards()
+        loadedCards = try repository.loadCards(for: userID)
         XCTAssertEqual(loadedCards, [updatedCard])
     }
 
@@ -650,6 +655,7 @@ final class AppContentRepositoryTests: XCTestCase {
     func testFeedCardRepositoryLoadsCardsNewestFirst() throws {
         let databaseManager = try makeInMemoryAppDatabaseManager()
         let repository = FeedCardRepository(databaseManager: databaseManager)
+        let userID = "test-user"
         let olderCard = makeTextFeedCard(
             id: "older-card",
             text: "Older",
@@ -661,9 +667,9 @@ final class AppContentRepositoryTests: XCTestCase {
             createdAt: Date(timeIntervalSince1970: 2)
         )
 
-        try repository.saveCards([olderCard, newerCard])
+        try repository.saveCards([olderCard, newerCard], for: userID)
 
-        XCTAssertEqual(try repository.loadCards().map(\.id), ["newer-card", "older-card"])
+        XCTAssertEqual(try repository.loadCards(for: userID).map(\.id), ["newer-card", "older-card"])
     }
 
     /// Verifies saving one card can insert a new record without requiring a batch call.
@@ -671,10 +677,11 @@ final class AppContentRepositoryTests: XCTestCase {
         let databaseManager = try makeInMemoryAppDatabaseManager()
         let repository = FeedCardRepository(databaseManager: databaseManager)
         let card = makeTextFeedCard(id: "card-1", text: "Inserted")
+        let userID = "test-user"
 
-        try repository.saveCard(card)
+        try repository.saveCard(card, for: userID)
 
-        XCTAssertEqual(try repository.loadCards(), [card])
+        XCTAssertEqual(try repository.loadCards(for: userID), [card])
     }
 
     /// Inserts deterministic channel records into the in-memory SwiftData store.
