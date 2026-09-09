@@ -166,7 +166,8 @@ https://github.com/MArtem/AIZenflowQualityControl/pull/25, producing merge commi
 findings, and local QC verification remains 176 tests / 16 suites PASS. No stable QC promotion or
 release action is claimed.
 
-The continuation branch also contains consumer commit `b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071`,
-which updates the profile and manual workflow to the merged QC pin. It is not yet pushed; after
-publication, the user-owned manual GitHub workflow run is the next parity check. Graph-scoped
-static-evidence, doctor effective settings, and Share Extension/VoiceOver runtime remain blocked.
+The continuation branch contains consumer commit `b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071`, which
+updates the profile and manual workflow to the merged QC pin. It is pushed in PR #24:
+https://github.com/MArtem/AIZenflow/pull/24. After the user dispatches its manual GitHub workflow,
+that run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and
+Share Extension/VoiceOver runtime remain blocked.

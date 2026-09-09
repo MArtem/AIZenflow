@@ -491,6 +491,7 @@ prepared separately on the continuation branch; merge does not make 8.2 complete
 Consumer commit `b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071` updates `.quality-control/profile.json`
 and `.github/workflows/manual-quality.yml` from the pre-fix engine revision to merged-and-tested
 `c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`. JSON validation, old-pin absence, and `git diff --check`
-pass. The continuation branch is not yet pushed; after publication, the user-owned manual workflow
-run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and Share
+pass. The pin update is pushed in consumer PR #24:
+https://github.com/MArtem/AIZenflow/pull/24. After the user dispatches its manual workflow,
+that run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and Share
 Extension/VoiceOver runtime remain blocked in the local environment.
