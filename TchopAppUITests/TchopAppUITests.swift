@@ -120,6 +120,37 @@ final class TchopAppUITests: XCTestCase {
         XCTAssertTrue(element("shell.screen", in: application).waitForExistence(timeout: 20))
     }
 
+    /// Verifies a deterministic host can invoke Tchop Share and expose its bounded accessibility tree.
+    func testShareHostFixtureActivatesTchopShareExtension() throws {
+        try XCTSkipUnless(
+            ProcessInfo.processInfo.environment["TCHOP_SHARE_HOST_FIXTURE"] == "1",
+            "Run the bounded host fixture build/install flow before enabling this test."
+        )
+
+        let host = XCUIApplication(bundleIdentifier: "com.example.TchopShareHostFixture")
+        host.launch()
+
+        let presentShareButton = host.buttons["shareHost.presentShare"].firstMatch
+        XCTAssertTrue(presentShareButton.waitForExistence(timeout: launchTimeout))
+        presentShareButton.tap()
+
+        let tchopShareAction = host.buttons["Tchop Share"].firstMatch
+        XCTAssertTrue(tchopShareAction.waitForExistence(timeout: launchTimeout))
+        tchopShareAction.tap()
+
+        let shareExtension = XCUIApplication(bundleIdentifier: "com.example.TchopApp.share")
+        let shareScreen = shareExtension.descendants(matching: .any)
+            .matching(identifier: "shareExtension.screen")
+            .firstMatch
+        XCTAssertTrue(shareScreen.waitForExistence(timeout: launchTimeout))
+
+        let closeButton = shareExtension.descendants(matching: .any)
+            .matching(identifier: "shareExtension.closeButton")
+            .firstMatch
+        XCTAssertTrue(closeButton.waitForExistence(timeout: launchTimeout))
+        closeButton.tap()
+    }
+
     /// Creates a configured application instance for UI smoke coverage.
     private func makeApplication(
         authenticated: Bool,
