@@ -77,7 +77,8 @@ Simulator app installation для extensions прошли, но Share activation
 evidence, затем lifecycle/accessibility; 9.1 и 9.2 остаются promotion/adoption gates с отдельными
 receipts. Текущий consumer HEAD до implementation changes — `fe575e7c82a58dedb18728628fce59a46a2aa3e6`;
 текущая implementation change включает три разрешённых test-source файла, task receipts/docs и
-app-local `.quality-control/profile.json`.
+app-local `.quality-control/profile.json`; implementation commit —
+`7f6277ab5783dc764c60af339491991100119caa`. После commit рабочее дерево проверено clean.
 Точные пути и hashes перепроверять, если HEAD изменился.
 
 Для продолжения плана 9.1 оформлен promotion/release contract с verdict `BLOCKED / NOT_READY`,
