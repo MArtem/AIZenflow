@@ -18,7 +18,7 @@
 - [x] Phase 2: fix metadata preflight for allowed ignored runtime evidence without weakening symlink safety.
 - [x] Phase 3: align German locale metadata and make the Xcode migration tool explicit and idempotent.
 - [x] Phase 4: repair package/adoption authority, revisions, mirrors, missing package surfaces, and broken links.
-- [ ] Phase 5: reconcile current receipts, universal plan, handoff, and context budget.
+- [x] Phase 5: reconcile current receipts, universal plan, handoff, and context budget.
 - [x] Phase 6: revalidate reusable iOS knowledge freshness and maturity gaps.
 - [ ] Phase 7: run final static/runtime-authorized gates, exact-SHA independent review, publication, and remote parity.
 

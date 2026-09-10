@@ -17,7 +17,7 @@ missing, or not-run gate.
 
 | Claim | Current evidence | Exact identity / limitation |
 | --- | --- | --- |
-| Remediation plan/state | `../../remediation-plan-luna-xhigh.md`, `../../plan.md`, `../../handoff.md` | Current task state; final AIZenflow SHA is pending final commit. |
+| Remediation plan/state | `../../remediation-plan-luna-xhigh.md`, `../../plan.md`, `../../handoff.md` | Current task state is bound to implementation commit `231fb0e3`; receipt-only follow-up may change the final tip. |
 | Package library | `PackagesForReuse/PACKAGE_SNAPSHOT_MANIFEST.json` | 40 roots/5 helpers, 21 active roots/3 active helpers; canonical revision is recorded in the manifest. |
 | Knowledge freshness | `6.3-knowledge-freshness-2026-09-10.md` | Registry 18 active/5 complete/4 deferred; no maturity upgrade from document count. |
 | QC graph evidence | `8.2-graph-static-evidence-802b-2026-09-10.json` | Bound to consumer source head `e201fc8a5e6aeffec2f0455225f9e50f81df815b` and QC pin `802b4833c3c7cebb1c7e920b964451587a0bab42`. |

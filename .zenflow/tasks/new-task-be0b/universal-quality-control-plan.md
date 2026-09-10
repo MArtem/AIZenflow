@@ -594,7 +594,7 @@ graph PASS is claimed from the implementation commit alone.
 
 The preceding continuation paragraphs are preserved chronology and are not current status. The
 superseding implementation plan is `.zenflow/tasks/new-task-be0b/remediation-plan-luna-xhigh.md`.
-Its Phases 0–4 and 6 are complete with current receipts; Phase 5 is the active task-state
-reconciliation block, followed by Phase 7 final exact-SHA review/publication. The user-selected
+Its Phases 0–6 are complete with current receipts; Phase 5 is reconciled and Phase 7 is the active
+final exact-SHA review/publication block. The user-selected
 internal-pilot closure remains valid for the QC continuation, while stable QC promotion, release,
 signing, TestFlight, App Store and production-readiness claims remain out of scope.
