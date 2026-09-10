@@ -86,7 +86,7 @@ Current `TchopApp` integration is source-only. If this package is needed by the 
 
 1. Keep the reviewed package in `./PackagesForReuse/AppBranding`.
 2. Copy/sync it into `./PackagesInUse/AppBranding`.
-3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
+3. Add required `Sources/**/*.swift` and resources through `./scripts/migrate_packages_in_use_project.py --apply` or an equivalent project edit that preserves the `PackagesInUse/<PackageName>` Xcode group.
 4. Keep product-specific policy in `./TchopApp`; do not add decorative wrappers around package APIs.
 5. Run app verification after project/source changes.
 

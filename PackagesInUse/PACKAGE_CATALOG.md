@@ -43,6 +43,6 @@ Use this file to understand what active package code is already available to the
 
 ## Maintenance Rule
 
-If a package is added to or removed from `./PackagesInUse`, update this file, `./PackagesInUse/README.md`, and the Xcode logical `PackagesInUse/<PackageName>` group through `./scripts/migrate_packages_in_use_project.py`.
+If a package is added to or removed from `./PackagesInUse`, update this file, `./PackagesInUse/README.md`, and the Xcode logical `PackagesInUse/<PackageName>` group through `./scripts/migrate_packages_in_use_project.py --apply`, then verify with `--check`.
 
 Package descriptions here must stay useful enough for a new task to decide whether the active package is relevant without opening every package README. Avoid vague two-word labels.

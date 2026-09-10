@@ -7,8 +7,10 @@ by ID and isa, avoiding accidental matches in PBXNativeTarget blocks.
 """
 from __future__ import annotations
 
+import argparse
 import hashlib
 import re
+import sys
 from pathlib import Path
 
 PROJECT_PATH = Path("TchopApp.xcodeproj/project.pbxproj")
@@ -313,7 +315,19 @@ def package_group_entries(source_paths: list[Path], resource_paths: list[Path]) 
     return entries, root_group_id
 
 
+PACKAGE_GROUP_INSERTION_MARKER = "__PACKAGES_GROUP_INSERTION__"
+
+
 def remove_existing_packages_group_entries(text: str) -> str:
+    inserted_marker = False
+
+    def replace_entry(_: re.Match[str]) -> str:
+        nonlocal inserted_marker
+        if inserted_marker:
+            return ""
+        inserted_marker = True
+        return f"\n\t\t{PACKAGE_GROUP_INSERTION_MARKER}"
+
     return re.sub(
         r"\n\t\tG1[A-Z0-9]+ /\* (?:PackagesInUse|IntegrationHelpers|App[A-Za-z0-9]+|TchopProductLocalizationResources) \*/ = \{\n"
         r"\t\t\tisa = PBXGroup;\n"
@@ -323,7 +337,7 @@ def remove_existing_packages_group_entries(text: str) -> str:
         r"\t\t\tname = (?:PackagesInUse|IntegrationHelpers|App[A-Za-z0-9]+|TchopProductLocalizationResources);\n"
         r"\t\t\tsourceTree = \"<group>\";\n"
         r"\t\t\};",
-        "",
+        replace_entry,
         text,
         flags=re.S,
     )
@@ -343,8 +357,7 @@ def ensure_packages_group_in_main_group(text: str, root_group_id: str) -> str:
     )
 
 
-def main() -> None:
-    text = PROJECT_PATH.read_text()
+def migrate_text(text: str) -> str:
     text = strip_spm_framework_entries(text)
     text = strip_spm_dependency_blocks(text)
     text = remove_existing_packages_group_entries(text)
@@ -384,7 +397,12 @@ def main() -> None:
 
     text = insert_before_section_end(text, "PBXFileReference", file_ref_entries)
     text = insert_before_section_end(text, "PBXBuildFile", build_entries)
-    text = insert_before_section_end(text, "PBXGroup", group_entries)
+    group_block = "".join(group_entries)
+    marker = f"\n\t\t{PACKAGE_GROUP_INSERTION_MARKER}"
+    if marker in text:
+        text = text.replace(marker, f"\n{group_block.rstrip(chr(10))}", 1)
+    else:
+        text = insert_before_section_end(text, "PBXGroup", group_entries)
     text = ensure_packages_group_in_main_group(text, packages_group_id)
 
     for kind, phases in SOURCE_PHASES.items():
@@ -395,15 +413,58 @@ def main() -> None:
     for phase in RESOURCE_PHASES:
         text = add_to_phase(text, phase, "PBXResourcesBuildPhase", resource_builds)
 
-    # Local product resources now include German as well.
-    text = text.replace(
-        "\t\t\tknownRegions = (\n\t\t\t\ten,\n\t\t\t\tru,\n\t\t\t\tBase,\n\t\t\t);",
-        "\t\t\tknownRegions = (\n\t\t\t\ten,\n\t\t\t\tru,\n\t\t\t\tde,\n\t\t\t\tBase,\n\t\t\t);",
-    )
+    return text
 
-    PROJECT_PATH.write_text(text)
-    print(f"Added {len(all_source_files)} source files and {len(resource_dirs)} localized resource folders from PackagesInUse.")
+
+def main() -> int:
+    parser = argparse.ArgumentParser(description=__doc__)
+    mode = parser.add_mutually_exclusive_group(required=True)
+    mode.add_argument(
+        "--check",
+        action="store_true",
+        help="Validate that the project already matches the source-only migration without writing.",
+    )
+    mode.add_argument(
+        "--apply",
+        action="store_true",
+        help="Apply the source-only migration to project.pbxproj.",
+    )
+    parser.add_argument(
+        "--project",
+        type=Path,
+        default=PROJECT_PATH,
+        help=f"Project file to inspect (default: {PROJECT_PATH}).",
+    )
+    args = parser.parse_args()
+    project_path = args.project
+    if not project_path.is_file():
+        print(f"Project file not found: {project_path}", file=sys.stderr)
+        return 2
+
+    original = project_path.read_text()
+    migrated = migrate_text(original)
+    if migrate_text(migrated) != migrated:
+        print("Migration is not idempotent; refusing to continue.", file=sys.stderr)
+        return 2
+
+    if args.check:
+        if migrated != original:
+            print(
+                f"Migration check failed: {project_path} requires --apply before it is current.",
+                file=sys.stderr,
+            )
+            return 1
+        print(f"Migration check OK: {project_path}")
+        return 0
+
+    if migrated == original:
+        print(f"Migration already applied: {project_path}")
+        return 0
+
+    project_path.write_text(migrated)
+    print(f"Applied source-only migration to {project_path}.")
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())

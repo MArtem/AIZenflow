@@ -30,7 +30,7 @@ Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. 
 1. Choose a package from `./PackagesForReuse/PACKAGE_CATALOG.md`.
 2. Read that package's `README.md` and `PackageContract.md`.
 3. Run package-local verification from the package folder.
-4. For current TchopApp source-only mode, copy/sync the package to `./PackagesInUse/<PackageName>` and update Xcode with `./scripts/migrate_packages_in_use_project.py`.
+4. For current TchopApp source-only mode, copy/sync the package to `./PackagesInUse/<PackageName>` and update Xcode with `./scripts/migrate_packages_in_use_project.py --apply`, then confirm the result with `--check`.
 5. For SwiftPM local mode in another project, use `.package(path:)`.
 6. For SwiftPM remote mode, publish the standalone package folder as the root of its own Git repository and use `.package(url:from:)`.
 7. Run host-project verification after wiring sources/resources/imports.

@@ -96,7 +96,7 @@ Current `TchopApp` integration is source-only. If this package becomes needed by
 
 1. Keep the reviewed package in `./PackagesForReuse/AppInputFormatting`.
 2. Copy/sync it into `./PackagesInUse/AppInputFormatting` only when app code uses it now.
-3. Add required source files through `./scripts/migrate_packages_in_use_project.py` or an equivalent deterministic project edit preserving `PackagesInUse/AppInputFormatting` grouping.
+3. Add required source files through `./scripts/migrate_packages_in_use_project.py --apply` or an equivalent deterministic project edit preserving `PackagesInUse/AppInputFormatting` grouping.
 4. Keep product-specific input policy and UI behavior in `./TchopApp`.
 5. Run project verification after source-only wiring.
 
