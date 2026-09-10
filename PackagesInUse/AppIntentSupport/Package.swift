@@ -18,6 +18,10 @@ let package = Package(
     targets: [
         .target(
             name: "AppIntentSupport"
+        ),
+        .testTarget(
+            name: "AppIntentSupportTests",
+            dependencies: ["AppIntentSupport"]
         )
     ]
 )

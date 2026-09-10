@@ -123,6 +123,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`
 - `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
 - `./docs/PACKAGES_AND_MANAGERS.md`
+- `./docs/PACKAGE_DOC_MIRROR_CONTRACT.md`
 - `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
 - `./Packages/SDKCreation/README.md`
 - `./PackagesForReuse/AppBackgroundTasks/README.md`
@@ -153,7 +154,6 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./PackagesForReuse/README.md`
 - `./PackagesForReuse/PACKAGE_CATALOG.md`
 - `./PackagesForReuse/CONNECTING_PACKAGES.md`
-- `./PackagesForReuse/ADOPTION_AUDIT.md`
 - `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - `./docs/SHARE_EXTENSION_VALIDATION.md`
 

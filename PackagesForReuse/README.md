@@ -4,7 +4,7 @@
 
 `./PackagesForReuse` is the complete reusable package vault. It preserves package source, tests, DocC, scripts and usage documentation without forcing every package to be connected to `TchopApp`.
 
-Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. It now includes short summaries, expanded descriptions, package ownership boundaries, and host-app responsibility notes for every package/helper. Then open the package-specific `README.md` for setup, usage examples, boundaries and verification instructions.
+Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. It now includes short summaries, expanded descriptions, package ownership boundaries, and host-app responsibility notes for every package/helper. Then open the package-specific `README.md` for setup, usage examples, boundaries and verification instructions. The reproducible source/active identity is recorded in `./PackagesForReuse/PACKAGE_SNAPSHOT_MANIFEST.json`; validate it with `python3 -B ./scripts/generate_package_snapshot_manifest.py --check`.
 
 ## Current Counts
 
@@ -18,12 +18,13 @@ Use `./PackagesForReuse/PACKAGE_CATALOG.md` as the first-stop package selector. 
 - Do not store generated artifacts here: `.build`, `.swiftpm`, `build`, `DerivedData`, logs or Xcode user data.
 - Keep generic mechanisms in packages and product-specific policy in the host app.
 - Every new package must update its own README and `./PackagesForReuse/PACKAGE_CATALOG.md`.
+- Package count, product, maturity, content-hash and Documentation Vault revision changes must update `./PackagesForReuse/PACKAGE_SNAPSHOT_MANIFEST.json` with the explicit `--write` mode.
 
 ## Main Documents
 
 - `./PackagesForReuse/PACKAGE_CATALOG.md`: package selector and short descriptions for all packages.
 - `./PackagesForReuse/CONNECTING_PACKAGES.md`: examples for connecting packages.
-- `./PackagesForReuse/ADOPTION_AUDIT.md`: adoption status and rationale.
+- App-specific adoption status and rollback rationale belong to the consuming app's documentation boundary; this reusable vault does not own an adoption audit.
 
 ## Standard Connection Flow
 

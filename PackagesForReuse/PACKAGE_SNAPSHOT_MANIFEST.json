@@ -1,0 +1,1075 @@
+{
+  "schema_version": 1,
+  "generated_by": "scripts/generate_package_snapshot_manifest.py",
+  "documentation_vault_revision": "cb8ffedf7e5c032478e36fa8f2f1e751952ad76b",
+  "counts": {
+    "reusable_root": 40,
+    "reusable_helpers": 5,
+    "active_root": 21,
+    "active_helpers": 3
+  },
+  "reusable_packages": [
+    {
+      "path": "PackagesForReuse/AppAnalytics",
+      "kind": "root-package",
+      "package_name": "AppAnalytics",
+      "products": [
+        "AppAnalytics",
+        "AppAnalyticsCore"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "8ab1d192228525fb91b4597dd61e8a64f02978f4be2c4d77877f7c2f9f8b9ca4",
+      "content_sha256": "7a8aaa15869bbf0b2eec24a05e24a6af4c6b799ea929b929f354a191936a6370",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppAnalytics",
+        "content_sha256": "47475e47b232c7215f040a04ed3a6d760bb19d4710f365155565f118aaa12e47",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppAppleAuthentication",
+      "kind": "root-package",
+      "package_name": "AppAppleAuthentication",
+      "products": [
+        "AppAppleAuthentication"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "299e4039eb36e8a4599159647a538a595590ae4995d8e87307f3df0d53f92b3e",
+      "content_sha256": "895c70fb1a73b74785ee08325781157de02643a86c9db8e6ff9f98c7b21cf658",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppAppleAuthentication",
+        "content_sha256": "bf6306c1500c8c2ef33fdd79e0ffa5e7357729878745f649fdb6ff8b61278e86",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppBackgroundTasks",
+      "kind": "root-package",
+      "package_name": "AppBackgroundTasks",
+      "products": [
+        "AppBackgroundTasks"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "73e6d5446926a6d974b8b5429b62de24f1eb87b5641daecfbe6314b7f018d093",
+      "content_sha256": "a154e50f5aa2cc6561e5d63ac1d1bb9f94658e0db2c88f182304ddcab656f5ee",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppBranding",
+      "kind": "root-package",
+      "package_name": "AppBranding",
+      "products": [
+        "AppBranding"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "d84f9f83f67e4601a141b7bda922555dc61605adefd6ff349ec574de03f5e853",
+      "content_sha256": "c64d2a67ea5c03996752f32bfc6c578ae08ea4cd4b6d0470899bd68111f96bad",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppBranding",
+        "content_sha256": "d6e04ab4bdb82d2bf636fd43fc27d6ed3a65c49dd94c9ad2132b0808f71a22f4",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppCache",
+      "kind": "root-package",
+      "package_name": "AppCache",
+      "products": [
+        "AppCache"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "3caeea217dafc03d1de73388952a6a7fc09e239798e7ba2597879b4eb91da6b5",
+      "content_sha256": "8695af72b432c406ae0e4cc58b8755a3c374a93d7a20b45a0037daeb239a4c0f",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppConfiguration",
+      "kind": "root-package",
+      "package_name": "AppConfiguration",
+      "products": [
+        "AppConfiguration"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "3b1d04be20625775d1657bb5bfb397879a87b5e1594a2d15fcf9152c36ac8481",
+      "content_sha256": "1399d5c659d63c813ab072cb62f434888799f4d517f15e2b5429fb50658ea6e8",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppConfiguration",
+        "content_sha256": "4e1a9ab723923c67c8e7ab421e3dd5451e58b05e33dc770ed508a913f32a150d",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppConnectivity",
+      "kind": "root-package",
+      "package_name": "AppConnectivity",
+      "products": [
+        "AppConnectivity"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "33b70347f73bb5618cfb64bab5b02c42993e487931315d80aecfa6ecd88fcf7e",
+      "content_sha256": "27c4976956c6843b6d65d10b4e52a7047d120f4acbef0edeff46c017eb234571",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase",
+      "kind": "root-package",
+      "package_name": "AppDatabase",
+      "products": [
+        "AppCoreDataDatabase",
+        "AppDatabase",
+        "AppDatabaseComposition",
+        "AppDatabaseCore",
+        "AppSwiftDataDatabase"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "2510e9205da4a91cd130016bc356961a205b350a2e91ca4862b5394802b53473",
+      "content_sha256": "cf4fd9900a3987f98bc4afabd2683b07b9f6888d40b90c674c1f9fc4a2e54468",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppDatabase",
+        "content_sha256": "0d9a285addc6f57b27c4f317f7a94edffdb00c582942cf73cc07c1f408273a02",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppDeviceInfo",
+      "kind": "root-package",
+      "package_name": "AppDeviceInfo",
+      "products": [
+        "AppDeviceInfo"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "a3d69d93b4240bdc6cd04ee4624f05bd675252d2ba99ea296bafc1333e2515ce",
+      "content_sha256": "03476f420397d980940f6e6a4de7640aad815ea7a56f755a0945a9633100c9fa",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppDownloads",
+      "kind": "root-package",
+      "package_name": "AppDownloads",
+      "products": [
+        "AppDownloads"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "f4d3e0dde5855aea269f66cbad58f58f2e5c9da68b0e83588fe51a748475e6b9",
+      "content_sha256": "dae68f8dc315ecc604a26161cb6d33a1ec9e5150166c3a9e4de977e4546d6926",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppEnvironment",
+      "kind": "root-package",
+      "package_name": "AppEnvironment",
+      "products": [
+        "AppEnvironment"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "7ffeb83c08cb20b3ffa2dfe69f7472961d6098cdfc0f74d9e1d58705abbd9061",
+      "content_sha256": "5f260f06deabd08b919bf3f26d6532ed50d546ecca31dc796a90e7473a0b93ea",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppEnvironment",
+        "content_sha256": "6b3b30a6a319c3b2cc2a411f49f3160a39f6a0a358774fe6ac71fa06eeffdc15",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppErrors",
+      "kind": "root-package",
+      "package_name": "AppErrors",
+      "products": [
+        "AppErrors",
+        "AppErrorsCore"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "a03c1bd157a4ca9f03048eba2de3c3a3a678ba5358cabe7f1bcdce24289e2cfc",
+      "content_sha256": "75d881ef13536cdcab221a95e15cd691f2d54a0dcb38bd07539418877313ddad",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppErrors",
+        "content_sha256": "e7eedbb5e692f915efa7753345fa1316b75c264df651affd55a2734da13a0d31",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppFeatureFlags",
+      "kind": "root-package",
+      "package_name": "AppFeatureFlags",
+      "products": [
+        "AppFeatureFlags"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "357e0dd4fa5ecc727fe7c407b858e340482a1dfbcde33109302e2e5cb1c4646e",
+      "content_sha256": "be7bdf708c2b4787a99f3bf040acb8b8b29bffdd7ccbf6001223883d002aff01",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppFileStorage",
+      "kind": "root-package",
+      "package_name": "AppFileStorage",
+      "products": [
+        "AppFileStorage"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "3c204c74cddaf11a3f70382f8948511e669b95b11dfcedefd2ee1d005aaf401e",
+      "content_sha256": "73781937e7166cf4dda181b0651e2e2f9bbe0eb6914b13a9362b69715c9fb1d2",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppFileStorage",
+        "content_sha256": "a166f348b2741d459b9a8ebf75b00d1ed2362c099429937fd9912b84af3e888a",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppFormValidation",
+      "kind": "root-package",
+      "package_name": "AppFormValidation",
+      "products": [
+        "AppFormValidation"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "e560ff814a59e1dea148dd7d16316962f1caa3a169a688d029ef8a3d36477d79",
+      "content_sha256": "522fa78fb623ed26d9306e0071eff61f4498897bc6291988e33ff565dc37838b",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppFormValidation",
+        "content_sha256": "edda23e3e465a2c61426cfd95eb2bfbd172d7864a960557daa81ca8d01942401",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppGlassUI",
+      "kind": "root-package",
+      "package_name": "AppGlassUI",
+      "products": [
+        "AppGlassUI"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "6831aabd0081022c0c05a57dbb53a9e3c75ce5284289b11c0425d6e6d0df57bf",
+      "content_sha256": "bdf62b48ed10c7f8f912a70597f906cc872b38aa37d683fa7d4a2a35694c06e6",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppGlassUI",
+        "content_sha256": "f2ff27f076b0ac661688ffc8f58832725a8e4a41574e87286086ab6286cf281a",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppImagePipeline",
+      "kind": "root-package",
+      "package_name": "AppImagePipeline",
+      "products": [
+        "AppImagePipeline"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "a0f1d930333399c51312f1aa2cdf63a059c0be83a40359cd1b8bc55ac6b995eb",
+      "content_sha256": "ce41c34cce1d20ba83c24f423429d1bff5671dd1b8bf48c43655021341807863",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppInputFormatting",
+      "kind": "root-package",
+      "package_name": "AppInputFormatting",
+      "products": [
+        "AppInputFormatting"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "866eb9029263a68370b3f88348f422798a9f02028c6116e48944e8a4472e145f",
+      "content_sha256": "e03b0d1307475dd7d5e42355e1fb7ea8690375899f421cd243ebabe4989321a9",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppIntentSupport",
+      "kind": "root-package",
+      "package_name": "AppIntentSupport",
+      "products": [
+        "AppIntentSupport"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "2607294402a8122f3f6b16522f560f2fb158512f4abc37aa634ae19718777910",
+      "content_sha256": "92e1202402a9508378dd0d15d567c854c79f2475206aeb61d8d85cc3f05bfde9",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppIntentSupport",
+        "content_sha256": "b27bf050274006a55f6de683dd5ac696191f8fbcbd1346301c9039cdfba65141",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppLifecycle",
+      "kind": "root-package",
+      "package_name": "AppLifecycle",
+      "products": [
+        "AppLifecycle"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "26110a1aed9ef0efc5be54ada210dd1e4f3f0b81cc0c66c8f15886174feb1849",
+      "content_sha256": "7c47f06724520edccdf3508ed92b2a86426a4762f77d309c7fa532d379ee7b29",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppLifecycle",
+        "content_sha256": "3eadcfbfe7c5e5a23f4ae96331955b819934c2f39cfe534bc321c2abc4a79ce3",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppLocalization",
+      "kind": "root-package",
+      "package_name": "AppLocalization",
+      "products": [
+        "AppLocalization"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "6e426afd4c47a0fa5c77c044336a02ce7b7144c0de2daa5c0dcfb7e03a964599",
+      "content_sha256": "fee7c40cd9f65f655b0f1469a71d27af15f88a8095f890250631ca025755b45e",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppLocalization",
+        "content_sha256": "c7bb4e5ff62693c927452ec6e5cb698cc6aaaa26fe4c8f598a730c89ade3872d",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppLogging",
+      "kind": "root-package",
+      "package_name": "AppLogging",
+      "products": [
+        "AppLogging"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "087fd6558ac57e00bde5ad370294e30690d68f22cc43adf57486f306619e5221",
+      "content_sha256": "b287b3b551c7de7c5d4b6688c77a4b0ce48c58b7c37f48019d8b30f151b3ba5d",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppNavigation",
+      "kind": "root-package",
+      "package_name": "AppNavigation",
+      "products": [
+        "AppNavigation"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "96473e423a62634a0f7875977e3b8f42090f7aeb367ac9f5f66bb2f2a1d820ff",
+      "content_sha256": "52cd1e4f7fe7bdbb1f3d76b09180be4054592e59d48420f5d305542cfd3e7100",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppNavigation",
+        "content_sha256": "9fc4d33b012363bfb4b663fe091f991e068eb7d0a3f3aec4d55c627ac17717bb",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppNetworking",
+      "kind": "root-package",
+      "package_name": "AppNetworking",
+      "products": [
+        "AppNetworking"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "ed51e7c4d93274fb18c9490b4bd8072db93bf81ecc6ecad85e4ef66945bd0ca0",
+      "content_sha256": "c22bb064cab5e8ac256ab337208be957a50a97dcc006061c5baddc747ccd7f72",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppNetworking",
+        "content_sha256": "906547144e4c14f399b4e365a19868debfa26f04e02e787a003853c2e61f278a",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppObservability",
+      "kind": "root-package",
+      "package_name": "AppObservability",
+      "products": [
+        "AppObservability"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "7586f7b1239ae9207e4143442e2077100523eb0850813f0759eb7a39c2e3c452",
+      "content_sha256": "240a79f61100c47b765f3eb207d1498ab3590f49be495d18d98dc83885879ce8",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppOnDeviceAI",
+      "kind": "root-package",
+      "package_name": "AppOnDeviceAI",
+      "products": [
+        "AppOnDeviceAI"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "ec3b9f3a31574639e04e813f6821db47709cc97fc446e88b40fc711a186da8ae",
+      "content_sha256": "69d1387b5536ef7cedd5cb184c15e7d0daf19381b86ba5c9ac940194be90207f",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppOnDeviceAI",
+        "content_sha256": "823d252c0a82c913fa77ff93908d19f5a902d185e1616e0e73a04985b7ffa408",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppPagination",
+      "kind": "root-package",
+      "package_name": "AppPagination",
+      "products": [
+        "AppPagination"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "a98d3fe3832c41b763dcc9d61ebe660f0af554229f8e6f754914ef2f4ee5e6eb",
+      "content_sha256": "bbee20d816cac3ea698c87e65ed407a8d20a786970b55212728b9d3b1d1e3c31",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppPermissions",
+      "kind": "root-package",
+      "package_name": "AppPermissions",
+      "products": [
+        "AppPermissions"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "051db1f7548c9ec464e2672b8e28b15a7aae4223da6252da228776b7118b2ea3",
+      "content_sha256": "44682035fbca2edecffd5a8c9b9b203288b310504563be66d94de1b93132c8a4",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppPermissions",
+        "content_sha256": "9724f28bb791cb4a94bcb1c2791f4fe6f07c3516c8a984a2596d3f9678bc2b28",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppPushNotifications",
+      "kind": "root-package",
+      "package_name": "AppPushNotifications",
+      "products": [
+        "AppPushNotifications"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "78143254f0c8cff0b74159696b842b0f419bf99aa48f4562eb9e3afea9e7c821",
+      "content_sha256": "384815879d33fef1c89bb90cf587ea3e93886c32655ff411cbf35e0ba50f625b",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppPushNotifications",
+        "content_sha256": "cc9f3b45b7ce86137f4ce162d788310db853d375a2e9e637bc6d2515ff1a62ce",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppRateLimiter",
+      "kind": "root-package",
+      "package_name": "AppRateLimiter",
+      "products": [
+        "AppRateLimiter"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "7a5ec3a9b6dae9753a3f06ad8d3f85e6a9cd9d982399af0e863520f4d180baa2",
+      "content_sha256": "5c69361cc21319df205b71ba5a24a8b7cea6301588424a9526628fe45e1f2229",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppRemoteAssets",
+      "kind": "root-package",
+      "package_name": "AppRemoteAssets",
+      "products": [
+        "AppRemoteAssets"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "ba43f5d795161839409d31afd2b4c8b04e895988e48d924f753a4f93a4733f0b",
+      "content_sha256": "156d44072f288d8e3c61b5bd327f8962ebd55b18e12d18dcd17beb5368f66b7b",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppSecureStorage",
+      "kind": "root-package",
+      "package_name": "AppSecureStorage",
+      "products": [
+        "AppSecureStorage"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "38d5e42b210798cc27491a22c578030ec51a04e2addc69d77635b3ee2ea2b87b",
+      "content_sha256": "1a290c1218ac5c8dadb5a301aed2423ac8478947b6a0a34bcafbd3c53bfd33b9",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppShareExtensionSupport",
+      "kind": "root-package",
+      "package_name": "AppShareExtensionSupport",
+      "products": [
+        "AppShareExtensionSupport"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "c067d7f3ce212e4b423e23fd98302443234477af3d37d7efeddbf4136d22126e",
+      "content_sha256": "a7f2738f24537846ab17099c30668be36ef51a18e846080242683897359ce432",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppShareExtensionSupport",
+        "content_sha256": "6c91313a7f39de56103045a58cde9cb6f5944915649a58db0ab8598711880e0e",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppStateMachine",
+      "kind": "root-package",
+      "package_name": "AppStateMachine",
+      "products": [
+        "AppStateMachine"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "d95dcdbeddff5c42547780786f27fa74628e822a55b227548aa0aab5df34239f",
+      "content_sha256": "c4b69eb1f18fffb93b50969f16731554ebb455ef8dc604f89fe819a4646f9e6f",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppSync",
+      "kind": "root-package",
+      "package_name": "AppSync",
+      "products": [
+        "AppSyncCore",
+        "AppSyncObservation"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "31e53536d7e0e697b06e745b5284dd8625f98c45d6879027783c839dca141c76",
+      "content_sha256": "c27213675c27557ddbbd7e78eb3c54395764c29f765dff031256fcde9a26158a",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppTaskQueue",
+      "kind": "root-package",
+      "package_name": "AppTaskQueue",
+      "products": [
+        "AppTaskQueue"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "b33216828db0677182a0b075564fd7303764a55fcd83238b1b961ea5d9431c05",
+      "content_sha256": "17ceefafcacceec753f6080707e2355281ac86287d91a6bc27a6ce9913fd1dd6",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppUploads",
+      "kind": "root-package",
+      "package_name": "AppUploads",
+      "products": [
+        "AppUploads"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "4955feed3d6600a9a7048dd58b75d99e56242de6003bbe2e3aa735f010523a83",
+      "content_sha256": "fb42c587924449c138f29eabd1f7cc7993ba9bb539cae39335cd47ac0c02fd40",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppValidationCore",
+      "kind": "root-package",
+      "package_name": "AppValidationCore",
+      "products": [
+        "AppValidationCore"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "809d6150889d084ccb6ab800f44d2f2a115458602ad83b44d42abad8507c8cf3",
+      "content_sha256": "d067670d83fecfa220982c599c0981583556dbac4b63a63fffb921b696cb7ae6",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/AppWidgetSupport",
+      "kind": "root-package",
+      "package_name": "AppWidgetSupport",
+      "products": [
+        "AppWidgetSupport"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "f469dfd11a0db14a6a189bfa96009a470a12dfc541300a269535e8612fedebcf",
+      "content_sha256": "5b6bb9f7521a3d79603aaddcfa55be3279265caef76410f1c723771217859a51",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/AppWidgetSupport",
+        "content_sha256": "a41f394ec8bcea27ef88154126747453f3f567845ced2b62ecb2d60ae60d7954",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/TchopProductLocalizationResources",
+      "kind": "root-package",
+      "package_name": "TchopProductLocalizationResources",
+      "products": [
+        "TchopProductLocalizationResources"
+      ],
+      "maturity": "product-owned",
+      "package_manifest_sha256": "fd1aee31cc88ba0639a11a481642b452de1c316c00cd5adddbc7e48986cd24ae",
+      "content_sha256": "93a0789b5787ffb8ca1404acf57946a27424436c8673c1e883477a2e044ec4ac",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/TchopProductLocalizationResources",
+        "content_sha256": "a9cdb600279f4d9798c7735b817ff7a0c79fa5155deed79f1c457d0f795145e6",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/IntegrationHelpers/AppAnalyticsNavigationIntegration",
+      "kind": "integration-helper",
+      "package_name": "AppAnalyticsNavigationIntegration",
+      "products": [
+        "AppAnalyticsNavigationIntegration"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "2c5f22389776866b8de89f83b63d717893facc7f5210911910ac98d23d0e045f",
+      "content_sha256": "63ce79f63a5d0aa523471e8ee8163aed24d81ad46f954d8b2060aa518431d75f",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNavigationIntegration",
+        "content_sha256": "ec6f4f035aee96b8510783604b4a0d9d38621b35deb362640c91ceeed6df315c",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/IntegrationHelpers/AppAnalyticsNetworkingIntegration",
+      "kind": "integration-helper",
+      "package_name": "AppAnalyticsNetworkingIntegration",
+      "products": [
+        "AppAnalyticsNetworkingIntegration"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "3228d00d8ff1b4625167e78e2d41a4cf9c498d16063399610c6ee5dcd926aa79",
+      "content_sha256": "f8f0379f376910dcd6063e3d7008e249fa456e9c74c6b05d019bf522e6f7339c",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNetworkingIntegration",
+        "content_sha256": "f8c3b81f9e438895b1f3acb50e48b0e64f1315938528110a0f33c0673c62bbef",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration",
+      "kind": "integration-helper",
+      "package_name": "AppAnalyticsPushNotificationsIntegration",
+      "products": [
+        "AppAnalyticsPushNotificationsIntegration"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "9bee238469cc13553a20fc56abb9387b91dfeed61990d5ea01e7f1a94b60c387",
+      "content_sha256": "b70dff4bf198d2176a90ae8bb8968a28d22ea04aa95f9c3c015457ee43366b99",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      },
+      "active_snapshot": {
+        "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration",
+        "content_sha256": "b1cc444ad1b5e22bb125791c05126a72d25da24b11630ab617d36ac5c8c65982",
+        "maturity": "source-only-active"
+      }
+    },
+    {
+      "path": "PackagesForReuse/IntegrationHelpers/AppErrorsNetworkingIntegration",
+      "kind": "integration-helper",
+      "package_name": "AppErrorsNetworkingIntegration",
+      "products": [
+        "AppErrorsNetworkingIntegration"
+      ],
+      "maturity": "vault-cataloged",
+      "package_manifest_sha256": "06604e7f5f3604c0731422d7de889ab66c7ce752d8cbb082154e78cf4653743c",
+      "content_sha256": "57298da0a8702374f8ed1f15dba078c403d60299c6b6fc597852255ef13bd1ab",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    },
+    {
+      "path": "PackagesForReuse/IntegrationHelpers/TchopProductLocalizationResourcesAppLocalizationIntegration",
+      "kind": "integration-helper",
+      "package_name": "TchopProductLocalizationResourcesAppLocalizationIntegration",
+      "products": [
+        "TchopProductLocalizationResourcesAppLocalizationIntegration"
+      ],
+      "maturity": "product-owned",
+      "package_manifest_sha256": "ba734c8eca82e40a4b660c3706f17ac491b7b5d7d16b9da083c16664b736917b",
+      "content_sha256": "43b03803a77de3172f3029392313fef6a48f55ba12ee654e85cd73ccacb34128",
+      "required_surfaces": {
+        "README.md": true,
+        "PackageContract.md": true,
+        "REUSE.md": true,
+        "Scripts/verify_package.sh": true
+      }
+    }
+  ],
+  "active_packages": [
+    {
+      "path": "PackagesInUse/AppAnalytics",
+      "content_sha256": "47475e47b232c7215f040a04ed3a6d760bb19d4710f365155565f118aaa12e47",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppAnalytics"
+    },
+    {
+      "path": "PackagesInUse/AppAppleAuthentication",
+      "content_sha256": "bf6306c1500c8c2ef33fdd79e0ffa5e7357729878745f649fdb6ff8b61278e86",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppAppleAuthentication"
+    },
+    {
+      "path": "PackagesInUse/AppBranding",
+      "content_sha256": "d6e04ab4bdb82d2bf636fd43fc27d6ed3a65c49dd94c9ad2132b0808f71a22f4",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppBranding"
+    },
+    {
+      "path": "PackagesInUse/AppConfiguration",
+      "content_sha256": "4e1a9ab723923c67c8e7ab421e3dd5451e58b05e33dc770ed508a913f32a150d",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppConfiguration"
+    },
+    {
+      "path": "PackagesInUse/AppDatabase",
+      "content_sha256": "0d9a285addc6f57b27c4f317f7a94edffdb00c582942cf73cc07c1f408273a02",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppDatabase"
+    },
+    {
+      "path": "PackagesInUse/AppEnvironment",
+      "content_sha256": "6b3b30a6a319c3b2cc2a411f49f3160a39f6a0a358774fe6ac71fa06eeffdc15",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppEnvironment"
+    },
+    {
+      "path": "PackagesInUse/AppErrors",
+      "content_sha256": "e7eedbb5e692f915efa7753345fa1316b75c264df651affd55a2734da13a0d31",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppErrors"
+    },
+    {
+      "path": "PackagesInUse/AppFileStorage",
+      "content_sha256": "a166f348b2741d459b9a8ebf75b00d1ed2362c099429937fd9912b84af3e888a",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppFileStorage"
+    },
+    {
+      "path": "PackagesInUse/AppFormValidation",
+      "content_sha256": "edda23e3e465a2c61426cfd95eb2bfbd172d7864a960557daa81ca8d01942401",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppFormValidation"
+    },
+    {
+      "path": "PackagesInUse/AppGlassUI",
+      "content_sha256": "f2ff27f076b0ac661688ffc8f58832725a8e4a41574e87286086ab6286cf281a",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppGlassUI"
+    },
+    {
+      "path": "PackagesInUse/AppIntentSupport",
+      "content_sha256": "b27bf050274006a55f6de683dd5ac696191f8fbcbd1346301c9039cdfba65141",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppIntentSupport"
+    },
+    {
+      "path": "PackagesInUse/AppLifecycle",
+      "content_sha256": "3eadcfbfe7c5e5a23f4ae96331955b819934c2f39cfe534bc321c2abc4a79ce3",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppLifecycle"
+    },
+    {
+      "path": "PackagesInUse/AppLocalization",
+      "content_sha256": "c7bb4e5ff62693c927452ec6e5cb698cc6aaaa26fe4c8f598a730c89ade3872d",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppLocalization"
+    },
+    {
+      "path": "PackagesInUse/AppNavigation",
+      "content_sha256": "9fc4d33b012363bfb4b663fe091f991e068eb7d0a3f3aec4d55c627ac17717bb",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppNavigation"
+    },
+    {
+      "path": "PackagesInUse/AppNetworking",
+      "content_sha256": "906547144e4c14f399b4e365a19868debfa26f04e02e787a003853c2e61f278a",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppNetworking"
+    },
+    {
+      "path": "PackagesInUse/AppOnDeviceAI",
+      "content_sha256": "823d252c0a82c913fa77ff93908d19f5a902d185e1616e0e73a04985b7ffa408",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppOnDeviceAI"
+    },
+    {
+      "path": "PackagesInUse/AppPermissions",
+      "content_sha256": "9724f28bb791cb4a94bcb1c2791f4fe6f07c3516c8a984a2596d3f9678bc2b28",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppPermissions"
+    },
+    {
+      "path": "PackagesInUse/AppPushNotifications",
+      "content_sha256": "cc9f3b45b7ce86137f4ce162d788310db853d375a2e9e637bc6d2515ff1a62ce",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppPushNotifications"
+    },
+    {
+      "path": "PackagesInUse/AppShareExtensionSupport",
+      "content_sha256": "6c91313a7f39de56103045a58cde9cb6f5944915649a58db0ab8598711880e0e",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppShareExtensionSupport"
+    },
+    {
+      "path": "PackagesInUse/AppWidgetSupport",
+      "content_sha256": "a41f394ec8bcea27ef88154126747453f3f567845ced2b62ecb2d60ae60d7954",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "AppWidgetSupport"
+    },
+    {
+      "path": "PackagesInUse/TchopProductLocalizationResources",
+      "content_sha256": "a9cdb600279f4d9798c7735b817ff7a0c79fa5155deed79f1c457d0f795145e6",
+      "maturity": "source-only-active",
+      "kind": "root-package",
+      "package_name": "TchopProductLocalizationResources"
+    },
+    {
+      "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNavigationIntegration",
+      "content_sha256": "ec6f4f035aee96b8510783604b4a0d9d38621b35deb362640c91ceeed6df315c",
+      "maturity": "source-only-active",
+      "kind": "integration-helper",
+      "package_name": "AppAnalyticsNavigationIntegration"
+    },
+    {
+      "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNetworkingIntegration",
+      "content_sha256": "f8c3b81f9e438895b1f3acb50e48b0e64f1315938528110a0f33c0673c62bbef",
+      "maturity": "source-only-active",
+      "kind": "integration-helper",
+      "package_name": "AppAnalyticsNetworkingIntegration"
+    },
+    {
+      "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration",
+      "content_sha256": "b1cc444ad1b5e22bb125791c05126a72d25da24b11630ab617d36ac5c8c65982",
+      "maturity": "source-only-active",
+      "kind": "integration-helper",
+      "package_name": "AppAnalyticsPushNotificationsIntegration"
+    }
+  ]
+}

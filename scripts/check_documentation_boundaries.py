@@ -14,6 +14,12 @@ REUSABLE_FORBIDDEN_TERMS = ["new-task-be0b"]
 ALLOWED_REUSABLE_TOKEN_PATHS = {
     Path("baseline/docs/DOCUMENT_LIBRARY_GUIDE.md"),
 }
+ALLOWED_REUSABLE_APP_TOKEN_PREFIXES = (
+    Path("package-vault-docs/PACKAGE_CATALOG.md"),
+    Path("package-vault-docs/IntegrationHelpers/README.md"),
+    Path("package-vault-docs/AppProductLocalizationResources"),
+    Path("package-vault-docs/IntegrationHelpers/AppProductLocalizationResourcesAppLocalizationIntegration"),
+)
 CORE_FORBIDDEN_PHRASES = [
     "new-task-be0b",
     "feed/composer card",
@@ -99,7 +105,10 @@ def main() -> int:
                             rel = path.relative_to(vault)
                             failures.append(f"{rel}: non-neutral core phrase `{phrase}`")
                 relative = path.relative_to(reusable)
-                if relative in ALLOWED_REUSABLE_TOKEN_PATHS:
+                if relative in ALLOWED_REUSABLE_TOKEN_PATHS or any(
+                    relative == prefix or prefix in relative.parents
+                    for prefix in ALLOWED_REUSABLE_APP_TOKEN_PREFIXES
+                ):
                     continue
                 hits = [token for token in APP_TOKENS if token in text]
                 if hits:

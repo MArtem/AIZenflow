@@ -1,0 +1,17 @@
+{
+  "date": "2026-09-10",
+  "task_id": "new-task-be0b",
+  "command": "python3 -B scripts/report_documentation_context_cost.py --task-id new-task-be0b --check --top 5",
+  "status": "PASS",
+  "level0_words": 2882,
+  "level0_max_words": 5000,
+  "dynamic_task_words": 3098,
+  "dynamic_task_max_words": 3500,
+  "startup_total_words": 5980,
+  "missing": 0,
+  "optional_missing": 0,
+  "unclassified": 0,
+  "unreachable_registered_documents": 0,
+  "failures": 0,
+  "note": "Dynamic task state remains below budget; route overlaps are reported but are not failures."
+}

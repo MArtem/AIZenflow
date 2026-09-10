@@ -120,29 +120,29 @@ evidence after the final Xcode metadata change; build only if separately authori
 
 ## Phase 4 — package-library authority and completeness
 
-- [ ] Replace obsolete `./Packages/...` adoption paths with actual `PackagesInUse/...` paths in the
+- [x] Replace obsolete `./Packages/...` adoption paths with actual `PackagesInUse/...` paths in the
   Tchop app-owned adoption document; validate target membership rather than inferring it from folder
   presence.
-- [ ] Remove app-adoption authority from `PackagesForReuse/ADOPTION_AUDIT.md`: move unique current
+- [x] Remove app-adoption authority from `PackagesForReuse/ADOPTION_AUDIT.md`: move unique current
   facts to `apps/Tchop/`, then replace the local file with a neutral pointer or retire it with
   provenance.
-- [ ] Add a deterministic package snapshot manifest covering 40 root packages and 5 helpers. Each
+- [x] Add a deterministic package snapshot manifest covering 40 root packages and 5 helpers. Each
   entry records path, content hash/revision, products, maturity, and Documentation Vault revision.
-- [ ] Make the reusable catalog refer to that exact manifest instead of only a snapshot date.
-- [ ] Define and validate the package-doc mirror transformation. Remove executable
+- [x] Make the reusable catalog refer to that exact manifest instead of only a snapshot date.
+- [x] Define and validate the package-doc mirror transformation. Remove executable
   `source-app` placeholders from active reusable instructions; retain provenance only in explicitly
   historical sections.
-- [ ] Resolve the product-localization boundary with a short ADR: product resource packages are
+- [x] Resolve the product-localization boundary with a short ADR: product resource packages are
   app-owned; generic localization mechanics remain reusable. Do not move runtime source in this
   block unless the ADR and user authority explicitly require it.
-- [ ] Add missing `REUSE.md` for `AppDeviceInfo`, `AppEnvironment`, `AppLifecycle`, and
+- [x] Add missing `REUSE.md` for `AppDeviceInfo`, `AppEnvironment`, `AppLifecycle`, and
   `AppPermissions`.
-- [ ] Add deterministic tests for `AppIntentSupport` validation behavior, or record a narrowly
+- [x] Add deterministic tests for `AppIntentSupport` validation behavior, or record a narrowly
   justified exception if there is genuinely no executable contract. Test modification/execution
   requires the applicable current permission.
-- [ ] Fix the canonical broken link to `ios-reusable-packages`: promote a neutral skill into the
+- [x] Fix the canonical broken link to `ios-reusable-packages`: promote a neutral skill into the
   canonical baseline or link only to routed canonical documents.
-- [ ] Remove user-specific default paths from reusable package verification; require a supplied
+- [x] Remove user-specific default paths from reusable package verification; require a supplied
   sandbox root or derive a repository-contained path safely.
 
 Acceptance: catalogs and actual folders both report 40 roots/5 helpers and 21 active roots/3 active
@@ -152,17 +152,17 @@ exact source and targets.
 
 ## Phase 5 — current task state and evidence reconciliation
 
-- [ ] Preserve old receipts as historical evidence; do not silently edit their original command
+- [x] Preserve old receipts as historical evidence; do not silently edit their original command
   results. Add a current evidence index marking each receipt `CURRENT`, `SUPERSEDED`, `STALE`, or
   `HISTORICAL` with reason and replacement.
-- [ ] Reconcile `universal-quality-control-plan.md`: mark 8.2 closed only when Phases 1–4 pass and
+- [x] Reconcile `universal-quality-control-plan.md`: mark 8.2 closed only when Phases 1–4 pass and
   remove contradictory current-status paragraphs while retaining historical chronology under an
   explicit history heading.
-- [ ] Rewrite `handoff.md` to the maximum allowed shape: identities, current restrictions, current
+- [x] Rewrite `handoff.md` to the maximum allowed shape: identities, current restrictions, current
   state, verification, risks, next step, must-not-do list.
-- [ ] Keep `plan.md` as the compact executable checklist pointing to this detailed plan.
-- [ ] Re-run context-cost reporting and update the context receipt with fresh measurements.
-- [ ] Update 8.3, 9.1, 9.2, 10.1, 10.2, 11.1, and 11.2 through a new superseding closeout receipt,
+- [x] Keep `plan.md` as the compact executable checklist pointing to this detailed plan.
+- [x] Re-run context-cost reporting and update the context receipt with fresh measurements.
+- [x] Update 8.3, 9.1, 9.2, 10.1, 10.2, 11.1, and 11.2 through a new superseding closeout receipt,
   not by pretending their stale snapshots were current.
 
 Acceptance: active `plan.md + handoff.md <= 3500` words; no active document says both open and
@@ -171,15 +171,15 @@ clearly routed away from current decisions.
 
 ## Phase 6 — reusable iOS knowledge freshness
 
-- [ ] Revalidate the 18 mandatory core domains against current primary sources, prioritizing
+- [x] Revalidate the 18 mandatory core domains against current primary sources, prioritizing
   Swift/Xcode/iOS availability, App Review/privacy, accessibility, extensions, concurrency, and
   release engineering.
-- [ ] Update the registry review date only for domains actually reviewed. Keep `operational` where
+- [x] Update the registry review date only for domains actually reviewed. Keep `operational` where
   the full coverage unit is incomplete; do not upgrade maturity from document count alone.
-- [ ] For every remaining operational gap, record missing theory/rule/route/execution aid/evidence,
+- [x] For every remaining operational gap, record missing theory/rule/route/execution aid/evidence,
   owner, and revisit trigger. Deferred Apple platforms remain deferred unless a real target
   activates them.
-- [ ] Run registry, router, framework, link, and context checks after updates.
+- [x] Run registry, router, framework, link, and context checks after updates.
 
 Acceptance: every mandatory domain has current review metadata and either `complete` evidence or an
 explicit accepted gap; zero missing/unrouted paths; beta guidance remains labelled and separate

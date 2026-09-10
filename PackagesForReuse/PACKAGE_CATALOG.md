@@ -10,7 +10,9 @@ Use the short summary for quick scanning. Use **Expanded Description** to unders
 
 - **Reusable root packages**: 40
 - **Integration helper packages**: 5
-- **Currently active in `./PackagesInUse`**: 21 root packages and 4 helper folders
+- **Currently active in `./PackagesInUse`**: 21 root packages and 3 integration helper packages
+- **Additional source-only integration snippets**: 1 non-package helper folder (`IntegrationHelpers/CopyFiles`)
+- **Exact snapshot identity**: [`PACKAGE_SNAPSHOT_MANIFEST.json`](PACKAGE_SNAPSHOT_MANIFEST.json)
 
 ## Root Packages
 

@@ -2,7 +2,10 @@
 set -euo pipefail
 
 PACKAGE_DIR="$(cd "$(dirname "$0")/.." && pwd)"
-BUILD_ROOT="${ZENFLOW_PACKAGE_BUILD_CACHE:-/Users/Artem/.zenflow/worktrees/.package-build-cache}/AppIntentSupport"
+WORKSPACE_ROOT="${ZENFLOW_SANDBOX_ROOT:-$(git -C "$PACKAGE_DIR" rev-parse --show-toplevel 2>/dev/null || true)}"
+[[ "$WORKSPACE_ROOT" == "/Users/Artem/.zenflow" || "$WORKSPACE_ROOT" == "/Users/Artem/.zenflow/"* ]] || { echo "error: Verification root must stay inside /Users/Artem/.zenflow" >&2; exit 1; }
+BUILD_ROOT="${ZENFLOW_PACKAGE_BUILD_CACHE:-$WORKSPACE_ROOT/.package-build-cache}/AppIntentSupport"
+[[ "$BUILD_ROOT" == "$WORKSPACE_ROOT"/* ]] || { echo "error: Scratch path must stay inside the sandbox root" >&2; exit 1; }
 LOG_FILE="$BUILD_ROOT/swift-build.log"
 
 rm -rf "$BUILD_ROOT"

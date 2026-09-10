@@ -298,3 +298,27 @@ tip. The owner selected option A (`internal pilot`) and then confirmed that the 
 captured locally. Plan status is now 30/30 implementation blocks closed (100%), with the accepted
 Simulator/VoiceOver limitation preserved. Stable QC promotion, release and production readiness are
 not claimed; no archive, signing, TestFlight, App Store, tag or rollout action was performed.
+
+## Superseding remediation checkpoint — 2026-09-10
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+This section supersedes the earlier continuation status; earlier receipts remain historical.
+
+- Current implementation branch: `codex/audit-remediation-luna`; Phase 4–6 changes are currently
+  uncommitted and are not published evidence. The final remediation SHA is established only after
+  final diff review and commit.
+- Canonical Documentation Vault is pushed at `cb8ffed` on `origin/main`. It now owns the package-doc
+  mirror contract, product-localization ADR, neutral package docs, missing reuse guides, and the
+  sandbox-safe verifier contract.
+- Completed remediation phases: 0–4 and 6. Current receipts include the package snapshot manifest,
+  package-doc mirror contract, localization-boundary ADR, and knowledge freshness receipt. Registry
+  status is 18 active / 5 complete / 4 deferred; no maturity was promoted from documentation alone.
+- Phase 5 is active until this handoff, universal plan, context receipt and current-evidence index
+  are committed against the final SHA. Phase 7 remains final static checks, exact-SHA semantic review,
+  commit/push parity and pilot closeout.
+- No Xcode build, package test, Simulator/UI, device, Instruments, archive, signing, TestFlight,
+  App Store, release, or stable-QC promotion action is authorized in this continuation. Package
+  tests were added under the user-approved test-writing permission but not executed.
+- Must not do: rewrite historical receipts, infer runtime PASS from static checks, mutate sibling
+  repositories, use paths outside `/Users/Artem/.zenflow`, or claim stable release readiness.

@@ -280,7 +280,8 @@ When reusing these packages elsewhere:
 ## Related Sources
 - [PROJECT_HEALTH.md](../PROJECT_HEALTH.md)
 - [PROJECT_DOCUMENTATION.md](../PROJECT_DOCUMENTATION.md)
-- [.codex/skills/ios-reusable-packages/SKILL.md](../.codex/skills/ios-reusable-packages/SKILL.md)
+- [PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md](PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md)
+- [PACKAGE_DOC_MIRROR_CONTRACT.md](PACKAGE_DOC_MIRROR_CONTRACT.md)
 
 
 ## Neutral Reuse For New Projects

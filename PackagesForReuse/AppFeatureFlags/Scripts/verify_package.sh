@@ -3,14 +3,16 @@ set -euo pipefail
 
 PACKAGE_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PACKAGE_NAME="$(basename "$PACKAGE_ROOT")"
-SCRATCH_BASE="${TMPDIR:-/tmp}/InfrastructureSDKBuild"
-SCRATCH_PATH="$SCRATCH_BASE/$PACKAGE_NAME"
-VERIFY_LOG="$SCRATCH_BASE/${PACKAGE_NAME}.verify.log"
-
 fail() {
   echo "error: $*" >&2
   exit 1
 }
+WORKSPACE_ROOT="${ZENFLOW_SANDBOX_ROOT:-$(git -C "$PACKAGE_ROOT" rev-parse --show-toplevel 2>/dev/null || true)}"
+[[ "$WORKSPACE_ROOT" == "/Users/Artem/.zenflow" || "$WORKSPACE_ROOT" == "/Users/Artem/.zenflow/"* ]] || fail "Verification root must stay inside /Users/Artem/.zenflow"
+SCRATCH_BASE="${ZENFLOW_PACKAGE_BUILD_CACHE:-$WORKSPACE_ROOT/.package-build-cache}"
+[[ "$SCRATCH_BASE" == "$WORKSPACE_ROOT"/* ]] || fail "Scratch path must stay inside the sandbox root"
+SCRATCH_PATH="$SCRATCH_BASE/$PACKAGE_NAME"
+VERIFY_LOG="$SCRATCH_BASE/${PACKAGE_NAME}.verify.log"
 
 case "$PACKAGE_NAME" in
   App[A-Z]*) ;;

@@ -5,9 +5,15 @@
   "deferred_platforms": ["watchOS", "visionOS", "tvOS", "macOS"],
   "maturity_values": ["missing", "outline", "operational", "complete", "deferred"],
   "verification": {
-    "last_primary_source_review": "2026-07-17",
-    "toolchain_reference": "Xcode 27 beta, Swift 6.4 beta, iOS/iPadOS 27 SDK beta",
-    "stable_baseline_rule": "Beta-specific guidance remains labelled and does not replace the active stable project toolchain without an explicit adoption decision."
+    "last_primary_source_review": "2026-09-10",
+    "toolchain_reference": "Xcode 27 RC (27A266a), Swift 6.4, iOS/iPadOS 27 RC (24A435)",
+    "primary_sources": [
+      "https://developer.apple.com/news/releases/?id=09092026h",
+      "https://developer.apple.com/documentation/xcode-release-notes/xcode-27-release-notes?changes=latest_minor",
+      "https://developer.apple.com/swift/whats-new/",
+      "https://developer.apple.com/documentation/ios-ipados-release-notes"
+    ],
+    "stable_baseline_rule": "RC/beta-specific guidance remains labelled and does not replace the active stable project toolchain without an explicit adoption decision."
   },
   "domains": [
     {

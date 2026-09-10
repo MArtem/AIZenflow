@@ -9,7 +9,8 @@ Use `./PackagesInUse/PACKAGE_CATALOG.md` to see what is active in the app; it in
 ## Current Counts
 
 - Active root packages: 21
-- Active helper folders: 4
+- Active integration helper packages: 3
+- Additional non-package integration snippets: 1 (`IntegrationHelpers/CopyFiles`)
 
 ## Contract
 
@@ -23,6 +24,7 @@ Use `./PackagesInUse/PACKAGE_CATALOG.md` to see what is active in the app; it in
 ## Relationship To Other Package Folders
 
 - `./PackagesForReuse`: complete reusable package vault.
+- `./PackagesForReuse/PACKAGE_SNAPSHOT_MANIFEST.json`: deterministic source/active snapshot identity, including the active 21/3 package counts.
 - `./PackagesInUse`: active source-only subset compiled into this app.
 - `./Packages`: SDK/package creation docs/templates only.
 

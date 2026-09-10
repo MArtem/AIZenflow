@@ -13,13 +13,13 @@
 ## Checklist
 
 - [x] Record the independent audit and define the Luna xhigh remediation contract.
-- [ ] Phase 0: refresh exact repository identities and reproduce findings.
-- [ ] Phase 1: eliminate canonical baseline drift and self-authorizing policy exceptions.
-- [ ] Phase 2: fix metadata preflight for allowed ignored runtime evidence without weakening symlink safety.
-- [ ] Phase 3: align German locale metadata and make the Xcode migration tool explicit and idempotent.
-- [ ] Phase 4: repair package/adoption authority, revisions, mirrors, missing package surfaces, and broken links.
+- [x] Phase 0: refresh exact repository identities and reproduce findings.
+- [x] Phase 1: eliminate canonical baseline drift and self-authorizing policy exceptions.
+- [x] Phase 2: fix metadata preflight for allowed ignored runtime evidence without weakening symlink safety.
+- [x] Phase 3: align German locale metadata and make the Xcode migration tool explicit and idempotent.
+- [x] Phase 4: repair package/adoption authority, revisions, mirrors, missing package surfaces, and broken links.
 - [ ] Phase 5: reconcile current receipts, universal plan, handoff, and context budget.
-- [ ] Phase 6: revalidate reusable iOS knowledge freshness and maturity gaps.
+- [x] Phase 6: revalidate reusable iOS knowledge freshness and maturity gaps.
 - [ ] Phase 7: run final static/runtime-authorized gates, exact-SHA independent review, publication, and remote parity.
 
 ## Completion gate
