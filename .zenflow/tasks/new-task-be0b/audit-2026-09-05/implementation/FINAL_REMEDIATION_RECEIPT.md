@@ -6,12 +6,15 @@ Date: 2026-09-10. Model: GPT-5.6 Luna xhigh. Task: `new-task-be0b`.
 
 - AIZenflow source-change commit: `231fb0e3e7c0eedd813f0595dfcf843caefc6d70`.
 - Trusted source-change base: `ebce9974bab0bf5c0387f1aec5ce0a4d763e1577`.
+- AIZenflow publication merge commit: `dd671e89789ef3b69ce5eadd5f633f46feb2d61a`;
+  it preserves the existing `main` merge history without changing the remediation tree.
 - Canonical Documentation Vault `origin/main`: `cb8ffedf7e5c032478e36fa8f2f1e751952ad76b`.
 - Source-change range reviewed: `ebce9974..231fb0e3`.
 - Receipt/task-state commits after the source change are documentation-only and do not change app,
   package, profile, workflow, or QC engine inputs.
-- Remote publication of `codex/audit-remediation-luna` is pending explicit authorization for this
-  private repository branch.
+- Remote publication was explicitly authorized and completed for `codex/audit-remediation-luna`,
+  `development`, and `main`; remote parity was verified against the final task-state tip after
+  push.
 
 ## Contract and findings
 
@@ -40,8 +43,9 @@ scope and remains explicitly reported by the gate.
 
 ## Final claim
 
-`INTERNAL_PILOT_COMPLETE_WITH_ACCEPTED_LIMITATIONS` locally for the bounded QC continuation and
-this remediation plan; remote publication is pending. Stable QC promotion/release remains
+`INTERNAL_PILOT_COMPLETE_WITH_ACCEPTED_LIMITATIONS` for the bounded QC continuation and this
+remediation plan, with the final tip published to the authorized feature, development, and main
+branches. Stable QC promotion/release remains
 `NOT_READY`; Simulator accessibility is
 `PASS_WITH_LIMITATION`, and physical-device VoiceOver is closed only by the explicit owner decision,
 without a hardware traversal claim.

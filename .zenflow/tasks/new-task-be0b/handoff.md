@@ -306,7 +306,9 @@ not claimed; no archive, signing, TestFlight, App Store, tag or rollout action w
 This section supersedes the earlier continuation status; earlier receipts remain historical.
 
 - Current implementation branch: `codex/audit-remediation-luna`; Phase 4–6 remediation is committed
-  at `231fb0e3` and has passed the clean full static gate. The final remote SHA is pending push.
+  at `231fb0e3` and has passed the clean full static gate. Publication history is preserved by
+  merge commit `dd671e89`, and the final task-state tip is published to `codex/audit-remediation-luna`,
+  `development`, and `main` after remote parity verification.
 - Canonical Documentation Vault is pushed at `cb8ffed` on `origin/main`. It now owns the package-doc
   mirror contract, product-localization ADR, neutral package docs, missing reuse guides, and the
   sandbox-safe verifier contract.
@@ -314,7 +316,8 @@ This section supersedes the earlier continuation status; earlier receipts remain
   package-doc mirror contract, localization-boundary ADR, and knowledge freshness receipt. Registry
   status is 18 active / 5 complete / 4 deferred; no maturity was promoted from documentation alone.
 - Phase 5 is complete: handoff, universal plan, context receipt and current-evidence index are bound
-  to `231fb0e3`. Phase 7 is in final exact-SHA review/push parity and pilot closeout.
+  to `231fb0e3`. Phase 7 is complete: exact-SHA review, authorized publication, and remote parity
+  are closed; the merge preserved the existing `main` history.
 - No Xcode build, package test, Simulator/UI, device, Instruments, archive, signing, TestFlight,
   App Store, release, or stable-QC promotion action is authorized in this continuation. Package
   tests were added under the user-approved test-writing permission but not executed.
