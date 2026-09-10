@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "command": "doctor",
+  "status": "BLOCKED",
+  "engineRevision": "802b4833c3c7cebb1c7e920b964451587a0bab42",
+  "profileSHA256": "4cbcfe62c8bb38388bd81db33f438a004ee38306410224bd36a298032eef9fbe",
+  "checks": {
+    "profileContract": "PASS",
+    "repositoryProjectSourceSandboxBoundaries": "PASS",
+    "xcodeGraphSelection": "PASS",
+    "effectiveBuildSettings": "PASS",
+    "xcodeSourceMembership": "BLOCKED"
+  },
+  "interpretation": "Doctor resolves the declared graph and effective settings. It intentionally does not claim compiled source membership; that claim is supplied by the authenticated graph-static build receipt.",
+  "pairedEvidence": "audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json",
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

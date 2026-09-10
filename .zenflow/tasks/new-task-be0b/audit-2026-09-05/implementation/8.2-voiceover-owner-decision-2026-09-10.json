@@ -1,0 +1,25 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "gate": "accessibility.voiceover.physical-device",
+  "status": "PASS_WITH_LIMITATION",
+  "decision": "ACCEPTED_BY_OWNER_DECISION",
+  "ownerDecisionDate": "2026-09-10",
+  "scope": "Current Tchop consumer pilot task",
+  "verification": {
+    "status": "NOT_RUN_BY_OWNER_DECISION",
+    "reason": "No physical iOS device is available for this task; physical-device VoiceOver traversal cannot be executed in the restored Simulator environment."
+  },
+  "simulatorEvidence": {
+    "status": "PASS_WITH_LIMITATION",
+    "receipt": "audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json",
+    "resultBundle": "runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult",
+    "boundary": "The bounded host fixture verified the extension screen, labelled/hittable Close control, and lifecycle completion; it did not verify VoiceOver rotor, focus order, announcements, or hardware behavior."
+  },
+  "claimBoundary": "This receipt closes the physical-device VoiceOver gate by explicit owner acceptance for the current plan only. It does not claim that a physical-device VoiceOver traversal occurred or that production accessibility readiness was established.",
+  "remainingGates": [
+    "graph-scoped schema-v2 static-evidence acceptance",
+    "independent pre-PR review"
+  ],
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "block": "8.2",
+  "command": "graph-static-evidence",
+  "status": "PASS",
+  "sourceRepository": "MArtem/AIZenflow",
+  "sourceRevision": "e201fc8a5e6aeffec2f0455225f9e50f81df815b",
+  "engineRepository": "MArtem/AIZenflowQualityControl",
+  "engineRevision": "802b4833c3c7cebb1c7e920b964451587a0bab42",
+  "engineCDHash": "d25b665789eeef1ec60f14b3ae2e8577f3bb62a8",
+  "profileSHA256": "4cbcfe62c8bb38388bd81db33f438a004ee38306410224bd36a298032eef9fbe",
+  "selection": {
+    "scheme": "TchopApp",
+    "configuration": "Release",
+    "destination": "generic/platform=iOS Simulator",
+    "executionContext": "local"
+  },
+  "report": {
+    "status": "PASS",
+    "checks": [
+      "QC.PROFILE.CONTRACT",
+      "QC.POLICY.CONTRACT",
+      "QC.STATIC.SCAN"
+    ],
+    "scannedRegularFiles": 158
+  },
+  "build": {
+    "status": "PASS",
+    "resultBundle": "TchopApp/.quality-control-cache/cache/XcodeBuildEvidence/Invocation-E3F57E63-1C5C-49DD-99EA-67BAC9AA746A/Build.xcresult",
+    "actionTitle": "Build \"TchopApp\"",
+    "warningCount": 0,
+    "analyzerWarningCount": 0,
+    "errorCount": 0,
+    "destinationIdentity": "dvtdevice-DVTiOSDeviceSimulatorPlaceholder-iphonesimulator:placeholder"
+  },
+  "sourceMembership": {
+    "authority": "xcode-build-graph",
+    "status": "verified",
+    "targets": ["TchopApp"],
+    "compiledSourcePathCount": 159,
+    "compilerSectionCount": 26,
+    "externalSourceInputCount": 0,
+    "claims": [
+      "explicit-profile-scopes",
+      "authenticated-compiled-inputs",
+      "generated-ownership-separate",
+      "external-package-inputs-counted",
+      "extension-inputs-included",
+      "path-boundary-enforced"
+    ]
+  },
+  "verification": {
+    "verdict": "READY",
+    "issues": [],
+    "independentReview": {
+      "status": "PASS",
+      "range": "1035b95273795bee8be242239036b45ec7e7ceff..802b4833c3c7cebb1c7e920b964451587a0bab42",
+      "findings": []
+    }
+  },
+  "rawOutput": ".quality-control-cache/graph-static-evidence-802b-release-final.json",
+  "limitations": [
+    "Generic simulator destination provides graph/static evidence but is not a concrete runtime UI test.",
+    "Physical-device VoiceOver traversal was not run and is closed only by the explicit owner decision receipt.",
+    "Current-head GitHub parity still requires the user-owned manual workflow dispatch after this branch is pushed."
+  ],
+  "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

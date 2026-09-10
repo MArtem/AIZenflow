@@ -1,6 +1,6 @@
 # Handoff — аудит iOS quality system
 
-Дата: 2026-09-09. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
+Дата: 2026-09-10. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
 
 ## Цель и авторизация
 Пользователь разрешил полный аудит на GPT-6 Astra всей системы разработки/проверок и ZIP `/Users/Artem/Downloads/ios_codex_quality_system_v1.zip`, включая пересмотр старого QualityControl continuation plan. Результат — подробный план внедрения с моделью/reasoning. Режим эконом сохраняется; Astra для полного аудита явно разрешена. Пользователь теперь разрешил реализацию всего плана исключительно на GPT-5.6 Luna xhigh.
@@ -239,3 +239,59 @@ gate is now PASS. Receipt:
 The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
 and independent pre-PR review. The current branch still needs a fresh manual GitHub workflow run
 before the previous parity result can be reused.
+
+## Merge continuation — 2026-09-10
+
+The user confirmed that the Manual Quality Check for consumer PR #24 completed successfully.
+GitHub confirms PR #24 merged into `main` at `2026-09-09T21:11:00Z` as merge commit
+`ad0e3c545ff3a9918ced9829b4de344ee5c1ca71`; its reviewed head was
+`da41b11a7fc7bb1bd555c97d0b40f74cf58925c7`. The consumer-local adoption update is therefore
+published and the 9.2 merge/parity step is closed. The workflow run identifier was not captured
+in the local task receipts, so the parity claim remains explicitly user-confirmed rather than a
+locally reconstructed check-run receipt.
+
+The plan remains 29/30 implementation blocks closed; 8.2 is the only open block. Its remaining
+gates are graph-scoped static-evidence, physical-device VoiceOver traversal, and independent
+pre-PR review. Existing source/build/runtime receipts remain valid because the commits after
+`8fc0fae84b3c847c1f891a9e742b69d568cb4f70` changed only evidence/task documentation, not app source,
+profile, workflow, or QC engine inputs. No promotion, release, archive, signing, or App Store
+action is claimed.
+
+## Owner decision continuation — 2026-09-10
+
+The user explicitly accepted the physical-device VoiceOver gate as complete for this task because no
+physical iOS device is available. The authoritative receipt is
+`audit-2026-09-05/implementation/8.2-voiceover-owner-decision-2026-09-10.json`. The bounded Simulator
+fixture remains `PASS_WITH_LIMITATION`; no physical traversal, VoiceOver focus/announcement/rotor
+claim, or production accessibility readiness claim is made. 8.2 therefore remains open only for
+graph-scoped schema-v2 static-evidence acceptance and independent pre-PR review.
+
+The QC engine graph-static implementation is committed and pushed at
+`MArtem/AIZenflowQualityControl` commit `f974ef58ec3ba0b13341e4ac59e617dd5ea97ce3` on branch
+`codex/graph-static-evidence`; [PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26)
+is open against `main`. The consumer pin/adoption and graph receipt must follow engine merge; no
+graph PASS is claimed from the implementation commit alone.
+
+## Final local continuation — 2026-09-10
+
+QC PR #26 is merged; the consumer current HEAD is `e201fc8a5e6aeffec2f0455225f9e50f81df815b` with
+engine pin `802b4833c3c7cebb1c7e920b964451587a0bab42` and engine CDHash
+`d25b665789eeef1ec60f14b3ae2e8577f3bb62a8`. Graph-scoped `quality graph-static-evidence` passed for
+Release / `TchopApp` / `generic/platform=iOS Simulator`: 159 compiled source paths, 26 compiler
+sections, 0 external inputs, verifier `READY`; receipt:
+`audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json`.
+
+Bounded doctor on the same pin passed profile/repository/source/sandbox boundaries, Xcode graph
+selection, and effective settings; its overall `BLOCKED` status is only the intentional separate
+source-membership check, covered by the paired graph receipt. Independent review of the cumulative
+engine change returned no P0–P3 findings. The physical-device VoiceOver gate is closed by the owner
+decision already recorded; no hardware traversal claim is made.
+
+The local implementation/review blockers for 8.2 are closed. The graph receipt is bound to source head
+`e201fc8a5e6aeffec2f0455225f9e50f81df815b`; the task-state sync is published at
+`dcc55202e1bfb7009a362da10bc265754b795ccb`, with no app source/profile/workflow changes after the
+graph run. Run the manual workflow at
+`https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml` for the published branch
+tip. Until that user-owned run succeeds, 8.2 stays unchecked and stable QC/promotion remains
+`NOT_READY`. Release options A/B/C remain prepared but no promotion, archive, signing, TestFlight,
+App Store, or tag action is performed.

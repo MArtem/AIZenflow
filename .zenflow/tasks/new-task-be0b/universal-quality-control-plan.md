@@ -364,23 +364,24 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [ ] 8.2: сложный multi-target consumer pilot — Luna xhigh; unsupported German boundary, QC pin,
   семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC
   fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
-  PASS, bounded host fixture build/install PASS и GitHub parity PASS after merge PR #23.
-  Doctor effective-settings PASS, while graph-scoped static-evidence, source-membership evidence,
-  Share provider registration/extension lifecycle/accessibility и pre-PR review остаются открыты;
-  test-target compilation после authorized repair PASS.
+  PASS, bounded host fixture build/install PASS и user-confirmed GitHub parity PASS for PR #24.
+  Doctor effective-settings PASS, bounded Share provider/extension lifecycle/accessibility is
+  PASS_WITH_LIMITATION, while graph-scoped static-evidence и pre-PR review остаются открыты; physical-device
+  VoiceOver gate is closed by explicit owner decision because no physical device is available, with no
+  hardware traversal claim; test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
   фактическая promotion/release операция не выполнялась.
 - [x] 9.2: existing/future project adoption — Luna xhigh; bounded consumer-local adoption
-  revalidated with exact QC pin and rollback boundary; sibling/remote mutation и GitHub parity не
-  выполнялись.
+  revalidated with exact QC pin and rollback boundary; PR #24 merged and GitHub parity user-confirmed
+  PASS; sibling/remote mutation и broad bootstrap apply не выполнялись.
 - [x] 10.1: context budget и повторное использование evidence — Luna xhigh; PASS_WITH_LIMITATION, route budget в норме, billed-token reduction не заявлена.
 - [x] 10.2: калибровка процесса Luna xhigh — Luna xhigh; PASS_WITH_LIMITATION, targeted route default, broad route только для cross-cutting audit.
 - [x] 11.1: итоговый semantic audit — Luna xhigh; PASS_WITH_LIMITATION, F01–F24 и 67 archive decisions mapped, stable promotion NOT_READY.
 - [x] 11.2: лёгкая поддержка и recovery — Luna xhigh; PASS_WITH_LIMITATION, trigger-based без automation, stable release не активируется.
 
 Все независимые preparation blocks 0.1–11.2 зафиксированы task-level evidence. Открытым
-consumer/promotion gate остаётся 8.2; 9.1 закрыт как contract/options artifact, а 9.2 закрыт
+consumer/promotion gate остаётся 8.2 только до fresh current-head GitHub parity; 9.1 закрыт как contract/options artifact, а 9.2 закрыт
 как bounded adoption revalidation с ограничениями. Фактическая promotion по-прежнему запрещена
 до полного 8.2 и owner-selected release decision. Ни один implementation checkbox не помечается
 выполненным только потому, что написан план.
@@ -388,6 +389,25 @@ consumer/promotion gate остаётся 8.2; 9.1 закрыт как contract/o
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
+
+## Graph-scoped static evidence и финальный review блока 8.2 — 2026-09-10
+
+После merge QC PR #26 и consumer pin `802b4833c3c7cebb1c7e920b964451587a0bab42` graph-scoped
+`quality graph-static-evidence` прошёл на consumer HEAD
+`e201fc8a5e6aeffec2f0455225f9e50f81df815b`: Release / `TchopApp` / `generic/platform=iOS Simulator`,
+profile SHA256 `4cbcfe62c8bb38388bd81db33f438a004ee38306410224bd36a298032eef9fbe`, engine CDHash
+`d25b665789eeef1ec60f14b3ae2e8577f3bb62a8`, 159 compiled inputs, 26 compiler sections and 0 external
+inputs. `QC.PROFILE.CONTRACT`, `QC.POLICY.CONTRACT`, `QC.STATIC.SCAN` и verifier `READY` — PASS.
+Bounded doctor на том же pin подтверждает repository/source/sandbox boundaries, Xcode graph selection и
+effective settings; его общий envelope остаётся BLOCKED только на отдельном membership gate, который
+закрыт этой graph receipt. Independent pre-PR review cumulative engine diff `1035b95..802b4833` returned
+no P0–P3 findings. Physical-device VoiceOver остаётся закрытым только explicit owner decision; hardware
+traversal не заявляется.
+
+Receipt: `audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json` и
+`audit-2026-09-05/implementation/8.2-doctor-802b-2026-09-10.json`. Block 8.2 now has no local implementation
+or review blocker; it remains unchecked only until the user runs the manual GitHub workflow for the pushed
+current HEAD and parity is recorded against that exact revision. No production promotion is implied.
 
 ## Runtime continuation блока 8.2 — 2026-09-09
 
@@ -543,3 +563,29 @@ PASS. Receipt:
 The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
 and independent pre-PR review. A fresh manual GitHub workflow dispatch is still required before
 the prior parity result can be reused for the current head.
+
+## Merge continuation — 2026-09-10
+
+The user confirmed that the Manual Quality Check for consumer PR #24 completed successfully.
+GitHub confirms PR #24 merged into `main` as `ad0e3c545ff3a9918ced9829b4de344ee5c1ca71` from
+reviewed head `da41b11a7fc7bb1bd555c97d0b40f74cf58925c7`. The bounded consumer-local adoption and
+manual parity step are therefore closed as user-confirmed PASS; the workflow run identifier was
+not captured in the local task receipts. The plan remains 29 of 30 checkboxes closed, with 8.2 as
+the only open block. Its remaining gates are graph-scoped static-evidence, physical-device
+VoiceOver traversal, and independent pre-PR review. No promotion, release, archive, signing,
+TestFlight, App Store, or stable QC promotion is claimed.
+
+## Owner decision continuation — 2026-09-10
+
+The user explicitly accepted the physical-device VoiceOver gate as complete for this task because no
+physical iOS device is available. The authoritative receipt is
+`audit-2026-09-05/implementation/8.2-voiceover-owner-decision-2026-09-10.json`. The bounded Simulator
+fixture remains `PASS_WITH_LIMITATION`; no physical traversal, VoiceOver focus/announcement/rotor
+claim, or production accessibility readiness claim is made. 8.2 therefore remains open only for
+graph-scoped schema-v2 static-evidence acceptance and independent pre-PR review.
+
+The QC engine graph-static implementation is committed and pushed at
+`MArtem/AIZenflowQualityControl` commit `f974ef58ec3ba0b13341e4ac59e617dd5ea97ce3` on branch
+`codex/graph-static-evidence`; [PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26)
+is open against `main`. The consumer pin/adoption and graph receipt must follow engine merge; no
+graph PASS is claimed from the implementation commit alone.

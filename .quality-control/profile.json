@@ -13,7 +13,7 @@
   "mode": "controlled",
   "engine": {
     "version": "0.1.0-dev",
-    "revision": "c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880"
+    "revision": "802b4833c3c7cebb1c7e920b964451587a0bab42"
   },
   "xcode": {
     "sourceMembership": {
@@ -30,7 +30,7 @@
           "Release"
         ],
         "destinations": [
-          "platform=iOS Simulator,name=iPhone 17 Pro"
+          "generic/platform=iOS Simulator"
         ],
         "testPlans": []
       },
@@ -44,7 +44,7 @@
           "Release"
         ],
         "destinations": [
-          "platform=iOS Simulator,name=iPhone 17 Pro"
+          "generic/platform=iOS Simulator"
         ],
         "testPlans": []
       }

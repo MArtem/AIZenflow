@@ -72,10 +72,10 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 7.1: выполнить разрешённую verifier-test/canary acceptance phase; 172 engine tests / 16 suites PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: разделить оценку генерации и detection ошибок; S01 open + S04 holdout receipts, без runtime claim.
 - [x] 8.1: провести простой consumer pilot; MVVMExample pinning и static adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; authorized test-source repair применён, unit tests и все 7 UI tests PASS, authenticated current-head build/source-membership evidence PASS, bounded host fixture activation/lifecycle/accessibility contract PASS_WITH_LIMITATION, GitHub parity PASS после merge PR #23, QC PR #25 merged with independent review, bounded doctor effective-settings PASS, а graph-scoped static-evidence, physical-device VoiceOver traversal и pre-PR review ещё не завершены.
+- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; authorized test-source repair применён, unit tests и все 7 UI tests PASS, authenticated current-head build/source-membership evidence PASS, bounded host fixture activation/lifecycle/accessibility contract PASS_WITH_LIMITATION, bounded doctor graph/effective-settings PASS with membership delegated to the authenticated build boundary, physical-device VoiceOver gate closed by explicit owner decision because no physical device is available (no hardware traversal claim), graph-static engine implementation merged through [QC PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26), current consumer graph-scoped static-evidence and independent pre-PR review PASS; only a fresh manual GitHub workflow run for the pushed current HEAD remains before this block can be checked.
 - [x] 8.3: проверить готовность подготовки; READY_WITH_ACCEPTED_RISK для старта требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для будущего продукта.
 - [x] 9.1: зафиксировать promotion/release contract и подготовить варианты A/B/C; фактическая promotion/release операция не выполнялась.
-- [x] 9.2: проверить existing/future project adoption; bounded consumer-local adoption revalidated and merged QC pin update prepared on `codex/tchop-qc-continuation` / PR #24, sibling mutation не выполнялась, final GitHub parity remains manual-only until the user dispatches the workflow.
+- [x] 9.2: проверить existing/future project adoption; bounded consumer-local adoption revalidated, QC pin update merged from `codex/tchop-qc-continuation` through PR #24 as `ad0e3c545ff3a9918ced9829b4de344ee5c1ca71`, and the user confirmed the manual GitHub check passed for the PR; sibling mutation and broad bootstrap apply не выполнялись.
 - [x] 10.1: измерить context budget и повторное использование evidence; PASS_WITH_LIMITATION, без удаления обязательных routes или billed-token claim.
 - [x] 10.2: откалибровать процесс Luna xhigh по observations и receipts; PASS_WITH_LIMITATION, targeted route по умолчанию, broad route только для cross-cutting audit.
 - [x] 11.1: выполнить итоговый semantic audit и traceability F01–F24/67 archive decisions; PASS_WITH_LIMITATION, stable promotion остаётся NOT_READY.
@@ -109,16 +109,18 @@ Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-st
 `audit-2026-09-05/implementation/8.2-german-locale-contract.md`; runtime/build/QC/bootstrap artifacts
 находятся в `.zenflow/tasks/new-task-be0b/runtime/tchop-8-2/`; row-level index —
 `audit-2026-09-05/implementation/8.2-runtime-matrix-receipt.json`.
+Current graph receipt: `audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json`;
+current doctor receipt: `audit-2026-09-05/implementation/8.2-doctor-802b-2026-09-10.json`.
 Decision contract 8.2: `audit-2026-09-05/implementation/8.2-german-locale-contract.md`.
 Evidence блока 9.1: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md` —
 contract recorded, verdict `BLOCKED / NOT_READY` because 8.2 is partial and no approved candidate
 exists.
 Evidence блока 9.2: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json` —
-15-root/6-identity inventory and conflict boundary `PASS_WITH_LIMITATION`; broad cross-repository
-apply remains unexecuted.
+15-root/6-identity inventory and conflict boundary `PASS_WITH_LIMITATION`; PR #24 merge is recorded
+as `ad0e3c545ff3a9918ced9829b4de344ee5c1ca71`; broad cross-repository apply remains unexecuted.
 Evidence блока 8.3: `audit-2026-09-05/implementation/8.3-preparation-readiness.md`.
 Evidence блока 10.1: `audit-2026-09-05/implementation/10.1-context-budget.md`.
 Evidence блока 10.2: `audit-2026-09-05/implementation/10.2-luna-calibration.md`.
 Evidence блока 11.1: `audit-2026-09-05/implementation/11.1-semantic-audit.md`.
 Evidence блока 11.2: `audit-2026-09-05/implementation/11.2-support-recovery.md`.
-Завершено 27 из 30 implementation blocks (90%); это не процент production readiness.
+Завершено 29 из 30 implementation blocks (96.7%); это не процент production readiness.
