@@ -72,9 +72,9 @@ Vault initial HEAD: `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`, initial clean st
 - [x] 7.1: выполнить разрешённую verifier-test/canary acceptance phase; 172 engine tests / 16 suites PASS, QC remote SHA `b197bd5` подтверждён.
 - [x] 7.2: разделить оценку генерации и detection ошибок; S01 open + S04 holdout receipts, без runtime claim.
 - [x] 8.1: провести простой consumer pilot; MVVMExample pinning и static adapters PASS, runtime/build не заявлены.
-- [ ] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; authorized test-source repair применён, unit tests и все 7 UI tests PASS, authenticated current-head build/source-membership evidence PASS, bounded host fixture activation/lifecycle/accessibility contract PASS_WITH_LIMITATION, bounded doctor graph/effective-settings PASS with membership delegated to the authenticated build boundary, physical-device VoiceOver gate closed by explicit owner decision because no physical device is available (no hardware traversal claim), graph-static engine implementation merged through [QC PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26), current consumer graph-scoped static-evidence and independent pre-PR review PASS; only a fresh manual GitHub workflow run for the pushed current HEAD remains before this block can be checked.
+- [x] 8.2: провести сложный multi-target consumer pilot; German boundary, QC pin, семь clean-snapshot adapters, six-scheme Debug builds, app smoke launch, positive/negative QC fixtures и reversible bootstrap PASS; authorized test-source repair применён, unit tests и все 7 UI tests PASS, authenticated current-head build/source-membership evidence PASS, bounded host fixture activation/lifecycle/accessibility contract PASS_WITH_LIMITATION, bounded doctor graph/effective-settings PASS with membership delegated to the authenticated build boundary, physical-device VoiceOver gate closed by explicit owner decision because no physical device is available (no hardware traversal claim), graph-static engine implementation merged through [QC PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26), current consumer graph-scoped static-evidence and independent pre-PR review PASS, owner selected promotion option A (internal pilot), and the user confirmed a green [Manual Quality Check](https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml) for branch `codex/tchop-qc-continuation` at workflow head `bde3c445`. Closure sync after that run changes task-state docs only; no app source/profile/workflow/QC engine input changed. Closure receipt: `audit-2026-09-05/implementation/8.2-pilot-closure-2026-09-10.json`; run ID was not captured locally.
 - [x] 8.3: проверить готовность подготовки; READY_WITH_ACCEPTED_RISK для старта требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для будущего продукта.
-- [x] 9.1: зафиксировать promotion/release contract и подготовить варианты A/B/C; фактическая promotion/release операция не выполнялась.
+- [x] 9.1: зафиксировать promotion/release contract и подготовить варианты A/B/C; owner selected A (internal pilot), фактическая promotion/release операция не выполнялась и release candidate не выбран. Selection receipt: `audit-2026-09-05/implementation/9.1-promotion-selection-2026-09-10.json`.
 - [x] 9.2: проверить existing/future project adoption; bounded consumer-local adoption revalidated, QC pin update merged from `codex/tchop-qc-continuation` through PR #24 as `ad0e3c545ff3a9918ced9829b4de344ee5c1ca71`, and the user confirmed the manual GitHub check passed for the PR; sibling mutation and broad bootstrap apply не выполнялись.
 - [x] 10.1: измерить context budget и повторное использование evidence; PASS_WITH_LIMITATION, без удаления обязательных routes или billed-token claim.
 - [x] 10.2: откалибровать процесс Luna xhigh по observations и receipts; PASS_WITH_LIMITATION, targeted route по умолчанию, broad route только для cross-cutting audit.
@@ -105,16 +105,16 @@ Evidence блока 6.2: `audit-2026-09-05/implementation/6.2-first-party-warnin
 Evidence блока 7.1: `audit-2026-09-05/implementation/7.1-verifier-test-acceptance.md`.
 Evidence блока 7.2: `audit-2026-09-05/implementation/7.2-s01-generation-detection.md`, `audit-2026-09-05/implementation/7.2-s04-holdout-generation-detection.md`.
 Evidence блока 8.1: `audit-2026-09-05/implementation/8.1-mvvmexample-static-pilot.md`.
-Evidence блока 8.2 (partial): `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md` и
+Evidence блока 8.2: `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md` и
 `audit-2026-09-05/implementation/8.2-german-locale-contract.md`; runtime/build/QC/bootstrap artifacts
 находятся в `.zenflow/tasks/new-task-be0b/runtime/tchop-8-2/`; row-level index —
-`audit-2026-09-05/implementation/8.2-runtime-matrix-receipt.json`.
+`audit-2026-09-05/implementation/8.2-runtime-matrix-receipt.json`; final closure receipt:
+`audit-2026-09-05/implementation/8.2-pilot-closure-2026-09-10.json`.
 Current graph receipt: `audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json`;
 current doctor receipt: `audit-2026-09-05/implementation/8.2-doctor-802b-2026-09-10.json`.
 Decision contract 8.2: `audit-2026-09-05/implementation/8.2-german-locale-contract.md`.
-Evidence блока 9.1: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md` —
-contract recorded, verdict `BLOCKED / NOT_READY` because 8.2 is partial and no approved candidate
-exists.
+Evidence блока 9.1: `audit-2026-09-05/implementation/9.1-promotion-release-contract.md` — contract
+recorded, option A selected, release candidate and promotion operation not performed.
 Evidence блока 9.2: `audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json` —
 15-root/6-identity inventory and conflict boundary `PASS_WITH_LIMITATION`; PR #24 merge is recorded
 as `ad0e3c545ff3a9918ced9829b4de344ee5c1ca71`; broad cross-repository apply remains unexecuted.
@@ -123,4 +123,6 @@ Evidence блока 10.1: `audit-2026-09-05/implementation/10.1-context-budget.m
 Evidence блока 10.2: `audit-2026-09-05/implementation/10.2-luna-calibration.md`.
 Evidence блока 11.1: `audit-2026-09-05/implementation/11.1-semantic-audit.md`.
 Evidence блока 11.2: `audit-2026-09-05/implementation/11.2-support-recovery.md`.
-Завершено 29 из 30 implementation blocks (96.7%); это не процент production readiness.
+Завершено 30 из 30 implementation blocks (100%); это не процент production readiness. Promotion scope A
+выбран: internal pilot only; pilot gate закрыт user-confirmed green manual workflow. Stable QC promotion,
+release и production readiness не заявляются.
