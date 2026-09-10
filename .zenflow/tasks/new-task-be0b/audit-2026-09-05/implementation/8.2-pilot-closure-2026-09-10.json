@@ -1,0 +1,52 @@
+{
+  "receipt_type": "consumer_pilot_closure",
+  "date": "2026-09-10",
+  "model": "GPT-5.6 Luna",
+  "reasoning": "high",
+  "operating_mode": "эконом",
+  "task_id": "new-task-be0b",
+  "repository": "MArtem/AIZenflow",
+  "plan_block": "8.2",
+  "consumer_branch": "codex/tchop-qc-continuation",
+  "workflow_head": "bde3c445a8c409c588125b0743816b6964d91e1b",
+  "manual_workflow": {
+    "name": "Manual Quality Check",
+    "mode": "static",
+    "result": "PASS",
+    "evidence_source": "user_confirmation",
+    "run_id": null,
+    "workflow_url": "https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml",
+    "branch_selected_by_user": "codex/tchop-qc-continuation",
+    "sha_binding": "accepted for the published branch tip; GitHub run identifier was not captured locally"
+  },
+  "post_workflow_changes": [
+    "task-state plan, handoff, and this closure receipt only",
+    "no app source, profile, workflow, or QC engine input changed after the workflow head"
+  ],
+  "accepted_pilot_evidence": [
+    "German boundary and QC pin contract",
+    "seven clean-snapshot adapters",
+    "six-scheme Debug build evidence",
+    "app smoke launch and positive/negative QC fixtures",
+    "reversible bootstrap lifecycle",
+    "unit tests and all seven UI tests PASS from prior authorized run",
+    "authenticated build/source-membership evidence PASS",
+    "bounded Share host activation/lifecycle/accessibility PASS_WITH_LIMITATION",
+    "physical-device VoiceOver gate accepted by owner because no physical device is available; no hardware traversal claim",
+    "graph-scoped schema-v2 static evidence PASS",
+    "bounded doctor PASS with source-membership evidence delegated to authenticated build boundary",
+    "independent pre-PR review has no P0-P3 findings",
+    "manual GitHub workflow PASS confirmed by owner"
+  ],
+  "limitations": [
+    "manual workflow run ID and downloadable GitHub artifact were not captured locally",
+    "Simulator accessibility interaction is verified; physical-device VoiceOver traversal is not claimed",
+    "this receipt closes the internal pilot block only and is not a release artifact"
+  ],
+  "owner_scope": "A_internal_pilot",
+  "stable_qc_promotion": "NOT_PERFORMED",
+  "release": "NOT_READY",
+  "production_readiness": "not_claimed",
+  "verdict": "INTERNAL_PILOT_COMPLETE_WITH_ACCEPTED_LIMITATIONS",
+  "context_transfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

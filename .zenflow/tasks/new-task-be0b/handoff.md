@@ -292,7 +292,9 @@ The local implementation/review blockers for 8.2 are closed. The graph receipt i
 `dcc55202e1bfb7009a362da10bc265754b795ccb`, with no app source/profile/workflow changes after the
 graph run. Run the manual workflow at
 `https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml` for the published branch
-tip. The owner selected option A (`internal pilot`) and the selection is recorded in
-`audit-2026-09-05/implementation/9.1-promotion-selection-2026-09-10.json`. Until that user-owned run
-succeeds, 8.2 stays unchecked and stable QC remains `NOT_READY`; release and production readiness are
-not claimed. No promotion, archive, signing, TestFlight, App Store, or tag action is performed.
+tip. The owner selected option A (`internal pilot`) and then confirmed that the workflow was green for
+`codex/tchop-qc-continuation`. The closure is recorded in
+`audit-2026-09-05/implementation/8.2-pilot-closure-2026-09-10.json`; the run identifier was not
+captured locally. Plan status is now 30/30 implementation blocks closed (100%), with the accepted
+Simulator/VoiceOver limitation preserved. Stable QC promotion, release and production readiness are
+not claimed; no archive, signing, TestFlight, App Store, tag or rollout action was performed.
