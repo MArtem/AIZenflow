@@ -198,9 +198,10 @@ from the stable project baseline.
 - [x] Perform a new independent semantic review on the exact final AIZenflow and Documentation Vault
   SHAs. The prior `748548f` audit cannot be reused as final review.
 - [x] Fix all P0–P2, fix or explicitly report P3, then repeat one complete final-diff review.
-- [x] Commit by concern, record post-commit receipts, verify `HEAD` unchanged, push only under the
+- [ ] Commit by concern, record post-commit receipts, verify `HEAD` unchanged, push only under the
   applicable repository authorization, and confirm remote SHAs.
-- [x] Update the final pilot receipt and compact handoff. Do not perform promotion/release.
+- [x] Update the final pilot receipt and compact handoff. Do not perform promotion/release; remote
+  publication remains pending explicit authorization for this branch.
 
 Final acceptance: clean synchronized repositories; zero open P0–P2; current static and canonical
 gates PASS; task state within budget; exact-SHA independent review PASS; internal-pilot limitation

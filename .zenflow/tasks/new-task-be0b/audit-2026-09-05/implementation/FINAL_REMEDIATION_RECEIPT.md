@@ -10,6 +10,8 @@ Date: 2026-09-10. Model: GPT-5.6 Luna xhigh. Task: `new-task-be0b`.
 - Source-change range reviewed: `ebce9974..231fb0e3`.
 - Receipt/task-state commits after the source change are documentation-only and do not change app,
   package, profile, workflow, or QC engine inputs.
+- Remote publication of `codex/audit-remediation-luna` is pending explicit authorization for this
+  private repository branch.
 
 ## Contract and findings
 
@@ -38,7 +40,8 @@ scope and remains explicitly reported by the gate.
 
 ## Final claim
 
-`INTERNAL_PILOT_COMPLETE_WITH_ACCEPTED_LIMITATIONS` for the bounded QC continuation and this
-remediation plan. Stable QC promotion/release remains `NOT_READY`; Simulator accessibility is
+`INTERNAL_PILOT_COMPLETE_WITH_ACCEPTED_LIMITATIONS` locally for the bounded QC continuation and
+this remediation plan; remote publication is pending. Stable QC promotion/release remains
+`NOT_READY`; Simulator accessibility is
 `PASS_WITH_LIMITATION`, and physical-device VoiceOver is closed only by the explicit owner decision,
 without a hardware traversal claim.
