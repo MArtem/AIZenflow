@@ -8,7 +8,7 @@ import re
 import sys
 from pathlib import Path
 
-from resolve_docs_route import is_classified, load_json, validate_route_registry
+from resolve_docs_route import is_classified, load_route_registry
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -56,10 +56,10 @@ def main() -> int:
     except (json.JSONDecodeError, OSError) as error:
         return report([f"invalid routing registry: {error}"])
     try:
-        task_routes = load_json(TASK_ROUTES)
+        task_routes, route_failures = load_route_registry(ROOT)
     except ValueError as error:
         return report([str(error)])
-    failures.extend(validate_route_registry(task_routes))
+    failures.extend(route_failures)
 
     assigned: dict[str, str] = {}
     for level in LEVEL_KEYS:

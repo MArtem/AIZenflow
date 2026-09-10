@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import copy
 import fnmatch
 import json
 import sys
@@ -13,6 +14,7 @@ from typing import Any
 
 DEFAULT_ROOT = Path(__file__).resolve().parents[1]
 ROUTES_REL = Path("docs/TASK_DOCUMENT_ROUTES.json")
+LOCAL_ROUTES_REL = Path("docs/TASK_DOCUMENT_ROUTES.overlay.json")
 LEVELS_REL = Path("docs/DOCUMENT_ROUTING_REGISTRY.json")
 
 
@@ -24,6 +26,68 @@ def load_json(path: Path) -> dict[str, Any]:
     if not isinstance(value, dict):
         raise ValueError(f"{path} must contain a JSON object")
     return value
+
+
+def validate_route_overlay(base: dict[str, Any], overlay: dict[str, Any]) -> list[str]:
+    failures: list[str] = []
+    if overlay.get("schema_version") != 1:
+        failures.append(f"{LOCAL_ROUTES_REL} schema_version must be 1")
+    overrides = overlay.get("route_overrides")
+    if not isinstance(overrides, dict) or not overrides:
+        failures.append(f"{LOCAL_ROUTES_REL} route_overrides must be a non-empty object")
+        return failures
+    base_routes = base.get("routes", {})
+    if not isinstance(base_routes, dict):
+        failures.append("base task routes must define routes before applying a local overlay")
+        return failures
+    for name, override in overrides.items():
+        if not isinstance(name, str) or not name:
+            failures.append(f"{LOCAL_ROUTES_REL} contains an invalid route name: {name!r}")
+            continue
+        if name not in base_routes:
+            failures.append(f"{LOCAL_ROUTES_REL} references unknown route: {name}")
+        if not isinstance(override, dict):
+            failures.append(f"{LOCAL_ROUTES_REL} route override {name} must be an object")
+            continue
+        unsupported = sorted(set(override) - {"optional_documents"})
+        if unsupported:
+            failures.append(
+                f"{LOCAL_ROUTES_REL} route override {name} has unsupported keys: {unsupported}"
+            )
+        optional = override.get("optional_documents", [])
+        if not isinstance(optional, list):
+            failures.append(f"{LOCAL_ROUTES_REL} route override {name}.optional_documents must be a list")
+            continue
+        string_paths = [path for path in optional if isinstance(path, str)]
+        if len(string_paths) != len(set(string_paths)):
+            failures.append(f"{LOCAL_ROUTES_REL} route override {name} contains duplicate documents")
+        for path in optional:
+            if not isinstance(path, str) or not path.startswith("./"):
+                failures.append(f"{LOCAL_ROUTES_REL} route override {name} has invalid path: {path!r}")
+    return failures
+
+
+def load_route_registry(root: Path) -> tuple[dict[str, Any], list[str]]:
+    root = root.resolve()
+    registry = load_json(root / ROUTES_REL)
+    failures = validate_route_registry(registry)
+    overlay_path = root / LOCAL_ROUTES_REL
+    if not overlay_path.is_file():
+        return registry, failures
+    try:
+        overlay = load_json(overlay_path)
+    except ValueError as error:
+        return registry, [*failures, str(error)]
+    failures.extend(validate_route_overlay(registry, overlay))
+    if failures:
+        return registry, failures
+    merged = copy.deepcopy(registry)
+    for name, override in overlay["route_overrides"].items():
+        route = merged["routes"][name]
+        route["optional_documents"] = ordered_unique(
+            [*route.get("optional_documents", []), *override.get("optional_documents", [])]
+        )[0]
+    return merged, failures
 
 
 def relative_path(root: Path, value: str) -> Path:
@@ -131,9 +195,9 @@ def resolve_routes(
     task_id: str | None = None,
 ) -> dict[str, Any]:
     root = root.resolve()
-    routes_registry = load_json(root / ROUTES_REL)
+    routes_registry, route_failures = load_route_registry(root)
     levels_registry = load_json(root / LEVELS_REL)
-    failures = validate_route_registry(routes_registry)
+    failures = list(route_failures)
     routes = routes_registry.get("routes", {})
     unknown_routes = [name for name in route_names if name not in routes]
     if unknown_routes:
@@ -250,10 +314,14 @@ def main() -> int:
     args = parser.parse_args()
 
     try:
-        registry = load_json(args.root.resolve() / ROUTES_REL)
+        registry, route_failures = load_route_registry(args.root)
     except ValueError as error:
         print(error, file=sys.stderr)
         return 2
+    if route_failures:
+        for failure in route_failures:
+            print(f"Failure: {failure}")
+        return 1
     routes = registry.get("routes", {})
     if args.list:
         for name in routes:

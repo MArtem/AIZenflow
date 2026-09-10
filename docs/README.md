@@ -36,6 +36,7 @@ Clean as found: when duplicated long rules, stale always-read lists, broken link
 - `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`
 - `./docs/DOCUMENT_ROUTING_REGISTRY.json`
 - `./docs/TASK_DOCUMENT_ROUTES.json`
+- `./docs/TASK_DOCUMENT_ROUTES.overlay.json` when project-specific optional route documents are needed
 - `./docs/REUSABLE_BASELINE_POLICY.json`
 - `./docs/SOURCE_OF_TRUTH_MAP.md`
 - `./docs/AGENT_PREFLIGHT_CHECKLIST.md`

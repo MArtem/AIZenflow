@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "route_overrides": {
+    "ios-persistence-migration-data-loss": {
+      "optional_documents": [
+        "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md"
+      ]
+    },
+    "ios-lifecycle-background": {
+      "optional_documents": [
+        "./docs/SHARE_EXTENSION_VALIDATION.md"
+      ]
+    },
+    "ios-reusable-packages": {
+      "optional_documents": [
+        "./docs/PACKAGE_USAGE_SOURCE_ONLY.md"
+      ]
+    },
+    "ios-architecture-navigation-state": {
+      "optional_documents": [
+        "./docs/IOS_ARCHITECTURE_REFERENCE.md"
+      ]
+    }
+  }
+}

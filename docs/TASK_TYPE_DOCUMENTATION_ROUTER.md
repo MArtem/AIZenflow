@@ -101,6 +101,7 @@ Read archive/history/recovery material only when active docs conflict, current s
 
 - `./docs/DOCUMENT_ROUTING_REGISTRY.json` is the machine-readable primary Level assignment for active top-level documents. It is validated, not read during normal startup.
 - `./docs/TASK_DOCUMENT_ROUTES.json` is the machine-readable ordered route membership. It is resolved on demand, not read during normal startup.
+- `./docs/TASK_DOCUMENT_ROUTES.overlay.json`, when present, is a project-owned route overlay. It may append only optional documents to existing routes; the resolver and bootstrap checks validate it against the canonical route registry.
 - Every new active top-level doc must be indexed, assigned exactly one primary level, and reachable from a task route before completion.
 - Prompts, skills, package docs, architecture cases, and archives use registry path patterns plus trigger-based routes.
 - Level 0 has a validator-enforced word budget. Importance alone is not a reason to expand it.

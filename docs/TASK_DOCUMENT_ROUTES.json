@@ -143,9 +143,7 @@
         "./docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
         "./docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md"
       ],
-      "optional_documents": [
-        "./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md"
-      ]
+      "optional_documents": []
     },
     "ios-network-api-offline-sync": {
       "documents": [
@@ -199,9 +197,7 @@
         "./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md",
         "./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md"
       ],
-      "optional_documents": [
-        "./docs/SHARE_EXTENSION_VALIDATION.md"
-      ]
+      "optional_documents": []
     },
     "ios-error-handling": {
       "documents": [
@@ -302,9 +298,7 @@
         "./docs/DEPENDENCY_POLICY.md",
         "./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md"
       ],
-      "optional_documents": [
-        "./docs/PACKAGE_USAGE_SOURCE_ONLY.md"
-      ],
+      "optional_documents": [],
       "trigger_patterns": [
         "./PackagesInUse/**/README.md"
       ]
@@ -359,9 +353,7 @@
         "./docs/IOS_PRODUCTION_SCORECARD.md",
         "./docs/IOS_AGENT_PROMPT_ROUTER.md"
       ],
-      "optional_documents": [
-        "./docs/IOS_ARCHITECTURE_REFERENCE.md"
-      ],
+      "optional_documents": [],
       "trigger_patterns": [
         "./docs/architecture-cases/**",
         "./PackagesForReuse/**"

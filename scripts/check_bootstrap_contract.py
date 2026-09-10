@@ -12,6 +12,8 @@ import re
 import sys
 from pathlib import Path
 
+from resolve_docs_route import load_route_registry
+
 
 REQUIRED_FILES = [
     "AGENTS.md",
@@ -313,6 +315,14 @@ def main() -> int:
         for needle in needles:
             if needle not in text:
                 failures.append(f"{rel}: missing required text `{needle}`")
+
+    if "docs/TASK_DOCUMENT_ROUTES.json" in files:
+        try:
+            _, route_failures = load_route_registry(root)
+        except ValueError as error:
+            failures.append(f"task route registry: {error}")
+        else:
+            failures.extend(f"task route registry: {failure}" for failure in route_failures)
 
     failures.extend(validate_static_gate_adoption(root))
 

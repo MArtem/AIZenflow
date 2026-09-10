@@ -94,6 +94,21 @@ ALLOWED_IGNORED_TASK_ARTIFACTS = (
     "docs/archive/retired-documentation-cleanup/",
 )
 
+def matches_allowed_artifact(relative: str) -> bool:
+    normalized = relative.rstrip("/")
+    return any(
+        fnmatch(normalized, pattern.rstrip("/"))
+        or fnmatch(normalized, pattern.rstrip("/") + "/*")
+        for pattern in ALLOWED_IGNORED_TASK_ARTIFACTS
+    )
+
+def is_git_ignored(relative: str) -> bool:
+    completed = subprocess.run(
+        ["git", "-C", str(root), "check-ignore", "--no-index", "--quiet", "--", relative],
+        capture_output=True,
+    )
+    return completed.returncode == 0
+
 for relative in inputs:
     candidate = root / relative
     if candidate.is_symlink():
@@ -111,7 +126,12 @@ for relative in inputs:
         for name in [*directories, *files]:
             path = directory_path / name
             if path.is_symlink():
-                raise SystemExit(f"Static metadata input must not be a symlink: {path.relative_to(root)}")
+                relative_path = path.relative_to(root).as_posix()
+                if not (
+                    matches_allowed_artifact(relative_path)
+                    and is_git_ignored(relative_path)
+                ):
+                    raise SystemExit(f"Static metadata input must not be a symlink: {relative_path}")
 
 result = subprocess.run(
     [
