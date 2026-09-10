@@ -287,8 +287,11 @@ source-membership check, covered by the paired graph receipt. Independent review
 engine change returned no P0–P3 findings. The physical-device VoiceOver gate is closed by the owner
 decision already recorded; no hardware traversal claim is made.
 
-The local implementation/review blockers for 8.2 are closed. The branch is ready to push; after push,
-run the manual workflow at `https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml`
-against exact HEAD `e201fc8a5e6aeffec2f0455225f9e50f81df815b`. Until that user-owned run succeeds, 8.2
-stays unchecked and stable QC/promotion remains `NOT_READY`. Release options A/B/C remain prepared but
-no promotion, archive, signing, TestFlight, App Store, or tag action is performed.
+The local implementation/review blockers for 8.2 are closed. The graph receipt is bound to source head
+`e201fc8a5e6aeffec2f0455225f9e50f81df815b`; the task-state sync is published at
+`dcc55202e1bfb7009a362da10bc265754b795ccb`, with no app source/profile/workflow changes after the
+graph run. Run the manual workflow at
+`https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml` for the published branch
+tip. Until that user-owned run succeeds, 8.2 stays unchecked and stable QC/promotion remains
+`NOT_READY`. Release options A/B/C remain prepared but no promotion, archive, signing, TestFlight,
+App Store, or tag action is performed.
