@@ -292,6 +292,7 @@ The local implementation/review blockers for 8.2 are closed. The graph receipt i
 `dcc55202e1bfb7009a362da10bc265754b795ccb`, with no app source/profile/workflow changes after the
 graph run. Run the manual workflow at
 `https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml` for the published branch
-tip. Until that user-owned run succeeds, 8.2 stays unchecked and stable QC/promotion remains
-`NOT_READY`. Release options A/B/C remain prepared but no promotion, archive, signing, TestFlight,
-App Store, or tag action is performed.
+tip. The owner selected option A (`internal pilot`) and the selection is recorded in
+`audit-2026-09-05/implementation/9.1-promotion-selection-2026-09-10.json`. Until that user-owned run
+succeeds, 8.2 stays unchecked and stable QC remains `NOT_READY`; release and production readiness are
+not claimed. No promotion, archive, signing, TestFlight, App Store, or tag action is performed.

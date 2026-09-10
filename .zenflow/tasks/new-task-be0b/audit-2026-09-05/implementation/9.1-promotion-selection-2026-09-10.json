@@ -1,0 +1,43 @@
+{
+  "receipt_type": "promotion_scope_selection",
+  "date": "2026-09-10",
+  "model": "GPT-5.6 Luna",
+  "reasoning": "high",
+  "operating_mode": "эконом",
+  "task_id": "new-task-be0b",
+  "repository": "MArtem/AIZenflow",
+  "consumer_branch": "codex/tchop-qc-continuation",
+  "consumer_head": "7a051321c0b241104321272c38e85a5b5255438a",
+  "owner_decision": "A_internal_pilot",
+  "scope": {
+    "claim_allowed": "bounded internal pilot progress",
+    "stable_qc": "NOT_READY_PENDING_USER_WORKFLOW",
+    "release": "NOT_READY",
+    "production_readiness": "not_claimed"
+  },
+  "accepted_evidence": [
+    "graph-scoped schema-v2 static evidence PASS",
+    "bounded doctor profile/repository/source/sandbox and effective-settings checks PASS",
+    "authenticated build/source-membership evidence PASS",
+    "bounded Share host fixture activation/lifecycle/accessibility PASS_WITH_LIMITATION",
+    "physical-device VoiceOver gate accepted by owner because no physical device is available; no hardware traversal claim",
+    "independent pre-PR review has no P0-P3 findings",
+    "consumer PR #24 merged and Manual Quality Check was user-confirmed PASS"
+  ],
+  "remaining_user_action": {
+    "kind": "manual_github_workflow",
+    "url": "https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml",
+    "branch": "codex/tchop-qc-continuation",
+    "purpose": "fresh exact-head parity evidence for the published current branch tip before checking plan block 8.2"
+  },
+  "not_authorized_or_not_performed": [
+    "release candidate selection",
+    "archive",
+    "signing or provisioning",
+    "upload, TestFlight, or App Store submission",
+    "production tag or rollout",
+    "release rollback rehearsal"
+  ],
+  "verdict": "INTERNAL_PILOT_SELECTED__AWAITING_USER_WORKFLOW",
+  "context_transfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}
