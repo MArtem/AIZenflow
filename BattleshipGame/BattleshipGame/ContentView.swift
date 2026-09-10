@@ -20,8 +20,8 @@ struct ContentView: View {
 
                     VStack(spacing: 18) {
                         BoardSectionView(
-                            title: "Your fleet",
-                            subtitle: "Place ships here. During the battle, computer shots appear on this board.",
+                            title: String(localized: "Your fleet"),
+                            subtitle: String(localized: "Place ships here. During the battle, computer shots appear on this board."),
                             board: game.humanBoard,
                             hidesShips: false,
                             isEnabled: game.phase == .placing,
@@ -29,8 +29,8 @@ struct ContentView: View {
                         )
 
                         BoardSectionView(
-                            title: "Enemy waters",
-                            subtitle: "After start, tap a cell here to fire.",
+                            title: String(localized: "Enemy waters"),
+                            subtitle: String(localized: "After start, tap a cell here to fire."),
                             board: game.targetBoard,
                             hidesShips: true,
                             isEnabled: game.phase == .playing,
@@ -41,7 +41,7 @@ struct ContentView: View {
                 .padding()
             }
             .background(Color(.systemGroupedBackground))
-            .navigationTitle("Battleship")
+            .navigationTitle(String(localized: "Battleship"))
         }
     }
 }
@@ -62,7 +62,13 @@ private struct HeaderView: View {
                 .font(.title3.weight(.semibold))
 
             if let currentShip {
-                Text("Placing: \(currentShip.name) — \(currentShip.length) cells")
+                Text(
+                    String.localizedStringWithFormat(
+                        String(localized: "Placing: %@ — %lld cells"),
+                        currentShip.name,
+                        currentShip.length
+                    )
+                )
                     .font(.subheadline)
                     .foregroundStyle(.secondary)
 
@@ -74,21 +80,35 @@ private struct HeaderView: View {
                     }
                 }
                 .accessibilityElement(children: .ignore)
-                .accessibilityLabel("Selected ship: \(currentShip.name), length \(currentShip.length) cells")
+                .accessibilityLabel(
+                    Text(
+                        String.localizedStringWithFormat(
+                            String(localized: "Selected ship: %@, length %lld cells"),
+                            currentShip.name,
+                            currentShip.length
+                        )
+                    )
+                )
             }
 
             HStack {
-                Button("Rotate: \(orientation.rawValue)", action: onToggleOrientation)
+                Button(
+                    String.localizedStringWithFormat(
+                        String(localized: "Rotate: %@"),
+                        orientation.rawValue
+                    ),
+                    action: onToggleOrientation
+                )
                     .buttonStyle(.bordered)
                     .disabled(phase != .placing)
 
-                Button("Start", action: onStart)
+                Button(String(localized: "Start"), action: onStart)
                     .buttonStyle(.borderedProminent)
                     .disabled(!canStart)
 
                 Spacer()
 
-                Button("New game", action: onReset)
+                Button(String(localized: "New game"), action: onReset)
                     .buttonStyle(.bordered)
             }
         }
@@ -162,7 +182,7 @@ private struct GameBoardView: View {
         }
         .aspectRatio(1, contentMode: .fit)
         .accessibilityElement(children: .contain)
-        .accessibilityLabel(Text("Game board"))
+        .accessibilityLabel(Text(String(localized: "Game board")))
     }
 }
 
@@ -227,15 +247,48 @@ private struct BoardCellButton: View {
         let position = "row \(coordinate.row + 1), column \(coordinate.column + 1)"
         switch state {
         case .empty:
-            return Text("Empty cell, \(position)")
+            return Text(
+                String.localizedStringWithFormat(
+                    String(localized: "Empty cell, %@"),
+                    position
+                )
+            )
         case .ship:
-            return Text(hidesShip ? "Unknown cell, \(position)" : "Ship cell, \(position)")
+            if hidesShip {
+                return Text(
+                    String.localizedStringWithFormat(
+                        String(localized: "Unknown cell, %@"),
+                        position
+                    )
+                )
+            }
+            return Text(
+                String.localizedStringWithFormat(
+                    String(localized: "Ship cell, %@"),
+                    position
+                )
+            )
         case .hit:
-            return Text("Hit, \(position)")
+            return Text(
+                String.localizedStringWithFormat(
+                    String(localized: "Hit, %@"),
+                    position
+                )
+            )
         case .sunk:
-            return Text("Sunk ship, \(position)")
+            return Text(
+                String.localizedStringWithFormat(
+                    String(localized: "Sunk ship, %@"),
+                    position
+                )
+            )
         case .miss:
-            return Text("Miss, \(position)")
+            return Text(
+                String.localizedStringWithFormat(
+                    String(localized: "Miss, %@"),
+                    position
+                )
+            )
         }
     }
 }
