@@ -256,3 +256,20 @@ pre-PR review. Existing source/build/runtime receipts remain valid because the c
 `8fc0fae84b3c847c1f891a9e742b69d568cb4f70` changed only evidence/task documentation, not app source,
 profile, workflow, or QC engine inputs. No promotion, release, archive, signing, or App Store
 action is claimed.
+
+## Owner decision continuation — 2026-09-10
+
+The user explicitly accepted the physical-device VoiceOver gate as complete for this task because no
+physical iOS device is available. The authoritative receipt is
+`audit-2026-09-05/implementation/8.2-voiceover-owner-decision-2026-09-10.json`. The bounded Simulator
+fixture remains `PASS_WITH_LIMITATION`; no physical traversal, VoiceOver focus/announcement/rotor
+claim, or production accessibility readiness claim is made. 8.2 therefore remains open only for
+graph-scoped schema-v2 static-evidence acceptance and independent pre-PR review.
+
+The QC engine graph-static implementation is committed and pushed at
+`MArtem/AIZenflowQualityControl` commit `f974ef58ec3ba0b13341e4ac59e617dd5ea97ce3` on branch
+`codex/graph-static-evidence`. PR creation is pending because the Mac is currently locked and the
+local `gh` CLI is unavailable; compare URL:
+https://github.com/MArtem/AIZenflowQualityControl/compare/main...codex/graph-static-evidence?expand=1
+The consumer pin/adoption and graph receipt must follow engine merge; no graph PASS is claimed from
+the implementation commit alone.

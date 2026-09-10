@@ -24,6 +24,12 @@
     "providerLabel": "TchopApp",
     "testSourceRepair": "Cell/More and containing-app-label contract is committed in 52a6af81a33de6c21b6e434ada93eb5d5752fbdc"
   },
+  "voiceOverOwnerDecision": {
+    "status": "ACCEPTED_BY_OWNER_DECISION",
+    "verification": "NOT_RUN_BY_OWNER_DECISION",
+    "receipt": "audit-2026-09-05/implementation/8.2-voiceover-owner-decision-2026-09-10.json",
+    "reason": "The user confirmed that physical-device VoiceOver is complete for this task because no physical device is available."
+  },
   "observedAccessibilityHierarchy": [
     "The host presents the system activity sheet successfully.",
     "The provider row is exposed as Cell, not Button, and iOS renders the provider with the containing-app label TchopApp.",
@@ -31,7 +37,7 @@
     "Selecting TchopApp launches com.example.TchopApp.share.",
     "The extension screen identifier is present; the Close control has a non-empty label, is hittable, and closes the request successfully."
   ],
-  "conclusion": "Bounded Share Extension registration, activation, screen discovery, labelled/hittable close interaction, and lifecycle completion PASS on the restored iPhone 17 Pro Simulator. Full VoiceOver traversal is not claimed because Apple does not provide VoiceOver on iOS Simulator; physical-device accessibility verification remains required.",
+  "conclusion": "Bounded Share Extension registration, activation, screen discovery, labelled/hittable close interaction, and lifecycle completion PASS on the restored iPhone 17 Pro Simulator. Full VoiceOver traversal was not run because Apple does not provide VoiceOver on iOS Simulator; the physical-device VoiceOver gate is closed for this task by explicit owner decision because no physical device is available. No hardware traversal or production accessibility readiness is claimed.",
   "evidence": [
     "runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult",
     "runtime/tchop-8-2/test-repair/TchopAppUITests-build-rerun-9.xcresult",

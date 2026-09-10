@@ -366,8 +366,9 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
   fixtures, reversible bootstrap, structural schema-v2/profile validation, explicit-source static
   PASS, bounded host fixture build/install PASS и user-confirmed GitHub parity PASS for PR #24.
   Doctor effective-settings PASS, bounded Share provider/extension lifecycle/accessibility is
-  PASS_WITH_LIMITATION, while graph-scoped static-evidence, physical-device VoiceOver traversal
-  и pre-PR review остаются открыты; test-target compilation после authorized repair PASS.
+  PASS_WITH_LIMITATION, while graph-scoped static-evidence и pre-PR review остаются открыты; physical-device
+  VoiceOver gate is closed by explicit owner decision because no physical device is available, with no
+  hardware traversal claim; test-target compilation после authorized repair PASS.
 - [x] 8.3: готовность подготовки — Luna xhigh; READY_WITH_ACCEPTED_RISK для начала требований/design, NOT_READY для stable QC, NOT_ASSESSABLE для продукта.
 - [x] 9.1: promotion/release contract и bounded decision options — Luna xhigh; contract recorded,
   фактическая promotion/release операция не выполнялась.
@@ -554,3 +555,20 @@ not captured in the local task receipts. The plan remains 29 of 30 checkboxes cl
 the only open block. Its remaining gates are graph-scoped static-evidence, physical-device
 VoiceOver traversal, and independent pre-PR review. No promotion, release, archive, signing,
 TestFlight, App Store, or stable QC promotion is claimed.
+
+## Owner decision continuation — 2026-09-10
+
+The user explicitly accepted the physical-device VoiceOver gate as complete for this task because no
+physical iOS device is available. The authoritative receipt is
+`audit-2026-09-05/implementation/8.2-voiceover-owner-decision-2026-09-10.json`. The bounded Simulator
+fixture remains `PASS_WITH_LIMITATION`; no physical traversal, VoiceOver focus/announcement/rotor
+claim, or production accessibility readiness claim is made. 8.2 therefore remains open only for
+graph-scoped schema-v2 static-evidence acceptance and independent pre-PR review.
+
+The QC engine graph-static implementation is committed and pushed at
+`MArtem/AIZenflowQualityControl` commit `f974ef58ec3ba0b13341e4ac59e617dd5ea97ce3` on branch
+`codex/graph-static-evidence`. PR creation is pending because the Mac is currently locked and the
+local `gh` CLI is unavailable; compare URL:
+https://github.com/MArtem/AIZenflowQualityControl/compare/main...codex/graph-static-evidence?expand=1
+The consumer pin/adoption and graph receipt must follow engine merge; no graph PASS is claimed from
+the implementation commit alone.
