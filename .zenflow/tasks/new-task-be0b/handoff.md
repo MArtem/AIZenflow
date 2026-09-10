@@ -271,3 +271,24 @@ The QC engine graph-static implementation is committed and pushed at
 `codex/graph-static-evidence`; [PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26)
 is open against `main`. The consumer pin/adoption and graph receipt must follow engine merge; no
 graph PASS is claimed from the implementation commit alone.
+
+## Final local continuation — 2026-09-10
+
+QC PR #26 is merged; the consumer current HEAD is `e201fc8a5e6aeffec2f0455225f9e50f81df815b` with
+engine pin `802b4833c3c7cebb1c7e920b964451587a0bab42` and engine CDHash
+`d25b665789eeef1ec60f14b3ae2e8577f3bb62a8`. Graph-scoped `quality graph-static-evidence` passed for
+Release / `TchopApp` / `generic/platform=iOS Simulator`: 159 compiled source paths, 26 compiler
+sections, 0 external inputs, verifier `READY`; receipt:
+`audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json`.
+
+Bounded doctor on the same pin passed profile/repository/source/sandbox boundaries, Xcode graph
+selection, and effective settings; its overall `BLOCKED` status is only the intentional separate
+source-membership check, covered by the paired graph receipt. Independent review of the cumulative
+engine change returned no P0–P3 findings. The physical-device VoiceOver gate is closed by the owner
+decision already recorded; no hardware traversal claim is made.
+
+The local implementation/review blockers for 8.2 are closed. The branch is ready to push; after push,
+run the manual workflow at `https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml`
+against exact HEAD `e201fc8a5e6aeffec2f0455225f9e50f81df815b`. Until that user-owned run succeeds, 8.2
+stays unchecked and stable QC/promotion remains `NOT_READY`. Release options A/B/C remain prepared but
+no promotion, archive, signing, TestFlight, App Store, or tag action is performed.

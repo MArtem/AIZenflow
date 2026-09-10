@@ -1,18 +1,19 @@
 {
   "schemaVersion": 1,
   "block": "8.2",
-  "status": "PARTIAL",
+  "status": "PARTIAL_PENDING_CURRENT_HEAD_GITHUB_PARITY",
   "model": "GPT-5.6 Luna",
   "reasoning": "xhigh",
   "mode": "эконом",
   "consumer": {
     "repository": "/Users/Artem/.zenflow/worktrees/new-task-be0b",
-    "sourceRevision": "8fc0fae84b3c847c1f891a9e742b69d568cb4f70",
+    "sourceRevision": "e201fc8a5e6aeffec2f0455225f9e50f81df815b",
     "implementationCommit": "52a6af81a33de6c21b6e434ada93eb5d5752fbdc",
-    "evidenceCommit": "5970fca1d6f5735245590c9cbd1e3848ea69f00c",
+    "evidenceCommit": "e201fc8a5e6aeffec2f0455225f9e50f81df815b",
+    "graphEvidenceSourceHead": "e201fc8a5e6aeffec2f0455225f9e50f81df815b",
     "githubMergeCommit": "ad0e3c545ff3a9918ced9829b4de344ee5c1ca71",
     "workingTreeAtEvidenceGeneration": "clean tracked source/profile/task state after bounded fixture and evidence commits; local ignored QC cache/runtime evidence excluded",
-    "postCommitState": "authenticated build-evidence and source-membership PASS at source revision 8fc0fae84b3c847c1f891a9e742b69d568cb4f70; graph-scoped static-evidence remains blocked, doctor effective settings PASS, bounded Share provider lifecycle/accessibility contract is PASS_WITH_LIMITATION, and the merged QC pin update is published through PR #24"
+    "postCommitState": "authenticated graph-static-evidence and source-membership PASS at source revision e201fc8a5e6aeffec2f0455225f9e50f81df815b; doctor graph/effective-settings PASS with its separate membership check delegated to the graph receipt; bounded Share provider lifecycle/accessibility contract is PASS_WITH_LIMITATION; current-head GitHub parity remains pending the user-owned manual workflow"
   },
   "engine": {
     "repository": "MArtem/AIZenflowQualityControl",
@@ -38,9 +39,9 @@
     },
     {
       "id": "identity.static-profile-evidence",
-      "status": "BLOCKED",
-      "reason": "Current-head identity is authenticated and the separate supervised build-evidence/source-membership gate passes, but graph-scoped static-evidence remains blocked by QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED",
-      "evidence": ["audit-2026-09-05/implementation/8.2-static-evidence-c0e7-current-2026-09-09.json", "audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json", "runtime/tchop-8-2/qc-logs/validate-profile-fixture-2026-09-09.json", "runtime/tchop-8-2/qc-logs/static-explicit-fixture-2026-09-09.json"]
+      "status": "PASS",
+      "reason": "Current-head graph-static-evidence passed with authenticated build/source-membership handoff and verified static evidence",
+      "evidence": ["audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json", "audit-2026-09-05/implementation/8.2-doctor-802b-2026-09-10.json"]
     },
     {
       "id": "build.six-debug-schemes",
@@ -93,8 +94,8 @@
     {
       "id": "doctor.effective-settings",
       "status": "PASS",
-      "reason": "QC doctor on merged engine c0e7 resolved profile/repository/source/sandbox boundaries, Xcode graph selection, and effective settings. Source membership remains a separate BLOCKED evidence boundary and is not claimed by this row",
-      "evidence": ["runtime/tchop-8-2/qc-logs/doctor-c0e7-2026-09-09.json"]
+      "reason": "QC doctor on current engine 802b resolves profile/repository/source/sandbox boundaries, Xcode graph selection, and effective settings; source membership is intentionally supplied by the paired graph receipt",
+      "evidence": ["audit-2026-09-05/implementation/8.2-doctor-802b-2026-09-10.json", "audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json"]
     },
     {
       "id": "parity.local-github",
@@ -104,16 +105,17 @@
     },
     {
       "id": "pre-pr-independent-review",
-      "status": "OPEN",
-      "reason": "Must be repeated after remaining blockers are resolved"
+      "status": "PASS",
+      "reason": "Independent review of the cumulative engine graph-static implementation, schema, CLI, source-membership verifier, and tests returned no P0-P3 findings",
+      "evidence": ["audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json"]
     }
   ],
   "promotion": {
     "stableQc": "NOT_READY",
     "productionReadiness": "NOT_CLAIMED",
     "blockedBy": [
-      "graph-scoped schema-v2 static-evidence acceptance",
-      "pre-PR review"
+      "current-head GitHub parity manual workflow",
+      "owner-selected promotion/release option"
     ]
   },
   "testSourceRepair": {
@@ -141,6 +143,16 @@
     "runtimeEvidence": "targeted XCUITest executed after fresh install and target Simulator reboot; it resolved the provider as TchopApp, activated com.example.TchopApp.share, verified the extension screen and labelled/hittable close control, and completed the request; physical-device VoiceOver traversal was not run and is accepted by owner decision for this task because no physical device is available",
     "testEnvironmentVariable": "TCHOP_SHARE_HOST_FIXTURE=1",
     "testSourceRepairCommit": "52a6af81a33de6c21b6e434ada93eb5d5752fbdc"
+  },
+  "currentGraphEvidence": {
+    "engineRevision": "802b4833c3c7cebb1c7e920b964451587a0bab42",
+    "engineCDHash": "d25b665789eeef1ec60f14b3ae2e8577f3bb62a8",
+    "profileSHA256": "4cbcfe62c8bb38388bd81db33f438a004ee38306410224bd36a298032eef9fbe",
+    "sourceRevision": "e201fc8a5e6aeffec2f0455225f9e50f81df815b",
+    "compiledSourcePathCount": 159,
+    "compilerSectionCount": 26,
+    "externalSourceInputCount": 0,
+    "verification": "READY"
   },
   "contextTransfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
 }

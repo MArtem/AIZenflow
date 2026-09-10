@@ -381,7 +381,7 @@ elapsed/usage в ноль. Для блоков 0.1–0.2 строки восст
 - [x] 11.2: лёгкая поддержка и recovery — Luna xhigh; PASS_WITH_LIMITATION, trigger-based без automation, stable release не активируется.
 
 Все независимые preparation blocks 0.1–11.2 зафиксированы task-level evidence. Открытым
-consumer/promotion gate остаётся 8.2; 9.1 закрыт как contract/options artifact, а 9.2 закрыт
+consumer/promotion gate остаётся 8.2 только до fresh current-head GitHub parity; 9.1 закрыт как contract/options artifact, а 9.2 закрыт
 как bounded adoption revalidation с ограничениями. Фактическая promotion по-прежнему запрещена
 до полного 8.2 и owner-selected release decision. Ни один implementation checkbox не помечается
 выполненным только потому, что написан план.
@@ -389,6 +389,25 @@ consumer/promotion gate остаётся 8.2; 9.1 закрыт как contract/o
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 Pilot → promotion: каждый из двух consumers закрывает полную матрицу этапа 8 roadmap, включая разрешённый runtime mode, local/GitHub parity и pre-PR receipt. Missing/denied evidence оставляет pilot partial и блокирует обычный stable promotion; запуск этим требованием не разрешается. Более узкий release требует отдельного явного решения пользователя.
+
+## Graph-scoped static evidence и финальный review блока 8.2 — 2026-09-10
+
+После merge QC PR #26 и consumer pin `802b4833c3c7cebb1c7e920b964451587a0bab42` graph-scoped
+`quality graph-static-evidence` прошёл на consumer HEAD
+`e201fc8a5e6aeffec2f0455225f9e50f81df815b`: Release / `TchopApp` / `generic/platform=iOS Simulator`,
+profile SHA256 `4cbcfe62c8bb38388bd81db33f438a004ee38306410224bd36a298032eef9fbe`, engine CDHash
+`d25b665789eeef1ec60f14b3ae2e8577f3bb62a8`, 159 compiled inputs, 26 compiler sections and 0 external
+inputs. `QC.PROFILE.CONTRACT`, `QC.POLICY.CONTRACT`, `QC.STATIC.SCAN` и verifier `READY` — PASS.
+Bounded doctor на том же pin подтверждает repository/source/sandbox boundaries, Xcode graph selection и
+effective settings; его общий envelope остаётся BLOCKED только на отдельном membership gate, который
+закрыт этой graph receipt. Independent pre-PR review cumulative engine diff `1035b95..802b4833` returned
+no P0–P3 findings. Physical-device VoiceOver остаётся закрытым только explicit owner decision; hardware
+traversal не заявляется.
+
+Receipt: `audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json` и
+`audit-2026-09-05/implementation/8.2-doctor-802b-2026-09-10.json`. Block 8.2 now has no local implementation
+or review blocker; it remains unchecked only until the user runs the manual GitHub workflow for the pushed
+current HEAD and parity is recorded against that exact revision. No production promotion is implied.
 
 ## Runtime continuation блока 8.2 — 2026-09-09
 
