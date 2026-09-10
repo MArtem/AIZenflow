@@ -567,8 +567,6 @@ graph-scoped schema-v2 static-evidence acceptance and independent pre-PR review.
 
 The QC engine graph-static implementation is committed and pushed at
 `MArtem/AIZenflowQualityControl` commit `f974ef58ec3ba0b13341e4ac59e617dd5ea97ce3` on branch
-`codex/graph-static-evidence`. PR creation is pending because the Mac is currently locked and the
-local `gh` CLI is unavailable; compare URL:
-https://github.com/MArtem/AIZenflowQualityControl/compare/main...codex/graph-static-evidence?expand=1
-The consumer pin/adoption and graph receipt must follow engine merge; no graph PASS is claimed from
-the implementation commit alone.
+`codex/graph-static-evidence`; [PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26)
+is open against `main`. The consumer pin/adoption and graph receipt must follow engine merge; no
+graph PASS is claimed from the implementation commit alone.
