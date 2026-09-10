@@ -24,7 +24,8 @@ scope and remains explicitly reported by the gate.
 
 ## Checks
 
-- Full clean repository static gate: PASS on source-change commit `231fb0e3`.
+- Full clean repository static gate: PASS on source-change commit `231fb0e3` and repeated on
+  receipt-bound task-state tip `70929655`.
 - Docs index/consistency/bootstrap/boundary/router: PASS.
 - Canonical baseline drift: PASS (`missing=0`, `stale=0`, `unexpected=0`, policy failures `0`).
 - Package snapshot: PASS; `40/5` reusable and `21/3` active package counts; all required surfaces.

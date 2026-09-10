@@ -187,20 +187,20 @@ from the stable project baseline.
 
 ## Phase 7 — final verification, independent review, and publication
 
-- [ ] Review the complete final diff against the global change contract and every credible
+- [x] Review the complete final diff against the global change contract and every credible
   false-success/irreversible-state route.
-- [ ] Run: JSON parse, docs index/consistency/bootstrap/boundaries/router, canonical baseline drift,
+- [x] Run: JSON parse, docs index/consistency/bootstrap/boundaries/router, canonical baseline drift,
   vault manifest/checker, active-link validation, package snapshot validation, forbidden/large-file
   checks, full repository static gate with retained runtime, localization, migration `--check`,
   `plutil`, and graph-scoped static evidence.
-- [ ] Run authorized package/app tests and build evidence only where code/Xcode changes require it;
+- [x] Run authorized package/app tests and build evidence only where code/Xcode changes require it;
   record omitted checks explicitly.
-- [ ] Perform a new independent semantic review on the exact final AIZenflow and Documentation Vault
+- [x] Perform a new independent semantic review on the exact final AIZenflow and Documentation Vault
   SHAs. The prior `748548f` audit cannot be reused as final review.
-- [ ] Fix all P0–P2, fix or explicitly report P3, then repeat one complete final-diff review.
-- [ ] Commit by concern, record post-commit receipts, verify `HEAD` unchanged, push only under the
+- [x] Fix all P0–P2, fix or explicitly report P3, then repeat one complete final-diff review.
+- [x] Commit by concern, record post-commit receipts, verify `HEAD` unchanged, push only under the
   applicable repository authorization, and confirm remote SHAs.
-- [ ] Update the final pilot receipt and compact handoff. Do not perform promotion/release.
+- [x] Update the final pilot receipt and compact handoff. Do not perform promotion/release.
 
 Final acceptance: clean synchronized repositories; zero open P0–P2; current static and canonical
 gates PASS; task state within budget; exact-SHA independent review PASS; internal-pilot limitation

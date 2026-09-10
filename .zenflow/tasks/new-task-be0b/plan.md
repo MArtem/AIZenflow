@@ -20,7 +20,7 @@
 - [x] Phase 4: repair package/adoption authority, revisions, mirrors, missing package surfaces, and broken links.
 - [x] Phase 5: reconcile current receipts, universal plan, handoff, and context budget.
 - [x] Phase 6: revalidate reusable iOS knowledge freshness and maturity gaps.
-- [ ] Phase 7: run final static/runtime-authorized gates, exact-SHA independent review, publication, and remote parity.
+- [x] Phase 7: run final static/runtime-authorized gates, exact-SHA independent review, publication, and remote parity.
 
 ## Completion gate
 
