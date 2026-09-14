@@ -6,13 +6,22 @@
   "properties": {
     "schema_version": {"const": 1},
     "profile_kind": {"const": "external-knowledge-compatibility"},
-    "candidate": {"type": "object", "required": ["release_id", "protection_version", "root", "tree_sha256"]},
-    "source": {"type": "object", "required": ["root", "tree_sha256", "active"]},
+    "candidate": {"type": "object", "required": ["release_id", "protection_version", "root", "tree_sha256"], "properties": {
+      "release_id": {"type": "string", "minLength": 1},
+      "protection_version": {"type": "string", "minLength": 1},
+      "root": {"type": "string", "pattern": "^/"},
+      "tree_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"}
+    }},
+    "source": {"type": "object", "required": ["root", "tree_sha256", "active"], "properties": {
+      "root": {"type": "string", "pattern": "^/"},
+      "tree_sha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+      "active": {"type": "boolean"}
+    }},
     "source_mappings": {"type": "object", "additionalProperties": {"type": "string"}},
     "exact_duplicates": {"type": "array", "items": {"type": "string"}},
     "candidate_overlap": {"type": "array", "items": {"type": "string"}},
     "conflicts": {"type": "array"},
     "disabled_exact_duplicates": {"type": "array", "items": {"type": "string"}},
-    "safety": {"type": "object"}
+    "safety": {"type": "object", "required": ["disable_requires_exact_path_and_hash", "partial_overlap_disables_nothing", "changed_or_missing_candidate_invalidates_profile", "changed_or_missing_source_invalidates_profile", "source_is_explicitly_confirmed", "semantic_similarity_is_not_deduplication"]}
   }
 }

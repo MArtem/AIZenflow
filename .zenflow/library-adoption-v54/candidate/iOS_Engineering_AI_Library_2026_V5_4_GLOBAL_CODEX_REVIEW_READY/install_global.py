@@ -44,7 +44,11 @@ def read_regular_snapshot(p: Path, max_bytes=TEXT_LIMIT, *, expected_identity=No
     pfd = _open_dir_chain(p.parent, create=False)
     fd = None
     try:
-        fd = os.open(p.name, os.O_RDONLY | os.O_NOFOLLOW, dir_fd=pfd)
+        # O_NONBLOCK is required before fstat: opening a FIFO read-only otherwise waits for
+        # a writer and defeats the fail-closed non-regular-file check below.
+        if not hasattr(os, 'O_NONBLOCK'):
+            raise InstallError('safe installer I/O requires O_NONBLOCK')
+        fd = os.open(p.name, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK, dir_fd=pfd)
         st = os.fstat(fd)
         if not stat.S_ISREG(st.st_mode):
             raise InstallError(f'not a regular file: {p}')

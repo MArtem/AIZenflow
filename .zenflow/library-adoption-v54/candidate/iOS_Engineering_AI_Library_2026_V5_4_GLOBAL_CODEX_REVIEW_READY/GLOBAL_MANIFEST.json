@@ -59,11 +59,11 @@
     "minimum_parser_compatibility": "Python 3.9 grammar",
     "fixtures": "synthetic temporary Codex homes and Git repositories only",
     "observed_release_working_tree": {
-      "total": 178,
-      "pass": 178,
+      "total": 188,
+      "pass": 184,
       "fail": 0,
-      "skip": 0,
-      "date": "2026-09-14",
+      "skip": 4,
+      "date": "2026-09-15",
       "wall_clock_seconds_approx": null
     },
     "runner_bytecode_policy": "release validation uses PYTHONDONTWRITEBYTECODE=1; package validator rejects __pycache__/.pyc",

@@ -45,11 +45,13 @@ If the external library uses a different layout, an explicit mapping may be supp
 known equivalent path, for example
 `--map 03_CONCURRENCY/IOS-03-01_STRICT_CONCURRENCY_MIGRATION.md=concurrency/strict.md`.
 Only an exact mapped relative-path and SHA-256 match from a revalidated, explicitly active source
-may be marked `disabled_exact_duplicates`. `profile status` revalidates the stored candidate and
-source identities when no override roots are supplied; `--candidate-root` or `--source-root` is
-available when inspecting an explicitly selected replacement. Changed, missing, or merely similar
+may be marked `disabled_exact_duplicates`. `profile status` always observes the active runtime
+library selected by `INSTALLATION.json`; it never adopts a persisted candidate root or an arbitrary
+diagnostic replacement. An external `--source-root` must be supplied for the current task before
+any exclusions are returned. A persisted `active` flag is eligibility metadata, not proof that the
+replacement was selected or read for this task. Changed, missing, malformed, or merely similar
 material invalidates the profile or remains an overlap; it never disables a whole section. A clean
-installation has no external source and therefore no duplicate exclusions.
+installation or a status call without an explicitly selected source has no duplicate exclusions.
 
 ## Stop and report
 

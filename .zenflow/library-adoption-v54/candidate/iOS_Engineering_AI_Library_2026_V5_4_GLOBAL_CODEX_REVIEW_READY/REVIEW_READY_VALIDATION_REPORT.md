@@ -1,6 +1,6 @@
 # Review-Ready Validation Report — V14 corrective candidate
 
-Date: **2026-09-14**
+Date: **2026-09-15**
 Artifact stage: V14 `FREEZE_FINAL` archive plus its extracted verification tree.
 Status wording: **self-tested against the shipped synthetic regression suite; bounded control-plane
 review completed; automatic utility not demonstrated for the frozen universal payload**.
@@ -26,16 +26,28 @@ python3 tests/run_all.py --serial
 
 Observed result on the V14 release working tree:
 
-- total: **178**
-- PASS: **178**
+- total: **188**
+- PASS: **184**
 - FAIL: **0**
-- SKIP: **0**
+- SKIP: **4**
 - runner exit: **0**
 - wall clock: not recorded as a release claim
 
-Observed candidate summary: `REVIEW_READY_TEST_SUMMARY total=178 pass=178 fail=0 skip=0`.
+Observed candidate summary: `REVIEW_READY_TEST_SUMMARY total=188 pass=184 fail=0 skip=4`.
 
-The suite contains all prior V5.3 regression coverage plus deterministic A53-01 upgrade/state-compatibility and bounded-observation fixtures. The corrective candidate adds A54 cleanup-commit-point, final-validation-deadline, per-file-limit and identity-sensitive mutation coverage. The test host uses an isolated `.zenflow` temporary root so protected state I/O is exercised through the same no-follow path policy on macOS.
+Current deployment-integration boundary:
+
+- The current host exposes a home-level Git root above the approved `.zenflow` fixture area.
+  Production policy correctly rejects destinations inside any detected Git repository; the test
+  harness no longer masks that root.
+- Four positive manual/installer integration cases are therefore explicitly `NOT_RUN` in this
+  environment (the four skips above). They run when `IOSLIB_TEST_TMP_ROOT` points to an operator-
+  approved path outside every Git repository. This is a host limitation, not a production
+  exception, and it is not evidence of successful global deployment.
+- Unmocked negative CLI coverage, including bounded FIFO handling in both preflights, ran and
+  passed. The 184 passing tests are regression evidence, not a claim of universal host discovery.
+
+The suite contains all prior V5.3 regression coverage plus deterministic A53-01 upgrade/state-compatibility and bounded-observation fixtures. The corrective candidate adds A54 cleanup-commit-point, final-validation-deadline, per-file-limit and identity-sensitive mutation coverage, plus manual receipt ownership and bounded observer fixtures. The test host uses an isolated `.zenflow` temporary root so protected state I/O is exercised through the same no-follow path policy on macOS.
 
 ## A53-01 observed synthetic evidence
 
@@ -91,6 +103,22 @@ convenience.
 
 ## V14 corrective evidence
 
+- The manual observer now uses stable no-follow directory handles for parent components and child
+  entries, checks regular-file identity before and after reads, and bounds all entries (including
+  empty directories), pending directories, depth, aggregate bytes, and cooperative scan time.
+  Iteration errors, symlinks, replacement identities and deadline exhaustion refuse the preflight;
+  they cannot become an empty successful tree. Addressed fixtures cover these cases on the shipped
+  observer itself.
+- Manual updates now require a small operator-published `.ioslib-managed.json` receipt. It records
+  exact managed paths, SHA-256 values, modes, release/protection identity and the managed AGENTS
+  block hash. The preflight re-hashes the receipt before accepting an update; changed descriptor,
+  AGENTS block, skill or state marker is refused. A new receipt is emitted only after a new
+  descriptor/state/block/skill publication has been independently completed. This is an ownership
+  check, not a trust boundary, installer, backup, or automatic rollback service.
+- The manual runbook now defines the checked fresh reference, reference→full, update, full→reference
+  disable, and A→B→A rollback sequence. The local suite validates receipt emission and refusal
+  behavior in synthetic fixtures; the positive external-to-Git deployment cases remain NOT_RUN on
+  this host because its home-level Git root encloses the approved `.zenflow` fixture area.
 - Manual A→B→A selector fixture launches distinguishable release payloads from the same shim by
   changing only the validated descriptor; a missing descriptor fails before the runtime starts.
 - Manual preflight fixture preserves an occupied unknown shim and returns a non-zero refusal before

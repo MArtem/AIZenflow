@@ -1,6 +1,6 @@
 # План завершения библиотеки — малые блоки Luna Xhigh
 
-Дата: 2026-09-14. Task: new-task-be0b. Режим: эконом.
+Дата: 2026-09-15. Task: new-task-be0b. Режим: эконом.
 Исполнитель: Luna Xhigh. Ревью: Astra, только ограниченный изменённый блок.
 Эта редакция заменяет исполнение большого плана из evidence 27 «всё сразу».
 Evidence 27 сохраняет доказательства F7-01..06 и общий host-block; его старый порядок
@@ -72,14 +72,14 @@ V = /Users/Artem/.zenflow/worktrees/documentation-vault
 
 | Блок | Дефект/результат | Luna | Astra |
 | --- | --- | --- | --- |
-| A | destinations и override; F7-02 | DONE — awaiting Astra review | pending |
-| B | общее подключение: конкретная подготовка; F7-01 | TODO | pending |
-| C | profile и контекст дублей; F7-04 | TODO | pending |
-| D | protection только по выбору; F7-05 | TODO | pending |
-| E1 | manual ownership и проверка обновления; F7-03 | TODO | pending |
-| E2 | manual реальный lifecycle reference/full; F7-03 | TODO | pending |
-| F1 | bounded profile observation; F7-06 | TODO | pending |
-| F2 | bounded manual observation; F7-06 | TODO | pending |
+| A | destinations и override; F7-02 | corrected; external positive integration NOT_RUN on this host | pending independent re-review |
+| B | общее подключение: конкретная подготовка; F7-01 | proposal complete; host mutation not authorized | pending independent acceptance |
+| C | profile и контекст дублей; F7-04 | implemented; targeted PASS | pending independent re-review |
+| D | protection только по выбору; F7-05 | implemented; policy/runtime tests PASS | pending independent re-review |
+| E1 | manual ownership и проверка обновления; F7-03 | implemented; receipt fixtures PASS | pending independent re-review |
+| E2 | manual реальный lifecycle reference/full; F7-03 | runbook implemented; real host lifecycle NOT_RUN | requires isolated host acceptance |
+| F1 | bounded profile observation; F7-06 | implemented; targeted PASS | pending independent re-review |
+| F2 | bounded manual observation; F7-06 | implemented; targeted PASS | pending independent re-review |
 | G | общая приёмка, подключение и реальный pilot | TODO | pending |
 
 Подблоки E/F делят уже найденные дефекты на меньшие проходы; это не новые требования.
@@ -89,8 +89,34 @@ B имеет первый продуктовый приоритет сразу �
 
 ## A — точное первое задание: закрыть F7-02
 
+Ревью Astra commit 74d65141: RETURNED. Следующее исправление остаётся внутри A:
+- [x] Устранить зависание при FIFO AGENTS.override.md: installer открывает его O_RDONLY
+  до fstat. Проверять тип безопасно, учитывать замену regular→FIFO между проверкой/open;
+  для no-follow открытия использовать неблокирующий режим с последующим fstat.
+  Оба настоящих CLI должны закончить отказом в ограниченное время, без writes/fallback.
+- [x] Убрать абсолютную привязку shipped tests к /Users/Artem и глобальный monkeypatch
+  I._git_root_for_destination. Корень fixture задаётся явно оператором; на этой машине
+  он остаётся внутри .zenflow. Моки допускаются только локально в обозначенных unit tests.
+  End-to-end PASS требует настоящих CLI без подмены проверяемой Git boundary.
+  Если нет разрешённого пути вне Git root, записать NOT_RUN для positive integration,
+  сохранить unmocked negative checks и продолжить независимый B; не создавать исключение.
+- [x] Обновить handoff/report: финальный self-test 188 total / 184 pass / 0 fail / 4 NOT_RUN —
+  self-test с изменённым harness,
+  не доказательство deployability. После патча повторить только затронутые проверки;
+  итоговый общий suite остаётся в G. Полный corpus импортирован в 74d65141, push не выполнен.
+
+Последующая команда пользователя разрешила продолжать все блоки и commit/push: она отменяет
+старые обязательные остановки между блоками, но не превращает self-test в принятие Astra.
+После адресной коррекции A идти по существующим B, C, D, E1/E2, F1/F2, G без нового плана.
+Git-managed home на текущем Mac остаётся отдельным вопросом размещения реальных destinations;
+до его решения не заявлять готовность установки в .zenflow. Не удалять/не менять домашний .git.
+
 Файлы: C/install_global.py, C/MANUAL_SHIM/bin/manual_preflight.py,
-адресные случаи C/tests/test_review_ready.py. Manifest — только если нужен тестам.
+адресные случаи C/tests/test_review_ready.py, C/validate_package.py,
+C/GLOBAL_MANIFEST.json, C/REVIEW_READY_VALIDATION_REPORT.md, C/PACKAGE_FILE_MANIFEST.json.
+
+Результат коррекции: serial suite `total=188 pass=184 fail=0 skip=4`, package validator
+`errors=0`; 4 skip явно обозначают отсутствующий на текущем host путь вне любого Git root.
 
 Поведение:
 - Ни одна mutable destination внутри Git-репозитория не становится допустимой из-за
@@ -122,8 +148,9 @@ B имеет первый продуктовый приоритет сразу �
 
 ## B — закончить подготовку общего подключения F7-01
 
-Вход: готовый common-host block в evidence 27. Файлы: evidence/22-host-entrypoint-preview.md
-и локальный конкретный proposed diff к canonical bootstrap/template/checker.
+Вход: common-host block из evidence 27. Готовы evidence/22-host-entrypoint-preview.md и
+evidence/28-common-host-canonical-diff-proposal.md с локальным конкретным diff к canonical
+bootstrap/template/checker; реальный host/canonical checkout не изменён.
 - Исправить iOS-only общий вход: common baseline для всех task types внутри .zenflow.
   Новый iOS-candidate блок остаётся тематическим и отдельным.
 - Установить точные существующие canonical consumers, подготовить совместимый diff:
@@ -176,6 +203,11 @@ tests на наличие строк и не запускать runtime suite. �
 changed user block/skill → сохранение и отказ. Astra принимает этот механизм ДО E2.
 Не создавать второй installer или автоматический rollback service.
 
+Результат Luna: `.ioslib-managed.json` фиксирует exact managed paths, hashes, modes,
+release/protection identity и managed AGENTS hash; изменённые descriptor/AGENTS/skill/state marker
+отвергаются. Fresh receipt emitter и changed-content fixtures PASS. Receipt остаётся операторским
+свидетельством, не security boundary и не rollback engine.
+
 ## E2 — исполнимый manual lifecycle F7-03
 
 Вход: принятый E1. Файлы: MANUAL_DEPLOYMENT.md и конкретные lifecycle tests/helper consumers.
@@ -187,6 +219,11 @@ changed user block/skill → сохранение и отказ. Astra прин�
 - Проверить emitter/publication failure, сохранение пользовательских sentinels/modes/state history.
 Приёмка: реальные reference/full последовательности в isolated fixtures, без скрытой ручной
 починки fixture между шагами. Если runbook нельзя выполнить как написано — E2 не принят.
+
+Результат Luna: `MANUAL_DEPLOYMENT.md` задаёт fresh reference, reference→full, update,
+full→reference disable и A→B→A порядок; receipt публикуется последним. Реальный positive
+external-to-Git lifecycle на текущем host не выполнен из-за home-level Git root и остаётся
+открытым приёмочным шагом.
 
 ## F1/F2 — ограниченные чтения F7-06, два отдельных прохода
 
@@ -204,12 +241,16 @@ exact/overflow bytes и deadline на изменённом observer, а не н�
 Если повторное использование helper требует широкого переноса, сначала представить Astra
 узкую альтернативу; не начинать самостоятельный архитектурный рефакторинг.
 
+Результат Luna: profile и manual observers используют bounded entries/depth/pending/bytes/deadline
+и no-follow directory handles; walk/read/deadline/identity failures are non-pass. Addressed
+changed-observer tests и полный suite PASS; внешний race stress остаётся незаявленным.
+
 ## G — один конечный проход приёмки и внедрения
 
 Начать после принятия A–F, кроме раннего common-host подключения после B.
-- [ ] Проверить связи принятых блоков и весь FINAL7→candidate delta один раз. Не перечитывать
+- [x] Проверить связи принятых блоков и весь FINAL7→candidate delta один раз. Не перечитывать
   весь корпус; новые P0–P2 устранять в соответствующем блоке, не генерировать новый план.
-- [ ] Один актуальный suite/validator после стабилизации. На failure исправить причину,
+- [x] Один актуальный suite/validator после стабилизации. На failure исправить причину,
   сначала повторить затронутый check; общий PASS должен соответствовать окончательному коду.
 - [ ] Применить concrete reviewed host/canonical diff в пределах точной authority. Не менять
   CODEX_HOME для удобства. Сохранить backup и проверить отключение.
@@ -219,7 +260,7 @@ exact/overflow bytes и deadline на изменённом observer, а не н�
 - [ ] Три реальные задачи: implementation, review, cross-domain. Кратко записать полезные
   находки/выбранные материалы, ложные замечания, лишние действия и неожиданные остановки.
   Не превращать пилот в benchmark campaign и не обещать максимальный выигрыш для всех задач.
-- [ ] Один release candidate ZIP, внешний SHA, сравнение extracted bytes с проверенным tree.
+- [x] Один release candidate ZIP, внешний SHA, сравнение extracted bytes с проверенным tree.
   При совпадении не повторять suite только из-за распаковки. FINAL7 не перезаписывать.
 - [ ] Одна короткая инструкция подключения вручную/installer, проверки, обновления/отключения.
   Зафиксировать известное происхождение и license/NOTICE; неизвестное не выдумывать.
@@ -236,8 +277,8 @@ exact/overflow bytes и deadline на изменённом observer, а не н�
 Существующие разрешения сохраняются: не запрашивать их повторно. Внешняя недостающая authority
 останавливает только зависимый шаг после подготовки конкретного результата для согласования.
 
-Первая команда Luna:
-«Выполни только блок A текущего plan.md. После адресных проверок сохрани краткий результат
-для Astra и остановись. Остальные блоки, полный suite и ZIP сейчас не выполняй».
+Текущая команда Luna: довести локальную часть G до коммита/передачи, не выдавая host-dependent
+first-entry, external-to-Git lifecycle или pilot evidence за выполненные. При передаче контекста:
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

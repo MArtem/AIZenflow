@@ -13,9 +13,17 @@ import os
 from pathlib import Path
 import stat
 import sys
+import time
 
 MAX_DESCRIPTOR_BYTES = 64 * 1024
 MAX_TEXT_BYTES = 2 * 1024 * 1024
+MAX_TREE_ENTRIES = 10000
+MAX_TREE_PENDING_DIRECTORIES = 1000
+MAX_TREE_DEPTH = 64
+MAX_TREE_BYTES = 64 * 1024 * 1024
+TREE_SCAN_DEADLINE_SECONDS = 10.0
+RECEIPT_NAME = '.ioslib-managed.json'
+RECEIPT_SCHEMA_VERSION = 1
 BEGIN = '<!-- IOS_ENGINEERING_GLOBAL:BEGIN -->'
 END = '<!-- IOS_ENGINEERING_GLOBAL:END -->'
 
@@ -46,24 +54,52 @@ def reject_symlink_components(path):
 
 def read_regular(path, max_bytes):
     path = absolute(path)
-    reject_symlink_components(path.parent)
-    st = os.lstat(path)
-    if stat.S_ISLNK(st.st_mode) or not stat.S_ISREG(st.st_mode):
-        raise PreflightError(f'not a regular file: {path}')
-    if st.st_size > max_bytes:
-        raise PreflightError(f'file exceeds read budget: {path}')
-    flags = os.O_RDONLY | getattr(os, 'O_NOFOLLOW', 0)
-    fd = os.open(str(path), flags)
+    parent_fd = open_directory_chain(path.parent)
+    fd = None
     try:
+        st = os.lstat(path)
+        if stat.S_ISLNK(st.st_mode) or not stat.S_ISREG(st.st_mode):
+            raise PreflightError(f'not a regular file: {path}')
+        if st.st_size > max_bytes:
+            raise PreflightError(f'file exceeds read budget: {path}')
+        if not hasattr(os, 'O_NONBLOCK'):
+            raise PreflightError('safe manual observation requires O_NONBLOCK')
+        flags = os.O_RDONLY | getattr(os, 'O_NOFOLLOW', 0) | os.O_NONBLOCK
+        fd = os.open(path.name, flags, dir_fd=parent_fd)
         opened = os.fstat(fd)
-        if (opened.st_dev, opened.st_ino, opened.st_size) != (st.st_dev, st.st_ino, st.st_size):
+        if not stat.S_ISREG(opened.st_mode):
+            raise PreflightError(f'file changed to a non-regular entry: {path}')
+        if (opened.st_dev, opened.st_ino, opened.st_size, opened.st_mtime_ns) != (st.st_dev, st.st_ino, st.st_size, st.st_mtime_ns):
             raise PreflightError(f'file changed during read: {path}')
         data = os.read(fd, max_bytes + 1)
         if len(data) > max_bytes:
             raise PreflightError(f'file exceeds read budget: {path}')
+        closed = os.fstat(fd)
+        if (closed.st_dev, closed.st_ino, closed.st_size, closed.st_mtime_ns) != (opened.st_dev, opened.st_ino, opened.st_size, opened.st_mtime_ns):
+            raise PreflightError(f'file changed during read: {path}')
         return data
     finally:
+        if fd is not None:
+            os.close(fd)
+        os.close(parent_fd)
+
+
+def open_directory_chain(path):
+    """Open every parent component without following a symlink or path replacement."""
+    if not all(hasattr(os, flag) for flag in ('O_DIRECTORY', 'O_NOFOLLOW')):
+        raise PreflightError('manual observation requires O_DIRECTORY and O_NOFOLLOW')
+    path = absolute(path)
+    flags = os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW
+    fd = os.open(path.anchor, flags)
+    try:
+        for part in path.parts[1:]:
+            next_fd = os.open(part, flags, dir_fd=fd)
+            os.close(fd)
+            fd = next_fd
+        return fd
+    except OSError as error:
         os.close(fd)
+        raise PreflightError(f'directory open failed: {path}: {type(error).__name__}') from error
 
 
 def sha_bytes(data):
@@ -188,28 +224,234 @@ def safe_json(path, max_bytes=MAX_DESCRIPTOR_BYTES):
         raise PreflightError(f'invalid JSON at {path}: {type(error).__name__}') from error
 
 
-def tree_entries(root):
+def tree_entries(root, *, max_entries=MAX_TREE_ENTRIES, max_bytes=MAX_TREE_BYTES,
+                 max_depth=MAX_TREE_DEPTH, max_pending=MAX_TREE_PENDING_DIRECTORIES,
+                 deadline_seconds=TREE_SCAN_DEADLINE_SECONDS):
     root = absolute(root)
     if not lexists(root):
         return []
     reject_symlink_components(root)
     if not root.is_dir():
         raise PreflightError(f'expected directory: {root}')
+    deadline = time.monotonic() + deadline_seconds
+    pending = [(root, open_directory_chain(root), 0)]
     result = []
-    for base, dirs, files in os.walk(str(root), topdown=True, followlinks=False):
-        bp = Path(base)
-        for name in sorted(dirs):
-            path = bp / name
-            st = os.lstat(path)
-            if stat.S_ISLNK(st.st_mode) or not stat.S_ISDIR(st.st_mode):
-                raise PreflightError(f'unsafe directory entry: {path}')
-        for name in sorted(files):
-            path = bp / name
-            st = os.lstat(path)
-            if stat.S_ISLNK(st.st_mode) or not stat.S_ISREG(st.st_mode):
-                raise PreflightError(f'unsafe file entry: {path}')
-            result.append(path.relative_to(root).as_posix())
+    visited = 0
+    total_bytes = 0
+    try:
+        while pending:
+            if time.monotonic() > deadline:
+                raise PreflightError('bounded directory observation deadline exceeded')
+            directory, directory_fd, depth = pending.pop()
+            try:
+                try:
+                    entries = os.scandir(directory_fd)
+                except OSError as error:
+                    raise PreflightError(f'directory iteration failed: {directory}: {type(error).__name__}') from error
+                try:
+                    for entry in entries:
+                        if time.monotonic() > deadline:
+                            raise PreflightError('bounded directory observation deadline exceeded')
+                        visited += 1
+                        if visited > max_entries:
+                            raise PreflightError('directory-entry observation budget exceeded')
+                        path = directory / entry.name
+                        try:
+                            st = entry.stat(follow_symlinks=False)
+                        except OSError as error:
+                            raise PreflightError(f'entry stat failed: {path}: {type(error).__name__}') from error
+                        if stat.S_ISLNK(st.st_mode):
+                            raise PreflightError(f'unsafe directory entry: {path}')
+                        if stat.S_ISDIR(st.st_mode):
+                            if depth + 1 > max_depth:
+                                raise PreflightError(f'directory-depth observation budget exceeded: {path}')
+                            if len(pending) >= max_pending:
+                                raise PreflightError('pending-directory observation budget exceeded')
+                            child_fd = None
+                            try:
+                                child_fd = os.open(entry.name, os.O_RDONLY | os.O_DIRECTORY | os.O_NOFOLLOW,
+                                                   dir_fd=directory_fd)
+                                child_stat = os.fstat(child_fd)
+                            except OSError as error:
+                                if child_fd is not None:
+                                    os.close(child_fd)
+                                raise PreflightError(f'directory changed before read: {path}: {type(error).__name__}') from error
+                            if (child_stat.st_dev, child_stat.st_ino) != (st.st_dev, st.st_ino):
+                                os.close(child_fd)
+                                raise PreflightError(f'directory changed before read: {path}')
+                            pending.append((path, child_fd, depth + 1))
+                            continue
+                        if not stat.S_ISREG(st.st_mode):
+                            raise PreflightError(f'unsafe file entry: {path}')
+                        total_bytes += st.st_size
+                        if total_bytes > max_bytes:
+                            raise PreflightError('aggregate directory observation byte budget exceeded')
+                        result.append(path.relative_to(root).as_posix())
+                finally:
+                    entries.close()
+            finally:
+                os.close(directory_fd)
+    finally:
+        for _, pending_fd, _ in pending:
+            os.close(pending_fd)
     return result
+
+
+def _hash_is_valid(value):
+    return isinstance(value, str) and len(value) == 64 and all(c in '0123456789abcdef' for c in value)
+
+
+def _file_identity(st):
+    return (st.st_dev, st.st_ino, st.st_size, st.st_mtime_ns, stat.S_IMODE(st.st_mode))
+
+
+def file_record(path):
+    """Return a bounded, race-checked ownership record for one regular file."""
+    path = absolute(path)
+    before = os.lstat(path)
+    if stat.S_ISLNK(before.st_mode) or not stat.S_ISREG(before.st_mode):
+        raise PreflightError(f'owned path is not a regular file: {path}')
+    digest = sha_bytes(read_regular(path, MAX_TREE_BYTES))
+    after = os.lstat(path)
+    if _file_identity(before) != _file_identity(after):
+        raise PreflightError(f'owned file changed during receipt observation: {path}')
+    return {'path': str(path), 'sha256': digest, 'mode': stat.S_IMODE(after.st_mode)}
+
+
+def _receipt_roots(shim, state, skills, agents):
+    return [absolute(shim), absolute(state), absolute(skills), absolute(agents)]
+
+
+def validate_receipt(receipt, *, shim, state, skills, agents):
+    """Validate and re-hash a previously recorded manual ownership receipt."""
+    if not isinstance(receipt, dict) or receipt.get('schema_version') != RECEIPT_SCHEMA_VERSION:
+        raise PreflightError('manual ownership receipt schema is unsupported')
+    if receipt.get('managed_by') != 'ios-engineering-library':
+        raise PreflightError('manual ownership receipt has a different owner')
+    if not isinstance(receipt.get('release_id'), str) or not receipt['release_id']:
+        raise PreflightError('manual ownership receipt release_id is invalid')
+    if not isinstance(receipt.get('protection_version'), str) or not receipt['protection_version']:
+        raise PreflightError('manual ownership receipt protection_version is invalid')
+    if receipt.get('mode') not in {'reference', 'full'}:
+        raise PreflightError('manual ownership receipt mode is invalid')
+    rows = receipt.get('managed_paths')
+    if not isinstance(rows, list) or not rows or len(rows) > MAX_TREE_ENTRIES:
+        raise PreflightError('manual ownership receipt managed_paths is invalid')
+    roots = _receipt_roots(shim, state, skills, agents)
+    receipt_path = absolute(shim) / RECEIPT_NAME
+    owned = {}
+    for row in rows:
+        if not isinstance(row, dict) or not isinstance(row.get('path'), str):
+            raise PreflightError('manual ownership receipt contains an invalid path record')
+        path = absolute(row['path'])
+        if path == receipt_path or path in owned or not _hash_is_valid(row.get('sha256')):
+            raise PreflightError(f'manual ownership receipt contains an unsafe/duplicate path: {path}')
+        mode = row.get('mode')
+        if type(mode) is not int or mode < 0 or mode > 0o7777:
+            raise PreflightError(f'manual ownership receipt contains an invalid mode: {path}')
+        allowed = any(path_contains(root, path) and path != root for root in roots[:-1]) or path == roots[-1]
+        if not allowed:
+            raise PreflightError(f'manual ownership receipt path is outside declared targets: {path}')
+        current = file_record(path)
+        if current['sha256'] != row['sha256'] or current['mode'] != mode:
+            raise PreflightError(f'manual ownership receipt does not match current bytes/mode: {path}')
+        owned[path] = row
+    for required in (absolute(shim) / 'INSTALLATION.json', absolute(shim) / 'bin' / 'ios_ai.py',
+                     absolute(state) / '.ioslib-state-owned.json'):
+        if required not in owned:
+            raise PreflightError(f'manual ownership receipt omits required managed path: {required}')
+    metadata = receipt.get('agents')
+    if not isinstance(metadata, dict) or absolute(metadata.get('path', '')) != absolute(agents):
+        raise PreflightError('manual ownership receipt AGENTS metadata is invalid')
+    if not _hash_is_valid(metadata.get('managed_block_sha256')):
+        raise PreflightError('manual ownership receipt managed AGENTS hash is invalid')
+    original = metadata.get('original_sha256')
+    if original is not None and not _hash_is_valid(original):
+        raise PreflightError('manual ownership receipt original AGENTS hash is invalid')
+    original_mode = metadata.get('original_mode')
+    if original_mode is not None and (type(original_mode) is not int or original_mode < 0 or original_mode > 0o7777):
+        raise PreflightError('manual ownership receipt original AGENTS mode is invalid')
+    if lexists(agents) and absolute(agents) not in owned:
+        raise PreflightError('manual ownership receipt omits the managed AGENTS file')
+    return owned
+
+
+def receipt_tree_paths(owned, root):
+    root = absolute(root)
+    return {path.relative_to(root).as_posix() for path in owned if path_contains(root, path) and path != root}
+
+
+def tree_matches_receipt(root, owned):
+    root = absolute(root)
+    if not lexists(root) or not root.is_dir():
+        return False
+    return set(tree_entries(root)) == receipt_tree_paths(owned, root)
+
+
+def tree_matches_release(target, source, extra_files=None):
+    """Compare a staged manual skill with its immutable release tree."""
+    target = absolute(target)
+    source = absolute(source)
+    if not target.is_dir() or not source.is_dir():
+        return False
+    extra_files = extra_files or {}
+    source_paths = set(tree_entries(source))
+    expected = set(source_paths) | set(extra_files)
+    if set(tree_entries(target)) != expected:
+        return False
+    for relative in sorted(source_paths):
+        if file_record(target / relative)['sha256'] != file_record(source / relative)['sha256']:
+            return False
+        if file_record(target / relative)['mode'] != file_record(source / relative)['mode']:
+            return False
+    for relative, source_file in extra_files.items():
+        target_file = target / relative
+        if file_record(target_file)['sha256'] != file_record(source_file)['sha256']:
+            return False
+        if file_record(target_file)['mode'] != file_record(source_file)['mode']:
+            return False
+    return True
+
+
+def build_receipt(*, release_id, protection_version, mode, shim, state, skills, agents,
+                  incoming_skill_names, original_agents_sha256, original_agents_mode,
+                  managed_block_sha256):
+    """Build data for the operator to publish after all manual writes have succeeded."""
+    paths = set()
+    for relative in tree_entries(shim):
+        path = absolute(shim) / relative
+        if path != absolute(shim) / RECEIPT_NAME:
+            paths.add(path)
+    marker = absolute(state) / '.ioslib-state-owned.json'
+    if not lexists(marker):
+        raise PreflightError('cannot emit receipt without the state ownership marker')
+    paths.add(marker)
+    if lexists(agents):
+        paths.add(absolute(agents))
+    for name in incoming_skill_names:
+        target = absolute(skills) / name
+        if not target.is_dir():
+            raise PreflightError(f'cannot emit receipt without full-mode skill: {target}')
+        for relative in tree_entries(target):
+            paths.add(target / relative)
+    required = {absolute(shim) / 'INSTALLATION.json', absolute(shim) / 'bin' / 'ios_ai.py', marker}
+    if not required.issubset(paths):
+        raise PreflightError('cannot emit receipt before the managed shim is complete')
+    rows = [file_record(path) for path in sorted(paths)]
+    return {
+        'schema_version': RECEIPT_SCHEMA_VERSION,
+        'managed_by': 'ios-engineering-library',
+        'release_id': release_id,
+        'protection_version': protection_version,
+        'mode': mode,
+        'managed_paths': rows,
+        'agents': {
+            'path': str(absolute(agents)),
+            'original_sha256': original_agents_sha256,
+            'original_mode': original_agents_mode,
+            'managed_block_sha256': managed_block_sha256,
+        },
+    }
 
 
 def build(args):
@@ -279,6 +521,26 @@ def build(args):
         'protection_version': protection_version,
         'deployment': 'manual',
     }
+    receipt_path = shim / RECEIPT_NAME
+    old_receipt = None
+    receipt_map = {}
+    fresh_receipt_candidate = False
+    receipt_seed = {'original_agents_sha256': None, 'original_agents_mode': None}
+    expected_block = None
+    try:
+        expected_block = read_regular(release / 'GLOBAL_CODEX' / 'AGENTS.global.block.md', MAX_TEXT_BYTES).decode('utf-8').rstrip()
+    except Exception as error:
+        collisions.append(f'global AGENTS block validation failed: {error}')
+    if lexists(agents):
+        try:
+            initial_agents = read_regular(agents, MAX_TEXT_BYTES)
+            initial_stat = os.lstat(agents)
+            receipt_seed = {
+                'original_agents_sha256': sha_bytes(initial_agents),
+                'original_agents_mode': stat.S_IMODE(initial_stat.st_mode),
+            }
+        except Exception as error:
+            collisions.append(f'AGENTS receipt seed failed: {error}')
 
     try:
         # Reuse the release's bounded, read-only admission check. Importing the package helper
@@ -311,6 +573,32 @@ def build(args):
                 old_descriptor = safe_json(shim / 'INSTALLATION.json')
                 if old_descriptor.get('managed_by') != 'ios-engineering-library':
                     collisions.append('existing shim descriptor has a different owner')
+                if lexists(receipt_path):
+                    old_receipt = safe_json(receipt_path)
+                    receipt_map = validate_receipt(old_receipt, shim=shim, state=state, skills=skills, agents=agents)
+                    if old_descriptor.get('release_id') != old_receipt.get('release_id'):
+                        collisions.append('existing descriptor release does not match the ownership receipt')
+                    if old_descriptor.get('protection_version') != old_receipt.get('protection_version'):
+                        collisions.append('existing descriptor protection identity does not match the ownership receipt')
+                    if old_descriptor.get('mode') != old_receipt.get('mode'):
+                        collisions.append('existing descriptor mode does not match the ownership receipt')
+                elif args.emit_receipt:
+                    required_descriptor = {
+                        'managed_by': 'ios-engineering-library',
+                        'release_id': release_id,
+                        'protection_version': protection_version,
+                        'mode': args.mode,
+                        'knowledge_root': str(release),
+                        'runtime_cli': str(release / 'GLOBAL_CODEX' / 'runtime' / 'bin' / 'ios_ai.py'),
+                        'state_root': str(state),
+                        'source_tree_sha256': release_identity,
+                    }
+                    if any(old_descriptor.get(key) != value for key, value in required_descriptor.items()):
+                        collisions.append('fresh receipt requires a descriptor for the current verified release')
+                    else:
+                        fresh_receipt_candidate = True
+                else:
+                    collisions.append('existing manual shim has no ownership receipt; refusing update')
                 old_mode = old_descriptor.get('mode')
                 if old_mode != args.mode and not (old_mode == 'reference' and args.mode == 'full'):
                     collisions.append('existing shim mode differs; only reference-to-full migration is supported')
@@ -318,7 +606,8 @@ def build(args):
                     operations.append({'op': 'migrate_verified_reference_shim_to_full_mode', 'target': str(shim)})
                 if not launcher_hash_matches:
                     collisions.append('existing shim launcher is modified or from a pre-descriptor release')
-                operations.append({'op': 'replace_only_verified_managed_shim_files', 'target': str(shim)})
+                if old_receipt or fresh_receipt_candidate:
+                    operations.append({'op': 'replace_only_verified_managed_shim_files', 'target': str(shim)})
         except Exception as error:
             collisions.append(f'existing shim is not safely updatable: {error}')
     else:
@@ -332,23 +621,44 @@ def build(args):
                 if matches != (1, 1) or BEGIN not in text or END not in text:
                     collisions.append('AGENTS has an incomplete managed block')
                 else:
-                    expected_block = read_regular(release / 'GLOBAL_CODEX' / 'AGENTS.global.block.md', MAX_TEXT_BYTES).decode('utf-8').rstrip()
                     start = text.index(BEGIN); end = text.index(END, start) + len(END)
-                    if text[start:end].rstrip() != expected_block:
-                        collisions.append('AGENTS managed block is modified or from another release')
+                    current_block_hash = sha_bytes(text[start:end].rstrip().encode('utf-8'))
+                    if old_receipt:
+                        recorded = old_receipt.get('agents', {}).get('managed_block_sha256')
+                        if current_block_hash != recorded:
+                            collisions.append('AGENTS managed block is modified since the ownership receipt')
+                        else:
+                            operations.append({'op': 'replace_only_exact_managed_AGENTS_block', 'target': str(agents)})
+                    elif fresh_receipt_candidate:
+                        if text[start:end].rstrip() != expected_block:
+                            collisions.append('AGENTS managed block is modified or from another release')
+                        else:
+                            operations.append({'op': 'replace_only_exact_managed_AGENTS_block', 'target': str(agents)})
                     else:
-                        operations.append({'op': 'replace_only_exact_managed_AGENTS_block', 'target': str(agents)})
+                        collisions.append('managed AGENTS block has no ownership receipt; refusing update')
+            elif old_receipt or fresh_receipt_candidate:
+                collisions.append('managed AGENTS block is missing; refusing receipt/update')
         except Exception as error:
             collisions.append(f'AGENTS cannot be read safely: {error}')
+    elif args.emit_receipt:
+        collisions.append('cannot emit manual ownership receipt without an AGENTS file')
     operations.append({'op': 'append_managed_block_after_exact_text_review', 'target': str(agents)})
 
     if args.mode == 'full':
         try:
-            incoming = sorted(p.name for p in (release / 'GLOBAL_CODEX' / 'skills').iterdir() if p.is_dir())
+            incoming = sorted(p.name for p in (release / 'GLOBAL_CODEX' / 'skills').iterdir()
+                              if p.is_dir() and not p.is_symlink())
             for name in incoming:
                 target = skills / name
                 if lexists(target):
-                    collisions.append(f'full-mode skill target already exists: {target}')
+                    owned_target = bool(old_receipt and tree_matches_receipt(target, receipt_map))
+                    fresh_target = bool(fresh_receipt_candidate and tree_matches_release(
+                        target, release / 'GLOBAL_CODEX' / 'skills' / name,
+                        {'references/INSTALLATION.md': release / 'MANUAL_SHIM' / 'INSTALLATION.md'}))
+                    if owned_target or fresh_target:
+                        operations.append({'op': 'replace_only_verified_managed_skill', 'target': str(target)})
+                    else:
+                        collisions.append(f'full-mode skill target is unknown or modified: {target}')
                 else:
                     operations.append({'op': 'copy_namespaced_skill_after_all_checks', 'target': str(target)})
         except Exception as error:
@@ -363,11 +673,63 @@ def build(args):
                 owned = safe_json(marker)
                 if owned.get('managed_by') != 'ios-engineering-library':
                     collisions.append('existing state marker has a different owner')
+                elif old_receipt:
+                    operations.append({'op': 'replace_only_verified_state_marker', 'target': str(marker)})
             elif tree_entries(state):
                 collisions.append('existing state root has no library ownership marker; explicit migration is required')
         except Exception as error:
             collisions.append(f'state root is not safely inspectable: {error}')
     operations.append({'op': 'create_private_state_root_and_marker_if_absent', 'target': str(state)})
+
+    if args.emit_receipt and lexists(marker):
+        try:
+            current_marker = safe_json(marker)
+            if current_marker != state_marker:
+                collisions.append('state ownership marker is not published for the current release')
+        except Exception as error:
+            collisions.append(f'state ownership marker cannot be validated for receipt: {error}')
+
+    receipt = None
+    if args.emit_receipt and not collisions:
+        try:
+            if not lexists(agents):
+                raise PreflightError('cannot emit receipt without an AGENTS file')
+            agents_text = read_regular(agents, MAX_TEXT_BYTES).decode('utf-8')
+            if agents_text.count(BEGIN) != 1 or agents_text.count(END) != 1:
+                raise PreflightError('cannot emit receipt without exactly one managed AGENTS block')
+            block_start = agents_text.index(BEGIN)
+            block_end = agents_text.index(END, block_start) + len(END)
+            block_hash = sha_bytes(agents_text[block_start:block_end].rstrip().encode('utf-8'))
+            if old_receipt:
+                original_sha256 = old_receipt['agents'].get('original_sha256')
+                original_mode = old_receipt['agents'].get('original_mode')
+            else:
+                original_sha256 = getattr(args, 'original_agents_sha256', None)
+                original_mode = getattr(args, 'original_agents_mode', None)
+                if getattr(args, 'original_agents_absent', False):
+                    original_sha256 = None
+                    original_mode = None
+                elif not _hash_is_valid(original_sha256) or type(original_mode) is not int:
+                    raise PreflightError('fresh receipt requires the first preflight AGENTS hash and mode, or --original-agents-absent')
+            if original_sha256 is not None and not _hash_is_valid(original_sha256):
+                raise PreflightError('receipt original AGENTS hash is invalid')
+            if original_mode is not None and (type(original_mode) is not int or original_mode < 0 or original_mode > 0o7777):
+                raise PreflightError('receipt original AGENTS mode is invalid')
+            receipt = build_receipt(
+                release_id=release_id,
+                protection_version=protection_version,
+                mode=args.mode,
+                shim=shim,
+                state=state,
+                skills=skills,
+                agents=agents,
+                incoming_skill_names=incoming if args.mode == 'full' else [],
+                original_agents_sha256=original_sha256,
+                original_agents_mode=original_mode,
+                managed_block_sha256=block_hash,
+            )
+        except Exception as error:
+            collisions.append(f'manual ownership receipt cannot be emitted: {error}')
 
     operations.append({'op': 'write_descriptor_last', 'target': str(shim / 'INSTALLATION.json')})
     operations.append({'op': 'activation_is_last_and_old_release_remains_untouched', 'target': str(shim / 'bin' / 'ios_ai.py')})
@@ -379,6 +741,8 @@ def build(args):
         'state_marker': state_marker,
         'collisions': sorted(set(collisions)),
         'operations': operations,
+        'receipt_seed': receipt_seed,
+        'receipt': receipt,
         'read_only': True,
     }
 
@@ -393,12 +757,18 @@ def main():
     ap.add_argument('--mode', choices=['reference', 'full'], default='reference')
     ap.add_argument('--emit-descriptor', action='store_true', help='print only the descriptor JSON when preflight passes')
     ap.add_argument('--emit-state-marker', action='store_true', help='print only the state marker JSON when preflight passes')
+    ap.add_argument('--emit-receipt', action='store_true', help='print only the ownership receipt JSON when preflight passes')
+    ap.add_argument('--original-agents-sha256')
+    ap.add_argument('--original-agents-mode', type=int)
+    ap.add_argument('--original-agents-absent', action='store_true')
     args = ap.parse_args()
     try:
         result = build(args)
     except Exception as error:
         result = {'ok': False, 'read_only': True, 'collisions': [f'preflight failed: {type(error).__name__}: {error}'], 'operations': []}
-    if args.emit_descriptor and result.get('ok'):
+    if args.emit_receipt and result.get('ok'):
+        print(json.dumps(result['receipt'], indent=2, sort_keys=True))
+    elif args.emit_descriptor and result.get('ok'):
         print(json.dumps(result['descriptor'], indent=2, sort_keys=True))
     elif args.emit_state_marker and result.get('ok'):
         print(json.dumps(result['state_marker'], indent=2, sort_keys=True))

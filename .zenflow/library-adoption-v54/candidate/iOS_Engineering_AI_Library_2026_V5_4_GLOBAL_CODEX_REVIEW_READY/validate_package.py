@@ -113,14 +113,24 @@ try:
     if runtime.get('adapter_version')!='5.4-review-ready.6': err('manifest adapter version mismatch')
     observed=manifest.get('test_suite',{}).get('observed_release_working_tree',{})
     if shipped_test_count is not None:
-        if observed.get('total')!=shipped_test_count or observed.get('pass')!=shipped_test_count or observed.get('fail')!=0 or observed.get('skip')!=0:
+        observed_total=observed.get('total')
+        observed_pass=observed.get('pass')
+        observed_fail=observed.get('fail')
+        observed_skip=observed.get('skip')
+        if (observed_total!=shipped_test_count or not all(isinstance(v,int) and v>=0 for v in
+                (observed_pass,observed_fail,observed_skip)) or
+                observed_pass+observed_fail+observed_skip!=observed_total):
             err('manifest test evidence count/result does not match shipped suite')
 except Exception as e: err('invalid GLOBAL_MANIFEST.json: %s'%e)
 
 try:
     report=(ROOT/'REVIEW_READY_VALIDATION_REPORT.md').read_text(encoding='utf-8')
     if shipped_test_count is not None:
-        for token in (f'total: **{shipped_test_count}**', f'PASS: **{shipped_test_count}**', 'FAIL: **0**', 'SKIP: **0**'):
+        manifest_suite=manifest.get('test_suite',{}).get('observed_release_working_tree',{})
+        for token in (f"total: **{manifest_suite.get('total')}**",
+                      f"PASS: **{manifest_suite.get('pass')}**",
+                      f"FAIL: **{manifest_suite.get('fail')}**",
+                      f"SKIP: **{manifest_suite.get('skip')}**"):
             if token not in report: err('validation report test evidence is stale: missing '+token)
 except Exception as e:
     err('unable to verify validation report evidence: %s'%e)

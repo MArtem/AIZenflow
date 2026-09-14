@@ -13,13 +13,11 @@ CLI=ROOT/'GLOBAL_CODEX/runtime/bin/ios_ai.py'
 RISK_SCAN=ROOT/'40_REPO_AUTOMATION/swift_risk_scan.py'
 sys.path.insert(0,str(ROOT))
 
-SANDBOX_ROOT=Path('/Users/Artem/.zenflow')
-if not SANDBOX_ROOT.is_dir():
-    raise RuntimeError(f'bounded test sandbox is unavailable: {SANDBOX_ROOT}')
-# The candidate itself lives in a Git worktree. Fixtures use a separate sandbox subtree; the
-# installer helper below masks only this runner's home-level umbrella repo so those synthetic
-# external targets remain testable. Nested/client .git roots are never masked.
-TEST_TMP_ROOT=SANDBOX_ROOT/'worktrees'/'library-adoption-test-tmp'
+# The runner accepts an operator-selected fixture root so the shipped tests remain portable.
+# Release evidence runs set this inside the approved .zenflow sandbox; a clean Mac may provide a
+# different temporary root. Positive deployment tests require that root to be outside every Git
+# repository and are explicitly NOT_RUN when the host offers no such permitted path.
+TEST_TMP_ROOT=Path(os.environ.get('IOSLIB_TEST_TMP_ROOT', str(Path(tempfile.gettempdir())/'ioslib-test-tmp'))).expanduser().absolute()
 def test_tmpdir():
     TEST_TMP_ROOT.mkdir(parents=True,exist_ok=True)
     return Path(tempfile.mkdtemp(dir=TEST_TMP_ROOT))
@@ -34,6 +32,7 @@ P=load('review_test_protection',ROOT/'GLOBAL_CODEX/runtime/protection/protection
 A=load('review_test_adapter',ROOT/'GLOBAL_CODEX/runtime/vendor/adapt_project.py')
 C=load('review_test_cli',CLI)
 V=load('review_test_validate_global_install',ROOT/'validate_global_install.py')
+M=load('review_manual_preflight',ROOT/'MANUAL_SHIM/bin/manual_preflight.py')
 
 def run(argv,cwd=None,env=None,check=False):
     p=subprocess.run([str(x) for x in argv],cwd=str(cwd) if cwd else None,env=env,text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE)
@@ -68,59 +67,26 @@ def _external_test_git_root(path):
         return None, None
     return root, issue
 
-I._git_root_for_destination = _external_test_git_root
-
-def manual_preflight_external(argv, env=None):
-    """Run the manual CLI in-process while masking only this runner's home umbrella repo."""
-    module=load('review_manual_cli_external',ROOT/'MANUAL_SHIM/bin/manual_preflight.py')
-    real=module.git_root_for_destination
-    def classify(path):
-        root, issue=real(path)
-        if root == Path.home():
-            return None, None
-        return root, issue
-    args=[str(x) for x in argv]
-    old_argv=sys.argv[:]; old_env=os.environ.copy()
-    out=io.StringIO(); err=io.StringIO()
-    try:
-        module.git_root_for_destination=classify
-        sys.argv=[args[1], *args[2:]]
-        if env is not None:
-            os.environ.clear(); os.environ.update(env)
-        with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
-            rc=module.main()
-    finally:
-        sys.argv=old_argv; os.environ.clear(); os.environ.update(old_env)
-    return subprocess.CompletedProcess(args,rc,out.getvalue(),err.getvalue())
-
-def installer_external(argv, env=None):
-    """Run installer CLI in-process with only this runner's home umbrella repo masked."""
-    module=load('review_installer_cli_external',ROOT/'install_global.py')
-    real=module._git_root_for_destination
-    def classify(path):
-        root, issue=real(path)
-        if root == Path.home():
-            return None, None
-        return root, issue
-    args=[str(x) for x in argv]
-    old_argv=sys.argv[:]; old_env=os.environ.copy()
-    out=io.StringIO(); err=io.StringIO()
-    try:
-        module._git_root_for_destination=classify
-        sys.argv=[args[1], *args[2:]]
-        if env is not None:
-            os.environ.clear(); os.environ.update(env)
-        with contextlib.redirect_stdout(out), contextlib.redirect_stderr(err):
-            rc=module.main()
-    finally:
-        sys.argv=old_argv; os.environ.clear(); os.environ.update(old_env)
-    return subprocess.CompletedProcess(args,rc,out.getvalue(),err.getvalue())
+def external_fixture_available():
+    """Return whether this host exposes a permitted target outside every detected Git root."""
+    root, issue = _REAL_GIT_ROOT_FOR_DESTINATION(TEST_TMP_ROOT)
+    return root is None and issue is None
 
 def fresh_install(home:Path,skills:Path,mode='reference'):
     home.mkdir(parents=True,exist_ok=True)
     if not (home/'AGENTS.md').exists(): (home/'AGENTS.md').write_bytes(b'# synthetic user rules\n')
     a=install_args(home,skills,mode)
-    pre=I.build_preflight(a,False); a.preflight_id=pre['preflight_id']; return I.apply_fresh(pre,a)
+    # Synthetic fixtures are deliberately local unit tests. They do not alter production Git
+    # boundary policy, and the real CLI cases below remain unmocked when an external root exists.
+    with mock.patch.object(I,'_git_root_for_destination',side_effect=_external_test_git_root):
+        pre=I.build_preflight(a,False); a.preflight_id=pre['preflight_id']; return I.apply_fresh(pre,a)
+
+def run_bounded(argv,cwd=None,env=None,timeout=3):
+    try:
+        return subprocess.run([str(x) for x in argv],cwd=str(cwd) if cwd else None,env=env,
+                              text=True,stdout=subprocess.PIPE,stderr=subprocess.PIPE,timeout=timeout)
+    except subprocess.TimeoutExpired as error:
+        raise AssertionError(f'bounded CLI timeout after {timeout}s: {argv}') from error
 
 class GuardTests(unittest.TestCase):
     def test_F01_guard_unknown_mutation(self):
@@ -525,19 +491,26 @@ class RiskAndDocsTests(unittest.TestCase):
         finally: shutil.rmtree(td,ignore_errors=True)
 
 class InstallerTests(unittest.TestCase):
-    def setUp(self): self.td=test_tmpdir(); self.home=self.td/'home'; self.skills=self.td/'skills'; self.home.mkdir(); self.original=b'# user rules\n\ncustom = true\n'; (self.home/'AGENTS.md').write_bytes(self.original)
+    def setUp(self):
+        self.td=test_tmpdir(); self.home=self.td/'home'; self.skills=self.td/'skills'; self.home.mkdir(); self.original=b'# user rules\n\ncustom = true\n'; (self.home/'AGENTS.md').write_bytes(self.original)
+        self._git_root_patch=mock.patch.object(I,'_git_root_for_destination',side_effect=_external_test_git_root)
+        self._git_root_patch.start(); self.addCleanup(self._git_root_patch.stop)
     def tearDown(self): shutil.rmtree(self.td,ignore_errors=True)
     def test_F14_namespace_collision(self):
         generic=self.skills/'ios-security-privacy'; generic.mkdir(parents=True); (generic/'USER.txt').write_text('keep')
         a=install_args(self.home,self.skills,'full'); pre=I.build_preflight(a,False); self.assertFalse(any('ios-security-privacy' in x for x in pre['collisions'])); self.assertTrue(all(n.startswith('ioslib-') for n in pre['skills_to_install']))
         a.preflight_id=pre['preflight_id']; I.apply_fresh(pre,a); self.assertEqual((generic/'USER.txt').read_text(),'keep')
     def test_F14_dry_run_no_mutation(self):
+        if not external_fixture_available():
+            self.skipTest('NOT_RUN: no permitted fixture root outside every detected Git repository')
         before={p.relative_to(self.td).as_posix():p.read_bytes() for p in self.td.rglob('*') if p.is_file()}
-        p=installer_external([sys.executable,ROOT/'install_global.py','--codex-home',self.home,'--skills-root',self.skills,'--mode','full','--use-source-in-place','--dry-run'])
+        p=run([sys.executable,ROOT/'install_global.py','--codex-home',self.home,'--skills-root',self.skills,'--mode','full','--use-source-in-place','--dry-run'])
         self.assertEqual(p.returncode,0,p.stderr); data=json.loads(p.stdout); self.assertFalse(data['would_mutate']); after={p.relative_to(self.td).as_posix():p.read_bytes() for p in self.td.rglob('*') if p.is_file()}; self.assertEqual(before,after)
     def test_F14_portable_area_profile_is_explicit_and_local(self):
+        if not external_fixture_available():
+            self.skipTest('NOT_RUN: no permitted fixture root outside every detected Git repository')
         area=self.td/'portable-area'; area.mkdir()
-        p=installer_external([sys.executable,ROOT/'install_global.py','--portable-area',area,'--mode','full','--use-source-in-place','--dry-run'])
+        p=run([sys.executable,ROOT/'install_global.py','--portable-area',area,'--mode','full','--use-source-in-place','--dry-run'])
         self.assertEqual(p.returncode,0,p.stderr)
         data=json.loads(p.stdout)
         self.assertEqual(data['deployment_profile'],'portable_area')
@@ -547,7 +520,7 @@ class InstallerTests(unittest.TestCase):
         self.assertTrue(all(str(Path(x)).startswith(str(area)) for x in (data['codex_home'],data['skills_root'],data['shim_root'],data['state_root'])))
         self.assertTrue(str(area / I.REGISTRY_NAME).startswith(str(area)))
         self.assertFalse((area/'ios-engineering-global.json').exists())
-        install=installer_external([sys.executable,ROOT/'install_global.py','--portable-area',area,'--mode','reference','--use-source-in-place'])
+        install=run([sys.executable,ROOT/'install_global.py','--portable-area',area,'--mode','reference','--use-source-in-place'])
         self.assertEqual(install.returncode,0,install.stdout+install.stderr)
         installed=json.loads(install.stdout)
         self.assertEqual(installed['deployment_profile'],'portable_area')
@@ -1040,23 +1013,27 @@ class PackagePolicyTests(unittest.TestCase):
         finally: shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_manual_preflight_clean_is_read_only_and_emits_selector(self):
+        if not external_fixture_available():
+            self.skipTest('NOT_RUN: no permitted fixture root outside every detected Git repository')
         td=test_tmpdir()
         try:
             home=td/'manual-home'; home.mkdir(); state=home/'state'
-            p=manual_preflight_external([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state])
+            p=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state])
             self.assertEqual(p.returncode,0,p.stdout+p.stderr); data=json.loads(p.stdout); self.assertTrue(data['ok']); self.assertTrue(data['read_only'])
             self.assertFalse(home.joinpath('ios-engineering-shim').exists()); self.assertFalse(state.exists())
-            selector=manual_preflight_external([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--emit-descriptor'])
+            selector=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--emit-descriptor'])
             self.assertEqual(selector.returncode,0,selector.stdout+selector.stderr); self.assertEqual(json.loads(selector.stdout)['runtime_cli'],str(ROOT/'GLOBAL_CODEX/runtime/bin/ios_ai.py'))
         finally: shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_manual_preflight_accepts_verified_transitional_shim_for_descriptor(self):
+        if not external_fixture_available():
+            self.skipTest('NOT_RUN: no permitted fixture root outside every detected Git repository')
         td=test_tmpdir()
         try:
             home=td/'manual-home'; home.mkdir(); state=home/'state'
             shim_bin=home/'ios-engineering-shim'/'bin'; shim_bin.mkdir(parents=True)
             shutil.copy2(ROOT/'MANUAL_SHIM/bin/ios_ai.py',shim_bin/'ios_ai.py'); os.chmod(shim_bin/'ios_ai.py',0o755)
-            selector=manual_preflight_external([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--emit-descriptor'])
+            selector=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--emit-descriptor'])
             self.assertEqual(selector.returncode,0,selector.stdout+selector.stderr)
             data=json.loads(selector.stdout)
             self.assertEqual(data['runtime_cli'],str(ROOT/'GLOBAL_CODEX/runtime/bin/ios_ai.py'))
@@ -1069,6 +1046,87 @@ class PackagePolicyTests(unittest.TestCase):
             home=td/'manual-home'; home.mkdir(); state=home/'state'; state.mkdir(mode=0o700); os.chmod(state,0o700); (state/'user-data').write_text('keep')
             p=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state])
             self.assertEqual(p.returncode,2,p.stdout+p.stderr); self.assertIn('no library ownership marker',p.stdout); self.assertEqual((state/'user-data').read_text(),'keep')
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_observer_bounds_empty_dirs_pending_work_and_walk_errors(self):
+        td=test_tmpdir()
+        try:
+            root=td/'root'; root.mkdir(); (root/'empty-a').mkdir(); (root/'empty-b').mkdir()
+            with self.assertRaises(M.PreflightError):
+                M.tree_entries(root,max_entries=10,max_pending=1)
+            with mock.patch.object(M.os,'scandir',side_effect=OSError('synthetic walk failure')):
+                with self.assertRaises(M.PreflightError): M.tree_entries(root)
+            with self.assertRaises(M.PreflightError): M.tree_entries(root,deadline_seconds=0)
+            outside=td/'outside'; outside.mkdir(); (outside/'data').write_text('x')
+            escaped=td/'escaped'; escaped.symlink_to(outside, target_is_directory=True)
+            with self.assertRaises(M.PreflightError): M.tree_entries(escaped)
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_receipt_rejects_changed_descriptor_and_skill(self):
+        td=test_tmpdir()
+        try:
+            home=td/'home'; shim=home/'ios-engineering-shim'; state=home/'state'; skills=home/'skills'; agents=home/'AGENTS.md'
+            (shim/'bin').mkdir(parents=True); state.mkdir(); skills.mkdir()
+            descriptor=shim/'INSTALLATION.json'; launcher=shim/'bin/ios_ai.py'; marker=state/'.ioslib-state-owned.json'
+            descriptor.write_text('{"release_id":"old"}\n'); launcher.write_text('#!/usr/bin/env python3\n')
+            marker.write_text('{"managed_by":"ios-engineering-library"}\n')
+            block=f'{M.BEGIN}\nmanaged\n{M.END}\n'; agents.write_text('user\n'+block)
+            skill=skills/'ioslib-demo'; skill.mkdir(); skill_file=skill/'SKILL.md'; skill_file.write_text('stable\n')
+            managed=[M.file_record(p) for p in (descriptor,launcher,marker,agents,skill_file)]
+            receipt={'schema_version':1,'managed_by':'ios-engineering-library','release_id':'old',
+                     'protection_version':'p','mode':'full','managed_paths':managed,
+                     'agents':{'path':str(agents),'original_sha256':M.sha_bytes(b'user\n'),
+                               'original_mode':0o644,'managed_block_sha256':M.sha_bytes(block.rstrip().encode())}}
+            owned=M.validate_receipt(receipt,shim=shim,state=state,skills=skills,agents=agents)
+            self.assertTrue(M.tree_matches_receipt(skill,owned))
+            descriptor.write_text('{"release_id":"tampered"}\n')
+            with self.assertRaises(M.PreflightError):
+                M.validate_receipt(receipt,shim=shim,state=state,skills=skills,agents=agents)
+            descriptor.write_text('{"release_id":"old"}\n'); skill_file.write_text('changed\n')
+            with self.assertRaises(M.PreflightError):
+                M.validate_receipt(receipt,shim=shim,state=state,skills=skills,agents=agents)
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_receipt_emitter_accepts_published_reference_fixture(self):
+        td=test_tmpdir()
+        try:
+            home=td/'home'; shim=home/'ios-engineering-shim'; state=home/'state'; skills=home/'skills'; agents=home/'AGENTS.md'
+            (shim/'bin').mkdir(parents=True); state.mkdir(mode=0o700); os.chmod(state,0o700); skills.mkdir()
+            launcher=shim/'bin/ios_ai.py'; shutil.copy2(ROOT/'MANUAL_SHIM/bin/ios_ai.py',launcher); os.chmod(launcher,0o755)
+            manifest=json.loads((ROOT/'GLOBAL_MANIFEST.json').read_text())
+            descriptor={'schema_version':1,'managed_by':'ios-engineering-library',
+                        'release_id':manifest['version'],'protection_version':manifest['runtime']['protection_version'],
+                        'mode':'reference','knowledge_root':str(ROOT),
+                        'runtime_cli':str(ROOT/'GLOBAL_CODEX/runtime/bin/ios_ai.py'),'state_root':str(state),
+                        'source_tree_sha256':M.package_identity(ROOT),'generated_by':'manual_preflight.py'}
+            (shim/'INSTALLATION.json').write_text(json.dumps(descriptor)+'\n')
+            (state/'.ioslib-state-owned.json').write_text(json.dumps({'managed_by':'ios-engineering-library',
+                'version':manifest['version'],'protection_version':manifest['runtime']['protection_version'],
+                'deployment':'manual'})+'\n')
+            block=(ROOT/'GLOBAL_CODEX/AGENTS.global.block.md').read_text().rstrip()
+            original=b'# user rules\n'; agents.write_bytes(original+b'\n'+block.encode()+b'\n')
+            args=types.SimpleNamespace(release_root=str(ROOT),codex_home=str(home),state_root=str(state),
+                skills_root=str(skills),agents_file=None,mode='reference',emit_receipt=True,
+                original_agents_sha256=M.sha_bytes(original),original_agents_mode=0o644,original_agents_absent=False)
+            with mock.patch.object(M,'git_root_for_destination',return_value=(None,None)):
+                result=M.build(args)
+            self.assertTrue(result['ok'],result['collisions']); self.assertIsNotNone(result['receipt'])
+            owned=M.validate_receipt(result['receipt'],shim=shim,state=state,skills=skills,agents=agents)
+            self.assertIn(shim/'INSTALLATION.json',owned)
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_update_accepts_only_release_matching_skill_tree(self):
+        td=test_tmpdir()
+        try:
+            source=td/'source'; target=td/'target'; source.mkdir(); target.mkdir()
+            (source/'SKILL.md').write_text('release skill\n'); (source/'references').mkdir()
+            (source/'references/domain.md').write_text('domain guidance\n')
+            shutil.copytree(source,target,dirs_exist_ok=True)
+            extra=td/'INSTALLATION.md'; extra.write_text('selected release\n')
+            (target/'references/INSTALLATION.md').write_bytes(extra.read_bytes())
+            self.assertTrue(M.tree_matches_release(target,source,{'references/INSTALLATION.md':extra}))
+            (target/'SKILL.md').write_text('locally changed\n')
+            self.assertFalse(M.tree_matches_release(target,source,{'references/INSTALLATION.md':extra}))
         finally: shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_knowledge_profile_requires_exact_active_source_and_invalidates_change(self):
@@ -1099,7 +1157,9 @@ class PackagePolicyTests(unittest.TestCase):
             (candidate/'same.md').write_text('same\n'); (source/'same.md').write_text('same\n')
             profile=C.K.build_profile(candidate,source,'test-release','test-protection',True)
             data=C.K.current_status(profile)
-            self.assertEqual(data['status'],'active_exact_only'); self.assertEqual(data['disabled_exact_duplicates'],['same.md'])
+            self.assertEqual(data['status'],'inactive'); self.assertEqual(data['disabled_exact_duplicates'],[])
+            selected=C.K.current_status(profile,source)
+            self.assertEqual(selected['status'],'active_exact_only'); self.assertEqual(selected['disabled_exact_duplicates'],['same.md'])
         finally: shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_knowledge_profile_revalidates_candidate_and_duplicate_evidence(self):
@@ -1108,9 +1168,9 @@ class PackagePolicyTests(unittest.TestCase):
             candidate=td/'candidate'; source=td/'source'; candidate.mkdir(); source.mkdir()
             (candidate/'same.md').write_text('same\n'); (source/'same.md').write_text('same\n')
             profile=C.K.build_profile(candidate,source,'test-release','test-protection',True)
-            self.assertEqual(C.K.current_status(profile)['status'],'active_exact_only')
+            self.assertEqual(C.K.current_status(profile,source)['status'],'active_exact_only')
             (candidate/'same.md').write_text('changed\n')
-            status=C.K.current_status(profile)
+            status=C.K.current_status(profile,source)
             self.assertEqual(status['status'],'invalid'); self.assertIn('candidate release changed',status['reason'])
             self.assertEqual(status['disabled_exact_duplicates'],[])
         finally: shutil.rmtree(td,ignore_errors=True)
@@ -1122,7 +1182,48 @@ class PackagePolicyTests(unittest.TestCase):
             (candidate/'candidate.md').write_text('same\n'); (source/'renamed.md').write_text('same\n')
             profile=C.K.build_profile(candidate,source,'test-release','test-protection',True,{'candidate.md':'renamed.md'})
             self.assertEqual(profile['exact_duplicates'],['candidate.md'])
-            self.assertEqual(C.K.current_status(profile)['disabled_exact_duplicates'],['candidate.md'])
+            self.assertEqual(C.K.current_status(profile,source)['disabled_exact_duplicates'],['candidate.md'])
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_knowledge_profile_requires_boolean_active_and_never_trusts_string_false(self):
+        td=test_tmpdir()
+        try:
+            candidate=td/'candidate'; source=td/'source'; candidate.mkdir(); source.mkdir()
+            (candidate/'same.md').write_text('same\n'); (source/'same.md').write_text('same\n')
+            profile=C.K.build_profile(candidate,source,'test-release','test-protection',True)
+            profile['source']['active']='false'
+            status=C.K.current_status(profile,source)
+            self.assertEqual(status['status'],'invalid'); self.assertEqual(status['disabled_exact_duplicates'],[])
+            with self.assertRaises(C.K.ProfileError):
+                C.K.build_profile(candidate,source,'test-release','test-protection','false')
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_knowledge_profile_bounds_empty_directories_and_pending_work(self):
+        td=test_tmpdir()
+        try:
+            root=td/'root'; root.mkdir()
+            (root/'empty-a').mkdir(); (root/'empty-b').mkdir(); (root/'empty-c').mkdir()
+            with mock.patch.object(C.K,'MAX_ENTRIES',2):
+                with self.assertRaises(C.K.ProfileError): C.K.scan(root)
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_knowledge_profile_rejects_aggregate_overflow_before_read(self):
+        td=test_tmpdir()
+        try:
+            root=td/'root'; root.mkdir(); (root/'a.md').write_text('ab'); (root/'b.md').write_text('cd')
+            with mock.patch.object(C.K,'MAX_BYTES',4):
+                rows,_=C.K.scan(root); self.assertEqual(set(rows),{'a.md','b.md'})
+                (root/'c.md').write_text('e')
+                with self.assertRaises(C.K.ProfileError): C.K.scan(root)
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_knowledge_profile_walk_error_and_deadline_are_nonpass(self):
+        td=test_tmpdir()
+        try:
+            root=td/'root'; root.mkdir(); (root/'a.md').write_text('a')
+            with mock.patch.object(C.K.os,'scandir',side_effect=OSError('synthetic walk failure')):
+                with self.assertRaises(C.K.ProfileError): C.K.scan(root)
+            with self.assertRaises(C.K.ProfileError): C.K.scan(root,deadline_seconds=0)
         finally: shutil.rmtree(td,ignore_errors=True)
     def test_F14_knowledge_profile_rejects_ambiguous_normalized_mapping(self):
         td=test_tmpdir()
@@ -1260,6 +1361,36 @@ class AdditionalAcceptanceTests(unittest.TestCase):
         data=json.loads(p.stdout)
         self.assertEqual(data['paths']['agents_file'],str(override))
         self.assertTrue(any('AGENTS cannot be read safely' in item for item in data['collisions']))
+
+    def test_F14_installer_fifo_override_is_bounded_and_never_falls_back(self):
+        home=self.td/'fifo-installer-home'; home.mkdir(); skills=self.td/'fifo-installer-skills'
+        (home/'AGENTS.md').write_text('# conventional fallback must not be selected\n')
+        override=home/'AGENTS.override.md'; os.mkfifo(override)
+        try:
+            p=run_bounded([sys.executable,ROOT/'install_global.py','--codex-home',home,
+                           '--skills-root',skills,'--mode','reference','--use-source-in-place','--dry-run'])
+            self.assertEqual(p.returncode,3,p.stdout+p.stderr)
+            self.assertIn(str(override),p.stdout+p.stderr)
+            self.assertFalse((home/'ios-engineering-shim').exists())
+            self.assertFalse((home/I.REGISTRY_NAME).exists())
+        finally:
+            override.unlink(missing_ok=True)
+
+    def test_F14_manual_fifo_override_is_bounded_and_never_falls_back(self):
+        home=self.td/'fifo-manual-home'; home.mkdir(); state=self.td/'fifo-manual-state'
+        (home/'AGENTS.md').write_text('# conventional fallback must not be selected\n')
+        override=home/'AGENTS.override.md'; os.mkfifo(override)
+        try:
+            p=run_bounded([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py',
+                           '--release-root',ROOT,'--codex-home',home,'--state-root',state])
+            self.assertEqual(p.returncode,2,p.stdout+p.stderr)
+            data=json.loads(p.stdout)
+            self.assertEqual(Path(data['paths']['agents_file']),override)
+            self.assertTrue(any('AGENTS cannot be read safely' in item for item in data['collisions']))
+            self.assertFalse((home/'ios-engineering-shim').exists())
+            self.assertFalse(state.exists())
+        finally:
+            override.unlink(missing_ok=True)
 
     def test_F14_installer_admission_unknown_lifecycle_fails_closed(self):
         session_dir=self.state/'repositories'/'synthetic'/'protection'/'sessions'; session_dir.mkdir(parents=True)

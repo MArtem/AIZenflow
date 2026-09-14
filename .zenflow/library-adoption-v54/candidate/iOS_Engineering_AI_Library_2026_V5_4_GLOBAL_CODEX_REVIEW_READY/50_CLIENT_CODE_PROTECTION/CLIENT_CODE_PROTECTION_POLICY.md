@@ -4,13 +4,15 @@ Client repository preservation is the highest operational invariant of the globa
 
 ## Default posture
 - Repository intake/adaptation is read-only and must prove that it did not mutate the client working tree or Git control plane.
-- Before any product-code write, create an external protection baseline with the intended write scope.
+- Protection is not enabled by installing or reading the library. If the task explicitly adopts
+  the protection layer for a product-code write, create an external protection baseline with the
+  intended write scope before the first write.
 - Pre-existing dirty files belong to the user and are immutable unless the user explicitly authorizes that exact dirty path.
 - Git history, refs, index, branch, local Git config, remotes and nested repositories/submodules are protected separately from source-code edits.
 - Generated library state must remain outside the client repository.
 - Do not use destructive recovery commands to make verification pass.
 
-## Required workflow for write tasks
+## Required workflow for explicitly protected write tasks
 1. Inspect `git status` and applicable repository instructions.
 2. Decide the smallest exact file/directory write scope before editing.
 3. Run `ios_ai.py protect begin --repo . --allow <path> ... --task "..."`.

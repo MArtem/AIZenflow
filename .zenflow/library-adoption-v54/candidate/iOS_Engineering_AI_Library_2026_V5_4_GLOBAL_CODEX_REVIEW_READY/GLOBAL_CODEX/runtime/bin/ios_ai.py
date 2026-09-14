@@ -459,10 +459,20 @@ def knowledge_profile(args, state_root):
         try: profile=P.load_json(path)
         except Exception as e:
             return {'status':'invalid','profile_path':str(path),'reason':type(e).__name__,'disabled_exact_duplicates':[]}
+        if args.candidate_root:
+            try:
+                requested=K.absolute(args.candidate_root)
+                active=K.absolute(LIBRARY)
+            except Exception as e:
+                return {'status':'invalid','profile_path':str(path),'reason':f'candidate override invalid: {type(e).__name__}','disabled_exact_duplicates':[]}
+            if requested != active:
+                return {'status':'invalid','profile_path':str(path),
+                        'reason':'candidate-root override cannot replace the active runtime library',
+                        'disabled_exact_duplicates':[]}
         result=K.current_status(
             profile,
             args.source_root,
-            args.candidate_root,
+            LIBRARY,
             expected_release_id=CLI_VERSION,
             expected_protection_version=P.PROTECTION_VERSION,
         )

@@ -54,12 +54,24 @@ ACTIVE_CODEX_HOME="${CODEX_HOME:-$HOME/.codex}"
 SHIM_ROOT="$ACTIVE_CODEX_HOME/ios-engineering-shim"
 STATE_ROOT="$ACTIVE_CODEX_HOME/ios-engineering-state"
 
-# Reference mode: read-only preflight must pass before any destination is created.
+# Reference mode: read-only preflight must pass before any destination is created. Keep this
+# JSON until the final receipt is emitted: receipt_seed is the only accepted source for the
+# original AGENTS hash/mode when AGENTS already existed before this deployment.
+PREFLIGHT_TMP="$(mktemp "$ACTIVE_CODEX_HOME/.ioslib-preflight.XXXXXX")"
 if ! python3 -B "$LIB_ROOT/MANUAL_SHIM/bin/manual_preflight.py" \
     --release-root "$LIB_ROOT" --codex-home "$ACTIVE_CODEX_HOME" \
-    --state-root "$STATE_ROOT" --mode reference; then
+    --state-root "$STATE_ROOT" --mode reference > "$PREFLIGHT_TMP"; then
+  rm -f "$PREFLIGHT_TMP"
   echo "Preflight failed; no manual deployment step is authorized." >&2
   exit 2
+fi
+cat "$PREFLIGHT_TMP"
+ORIGINAL_AGENTS_SHA256="$(python3 -B -c 'import json,sys; print(json.dumps(json.load(open(sys.argv[1]))["receipt_seed"]["original_agents_sha256"]))' "$PREFLIGHT_TMP")"
+ORIGINAL_AGENTS_MODE="$(python3 -B -c 'import json,sys; print(json.dumps(json.load(open(sys.argv[1]))["receipt_seed"]["original_agents_mode"]))' "$PREFLIGHT_TMP")"
+if [ "$ORIGINAL_AGENTS_SHA256" = "null" ]; then
+  RECEIPT_ORIGINAL_ARGS=(--original-agents-absent)
+else
+  RECEIPT_ORIGINAL_ARGS=(--original-agents-sha256 "$ORIGINAL_AGENTS_SHA256" --original-agents-mode "$ORIGINAL_AGENTS_MODE")
 fi
 
 # Fresh reference activation requires an absent shim. The non-zero mkdir/cp checks are deliberate:
@@ -114,6 +126,7 @@ if ! mv -n "$STATE_MARKER_TMP" "$STATE_ROOT/.ioslib-state-owned.json" || [ -e "$
   exit 3
 fi
 chmod 600 "$STATE_ROOT/.ioslib-state-owned.json"
+
 ```
 
 The descriptor is the activation pointer. It contains the exact release root, runtime path,
@@ -165,6 +178,30 @@ for skill in "$LIB_ROOT"/GLOBAL_CODEX/skills/ioslib-*; do
 done
 ```
 
+```bash
+# Publish the small operator-owned receipt only after the descriptor, state marker, AGENTS
+# block, and (for full mode) every namespaced skill have been independently reviewed. The first
+# preflight JSON contains receipt_seed.original_agents_sha256 and original_agents_mode. If the
+# effective AGENTS file did not exist then, use --original-agents-absent instead. The receipt is
+# data for future ownership checks; it is not an installer and does not perform rollback.
+RECEIPT_TMP="$(mktemp "$ACTIVE_CODEX_HOME/.ioslib-receipt.XXXXXX")"
+if ! python3 -B "$LIB_ROOT/MANUAL_SHIM/bin/manual_preflight.py" \
+    --release-root "$LIB_ROOT" --codex-home "$ACTIVE_CODEX_HOME" \
+    --state-root "$STATE_ROOT" --mode reference --emit-receipt \
+    "${RECEIPT_ORIGINAL_ARGS[@]}" > "$RECEIPT_TMP"; then
+  rm -f "$RECEIPT_TMP" "$PREFLIGHT_TMP"
+  echo "Ownership receipt emission failed; do not publish the receipt." >&2
+  exit 3
+fi
+if ! mv -n "$RECEIPT_TMP" "$SHIM_ROOT/.ioslib-managed.json" || [ -e "$RECEIPT_TMP" ]; then
+  rm -f "$RECEIPT_TMP" "$PREFLIGHT_TMP"
+  echo "Receipt destination appeared or publication failed; stop." >&2
+  exit 3
+fi
+chmod 600 "$SHIM_ROOT/.ioslib-managed.json"
+rm -f "$PREFLIGHT_TMP"
+```
+
 Do not copy a skill over an existing same-name directory unless its ownership and exact hash have
 been reviewed. Existing generic or locally modified skills are conflicts, not duplicates to
 overwrite. `reference` deliberately installs no bundled skills. Full-mode migration from an
@@ -191,19 +228,37 @@ evidence.
 
 Manual update is a new, separately hash-verified payload in a new versioned external directory.
 The safe update is a reviewed selector switch: stop Codex, retain the old payload, run preflight
-against the new payload, verify that the existing shim is library-owned and unchanged, copy the
-old `INSTALLATION.json` to an explicitly inspected backup, emit the new descriptor to a temporary
-file, and replace the descriptor only after the emitter exits successfully. If the replacement
-fails, restore the backup before restarting Codex. Never overwrite a modified launcher,
-descriptor, AGENTS file, or skill; use a fresh Codex home when any ownership check is uncertain.
+against the new payload, verify that the existing shim and receipt are library-owned and unchanged,
+copy the old `INSTALLATION.json` and `.ioslib-managed.json` to explicitly inspected backups, and
+only then emit/publish the new descriptor and state marker. Before the final new-release preflight,
+move the old receipt to the inspected backup path so it cannot be mistaken for a receipt of the new
+bytes; supply its saved `agents.original_*` values to the new receipt emitter. Replace the descriptor
+only after its emitter exits successfully, then publish the new receipt last. If any replacement
+fails, restore the descriptor and receipt backups before restarting Codex. Never overwrite a modified
+launcher, descriptor, AGENTS file, or skill; use a fresh Codex home when any ownership check is uncertain.
 Reference-to-full is an explicit migration: run the full preflight and publish each skill from a
 same-filesystem staging directory as shown above. A full-to-reference change is not an in-place
 skill deletion; disable the full layer through the exact removal procedure below, then perform a
 fresh reference activation. Keep the old payload until a fresh session passes.
 
 The manual path deliberately does not promise crash atomicity or automatic rollback. The operator
-must record the old descriptor hash, new descriptor hash, selected release SHA-256, and the exact
-paths changed. If a command fails, stop; do not continue to the next publication step.
+must record the old/new descriptor and receipt hashes, selected release SHA-256, and the exact paths
+changed. If a command fails, stop; do not continue to the next publication step. A reference→full
+migration is a new receipt publication after all namespaced skills are staged. A full→reference
+rollback is performed through disable plus fresh reference activation; it never silently deletes a
+skill tree.
+
+For a reference→full migration or a full-mode update, the exact publication order is: run the new
+`--mode full` preflight while the old descriptor/receipt and all old managed trees are still present;
+emit the new descriptor and state marker to temporary files; copy both old metadata files to
+explicitly inspected backups; replace the descriptor from its temporary file; replace the AGENTS
+block only after its old receipt hash matches; stage each incoming `ioslib-*` tree and replace only
+the old receipt-owned tree (keeping a per-skill backup); publish the new state marker; move the old
+receipt to a separate inspected stale-receipt path; then run `--mode full --emit-receipt`, supplying
+the `agents.original_*` values from the old receipt backup, and publish the new receipt last. If any
+step fails, keep Codex stopped and restore the descriptor, state marker, AGENTS block and skill
+backups from the inspected records. The preflight must pass again before restart. The old payload
+remains available throughout this sequence.
 
 To disable, stop using the active Codex process, make a recoverable copy of the effective AGENTS
 file, and remove only the managed global block after confirming its exact begin/end markers and
@@ -212,6 +267,23 @@ by the operator; preserve unknown or modified entries. Leave the unpacked payloa
 state in place. If any file contains unrelated edits, use a reviewed manual merge; do not delete
 session history or an entire directory as a shortcut. Afterward start a fresh Codex session and
 verify that the library block is absent before declaring disable complete.
+
+### A→B→A lifecycle acceptance
+
+For a real isolated fixture, perform the documented sequence without repairing files between steps:
+
+1. A — fresh `reference` activation: pass preflight, publish descriptor/state/AGENTS/receipt, then
+   verify `doctor` and a fresh Codex first-entry route. Preserve the A payload and record descriptor
+   and receipt hashes.
+2. B — explicit `full` migration or a new release: run the full preflight while A is still active,
+   preserve the A receipt, stage all `ioslib-*` trees, publish B descriptor and state marker, then
+   emit/publish B receipt. Verify the actual routed skill/review path in a fresh session.
+3. A — rollback: stop Codex, use the B receipt to remove only unchanged B-managed skill trees and
+   the B global block/selector according to the disable procedure, then activate the preserved A
+   payload in `reference` mode and publish a fresh A receipt. Verify the same A checks again.
+
+The receipt proves ownership and unchanged bytes; it is not proof that Codex loaded the block. The
+fresh-session first-entry check and the routed behavior check remain required evidence.
 
 The manual path is therefore fully functional for the active quality layer, but its safety proof
 is the operator's recorded path/hash review. The installer is preferable when repeatable
