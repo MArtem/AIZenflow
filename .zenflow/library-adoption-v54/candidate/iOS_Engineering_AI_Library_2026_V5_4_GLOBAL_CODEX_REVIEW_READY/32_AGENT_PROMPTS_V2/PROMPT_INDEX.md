@@ -1,0 +1,124 @@
+# V2 Agent Prompt Index
+
+Всего: **120** operational prompts.
+
+- [P2-001 — Implement feature from ticket](P2-001_implement_feature_from_ticket.md) — `IMPLEMENTATION` — IOS-21-01, IOS-01-01, IOS-10-01
+- [P2-002 — Implement complex SwiftUI screen](P2-002_implement_complex_swiftui_screen.md) — `IMPLEMENTATION` — IOS-05-02, IOS-05-05, IOS-05-16, IOS-10-02
+- [P2-003 — Implement UIKit screen](P2-003_implement_uikit_screen.md) — `IMPLEMENTATION` — IOS-06-01, IOS-06-03, IOS-06-07, IOS-06-08
+- [P2-004 — Design typed state machine](P2-004_design_typed_state_machine.md) — `IMPLEMENTATION` — IOS-02-05, IOS-04-02, IOS-10-02
+- [P2-005 — Design public Swift API](P2-005_design_public_swift_api.md) — `IMPLEMENTATION` — IOS-02-01, IOS-02-14, IOS-19-01
+- [P2-006 — Design generics/protocol boundary](P2-006_design_generics_protocol_boundary.md) — `IMPLEMENTATION` — IOS-02-03, IOS-04-07, IOS-19-05
+- [P2-007 — Model typed errors](P2-007_model_typed_errors.md) — `IMPLEMENTATION` — IOS-02-06, IOS-19-07, IOS-08-01
+- [P2-008 — Harden Codable boundary](P2-008_harden_codable_boundary.md) — `REVIEW` — IOS-02-07, IOS-08-01, IOS-10-06
+- [P2-009 — Swift 6 migration](P2-009_swift_6_migration.md) — `MIGRATION` — IOS-03-01, IOS-03-03, IOS-20-01
+- [P2-010 — Fix actor isolation](P2-010_fix_actor_isolation.md) — `DIAGNOSTIC` — IOS-03-02, IOS-03-10, IOS-03-14
+- [P2-011 — Audit Sendable](P2-011_audit_sendable.md) — `REVIEW` — IOS-03-03, IOS-03-02, IOS-19-01
+- [P2-012 — Fix MainActor abuse](P2-012_fix_mainactor_abuse.md) — `DIAGNOSTIC` — IOS-03-04, IOS-11-01, IOS-18-04
+- [P2-013 — Design structured concurrency](P2-013_design_structured_concurrency.md) — `IMPLEMENTATION` — IOS-03-05, IOS-03-07, IOS-03-11
+- [P2-014 — Fix orphan tasks](P2-014_fix_orphan_tasks.md) — `DIAGNOSTIC` — IOS-03-06, IOS-03-07, IOS-11-05
+- [P2-015 — Fix cancellation bug](P2-015_fix_cancellation_bug.md) — `DIAGNOSTIC` — IOS-03-07, IOS-05-05, IOS-08-01
+- [P2-016 — Audit AsyncSequence](P2-016_audit_asyncsequence.md) — `REVIEW` — IOS-03-08, IOS-03-07, IOS-03-06
+- [P2-017 — Bridge callback with continuation](P2-017_bridge_callback_with_continuation.md) — `IMPLEMENTATION` — IOS-03-09, IOS-03-07, IOS-10-05
+- [P2-018 — Diagnose actor reentrancy](P2-018_diagnose_actor_reentrancy.md) — `DIAGNOSTIC` — IOS-03-10, IOS-18-06, IOS-10-05
+- [P2-019 — Migrate GCD to async](P2-019_migrate_gcd_to_async.md) — `MIGRATION` — IOS-03-13, IOS-03-05, IOS-20-05
+- [P2-020 — Architecture review](P2-020_architecture_review.md) — `REVIEW` — IOS-04-12, IOS-19-02, IOS-04-01
+- [P2-021 — Design feature boundary](P2-021_design_feature_boundary.md) — `IMPLEMENTATION` — IOS-04-01, IOS-04-09, IOS-04-07
+- [P2-022 — Fix god ViewModel](P2-022_fix_god_viewmodel.md) — `MIGRATION` — IOS-04-03, IOS-19-04, IOS-04-02
+- [P2-023 — Evaluate UDF/TCA style](P2-023_evaluate_udf_tca_style.md) — `REVIEW` — IOS-04-04, IOS-25-03, IOS-04-12
+- [P2-024 — Design dependency injection](P2-024_design_dependency_injection.md) — `IMPLEMENTATION` — IOS-04-07, IOS-04-11, IOS-19-05
+- [P2-025 — Review repository/service layers](P2-025_review_repository_service_layers.md) — `REVIEW` — IOS-04-08, IOS-04-05, IOS-19-05
+- [P2-026 — Migrate to Observation](P2-026_migrate_to_observation.md) — `MIGRATION` — IOS-05-01, IOS-05-02, IOS-20-03
+- [P2-027 — Fix SwiftUI identity bug](P2-027_fix_swiftui_identity_bug.md) — `DIAGNOSTIC` — IOS-05-03, IOS-05-06, IOS-18-05
+- [P2-028 — Design SwiftUI navigation](P2-028_design_swiftui_navigation.md) — `IMPLEMENTATION` — IOS-05-04, IOS-07-01, IOS-07-03
+- [P2-029 — Fix stale async UI](P2-029_fix_stale_async_ui.md) — `DIAGNOSTIC` — IOS-05-05, IOS-03-07, IOS-03-06
+- [P2-030 — Optimize SwiftUI list](P2-030_optimize_swiftui_list.md) — `DIAGNOSTIC` — IOS-05-06, IOS-11-03, IOS-11-04
+- [P2-031 — Build adaptive SwiftUI layout](P2-031_build_adaptive_swiftui_layout.md) — `IMPLEMENTATION` — IOS-05-07, IOS-13-02, IOS-13-06
+- [P2-032 — Review SwiftUI presentation state](P2-032_review_swiftui_presentation_state.md) — `REVIEW` — IOS-05-09, IOS-05-16, IOS-04-02
+- [P2-033 — Build reusable component](P2-033_build_reusable_component.md) — `IMPLEMENTATION` — IOS-05-11, IOS-29-02, IOS-13-01
+- [P2-034 — Bridge SwiftUI and UIKit](P2-034_bridge_swiftui_and_uikit.md) — `IMPLEMENTATION` — IOS-05-12, IOS-06-01, IOS-06-08
+- [P2-035 — Review UIKit lifecycle](P2-035_review_uikit_lifecycle.md) — `REVIEW` — IOS-06-01, IOS-06-10, IOS-06-08
+- [P2-036 — Fix Auto Layout issue](P2-036_fix_auto_layout_issue.md) — `DIAGNOSTIC` — IOS-06-03, IOS-18-05, IOS-13-02
+- [P2-037 — Modernize collection view](P2-037_modernize_collection_view.md) — `MIGRATION` — IOS-06-04, IOS-11-03, IOS-06-07
+- [P2-038 — Migrate UIKit to SwiftUI](P2-038_migrate_uikit_to_swiftui.md) — `MIGRATION` — IOS-20-02, IOS-06-09, IOS-05-12
+- [P2-039 — Implement typed HTTP endpoint](P2-039_implement_typed_http_endpoint.md) — `IMPLEMENTATION` — IOS-08-01, IOS-02-07, IOS-10-06
+- [P2-040 — Fix token refresh race](P2-040_fix_token_refresh_race.md) — `DIAGNOSTIC` — IOS-08-02, IOS-03-02, IOS-12-03
+- [P2-041 — Design retry policy](P2-041_design_retry_policy.md) — `IMPLEMENTATION` — IOS-08-03, IOS-08-10, IOS-10-06
+- [P2-042 — Implement pagination](P2-042_implement_pagination.md) — `IMPLEMENTATION` — IOS-08-04, IOS-05-06, IOS-10-06
+- [P2-043 — Build upload/download](P2-043_build_upload_download.md) — `IMPLEMENTATION` — IOS-08-05, IOS-24-05, IOS-11-09
+- [P2-044 — Implement WebSocket state machine](P2-044_implement_websocket_state_machine.md) — `IMPLEMENTATION` — IOS-08-06, IOS-03-08, IOS-02-05
+- [P2-045 — Fix HTTP cache](P2-045_fix_http_cache.md) — `DIAGNOSTIC` — IOS-08-07, IOS-08-08, IOS-11-09
+- [P2-046 — Network incident](P2-046_network_incident.md) — `DIAGNOSTIC` — IOS-18-07, IOS-08-10, IOS-18-01
+- [P2-047 — Design SwiftData model](P2-047_design_swiftdata_model.md) — `IMPLEMENTATION` — IOS-09-01, IOS-09-05, IOS-10-07
+- [P2-048 — Fix persistence concurrency](P2-048_fix_persistence_concurrency.md) — `DIAGNOSTIC` — IOS-09-02, IOS-09-04, IOS-03-02
+- [P2-049 — Plan data migration](P2-049_plan_data_migration.md) — `MIGRATION` — IOS-09-05, IOS-20-04, IOS-18-08
+- [P2-050 — Build offline-first sync](P2-050_build_offline_first_sync.md) — `IMPLEMENTATION` — IOS-09-07, IOS-08-08, IOS-04-08
+- [P2-051 — Diagnose data corruption](P2-051_diagnose_data_corruption.md) — `DIAGNOSTIC` — IOS-18-08, IOS-09-05, IOS-09-10
+- [P2-052 — Create test strategy](P2-052_create_test_strategy.md) — `IMPLEMENTATION` — IOS-10-01, IOS-10-02, IOS-10-04
+- [P2-053 — Write Swift Testing suite](P2-053_write_swift_testing_suite.md) — `IMPLEMENTATION` — IOS-10-02, IOS-10-05, IOS-10-12
+- [P2-054 — Fix flaky test](P2-054_fix_flaky_test.md) — `DIAGNOSTIC` — IOS-10-13, IOS-10-12, IOS-18-05
+- [P2-055 — Write async tests](P2-055_write_async_tests.md) — `IMPLEMENTATION` — IOS-10-05, IOS-03-07, IOS-03-10
+- [P2-056 — Write network contract tests](P2-056_write_network_contract_tests.md) — `IMPLEMENTATION` — IOS-10-06, IOS-08-01, IOS-02-07
+- [P2-057 — Write migration tests](P2-057_write_migration_tests.md) — `IMPLEMENTATION` — IOS-10-07, IOS-09-05, IOS-20-04
+- [P2-058 — Stabilize XCUI](P2-058_stabilize_xcui.md) — `DIAGNOSTIC` — IOS-10-04, IOS-10-13, IOS-13-01
+- [P2-059 — Performance investigation](P2-059_performance_investigation.md) — `DIAGNOSTIC` — IOS-11-01, IOS-11-10, IOS-18-02
+- [P2-060 — Optimize launch](P2-060_optimize_launch.md) — `DIAGNOSTIC` — IOS-11-02, IOS-18-02, IOS-17-09
+- [P2-061 — Fix scrolling hitch](P2-061_fix_scrolling_hitch.md) — `DIAGNOSTIC` — IOS-11-03, IOS-05-06, IOS-11-04
+- [P2-062 — Fix memory leak](P2-062_fix_memory_leak.md) — `DIAGNOSTIC` — IOS-11-05, IOS-06-08, IOS-03-06
+- [P2-063 — Reduce memory footprint](P2-063_reduce_memory_footprint.md) — `DIAGNOSTIC` — IOS-11-06, IOS-11-04, IOS-09-08
+- [P2-064 — Energy/thermal audit](P2-064_energy_thermal_audit.md) — `REVIEW` — IOS-11-07, IOS-24-10, IOS-22-03
+- [P2-065 — Threat model feature](P2-065_threat_model_feature.md) — `REVIEW` — IOS-12-01, IOS-12-12, IOS-04-11
+- [P2-066 — Review Keychain usage](P2-066_review_keychain_usage.md) — `REVIEW` — IOS-12-02, IOS-12-03, IOS-19-01
+- [P2-067 — Audit authentication](P2-067_audit_authentication.md) — `REVIEW` — IOS-12-03, IOS-08-02, IOS-07-05
+- [P2-068 — Privacy manifest audit](P2-068_privacy_manifest_audit.md) — `REVIEW` — IOS-12-06, IOS-12-11, IOS-17-09
+- [P2-069 — Review WebView security](P2-069_review_webview_security.md) — `REVIEW` — IOS-12-09, IOS-24-01, IOS-12-10
+- [P2-070 — Accessibility audit](P2-070_accessibility_audit.md) — `REVIEW` — IOS-13-01, IOS-13-02, IOS-13-08
+- [P2-071 — Localization audit](P2-071_localization_audit.md) — `REVIEW` — IOS-13-04, IOS-13-05, IOS-13-06
+- [P2-072 — Implement App Intent](P2-072_implement_app_intent.md) — `IMPLEMENTATION` — IOS-14-01, IOS-07-03, IOS-12-03
+- [P2-073 — Implement widget](P2-073_implement_widget.md) — `IMPLEMENTATION` — IOS-14-02, IOS-14-05, IOS-09-09
+- [P2-074 — Implement Live Activity](P2-074_implement_live_activity.md) — `IMPLEMENTATION` — IOS-14-03, IOS-14-04, IOS-17-09
+- [P2-075 — Implement push notifications](P2-075_implement_push_notifications.md) — `IMPLEMENTATION` — IOS-14-04, IOS-07-03, IOS-12-07
+- [P2-076 — Implement background task](P2-076_implement_background_task.md) — `IMPLEMENTATION` — IOS-14-05, IOS-24-05, IOS-03-07
+- [P2-077 — Implement location feature](P2-077_implement_location_feature.md) — `IMPLEMENTATION` — IOS-14-06, IOS-12-07, IOS-11-07
+- [P2-078 — Implement StoreKit 2](P2-078_implement_storekit_2.md) — `IMPLEMENTATION` — IOS-14-11, IOS-12-03, IOS-10-05
+- [P2-079 — Foundation Models feature](P2-079_foundation_models_feature.md) — `IMPLEMENTATION` — IOS-15-01, IOS-15-03, IOS-15-06
+- [P2-080 — Foundation Models tool calling](P2-080_foundation_models_tool_calling.md) — `IMPLEMENTATION` — IOS-15-05, IOS-15-09, IOS-12-03
+- [P2-081 — AI eval regression](P2-081_ai_eval_regression.md) — `REVIEW` — IOS-15-03, IOS-15-04, IOS-15-10
+- [P2-082 — AI privacy/abuse audit](P2-082_ai_privacy_abuse_audit.md) — `REVIEW` — IOS-15-06, IOS-15-09, IOS-12-01
+- [P2-083 — Modularization plan](P2-083_modularization_plan.md) — `MIGRATION` — IOS-16-01, IOS-04-10, IOS-16-10
+- [P2-084 — Evaluate dependency](P2-084_evaluate_dependency.md) — `REVIEW` — IOS-16-03, IOS-25-10, IOS-12-11
+- [P2-085 — Optimize build time](P2-085_optimize_build_time.md) — `DIAGNOSTIC` — IOS-16-06, IOS-16-10, IOS-04-10
+- [P2-086 — Design CI pipeline](P2-086_design_ci_pipeline.md) — `IMPLEMENTATION` — IOS-17-01, IOS-17-02, IOS-10-01
+- [P2-087 — Pre-release audit](P2-087_pre_release_audit.md) — `REVIEW` — IOS-17-09, IOS-12-12, IOS-09-05
+- [P2-088 — Hotfix workflow](P2-088_hotfix_workflow.md) — `DIAGNOSTIC` — IOS-17-08, IOS-18-03, IOS-19-02
+- [P2-089 — Crash triage](P2-089_crash_triage.md) — `DIAGNOSTIC` — IOS-18-03, IOS-18-05, IOS-19-02
+- [P2-090 — Hang investigation](P2-090_hang_investigation.md) — `DIAGNOSTIC` — IOS-18-04, IOS-11-01, IOS-03-04
+- [P2-091 — Race investigation](P2-091_race_investigation.md) — `DIAGNOSTIC` — IOS-18-06, IOS-03-14, IOS-03-02
+- [P2-092 — Production observability design](P2-092_production_observability_design.md) — `IMPLEMENTATION` — IOS-18-09, IOS-18-01, IOS-18-02
+- [P2-093 — Full PR review](P2-093_full_pr_review.md) — `REVIEW` — IOS-19-01, IOS-19-02, IOS-03-14
+- [P2-094 — Safe refactor](P2-094_safe_refactor.md) — `MIGRATION` — IOS-19-03, IOS-10-01, IOS-19-10
+- [P2-095 — Remove dead code](P2-095_remove_dead_code.md) — `MIGRATION` — IOS-19-06, IOS-07-03, IOS-17-09
+- [P2-096 — Combine to async migration](P2-096_combine_to_async_migration.md) — `MIGRATION` — IOS-19-08, IOS-25-01, IOS-03-08
+- [P2-097 — Legacy module rescue](P2-097_legacy_module_rescue.md) — `MIGRATION` — IOS-20-08, IOS-18-01, IOS-10-01
+- [P2-098 — AVFoundation capture](P2-098_avfoundation_capture.md) — `IMPLEMENTATION` — IOS-22-01, IOS-22-12, IOS-12-07
+- [P2-099 — Audio realtime audit](P2-099_audio_realtime_audit.md) — `REVIEW` — IOS-22-02, IOS-22-03, IOS-11-07
+- [P2-100 — Metal performance audit](P2-100_metal_performance_audit.md) — `DIAGNOSTIC` — IOS-22-09, IOS-11-01, IOS-22-12
+- [P2-101 — Vision/Core ML pipeline](P2-101_vision_core_ml_pipeline.md) — `IMPLEMENTATION` — IOS-23-01, IOS-23-03, IOS-23-08
+- [P2-102 — ARKit/RealityKit feature](P2-102_arkit_realitykit_feature.md) — `IMPLEMENTATION` — IOS-23-05, IOS-23-06, IOS-23-10
+- [P2-103 — WKWebView integration](P2-103_wkwebview_integration.md) — `IMPLEMENTATION` — IOS-24-01, IOS-12-09, IOS-03-09
+- [P2-104 — Background URLSession](P2-104_background_urlsession.md) — `IMPLEMENTATION` — IOS-24-05, IOS-08-05, IOS-17-09
+- [P2-105 — WatchConnectivity sync](P2-105_watchconnectivity_sync.md) — `IMPLEMENTATION` — IOS-24-07, IOS-02-05, IOS-09-07
+- [P2-106 — NFC integration](P2-106_nfc_integration.md) — `IMPLEMENTATION` — IOS-24-06, IOS-12-07, IOS-18-05
+- [P2-107 — Third-party SDK wrapper](P2-107_third_party_sdk_wrapper.md) — `IMPLEMENTATION` — IOS-25-09, IOS-25-10, IOS-12-11
+- [P2-108 — Firebase-style SDK audit](P2-108_firebase_style_sdk_audit.md) — `REVIEW` — IOS-25-05, IOS-25-06, IOS-12-06
+- [P2-109 — Design system component review](P2-109_design_system_component_review.md) — `REVIEW` — IOS-29-02, IOS-29-08, IOS-13-08
+- [P2-110 — Engineering ADR](P2-110_engineering_adr.md) — `IMPLEMENTATION` — IOS-01-06, IOS-04-12, IOS-30-02
+- [P2-111 — Technical spike](P2-111_technical_spike.md) — `DIAGNOSTIC` — IOS-01-02, IOS-16-05, IOS-30-02
+- [P2-112 — Incident analysis](P2-112_incident_analysis.md) — `DIAGNOSTIC` — IOS-21-09, IOS-18-03, IOS-30-06
+- [P2-113 — App Store release review](P2-113_app_store_release_review.md) — `REVIEW` — IOS-17-06, IOS-17-09, IOS-12-06
+- [P2-114 — App Clip audit](P2-114_app_clip_audit.md) — `REVIEW` — IOS-24-02, IOS-07-03, IOS-16-07
+- [P2-115 — CarPlay feature review](P2-115_carplay_feature_review.md) — `REVIEW` — IOS-24-13, IOS-07-01, IOS-13-01
+- [P2-116 — Bluetooth integration](P2-116_bluetooth_integration.md) — `IMPLEMENTATION` — IOS-14-10, IOS-02-05, IOS-11-07
+- [P2-117 — iCloud/CloudKit sync](P2-117_icloud_cloudkit_sync.md) — `IMPLEMENTATION` — IOS-14-12, IOS-09-07, IOS-18-09
+- [P2-118 — Image pipeline](P2-118_image_pipeline.md) — `IMPLEMENTATION` — IOS-11-04, IOS-22-06, IOS-08-07
+- [P2-119 — Review unsafe/C interop](P2-119_review_unsafe_c_interop.md) — `REVIEW` — IOS-02-12, IOS-02-13, IOS-10-09
+- [P2-120 — Whole-project quality audit](P2-120_whole_project_quality_audit.md) — `REVIEW` — IOS-19-01, IOS-17-09, IOS-12-12

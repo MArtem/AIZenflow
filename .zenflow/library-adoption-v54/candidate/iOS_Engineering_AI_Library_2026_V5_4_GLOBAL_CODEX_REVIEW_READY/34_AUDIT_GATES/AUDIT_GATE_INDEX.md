@@ -1,0 +1,28 @@
+# V2 Audit Gate Index
+
+Всего: **24** gates.
+
+- [Pre-commit code gate](AG-01_PRE_COMMIT.md)
+- [Risk-based PR gate](AG-02_PR_REVIEW.md)
+- [Swift 6 concurrency gate](AG-03_SWIFT6.md)
+- [SwiftUI production gate](AG-04_SWIFTUI.md)
+- [UIKit production gate](AG-05_UIKIT.md)
+- [Networking gate](AG-06_NETWORK.md)
+- [Persistence/data gate](AG-07_PERSISTENCE.md)
+- [Test quality gate](AG-08_TESTS.md)
+- [Performance gate](AG-09_PERFORMANCE.md)
+- [Memory/lifetime gate](AG-10_MEMORY.md)
+- [Security gate](AG-11_SECURITY.md)
+- [Privacy gate](AG-12_PRIVACY.md)
+- [Accessibility/localization gate](AG-13_A11Y_L10N.md)
+- [Release readiness gate](AG-14_RELEASE.md)
+- [Third-party dependency gate](AG-15_DEPENDENCY.md)
+- [AI feature gate](AG-16_AI_FEATURE.md)
+- [Background/extensions gate](AG-17_BACKGROUND_EXTENSION.md)
+- [Media/hardware gate](AG-18_MEDIA_HARDWARE.md)
+- [Migration gate](AG-19_MIGRATION.md)
+- [Production incident gate](AG-20_INCIDENT.md)
+- [Public/package API gate](AG-21_PUBLIC_API.md)
+- [Navigation/deep-link gate](AG-22_NAVIGATION.md)
+- [Observability gate](AG-23_OBSERVABILITY.md)
+- [Autonomous coding-agent gate](AG-24_AUTONOMOUS_AGENT.md)

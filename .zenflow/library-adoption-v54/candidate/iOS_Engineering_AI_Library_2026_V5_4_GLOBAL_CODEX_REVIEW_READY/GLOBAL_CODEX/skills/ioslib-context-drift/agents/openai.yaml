@@ -1,0 +1,4 @@
+interface:
+  display_name: "Context Drift"
+  short_description: "Detect and refresh stale generated project context"
+  default_prompt: "Use $ioslib-context-drift to compare model fingerprint and generated artifacts, identify what changed, refresh context and preserve human decision records."

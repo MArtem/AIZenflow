@@ -1,0 +1,4 @@
+interface:
+  display_name: "Architecture Mapping"
+  short_description: "Map architecture, state ownership, navigation, and modules"
+  default_prompt: "Use $ioslib-architecture-mapping to map concrete structural signals and ownership evidence; keep architecture naming heuristic unless explicitly established."

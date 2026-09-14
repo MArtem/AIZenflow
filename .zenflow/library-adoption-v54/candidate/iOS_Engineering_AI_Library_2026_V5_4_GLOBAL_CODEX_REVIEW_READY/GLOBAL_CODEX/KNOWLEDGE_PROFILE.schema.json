@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "iOS Engineering Library external knowledge compatibility profile",
+  "type": "object",
+  "required": ["schema_version", "profile_kind", "candidate", "source", "exact_duplicates", "candidate_overlap", "conflicts", "disabled_exact_duplicates", "safety"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "profile_kind": {"const": "external-knowledge-compatibility"},
+    "candidate": {"type": "object", "required": ["release_id", "protection_version", "root", "tree_sha256"]},
+    "source": {"type": "object", "required": ["root", "tree_sha256", "active"]},
+    "source_mappings": {"type": "object", "additionalProperties": {"type": "string"}},
+    "exact_duplicates": {"type": "array", "items": {"type": "string"}},
+    "candidate_overlap": {"type": "array", "items": {"type": "string"}},
+    "conflicts": {"type": "array"},
+    "disabled_exact_duplicates": {"type": "array", "items": {"type": "string"}},
+    "safety": {"type": "object"}
+  }
+}

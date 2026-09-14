@@ -1,0 +1,154 @@
+{
+  "release_id": "iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_V14",
+  "version": "5.4-review-ready.6",
+  "status": "review_candidate_independent_review_required",
+  "reviewed_baseline": {
+    "name": "iOS_Engineering_AI_Library_2026_V5_3_GLOBAL_CODEX_REVIEW_READY.zip",
+    "sha256": "6d02d35f7cdcc1566250ba0960619b2e681e7a967ce9dea3eae0e3a8df864e16",
+    "immutable_input": true,
+    "independent_review_date": "2026-09-11"
+  },
+  "source_commit": null,
+  "source_commit_caveat": "No source VCS commit was supplied; provenance is anchored by the immutable V5.3 reviewed ZIP SHA-256 plus prior reviewed baseline identities.",
+  "final_archive_sha256": "external_delivery_value",
+  "final_archive_sha256_caveat": "The SHA-256 of a ZIP cannot be embedded into that same ZIP without changing it; the delivery response and external review handoff provide the final archive hash.",
+  "self_contained": true,
+  "install_scope": "manual_unpack_or_user_global_or_explicit_portable_area",
+  "client_repo_install_required": false,
+  "default_install_mode": "reference",
+  "full_mode": "explicit_opt_in_after_matching_dry_run_preflight",
+  "deployment_profiles": {
+    "user_global": {
+      "entrypoint": "install_global.py",
+      "default_codex_home": "${CODEX_HOME:-$HOME/.codex}",
+      "skills_root_default": "$HOME/.agents/skills",
+      "host_activation": "uses the process effective CODEX_HOME"
+    },
+    "portable_area": {
+      "entrypoint": "install_global.py --portable-area <area>",
+      "codex_home": "<area>",
+      "skills_root_default": "<area>/skills",
+      "host_activation": "explicit CODEX_HOME must be active before Codex starts",
+      "automatic_future_project_adoption": false
+    },
+    "manual_unpack": {
+      "entrypoint": "MANUAL_DEPLOYMENT.md",
+      "runtime_root": "<versioned external release root selected by INSTALLATION.json>",
+      "skills_root_default": "$HOME/.agents/skills (full mode only, after host discovery verification)",
+      "host_activation": "operator runs manual_preflight.py, connects the managed global AGENTS block, and starts Codex with the effective CODEX_HOME",
+      "automatic_future_project_adoption": "only where the active host instruction discovery actually applies",
+      "transactional_ownership_registry": false
+    }
+  },
+  "skill_namespace": "ioslib-",
+  "skills": 60,
+  "knowledge_sections": 51,
+  "deep_playbooks": 288,
+  "markdown_assets": 1275,
+  "runtime": {
+    "cli_version": "5.4-review-ready.6",
+    "protection_version": "5.4-review-ready.5",
+    "adapter_version": "5.4-review-ready.6",
+    "protection_schema": 2,
+    "adapter_schema": 3,
+    "session_schema": 3
+  },
+  "test_suite": {
+    "runner": "tests/run_all.py",
+    "framework": "Python unittest / standard library only",
+    "minimum_parser_compatibility": "Python 3.9 grammar",
+    "fixtures": "synthetic temporary Codex homes and Git repositories only",
+    "observed_release_working_tree": {
+      "total": 178,
+      "pass": 178,
+      "fail": 0,
+      "skip": 0,
+      "date": "2026-09-14",
+      "wall_clock_seconds_approx": null
+    },
+    "runner_bytecode_policy": "release validation uses PYTHONDONTWRITEBYTECODE=1; package validator rejects __pycache__/.pyc",
+    "actual_release_test_command": "python3 tests/run_all.py --serial",
+    "runner_parallelism": "bounded TestCase processes; default up to 8 workers; --serial available for diagnostics"
+  },
+  "installation_ownership": {
+    "runtime_registry": "generated at install time",
+    "managed_files_hashed": true,
+    "unknown_or_modified_managed_content_destroyed_silently": false
+  },
+  "authority_model": {
+    "knowledge_is_permission_authority": false,
+    "repository_derived_commands_are_data_only": true,
+    "project_local_rules_preserved": true,
+    "runtime_authority_separate_from_knowledge": true
+  },
+  "security_claim_model": {
+    "prevention": "only actions rejected before mutation by the shipped installer/state-write mechanisms",
+    "detection": "protection session before/after repository observation",
+    "advisory": "guard/build/risk/knowledge analysis; not arbitrary OS process interception",
+    "kernel_sandbox_provided": false,
+    "backup_or_recovery_provided": false,
+    "transient_write_monitor_provided": false,
+    "complete_ignored_file_protection_claimed": false
+  },
+  "validated_at": "2026-09-14",
+  "package_files_in_release_tree": 1366,
+  "integration_note": "Manual unpack and installed reference mode select the same versioned external payload/state through INSTALLATION.json under an explicitly active CODEX_HOME; installer mode adds transactional ownership/rollback while the manual path uses a read-only preflight and operator steps; PROJECT_REFERENCE_OPT_IN.md provides a no-install advisory workflow.",
+  "writer_model": "one-writer-per-git-common-dir; linked worktrees sharing refs are serialized; concurrent writers require independent Git common directories",
+  "origin_baseline": {
+    "name": "iOS_Engineering_AI_Library_2026_V5_GLOBAL_CODEX_HARDENED.zip",
+    "sha256": "6f9e747403475f7be180d4fce6af2334a1b31445e90efa596f72f4701aa89be2",
+    "immutable_input": true
+  },
+  "independent_review": {
+    "date": "2026-09-11",
+    "verdict": "NOT_READY for global update/runtime gate until A53-01 is corrected; clean V5.3 may proceed only to limited independent runtime acceptance",
+    "finding_ids": [
+      "A53-01"
+    ],
+    "role": "acceptance_specification_for_v5_4_candidate",
+    "reviewed_artifact": "V5.3 reviewed baseline",
+    "verdict_applies_to": "iOS_Engineering_AI_Library_2026_V5_3_GLOBAL_CODEX_REVIEW_READY.zip",
+    "candidate_disposition": "A53-01 addressed in V5.4 candidate; independent re-review still required before global update/runtime-gate acceptance"
+  },
+  "additional_v5_2_findings": [
+    {
+      "id": "V52-01",
+      "severity": "P2",
+      "summary": "installer/package/installed-tree traversal errors must fail closed rather than be silently skipped",
+      "status": "closed_in_v5_2_candidate"
+    }
+  ],
+  "prior_reviewed_baseline": {
+    "name": "iOS_Engineering_AI_Library_2026_V5_1_GLOBAL_CODEX_REVIEW_READY.zip",
+    "sha256": "e7a2f732d7569342dbf7a53770bc3571f1efd0766279e5fce897886b3d752cde",
+    "immutable_input": true
+  },
+  "previous_independent_review": {
+    "date": "2026-09-11",
+    "finding_ids": [
+      "A52-01",
+      "A52-02",
+      "A52-03"
+    ],
+    "resulting_candidate": "V5.3"
+  },
+  "v5_3_scope": "minimal patches for A52-01..03 only; no skill/playbook/policy-engine expansion",
+  "v5_4_scope": "minimal compatibility and bounded legacy-registry hardening for A53-01; no skill/playbook/policy-engine expansion",
+  "session_upgrade_compatibility": {
+    "current_schema": 3,
+    "read_only_archival_schema": [
+      2
+    ],
+    "legacy_closed": "validated and preserved as historical evidence only",
+    "legacy_active_or_verified": "fail closed; explicit V5.2 recovery required",
+    "state_root_reset_as_recovery": false
+  },
+  "legacy_registry_scan_envelope": {
+    "max_repository_entries": 10000,
+    "max_session_entries": 10000,
+    "max_session_file_bytes": 4194304,
+    "max_session_json_bytes": 33554432,
+    "max_observation_seconds": 10.0,
+    "exceeding_envelope": "fail_closed"
+  }
+}

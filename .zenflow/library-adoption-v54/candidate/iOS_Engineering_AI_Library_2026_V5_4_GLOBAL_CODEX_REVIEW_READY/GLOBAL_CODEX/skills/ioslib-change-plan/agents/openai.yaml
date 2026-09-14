@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS Change Plan"
+  short_description: "Produce an execution-ready change plan grounded in call sites"
+  default_prompt: "Use $ioslib-change-plan to produce an execution-ready change plan grounded in call sites, invariants, alternatives and verification."

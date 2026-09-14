@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS Observability"
+  short_description: "Instrument specific diagnostic questions without leaking sens"
+  default_prompt: "Use $ioslib-observability to instrument specific diagnostic questions without leaking sensitive data or creating noisy telemetry."

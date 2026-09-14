@@ -1,0 +1,4 @@
+interface:
+  display_name: "API Contract Review"
+  short_description: "Prevent silent decoding/semantic breakage across client/serve"
+  default_prompt: "Use $ioslib-api-contract to prevent silent decoding/semantic breakage across client/server rollout."

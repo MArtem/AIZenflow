@@ -1,32 +1,243 @@
-# Independent-audit remediation — current plan
+# План завершения библиотеки — малые блоки Luna Xhigh
 
-## Route
+Дата: 2026-09-14. Task: new-task-be0b. Режим: эконом.
+Исполнитель: Luna Xhigh. Ревью: Astra, только ограниченный изменённый блок.
+Эта редакция заменяет исполнение большого плана из evidence 27 «всё сразу».
+Evidence 27 сохраняет доказательства F7-01..06 и общий host-block; его старый порядок
+исполнения больше не применяется.
 
-- Implementation model: **GPT-5.6 Luna, reasoning xhigh**.
-- Operating mode: `эконом`.
-- Detailed executable contract: `remediation-plan-luna-xhigh.md`.
-- Previous `30/30` plan state is historical and remains recoverable from Git revision `0d22978c`
-  and `universal-quality-control-plan.md`; it is not current completion evidence.
-- Stable QC promotion, release, signing, TestFlight, App Store, tags, and production-readiness claims
-  remain out of scope.
+## Цель и текущая точка
 
-## Checklist
+Доставить рабочую самостоятельную библиотеку с двумя способами развёртывания:
+ручное подключение и installer. Общие существующие знания должны поступать в текущие
+и будущие проекты в согласованной области. Новый iOS-корпус выбирается по типу задачи.
+По умолчанию подключаются знания/review guidance; protection требует отдельного выбора.
+Проверяем конечный путь: подключение → обычная работа → обновление → отключение.
 
-- [x] Record the independent audit and define the Luna xhigh remediation contract.
-- [x] Phase 0: refresh exact repository identities and reproduce findings.
-- [x] Phase 1: eliminate canonical baseline drift and self-authorizing policy exceptions.
-- [x] Phase 2: fix metadata preflight for allowed ignored runtime evidence without weakening symlink safety.
-- [x] Phase 3: align German locale metadata and make the Xcode migration tool explicit and idempotent.
-- [x] Phase 4: repair package/adoption authority, revisions, mirrors, missing package surfaces, and broken links.
-- [x] Phase 5: reconcile current receipts, universal plan, handoff, and context budget.
-- [x] Phase 6: revalidate reusable iOS knowledge freshness and maturity gaps.
-- [x] Phase 7: run final static/runtime-authorized gates, exact-SHA independent review, publication, and remote parity (static gates PASS; remote parity verified after authorized push).
+FINAL7 — неизменяемый вход ревью:
+SHA-256 fe3fa9c1800ba0902b48918df9543f16eb6e75d189122f63d168d53a08cd4b44.
+Статус NOT_READY; F7-01..06 открыты. 1366 архивных файлов сверены Astra; 173/173 —
+исторический PASS Luna на FINAL7, а не доказательство исправлений после него.
 
-## Completion gate
+Корень task: /Users/Artem/.zenflow/worktrees/new-task-be0b
+L = /Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54
+C = L/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY
+V = /Users/Artem/.zenflow/worktrees/documentation-vault
+Далее пути C/... и L/... разрешаются относительно этих точных корней.
 
-Completion requires zero open P0–P2, P3 fixed or reported, canonical drift zero, full static gate
-PASS with retained runtime evidence, package snapshot/adoption consistency, active task state at or
-below 3,500 words, and a new semantic review bound to the final SHAs. The maximum final claim remains
-`INTERNAL_PILOT_COMPLETE_WITH_ACCEPTED_LIMITATIONS`; release remains `NOT_READY`.
+## Обязательный режим исполнения
+
+1. Одна команда на реализацию запускает ТОЛЬКО первый разрешённый непринятый блок.
+   Сейчас это A. Закончив его, Luna передаёт результат на ревью и не начинает B.
+   Это согласованная контрольная остановка, а не требование нового разрешения на каждую правку.
+2. Внутри блока Luna самостоятельно доводит исправление и адресные проверки до результата.
+   Обнаруженный дефект исправления относится к тому же блоку; не создавать новый большой план.
+3. Перед правкой назвать поведение, изменяемые файлы и выбранные проверки в нескольких строках.
+   Если решение требует новой архитектуры/неизвестной authority — локализовать вопрос,
+   сохранить конкретный анализ и передать Astra; не изобретать новый механизм.
+4. В одном кодовом проходе обычно 1–2 production-файла плюс адресные тесты. Не начинать
+   соседнюю подсистему. Указанные ниже подпункты manual/scanner выполнять отдельными проходами.
+5. Astra проверяет полный diff блока, непосредственные вызовы, инструкции-потребители и
+   доказательства. Результат: ACCEPTED либо RETURNED с конкретным незакрытым инвариантом.
+   Нельзя назвать блок принятым только по зелёным тестам или собственному мнению Luna.
+6. После ACCEPTED следующий блок выполняется по команде продолжения на Luna. Принятый блок
+   не открывается заново без изменения его входов/кода или конкретного нового воспроизведения.
+   В итоговой проверке проверяются связи между блоками, а не повторяется весь аудит корпуса.
+7. Новую находку привязывать к F7-01..06, если она относится к тому же дефекту. Другой вопрос
+   добавляется в обязательную работу только при доказанном влиянии на согласованный путь.
+   Неблокирующие улучшения — backlog; новые возможности исключены.
+
+## Экономия проверок и документации
+
+- Только адресные проверки поведения текущего блока, затем один git diff --check.
+  Для untracked candidate отдельно проверять изменённые файлы; пустой Git diff не является review.
+- Тесты этого candidate разрешены в рамках прежней test-writing authority; app/iOS tests не трогать.
+  Проверка должна воспроизводить дефект и проходить после исправления; не подменять её grep текста.
+- Существующие tests с неверной структурой fixtures можно адресно исправить. Синтетические
+  разрешённые destinations располагать вне Git-репозитория, внутри /Users/Artem/.zenflow.
+  Не добавлять production-исключение ради fixtures. Для filesystem permission использовать
+  штатное точное согласование инструмента, не обходить sandbox.
+- Полный suite и итоговый package validator — после принятия локальных блоков. Раньше запускать
+  только когда конкретная новая зависимость/ошибка требует их, с кратким объяснением.
+- PACKAGE_FILE_MANIFEST обновлять при необходимости адресной manifest-зависимой проверки;
+  не ослаблять её. Финальные totals/report обновить после фактического финального запуска.
+- Между блоками не создавать ZIP, не повторять V11 smoke при неизменном admission, не перечитывать
+  всю библиотеку, не синхронизировать её целиком, не переписывать весь evidence.
+- После блока обновить одну строку статуса ниже и короткую запись в handoff: scope, changed paths,
+  поведенческие результаты/exit codes, точный diff/hash входов ревью, ограничения. До 15 строк
+  на результат. Astra добавляет verdict к этой же записи.
+- Не создавать отдельную систему receipt/benchmark/review automation.
+
+## Статусы
+
+| Блок | Дефект/результат | Luna | Astra |
+| --- | --- | --- | --- |
+| A | destinations и override; F7-02 | DONE — awaiting Astra review | pending |
+| B | общее подключение: конкретная подготовка; F7-01 | TODO | pending |
+| C | profile и контекст дублей; F7-04 | TODO | pending |
+| D | protection только по выбору; F7-05 | TODO | pending |
+| E1 | manual ownership и проверка обновления; F7-03 | TODO | pending |
+| E2 | manual реальный lifecycle reference/full; F7-03 | TODO | pending |
+| F1 | bounded profile observation; F7-06 | TODO | pending |
+| F2 | bounded manual observation; F7-06 | TODO | pending |
+| G | общая приёмка, подключение и реальный pilot | TODO | pending |
+
+Подблоки E/F делят уже найденные дефекты на меньшие проходы; это не новые требования.
+B имеет первый продуктовый приоритет сразу после уже согласованного узкого исправления A.
+Если точная host-authority доступна, common host activation из G можно выполнить сразу после
+принятия B; она не требует установки candidate runtime. Иначе продолжить независимые C–F.
+
+## A — точное первое задание: закрыть F7-02
+
+Файлы: C/install_global.py, C/MANUAL_SHIM/bin/manual_preflight.py,
+адресные случаи C/tests/test_review_ready.py. Manifest — только если нужен тестам.
+
+Поведение:
+- Ни одна mutable destination внутри Git-репозитория не становится допустимой из-за
+  environment CODEX_HOME, default skills path или того, что source лежит в этом же repo.
+- Читать source из repo допустимо; изменять его или размещать там deployment targets — нет.
+- Сохранить полезные source-in-place и copied-runtime варианты с внешними destinations.
+- Сохранить проверку пересечения source/targets и допустимое вложение управляемых путей в home.
+- Непустой AGENTS.override выбирается раньше AGENTS.md. Слишком большой, нечитаемый,
+  symlink или non-regular override приводит к отказу до writes, а не к смене назначения.
+  Отсутствующий override — нормальный fallback. Empty override обработать по текущему
+  подтверждённому host-контракту, одинаково в обеих реализациях.
+- Не добавлять поддержку Git-managed home или новую настройку исключений в этом блоке.
+
+Минимальные поведенческие случаи для обоих preflight:
+1. CODEX_HOME указывает на target внутри client repo → отказ.
+2. Source и target внутри одного repo, но в разных папках → отказ.
+3. Git worktree с .git-файлом → отказ для target внутри него.
+4. Внешний target вне repo → PASS при остальных допустимых входах.
+5. Независимые targets пересекаются → отказ; штатные managed children home допустимы.
+6. Непустой override + явный обычный AGENTS.md → effective override.
+7. Oversized/нечитаемый/non-regular override → отказ, AGENTS.md не выбран для записи.
+8. Отказы не создают targets; существующие данные сохраняются.
+
+Контроль: проверить build_preflight/build и вызывающий update/sync потребитель на совместимость,
+но не исправлять manual lifecycle/profile в этой итерации. Принимать одинаковые outcomes,
+а не только отсутствие подстроки в коде.
+Выход A: patch + результаты адресных проверок → СТОП ДЛЯ РЕВЬЮ ASTRA.
+Не устанавливать на реальный host, не коммитить, не пушить, не собирать ZIP.
+
+## B — закончить подготовку общего подключения F7-01
+
+Вход: готовый common-host block в evidence 27. Файлы: evidence/22-host-entrypoint-preview.md
+и локальный конкретный proposed diff к canonical bootstrap/template/checker.
+- Исправить iOS-only общий вход: common baseline для всех task types внутри .zenflow.
+  Новый iOS-candidate блок остаётся тематическим и отдельным.
+- Установить точные существующие canonical consumers, подготовить совместимый diff:
+  host доставляет знания, root marker обеспечивает переносимость и проверку adoption.
+- Не объявлять actual discovery успешным по тексту или наличию marker.
+- Показать exact host targets, fallback, отключение и сценарии fresh-session.
+  Проверить старую authority; вне .zenflow читать/менять только уже явно разрешённые пути.
+- Если exact read authority отсутствует, результат — полный local proposal и одна точная
+  недостающая host-операция. Не блокировать остальные candidate fixes.
+Приёмка B: Astra принимает конкретный текст и согласованный diff; actual delivery остаётся
+отдельным статусом до свежих задач. Canonical применение/пуш — по действующим полномочиям,
+после проверки, не как побочный эффект подготовки.
+
+## C — profile без ложного исключения F7-04
+
+Первый проход: C/GLOBAL_CODEX/runtime/bin/ios_ai.py и runtime/knowledge_profile.py + тесты.
+- Normal status привязан к фактическому LIBRARY выбранного runtime, а не сохранённому A.
+- Diagnostic candidate override не выдаёт active exclusions для другой рабочей установки.
+- Строгие bool/version/kind/path/hash/list types; malformed → structured invalid + [].
+- Ретained A → selected B с тем же release string и изменённым документом → исключений нет.
+- source.active = строка "false" → invalid; настоящий false → inactive.
+- Changed/missing source, malformed mapping и clean/no-source → никаких ложных exclusions.
+Следующий небольшой проход: согласовать JSON schema и KNOWLEDGE_ROUTER с этим поведением.
+- Вывести/показать точный replacement path. Агент может пропустить local duplicate только
+  после чтения внешней замены в текущей задаче. Одного persisted active недостаточно.
+- Не строить трекер контекста модели: это правило использования eligible duplicates,
+  с консервативным fallback на local material при отсутствии подтверждения.
+Приёмка: адресные CLI/helper cases и review схемы/потребителей; не менять scanners здесь.
+
+## D — убрать навязанную защиту F7-05
+
+Файлы: C/GLOBAL_CODEX/AGENTS.global.block.md и только реально конфликтующие routed instructions.
+- Весь begin/scope/verify/close и writer serialization относится только к явно включённому protection.
+- Обычная разрешённая правка с knowledge mode не включает protection сама.
+- При explicit opt-in сохранить текущие требования контроля.
+Приёмка: проверить три сценария по всем затронутым инструкциям — read-only review, обычная
+правка без protection, правка с explicit protection. Для простой редакционной правки не добавлять
+tests на наличие строк и не запускать runtime suite. Изменение механизма lock не требуется.
+
+## E1 — manual ownership F7-03
+
+Файлы: manual_preflight.py и адресные tests; контракт существующего descriptor остаётся общим.
+- Проверять прежнее installed state относительно прежней известной версии и небольшого
+  отдельно сохранённого operator receipt. Label managed_by сам по себе не доказывает владение.
+- Receipt фиксирует exact paths/hashes/modes до обновления; изменённые bytes не подтверждают себя.
+  Его доверенная область — проверенная запись оператора, не защита от враждебного владельца Mac.
+- Подлинный old AGENTS block отличать от пользовательской правки; incoming проверять независимо.
+- Unchanged owned skills допускают update; неизвестные/изменённые не перезаписываются.
+Приёмка: changed descriptor → отказ; настоящий old block → допустимое обновление;
+changed user block/skill → сохранение и отказ. Astra принимает этот механизм ДО E2.
+Не создавать второй installer или автоматический rollback service.
+
+## E2 — исполнимый manual lifecycle F7-03
+
+Вход: принятый E1. Файлы: MANUAL_DEPLOYMENT.md и конкретные lifecycle tests/helper consumers.
+- Дать выполняемые checked steps fresh reference, reference→full, update, rollback, disable.
+- При full activation согласовать descriptor mode, skills и текущий AGENTS block.
+- После публикации проверить весь затронутый набор; ошибка не разрешает следующий шаг.
+- Валидные A/B содержат реальные разные routed material/runtime behavior и корректные manifests.
+  Запустить именно документированный A→B→A, затем disable. Doctor/path echo недостаточно.
+- Проверить emitter/publication failure, сохранение пользовательских sentinels/modes/state history.
+Приёмка: реальные reference/full последовательности в isolated fixtures, без скрытой ручной
+починки fixture между шагами. Если runbook нельзя выполнить как написано — E2 не принят.
+
+## F1/F2 — ограниченные чтения F7-06, два отдельных прохода
+
+F1: runtime/knowledge_profile.py + адресные tests.
+F2: MANUAL_SHIM/bin/manual_preflight.py + адресные tests.
+Для каждого отдельно:
+- Ограничить число всех посещённых entries, включая пустые каталоги, depth/pending work.
+- Проверять оставшийся byte budget до/во время чтения; учесть aggregate, не только один файл.
+- Использовать подходящие существующие no-follow directory-handle helpers; parent-component
+  race не закрывается одним final O_NOFOLLOW. Не создавать универсальный новый framework.
+- Ошибки чтения/итерации → incomplete/refusal, никогда пустое достоверное дерево.
+- Сохранить cooperative deadline; не обещать hard timeout любого системного вызова.
+Приёмка каждого: конкретные cases empty-directory limit, walk error, parent replacement,
+exact/overflow bytes и deadline на изменённом observer, а не на другом legacy scanner.
+Если повторное использование helper требует широкого переноса, сначала представить Astra
+узкую альтернативу; не начинать самостоятельный архитектурный рефакторинг.
+
+## G — один конечный проход приёмки и внедрения
+
+Начать после принятия A–F, кроме раннего common-host подключения после B.
+- [ ] Проверить связи принятых блоков и весь FINAL7→candidate delta один раз. Не перечитывать
+  весь корпус; новые P0–P2 устранять в соответствующем блоке, не генерировать новый план.
+- [ ] Один актуальный suite/validator после стабилизации. На failure исправить причину,
+  сначала повторить затронутый check; общий PASS должен соответствовать окончательному коду.
+- [ ] Применить concrete reviewed host/canonical diff в пределах точной authority. Не менять
+  CODEX_HOME для удобства. Сохранить backup и проверить отключение.
+- [ ] Свежие existing, new/imported-without-AGENTS, linked-worktree, non-iOS задачи:
+  common baseline до первой проектной операции; nested/non-Git/outside scope — явные outcomes.
+  Не использовать искусственный prompt, который сам напоминает о библиотеке.
+- [ ] Три реальные задачи: implementation, review, cross-domain. Кратко записать полезные
+  находки/выбранные материалы, ложные замечания, лишние действия и неожиданные остановки.
+  Не превращать пилот в benchmark campaign и не обещать максимальный выигрыш для всех задач.
+- [ ] Один release candidate ZIP, внешний SHA, сравнение extracted bytes с проверенным tree.
+  При совпадении не повторять suite только из-за распаковки. FINAL7 не перезаписывать.
+- [ ] Одна короткая инструкция подключения вручную/installer, проверки, обновления/отключения.
+  Зафиксировать известное происхождение и license/NOTICE; неизвестное не выдумывать.
+  Публичное распространение — отдельное решение, техническую работу этим не останавливать.
+- [ ] Синхронизировать task recovery и утверждённые canonical changes на итоговой границе
+  в рамках repository-specific authority. App/candidate commits/push не подразумеваются.
+- [ ] Завершить разработку: оба deployment пути проверены, first-entry работает, известные
+  P0–P2 закрыты, pilot показывает практическую пользу. Неблокирующие идеи остаются backlog.
+
+## Полномочия и передача
+
+План не разрешает читать secrets/auth/history/session directories, менять реальные host paths,
+клиентский source/Git refs или запускать Xcode/Simulator вне отдельного текущего разрешения.
+Существующие разрешения сохраняются: не запрашивать их повторно. Внешняя недостающая authority
+останавливает только зависимый шаг после подготовки конкретного результата для согласования.
+
+Первая команда Luna:
+«Выполни только блок A текущего plan.md. После адресных проверок сохрани краткий результат
+для Astra и остановись. Остальные блоки, полный suite и ZIP сейчас не выполняй».
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

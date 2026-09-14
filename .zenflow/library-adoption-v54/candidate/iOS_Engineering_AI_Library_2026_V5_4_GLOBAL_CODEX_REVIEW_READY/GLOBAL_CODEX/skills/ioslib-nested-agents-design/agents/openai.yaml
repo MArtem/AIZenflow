@@ -1,0 +1,4 @@
+interface:
+  display_name: "Nested Agents Design"
+  short_description: "Design scoped AGENTS.md rules without duplication"
+  default_prompt: "Use $ioslib-nested-agents-design to propose narrow stable subtree rules, reason about precedence, avoid duplication, and stage candidates for human placement."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS PR Review"
+  short_description: "Review the PR as a system change, not isolated lines"
+  default_prompt: "Use $ioslib-pr-review to review the PR as a system change, not isolated lines."

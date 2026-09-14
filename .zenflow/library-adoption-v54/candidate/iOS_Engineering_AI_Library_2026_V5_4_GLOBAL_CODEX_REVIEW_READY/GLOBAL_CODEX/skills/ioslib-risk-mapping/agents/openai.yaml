@@ -1,0 +1,4 @@
+interface:
+  display_name: "Risk Mapping"
+  short_description: "Map repository engineering risks and matching audits"
+  default_prompt: "Use $ioslib-risk-mapping to generate risk leads with severity, confidence, evidence and matching audit skills; never call heuristic leads confirmed defects."

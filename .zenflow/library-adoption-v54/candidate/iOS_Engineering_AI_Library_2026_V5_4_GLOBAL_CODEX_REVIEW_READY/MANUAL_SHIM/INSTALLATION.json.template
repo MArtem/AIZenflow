@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "managed_by": "ios-engineering-library",
+  "release_id": "<library release id>",
+  "protection_version": "<protection compatibility id>",
+  "mode": "reference",
+  "knowledge_root": "/absolute/path/to/the/unpacked/library",
+  "runtime_cli": "/absolute/path/to/the/unpacked/library/GLOBAL_CODEX/runtime/bin/ios_ai.py",
+  "state_root": "/absolute/path/to/external/ios-engineering-state",
+  "source_tree_sha256": "<sha256 from the release manifest>",
+  "generated_by": "manual deployment"
+}

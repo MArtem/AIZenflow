@@ -1,0 +1,4 @@
+interface:
+  display_name: "Offline Sync"
+  short_description: "Define authoritative state and deterministic conflict/replay"
+  default_prompt: "Use $ioslib-offline-sync to define authoritative state and deterministic conflict/replay semantics."

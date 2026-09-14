@@ -1,0 +1,4 @@
+interface:
+  display_name: "Data Migration"
+  short_description: "Design migrations before destructive model changes and prove"
+  default_prompt: "Use $ioslib-data-migration to design migrations before destructive model changes and prove representative old-data upgrade."

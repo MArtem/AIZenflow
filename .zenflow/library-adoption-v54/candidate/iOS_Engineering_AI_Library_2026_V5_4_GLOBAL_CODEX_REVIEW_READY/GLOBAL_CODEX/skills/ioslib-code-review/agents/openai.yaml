@@ -1,0 +1,4 @@
+interface:
+  display_name: "iOS Code Review"
+  short_description: "Find reproducible or plausible failure modes; avoid style-noise"
+  default_prompt: "Use $ioslib-code-review to find reproducible or plausible failure modes; avoid style-noise."

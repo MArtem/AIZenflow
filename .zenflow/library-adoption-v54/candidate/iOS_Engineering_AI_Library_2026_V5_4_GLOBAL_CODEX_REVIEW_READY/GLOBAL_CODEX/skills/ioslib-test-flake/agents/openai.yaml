@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Flake Investigator"
+  short_description: "Find the nondeterminism source instead of hiding it with retr"
+  default_prompt: "Use $ioslib-test-flake to find the nondeterminism source instead of hiding it with retries or sleeps."

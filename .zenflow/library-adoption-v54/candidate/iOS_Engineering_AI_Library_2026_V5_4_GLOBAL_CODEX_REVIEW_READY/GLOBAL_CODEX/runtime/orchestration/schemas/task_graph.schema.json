@@ -1,0 +1,113 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "V5 Task Graph",
+  "type": "object",
+  "required": [
+    "schema",
+    "task",
+    "risk",
+    "delegation",
+    "nodes"
+  ],
+  "properties": {
+    "schema": {
+      "const": "5.0"
+    },
+    "task": {
+      "type": "string",
+      "minLength": 1
+    },
+    "risk": {
+      "enum": [
+        "R0",
+        "R1",
+        "R2",
+        "R3",
+        "R4"
+      ]
+    },
+    "delegation": {
+      "type": "object",
+      "required": [
+        "admitted",
+        "max_children_per_wave",
+        "max_total_children",
+        "max_depth"
+      ],
+      "properties": {
+        "admitted": {
+          "type": "boolean"
+        },
+        "max_children_per_wave": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 8
+        },
+        "max_total_children": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 16
+        },
+        "max_depth": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "node_id",
+          "role",
+          "objective",
+          "dependencies",
+          "read_scope",
+          "write_scope",
+          "evidence_required"
+        ],
+        "properties": {
+          "node_id": {
+            "type": "string"
+          },
+          "role": {
+            "type": "string"
+          },
+          "objective": {
+            "type": "string"
+          },
+          "dependencies": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "read_scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "write_scope": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_required": {
+            "enum": [
+              "E0",
+              "E1",
+              "E2",
+              "E3",
+              "E4",
+              "E5"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

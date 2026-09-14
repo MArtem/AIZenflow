@@ -1,0 +1,36 @@
+# Code Pattern Index
+
+Всего: **30** reference patterns.
+
+> Это patterns для reasoning/review, а не универсальные drop-in snippets. Всегда адаптируй actor isolation, availability, dependencies и project conventions.
+
+- [CP-01 — Actor-owned mutable state](CP-01_ACTOR_OWNED_STATE.md)
+- [CP-02 — Actor reentrancy-safe transition](CP-02_ACTOR_REENTRANCY_STATE_MACHINE.md)
+- [CP-03 — Explicit task lifetime](CP-03_TASK_LIFETIME.md)
+- [CP-04 — Cooperative cancellation](CP-04_CANCELLATION_PROPAGATION.md)
+- [CP-05 — Single-flight token refresh](CP-05_SINGLE_FLIGHT_REFRESH.md)
+- [CP-06 — Checked continuation bridge](CP-06_CONTINUATION_BRIDGE.md)
+- [CP-07 — AsyncStream termination owns subscription cleanup](CP-07_ASYNCSTREAM_TERMINATION.md)
+- [CP-08 — SwiftUI Observation ownership](CP-08_OBSERVATION_OWNERSHIP.md)
+- [CP-09 — Prefer derived state to synchronized duplicate state](CP-09_DERIVED_STATE.md)
+- [CP-10 — Typed presentation state](CP-10_TYPED_PRESENTATION_STATE.md)
+- [CP-11 — Protect UI from stale async results](CP-11_STALE_RESULT_PROTECTION.md)
+- [CP-12 — Typed HTTP endpoint boundary](CP-12_TYPED_ENDPOINT.md)
+- [CP-13 — Retry is a semantic policy, not a loop](CP-13_IDEMPOTENT_RETRY.md)
+- [CP-14 — Parse external URLs into a validated internal route](CP-14_DEEPLINK_PARSER.md)
+- [CP-15 — Explicit initializer dependency injection](CP-15_INITIALIZER_DI.md)
+- [CP-16 — Typed feature flag](CP-16_TYPED_FEATURE_FLAG.md)
+- [CP-17 — Parameterized Swift Testing](CP-17_SWIFT_TESTING_PARAMETERIZED.md)
+- [CP-18 — Test the negative path explicitly](CP-18_TEST_ERROR_PATH.md)
+- [CP-19 — Delegate ownership](CP-19_WEAK_DELEGATE.md)
+- [CP-20 — Cancel reuse-bound task](CP-20_UIKIT_REUSE_TASK.md)
+- [CP-21 — Privacy-aware structured logging](CP-21_OSLOG_PRIVACY.md)
+- [CP-22 — Measure a meaningful interval](CP-22_SIGNPOST_INTERVAL.md)
+- [CP-23 — Model mutually exclusive async states](CP-23_STATE_MACHINE.md)
+- [CP-24 — Preserve technical cause, expose product-safe error](CP-24_ERROR_MAPPING.md)
+- [CP-25 — Cache needs a budget and invalidation policy](CP-25_BOUNDED_CACHE.md)
+- [CP-26 — Migration tests assert semantic invariants](CP-26_STORE_MIGRATION_INVARIANT.md)
+- [CP-27 — Privacy manifest is a generated-report comparison task](CP-27_PRIVACY_MANIFEST_REVIEW.md)
+- [CP-28 — AI model output is untrusted input](CP-28_MODEL_OUTPUT_VALIDATION.md)
+- [CP-29 — Tool calling: authorization stays in code](CP-29_TOOL_CALL_AUTHORIZATION.md)
+- [CP-30 — Characterize → refactor → compare](CP-30_MINIMAL_REFACTOR.md)

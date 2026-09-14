@@ -1,0 +1,4 @@
+interface:
+  display_name: "Active Skill Selection"
+  short_description: "Select relevant iOS skills from project evidence"
+  default_prompt: "Use $ioslib-active-skill-selection to select baseline and domain skills from affected targets, detected technologies and risk boundaries while allowing explicit task overrides."

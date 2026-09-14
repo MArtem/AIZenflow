@@ -1,0 +1,24 @@
+{
+  "schema": "5.0",
+  "task": "",
+  "risk": "R2",
+  "delegation": {
+    "admitted": false,
+    "reason": "",
+    "max_children_per_wave": 4,
+    "max_total_children": 8,
+    "max_depth": 1
+  },
+  "nodes": [
+    {
+      "node_id": "N1",
+      "role": "repository_scout",
+      "objective": "",
+      "dependencies": [],
+      "read_scope": [],
+      "write_scope": [],
+      "evidence_required": "E1",
+      "stop_condition": ""
+    }
+  ]
+}

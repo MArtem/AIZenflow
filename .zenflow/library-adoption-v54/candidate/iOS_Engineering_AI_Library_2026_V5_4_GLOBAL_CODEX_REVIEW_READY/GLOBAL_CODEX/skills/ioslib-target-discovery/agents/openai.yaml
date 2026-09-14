@@ -1,0 +1,4 @@
+interface:
+  display_name: "Target Discovery"
+  short_description: "Map Xcode targets, schemes, tests, and deployment settings"
+  default_prompt: "Use $ioslib-target-discovery to resolve project/workspace/target/scheme/configuration/test-plan evidence and surface availability/build-matrix unknowns."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Build & CI"
+  short_description: "Reproduce the actual merge/release gate and isolate environme"
+  default_prompt: "Use $ioslib-build-ci to reproduce the actual merge/release gate and isolate environment/toolchain differences."

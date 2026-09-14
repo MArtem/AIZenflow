@@ -1,0 +1,4 @@
+interface:
+  display_name: "Project Adaptation"
+  short_description: "Adapt iOS repos into evidence-labelled project context"
+  default_prompt: "Use $ioslib-project-adaptation to build/refresh the V4 project model, render generated context, keep observed/derived/heuristic/unknown separate, and validate artifacts."

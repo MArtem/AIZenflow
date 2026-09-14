@@ -1,0 +1,4 @@
+interface:
+  display_name: "Command Discovery"
+  short_description: "Discover project build, test, lint, and release commands"
+  default_prompt: "Use $ioslib-command-discovery to trace CI to repository scripts and Xcode schemes; distinguish observed canonical candidates from synthesized suggestions."
