@@ -293,8 +293,8 @@ changed-observer tests и полный suite PASS; внешний race stress о
   repository-specific authority; generated evidence не смешивать с product payload.
 - [x] Отдельно зафиксировать task-repository changes и canonical-documentation changes после
   final-diff review; canonical push подтверждён exact SHA.
-- [ ] Отправить task-repository commit в non-canonical AIZenflow remote; local commit создан,
-  но external-egress policy требует отдельного явного подтверждения exact destination.
+- [x] Отправить task-repository commit в non-canonical AIZenflow remote; текущий `HEAD`
+  `3e60ad5faa3eab153af32dd57e5d97ef61792eb4` подтверждён на `origin/codex/audit-remediation-luna`.
 - [ ] Завершить разработку: оба deployment пути проверены, first-entry работает, известные
   P0–P2 закрыты, pilot показывает практическую пользу. Сейчас локальная реализация и
   canonical runtime PASS, но first-entry/pilot/independent review остаются открыты.

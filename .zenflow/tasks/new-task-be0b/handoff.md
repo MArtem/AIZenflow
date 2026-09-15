@@ -22,9 +22,8 @@ Current executable source: `.zenflow/tasks/new-task-be0b/plan.md`.
 - Fresh first-entry Codex Desktop, actual host discovery, three user-owned pilot tasks, and
   independent Astra acceptance are still `NOT_RUN`; do not claim them as completed.
 - Canonical documentation commit `98ac3f80038206a145f8d77e64e5093f80677226` is pushed and
-  confirmed at `origin/main`. Task commit `5a34f4dd616d4f9076800043a367b59974272450` exists
-  locally on `codex/audit-remediation-luna`; its push to the non-canonical AIZenflow remote was
-  blocked by external-egress safety and needs explicit user approval for that exact destination.
+  confirmed at `origin/main`. The current task branch `codex/audit-remediation-luna` is pushed
+  and confirmed at `origin` as `3e60ad5faa3eab153af32dd57e5d97ef61792eb4`.
 
 Required context transfer:
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
