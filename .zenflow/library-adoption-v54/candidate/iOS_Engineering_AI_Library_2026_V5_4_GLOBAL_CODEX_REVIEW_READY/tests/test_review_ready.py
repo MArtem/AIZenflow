@@ -1105,14 +1105,50 @@ class PackagePolicyTests(unittest.TestCase):
                 'deployment':'manual'})+'\n')
             block=(ROOT/'GLOBAL_CODEX/AGENTS.global.block.md').read_text().rstrip()
             original=b'# user rules\n'; agents.write_bytes(original+b'\n'+block.encode()+b'\n')
+            snapshot=td/'original-agents-snapshot'; snapshot.write_bytes(original); snapshot.chmod(0o644)
             args=types.SimpleNamespace(release_root=str(ROOT),codex_home=str(home),state_root=str(state),
                 skills_root=str(skills),agents_file=None,mode='reference',emit_receipt=True,
-                original_agents_sha256=M.sha_bytes(original),original_agents_mode=0o644,original_agents_absent=False)
+                original_agents_sha256=M.sha_bytes(original),original_agents_mode=0o644,original_agents_absent=False,
+                original_agents_snapshot=str(snapshot))
             with mock.patch.object(M,'git_root_for_destination',return_value=(None,None)):
                 result=M.build(args)
             self.assertTrue(result['ok'],result['collisions']); self.assertIsNotNone(result['receipt'])
             owned=M.validate_receipt(result['receipt'],shim=shim,state=state,skills=skills,agents=agents)
             self.assertIn(shim/'INSTALLATION.json',owned)
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_reconnect_requires_owned_disabled_state_and_preserves_agents_prefix(self):
+        td=test_tmpdir()
+        try:
+            home=td/'home'; shim=home/'ios-engineering-shim'; state=home/'state'; skills=home/'skills'; agents=home/'AGENTS.md'
+            (shim/'bin').mkdir(parents=True); state.mkdir(mode=0o700); os.chmod(state,0o700); skills.mkdir()
+            old_marker={'managed_by':'ios-engineering-library','version':'old','protection_version':'old-p','deployment':'manual'}
+            (state/'.ioslib-state-owned.json').write_text(json.dumps(old_marker)+'\n')
+            original='# пользовательские правила\n\n'.encode('utf-8'); agents.write_bytes(original)
+            args=types.SimpleNamespace(release_root=str(ROOT),codex_home=str(home),state_root=str(state),
+                skills_root=str(skills),agents_file=None,mode='reference',emit_receipt=False,
+                original_agents_sha256=None,original_agents_mode=None,original_agents_absent=False,
+                original_agents_snapshot=None)
+            with mock.patch.object(M,'git_root_for_destination',return_value=(None,None)):
+                pre=M.build(args)
+            self.assertTrue(pre['ok'],pre['collisions'])
+            self.assertTrue(any(row['op']=='reuse_verified_empty_disabled_shim' for row in pre['operations']))
+            launcher=shim/'bin/ios_ai.py'; shutil.copy2(ROOT/'MANUAL_SHIM/bin/ios_ai.py',launcher); os.chmod(launcher,0o755)
+            (shim/'INSTALLATION.json').write_text(json.dumps(pre['descriptor'])+'\n')
+            (state/'.ioslib-state-owned.json').write_text(json.dumps(pre['state_marker'])+'\n')
+            block=(ROOT/'GLOBAL_CODEX/AGENTS.global.block.md').read_text().rstrip()
+            agents.write_bytes(original+b'\n'+block.encode()+b'\n')
+            snapshot=td/'agents-original'; snapshot.write_bytes(original); snapshot.chmod(0o644)
+            args.emit_receipt=True; args.original_agents_sha256=M.sha_bytes(original); args.original_agents_mode=0o644
+            args.original_agents_snapshot=str(snapshot)
+            with mock.patch.object(M,'git_root_for_destination',return_value=(None,None)):
+                emitted=M.build(args)
+            self.assertTrue(emitted['ok'],emitted['collisions'])
+            agents.write_bytes(b'# user rules changed\n\n'+block.encode()+b'\n')
+            with mock.patch.object(M,'git_root_for_destination',return_value=(None,None)):
+                denied=M.build(args)
+            self.assertFalse(denied['ok'])
+            self.assertTrue(any('user-owned AGENTS text changed' in item for item in denied['collisions']))
         finally: shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_manual_update_accepts_only_release_matching_skill_tree(self):
@@ -1127,6 +1163,192 @@ class PackagePolicyTests(unittest.TestCase):
             self.assertTrue(M.tree_matches_release(target,source,{'references/INSTALLATION.md':extra}))
             (target/'SKILL.md').write_text('locally changed\n')
             self.assertFalse(M.tree_matches_release(target,source,{'references/INSTALLATION.md':extra}))
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_package_budget_and_short_reads(self):
+        td=test_tmpdir()
+        try:
+            payload=b'bounded bytes'
+            (td/'data').write_bytes(payload)
+            manifest={'files':[{'path':'data','size':len(payload),'sha256':M.sha_bytes(payload)}]}
+            raw=json.dumps(manifest).encode()
+            (td/'PACKAGE_FILE_MANIFEST.json').write_bytes(raw)
+            total=len(raw)+len(payload)
+            with mock.patch.object(M,'MAX_PACKAGE_BYTES',total):
+                self.assertTrue(M.package_identity(td))
+            with mock.patch.object(M,'MAX_PACKAGE_BYTES',total-1):
+                with self.assertRaises(M.PreflightError): M.package_identity(td)
+            with mock.patch.object(M,'PACKAGE_DEADLINE_SECONDS',0):
+                with self.assertRaises(M.PreflightError): M.package_identity(td)
+            with mock.patch.object(M,'MAX_TREE_ENTRIES',0):
+                with self.assertRaises(M.PreflightError): M.package_identity(td)
+            real_read=M.os.read
+            with mock.patch.object(M.os,'read',side_effect=lambda fd,n: real_read(fd,min(n,3))):
+                self.assertEqual(M.read_regular(td/'data',len(payload)),payload)
+            with mock.patch.object(M.os,'read',return_value=b''):
+                with self.assertRaises(M.PreflightError): M.read_regular(td/'data',len(payload))
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_receipt_encoded_and_aggregate_bounds(self):
+        td=test_tmpdir()
+        try:
+            shim=td/'shim'; state=td/'state'; skills=td/'skills'; agents=td/'AGENTS.md'
+            (shim/'bin').mkdir(parents=True); state.mkdir(); (skills/'ioslib-demo').mkdir(parents=True)
+            for path in (shim/'INSTALLATION.json',shim/'bin/ios_ai.py',state/'.ioslib-state-owned.json',agents):
+                path.write_text('x')
+            for index in range(400):
+                (skills/'ioslib-demo'/('document-'+str(index)+'x'*80)).write_text('x')
+            kw=dict(release_id='r',protection_version='p',mode='full',shim=shim,state=state,
+                    skills=skills,agents=agents,incoming_skill_names=['ioslib-demo'],
+                    original_agents_sha256=None,original_agents_mode=None,managed_block_sha256='a'*64)
+            receipt=M.build_receipt(**kw)
+            encoded=json.dumps(receipt,indent=2,sort_keys=True)+'\n'
+            self.assertGreater(len(encoded.encode()),M.MAX_DESCRIPTOR_BYTES)
+            receipt_path=shim/M.RECEIPT_NAME; receipt_path.write_text(encoded)
+            decoded=M.safe_json(receipt_path,M.MAX_RECEIPT_BYTES)
+            self.assertEqual(decoded,receipt)
+            roots=dict(shim=shim,state=state,skills=skills,agents=agents)
+            with mock.patch.object(M,'MAX_TREE_BYTES',404):
+                self.assertEqual(len(M.validate_receipt(decoded,**roots)),404)
+            with mock.patch.object(M,'MAX_TREE_BYTES',403):
+                with self.assertRaises(M.PreflightError): M.validate_receipt(decoded,**roots)
+            with mock.patch.object(M,'MAX_RECEIPT_BYTES',len(encoded.encode())-1):
+                with self.assertRaises(M.PreflightError): M.build_receipt(**kw)
+        finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_manual_documented_fresh_reference_and_full(self):
+        # Run the published shell blocks, not a hand-built already-installed fixture.
+        # Never bypass production Git detection to turn host-ineligible tests green.
+        if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
+            self.skipTest('NOT_RUN: documented deployment needs an authorized external-to-Git root')
+        import re, shlex
+        td=test_tmpdir()
+        try:
+            doc=(ROOT/'MANUAL_DEPLOYMENT.md').read_text()
+            blocks=re.findall(r'```bash\n(.*?)```',doc,re.S)
+            self.assertGreaterEqual(len(blocks),3)
+            for mode in ('reference','full'):
+                for existing in (False,True):
+                    with self.subTest(mode=mode,existing=existing):
+                        home=td/(mode+str(existing)); home.mkdir()
+                        skills=home/'skills'
+                        original=b'# user rules stay intact\n' if existing else b''
+                        agents=home/'AGENTS.md'
+                        if existing:
+                            agents.write_bytes(original); agents.chmod(0o640)
+                        first=blocks[0].replace(
+                            'LIB_ROOT=/ABSOLUTE/PATH/TO/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY',
+                            'LIB_ROOT='+shlex.quote(str(ROOT))).replace(
+                            'MODE=reference # set full explicitly when namespaced skill discovery is wanted',
+                            'MODE='+mode).replace(
+                            'SKILLS_ROOT=/ABSOLUTE/PATH/TO/THE_ACTIVE_GLOBAL_SKILLS_DIRECTORY',
+                            'SKILLS_ROOT='+shlex.quote(str(skills)))
+                        # This is the documented operator append between shell blocks;
+                        # it preserves existing content and modes instead of repairing a fixture.
+                        env=dict(os.environ,CODEX_HOME=str(home))
+                        result=run(['bash','-c',first+blocks[1]+blocks[2]],env=env)
+                        self.assertEqual(result.returncode,0,result.stdout+result.stderr)
+                        self.assertTrue(agents.read_bytes().startswith(original))
+                        if existing: self.assertEqual(stat.S_IMODE(agents.stat().st_mode),0o640)
+                        shim=home/'ios-engineering-shim'
+                        receipt=M.safe_json(shim/M.RECEIPT_NAME,M.MAX_RECEIPT_BYTES)
+                        self.assertEqual(receipt['mode'],mode)
+                        self.assertEqual(receipt['agents']['original_sha256'],M.sha_bytes(original) if existing else None)
+                        self.assertEqual(json.loads((shim/'INSTALLATION.json').read_text())['mode'],mode)
+                        if mode=='full':
+                            self.assertEqual(len(list(skills.glob('ioslib-*/SKILL.md'))),60)
+                        def preflight(release, selected_mode, *extra):
+                            p=run([sys.executable,release/'MANUAL_SHIM/bin/manual_preflight.py',
+                                '--release-root',release,'--codex-home',home,
+                                '--state-root',home/'ios-engineering-state','--skills-root',skills,
+                                '--mode',selected_mode,*extra])
+                            self.assertEqual(p.returncode,0,p.stdout+p.stderr)
+                            return json.loads(p.stdout)
+
+                        def update(release, index):
+                            # The documented update: check OLD ownership, prepare BOTH outputs,
+                            # preserve backups, publish new content, move stale receipt, emit last.
+                            prepared=preflight(release,'full')
+                            old=M.safe_json(shim/M.RECEIPT_NAME,M.MAX_RECEIPT_BYTES)
+                            backup=td/('backup-'+home.name+'-'+str(index)); backup.mkdir()
+                            for path in (shim/'INSTALLATION.json',shim/M.RECEIPT_NAME,
+                                         home/'ios-engineering-state/.ioslib-state-owned.json',agents):
+                                shutil.copy2(path,backup/path.name)
+                            (shim/'INSTALLATION.json').write_text(json.dumps(prepared['descriptor'])+'\n')
+                            shutil.copy2(release/'MANUAL_SHIM/bin/ios_ai.py',shim/'bin/ios_ai.py')
+                            old_text=agents.read_text()
+                            start=old_text.index(M.BEGIN); end=old_text.index(M.END,start)+len(M.END)
+                            new_block=(release/'GLOBAL_CODEX/AGENTS.global.block.md').read_text().rstrip()
+                            agents.write_text(old_text[:start]+new_block+old_text[end:])
+                            skills.mkdir(exist_ok=True)
+                            for source in (release/'GLOBAL_CODEX/skills').iterdir():
+                                staged=backup/('incoming-'+source.name)
+                                shutil.copytree(source,staged)
+                                shutil.copy2(release/'MANUAL_SHIM/INSTALLATION.md',staged/'references/INSTALLATION.md')
+                                target=skills/source.name
+                                if target.exists(): target.rename(backup/source.name)
+                                staged.rename(target)
+                            (home/'ios-engineering-state/.ioslib-state-owned.json').write_text(json.dumps(prepared['state_marker'])+'\n')
+                            (shim/M.RECEIPT_NAME).rename(backup/'stale-receipt.json')
+                            seed=old['agents']
+                            if seed['original_sha256'] is None:
+                                extra=['--original-agents-absent']
+                            else:
+                                snapshot=backup/'original-agents-snapshot'
+                                snapshot.write_bytes(original)
+                                snapshot.chmod(0o644)
+                                extra=['--original-agents-sha256',seed['original_sha256'],
+                                    '--original-agents-mode',str(seed['original_mode']),
+                                    '--original-agents-snapshot',str(snapshot)]
+                            fresh=preflight(release,'full','--emit-receipt',*extra)
+                            (shim/M.RECEIPT_NAME).write_text(json.dumps(fresh,indent=2)+'\n')
+                            preflight(release,'full')
+                            self.assertEqual(agents.read_bytes()[:len(original)],original)
+                            if existing: self.assertEqual(stat.S_IMODE(agents.stat().st_mode),0o640)
+                            return fresh
+
+                        update(ROOT,0) # explicit reference -> full, or unchanged full control
+                        release_b=td/('release-b-'+home.name)
+                        shutil.copytree(ROOT,release_b)
+                        router=release_b/'GLOBAL_CODEX/KNOWLEDGE_ROUTER.md'
+                        router.write_text(router.read_text()+'\nPilot B: include cancellation ownership in the selected review.\n')
+                        manifest_path=release_b/'PACKAGE_FILE_MANIFEST.json'
+                        manifest=json.loads(manifest_path.read_text())
+                        for row in manifest['files']:
+                            data=(release_b/row['path']).read_bytes()
+                            row.update(size=len(data),sha256=hashlib.sha256(data).hexdigest())
+                        manifest_path.write_text(json.dumps(manifest,indent=2,sort_keys=True)+'\n')
+                        history=home/'ios-engineering-state/history-sentinel'
+                        history.write_text('preserve session history')
+                        update(release_b,1)
+                        selected=json.loads((shim/'INSTALLATION.json').read_text())
+                        self.assertIn('Pilot B:',(Path(selected['knowledge_root'])/'GLOBAL_CODEX/KNOWLEDGE_ROUTER.md').read_text())
+                        latest=update(ROOT,2)
+                        selected=json.loads((shim/'INSTALLATION.json').read_text())
+                        self.assertNotIn('Pilot B:',(Path(selected['knowledge_root'])/'GLOBAL_CODEX/KNOWLEDGE_ROUTER.md').read_text())
+                        # Ordinary preflight must reject a changed user file before any update.
+                        before=agents.read_bytes(); agents.write_bytes(before+b'# new user edit\n')
+                        denied=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py',
+                            '--release-root',ROOT,'--codex-home',home,'--skills-root',skills,'--mode','full'])
+                        self.assertNotEqual(denied.returncode,0)
+                        self.assertEqual(agents.read_bytes(),before+b'# new user edit\n')
+                        agents.write_bytes(before) # end the explicit tamper test, not lifecycle repair
+                        preflight(ROOT,'full')
+                        # Disable removes only unchanged owned files, preserving state and user text.
+                        owned=M.validate_receipt(latest,shim=shim,state=home/'ios-engineering-state',skills=skills,agents=agents)
+                        for path in owned:
+                            if path==agents or M.path_contains(home/'ios-engineering-state',path): continue
+                            path.unlink()
+                        text=agents.read_text(); start=text.index(M.BEGIN); end=text.index(M.END,start)+len(M.END)
+                        agents.write_text(text[:start]+text[end:])
+                        (shim/M.RECEIPT_NAME).unlink()
+                        self.assertNotIn(M.BEGIN,agents.read_text())
+                        self.assertTrue(agents.read_bytes().startswith(original))
+                        self.assertEqual(history.read_text(),'preserve session history')
+                        reconnect=run(['bash','-c',first+blocks[1]+blocks[2]],env=env)
+                        self.assertEqual(reconnect.returncode,0,reconnect.stdout+reconnect.stderr)
+                        self.assertTrue((shim/M.RECEIPT_NAME).is_file())
+                        self.assertIn(M.BEGIN,agents.read_text())
         finally: shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_knowledge_profile_requires_exact_active_source_and_invalidates_change(self):
@@ -1313,6 +1535,57 @@ class AdditionalAcceptanceTests(unittest.TestCase):
         manual_collisions=load('review_manual_a',ROOT/'MANUAL_SHIM/bin/manual_preflight.py').destination_layout_collisions(targets,release)
         self.assertTrue(any('inside client Git repository' in item for item in installer_collisions))
         self.assertTrue(any('inside client Git repository' in item for item in manual_collisions))
+
+    def test_F14_canonical_repository_runtime_is_exact_and_lifecycle_safe(self):
+        canonical=init_repo(self.td/'canonical-docs')
+        git(canonical,'remote','add','origin','https://github.com/MArtem/AIZenflowDocumentation.git')
+        area=canonical/'.codex-runtime'/'ios-engineering'
+        args=install_args(area,area/'skills','reference',source_in_place=True)
+        args.codex_home=None
+        args.portable_area=str(area)
+        args.canonical_repository_root=str(canonical)
+        args.allow_canonical_repository_runtime=True
+        I.apply_deployment_profile(args)
+        pre=I.build_preflight(args,False)
+        self.assertEqual(pre['collisions'],[],pre['collisions'])
+        self.assertEqual(pre['deployment_profile'],I.CANONICAL_REPOSITORY_RUNTIME_PROFILE)
+        manual=load('review_manual_canonical_runtime',ROOT/'MANUAL_SHIM/bin/manual_preflight.py')
+        manual_collisions=manual.destination_layout_collisions(
+            {'codex_home':area,'shim_root':area/'ios-engineering-shim',
+             'state_root':area/'ios-engineering-state','skills_root':area/'skills',
+             'agents_file':area/'AGENTS.md'}, ROOT,
+            canonical_repository_root=canonical,
+            allow_canonical_repository_runtime=True)
+        self.assertEqual(manual_collisions,[],manual_collisions)
+        args.preflight_id=pre['preflight_id']
+        reg=I.apply_fresh(pre,args)
+        self.assertEqual(reg['deployment_profile'],I.CANONICAL_REPOSITORY_RUNTIME_PROFILE)
+        self.assertEqual(Path(reg['canonical_repository_root']),canonical)
+        self.assertEqual(U.preflight(area)[1],[])
+        old, sync_pre=S.preflight(area)
+        self.assertEqual(sync_pre['collisions'],[],sync_pre['collisions'])
+        self.assertEqual((canonical/'AGENTS.md').exists(),False)
+        self.assertTrue((area/I.REGISTRY_NAME).exists())
+
+    def test_F14_canonical_repository_runtime_rejects_wrong_origin_or_subtree(self):
+        canonical=init_repo(self.td/'canonical-docs-reject')
+        git(canonical,'remote','add','origin','https://github.com/example/not-the-canonical-repo.git')
+        area=canonical/'.codex-runtime'/'ios-engineering'
+        targets={'codex_home':area,'shim_root':area/'ios-engineering-shim',
+                 'state_root':area/'ios-engineering-state','agents_file':area/'AGENTS.md'}
+        wrong_origin=I.destination_layout_collisions(
+            targets,source_root=ROOT,source_in_place=True,
+            canonical_repository_root=canonical,
+            allow_canonical_repository_runtime=True)
+        self.assertTrue(any('origin is not MArtem/AIZenflowDocumentation' in x for x in wrong_origin))
+        git(canonical,'remote','set-url','origin','https://github.com/MArtem/AIZenflowDocumentation.git')
+        bad_targets=dict(targets); bad_targets['codex_home']=canonical/'.codex-runtime'/'other'
+        wrong_subtree=I.destination_layout_collisions(
+            bad_targets,source_root=ROOT,source_in_place=True,
+            canonical_repository_root=canonical,
+            allow_canonical_repository_runtime=True)
+        self.assertTrue(any('exact CODEX_HOME' in x for x in wrong_subtree))
+        self.assertTrue(any('escapes managed runtime root' in x for x in wrong_subtree))
 
     def test_F14_manual_env_codex_home_cannot_bypass_client_repository_rejection(self):
         client=init_repo(self.td/'manual-env-client')

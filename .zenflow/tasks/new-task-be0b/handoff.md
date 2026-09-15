@@ -3,15 +3,46 @@
 Task: new-task-be0b. Date: 2026-09-15. Mode: эконом.
 User decision: Luna Xhigh implements; Astra performs small scoped reviews to conserve limits.
 Current executable source: .zenflow/tasks/new-task-be0b/plan.md.
-Current next action: independent acceptance of B–F and final G evidence; locally no code block is
-pending except host-dependent lifecycle/entrypoint checks.
+Current next action: independent acceptance of the canonical-repository runtime exception and
+final publication decision. The unmocked reference installer lifecycle now passes in
+`AIZenflowDocumentation/.codex-runtime/ios-engineering` from its versioned source payload.
+The earlier claim that only external checks remained was withdrawn by Astra's FINAL8 findings.
+Working changes fix manual publication order/raw SHA/mode, receipt publication verification,
+resource bounds and protection opt-in. Evidence: 30-post-final8-correction.md.
+194 distinct tests: 189 PASS, 5 SKIP (stable serial run with an external-to-candidate-Git
+fixture root inside `.zenflow`; parallel diagnostic showed one non-reproducible fixture race).
+Canonical source/runtime were activated in the approved repository exception during this turn;
+candidate/task publication and independent review remain separate finalization decisions.
+Canonical publication receipt: `AIZenflowDocumentation` commit
+`c3d61a98d6fdad9e0230c0c49edb52a13d2fbfae` pushed and confirmed at `origin/main`.
 Block A was RETURNED by Astra and has now been corrected by Luna; independent re-review remains
 useful but is not a user stop. Later user authority permits continued
 blocks and commit/push; obsolete per-block stop/publication restrictions below are superseded.
+The final correction also makes the manual AGENTS snapshot path fail closed unless an existing
+regular file is an exact byte match; it never overwrites an unrelated snapshot.
+The canonical-repository exception is explicit and narrow: exact origin/root plus
+`.codex-runtime/ios-engineering`; normal client-repository rejection remains active.
 
 ## Startup and evidence
 
 Read canonical bootstrap and current Level 0 once, then only documents needed for each active block.
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+## Final packaging pass — in progress
+
+The candidate README is now a self-contained Codex handoff: it covers reference/full installer
+deployment, manual connection, canonical-repository exception, process-level `CODEX_HOME`, exact
+duplicate handling, runtime/protection limits, update/uninstall/rollback, troubleshooting,
+evidence, and internal redistribution limits. Candidate and canonical V5.4 README plus
+`PACKAGE_FILE_MANIFEST.json` are byte-identical. Candidate validator: 1366 files, 60 skills, 51
+sections, 288 playbooks, 0 errors. A valid serial suite from a fixture root outside all Git roots
+reports 194 total, 189 pass, 0 fail, 5 skip.
+
+Remaining packaging actions in this turn: create the final archive from the canonical versioned
+source only, verify archive contents and SHA-256, commit/push the canonical docs change, commit/push
+the directly related task-repository changes, and report the host-dependent first-entry/pilot items
+that are not proven by packaging.
+
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 Candidate:

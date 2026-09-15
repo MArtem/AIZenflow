@@ -1,9 +1,9 @@
-# Review-Ready Validation Report — V14 corrective candidate
+# Review-Ready Validation Report — post-FINAL8 working candidate
 
 Date: **2026-09-15**
-Artifact stage: V14 `FREEZE_FINAL` archive plus its extracted verification tree.
-Status wording: **self-tested against the shipped synthetic regression suite; bounded control-plane
-review completed; automatic utility not demonstrated for the frozen universal payload**.
+Artifact stage: local corrections after FINAL8; no new accepted archive.
+Status: **NOT_READY — targeted regressions pass; external-to-Git lifecycle and actual
+host instruction delivery remain unverified**.
 
 This is author/self-test evidence, not independent acceptance or proof of complete security. V14 is a corrective follow-up to the V13 candidate and its bounded Astra review: it addresses manual selector/overwrite findings, explicit protection-version admission, knowledge routing/profile wiring, bounded destination admission, and artifact-scoped evidence. The current local candidate also ships regression coverage for post-publication cleanup, intermediate paths, per-file and aggregate accounting, replacement races, iteration failure, slow read and slow validation deadline checkpoints, client-repository destination rejection, AGENTS override precedence, candidate/source profile revalidation and explicit layout mappings. The V13 Astra review remains historical evidence; this candidate still requires final independent review and host adoption evidence.
 
@@ -24,28 +24,41 @@ Command used for the independent candidate run:
 python3 tests/run_all.py --serial
 ```
 
-Observed result on the V14 release working tree:
+Observed result on the corrected working tree:
 
-- total: **188**
-- PASS: **184**
+- total: **194**
+- PASS: **189**
 - FAIL: **0**
-- SKIP: **4**
+- SKIP: **5**
 - runner exit: **0**
 - wall clock: not recorded as a release claim
 
-Observed candidate summary: `REVIEW_READY_TEST_SUMMARY total=188 pass=184 fail=0 skip=4`.
+The final serial run used `/Users/Artem/.zenflow/worktrees/library-adoption-test-tmp`, which is
+inside `/Users/Artem/.zenflow` and outside the candidate's Git root. The complete suite passed;
+five host-dependent cases remain explicitly skipped. The earlier failed attempt used a fixture
+root inside the candidate Git worktree and is superseded by this final run.
 
 Current deployment-integration boundary:
 
 - The current host exposes a home-level Git root above the approved `.zenflow` fixture area.
   Production policy correctly rejects destinations inside any detected Git repository; the test
-  harness no longer masks that root.
-- Four positive manual/installer integration cases are therefore explicitly `NOT_RUN` in this
-  environment (the four skips above). They run when `IOSLIB_TEST_TMP_ROOT` points to an operator-
+  real CLI integration tests do not mask that root. Existing installer UNIT fixtures locally
+  mock the home-level Git result; their PASS is not external deployment evidence.
+- Five positive manual/installer integration cases are explicitly `NOT_RUN` in this
+  environment. They run when `IOSLIB_TEST_TMP_ROOT` points to an operator-
   approved path outside every Git repository. This is a host limitation, not a production
   exception, and it is not evidence of successful global deployment.
 - Unmocked negative CLI coverage, including bounded FIFO handling in both preflights, ran and
-  passed. The 184 passing tests are regression evidence, not a claim of universal host discovery.
+  passed. The 189 passing tests are regression evidence, not a claim of universal host discovery.
+
+Post-FINAL8 corrections prepare descriptor and state marker before any publication, preserve the
+raw original AGENTS hash, propagate the selected mode/skills path, verify incoming content before
+receipt emission and make protection explicitly opt-in. Package reading has a 512 MiB aggregate,
+64 MiB per-file, 10,000-entry and cooperative 30-second budget. Receipt readers/writers share a
+4 MiB encoded limit and 64 MiB aggregate content budget. Short reads, exact/overflow aggregate
+boundaries, expired deadlines and receipts larger than 64 KiB are covered by passing unit tests.
+The new unmocked lifecycle test executes the fresh runbook shell blocks, then reference/full,
+changed routed payload A→B→A and disable; it is one of the five NOT_RUN cases.
 
 The suite contains all prior V5.3 regression coverage plus deterministic A53-01 upgrade/state-compatibility and bounded-observation fixtures. The corrective candidate adds A54 cleanup-commit-point, final-validation-deadline, per-file-limit and identity-sensitive mutation coverage, plus manual receipt ownership and bounded observer fixtures. The test host uses an isolated `.zenflow` temporary root so protected state I/O is exercised through the same no-follow path policy on macOS.
 

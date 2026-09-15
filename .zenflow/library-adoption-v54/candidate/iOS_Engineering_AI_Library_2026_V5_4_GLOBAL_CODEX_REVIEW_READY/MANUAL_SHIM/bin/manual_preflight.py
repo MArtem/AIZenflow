@@ -7,6 +7,7 @@ removes anything. A non-zero result means the operator must not execute the disp
 from __future__ import annotations
 
 import argparse
+import configparser
 import hashlib
 import json
 import os
@@ -16,12 +17,19 @@ import sys
 import time
 
 MAX_DESCRIPTOR_BYTES = 64 * 1024
+MAX_RECEIPT_BYTES = 4 * 1024 * 1024
+MAX_PACKAGE_BYTES = 512 * 1024 * 1024
+PACKAGE_DEADLINE_SECONDS = 30.0
 MAX_TEXT_BYTES = 2 * 1024 * 1024
 MAX_TREE_ENTRIES = 10000
 MAX_TREE_PENDING_DIRECTORIES = 1000
 MAX_TREE_DEPTH = 64
 MAX_TREE_BYTES = 64 * 1024 * 1024
 TREE_SCAN_DEADLINE_SECONDS = 10.0
+CANONICAL_REPOSITORY_RUNTIME_PROFILE = 'canonical_repository_runtime'
+CANONICAL_REPOSITORY_RUNTIME_RELATIVE = Path('.codex-runtime') / 'ios-engineering'
+CANONICAL_REPOSITORY_REMOTE = 'https://github.com/MArtem/AIZenflowDocumentation'
+MAX_GIT_CONFIG_BYTES = 256 * 1024
 RECEIPT_NAME = '.ioslib-managed.json'
 RECEIPT_SCHEMA_VERSION = 1
 BEGIN = '<!-- IOS_ENGINEERING_GLOBAL:BEGIN -->'
@@ -52,7 +60,7 @@ def reject_symlink_components(path):
             raise PreflightError(f'symlink path component: {current}')
 
 
-def read_regular(path, max_bytes):
+def read_regular(path, max_bytes, *, deadline=None):
     path = absolute(path)
     parent_fd = open_directory_chain(path.parent)
     fd = None
@@ -71,9 +79,21 @@ def read_regular(path, max_bytes):
             raise PreflightError(f'file changed to a non-regular entry: {path}')
         if (opened.st_dev, opened.st_ino, opened.st_size, opened.st_mtime_ns) != (st.st_dev, st.st_ino, st.st_size, st.st_mtime_ns):
             raise PreflightError(f'file changed during read: {path}')
-        data = os.read(fd, max_bytes + 1)
-        if len(data) > max_bytes:
-            raise PreflightError(f'file exceeds read budget: {path}')
+        chunks = []
+        size = 0
+        while True:
+            if deadline is not None and time.monotonic() >= deadline:
+                raise PreflightError('manual read deadline exceeded')
+            chunk = os.read(fd, min(1024 * 1024, max_bytes - size + 1))
+            if not chunk:
+                break
+            size += len(chunk)
+            if size > max_bytes:
+                raise PreflightError(f'file exceeds read budget: {path}')
+            chunks.append(chunk)
+        data = b''.join(chunks)
+        if size != opened.st_size:
+            raise PreflightError(f'incomplete file read: {path}')
         closed = os.fstat(fd)
         if (closed.st_dev, closed.st_ino, closed.st_size, closed.st_mtime_ns) != (opened.st_dev, opened.st_ino, opened.st_size, opened.st_mtime_ns):
             raise PreflightError(f'file changed during read: {path}')
@@ -113,12 +133,15 @@ def sha_file(path):
 def package_identity(release):
     """Recompute the release identity from the shipped file manifest, without trust by path."""
     manifest_path = release / 'PACKAGE_FILE_MANIFEST.json'
-    data = safe_json(manifest_path, MAX_TEXT_BYTES)
+    deadline = time.monotonic() + PACKAGE_DEADLINE_SECONDS
+    manifest_raw = read_regular(manifest_path, min(MAX_TEXT_BYTES, MAX_PACKAGE_BYTES), deadline=deadline)
+    data = json.loads(manifest_raw)
     entries = data.get('files')
-    if not isinstance(entries, list):
+    if not isinstance(entries, list) or len(entries) > MAX_TREE_ENTRIES:
         raise PreflightError('PACKAGE_FILE_MANIFEST.files is not a list')
     rows = []
     seen = set()
+    remaining = MAX_PACKAGE_BYTES - len(manifest_raw)
     for item in entries:
         if not isinstance(item, dict) or not isinstance(item.get('path'), str):
             raise PreflightError('PACKAGE_FILE_MANIFEST contains an invalid entry')
@@ -127,13 +150,14 @@ def package_identity(release):
             raise PreflightError(f'PACKAGE_FILE_MANIFEST contains an unsafe/duplicate path: {rel}')
         seen.add(rel)
         path = release / rel
-        raw = read_regular(path, 512 * 1024 * 1024)
+        raw = read_regular(path, min(MAX_TREE_BYTES, remaining), deadline=deadline)
+        remaining -= len(raw)
         if len(raw) != item.get('size') or sha_bytes(raw) != item.get('sha256'):
             raise PreflightError(f'package manifest hash mismatch: {rel}')
         if path.name == 'REVIEW_READY_VALIDATION_REPORT.md':
             continue
         rows.append([rel, item['sha256']])
-    rows.append(['PACKAGE_FILE_MANIFEST.json', sha_file(manifest_path)])
+    rows.append(['PACKAGE_FILE_MANIFEST.json', sha_bytes(manifest_raw)])
     rows.sort(key=lambda row: row[0])
     return sha_bytes(json.dumps(rows, sort_keys=True, separators=(',', ':')).encode('utf-8'))
 
@@ -192,16 +216,82 @@ def git_root_for_destination(path):
         current = current.parent
 
 
-def destination_layout_collisions(targets, release):
+def normalize_canonical_remote(value):
+    value = value.strip()
+    if value.startswith('git@github.com:'):
+        value = 'https://github.com/' + value[len('git@github.com:'):]
+    elif value.startswith('ssh://git@github.com/'):
+        value = 'https://github.com/' + value[len('ssh://git@github.com/'):]
+    value = value.rstrip('/')
+    if value.endswith('.git'):
+        value = value[:-4]
+    return value.rstrip('/')
+
+
+def canonical_repository_identity(root):
+    root = absolute(root)
+    detected, issue = git_root_for_destination(root)
+    if issue:
+        return None, f'canonical repository Git marker is unsafe: {issue}: {detected}'
+    if detected != root:
+        return None, f'canonical repository root mismatch: detected {detected}, requested {root}'
+    marker = root / '.git'
+    try:
+        marker_stat = os.lstat(marker)
+        if not stat.S_ISDIR(marker_stat.st_mode):
+            return None, f'canonical repository .git marker is not a directory: {marker}'
+        config = configparser.ConfigParser(interpolation=None, strict=False)
+        config.read_string(read_regular(marker / 'config', MAX_GIT_CONFIG_BYTES).decode('utf-8'))
+        remote = config.get('remote "origin"', 'url', fallback=None)
+    except Exception as error:
+        return None, f'canonical repository origin is unreadable: {type(error).__name__}'
+    if normalize_canonical_remote(remote or '') != CANONICAL_REPOSITORY_REMOTE:
+        return None, 'canonical repository origin is not MArtem/AIZenflowDocumentation'
+    return root, None
+
+
+def canonical_runtime_admission(targets, *, canonical_repository_root=None,
+                                allow_canonical_repository_runtime=False):
+    if not allow_canonical_repository_runtime:
+        return None, []
+    if canonical_repository_root is None:
+        return None, ['canonical repository runtime requires --canonical-repository-root']
+    root, issue = canonical_repository_identity(canonical_repository_root)
+    if issue:
+        return None, [issue]
+    runtime = root / CANONICAL_REPOSITORY_RUNTIME_RELATIVE
+    home = absolute(targets.get('codex_home'))
+    collisions = []
+    if home != runtime:
+        collisions.append(f'canonical repository runtime must use exact CODEX_HOME: {runtime}')
+    for label, path in targets.items():
+        path = absolute(path)
+        if label in {'release_root', 'content_root'}:
+            continue
+        if not path_contains(runtime, path):
+            collisions.append(f'{label}: canonical runtime target escapes managed runtime root: {path}')
+    return root, collisions
+
+
+def destination_layout_collisions(targets, release, *, canonical_repository_root=None,
+                                  allow_canonical_repository_runtime=False):
     """Reject mutable destinations inside client repositories or overlapping each other."""
     rows = [(label, absolute(path)) for label, path in targets.items()]
     collisions = []
     release = absolute(release)
+    canonical_root, canonical_collisions = canonical_runtime_admission(
+        dict(rows), canonical_repository_root=canonical_repository_root,
+        allow_canonical_repository_runtime=allow_canonical_repository_runtime)
+    collisions.extend(canonical_collisions)
+    canonical_runtime = (canonical_root / CANONICAL_REPOSITORY_RUNTIME_RELATIVE
+                         if canonical_root is not None else None)
     for label, path in rows:
         git_root, issue = git_root_for_destination(path)
         if issue:
             collisions.append(f'{label}: {issue}: {git_root}')
-        elif git_root is not None:
+        elif git_root is not None and not (
+                canonical_runtime is not None and git_root == canonical_root and
+                path_contains(canonical_runtime, path)):
             collisions.append(f'{label}: installation destination is inside client Git repository: {git_root}')
         if label == 'codex_home' and path_contains(path, release):
             continue
@@ -305,13 +395,17 @@ def _file_identity(st):
     return (st.st_dev, st.st_ino, st.st_size, st.st_mtime_ns, stat.S_IMODE(st.st_mode))
 
 
-def file_record(path):
+def file_record(path, *, max_bytes=MAX_TREE_BYTES, deadline=None, byte_budget=None):
     """Return a bounded, race-checked ownership record for one regular file."""
     path = absolute(path)
     before = os.lstat(path)
     if stat.S_ISLNK(before.st_mode) or not stat.S_ISREG(before.st_mode):
         raise PreflightError(f'owned path is not a regular file: {path}')
-    digest = sha_bytes(read_regular(path, MAX_TREE_BYTES))
+    raw = read_regular(path, min(max_bytes, byte_budget[0]) if byte_budget is not None else max_bytes,
+                       deadline=deadline)
+    if byte_budget is not None:
+        byte_budget[0] -= len(raw)
+    digest = sha_bytes(raw)
     after = os.lstat(path)
     if _file_identity(before) != _file_identity(after):
         raise PreflightError(f'owned file changed during receipt observation: {path}')
@@ -340,6 +434,8 @@ def validate_receipt(receipt, *, shim, state, skills, agents):
     roots = _receipt_roots(shim, state, skills, agents)
     receipt_path = absolute(shim) / RECEIPT_NAME
     owned = {}
+    remaining = [MAX_TREE_BYTES]
+    deadline = time.monotonic() + TREE_SCAN_DEADLINE_SECONDS
     for row in rows:
         if not isinstance(row, dict) or not isinstance(row.get('path'), str):
             raise PreflightError('manual ownership receipt contains an invalid path record')
@@ -352,7 +448,7 @@ def validate_receipt(receipt, *, shim, state, skills, agents):
         allowed = any(path_contains(root, path) and path != root for root in roots[:-1]) or path == roots[-1]
         if not allowed:
             raise PreflightError(f'manual ownership receipt path is outside declared targets: {path}')
-        current = file_record(path)
+        current = file_record(path, byte_budget=remaining, deadline=deadline)
         if current['sha256'] != row['sha256'] or current['mode'] != mode:
             raise PreflightError(f'manual ownership receipt does not match current bytes/mode: {path}')
         owned[path] = row
@@ -437,8 +533,14 @@ def build_receipt(*, release_id, protection_version, mode, shim, state, skills, 
     required = {absolute(shim) / 'INSTALLATION.json', absolute(shim) / 'bin' / 'ios_ai.py', marker}
     if not required.issubset(paths):
         raise PreflightError('cannot emit receipt before the managed shim is complete')
-    rows = [file_record(path) for path in sorted(paths)]
-    return {
+    if len(paths) > MAX_TREE_ENTRIES:
+        raise PreflightError('receipt path count exceeds budget')
+    rows = []
+    remaining = [MAX_TREE_BYTES]
+    deadline = time.monotonic() + TREE_SCAN_DEADLINE_SECONDS
+    for path in sorted(paths):
+        rows.append(file_record(path, byte_budget=remaining, deadline=deadline))
+    receipt = {
         'schema_version': RECEIPT_SCHEMA_VERSION,
         'managed_by': 'ios-engineering-library',
         'release_id': release_id,
@@ -452,6 +554,9 @@ def build_receipt(*, release_id, protection_version, mode, shim, state, skills, 
             'managed_block_sha256': managed_block_sha256,
         },
     }
+    if len(json.dumps(receipt, indent=2, sort_keys=True).encode('utf-8')) + 1 > MAX_RECEIPT_BYTES:
+        raise PreflightError('encoded receipt exceeds read budget')
+    return receipt
 
 
 def build(args):
@@ -476,7 +581,9 @@ def build(args):
         'state_root': state,
         'skills_root': skills,
         'agents_file': agents,
-    }, release))
+    }, release,
+        canonical_repository_root=getattr(args, 'canonical_repository_root', None),
+        allow_canonical_repository_runtime=bool(getattr(args, 'allow_canonical_repository_runtime', False))))
 
     if not release.is_dir():
         collisions.append(f'release_root is missing or not a directory: {release}')
@@ -515,6 +622,10 @@ def build(args):
         'source_tree_sha256': release_identity,
         'generated_by': 'manual_preflight.py',
     }
+    if getattr(args, 'allow_canonical_repository_runtime', False):
+        descriptor['deployment_profile'] = CANONICAL_REPOSITORY_RUNTIME_PROFILE
+        descriptor['canonical_repository_root'] = str(absolute(args.canonical_repository_root))
+        descriptor['canonical_runtime_root'] = str(absolute(args.canonical_repository_root) / CANONICAL_REPOSITORY_RUNTIME_RELATIVE)
     state_marker = {
         'managed_by': 'ios-engineering-library',
         'version': version,
@@ -522,9 +633,11 @@ def build(args):
         'deployment': 'manual',
     }
     receipt_path = shim / RECEIPT_NAME
+    marker = state / '.ioslib-state-owned.json'
     old_receipt = None
     receipt_map = {}
     fresh_receipt_candidate = False
+    reconnect_from_disabled = False
     receipt_seed = {'original_agents_sha256': None, 'original_agents_mode': None}
     expected_block = None
     try:
@@ -564,8 +677,19 @@ def build(args):
             unknown = sorted(set(entries) - expected)
             if unknown:
                 collisions.append('shim contains unknown files: ' + ', '.join(unknown))
-            launcher_hash_matches = sha_file(shim / 'bin' / 'ios_ai.py') == sha_file(release / 'MANUAL_SHIM' / 'bin' / 'ios_ai.py')
-            if set(entries) == {'bin/ios_ai.py'} and launcher_hash_matches:
+            launcher_hash_matches = bool(lexists(shim / 'bin' / 'ios_ai.py')) and sha_file(shim / 'bin' / 'ios_ai.py') == sha_file(release / 'MANUAL_SHIM' / 'bin' / 'ios_ai.py')
+            if not entries:
+                if not lexists(marker):
+                    collisions.append('existing empty manual shim has no managed state marker')
+                else:
+                    disabled_marker = safe_json(marker)
+                    if (disabled_marker.get('managed_by') != 'ios-engineering-library' or
+                            disabled_marker.get('deployment') != 'manual'):
+                        collisions.append('existing empty manual shim has an invalid state marker')
+                    else:
+                        reconnect_from_disabled = True
+                        operations.append({'op': 'reuse_verified_empty_disabled_shim', 'target': str(shim)})
+            elif set(entries) == {'bin/ios_ai.py'} and launcher_hash_matches:
                 # This is the only safe transitional state after the operator has copied the
                 # verified launcher and before INSTALLATION.json is published.
                 operations.append({'op': 'complete_selector_for_verified_transitional_shim', 'target': str(shim)})
@@ -574,7 +698,7 @@ def build(args):
                 if old_descriptor.get('managed_by') != 'ios-engineering-library':
                     collisions.append('existing shim descriptor has a different owner')
                 if lexists(receipt_path):
-                    old_receipt = safe_json(receipt_path)
+                    old_receipt = safe_json(receipt_path, MAX_RECEIPT_BYTES)
                     receipt_map = validate_receipt(old_receipt, shim=shim, state=state, skills=skills, agents=agents)
                     if old_descriptor.get('release_id') != old_receipt.get('release_id'):
                         collisions.append('existing descriptor release does not match the ownership receipt')
@@ -604,7 +728,7 @@ def build(args):
                     collisions.append('existing shim mode differs; only reference-to-full migration is supported')
                 elif old_mode == 'reference' and args.mode == 'full':
                     operations.append({'op': 'migrate_verified_reference_shim_to_full_mode', 'target': str(shim)})
-                if not launcher_hash_matches:
+                if not launcher_hash_matches and not old_receipt:
                     collisions.append('existing shim launcher is modified or from a pre-descriptor release')
                 if old_receipt or fresh_receipt_candidate:
                     operations.append({'op': 'replace_only_verified_managed_shim_files', 'target': str(shim)})
@@ -664,7 +788,6 @@ def build(args):
         except Exception as error:
             collisions.append(f'full-mode skill preflight failed: {error}')
 
-    marker = state / '.ioslib-state-owned.json'
     if lexists(state):
         try:
             if not state.is_dir() or stat.S_IMODE(os.lstat(state).st_mode) & 0o077:
@@ -673,7 +796,7 @@ def build(args):
                 owned = safe_json(marker)
                 if owned.get('managed_by') != 'ios-engineering-library':
                     collisions.append('existing state marker has a different owner')
-                elif old_receipt:
+                elif old_receipt or reconnect_from_disabled:
                     operations.append({'op': 'replace_only_verified_state_marker', 'target': str(marker)})
             elif tree_entries(state):
                 collisions.append('existing state root has no library ownership marker; explicit migration is required')
@@ -684,10 +807,53 @@ def build(args):
     if args.emit_receipt and lexists(marker):
         try:
             current_marker = safe_json(marker)
-            if current_marker != state_marker:
+            if not reconnect_from_disabled and current_marker != state_marker:
                 collisions.append('state ownership marker is not published for the current release')
         except Exception as error:
             collisions.append(f'state ownership marker cannot be validated for receipt: {error}')
+
+    # An old receipt authorizes replacing unchanged files; it does not certify new-release
+    # publication. Receipt emission always checks the actual incoming descriptor and content.
+    if args.emit_receipt:
+        try:
+            if safe_json(shim / 'INSTALLATION.json') != descriptor:
+                raise PreflightError('descriptor is not the current requested deployment')
+            actual = read_regular(agents, MAX_TEXT_BYTES).decode('utf-8')
+            start = actual.index(BEGIN)
+            end = actual.index(END, start) + len(END)
+            if actual[start:end].rstrip() != expected_block:
+                raise PreflightError('managed AGENTS block is not the current release')
+            if old_receipt:
+                original_sha256 = old_receipt.get('agents', {}).get('original_sha256')
+                original_mode = old_receipt.get('agents', {}).get('original_mode')
+            elif getattr(args, 'original_agents_absent', False):
+                original_sha256 = None
+                original_mode = None
+            else:
+                original_sha256 = getattr(args, 'original_agents_sha256', None)
+                original_mode = getattr(args, 'original_agents_mode', None)
+            if original_sha256 is not None:
+                snapshot_path = getattr(args, 'original_agents_snapshot', None)
+                if not snapshot_path:
+                    raise PreflightError('fresh receipt requires the original AGENTS snapshot')
+                snapshot = read_regular(snapshot_path, MAX_TEXT_BYTES)
+                snapshot_stat = os.lstat(absolute(snapshot_path))
+                if sha_bytes(snapshot) != original_sha256 or stat.S_IMODE(snapshot_stat.st_mode) != original_mode:
+                    raise PreflightError('original AGENTS snapshot does not match the recorded seed')
+                expected_prefix = snapshot + b'\n'
+            else:
+                expected_prefix = b'\n'
+            if actual[:start].encode('utf-8') != expected_prefix:
+                raise PreflightError('user-owned AGENTS text changed before the managed block')
+            if sha_file(shim / 'bin' / 'ios_ai.py') != sha_file(manual_shim):
+                raise PreflightError('launcher is not the current release')
+            if args.mode == 'full':
+                for name in incoming:
+                    if not tree_matches_release(skills / name, release / 'GLOBAL_CODEX' / 'skills' / name,
+                            {'references/INSTALLATION.md': release / 'MANUAL_SHIM/INSTALLATION.md'}):
+                        raise PreflightError(f'skill is not the current release: {name}')
+        except Exception as error:
+            collisions.append(f'publication verification failed: {error}')
 
     receipt = None
     if args.emit_receipt and not collisions:
@@ -761,6 +927,11 @@ def main():
     ap.add_argument('--original-agents-sha256')
     ap.add_argument('--original-agents-mode', type=int)
     ap.add_argument('--original-agents-absent', action='store_true')
+    ap.add_argument('--original-agents-snapshot')
+    ap.add_argument('--allow-canonical-repository-runtime', action='store_true',
+                    help='Explicitly allow only the managed runtime subtree of AIZenflowDocumentation.')
+    ap.add_argument('--canonical-repository-root',
+                    help='Git root whose origin must be MArtem/AIZenflowDocumentation for the explicit runtime exception.')
     args = ap.parse_args()
     try:
         result = build(args)

@@ -13,7 +13,7 @@
   "final_archive_sha256": "external_delivery_value",
   "final_archive_sha256_caveat": "The SHA-256 of a ZIP cannot be embedded into that same ZIP without changing it; the delivery response and external review handoff provide the final archive hash.",
   "self_contained": true,
-  "install_scope": "manual_unpack_or_user_global_or_explicit_portable_area",
+  "install_scope": "manual_unpack_or_user_global_or_explicit_portable_area_or_canonical_documentation_runtime",
   "client_repo_install_required": false,
   "default_install_mode": "reference",
   "full_mode": "explicit_opt_in_after_matching_dry_run_preflight",
@@ -28,6 +28,15 @@
       "entrypoint": "install_global.py --portable-area <area>",
       "codex_home": "<area>",
       "skills_root_default": "<area>/skills",
+      "host_activation": "explicit CODEX_HOME must be active before Codex starts",
+      "automatic_future_project_adoption": false
+    },
+    "canonical_repository_runtime": {
+      "entrypoint": "install_global.py --portable-area <canonical-root>/.codex-runtime/ios-engineering --canonical-repository-root <canonical-root> --allow-canonical-repository-runtime",
+      "repository": "MArtem/AIZenflowDocumentation",
+      "codex_home": "<canonical-root>/.codex-runtime/ios-engineering",
+      "mutable_scope": "exact runtime subtree only; source, reusable docs, and .git remain immutable",
+      "admission": "exact lexical Git root plus normalized origin URL and exact CODEX_HOME",
       "host_activation": "explicit CODEX_HOME must be active before Codex starts",
       "automatic_future_project_adoption": false
     },
@@ -59,10 +68,11 @@
     "minimum_parser_compatibility": "Python 3.9 grammar",
     "fixtures": "synthetic temporary Codex homes and Git repositories only",
     "observed_release_working_tree": {
-      "total": 188,
-      "pass": 184,
+      "total": 194,
+      "pass": 189,
       "fail": 0,
-      "skip": 4,
+      "skip": 5,
+      "execution": "serial suite with an operator-selected fixture root inside .zenflow and outside the candidate Git root; see validation report",
       "date": "2026-09-15",
       "wall_clock_seconds_approx": null
     },
@@ -90,9 +100,9 @@
     "transient_write_monitor_provided": false,
     "complete_ignored_file_protection_claimed": false
   },
-  "validated_at": "2026-09-14",
+  "validated_at": "2026-09-15",
   "package_files_in_release_tree": 1366,
-  "integration_note": "Manual unpack and installed reference mode select the same versioned external payload/state through INSTALLATION.json under an explicitly active CODEX_HOME; installer mode adds transactional ownership/rollback while the manual path uses a read-only preflight and operator steps; PROJECT_REFERENCE_OPT_IN.md provides a no-install advisory workflow.",
+  "integration_note": "Manual unpack and installed reference mode select the same versioned external payload/state through INSTALLATION.json under an explicitly active CODEX_HOME; installer mode adds transactional ownership/rollback while the manual path uses a read-only preflight and operator steps; the canonical documentation runtime profile permits only MArtem/AIZenflowDocumentation/.codex-runtime/ios-engineering; PROJECT_REFERENCE_OPT_IN.md provides a no-install advisory workflow.",
   "writer_model": "one-writer-per-git-common-dir; linked worktrees sharing refs are serialized; concurrent writers require independent Git common directories",
   "origin_baseline": {
     "name": "iOS_Engineering_AI_Library_2026_V5_GLOBAL_CODEX_HARDENED.zip",
@@ -133,7 +143,7 @@
     "resulting_candidate": "V5.3"
   },
   "v5_3_scope": "minimal patches for A52-01..03 only; no skill/playbook/policy-engine expansion",
-  "v5_4_scope": "minimal compatibility and bounded legacy-registry hardening for A53-01; no skill/playbook/policy-engine expansion",
+  "v5_4_scope": "minimal compatibility, bounded legacy-registry hardening for A53-01, and the exact canonical documentation-repository runtime admission; no skill/playbook/policy-engine expansion",
   "session_upgrade_compatibility": {
     "current_schema": 3,
     "read_only_archival_schema": [

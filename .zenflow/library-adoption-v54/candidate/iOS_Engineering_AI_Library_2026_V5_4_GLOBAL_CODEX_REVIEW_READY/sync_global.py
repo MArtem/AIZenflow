@@ -47,6 +47,14 @@ def preflight(ch: Path, mode_override=None):
     ]
     if not old.get('source_in_place'):
         path_items.append(('content_root', Path(old.get('content_root', ''))))
+    destination_targets = {label: path for label, path in path_items}
+    conflicts.extend(I.destination_layout_collisions(
+        destination_targets,
+        source_root=Path(old.get('source') or I.HERE),
+        source_in_place=bool(old.get('source_in_place')),
+        canonical_repository_root=old.get('canonical_repository_root'),
+        allow_canonical_repository_runtime=(old.get('deployment_profile') == I.CANONICAL_REPOSITORY_RUNTIME_PROFILE),
+    ))
     for label, p in path_items:
         try:
             I.reject_symlink_path(p)
@@ -127,6 +135,9 @@ def preflight(ch: Path, mode_override=None):
             'write a new ownership registry',
         ],
     }
+    if old.get('canonical_repository_root'):
+        base['canonical_repository_root'] = old['canonical_repository_root']
+        base['canonical_runtime_root'] = old.get('canonical_runtime_root')
     base['preflight_id'] = I.canonical_hash(base)
     return old, base
 

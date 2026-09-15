@@ -58,6 +58,20 @@ def preflight(ch: Path):
     targets.append(('shim', Path(reg['shim_root']), own.get('shim', {})))
     for n, expected in own.get('skills', {}).items():
         targets.append((f'skill {n}', Path(reg['skills_root']) / n, expected))
+    destination_targets = {label: root for label, root, _ in targets}
+    destination_targets.update({
+        'codex_home': ch,
+        'agents_file': Path(reg['agents_file']),
+        'state_root': Path(reg['state_root']),
+        'registry': ch / I.REGISTRY_NAME,
+    })
+    conflicts.extend(I.destination_layout_collisions(
+        destination_targets,
+        source_root=Path(reg.get('source') or I.HERE),
+        source_in_place=bool(reg.get('source_in_place')),
+        canonical_repository_root=reg.get('canonical_repository_root'),
+        allow_canonical_repository_runtime=(reg.get('deployment_profile') == I.CANONICAL_REPOSITORY_RUNTIME_PROFILE),
+    ))
     for label, root, expected in targets:
         conflicts += [f'{label}: {x}' for x in I.check_existing_managed(root, expected)]
 

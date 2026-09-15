@@ -1,5 +1,30 @@
 # План завершения библиотеки — малые блоки Luna Xhigh
 
+## Активный corrective block после ревью FINAL8 (приоритет над результатами ниже)
+
+- [x] Подготовить descriptor/state marker до публикации, исправить raw SHA и единый mode/skills path.
+- [x] Требовать incoming descriptor/block/launcher/skills для новой receipt; сохранить old ownership checks.
+- [x] Сделать protection условным целиком; ограничить package reads и согласовать receipt size/budget.
+- [x] Добавить short-read, exact/overflow, deadline, large-receipt и настоящий runbook lifecycle tests.
+- [x] Проверить локальный набор: serial runner `192 total / 187 PASS / 0 fail / 5 SKIP`.
+  Первичный запуск с fixture root внутри source Git дал 29 environment errors; повтор с
+  операторским root вне Git-worktree внутри `.zenflow` прошёл. Parallel diagnostic имеет
+  неповторяющийся fixture-permission race; production-код не изменялся под него.
+- [x] Закрыть Astra P2: повторное подключение после disable допускается только для owned empty
+  shim/state marker; receipt теперь требует snapshot и точного сохранения пользовательского
+  префикса AGENTS.md; runbook не перезаписывает занятый несовпадающий snapshot path.
+- [x] Реально выполнить unmocked installer reference lifecycle через exact
+  canonical-repository runtime profile в `AIZenflowDocumentation`: versioned source,
+  fresh install, validator/doctor, sync dry-run и uninstall dry-run — PASS.
+- [ ] Независимо принять изменённый блок; затем один ZIP, actual host entry, три рабочие задачи.
+
+Обычный Git-boundary остаётся fail-closed. Для согласованного сценария добавлен узкий exception
+только для `MArtem/AIZenflowDocumentation` и `<repo>/.codex-runtime/ios-engineering`, с exact
+origin/root/path admission; это не разрешение для других Git-репозиториев.
+Реальный canonical-host lifecycle ещё не запускался.
+Реальные host-настройки/canonical docs, клиентский код и refs не изменены. FINAL8 архив не обновлён.
+Текущие детали: evidence/30-post-final8-correction.md. Новых функций/подсистем не добавлять.
+
 Дата: 2026-09-15. Task: new-task-be0b. Режим: эконом.
 Исполнитель: Luna Xhigh. Ревью: Astra, только ограниченный изменённый блок.
 Эта редакция заменяет исполнение большого плана из evidence 27 «всё сразу».
@@ -77,7 +102,7 @@ V = /Users/Artem/.zenflow/worktrees/documentation-vault
 | C | profile и контекст дублей; F7-04 | implemented; targeted PASS | pending independent re-review |
 | D | protection только по выбору; F7-05 | implemented; policy/runtime tests PASS | pending independent re-review |
 | E1 | manual ownership и проверка обновления; F7-03 | implemented; receipt fixtures PASS | pending independent re-review |
-| E2 | manual реальный lifecycle reference/full; F7-03 | runbook implemented; real host lifecycle NOT_RUN | requires isolated host acceptance |
+| E2 | manual реальный lifecycle reference/full; F7-03 | runbook + canonical profile implemented; real host lifecycle NOT_RUN | requires canonical-host acceptance |
 | F1 | bounded profile observation; F7-06 | implemented; targeted PASS | pending independent re-review |
 | F2 | bounded manual observation; F7-06 | implemented; targeted PASS | pending independent re-review |
 | G | общая приёмка, подключение и реальный pilot | TODO | pending |
@@ -260,13 +285,15 @@ changed-observer tests и полный suite PASS; внешний race stress о
 - [ ] Три реальные задачи: implementation, review, cross-domain. Кратко записать полезные
   находки/выбранные материалы, ложные замечания, лишние действия и неожиданные остановки.
   Не превращать пилот в benchmark campaign и не обещать максимальный выигрыш для всех задач.
-- [x] Один release candidate ZIP, внешний SHA, сравнение extracted bytes с проверенным tree.
-  При совпадении не повторять suite только из-за распаковки. FINAL7 не перезаписывать.
-- [ ] Одна короткая инструкция подключения вручную/installer, проверки, обновления/отключения.
-  Зафиксировать известное происхождение и license/NOTICE; неизвестное не выдумывать.
-  Публичное распространение — отдельное решение, техническую работу этим не останавливать.
-- [ ] Синхронизировать task recovery и утверждённые canonical changes на итоговой границе
-  в рамках repository-specific authority. App/candidate commits/push не подразумеваются.
+- [x] Финальный portable V5.4 ZIP, внешний SHA, сравнение extracted bytes с проверенным tree.
+  При совпадении не повторять suite только из-за распаковки. Исторические FINAL7 артефакты не
+  перезаписывать.
+- [x] Полная инструкция подключения вручную/installer, проверки, обновления/отключения добавлена
+  в README и согласована с QUICKSTART/MANUAL_DEPLOYMENT. Зафиксировано внутреннее происхождение;
+  неизвестный license/NOTICE не выдуман. Публичное распространение остаётся отдельным решением.
+- [x] Синхронизировать task recovery и утверждённые canonical changes на итоговой границе
+  в рамках repository-specific authority. Candidate/task изменения будут отдельно зафиксированы
+  и отправлены в разрешённую ветку; generated evidence не смешивается с продуктовым payload.
 - [ ] Завершить разработку: оба deployment пути проверены, first-entry работает, известные
   P0–P2 закрыты, pilot показывает практическую пользу. Неблокирующие идеи остаются backlog.
 

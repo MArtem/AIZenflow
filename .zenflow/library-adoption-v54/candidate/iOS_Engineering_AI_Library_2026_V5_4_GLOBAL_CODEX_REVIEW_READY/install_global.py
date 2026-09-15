@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 from pathlib import Path
-import argparse, errno, functools, hashlib, json, os, re, secrets, shutil, stat, tempfile, time
+import argparse, configparser, errno, functools, hashlib, json, os, re, secrets, shutil, stat, tempfile, time
 
 HERE = Path(__file__).resolve().parent
 G = HERE / 'GLOBAL_CODEX'
@@ -18,6 +18,10 @@ SESSION_SCAN_MAX_RECORDS = 10000
 SESSION_SCAN_MAX_FILE_BYTES = 4 * 1024 * 1024
 SESSION_SCAN_MAX_BYTES = 32 * 1024 * 1024
 SESSION_SCAN_DEADLINE_SECONDS = 10.0
+CANONICAL_REPOSITORY_RUNTIME_PROFILE = 'canonical_repository_runtime'
+CANONICAL_REPOSITORY_RUNTIME_RELATIVE = Path('.codex-runtime') / 'ios-engineering'
+CANONICAL_REPOSITORY_REMOTE = 'https://github.com/MArtem/AIZenflowDocumentation'
+MAX_GIT_CONFIG_BYTES = 256 * 1024
 
 class InstallError(RuntimeError):
     pass
@@ -253,7 +257,68 @@ def _git_root_for_destination(path: Path):
         current = current.parent
 
 
-def destination_layout_collisions(targets, *, source_root=None, source_in_place=False):
+def _normalize_canonical_remote(value: str):
+    value = value.strip()
+    if value.startswith('git@github.com:'):
+        value = 'https://github.com/' + value[len('git@github.com:'):]
+    elif value.startswith('ssh://git@github.com/'):
+        value = 'https://github.com/' + value[len('ssh://git@github.com/'):]
+    value = value.rstrip('/')
+    if value.endswith('.git'):
+        value = value[:-4]
+    return value.rstrip('/')
+
+
+def _canonical_repository_identity(root: Path):
+    """Verify the explicitly selected canonical documentation repository by root and origin."""
+    root = abs_lex(root)
+    detected, issue = _git_root_for_destination(root)
+    if issue:
+        return None, f'canonical repository Git marker is unsafe: {issue}: {detected}'
+    if detected != root:
+        return None, f'canonical repository root mismatch: detected {detected}, requested {root}'
+    marker = root / '.git'
+    try:
+        marker_stat = os.lstat(marker)
+        if not stat.S_ISDIR(marker_stat.st_mode):
+            return None, f'canonical repository .git marker is not a directory: {marker}'
+        config = configparser.ConfigParser(interpolation=None, strict=False)
+        config.read_string(read_regular_bytes(marker / 'config', MAX_GIT_CONFIG_BYTES).decode('utf-8'))
+        remote = config.get('remote "origin"', 'url', fallback=None)
+    except Exception as error:
+        return None, f'canonical repository origin is unreadable: {type(error).__name__}'
+    if _normalize_canonical_remote(remote or '') != CANONICAL_REPOSITORY_REMOTE:
+        return None, 'canonical repository origin is not MArtem/AIZenflowDocumentation'
+    return root, None
+
+
+def _canonical_runtime_admission(targets, *, canonical_repository_root=None,
+                                 allow_canonical_repository_runtime=False):
+    """Return the narrow, explicit exception for the canonical repository runtime subtree."""
+    if not allow_canonical_repository_runtime:
+        return None, []
+    if canonical_repository_root is None:
+        return None, ['canonical repository runtime requires --canonical-repository-root']
+    root, issue = _canonical_repository_identity(Path(canonical_repository_root))
+    if issue:
+        return None, [issue]
+    runtime = root / CANONICAL_REPOSITORY_RUNTIME_RELATIVE
+    home = abs_lex(targets.get('codex_home'))
+    collisions = []
+    if home != runtime:
+        collisions.append(f'canonical repository runtime must use exact CODEX_HOME: {runtime}')
+    for label, path in targets.items():
+        path = abs_lex(path)
+        if label in {'release_root', 'content_root'}:
+            continue
+        if not _path_contains(runtime, path):
+            collisions.append(f'{label}: canonical runtime target escapes managed runtime root: {path}')
+    return root, collisions
+
+
+def destination_layout_collisions(targets, *, source_root=None, source_in_place=False,
+                                  canonical_repository_root=None,
+                                  allow_canonical_repository_runtime=False):
     """Reject client-repository destinations and unintended target overlap.
 
     The Codex home is the only intended container: its managed children may overlap it. The
@@ -263,13 +328,21 @@ def destination_layout_collisions(targets, *, source_root=None, source_in_place=
     rows = [(label, abs_lex(path)) for label, path in targets.items()]
     collisions = []
     source = abs_lex(source_root) if source_root is not None else None
+    canonical_root, canonical_collisions = _canonical_runtime_admission(
+        dict(rows), canonical_repository_root=canonical_repository_root,
+        allow_canonical_repository_runtime=allow_canonical_repository_runtime)
+    collisions.extend(canonical_collisions)
+    canonical_runtime = (canonical_root / CANONICAL_REPOSITORY_RUNTIME_RELATIVE
+                         if canonical_root is not None else None)
     for label, path in rows:
         if label == 'release_root' or (source_in_place and label == 'content_root'):
             continue
         git_root, issue = _git_root_for_destination(path)
         if issue:
             collisions.append(f'{label}: {issue}: {git_root}')
-        elif git_root is not None:
+        elif git_root is not None and not (
+                canonical_runtime is not None and git_root == canonical_root and
+                _path_contains(canonical_runtime, path)):
             collisions.append(f'{label}: installation destination is inside client Git repository: {git_root}')
     if source is not None:
         for label, path in rows:
@@ -710,6 +783,8 @@ def build_preflight(args, for_update=False):
         path_targets,
         source_root=HERE,
         source_in_place=bool(args.use_source_in_place),
+        canonical_repository_root=getattr(args, 'canonical_repository_root', None),
+        allow_canonical_repository_runtime=bool(getattr(args, 'allow_canonical_repository_runtime', False)),
     ))
 
     try:
@@ -780,7 +855,11 @@ def build_preflight(args, for_update=False):
     base = {
         'version': VERSION,
         'protection_version': PROTECTION_VERSION,
-        'deployment_profile': 'portable_area' if getattr(args, 'portable_area', None) else 'user_global',
+        'deployment_profile': (
+            CANONICAL_REPOSITORY_RUNTIME_PROFILE
+            if getattr(args, 'allow_canonical_repository_runtime', False)
+            else ('portable_area' if getattr(args, 'portable_area', None) else 'user_global')
+        ),
         'mode': args.mode,
         'source': str(HERE),
         'source_tree_sha256': source_tree_sha256,
@@ -802,6 +881,9 @@ def build_preflight(args, for_update=False):
         ],
         'operations': operations,
     }
+    if getattr(args, 'allow_canonical_repository_runtime', False):
+        base['canonical_repository_root'] = str(abs_lex(args.canonical_repository_root))
+        base['canonical_runtime_root'] = str(abs_lex(args.canonical_repository_root) / CANONICAL_REPOSITORY_RUNTIME_RELATIVE)
     base['preflight_id'] = canonical_hash(base)
     return base
 
@@ -1103,6 +1185,10 @@ def parser():
         '--portable-area',
         help='Use an explicit area as CODEX_HOME and keep full-mode skills under <area>/skills; this does not configure the host automatically.',
     )
+    ap.add_argument('--allow-canonical-repository-runtime', action='store_true',
+                    help='Explicitly allow only the managed runtime subtree of AIZenflowDocumentation.')
+    ap.add_argument('--canonical-repository-root',
+                    help='Git root whose origin must be MArtem/AIZenflowDocumentation for the explicit runtime exception.')
     ap.add_argument('--use-source-in-place', action='store_true')
     return ap
 
@@ -1110,6 +1196,8 @@ def parser():
 def apply_deployment_profile(args):
     """Resolve an explicit portable area without changing the default global profile."""
     if not args.portable_area:
+        if getattr(args, 'allow_canonical_repository_runtime', False):
+            raise InstallError('--allow-canonical-repository-runtime requires --portable-area')
         return
     area = abs_lex(args.portable_area)
     if args.codex_home:
@@ -1129,6 +1217,13 @@ def apply_deployment_profile(args):
     args.codex_home = area
     if args.skills_root == 'auto':
         args.skills_root = 'codex-home'
+    if getattr(args, 'allow_canonical_repository_runtime', False):
+        if not args.canonical_repository_root:
+            raise InstallError('--allow-canonical-repository-runtime requires --canonical-repository-root')
+        canonical_root = abs_lex(args.canonical_repository_root)
+        expected = canonical_root / CANONICAL_REPOSITORY_RUNTIME_RELATIVE
+        if area != expected:
+            raise InstallError(f'--portable-area must equal canonical runtime root: {expected}')
 
 
 def main():

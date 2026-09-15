@@ -1,6 +1,6 @@
 # Quick Start — V5.4 Review Ready
 
-Do not install this library into a client repository. Validate it first. If you want an installed pilot, inspect a dry-run and start with **reference mode**. Reference mode **does modify user-global Codex configuration**; for a no-install/no-global-instruction evaluation, use `PROJECT_REFERENCE_OPT_IN.md` instead.
+Do not install this library into a client repository. Validate it first. If you want an installed pilot, inspect a dry-run and start with **reference mode**. Reference mode **does modify user-global Codex configuration**; for a no-install/no-global-instruction evaluation, use `PROJECT_REFERENCE_OPT_IN.md` instead. The only Git-root exception is the exact managed runtime subtree of `MArtem/AIZenflowDocumentation` described below.
 
 ```bash
 python3 validate_package.py
@@ -32,6 +32,26 @@ The portable profile keeps full-mode skills under `$AREA_ROOT/skills` only when 
 selected; do not assume that a separate Codex process will use this area unless its effective
 `CODEX_HOME` is verified. Explicit destination overrides are rejected when they escape the selected
 area.
+
+For the canonical documentation repository, keep the versioned library source in the repository
+and put only generated runtime state in its separate ignored subtree:
+
+```bash
+DOCS_ROOT=/ABSOLUTE/PATH/TO/AIZenflowDocumentation
+AREA_ROOT="$DOCS_ROOT/.codex-runtime/ios-engineering"
+export CODEX_HOME="$AREA_ROOT"
+python3 install_global.py --portable-area "$AREA_ROOT" \
+  --canonical-repository-root "$DOCS_ROOT" \
+  --allow-canonical-repository-runtime --use-source-in-place \
+  --mode reference --dry-run
+python3 install_global.py --portable-area "$AREA_ROOT" \
+  --canonical-repository-root "$DOCS_ROOT" \
+  --allow-canonical-repository-runtime --use-source-in-place \
+  --mode reference
+```
+
+Only `<DOCS_ROOT>/.codex-runtime/ios-engineering` is writable; the source/docs tree and `.git`
+remain protected. The repository origin must be `MArtem/AIZenflowDocumentation`.
 
 For **full** mode, inspect the full preflight and reuse its exact ID:
 
