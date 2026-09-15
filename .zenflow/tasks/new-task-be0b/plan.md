@@ -291,8 +291,10 @@ changed-observer tests и полный suite PASS; внешний race stress о
   неизвестный license/NOTICE не выдуман. Публичное распространение остаётся отдельным решением.
 - [x] Синхронизировать task recovery и canonical source/runtime на итоговой границе в рамках
   repository-specific authority; generated evidence не смешивать с product payload.
-- [ ] Отдельно зафиксировать и отправить task-repository changes и canonical-documentation
-  changes после final-diff review; push не считать выполненным до exact-SHA receipt.
+- [x] Отдельно зафиксировать task-repository changes и canonical-documentation changes после
+  final-diff review; canonical push подтверждён exact SHA.
+- [ ] Отправить task-repository commit в non-canonical AIZenflow remote; local commit создан,
+  но external-egress policy требует отдельного явного подтверждения exact destination.
 - [ ] Завершить разработку: оба deployment пути проверены, first-entry работает, известные
   P0–P2 закрыты, pilot показывает практическую пользу. Сейчас локальная реализация и
   canonical runtime PASS, но first-entry/pilot/independent review остаются открыты.
