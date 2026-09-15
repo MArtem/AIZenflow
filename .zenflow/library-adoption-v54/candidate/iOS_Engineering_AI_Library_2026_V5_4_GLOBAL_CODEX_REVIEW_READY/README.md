@@ -332,19 +332,37 @@ that slot. Independent clones have independent Git common directories.
 ## 11. Safe update, rollback, and uninstall
 
 Keep every release in a new versioned directory. Do not overwrite the old release in place.
+For an installer deployment created with `--use-source-in-place`, run the update command from
+the new release directory. `sync_global.py` treats the directory containing that script as the
+incoming release root, switches the selector and managed runtime to it, and leaves the previously
+registered source directory and external state untouched. Running the old release's
+`sync_global.py` later is the supported rollback path after the new release has been stopped.
 
 For an installer-managed deployment:
 
 ```bash
-python3 "$LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT" --dry-run
+NEW_LIB_ROOT=/ABSOLUTE/PATH/TO/NEW/VERSIONED/RELEASE
+python3 "$NEW_LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT" --dry-run
 # Review the output, then run the matching update command only when no ownership conflict exists.
-python3 "$LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT"
-python3 "$LIB_ROOT/validate_global_install.py" --codex-home "$AREA_ROOT"
+python3 "$NEW_LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT"
+python3 "$NEW_LIB_ROOT/validate_global_install.py" --codex-home "$AREA_ROOT"
 ```
 
 `sync_global.py` updates only unchanged managed assets. A local modification is a conflict and is
-preserved. Keep the previous archive/release until a fresh session passes. If an update is
-uncertain, stop and use a fresh dedicated Codex area rather than forcing ownership.
+preserved. Its dry-run must show the new `source`, `content_root`, `version`, and
+`source_tree_sha256` before publication. Keep the previous archive/release until a fresh session
+passes. If an update is uncertain, stop and use a fresh dedicated Codex area rather than forcing
+ownership. Do not treat `--dry-run` as an update or rollback.
+
+To return to the preserved previous source, stop Codex and repeat the same checked sequence with
+the previous release directory:
+
+```bash
+OLD_LIB_ROOT=/ABSOLUTE/PATH/TO/PREVIOUS/VERSIONED/RELEASE
+python3 "$OLD_LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT" --dry-run
+python3 "$OLD_LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT"
+python3 "$OLD_LIB_ROOT/validate_global_install.py" --codex-home "$AREA_ROOT"
+```
 
 To inspect removal before changing anything:
 
@@ -381,7 +399,7 @@ The V5.4 release inventory is recorded in `GLOBAL_MANIFEST.json` and the exact f
 - 51 knowledge sections;
 - 288 deep playbooks;
 - 60 namespaced optional skills;
-- 194 synthetic tests, observed as 189 passed, 0 failed, and 5 skipped in the release working tree;
+- 196 synthetic tests, observed as 191 passed, 0 failed, and 5 skipped in the release working tree;
 - structural package validation with no validator errors at the time of release preparation.
 
 These numbers describe shipped inventory and observed checks; they are not a claim that every

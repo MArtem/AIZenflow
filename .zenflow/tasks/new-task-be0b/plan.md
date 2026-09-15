@@ -1,35 +1,31 @@
-# План завершения библиотеки — малые блоки Luna Xhigh
+# План завершения библиотеки — финализация Luna Xhigh
 
-## Активный corrective block после ревью FINAL8 (приоритет над результатами ниже)
+## Текущий статус на 2026-09-15
 
-- [x] Подготовить descriptor/state marker до публикации, исправить raw SHA и единый mode/skills path.
-- [x] Требовать incoming descriptor/block/launcher/skills для новой receipt; сохранить old ownership checks.
-- [x] Сделать protection условным целиком; ограничить package reads и согласовать receipt size/budget.
-- [x] Добавить short-read, exact/overflow, deadline, large-receipt и настоящий runbook lifecycle tests.
-- [x] Проверить локальный набор: serial runner `192 total / 187 PASS / 0 fail / 5 SKIP`.
-  Первичный запуск с fixture root внутри source Git дал 29 environment errors; повтор с
-  операторским root вне Git-worktree внутри `.zenflow` прошёл. Parallel diagnostic имеет
-  неповторяющийся fixture-permission race; production-код не изменялся под него.
-- [x] Закрыть Astra P2: повторное подключение после disable допускается только для owned empty
-  shim/state marker; receipt теперь требует snapshot и точного сохранения пользовательского
-  префикса AGENTS.md; runbook не перезаписывает занятый несовпадающий snapshot path.
-- [x] Реально выполнить unmocked installer reference lifecycle через exact
-  canonical-repository runtime profile в `AIZenflowDocumentation`: versioned source,
-  fresh install, validator/doctor, sync dry-run и uninstall dry-run — PASS.
-- [ ] Независимо принять изменённый блок; затем один ZIP, actual host entry, три рабочие задачи.
+- [x] Локальные блоки A–F доведены до согласованного поведения; новые regression cases для
+  package identity и source-in-place selector switch/rollback проходят.
+- [x] Candidate и canonical source синхронизированы на `5.4-review-ready.7`; package identity:
+  `af0e182be06836917566b79ae3d322519bf595fa64630516392f5b2a3e317475`.
+- [x] Structural validator: `1366 files / 60 skills / 51 sections / 288 playbooks / 0 errors`.
+- [x] Финальный serial suite: `196 total / 191 PASS / 0 FAIL / 5 SKIP`; пять host-dependent
+  positive cases остались `NOT_RUN` из-за home-level Git root над разрешённым `.zenflow`.
+- [x] Existing canonical repository runtime обновлён штатным `sync_global.py` через exact
+  `.codex-runtime/ios-engineering` exception; post-sync validator и installed shim doctor PASS.
+- [x] Новый portable archive создан рядом с историческим archive и проверен byte-for-byte:
+  `.../iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_XHIGH_IMPLEMENTED_V17.zip`.
+- [ ] Независимая Astra-приёмка, реальный fresh first-entry Codex Desktop и три user-owned pilot
+  tasks не выдавать за выполненные: этот CLI не имеет наблюдаемого доступа к active desktop
+  process/host discovery, а user-run pilot ещё не запускался.
 
-Обычный Git-boundary остаётся fail-closed. Для согласованного сценария добавлен узкий exception
-только для `MArtem/AIZenflowDocumentation` и `<repo>/.codex-runtime/ios-engineering`, с exact
-origin/root/path admission; это не разрешение для других Git-репозиториев.
-Реальный canonical-host lifecycle ещё не запускался.
-Реальные host-настройки/canonical docs, клиентский код и refs не изменены. FINAL8 архив не обновлён.
-Текущие детали: evidence/30-post-final8-correction.md. Новых функций/подсистем не добавлять.
+Обычный Git-boundary остаётся fail-closed. Узкое исключение действует только для
+`MArtem/AIZenflowDocumentation` и exact `<repo>/.codex-runtime/ios-engineering`; это не
+разрешение для других Git-репозиториев. Старые evidence/reviews/archives сохраняются как
+история и не являются текущим PASS. Новых функций/подсистем не добавлять.
 
-Дата: 2026-09-15. Task: new-task-be0b. Режим: эконом.
-Исполнитель: Luna Xhigh. Ревью: Astra, только ограниченный изменённый блок.
-Эта редакция заменяет исполнение большого плана из evidence 27 «всё сразу».
-Evidence 27 сохраняет доказательства F7-01..06 и общий host-block; его старый порядок
-исполнения больше не применяется.
+Дата: 2026-09-15. Task: new-task-be0b. Режим: эконом. Исполнитель: Luna Xhigh.
+Следующий безопасный шаг после этой локальной финализации — independent review или user-run
+host/pilot acceptance; при передаче контекста обязательно:
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
 ## Цель и текущая точка
 
@@ -277,11 +273,13 @@ changed-observer tests и полный suite PASS; внешний race stress о
   весь корпус; новые P0–P2 устранять в соответствующем блоке, не генерировать новый план.
 - [x] Один актуальный suite/validator после стабилизации. На failure исправить причину,
   сначала повторить затронутый check; общий PASS должен соответствовать окончательному коду.
-- [ ] Применить concrete reviewed host/canonical diff в пределах точной authority. Не менять
-  CODEX_HOME для удобства. Сохранить backup и проверить отключение.
+- [ ] Применить concrete reviewed common-host diff в пределах отдельной точной authority.
+  Не менять CODEX_HOME для удобства. В текущем CLI exact active desktop host target не
+  наблюдаем и host-side delivery не утверждается.
 - [ ] Свежие existing, new/imported-without-AGENTS, linked-worktree, non-iOS задачи:
   common baseline до первой проектной операции; nested/non-Git/outside scope — явные outcomes.
-  Не использовать искусственный prompt, который сам напоминает о библиотеке.
+  Не использовать искусственный prompt, который сам напоминает о библиотеке. Это user-owned
+  pilot и остаётся NOT_RUN до запуска в реальных новых задачах.
 - [ ] Три реальные задачи: implementation, review, cross-domain. Кратко записать полезные
   находки/выбранные материалы, ложные замечания, лишние действия и неожиданные остановки.
   Не превращать пилот в benchmark campaign и не обещать максимальный выигрыш для всех задач.
@@ -291,11 +289,13 @@ changed-observer tests и полный suite PASS; внешний race stress о
 - [x] Полная инструкция подключения вручную/installer, проверки, обновления/отключения добавлена
   в README и согласована с QUICKSTART/MANUAL_DEPLOYMENT. Зафиксировано внутреннее происхождение;
   неизвестный license/NOTICE не выдуман. Публичное распространение остаётся отдельным решением.
-- [x] Синхронизировать task recovery и утверждённые canonical changes на итоговой границе
-  в рамках repository-specific authority. Candidate/task изменения будут отдельно зафиксированы
-  и отправлены в разрешённую ветку; generated evidence не смешивается с продуктовым payload.
+- [x] Синхронизировать task recovery и canonical source/runtime на итоговой границе в рамках
+  repository-specific authority; generated evidence не смешивать с product payload.
+- [ ] Отдельно зафиксировать и отправить task-repository changes и canonical-documentation
+  changes после final-diff review; push не считать выполненным до exact-SHA receipt.
 - [ ] Завершить разработку: оба deployment пути проверены, first-entry работает, известные
-  P0–P2 закрыты, pilot показывает практическую пользу. Неблокирующие идеи остаются backlog.
+  P0–P2 закрыты, pilot показывает практическую пользу. Сейчас локальная реализация и
+  canonical runtime PASS, но first-entry/pilot/independent review остаются открыты.
 
 ## Полномочия и передача
 

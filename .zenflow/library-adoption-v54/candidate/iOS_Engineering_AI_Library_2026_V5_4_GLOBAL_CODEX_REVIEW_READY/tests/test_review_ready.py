@@ -63,7 +63,13 @@ _REAL_GIT_ROOT_FOR_DESTINATION=I._git_root_for_destination
 
 def _external_test_git_root(path):
     root, issue = _REAL_GIT_ROOT_FOR_DESTINATION(path)
-    if root == Path.home():
+    # The controlled runner may execute with an elevated HOME while the approved
+    # fixture root remains under /Users/Artem/.zenflow. Treat only this explicit
+    # operator-selected fixture subtree as external; production Git-boundary
+    # enforcement remains unmodified.
+    path=Path(path).absolute()
+    fixture=TEST_TMP_ROOT
+    if root == Path.home() or path == fixture or fixture in path.parents:
         return None, None
     return root, issue
 
@@ -967,8 +973,71 @@ class PackagePolicyTests(unittest.TestCase):
             env=dict(os.environ); env['CODEX_HOME']=str(home)
             p=run([sys.executable,shim/'ios_ai.py','doctor'],env=env)
             self.assertEqual(p.returncode,0,p.stdout+p.stderr)
-            data=json.loads(p.stdout); self.assertEqual(data['cli_version'],'5.4-review-ready.6'); self.assertEqual(Path(data['library']),content); self.assertEqual(Path(data['state_root']),home/'external-state')
+            data=json.loads(p.stdout); self.assertEqual(data['cli_version'],'5.4-review-ready.7'); self.assertTrue(data['identity_verified']); self.assertEqual(Path(data['library']),content); self.assertEqual(Path(data['state_root']),home/'external-state')
         finally: shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_installed_package_identity_mismatch_is_not_pass(self):
+        td=test_tmpdir(); home=td/'identity-home'; skills=td/'identity-skills'; home.mkdir()
+        (home/'AGENTS.md').write_text('# user rules\n')
+        source=ROOT/'README.md'; original=source.read_bytes()
+        try:
+            I.package_tree_identity.cache_clear()
+            fresh_install(home,skills,'reference')
+            source.write_bytes(original+b'\nidentity mismatch regression fixture\n')
+            I.package_tree_identity.cache_clear()
+            validated=run([sys.executable,ROOT/'validate_global_install.py','--codex-home',home])
+            self.assertNotEqual(validated.returncode,0,validated.stdout+validated.stderr)
+            self.assertIn('package identity mismatch',validated.stdout)
+            doctor=run([sys.executable,home/'ios-engineering-shim/bin/ios_ai.py','doctor'],env=dict(os.environ,CODEX_HOME=str(home)))
+            self.assertNotEqual(doctor.returncode,0,doctor.stdout+doctor.stderr)
+            self.assertIn('identity',doctor.stdout+doctor.stderr)
+        finally:
+            source.write_bytes(original)
+            I.package_tree_identity.cache_clear()
+            shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_source_in_place_update_switches_release_root_and_can_return(self):
+        td=test_tmpdir(); home=td/'selector-home'; skills=td/'selector-skills'; home.mkdir()
+        (home/'AGENTS.md').write_text('# user rules\n')
+        release_b=td/'release-b'
+        try:
+            I.package_tree_identity.cache_clear()
+            first=fresh_install(home,skills,'reference')
+            old_root=Path(first['content_root']); old_readme=(old_root/'README.md').read_bytes()
+            sentinel=Path(first['state_root'])/'history-sentinel'; sentinel.write_text('preserve\n')
+            shutil.copytree(ROOT,release_b,symlinks=True,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+            (release_b/'README.md').write_bytes((release_b/'README.md').read_bytes()+b'\nrelease B\n')
+            original_identity=I.package_tree_identity
+            release_b_identity=original_identity.__wrapped__(release_b)
+            with mock.patch.object(I,'_git_root_for_destination',side_effect=_external_test_git_root), \
+                    mock.patch.object(I,'HERE',release_b), mock.patch.object(I,'G',release_b/'GLOBAL_CODEX'), \
+                    mock.patch.object(I,'package_tree_identity',side_effect=lambda root=release_b: release_b_identity):
+                old,pre=S.preflight(home)
+                self.assertNotIn('source-in-place update must run from the registered source root',pre['collisions'])
+                self.assertEqual(Path(pre['content_root']),release_b)
+                with mock.patch.object(sys,'argv',['sync_global.py','--codex-home',str(home)]), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(S.main(),0)
+            updated=json.loads((home/I.REGISTRY_NAME).read_text())
+            self.assertEqual(Path(updated['content_root']),release_b)
+            self.assertEqual(Path(updated['source']),release_b)
+            self.assertEqual(updated['source_tree_sha256'],release_b_identity)
+            descriptor=json.loads((home/'ios-engineering-shim/INSTALLATION.json').read_text())
+            self.assertEqual(Path(descriptor['knowledge_root']),release_b)
+            self.assertEqual((old_root/'README.md').read_bytes(),old_readme)
+            self.assertEqual(sentinel.read_text(),'preserve\n')
+            validated=run([sys.executable,ROOT/'validate_global_install.py','--codex-home',home])
+            self.assertEqual(validated.returncode,0,validated.stdout+validated.stderr)
+            with mock.patch.object(I,'_git_root_for_destination',side_effect=_external_test_git_root), \
+                    mock.patch.object(I,'HERE',old_root), mock.patch.object(I,'G',old_root/'GLOBAL_CODEX'), \
+                    mock.patch.object(I,'package_tree_identity',side_effect=lambda root=old_root: original_identity.__wrapped__(old_root)):
+                with mock.patch.object(sys,'argv',['sync_global.py','--codex-home',str(home)]), contextlib.redirect_stdout(io.StringIO()):
+                    self.assertEqual(S.main(),0)
+            rolled_back=json.loads((home/I.REGISTRY_NAME).read_text())
+            self.assertEqual(Path(rolled_back['content_root']),old_root)
+            self.assertEqual(sentinel.read_text(),'preserve\n')
+        finally:
+            I.package_tree_identity.cache_clear()
+            shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_manual_shim_switches_external_release_from_descriptor(self):
         td=test_tmpdir()

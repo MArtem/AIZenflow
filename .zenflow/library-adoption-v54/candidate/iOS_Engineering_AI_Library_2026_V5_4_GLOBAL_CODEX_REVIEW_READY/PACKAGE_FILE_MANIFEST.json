@@ -6,111 +6,6 @@
       "size": 33
     },
     {
-      "path": "AGENTS.md",
-      "sha256": "5ecbc98563f560b8aa419f941a21f5f427d89f0dc8d38950472b066b6cc19a6c",
-      "size": 775
-    },
-    {
-      "path": "CAPABILITY_MATRIX.md",
-      "sha256": "5e8e553b28dec6bf513ebb33ad374822ef6653b66febcdd857fa2c89816eb642",
-      "size": 1215
-    },
-    {
-      "path": "CATALOG.csv",
-      "sha256": "12247c5445f40bdc6bf1295cd62483996f55a52790406c76d3676c3dc5a4d3ad",
-      "size": 105905
-    },
-    {
-      "path": "GLOBAL_ARCHITECTURE.md",
-      "sha256": "19b34539e7652c5b777969e5e1fdd1ce356a3ba1916d8eff5c01fd5144962377",
-      "size": 8260
-    },
-    {
-      "path": "GLOBAL_MANIFEST.json",
-      "sha256": "b04a337efcb799d9c8e5cfbca154bbd1a2a01d9cc0b83b5f1ad6a50e4473b374",
-      "size": 8286
-    },
-    {
-      "path": "GLOBAL_VALIDATION_REPORT.md",
-      "sha256": "8d3c7d23115048a29adb32c17f7b1c1e89251ec7675a0fa72bdb1ed940b85421",
-      "size": 940
-    },
-    {
-      "path": "INDEX.md",
-      "sha256": "04d42fd5dd8b5be4f200a30d3857b576bcd1159a59fc7fa64cb36dbcc74c3b85",
-      "size": 2702
-    },
-    {
-      "path": "LIBRARY_MAP.md",
-      "sha256": "faced787b8bd3ebc7a02b67220da72b4c7daf41ce5b0d1a441a6e4a04e0e18d6",
-      "size": 954
-    },
-    {
-      "path": "MANUAL_DEPLOYMENT.md",
-      "sha256": "48bff52e1723a080f1fac4ca6b2c222496cd93336e90e377d8fa11f09df377ea",
-      "size": 19737
-    },
-    {
-      "path": "PROJECT_REFERENCE_OPT_IN.md",
-      "sha256": "4483e16d9ddc5c5f1f8fd67a3892995d4d135c5a2f3ad58d2b572b01f4df0c6f",
-      "size": 1558
-    },
-    {
-      "path": "QUICKSTART.md",
-      "sha256": "f2d0c161a0219c9570880384f4a314eb524648dd0892c8bcfb550c50247b964c",
-      "size": 5472
-    },
-    {
-      "path": "README.md",
-      "sha256": "6cea9236d3b6c2c9d41d829931545ccd9f5479480602d420ac2103cd601bb4f2",
-      "size": 22787
-    },
-    {
-      "path": "RECOMMENDED_SETS.md",
-      "sha256": "2e363c2ecf4e9b6f882f50ee7a8f6e7143ec859309f238d5d174bb06f9ec68cd",
-      "size": 668
-    },
-    {
-      "path": "REVIEW_FINDINGS_MATRIX.md",
-      "sha256": "4ce1d658d8aa504f19df700f6cba25996f873c2735c19716be93eddd6c8345c6",
-      "size": 30188
-    },
-    {
-      "path": "REVIEW_READY_VALIDATION_REPORT.md",
-      "sha256": "0ab696a4e51736eca229e0c1b8318c98edf6d88854d974b2f711489b2c5e0211",
-      "size": 16646
-    },
-    {
-      "path": "bootstrap_global.sh",
-      "sha256": "ab1b51919e1c2b4e0c296ceb5089c917b75e0135b794fca73311e29fabe2682e",
-      "size": 272
-    },
-    {
-      "path": "install_global.py",
-      "sha256": "218d10aa353f8fa1ae4f02e9c8c2a0fc6aedb5a1887d9eff2caa05ad100b887e",
-      "size": 54975
-    },
-    {
-      "path": "sync_global.py",
-      "sha256": "c7651ad50d446c33672d503b1b1637b73ceb116bf5cfd1152dcd2cd5c201b0d2",
-      "size": 19711
-    },
-    {
-      "path": "uninstall_global.py",
-      "sha256": "2e64c3e4805eddb5a137828d2f2ab8bd48175146e59c0925634c435fb99e6fb4",
-      "size": 12710
-    },
-    {
-      "path": "validate_global_install.py",
-      "sha256": "7999a10ccf434a14cab933cc6ffe015dd908418aecb8f37fc69e368ffb0a2603",
-      "size": 10814
-    },
-    {
-      "path": "validate_package.py",
-      "sha256": "81c80e28de5531cac53978d1f9f43e3b450accba8df3451cf30cd925f707f9d5",
-      "size": 11797
-    },
-    {
       "path": "00_META/AI_CODING_AGENT_GUARDRAILS.md",
       "sha256": "e7fd8ef1035b39f33f8f12643876a5a63b489173cb0083fc964873b9ee5073be",
       "size": 1010
@@ -4666,6 +4561,36 @@
       "size": 246
     },
     {
+      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/AUTH_AGENTS.md",
+      "sha256": "1e851e6908de466f02d56af067a6633d5c5ec6c577762d70617c972ee6ae9fd8",
+      "size": 234
+    },
+    {
+      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/GENERATED_AGENTS.md",
+      "sha256": "85e2cb4078dc4343a6629749ad65a20780aa12d6770469deb05140404d904b94",
+      "size": 175
+    },
+    {
+      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/PERSISTENCE_AGENTS.md",
+      "sha256": "9a59459739c9592e783152735ba936e1f88433434ffa47bec7bf37837f75ce0e",
+      "size": 300
+    },
+    {
+      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/RELEASE_AGENTS.md",
+      "sha256": "411e5aba539b4a1f9781a85582e10d0aa3c593ed33c1fde7913f48b559b35092",
+      "size": 240
+    },
+    {
+      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/SDK_AGENTS.md",
+      "sha256": "929f929a7ce9686dccb72e8121afcb76e2a8d588f36e55fab4d5d85ae5faab44",
+      "size": 236
+    },
+    {
+      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/TESTS_AGENTS.md",
+      "sha256": "bbdcdd24bbf1ac2ccc7193dfa1a3bd6a058c0126ac2dafd78cb2b074987bb7f6",
+      "size": 250
+    },
+    {
       "path": "39_PROJECT_CONTEXT/OBSERVABILITY_MAP.md",
       "sha256": "08f32229d8e43f261bce2f93203dcd77bd3eb5b00f1f003e3ee5c9214a9b1f81",
       "size": 252
@@ -4699,36 +4624,6 @@
       "path": "39_PROJECT_CONTEXT/TARGET_MATRIX.md",
       "sha256": "3999c839651259552f4352684ce7d4b2d65c51fd17d653b98d51421f1241f752",
       "size": 297
-    },
-    {
-      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/AUTH_AGENTS.md",
-      "sha256": "1e851e6908de466f02d56af067a6633d5c5ec6c577762d70617c972ee6ae9fd8",
-      "size": 234
-    },
-    {
-      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/GENERATED_AGENTS.md",
-      "sha256": "85e2cb4078dc4343a6629749ad65a20780aa12d6770469deb05140404d904b94",
-      "size": 175
-    },
-    {
-      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/PERSISTENCE_AGENTS.md",
-      "sha256": "9a59459739c9592e783152735ba936e1f88433434ffa47bec7bf37837f75ce0e",
-      "size": 300
-    },
-    {
-      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/RELEASE_AGENTS.md",
-      "sha256": "411e5aba539b4a1f9781a85582e10d0aa3c593ed33c1fde7913f48b559b35092",
-      "size": 240
-    },
-    {
-      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/SDK_AGENTS.md",
-      "sha256": "929f929a7ce9686dccb72e8121afcb76e2a8d588f36e55fab4d5d85ae5faab44",
-      "size": 236
-    },
-    {
-      "path": "39_PROJECT_CONTEXT/NESTED_AGENTS_TEMPLATES/TESTS_AGENTS.md",
-      "sha256": "bbdcdd24bbf1ac2ccc7193dfa1a3bd6a058c0126ac2dafd78cb2b074987bb7f6",
-      "size": 250
     },
     {
       "path": "40_REPO_AUTOMATION/README.md",
@@ -5311,6 +5206,26 @@
       "size": 772
     },
     {
+      "path": "AGENTS.md",
+      "sha256": "5ecbc98563f560b8aa419f941a21f5f427d89f0dc8d38950472b066b6cc19a6c",
+      "size": 775
+    },
+    {
+      "path": "CAPABILITY_MATRIX.md",
+      "sha256": "5e8e553b28dec6bf513ebb33ad374822ef6653b66febcdd857fa2c89816eb642",
+      "size": 1215
+    },
+    {
+      "path": "CATALOG.csv",
+      "sha256": "12247c5445f40bdc6bf1295cd62483996f55a52790406c76d3676c3dc5a4d3ad",
+      "size": 105905
+    },
+    {
+      "path": "GLOBAL_ARCHITECTURE.md",
+      "sha256": "19b34539e7652c5b777969e5e1fdd1ce356a3ba1916d8eff5c01fd5144962377",
+      "size": 8260
+    },
+    {
       "path": "GLOBAL_CODEX/AGENTS.global.block.md",
       "sha256": "989372dba4fa36d0f9ee08eb645b16d7e755453a67fa7152c7e412400154aaf2",
       "size": 6881
@@ -5331,14 +5246,9 @@
       "size": 3548
     },
     {
-      "path": "GLOBAL_CODEX/runtime/knowledge_profile.py",
-      "sha256": "ba3a2f9f9e19410179a9f4c2b313f6390d5c5087eee7b32489d6b4d2fb71b862",
-      "size": 18185
-    },
-    {
       "path": "GLOBAL_CODEX/runtime/bin/ios_ai.py",
-      "sha256": "9011acf1861743bc0268922e9b0f6caf3149e4570271c90c0f4cd43b320b69bf",
-      "size": 37644
+      "sha256": "8323e768ef8e9f45d9db55327c534d43cb08cc0c90a33f67745126cd4c1753f1",
+      "size": 38917
     },
     {
       "path": "GLOBAL_CODEX/runtime/core/CHANGE_RISK_MATRIX.md",
@@ -5424,6 +5334,11 @@
       "path": "GLOBAL_CODEX/runtime/core/V4_SAFE_AUTOMATION_BOUNDARIES.md",
       "sha256": "da7d3979f7d53e34aca0ab0a1307c945ce106272938465df112e9b8d9346d6af",
       "size": 2084
+    },
+    {
+      "path": "GLOBAL_CODEX/runtime/knowledge_profile.py",
+      "sha256": "ba3a2f9f9e19410179a9f4c2b313f6390d5c5087eee7b32489d6b4d2fb71b862",
+      "size": 18185
     },
     {
       "path": "GLOBAL_CODEX/runtime/orchestration/BUDGETS.md",
@@ -5592,7 +5507,7 @@
     },
     {
       "path": "GLOBAL_CODEX/runtime/vendor/adapt_project.py",
-      "sha256": "1f9c4efac98a4e05a13faa522bd28ec1e9837bdc083b06e3596d4d4172ab95a3",
+      "sha256": "246eea44b4410110ce949cba1d9c949a7d6ca27786dc6a04db478e45fa26c23d",
       "size": 13707
     },
     {
@@ -6796,24 +6711,94 @@
       "size": 565
     },
     {
+      "path": "GLOBAL_MANIFEST.json",
+      "sha256": "ee2bb41687320ac8229be84b40f83c95a0207fb59387c4fa964845653cc8d825",
+      "size": 8286
+    },
+    {
+      "path": "GLOBAL_VALIDATION_REPORT.md",
+      "sha256": "8d3c7d23115048a29adb32c17f7b1c1e89251ec7675a0fa72bdb1ed940b85421",
+      "size": 940
+    },
+    {
+      "path": "INDEX.md",
+      "sha256": "04d42fd5dd8b5be4f200a30d3857b576bcd1159a59fc7fa64cb36dbcc74c3b85",
+      "size": 2702
+    },
+    {
+      "path": "LIBRARY_MAP.md",
+      "sha256": "faced787b8bd3ebc7a02b67220da72b4c7daf41ce5b0d1a441a6e4a04e0e18d6",
+      "size": 954
+    },
+    {
+      "path": "MANUAL_DEPLOYMENT.md",
+      "sha256": "48bff52e1723a080f1fac4ca6b2c222496cd93336e90e377d8fa11f09df377ea",
+      "size": 19737
+    },
+    {
       "path": "MANUAL_SHIM/INSTALLATION.json.template",
       "sha256": "515e0c2b223939b4222d5255061e3d81683295c06e038c5b2ba0cc2a01eb9532",
       "size": 514
     },
     {
       "path": "MANUAL_SHIM/INSTALLATION.md",
-      "sha256": "fccd410ed2b6c5bfd6726f78a0fa41e4551a8896e1c58697b2267ddf030a3695",
-      "size": 1447
+      "sha256": "1af276d35aa73c9cfe7ca6584851e1c278d114e2a08b2a877c5ea637686f76bb",
+      "size": 1520
     },
     {
       "path": "MANUAL_SHIM/bin/ios_ai.py",
-      "sha256": "c55e8a045d9592086644ac72ad852647d8616cfe95bd8e805e2f58533e5368ed",
-      "size": 4351
+      "sha256": "924fd5cf680a42a283ed2f211748921c341757d546200f78e2f23bbcc33c63d4",
+      "size": 5321
     },
     {
       "path": "MANUAL_SHIM/bin/manual_preflight.py",
       "sha256": "1070732148d3a05090d80b7f6b373781aefc9bd4e6739bd8451935de32934062",
       "size": 48504
+    },
+    {
+      "path": "PROJECT_REFERENCE_OPT_IN.md",
+      "sha256": "4483e16d9ddc5c5f1f8fd67a3892995d4d135c5a2f3ad58d2b572b01f4df0c6f",
+      "size": 1558
+    },
+    {
+      "path": "QUICKSTART.md",
+      "sha256": "931d05acd24a0f43931f9d661060f7dc40de212e499046077aa7b68b9dfd0b78",
+      "size": 6058
+    },
+    {
+      "path": "README.md",
+      "sha256": "06d2afdefe5d1a77c53f51c2ce32344952853b2d16353348427a0a38a1886c8b",
+      "size": 23898
+    },
+    {
+      "path": "RECOMMENDED_SETS.md",
+      "sha256": "2e363c2ecf4e9b6f882f50ee7a8f6e7143ec859309f238d5d174bb06f9ec68cd",
+      "size": 668
+    },
+    {
+      "path": "REVIEW_FINDINGS_MATRIX.md",
+      "sha256": "4ce1d658d8aa504f19df700f6cba25996f873c2735c19716be93eddd6c8345c6",
+      "size": 30188
+    },
+    {
+      "path": "REVIEW_READY_VALIDATION_REPORT.md",
+      "sha256": "f96cd11de8b98d36f10b292ca08a93e1dfeae1a7fc034403dd4e6d25eb17cb3c",
+      "size": 16633
+    },
+    {
+      "path": "bootstrap_global.sh",
+      "sha256": "ab1b51919e1c2b4e0c296ceb5089c917b75e0135b794fca73311e29fabe2682e",
+      "size": 272
+    },
+    {
+      "path": "install_global.py",
+      "sha256": "93d89626cc0e2e2767e9d9fef2afc86906306e7c69a4058d64b31c15f6814bbc",
+      "size": 54975
+    },
+    {
+      "path": "sync_global.py",
+      "sha256": "be9120239f5d222115b3f2ce2d5fb3a8ac7a494c4dcdd1f63644f3fbe8342984",
+      "size": 20054
     },
     {
       "path": "tests/run_all.py",
@@ -6822,10 +6807,25 @@
     },
     {
       "path": "tests/test_review_ready.py",
-      "sha256": "54dc394b1e9ced8780faf30c318f8e364b18db35914bc0c46aa692b515388166",
-      "size": 151014
+      "sha256": "cf51dc7822e92f31ff2a344c611018bb1bd5653ae8233a6eeab8d9a642dd7507",
+      "size": 155992
+    },
+    {
+      "path": "uninstall_global.py",
+      "sha256": "2e64c3e4805eddb5a137828d2f2ab8bd48175146e59c0925634c435fb99e6fb4",
+      "size": 12710
+    },
+    {
+      "path": "validate_global_install.py",
+      "sha256": "976db1e5d6524a45be77366cd588be69d04b8a00167b4fe131a5ac809172067f",
+      "size": 12323
+    },
+    {
+      "path": "validate_package.py",
+      "sha256": "27a88d1554fa20157c4003567d9d5bdd401a05bfa4a7a8b95e48060f3afdf05c",
+      "size": 11797
     }
   ],
-  "generated_for": "5.4-review-ready.6",
+  "generated_for": "5.4-review-ready.7",
   "schema_version": 1
 }

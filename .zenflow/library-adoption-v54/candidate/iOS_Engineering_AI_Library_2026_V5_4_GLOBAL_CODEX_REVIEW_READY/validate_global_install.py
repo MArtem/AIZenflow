@@ -5,7 +5,7 @@ Standard-library only. Validation is observational; it does not repair an instal
 """
 from __future__ import annotations
 from pathlib import Path
-import argparse, hashlib, json, os, re, stat
+import argparse, hashlib, importlib.util, json, os, re, stat
 
 REGISTRY='ios-engineering-global.json'
 BEGIN='<!-- IOS_ENGINEERING_GLOBAL:BEGIN -->'; END='<!-- IOS_ENGINEERING_GLOBAL:END -->'
@@ -45,6 +45,17 @@ def nofollow_read(p:Path,max_bytes:int=8*1024*1024)->bytes:
     finally: os.close(fd)
 
 def sha_file(p:Path): return sha_bytes(nofollow_read(p))
+
+def package_tree_identity(root:Path):
+    root=abs_lex(root); installer=root/'install_global.py'
+    reject_symlink_components(installer); lstat_regular(installer)
+    spec=importlib.util.spec_from_file_location('ioslib_identity_installer', installer)
+    if spec is None or spec.loader is None: raise ValidationError('package identity mechanism is unavailable')
+    module=importlib.util.module_from_spec(spec); spec.loader.exec_module(module)
+    identity=module.package_tree_identity(root)
+    if not isinstance(identity,str) or len(identity)!=64 or any(c not in '0123456789abcdef' for c in identity):
+        raise ValidationError('package identity is malformed')
+    return identity
 
 def reject_symlink_components(path:Path):
     p=abs_lex(path)
@@ -97,6 +108,9 @@ def main():
         if missing: errs.append('registry missing keys: '+','.join(missing))
         mode=m.get('mode')
         if mode not in {'reference','full'}: errs.append('invalid mode: '+repr(mode))
+        registered_identity=m.get('source_tree_sha256')
+        if not isinstance(registered_identity,str) or len(registered_identity)!=64 or any(c not in '0123456789abcdef' for c in registered_identity):
+            errs.append('installed source_tree_sha256 is malformed')
         if not str(m.get('version','')).startswith('5.4-review-ready.'):
             errs.append('unexpected installed version: '+repr(m.get('version')))
         own=m.get('ownership',{}) if isinstance(m.get('ownership'),dict) else {}
@@ -106,6 +120,13 @@ def main():
         except Exception as e: errs.append('unsafe registered target path: '+str(e))
         if not m.get('source_in_place') and m.get('content_root'):
             check_tree(Path(m['content_root']),own.get('content',{}),'content',errs)
+        if m.get('content_root') and isinstance(registered_identity,str) and len(registered_identity)==64:
+            try:
+                actual_identity=package_tree_identity(Path(m['content_root']))
+                if actual_identity!=registered_identity:
+                    errs.append(f'installed package identity mismatch: registered {registered_identity}, observed {actual_identity}')
+            except Exception as e:
+                errs.append('installed package identity unavailable: '+type(e).__name__+': '+str(e))
         if m.get('shim_root'): check_tree(Path(m['shim_root']),own.get('shim',{}),'shim',errs)
         skills=own.get('skills',{}) if isinstance(own.get('skills'),dict) else {}
         if mode=='reference' and skills: errs.append('reference mode unexpectedly owns skills')

@@ -5,7 +5,7 @@ import argparse, configparser, errno, functools, hashlib, json, os, re, secrets,
 
 HERE = Path(__file__).resolve().parent
 G = HERE / 'GLOBAL_CODEX'
-VERSION = '5.4-review-ready.6'
+VERSION = '5.4-review-ready.7'
 PROTECTION_VERSION = '5.4-review-ready.5'
 REGISTRY_NAME = 'ios-engineering-global.json'
 BEGIN = '<!-- IOS_ENGINEERING_GLOBAL:BEGIN -->'

@@ -103,14 +103,14 @@ for rel in priority_knowledge:
 
 try:
     manifest=json.loads((ROOT/'GLOBAL_MANIFEST.json').read_text(encoding='utf-8'))
-    if manifest.get('version')!='5.4-review-ready.6': err('manifest version mismatch')
+    if manifest.get('version')!='5.4-review-ready.7': err('manifest version mismatch')
     if manifest.get('default_install_mode')!='reference': err('reference must be default install mode')
     if manifest.get('skill_namespace')!='ioslib-': err('manifest skill namespace mismatch')
     if manifest.get('status')!='review_candidate_independent_review_required': err('manifest must not claim independent acceptance')
     runtime=manifest.get('runtime',{})
-    if runtime.get('cli_version')!='5.4-review-ready.6': err('manifest CLI version mismatch')
+    if runtime.get('cli_version')!='5.4-review-ready.7': err('manifest CLI version mismatch')
     if runtime.get('protection_version')!='5.4-review-ready.5': err('manifest protection compatibility mismatch')
-    if runtime.get('adapter_version')!='5.4-review-ready.6': err('manifest adapter version mismatch')
+    if runtime.get('adapter_version')!='5.4-review-ready.7': err('manifest adapter version mismatch')
     observed=manifest.get('test_suite',{}).get('observed_release_working_tree',{})
     if shipped_test_count is not None:
         observed_total=observed.get('total')
@@ -140,7 +140,7 @@ try:
     pfm_path=ROOT/'PACKAGE_FILE_MANIFEST.json'
     pfm=json.loads(pfm_path.read_text(encoding='utf-8'))
     if pfm.get('schema_version')!=1: err('PACKAGE_FILE_MANIFEST schema mismatch')
-    if pfm.get('generated_for')!='5.4-review-ready.6': err('PACKAGE_FILE_MANIFEST version mismatch')
+    if pfm.get('generated_for')!='5.4-review-ready.7': err('PACKAGE_FILE_MANIFEST version mismatch')
     entries=pfm.get('files')
     if not isinstance(entries,list): raise ValueError('files must be a list')
     expected={}

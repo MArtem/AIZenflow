@@ -1,6 +1,6 @@
 {
   "release_id": "iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_V14",
-  "version": "5.4-review-ready.6",
+  "version": "5.4-review-ready.7",
   "status": "review_candidate_independent_review_required",
   "reviewed_baseline": {
     "name": "iOS_Engineering_AI_Library_2026_V5_3_GLOBAL_CODEX_REVIEW_READY.zip",
@@ -55,9 +55,9 @@
   "deep_playbooks": 288,
   "markdown_assets": 1275,
   "runtime": {
-    "cli_version": "5.4-review-ready.6",
+    "cli_version": "5.4-review-ready.7",
     "protection_version": "5.4-review-ready.5",
-    "adapter_version": "5.4-review-ready.6",
+    "adapter_version": "5.4-review-ready.7",
     "protection_schema": 2,
     "adapter_schema": 3,
     "session_schema": 3
@@ -68,8 +68,8 @@
     "minimum_parser_compatibility": "Python 3.9 grammar",
     "fixtures": "synthetic temporary Codex homes and Git repositories only",
     "observed_release_working_tree": {
-      "total": 194,
-      "pass": 189,
+      "total": 196,
+      "pass": 191,
       "fail": 0,
       "skip": 5,
       "execution": "serial suite with an operator-selected fixture root inside .zenflow and outside the candidate Git root; see validation report",

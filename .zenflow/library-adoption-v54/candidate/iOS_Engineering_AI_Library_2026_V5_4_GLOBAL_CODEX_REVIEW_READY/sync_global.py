@@ -36,6 +36,17 @@ def preflight(ch: Path, mode_override=None):
         raise SyncError('invalid installed mode')
 
     conflicts = []
+    incoming_source = I.abs_lex(I.HERE)
+    if old.get('source_in_place'):
+        content_root = incoming_source
+        try:
+            I.reject_symlink_path(content_root)
+            if not content_root.is_dir():
+                conflicts.append(f'source-in-place release root is not a directory: {content_root}')
+        except Exception as e:
+            conflicts.append(f'source-in-place release root is unsafe: {e}')
+    else:
+        content_root = Path(old.get('content_root', ''))
     own = old.get('ownership', {})
     path_items = [
         ('codex_home', ch),
@@ -50,7 +61,7 @@ def preflight(ch: Path, mode_override=None):
     destination_targets = {label: path for label, path in path_items}
     conflicts.extend(I.destination_layout_collisions(
         destination_targets,
-        source_root=Path(old.get('source') or I.HERE),
+        source_root=incoming_source,
         source_in_place=bool(old.get('source_in_place')),
         canonical_repository_root=old.get('canonical_repository_root'),
         allow_canonical_repository_runtime=(old.get('deployment_profile') == I.CANONICAL_REPOSITORY_RUNTIME_PROFILE),
@@ -71,8 +82,6 @@ def preflight(ch: Path, mode_override=None):
     except Exception as e:
         conflicts.append(f'active-session admission check failed: {type(e).__name__}: {e}')
 
-    if old.get('source_in_place') and I.abs_lex(old.get('content_root', '')) != I.abs_lex(I.HERE):
-        conflicts.append('source-in-place update must run from the registered source root')
     if not old.get('source_in_place'):
         conflicts += [f'content: {x}' for x in I.check_existing_managed(Path(old['content_root']), own.get('content', {}))]
     conflicts += [f'shim: {x}' for x in I.check_existing_managed(Path(old['shim_root']), own.get('shim', {}))]
@@ -112,12 +121,13 @@ def preflight(ch: Path, mode_override=None):
 
     base = {
         'version': I.VERSION,
+        'protection_version': I.PROTECTION_VERSION,
         'deployment_profile': old.get('deployment_profile', 'user_global'),
         'mode': mode,
-        'source': str(I.HERE),
+        'source': str(incoming_source),
         'source_tree_sha256': source_tree_sha256,
         'codex_home': str(ch),
-        'content_root': old['content_root'],
+        'content_root': str(content_root),
         'source_in_place': bool(old.get('source_in_place')),
         'shim_root': old['shim_root'],
         'state_root': old['state_root'],

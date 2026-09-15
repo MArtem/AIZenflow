@@ -53,6 +53,14 @@ python3 install_global.py --portable-area "$AREA_ROOT" \
 Only `<DOCS_ROOT>/.codex-runtime/ios-engineering` is writable; the source/docs tree and `.git`
 remain protected. The repository origin must be `MArtem/AIZenflowDocumentation`.
 
+For a later installer update, extract the new release beside the old one and run the new release's
+`sync_global.py`; source-in-place mode selects that script's versioned source root. Inspect the
+dry-run `source`, `content_root`, `version`, and `source_tree_sha256`, then run the same command
+without `--dry-run`. Keep the old release and state root. To roll back, stop Codex and run the
+same dry-run/update pair using the preserved old release's `sync_global.py`. Never run
+`install_global.py` again against an already registered area, and never treat a dry-run as a
+completed update.
+
 For **full** mode, inspect the full preflight and reuse its exact ID:
 
 ```bash

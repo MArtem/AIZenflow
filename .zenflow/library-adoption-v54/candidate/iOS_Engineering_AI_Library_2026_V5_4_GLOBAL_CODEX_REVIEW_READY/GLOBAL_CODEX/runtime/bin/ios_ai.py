@@ -7,7 +7,7 @@ sys.dont_write_bytecode=True
 RUNTIME=Path(__file__).resolve().parents[1]
 LIBRARY=Path(os.environ.get('IOS_ENGINEERING_LIBRARY_ROOT',str(RUNTIME.parent.parent))).expanduser().resolve()
 DEFAULT_STATE=Path(os.environ.get('IOS_ENGINEERING_STATE_ROOT',str(Path(os.environ.get('CODEX_HOME',str(Path.home()/'.codex'))).expanduser()/'ios-engineering-state'))).expanduser()
-CLI_VERSION='5.4-review-ready.6'
+CLI_VERSION='5.4-review-ready.7'
 SESSION_SCHEMA=3
 LEGACY_SCAN_MAX_REPOSITORIES=10_000
 LEGACY_SCAN_MAX_SESSION_RECORDS=10_000
@@ -30,6 +30,14 @@ K=load_module('ioslib_knowledge_profile',RUNTIME/'knowledge_profile.py')
 def utcnow(): return dt.datetime.now(dt.timezone.utc).isoformat()
 def jhash(obj): return hashlib.sha256(json.dumps(obj,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()
 def state_key(repo:Path): return hashlib.sha256(str(repo.resolve()).encode()).hexdigest()[:24]
+
+def package_tree_identity():
+    installer_path = LIBRARY / 'install_global.py'
+    module = load_module('ioslib_identity_installer', installer_path)
+    identity = module.package_tree_identity(LIBRARY)
+    if not isinstance(identity, str) or len(identity) != 64:
+        raise RuntimeError('package identity is malformed')
+    return identity
 
 def repo_state_dir(repo:Path,state_root:Path,create=True)->Path:
     root=state_root/'repositories'/state_key(repo)
@@ -520,7 +528,19 @@ def make_parser():
 def main():
     args=make_parser().parse_args(); state_root=Path(os.path.abspath(os.path.expanduser(args.state_root)))
     if args.cmd=='doctor':
-        data={'cli_version':CLI_VERSION,'runtime':str(RUNTIME),'library':str(LIBRARY),'library_exists':LIBRARY.exists(),'state_root':str(state_root),'guard':'advisory classifier; not an OS enforcement boundary','ok':(RUNTIME/'protection'/'protection.py').exists() and (RUNTIME/'vendor'/'adapt_project.py').exists()}; print(json.dumps(data,indent=2)); return 0 if data['ok'] else 1
+        identity = None
+        identity_error = None
+        expected_identity = os.environ.get('IOS_ENGINEERING_SOURCE_TREE_SHA256')
+        try:
+            identity = package_tree_identity()
+        except Exception as error:
+            identity_error = f'{type(error).__name__}: {error}'
+        identity_verified = identity is not None and expected_identity is not None and identity == expected_identity
+        if expected_identity is None and identity_error is None:
+            identity_error = 'selected descriptor identity was not supplied by the runtime shim'
+        elif identity is not None and expected_identity is not None and identity != expected_identity:
+            identity_error = f'expected {expected_identity}, observed {identity}'
+        data={'cli_version':CLI_VERSION,'runtime':str(RUNTIME),'library':str(LIBRARY),'library_exists':LIBRARY.exists(),'state_root':str(state_root),'source_tree_sha256':identity,'expected_source_tree_sha256':expected_identity,'identity_verified':identity_verified,'identity_error':identity_error,'guard':'advisory classifier; not an OS enforcement boundary','ok':(RUNTIME/'protection'/'protection.py').exists() and (RUNTIME/'vendor'/'adapt_project.py').exists() and identity_verified}; print(json.dumps(data,indent=2)); return 0 if data['ok'] else 1
     if args.cmd=='guard':
         r=P.command_guard(args.command); print(json.dumps(r,indent=2)); return 0 if r['classification']=='ALLOW_READ_ONLY' else 2
     if args.cmd=='profile':

@@ -12,8 +12,8 @@ Extraction alone does not activate the library.
 - External state root: `${CODEX_HOME:-$HOME/.codex}/ios-engineering-state`
 
 The JSON descriptor records exact absolute paths, release/protection identities and package hash.
-The shim validates it before launch; missing, malformed, symlinked or out-of-release targets are
-refused. The manual receipt is a small operator-published record of managed paths, hashes and modes;
+The shim recomputes the selected package identity before launch and refuses a stale or mismatched
+descriptor; missing, malformed, symlinked or out-of-release targets are refused. The manual receipt is a small operator-published record of managed paths, hashes and modes;
 the read-only preflight rechecks it before updates and refuses changed or unknown files. Safety
 contract: repository-local rules remain authoritative for project conventions. Library knowledge is
 advisory and never grants build/test/network/Git/release permission. Neither the descriptor nor the

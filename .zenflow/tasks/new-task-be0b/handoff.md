@@ -1,27 +1,32 @@
-# Handoff — FINAL7 corrective work in small Luna blocks
+# Handoff — final Luna Xhigh implementation receipt
 
-Task: new-task-be0b. Date: 2026-09-15. Mode: эконом.
-User decision: Luna Xhigh implements; Astra performs small scoped reviews to conserve limits.
-Current executable source: .zenflow/tasks/new-task-be0b/plan.md.
-Current next action: independent acceptance of the canonical-repository runtime exception and
-final publication decision. The unmocked reference installer lifecycle now passes in
-`AIZenflowDocumentation/.codex-runtime/ios-engineering` from its versioned source payload.
-The earlier claim that only external checks remained was withdrawn by Astra's FINAL8 findings.
-Working changes fix manual publication order/raw SHA/mode, receipt publication verification,
-resource bounds and protection opt-in. Evidence: 30-post-final8-correction.md.
-194 distinct tests: 189 PASS, 5 SKIP (stable serial run with an external-to-candidate-Git
-fixture root inside `.zenflow`; parallel diagnostic showed one non-reproducible fixture race).
-Canonical source/runtime were activated in the approved repository exception during this turn;
-candidate/task publication and independent review remain separate finalization decisions.
-Canonical publication receipt: `AIZenflowDocumentation` commit
-`c3d61a98d6fdad9e0230c0c49edb52a13d2fbfae` pushed and confirmed at `origin/main`.
-Block A was RETURNED by Astra and has now been corrected by Luna; independent re-review remains
-useful but is not a user stop. Later user authority permits continued
-blocks and commit/push; obsolete per-block stop/publication restrictions below are superseded.
-The final correction also makes the manual AGENTS snapshot path fail closed unless an existing
-regular file is an exact byte match; it never overwrites an unrelated snapshot.
-The canonical-repository exception is explicit and narrow: exact origin/root plus
-`.codex-runtime/ios-engineering`; normal client-repository rejection remains active.
+Task: `new-task-be0b`. Date: 2026-09-15. Mode: `эконом`. Executor: Luna Xhigh.
+Current executable source: `.zenflow/tasks/new-task-be0b/plan.md`.
+
+## Current completion receipt
+
+- Candidate and canonical source are aligned on `5.4-review-ready.7`.
+- Package identity: `af0e182be06836917566b79ae3d322519bf595fa64630516392f5b2a3e317475`.
+- Structural validator: `1366 files / 60 skills / 51 sections / 288 playbooks / 0 errors`.
+- Full serial suite: `196 total / 191 PASS / 0 FAIL / 5 SKIP`; fixture root was
+  `/Users/Artem/.zenflow/test-tmp-new-task-be0b`. Five positive host-dependent cases remain
+  `NOT_RUN`; they are not deployment evidence.
+- New regression coverage proves stale installed identity is not PASS and source-in-place
+  selector switch plus rollback preserves prior source and external state.
+- Canonical runtime was updated through the exact repository exception using `sync_global.py`;
+  post-sync validator and installed shim doctor both PASS. State marker and state root were kept.
+- New archive: `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_XHIGH_IMPLEMENTED_V17.zip`.
+  `unzip -t` PASS; 1365 manifest-listed file bytes match; archive SHA256:
+  `746946651ed1d540377a33007d930ec30b60b18b57ff7e157f6ff0f0cff08a22`.
+- Old portable archive remains preserved. No secrets/auth/history/session directories were read.
+- Fresh first-entry Codex Desktop, actual host discovery, three user-owned pilot tasks, and
+  independent Astra acceptance are still `NOT_RUN`; do not claim them as completed.
+- Candidate/task and canonical repository final commits/pushes are still pending this receipt.
+
+Required context transfer:
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+## Historical notes preserved below
 
 ## Startup and evidence
 

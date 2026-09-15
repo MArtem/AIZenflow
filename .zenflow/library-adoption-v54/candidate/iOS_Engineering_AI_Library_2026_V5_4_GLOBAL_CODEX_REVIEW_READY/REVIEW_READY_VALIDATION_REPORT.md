@@ -26,14 +26,14 @@ python3 tests/run_all.py --serial
 
 Observed result on the corrected working tree:
 
-- total: **194**
-- PASS: **189**
+- total: **196**
+- PASS: **191**
 - FAIL: **0**
 - SKIP: **5**
 - runner exit: **0**
 - wall clock: not recorded as a release claim
 
-The final serial run used `/Users/Artem/.zenflow/worktrees/library-adoption-test-tmp`, which is
+The final serial run used `/Users/Artem/.zenflow/test-tmp-new-task-be0b`, which is
 inside `/Users/Artem/.zenflow` and outside the candidate's Git root. The complete suite passed;
 five host-dependent cases remain explicitly skipped. The earlier failed attempt used a fixture
 root inside the candidate Git worktree and is superseded by this final run.
@@ -49,7 +49,7 @@ Current deployment-integration boundary:
   approved path outside every Git repository. This is a host limitation, not a production
   exception, and it is not evidence of successful global deployment.
 - Unmocked negative CLI coverage, including bounded FIFO handling in both preflights, ran and
-  passed. The 189 passing tests are regression evidence, not a claim of universal host discovery.
+  passed. The 191 passing tests are regression evidence, not a claim of universal host discovery.
 
 Post-FINAL8 corrections prepare descriptor and state marker before any publication, preserve the
 raw original AGENTS hash, propagate the selected mode/skills path, verify incoming content before

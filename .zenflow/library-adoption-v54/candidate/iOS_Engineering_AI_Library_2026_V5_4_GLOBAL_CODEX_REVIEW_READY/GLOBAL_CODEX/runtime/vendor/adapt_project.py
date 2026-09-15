@@ -3,7 +3,7 @@ from __future__ import annotations
 from pathlib import Path
 import hashlib, json, os, re, shlex, stat, time
 
-ADAPTER_VERSION='5.4-review-ready.6'
+ADAPTER_VERSION='5.4-review-ready.7'
 SCHEMA_VERSION=3
 DEFAULT_EXCLUDES={'.git','.build','DerivedData','Pods','Carthage','node_modules','.swiftpm','.idea','.vscode'}
 TEXT_EXT={'.swift','.m','.mm','.h','.hpp','.plist','.xcconfig','.entitlements','.pbxproj','.xcscheme','.xctestplan','.xcworkspacedata','.xcsettings','.strings','.stringsdict','.xml','.json','.yaml','.yml','.md','.txt','.sh','.rb','.py','.toml'}

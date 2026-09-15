@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Relocatable manual-deployment shim driven by a validated descriptor."""
 import json
+import importlib.util
 import os
 from pathlib import Path
 import runpy
@@ -70,6 +71,8 @@ def read_descriptor():
                   'state_root', 'source_tree_sha256', 'generated_by'):
         if not isinstance(data.get(field), str) or not data[field]:
             fail(f'INSTALLATION.json field is not a non-empty string: {field}')
+    if len(data['source_tree_sha256']) != 64 or any(c not in '0123456789abcdef' for c in data['source_tree_sha256']):
+        fail('INSTALLATION.json source_tree_sha256 is malformed')
     try:
         library = safe_path(data['knowledge_root'], 'knowledge_root')
         runtime = safe_path(data['runtime_cli'], 'runtime_cli')
@@ -91,6 +94,16 @@ def read_descriptor():
         manifest_data = json.loads(read_regular(manifest, MAX_DESCRIPTOR_BYTES).decode('utf-8'))
         if manifest_data.get('version') != data['release_id']:
             fail('descriptor release_id does not match GLOBAL_MANIFEST.json')
+        installer_path = library / 'install_global.py'
+        safe_path(installer_path, 'install_global.py')
+        installer_spec = importlib.util.spec_from_file_location('ioslib_identity_installer', installer_path)
+        if installer_spec is None or installer_spec.loader is None:
+            fail('package identity mechanism is unavailable')
+        installer = importlib.util.module_from_spec(installer_spec)
+        installer_spec.loader.exec_module(installer)
+        actual_identity = installer.package_tree_identity(library)
+        if actual_identity != data['source_tree_sha256']:
+            fail('installed package identity does not match INSTALLATION.json')
     except SystemExit:
         raise
     except Exception as error:
@@ -104,4 +117,5 @@ descriptor, library, runtime, state = read_descriptor()
 os.environ['IOS_ENGINEERING_LIBRARY_ROOT'] = str(library)
 os.environ['IOS_ENGINEERING_STATE_ROOT'] = str(state)
 os.environ['IOS_ENGINEERING_RELEASE_ID'] = str(descriptor['release_id'])
+os.environ['IOS_ENGINEERING_SOURCE_TREE_SHA256'] = str(descriptor['source_tree_sha256'])
 runpy.run_path(str(runtime), run_name='__main__')
