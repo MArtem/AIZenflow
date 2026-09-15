@@ -28,7 +28,7 @@ The canonical-repository exception is explicit and narrow: exact origin/root plu
 Read canonical bootstrap and current Level 0 once, then only documents needed for each active block.
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
-## Final packaging pass — in progress
+## Final packaging pass — completed
 
 The candidate README is now a self-contained Codex handoff: it covers reference/full installer
 deployment, manual connection, canonical-repository exception, process-level `CODEX_HOME`, exact
@@ -38,10 +38,17 @@ evidence, and internal redistribution limits. Candidate and canonical V5.4 READM
 sections, 288 playbooks, 0 errors. A valid serial suite from a fixture root outside all Git roots
 reports 194 total, 189 pass, 0 fail, 5 skip.
 
-Remaining packaging actions in this turn: create the final archive from the canonical versioned
-source only, verify archive contents and SHA-256, commit/push the canonical docs change, commit/push
-the directly related task-repository changes, and report the host-dependent first-entry/pilot items
-that are not proven by packaging.
+Completed in this pass: final archive created from the canonical versioned source only; archive
+contents contain no `.git`, `.codex-runtime`, `__MACOSX`, `__pycache__`, or `.pyc`; extracted bytes
+match the canonical source (`1366` files). Archive:
+`/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip`
+SHA-256: `57e34f454b5247a43864f89354cdb02a742e5a26d1e6a343d287c9b05bd76e27`.
+
+Canonical docs commit/push: `03aafeb304fe6be4c54efa8a7930bcc2d95e5ab1` on
+`AIZenflowDocumentation/main`, confirmed at `origin/main`. Task-repository commit/push:
+`9d835401a` on `AIZenflow/codex/audit-remediation-luna`, confirmed at its origin branch.
+The product source and task recovery state are preserved; generated historical evidence remains
+local and was intentionally not mixed into the portable product commit.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
