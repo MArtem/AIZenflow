@@ -32,6 +32,11 @@ Sol уточнил причинную границу по официальном
 описывает это в MANUAL_DEPLOYMENT.md и требует global block в фактическом CODEX_HOME. Наблюдение
 не доказывает runtime defect; оно сужает unknown до реального global AGENTS/override/active home.
 
+После точного разрешения Sol read-only проверил default global candidates:
+/Users/Artem/.codex/AGENTS.override.md отсутствует, /Users/Artem/.codex/AGENTS.md — regular file
+размером 0 bytes. Default home не может доставлять baseline; override conflict там отсутствует.
+Effective CODEX_HOME процесса всё ещё не наблюдался напрямую. config.toml не читался.
+
 Прежние static pilots сохранены, Countries scenario table завершена с P2 отмены;
 upstream fix не нужен для read-only deliverable. Исходники трёх fresh-entry проектов чистые.
 Ghibli Retry остаётся в другой исходной копии, fresh-entry копия не менялась.
@@ -44,9 +49,10 @@ Candidate и canonical теперь намеренно различаются; �
 Astra authored correction не является независимым ревью самой себя.
 Task commit/push сохраняют только candidate и evidence; результат SHAs — в финальном сообщении.
 
-Следующий шаг требует отдельного разрешения на read-only проверку не более двух active global
-AGENTS candidates (override/base), а не ещё одного installer smoke. config.toml не читать без
-отдельной необходимости и разрешения.
+Следующий шаг — отдельное решение и разрешение на один host activation path: подключение managed
+block к согласованному effective global AGENTS либо запуск Desktop с canonical CODEX_HOME.
+Это реальная настройка host, не ещё один installer smoke. config.toml не читать без отдельной
+необходимости и разрешения.
 Не угадывать CODEX_HOME, не читать внешний home/config без точной authority, не править
 реальные настройки, не перезапускать Codex и не добавлять bootstrap в imports задним числом.
 Empty/non-iOS/linked controls пока NOT_RUN: нет зарегистрированных roots; продолжать матрицу

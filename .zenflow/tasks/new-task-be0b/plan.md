@@ -21,14 +21,16 @@
   пилотных проектов и по правилам Codex не входит в их project instruction chain.
 - [x] Сверить это с activation boundary пакета: candidate уже требует active global AGENTS
   внутри фактического CODEX_HOME; дефект installer/runtime не установлен.
+- [x] По отдельному разрешению проверить два default global candidates: override отсутствует,
+  `/Users/Artem/.codex/AGENTS.md` — regular empty file (0 bytes); конфликт precedence исключён.
 - [x] Сохранить прежние static pilots, включая Countries scenario table/P2 и отдельный Retry-патч.
 - [x] Один новый candidate ZIP: CRC/safe paths/все 1366 file bytes совпадают с candidate.
 - [x] Подготовить candidate/evidence к task commit; exact SHA/push receipt фиксируется после commit.
 
 ## Остаток и границы
 
-- [ ] При отдельном разрешении прочитать только active global AGENTS.override.md/AGENTS.md,
-  чтобы различить missing block и override precedence; реальную конфигурацию не менять.
+- [ ] Выбрать и отдельно разрешить host activation: подключить managed block к согласованному
+  effective global AGENTS либо запускать Desktop с canonical runtime как CODEX_HOME.
 - [ ] После этого — наблюдение selected package/relevant route и дополнительные empty/non-iOS/linked controls.
 - [ ] Отдельно согласованное продвижение candidate в canonical/активный source-in-place runtime.
 - [ ] Полная приёмка: НЕ завершена; isolated lifecycle PASS не заменяет auto-delivery gate.

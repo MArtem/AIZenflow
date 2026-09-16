@@ -102,10 +102,17 @@ above that root. This matches both the official Codex discovery contract and the
 MANUAL_DEPLOYMENT.md activation boundary. Therefore the fresh-entry result is expected unless
 the active Codex global scope supplies the block. It is not evidence of a candidate runtime defect.
 
-The remaining unknown is narrower: whether the actual Desktop process global scope uses the
-named canonical runtime, another CODEX_HOME, or a non-empty AGENTS.override.md that takes global
-precedence. Resolving that requires separately authorized read-only inspection of at most the two
-global AGENTS candidates; config.toml is not needed unless those files leave CODEX_HOME unresolved.
+The user subsequently authorized read-only inspection of the two default global candidates.
+`/Users/Artem/.codex/AGENTS.override.md` is absent and `/Users/Artem/.codex/AGENTS.md` is a regular
+zero-byte file. Thus the default Codex home has no effective global instruction file and cannot
+deliver the baseline. There is no override-precedence conflict in those two files. This explains
+the observed fresh-entry behavior if Desktop uses the default home; the process's effective
+CODEX_HOME itself remains unobserved and must not be inferred from a child shell.
+
+The remaining decision is activation, not further package diagnosis: either connect the managed
+block to the approved effective global file or deliberately launch Desktop with the canonical
+runtime as CODEX_HOME. Both are real host configuration changes and remain outside current
+authority. config.toml was not read and is not needed to establish the empty default global scope.
 Official discovery reference:
 https://learn.chatgpt.com/docs/agent-configuration/agents-md#how-codex-discovers-guidance.
 
@@ -146,8 +153,7 @@ No known P0–P2 in this bounded candidate correction; the host integration acce
 open and is not an authorization to modify real settings. Exact committed range and remote SHA
 are recorded after commit without self-referential receipt churn.
 
-Next: authorize, if desired, read-only inspection of the active global AGENTS candidates needed
-to distinguish missing block from override precedence; do not inspect unrelated settings.
+Next: choose and explicitly authorize one host activation path if automatic delivery is required.
 Do not silently change CODEX_HOME, restart Codex, edit real settings, seed imported projects,
 or reopen the consumed external test area. Further host diagnosis may require separately named
 read authority; a configuration patch requires its own scoped approval.
