@@ -1,0 +1,399 @@
+test_F14_manual_documented_fresh_reference_and_full (tests.test_review_ready.PackagePolicyTests) ... test_F14_manual_preflight_accepts_verified_transitional_shim_for_descriptor (tests.test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_preflight_clean_is_read_only_and_emits_selector (tests.test_review_ready.PackagePolicyTests) ... ok
+
+======================================================================
+FAIL: test_F14_manual_documented_fresh_reference_and_full (tests.test_review_ready.PackagePolicyTests) (mode='reference', existing=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY/tests/test_review_ready.py", line 1579, in test_F14_manual_documented_fresh_reference_and_full
+    self.assertEqual(reconnect.returncode,0,reconnect.stdout+reconnect.stderr)
+AssertionError: 3 != 0 : {
+  "collisions": [],
+  "descriptor": {
+    "generated_by": "manual_preflight.py",
+    "knowledge_root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY",
+    "managed_by": "ios-engineering-library",
+    "mode": "reference",
+    "protection_version": "5.4-review-ready.5",
+    "release_id": "5.4-review-ready.7",
+    "runtime_cli": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY/GLOBAL_CODEX/runtime/bin/ios_ai.py",
+    "schema_version": 1,
+    "source_tree_sha256": "4be749a7b037fbf915b8dde56c2942d18c0112141eb296de1c1f24372f6bfc94",
+    "state_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-state"
+  },
+  "ok": true,
+  "operations": [
+    {
+      "op": "reuse_verified_empty_disabled_shim",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-shim"
+    },
+    {
+      "op": "append_managed_block_after_exact_text_review",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/AGENTS.md"
+    },
+    {
+      "op": "replace_only_verified_state_marker",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-state/.ioslib-state-owned.json"
+    },
+    {
+      "op": "create_private_state_root_and_marker_if_absent",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-state"
+    },
+    {
+      "op": "write_descriptor_last",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-shim/INSTALLATION.json"
+    },
+    {
+      "op": "activation_is_last_and_old_release_remains_untouched",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-shim/bin/ios_ai.py"
+    }
+  ],
+  "paths": {
+    "agents_file": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/AGENTS.md",
+    "codex_home": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue",
+    "shim_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-shim",
+    "skills_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/skills",
+    "state_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/referenceTrue/ios-engineering-state"
+  },
+  "read_only": true,
+  "receipt": null,
+  "receipt_seed": {
+    "original_agents_mode": 416,
+    "original_agents_sha256": "7d4b4f49ed9615289eb53654f5978c29a76a42ad45639a0a4e48fe5cda0a503a"
+  },
+  "release": {
+    "protection_version": "5.4-review-ready.5",
+    "release_id": "5.4-review-ready.7",
+    "root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY",
+    "version": "5.4-review-ready.7"
+  },
+  "state_marker": {
+    "deployment": "manual",
+    "managed_by": "ios-engineering-library",
+    "protection_version": "5.4-review-ready.5",
+    "version": "5.4-review-ready.7"
+  }
+}
+Existing AGENTS snapshot is not an exact verified match; stop before publication.
+
+
+======================================================================
+FAIL: test_F14_manual_documented_fresh_reference_and_full (tests.test_review_ready.PackagePolicyTests) (mode='full', existing=True)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY/tests/test_review_ready.py", line 1579, in test_F14_manual_documented_fresh_reference_and_full
+    self.assertEqual(reconnect.returncode,0,reconnect.stdout+reconnect.stderr)
+AssertionError: 3 != 0 : {
+  "collisions": [],
+  "descriptor": {
+    "generated_by": "manual_preflight.py",
+    "knowledge_root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY",
+    "managed_by": "ios-engineering-library",
+    "mode": "full",
+    "protection_version": "5.4-review-ready.5",
+    "release_id": "5.4-review-ready.7",
+    "runtime_cli": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY/GLOBAL_CODEX/runtime/bin/ios_ai.py",
+    "schema_version": 1,
+    "source_tree_sha256": "4be749a7b037fbf915b8dde56c2942d18c0112141eb296de1c1f24372f6bfc94",
+    "state_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-state"
+  },
+  "ok": true,
+  "operations": [
+    {
+      "op": "reuse_verified_empty_disabled_shim",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-shim"
+    },
+    {
+      "op": "append_managed_block_after_exact_text_review",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/AGENTS.md"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-accessibility-localization"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-active-skill-selection"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-ai-ml"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-api-contract"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-app-intents"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-architecture"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-architecture-mapping"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-background-execution"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-build-ci"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-change-plan"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-client-code-protection"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-code-review"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-command-discovery"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-conflict-resolution"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-context-drift"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-crash-debugging"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-data-migration"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-delegation-planner"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-dependencies"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-design-system"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-diagnostic"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-evidence-synthesis"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-feature-flags"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-hotfix-release"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-implementation"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-integration-review"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-legacy-modernization"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-media-graphics"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-memory-leaks"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-modularity-spm"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-multi-agent-orchestrator"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-navigation"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-nested-agents-design"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-networking-auth"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-observability"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-offline-sync"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-orchestration-budget"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-parallel-investigation"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-parallel-review"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-performance"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-persistence"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-pr-review"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-project-adaptation"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-release"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-repo-intake"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-risk-mapping"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-safe-command-execution"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-sdk-api"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-security-privacy"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-storekit"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-swift-concurrency"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-swiftui"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-system-integrations"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-target-discovery"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-task-router"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-test-flake"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-testing"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-uikit"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-verification-fanout"
+    },
+    {
+      "op": "copy_namespaced_skill_after_all_checks",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills/ioslib-write-scope-partition"
+    },
+    {
+      "op": "replace_only_verified_state_marker",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-state/.ioslib-state-owned.json"
+    },
+    {
+      "op": "create_private_state_root_and_marker_if_absent",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-state"
+    },
+    {
+      "op": "write_descriptor_last",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-shim/INSTALLATION.json"
+    },
+    {
+      "op": "activation_is_last_and_old_release_remains_untouched",
+      "target": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-shim/bin/ios_ai.py"
+    }
+  ],
+  "paths": {
+    "agents_file": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/AGENTS.md",
+    "codex_home": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue",
+    "shim_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-shim",
+    "skills_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/skills",
+    "state_root": "/Users/Shared/ioslib-acceptance/tmpphqb1917/fullTrue/ios-engineering-state"
+  },
+  "read_only": true,
+  "receipt": null,
+  "receipt_seed": {
+    "original_agents_mode": 416,
+    "original_agents_sha256": "7d4b4f49ed9615289eb53654f5978c29a76a42ad45639a0a4e48fe5cda0a503a"
+  },
+  "release": {
+    "protection_version": "5.4-review-ready.5",
+    "release_id": "5.4-review-ready.7",
+    "root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY",
+    "version": "5.4-review-ready.7"
+  },
+  "state_marker": {
+    "deployment": "manual",
+    "managed_by": "ios-engineering-library",
+    "protection_version": "5.4-review-ready.5",
+    "version": "5.4-review-ready.7"
+  }
+}
+Existing AGENTS snapshot is not an exact verified match; stop before publication.
+
+
+----------------------------------------------------------------------
+Ran 3 tests in 64.773s
+
+FAILED (failures=2)

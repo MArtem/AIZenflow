@@ -1,0 +1,256 @@
+test_F08_arbitrary_prefix_token_not_retained_as_executable (test_review_ready.AdapterTests) ... ok
+test_F08_header_and_url_credentials_not_retained (test_review_ready.AdapterTests) ... ok
+test_F08_leading_assignment_nonretention (test_review_ready.AdapterTests) ... ok
+test_F08_quoted_assignment_nonretention (test_review_ready.AdapterTests) ... ok
+test_F09_generator_version_invalidates_context (test_review_ready.AdapterTests) ... ok
+test_F09_readme_command_invalidates_context (test_review_ready.AdapterTests) ... ok
+test_K02_budget_exhaustion_is_partial (test_review_ready.AdapterTests) ... ok
+test_K02_nested_repo_is_independent_boundary (test_review_ready.AdapterTests) ... ok
+test_K02_symlink_source_escape_is_partial_and_not_read (test_review_ready.AdapterTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.067s
+
+OK
+test_F02_state_json_requires_private_permissions (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F02_state_root_symlink_component_rejected_end_to_end (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F06_malformed_git_output_is_error (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F06_subprocess_timeout_is_nonpass_observation (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F10_incompatible_active_session_blocks_installer_and_manual_update (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_active_agents_override_wins_over_conventional_explicit_path (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_canonical_repository_runtime_is_exact_and_lifecycle_safe (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_canonical_repository_runtime_rejects_wrong_origin_or_subtree (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_installer_admission_unknown_lifecycle_fails_closed (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_installer_env_codex_home_cannot_bypass_client_repository_rejection (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_installer_fifo_override_is_bounded_and_never_falls_back (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_installer_rejects_client_repository_destinations (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_manual_env_codex_home_cannot_bypass_client_repository_rejection (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_manual_fifo_override_is_bounded_and_never_falls_back (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_manual_preflight_rejects_independent_target_overlap (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_manual_unsafe_active_override_does_not_fallback_to_agents (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_source_repository_is_not_an_installation_exception (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_F14_unsafe_active_override_does_not_fallback_to_agents (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_context_generation_leaves_client_repo_unchanged (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_full_install_validates (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_modified_managed_skill_blocks_uninstall (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_package_mutation_requires_protected_scope (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_preexisting_dirty_user_file_preserved (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_private_cache_permissions (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_project_pbxproj_requires_protected_scope (test_review_ready.AdditionalAcceptanceTests) ... ok
+test_regression_state_inside_client_repo_rejected (test_review_ready.AdditionalAcceptanceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 10.448s
+
+OK
+test_F07_known_executable_surfaces_reported (test_review_ready.BuildPhaseTests) ... ok
+test_F07_malformed_project (test_review_ready.BuildPhaseTests) ... ok
+test_F07_no_build_phase_not_safe (test_review_ready.BuildPhaseTests) ... ok
+test_F07_symlink_project_input_is_partial_and_not_followed (test_review_ready.BuildPhaseTests) ... ok
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.692s
+
+OK
+test_F02_permission_failure_is_fail_closed (test_review_ready.FinalCoverageTests) ... ok
+test_F03_foreign_repository_session_rejected (test_review_ready.FinalCoverageTests) ... ok
+test_F07_known_executable_surfaces_are_reported_but_never_safe (test_review_ready.FinalCoverageTests) ... ok
+test_F08_header_and_url_credentials_are_not_retained (test_review_ready.FinalCoverageTests) ... ok
+test_F14_reference_mode_does_not_install_bundled_skills (test_review_ready.FinalCoverageTests) ... ok
+test_K05_provenance_and_authority_manifest (test_review_ready.FinalCoverageTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.692s
+
+OK
+test_F01_git_global_options (test_review_ready.GuardTests) ... ok
+test_F01_guard_unknown_mutation (test_review_ready.GuardTests) ... ok
+test_F01_safe_git (test_review_ready.GuardTests) ... ok
+test_F08_guard_leading_assignment_nonretention (test_review_ready.GuardTests) ... ok
+test_F08_guard_secret_nonretention (test_review_ready.GuardTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.003s
+
+OK
+test_F10_agents_permissions_preserved_across_install_sync_uninstall (test_review_ready.InstallerTests) ... ok
+test_F10_copied_runtime_install_validates (test_review_ready.InstallerTests) ... ok
+test_F10_failed_full_upgrade_removes_new_targets (test_review_ready.InstallerTests) ... ok
+test_F10_failed_update_rollback (test_review_ready.InstallerTests) ... ok
+test_F10_fresh_install_raced_empty_target_is_not_replaced (test_review_ready.InstallerTests) ... ok
+test_F10_fresh_post_metadata_publish_failure_rolls_back_file (test_review_ready.InstallerTests) ... ok
+test_F10_fresh_post_rename_failure_rolls_back_published_target (test_review_ready.InstallerTests) ... ok
+test_F10_full_upgrade_post_rename_failure_removes_new_target (test_review_ready.InstallerTests) ... ok
+test_F10_late_backup_cleanup_failure_preserves_published_state (test_review_ready.InstallerTests) ... ok
+test_F10_late_collision_no_partial_install (test_review_ready.InstallerTests) ... ok
+test_F10_local_skill_edit_preserved (test_review_ready.InstallerTests) ... ok
+test_F10_metadata_unlink_does_not_follow_symlink (test_review_ready.InstallerTests) ... ok
+test_F10_mid_install_failure_rollback (test_review_ready.InstallerTests) ... ok
+test_F10_raced_registry_is_not_overwritten (test_review_ready.InstallerTests) ... ok
+test_F10_reference_install_validates (test_review_ready.InstallerTests) ... ok
+test_F10_rollback_preserves_concurrent_tree_edit (test_review_ready.InstallerTests) ... ok
+test_F10_safe_uninstall_preserves_agents_exactly (test_review_ready.InstallerTests) ... ok
+test_F10_source_in_place_registry_points_to_source (test_review_ready.InstallerTests) ... ok
+test_F10_state_marker_collision_is_preflight (test_review_ready.InstallerTests) ... ok
+test_F10_sync_raced_managed_edit_is_preserved (test_review_ready.InstallerTests) ... ok
+test_F10_sync_raced_unmanaged_target_is_preserved (test_review_ready.InstallerTests) ... ok
+test_F10_uninstall_late_cleanup_reports_applied_state (test_review_ready.InstallerTests) ... ok
+test_F10_uninstall_post_metadata_unlink_failure_restores_state (test_review_ready.InstallerTests) ... ok
+test_F10_uninstall_post_rename_failure_restores_target (test_review_ready.InstallerTests) ... ok
+test_F10_uninstall_unknown_file_preserved (test_review_ready.InstallerTests) ... ok
+test_F14_dry_run_no_mutation (test_review_ready.InstallerTests) ... ok
+test_F14_namespace_collision (test_review_ready.InstallerTests) ... ok
+test_F14_portable_area_profile_is_explicit_and_local (test_review_ready.InstallerTests) ... ok
+test_F14_portable_area_rejects_ambiguous_codex_home (test_review_ready.InstallerTests) ... ok
+test_F14_portable_area_rejects_path_escape_overrides (test_review_ready.InstallerTests) ... ok
+test_F14_reference_mode_installs_no_bundled_skills (test_review_ready.InstallerTests) ... ok
+test_F14_reference_mode_publishes_knowledge_descriptor (test_review_ready.InstallerTests) ... ok
+test_symlink_source_escape_rejected (test_review_ready.InstallerTests) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 17.584s
+
+OK
+test_F14_all_bundled_skills_namespaced (test_review_ready.PackagePolicyTests) ... ok
+test_F14_fresh_full_and_reference_full_migration_docs_are_distinct (test_review_ready.PackagePolicyTests) ... ok
+test_F14_installed_package_identity_mismatch_is_not_pass (test_review_ready.PackagePolicyTests) ... ok
+test_F14_internal_skill_references_namespaced (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_bounds_empty_directories_and_pending_work (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_rejects_aggregate_overflow_before_read (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_rejects_ambiguous_normalized_mapping (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_requires_boolean_active_and_never_trusts_string_false (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_requires_exact_active_source_and_invalidates_change (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_revalidates_candidate_and_duplicate_evidence (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_supports_explicit_layout_mapping (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_walk_error_and_deadline_are_nonpass (test_review_ready.PackagePolicyTests) ... ok
+test_F14_knowledge_profile_without_source_is_not_active (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_commands_compile_without_deployment (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_deployment_is_explicit_and_installer_independent (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_documented_fresh_reference_and_full (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_observer_bounds_empty_dirs_pending_work_and_walk_errors (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_package_budget_and_short_reads (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_preflight_accepts_verified_transitional_shim_for_descriptor (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_preflight_clean_is_read_only_and_emits_selector (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_preflight_rejects_occupied_unknown_shim (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_preflight_rejects_unmarked_nonempty_state (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_receipt_emitter_accepts_published_reference_fixture (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_receipt_encoded_and_aggregate_bounds (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_receipt_rejects_changed_descriptor_and_skill (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_reconnect_requires_owned_disabled_state_and_preserves_agents_prefix (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_shim_missing_descriptor_fails_before_runtime (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_shim_resolves_relocated_payload (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_shim_switches_external_release_from_descriptor (test_review_ready.PackagePolicyTests) ... ok
+test_F14_manual_update_accepts_only_release_matching_skill_tree (test_review_ready.PackagePolicyTests) ... ok
+test_F14_real_v6_round_trip_uses_fixed_coordinator (test_review_ready.PackagePolicyTests) ... ok
+test_F14_router_and_capability_matrix_are_shipped_entrypoints (test_review_ready.PackagePolicyTests) ... ok
+test_F14_runtime_component_versions_match_release_manifest (test_review_ready.PackagePolicyTests) ... ok
+test_F14_source_in_place_update_switches_release_root_and_can_return (test_review_ready.PackagePolicyTests) ... ok
+test_K01_priority_knowledge_has_domain_depth_and_primary_sources (test_review_ready.PackagePolicyTests) ... ok
+test_K01_repeated_deep_playbook_placeholder_removed (test_review_ready.PackagePolicyTests) ... ok
+test_K03_guarantee_terminology_present (test_review_ready.PackagePolicyTests) ... ok
+
+----------------------------------------------------------------------
+Ran 37 tests in 90.336s
+
+OK
+test_A53_01_active_or_verified_v52_session_blocks_upgrade (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_archival_audit_remains_visible_without_evidence_promotion (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_closed_v52_session_allows_v53_begin_same_state (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_corrupt_foreign_and_unknown_sessions_fail_closed (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_explicit_status_does_not_reverify_archival_v52_evidence (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_legacy_scanner_deadline_covers_final_record_read (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_legacy_scanner_enforces_exact_aggregate_byte_boundary (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_legacy_scanner_iteration_failure_is_nonpass (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_legacy_scanner_rejects_file_replacement_between_stat_and_read (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_legacy_scanner_rejects_intermediate_symlink_escape (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_linked_worktree_closed_legacy_allowed_but_shared_active_legacy_blocks (test_review_ready.ProtectionSessionTests) ... ok
+test_A53_01_upgrade_compatibility_is_idempotent_and_preserves_legacy_json (test_review_ready.ProtectionSessionTests) ... ok
+test_A54_02_legacy_scanner_deadline_covers_final_record_validation (test_review_ready.ProtectionSessionTests) ... ok
+test_A54_02_legacy_scanner_enforces_per_file_byte_boundary (test_review_ready.ProtectionSessionTests) ... ok
+test_F03_malformed_session_fail_closed (test_review_ready.ProtectionSessionTests) ... ok
+test_F03_rebegin_does_not_replace_session (test_review_ready.ProtectionSessionTests) ... ok
+test_F03_same_worktree_parallel_session_rejected (test_review_ready.ProtectionSessionTests) ... ok
+test_F03_session_id_requires_canonical_uuid (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_branch_change (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_commit_inside_scope (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_commit_outside_scope (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_config_mutation (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_dirty_baseline_not_absorbed_into_commit (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_preexisting_staged_blob_change_with_commit_transition (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_ref_mutation (test_review_ready.ProtectionSessionTests) ... ok
+test_F04_staging_outside_scope (test_review_ready.ProtectionSessionTests) ... ok
+test_F05_nested_dirty_content (test_review_ready.ProtectionSessionTests) ... ok
+test_F05_nested_git_symlink_fails_closed (test_review_ready.ProtectionSessionTests) ... ok
+test_F05_nested_repository_recurses_to_second_level (test_review_ready.ProtectionSessionTests) ... ok
+test_F05_nested_staged_content (test_review_ready.ProtectionSessionTests) ... ok
+test_F06_budget_exhaustion (test_review_ready.ProtectionSessionTests) ... ok
+test_F06_git_observation_failure (test_review_ready.ProtectionSessionTests) ... ok
+test_cli_session_id_resolves_only_writer (test_review_ready.ProtectionSessionTests) ... ok
+
+----------------------------------------------------------------------
+Ran 33 tests in 22.389s
+
+OK
+test_F12_task_lifetime_pattern_semantics_documentation (test_review_ready.RiskAndDocsTests) ... ok
+test_F13_explicit_risk (test_review_ready.RiskAndDocsTests) ... ok
+test_F13_partial_repository_evidence_denies_delegation (test_review_ready.RiskAndDocsTests) ... ok
+test_F13_russian_destructive_migration_not_downgraded (test_review_ready.RiskAndDocsTests) ... ok
+test_F13_unknown_language_risk (test_review_ready.RiskAndDocsTests) ... ok
+test_K04_swift_risk_scan_no_source_body (test_review_ready.RiskAndDocsTests) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 0.268s
+
+OK
+test_F02_dangling_symlink (test_review_ready.SecureWriteTests) ... ok
+test_F02_existing_symlink (test_review_ready.SecureWriteTests) ... ok
+test_F02_parent_symlink (test_review_ready.SecureWriteTests) ... ok
+test_F02_permission_failure_rejected (test_review_ready.SecureWriteTests) ... ok
+test_F02_race_like_destination_replacement (test_review_ready.SecureWriteTests) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.005s
+
+OK
+test_A52_01_closed_pipes_do_not_allow_background_grandchild_to_escape (test_review_ready.V51AcceptanceTests) ... ok
+test_A52_01_pipe_read_error_still_cleans_owned_child (test_review_ready.V51AcceptanceTests) ... ok
+test_A52_01_silent_grandchild_inherited_pipes_is_bounded_and_killed (test_review_ready.V51AcceptanceTests) ... ok
+test_A52_02_two_concurrent_verifies_preserve_both_audit_records (test_review_ready.V51AcceptanceTests) ... ok
+test_A52_02_verify_close_interleaving_cannot_resurrect_closed_session (test_review_ready.V51AcceptanceTests) ... ok
+test_A52_03_real_linked_worktree_shares_writer_slot (test_review_ready.V51AcceptanceTests) ... ok
+test_A52_03_shared_third_party_ref_mutation_is_still_detected (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_01_existing_mm_blob_allowed_only_with_explicit_dirty_scope (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_01_stage_and_commit_inside_scope_remain_valid (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_01_stage_does_not_waive_dirty_scope_for_existing_mm_blob (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_01_staged_mode_change_requires_dirty_scope (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_01_staged_removal_requires_dirty_scope (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_02_repeated_partial_ensure_never_becomes_fresh (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_03_nested_protected_basenames_and_mixed_separators (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_03_nested_protected_file_requires_protected_scope (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_04_explicit_trusted_system_git_is_green_when_available (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_04_path_spoof_is_never_green (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_04_relative_fake_git_and_pwd_are_never_green (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_05_reason_never_retains_unknown_tokens (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_06_close_releases_writer_slot (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_06_concurrent_begin_has_single_winner (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_06_independent_repositories_have_independent_writer_slots (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_06_parallel_cli_flag_is_not_exposed (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_06_parallel_flag_is_rejected_even_for_first_writer (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_06_policy_docs_match_one_writer_contract (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_06_same_worktree_parallel_writer_is_rejected (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_07_total_deadline_cleans_owned_child (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_08_adapter_walk_error_is_partial (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_08_build_scan_walk_error_is_incomplete (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_08_global_install_validator_walk_error_is_error (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_08_installer_managed_tree_walk_error_fails_closed (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_08_installer_package_walk_error_fails_closed (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_08_protection_walk_error_is_nonpass (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_declared_policy_does_not_claim_effective_resolution (test_review_ready.V51AcceptanceTests) ... ok
+test_V51_no_install_project_reference_workflow_is_explicit (test_review_ready.V51AcceptanceTests) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 15.419s
+
+OK
+
+REVIEW_READY_TEST_SUMMARY total=199 pass=199 fail=0 skip=0

@@ -1,45 +1,49 @@
-# Handoff — приёмка библиотеки
+# Handoff — lifecycle PASS, automatic entry not accepted
 
-Task new-task-be0b; 2026-09-16; Astra, режим эконом.
-При возобновлении применить canonical bootstrap, текущий Level 0, plan.md и relevant runbook routes.
-Не копировать runbook/ожидаемые инструкции в нейтральную fresh-entry задачу.
+Task new-task-be0b; 2026-09-16; Astra, эконом.
+Применить canonical bootstrap, Level 0, plan.md и relevant runbook routes.
+Актуальный [receipt](../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md)
+заменяет прежние environment-blocked статусы.
 
-## Состояние
+## Что завершено
 
-Astra исправила обнаруженные дефекты manual harness и проверки historical ZIP.
-Общий builder используется для activation/reconnect; отдельный всегда выполняемый тест
-проверяет обе shell-команды через bash -n. Путь ZIP обязателен для real .6 test, SHA проверяется
-до environment skip. Suite: 199 / 193 PASS / 0 FAIL / 6 SKIP; validator PASS.
-Пропущенные lifecycle bodies не считаются доказанными.
+Пользователь однократно разрешил /Users/Shared/ioslib-acceptance для isolated library tests.
+Путь был свободен и вне Git. Начальные failures выявили harness/manual дефекты:
+неуказанные skills paths, snapshot mode 0644 вместо recorded 0640, пустые skill directories
+и activation-owned newlines после disable. Исправлены только тестовый harness/процедура и
+metadata mirrors, без ослабления production checks.
+Финальный полный suite: 199 PASS / 0 FAIL / 0 SKIP; validator PASS; real .6→.7→.6 PASS.
+После завершения всех процессов тестовые данные очищены, сама папка удалена через rmdir;
+inode/отсутствие проверены. Внешнее разрешение больше не действует. Логи в .zenflow сохранены.
 
-Полный актуальный receipt:
-[final-acceptance-summary.md](../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md).
-Он содержит ZIP/hash, runtime identity, exact blockers, source pins и границы публикации.
-Candidate/canonical идентичны, существующий reference runtime обновлён и проверен.
-Astra-authored correction не получает независимую приёмку только из-за смены модели.
+Три нейтральные задачи Luna Xhigh завершены в exact local roots, не projectless/worktrees:
+- Ghibli — первый read-only вход: 01a0aae7-ae71-7742-a920-516a63d1bd6f.
+- Firefox — первый read-only вход: 01a0aae7-bcd8-7da3-9663-2f0582dc84d9.
+- Countries — первый read-only вход: 01a0aae7-cf37-79d3-976e-4d6e94b147da.
+Публичные observations сохранены в fresh-*.json рядом с receipt; hidden reasoning исключён.
+Firefox сообщил о заранее полученном upstream AGENTS; остальные — без root AGENTS.
+Во всех трёх виден research skill и source inspection, без canonical/library route.
+Automatic application gate НЕ ПРОЙДЕН; exact host delivery/active CODEX_HOME остаются UNKNOWN.
+Не выдавать отсутствие tool read само по себе за доказанное отсутствие внедрённых инструкций.
 
-## Пилоты и продолжение
+Прежние static pilots сохранены, Countries scenario table завершена с P2 отмены;
+upstream fix не нужен для read-only deliverable. Исходники трёх fresh-entry проектов чистые.
+Ghibli Retry остаётся в другой исходной копии, fresh-entry копия не менялась.
 
-Ghibli Retry уже изменён Luna в одном source file; static evidence сохранён, build/UI не запускались.
-Отдельная чистая копия GhibliSwiftUIApp-entry создана для first-entry на том же pin.
-Firefox read-only review сохранён; Countries scenario table завершена с P2 cancellation finding.
-Это успешное выполнение read-only анализа, не обещание исправности Countries.
+## Публикация и продолжение
 
-Fresh-entry NOT_RUN: три roots отсутствуют в saved-project catalog. Инструмент запрещает
-управление самим Codex: “Computer Use is not allowed to use the app 'com.openai.codex' for safety reasons.”
-Нужно ручное добавление папок, перечисленных в receipt; обход через app configuration запрещён.
-Создание предусмотренных runbook fresh tasks уже разрешено, повторно спрашивать authority не надо.
-Отдельные non-iOS/empty/linked controls не подменять этой текущей задачей с готовым baseline.
+Новый candidate ZIP/hash и suite evidence в receipt. Canonical V остаётся чистым на 3ad93db;
+active source-in-place runtime НЕ обновлён, по запрету менять реальные настройки.
+Candidate и canonical теперь намеренно различаются; не обещать синхронизацию/автоподключение.
+Astra authored correction не является независимым ревью самой себя.
+Task commit/push сохраняют только candidate и evidence; результат SHAs — в финальном сообщении.
 
-R3 остаётся BLOCKED_ENVIRONMENT: внутри разрешённой .zenflow нет допустимого external-to-Git
-fixture root. Нужна отдельная явная authority на подходящее окружение; не удалять домашний .git,
-не подменять Git detection и не считать canonical runtime exception внешним clean-host proof.
-
-## Не делать
-
-Не фиксировать/пушить upstream apps, не менять Countries, не запускать app tests/build/Simulator,
-не ставить зависимости, не читать внешний CODEX_HOME без точного разрешения. Не повторять suite,
-runtime sync или упаковку из-за receipt-only изменений. Не объявлять полную приёмку завершённой
-до host/fresh-entry/positive lifecycle evidence. Проектные данные держать внутри .zenflow.
+Следующий шаг требует решения по host entry, а не ещё одного installer smoke.
+Не угадывать CODEX_HOME, не читать внешний home/config без точной authority, не править
+реальные настройки, не перезапускать Codex и не добавлять bootstrap в imports задним числом.
+Empty/non-iOS/linked controls пока NOT_RUN: нет зарегистрированных roots; продолжать матрицу
+до разрешения уже наблюдаемого common-entry gap неэкономично.
+Повторное использование /Users/Shared/ioslib-acceptance запрещено без нового явного разрешения.
+App builds/tests/Simulator/dependencies/upstream publication не разрешены.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

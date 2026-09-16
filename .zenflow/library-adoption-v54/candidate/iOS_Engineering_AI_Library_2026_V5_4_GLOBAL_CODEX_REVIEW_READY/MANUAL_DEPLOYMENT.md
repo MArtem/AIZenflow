@@ -334,8 +334,17 @@ remains available throughout this sequence.
 
 To disable, stop using the active Codex process, make a recoverable copy of the effective AGENTS
 file, and remove only the managed global block after confirming its exact begin/end markers and
-block hash. Remove only the shim files and namespaced skills whose paths and hashes were recorded
-by the operator; preserve unknown or modified entries. Leave the unpacked payload and external
+block hash. Remove the separator newline and trailing block newline added by activation as part
+of that verified composition, restoring the exact original user bytes and mode. Compare with the
+recorded original snapshot before reconnecting; if unrelated text differs, stop and preserve it
+for manual review. If AGENTS originally did not exist, leave an empty file after removing the
+verified composition. Do not trim arbitrary user whitespace or overwrite an old snapshot to
+make a reconnect pass. Remove only the shim files and namespaced skills whose paths and hashes were recorded
+by the operator; preserve unknown or modified entries. After removing verified skill files,
+remove their now-empty directories bottom-up with `rmdir`, limited to directories derived from
+the recorded skill paths. Do not remove the skills root or recursively delete a directory:
+remaining unknown content must cause a stop. Empty leftover skill directories are not proof of
+ownership and will correctly block a later fresh full activation. Leave the unpacked payload and external
 state in place. If any file contains unrelated edits, use a reviewed manual merge; do not delete
 session history or an entire directory as a shortcut. Afterward start a fresh Codex session and
 verify that the library block is absent before declaring disable complete.

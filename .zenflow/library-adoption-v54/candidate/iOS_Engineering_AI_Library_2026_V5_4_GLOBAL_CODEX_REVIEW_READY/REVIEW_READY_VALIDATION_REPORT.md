@@ -1,9 +1,9 @@
 # Review-Ready Validation Report — Astra follow-up working candidate
 
 Date: **2026-09-16**
-Artifact stage: Astra harness correction; no accepted release.
-Status: **NOT_READY — targeted regressions pass; external-to-Git lifecycle and actual
-host instruction delivery remain unverified**.
+Artifact stage: Astra external-lifecycle correction; no accepted release.
+Status: **NOT_READY — isolated lifecycle verified; automatic host instruction application
+not demonstrated in three fresh Desktop tasks**.
 
 This is author/self-test evidence, not independent acceptance or proof of complete security. V14 is a corrective follow-up to the V13 candidate and its bounded Astra review: it addresses manual selector/overwrite findings, explicit protection-version admission, knowledge routing/profile wiring, bounded destination admission, and artifact-scoped evidence. The current local candidate also ships regression coverage for post-publication cleanup, intermediate paths, per-file and aggregate accounting, replacement races, iteration failure, slow read and slow validation deadline checkpoints, client-repository destination rejection, AGENTS override precedence, candidate/source profile revalidation and explicit layout mappings. This follow-up additionally fixes positional manual-block selection and makes the historical archive input explicit through `IOSLIB_LEGACY_ARCHIVE`. The V13 review remains historical evidence; this candidate still requires final independent review and host adoption evidence.
 
@@ -18,60 +18,48 @@ This is author/self-test evidence, not independent acceptance or proof of comple
 
 ## Executed regression suite
 
-Command used for the Astra author-verification run:
+The final author-verification command uses the user's one-time external fixture authorization:
 
 ```bash
-IOSLIB_TEST_TMP_ROOT=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp-astra \
-  IOSLIB_LEGACY_ARCHIVE=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip \
+TMPDIR=/Users/Shared/ioslib-acceptance \
+PYTHONDONTWRITEBYTECODE=1 \
+IOSLIB_TEST_TMP_ROOT=/Users/Shared/ioslib-acceptance \
+IOSLIB_LEGACY_ARCHIVE=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip \
   python3 -B tests/run_all.py --serial
 ```
 
-Observed result on the corrected working tree:
-
 - total: **199**
-- PASS: **193**
+- PASS: **199**
 - FAIL: **0**
-- SKIP: **6**
+- SKIP: **0**
 - runner exit: **0**
-- wall clock: not recorded as a release claim
 
-The final serial run used `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp-astra`,
-which is inside the candidate Git root. The complete suite passed; six host-dependent cases
-remain explicitly skipped. This is intentional: the current host-level Git boundary encloses
-the approved `.zenflow` sandbox, so positive external-deployment fixtures were not bypassed.
+The fixture directory was absent before creation, outside detected Git roots, and created with
+mode 0700. After the successful suite its contents were already cleaned by the tests; the same
+directory inode was verified, the empty root removed with rmdir, and absence confirmed. This report
+is not permission to recreate it. On other hosts choose a separately authorized external-to-Git
+root; omitted historical archive or Git-enclosed fixtures remain explicit NOT_RUN.
 
-Current deployment-integration boundary:
+The preceding inside-Git run had 193 PASS / 6 SKIP. The first external run exposed five failing
+assertions across three manual tests: missing isolated skills paths, wrong original-snapshot
+mode and empty skill directories blocking reconnect. The targeted recheck passed the two
+preflight tests and exposed two reconnect subtest failures from activation-owned newlines left on disable.
+These were fixed in the harness and manual procedure, without relaxing production admission:
+explicit fixture skills paths, recorded snapshot mode, rmdir only for empty directories derived
+from verified owned files, and byte-exact restoration of the verified AGENTS composition.
+Original failure logs and corrected run evidence remain in the task receipt.
 
-- The current host exposes a home-level Git root above the approved `.zenflow` fixture area.
-  Production policy correctly rejects destinations inside any detected Git repository; the test
-  real CLI integration tests do not mask that root. Existing installer UNIT fixtures locally
-  mock the home-level Git result; their PASS is not external deployment evidence.
-- Six positive manual/installer integration cases are explicitly `NOT_RUN` in this
-  environment. They run when `IOSLIB_TEST_TMP_ROOT` points to an operator-
-  approved path outside every Git repository. This is a host limitation, not a production
-  exception, and it is not evidence of successful global deployment.
-- Unmocked negative CLI coverage, including bounded FIFO handling in both preflights, ran and
-  passed. The 193 passing tests are regression evidence, not a claim of universal host discovery.
-
-The manual harness now builds activation/reconnect commands through one helper with unique
-block markers and distinct shell-string variables. An always-executed regression constructs
-both modes with a quoted destination and validates them with `bash -n`; it catches the previous
-string/Path shadowing before any deployment admission. This is construction/syntax evidence,
-not an executed manual installation. The historical archive is now an explicit input, with
-absolute-path, existence and pinned SHA checks preceding Git admission. Its verified SHA is
+The manual lifecycle now exercises fresh reference/full, absent/existing user AGENTS (0640),
+reference→full/update, changed payload A→B→A, modification refusal, disable, preserved history
+and reconnect in all four branches. Its shell blocks are selected uniquely and syntax-checked
+independently. The real historical .6→.7→.6 CLI sequence checks selected release identity,
+old coordinator refusal, state sentinel, user AGENTS mode and old payload preservation.
+Historical archive SHA:
 `57e34f454b5247a43864f89354cdb02a742e5a26d1e6a343d287c9b05bd76e27`.
-Skipped lifecycle bodies remain unverified; a skip cannot prove that they contain no defects.
 
-Post-FINAL8 corrections prepare descriptor and state marker before any publication, preserve the
-raw original AGENTS hash, propagate the selected mode/skills path, verify incoming content before
-receipt emission and make protection explicitly opt-in. Package reading has a 512 MiB aggregate,
-64 MiB per-file, 10,000-entry and cooperative 30-second budget. Receipt readers/writers share a
-4 MiB encoded limit and 64 MiB aggregate content budget. Short reads, exact/overflow aggregate
-boundaries, expired deadlines and receipts larger than 64 KiB are covered by passing unit tests.
-The new unmocked lifecycle test executes the fresh runbook shell blocks, then reference/full,
-changed routed payload A→B→A and disable; it is one of the six NOT_RUN cases.
-
-The suite contains all prior V5.3 regression coverage plus deterministic A53-01 upgrade/state-compatibility and bounded-observation fixtures. The corrective candidate adds A54 cleanup-commit-point, final-validation-deadline, per-file-limit and identity-sensitive mutation coverage, plus manual receipt ownership and bounded observer fixtures. The test host uses an isolated `.zenflow` temporary root so protected state I/O is exercised through the same no-follow path policy on macOS.
+The six formerly skipped integration cases execute with real production Git checks. Existing
+mocked unit fixtures remain unit evidence. Passing these isolated fixtures does not prove
+delivery to the active Codex Desktop process or independently establish app production readiness.
 
 ## A53-01 observed synthetic evidence
 
@@ -141,8 +129,8 @@ convenience.
   check, not a trust boundary, installer, backup, or automatic rollback service.
 - The manual runbook now defines the checked fresh reference, reference→full, update, full→reference
   disable, and A→B→A rollback sequence. The local suite validates receipt emission and refusal
-  behavior in synthetic fixtures; the positive external-to-Git deployment cases remain NOT_RUN on
-  this host because its home-level Git root encloses the approved `.zenflow` fixture area.
+  behavior in synthetic fixtures; the formerly skipped positive external-to-Git cases also passed
+  in the separately authorized one-time fixture area described above.
 - Manual A→B→A selector fixture launches distinguishable release payloads from the same shim by
   changing only the validated descriptor; a missing descriptor fails before the runtime starts.
 - Manual preflight fixture preserves an occupied unknown shim and returns a non-zero refusal before
@@ -169,14 +157,17 @@ V5.4 preserves the V5.3 A52 fixes: one writer per Git common directory, serializ
 
 ## Final archive evidence
 
-- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_ASTRA_CORRECTED_20260916.zip`.
+- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_ASTRA_LIFECYCLE_20260916.zip`.
 - SHA-256: recorded in the external task receipt; it is intentionally not embedded in the ZIP
   because changing the report to include a self-hash would change the archive hash.
 - Package validator: `files=1366 skills=60 sections=51 playbooks=288 errors=0`.
-- Candidate suite: `REVIEW_READY_TEST_SUMMARY total=199 pass=193 fail=0 skip=6`, exit `0`.
-- Archive/source equality is checked against every packaged file; details and SHA live in the
+- Candidate suite: `REVIEW_READY_TEST_SUMMARY total=199 pass=199 fail=0 skip=0`, exit `0`.
+- Archive/candidate equality is checked against every packaged file; details and SHA live in the
   external task receipt. The smoke evidence below is retained historical evidence, not a new
   manual/installer execution of this harness correction.
+- Promotion into canonical source and the active source-in-place installation is deferred:
+  the current user instruction forbids changing real Codex settings. The tested candidate is
+  separate; no claim is made that the active runtime selects these new bytes.
 - Candidate-isolated manual smoke: current documented reference sequence — clean and post-activation
   read-only preflight, descriptor/state-marker lifecycle, AGENTS block, relocated shim doctor and
   guard — all PASS. Outputs are retained under `.zenflow/library-adoption-v54/evidence/manual-smoke-current/`.

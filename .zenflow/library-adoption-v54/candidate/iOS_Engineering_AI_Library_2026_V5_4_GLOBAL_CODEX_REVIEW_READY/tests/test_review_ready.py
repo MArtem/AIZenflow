@@ -1198,10 +1198,10 @@ class PackagePolicyTests(unittest.TestCase):
         td=test_tmpdir()
         try:
             home=td/'manual-home'; home.mkdir(); state=home/'state'
-            p=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state])
+            p=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--skills-root',home/'skills'])
             self.assertEqual(p.returncode,0,p.stdout+p.stderr); data=json.loads(p.stdout); self.assertTrue(data['ok']); self.assertTrue(data['read_only'])
             self.assertFalse(home.joinpath('ios-engineering-shim').exists()); self.assertFalse(state.exists())
-            selector=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--emit-descriptor'])
+            selector=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--skills-root',home/'skills','--emit-descriptor'])
             self.assertEqual(selector.returncode,0,selector.stdout+selector.stderr); self.assertEqual(json.loads(selector.stdout)['runtime_cli'],str(ROOT/'GLOBAL_CODEX/runtime/bin/ios_ai.py'))
         finally: shutil.rmtree(td,ignore_errors=True)
 
@@ -1213,7 +1213,7 @@ class PackagePolicyTests(unittest.TestCase):
             home=td/'manual-home'; home.mkdir(); state=home/'state'
             shim_bin=home/'ios-engineering-shim'/'bin'; shim_bin.mkdir(parents=True)
             shutil.copy2(ROOT/'MANUAL_SHIM/bin/ios_ai.py',shim_bin/'ios_ai.py'); os.chmod(shim_bin/'ios_ai.py',0o755)
-            selector=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--emit-descriptor'])
+            selector=run([sys.executable,ROOT/'MANUAL_SHIM/bin/manual_preflight.py','--release-root',ROOT,'--codex-home',home,'--state-root',state,'--skills-root',home/'skills','--emit-descriptor'])
             self.assertEqual(selector.returncode,0,selector.stdout+selector.stderr)
             data=json.loads(selector.stdout)
             self.assertEqual(data['runtime_cli'],str(ROOT/'GLOBAL_CODEX/runtime/bin/ios_ai.py'))
@@ -1517,7 +1517,7 @@ class PackagePolicyTests(unittest.TestCase):
                             else:
                                 snapshot=backup/'original-agents-snapshot'
                                 snapshot.write_bytes(original)
-                                snapshot.chmod(0o644)
+                                snapshot.chmod(seed['original_mode'])
                                 extra=['--original-agents-sha256',seed['original_sha256'],
                                     '--original-agents-mode',str(seed['original_mode']),
                                     '--original-agents-snapshot',str(snapshot)]
@@ -1557,14 +1557,26 @@ class PackagePolicyTests(unittest.TestCase):
                         preflight(ROOT,'full')
                         # Disable removes only unchanged owned files, preserving state and user text.
                         owned=M.validate_receipt(latest,shim=shim,state=home/'ios-engineering-state',skills=skills,agents=agents)
+                        skill_dirs=set()
+                        for path in owned:
+                            for parent in path.parents:
+                                if parent==skills: break
+                                if M.path_contains(skills,parent): skill_dirs.add(parent)
                         for path in owned:
                             if path==agents or M.path_contains(home/'ios-engineering-state',path): continue
                             path.unlink()
-                        text=agents.read_text(); start=text.index(M.BEGIN); end=text.index(M.END,start)+len(M.END)
-                        agents.write_text(text[:start]+text[end:])
+                        # Remove only now-empty directories derived from owned skill paths.
+                        # rmdir refuses residual/unknown content; never recursively delete it.
+                        for directory in sorted(skill_dirs,key=lambda p:len(p.parts),reverse=True):
+                            directory.rmdir()
+                        # The activation-owned separator and block newline are removed too;
+                        # preserve the exact pre-activation bytes, not additional whitespace.
+                        managed_block=(ROOT/'GLOBAL_CODEX/AGENTS.global.block.md').read_bytes()
+                        self.assertEqual(agents.read_bytes(),original+b'\n'+managed_block)
+                        agents.write_bytes(original)
                         (shim/M.RECEIPT_NAME).unlink()
                         self.assertNotIn(M.BEGIN,agents.read_text())
-                        self.assertTrue(agents.read_bytes().startswith(original))
+                        self.assertEqual(agents.read_bytes(),original)
                         self.assertEqual(history.read_text(),'preserve session history')
                         reconnect=run(['bash','-c',activation_script],env=env)
                         self.assertEqual(reconnect.returncode,0,reconnect.stdout+reconnect.stderr)

@@ -437,7 +437,7 @@ The V5.4 release inventory is recorded in `GLOBAL_MANIFEST.json` and the exact f
 - 51 knowledge sections;
 - 288 deep playbooks;
 - 60 namespaced optional skills;
-- 199 synthetic tests, observed as 193 passed, 0 failed, and 6 skipped in the release working tree;
+- 199 synthetic tests, observed as 199 passed, 0 failed, and 0 skipped in the release working tree;
 - structural package validation with no validator errors at the time of release preparation.
 
 These numbers describe shipped inventory and observed checks; they are not a claim that every
