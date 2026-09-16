@@ -27,7 +27,8 @@
 - [x] Ghibli: Retry на ошибке Movies; Firefox: read-only поиск; Countries: network→DB→UI analysis.
 - [x] Отдельный non-iOS контроль и честный статус отсутствующего runtime evidence — fixture prepared, observation NOT_RUN.
 - [ ] Синхронизация candidate/canonical/runtime — PASS; разрешённые commit/push остаются; новый ZIP/hash PASS.
-- [x] Независимая приёмка и конечный отчёт без ложных PASS — receipt is SELF_VERIFIED, not ASTRA_ACCEPTED.
+- [x] Конечный отчёт без ложных PASS — receipt is SELF_VERIFIED, not ASTRA_ACCEPTED.
+- [ ] Независимая Astra-приёмка — не выполнена в этом проходе.
 
 ## Ограничения
 
