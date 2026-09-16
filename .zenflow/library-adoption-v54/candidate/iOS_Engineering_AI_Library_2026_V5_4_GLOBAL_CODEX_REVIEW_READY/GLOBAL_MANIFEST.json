@@ -68,12 +68,12 @@
     "minimum_parser_compatibility": "Python 3.9 grammar",
     "fixtures": "synthetic temporary Codex homes and Git repositories only",
     "observed_release_working_tree": {
-      "total": 196,
-      "pass": 191,
+      "total": 198,
+      "pass": 192,
       "fail": 0,
-      "skip": 5,
-      "execution": "serial suite with an operator-selected fixture root inside .zenflow and outside the candidate Git root; see validation report",
-      "date": "2026-09-15",
+      "skip": 6,
+      "execution": "serial suite with an operator-selected fixture root inside .zenflow but enclosed by the candidate Git root; six external-deployment cases remained skipped; see validation report",
+      "date": "2026-09-16",
       "wall_clock_seconds_approx": null
     },
     "runner_bytecode_policy": "release validation uses PYTHONDONTWRITEBYTECODE=1; package validator rejects __pycache__/.pyc",

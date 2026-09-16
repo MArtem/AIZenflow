@@ -57,9 +57,9 @@ For a later installer update, extract the new release beside the old one and run
 `sync_global.py`; source-in-place mode selects that script's versioned source root. Inspect the
 dry-run `source`, `content_root`, `version`, and `source_tree_sha256`, then run the same command
 without `--dry-run`. Keep the old release and state root. To roll back, stop Codex and run the
-same dry-run/update pair using the preserved old release's `sync_global.py`. Never run
-`install_global.py` again against an already registered area, and never treat a dry-run as a
-completed update.
+fixed release's `sync_global.py --release-root <verified-old-release>` using the same dry-run/update
+pair. Never run `install_global.py` again against an already registered area, never use the old
+release's pre-fix sync as the rollback coordinator, and never treat a dry-run as a completed update.
 
 For **full** mode, inspect the full preflight and reuse its exact ID:
 
@@ -69,6 +69,14 @@ python3 install_global.py --mode full --preflight-id <ID_FROM_DRY_RUN>
 ```
 
 Full mode installs only namespaced `ioslib-*` skills.
+
+For an existing reference installation, the migration producer is `sync_global.py`, not the fresh
+installer:
+
+```bash
+python3 sync_global.py --codex-home "$AREA_ROOT" --mode full --dry-run
+python3 sync_global.py --codex-home "$AREA_ROOT" --mode full --preflight-id <ID_FROM_SYNC_DRY_RUN>
+```
 
 After either deploy mode, read `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/INSTALLATION.json` to discover the exact selected release and knowledge root. `INSTALLATION.md` is explanatory only. Reference mode intentionally relies on this stable selector instead of installing the 60 optional skills. Then read `GLOBAL_CODEX/KNOWLEDGE_ROUTER.md` and load only the route relevant to the task.
 

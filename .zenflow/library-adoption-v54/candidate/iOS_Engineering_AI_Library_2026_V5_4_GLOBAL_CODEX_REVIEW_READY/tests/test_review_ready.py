@@ -1,7 +1,7 @@
 from __future__ import annotations
-import contextlib, hashlib, importlib.util, io, json, os, shutil, stat, subprocess, sys, tempfile, threading, time, types, unittest
+import contextlib, hashlib, importlib.util, io, json, os, shutil, stat, subprocess, sys, tempfile, threading, time, types, unittest, zipfile
 from unittest import mock
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 
 ROOT=Path(__file__).resolve().parents[1]
 # Synthetic Git identity avoids two config subprocesses for every temporary repo.
@@ -950,6 +950,11 @@ class PackagePolicyTests(unittest.TestCase):
         self.assertIn('Reference mode',matrix); self.assertIn('Automatic subagent fan-out',matrix); self.assertIn('grants build',matrix)
     def test_F14_manual_deployment_is_explicit_and_installer_independent(self):
         text=(ROOT/'MANUAL_DEPLOYMENT.md').read_text(encoding='utf-8')
+        self.assertIn('Clean-host profile',text)
+        self.assertIn('Current-host canonical profile',text)
+        first_block=text.split('```bash\n',2)[1].split('```',1)[0]
+        self.assertNotIn('--canonical-repository-root',first_block)
+        self.assertNotIn('AIZenflowDocumentation',first_block)
         self.assertIn('not run `install_global.py`',text)
         self.assertIn('same active payload layout',text)
         self.assertIn('by\nitself make Codex load it',text)
@@ -959,6 +964,16 @@ class PackagePolicyTests(unittest.TestCase):
         self.assertIn('cp -n',text)
         self.assertIn('DESCRIPTOR_TMP',text)
         self.assertIn('STATE_MARKER_TMP',text)
+
+    def test_F14_fresh_full_and_reference_full_migration_docs_are_distinct(self):
+        readme=(ROOT/'README.md').read_text(encoding='utf-8')
+        quick=(ROOT/'QUICKSTART.md').read_text(encoding='utf-8')
+        self.assertIn('Existing reference installation: explicit reference → full migration',readme)
+        self.assertIn('--preflight-id <PREFLIGHT_ID_FROM_SYNC_DRY_RUN>',readme)
+        self.assertIn('migration producer is `sync_global.py`',quick)
+        self.assertIn('--preflight-id <ID_FROM_SYNC_DRY_RUN>',quick)
+        self.assertIn('--release-root',readme)
+        self.assertIn("pre-fix sync as the rollback coordinator",quick)
     def test_F14_manual_shim_resolves_relocated_payload(self):
         td=test_tmpdir()
         try:
@@ -1037,6 +1052,98 @@ class PackagePolicyTests(unittest.TestCase):
             self.assertEqual(sentinel.read_text(),'preserve\n')
         finally:
             I.package_tree_identity.cache_clear()
+            shutil.rmtree(td,ignore_errors=True)
+
+    def test_F14_real_v6_round_trip_uses_fixed_coordinator(self):
+        # This is the real release exercise: the historical archive is verified before
+        # extraction, the old release performs the fresh install, the current release
+        # performs the upgrade, and only the fixed current coordinator performs rollback.
+        if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
+            self.skipTest('NOT_RUN: real legacy-release acceptance needs an authorized external-to-Git fixture root')
+        archive=ROOT.parents[1]/'dist'/'iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip'
+        expected_archive_sha='57e34f454b5247a43864f89354cdb02a742e5a26d1e6a343d287c9b05bd76e27'
+        self.assertTrue(archive.is_file())
+        digest=hashlib.sha256()
+        with archive.open('rb') as stream:
+            for chunk in iter(lambda: stream.read(1024*1024),b''):
+                digest.update(chunk)
+        self.assertEqual(digest.hexdigest(),expected_archive_sha)
+        td=test_tmpdir(); home=td/'area'; home.mkdir(); (home/'AGENTS.md').write_text('# user rules\n'); (home/'AGENTS.md').chmod(0o640)
+        old_root=td/'v5.4'; old_root.mkdir()
+        try:
+            with zipfile.ZipFile(archive) as zf:
+                entries=zf.infolist()
+                for info in entries:
+                    rel=PurePosixPath(info.filename)
+                    if rel.is_absolute() or '..' in rel.parts or not rel.parts or rel.parts[0] != 'v5.4':
+                        raise AssertionError(f'unsafe historical archive entry: {info.filename}')
+                    target=td.joinpath(*rel.parts)
+                    if info.is_dir():
+                        target.mkdir(parents=True,exist_ok=True)
+                        continue
+                    target.parent.mkdir(parents=True,exist_ok=True)
+                    with zf.open(info) as source, target.open('wb') as sink:
+                        shutil.copyfileobj(source,sink)
+            self.assertIn('5.4-review-ready.6',(old_root/'GLOBAL_MANIFEST.json').read_text())
+            legacy=load('legacy_install_v6_acceptance',old_root/'install_global.py')
+            legacy_identity=legacy.package_tree_identity(old_root)
+            old_install=run([sys.executable,old_root/'install_global.py','--portable-area',home,
+                             '--use-source-in-place','--mode','reference','--dry-run'])
+            self.assertEqual(old_install.returncode,0,old_install.stdout+old_install.stderr)
+            old_install=run([sys.executable,old_root/'install_global.py','--portable-area',home,
+                             '--use-source-in-place','--mode','reference'])
+            self.assertEqual(old_install.returncode,0,old_install.stdout+old_install.stderr)
+            state=home/'ios-engineering-state'; history=state/'history-sentinel'; history.write_bytes(b'v6 history\n')
+            old_payload=(old_root/'README.md').read_bytes(); agents=home/'AGENTS.md'; agents_mode=stat.S_IMODE(agents.stat().st_mode)
+            old_descriptor=json.loads((home/'ios-engineering-shim/INSTALLATION.json').read_text())
+            self.assertEqual(old_descriptor['release_id'],'5.4-review-ready.6')
+            self.assertEqual(Path(old_descriptor['knowledge_root']),old_root)
+            old_validation=run([sys.executable,old_root/'validate_global_install.py','--codex-home',home])
+            self.assertEqual(old_validation.returncode,0,old_validation.stdout+old_validation.stderr)
+            old_doctor=run([sys.executable,home/'ios-engineering-shim/bin/ios_ai.py','doctor'],env=dict(os.environ,CODEX_HOME=str(home)))
+            self.assertEqual(old_doctor.returncode,0,old_doctor.stdout+old_doctor.stderr)
+
+            upgraded_dry=run([sys.executable,ROOT/'sync_global.py','--codex-home',home,'--dry-run'])
+            self.assertEqual(upgraded_dry.returncode,0,upgraded_dry.stdout+upgraded_dry.stderr)
+            upgrade_pre=json.loads(upgraded_dry.stdout)
+            self.assertEqual(upgrade_pre['version'],'5.4-review-ready.7')
+            upgraded=run([sys.executable,ROOT/'sync_global.py','--codex-home',home])
+            self.assertEqual(upgraded.returncode,0,upgraded.stdout+upgraded.stderr)
+            current_descriptor=json.loads((home/'ios-engineering-shim/INSTALLATION.json').read_text())
+            self.assertEqual(current_descriptor['release_id'],'5.4-review-ready.7')
+            self.assertEqual(Path(current_descriptor['knowledge_root']),ROOT)
+            current_validation=run([sys.executable,ROOT/'validate_global_install.py','--codex-home',home])
+            self.assertEqual(current_validation.returncode,0,current_validation.stdout+current_validation.stderr)
+            current_doctor=run([sys.executable,home/'ios-engineering-shim/bin/ios_ai.py','doctor'],env=dict(os.environ,CODEX_HOME=str(home)))
+            self.assertEqual(current_doctor.returncode,0,current_doctor.stdout+current_doctor.stderr)
+
+            legacy_baseline=run([sys.executable,old_root/'sync_global.py','--codex-home',home,'--dry-run'])
+            self.assertNotEqual(legacy_baseline.returncode,0)
+            self.assertIn('source-in-place',legacy_baseline.stdout+legacy_baseline.stderr)
+            still_current=json.loads((home/'ios-engineering-shim/INSTALLATION.json').read_text())
+            self.assertEqual(still_current['release_id'],'5.4-review-ready.7')
+
+            rollback_dry=run([sys.executable,ROOT/'sync_global.py','--release-root',old_root,
+                              '--codex-home',home,'--dry-run'])
+            self.assertEqual(rollback_dry.returncode,0,rollback_dry.stdout+rollback_dry.stderr)
+            rollback_pre=json.loads(rollback_dry.stdout)
+            self.assertEqual(rollback_pre['version'],'5.4-review-ready.6')
+            self.assertEqual(Path(rollback_pre['source']),old_root)
+            rollback=run([sys.executable,ROOT/'sync_global.py','--release-root',old_root,'--codex-home',home])
+            self.assertEqual(rollback.returncode,0,rollback.stdout+rollback.stderr)
+            rolled_descriptor=json.loads((home/'ios-engineering-shim/INSTALLATION.json').read_text())
+            self.assertEqual(rolled_descriptor['release_id'],'5.4-review-ready.6')
+            self.assertEqual(Path(rolled_descriptor['knowledge_root']),old_root)
+            self.assertEqual(rolled_descriptor['source_tree_sha256'],legacy_identity)
+            rolled_validation=run([sys.executable,old_root/'validate_global_install.py','--codex-home',home])
+            self.assertEqual(rolled_validation.returncode,0,rolled_validation.stdout+rolled_validation.stderr)
+            rolled_doctor=run([sys.executable,home/'ios-engineering-shim/bin/ios_ai.py','doctor'],env=dict(os.environ,CODEX_HOME=str(home)))
+            self.assertEqual(rolled_doctor.returncode,0,rolled_doctor.stdout+rolled_doctor.stderr)
+            self.assertEqual(history.read_bytes(),b'v6 history\n')
+            self.assertEqual(agents.stat().st_mode & 0o777,agents_mode)
+            self.assertTrue(agents.read_bytes().startswith(b'# user rules\n'))
+            self.assertEqual((old_root/'README.md').read_bytes(),old_payload)
+        finally:
             shutil.rmtree(td,ignore_errors=True)
 
     def test_F14_manual_shim_switches_external_release_from_descriptor(self):
@@ -1287,15 +1394,19 @@ class PackagePolicyTests(unittest.TestCase):
 
     def test_F14_manual_documented_fresh_reference_and_full(self):
         # Run the published shell blocks, not a hand-built already-installed fixture.
-        # Never bypass production Git detection to turn host-ineligible tests green.
-        if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
-            self.skipTest('NOT_RUN: documented deployment needs an authorized external-to-Git root')
         import re, shlex
         td=test_tmpdir()
         try:
             doc=(ROOT/'MANUAL_DEPLOYMENT.md').read_text()
             blocks=re.findall(r'```bash\n(.*?)```',doc,re.S)
             self.assertGreaterEqual(len(blocks),3)
+            self.assertIn('LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE',blocks[0])
+            self.assertIn('ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',blocks[0])
+            self.assertNotIn('--canonical-repository-root',blocks[0])
+            self.assertIn('--canonical-repository-root',doc)
+            # Never bypass production Git detection to turn host-ineligible tests green.
+            if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
+                self.skipTest('NOT_RUN: documented deployment needs an authorized external-to-Git root')
             for mode in ('reference','full'):
                 for existing in (False,True):
                     with self.subTest(mode=mode,existing=existing):
@@ -1306,8 +1417,10 @@ class PackagePolicyTests(unittest.TestCase):
                         if existing:
                             agents.write_bytes(original); agents.chmod(0o640)
                         first=blocks[0].replace(
-                            'LIB_ROOT=/ABSOLUTE/PATH/TO/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY',
+                            'LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE',
                             'LIB_ROOT='+shlex.quote(str(ROOT))).replace(
+                            'ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',
+                            'ACTIVE_CODEX_HOME='+shlex.quote(str(home))).replace(
                             'MODE=reference # set full explicitly when namespaced skill discovery is wanted',
                             'MODE='+mode).replace(
                             'SKILLS_ROOT=/ABSOLUTE/PATH/TO/THE_ACTIVE_GLOBAL_SKILLS_DIRECTORY',

@@ -239,6 +239,26 @@ python3 "$LIB_ROOT/install_global.py" \
 python3 "$LIB_ROOT/validate_global_install.py" --codex-home "$AREA_ROOT"
 ```
 
+### Existing reference installation: explicit reference → full migration
+
+Do not rerun `install_global.py` against a registered area. For an existing managed `reference`
+installation, use the registered installation's `sync_global.py`, inspect its dry-run, and pass the
+ID produced by that same dry-run to the publishing command:
+
+```bash
+python3 "$LIB_ROOT/sync_global.py" \
+  --codex-home "$AREA_ROOT" --mode full --dry-run
+
+# Copy the exact preflight_id from the immediately preceding output.
+python3 "$LIB_ROOT/sync_global.py" \
+  --codex-home "$AREA_ROOT" --mode full --preflight-id <PREFLIGHT_ID_FROM_SYNC_DRY_RUN>
+
+python3 "$LIB_ROOT/validate_global_install.py" --codex-home "$AREA_ROOT"
+```
+
+The same dry-run/ID pair is required for an existing `full` update. Installer preflight IDs are
+not interchangeable with sync IDs, and a fresh empty area still uses `install_global.py`.
+
 Do not use `full` merely to increase context size. Load the router first and only the relevant
 route. An unavailable skill, subagent, connector, or review provider must be reported as
 unavailable; the library must never simulate independent evidence.
@@ -335,8 +355,9 @@ Keep every release in a new versioned directory. Do not overwrite the old releas
 For an installer deployment created with `--use-source-in-place`, run the update command from
 the new release directory. `sync_global.py` treats the directory containing that script as the
 incoming release root, switches the selector and managed runtime to it, and leaves the previously
-registered source directory and external state untouched. Running the old release's
-`sync_global.py` later is the supported rollback path after the new release has been stopped.
+registered source directory and external state untouched. A fixed release can also coordinate a
+rollback by loading a separately verified historical release with `--release-root`; the historical
+release's old sync must not be substituted for that coordinator.
 
 For an installer-managed deployment:
 
@@ -354,13 +375,20 @@ preserved. Its dry-run must show the new `source`, `content_root`, `version`, an
 passes. If an update is uncertain, stop and use a fresh dedicated Codex area rather than forcing
 ownership. Do not treat `--dry-run` as an update or rollback.
 
-To return to the preserved previous source, stop Codex and repeat the same checked sequence with
-the previous release directory:
+To return to the preserved previous source, stop Codex and use the fixed incoming release's sync
+as the coordinator for the verified old payload. This is required when the old release's own sync
+rejects a source-in-place registry that points at a newer release:
 
 ```bash
+FIXED_LIB_ROOT=/ABSOLUTE/PATH/TO/FIXED/RELEASE
 OLD_LIB_ROOT=/ABSOLUTE/PATH/TO/PREVIOUS/VERSIONED/RELEASE
-python3 "$OLD_LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT" --dry-run
-python3 "$OLD_LIB_ROOT/sync_global.py" --codex-home "$AREA_ROOT"
+python3 "$FIXED_LIB_ROOT/sync_global.py" --release-root "$OLD_LIB_ROOT" \
+  --codex-home "$AREA_ROOT" --dry-run
+# Reference profile: publish without an ID after reviewing the dry-run.
+python3 "$FIXED_LIB_ROOT/sync_global.py" --release-root "$OLD_LIB_ROOT" \
+  --codex-home "$AREA_ROOT"
+# Full profile: use the same command with
+# --mode full --preflight-id <PREFLIGHT_ID_FROM_ROLLBACK_DRY_RUN>.
 python3 "$OLD_LIB_ROOT/validate_global_install.py" --codex-home "$AREA_ROOT"
 ```
 
@@ -399,7 +427,7 @@ The V5.4 release inventory is recorded in `GLOBAL_MANIFEST.json` and the exact f
 - 51 knowledge sections;
 - 288 deep playbooks;
 - 60 namespaced optional skills;
-- 196 synthetic tests, observed as 191 passed, 0 failed, and 5 skipped in the release working tree;
+- 198 synthetic tests, observed as 192 passed, 0 failed, and 6 skipped in the release working tree;
 - structural package validation with no validator errors at the time of release preparation.
 
 These numbers describe shipped inventory and observed checks; they are not a claim that every

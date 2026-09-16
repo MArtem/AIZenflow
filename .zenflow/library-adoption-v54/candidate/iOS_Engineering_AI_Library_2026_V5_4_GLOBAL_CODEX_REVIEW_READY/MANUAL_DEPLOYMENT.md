@@ -51,21 +51,16 @@ approved empty directory on a clean host). Stop the Codex process during publica
 ```bash
 set -euo pipefail
 
-# Absolute path to the hash-verified release inside AIZenflowDocumentation; replace this placeholder
-# with the actual versioned release directory.
-CANONICAL_REPOSITORY_ROOT=/ABSOLUTE/PATH/TO/AIZenflowDocumentation
-LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-RELEASE-INSIDE-AIZENFLOWDOCUMENTATION
-
-# Use the Codex home that the process will actually use. Do not guess a second home.
-ACTIVE_CODEX_HOME="${CODEX_HOME:-$CANONICAL_REPOSITORY_ROOT/.codex-runtime/ios-engineering}"
+# Clean-host profile: use two separately inspected absolute destinations. This profile does not
+# contain canonical-repository flags and does not assume that CODEX_HOME is correct.
+LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE
+ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME
 SHIM_ROOT="$ACTIVE_CODEX_HOME/ios-engineering-shim"
 STATE_ROOT="$ACTIVE_CODEX_HOME/ios-engineering-state"
 MODE=reference # set full explicitly when namespaced skill discovery is wanted
 SKILLS_ROOT="$ACTIVE_CODEX_HOME/skills"
 PREFLIGHT_ARGS=(--release-root "$LIB_ROOT" --codex-home "$ACTIVE_CODEX_HOME"
-  --state-root "$STATE_ROOT" --skills-root "$SKILLS_ROOT" --mode "$MODE"
-  --canonical-repository-root "$CANONICAL_REPOSITORY_ROOT"
-  --allow-canonical-repository-runtime)
+  --state-root "$STATE_ROOT" --skills-root "$SKILLS_ROOT" --mode "$MODE")
 
 # Reference mode: read-only preflight must pass before any destination is created. Keep this
 # JSON until the final receipt is emitted: receipt_seed is the only accepted source for the
@@ -227,6 +222,28 @@ for skill in "$LIB_ROOT"/GLOBAL_CODEX/skills/ioslib-*; do
 done
 fi
 ```
+
+### Current-host canonical profile
+
+Use this separate variable/preflight profile only after verifying the exact repository root and
+approved origin. It is the sole Git-root exception; it does not authorize a runtime inside an app
+or any other repository. Replace only the clean-host profile variables above with:
+
+```bash
+CANONICAL_REPOSITORY_ROOT=/ABSOLUTE/PATH/TO/AIZenflowDocumentation
+LIB_ROOT="$CANONICAL_REPOSITORY_ROOT/reusable/ios-engineering-library/v5.4"
+ACTIVE_CODEX_HOME="$CANONICAL_REPOSITORY_ROOT/.codex-runtime/ios-engineering"
+SHIM_ROOT="$ACTIVE_CODEX_HOME/ios-engineering-shim"
+STATE_ROOT="$ACTIVE_CODEX_HOME/ios-engineering-state"
+MODE=reference
+SKILLS_ROOT="$ACTIVE_CODEX_HOME/skills"
+PREFLIGHT_ARGS=(--release-root "$LIB_ROOT" --codex-home "$ACTIVE_CODEX_HOME"
+  --state-root "$STATE_ROOT" --skills-root "$SKILLS_ROOT" --mode "$MODE"
+  --canonical-repository-root "$CANONICAL_REPOSITORY_ROOT"
+  --allow-canonical-repository-runtime)
+```
+
+Do not combine the profiles or infer the canonical path from an unset environment variable.
 
 ```bash
 # Publish the small operator-owned receipt only after the descriptor, state marker, AGENTS

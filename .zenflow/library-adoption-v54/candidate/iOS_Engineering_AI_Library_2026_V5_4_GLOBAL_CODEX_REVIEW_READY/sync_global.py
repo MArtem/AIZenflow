@@ -1,8 +1,10 @@
 #!/usr/bin/env python3
 from __future__ import annotations
 from pathlib import Path
-import argparse, json, os, re, secrets, shutil
+import argparse, importlib.util, json, os, re, secrets, shutil
 import install_global as I
+
+BASE_INSTALL = I
 
 class SyncError(RuntimeError):
     pass
@@ -12,6 +14,44 @@ class SyncRollbackIncomplete(SyncError):
 
 class SyncCleanupIncomplete(SyncError):
     pass
+
+
+def load_release_install(release_root):
+    """Load helpers from the verified incoming payload for a selector switch."""
+    if release_root is None:
+        return BASE_INSTALL
+    root = BASE_INSTALL.abs_lex(release_root)
+    BASE_INSTALL.reject_symlink_path(root)
+    required = (
+        root / 'GLOBAL_MANIFEST.json',
+        root / 'PACKAGE_FILE_MANIFEST.json',
+        root / 'install_global.py',
+        root / 'GLOBAL_CODEX' / 'runtime' / 'bin' / 'ios_ai.py',
+        root / 'MANUAL_SHIM' / 'bin' / 'ios_ai.py',
+    )
+    for path in required:
+        if not BASE_INSTALL.lexists(path) or not path.is_file():
+            raise SyncError(f'release root is incomplete: {path}')
+    try:
+        manifest = json.loads(BASE_INSTALL.read_regular_bytes(
+            root / 'GLOBAL_MANIFEST.json', BASE_INSTALL.TEXT_LIMIT).decode('utf-8'))
+    except Exception as error:
+        raise SyncError(f'release manifest is unreadable: {type(error).__name__}') from error
+    module_name = f'_ioslib_release_{abs(hash(str(root)))}'
+    spec = importlib.util.spec_from_file_location(module_name, root / 'install_global.py')
+    if spec is None or spec.loader is None:
+        raise SyncError('release installer module is unavailable')
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    if module.HERE != root:
+        raise SyncError('release installer resolved a different source root')
+    if manifest.get('version') != module.VERSION:
+        raise SyncError('release manifest version does not match installer')
+    try:
+        module.package_tree_identity(root)
+    except Exception as error:
+        raise SyncError(f'release package identity cannot be computed: {type(error).__name__}') from error
+    return module
 
 
 def extract_block(text: str):
@@ -153,12 +193,15 @@ def preflight(ch: Path, mode_override=None):
 
 
 def main():
+    global I
     ap = argparse.ArgumentParser(description='Transactional update of unchanged managed assets; local edits are conflicts and are preserved.')
     ap.add_argument('--codex-home')
+    ap.add_argument('--release-root', help='verified incoming release root for update or rollback')
     ap.add_argument('--mode', choices=['reference', 'full'])
     ap.add_argument('--dry-run', action='store_true')
     ap.add_argument('--preflight-id')
     a = ap.parse_args()
+    I = load_release_install(a.release_root)
     ch = I.codex_home(a.codex_home)
     old, pre = preflight(ch, a.mode)
     if a.dry_run:

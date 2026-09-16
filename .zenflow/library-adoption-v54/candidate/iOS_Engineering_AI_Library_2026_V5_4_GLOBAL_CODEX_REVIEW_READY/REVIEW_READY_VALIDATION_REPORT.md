@@ -1,7 +1,7 @@
-# Review-Ready Validation Report — post-FINAL8 working candidate
+# Review-Ready Validation Report — Luna final-acceptance working candidate
 
-Date: **2026-09-15**
-Artifact stage: local corrections after FINAL8; no new accepted archive.
+Date: **2026-09-16**
+Artifact stage: Luna R1–R4 final-acceptance working candidate; no new accepted archive.
 Status: **NOT_READY — targeted regressions pass; external-to-Git lifecycle and actual
 host instruction delivery remain unverified**.
 
@@ -21,22 +21,23 @@ This is author/self-test evidence, not independent acceptance or proof of comple
 Command used for the independent candidate run:
 
 ```bash
-python3 tests/run_all.py --serial
+IOSLIB_TEST_TMP_ROOT=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp \
+  python3 tests/run_all.py --serial
 ```
 
 Observed result on the corrected working tree:
 
-- total: **196**
-- PASS: **191**
+- total: **198**
+- PASS: **192**
 - FAIL: **0**
-- SKIP: **5**
+- SKIP: **6**
 - runner exit: **0**
 - wall clock: not recorded as a release claim
 
-The final serial run used `/Users/Artem/.zenflow/test-tmp-new-task-be0b`, which is
-inside `/Users/Artem/.zenflow` and outside the candidate's Git root. The complete suite passed;
-five host-dependent cases remain explicitly skipped. The earlier failed attempt used a fixture
-root inside the candidate Git worktree and is superseded by this final run.
+The final serial run used `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp`,
+which is inside the candidate Git root. The complete suite passed; six host-dependent cases
+remain explicitly skipped. This is intentional: the current host-level Git boundary encloses
+the approved `.zenflow` sandbox, so positive external-deployment fixtures were not bypassed.
 
 Current deployment-integration boundary:
 
@@ -44,12 +45,12 @@ Current deployment-integration boundary:
   Production policy correctly rejects destinations inside any detected Git repository; the test
   real CLI integration tests do not mask that root. Existing installer UNIT fixtures locally
   mock the home-level Git result; their PASS is not external deployment evidence.
-- Five positive manual/installer integration cases are explicitly `NOT_RUN` in this
+- Six positive manual/installer integration cases are explicitly `NOT_RUN` in this
   environment. They run when `IOSLIB_TEST_TMP_ROOT` points to an operator-
   approved path outside every Git repository. This is a host limitation, not a production
   exception, and it is not evidence of successful global deployment.
 - Unmocked negative CLI coverage, including bounded FIFO handling in both preflights, ran and
-  passed. The 191 passing tests are regression evidence, not a claim of universal host discovery.
+  passed. The 192 passing tests are regression evidence, not a claim of universal host discovery.
 
 Post-FINAL8 corrections prepare descriptor and state marker before any publication, preserve the
 raw original AGENTS hash, propagate the selected mode/skills path, verify incoming content before
@@ -58,7 +59,7 @@ receipt emission and make protection explicitly opt-in. Package reading has a 51
 4 MiB encoded limit and 64 MiB aggregate content budget. Short reads, exact/overflow aggregate
 boundaries, expired deadlines and receipts larger than 64 KiB are covered by passing unit tests.
 The new unmocked lifecycle test executes the fresh runbook shell blocks, then reference/full,
-changed routed payload A→B→A and disable; it is one of the five NOT_RUN cases.
+changed routed payload A→B→A and disable; it is one of the six NOT_RUN cases.
 
 The suite contains all prior V5.3 regression coverage plus deterministic A53-01 upgrade/state-compatibility and bounded-observation fixtures. The corrective candidate adds A54 cleanup-commit-point, final-validation-deadline, per-file-limit and identity-sensitive mutation coverage, plus manual receipt ownership and bounded observer fixtures. The test host uses an isolated `.zenflow` temporary root so protected state I/O is exercised through the same no-follow path policy on macOS.
 
@@ -158,11 +159,11 @@ V5.4 preserves the V5.3 A52 fixes: one writer per Git common directory, serializ
 
 ## Final archive evidence
 
-- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_XHIGH_CORRECTIVE_CANDIDATE_V14_FREEZE_FINAL7.zip`.
+- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_FINAL_ACCEPTANCE_20260916.zip`.
 - SHA-256: recorded in the external task receipt; it is intentionally not embedded in the ZIP
   because changing the report to include a self-hash would change the archive hash.
 - Extracted package validator: `files=1366 skills=60 sections=51 playbooks=288 errors=0`.
-- Extracted suite: `REVIEW_READY_TEST_SUMMARY total=173 pass=173 fail=0 skip=0`, exit `0`.
+- Candidate suite: `REVIEW_READY_TEST_SUMMARY total=198 pass=192 fail=0 skip=6`, exit `0`.
 - Candidate-isolated manual smoke: current documented reference sequence — clean and post-activation
   read-only preflight, descriptor/state-marker lifecycle, AGENTS block, relocated shim doctor and
   guard — all PASS. Outputs are retained under `.zenflow/library-adoption-v54/evidence/manual-smoke-current/`.
