@@ -28,7 +28,7 @@
 - [x] Firefox: read-only поиск; Countries: network→DB→UI analysis завершён.
 - [ ] Countries cancellation P2 — `CancelBag.cancel()` не вызывает `Task.cancel()`.
 - [x] Отдельный non-iOS контроль и честный статус отсутствующего runtime evidence — fixture prepared, observation NOT_RUN.
-- [x] Синхронизация candidate/canonical/runtime — PASS; follow-up source sync выполнен, commit/push и новый ZIP/hash ещё нужны.
+- [x] Синхронизация candidate/canonical/runtime — PASS; follow-up commits/push и новый ZIP/hash PASS.
 - [x] Конечный отчёт без ложных PASS — receipt is SELF_VERIFIED, not ASTRA_ACCEPTED.
 - [ ] Независимая Astra-приёмка — не выполнена в этом проходе.
 

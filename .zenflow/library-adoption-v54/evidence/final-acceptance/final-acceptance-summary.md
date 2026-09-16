@@ -15,6 +15,8 @@ Scope: library R1–R4, host diagnosis, fresh-entry preparation, and the three b
 - Final archive: `dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_FOLLOWUP_20260916.zip`.
 - Archive SHA-256: `5882c0da341ea9f8b123eed4b8840b7a008903ccdff2287e0cabfdcfbf221c95`.
 - `unzip -t`: PASS; extracted archive validator: PASS with the same `1366/60/51/288/0` counts.
+- Canonical follow-up commit: `35d303212c8c2b06450d3551aa8416346e2919cb`.
+- Task follow-up commit: `49df1cae6e6f9cadb64fd29b622b5b4b19b21236`.
 
 The six skips are all environment-bounded and have no failure hidden behind them:
 

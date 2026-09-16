@@ -14,12 +14,13 @@ Task new-task-be0b, 2026-09-16; режим эконом. Исполнитель 
 Astra follow-up выявила и Luna исправляет два harness-дефекта: manual test больше не зависит от
 позиции bash-блоков, а rollback test принимает явный `IOSLIB_LEGACY_ARCHIVE` при сохранении SHA.
 R3 всё ещё `BLOCKED_ENVIRONMENT`: положительный `.6` round trip требует разрешённого root вне
-Git boundary. Свежий suite после follow-up ещё должен быть выполнен.
+Git boundary. Follow-up suite выполнен: 198 total / 192 PASS / 0 FAIL / 6 SKIP; validator PASS.
 Evidence: `../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md`.
 Fresh-entry остаётся `NOT_RUN`, потому что saved-project catalog не содержит три downloaded pilot
 roots. Ghibli source diff есть, но он выполнен до доказанного first-entry observation. Firefox и
 Countries остаются read-only; Countries получил подтверждённый P2 cancellation finding.
-Новые plan/handoff/evidence правки локальные до следующего commit/push.
+Follow-up commits опубликованы: canonical `35d3032`, task `49df1ca`. Runtime R обновлён до
+source hash `c8790bd2…53b66`; upstream pilot repositories не коммитились и не пушились.
 
 ## Проекты и задачи
 
