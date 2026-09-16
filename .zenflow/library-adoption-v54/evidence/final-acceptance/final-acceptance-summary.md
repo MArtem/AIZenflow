@@ -95,7 +95,20 @@ alone does not prove instruction absence; it is combined here with visible behav
 self-reports, without claiming access to hidden prompts or real-home configuration.
 
 The approved installed AGENTS block exists in the named canonical runtime, and parent
-/Users/Artem/.zenflow/AGENTS.md exists. Disk presence did not establish application in these tasks.
+/Users/Artem/.zenflow/AGENTS.md exists. The parent file is not a valid automatic delivery route
+for these three repositories: Codex project discovery starts at each project root (normally its
+Git root) and walks down to the task cwd; it does not walk from an unrelated parent directory
+above that root. This matches both the official Codex discovery contract and the candidate's own
+MANUAL_DEPLOYMENT.md activation boundary. Therefore the fresh-entry result is expected unless
+the active Codex global scope supplies the block. It is not evidence of a candidate runtime defect.
+
+The remaining unknown is narrower: whether the actual Desktop process global scope uses the
+named canonical runtime, another CODEX_HOME, or a non-empty AGENTS.override.md that takes global
+precedence. Resolving that requires separately authorized read-only inspection of at most the two
+global AGENTS candidates; config.toml is not needed unless those files leave CODEX_HOME unresolved.
+Official discovery reference:
+https://learn.chatgpt.com/docs/agent-configuration/agents-md#how-codex-discovers-guidance.
+
 Additional empty/non-iOS/linked first-entry controls remain NOT_RUN: their exact roots are not
 registered, and expanding the matrix before resolving the already-observed common-route gap is
 not economical. No false non-iOS PASS is inferred from an iOS project's cross-layer review.
@@ -133,7 +146,8 @@ No known P0–P2 in this bounded candidate correction; the host integration acce
 open and is not an authorization to modify real settings. Exact committed range and remote SHA
 are recorded after commit without self-referential receipt churn.
 
-Next: decide how to diagnose/enable the common host entry within explicitly agreed boundaries.
+Next: authorize, if desired, read-only inspection of the active global AGENTS candidates needed
+to distinguish missing block from override precedence; do not inspect unrelated settings.
 Do not silently change CODEX_HOME, restart Codex, edit real settings, seed imported projects,
 or reopen the consumed external test area. Further host diagnosis may require separately named
 read authority; a configuration patch requires its own scoped approval.

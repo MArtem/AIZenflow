@@ -17,13 +17,18 @@
 - [x] Создать три нейтральные local fresh-entry задачи Luna Xhigh в зарегистрированных проектах.
 - [x] Сохранить first-turn command ordering и supplementary self-reports; upstream trees чистые.
 - [x] Зафиксировать непрохождение automatic common/library application gate в этих входах.
+- [x] Установить разрешённую причинную границу: `.zenflow/AGENTS.md` находится выше Git-root
+  пилотных проектов и по правилам Codex не входит в их project instruction chain.
+- [x] Сверить это с activation boundary пакета: candidate уже требует active global AGENTS
+  внутри фактического CODEX_HOME; дефект installer/runtime не установлен.
 - [x] Сохранить прежние static pilots, включая Countries scenario table/P2 и отдельный Retry-патч.
 - [x] Один новый candidate ZIP: CRC/safe paths/все 1366 file bytes совпадают с candidate.
 - [x] Подготовить candidate/evidence к task commit; exact SHA/push receipt фиксируется после commit.
 
 ## Остаток и границы
 
-- [ ] Решение по диагностике/подключению common host entry; реальную конфигурацию не менять.
+- [ ] При отдельном разрешении прочитать только active global AGENTS.override.md/AGENTS.md,
+  чтобы различить missing block и override precedence; реальную конфигурацию не менять.
 - [ ] После этого — наблюдение selected package/relevant route и дополнительные empty/non-iOS/linked controls.
 - [ ] Отдельно согласованное продвижение candidate в canonical/активный source-in-place runtime.
 - [ ] Полная приёмка: НЕ завершена; isolated lifecycle PASS не заменяет auto-delivery gate.

@@ -26,6 +26,12 @@ Firefox сообщил о заранее полученном upstream AGENTS; �
 Automatic application gate НЕ ПРОЙДЕН; exact host delivery/active CODEX_HOME остаются UNKNOWN.
 Не выдавать отсутствие tool read само по себе за доказанное отсутствие внедрённых инструкций.
 
+Sol уточнил причинную границу по официальному Codex discovery contract: project instructions
+ищутся от Git-root вниз к cwd. Поэтому /Users/Artem/.zenflow/AGENTS.md, расположенный выше root
+трёх независимых репозиториев, не является их автоматическим project entry. Candidate уже точно
+описывает это в MANUAL_DEPLOYMENT.md и требует global block в фактическом CODEX_HOME. Наблюдение
+не доказывает runtime defect; оно сужает unknown до реального global AGENTS/override/active home.
+
 Прежние static pilots сохранены, Countries scenario table завершена с P2 отмены;
 upstream fix не нужен для read-only deliverable. Исходники трёх fresh-entry проектов чистые.
 Ghibli Retry остаётся в другой исходной копии, fresh-entry копия не менялась.
@@ -38,7 +44,9 @@ Candidate и canonical теперь намеренно различаются; �
 Astra authored correction не является независимым ревью самой себя.
 Task commit/push сохраняют только candidate и evidence; результат SHAs — в финальном сообщении.
 
-Следующий шаг требует решения по host entry, а не ещё одного installer smoke.
+Следующий шаг требует отдельного разрешения на read-only проверку не более двух active global
+AGENTS candidates (override/base), а не ещё одного installer smoke. config.toml не читать без
+отдельной необходимости и разрешения.
 Не угадывать CODEX_HOME, не читать внешний home/config без точной authority, не править
 реальные настройки, не перезапускать Codex и не добавлять bootstrap в imports задним числом.
 Empty/non-iOS/linked controls пока NOT_RUN: нет зарегистрированных roots; продолжать матрицу
