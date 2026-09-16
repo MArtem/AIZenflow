@@ -1,7 +1,7 @@
 # Review-Ready Validation Report — Astra follow-up working candidate
 
 Date: **2026-09-16**
-Artifact stage: Luna implementation after Astra follow-up; no accepted release.
+Artifact stage: Astra harness correction; no accepted release.
 Status: **NOT_READY — targeted regressions pass; external-to-Git lifecycle and actual
 host instruction delivery remain unverified**.
 
@@ -14,27 +14,28 @@ This is author/self-test evidence, not independent acceptance or proof of comple
 - Test sources are parsed by `validate_package.py` using Python 3.9 grammar compatibility.
 - Git repositories, real linked worktrees, external state roots and Codex-home fixtures are synthetic temporary resources only.
 - No real user Codex configuration or client repository is an installation/test target.
-- macOS/Xcode/Swift runtime, Simulator/device/signing tests are **not available in this environment** and are not replaced by Python/static claims.
+- Xcode/Swift app runtime, Simulator/device/signing tests were **not authorized in this block** and are not replaced by Python/static claims.
 
 ## Executed regression suite
 
-Command used for the independent candidate run:
+Command used for the Astra author-verification run:
 
 ```bash
-IOSLIB_TEST_TMP_ROOT=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp \
-  python3 tests/run_all.py --serial
+IOSLIB_TEST_TMP_ROOT=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp-astra \
+  IOSLIB_LEGACY_ARCHIVE=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip \
+  python3 -B tests/run_all.py --serial
 ```
 
 Observed result on the corrected working tree:
 
-- total: **198**
-- PASS: **192**
+- total: **199**
+- PASS: **193**
 - FAIL: **0**
 - SKIP: **6**
 - runner exit: **0**
 - wall clock: not recorded as a release claim
 
-The final serial run used `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp`,
+The final serial run used `/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp-astra`,
 which is inside the candidate Git root. The complete suite passed; six host-dependent cases
 remain explicitly skipped. This is intentional: the current host-level Git boundary encloses
 the approved `.zenflow` sandbox, so positive external-deployment fixtures were not bypassed.
@@ -50,7 +51,16 @@ Current deployment-integration boundary:
   approved path outside every Git repository. This is a host limitation, not a production
   exception, and it is not evidence of successful global deployment.
 - Unmocked negative CLI coverage, including bounded FIFO handling in both preflights, ran and
-  passed. The 192 passing tests are regression evidence, not a claim of universal host discovery.
+  passed. The 193 passing tests are regression evidence, not a claim of universal host discovery.
+
+The manual harness now builds activation/reconnect commands through one helper with unique
+block markers and distinct shell-string variables. An always-executed regression constructs
+both modes with a quoted destination and validates them with `bash -n`; it catches the previous
+string/Path shadowing before any deployment admission. This is construction/syntax evidence,
+not an executed manual installation. The historical archive is now an explicit input, with
+absolute-path, existence and pinned SHA checks preceding Git admission. Its verified SHA is
+`57e34f454b5247a43864f89354cdb02a742e5a26d1e6a343d287c9b05bd76e27`.
+Skipped lifecycle bodies remain unverified; a skip cannot prove that they contain no defects.
 
 Post-FINAL8 corrections prepare descriptor and state marker before any publication, preserve the
 raw original AGENTS hash, propagate the selected mode/skills path, verify incoming content before
@@ -159,11 +169,14 @@ V5.4 preserves the V5.3 A52 fixes: one writer per Git common directory, serializ
 
 ## Final archive evidence
 
-- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_FOLLOWUP_20260916.zip`.
+- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_ASTRA_CORRECTED_20260916.zip`.
 - SHA-256: recorded in the external task receipt; it is intentionally not embedded in the ZIP
   because changing the report to include a self-hash would change the archive hash.
-- Extracted package validator: `files=1366 skills=60 sections=51 playbooks=288 errors=0`.
-- Candidate suite: `REVIEW_READY_TEST_SUMMARY total=198 pass=192 fail=0 skip=6`, exit `0`.
+- Package validator: `files=1366 skills=60 sections=51 playbooks=288 errors=0`.
+- Candidate suite: `REVIEW_READY_TEST_SUMMARY total=199 pass=193 fail=0 skip=6`, exit `0`.
+- Archive/source equality is checked against every packaged file; details and SHA live in the
+  external task receipt. The smoke evidence below is retained historical evidence, not a new
+  manual/installer execution of this harness correction.
 - Candidate-isolated manual smoke: current documented reference sequence — clean and post-activation
   read-only preflight, descriptor/state-marker lifecycle, AGENTS block, relocated shim doctor and
   guard — all PASS. Outputs are retained under `.zenflow/library-adoption-v54/evidence/manual-smoke-current/`.

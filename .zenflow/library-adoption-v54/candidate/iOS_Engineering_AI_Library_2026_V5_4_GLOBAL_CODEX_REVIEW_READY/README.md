@@ -414,8 +414,18 @@ Run package checks before deployment:
 
 ```bash
 python3 "$LIB_ROOT/validate_package.py"
-python3 "$LIB_ROOT/tests/run_all.py" --serial
+IOSLIB_TEST_TMP_ROOT=/ABSOLUTE/PATH/TO/AUTHORIZED/FIXTURES \
+  IOSLIB_LEGACY_ARCHIVE=/ABSOLUTE/PATH/TO/HISTORICAL-V6.zip \
+  python3 -B "$LIB_ROOT/tests/run_all.py" --serial
 ```
+
+Choose an authorized fixture root before running. Positive external-deployment cases need
+a root outside every Git repository; never bypass Git admission to obtain PASS. The legacy
+round-trip test requires the historical `.6` ZIP with SHA-256
+`57e34f454b5247a43864f89354cdb02a742e5a26d1e6a343d287c9b05bd76e27`.
+An omitted archive is explicitly NOT_RUN; a supplied missing, relative, or mismatched archive
+fails before an environment skip. Published manual shell-command construction and syntax
+are tested separately, without deployment, in both reference and full modes.
 
 The shipped tests use synthetic repositories and Codex homes. They do not prove behavior of every
 Codex Desktop build, Mac configuration, Xcode project, physical iOS device, host skill index, or
@@ -427,7 +437,7 @@ The V5.4 release inventory is recorded in `GLOBAL_MANIFEST.json` and the exact f
 - 51 knowledge sections;
 - 288 deep playbooks;
 - 60 namespaced optional skills;
-- 198 synthetic tests, observed as 192 passed, 0 failed, and 6 skipped in the release working tree;
+- 199 synthetic tests, observed as 193 passed, 0 failed, and 6 skipped in the release working tree;
 - structural package validation with no validator errors at the time of release preparation.
 
 These numbers describe shipped inventory and observed checks; they are not a claim that every

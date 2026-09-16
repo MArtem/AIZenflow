@@ -1058,11 +1058,11 @@ class PackagePolicyTests(unittest.TestCase):
         # This is the real release exercise: the historical archive is verified before
         # extraction, the old release performs the fresh install, the current release
         # performs the upgrade, and only the fixed current coordinator performs rollback.
-        if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
-            self.skipTest('NOT_RUN: real legacy-release acceptance needs an authorized external-to-Git fixture root')
-        archive=Path(os.environ.get(
-            'IOSLIB_LEGACY_ARCHIVE',
-            str(ROOT.parents[1]/'dist'/'iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip')))
+        archive_input=os.environ.get('IOSLIB_LEGACY_ARCHIVE')
+        if not archive_input:
+            self.skipTest('NOT_RUN: set IOSLIB_LEGACY_ARCHIVE to the hash-pinned historical .6 ZIP')
+        archive=Path(archive_input)
+        self.assertTrue(archive.is_absolute(),'IOSLIB_LEGACY_ARCHIVE must be absolute')
         expected_archive_sha='57e34f454b5247a43864f89354cdb02a742e5a26d1e6a343d287c9b05bd76e27'
         self.assertTrue(archive.is_file())
         digest=hashlib.sha256()
@@ -1070,6 +1070,8 @@ class PackagePolicyTests(unittest.TestCase):
             for chunk in iter(lambda: stream.read(1024*1024),b''):
                 digest.update(chunk)
         self.assertEqual(digest.hexdigest(),expected_archive_sha)
+        if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
+            self.skipTest('NOT_RUN: historical ZIP verified; real legacy-release acceptance needs an authorized external-to-Git fixture root')
         td=test_tmpdir(); home=td/'area'; home.mkdir(); (home/'AGENTS.md').write_text('# user rules\n'); (home/'AGENTS.md').chmod(0o640)
         old_root=td/'v5.4'; old_root.mkdir()
         try:
@@ -1394,6 +1396,42 @@ class PackagePolicyTests(unittest.TestCase):
                 with self.assertRaises(M.PreflightError): M.build_receipt(**kw)
         finally: shutil.rmtree(td,ignore_errors=True)
 
+    def manual_activation_script(self, home, mode):
+        import re, shlex
+        doc=(ROOT/'MANUAL_DEPLOYMENT.md').read_text()
+        blocks=re.findall(r'```bash\n(.*?)```',doc,re.S)
+        def unique(marker):
+            matches=[block for block in blocks if marker in block]
+            self.assertEqual(len(matches),1,f'ambiguous or missing manual block: {marker}')
+            return matches[0]
+        bootstrap=unique('PREFLIGHT_TMP=')
+        skills_script=unique('SKILL_STAGE=')
+        receipt_script=unique('RECEIPT_TMP=')
+        self.assertIn('LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE',bootstrap)
+        self.assertIn('ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',bootstrap)
+        script=bootstrap.replace(
+            'LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE',
+            'LIB_ROOT='+shlex.quote(str(ROOT))).replace(
+            'ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',
+            'ACTIVE_CODEX_HOME='+shlex.quote(str(home))).replace(
+            'MODE=reference # set full explicitly when namespaced skill discovery is wanted',
+            'MODE='+mode)
+        script+='\n'+skills_script+'\n'+receipt_script
+        self.assertNotIn('--canonical-repository-root',script)
+        self.assertIn('--emit-receipt',script)
+        self.assertNotIn('/ABSOLUTE/PATH/',script)
+        return script
+
+    def test_F14_manual_commands_compile_without_deployment(self):
+        # The same command builder used by activation/reconnect is checked without
+        # installing anything or overriding production Git admission.
+        for mode in ('reference','full'):
+            with self.subTest(mode=mode):
+                script=self.manual_activation_script(TEST_TMP_ROOT/"area with spaces 'quoted'",mode)
+                syntax=subprocess.run(['bash','-n'],input=script,text=True,capture_output=True)
+                self.assertEqual(syntax.returncode,0,syntax.stderr)
+                self.assertEqual(script.count('--emit-receipt'),1)
+
     def test_F14_manual_documented_fresh_reference_and_full(self):
         # Run the published shell blocks, not a hand-built already-installed fixture.
         import re, shlex
@@ -1405,11 +1443,11 @@ class PackagePolicyTests(unittest.TestCase):
             bootstrap=next((block for block in blocks if
                             'LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE' in block and
                             'PREFLIGHT_TMP=' in block),None)
-            skills=next((block for block in blocks if 'SKILL_STAGE=' in block),None)
-            receipt=next((block for block in blocks if 'RECEIPT_TMP=' in block),None)
+            skills_script=next((block for block in blocks if 'SKILL_STAGE=' in block),None)
+            receipt_script=next((block for block in blocks if 'RECEIPT_TMP=' in block),None)
             self.assertIsNotNone(bootstrap)
-            self.assertIsNotNone(skills)
-            self.assertIsNotNone(receipt)
+            self.assertIsNotNone(skills_script)
+            self.assertIsNotNone(receipt_script)
             self.assertIn('ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',bootstrap)
             self.assertNotIn('--canonical-repository-root',bootstrap)
             self.assertIn('--canonical-repository-root',doc)
@@ -1425,19 +1463,11 @@ class PackagePolicyTests(unittest.TestCase):
                         agents=home/'AGENTS.md'
                         if existing:
                             agents.write_bytes(original); agents.chmod(0o640)
-                        first=bootstrap.replace(
-                            'LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE',
-                            'LIB_ROOT='+shlex.quote(str(ROOT))).replace(
-                            'ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',
-                            'ACTIVE_CODEX_HOME='+shlex.quote(str(home))).replace(
-                            'MODE=reference # set full explicitly when namespaced skill discovery is wanted',
-                            'MODE='+mode).replace(
-                            'SKILLS_ROOT=/ABSOLUTE/PATH/TO/THE_ACTIVE_GLOBAL_SKILLS_DIRECTORY',
-                            'SKILLS_ROOT='+shlex.quote(str(skills)))
+                        activation_script=self.manual_activation_script(home,mode)
                         # This is the documented operator append between shell blocks;
                         # it preserves existing content and modes instead of repairing a fixture.
                         env=dict(os.environ,CODEX_HOME=str(home))
-                        result=run(['bash','-c',first+skills+receipt],env=env)
+                        result=run(['bash','-c',activation_script],env=env)
                         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
                         self.assertTrue(agents.read_bytes().startswith(original))
                         if existing: self.assertEqual(stat.S_IMODE(agents.stat().st_mode),0o640)
@@ -1536,7 +1566,7 @@ class PackagePolicyTests(unittest.TestCase):
                         self.assertNotIn(M.BEGIN,agents.read_text())
                         self.assertTrue(agents.read_bytes().startswith(original))
                         self.assertEqual(history.read_text(),'preserve session history')
-                        reconnect=run(['bash','-c',first+skills+receipt],env=env)
+                        reconnect=run(['bash','-c',activation_script],env=env)
                         self.assertEqual(reconnect.returncode,0,reconnect.stdout+reconnect.stderr)
                         self.assertTrue((shim/M.RECEIPT_NAME).is_file())
                         self.assertIn(M.BEGIN,agents.read_text())

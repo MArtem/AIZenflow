@@ -1,45 +1,41 @@
-# План завершения приёмки библиотеки — Luna Xhigh
+# Текущий план приёмки библиотеки
 
-Дата: 2026-09-15. Режим: эконом. Исполнитель следующего прохода: Luna Xhigh.
+Дата: 2026-09-16. Исполнитель текущего исправления: Astra; режим эконом.
+Подробная процедура: [luna-final-acceptance-runbook.md](luna-final-acceptance-runbook.md).
+Актуальное состояние и доказательства:
+[final-acceptance-summary.md](../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md).
+Этот checklist заменяет устаревшие статусы предыдущих проходов, но не расширяет authority.
 
-## Актуальный источник выполнения
+## Завершено
 
-Полная последовательность, точные задачи, paths, prompts, проверки и границы:
-[luna-final-acceptance-runbook.md](luna-final-acceptance-runbook.md).
-Начинать с раздела 1 и исправлений R1–R3; не начинать с новой установки или пилотов.
-Последнее ревью: ../../library-adoption-v54/evidence/31-astra-acceptance-and-pilot-intake.md.
-Вердикт RETURNED / NOT_READY. Четыре P2 остаются открытыми.
-
-## Чеклист
-
-- [x] Astra проверила текущие инструкции и перечислила четыре P2.
+- [x] Исправить manual harness: отдельные shell-строки, общий builder для activation/reconnect.
+- [x] Проверять сборку/синтаксис команд независимо от Git-dependent deployment skip.
+- [x] Сделать исторический ZIP явным входом; проверить pinned SHA до Git boundary.
+- [x] Один финальный library suite: 199 total / 193 PASS / 0 FAIL / 6 SKIP.
 - [x] Validator: 1366 files / 60 skills / 51 sections / 288 playbooks / 0 errors.
-- [x] Все 1366 файлов V17 ZIP сверены с candidate; исправления в пакет не вносились.
-- [x] Три проекта скачаны в /Users/Artem/.zenflow/library-acceptance-projects; pin/чистота сохранены.
-- [x] Astra выбрала задачи по точечному чтению исходников; реализация проектов не начата.
-- [x] Полный исполнимый runbook подготовлен; новые pilot tasks не запускались.
-- [x] R1: самостоятельный manual profile и актуальный executable test harness — block selection fixed; external lifecycle SKIP по Git boundary.
-- [x] R2: fresh full отдельно от reference→full/update с matching preflight ID — contract/static PASS; host execution NOT_RUN.
-- [ ] R3: проверенный реальный возврат к .6 с сохранением состояния — BLOCKED_ENVIRONMENT, positive external fixture unavailable.
-- [x] Один актуальный suite, объяснение каждого skip, semantic review финального diff.
-- [ ] Host delivery и фактический выбор исправленного пакета — UNKNOWN без active Desktop facts.
-- [ ] Fresh-entry cases до внедрения наших инструкций в проекты — NOT_RUN; saved-project catalog не содержит три downloaded pilot roots.
-- [ ] Ghibli: Retry на ошибке Movies — static diff есть, но first-entry ordering evidence отсутствует.
-- [x] Firefox: read-only поиск; Countries: network→DB→UI analysis завершён.
-- [ ] Countries cancellation P2 — `CancelBag.cancel()` не вызывает `Task.cancel()`.
-- [x] Отдельный non-iOS контроль и честный статус отсутствующего runtime evidence — fixture prepared, observation NOT_RUN.
-- [x] Синхронизация candidate/canonical/runtime — PASS; follow-up commits/push и новый ZIP/hash PASS.
-- [x] Конечный отчёт без ложных PASS — receipt is SELF_VERIFIED, not ASTRA_ACCEPTED.
-- [ ] Независимая Astra-приёмка — не выполнена в этом проходе.
+- [x] Завершить Countries scenario table; P2 отмены оформить как finding read-only пилота.
+- [x] Сохранить Retry-патч Ghibli; подготовить отдельную чистую GhibliSwiftUIApp-entry.
+- [x] Сверить чистоту Firefox/Countries и доступность saved projects.
+- [x] Попытаться добавить проекты через Codex UI: инструмент вернул safety prohibition.
+- [x] Синхронизировать canonical/source и существующий reference runtime; validator PASS.
+- [x] Создать один новый ZIP и сверить все 1366 файлов с candidate/canonical.
+- [x] Исправить противоречивые статусы и убрать утверждение, что skips доказывают отсутствие ошибок.
+- [x] Подготовить исправления T/V к отдельным commits; exact HEAD и push receipt — в финальном сообщении после публикации.
 
-## Ограничения
+## Остаток
 
-Вся работа внутри /Users/Artem/.zenflow. Не менять домашний .git и не обходить Git boundary.
-Project work выполняет Luna после пользовательской команды продолжения; Xcode/Simulator,
-app tests, dependencies и workflow без новой authority не запускать.
-Существующая authority на library tests и commit/push T/V сохраняется; она не распространяется
-на upstream трёх скачанных приложений. Внешние host paths требуют точного разрешения.
-Старый большой plan/handoff сохранён в archive/pre-executable-pilot-plan-2026-09-15-*;
-его «готово» и обязательные остановки между прежними A–F не являются актуальными командами.
+- [ ] Пользователь добавляет три точных pilot roots в Codex; затем нейтральные fresh-entry tasks.
+- [ ] Реально наблюдать host common delivery и выбор исправленного пакета.
+- [ ] Завершить fresh-entry matrix, включая отдельный non-iOS контроль.
+- [ ] R3 и остальные positive external lifecycle: нужна разрешённая область вне любого Git.
+- [ ] Итоговая полная приёмка: BLOCKED до закрытия этих evidence gates.
+
+## Границы
+
+Все project artifacts внутри /Users/Artem/.zenflow. Не обходить Git/UI safety boundary.
+Library tests и commits/push T/V разрешены. Upstream commits/push, зависимости, Xcode,
+app tests и Simulator не разрешены. Countries остаётся read-only; его P2 не требует изменения
+upstream для приёмки review deliverable. Три статических пилота не заменяют свежую host-задачу.
+Не повторять suite/archive/runtime sync без изменения риска или исполняемого кода.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
