@@ -1,11 +1,11 @@
-# Review-Ready Validation Report — Luna final-acceptance working candidate
+# Review-Ready Validation Report — Astra follow-up working candidate
 
 Date: **2026-09-16**
-Artifact stage: Luna R1–R4 final-acceptance working candidate; no new accepted archive.
+Artifact stage: Luna implementation after Astra follow-up; no accepted release.
 Status: **NOT_READY — targeted regressions pass; external-to-Git lifecycle and actual
 host instruction delivery remain unverified**.
 
-This is author/self-test evidence, not independent acceptance or proof of complete security. V14 is a corrective follow-up to the V13 candidate and its bounded Astra review: it addresses manual selector/overwrite findings, explicit protection-version admission, knowledge routing/profile wiring, bounded destination admission, and artifact-scoped evidence. The current local candidate also ships regression coverage for post-publication cleanup, intermediate paths, per-file and aggregate accounting, replacement races, iteration failure, slow read and slow validation deadline checkpoints, client-repository destination rejection, AGENTS override precedence, candidate/source profile revalidation and explicit layout mappings. The V13 Astra review remains historical evidence; this candidate still requires final independent review and host adoption evidence.
+This is author/self-test evidence, not independent acceptance or proof of complete security. V14 is a corrective follow-up to the V13 candidate and its bounded Astra review: it addresses manual selector/overwrite findings, explicit protection-version admission, knowledge routing/profile wiring, bounded destination admission, and artifact-scoped evidence. The current local candidate also ships regression coverage for post-publication cleanup, intermediate paths, per-file and aggregate accounting, replacement races, iteration failure, slow read and slow validation deadline checkpoints, client-repository destination rejection, AGENTS override precedence, candidate/source profile revalidation and explicit layout mappings. This follow-up additionally fixes positional manual-block selection and makes the historical archive input explicit through `IOSLIB_LEGACY_ARCHIVE`. The V13 review remains historical evidence; this candidate still requires final independent review and host adoption evidence.
 
 ## Environment
 
@@ -159,7 +159,7 @@ V5.4 preserves the V5.3 A52 fixes: one writer per Git common directory, serializ
 
 ## Final archive evidence
 
-- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_FINAL_ACCEPTANCE_20260916.zip`.
+- Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_FOLLOWUP_20260916.zip`.
 - SHA-256: recorded in the external task receipt; it is intentionally not embedded in the ZIP
   because changing the report to include a self-hash would change the archive hash.
 - Extracted package validator: `files=1366 skills=60 sections=51 playbooks=288 errors=0`.

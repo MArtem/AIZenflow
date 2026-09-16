@@ -18,15 +18,17 @@
 - [x] Три проекта скачаны в /Users/Artem/.zenflow/library-acceptance-projects; pin/чистота сохранены.
 - [x] Astra выбрала задачи по точечному чтению исходников; реализация проектов не начата.
 - [x] Полный исполнимый runbook подготовлен; новые pilot tasks не запускались.
-- [x] R1: самостоятельный manual profile и актуальный executable test harness — static/docs PASS; external lifecycle SKIP по Git boundary.
+- [x] R1: самостоятельный manual profile и актуальный executable test harness — block selection fixed; external lifecycle SKIP по Git boundary.
 - [x] R2: fresh full отдельно от reference→full/update с matching preflight ID — contract/static PASS; host execution NOT_RUN.
 - [ ] R3: проверенный реальный возврат к .6 с сохранением состояния — BLOCKED_ENVIRONMENT, positive external fixture unavailable.
 - [x] Один актуальный suite, объяснение каждого skip, semantic review финального diff.
 - [ ] Host delivery и фактический выбор исправленного пакета — UNKNOWN без active Desktop facts.
-- [ ] Fresh-entry cases до внедрения наших инструкций в проекты — NOT_RUN; disposable fixtures prepared only.
-- [x] Ghibli: Retry на ошибке Movies; Firefox: read-only поиск; Countries: network→DB→UI analysis.
+- [ ] Fresh-entry cases до внедрения наших инструкций в проекты — NOT_RUN; saved-project catalog не содержит три downloaded pilot roots.
+- [ ] Ghibli: Retry на ошибке Movies — static diff есть, но first-entry ordering evidence отсутствует.
+- [x] Firefox: read-only поиск; Countries: network→DB→UI analysis завершён.
+- [ ] Countries cancellation P2 — `CancelBag.cancel()` не вызывает `Task.cancel()`.
 - [x] Отдельный non-iOS контроль и честный статус отсутствующего runtime evidence — fixture prepared, observation NOT_RUN.
-- [ ] Синхронизация candidate/canonical/runtime — PASS; разрешённые commit/push остаются; новый ZIP/hash PASS.
+- [x] Синхронизация candidate/canonical/runtime — PASS; follow-up source sync выполнен, commit/push и новый ZIP/hash ещё нужны.
 - [x] Конечный отчёт без ложных PASS — receipt is SELF_VERIFIED, not ASTRA_ACCEPTED.
 - [ ] Независимая Astra-приёмка — не выполнена в этом проходе.
 

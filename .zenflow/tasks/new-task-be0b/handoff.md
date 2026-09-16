@@ -11,22 +11,15 @@ Task new-task-be0b, 2026-09-16; режим эконом. Исполнитель 
 
 ## Статус
 
-Astra завершила текущий раунд приёмки с RETURNED: standalone manual, reference→full,
-старый .6 rollback и stale placeholders manual test — четыре незакрытых P2.
-Доказательства: ../../library-adoption-v54/evidence/31-astra-acceptance-and-pilot-intake.md.
-Validator PASS и все 1366 файлов V17 ZIP совпали с candidate; новый suite не запускался.
-Исторический suite 196 total / 191 PASS / 5 SKIP не закрывает эти замечания.
-V17 SHA256: 746946651ed1d540377a33007d930ec30b60b18b57ff7e157f6ff0f0cff08a22.
-Implementation commit: 5a34f4dd616d4f9076800043a367b59974272450;
-последний наблюдавшийся committed HEAD fc9ffd798a5bf14339d88911b75edf19646f45b5 — receipt-only.
-R1 и R2 закрыты на уровне документации/static suite; R3 имеет точный `BLOCKED_ENVIRONMENT`, потому
-что разрешённая `.zenflow` область находится внутри Git boundary и нельзя создавать bypass.
-Финальный suite: 198 total / 192 PASS / 0 FAIL / 6 SKIP, validator PASS.
+Astra follow-up выявила и Luna исправляет два harness-дефекта: manual test больше не зависит от
+позиции bash-блоков, а rollback test принимает явный `IOSLIB_LEGACY_ARCHIVE` при сохранении SHA.
+R3 всё ещё `BLOCKED_ENVIRONMENT`: положительный `.6` round trip требует разрешённого root вне
+Git boundary. Свежий suite после follow-up ещё должен быть выполнен.
 Evidence: `../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md`.
-Ghibli получил единственный implementation diff (`FilmsScreen.swift`); Firefox и Countries
-остались read-only. Fresh Desktop entry, host common delivery и фактический host package selection
-не доказаны и помечены UNKNOWN/NOT_RUN. Нынешние review/plan/runbook/evidence правки локальные,
-не опубликованы. Не терять их при продолжении.
+Fresh-entry остаётся `NOT_RUN`, потому что saved-project catalog не содержит три downloaded pilot
+roots. Ghibli source diff есть, но он выполнен до доказанного first-entry observation. Firefox и
+Countries остаются read-only; Countries получил подтверждённый P2 cancellation finding.
+Новые plan/handoff/evidence правки локальные до следующего commit/push.
 
 ## Проекты и задачи
 

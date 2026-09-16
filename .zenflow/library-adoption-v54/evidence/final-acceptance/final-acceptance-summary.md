@@ -12,8 +12,8 @@ Scope: library R1–R4, host diagnosis, fresh-entry preparation, and the three b
 - `validate_package.py`: PASS — `files=1366 skills=60 sections=51 playbooks=288 errors=0`.
 - Final serial library suite: PASS — `198 total / 192 pass / 0 fail / 6 skip`, exit `0`.
 - The suite used an explicit temporary root under `.zenflow`. The host-level Git boundary encloses the approved sandbox, so the six positive external-deployment cases were not bypassed.
-- Final archive: `dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_FINAL_ACCEPTANCE_20260916.zip`.
-- Archive SHA-256: `06f6f988027a35d7d1413d1652897174de7296b8daf9167ddbd8d210d02a45d5`.
+- Final archive: `dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_LUNA_FOLLOWUP_20260916.zip`.
+- Archive SHA-256: `5882c0da341ea9f8b123eed4b8840b7a008903ccdff2287e0cabfdcfbf221c95`.
 - `unzip -t`: PASS; extracted archive validator: PASS with the same `1366/60/51/288/0` counts.
 
 The six skips are all environment-bounded and have no failure hidden behind them:
@@ -33,13 +33,19 @@ These are `BLOCKED_ENVIRONMENT`/`NOT_RUN`, not PASS claims. The candidate's nega
 - R2: PASS at the contract/static-test level. Fresh full installation is distinct from existing reference→full migration, and the matching preflight identity is documented. The command path is explicit and does not pretend that a fresh install is a migration.
 - R3: `BLOCKED_ENVIRONMENT`. The candidate fixed release can coordinate an incoming historical `.6` payload, and the legacy `.6` refusal path is covered. A real positive round trip could not run without creating a forbidden Git-boundary bypass.
 
+The Astra follow-up fixed the manual lifecycle test's block selection: it now locates the
+bootstrap, optional-skill, and receipt blocks by their markers instead of assuming positional
+indices. The historical archive test now accepts `IOSLIB_LEGACY_ARCHIVE`, while retaining the
+pinned SHA check. Both affected tests still stop honestly at the environment boundary on this
+host; their structural assertions execute before the skip.
+
 ## Host delivery and selected runtime
 
 Read-only inspection of the permitted installed descriptor found:
 
 - installed runtime release: `5.4-review-ready.7`;
 - protection version: `5.4-review-ready.5`;
-- installed descriptor source tree hash: `806b7251517c1606c38bef09558c38e0ebd828adaa758ae7eb4582ea852b1976`;
+- installed descriptor source tree hash: `c8790bd29cd98a35cdac4b25945d96bc57948d50b3a99f56fa524b3780653b66`;
 - installed profile: `reference`.
 
 After the candidate was stabilized, its `1366`-file tree was synchronized into S with no
@@ -62,7 +68,7 @@ The three pinned upstream repositories were inspected before project mutation:
 - firefox-ios: `0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071`;
 - clean-architecture-swiftui: `9eca97b8cfff96a14084b564b1fefd949c93d232`.
 
-Disposable fixtures were prepared locally at `fixtures/entry-empty-git`, `fixtures/entry-linked`, and `fixtures/entry-non-ios`. No upstream AGENTS file, portable snapshot, launcher, workflow, dependency, or test was added. A fresh Codex Desktop task was not created because the available product operation was not authorized by the current request to create a new user-owned task; consequently fresh-entry observations are `NOT_RUN`, not inferred from shell fixtures.
+Disposable fixtures were prepared locally at `fixtures/entry-empty-git`, `fixtures/entry-linked`, and `fixtures/entry-non-ios`. No upstream AGENTS file, portable snapshot, launcher, workflow, dependency, or test was added. The saved-project catalog exposes only `new-task-be0b` and `mvvmexample-3c80`; it does not expose the three downloaded pilot roots, so exact project fresh-entry tasks could not be created. Fresh-entry observations remain `NOT_RUN`. The Ghibli source mutation therefore occurred before a verified fresh-entry observation, which is a process gap in the pilot evidence.
 
 ## Pilot 1 — implementation: GhibliSwiftUIApp
 
@@ -83,16 +89,16 @@ Observed protections include cancellation before a new suggest request, query eq
 
 ## Pilot 3 — cross-domain: clean-architecture-swiftui / Countries
 
-Result: `PASS` for the requested scenario analysis; no source changes.
+Result: `RETURNED` for the requested scenario analysis; no source changes.
 
 The flow is explicit: non-forced load reads SwiftData first; a missing or failed read falls through to network; network details are stored; a read-after-write verifies presence; UI maps loading/loaded/failed states and offers a force-reload retry. Cancellation preserves the last value only while the `Loadable` state remains `.isLoading`.
 
-Review note: `try?` in `CountriesInteractor.loadCountryDetails` intentionally collapses a database read failure into a cache miss, which can add a network/write cycle and hide persistence health. `store(countryDetails:)` also constructs new models for fields marked unique, so force-reload persistence semantics deserve a runtime test before production reliance. These are contract risks, not promoted findings without the prohibited app runtime verification. The upstream repository stayed clean.
+Confirmed P2: `Loadable.cancelLoading()` removes the `Task` from `CancelBag`, but `CancelBag.cancel()` only clears the collection and never calls `Task.cancel()`. The in-flight operation can therefore finish after the user presses Cancel and overwrite the state that the UI just set to cancelled or restored. This requires a bounded source fix plus cancellation verification before acceptance. A separate contract risk remains: `try?` in `CountriesInteractor.loadCountryDetails` collapses a database read failure into a cache miss, potentially hiding persistence health. The upstream repository stayed clean.
 
 ## Non-iOS control and final verdict
 
 The non-iOS fixture is present, but no fresh host task observed it. Its acceptance status is `NOT_RUN`; no iOS route adoption is claimed.
 
-Overall package status: `SELF_VERIFIED / NOT_READY_FOR_ACCEPTED_RELEASE`. Package integrity and static pilot scope pass. Host delivery, fresh Desktop entry, positive external lifecycle, and app runtime/build evidence remain `UNKNOWN` or `NOT_RUN`. This receipt deliberately does not convert those limits into a general “ready” claim.
+Overall package status: `RETURNED / NOT_READY_FOR_ACCEPTED_RELEASE`. Package integrity and the corrected static harness pass. The Countries cancellation P2, host delivery, fresh Desktop entry, positive external lifecycle, and app runtime/build evidence remain unresolved or `UNKNOWN/NOT_RUN`.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

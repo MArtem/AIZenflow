@@ -1060,7 +1060,9 @@ class PackagePolicyTests(unittest.TestCase):
         # performs the upgrade, and only the fixed current coordinator performs rollback.
         if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
             self.skipTest('NOT_RUN: real legacy-release acceptance needs an authorized external-to-Git fixture root')
-        archive=ROOT.parents[1]/'dist'/'iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip'
+        archive=Path(os.environ.get(
+            'IOSLIB_LEGACY_ARCHIVE',
+            str(ROOT.parents[1]/'dist'/'iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip')))
         expected_archive_sha='57e34f454b5247a43864f89354cdb02a742e5a26d1e6a343d287c9b05bd76e27'
         self.assertTrue(archive.is_file())
         digest=hashlib.sha256()
@@ -1400,9 +1402,16 @@ class PackagePolicyTests(unittest.TestCase):
             doc=(ROOT/'MANUAL_DEPLOYMENT.md').read_text()
             blocks=re.findall(r'```bash\n(.*?)```',doc,re.S)
             self.assertGreaterEqual(len(blocks),3)
-            self.assertIn('LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE',blocks[0])
-            self.assertIn('ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',blocks[0])
-            self.assertNotIn('--canonical-repository-root',blocks[0])
+            bootstrap=next((block for block in blocks if
+                            'LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE' in block and
+                            'PREFLIGHT_TMP=' in block),None)
+            skills=next((block for block in blocks if 'SKILL_STAGE=' in block),None)
+            receipt=next((block for block in blocks if 'RECEIPT_TMP=' in block),None)
+            self.assertIsNotNone(bootstrap)
+            self.assertIsNotNone(skills)
+            self.assertIsNotNone(receipt)
+            self.assertIn('ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',bootstrap)
+            self.assertNotIn('--canonical-repository-root',bootstrap)
             self.assertIn('--canonical-repository-root',doc)
             # Never bypass production Git detection to turn host-ineligible tests green.
             if M.git_root_for_destination(TEST_TMP_ROOT)[0] is not None:
@@ -1416,7 +1425,7 @@ class PackagePolicyTests(unittest.TestCase):
                         agents=home/'AGENTS.md'
                         if existing:
                             agents.write_bytes(original); agents.chmod(0o640)
-                        first=blocks[0].replace(
+                        first=bootstrap.replace(
                             'LIB_ROOT=/ABSOLUTE/PATH/TO/HASH-VERIFIED-VERSIONED-RELEASE',
                             'LIB_ROOT='+shlex.quote(str(ROOT))).replace(
                             'ACTIVE_CODEX_HOME=/ABSOLUTE/PATH/TO/DEDICATED-CODEX-HOME',
@@ -1428,7 +1437,7 @@ class PackagePolicyTests(unittest.TestCase):
                         # This is the documented operator append between shell blocks;
                         # it preserves existing content and modes instead of repairing a fixture.
                         env=dict(os.environ,CODEX_HOME=str(home))
-                        result=run(['bash','-c',first+blocks[1]+blocks[2]],env=env)
+                        result=run(['bash','-c',first+skills+receipt],env=env)
                         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
                         self.assertTrue(agents.read_bytes().startswith(original))
                         if existing: self.assertEqual(stat.S_IMODE(agents.stat().st_mode),0o640)
@@ -1527,7 +1536,7 @@ class PackagePolicyTests(unittest.TestCase):
                         self.assertNotIn(M.BEGIN,agents.read_text())
                         self.assertTrue(agents.read_bytes().startswith(original))
                         self.assertEqual(history.read_text(),'preserve session history')
-                        reconnect=run(['bash','-c',first+blocks[1]+blocks[2]],env=env)
+                        reconnect=run(['bash','-c',first+skills+receipt],env=env)
                         self.assertEqual(reconnect.returncode,0,reconnect.stdout+reconnect.stderr)
                         self.assertTrue((shim/M.RECEIPT_NAME).is_file())
                         self.assertIn(M.BEGIN,agents.read_text())
