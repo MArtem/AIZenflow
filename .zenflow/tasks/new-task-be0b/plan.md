@@ -1,52 +1,36 @@
-# Текущий план приёмки библиотеки
+# План приёмки библиотеки — завершён
 
-Дата: 2026-09-16. Astra; режим эконом. Fresh-entry observers: Luna Xhigh.
+Дата: 2026-09-18. Исполнитель: GPT-5.6 Sol; режим `эконом`.
 Процедура: [luna-final-acceptance-runbook.md](luna-final-acceptance-runbook.md).
-Актуальные доказательства:
+Актуальное evidence:
 [final-acceptance-summary.md](../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md).
 
-## Выполнено
+## Завершено
 
-- [x] Проверить отсутствие внешней папки/чужих данных и Git boundary; создать private fixture root.
-- [x] Запустить шесть previously skipped тестов; сохранить первоначальные реальные failures.
-- [x] Исправить два isolated skills paths, original snapshot mode и точный disable/reconnect.
-- [x] Один финальный serial suite после code fixes: 199 PASS / 0 FAIL / 0 SKIP.
-- [x] R1 manual lifecycle и R3 реальный .6→.7→.6 подтверждены в isolated scope.
-- [x] Validator: 1366 files / 60 skills / 51 sections / 288 playbooks / 0 errors.
-- [x] Удалить содержимое и саму /Users/Shared/ioslib-acceptance; отсутствие подтверждено.
-- [x] Создать три нейтральные local fresh-entry задачи Luna Xhigh в зарегистрированных проектах.
-- [x] Сохранить first-turn command ordering и supplementary self-reports; upstream trees чистые.
-- [x] Зафиксировать непрохождение automatic common/library application gate в этих входах.
-- [x] Установить разрешённую причинную границу: `.zenflow/AGENTS.md` находится выше Git-root
-  пилотных проектов и по правилам Codex не входит в их project instruction chain.
-- [x] Сверить это с activation boundary пакета: candidate уже требует active global AGENTS
-  внутри фактического CODEX_HOME; дефект installer/runtime не установлен.
-- [x] По отдельному разрешению проверить два default global candidates: override отсутствует,
-  `/Users/Artem/.codex/AGENTS.md` — regular empty file (0 bytes); конфликт precedence исключён.
-- [x] Сохранить прежние static pilots, включая Countries scenario table/P2 и отдельный Retry-патч.
-- [x] Один новый candidate ZIP: CRC/safe paths/все 1366 file bytes совпадают с candidate.
-- [x] Подготовить candidate/evidence к task commit; exact SHA/push receipt фиксируется после commit.
+- [x] Исправлен P3 QUICKSTART без расширения CLI; package manifest обновлён.
+- [x] Candidate validator: 1367 файлов, 60 skills, 51 sections, 288 playbooks, 0 ошибок.
+- [x] Candidate `48cb8ad3596c22de4bd6d24fe2b63d861bd93db1` опубликован в dev-ветку.
+- [x] Effective Desktop home подтверждён по процессу: `CODEX_HOME` unset, `HOME=/Users/Artem`.
+- [x] Canonical payload продвинут в `reusable/ios-engineering-library/v5.4`.
+- [x] Source-in-place runtime обновлён двухшагово и возвращён на canonical source.
+- [x] Installation validator PASS; host bridge подключён к `/Users/Artem/.codex/AGENTS.md`.
+- [x] `host_entry.py status`: connected, без errors/warnings; исходные bytes/mode сохранены receipt.
+- [x] Fresh-entry PASS: Ghibli, Firefox и Countries автоматически получили router/common baseline.
+- [x] Empty control: common route delivered, `review_required` без выдуманного проекта.
+- [x] Non-iOS control: iOS-специфический контракт корректно проигнорирован.
+- [x] Linked control: физический root/common Git dir/worktree Git dir различены корректно.
+- [x] Финальный ZIP: 1367 файлов, CRC/safe paths/byte identity PASS,
+  SHA-256 `8f18964f1020da6ece7b77fbd785916a9064a4719d70cfcfef6901d993d5e99f`.
+- [x] Canonical опубликован и remote подтверждён на
+  `71c38bacc9efd11161d5e75cf54e7d352e994c3d`; task closeout публикуется этим финальным commit.
 
-## Остаток и границы
+## Сохраняемые ограничения
 
-- [x] Выбрать безопасную архитектуру host activation: отдельный instruction bridge к canonical
-  runtime вместо смены всего Desktop CODEX_HOME или копирования runtime в real home.
-- [x] Реализовать `host_entry.py connect/status/disconnect`: runtime receipt внутри `.zenflow`,
-  снаружи меняется только выбранный active global AGENTS после отдельного разрешения.
-- [x] Добавить synthetic roundtrip/tamper/precedence/byte-mode/race проверки внутри `.zenflow`.
-- [x] Обновить deployment docs/manifests и выполнить целевой, затем один финальный suite
-  (`215 total / 209 PASS / 0 FAIL / 6 external-to-Git NOT_RUN` после corrective suite).
-- [x] Провести независимый Astra review; исправить найденные P1/P1/P2 по atomic rollback и
-  active-override drift, а также последующие P2 для new-file, removal, exchange-cleanup durability
-  и recovery-snapshot failures. Повторное независимое review требуется перед commit/push.
-- [ ] После этого — наблюдение selected package/relevant route и дополнительные empty/non-iOS/linked controls.
-- [ ] Отдельно согласованное продвижение candidate в canonical/активный source-in-place runtime.
-- [ ] Полная приёмка: НЕ завершена; isolated lifecycle PASS не заменяет auto-delivery gate.
-
-Однократное разрешение на /Users/Shared/ioslib-acceptance израсходовано; не создавать папку снова.
-Вся дальнейшая работа только внутри /Users/Artem/.zenflow. Canonical и runtime в этом проходе
-не менялись. Не запускать app tests/build/Simulator, зависимости, upstream commits/push.
-Не менять Countries ради read-only pilot. Не повторять suite/архив только ради receipt.
-Новые конфигурационные действия требуют отдельной точной authority.
+- App/Xcode builds, Simulator, зависимости и upstream pilot-project mutations не выполнялись.
+- Suite `215 / 209 PASS / 0 FAIL / 6 NOT_RUN` не перезапускался после документационной P3-правки;
+  шесть lifecycle-сценариев имеют отдельное прежнее PASS evidence.
+- `/Users/Shared/ioslib-acceptance` не создавать без нового разрешения.
+- Rollback host connection: сначала проверенный `host_entry.py disconnect`, затем при необходимости
+  runtime rollback штатным `sync_global.py`.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

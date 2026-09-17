@@ -1,63 +1,38 @@
-# Handoff — lifecycle PASS, automatic entry not accepted
+# Handoff — V5.4 canonical/runtime/host acceptance PASS
 
-Task new-task-be0b; 2026-09-16; Astra, эконом.
-Применить canonical bootstrap, Level 0, plan.md и relevant runbook routes.
-Актуальный [receipt](../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md)
-заменяет прежние environment-blocked статусы.
+Task `new-task-be0b`; 2026-09-18; GPT-5.6 Sol; режим `эконом`.
+Применить canonical bootstrap, Level 0 и актуальный plan. Полное evidence:
+[final-acceptance-summary.md](../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md).
 
-## Что завершено
+## Текущее состояние
 
-Пользователь однократно разрешил /Users/Shared/ioslib-acceptance для isolated library tests.
-Путь был свободен и вне Git. Начальные failures выявили harness/manual дефекты:
-неуказанные skills paths, snapshot mode 0644 вместо recorded 0640, пустые skill directories
-и activation-owned newlines после disable. Исправлены только тестовый harness/процедура и
-metadata mirrors, без ослабления production checks.
-Финальный полный suite: 199 PASS / 0 FAIL / 0 SKIP; validator PASS; real .6→.7→.6 PASS.
-После завершения всех процессов тестовые данные очищены, сама папка удалена через rmdir;
-inode/отсутствие проверены. Внешнее разрешение больше не действует. Логи в .zenflow сохранены.
+- Candidate lineage before the final portability-only correction:
+  `48cb8ad3596c22de4bd6d24fe2b63d861bd93db1`.
+- Release `5.4-review-ready.7`; source tree
+  `d781dbb6d6d3ed91db8c39b390a1ba025fe1a0bf527669f856bbcdb830131441`.
+- Canonical: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/v5.4`.
+- Runtime: `/Users/Artem/.zenflow/worktrees/documentation-vault/.codex-runtime/ios-engineering`.
+- Desktop host: `/Users/Artem/.codex`; active file `AGENTS.md`; override отсутствует.
+- Host status connected, warnings/errors отсутствуют; installation validator PASS.
+- До connect host AGENTS был пустым regular file mode 0644; rollback receipt хранит exact SHA/mode.
+- P3 QUICKSTART исправлен: descriptor path не приписывается выводу `host_entry.py status`.
 
-Три нейтральные задачи Luna Xhigh завершены в exact local roots, не projectless/worktrees:
-- Ghibli — первый read-only вход: 01a0aae7-ae71-7742-a920-516a63d1bd6f.
-- Firefox — первый read-only вход: 01a0aae7-bcd8-7da3-9663-2f0582dc84d9.
-- Countries — первый read-only вход: 01a0aae7-cf37-79d3-976e-4d6e94b147da.
-Публичные observations сохранены в fresh-*.json рядом с receipt; hidden reasoning исключён.
-Firefox сообщил о заранее полученном upstream AGENTS; остальные — без root AGENTS.
-Во всех трёх виден research skill и source inspection, без canonical/library route.
-Automatic application gate НЕ ПРОЙДЕН; exact host delivery/active CODEX_HOME остаются UNKNOWN.
-Не выдавать отсутствие tool read само по себе за доказанное отсутствие внедрённых инструкций.
+## Acceptance gates
 
-Sol уточнил причинную границу по официальному Codex discovery contract: project instructions
-ищутся от Git-root вниз к cwd. Поэтому /Users/Artem/.zenflow/AGENTS.md, расположенный выше root
-трёх независимых репозиториев, не является их автоматическим project entry. Candidate уже точно
-описывает это в MANUAL_DEPLOYMENT.md и требует global block в фактическом CODEX_HOME. Наблюдение
-не доказывает runtime defect; оно сужает unknown до реального global AGENTS/override/active home.
+- Package tests: reused `215 total / 209 PASS / 0 FAIL / 6 lifecycle NOT_RUN`; отдельный прежний
+  PASS этих шести сценариев сохранён и не выдаётся за новый запуск.
+- Package validator: 1367 файлов, 0 ошибок.
+- Host delivery: PASS по свежим Ghibli/Firefox/Countries entries.
+- Empty/non-iOS/linked controls: PASS в независимых roots.
+- Финальный ZIP: `iOS_Engineering_AI_Library_2026_V5_4_ACCEPTED_20260918.zip`,
+  SHA-256 `8f18964f1020da6ece7b77fbd785916a9064a4719d70cfcfef6901d993d5e99f`,
+  CRC/safe paths/1367-byte-match PASS.
 
-После точного разрешения Sol read-only проверил default global candidates:
-/Users/Artem/.codex/AGENTS.override.md отсутствует, /Users/Artem/.codex/AGENTS.md — regular file
-размером 0 bytes. Default home не может доставлять baseline; override conflict там отсутствует.
-Effective CODEX_HOME процесса всё ещё не наблюдался напрямую. config.toml не читался.
+## Следующий шаг
 
-Прежние static pilots сохранены, Countries scenario table завершена с P2 отмены;
-upstream fix не нужен для read-only deliverable. Исходники трёх fresh-entry проектов чистые.
-Ghibli Retry остаётся в другой исходной копии, fresh-entry копия не менялась.
-
-## Публикация и продолжение
-
-Новый candidate ZIP/hash и suite evidence в receipt. Canonical V остаётся чистым на 3ad93db;
-active source-in-place runtime НЕ обновлён, по запрету менять реальные настройки.
-Candidate и canonical теперь намеренно различаются; не обещать синхронизацию/автоподключение.
-Astra authored correction не является независимым ревью самой себя.
-Task commit/push сохраняют только candidate и evidence; результат SHAs — в финальном сообщении.
-
-Следующий шаг — отдельное решение и разрешение на один host activation path: подключение managed
-block к согласованному effective global AGENTS либо запуск Desktop с canonical CODEX_HOME.
-Это реальная настройка host, не ещё один installer smoke. config.toml не читать без отдельной
-необходимости и разрешения.
-Не угадывать CODEX_HOME, не читать внешний home/config без точной authority, не править
-реальные настройки, не перезапускать Codex и не добавлять bootstrap в imports задним числом.
-Empty/non-iOS/linked controls пока NOT_RUN: нет зарегистрированных roots; продолжать матрицу
-до разрешения уже наблюдаемого common-entry gap неэкономично.
-Повторное использование /Users/Shared/ioslib-acceptance запрещено без нового явного разрешения.
-App builds/tests/Simulator/dependencies/upstream publication не разрешены.
+Приёмка закрыта. Canonical опубликован на
+`71c38bacc9efd11161d5e75cf54e7d352e994c3d`; task closeout публикуется финальным commit этого
+прохода. Временные control roots удалены. Подключённый host и upstream pilot repositories без
+нового запроса не менять.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

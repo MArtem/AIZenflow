@@ -22,8 +22,8 @@ The latest split-host author-verification command stays inside the approved `.ze
 
 ```bash
 PYTHONDONTWRITEBYTECODE=1 \
-IOSLIB_TEST_TMP_ROOT=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp \
-IOSLIB_LEGACY_ARCHIVE=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip \
+IOSLIB_TEST_TMP_ROOT=/ABSOLUTE/PATH/TO/ISOLATED/ioslib-test-tmp \
+IOSLIB_LEGACY_ARCHIVE=/ABSOLUTE/PATH/TO/VERIFIED/legacy-release.zip \
   python3 -B tests/run_all.py --serial
 ```
 
