@@ -98,7 +98,7 @@ python3 sync_global.py --codex-home "$AREA_ROOT" --mode full --dry-run
 python3 sync_global.py --codex-home "$AREA_ROOT" --mode full --preflight-id <ID_FROM_SYNC_DRY_RUN>
 ```
 
-After a same-home deployment, read `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/INSTALLATION.json` to discover the exact selected release and knowledge root. In split-host mode, use the absolute descriptor path shown by `host_entry.py status`. `INSTALLATION.md` is explanatory only. Reference mode intentionally relies on this stable selector instead of installing the 60 optional skills. Then read `GLOBAL_CODEX/KNOWLEDGE_ROUTER.md` and load only the route relevant to the task.
+After a same-home deployment, read `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/INSTALLATION.json` to discover the exact selected release and knowledge root. In split-host mode, read `$AREA_ROOT/ios-engineering-shim/INSTALLATION.json`; `host_entry.py status` reports connection health and the receipt path, not the descriptor path. `INSTALLATION.md` is explanatory only. Reference mode intentionally relies on this stable selector instead of installing the 60 optional skills. Then read `GLOBAL_CODEX/KNOWLEDGE_ROUTER.md` and load only the route relevant to the task.
 
 For a write task, create a session and keep the returned ID:
 
