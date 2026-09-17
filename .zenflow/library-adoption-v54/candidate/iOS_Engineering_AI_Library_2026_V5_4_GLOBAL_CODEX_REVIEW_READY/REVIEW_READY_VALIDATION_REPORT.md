@@ -1,6 +1,6 @@
 # Review-Ready Validation Report — Astra follow-up working candidate
 
-Date: **2026-09-16**
+Date: **2026-09-17**
 Artifact stage: Astra external-lifecycle correction; no accepted release.
 Status: **NOT_READY — isolated lifecycle verified; automatic host instruction application
 not demonstrated in three fresh Desktop tasks**.
@@ -18,23 +18,34 @@ This is author/self-test evidence, not independent acceptance or proof of comple
 
 ## Executed regression suite
 
-The final author-verification command uses the user's one-time external fixture authorization:
+The latest split-host author-verification command stays inside the approved `.zenflow` area:
 
 ```bash
-TMPDIR=/Users/Shared/ioslib-acceptance \
 PYTHONDONTWRITEBYTECODE=1 \
-IOSLIB_TEST_TMP_ROOT=/Users/Shared/ioslib-acceptance \
+IOSLIB_TEST_TMP_ROOT=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/test-tmp \
 IOSLIB_LEGACY_ARCHIVE=/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/dist/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_PORTABLE.zip \
   python3 -B tests/run_all.py --serial
 ```
 
-- total: **199**
-- PASS: **199**
+- total: **215**
+- PASS: **209**
 - FAIL: **0**
-- SKIP: **0**
+- SKIP: **6**
 - runner exit: **0**
 
-The fixture directory was absent before creation, outside detected Git roots, and created with
+The sixteen split-host cases cover exact empty-file/mode roundtrip, active override precedence,
+managed-block tamper refusal, receipt-publication rollback, modified-runtime refusal, damaged-runtime
+disconnect recovery, uninstall interlock, template-refresh disconnect, racing-edit preservation,
+post-exchange durability rollback, new-file post-publication rollback, post-removal durability
+rollback, post-exchange cleanup rollback, recovery-snapshot failure reporting, a second edit during
+rollback and later active-override drift.
+Fixtures use separate synthetic runtime and host homes; no real Codex setting is an implementation target.
+
+The six current skips are the two installer/manual dry-run cases, three documented/manual
+preflight cases and the real historical release roundtrip that require an external-to-Git root.
+No implementation failure was hidden as a skip. The preceding 199-test lifecycle acceptance used
+the one-time external fixture and executed these six cases successfully. That directory was
+absent before creation, outside detected Git roots, and created with
 mode 0700. After the successful suite its contents were already cleaned by the tests; the same
 directory inode was verified, the empty root removed with rmdir, and absence confirmed. This report
 is not permission to recreate it. On other hosts choose a separately authorized external-to-Git
@@ -160,8 +171,10 @@ V5.4 preserves the V5.3 A52 fixes: one writer per Git common directory, serializ
 - Archive: `iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY_ASTRA_LIFECYCLE_20260916.zip`.
 - SHA-256: recorded in the external task receipt; it is intentionally not embedded in the ZIP
   because changing the report to include a self-hash would change the archive hash.
-- Package validator: `files=1366 skills=60 sections=51 playbooks=288 errors=0`.
-- Candidate suite: `REVIEW_READY_TEST_SUMMARY total=199 pass=199 fail=0 skip=0`, exit `0`.
+- Package validator: `files=1367 skills=60 sections=51 playbooks=288 errors=0`.
+- Candidate suite: `REVIEW_READY_TEST_SUMMARY total=215 pass=209 fail=0 skip=6`, exit `0`;
+  all sixteen split-host tests executed and passed. Separate prior external evidence remains
+  `199/199/0/0` for the unchanged external-only lifecycle paths.
 - Archive/candidate equality is checked against every packaged file; details and SHA live in the
   external task receipt. The smoke evidence below is retained historical evidence, not a new
   manual/installer execution of this harness correction.

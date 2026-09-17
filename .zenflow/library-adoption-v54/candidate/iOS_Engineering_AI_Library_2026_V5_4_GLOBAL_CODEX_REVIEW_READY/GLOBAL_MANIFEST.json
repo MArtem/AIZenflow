@@ -68,12 +68,12 @@
     "minimum_parser_compatibility": "Python 3.9 grammar",
     "fixtures": "synthetic temporary Codex homes and Git repositories only",
     "observed_release_working_tree": {
-      "total": 199,
-      "pass": 199,
+      "total": 215,
+      "pass": 209,
       "fail": 0,
-      "skip": 0,
-      "execution": "serial suite in a one-time authorized private external-to-Git fixture root; historical .6 archive hash pinned; see validation report",
-      "date": "2026-09-16",
+      "skip": 6,
+      "execution": "serial suite in the approved .zenflow fixture root: all sixteen split-host cases passed; six unchanged external-to-Git lifecycle cases were NOT_RUN and retain separate prior external PASS evidence; see validation report",
+      "date": "2026-09-17",
       "wall_clock_seconds_approx": null
     },
     "runner_bytecode_policy": "release validation uses PYTHONDONTWRITEBYTECODE=1; package validator rejects __pycache__/.pyc",
@@ -100,7 +100,7 @@
     "transient_write_monitor_provided": false,
     "complete_ignored_file_protection_claimed": false
   },
-  "validated_at": "2026-09-15",
+  "validated_at": "2026-09-17",
   "package_files_in_release_tree": 1366,
   "integration_note": "Manual unpack and installed reference mode select the same versioned external payload/state through INSTALLATION.json under an explicitly active CODEX_HOME; installer mode adds transactional ownership/rollback while the manual path uses a read-only preflight and operator steps; the canonical documentation runtime profile permits only MArtem/AIZenflowDocumentation/.codex-runtime/ios-engineering; PROJECT_REFERENCE_OPT_IN.md provides a no-install advisory workflow.",
   "writer_model": "one-writer-per-git-common-dir; linked worktrees sharing refs are serialized; concurrent writers require independent Git common directories",

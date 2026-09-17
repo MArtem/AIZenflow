@@ -25,6 +25,7 @@ def test_tmpdir():
 import install_global as I
 import sync_global as S
 import uninstall_global as U
+import host_entry as H
 
 def load(name,path):
     spec=importlib.util.spec_from_file_location(name,path); mod=importlib.util.module_from_spec(spec); sys.modules[name]=mod; assert spec and spec.loader; spec.loader.exec_module(mod); return mod
@@ -548,6 +549,227 @@ class InstallerTests(unittest.TestCase):
                 p=run([sys.executable,ROOT/'install_global.py','--portable-area',area,option,outside,'--dry-run'])
                 self.assertEqual(p.returncode,3,p.stdout+p.stderr)
                 self.assertIn('must remain inside',p.stdout)
+
+    def test_F14_split_host_entry_roundtrip_preserves_empty_file_and_mode(self):
+        runtime_home=self.td/'runtime-home'; runtime_skills=self.td/'runtime-skills'
+        fresh_install(runtime_home,runtime_skills,'reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; agents.write_bytes(b''); os.chmod(agents,0o640)
+        base=[sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home]
+        dry=run([*base,'--dry-run']); self.assertEqual(dry.returncode,0,dry.stdout+dry.stderr); pre=json.loads(dry.stdout)
+        connected=run([*base,'--preflight-id',pre['preflight_id']]); self.assertEqual(connected.returncode,0,connected.stdout+connected.stderr)
+        self.assertEqual(sorted(p.name for p in host_home.iterdir()),['AGENTS.md'])
+        text=agents.read_text(); self.assertIn(str(runtime_home/'ios-engineering-shim/bin/ios_ai.py'),text); self.assertNotIn('${CODEX_HOME',text)
+        self.assertEqual(stat.S_IMODE(os.lstat(agents).st_mode),0o640)
+        status=run([sys.executable,ROOT/'host_entry.py','status','--runtime-home',runtime_home]); self.assertEqual(status.returncode,0,status.stdout+status.stderr)
+        disconnected=run([sys.executable,ROOT/'host_entry.py','disconnect','--runtime-home',runtime_home,'--yes']); self.assertEqual(disconnected.returncode,0,disconnected.stdout+disconnected.stderr)
+        self.assertEqual(agents.read_bytes(),b''); self.assertEqual(stat.S_IMODE(os.lstat(agents).st_mode),0o640); self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+
+    def test_F14_split_host_entry_uses_active_override_and_restores_exact_bytes(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); base=host_home/'AGENTS.md'; base.write_bytes(b'# base untouched\n')
+        override=host_home/'AGENTS.override.md'; original=b'# active override\n\ncustom = true\n'; override.write_bytes(original); os.chmod(override,0o644)
+        command=[sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home]
+        pre=json.loads(run([*command,'--dry-run'],check=True).stdout); connected=run([*command,'--preflight-id',pre['preflight_id']]); self.assertEqual(connected.returncode,0,connected.stdout+connected.stderr)
+        receipt=json.loads((runtime_home/H.RECEIPT_NAME).read_text()); self.assertEqual(Path(receipt['agents_file']),override); self.assertEqual(base.read_bytes(),b'# base untouched\n')
+        disconnected=run([sys.executable,ROOT/'host_entry.py','disconnect','--runtime-home',runtime_home,'--yes']); self.assertEqual(disconnected.returncode,0,disconnected.stdout+disconnected.stderr)
+        self.assertEqual(override.read_bytes(),original); self.assertEqual(stat.S_IMODE(os.lstat(override).st_mode),0o644); self.assertEqual(base.read_bytes(),b'# base untouched\n')
+
+    def test_F14_split_host_entry_tamper_blocks_status_and_disconnect(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; agents.write_text('# user\n')
+        command=[sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home]
+        pre=json.loads(run([*command,'--dry-run'],check=True).stdout); self.assertEqual(run([*command,'--preflight-id',pre['preflight_id']]).returncode,0)
+        agents.write_text(agents.read_text().replace('Global iOS Engineering Library','Locally modified library'))
+        status=run([sys.executable,ROOT/'host_entry.py','status','--runtime-home',runtime_home]); self.assertEqual(status.returncode,1); self.assertIn('modified',status.stdout)
+        disconnected=run([sys.executable,ROOT/'host_entry.py','disconnect','--runtime-home',runtime_home,'--yes']); self.assertEqual(disconnected.returncode,2); self.assertTrue((runtime_home/H.RECEIPT_NAME).exists()); self.assertIn('Locally modified',agents.read_text())
+
+    def test_F14_split_host_entry_receipt_failure_restores_host_agents(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; original=b'# user\n'; agents.write_bytes(original)
+        pre,_,_,_=H._connect_preflight(runtime_home,host_home); args=types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id'])
+        real=H.I.write_new_atomic
+        def fail_receipt(path,data,mode=0o600):
+            if Path(path)==runtime_home/H.RECEIPT_NAME: raise OSError('synthetic receipt failure')
+            return real(path,data,mode)
+        H.I.write_new_atomic=fail_receipt
+        try:
+            with self.assertRaises(OSError): H.connect(args)
+        finally: H.I.write_new_atomic=real
+        self.assertEqual(agents.read_bytes(),original); self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+
+    def test_F14_split_host_entry_new_file_durability_failure_removes_published_agents(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'
+        pre,_,_,_=H._connect_preflight(runtime_home,host_home); args=types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id'])
+        real=H.I.write_new_atomic; fired={'value':False}
+        def fail_after_publish(path,data,mode=0o600,publication_observer=None):
+            result=real(path,data,mode,publication_observer=publication_observer)
+            if Path(path)==agents and not fired['value']:
+                fired['value']=True
+                raise OSError('synthetic post-publication durability failure')
+            return result
+        H.I.write_new_atomic=fail_after_publish
+        try:
+            with self.assertRaisesRegex(OSError,'synthetic post-publication durability failure'):
+                H.connect(args)
+        finally: H.I.write_new_atomic=real
+        self.assertTrue(fired['value']); self.assertFalse(agents.exists()); self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+        self.assertEqual(list(host_home.iterdir()),[])
+
+    def test_F14_split_host_entry_post_removal_fsync_failure_restores_connected_state(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'
+        command=[sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home]
+        pre=json.loads(run([*command,'--dry-run'],check=True).stdout); self.assertEqual(run([*command,'--preflight-id',pre['preflight_id']]).returncode,0)
+        connected=agents.read_bytes(); receipt=runtime_home/H.RECEIPT_NAME; real=H.I.unlink_nofollow_file; fired={'value':False}
+        def fail_after_removal(path,*,missing_ok=False,removal_observer=None):
+            result=real(path,missing_ok=missing_ok,removal_observer=removal_observer)
+            if '.ioslib-host-entry-remove.' in Path(path).name and not fired['value']:
+                fired['value']=True
+                raise OSError('synthetic post-removal fsync failure')
+            return result
+        args=types.SimpleNamespace(runtime_home=str(runtime_home),dry_run=False,yes=True)
+        with mock.patch.object(H.I,'unlink_nofollow_file',side_effect=fail_after_removal):
+            with self.assertRaisesRegex(OSError,'synthetic post-removal fsync failure'):
+                H.disconnect(args)
+        self.assertTrue(fired['value']); self.assertEqual(agents.read_bytes(),connected); self.assertTrue(receipt.exists())
+        self.assertEqual(sorted(p.name for p in host_home.iterdir()),['AGENTS.md'])
+
+    def test_F14_split_host_entry_post_exchange_cleanup_failure_restores_original(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; original=b'# original user rules\n'; agents.write_bytes(original); os.chmod(agents,0o640)
+        pre,_,_,_=H._connect_preflight(runtime_home,host_home); receipt=runtime_home/H.RECEIPT_NAME; real=H.I.unlink_nofollow_file; fired={'value':False}
+        def fail_after_cleanup(path,*,missing_ok=False,removal_observer=None):
+            result=real(path,missing_ok=missing_ok,removal_observer=removal_observer)
+            if '.ioslib-host-entry-exchange.' in Path(path).name and not fired['value']:
+                fired['value']=True
+                raise OSError('synthetic post-exchange cleanup fsync failure')
+            return result
+        args=types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id'])
+        with mock.patch.object(H.I,'unlink_nofollow_file',side_effect=fail_after_cleanup):
+            with self.assertRaisesRegex(OSError,'synthetic post-exchange cleanup fsync failure'):
+                H.connect(args)
+        self.assertTrue(fired['value']); self.assertEqual(agents.read_bytes(),original); self.assertEqual(stat.S_IMODE(os.lstat(agents).st_mode),0o640)
+        self.assertFalse(receipt.exists()); self.assertEqual(sorted(p.name for p in host_home.iterdir()),['AGENTS.md'])
+
+    def test_F14_split_host_entry_recovery_snapshot_failure_is_explicit_and_preserved(self):
+        for fail_after_publication in (False,True):
+            with self.subTest(fail_after_publication=fail_after_publication):
+                runtime_home=self.td/f'runtime-{fail_after_publication}'; fresh_install(runtime_home,self.td/f'skills-{fail_after_publication}','reference')
+                host_home=self.td/f'host-{fail_after_publication}'; host_home.mkdir(); agents=host_home/'AGENTS.md'; original=b'# original user rules\n'; agents.write_bytes(original); os.chmod(agents,0o640)
+                pre,_,_,_=H._connect_preflight(runtime_home,host_home); real_unlink=H.I.unlink_nofollow_file; real_write=H.I.write_new_atomic
+                def fail_cleanup(path,*,missing_ok=False,removal_observer=None):
+                    result=real_unlink(path,missing_ok=missing_ok,removal_observer=removal_observer)
+                    if '.ioslib-host-entry-exchange.' in Path(path).name: raise OSError('synthetic exchange cleanup failure')
+                    return result
+                def fail_recovery(path,data,mode=0o600,publication_observer=None):
+                    if '.ioslib-host-entry-restore.' not in Path(path).name:
+                        return real_write(path,data,mode,publication_observer=publication_observer)
+                    if fail_after_publication:
+                        real_write(path,data,mode,publication_observer=publication_observer)
+                    raise OSError('synthetic recovery snapshot failure')
+                args=types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id'])
+                with mock.patch.object(H.I,'unlink_nofollow_file',side_effect=fail_cleanup), mock.patch.object(H.I,'write_new_atomic',side_effect=fail_recovery):
+                    with self.assertRaisesRegex(H.HostEntryRollbackIncomplete,'snapshot recreation could not start'):
+                        H.connect(args)
+                recovery=[p for p in host_home.iterdir() if '.ioslib-host-entry-restore.' in p.name]
+                self.assertIn(I.BEGIN,agents.read_text()); self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+                self.assertEqual(len(recovery),1 if fail_after_publication else 0)
+                if recovery: self.assertEqual(recovery[0].read_bytes(),original)
+
+    def test_F14_split_host_entry_refuses_modified_runtime(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        launcher=runtime_home/'ios-engineering-shim/bin/ios_ai.py'; launcher.write_text(launcher.read_text()+'\n# tamper\n')
+        host_home=self.td/'host-home'; host_home.mkdir(); (host_home/'AGENTS.md').write_bytes(b'')
+        result=run([sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home,'--dry-run'])
+        self.assertEqual(result.returncode,3); self.assertIn('shim mismatch',result.stdout); self.assertEqual((host_home/'AGENTS.md').read_bytes(),b''); self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+
+    def test_F14_split_host_entry_disconnect_recovers_from_damaged_runtime(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; original=b'# user rules\n'; agents.write_bytes(original)
+        command=[sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home]
+        pre=json.loads(run([*command,'--dry-run'],check=True).stdout); self.assertEqual(run([*command,'--preflight-id',pre['preflight_id']]).returncode,0)
+        launcher=runtime_home/'ios-engineering-shim/bin/ios_ai.py'; launcher.write_text(launcher.read_text()+'\n# tamper\n')
+        status=run([sys.executable,ROOT/'host_entry.py','status','--runtime-home',runtime_home]); self.assertEqual(status.returncode,1); self.assertIn('runtime validation failed',status.stdout)
+        disconnected=run([sys.executable,ROOT/'host_entry.py','disconnect','--runtime-home',runtime_home,'--yes']); self.assertEqual(disconnected.returncode,0,disconnected.stdout+disconnected.stderr)
+        self.assertIn('safe host-only disconnect remains available',disconnected.stdout); self.assertEqual(agents.read_bytes(),original); self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+
+    def test_F14_runtime_uninstall_refuses_active_split_host_entry(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; agents.write_bytes(b'# user rules\n')
+        command=[sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home]
+        pre=json.loads(run([*command,'--dry-run'],check=True).stdout); self.assertEqual(run([*command,'--preflight-id',pre['preflight_id']]).returncode,0)
+        uninstall=run([sys.executable,ROOT/'uninstall_global.py','--codex-home',runtime_home,'--yes']); self.assertEqual(uninstall.returncode,2,uninstall.stdout+uninstall.stderr)
+        self.assertIn('disconnect the host entry',uninstall.stdout); self.assertTrue((runtime_home/I.REGISTRY_NAME).exists()); self.assertTrue((runtime_home/H.RECEIPT_NAME).exists()); self.assertIn(I.BEGIN,agents.read_text())
+        self.assertEqual(run([sys.executable,ROOT/'host_entry.py','disconnect','--runtime-home',runtime_home,'--yes']).returncode,0)
+
+    def test_F14_split_host_entry_template_refresh_does_not_block_disconnect(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; original=b'# user rules\n'; agents.write_bytes(original)
+        pre,_,_,_=H._connect_preflight(runtime_home,host_home); H.connect(types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id']))
+        with mock.patch.object(H,'_render_block',return_value='updated template'):
+            _,_,errors,warnings=H._status(runtime_home)
+        self.assertEqual(errors,[]); self.assertTrue(any('reconnect host entry' in item for item in warnings))
+        self.assertEqual(H.disconnect(types.SimpleNamespace(runtime_home=str(runtime_home),dry_run=False,yes=True)),0)
+        self.assertEqual(agents.read_bytes(),original)
+
+    def test_F14_split_host_entry_preserves_edit_racing_publication(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; agents.write_bytes(b'# original\n')
+        pre,_,_,_=H._connect_preflight(runtime_home,host_home)
+        concurrent=b'# concurrent user edit\n'; real=H._rename_sibling; fired={'value':False}
+        def race_once(src,dst,flags):
+            if not fired['value'] and flags==H._RENAME_SWAP and Path(dst)==agents:
+                fired['value']=True; agents.write_bytes(concurrent)
+            return real(src,dst,flags)
+        args=types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id'])
+        with mock.patch.object(H,'_rename_sibling',side_effect=race_once):
+            with self.assertRaisesRegex(H.HostEntryError,'changed concurrently'):
+                H.connect(args)
+        self.assertTrue(fired['value']); self.assertEqual(agents.read_bytes(),concurrent); self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+        self.assertEqual(sorted(p.name for p in host_home.iterdir()),['AGENTS.md'])
+
+    def test_F14_split_host_entry_post_exchange_fsync_failure_restores_original(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; original=b'# original\n'; agents.write_bytes(original); os.chmod(agents,0o640)
+        pre,_,_,_=H._connect_preflight(runtime_home,host_home); real=H._fsync_parent; calls={'value':0}
+        def fail_once(path):
+            calls['value']+=1
+            if calls['value']==1: raise OSError('synthetic post-exchange fsync failure')
+            return real(path)
+        args=types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id'])
+        with mock.patch.object(H,'_fsync_parent',side_effect=fail_once):
+            with self.assertRaisesRegex(OSError,'synthetic post-exchange fsync failure'):
+                H.connect(args)
+        self.assertEqual(agents.read_bytes(),original); self.assertEqual(stat.S_IMODE(os.lstat(agents).st_mode),0o640)
+        self.assertFalse((runtime_home/H.RECEIPT_NAME).exists()); self.assertEqual(sorted(p.name for p in host_home.iterdir()),['AGENTS.md'])
+
+    def test_F14_split_host_entry_preserves_second_edit_during_exchange_rollback(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; agents.write_bytes(b'# original\n')
+        pre,_,_,_=H._connect_preflight(runtime_home,host_home)
+        first=b'# first concurrent edit\n'; second=b'# second concurrent edit\n'; real=H._rename_sibling; calls={'value':0}
+        def race_twice(src,dst,flags):
+            if flags==H._RENAME_SWAP and Path(dst)==agents:
+                calls['value']+=1; agents.write_bytes(first if calls['value']==1 else second)
+            return real(src,dst,flags)
+        args=types.SimpleNamespace(runtime_home=str(runtime_home),host_codex_home=str(host_home),dry_run=False,preflight_id=pre['preflight_id'])
+        with mock.patch.object(H,'_rename_sibling',side_effect=race_twice):
+            with self.assertRaises(H.HostEntryRollbackIncomplete):
+                H.connect(args)
+        recovery=[p for p in host_home.iterdir() if p.name.startswith('.AGENTS.md.ioslib-host-entry-exchange.')]
+        self.assertEqual(calls['value'],2); self.assertEqual(agents.read_bytes(),first); self.assertEqual(len(recovery),1); self.assertEqual(recovery[0].read_bytes(),second)
+        self.assertFalse((runtime_home/H.RECEIPT_NAME).exists())
+
+    def test_F14_split_host_entry_status_detects_new_active_override(self):
+        runtime_home=self.td/'runtime-home'; fresh_install(runtime_home,self.td/'runtime-skills','reference')
+        host_home=self.td/'host-home'; host_home.mkdir(); agents=host_home/'AGENTS.md'; original=b'# base rules\n'; agents.write_bytes(original)
+        command=[sys.executable,ROOT/'host_entry.py','connect','--runtime-home',runtime_home,'--host-codex-home',host_home]
+        pre=json.loads(run([*command,'--dry-run'],check=True).stdout); self.assertEqual(run([*command,'--preflight-id',pre['preflight_id']]).returncode,0)
+        override=host_home/'AGENTS.override.md'; override.write_bytes(b'# newer active override\n')
+        status=run([sys.executable,ROOT/'host_entry.py','status','--runtime-home',runtime_home]); self.assertEqual(status.returncode,1); self.assertIn('no longer the active',status.stdout)
+        disconnected=run([sys.executable,ROOT/'host_entry.py','disconnect','--runtime-home',runtime_home,'--yes']); self.assertEqual(disconnected.returncode,0,disconnected.stdout+disconnected.stderr)
+        self.assertEqual(agents.read_bytes(),original); self.assertEqual(override.read_bytes(),b'# newer active override\n')
     def test_F14_reference_mode_installs_no_bundled_skills(self):
         home=self.td/'reference-home'; skills=self.td/'reference-skills'; home.mkdir(); (home/'AGENTS.md').write_text('# user rules\n')
         generic=skills/'ios-security-privacy'; generic.mkdir(parents=True); (generic/'USER.txt').write_text('keep')

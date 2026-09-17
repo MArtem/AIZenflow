@@ -212,6 +212,56 @@ Do not copy the runtime into `reusable/`, into `.git/`, or into any app director
 versioned source and the generated runtime separate so Git remains the recovery source and the
 runtime remains disposable/regenerable. The repository `.gitignore` excludes `.codex-runtime/`.
 
+### Split-host entry without changing Desktop CODEX_HOME
+
+When the real Codex process must keep its existing home but the approved runtime/state must remain
+in a separate managed area, use `host_entry.py`. This is a connection step after a passing runtime
+installation and validation; it is not another runtime installer. It changes only the active global
+AGENTS file selected under `HOST_CODEX_HOME`. Its receipt stays in `AREA_ROOT`, so shim, state,
+registry and receipt remain outside the host home.
+
+```bash
+HOST_CODEX_HOME=/ABSOLUTE/PATH/TO/ACTUAL/CODEX-HOME
+
+python3 "$LIB_ROOT/validate_global_install.py" --codex-home "$AREA_ROOT"
+python3 "$LIB_ROOT/host_entry.py" connect \
+  --runtime-home "$AREA_ROOT" \
+  --host-codex-home "$HOST_CODEX_HOME" \
+  --dry-run
+
+# Inspect the selected AGENTS file, absolute runtime paths and collisions. Then reuse the exact ID.
+python3 "$LIB_ROOT/host_entry.py" connect \
+  --runtime-home "$AREA_ROOT" \
+  --host-codex-home "$HOST_CODEX_HOME" \
+  --preflight-id <PREFLIGHT_ID>
+
+python3 "$LIB_ROOT/host_entry.py" status --runtime-home "$AREA_ROOT"
+```
+
+The rendered block points to the descriptor-validating shim by an absolute shell-quoted path and
+contains no unresolved `CODEX_HOME` fallback. A non-empty `AGENTS.override.md` is selected ahead of
+`AGENTS.md`, matching Codex precedence. Existing bytes and mode are preserved; a modified managed
+block, changed mode, invalid runtime identity or receipt collision fails closed.
+Replacement/removal of an existing host AGENTS file uses Darwin atomic exchange/no-replace
+semantics and validates the atomically displaced bytes and mode. A racing user edit is preserved
+and the bridge operation refuses publication rather than overwriting it. Exchange durability
+failures are reversed from known state; a second edit during reversal is retained as an explicit
+recovery file. `status` also fails when Codex precedence selects a different global AGENTS file.
+
+To reverse only this connection, inspect the disconnect dry-run and then use the explicit commit:
+
+```bash
+python3 "$LIB_ROOT/host_entry.py" disconnect --runtime-home "$AREA_ROOT" --dry-run
+python3 "$LIB_ROOT/host_entry.py" disconnect --runtime-home "$AREA_ROOT" --yes
+```
+
+Runtime update remains owned by `sync_global.py`. If `status` reports that the installed global
+block changed, review the new block, disconnect the unchanged old entry, and perform a fresh
+connect dry-run/commit. Never copy the runtime into the host home to silence a path mismatch.
+Disconnect the split-host entry before running `uninstall_global.py`; an active host-entry receipt
+blocks runtime removal. Host-only disconnect remains available when runtime validation is damaged,
+provided the managed host block itself is unchanged.
+
 ## 7. Full mode and optional skills
 
 `reference` is the default and normally provides the complete knowledge route and runtime without
@@ -437,7 +487,8 @@ The V5.4 release inventory is recorded in `GLOBAL_MANIFEST.json` and the exact f
 - 51 knowledge sections;
 - 288 deep playbooks;
 - 60 namespaced optional skills;
-- 199 synthetic tests, observed as 199 passed, 0 failed, and 0 skipped in the release working tree;
+- 215 synthetic tests; latest sandbox run observed 209 passed, 0 failed, and 6 explicit
+  external-to-Git NOT_RUN skips, while the unchanged six cases retain separate prior external PASS evidence;
 - structural package validation with no validator errors at the time of release preparation.
 
 These numbers describe shipped inventory and observed checks; they are not a claim that every
@@ -449,7 +500,8 @@ project task is correct or that the host is automatically configured.
 | --- | --- | --- |
 | `canonical-baseline-unavailable` | The canonical documentation checkout could not be used | Stop; do not claim the current canonical revision was applied. Use a tracked portable snapshot or restore the checkout. |
 | Destination is inside a Git repository | The selected host area is not an admitted runtime boundary | Choose a dedicated non-Git area, or use only the exact `AIZenflowDocumentation/.codex-runtime/ios-engineering` exception with exact origin verification. |
-| `CODEX_HOME` mismatch | The process and installer target differ | Stop/restart or relaunch Codex with the descriptor's exact `CODEX_HOME`; do not install a second guessed copy. |
+| `CODEX_HOME` mismatch | The process and installer target differ | Either relaunch with the exact installed home or use the reviewed split-host entry; do not install a second guessed copy. |
+| Host keeps its existing CODEX_HOME | Runtime/state must remain in another approved area | Validate the runtime, then use `host_entry.py connect` with a matching preflight ID; only the selected global AGENTS file may change. |
 | Existing or modified managed file | Ownership cannot be proven | Preserve it, inspect the receipt/hash, and use a fresh area if uncertain. Never overwrite with `cp`, symlinks, or a forced flag. |
 | Full-mode preflight ID rejected | The host state or requested paths changed after dry-run | Run a new dry-run, inspect it, and use its exact ID. |
 | Profile is invalid/overlap only | Source changed, mapping is not exact, or source was not explicitly selected | Keep all material active; rebuild only from an explicit, revalidated source root. |
@@ -473,7 +525,8 @@ When another Codex App receives this archive, it should report these facts befor
 4. destination is absolute, approved, and outside client Git roots unless it is the exact canonical
    exception;
 5. dry-run/preflight was reviewed before mutation;
-6. `INSTALLATION.json`, `doctor`, and the effective Codex process `CODEX_HOME` agree;
+6. `INSTALLATION.json` and `doctor` agree, and activation is either the same effective CODEX_HOME
+   or a passing `host_entry.py status` split-host connection;
 7. `GLOBAL_CODEX/KNOWLEDGE_ROUTER.md` was read in a fresh task/session;
 8. project-local instructions and user permissions remain in force;
 9. any missing tool, unavailable subagent, skipped test, partial observation, or residual risk is

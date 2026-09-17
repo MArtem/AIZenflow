@@ -8,6 +8,7 @@ G = HERE / 'GLOBAL_CODEX'
 VERSION = '5.4-review-ready.7'
 PROTECTION_VERSION = '5.4-review-ready.5'
 REGISTRY_NAME = 'ios-engineering-global.json'
+HOST_ENTRY_RECEIPT_NAME = 'ios-engineering-host-entry.json'
 BEGIN = '<!-- IOS_ENGINEERING_GLOBAL:BEGIN -->'
 END = '<!-- IOS_ENGINEERING_GLOBAL:END -->'
 TEXT_LIMIT = 2 * 1024 * 1024
@@ -467,7 +468,7 @@ def write_atomic(path: Path, data: bytes, mode=0o600):
         os.close(pfd)
 
 
-def write_new_atomic(path: Path, data: bytes, mode=0o600):
+def write_new_atomic(path: Path, data: bytes, mode=0o600, publication_observer=None):
     """Publish a fully written new file without replacing any raced-in destination."""
     path = abs_lex(path)
     ensure_dir(path.parent)
@@ -486,6 +487,8 @@ def write_new_atomic(path: Path, data: bytes, mode=0o600):
             os.link(tmp, name, src_dir_fd=pfd, dst_dir_fd=pfd, follow_symlinks=False)
         except FileExistsError as e:
             raise InstallError(f'destination appeared concurrently; refusing overwrite: {path}') from e
+        if publication_observer is not None:
+            publication_observer()
         os.unlink(tmp, dir_fd=pfd)
         os.fsync(pfd)
         st = os.stat(name, dir_fd=pfd, follow_symlinks=False)
@@ -500,7 +503,7 @@ def write_new_atomic(path: Path, data: bytes, mode=0o600):
         os.close(pfd)
 
 
-def unlink_nofollow_file(path: Path, *, missing_ok: bool = False) -> None:
+def unlink_nofollow_file(path: Path, *, missing_ok: bool = False, removal_observer=None) -> None:
     """Unlink one regular file or symlink entry through a stable no-follow parent dir-fd.
 
     This never follows the final path. Directories/special files are rejected.
@@ -517,6 +520,8 @@ def unlink_nofollow_file(path: Path, *, missing_ok: bool = False) -> None:
         if stat.S_ISDIR(st.st_mode) or not (stat.S_ISREG(st.st_mode) or stat.S_ISLNK(st.st_mode)):
             raise InstallError(f'refusing unlink of directory/special file: {path}')
         os.unlink(path.name, dir_fd=pfd)
+        if removal_observer is not None:
+            removal_observer()
         os.fsync(pfd)
     finally:
         os.close(pfd)

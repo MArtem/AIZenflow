@@ -53,6 +53,26 @@ python3 install_global.py --portable-area "$AREA_ROOT" \
 Only `<DOCS_ROOT>/.codex-runtime/ios-engineering` is writable; the source/docs tree and `.git`
 remain protected. The repository origin must be `MArtem/AIZenflowDocumentation`.
 
+If Desktop must keep its existing Codex home, connect only its active global instruction file to
+the separately validated runtime. Runtime, state and the connection receipt stay in `AREA_ROOT`:
+
+```bash
+HOST_CODEX_HOME=/ABSOLUTE/PATH/TO/ACTUAL/CODEX-HOME
+python3 validate_global_install.py --codex-home "$AREA_ROOT"
+python3 host_entry.py connect --runtime-home "$AREA_ROOT" \
+  --host-codex-home "$HOST_CODEX_HOME" --dry-run
+python3 host_entry.py connect --runtime-home "$AREA_ROOT" \
+  --host-codex-home "$HOST_CODEX_HOME" --preflight-id <ID_FROM_DRY_RUN>
+python3 host_entry.py status --runtime-home "$AREA_ROOT"
+```
+
+This split-host path does not copy a shim, state or registry into `HOST_CODEX_HOME`. Disconnect with
+the matching dry-run followed by `host_entry.py disconnect --runtime-home "$AREA_ROOT" --yes`.
+Disconnect must precede runtime uninstall; an active split-host receipt blocks removal. Existing
+host instruction files are published/reversed with Darwin atomic exchange and racing edits fail
+closed without being overwritten. Status is non-passing if a later non-empty override changes the
+active global instruction file.
+
 For a later installer update, extract the new release beside the old one and run the new release's
 `sync_global.py`; source-in-place mode selects that script's versioned source root. Inspect the
 dry-run `source`, `content_root`, `version`, and `source_tree_sha256`, then run the same command
@@ -78,7 +98,7 @@ python3 sync_global.py --codex-home "$AREA_ROOT" --mode full --dry-run
 python3 sync_global.py --codex-home "$AREA_ROOT" --mode full --preflight-id <ID_FROM_SYNC_DRY_RUN>
 ```
 
-After either deploy mode, read `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/INSTALLATION.json` to discover the exact selected release and knowledge root. `INSTALLATION.md` is explanatory only. Reference mode intentionally relies on this stable selector instead of installing the 60 optional skills. Then read `GLOBAL_CODEX/KNOWLEDGE_ROUTER.md` and load only the route relevant to the task.
+After a same-home deployment, read `${CODEX_HOME:-$HOME/.codex}/ios-engineering-shim/INSTALLATION.json` to discover the exact selected release and knowledge root. In split-host mode, use the absolute descriptor path shown by `host_entry.py status`. `INSTALLATION.md` is explanatory only. Reference mode intentionally relies on this stable selector instead of installing the 60 optional skills. Then read `GLOBAL_CODEX/KNOWLEDGE_ROUTER.md` and load only the route relevant to the task.
 
 For a write task, create a session and keep the returned ID:
 

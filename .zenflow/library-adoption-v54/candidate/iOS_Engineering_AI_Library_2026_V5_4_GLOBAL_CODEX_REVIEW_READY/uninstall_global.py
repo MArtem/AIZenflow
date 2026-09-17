@@ -51,6 +51,12 @@ def preflight(ch: Path):
     if not reg:
         raise UninstallError('no managed installation registry')
     conflicts = []
+    host_entry_receipt = ch / I.HOST_ENTRY_RECEIPT_NAME
+    if I.lexists(host_entry_receipt):
+        conflicts.append(
+            f'active split-host entry receipt: {host_entry_receipt}; '
+            'disconnect the host entry before uninstalling the runtime'
+        )
     own = reg.get('ownership', {})
     targets = []
     if not reg.get('source_in_place'):

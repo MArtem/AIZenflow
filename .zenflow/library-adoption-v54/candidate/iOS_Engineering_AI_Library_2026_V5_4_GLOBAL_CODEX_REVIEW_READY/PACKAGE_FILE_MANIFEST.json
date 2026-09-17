@@ -6712,8 +6712,8 @@
     },
     {
       "path": "GLOBAL_MANIFEST.json",
-      "sha256": "9cee5a5f8f8d66b9355ab739a5f7a910c058d460ada0d564a3f283d2284580e1",
-      "size": 8293
+      "sha256": "6bffbcfd5df9ade3d2840f8811b4a98cde035ee3bb67a4314cb7eaddad05f22e",
+      "size": 8380
     },
     {
       "path": "GLOBAL_VALIDATION_REPORT.md",
@@ -6732,8 +6732,8 @@
     },
     {
       "path": "MANUAL_DEPLOYMENT.md",
-      "sha256": "0b6cb605e14b344fb364d78d9923ddbf409c134c120335eb3032edbaa2d30f73",
-      "size": 21384
+      "sha256": "0548b83ab3d57a9e021fa9f1f5fdd2bff4633a62f639bd06666c8de57840a571",
+      "size": 22151
     },
     {
       "path": "MANUAL_SHIM/INSTALLATION.json.template",
@@ -6762,13 +6762,13 @@
     },
     {
       "path": "QUICKSTART.md",
-      "sha256": "4813814baaee81c01f7a33daa0807d0626384c5dfd3755fe4893e3821b30406b",
-      "size": 6451
+      "sha256": "78163e7d29b79409f8f896e0339472c3e1469fa9f926536a2435c090cc04ffee",
+      "size": 7680
     },
     {
       "path": "README.md",
-      "sha256": "33218801ee27eab868768968fa2a4efbdc16f8b5fa2e0381df678a36a63c8a5f",
-      "size": 26004
+      "sha256": "e4f5f78d2f3bc101898f43f409c8c3acae3cabe3c73ee5973bed37e7439dd929",
+      "size": 29167
     },
     {
       "path": "RECOMMENDED_SETS.md",
@@ -6782,8 +6782,8 @@
     },
     {
       "path": "REVIEW_READY_VALIDATION_REPORT.md",
-      "sha256": "b22276daa51621517900d0fa48661129bf8588bcbba2ad9790fcbb76279dfca2",
-      "size": 17030
+      "sha256": "a54270591417f71a069a20fd65302cfb991ffb961d084325746de8e56bfc7545",
+      "size": 18197
     },
     {
       "path": "bootstrap_global.sh",
@@ -6791,9 +6791,14 @@
       "size": 272
     },
     {
+      "path": "host_entry.py",
+      "sha256": "d58915898f948f281327809de79e539233b55f094c501a9a3fde56e63d334f11",
+      "size": 30309
+    },
+    {
       "path": "install_global.py",
-      "sha256": "93d89626cc0e2e2767e9d9fef2afc86906306e7c69a4058d64b31c15f6814bbc",
-      "size": 54975
+      "sha256": "639ce7518dc4ef8e82ad43c5ee3bd216c6b198b65b7dc37354996aa43a4da687",
+      "size": 55237
     },
     {
       "path": "sync_global.py",
@@ -6807,13 +6812,13 @@
     },
     {
       "path": "tests/test_review_ready.py",
-      "sha256": "d630a209569e747dee91362a02e68db281d94571dcb8f703082bbcb8a0779814",
-      "size": 167676
+      "sha256": "42e0bb52e31f1479306bf7f1c987241c04eb37a24e9513f5219b540c47b5d738",
+      "size": 189065
     },
     {
       "path": "uninstall_global.py",
-      "sha256": "2e64c3e4805eddb5a137828d2f2ab8bd48175146e59c0925634c435fb99e6fb4",
-      "size": 12710
+      "sha256": "d7169908d1e593aacb41fdcaec7bbf472e291ff6136543c8d55df80213075275",
+      "size": 12983
     },
     {
       "path": "validate_global_install.py",
@@ -6822,8 +6827,8 @@
     },
     {
       "path": "validate_package.py",
-      "sha256": "27a88d1554fa20157c4003567d9d5bdd401a05bfa4a7a8b95e48060f3afdf05c",
-      "size": 11797
+      "sha256": "7352293c87db9fbf961231cac04b9ce56c1f3454d6ef499b610455988237c2ab",
+      "size": 11813
     }
   ],
   "generated_for": "5.4-review-ready.7",

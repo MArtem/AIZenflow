@@ -32,13 +32,22 @@ is not a universal include mechanism. To activate the manual deployment, the ope
 2. identify the Codex process's effective `CODEX_HOME`. For the canonical profile it must be
    `<AIZenflowDocumentation>/.codex-runtime/ios-engineering`;
 3. connect the block in `GLOBAL_CODEX/AGENTS.global.block.md` to that active global AGENTS file;
-4. start/restart Codex with that same effective `CODEX_HOME`.
+4. either start/restart Codex with that same effective `CODEX_HOME`, or use the separately verified
+   `host_entry.py` split-host connection after the runtime installation is complete.
 
 If the chosen active area is under `/Users/Artem/.zenflow`, that is a deliberate host choice and
 the Codex process must actually start with that area as `CODEX_HOME`. The canonical exception is
 valid only when the repository root and remote are verified. A fresh project opened by a process
-using another Codex home is not covered. Do not claim universal future-project adoption until a
-fresh session proves the actual first-entry flow.
+using another Codex home is not covered unless its active global AGENTS has a passing split-host
+entry whose receipt remains in the managed runtime area. Do not claim universal future-project
+adoption until a fresh session proves the actual first-entry flow.
+
+The long manual procedure below is the no-installer path and assumes one active Codex home. Do not
+manually rewrite its block with guessed absolute paths. For an already installed canonical runtime
+and a host that must keep a different Codex home, use the transactional `host_entry.py` procedure
+in README.md instead; it provides dry-run, receipt, status, exact-byte reversal and tamper refusal.
+That procedure requires Darwin atomic rename support, preserves a racing host edit, and requires
+disconnect before runtime uninstall.
 
 ## Operator procedure
 

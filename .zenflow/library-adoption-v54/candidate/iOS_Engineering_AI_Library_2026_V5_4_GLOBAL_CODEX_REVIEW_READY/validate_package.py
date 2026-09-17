@@ -32,7 +32,7 @@ for p in files:
 
 required=[
  'README.md','QUICKSTART.md','MANUAL_DEPLOYMENT.md','MANUAL_SHIM/bin/ios_ai.py','MANUAL_SHIM/bin/manual_preflight.py','MANUAL_SHIM/INSTALLATION.md','MANUAL_SHIM/INSTALLATION.json.template','PROJECT_REFERENCE_OPT_IN.md','REVIEW_FINDINGS_MATRIX.md','REVIEW_READY_VALIDATION_REPORT.md','CAPABILITY_MATRIX.md',
- 'GLOBAL_ARCHITECTURE.md','GLOBAL_MANIFEST.json','install_global.py','sync_global.py','uninstall_global.py',
+ 'GLOBAL_ARCHITECTURE.md','GLOBAL_MANIFEST.json','install_global.py','sync_global.py','uninstall_global.py','host_entry.py',
  'validate_global_install.py','tests/run_all.py','tests/test_review_ready.py',
  'GLOBAL_CODEX/AGENTS.global.block.md','GLOBAL_CODEX/KNOWLEDGE_ROUTER.md','GLOBAL_CODEX/KNOWLEDGE_PROFILE.schema.json','GLOBAL_CODEX/runtime/bin/ios_ai.py','GLOBAL_CODEX/runtime/knowledge_profile.py',
  'GLOBAL_CODEX/runtime/vendor/adapt_project.py','GLOBAL_CODEX/runtime/protection/protection.py',

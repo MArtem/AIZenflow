@@ -29,8 +29,16 @@
 
 ## Остаток и границы
 
-- [ ] Выбрать и отдельно разрешить host activation: подключить managed block к согласованному
-  effective global AGENTS либо запускать Desktop с canonical runtime как CODEX_HOME.
+- [x] Выбрать безопасную архитектуру host activation: отдельный instruction bridge к canonical
+  runtime вместо смены всего Desktop CODEX_HOME или копирования runtime в real home.
+- [x] Реализовать `host_entry.py connect/status/disconnect`: runtime receipt внутри `.zenflow`,
+  снаружи меняется только выбранный active global AGENTS после отдельного разрешения.
+- [x] Добавить synthetic roundtrip/tamper/precedence/byte-mode/race проверки внутри `.zenflow`.
+- [x] Обновить deployment docs/manifests и выполнить целевой, затем один финальный suite
+  (`215 total / 209 PASS / 0 FAIL / 6 external-to-Git NOT_RUN` после corrective suite).
+- [x] Провести независимый Astra review; исправить найденные P1/P1/P2 по atomic rollback и
+  active-override drift, а также последующие P2 для new-file, removal, exchange-cleanup durability
+  и recovery-snapshot failures. Повторное независимое review требуется перед commit/push.
 - [ ] После этого — наблюдение selected package/relevant route и дополнительные empty/non-iOS/linked controls.
 - [ ] Отдельно согласованное продвижение candidate в canonical/активный source-in-place runtime.
 - [ ] Полная приёмка: НЕ завершена; isolated lifecycle PASS не заменяет auto-delivery gate.
