@@ -1,0 +1,69 @@
+{
+  "collisions": [
+    "agents_file: installation destination is inside client Git repository: /Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "codex_home: installation destination is inside client Git repository: /Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "shim_root: installation destination is inside client Git repository: /Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "skills_root: installation destination is inside client Git repository: /Users/Artem/.zenflow/worktrees/new-task-be0b",
+    "state_root: installation destination is inside client Git repository: /Users/Artem/.zenflow/worktrees/new-task-be0b"
+  ],
+  "descriptor": {
+    "generated_by": "manual_preflight.py",
+    "knowledge_root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY",
+    "managed_by": "ios-engineering-library",
+    "mode": "reference",
+    "protection_version": "5.4-review-ready.5",
+    "release_id": "5.4-review-ready.6",
+    "runtime_cli": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY/GLOBAL_CODEX/runtime/bin/ios_ai.py",
+    "schema_version": 1,
+    "source_tree_sha256": "63addf351856b0cbb98c764a5cf08aa532ac4297fda04fba56dc2aa7f8695c2f",
+    "state_root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/state"
+  },
+  "ok": false,
+  "operations": [
+    {
+      "op": "create_managed_shim_after_all_checks",
+      "target": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/ios-engineering-shim"
+    },
+    {
+      "op": "append_managed_block_after_exact_text_review",
+      "target": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/AGENTS.md"
+    },
+    {
+      "op": "create_private_state_root_and_marker_if_absent",
+      "target": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/state"
+    },
+    {
+      "op": "write_descriptor_last",
+      "target": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/ios-engineering-shim/INSTALLATION.json"
+    },
+    {
+      "op": "activation_is_last_and_old_release_remains_untouched",
+      "target": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/ios-engineering-shim/bin/ios_ai.py"
+    }
+  ],
+  "paths": {
+    "agents_file": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/AGENTS.md",
+    "codex_home": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home",
+    "shim_root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/ios-engineering-shim",
+    "skills_root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/skills",
+    "state_root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/acceptance-new-task-be0b/home/state"
+  },
+  "read_only": true,
+  "receipt": null,
+  "receipt_seed": {
+    "original_agents_mode": null,
+    "original_agents_sha256": null
+  },
+  "release": {
+    "protection_version": "5.4-review-ready.5",
+    "release_id": "5.4-review-ready.6",
+    "root": "/Users/Artem/.zenflow/worktrees/new-task-be0b/.zenflow/library-adoption-v54/candidate/iOS_Engineering_AI_Library_2026_V5_4_GLOBAL_CODEX_REVIEW_READY",
+    "version": "5.4-review-ready.6"
+  },
+  "state_marker": {
+    "deployment": "manual",
+    "managed_by": "ios-engineering-library",
+    "protection_version": "5.4-review-ready.5",
+    "version": "5.4-review-ready.6"
+  }
+}
