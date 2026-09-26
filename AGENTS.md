@@ -55,7 +55,7 @@ Always include the context-transfer rule when handing off:
 ## Model Routing
 - Apply `./docs/MODEL_ROUTING_RULE.md` before implementation, planning, review, or package-adoption work.
 - Classify tasks before editing code or documentation.
-- The available models are `GPT-5.6 sol`, `GPT-5.6 tera`, and `GPT-5.6 luna`, each with `low`, `medium`, and `high` reasoning. The routing rule is the sole authority for selecting both model and level.
+- The current models are `GPT-6 Luna`, `GPT-6 Sol`, and `GPT-6 Astra`, in increasing capability and per-token cost, subject to availability in the user's selector. Use only supported reasoning levels. The routing rule is the sole authority for selecting model and level; API prices do not predict subscription usage or total task cost.
 - The user selects the operating mode; it persists in the current task/thread until explicitly changed. Use `качество` when no explicit or handed-off mode exists. Do not change modes silently.
 - Before meaningful work, apply the command-time decision rule in `./docs/MODEL_ROUTING_RULE.md`: proceed on an adequate current route; otherwise stop and require the stated model switch before task actions. Codex cannot change the app's primary model selector itself.
 
