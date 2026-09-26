@@ -1,18 +1,20 @@
 # Model Selection Rule
 
-<!-- Rule ID: QC.MODEL.ROUTING v1.0 -->
+<!-- Rule ID: QC.MODEL.ROUTING v1.1 -->
 
 ## Authority
 
-This is the sole active rule for choosing a model and reasoning level. It supersedes earlier routing matrices, estimates, benchmark summaries, and model-selection guidance. The available routes are GPT-5.6 Sol, Terra, and Luna.
+This is the sole active rule for choosing a model and reasoning level. It supersedes earlier routing matrices, estimates, benchmark summaries, and model-selection guidance. The current routes are GPT-6 Luna, Sol, and Astra, subject to actual availability in the user's Codex selector.
 
 ## Official Product And Usage Baseline
 
 For ChatGPT/Codex subscription work, route by the current official product roles and the actual task risk, not by API token prices or an averaged benchmark score:
 
-- Sol is intended for the hardest work: complex reasoning, ambiguous problems, advanced coding, and high-stakes decisions.
-- Terra is the everyday workhorse for production tasks, coding, analysis, and work that requires sound judgment.
-- Luna is optimized for fast, high-volume routing, classification, extraction, automation, and focused coding tasks.
+- Luna is the efficient route for narrow, repeatable tasks with clear constraints and direct verification.
+- Sol is the everyday route for coding, analysis, and work requiring sound judgment and completeness.
+- Astra is the strongest route for broad, ambiguous, multi-step, or high-stakes work where deeper reasoning materially reduces expected error or rework.
+
+For the same billing surface and comparable token mix, the relative per-token cost is Luna < Sol < Astra. This is **not** a guarantee about total cost per completed task: a stronger model may use fewer turns or output tokens. Choose the least costly route that meets the task's quality/risk floor, not the cheapest model regardless of consequences. Confirm current availability and numerical limits in official product documentation when they matter.
 
 ChatGPT Plus usage is not a fixed token-price conversion. It varies with the selected model, context size, reasoning, tools, retrieval, caching, and whether work is local or cloud. Current plan limits are published as ranges, may share a five-hour window, and may also have weekly limits. Do not convert them into a guaranteed task count or a fixed total-task percentage.
 
@@ -24,19 +26,19 @@ Practical iOS interpretation:
 
 | Model | Default scope | Do not use as the primary route for |
 | --- | --- | --- |
-| `GPT-5.6 luna` | fully specified mechanical edits, localization, formatting, simple models, and small reversible changes | architecture, large repository reasoning, Swift 6 concurrency, persistence, unknown bugs, or security-sensitive work |
-| `GPT-5.6 tera` | normal SwiftUI/UIKit, MVVM, feature work, bounded refactors, tests, routine reviews, and reproduced bugs | a task whose risk or ambiguity makes failure/rework materially more expensive than Sol |
-| `GPT-5.6 sol` | architecture, Swift 6 concurrency, migration/sync, privacy/security, performance, unknown production bugs, broad refactors, and high-risk final review | routine bounded work when Terra can meet the same quality bar |
+| `GPT-6 Luna` | fully specified mechanical edits, extraction, localization, formatting, and small reversible changes with direct checks | unknown bugs, broad architecture, irreversible migration, security/privacy decisions, or ambiguous cross-project work |
+| `GPT-6 Sol` | everyday iOS implementation, bounded refactors, tests, routine review, and reproduced bugs; many risk-bearing tasks with explicit contracts and verification | the hardest cross-cutting decisions where ambiguity or failure cost makes Astra's stronger reasoning material |
+| `GPT-6 Astra` | complex architecture, unknown high-impact defects, difficult Swift concurrency or migration, security/privacy, broad audits, and high-risk final review when Sol's error/rework risk is material | routine bounded work when Luna or Sol meets the same quality bar |
 
-Default effort: `medium`. Use `low` only for deterministic mechanical work. Use `high` for Sol when ambiguity, irreversible consequence, broad impact, or difficult diagnosis requires it.
+Default effort: `medium` when available. Use `low` for directly checkable mechanical work; use `high` or a higher selector-supported level when ambiguity, irreversible consequences, broad impact, or difficult diagnosis justifies its cost. Select only levels actually offered for the selected model. More reasoning does not substitute for evidence or tool permission.
 
 ## Operating Modes
 
 The user selects one persistent mode: `качество`, `сбалансированный`, or `эконом`. The mode sets the economy target; it never lowers correctness, safety, maintainability, or evidence requirements. If no mode is stated, use `качество`.
 
-- `качество`: prefer Sol when its additional judgment can materially reduce error or rework.
-- `сбалансированный`: Terra is the normal default for bounded implementation; Sol protects high-risk work; Luna is limited to mechanical work.
-- `эконом`: use Luna only when its mechanical scope is explicit and easily checked; otherwise Terra remains the default.
+- `качество`: prefer Astra when its additional judgment materially reduces error or rework; otherwise use Sol, or Luna for directly verified mechanical work.
+- `сбалансированный`: Sol is the normal default for bounded implementation; Astra protects demanding, ambiguous or high-impact work; Luna handles narrow, easily checked work.
+- `эконом`: use Luna for clear, low-risk work with direct checks; otherwise Sol remains the default, with Astra still required when the risk floor demands it.
 
 ## Command-Time Decision Rule
 
@@ -56,16 +58,16 @@ Codex cannot change the primary selector. A one-off model selection does not cha
 
 ## Execution Economy Heuristics
 
-- For normal bounded work, prefer one Terra session that owns discovery, planning, implementation, correction, and reporting end-to-end, with deterministic tools providing the evidence.
-- Do not require a `Luna -> Terra -> Sol` pipeline for every task. Each handoff reloads context and can cost more than it saves.
-- Use Luna only for an isolated, fully specified mechanical block with direct verification. Do not start a separate Luna discovery pass when Terra would need to reread the same repository context.
-- Use Sol at the boundaries where stronger judgment materially reduces expected rework or harm: ambiguous requirements, unknown or repeatedly failed defects, Swift concurrency, persistence or migration, security or privacy, public contracts, CI/signing, broad architecture, or irreversible consequences.
-- Sol may plan or review a high-risk block while Terra implements a stable approved plan. Keep Sol as the end-to-end implementer when splitting ownership would lose critical context or make rework more likely.
+- For normal bounded work, prefer one Sol session that owns discovery, planning, implementation, correction, and reporting end-to-end, with deterministic tools providing the evidence.
+- Do not require a `Luna -> Sol -> Astra` pipeline for every task. Each handoff reloads context and can cost more than it saves.
+- Use Luna for an isolated, fully specified low-risk block with direct verification. Do not start a separate Luna discovery pass when Sol would need to reread the same repository context.
+- Use Astra at boundaries where stronger judgment materially reduces expected rework or harm: highly ambiguous requirements, unknown high-impact defects, difficult concurrency or migration, security/privacy, public contracts, CI/signing, broad architecture, or irreversible consequences.
+- Astra may plan or review a high-risk block while Sol implements a stable approved plan. Keep Astra as the end-to-end implementer when splitting ownership would lose critical context or make rework more likely.
 - Add an independent review only when correlated misunderstanding is a material risk. Keep it bounded to the task contract, acceptance criteria, affected-component map, diff, and tool evidence; do not automatically reload the whole repository.
 - A model-written self-review is useful but is not independent evidence. Build, tests, static gates, hashes, and other deterministic outputs remain the source of verification claims.
 - Estimate economy from total task cost, including context reloads, tool calls, failed attempts, and rework. Do not promise fixed savings percentages.
 
-When evidence is weak or a change affects concurrency, persistence, security, navigation ownership, public contracts, or multiple dependent files, do not assume the cheaper route remains economical; apply the Sol risk floor before implementation.
+When evidence is weak or a change affects concurrency, persistence, security, navigation ownership, public contracts, or multiple dependent files, do not assume the cheaper route remains economical; assess whether Sol is sufficient or Astra is required before implementation.
 
 ## Reporting
 
