@@ -1,38 +1,55 @@
-# Handoff — V5.4 canonical/runtime/host acceptance PASS
+# Handoff — V5.4 retired; copy-only reference inactive
 
-Task `new-task-be0b`; 2026-09-18; GPT-5.6 Sol; режим `эконом`.
-Применить canonical bootstrap, Level 0 и актуальный plan. Полное evidence:
-[final-acceptance-summary.md](../../library-adoption-v54/evidence/final-acceptance/final-acceptance-summary.md).
+Task `new-task-be0b`; operating mode `эконом`. Read the canonical bootstrap,
+Level 0 router, this handoff and current `plan.md` before further work.
 
-## Текущее состояние
+## Goal and boundaries
 
-- Candidate lineage before the final portability-only correction:
-  `48cb8ad3596c22de4bd6d24fe2b63d861bd93db1`.
-- Release `5.4-review-ready.7`; source tree
-  `d781dbb6d6d3ed91db8c39b390a1ba025fe1a0bf527669f856bbcdb830131441`.
-- Canonical: `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/ios-engineering-library/v5.4`.
-- Runtime: `/Users/Artem/.zenflow/worktrees/documentation-vault/.codex-runtime/ios-engineering`.
-- Desktop host: `/Users/Artem/.codex`; active file `AGENTS.md`; override отсутствует.
-- Host status connected, warnings/errors отсутствуют; installation validator PASS.
-- До connect host AGENTS был пустым regular file mode 0644; rollback receipt хранит exact SHA/mode.
-- P3 QUICKSTART исправлен: descriptor path не приписывается выводу `host_entry.py status`.
+V5.4 installation is retired. Preserve useful iOS engineering knowledge, audits,
+recommendations, agent workflows and all former `ioslib-*` skills in a future
+uniquely named **copy-only** reference library. Local project rules run first.
+`OFF` retains the full local quality workflow; `ON/AUTO` adds reference checks at
+applicable stages; `ON/ADVISORY` offers recommendations. The candidate is **not
+active or ready for project use**. No mode grants build/test/agent/Git/network or
+Codex-host authority. Do not touch auth/Keychain or reset unrelated user data.
 
-## Acceptance gates
+## Published state and checks
 
-- Package tests: reused `215 total / 209 PASS / 0 FAIL / 6 lifecycle NOT_RUN`; отдельный прежний
-  PASS этих шести сценариев сохранён и не выдаётся за новый запуск.
-- Package validator: 1367 файлов, 0 ошибок.
-- Host delivery: PASS по свежим Ghibli/Firefox/Countries entries.
-- Empty/non-iOS/linked controls: PASS в независимых roots.
-- Финальный ZIP: `iOS_Engineering_AI_Library_2026_V5_4_ACCEPTED_20260918.zip`,
-  SHA-256 `8f18964f1020da6ece7b77fbd785916a9064a4719d70cfcfef6901d993d5e99f`,
-  CRC/safe paths/1367-byte-match PASS.
+- Documentation-vault `main` commit `8cf5803` removed the bootstrap auto-route
+  to V5.4. Commit `3e2c7c5` removed all 1,367 tracked V5.4 files and five
+  obsolete installer documents from the **current tree**, preserving old Git
+  history. Both commits were pushed; remote `main` was verified. The vault has
+  no remote `development` branch. Its worktree was clean after publication.
+- The preserved material is in inactive
+  `reusable/ios-engineering-library/reference-copy-only/`: 1,386 tracked
+  files, including source skills, thematic and runtime/protection documents,
+  and four source-only audit scripts. Old installer advice in raw copies is
+  not approved for active routing. Manifest, documentation-vault, link and
+  final-diff static checks passed; these do **not** prove candidate readiness.
+- AIZenflow `main` and `development` were atomically updated to `9f626dbd3`
+  with only the separate `v54-retirement-published-status.md` task record.
+  The old task branch was not merged because it contains installation history.
+  Existing active plans on the two branches were not overwritten.
+- The exact installed global AGENTS entry was backed up and removed. The
+  ignored eight-file runtime subtree was moved to recovery under `.zenflow`;
+  its former active path is absent. `config.toml` had no explicit V5.4 marker
+  and was not changed; auth/Keychain were not inspected or changed.
+- After a **full Codex restart and the runtime move**, the user's new-chat
+  read-only check confirmed project and common baseline instructions load,
+  while the checked active chain does not route to V5.4. The old current-tree
+  and runtime paths were absent; the recovery copy remained. This is not
+  proof that every possible external consumer or host setting is absent.
 
-## Следующий шаг
+## Next safe work
 
-Приёмка закрыта. Canonical опубликован на
-`71c38bacc9efd11161d5e75cf54e7d352e994c3d`; task closeout публикуется финальным commit этого
-прохода. Временные control roots удалены. Подключённый host и upstream pilot repositories без
-нового запроса не менять.
+The former local rules/prompts/skills are the **база знаний** (first layer);
+the inactive copy-only reference candidate is the **библиотека** (second
+layer). Follow `knowledge-base-library-roadmap.md`: audit and correct the
+first layer, then curate the second and prove their joint stage-by-stage
+operation as layered defense. `knowledge-base-audit-ledger.md` has the first
+candidate finding about competing router copies. GPT-6 Luna/Sol/Astra routing
+was published in canonical `main` (`e14f398`) and AIZenflow `main`/
+`development` (`48e6bdeea`). Do not install or activate the library yet.
+Preserve unrelated dirty work and do not merge the old task branch wholesale.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
