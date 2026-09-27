@@ -11,7 +11,7 @@ Route work to the correct prompt/skill so reviews are not accidentally narrow.
 - Media/files/cache → `./docs/agent-prompts/ios-memory-cache-media-review.md`.
 - API/network → `./docs/agent-prompts/ios-network-resilience-review.md` and `./docs/agent-prompts/ios-api-contract-review.md`.
 - Offline/sync/extensions/widgets → `./docs/agent-prompts/ios-offline-sync-review.md` and `./docs/agent-prompts/ios-lifecycle-background-review.md`.
-- Security/privacy/permissions → `./docs/agent-prompts/ios-security-privacy-review.md` and `./docs/agent-prompts/ios-input-validation-content-safety-review.md`.
+- Security/privacy/permissions → `./docs/agent-prompts/ios-security-privacy-review.md` and, when external input is in scope, `./docs/agent-prompts/ios-input-validation-content-safety-review.md`. For a whole-project security audit, use the same prompt with whole-project scope; do not preload unrelated domain prompts.
 - Identity/OAuth/passkeys/sessions/local authorization → `./.codex/skills/ios-identity-authentication/SKILL.md`.
 - Xcode build/linking/binaries/dependency supply chain → `./.codex/skills/ios-build-system/SKILL.md`.
 - Capabilities/entitlements/extensions/widgets/Live Activities/App Intents → `./.codex/skills/ios-platform-capabilities/SKILL.md`.
