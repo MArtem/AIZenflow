@@ -29,9 +29,9 @@ Short answers such as “готов”, “да, всё ясно”, “гото
 ## Startup Read Rule
 Before code, docs, git, project, build, or task changes:
 
-1. Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md`.
+1. Use the canonical `reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` selected by the global bootstrap (or its governed portable snapshot when canonical is unavailable); do not reread the project mirror, which only adds an optional-document index.
 2. Read its current Level 0 set once, including current task handoff/plan when present.
-3. Load only the task-relevant routes before acting.
+3. Load only the task-relevant routes. For a matching project-specific route, consider `./docs/TASK_DOCUMENT_ROUTES.overlay.json` candidates and read only those relevant to the actual subtask; resolver output alone does not make every optional document mandatory. Do not reread the full router.
 
 The router is the sole source of truth for the numbered Level 0 list. Do not duplicate that list here or treat `./docs/README.md` as an always-read library.
 
@@ -99,7 +99,7 @@ Always include the context-transfer rule when handing off:
 - Global documentation work is not complete until the relevant changes are committed in that checkout and pushed to `https://github.com/MArtem/AIZenflowDocumentation`.
 - Agents may autonomously commit and push only `MArtem/AIZenflowDocumentation`; commits and pushes in all other repositories require an explicit user request for that repository/action.
 - Apply `./docs/DOCUMENT_BOUNDARY_STANDARD.md` before documentation moves, reusable rule updates, app-specific docs updates, prompt/skill changes, package-doc updates, or new-project bootstrapping.
-- Apply `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` after Level 0 startup to select only task-relevant standards, prompts, package docs, and skills.
+- Apply the already-loaded canonical task router after Level 0 startup to select only task-relevant standards, prompts, package docs, and skills; use the project route overlay only for matching optional documents.
 - Apply `./docs/SOURCE_OF_TRUTH_MAP.md` before deciding where durable knowledge belongs.
 - When changing reusable/shared agent docs, update `/Users/Artem/.zenflow/worktrees/documentation-vault` as the canonical source; keep worktree-local docs limited to project/task state or explicit app-local operational docs.
 - Keep reusable docs under `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/` and app-specific docs under `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/<AppName>/`.

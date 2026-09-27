@@ -46,10 +46,20 @@ The former local rules/prompts/skills are the **база знаний** (first l
 the inactive copy-only reference candidate is the **библиотека** (second
 layer). Follow `knowledge-base-library-roadmap.md`: audit and correct the
 first layer, then curate the second and prove their joint stage-by-stage
-operation as layered defense. `knowledge-base-audit-ledger.md` has the first
-candidate finding about competing router copies. GPT-6 Luna/Sol/Astra routing
-was published in canonical `main` (`e14f398`) and AIZenflow `main`/
-`development` (`48e6bdeea`). Do not install or activate the library yet.
-Preserve unrelated dirty work and do not merge the old task branch wholesale.
+operation as layered defense. `knowledge-base-audit-ledger.md` tracks KB-001–006.
+The project knowledge-base audit changes were published atomically to AIZenflow
+`main` and `development` in commit `0df17826f7b2dcb8ee659737b69a434dc1977fc0`.
+Both remote refs were verified. This old branch remains preservation-only and
+must not be merged wholesale because it contains installation history. Static
+route checks pass; fresh-chat behavior for the new optional-route guidance
+remains unverified. KB-004 records over-eager optional-document loading
+as a P3 context-cost issue. The security audit prompt and inactive library
+evidence-pass route were published in documentation commit `2744466`; five
+over-broad skill triggers were narrowed in canonical commits `3423925`,
+`c2bd24d` and `8b42e9d`. Project mirrors were synchronized locally and
+drift-check passed. GPT-6 Luna/Sol/Astra
+routing was published in canonical `main` (`e14f398`) and AIZenflow `main`/
+`development` (`48e6bdeea`). Do not install or activate the library. Preserve
+unrelated work.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

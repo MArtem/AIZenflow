@@ -61,17 +61,17 @@ Read only when the route requires it:
 | Accessibility/localization/QA/testing/compatibility | `./docs/IOS_ACCESSIBILITY_STANDARD.md`, `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`, `./docs/QA_TEST_PLAN_STANDARD.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/COMPATIBILITY_MATRIX.md` |
 | Release/signing/TestFlight/App Store | `./docs/IOS_RELEASE_CHECKLIST.md`, `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`, `./docs/CI_CD_QUALITY_GATES.md` |
 | Observability/incidents/rollout/analytics | `./docs/IOS_OBSERVABILITY_STANDARD.md`, `./docs/IOS_ANALYTICS_TELEMETRY_TAXONOMY.md`, `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`, `./docs/INCIDENT_RESPONSE_STANDARD.md`, `./docs/PRODUCT_HEALTH_SLO.md`, `./docs/RISK_REGISTER.md`, `./docs/TECH_DEBT_REGISTER.md` |
-| Lifecycle/background/deep links/widgets/extensions | `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`, `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`, current `./docs/SHARE_EXTENSION_VALIDATION.md` when share-extension behavior is in scope |
+| Lifecycle/background/deep links/widgets/extensions | `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`, `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`; load an app overlay for share-extension behavior when that overlay exists |
 | Error handling/user feedback | `./docs/IOS_ERROR_HANDLING_USER_FEEDBACK_STANDARD.md` |
 | StoreKit/payments | `./docs/IOS_STOREKIT_PAYMENTS_STANDARD.md` |
 | Figma/design-to-SwiftUI | `./docs/agent-prompts/FIGMA_TASK_ROUTER.md`, `./docs/UI_PIXEL_PERFECT_WORKFLOW.md`, `./docs/DESIGN_SYSTEM_GOVERNANCE.md`; load `figma-mcp-swiftui-implementation.md` only when the router requires deep Figma reference |
 | AI/App Intents/Foundation Models | `./docs/agent-prompts/AI_iOS_TASK_ROUTER.md`, routed ranges from `AI_iOS_MASTER_PROMPT.md`, relevant package README only when package adoption is in scope |
 | Deep iOS specialist knowledge | Select the matching `ios-*` machine route; scope and maturity start at `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md` and `./docs/knowledge/global/ios/README.md` |
 | Code comments/documentation pass | `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`, `./docs/IOS_DOCUMENTATION_MAINTENANCE_STANDARD.md` |
-| Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`, `./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md`, `./docs/PACKAGE_DOC_MIRROR_CONTRACT.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog |
+| Reusable packages/managers/dependencies/adoption | `./docs/PACKAGES_AND_MANAGERS.md`, `./docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md`, `./docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md`, `./docs/DEPENDENCY_POLICY.md`, relevant package README/catalog; load a source-only app overlay when present |
 | Toolchain/compiler/SDK/isolation/availability profile | `./docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md`, `./docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md`, `./docs/COMPATIBILITY_MATRIX.md`, and the relevant platform/deep reference |
 | Release/privacy/performance/accessibility matrix | `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`, `./docs/IOS_RELEASE_CHECKLIST.md`, `./docs/IOS_SECURITY_PRIVACY_GATE.md`, `./docs/IOS_PERFORMANCE_BUDGETS.md`, and the relevant accessibility/platform route |
-| Current content/feed persistence contract | `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`, persistence/migration/data-loss route |
+| Current content/feed persistence contract | persistence/migration/data-loss route plus the matching app overlay when present |
 | New iOS app/project bootstrap | `./docs/IOS_PROJECT_BOOTSTRAP_TEMPLATE.md`, `./docs/STATIC_GATE_ADOPTION.md`, `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`, architecture route, `./docs/DEVELOPER_EXPERIENCE_STANDARD.md` |
 | Universal Xcode quality control, manual GitHub checks, Codex Review policy, verifier/bootstrap design | `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`, `./docs/STATIC_QUALITY_GATE_POLICY.md`, `./docs/CI_CD_QUALITY_GATES.md`, `./docs/IOS_TESTING_STRATEGY.md`, `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`, `./docs/IOS_PRODUCTION_EXCEPTION_POLICY.md` |
 | Static gates/scripts | `./docs/STATIC_QUALITY_GATE_POLICY.md`, relevant `./scripts/check_*.py` or `./scripts/run_static_quality_gates.sh` |
@@ -87,7 +87,6 @@ Read only when Level 2 requires more depth, the task is broad/high-risk, or the 
 - `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
 - `./docs/knowledge/global/ios/*.md`
 - `./docs/IOS_AGENT_PROMPT_ROUTER.md`
-- `./docs/IOS_ARCHITECTURE_REFERENCE.md`
 - architecture-case references from the canonical architecture catalog when the task requires them
 - root `MANIFEST.md` in the canonical documentation repository, only for library completeness/recovery work
 - architecture catalog under the canonical documentation repository
@@ -115,3 +114,17 @@ Read archive/history/recovery material only when active docs conflict, current s
 - Routing does not remove a gate required by the selected task.
 - Passing routing checks does not prove production readiness.
 - This router does not override explicit user instructions, repository instructions, or task-local rules.
+
+## Project-only optional route index
+
+The canonical router above owns common routes. The project-owned
+`./docs/TASK_DOCUMENT_ROUTES.overlay.json` selects these documents only for
+matching routes; this index keeps them discoverable to the local validator,
+not mandatory for startup or every iOS task. Even when a broad route matches,
+read an optional document only when its specific subject affects the task:
+
+- `./docs/SHARE_EXTENSION_VALIDATION.md`
+- `./docs/PACKAGE_USAGE_SOURCE_ONLY.md`
+- `./docs/PACKAGE_DOC_MIRROR_CONTRACT.md`
+- `./docs/LOCAL_FEED_PERSISTENCE_CONTRACT.md`
+- `./docs/IOS_ARCHITECTURE_REFERENCE.md`
