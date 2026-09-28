@@ -40,7 +40,10 @@ For identity, OAuth/OIDC/PKCE, passkeys, Sign in with Apple, sessions, LocalAuth
 - Define retention for caches, media, drafts, and diagnostics.
 
 ## Blocking Findings
-P0/P1 by default:
+Treat the following as potential blocking findings. Assign P0–P3 from actual
+exposure and impact under the shared audit matrix; do not assign P0/P1 from
+the category name alone. Keep confidence separate from severity, and do not
+clear an unknown sensitive-data boundary as a normal PASS:
 - secret/PII logging
 - insecure token persistence
 - unintended backup of sensitive data

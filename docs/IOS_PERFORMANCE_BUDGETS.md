@@ -14,7 +14,9 @@ Adjust per product/device class when real targets exist.
 - Repeated rows use `ScrollView -> LazyVStack/List -> ForEach -> RowView` or an equivalent virtualized pattern.
 - No sync media/file/database/network work in row render paths.
 - Scroll callbacks update semantic state only, not every pixel.
-- Use Instruments when users report hitching or when feed/list work changes.
+- Recommend Instruments when users report hitching or when feed/list work
+  changes; run it only if the user separately delegates performance/runtime
+  verification. Otherwise keep the performance claim unverified.
 
 ### Main Thread
 - No known >250ms main-thread hangs in primary flows.

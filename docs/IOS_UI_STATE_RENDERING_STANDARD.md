@@ -94,6 +94,8 @@ If a dedicated model/view model is introduced, document its ownership, creation 
 ## Stop Rules
 - No heavy sync work in render path.
 - No hidden eager rendering inside an opaque section wrapper for large feeds/lists.
-- No production screen without explicit failure/empty state.
+- No stateful production screen may omit a failure or empty state when that
+  state can actually occur; do not add unreachable placeholder branches.
 - Do not initially implement a new stateful screen with ad-hoc observable flags when this
-  baseline is applicable and defer its MVVM/ViewState structure to a later refactor.
+  baseline is applicable and defer its required ownership/render-state contract to a later
+  refactor. Select MVVM, native SwiftUI state, or another approved style by the actual boundary.

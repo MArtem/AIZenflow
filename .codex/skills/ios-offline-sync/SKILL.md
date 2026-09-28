@@ -1,6 +1,6 @@
 ---
 name: ios-offline-sync
-description: Use this skill for iOS offline/sync reviews involving local mutations, pending operations, conflict resolution, idempotency, app groups, widgets, extensions, relaunch durability, and optimistic UI failure behavior. Trigger whenever offline, sync, pending operations, app group, widget data, extension data, conflict, or relaunch durability is mentioned.
+description: Use this skill for durable offline mutation and synchronization: outbox/replay, pending operations, conflicts, idempotency across relaunch, app-group/widget/extension data, and optimistic failure recovery. Trigger when durable local state or reconciliation is in scope; a generic offline error state does not activate this route alone.
 ---
 
 # iOS Offline Sync

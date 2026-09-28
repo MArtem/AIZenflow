@@ -16,8 +16,8 @@ Use this skill for iOS app tasks involving:
 Read these files first:
 
 1. [references/feed-card-contract.md](./references/feed-card-contract.md)
-2. [PROJECT_DOCUMENTATION.md](./PROJECT_DOCUMENTATION.md)
-3. [handoff.md](./.zenflow/tasks/new-task-be0b/handoff.md) if resume state matters
+2. [PROJECT_DOCUMENTATION.md](../../../PROJECT_DOCUMENTATION.md)
+3. [handoff.md](../../../.zenflow/tasks/new-task-be0b/handoff.md) if resume state matters
 
 Read code only after the contract is clear.
 
