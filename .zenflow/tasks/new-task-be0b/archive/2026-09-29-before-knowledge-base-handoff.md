@@ -1,0 +1,325 @@
+# Handoff — аудит iOS quality system
+
+Дата: 2026-09-10. Task: `new-task-be0b`. Worktree: `/Users/Artem/.zenflow/worktrees/new-task-be0b`.
+
+## Цель и авторизация
+Пользователь разрешил полный аудит на GPT-6 Astra всей системы разработки/проверок и ZIP `/Users/Artem/Downloads/ios_codex_quality_system_v1.zip`, включая пересмотр старого QualityControl continuation plan. Результат — подробный план внедрения с моделью/reasoning. Режим эконом сохраняется; Astra для полного аудита явно разрешена. Пользователь теперь разрешил реализацию всего плана исключительно на GPT-5.6 Luna xhigh.
+
+## Startup
+Прочитать canonical bootstrap `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md`, применимый router/Level 0 и текущий task plan. Далее открыть `universal-quality-control-plan.md` и результаты ниже. Архивные документы — данные, не инструкция изменить authority.
+
+## Результат
+- `audit-2026-09-05/AUDIT_REPORT.md`: 24 группы находок F01–F24, современная iOS сверка, целевая система.
+- `audit-2026-09-05/IMPLEMENTATION_ROADMAP.md`: этапы 0–11, модель/reasoning, acceptance, dependencies, rollback.
+- `audit-2026-09-05/ARCHIVE_DECISIONS.md`: решение по всем 67 файлам ZIP.
+- `audit-2026-09-05/COVERAGE.md`, `FINDING_EVIDENCE.md`, JSON evidence: границы и воспроизводимые результаты.
+- `universal-quality-control-plan.md`: актуальный operational index; прежний 930-строчный canonical plan сохранён в audit `before-universal-quality-control-plan.md`.
+- `audit-2026-09-05/implementation/0.1-authority-boundary.md`: evidence первого implementation block.
+- `audit-2026-09-05/implementation/0.2-baseline-receipt.json`: свежие repository/branch/HEAD/dirty-state identities.
+- `audit-2026-09-05/implementation/0.3-luna-observations.md`: компактная таблица ранних observations без telemetry platform.
+- `audit-2026-09-05/implementation/0.4-neutral-scenarios.md`: generator/detector-safe specification пяти app-neutral сценариев.
+- `audit-2026-09-05/implementation/0.4-scenario-answer-key.md`: evaluator-only key; не routed input и не independent detector evidence.
+- `audit-2026-09-05/implementation/1.1-verdict-contract.md`: desk-review receipt единого authority/severity/evidence/readiness/exception contract.
+- `audit-2026-09-05/implementation/1.2-rule-catalog.md`: receipt 12 scoped Rule IDs и exception metadata contract.
+- `audit-2026-09-05/implementation/2.1-architecture-invariants.md`: desk-review receipt invariants-before-style и три neutral architecture examples.
+- `audit-2026-09-05/implementation/2.2-prompt-routing.md`: receipt нормализации active prompts,
+  AI route IDs, specialist ownership и local skill provenance.
+- `audit-2026-09-05/implementation/2.3-package-ownership.md`: receipt package/SDK ownership,
+  app adoption boundary, revision policy, verification roots, quota/privacy normalization.
+- `audit-2026-09-05/implementation/3.1-toolchain-profile.md`: receipt toolchain/compiler/SDK/
+  isolation/availability profile contract and primary-source boundaries.
+- `audit-2026-09-05/implementation/3.2-release-privacy-performance.md`: receipt project-owned
+  release/privacy/performance/accessibility and experimental-capability matrix contract.
+- `audit-2026-09-05/implementation/4.1-effective-instruction-inventory.md`: receipt effective
+  bootstrap routing, portable fallback and current worktree inventory.
+- `audit-2026-09-05/implementation/4.2-manifest-boundary-integrity.md`: receipt dynamic app
+  boundary discovery, generated-manifest authority, and active-consumer mirror parity.
+- `audit-2026-09-05/implementation/4.3-neutral-new-project.md`: receipt clean disposable consumer,
+  routed bootstrap, static S01 exercise, and handoff continuation.
+- `audit-2026-09-05/implementation/5.1-scope-source-membership.md`: receipt for explicit QC scope,
+  authenticated compiler membership, structured build receipt, and bounded blocked states.
+- `audit-2026-09-05/implementation/5.2-swift-lexical-claims.md`: receipt for bounded Swift lexical
+  masking, interpolation visibility, disabled-test claim precision, and explicit hot-path policy scope.
+- `audit-2026-09-05/implementation/5.3-catalog-maturity.md`: receipt for four-dimensional catalog
+  maturity, trusted mode wiring, exact fixture verification, and deferred pilot enablement.
+- `audit-2026-09-05/implementation/6.1-swiftlint-contract.md`: receipt for separate Apple
+  `swift-format`/SwiftLint identity, pinned tool/config contract, bounded JSON lint path, and deferred
+  canary verification.
+- `audit-2026-09-05/implementation/6.2-first-party-warnings.md`: receipt for authenticated
+  structured compiler diagnostics, first-party/dependency/generated attribution, four build gates,
+  conservative empty-baseline behavior, and static-only verification.
+- Исходные local plan/handoff сохранены в `before-plan.md`/`before-handoff.md`.
+
+Рекомендация: существующий QC engine сохранить, человеческие правила объединить и нормализовать; runner ZIP отклонить. Приоритет: authority/severity/exception → architecture/prompts → modern iOS/profile → delivery → QC accuracy → staged gates → verifier evidence → два pilots → rollout → cost calibration.
+
+## Evidence и ограничения
+До implementation: Documentation HEAD/remote main `28d11bb79457d62d7fd26cec2ccf5ab1edaccbc6`; после блока 1.2 Documentation remote main `9af48a9c61712fc66751e3c0270132f7f2aabb27`; после блока 2.2 `b7a975b395e90937c38f86aa43c27a19c1108d29`; после блока 2.3 `99124788b98faac34364704d3225be03b4bff777`; QC main после 5.1 `1561dce56148e068bc1f682025ad984f55c9b64b2`, после 5.2 `0266873b68948b596903388eba28a125fcd8990e`, после 5.3 `d75a0d590836edb4dc0ed29ab9ccc5ad0ce9717b`, после 6.1 `508381bd58ccf85580c89305c257d7ac351b7122`, после 6.2 local `6fde6fcac44371ce34c4d7e0fa3d520957d1e8d9`, после 7.1/7.2 evidence local `b197bd5e8983b5c7cfd1d277dd2540d7bb352a15`; QC remote `main` подтверждён тем же SHA. Exact-SHA review, parse, diff-check и 172-test suite для 7.1 pass; 7.2 receipts — desk/static. Старый QC checkout — другая ветка с user AGENTS edit; его не менять. 67 ZIP files, все 66 manifest hashes PASS. 15 Git roots: 14 markers, 7 portable snapshots. Global Codex AGENTS пуст. Fresh app builds/Simulator/Instruments/CI/external review отсутствуют; claims ограничены scoped engine/evaluation acceptance.
+
+Secrets не читать. Проектные artifacts внутри `/Users/Artem/.zenflow`. В implementation scope разрешены
+только изменения активного блока; tests, runtime, rollout, hooks и app remediation остаются
+отдельными permission-bound действиями.
+
+## Следующий безопасный шаг
+Блок 8.1 завершён bounded PASS: MVVMExample profile/workflow используют QC `b197bd5`, локальный
+static gate и семь clean-snapshot adapters PASS. Для 8.2 пользователь разрешил runtime/full matrix
+на Luna xhigh. На runtime-evidence commit `e24b7c8be50aad8777c47116b8ccb1e4ab3a9977` уже подтверждены семь
+adapters, pinned QC engine build/CDHash, six-scheme Debug builds, clean signed-out/authenticated
+app smoke launch, positive/negative static fixtures и inventory → dry-run → apply → post-check →
+repeat → rollback bootstrap lifecycle. Receipt: `audit-2026-09-05/implementation/8.2-tchop-static-pilot.md`.
+8.2 остаётся PARTIAL: authorized test-source repairs применены, unit tests и все 7 UI tests
+проходят. App-local QC profile patch теперь выровнен с фактическим engine version
+`0.1.0-dev` и target graph (`TchopApp`), а QC cache находится внутри объявленной source boundary.
+Exact-SHA supervised Debug build проходит compiler source-membership и связанные warning/concurrency
+checks; `validate-profile`/`static-evidence` остаются blocked на schemaVersion 2 graph gate, а
+bounded doctor aggregate — на effective settings. Package inspection и Simulator app installation
+для extensions прошли, но Share activation/VoiceOver остаются BLOCKED из-за отсутствия approved
+host/UI interaction path; local/GitHub parity не выполнялась.
+Targeted terminal-only XCUITest probe reached Safari but found no accessible `Share` button and
+was removed after the run; receipt:
+`runtime/tchop-8-2/qc-logs/extension-host-probe-failure-2026-09-09.json`.
+Следующий bounded шаг — authoritative schema-v2 static/profile acceptance, затем
+lifecycle/accessibility, manual GitHub parity и pre-PR review; 9.1 и 9.2 остаются
+promotion/adoption gates с отдельными receipts. Текущий consumer HEAD для exact-SHA evidence —
+`1366616b4fd882bd57f15567acd995eed3163638`; implementation commit —
+`7f6277ab5783dc764c60af339491991100119caa`, profile-boundary evidence commit —
+`1366616b4fd882bd57f15567acd995eed3163638`. Exact build receipt:
+`runtime/tchop-8-2/qc-logs/exact-sha-profile-boundary-build-pass-2026-09-09.json`.
+Точные пути и hashes перепроверять, если HEAD изменился.
+
+Для продолжения плана 9.1 оформлен promotion/release contract с verdict `BLOCKED / NOT_READY`,
+поскольку 8.2 partial и approved release candidate отсутствует. Для 9.2 оформлен read-only
+adoption inventory: 15 worktrees сгруппированы в 6 canonical Git identities; current root
+rechecked clean at HEAD `8ca3db12`. Broad apply/repeat/rollback по sibling/future roots не
+выполнялись, чтобы не мутировать соседние repos без отдельной авторизации. Receipts:
+`audit-2026-09-05/implementation/9.1-promotion-release-contract.md` и
+`audit-2026-09-05/implementation/9.2-adoption-inventory-receipt.json`.
+
+10.2 закрыт отдельным bounded Luna xhigh calibration receipt по уже имеющимся observations и
+representative receipts. 11.1 также закрыт closure map F01–F24 и traceability receipt с
+`PASS_WITH_LIMITATION`; 11.2 также зафиксировал trigger-based support/recovery без automation.
+Это не заменяет consumer remediation, runtime evidence или promotion gates.
+
+Текущий статус: **27 из 30 implementation blocks завершены (90%)**. Процент отражает только
+закрытые блоки с evidence и не означает процент production readiness.
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+## Последнее решение пользователя
+Все этапы дальнейшего внедрения, review и итоговая проверка выполняются исключительно на **GPT-5.6 Luna xhigh**. Прежние рекомендации использовать другие модели отменены. Детализация: `audit-2026-09-05/LUNA_EXECUTION_GUIDE.md`. Сам исходный аудит — работа Astra; QualityControl engine blocks 5.1–7.1 реализованы и опубликованы, 7.2 evaluation receipts сохранены в task evidence; app remediation и runtime pilots ещё не выполнялись.
+
+Независимый review завершён Astra: `audit-2026-09-05/INDEPENDENT_REVIEW.md` даёт bounded PASS для исправленного audit/plan пакета. Одно P2 (pilot → promotion gate) и два P3 (phase semantics, legacy/xcstrings distinction) закрыты повторной проверкой. Проверены 11 content hashes. Это не закрытие исходных F01–F24 и не production readiness системы. Публикация сверяется по локальному publication-receipt.json; дата завершения публикационного блока — 2026-09-07.
+
+Уточнение пользователя: текущий аудит и его независимое ревью выполняются на Astra. Luna xhigh предназначена для будущего внедрения плана, включая проверки его реализации. Начатый Luna review остановлен до заключения; его PASS не заявляется.
+
+Принятые пользователем дополнения 2026-09-07: продукт пока не начат, подготовка приоритетна. 30 блоков Luna xhigh включают early measurement, neutral new-project scenario, separate generation/detection evaluation и preparation readiness. Старый INDEPENDENT_REVIEW относится к версии до этих дополнений; delta review хранится отдельно в PLAN_AMENDMENT_REVIEW.md.
+
+Delta-review дополнения завершён Astra: PLAN_AMENDMENT_REVIEW.md, PASS после закрытия P2 о key isolation для detector. Актуальные 30 блоков/микрошагов и сохранность pilot/release gate проверены. Отдельный publication-receipt.json связывает эту версию с remote SHA.
+
+## Latest continuation — 2026-09-09
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+Пользователь разрешил и завершил следующие bounded actions:
+
+- QualityControl schema-v2/doctor changes находятся в remote branch
+  `codex/schema-v2-doctor` at `bc2072b76df41a653f204861d60d9d602ac999af`; QC tests 175/16
+  suites PASS, executable CDHash `6a41e4aae31edded3342fe2ecc7f043383948e40`. PR creation link:
+  https://github.com/MArtem/AIZenflowQualityControl/pull/new/codex/schema-v2-doctor
+- Consumer branch `codex/tchop-qc-gates` локально содержит fixture commit
+  `6a96f97d88a1486b9976c7e72d5c97273c24048b` и evidence commit
+  `87d6ce2edd1ce59097888852fc3925ae527d51b3`; latest handoff metadata commit is
+  `d3942718`. Consumer branch не pushed.
+- Bounded Share host fixture построен и установлен; TchopApp build PASS; Swift parse, plist,
+  xcodeproj и diff checks PASS. Targeted XCUITest was attempted twice with
+  `TCHOP_SHARE_HOST_FIXTURE=1`, but CoreSimulatorService made the destination unavailable (exit
+  70), поэтому Share activation/VoiceOver PASS не заявляется.
+- Final `validate-profile` PASS and explicit-source static PASS. Final exact-SHA
+  `static-evidence` reached the authoritative graph gate and returned
+  `QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED` / `BLOCKED`. Doctor profile/repository/source/sandbox
+  checks pass, effective Xcode settings remain BLOCKED.
+- 9.1 promotion/release contract and options A/B/C are recorded in
+  `audit-2026-09-05/implementation/9.1-promotion-release-options-2026-09-09.md`. No archive,
+  signing, upload, TestFlight, App Store, or tag action was performed.
+- 9.2 is `PASS_WITH_LIMITATION` for bounded consumer-local adoption revalidation: exact QC pin,
+  profile/workflow boundary, and reversible local branch are recorded. No sibling/remote mutation,
+  broad bootstrap apply, or GitHub dispatch was performed.
+
+At that pre-merge point the remaining gates were graph-scoped static-evidence, doctor effective
+settings, Share Extension runtime/VoiceOver, manual GitHub parity, and pre-PR independent review.
+The post-merge continuation below records parity as completed.
+
+## Post-merge continuation — 2026-09-09
+
+PR #23 (`codex/tchop-qc-gates`) is merged into `main` as
+`16ae3f4ff7892d567eb0b4c89f775cd1d3685880`. GitHub Actions `Repository static gate` for head
+`0be8a1728cb8e6d2737bf12cae0c03bd45ac1e4e` completed successfully in run
+`34390669850`; local/GitHub parity is therefore PASS. The continuation worktree is now on local
+branch `codex/tchop-qc-continuation` from `origin/main`.
+
+Current plan count: 29/30 implementation blocks closed; only 8.2 remains open. Its four remaining
+sub-gates are graph-scoped schema-v2 static-evidence, doctor effective Xcode settings, Share
+Extension/VoiceOver runtime execution, and independent pre-PR review. The QC engine branch
+`codex/schema-v2-doctor` was merged through PR #25:
+https://github.com/MArtem/AIZenflowQualityControl/pull/25, producing merge commit
+`1035b95273795bee8be242239036b45ec7e7ceff`; the tested tree head is
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`. Independent re-review after the symlink fix returned no
+findings, and local QC verification remains 176 tests / 16 suites PASS. No stable QC promotion or
+release action is claimed.
+
+The continuation branch contains consumer commit `b2f1bfe2e6b89ab7e98499e1c9f9a6a3a581e071`, which
+updates the profile and manual workflow to the merged QC pin. It is pushed in PR #24:
+https://github.com/MArtem/AIZenflow/pull/24. After the user dispatches its manual GitHub workflow,
+that run is the next parity check. Graph-scoped static-evidence, doctor effective settings, and
+Share Extension/VoiceOver runtime remain blocked.
+
+## Runtime/QC continuation — 2026-09-09
+
+The merged QC engine `c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880` was revalidated locally. Doctor now
+passes profile contract, repository/source/sandbox boundaries, Xcode graph selection, and effective
+settings; it remains BLOCKED only at the separate source-membership evidence boundary. Receipt:
+`runtime/tchop-8-2/qc-logs/doctor-c0e7-2026-09-09.json`.
+
+The exact-SHA graph-scoped `static-evidence` run authenticated source
+`938e2bd5cbfaba0047d71176ae0e71bd994190b8`, engine
+`c0e7eb3d1badde0d11894e5ec1fccdd2c2c21880`, and engine CDHash
+`fc8d8cd64035e301d0d37864fdbb964e500dc0a9`, then stopped at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-receipt.json`.
+
+The bounded UI-test contract repair is committed at consumer SHA
+`6ce1073cb5c4b4b015d745e7dc92bfc5f359a3d1`: the test treats system activity providers as cells,
+opens `More`, and only then searches for `Tchop Share`. Build-for-testing passed. On the restored
+and rebooted iPhone 17 Pro Simulator, the host opened the system sheet and `More`, but the expanded
+Apps list contained `Reminders` and `TchopApp` only; `Tchop Share` was absent. The targeted test
+therefore fails at provider registration, and no Share activation, extension screen, close action,
+or VoiceOver traversal PASS is claimed. Receipt:
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json`.
+
+Current plan count remains 29/30 implementation blocks closed; 8.2 remains the only open block.
+Its remaining sub-gates are graph-scoped static-evidence, source-membership evidence, Share provider
+registration plus extension/accessibility runtime, and independent pre-PR review. The prior manual
+workflow success was bound to consumer head `938e2bd5cbfaba0047d71176ae0e71bd994190b8`; the new
+test-source commit changes the head, so PR #24 requires a fresh manual dispatch before parity can be
+reused. No promotion, release, archive, signing, or App Store action is claimed.
+
+## Runtime/QC continuation — 2026-09-09 follow-up
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+The bounded Share host fixture was re-run after the test-source repair at consumer commit
+`52a6af81a33de6c21b6e434ada93eb5d5752fbdc`. The restored/rebooted iPhone 17 Pro Simulator exposed
+the provider as the containing-app label `TchopApp`; selecting it launched
+`com.example.TchopApp.share`, exposed `shareExtension.screen`, and exposed a non-empty,
+hittable `shareExtension.closeButton` that completed the request. Build-for-testing and the
+targeted test both passed. Receipt/result:
+`audit-2026-09-05/implementation/8.2-share-extension-runtime-receipt-2026-09-09.json` and
+`runtime/tchop-8-2/share-host-fixture/ShareExtensionAccessibilityContract.xcresult`.
+
+The runtime/accessibility row is now `PASS_WITH_LIMITATION`: Simulator hierarchy and interaction
+are verified, but physical-device VoiceOver traversal is not claimed because Apple does not provide
+VoiceOver on iOS Simulator. The remaining 8.2 gates are graph-scoped static-evidence,
+source-membership evidence, physical-device VoiceOver, and independent pre-PR review. The current
+consumer branch must still receive a fresh manual GitHub workflow run for its current head before
+the parity receipt is reusable.
+
+## QC evidence continuation — 2026-09-09 current head
+
+The current consumer HEAD is `8fc0fae84b3c847c1f891a9e742b69d568cb4f70`. Authenticated merged-engine
+`build-evidence` passed for the declared `TchopApp` Debug / iPhone 17 Pro selection with
+`QC.BUILD`, `QC.BUILD.MEMBERSHIP`, `QC.BUILD.FIRST_PARTY_WARNINGS`, and
+`QC.CONCURRENCY.DIAGNOSTICS`; compiler membership covers 159 in-repository inputs, 210 compiler
+sections, and 0 external inputs. Receipt:
+`audit-2026-09-05/implementation/8.2-build-evidence-c0e7-current-2026-09-09.json`.
+
+Current-head graph-scoped `static-evidence` was also re-run. It remains `BLOCKED` only at
+`QC.PROFILE.XCODE_GRAPH_RESOLUTION_REQUIRED`; the separate authenticated build/source-membership
+gate is now PASS. Receipt:
+`audit-2026-09-05/implementation/8.2-static-evidence-c0e7-current-2026-09-09.json`.
+
+The remaining 8.2 gates are graph-scoped static-evidence, physical-device VoiceOver traversal,
+and independent pre-PR review. The current branch still needs a fresh manual GitHub workflow run
+before the previous parity result can be reused.
+
+## Merge continuation — 2026-09-10
+
+The user confirmed that the Manual Quality Check for consumer PR #24 completed successfully.
+GitHub confirms PR #24 merged into `main` at `2026-09-09T21:11:00Z` as merge commit
+`ad0e3c545ff3a9918ced9829b4de344ee5c1ca71`; its reviewed head was
+`da41b11a7fc7bb1bd555c97d0b40f74cf58925c7`. The consumer-local adoption update is therefore
+published and the 9.2 merge/parity step is closed. The workflow run identifier was not captured
+in the local task receipts, so the parity claim remains explicitly user-confirmed rather than a
+locally reconstructed check-run receipt.
+
+The plan remains 29/30 implementation blocks closed; 8.2 is the only open block. Its remaining
+gates are graph-scoped static-evidence, physical-device VoiceOver traversal, and independent
+pre-PR review. Existing source/build/runtime receipts remain valid because the commits after
+`8fc0fae84b3c847c1f891a9e742b69d568cb4f70` changed only evidence/task documentation, not app source,
+profile, workflow, or QC engine inputs. No promotion, release, archive, signing, or App Store
+action is claimed.
+
+## Owner decision continuation — 2026-09-10
+
+The user explicitly accepted the physical-device VoiceOver gate as complete for this task because no
+physical iOS device is available. The authoritative receipt is
+`audit-2026-09-05/implementation/8.2-voiceover-owner-decision-2026-09-10.json`. The bounded Simulator
+fixture remains `PASS_WITH_LIMITATION`; no physical traversal, VoiceOver focus/announcement/rotor
+claim, or production accessibility readiness claim is made. 8.2 therefore remains open only for
+graph-scoped schema-v2 static-evidence acceptance and independent pre-PR review.
+
+The QC engine graph-static implementation is committed and pushed at
+`MArtem/AIZenflowQualityControl` commit `f974ef58ec3ba0b13341e4ac59e617dd5ea97ce3` on branch
+`codex/graph-static-evidence`; [PR #26](https://github.com/MArtem/AIZenflowQualityControl/pull/26)
+is open against `main`. The consumer pin/adoption and graph receipt must follow engine merge; no
+graph PASS is claimed from the implementation commit alone.
+
+## Final local continuation — 2026-09-10
+
+QC PR #26 is merged; the consumer current HEAD is `e201fc8a5e6aeffec2f0455225f9e50f81df815b` with
+engine pin `802b4833c3c7cebb1c7e920b964451587a0bab42` and engine CDHash
+`d25b665789eeef1ec60f14b3ae2e8577f3bb62a8`. Graph-scoped `quality graph-static-evidence` passed for
+Release / `TchopApp` / `generic/platform=iOS Simulator`: 159 compiled source paths, 26 compiler
+sections, 0 external inputs, verifier `READY`; receipt:
+`audit-2026-09-05/implementation/8.2-graph-static-evidence-802b-2026-09-10.json`.
+
+Bounded doctor on the same pin passed profile/repository/source/sandbox boundaries, Xcode graph
+selection, and effective settings; its overall `BLOCKED` status is only the intentional separate
+source-membership check, covered by the paired graph receipt. Independent review of the cumulative
+engine change returned no P0–P3 findings. The physical-device VoiceOver gate is closed by the owner
+decision already recorded; no hardware traversal claim is made.
+
+The local implementation/review blockers for 8.2 are closed. The graph receipt is bound to source head
+`e201fc8a5e6aeffec2f0455225f9e50f81df815b`; the task-state sync is published at
+`dcc55202e1bfb7009a362da10bc265754b795ccb`, with no app source/profile/workflow changes after the
+graph run. Run the manual workflow at
+`https://github.com/MArtem/AIZenflow/actions/workflows/manual-quality.yml` for the published branch
+tip. The owner selected option A (`internal pilot`) and then confirmed that the workflow was green for
+`codex/tchop-qc-continuation`. The closure is recorded in
+`audit-2026-09-05/implementation/8.2-pilot-closure-2026-09-10.json`; the run identifier was not
+captured locally. Plan status is now 30/30 implementation blocks closed (100%), with the accepted
+Simulator/VoiceOver limitation preserved. Stable QC promotion, release and production readiness are
+not claimed; no archive, signing, TestFlight, App Store, tag or rollout action was performed.
+
+## Superseding remediation checkpoint — 2026-09-10
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+This section supersedes the earlier continuation status; earlier receipts remain historical.
+
+- Current implementation branch: `codex/audit-remediation-luna`; Phase 4–6 remediation is committed
+  at `231fb0e3` and has passed the clean full static gate. Publication history is preserved by
+  merge commit `dd671e89`, and the final task-state tip is published to `codex/audit-remediation-luna`,
+  `development`, and `main` after remote parity verification.
+- Canonical Documentation Vault is pushed at `cb8ffed` on `origin/main`. It now owns the package-doc
+  mirror contract, product-localization ADR, neutral package docs, missing reuse guides, and the
+  sandbox-safe verifier contract.
+- Completed remediation phases: 0–4 and 6. Current receipts include the package snapshot manifest,
+  package-doc mirror contract, localization-boundary ADR, and knowledge freshness receipt. Registry
+  status is 18 active / 5 complete / 4 deferred; no maturity was promoted from documentation alone.
+- Phase 5 is complete: handoff, universal plan, context receipt and current-evidence index are bound
+  to `231fb0e3`. Phase 7 is complete: exact-SHA review, authorized publication, and remote parity
+  are closed; the merge preserved the existing `main` history.
+- No Xcode build, package test, Simulator/UI, device, Instruments, archive, signing, TestFlight,
+  App Store, release, or stable-QC promotion action is authorized in this continuation. Package
+  tests were added under the user-approved test-writing permission but not executed.
+- Must not do: rewrite historical receipts, infer runtime PASS from static checks, mutate sibling
+  repositories, use paths outside `/Users/Artem/.zenflow`, or claim stable release readiness.

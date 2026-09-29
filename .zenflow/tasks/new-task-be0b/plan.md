@@ -1,32 +1,28 @@
-# Independent-audit remediation — current plan
+# План — два слоя iOS-помощника
 
-## Route
+Активная цель и подробные критерии: `knowledge-base-library-roadmap.md`.
+Текущий checkout: `/Users/Artem/.zenflow/worktrees/knowledge-base-next`.
+Пользовательский выбор для этапа A: GPT-6 Sol, режим `эконом`.
 
-- Implementation model: **GPT-5.6 Luna, reasoning xhigh**.
-- Operating mode: `эконом`.
-- Detailed executable contract: `remediation-plan-luna-xhigh.md`.
-- Previous `30/30` plan state is historical and remains recoverable from Git revision `0d22978c`
-  and `universal-quality-control-plan.md`; it is not current completion evidence.
-- Stable QC promotion, release, signing, TestFlight, App Store, tags, and production-readiness claims
-  remain out of scope.
+## Этап A — база знаний
 
-## Checklist
+- [x] A-I1: authority, inventory, границы активного и исторического корпуса.
+- [x] A-I2: маршруты, зеркала, стоимость и optional-контекст.
+- [x] A-I3: общие правила, полномочия, severity и evidence.
+- [x] A-I4: риск-ориентированное ревью активных iOS-семейств, prompts/skills.
+- [x] A-I5: статические сценарии старого и шаблонного нового проекта.
+- [x] A-I6: проверены findings, полный итоговый diff, статические gate и
+  свежий startup receipt; вердикт READY_WITH_LIMITATIONS, P3/UNKNOWN записаны.
+- [ ] Опубликовать итоговый A-I6 receipt в `development` и `main` после
+  точной проверки SHA. Не переносить историю старой установочной ветки.
 
-- [x] Record the independent audit and define the Luna xhigh remediation contract.
-- [x] Phase 0: refresh exact repository identities and reproduce findings.
-- [x] Phase 1: eliminate canonical baseline drift and self-authorizing policy exceptions.
-- [x] Phase 2: fix metadata preflight for allowed ignored runtime evidence without weakening symlink safety.
-- [x] Phase 3: align German locale metadata and make the Xcode migration tool explicit and idempotent.
-- [x] Phase 4: repair package/adoption authority, revisions, mirrors, missing package surfaces, and broken links.
-- [x] Phase 5: reconcile current receipts, universal plan, handoff, and context budget.
-- [x] Phase 6: revalidate reusable iOS knowledge freshness and maturity gaps.
-- [x] Phase 7: run final static/runtime-authorized gates, exact-SHA independent review, publication, and remote parity (static gates PASS; remote parity verified after authorized push).
+## После A-I6
 
-## Completion gate
+- [ ] Этап B: copy-only библиотека — перенос полезного содержания, modes,
+  skills, качество payload; установка в Codex запрещена.
+- [ ] Этап C: совместная проверка базы знаний и библиотеки как двух слоёв.
 
-Completion requires zero open P0–P2, P3 fixed or reported, canonical drift zero, full static gate
-PASS with retained runtime evidence, package snapshot/adoption consistency, active task state at or
-below 3,500 words, and a new semantic review bound to the final SHAs. The maximum final claim remains
-`INTERNAL_PILOT_COMPLETE_WITH_ACCEPTED_LIMITATIONS`; release remains `NOT_READY`.
+Прежний QC-план сохранён в `archive/2026-09-29-before-knowledge-base-plan.md`
+и Git history; он не задаёт текущую модель, цель или разрешения.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
