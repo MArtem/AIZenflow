@@ -24,10 +24,10 @@ finding/evidence: `knowledge-base-audit-ledger.md`. Для этапа A поль
 - A-I1–A-I6 завершены как риск-ориентированный документальный и статический
   аудит. Вердикт A: READY_WITH_LIMITATIONS для базы знаний как первого слоя;
   это не production-сертификат iOS-кода и не готовность copy-only библиотеки.
-- `AIZenflow` `origin/main` и `origin/development` на момент публикации:
-  `ea77f68473ddce0eb874d5f887559b2d8c3ef9bf`.
-  `AIZenflowDocumentation/main`:
-  `359afc98e253a4240166db70cb7ecb3de83b121d`.
+- `AIZenflow` `origin/main` и `origin/development` после закрытия KB-004:
+  `71c4a73d770f6590ef1951cf1fec9b88b6ef00e2`.
+  `AIZenflowDocumentation/main` после частичного B0–B5:
+  `498367d8f23cc15f6ecc0ed67e216c58ba8f836b`.
   Перед новым push проверять удалённые ссылки заново.
 - В новом чате из чистого checkout наблюдалась загрузка корневого AGENTS,
   canonical bootstrap/baseline, полного Level 0, текущих task plan/handoff;
@@ -46,8 +46,16 @@ finding/evidence: `knowledge-base-audit-ledger.md`. Для этапа A поль
 
 ## Следующий безопасный шаг
 
-A-I6 receipt опубликован и удалённые `main`/`development` сверены по SHA.
-Следующий этап — B по roadmap, с отдельной проверкой его copy-only payload.
+Этап B в работе: 60 бывших `ioslib-*` entrypoints классифицированы,
+30 candidate allowlist-файлов и 48 локальных ссылок прошли статический
+структурный контроль; шесть specialist routes добавлены. B2 подтвердил
+per-Xcode-project границу, но command service не реализован. B4 исправил
+ложную полноту в неактивном Xcode-сканере и исключил три небезопасных старых
+скрипта; B5 зафиксировал только статические сценарии. B0–B6 не закрыты.
+Далее — проверить реализацию режимных переходов, оставшиеся полезные
+навыки/маршруты, семантические зависимости payload и реальные сценарии.
+Не заявлять
+готовность библиотеки по одной структурной проверке.
 При будущих публикациях переносить только проверенные правки из этой чистой
 ветки в `development`/`main`; не merge старой ветки.
 
