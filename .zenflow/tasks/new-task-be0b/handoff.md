@@ -38,10 +38,11 @@ finding/evidence: `knowledge-base-audit-ledger.md`. Для этапа A поль
   consistency/index/bootstrap/router/boundaries, iOS registry/framework,
   baseline mirror drift, context-cost и `git diff --check`. Build/tests,
   Simulator, Instruments не запускались.
-- Нет известных открытых P0–P2 в проверенном документальном scope. P3:
-  KB-004 — машинный route может переоценивать optional-контекст; KB-012
-  закрыт компактизацией task-state до примерно 540 слов. Актуальность каждого deep API-тезиса и реальная
-  автоматическая активация specialist skill не доказаны.
+- Нет известных открытых P0–P3 в проверенном документальном scope: KB-004
+  закрыт разделением required/optional в resolver и отчёте стоимости;
+  KB-012 — компактизацией task-state. Фактическое чтение optional-документов,
+  актуальность каждого deep API-тезиса и автоматическая активация каждого
+  specialist skill не доказаны.
 
 ## Следующий безопасный шаг
 
