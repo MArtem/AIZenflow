@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Resolve one or more documentation routes into an ordered, deduplicated file list."""
+"""Resolve required route files and optional candidates without claiming they were read."""
 
 from __future__ import annotations
 
@@ -214,9 +214,12 @@ def resolve_routes(
     level0_documents, level0_duplicates = ordered_unique(level0_values)
 
     route_values: list[str] = []
+    required_values: list[str] = []
     optional_values: list[str] = []
     trigger_values: list[str] = []
     route_documents: dict[str, list[str]] = {}
+    required_route_documents: dict[str, list[str]] = {}
+    optional_route_documents: dict[str, list[str]] = {}
     for name in route_names:
         route = routes.get(name)
         if not isinstance(route, dict):
@@ -224,17 +227,22 @@ def resolve_routes(
         documents = [value for value in route.get("documents", []) if isinstance(value, str)]
         optional = [value for value in route.get("optional_documents", []) if isinstance(value, str)]
         route_documents[name] = documents + optional
+        required_route_documents[name] = documents
+        optional_route_documents[name] = [value for value in optional if value not in documents]
         route_values.extend(documents)
         route_values.extend(optional)
+        required_values.extend(documents)
         optional_values.extend(optional)
         trigger_values.extend(
             value for value in route.get("trigger_patterns", []) if isinstance(value, str)
         )
 
     documents, duplicates_removed = ordered_unique(route_values)
+    required_documents, _ = ordered_unique(required_values)
     optional_documents, _ = ordered_unique(optional_values)
     trigger_patterns, _ = ordered_unique(trigger_values)
-    optional_set = set(optional_documents)
+    required_set = set(required_documents)
+    optional_candidates = [path for path in optional_documents if path not in required_set]
 
     missing: list[str] = []
     optional_missing: list[str] = []
@@ -246,7 +254,7 @@ def resolve_routes(
             failures.append(str(error))
             continue
         if not candidate.is_file():
-            if path in optional_set:
+            if path not in required_set:
                 optional_missing.append(path)
             else:
                 missing.append(path)
@@ -263,7 +271,12 @@ def resolve_routes(
         "selected_routes": route_names,
         "level0_documents": level0_documents,
         "route_documents": route_documents,
+        "document_selection": "upper_bound_including_optional_candidates",
+        "required_route_documents": required_route_documents,
+        "optional_route_documents": optional_route_documents,
         "documents": documents,
+        "required_documents": required_documents,
+        "optional_candidates": optional_candidates,
         "combined_documents": combined_documents,
         "trigger_patterns": trigger_patterns,
         "duplicates_removed": ordered_unique(level0_duplicates + duplicates_removed)[0],
@@ -280,8 +293,11 @@ def print_text(result: dict[str, Any]) -> None:
     print("Level 0:")
     for path in result["level0_documents"]:
         print(f"- {path}")
-    print("Resolved route documents:")
-    for path in result["documents"]:
+    print("Required route documents:")
+    for path in result["required_documents"]:
+        print(f"- {path}")
+    print("Optional candidates (read only when the subtask needs them):")
+    for path in result["optional_candidates"]:
         print(f"- {path}")
     if result["trigger_patterns"]:
         print("Triggered references (resolve only when relevant):")

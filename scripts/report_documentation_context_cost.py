@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Report documentation route size, overlap, budgets, and reachability."""
+"""Report required route cost and the upper bound including optional candidates."""
 
 from __future__ import annotations
 
@@ -132,17 +132,28 @@ def build_report(root: Path, task_id: str | None, top: int) -> dict[str, Any]:
     route_sets: dict[str, set[str]] = {}
     for name in route_names:
         paths = resolved["route_documents"].get(name, [])
+        required_paths = resolved["required_route_documents"].get(name, [])
         route_sets[name] = set(paths)
+        required = summarize(root, required_paths)
         own = summarize(root, paths)
         with_level0 = summarize(root, resolved["level0_documents"] + paths)
+        with_level0_required = summarize(root, resolved["level0_documents"] + required_paths)
         configured_budget = route_registry["routes"][name].get("max_words")
         route_summaries[name] = {
+            "cost_basis": "upper_bound_including_optional_candidates",
             "documents": own["documents"],
             "words": own["words"],
             "bytes": own["bytes"],
+            "required_documents": required["documents"],
+            "required_words": required["words"],
+            "required_bytes": required["bytes"],
+            "optional_candidate_documents": own["documents"] - required["documents"],
+            "optional_increment_words": own["words"] - required["words"],
+            "optional_increment_bytes": own["bytes"] - required["bytes"],
             "with_level0_documents": with_level0["documents"],
             "with_level0_words": with_level0["words"],
             "with_level0_bytes": with_level0["bytes"],
+            "with_level0_required_words": with_level0_required["words"],
             "with_instruction_envelope_documents": envelope["documents"] + own["documents"],
             "with_instruction_envelope_words": envelope["words"] + own["words"],
             "with_instruction_envelope_bytes": envelope["bytes"] + own["bytes"],
@@ -245,13 +256,16 @@ def print_text(report: dict[str, Any]) -> None:
         "Instruction envelope: "
         f"{envelope['documents']} docs; {envelope['words']} words; {envelope['bytes']} bytes"
     )
-    print("Routes (route-only -> with Level 0 -> with instruction envelope):")
+    print("Routes (required -> upper bound with optional candidates; not observed reads):")
     for name, values in report["routes"].items():
         budget = ""
         if values["max_words"] is not None:
             budget = f"; budget {values['max_words']}"
         print(
-            f"- {name}: {values['documents']} docs, {values['words']} words, {values['bytes']} bytes"
+            f"- {name}: required {values['required_documents']} docs, "
+            f"{values['required_words']} words; upper bound {values['documents']} docs, "
+            f"{values['words']} words ({values['optional_increment_words']} optional words), "
+            f"{values['bytes']} bytes"
             f" -> {values['with_level0_documents']} docs, {values['with_level0_words']} words"
             f" -> {values['with_instruction_envelope_documents']} docs, "
             f"{values['with_instruction_envelope_words']} words"
