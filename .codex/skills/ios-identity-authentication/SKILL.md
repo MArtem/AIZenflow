@@ -8,8 +8,10 @@ description: Use for iOS login, OAuth/OIDC/PKCE, passkeys, Sign in with Apple, s
 ## Required Context
 Read:
 
-- `./docs/IOS_SECURITY_PRIVACY_GATE.md`
-- `./docs/knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_SECURITY_PRIVACY_GATE.md`
+- `DOC:knowledge/global/ios/IDENTITY_AUTHENTICATION_AND_APP_SECURITY.md`
 - API/backend contracts when remote identity or App Attest is involved
 
 ## Workflow

@@ -8,9 +8,11 @@ description: Use for Xcode build graphs, targets, schemes, xcconfig, build setti
 ## Required Context
 Read:
 
-- `./docs/DEPENDENCY_POLICY.md`
-- `./docs/CI_CD_QUALITY_GATES.md`
-- `./docs/knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:DEPENDENCY_POLICY.md`
+- `DOC:CI_CD_QUALITY_GATES.md`
+- `DOC:knowledge/global/ios/XCODE_BUILD_BINARY_AND_SUPPLY_CHAIN.md`
 - exact project/workspace target and effective build settings
 
 ## Workflow

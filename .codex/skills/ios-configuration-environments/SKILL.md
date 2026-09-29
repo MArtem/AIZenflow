@@ -11,5 +11,7 @@ description: Review or change iOS environment selection, build configuration, ba
 3. Check affected flag defaults, diagnostics, analytics, and crash routing; report release verification requirements and unknowns.
 
 ## References
-- `./docs/IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`
-- `./docs/FEATURE_FLAGS_AND_ROLLOUTS.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_CONFIGURATION_ENVIRONMENTS_STANDARD.md`
+- `DOC:FEATURE_FLAGS_AND_ROLLOUTS.md`

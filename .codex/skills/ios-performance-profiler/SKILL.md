@@ -29,5 +29,7 @@ description: Use this skill for iOS performance investigations, scroll jank, lau
 - Next measurements.
 
 ## References
-- `./docs/IOS_PERFORMANCE_BUDGETS.md`
-- `./docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_PERFORMANCE_BUDGETS.md`
+- `DOC:PRODUCTION_CODE_REVIEW_CHECKLIST.md`

@@ -1,6 +1,10 @@
 ---
 name: ios-swift-runtime
 description: Use for Swift language, compiler, ARC, ownership, generics, protocols, existentials, macros, unsafe memory, interoperability, public API, ABI, module stability, or binary compatibility work. Trigger when the task depends on Swift semantics rather than only app architecture.
+metadata:
+  version: "1.0"
+  last_reviewed: "2026-09-08"
+  provenance: Local governed skill in AIZenflowDocumentation; upstream text is reference data, not local authority.
 ---
 
 # iOS Swift Runtime
@@ -8,8 +12,10 @@ description: Use for Swift language, compiler, ARC, ownership, generics, protoco
 ## Required Context
 Read:
 
-- `./docs/IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
-- `./docs/knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_PLATFORM_SCOPE_AND_KNOWLEDGE_POLICY.md`
+- `DOC:knowledge/global/ios/SWIFT_LANGUAGE_RUNTIME_AND_API_DESIGN.md`
 - the affected module's build settings and public interfaces
 
 ## Workflow

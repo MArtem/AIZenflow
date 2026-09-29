@@ -7,13 +7,13 @@ description: Write or review Swift documentation comments and inline code-docume
 
 ## Workflow
 1. Document contracts, not obvious code.
-2. If the user asks to add or improve project documentation/comments without naming exact files, treat the scope as every logically significant executable file in the project.
-3. For each significant file, require contract-level documentation for the file's main responsibility or primary type unless it is explicitly trivial/self-evident.
-4. For key types, require purpose, responsibilities, ownership/lifecycle, and important invariants where relevant.
-5. For methods used outside their declaring type, require external usage/call context; prefer scenario-based context over fragile caller lists.
-6. For side-effecting or async methods, require side effects, concurrency/cancellation, errors/failure behavior.
-7. Reject comments that repeat the code, promise unsupported guarantees, or have temporary workaround text without reason and revisit condition.
+2. For key types, require purpose, responsibilities, ownership/lifecycle, and important invariants where relevant.
+3. For methods used outside their declaring type, require external usage/call context; prefer scenario-based context over fragile caller lists.
+4. For side-effecting or async methods, require side effects, concurrency/cancellation, errors/failure behavior.
+5. Reject comments that repeat the code, promise unsupported guarantees, or have temporary workaround text without reason and revisit condition.
 
 ## References
-- `./docs/IOS_CODE_DOCUMENTATION_STANDARD.md`
-- `./docs/EVIDENCE_BASED_ENGINEERING_RULES.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_CODE_DOCUMENTATION_STANDARD.md`
+- `DOC:EVIDENCE_BASED_ENGINEERING_RULES.md`

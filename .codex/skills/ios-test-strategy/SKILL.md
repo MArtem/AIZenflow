@@ -18,5 +18,7 @@ description: Use this skill to choose a permission-bounded iOS verification stra
 - Remaining risks.
 
 ## References
-- `./docs/IOS_TESTING_STRATEGY.md`
-- `./TESTING_INSTRUCTIONS.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_TESTING_STRATEGY.md`
+- Project-root `TESTING_INSTRUCTIONS.md`, when present; resolve from the active project root, not this skill directory.

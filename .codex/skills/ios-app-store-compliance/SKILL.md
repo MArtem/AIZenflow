@@ -8,9 +8,11 @@ description: Use for App Store or TestFlight compliance involving App Review Gui
 ## Required Context
 Read:
 
-- `./docs/IOS_RELEASE_CHECKLIST.md`
-- `./docs/IOS_SECURITY_PRIVACY_GATE.md`
-- `./docs/knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_RELEASE_CHECKLIST.md`
+- `DOC:IOS_SECURITY_PRIVACY_GATE.md`
+- `DOC:knowledge/global/ios/APP_STORE_PRIVACY_AND_COMPLIANCE.md`
 - current official Apple requirements for affected sections
 
 ## Workflow

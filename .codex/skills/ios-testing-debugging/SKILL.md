@@ -8,8 +8,10 @@ description: Use for iOS or Swift verification design and diagnosis involving Sw
 ## Required Context
 Read:
 
-- `./docs/IOS_TESTING_STRATEGY.md`
-- `./docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_TESTING_STRATEGY.md`
+- `DOC:knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md`
 - the current task's test/build/device permissions
 
 ## Workflow

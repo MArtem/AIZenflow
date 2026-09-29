@@ -15,7 +15,9 @@ description: Plan iOS QA or review localization, accessibility QA, device/iOS co
 - Applicable verification plan and evidence gaps.
 
 ## References
-- `./docs/QA_TEST_PLAN_STANDARD.md`
-- `./docs/LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
-- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
-- `./docs/COMPATIBILITY_MATRIX.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:QA_TEST_PLAN_STANDARD.md`
+- `DOC:LOCALIZATION_INTERNATIONALIZATION_STANDARD.md`
+- `DOC:APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+- `DOC:COMPATIBILITY_MATRIX.md`

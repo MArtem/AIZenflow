@@ -8,9 +8,11 @@ description: Use for iPhone/iPad capabilities and extensions involving notificat
 ## Required Context
 Read:
 
-- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
-- `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
-- `./docs/knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+- `DOC:IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+- `DOC:knowledge/global/ios/APPLE_CAPABILITIES_AND_EXTENSIONS.md`
 - framework-specific official documentation for the capability
 
 ## Workflow

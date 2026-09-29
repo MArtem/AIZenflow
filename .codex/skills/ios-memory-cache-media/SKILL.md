@@ -12,5 +12,7 @@ description: Review or change iOS media decoding/loading, cache policy, file lif
 4. Require profiler/manual evidence for smooth-scroll or memory claims; report it as unverified when not authorized.
 
 ## References
-- `./docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
-- `./docs/IOS_PERFORMANCE_BUDGETS.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_MEMORY_CACHE_MEDIA_STANDARD.md`
+- `DOC:IOS_PERFORMANCE_BUDGETS.md`

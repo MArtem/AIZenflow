@@ -13,11 +13,13 @@ Use this skill for iOS project work involving:
 - database runtime decisions
 
 ## Read Order
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
 1. [references/package-rules.md](./references/package-rules.md)
-2. `./docs/PACKAGES_AND_MANAGERS.md`
-3. `./PROJECT_HEALTH.md`
-4. `./PackagesInUse/README.md`
-5. `./PackagesForReuse/README.md`
+2. `DOC:PACKAGES_AND_MANAGERS.md`
+3. `../../../PROJECT_HEALTH.md`
+4. `../../../PackagesInUse/README.md`
+5. `../../../PackagesForReuse/README.md`
 
 ## Working Rules
 - Start from the reusable package contract.
@@ -28,9 +30,9 @@ Use this skill for iOS project work involving:
 - Treat `SwiftData` as the active persistence runtime unless explicitly told otherwise.
 
 ## Important Areas
-- `./PackagesInUse` for active source-only package code compiled into app/share/widget targets
-- `./PackagesForReuse` for validated reusable package vault code
-- `./Packages` for SDK/package creation docs/templates only
+- `../../../PackagesInUse` for active source-only package code compiled into app/share/widget targets
+- `../../../PackagesForReuse` for validated reusable package vault code
+- `../../../Packages` for SDK/package creation docs/templates only
 - app repository composition
 - app persistence bootstrap
 - app user/session repositories

@@ -13,5 +13,7 @@ description: Review or change iOS app or extension lifecycle behavior, including
 5. Report verification needed for simulator/device/manual flows.
 
 ## References
-- `./docs/IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
-- `./docs/APPLE_PLATFORM_CAPABILITIES_STANDARD.md`
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_APP_LIFECYCLE_BACKGROUND_STANDARD.md`
+- `DOC:APPLE_PLATFORM_CAPABILITIES_STANDARD.md`

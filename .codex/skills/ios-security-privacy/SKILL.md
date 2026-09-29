@@ -15,5 +15,7 @@ description: Review iOS security/privacy when the task audits or changes a sensi
 - Severity, confidence, remediation, and permitted or user-owned verification.
 
 ## References
-- `./docs/IOS_SECURITY_PRIVACY_GATE.md`
-- `./docs/agent-prompts/ios-security-privacy-review.md` for an audit request only.
+Resolve `DOC:` identifiers through the active task router in canonical
+`reusable/baseline/docs/` or the project-root `docs/` mirror, not relative to this skill.
+- `DOC:IOS_SECURITY_PRIVACY_GATE.md`
+- `DOC:agent-prompts/ios-security-privacy-review.md` for an audit request only.

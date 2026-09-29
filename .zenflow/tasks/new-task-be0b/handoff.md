@@ -26,8 +26,8 @@ finding/evidence: `knowledge-base-audit-ledger.md`. Для этапа A поль
   это не production-сертификат iOS-кода и не готовность copy-only библиотеки.
 - `AIZenflow` `origin/main` и `origin/development` после закрытия KB-004:
   `71c4a73d770f6590ef1951cf1fec9b88b6ef00e2`.
-  `AIZenflowDocumentation/main` после частичного B0–B5:
-  `498367d8f23cc15f6ecc0ed67e216c58ba8f836b`.
+  `AIZenflowDocumentation/main` после частичного B0–B6:
+  `37e0e4e66b3148762d7725768c9e91153c514162`.
   Перед новым push проверять удалённые ссылки заново.
 - В новом чате из чистого checkout наблюдалась загрузка корневого AGENTS,
   canonical bootstrap/baseline, полного Level 0, текущих task plan/handoff;
@@ -38,20 +38,23 @@ finding/evidence: `knowledge-base-audit-ledger.md`. Для этапа A поль
   consistency/index/bootstrap/router/boundaries, iOS registry/framework,
   baseline mirror drift, context-cost и `git diff --check`. Build/tests,
   Simulator, Instruments не запускались.
-- Нет известных открытых P0–P3 в проверенном документальном scope: KB-004
-  закрыт разделением required/optional в resolver и отчёте стоимости;
-  KB-012 — компактизацией task-state. Фактическое чтение optional-документов,
+- Нет известных открытых P0–P2 в проверенном документальном scope. KB-004
+  закрыт разделением required/optional; KB-012 — компактизацией task-state.
+  KB-013: 70 ссылок `./docs/...` в 30 iOS-навыках статически исправлены;
+  фактическое чтение навыков в новом чате остаётся непроверенным.
+  Фактическое чтение optional-документов,
   актуальность каждого deep API-тезиса и автоматическая активация каждого
   specialist skill не доказаны.
 
 ## Следующий безопасный шаг
 
 Этап B в работе: 60 бывших `ioslib-*` entrypoints классифицированы,
-30 candidate allowlist-файлов и 48 локальных ссылок прошли статический
-структурный контроль; шесть specialist routes добавлены. B2 подтвердил
+32 candidate allowlist-файла и 50 локальных ссылок прошли статический
+структурный контроль; восемь specialist routes добавлены. B2 подтвердил
 per-Xcode-project границу, но command service не реализован. B4 исправил
 ложную полноту в неактивном Xcode-сканере и исключил три небезопасных старых
-скрипта; B5 зафиксировал только статические сценарии. B0–B6 не закрыты.
+скрипта; B5 зафиксировал только статические сценарии. Предрелизное B6
+ревью зафиксировало четыре P2-блокера. B0–B6 не закрыты.
 Далее — проверить реализацию режимных переходов, оставшиеся полезные
 навыки/маршруты, семантические зависимости payload и реальные сценарии.
 Не заявлять
