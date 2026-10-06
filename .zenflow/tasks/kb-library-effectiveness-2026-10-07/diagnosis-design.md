@@ -3,7 +3,7 @@
 2026-10-07. GPT-6.1 Sol/medium, эконом. Task-only evidence; не новая reusable policy.
 Полномочие старта: «Приступай к реализации плана созданного астра».
 Источники и 34 точных payload hash: [baseline-permissions.json](baseline-permissions.json).
-Статус: P0 принят в статической области; P1.1 выполнен как ограниченный аудит; P1.2 READY_FOR_USER_DECISION; P1.3 — draft после выбора.
+Статус: P0 принят в статической области; P1.1 выполнен как ограниченный аудит; P1.2 ACCEPTED_BY_USER: V2. Контракты P1.3 и подготовка P2: [следующий блок](v2-contract-and-evaluation-preparation.md).
 
 ## 1. Подтверждённые проблемы и гипотезы
 
@@ -86,7 +86,7 @@ Q09–Q12 — negative/ambiguous/stale controls. Пути обнаружимы �
 
 Предлагаемый первый модуль: **cancellation + stale-result publication**, затем conditional-error calibration. Основание: подтверждённая TC-MP01 calibration и существующая applicability в concurrency/data; independent new cases ещё нужно выбрать. Media/resource limits и migration/rollback — следующие кандидаты, после реального case inspection. Git preservation оставить boundary scenario, не создавать новый framework.
 
-До начала P3/P4: пользователь выбирает V1/V2/V3; P2 определяет задачи/oracle и бюджет разработки. Нельзя подготовить holdout-ответы здесь: этот чат автор improvements. Независимую подготовку набора и fresh attempts нужно позже предложить конкретно с числом/ролями/стоимостью; сейчас агенты/MCP не созданы.
+Пользователь выбрал V2. До P3/P4 P2 определяет задачи/oracle и бюджет разработки. Нельзя подготовить holdout-ответы здесь: этот чат автор improvements. Конкретное предложение независимого куратора и границы блока сохранены в следующем документе; агенты/MCP не созданы.
 
 ## 7. Приёмка и drift-check этого блока
 
@@ -94,6 +94,6 @@ Q09–Q12 — negative/ambiguous/stale controls. Пути обнаружимы �
 - P0.2: canonical revision, 34 payload hashes, оба exact copy сравнения и текущий drift сохранены; запусков Library/режимов нет. Execution envelope freeze ещё P2.
 - P0.3: пять confirmed observations и две явно обозначенные гипотезы со ссылками на source evidence.
 - P1.1: ограниченный content/authority audit и 12 static diagnostic questions; рекомендации migrations остаются proposal, effect NOT_MEASURED.
-- P1.2: comparison и два walkthrough готовы; принятие зависит от выбора пользователя.
-- P1.3: proposed boundaries/backlog, окончательный вариант не зафиксирован.
+- P1.2: comparison и два walkthrough готовы; пользователь принял V2.
+- P1.3: contracts/backlog сохранены в следующем документе; эффект ещё не измерен.
 - Drift: не добавлены постоянные rules, installers, sources, новый search/agent platform; архив и holdout не превращены в активный input. Польза всей системы ещё не установлена.
