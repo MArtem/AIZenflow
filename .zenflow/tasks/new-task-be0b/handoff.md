@@ -13,3 +13,7 @@ Next required human decision: three-finding-closeout/library-decision-proposal.m
 All project work/cache/output under /Users/Artem/.zenflow, shell login:false; no secrets/host/config/installers/automation; iPad/physical excluded. Preserve foreign work and old checkout/install branch. Application/docs publication remains previously authorized, exact final-diff and postcommit remote gates mandatory; do not push upstream pilot repos. Previous published bases activecf59d7e984c7e19e81e5494059e78d0c630ac158/canonical4dc0ffa443bbb50bd6318a6564fc829961d9082d; follow-up publication receipt external in .zenflow/task-artifacts/new-task-be0b/three-finding-closeout/. Historical plan/handoff preserved byte-for-byte in archive/git-preservation-2026-10-06.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+## Verified publication
+
+Source/evidence commits c8b16c3b6ccdd92704d791d4585807142f00f312 (AIZenflow) and ae35e915edc6f7ae3c8ed3a9d6a5bfe73396a138 (canonical) pushed and independently confirmed; both worktrees clean at that checkpoint. This later task-bookkeeping changes no verified source/QA input. Final metadata SHA/clean/remote receipt remains external. Human scope question pending; no additional execution implied.

@@ -14,7 +14,7 @@
 - [x] Preserve scoped component findings without application source changes or expanded QA.
 - [x] Prepare concrete remaining decision in three-finding-closeout/library-decision-proposal.md.
 - [ ] Human decides whether to retire mandatory general Library acceptance or retain LIB-004 OPEN.
-- [ ] Publish scoped fixes and honest partial receipts after exact-SHA gates; verify remote and clean state.
+- [x] Scoped fixes/evidence published: AIZenflow c8b16c3b6ccdd92704d791d4585807142f00f312; canonical ae35e915edc6f7ae3c8ed3a9d6a5bfe73396a138. Exact HEAD/remote and clean-state checks PASS; later bookkeeping receipt is external.
 
 LIB-004 P2 OPEN; Library EXPERIMENTAL / NOT_READY_FOR_GENERAL_RELEASE. Core W1–W5 retains historical scope. No extra observer, repeat, new source development, runtime or other mode transition is authorized. Existing broad application/docs Git preservation authority applies to these useful fixes/receipts; upstream Mozilla/Ghibli repos are not push targets. All artifacts/cache inside .zenflow, shell login:false; iPad/physical checks excluded. Tchop/BG prior modes unchanged. Canonical and local task state synchronize at this boundary. Selected docs routes: Level0 + package/docs governance + localization + testing/evidence + fresh cache/concurrency/review observation. Context refreshed; no broad global baseline edits.
 
