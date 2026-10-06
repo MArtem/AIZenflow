@@ -1,0 +1,9 @@
+PASS 1: stale success rejected
+PASS 2: stale generic error rejected
+PASS 3: explicit cancellation remains terminal
+PASS 4: A-B-A invocation identity
+PASS 5: current genuine error visible
+PASS 6: overlap rejected by serialized intake
+PASS 7: committed side effect survives cancellation
+PASS 8: old cleanup preserves replacement handle
+CXL-01: 8/8 PASS; controlled local model only

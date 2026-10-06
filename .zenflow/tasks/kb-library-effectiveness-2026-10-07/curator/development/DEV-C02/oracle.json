@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-C02",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": true,
+  "review_recall": "UNKNOWN for full real-code recall; only explicitly annotated contract assertions are gradable",
+  "acceptable_alternatives": [
+    "No code change; evidence-calibrated scoped acceptance."
+  ],
+  "mandatory_semantic_checks": [
+    "Guard precedes helper invocation.",
+    "Initial loaded/failed/loading without live task becomes notRequested.",
+    "Do not extrapolate to cancellation of a previously live producer."
+  ],
+  "correct_outcome": {
+    "outcome": "No finding in the nil-path contract, noting excluded prior-operation scenarios.",
+    "reasoning": "The guard assigns notRequested and returns before calling image.load."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Add a generation/task/actor solely for the nil path, or claim a new fetch starts.",
+    "reasoning": "The producer branch is unreachable under this input and precondition; the change has no stated consumer."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation."
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-F04",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "N/A",
+  "acceptable_alternatives": [
+    "Task.isCancelled return/break at loop boundary; equivalent owner-controlled termination without new infrastructure."
+  ],
+  "mandatory_semantic_checks": [
+    "Cancelled at entry => zero remove calls.",
+    "Cancel after first eligible removal => no next removal.",
+    "Not cancelled => original selection/order.",
+    "Completed first removal remains effective; no rollback claim."
+  ],
+  "correct_outcome": {
+    "outcome": "Check cancellation at each iteration before remove and leave completed effects intact.",
+    "reasoning": "Original loop lacks a check. Boundary checks cannot undo prior removals or interrupt a synchronous fileManager call, but prevent subsequent attempts."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Check only once before enumeration or state that cancellation restores deleted data.",
+    "reasoning": "Cancellation after the first removal still allows later removes, or incorrectly treats cancellation as undo."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation."
+  ]
+}

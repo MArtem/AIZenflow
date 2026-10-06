@@ -1,0 +1,33 @@
+{
+  "status": "MECHANISM_CHECKED_CANDIDATE_NOT_ADOPTED",
+  "grant": "user acceptance CXL-01 2026-10-07",
+  "contract": "identity-bound publication and cleanup; actual UI actor; cancellation UX explicit; no side-effect rollback or resource-bound claim",
+  "checks": {
+    "typecheck": "PASS explicit SDK, Swift6 strict complete warnings-as-errors",
+    "executable": "8/8 PASS",
+    "sealed_hashes": "24 inputs and 24 oracles PASS; text not emitted",
+    "benefit": "NOT_MEASURED",
+    "example_parity": "PASS exact PublicationOwner section",
+    "links": "PASS target resolution; canonical evidence copy required",
+    "candidate_pin": "35 hashes captured, not frozen or adopted"
+  },
+  "source_sha256": "b3ff8d0ae6862684727fda088f0db268456358314136d1de07f510b3e1bee4c2",
+  "candidate_files": {
+    "COPY_ONLY_CONCURRENCY_ROUTE.md": "dbe7205b4c6ee786874023af492d67ada82ee8dad75711b5ccf141f860975ca8",
+    "CXL-01_CANCELLATION_PUBLICATION.md": "4f2a02cc43b2572cc7d420e4c174813dfc002cfca77b7d94f0a74a925f3d26b0",
+    "KNOWLEDGE_ROUTER.md": "74c62d2ce00f28dcf315452875d437b67d74702432dceff275d2dd0ef88e1160"
+  },
+  "omitted": [
+    "app builds",
+    "Simulator",
+    "network",
+    "holdout content access",
+    "new agents/MCP",
+    "iPad and physical device OMITTED_BY_USER"
+  ],
+  "semantic_review": {
+    "findings": "No known P0-P2; no unreported P3 in bounded module/fixture diff",
+    "reviewed": "Success/error/cancellation guards; ABA identity; old cleanup; current failure; terminal state; retention and resource limits explicitly bounded claims; routing authority; source/example parity",
+    "limits": "Curator sealed semantics delegated to curator receipt; root validates hashes/provenance only. No independent executable oracle validation or causal improvement claim."
+  }
+}

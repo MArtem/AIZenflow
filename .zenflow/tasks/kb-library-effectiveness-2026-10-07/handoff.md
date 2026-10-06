@@ -12,7 +12,7 @@
 
 Готово: план принят пользователем 2026-10-07; P0 identity/permissions и P1.1 content диагностика выполнены. Результаты: [baseline-permissions.json](baseline-permissions.json), [diagnosis-design.md](diagnosis-design.md). Польза системы ещё не измерена.
 
-Пользователь выбрал V2 и разрешил ровно одного куратора: `/root/p2_case_curator`, GPT-6.1 Sol/medium, fork none, до 60 минут, read-only sources/task evidence writes, без source/runtime/network/MCP/дочерних агентов. Он работает. Parent читает только curator public summary/manifest/development, НЕ sealed holdout tasks/answers. [Протокол](evaluation-protocol-draft.md) DRAFT_NOT_FROZEN; dataset/oracle/isolation ещё не приняты. Grant не включает новых executor/grader. После P5 возврат к P2.4; Frozen C только P6.3.
+Пользователь выбрал V2 и разрешил ровно одного куратора: `/root/p2_case_curator`, GPT-6.1 Sol/medium, fork none, до 60 минут, read-only sources/task evidence writes, без source/runtime/network/MCP/дочерних агентов. Он завершён: 12 development + 12 sealed holdout кандидатов; hashes проверены без раскрытия sealed text. Parent читает только curator public summary/manifest/development, НЕ sealed holdout tasks/answers. [Протокол](evaluation-protocol-draft.md) DRAFT_NOT_FROZEN; dataset/oracle/isolation ещё не приняты. Grant не включает новых executor/grader. После P5 возврат к P2.4; Frozen C только P6.3.
 
 Новая authority: «комить все правки и что найдешь незакомиченное, по ходу разработки, что бы ничего не потерять». Четыре Ghibli dirty файла сохранены `9e647491fa7d39d58971dadf86c9faa5c6a08e43` на `codex/preserve-ghibli-favorites-20261007`; original source bytes сохранены, checkout чистый. Origin — upstream gahntpo; коммит локальный. Evaluation baseline `524c4348…` остаётся восстановимым. Этот preservation не является новой реализацией V2 или runtime PASS.
 
@@ -25,3 +25,15 @@ Permissions: новая подготовка плана не выдаёт blanke
 История: new-task-be0b закрыт решением NT-BE0B-CLOSE-02; Library OPTIONAL_EXPERIMENTAL, benefit не доказан. Новая программа не переписывает прошлую. При планировании AIZenflow baseline был `159984d5f75981b842780686697a3fdbcc7cbb8f`, canonical docs — `75def0809f41647acc5a0f92447f89c40ea1a5cc`; это исторические SHA до публикации нового плана, текущее состояние нужно проверить. Main освобождена из сервисного aizenflow-pr11-merge; не занимать её там повторно.
 
 Основной риск: снова наращивать документы/пилоты без изменения outcomes. Проверять перед каждым блоком связь с R-ID, наблюдаемый механизм и условие опровержения. Две итерации на гипотезу, затем решение; бюджет конечен. Предложенные 110 попыток и пороги Q/E не являются уже принятыми обязательствами.
+
+## CXL-01 boundary, 2026-10-07
+
+Пользователь принял блок: один модуль + entry/router, максимум три active Markdown files; один
+Swift fixture, type-check + 8 local deterministic scenarios; 30–60 минут. Без app source, app
+builds/Simulator/network/installations. Это НЕ восемь delivery attempts. Куратор завершён: 12+12
+candidate cases, 3 clean controls в каждом split; public и 24 input/oracle hashes PASS без раскрытия
+sealed text. P2 остаётся PARTIAL_NOT_FROZEN; eligibility/oracle/isolation/future executor gates открыты.
+CXL-01: 8/8 local model PASS; candidate, benefit NOT_MEASURED. [Evidence](cxl01-evidence/README.md).
+Новый module/router не скопирован в active app payloads и не меняет их pins/modes. Следующий этап:
+проверить доставку candidate C и определить ограниченный fresh-context A/C pilot; новые execution
+workers/agents и их бюджет требуют конкретного решения, не следуют из Swift grant.

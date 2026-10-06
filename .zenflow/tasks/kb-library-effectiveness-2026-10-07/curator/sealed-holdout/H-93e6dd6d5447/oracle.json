@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "case_id": "H-93e6dd6d5447",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "N/A",
+  "acceptable_alternatives": [
+    "Stored let defaults with defaulted initializer, equivalent dependency injection with unchanged signature behavior."
+  ],
+  "mandatory_semantic_checks": [
+    "Default construction unchanged.",
+    "Injected load then save do not touch standard.",
+    "Same exact stored key for old records.",
+    "Absent/wrong-type => empty, duplicates deduplicate.",
+    "No source/code copies or UserDefaults writes now."
+  ],
+  "correct_outcome": {
+    "outcome": "Both methods use same injected defaults, key unchanged and default is standard.",
+    "reasoning": "Original method hardcodes UserDefaults.standard twice; uniform injected ownership preserves default behavior and enables isolated caller use."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Inject only load or alter key to a new version.",
+    "reasoning": "Save/load disagree on owner or old favorites are silently lost."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation.",
+    "Permission/provenance unresolved: no root LICENSE in committed tree; do not publish source or freeze distributed Ghibli cases."
+  ]
+}

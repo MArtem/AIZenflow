@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-C01",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "UNKNOWN for full real-code recall; only explicitly annotated contract assertions are gradable",
+  "acceptable_alternatives": [
+    "A scoped finding on CancelBag cancellation plus a separately qualified publication risk; no runtime claim."
+  ],
+  "mandatory_semantic_checks": [
+    "Empty bag no-op.",
+    "One retained generic Cancellable must receive cancel for a contract-compliant implementation.",
+    "Success and generic-error publication sites identified; no complete app race recall claim."
+  ],
+  "correct_outcome": {
+    "outcome": "Identify cancellation contract failure and publication possibilities, with exact source evidence and limited reachability.",
+    "reasoning": "cancel removes the array without invoking the protocol method; Task is retroactively Cancellable and retained handles need not cancel on release. load writes on success/catch without checking current owner."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Declare all cancellables cancelled because removeAll destroys handles, or assert a proven UI crash.",
+    "reasoning": "Protocol consumers may retain members; handle disposal cannot establish a generic cancellation guarantee, and no concrete UI schedule is proved."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation."
+  ]
+}

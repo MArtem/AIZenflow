@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-G02",
+  "split": "development",
+  "project_family": "Ghibli",
+  "task_type": "review",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "real_code_scoped",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/GhibliSwiftUIApp",
+    "commit": "524c434882dcc22d95b1c5781f295d8fbfe0ced6",
+    "files": [
+      {
+        "path": "GhibliSwiftUIApp/Networking/SearchFilmsViewModel.swift",
+        "git_blob_sha": "94ef5b1a125fe22cbb745375c0c23e252f5c6f6d",
+        "sha256": "b921d2b52bf2d7007a8b1b1ac369caa5ff6126152f92dd57a0866ac7592a8699",
+        "bytes": 1353
+      },
+      {
+        "path": "GhibliSwiftUIApp/Networking/Services/GhibliService.swift",
+        "git_blob_sha": "c67860083d776aabf59bbedb55cc78b0bd228dd1",
+        "sha256": "6ce3178ac36a516e850acd09ea7a6bfd2827fac5f005b1fd89dd0b2f1fc824ea",
+        "bytes": 328
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "UNKNOWN_NO_ROOT_LICENSE_NO_SOURCE_COPIES",
+  "executor_prompt": "Review only cancellation during the 500ms debounce, before service invocation, for one isolated fetch. Explain whether swallowing sleep error necessarily permits a cancelled task to reach the service. Exclude publication after service from this case; make no patch absent a demonstrated debounce contract violation.",
+  "contract": {
+    "behavior": [
+      "A cancelled debounce must not invoke service.",
+      "No verdict on post-service publication or replacement behavior in this scoped case."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [],
+      "consumer": "The debounce segment only, before service.searchFilm"
+    },
+    "state_time": [
+      "Cancel during sleep or before the immediately following cancellation guard."
+    ],
+    "input_resource_envelope": [
+      "Single invocation, nonempty text; zero previously active service calls."
+    ],
+    "failure_semantics": [
+      "Sleep cancellation may be swallowed only if subsequent guard prevents service execution."
+    ]
+  },
+  "allowed_change_paths": [],
+  "allowed_read_paths": [
+    "GhibliSwiftUIApp/Networking/SearchFilmsViewModel.swift",
+    "GhibliSwiftUIApp/Networking/Services/GhibliService.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

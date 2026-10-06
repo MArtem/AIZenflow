@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "case_id": "H-a2dd3511e6fa",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": true,
+  "review_recall": "UNKNOWN for full real-code recall; only explicitly annotated contract assertions are gradable",
+  "acceptable_alternatives": [
+    "Scoped no-defect review of ordering/options with runtime limitations."
+  ],
+  "mandatory_semantic_checks": [
+    "Encoding error prevents write.",
+    "AtomicWrite present.",
+    "Write error propagates.",
+    "Interruption/backup/device results NOT_RUN; unrelated copy method excluded."
+  ],
+  "correct_outcome": {
+    "outcome": "Confirm encode-before-write and atomicWrite option; reserve interruption/durability outcomes as unrun.",
+    "reasoning": "write receives data only after successful JSONEncoder.encode and is throwing; option appears directly in the write call."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Claim encode failure writes partial JSON or that atomicWrite proves power-loss safety/PASS.",
+    "reasoning": "No data write call is reached on encoding error; the source cannot establish unperformed runtime or durable storage guarantees."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation."
+  ]
+}

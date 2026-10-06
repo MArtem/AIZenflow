@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-G04",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "UNKNOWN for full real-code recall; only explicitly annotated contract assertions are gradable",
+  "acceptable_alternatives": [
+    "Exact mapping table with qualification; finding only when a named contract violation is proved."
+  ],
+  "mandatory_semantic_checks": [
+    "Status bounds inclusive 200...299.",
+    "Non-HTTP => invalidResponse.",
+    "Decode/URL errors distinguished.",
+    "No claim of current-screen lifetime evidence."
+  ],
+  "correct_outcome": {
+    "outcome": "Accurately map current branches and qualify cancelled transport as URLError mapping rather than always CancellationError.",
+    "reasoning": "Typed catch clauses wrap only DecodingError and URLError; response guard throws invalidResponse outside those types."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Claim every cancellation throws CancellationError or every thrown error is converted to invalidResponse.",
+    "reasoning": "URLError.cancelled matches networkError catch, and unrecognized Error has no catch-all transformation."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation.",
+    "Permission/provenance unresolved: no root LICENSE in committed tree; do not publish source or freeze distributed Ghibli cases."
+  ]
+}

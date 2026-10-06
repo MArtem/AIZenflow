@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-G03",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "N/A",
+  "acceptable_alternatives": [
+    "Use Set.remove return to decide insert, or retain original if justified; no new abstractions."
+  ],
+  "mandatory_semantic_checks": [
+    "Present ID removes and saves once.",
+    "Absent ID inserts and saves once.",
+    "Two calls => two saves, initial membership restored.",
+    "No Task or cancellation counter added."
+  ],
+  "correct_outcome": {
+    "outcome": "Same set transition and save sequencing using a simpler membership operation.",
+    "reasoning": "remove returning existing member and insert on absence implements symmetric difference with one element."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Save before mutation or early-return on removal without save.",
+    "reasoning": "Persistence receives old contents or omits one direction of toggle."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation.",
+    "Permission/provenance unresolved: no root LICENSE in committed tree; do not publish source or freeze distributed Ghibli cases."
+  ]
+}

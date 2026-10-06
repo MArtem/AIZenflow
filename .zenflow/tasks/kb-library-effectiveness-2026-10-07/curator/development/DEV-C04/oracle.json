@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-C04",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "N/A",
+  "acceptable_alternatives": [
+    "Use throwing optional binding or equivalent explicit branching; preserve forceReload behavior."
+  ],
+  "mandatory_semantic_checks": [
+    "Force=false value: zero web/store calls.",
+    "Force=false read error: no web/store; original error.",
+    "Force=true skips initial read.",
+    "Post-store nil => ValueIsMissingError; post-store error unchanged.",
+    "Network/store errors prevent later false success."
+  ],
+  "correct_outcome": {
+    "outcome": "Replace only the error-swallowing read paths with throwing reads and preserve missing-value handling.",
+    "reasoning": "try? currently merges errors into cache absence; throwing reads separate nil from failure at both boundaries."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Change only the first read or return fetched API details directly on failed store.",
+    "reasoning": "A post-store read error still becomes ValueIsMissingError, or producer/consumer types and persistence authority no longer agree."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation."
+  ]
+}

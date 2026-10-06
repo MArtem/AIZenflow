@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "case_id": "H-8ad5865937c4",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "N/A",
+  "acceptable_alternatives": [
+    "Guard response with existing APIError cases; equivalent precise branching without new transport layer."
+  ],
+  "mandatory_semantic_checks": [
+    "404 with valid image => httpCode404 before decoding.",
+    "NonHTTP => unexpectedResponse.",
+    "200/299 valid image success; 199/300 reject.",
+    "200 invalid bytes => imageDeserialization.",
+    "No new endpoint/retry/cache/actor."
+  ],
+  "correct_outcome": {
+    "outcome": "Read response, reject bad type/status before data/UIImage, preserve successful decode.",
+    "reasoning": "Original destructuring discards response and can accept HTTP404 with valid image bytes; task contract independently specifies response authority."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Decode first and only reject if UIImage returns nil, or accept 300.",
+    "reasoning": "A valid image body with 404 can be wrongly accepted; 300 lies outside explicit accepted range."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation."
+  ]
+}

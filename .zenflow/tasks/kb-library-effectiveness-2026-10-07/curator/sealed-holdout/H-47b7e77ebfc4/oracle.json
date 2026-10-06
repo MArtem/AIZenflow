@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "case_id": "H-47b7e77ebfc4",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": true,
+  "review_recall": "UNKNOWN for full real-code recall; only explicitly annotated contract assertions are gradable",
+  "acceptable_alternatives": [
+    "No-op guard proof with assumptions; separate default-isolation/typecheck evidence unknown."
+  ],
+  "mandatory_semantic_checks": [
+    "First invocation sets loading.",
+    "Second loading call returns with no service invocation.",
+    "Error and loaded state allow retry.",
+    "No blanket claim of screen-lifetime cancellation correctness."
+  ],
+  "correct_outcome": {
+    "outcome": "Guard rejects overlap because loading has isLoading true and error nil; later terminal state permits fetch.",
+    "reasoning": "No await intervenes between guard and setting loading; LoadingState accessors make the boolean clause false only in loading."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Treat the OR guard as admitting overlap because state.error is nonnil during loading, or demand search identity logic.",
+    "reasoning": "LoadingState.loading error accessor returns nil; no semantic query replacement is required."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation.",
+    "Permission/provenance unresolved: no root LICENSE in committed tree; do not publish source or freeze distributed Ghibli cases."
+  ]
+}

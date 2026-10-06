@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-F04",
+  "split": "development",
+  "project_family": "Firefox",
+  "task_type": "constrained_fix",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "explicit_new_contract_on_real_code",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+    "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+    "files": [
+      {
+        "path": "BrowserKit/Sources/TabDataStore/TabSessionStore.swift",
+        "git_blob_sha": "775ffbc799859709aa55e28d9a631868445268a1",
+        "sha256": "7faf457af650a93824e19797fbe85b27fdc9fbd3d38875ca69820d6a1610fecb",
+        "bytes": 3823
+      },
+      {
+        "path": "BrowserKit/Sources/TabDataStore/TabFileManager.swift",
+        "git_blob_sha": "7d1955b19d910f96fd87d385f314773a595d2895",
+        "sha256": "3b8391dab7e1cebe772139837ac956e5833269cb054e1346ab8da10923f84564",
+        "bytes": 6678
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "LICENSE_IDENTIFIED_EXECUTION_GRANT_PENDING",
+  "executor_prompt": "Adopt cooperative best-effort cancellation for deleteUnusedTabSessionData. A task cancelled before a removal iteration must make no further removeFileAt calls. Already completed removals remain completed; API stays nonthrowing. Preserve filename/keeping semantics and logging ownership, with no new actor/protocol or rollback.",
+  "contract": {
+    "behavior": [
+      "Already-cancelled invocation removes no files.",
+      "Cancellation observable at each iteration boundary stops later removal attempts.",
+      "Already deleted files are not restored; noncancelled selection unchanged."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [
+        "BrowserKit/Sources/TabDataStore/TabSessionStore.swift"
+      ],
+      "consumer": "deleteUnusedTabSessionData cancellation between remove attempts"
+    },
+    "state_time": [
+      "Cancellation can be requested from a different task between file removals; synchronous remove itself cannot be interrupted by this API."
+    ],
+    "input_resource_envelope": [
+      "Finite directory snapshot; zero/one/many eligible and ineligible entries."
+    ],
+    "failure_semantics": [
+      "Return without false rollback or success durability claim; preserve nonthrowing API."
+    ]
+  },
+  "allowed_change_paths": [
+    "BrowserKit/Sources/TabDataStore/TabSessionStore.swift"
+  ],
+  "allowed_read_paths": [
+    "BrowserKit/Sources/TabDataStore/TabSessionStore.swift",
+    "BrowserKit/Sources/TabDataStore/TabFileManager.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

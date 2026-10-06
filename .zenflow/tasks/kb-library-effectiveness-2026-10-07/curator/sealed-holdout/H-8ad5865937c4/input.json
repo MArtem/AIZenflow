@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "case_id": "H-8ad5865937c4",
+  "split": "holdout",
+  "project_family": "Countries",
+  "task_type": "constrained_fix",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "explicit_new_contract_on_real_code",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+    "files": [
+      {
+        "path": "CountriesSwiftUI/Repositories/WebAPI/ImagesWebRepository.swift",
+        "git_blob_sha": "bbc05f2b3922d27041c55aa1081ea7ce04557210",
+        "sha256": "af436172243e9f191af0dfa671453f07255efa393c99a79497fc51345a9517cf",
+        "bytes": 816
+      },
+      {
+        "path": "CountriesSwiftUI/Repositories/WebAPI/WebRepository.swift",
+        "git_blob_sha": "cdd723504920028dd6525a3d8cde18d629ed0b6a",
+        "sha256": "6ce73573603161bd95391a1a6390b487c440c6ea93f6d634fa3774722fee50ea",
+        "bytes": 2324
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "LICENSE_IDENTIFIED_EXECUTION_GRANT_PENDING",
+  "executor_prompt": "Adopt response validation for image loads: only HTTP 200..<300 may be decoded into UIImage. Non-HTTP response throws APIError.unexpectedResponse, non-success HTTP throws APIError.httpCode(status), invalid image at successful status remains imageDeserialization. Preserve signatures, URLSession.download path and networking call count.",
+  "contract": {
+    "behavior": [
+      "Reject a valid-looking image returned with HTTP error status.",
+      "Validate response before reading/decoding image bytes.",
+      "Keep existing successful valid-image and invalid-image outcomes."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [
+        "CountriesSwiftUI/Repositories/WebAPI/ImagesWebRepository.swift"
+      ],
+      "consumer": "download response validation before image deserialization"
+    },
+    "state_time": [
+      "One download -> response gate -> local data read -> image decoding; no post-return generation policy requested."
+    ],
+    "input_resource_envelope": [
+      "HTTP199/200/299/300/404/500, nonHTTP, valid/invalid body and download failure."
+    ],
+    "failure_semantics": [
+      "Download/read failures propagate; no fake image/default success."
+    ]
+  },
+  "allowed_change_paths": [
+    "CountriesSwiftUI/Repositories/WebAPI/ImagesWebRepository.swift"
+  ],
+  "allowed_read_paths": [
+    "CountriesSwiftUI/Repositories/WebAPI/ImagesWebRepository.swift",
+    "CountriesSwiftUI/Repositories/WebAPI/WebRepository.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

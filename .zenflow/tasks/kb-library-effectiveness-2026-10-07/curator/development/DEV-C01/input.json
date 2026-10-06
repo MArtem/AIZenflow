@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-C01",
+  "split": "development",
+  "project_family": "Countries",
+  "task_type": "review",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "real_code_scoped",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+    "files": [
+      {
+        "path": "CountriesSwiftUI/Utilities/CancelBag.swift",
+        "git_blob_sha": "5a8ea025854a8d73491d37eebb371b17e58cb99d",
+        "sha256": "4bb77e9a8f941f5196131a7ef1c3c3ec59adb7c05a14c3e4d44a42408b358aef",
+        "bytes": 738
+      },
+      {
+        "path": "CountriesSwiftUI/Utilities/Loadable.swift",
+        "git_blob_sha": "42232f948fe5ca86755f922dc8ecfc07b4c8d151",
+        "sha256": "0b0a4fd12ff944addbab221d1ccaa48fe5f18e51b995c5635c5399f73ef573e8",
+        "bytes": 3549
+      },
+      {
+        "path": "CountriesSwiftUI/Interactors/ImagesInteractor.swift",
+        "git_blob_sha": "4857fac37f609657484ce160edd823a058868172",
+        "sha256": "2b627ca2ff42f330f3222fb4d4d994262fff33575f93f50064ce3c9f75c1b979",
+        "bytes": 866
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "LICENSE_IDENTIFIED_EXECUTION_GRANT_PENDING",
+  "executor_prompt": "Review cancellation ownership for the three named files. Report what cancelLoading guarantees for stored cancellables and what can publish after an async resource finishes. Separate a demonstrated abstraction-level failure from an unverified current-screen race. Do not fix code.",
+  "contract": {
+    "behavior": [
+      "A caller requesting cancellation must invoke cancel on each stored generic Cancellable; merely discarding a handle is not a universal cancellation contract.",
+      "Review claims must distinguish API reachability from demonstrated app UX."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [],
+      "consumer": "CancelBag Cancellable members, Binding Loadable publication, nonnil image load"
+    },
+    "state_time": [
+      "Task handle lifetime does not itself prove cooperative cancellation.",
+      "A resource may throw or return after cancelLoading; inspect both publications."
+    ],
+    "input_resource_envelope": [
+      "Any finite bag, including empty and externally retained members; no producer replacement requirement beyond the given API."
+    ],
+    "failure_semantics": [
+      "Cancellation request is distinct from producer completion; no assertion that a currently used screen definitely races."
+    ]
+  },
+  "allowed_change_paths": [],
+  "allowed_read_paths": [
+    "CountriesSwiftUI/Utilities/CancelBag.swift",
+    "CountriesSwiftUI/Utilities/Loadable.swift",
+    "CountriesSwiftUI/Interactors/ImagesInteractor.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

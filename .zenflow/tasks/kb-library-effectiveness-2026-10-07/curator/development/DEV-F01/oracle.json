@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "case_id": "DEV-F01",
+  "evaluator_only": true,
+  "annotation_scope": "SCOPED_NOT_FULL_RECALL",
+  "clean_control": false,
+  "review_recall": "UNKNOWN for full real-code recall; only explicitly annotated contract assertions are gradable",
+  "acceptable_alternatives": [
+    "Evidence-scoped candidate with counterexample assumption; no finding if absent route failure reachability is accurately justified."
+  ],
+  "mandatory_semantic_checks": [
+    "CancellationError path only logs.",
+    "Success after stopped awaited route checks cancellation.",
+    "Generic throw after stop candidate traced with explicit assumption.",
+    "PageRoute broad catch limits producer reachability; full recall UNKNOWN."
+  ],
+  "correct_outcome": {
+    "outcome": "Identify generic catch lacks cancellation guard while success has pre/post checks; label concrete SDK consequence UNKNOWN.",
+    "reasoning": "stop removes handle but running closure catch can call didFail; PageRoute catches many extractor/render errors as replies, so not all assumed generic failures reach handler."
+  },
+  "plausible_incorrect_outcome": {
+    "outcome": "Claim all cancelled callbacks are prevented by the success guard, or report a reproduced crash.",
+    "reasoning": "Generic catch bypasses that guard; reproduction and exact SDK callback contract were not validated."
+  },
+  "oracle_validation": {
+    "method": "READ_ONLY_REASONING_AT_EXACT_SOURCE_SHA",
+    "status": "REASONING_CHECKED_RUNTIME_NOT_RUN",
+    "correct": "Each stated transition satisfies the contract under its named assumptions; accept only if submitted outcome actually demonstrates these checks. This is not validation of an executable patch.",
+    "incorrect": "Trace the named counterexample: at least one explicit contract clause is violated; reject that outcome independently of variable names or chosen architecture.",
+    "runtime": "NOT_RUN",
+    "typecheck": "NOT_RUN",
+    "independent_second_grader": "NOT_RUN"
+  },
+  "adjudication": "Require all mandatory checks and scope compliance; unproven reachability/API guarantees remain UNKNOWN, not TP or FP automatically. A runtime-dependent success gate remains open. Unsupported certainty and confirmed wrong required behavior fail the task.",
+  "fixture_status": "PROPOSAL_ONLY_NO_SOURCE_EDIT_NO_TEST_WRITING",
+  "blocking_dependencies": [
+    "Execution isolation, permitted check envelope, timeout and blind grading protocol require approval/validation."
+  ]
+}

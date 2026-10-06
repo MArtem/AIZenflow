@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "case_id": "H-2dee4d977456",
+  "split": "holdout",
+  "project_family": "Countries",
+  "task_type": "small_refactor",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "real_code_scoped",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/clean-architecture-swiftui",
+    "commit": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+    "files": [
+      {
+        "path": "CountriesSwiftUI/Repositories/Models/Country.swift",
+        "git_blob_sha": "3c63775c0f105533fabda24cae6c99d93387c69e",
+        "sha256": "85e5f84e66a844ff83ffd6367d55101d18dece2c44ad85b1a846aa8a94d4b9d8",
+        "bytes": 2626
+      },
+      {
+        "path": "CountriesSwiftUI/Utilities/Helpers.swift",
+        "git_blob_sha": "4f13371ebb43c4504e21e910fd86b23579bcc3dd",
+        "sha256": "6667d6ea708200a9ceec4cfbea7963e29ab509130df6b91a3ae2e4c7ec9258e9",
+        "bytes": 1363
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "LICENSE_IDENTIFIED_EXECUTION_GRANT_PENDING",
+  "executor_prompt": "Extract the flag URL conversion within ApiModel.Country into a small private pure helper if this improves the decoder readability. Preserve all decode requirements and exactly the existing alpha2Code interpretation: any two-character string uses lowercased flagcdn URL; other strings use URL(string:). A missing or non-string flag becomes nil. Do not tighten validation or add concurrency.",
+  "contract": {
+    "behavior": [
+      "All other required decoded fields retain their behavior.",
+      "Flag string interpretation, optional decode and exact generated URL remain equivalent."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [
+        "CountriesSwiftUI/Repositories/Models/Country.swift"
+      ],
+      "consumer": "ApiModel.Country decoding flag from alpha2Code"
+    },
+    "state_time": [
+      "Synchronous pure conversion; neither cancellation nor producer replacement exists here."
+    ],
+    "input_resource_envelope": [
+      "Missing/null/non-string flag; length0/1/2/3, mixed-case, existing URL string; required alpha3Code failure."
+    ],
+    "failure_semantics": [
+      "Required field errors still throw; optional flag decode failures still yield nil."
+    ]
+  },
+  "allowed_change_paths": [
+    "CountriesSwiftUI/Repositories/Models/Country.swift"
+  ],
+  "allowed_read_paths": [
+    "CountriesSwiftUI/Repositories/Models/Country.swift",
+    "CountriesSwiftUI/Utilities/Helpers.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

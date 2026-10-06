@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "case_id": "H-0dde77dc75e3",
+  "split": "holdout",
+  "project_family": "Ghibli",
+  "task_type": "constrained_fix",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "explicit_new_contract_on_real_code",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/GhibliSwiftUIApp",
+    "commit": "524c434882dcc22d95b1c5781f295d8fbfe0ced6",
+    "files": [
+      {
+        "path": "GhibliSwiftUIApp/Networking/FilmDetailViewModel.swift",
+        "git_blob_sha": "b1a103547ca13b227ec4fdfb509f4e3964e4ae58",
+        "sha256": "4cbab91af619fdeea4e41a5fd17a86e73e5c840ff680d4806e1c149affa93b97",
+        "bytes": 1809
+      },
+      {
+        "path": "GhibliSwiftUIApp/Networking/Services/GhibliService.swift",
+        "git_blob_sha": "c67860083d776aabf59bbedb55cc78b0bd228dd1",
+        "sha256": "6ce3178ac36a516e850acd09ea7a6bfd2827fac5f005b1fd89dd0b2f1fc824ea",
+        "bytes": 328
+      },
+      {
+        "path": "GhibliSwiftUIApp/Models/Person.swift",
+        "git_blob_sha": "bcfab2fd41bad92c188fb5908f8858dc383fdfc7",
+        "sha256": "5559c79e4a6a9cf19a206ddc61a97503d7bc797a2b5ccd29eac6d9f849443ea3",
+        "bytes": 888
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "UNKNOWN_NO_ROOT_LICENSE_NO_SOURCE_COPIES",
+  "executor_prompt": "Adopt a bounded fan-out contract for a single accepted detail fetch: at most three person requests in flight and the final array must follow film.people order, including repeated URL entries. Preserve the current overlap rejection guard and all-or-nothing error display; empty input becomes loaded empty. Do not add a new package or alter service APIs. Proposal only until execution/typecheck grant.",
+  "contract": {
+    "behavior": [
+      "Concurrent service calls <=3 for any finite input.",
+      "Each input entry appears in its input position, including duplicates.",
+      "No partial loaded array when any child fails."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [
+        "GhibliSwiftUIApp/Networking/FilmDetailViewModel.swift"
+      ],
+      "consumer": "Character fetch fan-out and final array publication"
+    },
+    "state_time": [
+      "Single accepted invocation; overlapping calls still rejected.",
+      "Child completions can be arbitrary order; cancelled group may wait for uncooperative child."
+    ],
+    "input_resource_envelope": [
+      "0/1/3/4/large finite input, duplicate URLs, out-of-order completion.",
+      "No new bound on input count or new retries."
+    ],
+    "failure_semantics": [
+      "Preserve current error strings/APIError mapping; failure cancels outstanding group children but does not promise physical termination."
+    ]
+  },
+  "allowed_change_paths": [
+    "GhibliSwiftUIApp/Networking/FilmDetailViewModel.swift"
+  ],
+  "allowed_read_paths": [
+    "GhibliSwiftUIApp/Networking/FilmDetailViewModel.swift",
+    "GhibliSwiftUIApp/Networking/Services/GhibliService.swift",
+    "GhibliSwiftUIApp/Models/Person.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

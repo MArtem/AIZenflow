@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "case_id": "H-8a906a128d42",
+  "split": "holdout",
+  "project_family": "Ghibli",
+  "task_type": "review",
+  "readiness": "CANDIDATE_NOT_FROZEN",
+  "origin": "real_code_scoped",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/GhibliSwiftUIApp",
+    "commit": "524c434882dcc22d95b1c5781f295d8fbfe0ced6",
+    "files": [
+      {
+        "path": "GhibliSwiftUIApp/Models/Film.swift",
+        "git_blob_sha": "06685ab89bc3bfcf36a9fdbbc16bcbf8323bf97a",
+        "sha256": "241a35c737876672d4b91540ded7a765b7ff9822fd7f83756d549be8f3269b66",
+        "bytes": 3457
+      },
+      {
+        "path": "GhibliSwiftUIApp/Models/Person.swift",
+        "git_blob_sha": "bcfab2fd41bad92c188fb5908f8858dc383fdfc7",
+        "sha256": "5559c79e4a6a9cf19a206ddc61a97503d7bc797a2b5ccd29eac6d9f849443ea3",
+        "bytes": 888
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "shared_protocol": "../../evaluation-protocol.json",
+  "eligibility": "UNKNOWN_NO_ROOT_LICENSE_NO_SOURCE_COPIES",
+  "executor_prompt": "Review only DTO decoding for film/person field-name mappings and required values. Contract: remote string-valued fields stay strings, absent required fields fail, unrecognized extra keys are ignored by synthesized decoding. Do not change isolation annotations or preview/playground code and do not claim network/runtime evidence.",
+  "contract": {
+    "behavior": [
+      "snake_case film/person keys map to declared stored fields.",
+      "Required stored properties are not silently defaulted.",
+      "Extra JSON keys do not require a schema migration under this contract."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [],
+      "consumer": "Codable field-name and required-field semantics, previews excluded"
+    },
+    "state_time": [
+      "Pure decoding; no async owner publication inspected."
+    ],
+    "input_resource_envelope": [
+      "All required values present, omitted required value, extra key, number where string expected."
+    ],
+    "failure_semantics": [
+      "Decode error should remain decode failure; no fabricated partial DTO."
+    ]
+  },
+  "allowed_change_paths": [],
+  "allowed_read_paths": [
+    "GhibliSwiftUIApp/Models/Film.swift",
+    "GhibliSwiftUIApp/Models/Person.swift"
+  ],
+  "forbidden_changes": [
+    "Original project checkout mutations; only a separately authorized isolated candidate may be edited.",
+    "Changes outside named write paths, test files, dependencies, project/build settings, signing, network endpoints, secret/config/host files.",
+    "Unsafe concurrency suppressions, fake isolation, generic dispatch APIs, new architecture layers, unrelated cleanup.",
+    "Reading any evaluator oracle, another attempt, development answers during holdout, or sealed siblings.",
+    "Builds/tests/runtime/network/MCP/agents/Git mutations without a new explicit execution grant."
+  ],
+  "required_output": "review: scoped findings with evidence, severity, reachability and uncertainty; implementation: one bounded proposed diff plus contract traces and limitations; refactor: diff plus equivalence argument. See shared protocol.",
+  "checks_allowed_now": [
+    "Source/call-site reasoning over named exact Git blobs; no runtime."
+  ],
+  "future_checks": "The oracle lists candidate semantic probes for a separately authorized grader; no executable test fixture is created by this preparation.",
+  "runtime_status": "NOT_RUN",
+  "execution_budget": "P2.4_DECISION_PENDING; equal task-type timeout for A/C must be fixed before attempts",
+  "source_copy_policy": "References and hashes only; no upstream source copied into this case."
+}

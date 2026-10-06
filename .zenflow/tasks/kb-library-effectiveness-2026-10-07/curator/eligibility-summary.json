@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "status": "P2_PARTIAL_CANDIDATES_PREPARED_NOT_FROZEN",
+  "model": "GPT-6.1 Sol/medium",
+  "mode": "эконом",
+  "created_at": "2026-10-06T22:32:17.003204+00:00",
+  "counts": {
+    "development": 12,
+    "holdout": 12,
+    "development_clean_controls": 3,
+    "holdout_clean_controls": 3,
+    "project_families": 3,
+    "per_family_per_split": 4,
+    "per_split_task_types": {
+      "review": 6,
+      "constrained_fix": 3,
+      "small_refactor": 3
+    }
+  },
+  "eligibility": {
+    "Countries": {
+      "baseline": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+      "head_observed": "9eca97b8cfff96a14084b564b1fefd949c93d232",
+      "tracked_dirty_observed": false,
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "license_sha256": "96d567c22c145707eef4202619d170470b987b7abab987944670bfd88f27380b",
+      "source_use": "LOCAL_PREPARATION_CANDIDATE; preserve MIT notice on future distributed source",
+      "runtime": "NOT_RUN",
+      "root_nested_tracked_agents": []
+    },
+    "Ghibli": {
+      "baseline": "524c434882dcc22d95b1c5781f295d8fbfe0ced6",
+      "head_observed": "9e647491fa7d39d58971dadf86c9faa5c6a08e43",
+      "tracked_dirty_observed": false,
+      "read_source": "baseline Git blobs only",
+      "license": "UNKNOWN root LICENSE absent",
+      "source_use": "AUTHORIZED_LOCAL_READ_ONLY_PREPARATION; NO_SOURCE_COPIES; DISTRIBUTED_FREEZE_BLOCKED",
+      "provenance_permission": "UNKNOWN",
+      "runtime": "NOT_RUN",
+      "root_nested_tracked_agents": [],
+      "bounded_resolution": "Obtain explicit provenance/rights for local isolated evaluation before freeze; else keep 8 Ghibli cases quarantined and create a separately approved independently authored or licensed replacement family before new dataset version. Do not silently substitute Countries/Firefox duplicates."
+    },
+    "Firefox": {
+      "baseline": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "head_observed": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "tracked_dirty_observed": false,
+      "license": "MPL-2.0",
+      "license_path": "LICENSE",
+      "license_sha256": "60222c28c1a7f6a92c7df98e5c5f4459e624e6e285e0b9b94467af5f6ab3343d",
+      "source_use": "LOCAL_PREPARATION_CANDIDATE; preserve MPL source/header obligations for future distributed modifications",
+      "runtime": "NOT_RUN",
+      "root_nested_tracked_agents": [
+        "AGENTS.md"
+      ],
+      "upstream_commands": "Read; not authority for runtime/tests/install."
+    }
+  },
+  "content_review_receipt": {
+    "reviewed": "24 input/oracle pairs by curator, one authored pass plus structural check; no independent executable validation",
+    "baseline_bytes": "Each source file recorded Git blob SHA + SHA256 + length from exact committed SHA; no original source modifications or copies. Ghibli preservation HEAD never used as input.",
+    "correct_reasoning_outcomes_checked": 24,
+    "plausible_incorrect_reasoning_outcomes_checked": 24,
+    "method": "Source-derived state/order/error/branch analysis against explicit contracts; review reachability uncertainty and clean-control boundaries stated per oracle.",
+    "deterministic_oracle_runtime": "NOT_RUN",
+    "typecheck_build": "NOT_RUN",
+    "full_real_code_recall": "UNKNOWN",
+    "scope_findings": "No known P0-P2 in authored preparation after content pass; this is curator self-review, not independent/runtime proof. Protocol and eligibility gaps remain blocking for freeze/execution.",
+    "independence": "Single fresh-context independent curator; parent may access development/public metadata, never holdout bodies/oracles. Holdout uses separate mechanisms/boundaries, not development defects renamed; no claim of statistical independence among related project tasks.",
+    "known_blockers": [
+      "Ghibli permission/provenance UNKNOWN.",
+      "No executable correct/wrong patch validation; runtime and type checks NOT_RUN.",
+      "Isolation/payload-separation pilots NOT_RUN.",
+      "Task-type limits, future tool/check grants, calibrated budget and final C version pending.",
+      "24 cases fulfill candidate counts, not P2 accepted/frozen gates.",
+      "Separate 12 delivery-route questions were outside this curator source-case grant and remain parent-owned."
+    ],
+    "structural_check": {
+      "status": "PASS_STATIC_STRUCTURE_ONLY",
+      "artifact_pairs": 24,
+      "unique_source_blobs_rehashed": 34,
+      "json_parsing": "PASS",
+      "manifest_hashes": "PASS",
+      "scope_and_split_counts": "PASS",
+      "source_hashes": "PASS",
+      "meaning": "This static evidence check is not an app/test/oracle runtime execution.",
+      "errors": []
+    }
+  },
+  "artifact_boundary": "Only task-specific curator evidence; not canonical reusable norms, no route entry or active payload changed. Parent plan/handoff and draft untouched.",
+  "omissions": {
+    "source_edits": "NOT_PERFORMED",
+    "fixtures": "PROPOSAL_ONLY",
+    "test_writing": "NOT_PERFORMED",
+    "build_runtime_tests": "NOT_RUN",
+    "network_MCP_agents": "NOT_USED",
+    "Git_mutations": "NOT_PERFORMED",
+    "iPad_physical_actual_VoiceOver": "OMITTED_BY_USER"
+  },
+  "next_step": "Parent inspect development and opaque/public metadata only, resolve Ghibli eligibility and P2 oracle/execution gates within a separately bounded approval; do not use holdout for C development.",
+  "context_transfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}
