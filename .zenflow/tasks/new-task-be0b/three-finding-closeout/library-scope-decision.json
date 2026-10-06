@@ -1,0 +1,19 @@
+{
+  "id": "NT-BE0B-CLOSE-02",
+  "status": "ACCEPTED_BY_USER",
+  "human_instruction": "снять обязательный rollout Library и завершить цикл с экспериментальным статусом\nделай",
+  "finding": "LIB-004",
+  "finding_status": "CLOSED_BY_USER_SCOPE_DECISION",
+  "cycle_status": "COMPLETE_ACCEPTED_SCOPE",
+  "retired_criterion": "Mandatory general Library rollout/additive-value acceptance in this improvement cycle",
+  "retained_library_status": "OPTIONAL_EXPERIMENTAL; NOT_READY_FOR_GENERAL_RELEASE",
+  "benefit_and_cost": "NOT_ESTABLISHED; no verified-benefit/savings claim",
+  "historical_pair_verdict": "NOT_ACCEPTED_PARTIAL unchanged; time-gate failure retained",
+  "core": "W1-W5 historical verified scope retained",
+  "other_findings": {
+    "F01": "CLOSED_SCOPED",
+    "TC-L02": "CLOSED_SCOPED"
+  },
+  "authority_effect": "No new observer, runtime, source changes, adoption or mode transitions. Previously recorded project modes remain unchanged. Cycle-specific execution grants ended; publication of this decision remains authorized.",
+  "future_release": "Separate user-approved scope, evidence and permissions required; closure is not general release acceptance"
+}

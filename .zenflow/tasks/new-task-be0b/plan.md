@@ -1,21 +1,19 @@
-# new-task-be0b — three-finding closeout
+# new-task-be0b — COMPLETE_ACCEPTED_SCOPE
 
-2026-10-06; GPT-6.1 Sol/high, эконом. Human reopened all three findings, delegated project/task selection, then approved once the selected native QA and exactly two limited OFF/ON chats/MCP/isolated canary. Earlier scoped cycle closure and Git preservation remain immutable history in archive/git-preservation-2026-10-06. No general Library waiver follows from execution authority.
+2026-10-06; GPT-6.1 Sol/high, эконом. User explicitly chose to retire mandatory Library rollout and finish the cycle with experimental status. Decision NT-BE0B-CLOSE-02: three-finding-closeout/library-scope-decision.json. This closes an acceptance requirement by human scope decision; it does not establish Library benefit/cost or readiness for general release.
 
-- [x] Current canonical bootstrap/baseline/router/Level0 and task routes restored.
-- [x] F01 verifier fixed, canonical neutral mirror synchronized, full scoped final-source review.
-- [x] F01 CLOSED_SCOPED: existing native standard11/11 + strict11/11; eleven verifier control/negative cases PASS; original failure preserved.
-- [x] TC-L02 CLOSED_SCOPED: existing production footer key EN/RU, both declared host consumers; static receipt, no rendered-preview claim.
-- [x] Select fresh Firefox ReaderMode cache; freeze24 files + exact34-file approved Library pin.
-- [x] Exactly two read-only GPT-6.1 Sol/high chats executed under one-time grant; originals unchanged.
-- [x] Preserve frozen baseline JSON/commentary/final hash agreement and independent parent adjudication.
-- [x] Restore own isolated canary to OFF/AUTO; no other project transition.
-- [x] Pair adjudicated NOT_ACCEPTED_PARTIAL: OFF7m34s; ON46m06s exceeded20-minute bound, active Library guidance NOT_READ. Value/cost not established.
-- [x] Preserve scoped component findings without application source changes or expanded QA.
-- [x] Prepare concrete remaining decision in three-finding-closeout/library-decision-proposal.md.
-- [ ] Human decides whether to retire mandatory general Library acceptance or retain LIB-004 OPEN.
-- [x] Scoped fixes/evidence published: AIZenflow c8b16c3b6ccdd92704d791d4585807142f00f312; canonical ae35e915edc6f7ae3c8ed3a9d6a5bfe73396a138. Exact HEAD/remote and clean-state checks PASS; later bookkeeping receipt is external.
+- [x] Core W1–W5 completed in previously verified named scopes; historical receipts retained.
+- [x] F01 CLOSED_SCOPED: verifier repair, native standard11/11 + strict11/11 and eleven control/negative cases PASS.
+- [x] TC-L02 CLOSED_SCOPED: SideMenu preview uses existing production EN/RU key, both declared host consumers.
+- [x] Exactly2 approved read-only Firefox observations preserved; pair NOT_ACCEPTED_PARTIAL unchanged, ON exceeded20-minute bound and did not consult active Library.
+- [x] Original Firefox source/HEAD/tracked state preserved; own canary terminal OFF/AUTO; other project modes unchanged.
+- [x] Scoped fixes/evidence published and remote independently confirmed: implementation c8b16c3b6 and canonical ae35e915; bookkeeping a7ee8ba7c/a6d65ddd. QA inputs unchanged.
+- [x] Human selected option1: mandatory general Library rollout/value acceptance retired from this cycle.
+- [x] LIB-004 CLOSED_BY_USER_SCOPE_DECISION; retain OPTIONAL_EXPERIMENTAL / NOT_READY_FOR_GENERAL_RELEASE, no verified-benefit/savings claim.
+- [x] Current task/main plan/app-memory administrative status synchronized; historical negative evidence and omissions preserved.
 
-LIB-004 P2 OPEN; Library EXPERIMENTAL / NOT_READY_FOR_GENERAL_RELEASE. Core W1–W5 retains historical scope. No extra observer, repeat, new source development, runtime or other mode transition is authorized. Existing broad application/docs Git preservation authority applies to these useful fixes/receipts; upstream Mozilla/Ghibli repos are not push targets. All artifacts/cache inside .zenflow, shell login:false; iPad/physical checks excluded. Tchop/BG prior modes unchanged. Canonical and local task state synchronize at this boundary. Selected docs routes: Level0 + package/docs governance + localization + testing/evidence + fresh cache/concurrency/review observation. Context refreshed; no broad global baseline edits.
+No implementation or human decision remains in the accepted cycle. Finish this documentary publication under existing exact-SHA Git gates; its actual final commit/remote/clean receipt is external .zenflow/task-artifacts/new-task-be0b/three-finding-closeout/final-closure-publication.json to avoid self-reference. Resume further work only with a new explicit task and its necessary permissions. No more chats/MCP/pilots/runtime/source changes/mode transitions. User's iPad/physical exclusions remain. All project work/artifacts inside .zenflow, shell login:false; old checkout/install branch and foreign edits preserved.
+
+Docs route: Level0 + task-state/document-governance/completion; current baseline available, unchanged. Context refreshed; no global reusable-rule edits. Future Library general-release/value assessment is outside the completed accepted scope, not an unfinished item silently marked PASS.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

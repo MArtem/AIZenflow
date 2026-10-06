@@ -1,4 +1,6 @@
-# Concrete remaining decision — LIB-004
+# Library decision — option 1 accepted
+
+Current decision: human explicitly selected option1 and requested execution. NT-BE0B-CLOSE-02 in library-scope-decision.json is current authority. LIB-004 CLOSED_BY_USER_SCOPE_DECISION; cycle COMPLETE_ACCEPTED_SCOPE. The alternatives below are retained as the reviewed proposal, not pending questions.
 
 F01 and TC-L02 are fixed and verified scoped. Required core W1–W5 remains its historically verified scope. This follow-up used exactly two fresh read-only observers on a real, previously unreviewed Firefox ReaderMode cache subset. OFF completed; ON exceeded its twenty-minute budget and did not consult active Library. Pair acceptance is NOT_ACCEPTED_PARTIAL. Additive value and token/account cost remain unmeasured; no negative conclusion about Library usefulness can be inferred from an unperformed pass. The original Firefox remained unchanged; canary terminal OFF/AUTO verified. No further observers are authorized.
 
