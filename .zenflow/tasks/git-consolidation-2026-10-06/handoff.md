@@ -1,0 +1,13 @@
+# Git consolidation recovery
+
+AIZenflow only; user-authorized commits, normal merges and pushes to main/development. Preserve all worktree states and branch histories. Separate AIZenflowRelease remote remains outside scope pending explicit inclusion. Current baseline and completed new-task-be0b remain authoritative; never reactivate archived installers, old host changes or stale OPEN task states.
+
+Original 40 files: committed as 99563476ab68485c94e84bfd36a68b55fbd7aa80; exact hashes in old-dirty-manifest.json. Initial refs/worktrees recorded alongside this file. Thirty-nine files match previously published 23c2afb9b bytes; only the historical audit ledger publication receipt adds different content. Snapshot review reused that exact-byte evidence; whitespace and modified JSON parse passed.
+
+Integration base: 937d8120c971f9fb3d3ee42720a16fa7b766f3d6. Relevant static checks and final reachability/source-fingerprint verification precede publication. Runtime is unnecessary only when final existing files remain byte-identical; no new source work is authorized by this recovery note. Shell login:false; all outputs under /Users/Artem/.zenflow. No agents/MCP/host/secrets/installer actions.
+
+Integration histories merged; all 15 selected initial refs and seven worktree heads are ancestors; all 40 hashes match; existing file delta against 937d8120c is zero. Documentation index/consistency/router/boundaries and bootstrap passed. Baseline drift reported one missing and 32 stale mirrors, all unchanged from 937d8120c; canonical bootstrap remains authority. This pre-existing mirror synchronization debt is outside the Git preservation change, not a new PASS.
+
+Next: retain an external exact-SHA review/publication receipt and fast-forward both target branches. Canonical task recovery is synchronized at the completion boundary.
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

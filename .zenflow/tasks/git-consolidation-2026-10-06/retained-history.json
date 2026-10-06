@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "authority": "User requested preserving 40 edits and merging all AIZenflow information into main and development",
+  "source_base": "937d8120c971f9fb3d3ee42720a16fa7b766f3d6",
+  "history_merge_head": "972a8eb6be645160b286714d1ebbfc5d19b77b09",
+  "dirty_snapshot": "99563476ab68485c94e84bfd36a68b55fbd7aa80",
+  "dirty_file_count": 40,
+  "selected_initial_refs": 15,
+  "initial_refs": [
+    {
+      "ref": "refs/heads/codex/audit-remediation-luna",
+      "sha": "9f9421e68e5b91f59ff8603e14f58479fd38bb43",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/heads/codex/knowledge-base-next",
+      "sha": "937d8120c971f9fb3d3ee42720a16fa7b766f3d6",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/heads/codex/recovery/share-open-app-retry-bootstrap-2026-09",
+      "sha": "a867b1da6deb6b7086d9a7d075694079f21fd246",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/heads/development",
+      "sha": "324902d89fa28ace81c740ca3f419a659b2d8c56",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/heads/feature",
+      "sha": "759e0cbaa2be8d639c9d9b258df313b652dc69ee",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/heads/main",
+      "sha": "324902d89fa28ace81c740ca3f419a659b2d8c56",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/heads/mainRelease",
+      "sha": "43c55375d984c4bfdfd39670a5f7220c01fa9847",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/heads/workRelease",
+      "sha": "9ff6da6b96c40ea1d54938944a6ce518e71a8760",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/remotes/AIZenflowRelease/HEAD",
+      "sha": "43c55375d984c4bfdfd39670a5f7220c01fa9847",
+      "scope": "separate_remote_excluded",
+      "ancestor_of_integration": false
+    },
+    {
+      "ref": "refs/remotes/AIZenflowRelease/development",
+      "sha": "d6ed139d3d7aae08abd389485de00ead6b765af7",
+      "scope": "separate_remote_excluded",
+      "ancestor_of_integration": false
+    },
+    {
+      "ref": "refs/remotes/AIZenflowRelease/feature",
+      "sha": "b75bd2d144851195b3a96e3d0e7ed0c119a6a5c9",
+      "scope": "separate_remote_excluded",
+      "ancestor_of_integration": false
+    },
+    {
+      "ref": "refs/remotes/AIZenflowRelease/main",
+      "sha": "43c55375d984c4bfdfd39670a5f7220c01fa9847",
+      "scope": "separate_remote_excluded",
+      "ancestor_of_integration": false
+    },
+    {
+      "ref": "refs/remotes/AIZenflowRelease/mainRelease",
+      "sha": "78757e65ad0c15625bba03a75ee67d06fcfbd613",
+      "scope": "separate_remote_excluded",
+      "ancestor_of_integration": false
+    },
+    {
+      "ref": "refs/remotes/AIZenflowRelease/workRelease",
+      "sha": "9ff6da6b96c40ea1d54938944a6ce518e71a8760",
+      "scope": "separate_remote_excluded",
+      "ancestor_of_integration": false
+    },
+    {
+      "ref": "refs/remotes/origin/HEAD",
+      "sha": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/remotes/origin/codex/audit-remediation-luna",
+      "sha": "55ecc8d3b97048c214f766c709c8159f5d66bdb0",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/remotes/origin/codex/fix-static-policy-scope",
+      "sha": "ddfd5bfeee4271c16e4ff3666e6eea50c72a5f10",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/remotes/origin/codex/knowledge-base-next",
+      "sha": "937d8120c971f9fb3d3ee42720a16fa7b766f3d6",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/remotes/origin/codex/recovery/share-open-app-retry-bootstrap-2026-09",
+      "sha": "a867b1da6deb6b7086d9a7d075694079f21fd246",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/remotes/origin/development",
+      "sha": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    },
+    {
+      "ref": "refs/remotes/origin/main",
+      "sha": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+      "scope": "AIZenflow",
+      "ancestor_of_integration": true
+    }
+  ],
+  "detached_and_attached_initial_heads": [
+    "9f9421e68e5b91f59ff8603e14f58479fd38bb43",
+    "3f6e02c1bf27663b2cb911386d42b06df7d8ac77",
+    "324902d89fa28ace81c740ca3f419a659b2d8c56",
+    "937d8120c971f9fb3d3ee42720a16fa7b766f3d6",
+    "ddfd5bfeee4271c16e4ff3666e6eea50c72a5f10",
+    "2a4dca3ca1044972a7f69a6118eb602724fc3ac6",
+    "a867b1da6deb6b7086d9a7d075694079f21fd246"
+  ],
+  "existing_file_delta": 0,
+  "preservation": "Every selected head is a Git ancestor, so its complete tree and prior commits remain recoverable from both final target histories; conflicting old versions do not replace current active files.",
+  "resolutions": [
+    {
+      "commit": "6b322ef37",
+      "strategy": "normal merge; preserve current FileHandle readData helper at sole conflict",
+      "tree_delta": 0
+    },
+    {
+      "commit": "972a8eb6be645160b286714d1ebbfc5d19b77b09",
+      "strategy": "history merge retaining current tree",
+      "reason": "Calculated Swift/import merges have only the same helper conflict and no remaining content delta. Local release merges have zero tree delta. Audit branch contains retired installer and superseded task/policy versions; keep all versions through merge parents, retain current authority.",
+      "tree_delta": 0
+    }
+  ],
+  "recover_example": "git show 99563476ab68485c94e84bfd36a68b55fbd7aa80:<path>",
+  "verification": "All selected refs and seven original worktree HEADs are ancestors; all 40 snapshot hashes match; current existing tree exactly equals source base. No new runtime coverage claimed."
+}
