@@ -1,0 +1,295 @@
+{
+  "schema_version": 1,
+  "task": "new-task-be0b",
+  "arm": "OFF",
+  "profile": "AUTO",
+  "observed_status": {
+    "profile": "AUTO",
+    "status": "OFF"
+  },
+  "selector": "TchopApp.xcodeproj",
+  "project_id": "7aab0419-fa15-469e-96e7-9b84e21b321a",
+  "model": "GPT-6.1 Sol/high",
+  "operating_mode": "эконом",
+  "assessment": "COMPLETE_SCOPED_STATIC_KB",
+  "strict_protocol": "PARTIAL_PROCEDURAL",
+  "pair_acceptance": "WITHHELD: G0 late local PROJECT_HEALTH mandatory skill reference; other arm not read",
+  "G0": "PARTIAL: canonical PROJECT_HEALTH read before closure; package skill separately referenced local ../../../PROJECT_HEALTH.md, read late at command39 after Git/nested/source. Same principal rules, no retrospective strict PASS.",
+  "G1": "Own entrypoints read after main first-layer chain; no added required source route.",
+  "G2": "PASS exactly34 unique contained regular non-executable names;34 local/Git pair hashes match pin;0 extra blob bodies.",
+  "G3": "PASS filtered two schemes and scoped declared PBX memberships;both hosts consume three files.",
+  "G4": "Observed OFF/AUTO twice; full scoped KB frozen; no Library route text read.",
+  "G5": "Final source/rules/control/pin/mode preservation checked. Strict whole-pair acceptance withheld.",
+  "findings": [
+    {
+      "id": "OFF-M01",
+      "severity": "P2",
+      "confidence": "high",
+      "applicability": "applicable to public mechanism; shipping exposure unknown",
+      "kind": "KB cancellation-contract mismatch, previously disclosed in required main plan",
+      "evidence": [
+        "SwiftDataModelActorDatabaseManager.swift:18-21",
+        "SwiftDataModelActorDatabaseManager.swift:35-40",
+        "AppSwiftDataDatabase.swift:34-37",
+        "AppSwiftDataDatabase.swift:74-79",
+        "SWIFT_CONCURRENCY_DEEP_REFERENCE.md Cancellation"
+      ],
+      "scenario": "Caller closure cooperatively throws CancellationError; catch-all wraps it. A caller matching CancellationError cannot recognize cancellation through this API.",
+      "impact": "Public error taxonomy loses cancellation identity; no confirmed shipped user-facing failure asserted.",
+      "target": "Keep write rollback and preserve CancellationError identity at the boundary, or establish an explicit authorized cancellation-as-failure contract.",
+      "remediation_order": 1,
+      "verification_required": "If separately authorized, targeted exact-source read/write CancellationError assertions plus caller mapping review; no tests created/run here.",
+      "disposition": "Report to integrator; observer cannot fix; no blind discovery claim."
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "OFF-R01",
+      "kind": "conditional migration input-envelope gap",
+      "evidence": "Core:304-336",
+      "case": "With current=0,target=1 and an edge 0->2, callback/version can reach2. Multiple outgoing edges use a greedy smallest destination, not complete-path validation.",
+      "disposition": "Validate/document host-produced forward graph, destination envelope and duplicate-branch policy before adoption expansion; not a shipped production defect without accepted graph/caller evidence."
+    },
+    {
+      "id": "OFF-R02",
+      "kind": "migration recovery contract limitation",
+      "evidence": "Core:327-336 and UserDefaults version store:251-258",
+      "case": "Successful database write and version marker are separate; multiple writes or external callback effects may precede callback failure.",
+      "disposition": "Host needs idempotent steps/checkpointing and explicit downgrade/failure/reopen policy. Do not claim whole-step atomicity, crash recovery or preservation from callback return."
+    },
+    {
+      "id": "OFF-R03",
+      "kind": "read/write context discipline",
+      "evidence": "actor:12-22,25-40; main:13-15,24-38,62-79",
+      "disposition": "Document read-no-mutation and clean/main-context pending-edit discipline; managed objects/context must stay on owner. Possible misuse remains hypothetical absent consumers."
+    },
+    {
+      "id": "OFF-R04",
+      "kind": "claim-specific verification",
+      "disposition": "Future permitted iPhone18.2+27 migration/preservation/reopen and cancellation fixtures must use current source. Physical/iPad/actual VoiceOver OMITTED_BY_USER. Existing main-plan fixture conclusions are history/priming, not independent evidence read by this arm."
+    }
+  ],
+  "supported_paths": [
+    {
+      "case": "Ordered migration versions",
+      "evidence": "AppDatabaseCore.swift:298-339",
+      "supported": "Groups by fromVersion, chooses smallest toVersion, rejects non-increasing chosen edge and missing edge; persists version only after callback returns.",
+      "unknown": "Complete-path validation, equality to target, valid app-supplied graph, database/version-store crash atomicity, actual shipped schema migration."
+    },
+    {
+      "case": "Preservation/reopen",
+      "evidence": "Core:227-259,327-336; actor:25-40; main:62-79",
+      "supported": "No data deletion/reset path exists in these files. Callback failure does not advance its version.",
+      "unknown": "Physical durability and reopen, storage failure, SwiftData schema migration and every historical schema; not executed here."
+    },
+    {
+      "case": "Transaction success/failure/rollback/retry",
+      "evidence": "actor:25-40; main:62-79",
+      "supported": "Result returned after save; thrown operation/save failures roll back current context; DatabaseError stays typed; other errors are wrapped.",
+      "unknown": "Callbacks can save themselves or produce external effects; rollback is context-wide, not an undo of previously committed work. No automatic retry/idempotency; main context may already contain caller edits."
+    },
+    {
+      "case": "Read context boundary",
+      "evidence": "Core:88-115,188-224; actor:12-22; main:24-38",
+      "supported": "Read executes on owning context; actor Result:Sendable constrains returned values.",
+      "unknown": "Read-only is closure discipline: mutable ModelContext can be mutated; read has no rollback barrier; no actual violating caller established."
+    },
+    {
+      "case": "Cancellation",
+      "evidence": "actor:18-21,35-40; main:34-37,74-79; Core:209-224",
+      "supported": "A closure-thrown CancellationError follows rollback for writes and gets wrapped as fetchFailed/transactionFailed; cancellation flag alone does not cause these methods to abort. Async forwarding stays MainActor.",
+      "unknown": "Whether any shipping caller relies on CancellationError matching or performs cancellation checks; flag timing, latency and post-save cancellation unobserved."
+    },
+    {
+      "case": "Actor/main context ownership",
+      "evidence": "actor:4-17,25-32; main:4-15; Core:188-224,262-303",
+      "supported": "ModelActor owns worker context; MainActor owns mainContext manager/migration runner. Synchronous operation bodies have no suspension in manager code. MainActor is intentional context ownership.",
+      "unknown": "Actor construction executor, actual workloads, merge/refresh policy and cross-context callers; actor isolation does not itself prove off-main performance."
+    },
+    {
+      "case": "Error/claim evidence and consumers",
+      "evidence": "Core:41-49; actor/main catch blocks; package README ownership; scoped PBX memberships",
+      "supported": "Unsupported operation fails before invoking body; typed database errors preserved; generic errors stringified. Both host memberships observed.",
+      "unknown": "Error descriptions can carry caller data; no logging/PII exposure established. Compilation or target membership proves no shipping invocation; no broad safety/release claim."
+    }
+  ],
+  "checklist": {
+    "UI structure/lazy rendering": "NOT_APPLICABLE: no UI source reviewed",
+    "render hot path": "UNKNOWN: shipping callers/workloads outside three-file scope",
+    "state invalidation": "NOT_APPLICABLE to package mechanics; UI integration unreviewed",
+    "identity/domain": "CHECKED package/app schema ownership; actual records outside scope",
+    "persistence/files": "CHECKED static operation/version boundaries; preservation/reopen runtime NOT_RUN",
+    "network/sync": "NOT_APPLICABLE: no transport/outbox implementation in scope",
+    "concurrency/memory": "CHECKED context isolation/catch semantics; workload/retention/cancellation latency UNKNOWN",
+    "navigation/side effects": "NOT_APPLICABLE navigation; database effects CHECKED with closure limitations",
+    "documentation": "CHECKED contract comments; cancellation/error and caller constraints not fully explicit",
+    "security/privacy": "CHECKED no logger/network in these files; caller error text/privacy policy UNKNOWN",
+    "verification honesty": "CHECKED no runtime/build/test/release PASS inferred"
+  },
+  "priming": "Mandatory main plan directly exposed earlier cancellation wrapping, migration/failure evidence and zero added Library defects. Fresh observer is not blind.",
+  "clipping_recovery": [
+    {
+      "commands": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "recovery": [
+        6,
+        9
+      ],
+      "state": "RECOVERED; outer exec serialization also clipped combined results; main1-160 visible complete"
+    },
+    {
+      "command": 14,
+      "recovery": [
+        15,
+        16
+      ],
+      "state": "RECOVERED table210-225"
+    },
+    {
+      "command": 22,
+      "recovery": 23,
+      "state": "RECOVERED full checklist"
+    },
+    {
+      "command": 29,
+      "recovery": 30,
+      "state": "RECOVERED universal tail and QA text"
+    }
+  ],
+  "source_sha256": {
+    "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741"
+  },
+  "canonical_head": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+  "provisional_sha256": "698cc4a10262dcab812981c97047e21ca8c47fd8eba8b1aa9586b30b292623c7",
+  "metrics": {
+    "elapsed_wall_seconds": 1046.955838,
+    "hard_limit_seconds": 1200,
+    "exec_command_calls": 43,
+    "functions_exec_invocations": 42,
+    "extra_functions_metadata_call": 1,
+    "status_handler_invocations": 2,
+    "git_pin_blob_body_requests": 34,
+    "extra_git_blob_body_requests": 0,
+    "unique_pin_names": 34,
+    "local_pin_passes": 2,
+    "logical_unique_text_bytes": 518222,
+    "logical_text_bytes_including_rereads": 571596,
+    "pin_local_hash_input_bytes": 277294,
+    "pin_git_blob_hash_input_bytes": 138647,
+    "initial_handler_extra_hash_input_bytes": 20974,
+    "initial_source_hash_input_bytes": 16730,
+    "initial_control_preservation_hash_input_bytes": 242190,
+    "coverage_measurement_hash_input_bytes": 1173624,
+    "final_other_hash_input_bytes": 798456,
+    "hash_metric_definition": "Raw authorized input bytes fetched for named hash-only/metadata-measurement operations; separate from policy/source textual reads. Generated own JSON hashing and metadata JSON parses not treated as instruction reading. Physical I/O and hash CPU passes are UNKNOWN.",
+    "total_tool_physical_reads": "UNKNOWN",
+    "context_bytes": "UNKNOWN",
+    "input_output_reasoning_tokens": "UNKNOWN",
+    "subscription_or_account_cost": "UNKNOWN",
+    "cross_process_monotonic_elapsed": "UNKNOWN: observed raw clocks are not continuous across tool processes",
+    "causal_quality_uplift": "NOT_ESTABLISHED",
+    "savings": "NOT_ESTABLISHED"
+  },
+  "stages": [
+    {
+      "stage": "first_action",
+      "command": 1,
+      "wall_ns": 1791221390484554000,
+      "raw_monotonic_ns": 27265958
+    },
+    {
+      "stage": "claimed_G0_closure_later_marked_partial",
+      "command": 32,
+      "wall_ns": 1791221718464675000,
+      "raw_monotonic_ns": 23516708
+    },
+    {
+      "stage": "source_review_start",
+      "command": 37,
+      "wall_ns": 1791221888563043000,
+      "raw_monotonic_ns": 126171500
+    },
+    {
+      "stage": "source_review_end",
+      "command": 39,
+      "wall_ns": 1791221970546441000,
+      "raw_monotonic_ns": 25930333
+    },
+    {
+      "stage": "KB_provisional_saved",
+      "command": 40,
+      "wall_ns": 1791222101570328000,
+      "raw_monotonic_ns": 103974791
+    },
+    {
+      "stage": "final_preservation_check",
+      "command": 42,
+      "wall_ns": 1791222285706204000,
+      "raw_monotonic_ns": 314234958
+    },
+    {
+      "stage": "final_end",
+      "command": 43,
+      "wall_ns": 1791222437440392000,
+      "raw_monotonic_ns": 75627958
+    }
+  ],
+  "preservation": {
+    "source_frozen": "MATCH",
+    "rules_changes_since_coverage_snapshot": [],
+    "rules_first_read_to_snapshot": "not independently fingerprinted during G0; selected canonical paths clean at unchanged supplied base",
+    "canonical_scoped_dirty": "",
+    "pin_local_final_count": 34,
+    "pin_local_final_hash_bytes": 138647,
+    "final_other_hash_bytes": 798456,
+    "git_blob_body_reads_final": 0,
+    "status": {
+      "profile": "AUTO",
+      "status": "OFF"
+    },
+    "mode_record_hash_preserved": true,
+    "mode_record_sha256": "21d10213a6c9496e2d5486ff4be927aca9edf27ebf2637c7b0a516b34e003a9b",
+    "preservation_receipt_references": {
+      "initial-preservation.json": {
+        "sha256": "c86304d60ac4945360e9f2b4e244ecc9ed02abbf160e5aba4f3f92a126dbde1c",
+        "unchanged": true
+      },
+      "final-preservation.json": {
+        "sha256": "f274977199deed9ee6a4471463c172be11c7304d5e1e258e057f9d35e4a72e20",
+        "unchanged": true
+      }
+    },
+    "scoped_dirty_unchanged": true,
+    "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+    "canonical_head": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+    "provisional_sha256": "698cc4a10262dcab812981c97047e21ca8c47fd8eba8b1aa9586b30b292623c7",
+    "wall_ns": 1791222285706204000,
+    "reported_monotonic_ns": 314234958,
+    "broader_foreign_files": "No observer mutations; whole foreign-state equality not independently claimed."
+  },
+  "refused_capabilities": [
+    "agents/delegation",
+    "MCP/network/browser/messages",
+    "runtime/build/tests/Simulator/Instruments",
+    "source/test/mode/entrypoint writes",
+    "canonical/Git writes",
+    "sibling/held-out/integrator/fixture-result reads",
+    "secrets/host/config/auth/Keychain/installer/automation/old-checkout access"
+  ],
+  "files_changed": "Only own10 receipts; no source/test/mode/canonical/Git mutations.",
+  "runtime_checks": "NOT_RUN: no authority in this observer arm",
+  "physical_iPad_actual_VoiceOver": "OMITTED_BY_USER",
+  "whole_app_release": "NO_CLAIM",
+  "blind_discovery": "NO_CLAIM",
+  "foreign_state_limit": "Observer never wrote outside own receipt directory; no complete independent105-file proof or other-project status claimed.",
+  "durable_docs": "Integrator is sole canonical writer; observer changed none.",
+  "context_health": "контекст обновлять не нужно for this completed finite arm; no new chat or retry authorized.",
+  "next_safe_step": "Authorized integrator reads own receipts and separately adjudicates ON arm; no observer messaging or mode transition."
+}

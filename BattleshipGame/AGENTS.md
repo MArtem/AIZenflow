@@ -34,3 +34,16 @@ profile changes require the user's explicit current request.
 This overlay authorizes only read-only mode lookup and already-authorized in-session review.
 No client build, test, Simulator, network, Git, dependency, signing, release, Codex-host, auth or
 Keychain action follows from IOS Library ON.
+
+## iOS project work-system entrypoint
+<!-- AIZENFLOW_IOS_PROJECT_WORK_SYSTEM_V1 -->
+For tasks concerning this exact project, after root bootstrap/Level 0 load the canonical
+`ios-project-work-system` route and the current app manifest/context under
+`/Users/Artem/.zenflow/worktrees/documentation-vault/apps/BattleshipGame/`.
+ProjectID: `6a655f50-2a48-49df-9b5a-bdff693564de`; selector:
+`BattleshipGame/BattleshipGame.xcodeproj` in this active repository.
+Revalidate association, freshness and current permissions before using memory. Apply
+mandatory KB work first, then the existing approved library pass when current status is ON.
+This entrypoint changes no library mode/payload and grants no source, tests, runtime,
+agent/MCP, engine adoption or Git authority. A missing/stale identity/context is reported
+explicitly; do not copy another app, repair status or invent facts.

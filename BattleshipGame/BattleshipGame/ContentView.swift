@@ -153,15 +153,18 @@ private struct GameBoardView: View {
     let isEnabled: Bool
     let action: (Coordinate) -> Void
 
-    private let cellSpacing = 3.0
+    @State private var viewportWidth: CGFloat = 0
+
+    private let cellSpacing: CGFloat = 3
+    private let minimumCellSide: CGFloat = 44
 
     var body: some View {
-        GeometryReader { proxy in
-            let cellSide = max(
-                1,
-                (proxy.size.width - (cellSpacing * Double(BattleshipGame.boardSize - 1))) / Double(BattleshipGame.boardSize)
-            )
+        let cellCount = CGFloat(BattleshipGame.boardSize)
+        let totalSpacing = cellSpacing * (cellCount - 1)
+        let cellSide = max(minimumCellSide, (viewportWidth - totalSpacing) / cellCount)
+        let boardSide = cellSide * cellCount + totalSpacing
 
+        ScrollView(.horizontal) {
             VStack(spacing: cellSpacing) {
                 ForEach(0..<BattleshipGame.boardSize, id: \.self) { row in
                     HStack(spacing: cellSpacing) {
@@ -179,10 +182,28 @@ private struct GameBoardView: View {
                     }
                 }
             }
+            .frame(width: boardSide, height: boardSide)
         }
-        .aspectRatio(1, contentMode: .fit)
+        .frame(height: boardSide)
+        .frame(maxWidth: .infinity)
+        .background {
+            GeometryReader { proxy in
+                Color.clear
+                    .onAppear {
+                        updateViewportWidth(proxy.size.width)
+                    }
+                    .onChange(of: proxy.size.width) { _, width in
+                        updateViewportWidth(width)
+                    }
+            }
+        }
         .accessibilityElement(children: .contain)
         .accessibilityLabel(Text(String(localized: "Game board")))
+    }
+
+    private func updateViewportWidth(_ width: CGFloat) {
+        guard width.isFinite, width > 0, width != viewportWidth else { return }
+        viewportWidth = width
     }
 }
 

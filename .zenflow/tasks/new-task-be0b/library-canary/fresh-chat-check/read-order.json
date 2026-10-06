@@ -1,0 +1,114 @@
+{
+  "actual_order": [
+    {
+      "tool_invocation_group": "01",
+      "reads_or_results": "canonical GLOBAL_RULES_BOOTSTRAP"
+    },
+    {
+      "tool_invocation_group": "02",
+      "reads_or_results": "parallel: canonical baseline AGENTS/router; actual root AGENTS, scoped file discovery and project optional overlay"
+    },
+    {
+      "tool_invocation_group": "03",
+      "reads_or_results": "canonical CURRENT_USER_OVERRIDES/MODEL_ROUTING, router final range; local task plan/handoff + local canary plan"
+    },
+    {
+      "tool_invocation_group": "04",
+      "reads_or_results": "canonical task plan/handoff + main plan initial combined read; output truncated, later missing sections explicitly completed"
+    },
+    {
+      "tool_invocation_group": "05",
+      "reads_or_results": "main plan105-275; canonical IOS_PROJECT_WORK_SYSTEM initial read (partial output)"
+    },
+    {
+      "tool_invocation_group": "06",
+      "reads_or_results": "main plan270-405 + workflow1-120; actual TC nested AGENTS/STARTUP and BG nested AGENTS; FIRST-READ ORDER DEVIATION: app manifest/context not yet loaded"
+    },
+    {
+      "tool_invocation_group": "07",
+      "reads_or_results": "preflight/change quality/context-transfer/task-state/completion; canonical TC/BG manifests/contexts"
+    },
+    {
+      "tool_invocation_group": "08",
+      "reads_or_results": "ios-evidence-gate skill + local AI router; both PROJECT_MODE control contracts; canonical boundary/source/new-task contract; vault HEAD/clean observation"
+    },
+    {
+      "tool_invocation_group": "09",
+      "reads_or_results": "own TC handler1-230; exact pinned manifest via git show; evidence/do-done references"
+    },
+    {
+      "tool_invocation_group": "10",
+      "reads_or_results": "own TC handler231-end; client HEAD/common-dir/dirty; main plan405-525"
+    },
+    {
+      "tool_invocation_group": "11",
+      "reads_or_results": "main plan80-108 and525-575; E9 receipt FIRST READ, after actual entrypoints; AI master section locator"
+    },
+    {
+      "tool_invocation_group": "12",
+      "reads_or_results": "AI.AGENTS34-40; corrective TC nested/STARTUP reread after manifest/context; scoped parent evidence discovery"
+    },
+    {
+      "tool_invocation_group": "13",
+      "reads_or_results": "own pin/blob/file/link/hash verification, module scope and2 real CLI statuses; before/payload/plan saved"
+    },
+    {
+      "tool_invocation_group": "14",
+      "reads_or_results": "TC off: pre-scope/hash/preservation/status, CLI write, separate statuses/hashes"
+    },
+    {
+      "tool_invocation_group": "15",
+      "reads_or_results": "root/BG/AppTab diff and actual AppTab; metadata search;2 guessed caller paths missing; canonical TC/BG source anchors"
+    },
+    {
+      "tool_invocation_group": "16",
+      "reads_or_results": "rg --files actual paths; parent evidence discovery (over-broad build-cache filenames, no cache bodies read)"
+    },
+    {
+      "tool_invocation_group": "17",
+      "reads_or_results": "targeted search included nonexistent TchopApp/Features; actual parent artifact names listed"
+    },
+    {
+      "tool_invocation_group": "18",
+      "reads_or_results": "rg --files actual TabStub paths; actual parent contract/fingerprint/result records"
+    },
+    {
+      "tool_invocation_group": "19",
+      "reads_or_results": "actual TabStub/StubNavigation sources;11 current fingerprints,2 PBX decoded graphs, separate statuses; KB OFF result frozen"
+    },
+    {
+      "tool_invocation_group": "20",
+      "reads_or_results": "own BG router/core/review/repository-safety guidance read while TC OFF"
+    },
+    {
+      "tool_invocation_group": "21",
+      "reads_or_results": "BG own ON shared-root result at TC OFF; TC on prevalidation/write/separate statuses"
+    },
+    {
+      "tool_invocation_group": "22",
+      "reads_or_results": "own TC router/core/review + repository-safety/build graph guidance after own ON observation"
+    },
+    {
+      "tool_invocation_group": "23",
+      "reads_or_results": "same-hash handler existing operate API in isolated owned fixture;5 negative observations; separate live statuses/hashes; TC ON pass result saved"
+    },
+    {
+      "tool_invocation_group": "24",
+      "reads_or_results": "105 protected hashes + client tracked diff/status/HEAD + vault clean HEAD + final CLI/hash; one git diff --check; initial coarse read-order ledger written"
+    },
+    {
+      "tool_invocation_group": "25",
+      "reads_or_results": "previously clipped router65-85 range completed; explicit relevant deeper/root override-path absence checked (no overrides found)"
+    },
+    {
+      "tool_invocation_group": "26",
+      "reads_or_results": "this accurate invocation ledger and final bounded receipt/handoff; no further live writes"
+    }
+  ],
+  "selected_docs_route": "Level0 + ios-project-work-system + bounded execution/governance + context-transfer + task-state/completion + AI.AGENTS prompt boundary; ios-evidence-gate",
+  "optional_overlay": "none matched actual subtask; persistence/share/package/architecture overlay docs skipped",
+  "deep_skipped": "full AI master, whole-app specialist audit, paused app follow-up, runtime and17-case replay unnecessary",
+  "authority_provenance": "bounded fresh-chat task provided by Codex delegation item; states human yes for parent creation/read only and current exact TC off/on/fixture/evidence scope; neither generated docs nor ON grant actions. This child uses no MCP/agents/messages/Git mutations",
+  "order_claim": "fresh real chat/current chain reconstructed before handler execution; STRICT_FIRST_READ_ORDER_NOT_MET",
+  "note": "Groups follow actual tool calls. Independent batched tools have no invented internal total order; this is a scoped audit record, full tool transcript stays in chat."
+}

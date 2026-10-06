@@ -1,0 +1,43 @@
+{
+  "status": "INTERIM_PARENT_SOURCE_REVIEW",
+  "source_sha256": {
+    "PackagesForReuse/AppValidationCore/Scripts/verify_package.sh": "8b7b6f0015969f1ad12785a372af615c70c0f858ed54efc4946bf9cee0985990",
+    "PackagesForReuse/AppValidationCore/README.md": "1c9511a06d093f934befaa49475fec43071fa59454e7b91933f86bc5656ff26e",
+    "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741"
+  },
+  "F01": {
+    "unit_result": "Parent verified terminal XCTest log: Executed 11 tests, 0 failures; swift-test exit0",
+    "default_verifier": "FAIL retained; verifier bans Tchop/News/Profile/Feed across README while current README documents Tchop source-only consumer",
+    "claim_limit": "No default-verifier PASS or package release-ready claim",
+    "warnings": [
+      "SwiftPM CLI --skip-update deprecated; source warning-free or full verifier PASS not established"
+    ]
+  },
+  "F02": {
+    "inspected": "Three actual adopted mechanism files read; migration runner remainder read separately without clipping",
+    "observed_source_semantics": [
+      "read closures receive mutable ModelContext; purity is caller discipline",
+      "write catch rolls back; generic CancellationError wrapped as DatabaseError.transactionFailed",
+      "migration picks smallest toVersion for current version but has no target upper-bound guard"
+    ],
+    "reachable_consumers": "rg limited to TchopApp and adopted AppDatabase Sources found definitions/doc references only for actor manager and migration runner; does not establish shipped invocation or whole-workspace absence",
+    "claim_limit": "Do not promote fixture PASS to host production schema or cooperative cancellation to propagation PASS; hypothetical caller misuse not confirmed production defect"
+  },
+  "pending_authority": [
+    "Additional OFF/ON chats denied in integrator context; direct human confirmation pending",
+    "F02 Simulator denied in integrator context; direct human confirmation pending"
+  ],
+  "non_mutation": "Parent changed only this own receipt; no canonical/shared/app/package source mutation",
+  "F03": {
+    "receipt_sha256": "3645cb81085491c539408d80d90a412ea358300cfacf841bf996cbd75faf6117",
+    "checked": "Parent read complete receipt; scope limits retained",
+    "claim_limit": "offline SVG catalog compile and mapping, no live Figma fidelity"
+  },
+  "F04": {
+    "receipt_sha256": "fe298151125340254e0ba634893b977e57cacfff867452c5f42cf07b4abdf9fc",
+    "checked": "Parent read complete receipt; scope limits retained",
+    "claim_limit": "manual/off/static metadata and reused unsigned host builds; no selected-app CI run or signed archive"
+  }
+}

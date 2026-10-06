@@ -1,0 +1,795 @@
+{
+  "schema_version": 1,
+  "tool_invocation_id_availability": "Actual API invocation IDs UNKNOWN/not exposed; listed chunk_id/session_id are tool-returned identifiers, not invented API IDs.",
+  "read_order": [
+    {
+      "chunk_ids": [
+        "b74c9f"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+          "access": "cat/full"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "d0727e"
+      ],
+      "reads": [],
+      "command": "date -u '+%Y-%m-%dT%H:%M:%SZ'; python3 -c 'import time; print(time.monotonic())'"
+    },
+    {
+      "chunk_ids": [
+        "6de602"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+          "access": "cat/full"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+          "access": "cat/full text"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "179a10",
+        "1f7d53"
+      ],
+      "ordering": "Independent calls batched Promise.allSettled; intra-group ordering not guaranteed",
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+          "access": "cat/full"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/AGENTS.md",
+          "access": "cat/full"
+        }
+      ],
+      "metadata": "pwd; rg --files for named plan/handoff/overlays in task/docs; canonical git rev-parse HEAD; root AGENTS.override absent"
+    },
+    {
+      "chunk_ids": [
+        "f24542"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/TASK_DOCUMENT_ROUTES.overlay.json",
+          "access": "cat/full"
+        }
+      ],
+      "metadata": "rg --files vault filtered to current canonical task/main plan/Tchop manifest/context and AGENTS.override names"
+    },
+    {
+      "chunk_ids": [
+        "0dba78"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md",
+          "access": "cat/full; returned output truncated"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md",
+          "access": "cat/full; returned output truncated"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+          "access": "cat/full; returned output truncated"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md",
+          "access": "cat/full; pointer only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md",
+          "access": "cat/full; pointer only"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "18b8fc"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+          "access": "sed selected lines for truncation recovery",
+          "range": [
+            1,
+            240
+          ]
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "4e375c"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+          "access": "sed selected lines for truncation recovery",
+          "range": [
+            241,
+            480
+          ]
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "d697f1"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+          "access": "sed selected lines for truncation recovery",
+          "range": [
+            481,
+            680
+          ]
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "0245b3"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+          "access": "sed selected lines for truncation recovery",
+          "range": [
+            681,
+            831
+          ]
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+          "access": "cat/full text"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "c58ed0"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+          "access": "sed missing lines",
+          "range": [
+            61,
+            190
+          ]
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+          "access": "cat/full text"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "f8a6f0"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md",
+          "access": "cat/full text"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "a7457e"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+          "access": "cat/full text"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "796972"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+          "access": "cat/full text"
+        }
+      ],
+      "metadata": "wc -l -c concurrency deep reference"
+    },
+    {
+      "chunk_ids": [
+        "de2de4"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-concurrency-runtime/SKILL.md",
+          "access": "cat/full"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-memory-cache-media/SKILL.md",
+          "access": "cat/full"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-evidence-gate/SKILL.md",
+          "access": "cat/full"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/MANIFEST.md",
+          "access": "cat/full"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/PROJECT_CONTEXT.md",
+          "access": "cat/full"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "dea234"
+      ],
+      "first_nested": true,
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md",
+          "access": "cat/full"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/STARTUP_RULE.md",
+          "access": "cat/full adopted entrypoint only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/PROJECT_MODE.md",
+          "access": "cat/full mode contract only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/frozen-inputs.json",
+          "access": "cat/full neutral metadata"
+        }
+      ],
+      "metadata": "rg --files nested AGENTS/AGENTS.override; only TchopApp/AGENTS found"
+    },
+    {
+      "chunk_ids": [
+        "34a9bb"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/frozen-inputs.json",
+          "access": "JSON metadata read"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Models/NewsFeedModels.swift",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/tools/reference_mode.py",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/knowledge-base-library-roadmap.md",
+          "access": "SHA256 only"
+        }
+      ],
+      "metadata": "Own before state; client HEAD/status/full tracked diff hash; physical root; CODEX_HOME UNKNOWN"
+    },
+    {
+      "chunk_ids": [
+        "6e6f47"
+      ],
+      "reads": [],
+      "command": "python3 -B ./TchopApp/IOSLibrary/tools/reference_mode.py status --root /Users/Artem/.zenflow/worktrees/knowledge-base-next --project TchopApp.xcodeproj",
+      "result": "OFF/AUTO exit0; own mode record only"
+    },
+    {
+      "chunk_ids": [
+        "3b0b17"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+          "access": "rg selected symbol anchors (whole file scan); nl/sed emitted window",
+          "range": [
+            910,
+            1450
+          ],
+          "semantic_scope": [
+            940,
+            1442
+          ]
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Models/NewsFeedModels.swift",
+          "access": "nl/sed emitted window",
+          "range": [
+            925,
+            990
+          ],
+          "semantic_scope": [
+            937,
+            977
+          ]
+        }
+      ],
+      "metadata": "Final rg --files scoped Views/Models AGENTS overlays no match -> exit1; adjacent window lines not part of semantic review"
+    },
+    {
+      "chunk_ids": [
+        "201877"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+          "access": "nl/sed emitted callers window",
+          "range": [
+            470,
+            615
+          ],
+          "semantic_scope": [
+            483,
+            610
+          ]
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+          "access": "rg selected filename/Swift flags; plutil JSON -> filter sources/targets/settings only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme",
+          "access": "XML -> BuildAction IDs/action config metadata only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme",
+          "access": "XML -> BuildAction IDs/action config metadata only"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "506345"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+          "access": "nl/sed caller adapter window",
+          "range": [
+            614,
+            665
+          ],
+          "semantic_scope": [
+            614,
+            648
+          ]
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+          "access": "cat/full text"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+          "access": "sed lines",
+          "range": [
+            1,
+            130
+          ]
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "access": "rg severity/confidence/evidence anchors"
+        }
+      ]
+    },
+    {
+      "chunk_ids": [
+        "e492dc"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+          "access": "sed lines",
+          "range": [
+            1,
+            105
+          ]
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/",
+          "access": "all34 regular files SHA256 only, sizes/modes/path metadata; no route bodies emitted"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/reference-status/29105892f934e061fdd32f67692fa1829dedbfd2485966b4d6288a7bfbfbf24d.json",
+          "access": "SHA256 only, raw contents not emitted"
+        }
+      ],
+      "metadata": "Git common-dir key computation; aggregate candidate encodings did not equal declared hash, not asserted as validation"
+    },
+    {
+      "chunk_ids": [
+        "ce0654",
+        "d9a778"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault@3c42e490e82866eee0f303d6340452dbf9fff5eb:reusable/ios-engineering-library/reference-copy-only/",
+          "access": "Accidental overbroad SHA256 of all1402 Git blobs. Exact immutable paths/object sizes retained in accidental-hash-read-paths.json; hash-only outputs truncated, not Library reasoning input"
+        }
+      ],
+      "procedural_error": true
+    },
+    {
+      "tool": "apply_patch",
+      "chunk_id": "NOT_EXPOSED",
+      "writes": [
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/off-review/kb-provisional.json"
+      ],
+      "result": "kb-provisional frozen full KB result; no second-layer consultation"
+    },
+    {
+      "chunk_ids": [
+        "bbea6e"
+      ],
+      "reads": [
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/frozen-inputs.json",
+          "access": "JSON metadata"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/off-review/kb-provisional.json",
+          "access": "own result JSON"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Models/NewsFeedModels.swift",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/tools/reference_mode.py",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/knowledge-base-library-roadmap.md",
+          "access": "SHA256 only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/",
+          "access": "SHA256 all34 again only"
+        },
+        {
+          "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/reference-status/29105892f934e061fdd32f67692fa1829dedbfd2485966b4d6288a7bfbfbf24d.json",
+          "access": "SHA256 only"
+        }
+      ],
+      "metadata": "After client HEAD/status/diff hash and canonical HEAD"
+    },
+    {
+      "chunk_ids": [
+        "14238e"
+      ],
+      "reads": [],
+      "metadata": "git ls-tree -rl at immutable pin with exact prefix, object path/size metadata only to audit accidental prior reads; saved own accidental-hash-read-paths.json"
+    }
+  ],
+  "first_layer_before_nested": "Bootstrap -> baseline/full router -> Level0/current plans/full831-line main -> relevant standards/skills -> own Tchop manifest/context all before dea234 first nested read. Supplemental AGENT_RULES/audit severity/governance read later; no source depended on their unsupported claims.",
+  "route_skips": "No unrelated archive/full AI master/other app behavior/README library dump/other observer/parent hypotheses. Review prompt's broad index/orientation rereads were scoped by current router/task, no whole-app readiness. Inactive Library route contents not received/applied.",
+  "tool_calls_to_snapshot": {
+    "exec_command": 26,
+    "write_stdin": 1,
+    "apply_patch": 1,
+    "MCP": 0,
+    "agents": 0,
+    "messages": 0,
+    "network": 0,
+    "runtime": 0
+  },
+  "tool_summaries": [
+    {
+      "chunk_id": "6de602",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000012917,
+      "output_token_estimate": 6190
+    },
+    {
+      "chunk_id": "179a10",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000015458,
+      "output_token_estimate": 3972
+    },
+    {
+      "chunk_id": "1f7d53",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000010334,
+      "output_token_estimate": 4270
+    },
+    {
+      "chunk_id": "f24542",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000008458,
+      "output_token_estimate": 263
+    },
+    {
+      "chunk_id": "0dba78",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000011708,
+      "output_token_estimate": 28439
+    },
+    {
+      "chunk_id": "18b8fc",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000010708,
+      "output_token_estimate": 6393
+    },
+    {
+      "chunk_id": "4e375c",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000011084,
+      "output_token_estimate": 5863
+    },
+    {
+      "chunk_id": "d697f1",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000010833,
+      "output_token_estimate": 5272
+    },
+    {
+      "chunk_id": "0245b3",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000042958,
+      "output_token_estimate": 12007
+    },
+    {
+      "chunk_id": "c58ed0",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.00001375,
+      "output_token_estimate": 6716
+    },
+    {
+      "chunk_id": "f8a6f0",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000013125,
+      "output_token_estimate": 3790
+    },
+    {
+      "chunk_id": "a7457e",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000010958,
+      "output_token_estimate": 2931
+    },
+    {
+      "chunk_id": "796972",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.00002775,
+      "output_token_estimate": 8019
+    },
+    {
+      "chunk_id": "de2de4",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000010209,
+      "output_token_estimate": 7593
+    },
+    {
+      "chunk_id": "dea234",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000007375,
+      "output_token_estimate": 5484
+    },
+    {
+      "chunk_id": "34a9bb",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.197215041,
+      "output_token_estimate": 1696
+    },
+    {
+      "chunk_id": "6e6f47",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.060768584,
+      "output_token_estimate": 10
+    },
+    {
+      "chunk_id": "3b0b17",
+      "exit_code": 1,
+      "session_id": null,
+      "wall_time_seconds": 0.000010458,
+      "output_token_estimate": 6255
+    },
+    {
+      "chunk_id": "201877",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.047533792,
+      "output_token_estimate": 3234
+    },
+    {
+      "chunk_id": "506345",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.000008542,
+      "output_token_estimate": 2404
+    },
+    {
+      "chunk_id": "e492dc",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.014962083,
+      "output_token_estimate": 3767
+    },
+    {
+      "chunk_id": "ce0654",
+      "exit_code": null,
+      "session_id": 87728,
+      "wall_time_seconds": 10.002506959,
+      "output_token_estimate": 0
+    },
+    {
+      "chunk_id": "d9a778",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.00001675,
+      "output_token_estimate": 68974
+    },
+    {
+      "chunk_id": "bbea6e",
+      "exit_code": 0,
+      "session_id": null,
+      "wall_time_seconds": 0.207147291,
+      "output_token_estimate": 2753
+    },
+    {
+      "chunk_id": "b74c9f",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "d0727e",
+      "exit_code": 0
+    },
+    {
+      "chunk_id": "14238e",
+      "exit_code": 0
+    }
+  ],
+  "terminal_failures": [
+    "Initial concatenated mandatory main-plan/workflow output was truncated; required main plan recovered by exact1–240/241–480/481–680/681–831 ranges, workflow missing61–190 recovered before first nested read.",
+    "Source call3b0b17 exit1 caused by final rg no matching AGENTS overlays; source output complete. Not build/test failure.",
+    "Pin helper ce0654 yielded session87728; d9a778 completed exit0 with overbroad1402-object output truncated. Missing1368 local counterparts are not payload defects."
+  ],
+  "source_windows_limit": "Emitted sed windows included adjacent source symbols outside actual reviewed boundaries; recorded exactly rather than claiming zero overscan. No adjacent source feature audit/patch."
+}

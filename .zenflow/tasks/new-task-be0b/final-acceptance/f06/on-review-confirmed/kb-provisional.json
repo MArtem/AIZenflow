@@ -1,0 +1,128 @@
+{
+  "stage": "FULL_KB_PROVISIONAL_BEFORE_LIBRARY_ROUTE_TEXT",
+  "model": "GPT-6.1 Sol/high",
+  "mode": "эконом",
+  "scope": "three frozen adopted AppDatabase source files; exact TchopApp.xcodeproj; ProjectID 7aab0419-fa15-469e-96e7-9b84e21b321a",
+  "authority": "read-only static observer; own receipts only; no caller/source expansion, runtime/tests/builds, Git writes, modes, agents/MCP/network/messages",
+  "priming": [
+    "Required current canonical main plan lines 985-1015 discloses same-session cancellation wrapping, migration/failure evidence and zero added Library defects. Not blind discovery.",
+    "Second-arm instruction explicitly corrects local skill-relative reference resolution after first-arm procedural miss. Pair prompts are not byte-identical; no clean causal proof."
+  ],
+  "contract": {
+    "behavior": "Assess actual package mechanisms on predeclared cases without changing product policy.",
+    "authority": "Host owns schema, migration callbacks/version-store choice/query closures; package owns execution/save/rollback.",
+    "ordering": "Main-context MainActor; actor serial synchronous closures; migration checkpoint only after successful callback.",
+    "envelopes": "No built-in query/batch/input/time budget; workload bounds host-owned, unknown consumers. Exactly three sources and 34 pin pairs.",
+    "failures": "Typed DatabaseError preserved; generic read error fetchFailed; generic write error transactionFailed with rollback; generic migration error migrationFailed. Runtime outcomes unknown.",
+    "claims": "Membership is not caller or execution; async wrapper is not off-main evidence; callback runner is not SwiftData schema migration proof."
+  },
+  "cases": [
+    {
+      "case": "ordered migration versions",
+      "evidence": "AppDatabaseCore.swift:298-339",
+      "supported": "Reads version, returns unchanged when >= target; groups fromVersion, picks smallest toVersion, requires strictly increasing step; advances checkpoint only after callback returns. Missing/progress-invalid step throws.",
+      "unknown": "Host-provided chain constraints and actual app use.",
+      "candidate": "Public runner accepts an overshooting transition (0->5 at target2), executes it and returns5; duplicate/invalid smallest edge can block a valid alternative. Actual implementation fact; no shipped migration defect established.",
+      "severity": "conditional P2 if exact target ceiling is host contract; otherwise API clarification recommendation",
+      "remedy": "Before adopting, define producer constraints for unique progressive chain within target; reject invalid chain before irreversible callbacks if exact target intended."
+    },
+    {
+      "case": "preservation/reopen and migration retry",
+      "evidence": "AppDatabaseCore.swift:227-259,327-336",
+      "supported": "Failure does not advance current version for failing callback. Prior successful step versions remain. No delete/reset operation in reviewed sources.",
+      "unknown": "Callback may commit data before failure; runner has no encompassing rollback, durable atomic checkpoint or crash shielding. UserDefaults checkpoint separate from database commit. Idempotence, failure/relaunch, actual schema/downgrade/disk-full/crash evidence not observed.",
+      "recommendation": "Host must provide idempotent/checkpointed callbacks and old-store failure/reopen evidence; do not label generic callback runner schema-safe."
+    },
+    {
+      "case": "transaction success/failure/rollback/retry",
+      "evidence": "actor:25-41; main:62-80",
+      "supported": "Success returns only after save (actor conditional hasChanges). Typed and generic operation/save errors roll back context then throw. No automatic retry. Synchronous closure+save has no intervening actor await.",
+      "unknown": "Rollback only affects pending context state, not caller-owned files/network side effects or prior commits; unrelated pending main-context changes share rollback/save scope. Retry idempotence and real save failure not executed.",
+      "recommendation": "Bound transaction to owner context and atomic local changes; external effects need explicit host policy."
+    },
+    {
+      "case": "read-context boundary",
+      "evidence": "core:88-115,172-185; actor:12-22; main:24-38",
+      "supported": "Typed SwiftData closure bridges to Any with checked cast; unsupported missing callback/context fails. Actor Result requires Sendable; main-context return stays MainActor.",
+      "unknown": "ModelContext is mutable and exposed to closure; read-only is caller contract, not capability enforcement. A mutating read can leave pending work or save directly; that is hypothetical misuse absent legitimate caller evidence. No automatic read rollback.",
+      "recommendation": "Use read closures for reads and immutable Sendable actor results/stable identifiers; no new wrapper justified without actual consumer pressure."
+    },
+    {
+      "case": "cancellation semantics",
+      "evidence": "actor:18-21,35-40; main:34-37,74-79; core:209-224,329-332",
+      "supported": "A CancellationError thrown by read becomes fetchFailed; by write becomes transactionFailed after rollback; by migration becomes migrationFailed. Typed DatabaseError remains typed. APIs never check task cancellation themselves; async wrappers invoke synchronous main-context work directly.",
+      "classification": "Confirmed public mechanism transforms cancellation taxonomy. Conditional P2 if callers require CancellationError propagation/no cancelled commit; no inspected shipping caller. Baseline recommends propagation; current docs do not promise cancellability.",
+      "remedy": "When cancellation contract is selected, preserve CancellationError after required rollback and choose explicit pre-operation/pre-save checks; do not invent retroactive cancellation of a durable commit.",
+      "unknown": "Caller task ownership, user-visible mapping, cancellation latency and scheduling; no runtime evidence."
+    },
+    {
+      "case": "actor/main-context ownership",
+      "evidence": "core:188-224; actor:4-17; main:4-15",
+      "supported": "MainActor is legitimate mainContext compatibility surface. Documentation warns against heavy work. Separate ModelActor context and Sendable actor returns; no unchecked Sendable or unsafe escape in three sources.",
+      "unknown": "Actor initializer executor, thread/main-queue placement, closure resource bounds and main/actor merge visibility. @ModelActor is isolation, not proof every operation runs off-main.",
+      "recommendation": "Keep main operations small; verify actual creation/workload path before declaring main-thread stall or background performance."
+    },
+    {
+      "case": "error/claim evidence and consumers",
+      "evidence": "package README/PackageContract/LOCAL_USE/USAGE; scoped PBX six memberships and two scheme files",
+      "supported": "All three sources declared in TchopApp and TchopAppOcean only. Package docs keep schema/migrations/product policy with host; no runtime or shipping invocation established. Error strings use String(describing:) (caller error contents unspecified).",
+      "unknown": "All actual callers, app lifecycle/UI/privacy/telemetry/schema and release claims; no log/export observed.",
+      "recommendation": "Do not infer production reachability, privacy leak, preservation/reopen or completed migration from compilation or current mandatory-plan fixture history."
+    }
+  ],
+  "findings": [
+    {
+      "id": "KB-CANCEL-01",
+      "kind": "public mechanism mismatch",
+      "severity": "conditional P2",
+      "confidence": "high transformation / unknown consumer exposure",
+      "status": "CONDITIONAL_NOT_CONFIRMED_SHIPPED_DEFECT",
+      "source": "actor:18-21,35-40; main:34-37,74-79; core:329-332",
+      "impact": "Cancellation may appear as ordinary failure to caller; user-facing error/retry impact requires caller evidence.",
+      "target": "explicit cancellation contract and preservation of cancellation identity after rollback when required",
+      "verification": "permitted future targeted caller/task test; NOT_RUN"
+    },
+    {
+      "id": "KB-MIGRATION-01",
+      "kind": "public input envelope",
+      "severity": "conditional P2",
+      "confidence": "high path / unknown target-ceiling producer contract",
+      "status": "CONDITIONAL_NOT_CONFIRMED_SHIPPED_DEFECT",
+      "source": "core:305-337",
+      "impact": "Overshooting edge can execute above requested target; duplicate minimum/invalid edge may block valid path. No current producer trace.",
+      "target": "explicit permitted chain validation or documented producer preconditions",
+      "verification": "future edge-chain and failure/reopen evidence; NOT_RUN"
+    }
+  ],
+  "recommendations": [
+    "Keep transaction side effects and context pending-state ownership explicit.",
+    "Treat read-only as caller discipline, not immutable context guarantee.",
+    "Keep migration checkpoint durability/idempotence and actual SwiftData schema evolution evidence separate.",
+    "Clarify cancellation and error-string disclosure contracts before expanding affected APIs."
+  ],
+  "checklist": {
+    "product_contract": "UNKNOWN host policies; package contracts inspected",
+    "architecture": "CHECKED package/app boundary, main vs actor ownership",
+    "UI_structure_lazy_rendering": "NOT_APPLICABLE three mechanism files; caller UI unobserved",
+    "render_hot_path_state_invalidation_navigation": "UNKNOWN caller path; no UI files in scope",
+    "identity_domain": "CHECKED backend/config/version primitives; actual schema not in scope",
+    "persistence": "CHECKED static save/rollback/version ordering; reopen/schema durability UNVERIFIED",
+    "network_sync": "NOT_APPLICABLE mechanism code has no transport; host external effects UNKNOWN",
+    "concurrency": "CHECKED isolation/error conversion; cancellation latency/executor runtime UNVERIFIED",
+    "memory_resource": "CHECKED no cache/task loop; closure query/workload bounds UNKNOWN",
+    "security_privacy": "CHECKED no logging/credentials in source; arbitrary error-string downstream disclosure UNKNOWN",
+    "code_documentation": "CHECKED comments on major ownership, main async caveat; cancellation/rollback/retry contracts sparse",
+    "verification": "STATIC_ONLY; no tests/build/runtime evidence collected"
+  },
+  "refused_capabilities": [
+    "agents",
+    "MCP",
+    "network/browser",
+    "messages",
+    "source/mode/canonical/Git writes",
+    "tests/test bodies/runtime/build/Simulator",
+    "held-out/sibling/F02 fixture results",
+    "secrets/host/config/Keychain/installers/automations"
+  ],
+  "verdict": "BOUNDED_STATIC_ASSESSMENT; no confirmed shipped P0-P2; conditional API candidates and evidence gaps retained; no app/package production-readiness claim"
+}

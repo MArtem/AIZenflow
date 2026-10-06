@@ -1,0 +1,30 @@
+{
+  "grant": "User 2026-10-04: делай проверки тесты и так далее сам; exact BG-T01 verification; prior other prohibitions retained",
+  "environment_overrides": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-verification/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-verification/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-verification/cache"
+  },
+  "results": [
+    {
+      "command": [
+        "xcodebuild",
+        "-version"
+      ],
+      "exit": 0,
+      "output": "Xcode 27.0\nBuild version 27A266a",
+      "diagnostics": "2026-10-04 01:34:57.645 xcodebuild[93236:2963819]  DVTFilePathFSEvents: Failed to start fs event stream.\n2026-10-04 01:34:57.959 xcodebuild[93236:2963817] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 \"Input/output error\". Using NSCachesDirectory instead."
+    },
+    {
+      "command": [
+        "xcrun",
+        "--no-cache",
+        "--find",
+        "simctl"
+      ],
+      "exit": 0,
+      "output": "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+      "diagnostics": "2026-10-04 01:34:58.800 xcodebuild[93255:2963914]  DVTFilePathFSEvents: Failed to start fs event stream.\n2026-10-04 01:34:58.945 xcodebuild[93255:2963912] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 \"Input/output error\". Using NSCachesDirectory instead."
+    }
+  ]
+}

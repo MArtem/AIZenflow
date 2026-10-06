@@ -1,113 +1,199 @@
-# Handoff — база знаний → библиотека
+# Closed task — new-task-be0b
 
-Дата актуализации: 2026-10-01. Task: `new-task-be0b`. Активный checkout:
-`/Users/Artem/.zenflow/worktrees/knowledge-base-next`, ветка
-`codex/knowledge-base-next`. Прежний `new-task-be0b` worktree и его
-`codex/audit-remediation-luna` — исторический/грязный источник; не продолжать
-работу и не сливать его установочную историю.
+## Current follow-up — Git preservation, 2026-10-06
 
-## Действующая цель и authority
+Actual human authorizes commit/push of useful progress, including applications;
+GPT-6.1 Sol/high, эконом. Active target: origin/codex/knowledge-base-next in this
+repository. Historical client Git restrictions below are superseded for this follow-up.
+Preserve foreign work; derived QA products stay local. No new runtime/pilot/agent/MCP
+grant or old checkout/install branch change. Exact publication receipts stay external
+under `.zenflow/task-artifacts/new-task-be0b/git-preservation/`.
+Next: review, commit and guarded push.
 
-Этап A — ревью и стабилизация базы знаний (первого слоя) — завершён с
-оговорками. Далее этап B — copy-only библиотека, затем этап C — проверка их
-совместной работы. Исполнимый план: `knowledge-base-library-roadmap.md`;
-finding/evidence: `knowledge-base-audit-ledger.md`. Для этапа A пользователь
-выбрал GPT-6 Sol и режим `эконом`. Новые запросы пользователя и каноническое
-`MODEL_ROUTING_RULE.md` имеют приоритет над историческими моделями.
+**Current status: CLOSED_SCOPED_BY_USER — 2026-10-05.** Human «заканчивай»
+after the offered experimental-Library closure selects completion of this cycle.
+Core W1–W5 and authorized finite pilot/repair execution are complete in their recorded
+scopes. Library remains EXPERIMENTAL / NOT_READY_FOR_GENERAL_RELEASE; LIB-004 P2 OPEN.
+This supersedes earlier continue/pending-choice/full-general-acceptance instructions;
+it does not turn F06 partial evidence or any unavailable check into PASS.
+Closure decision/exception: NT-BE0B-CLOSE-01 in the canonical main plan.
+No further action is pending in this accepted cycle. Resume only under a new explicit task.
 
-Перед работой применять корневой `AGENTS.md`, canonical bootstrap и
-маршрутизатор/Level 0. Старые QC/V5.4 планы ниже task archive и Git history —
-доказательства истории, не активное поручение и не authority.
+Active `/Users/Artem/.zenflow/worktrees/knowledge-base-next`; GPT-6.1 Sol/high, эконом.
+Read canonical bootstrap → baseline/router Level0 → current [main plan](ios-project-work-system-plan.md)/handoff → applicable routes/overlays. Route currently adequate.
 
-## Текущее доказанное состояние
+System implementation/pilot selection/owned registration/source edits in accepted tasks
+authorized; meaningful approaches need user choice. Current task self-verification delegated; BG-T01 and chosen TC-W4-01 test/probe changes,
+builds/tests/necessary Simulator QA selected; iPhone Simulator iOS18.2+27 required for this task.
+Global [USER.VERIFICATION.SCOPE](../../reusable/baseline/docs/CURRENT_USER_OVERRIDES.md#verification-and-quality) removes all iPad/physical checks, including actual VoiceOver,
+from every project/task plan and gate; exclusions never PASS. Necessary Simulator-only
+operations may be outside .zenflow; project artifacts/caches/DerivedData/logs inside,
+shell login:false. No unapproved agents/MCP/installers/host/config/secrets/
+automations/client or engine Git. Canonical documentation Git authorized after gates.
+Two original build grants consumed; current QA uses newer delegation.
 
-- A-I1–A-I6 завершены как риск-ориентированный документальный и статический
-  аудит. Вердикт A: READY_WITH_LIMITATIONS для базы знаний как первого слоя;
-  это не production-сертификат iOS-кода и не готовность copy-only библиотеки.
-- `AIZenflow` `origin/main` и `origin/development` после KB-013:
-  `429d0ba14b3caaccf570f0ee941f755a81c6eb7f`.
-  `AIZenflowDocumentation/main` после промежуточного B6-снимка:
-  `eb89d0716dfb285f52d3aa383529f3dfb5caa8b7`.
-  Перед новым push проверять удалённые ссылки заново.
-- В новом чате из чистого checkout наблюдалась загрузка корневого AGENTS,
-  canonical bootstrap/baseline, полного Level 0, текущих task plan/handoff;
-  маршрут context-transfer применён. Это доказывает startup для того SHA,
-  но не выбор всех specialist skills, runtime iOS/build или каждый optional
-  документ. `CODEX_HOME`/`HOSTNAME` в том отчёте были unknown.
-- После точечного переноса 40 документов/навыков прошли docs
-  consistency/index/bootstrap/router/boundaries, iOS registry/framework,
-  baseline mirror drift, context-cost и `git diff --check`. Build/tests,
-  Simulator, Instruments не запускались.
-- Нет известных открытых P0–P2 в проверенном документальном scope. KB-004
-  закрыт разделением required/optional; KB-012 — компактизацией task-state.
-  KB-013: 70 ссылок `./docs/...` в 30 iOS-навыках статически исправлены;
-  фактическое чтение навыков в новом чате остаётся непроверенным.
-  Фактическое чтение optional-документов,
-  актуальность каждого deep API-тезиса и автоматическая активация каждого
-  specialist skill не доказаны.
+W1/W2 complete; W3 accepted with revised iPhone-only verification. W4 structural
+Tchop map/owned association complete; W4.4.a/b/c/d observed at documented scope;
+W4.5.a independent-review decision explicit (not authorized; self-review only).
+W4 real shared-source TC-W4-01 verified; named UNKNOWN/invalid/selector refusal controls
+observed within actual-withheld/synthetic scope. E9 supplies saved OFF/ON profiles;
+E10 supplies shared-root application; E11 closes strict startup in its own new observation.
+Historical same-handler regression evidence supports only its
+exact cases. W5 R01–R21 traceability and separate Library/app verdicts prepared; core acceptance
+now verifies the selected full mandatory core matrix; no acceptance waiver. E11 publication verified at f9031c96; LIB-004 P2 OPEN independently.
 
-## Следующий безопасный шаг
+BG exact selector BattleshipGame/BattleshipGame.xcodeproj, ProjectID
+6a655f50-2a48-49df-9b5a-bdff693564de. Client HEAD
+b7c48e163d9108d1cc4b123d93456ce8f7628d93, dirty A source plus non-shipping native/UI
+verification and target/scheme registration uncommitted. Current hashes/membership
+in app [context](../../apps/BattleshipGame/PROJECT_CONTEXT.md)/map. Shipping source,
+foreign roadmap, BG nested overlay and34 payload files preserved. Root edits are
+limited to the owned global-scope pointer and owned Tchop Library entrypoint; all other
+root text is byte-preserved against the canary input. BG handler ON/AUTO observation reused at
+unchanged hash; current E9 both own handlers observed ON/AUTO with independent
+record preservation, no cross-project status/grant borrowing.
 
-Текущая библиотека называется IOS Library. Пользователь разрешил copy-only пилот
-в BattleshipGame и выбрал ON/AUTO; прежние наблюдения свежих ON/OFF чатов закрыли
-LIB-001 только в scope пилота. LIB-002 закрыт по сверке всех сохранённых категорий,
-явным исключениям установки/runtime и статическому обзору curated payload;
-это не свежая проверка всех API и не эквивалентность старому CLI.
+[BG receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md): native12/12,
+nominal iPhone18.2/27, AX5 gameplay and isolated four audit types+Rotate/placement5/5
+per version. Original combined27 timeout600s retained, cause unknown; no original
+combined PASS/flakiness guarantee. All iPad/physical/manualVoiceOver checks removed
+from plans globally by user; historical observations retained, exclusions not PASS.
+BG-A01 CLOSED_SCOPED, no app release. Owned text settings restored/phones shutdown;
+no runtime job. Raw products/failures/receipts remain under active task bg-t01-verification/.
+Canonical exact-SHA receipts stay outside tracked content.
 
-После отдельного разрешения обновлены 26 документов `BattleshipGame/IOSLibrary`
-и pin во вложенном `BattleshipGame/AGENTS.md`. Все 34 файла побайтно совпадают с
-canonical `3c42e490e82866eee0f303d6340452dbf9fff5eb`; payload B6 SHA-256:
-`526c7b0238fd66572ef260813891562ccadcc7329a26fc25b096ac16574f641e`.
-Скрипт SHA-256: `6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d`.
-Это обновление 2026-10-01 после независимого ревью двух P2 и encoding P3;
-четыре файла и overlay перенесены по отдельному разрешению, все 34 сверены с pin.
-Handler/режим при переносе не запускались. После переноса пользователь вернул свежий
-startup: 34/34 и оба SHA совпали, read-only status дал ON/AUTO exit 0; recovery
-отключён, локальный приоритет сохранён. Это scoped-наблюдение, не общая готовность.
-Запись не менялась. Код игры/тестов не менялся. Payload/overlay
-включены в разрешённый блок публикации AIZenflow вместе с тремя task-документами.
-Факт успешного push устанавливать по remote SHA, а не по этому намерению.
+[TC-W4-01](../../apps/Tchop/history/tc-w4-01-localization-2026-10-04.md): one AppTab source
+changed, actual preview property failure reproduced,20/20 after lookup assertions and
+four host builds PASS;17 synthetic reader/selector controls PASS. That source checkpoint
+performed no live mode changes; E9 below records the later authorized transitions.
+Both host resource tables match original323-key dictionaries. SideMenu preview mismatch
+is separate P3, source untouched; no authenticated navigation or rendered-preview claim.
+Latest human chose B/full original scope; temporary Library switching continues until
+common improvement plan completion/revocation. Automatic agents/MCP forbidden; each
+useful bounded action requires human choice. E10 and the separately approved E11 observers
+completed; both creation/result-read grants consumed, no further automatic delegation.
+E10 actual TC OFF/BG ON shared-root application, own TC ON challenge,18 status+2 writes
+and5 isolated negative API cases remain valid at unchanged inputs. Its initial failed
+read order stays historical. [E11](ios-project-work-system-ordered-startup-check.md) now
+observes correct first layer before nested, own34-file pin and independent ON/AUTO statuses.
+Observer and parent verify105 protected hashes, both record hashes/HEAD/status/complete
+tracked diff unchanged. FC-P3-01 CLOSED_SCOPED; W4.3.d shared-instruction boundary CLOSED,
+no independently moded shared Swift claim. W5.1.b VERIFIED_REQUIRED_CORE_MATRIX using
+all mandatory named core cases, no A waiver. General specialist/Library/app acceptance
+not inferred. LIB-004 P2 and unrelated TC-L02 P3 remain OPEN.
+E11 canonical publication f9031c96 independently confirmed; remote-state PASS.
+TC-MP01 completed its two authorized sequential read-only observations at frozen source
+and canonical801b22ec753a59383a3e2719f62c934aaf27494c. Both are PARTIAL_PROCEDURAL;
+strict comparison is not accepted. OFF hashed1368 extra pin blobs (5,139,382 logical
+bytes) beyond34 adopted names; no Library text applied. ON first-layer ordering and
+scheme-output scope also incomplete. Library produced0 new defects/remedies and2
+evidence/severity refinements, not established causal/general utility. Actual combined
+turn time1734.973sec; token/account cost UNKNOWN. Exactly2 grants consumed; no new chats/MCP.
+Parent traced current media producers: same-identity URL replacement not established,
+so no speculative F1 state rewrite. Original video intake is not spatially reduced;
+confirmed preview oversize fixed using existing1200px photo envelope. Only View,
+new FeedMediaPreviewRendererTests and existing-unit PBX membership changed; both hosts
+consume View, new test only TchopAppTests. Native baseline oversized on both iPhones;
+after1200x900/900x1200,14/14 assertions each. Actual unit3 functions/8 parameter runs
+PASS each on18.2+27; all4 unsigned Debug host builds PASS with SDK27/cache reuse.
+Initial18.2 unit timeout UNKNOWN retained; completed27 baseline real2048>1200 FAIL retained.
+No smoothness/memory/stale-result/auth/UI/full-suite/release claim. iPad/physical/actual
+VoiceOver OMITTED_BY_USER. TC and BG ON/AUTO; BG exact record preserved, TC restored
+initial ON bytes. Source HEAD unchanged, foreign edits/paused follow-ups retained.
+Full exact local evidence: library-utility-tc-mp01/regression/qa-receipt.json and
+parent-adjudication.json. General improvement plan/LIB-004 P2 OPEN; Library
+NOT_READY_FOR_GENERAL_RELEASE; TC-L02 P3 OPEN. Next approach selected by actual human2026-10-05: option1 bounded
+task-local observation-protocol correction; see current TC-OP02 execution below.
+Canonical documentation alone publishable after exact final-diff/HEAD/remote gates.
 
-LIB-003 закрыт для точной версии пилота по свежему пользовательскому отчёту.
-LIB-004 OPEN: нужны ограниченные сценарии authority/failure/качества/стоимости.
-Предыдущая OFF/ON пара не показала
-подтверждённого дополнительного дефекта, а ON пропустил finding и завысил severity.
-Не заявлять общей готовности или экономии токенов. Не повторять известные игровые
-findings как независимое доказательство пользы. Актуальные receipts и границы:
-canonical `tasks/new-task-be0b/ios-library-pilot-2026-09-30.md` и библиотечный
-`B6_PRE_RELEASE_REVIEW.md`; ранние SHA/вердикты выше относятся к этапу A/истории.
-При будущих публикациях переносить только проверенные правки из этой чистой
-ветки в `development`/`main`; не merge старой ветки.
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
 
-Не менять Codex host, установщики, `config.toml`, auth или Keychain. Не запускать
-build/tests/Simulator/Instruments и не менять тесты без отдельного разрешения.
-Текущее состояние пилота: ON/AUTO восстановлено после получения OFF-отчёта V1,
-подтверждено отдельным status. Оба свежих V1-отчёта получены и оценены: ограниченное
-неухудшение на трёх случаях, новых независимых ON-находок нет; токены/общее время
-unknown. Повторять известные случаи ради победы ON нельзя. В AIFieldbook проверен
-один внешний URL-маршрут; два reference-маршрута прочитаны как ADVISORY-консультация,
-без копирования/активации библиотеки. 2026-10-01 пользователь принял сохранение
-редактора и отложенный переход до его закрытия; app ADR-002 обновлён. Реализация
-pending, правила нескольких ссылок ещё не определены. Код/тесты не менять без
-отдельного разрешения. Новый чат не повторяет off/on.
-LIB-003 закрыт по предоставленному свежему отчёту только в границах пилота;
-LIB-004 и общий независимый финальный gate остаются открытыми.
-Оба независимых V2-отчёта получены: один общий P2 Favorites empty/error state,
-ноль добавлений PLUS, coverage 8/9 файлов, effort/tokens/time unknown.
-Повторные специальные прогоны прекращены без искусственного закрытия LIB-004.
-Roadmap актуализирован: scoped-пилот проверен, общий rollout не одобрен.
-Пользователь 2026-10-01 явно разрешил коммит payload/overlay и трёх task-документов
-в AIZenflow, затем fast-forward одного проверенного SHA в `development` и `main`.
-Следующий шаг — exact-HEAD review и проверка remote SHA после push. Старую ветку
-не сливать; другие проекты не активировать. LIB-004 остаётся OPEN.
-Проверены выбранные read-only slices Countries/Ghibli/Firefox из
-`/Users/Artem/.zenflow/library-acceptance-projects/`. Firefox blob cancellation
-игнорируется (статический P2), уже найдено локальным проходом. Reference-only
-дефектов не добавлено; токены unknown. Это ADVISORY self-review, не ON/paired PASS.
-Исходники не менялись, Ghibli FilmsScreen остаётся чужой dirty-правкой. Подробности
-в canonical pilot receipt; не начинать исправление Firefox или глобальную
-concurrency-миграцию без отдельного разрешения. Известные slices не повторять ради победы ON.
-Исторические прежние Level 0 файлы сохранены в `archive/` и Git; они не являются
-текущими инструкциями.
+## Historical next step — TC-OP02
+
+Human2026-10-05 accepted option1: bounded observation-protocol correction, no real
+app task currently available. [TC-OP02 v1](ios-project-work-system-plan.md#tc-op02-v1--bounded-observation-protocol)
+is the single task-local protocol for a future separately authorized observation.
+Required routed first layer closes before Git/nested/status; pin reads only34 approved
+names; schemes emit only declared memberships. STATIC_REVIEWED_NOT_OBSERVED:
+no new chat/MCP/runtime/mode/source change, no repeated TC-MP01 comparison.
+LIB-004 P2 OPEN and Library NOT_READY_FOR_GENERAL_RELEASE remain; historical failures
+and provisional/delta evidence are unchanged. Next safe step: await a genuine task;
+then prepare fresh scoped inputs and request concrete observer authority if useful.
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+## Final acceptance authority — human-authorized execution
+
+Latest actual human2026-10-05: «смотри, пока что реальных задач не ожидается,
+поэтому если нужно запускать пилоты и так далее, делай это, нужно в новом чате,
+делай это и иди к финалу, заканчивай все пункты». This supersedes waiting for a real
+task and permits necessary bounded pilot/new-chat work toward this common plan.
+It does not waive findings or retained secrets/host/config/installers/automations,
+physical-device/iPad exclusions, foreign/old-checkout preservation or client/engine Git restrictions.
+
+[Finite F01–F06 matrix](ios-project-work-system-plan.md#final-acceptance-execution--f01f06) owns the next execution.
+No longer waiting for a real task. One fresh integrator owns pilot execution and exact final publication; no false PASS or removed requirements.
+
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+## Previous F01–F06 closeout — before user closure
+
+The human confirmed both remaining actions in the parent chat («подтверждаю»), then
+separately approved «Разрешаю patch и необходимую QA». Root performed Simulator,
+exactly2 read-only OFF/ON chats and the guarded6-source correction; integrator owns
+this single3-document synchronization and publication. Those exact observer grants
+are consumed. No new automatic pilot/chat/QA loop follows.
+
+- [x] F01 native AppValidationCore11/11; original verifier FAIL remains reported P3.
+- [x] F02 component migration/concurrency runtime: original mechanism16 assertions
+  per iPhone18.2/27; separately approved cancellation correction, after33 per runtime
+  (66 total), including migration/rollback/reopen. Six baseline type mismatches per
+  runtime retained; public contract fixed, shipped CancellationError producer unproven.
+- [x] F03 offline two-SVG/catalog/mapping/refusal scope; live Figma NOT_RUN.
+- [x] F04 static/manual/off/signing-unavailable scope; new affected-source unsigned
+  TchopApp/Ocean builds PASS on both destinations (four fresh builds).
+- [x] F05 native additional-platform scope; all5 AppDatabase package modules compile
+  with Swift6 strict diagnostics. Minimum-OS and other declared runtime coverage NOT_RUN.
+- [x] F06 exactly2 fresh authorized observations executed before any source change.
+  Both PARTIAL_PROCEDURAL; strict pair withheld. Library added0 confirmed defects/remedies.
+- [ ] F06 general quality/cost acceptance: LIB-004 P2 OPEN; Library
+  NOT_READY_FOR_GENERAL_RELEASE. Plans prime the case; prompt-path clarification,
+  late reads/probes and metrics prevent a blind/causal comparison. Costs UNKNOWN,
+  savings NOT_ESTABLISHED. Human decision on this remaining gate, not repeated passed QA.
+
+Core W1–W5/E11 remains VERIFIED_REQUIRED_CORE_MATRIX. Authorized component execution
+and cancellation-fix QA are closed scoped; common general acceptance remains NOT_READY.
+No actual app schema/user-data, all-backend cancellation or app-release claim.
+In-memory version-store checks do not prove durable checkpoint relaunch/crash atomicity.
+Old seeding occurs on two distinct stores, not seed-repeat idempotence. Package driver
+language-mode warnings and existing host AI deprecation retained; no warning-free claim.
+TC-L02 P3 remains untouched. Six source files remain uncommitted; client HEAD unchanged.
+Import-only source-copy adaptation, outside-six foreign work and paused follow-ups preserved.
+TC finalON/AUTO, BG exact initialON/AUTO; both selected phones verified Shutdown.
+
+Historical initial sandbox/macro/harness failures and automatic approval rejections remain
+in evidence; direct human confirmation subsequently enabled root execution. Approval is
+no longer pending and these earlier refusals are not current runtime/chat blockers.
+Evidence root in active worktree: `.zenflow/tasks/new-task-be0b/final-acceptance/`;
+`f02/parent-resume/runtime-receipt.json`, `f06/parent-confirmed/parent-adjudication.json`,
+`cancellation-regression/{application-receipt,semantic-review,qa-receipt}.json` and
+`closeout/publication-receipt.json`. Parent independently reviews final publication.
+iPad/physical/actual VoiceOver remain OMITTED_BY_USER; liveFigma/CI/signing remain unperformed.
+
+**перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+
+## Final task state
+
+- [x] Human selects closure with experimental Library; NT-BE0B-CLOSE-01 recorded.
+- [x] Preserve verified QA and its limits; no additional pilot/review/runtime cycle.
+- [x] Main decision and both local mirrors synchronized; exact publication receipt is external.
+
+TC/BG recorded ON/AUTO remains unchanged. Cycle-specific discretionary Library-switching
+and pilot/runtime authority ends; consumed observer grants do not carry into future work.
+LIB-004 P2 OPEN, F01 verifier P3 and TC-L02 P3 remain explicit outside this closed cycle.
+No general Library rollout or app release is accepted. Source remains uncommitted;
+foreign work, raw failures/results and paused human decisions are retained.
+Publication evidence: active `final-acceptance/user-closure/publication-receipt.json`.
 
 **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

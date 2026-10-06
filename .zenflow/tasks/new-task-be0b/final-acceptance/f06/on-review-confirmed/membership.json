@@ -1,0 +1,95 @@
+{
+  "project_sha256": "8c3f7c9cf8ed6b4fe13975e4d0523b89aa378a68045d9264201d6e0c8957a47b",
+  "memberships": [
+    {
+      "target_id": "A000000C0000000000000001",
+      "target": "TchopApp",
+      "phase": "A000000D0000000000000001",
+      "build_file": "B15F9AFB8CA760D841B23702",
+      "file_ref": "F15F9AFB8CA760D841B23702",
+      "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift"
+    },
+    {
+      "target_id": "A000000C0000000000000001",
+      "target": "TchopApp",
+      "phase": "A000000D0000000000000001",
+      "build_file": "B1029B7894F1D1A1259351B0",
+      "file_ref": "F1029B7894F1D1A1259351B0",
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift"
+    },
+    {
+      "target_id": "A000000C0000000000000001",
+      "target": "TchopApp",
+      "phase": "A000000D0000000000000001",
+      "build_file": "B12601760918A642BB479B00",
+      "file_ref": "F12601760918A642BB479B00",
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift"
+    },
+    {
+      "target_id": "B00000080000000000000001",
+      "target": "TchopAppOcean",
+      "phase": "B00000070000000000000001",
+      "build_file": "B15F9AFB8CA760D841B23702",
+      "file_ref": "F15F9AFB8CA760D841B23702",
+      "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift"
+    },
+    {
+      "target_id": "B00000080000000000000001",
+      "target": "TchopAppOcean",
+      "phase": "B00000070000000000000001",
+      "build_file": "B1029B7894F1D1A1259351B0",
+      "file_ref": "F1029B7894F1D1A1259351B0",
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift"
+    },
+    {
+      "target_id": "B00000080000000000000001",
+      "target": "TchopAppOcean",
+      "phase": "B00000070000000000000001",
+      "build_file": "B12601760918A642BB479B00",
+      "file_ref": "F12601760918A642BB479B00",
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift"
+    }
+  ],
+  "schemes": [
+    {
+      "path": "TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme",
+      "sha256": "9ac7bb21f641b0f247ccf6c414c12a5d74a33e64523e63a0f2751348a2fa2a17",
+      "references": [
+        {
+          "kind": "BuildActionEntry",
+          "BlueprintIdentifier": "A000000C0000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopApp",
+          "BuildableName": "TchopApp.app"
+        },
+        {
+          "kind": "TestableReference",
+          "BlueprintIdentifier": "A000008A0000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopAppTests",
+          "BuildableName": "TchopAppTests.xctest"
+        },
+        {
+          "kind": "TestableReference",
+          "BlueprintIdentifier": "U00000060000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopAppUITests",
+          "BuildableName": "TchopAppUITests.xctest"
+        }
+      ]
+    },
+    {
+      "path": "TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme",
+      "sha256": "ef060370056878093d9b70ecbbd132bd72c8290f558ec12b07dbdd6555b754d8",
+      "references": [
+        {
+          "kind": "BuildActionEntry",
+          "BlueprintIdentifier": "B00000080000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopAppOcean",
+          "BuildableName": "TchopAppOcean.app"
+        }
+      ]
+    }
+  ]
+}

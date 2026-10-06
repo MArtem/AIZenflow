@@ -69,6 +69,11 @@ behavior.
 
 ## Platform and accessibility matrix
 
+Planning follows [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality):
+all iPad and physical-device checks, including actual VoiceOver, are omitted from plans
+and prerequisites. Supported-platform metadata and source accessibility requirements
+remain; historical or omitted evidence must not be presented as verified coverage.
+
 For each supported platform row, record iPhone/iPad idiom, size classes, orientation, resizing or
 multiple windows, keyboard/pointer, VoiceOver, Dynamic Type, contrast, Reduce Motion, RTL and any
 hardware/region prerequisite. A single iPhone screenshot does not prove iPad, window, keyboard,

@@ -1,0 +1,1835 @@
+{
+  "coverage": [
+    {
+      "call": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        83
+      ],
+      "derived_logical_text_bytes": 5070,
+      "sha256_at_receipt_measurement": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da"
+    },
+    {
+      "call": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        145
+      ],
+      "derived_logical_text_bytes": 13748,
+      "sha256_at_receipt_measurement": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d"
+    },
+    {
+      "call": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        117
+      ],
+      "derived_logical_text_bytes": 11011,
+      "sha256_at_receipt_measurement": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5"
+    },
+    {
+      "call": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        110
+      ],
+      "derived_logical_text_bytes": 7507,
+      "sha256_at_receipt_measurement": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40"
+    },
+    {
+      "call": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        78
+      ],
+      "derived_logical_text_bytes": 8381,
+      "sha256_at_receipt_measurement": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e"
+    },
+    {
+      "call": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        172
+      ],
+      "derived_logical_text_bytes": 13646,
+      "sha256_at_receipt_measurement": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd"
+    },
+    {
+      "call": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        160
+      ],
+      "derived_logical_text_bytes": 12405,
+      "sha256_at_receipt_measurement": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68"
+    },
+    {
+      "call": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        172
+      ],
+      "derived_logical_text_bytes": 13646,
+      "sha256_at_receipt_measurement": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd"
+    },
+    {
+      "call": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        160
+      ],
+      "derived_logical_text_bytes": 12405,
+      "sha256_at_receipt_measurement": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68"
+    },
+    {
+      "call": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/TASK_DOCUMENT_ROUTES.overlay.json",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        26
+      ],
+      "derived_logical_text_bytes": 627,
+      "sha256_at_receipt_measurement": "229203512a1cd4e44d5f3f4d76c2786e872c29474f66cfc99e8a7dfa4626a510"
+    },
+    {
+      "call": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        160
+      ],
+      "derived_logical_text_bytes": 12405,
+      "sha256_at_receipt_measurement": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68"
+    },
+    {
+      "call": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        172
+      ],
+      "derived_logical_text_bytes": 13646,
+      "sha256_at_receipt_measurement": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd"
+    },
+    {
+      "call": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "start": 1,
+      "end": 160,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        160
+      ],
+      "derived_logical_text_bytes": 16299,
+      "sha256_at_receipt_measurement": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627"
+    },
+    {
+      "call": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "start": 161,
+      "end": 320,
+      "kind": "text-read",
+      "actual_line_range": [
+        161,
+        320
+      ],
+      "derived_logical_text_bytes": 16493,
+      "sha256_at_receipt_measurement": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627"
+    },
+    {
+      "call": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "start": 321,
+      "end": 500,
+      "kind": "text-read",
+      "actual_line_range": [
+        321,
+        500
+      ],
+      "derived_logical_text_bytes": 18134,
+      "sha256_at_receipt_measurement": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627"
+    },
+    {
+      "call": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "start": 501,
+      "end": 680,
+      "kind": "text-read",
+      "actual_line_range": [
+        501,
+        680
+      ],
+      "derived_logical_text_bytes": 19058,
+      "sha256_at_receipt_measurement": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627"
+    },
+    {
+      "call": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "start": 681,
+      "end": 850,
+      "kind": "text-read",
+      "actual_line_range": [
+        681,
+        850
+      ],
+      "derived_logical_text_bytes": 15054,
+      "sha256_at_receipt_measurement": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627"
+    },
+    {
+      "call": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "start": 851,
+      "end": 1029,
+      "kind": "text-read",
+      "actual_line_range": [
+        851,
+        1029
+      ],
+      "derived_logical_text_bytes": 19454,
+      "sha256_at_receipt_measurement": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627"
+    },
+    {
+      "call": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md",
+      "start": 100,
+      "end": 172,
+      "kind": "text-read",
+      "actual_line_range": [
+        100,
+        172
+      ],
+      "derived_logical_text_bytes": 5501,
+      "sha256_at_receipt_measurement": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd"
+    },
+    {
+      "call": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        409
+      ],
+      "derived_logical_text_bytes": 32224,
+      "sha256_at_receipt_measurement": "3bda6ea4f6e5b8d4c30b98c9d5732108a05753ca2e2d23fbb20388a897bebbc3"
+    },
+    {
+      "call": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+      "start": 225,
+      "end": 250,
+      "kind": "text-read",
+      "actual_line_range": [
+        225,
+        250
+      ],
+      "derived_logical_text_bytes": 2222,
+      "sha256_at_receipt_measurement": "3bda6ea4f6e5b8d4c30b98c9d5732108a05753ca2e2d23fbb20388a897bebbc3"
+    },
+    {
+      "call": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        24
+      ],
+      "derived_logical_text_bytes": 1155,
+      "sha256_at_receipt_measurement": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f"
+    },
+    {
+      "call": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        239
+      ],
+      "derived_logical_text_bytes": 15851,
+      "sha256_at_receipt_measurement": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899"
+    },
+    {
+      "call": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+      "start": 210,
+      "end": 225,
+      "kind": "text-read",
+      "actual_line_range": [
+        210,
+        225
+      ],
+      "derived_logical_text_bytes": 2928,
+      "sha256_at_receipt_measurement": "3bda6ea4f6e5b8d4c30b98c9d5732108a05753ca2e2d23fbb20388a897bebbc3"
+    },
+    {
+      "call": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        36
+      ],
+      "derived_logical_text_bytes": 2461,
+      "sha256_at_receipt_measurement": "93b992401b25bd55f5f4386aae7bd5a84c1f3574e99df11f7fcf25f0e56b540d"
+    },
+    {
+      "call": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        120
+      ],
+      "derived_logical_text_bytes": 7391,
+      "sha256_at_receipt_measurement": "08704eb6c31db0aba515c366601c24518c7765c6b6de2f1e6af69ae2e1750625"
+    },
+    {
+      "call": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-reusable-packages/SKILL.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        45
+      ],
+      "derived_logical_text_bytes": 1930,
+      "sha256_at_receipt_measurement": "792ceb106c82c2425664f190c8c16adc6bebcb4da4c16d05b75e4db9f088f58e"
+    },
+    {
+      "call": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-data-migration/SKILL.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        24
+      ],
+      "derived_logical_text_bytes": 1034,
+      "sha256_at_receipt_measurement": "602fe8c0e9080d1a446ecb3aa971b96d6ffef720aec1f0084473179afd3079d6"
+    },
+    {
+      "call": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-reusable-packages/references/package-rules.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        25
+      ],
+      "derived_logical_text_bytes": 814,
+      "sha256_at_receipt_measurement": "7c6895353e9f16cbf33152c3f8d020e78065d5b7e11b34b1eb0c91846bfb224a"
+    },
+    {
+      "call": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_DOCUMENTATION.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        67
+      ],
+      "derived_logical_text_bytes": 4310,
+      "sha256_at_receipt_measurement": "70bb0a874a99a9d28d17acc8802f9fe7a699387234ce20bab043bdaeb9b46256"
+    },
+    {
+      "call": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_HEALTH.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        68
+      ],
+      "derived_logical_text_bytes": 3105,
+      "sha256_at_receipt_measurement": "85a574d18aff7e4685a6db183ae14776f7ae4b061028f627965d0d3751eeeeab"
+    },
+    {
+      "call": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        49
+      ],
+      "derived_logical_text_bytes": 4576,
+      "sha256_at_receipt_measurement": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750"
+    },
+    {
+      "call": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGES_AND_MANAGERS.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        351
+      ],
+      "derived_logical_text_bytes": 11721,
+      "sha256_at_receipt_measurement": "d66248462eadb7c1fb8d2b0eb1477d7c83d0b40e21351c0c57be786ce83c34da"
+    },
+    {
+      "call": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        64
+      ],
+      "derived_logical_text_bytes": 3560,
+      "sha256_at_receipt_measurement": "57fca9ffa04babd8c8b184168e5e59809398726c9cc7c647c5c617ce9b516962"
+    },
+    {
+      "call": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        126
+      ],
+      "derived_logical_text_bytes": 3694,
+      "sha256_at_receipt_measurement": "7ffd94a6ec2d2db4e777da68b2dd189de11bb2620cc9329b040bee849d40613b"
+    },
+    {
+      "call": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEPENDENCY_POLICY.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        33
+      ],
+      "derived_logical_text_bytes": 1371,
+      "sha256_at_receipt_measurement": "31a2c6c392d465a19b39323b7498fdf195d542118cd3c0ed815b5cb21afca5ae"
+    },
+    {
+      "call": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/README.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        45
+      ],
+      "derived_logical_text_bytes": 2763,
+      "sha256_at_receipt_measurement": "afe9f54486216bf865cbe1d38e00973d7e453c0495aba81e5834c9a4b36bb50c"
+    },
+    {
+      "call": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesForReuse/README.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        37
+      ],
+      "derived_logical_text_bytes": 2628,
+      "sha256_at_receipt_measurement": "21bfcfc09d63579bd2b29c0fec4bad052aac342a929941ef0dbb031a75263964"
+    },
+    {
+      "call": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/PACKAGE_USAGE_SOURCE_ONLY.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        54
+      ],
+      "derived_logical_text_bytes": 2448,
+      "sha256_at_receipt_measurement": "4efe2ac42da2a782240e60b1177802122951dedf2c6c5df8b6921dee1f767ee0"
+    },
+    {
+      "call": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/PACKAGE_DOC_MIRROR_CONTRACT.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        27
+      ],
+      "derived_logical_text_bytes": 1352,
+      "sha256_at_receipt_measurement": "f9b786c8c483900bc1bcc12205fe9cdff73f1c0408bcc0f8d0d08dbeede407ce"
+    },
+    {
+      "call": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        19
+      ],
+      "derived_logical_text_bytes": 797,
+      "sha256_at_receipt_measurement": "a6209270d5b765e1fb330deb136923578150e3f13f6e799d03292417e317431e"
+    },
+    {
+      "call": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DATA_GOVERNANCE_AND_COMPLIANCE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        18
+      ],
+      "derived_logical_text_bytes": 712,
+      "sha256_at_receipt_measurement": "78f8ac22f81bc93c9cb48cf7e91d9eb6be02e3c0189a9e2e64521e772dd56bd1"
+    },
+    {
+      "call": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        31
+      ],
+      "derived_logical_text_bytes": 2091,
+      "sha256_at_receipt_measurement": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89"
+    },
+    {
+      "call": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        89
+      ],
+      "derived_logical_text_bytes": 5585,
+      "sha256_at_receipt_measurement": "6b7dd38e81f21c5775e4210896ac4e233e02b306e858fc2edf78318aa7fa2c9e"
+    },
+    {
+      "call": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPATIBILITY_MATRIX.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        37
+      ],
+      "derived_logical_text_bytes": 1450,
+      "sha256_at_receipt_measurement": "5cc804faf905fcf42abdedb2dc285425509635991cbf21bf8108a54a7220f486"
+    },
+    {
+      "call": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        72
+      ],
+      "derived_logical_text_bytes": 4874,
+      "sha256_at_receipt_measurement": "a56683e093d9b8bde8184eea527e079ad87e155abcf1e9a3712ac3c3611b27d2"
+    },
+    {
+      "call": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        84
+      ],
+      "derived_logical_text_bytes": 4513,
+      "sha256_at_receipt_measurement": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04"
+    },
+    {
+      "call": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/agent-prompts/production-review-completeness.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        41
+      ],
+      "derived_logical_text_bytes": 2142,
+      "sha256_at_receipt_measurement": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495"
+    },
+    {
+      "call": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        270
+      ],
+      "derived_logical_text_bytes": 14974,
+      "sha256_at_receipt_measurement": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf"
+    },
+    {
+      "call": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        204
+      ],
+      "derived_logical_text_bytes": 13015,
+      "sha256_at_receipt_measurement": "3fee8b075a697968f284507298c6d5179934a320084615fe6810bb25402ec75e"
+    },
+    {
+      "call": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        205
+      ],
+      "derived_logical_text_bytes": 7915,
+      "sha256_at_receipt_measurement": "41c9a82a63a4e9873d0bbcb9b559c4e9aa1e1c26075f5e8114b53960a79eb20d"
+    },
+    {
+      "call": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        73
+      ],
+      "derived_logical_text_bytes": 3018,
+      "sha256_at_receipt_measurement": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3"
+    },
+    {
+      "call": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        204
+      ],
+      "derived_logical_text_bytes": 13015,
+      "sha256_at_receipt_measurement": "3fee8b075a697968f284507298c6d5179934a320084615fe6810bb25402ec75e"
+    },
+    {
+      "call": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        31
+      ],
+      "derived_logical_text_bytes": 1593,
+      "sha256_at_receipt_measurement": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595"
+    },
+    {
+      "call": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        34
+      ],
+      "derived_logical_text_bytes": 1046,
+      "sha256_at_receipt_measurement": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4"
+    },
+    {
+      "call": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        45
+      ],
+      "derived_logical_text_bytes": 1552,
+      "sha256_at_receipt_measurement": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9"
+    },
+    {
+      "call": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        276
+      ],
+      "derived_logical_text_bytes": 16091,
+      "sha256_at_receipt_measurement": "2b097fafeba023364924527c2ff672e9e688cf67ec3d0db67536b195b49e5783"
+    },
+    {
+      "call": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        68
+      ],
+      "derived_logical_text_bytes": 3169,
+      "sha256_at_receipt_measurement": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800"
+    },
+    {
+      "call": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        25
+      ],
+      "derived_logical_text_bytes": 916,
+      "sha256_at_receipt_measurement": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e"
+    },
+    {
+      "call": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        119
+      ],
+      "derived_logical_text_bytes": 4657,
+      "sha256_at_receipt_measurement": "1facd29f338ea801843931beef4a47079f9c58be734a3a99c78aa7451ee1bc26"
+    },
+    {
+      "call": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        78
+      ],
+      "derived_logical_text_bytes": 5664,
+      "sha256_at_receipt_measurement": "c1fd3ea53dc92ac1005e678c0fc771b2c496daee77e6929c18b34efac0a2282b"
+    },
+    {
+      "call": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        58
+      ],
+      "derived_logical_text_bytes": 2974,
+      "sha256_at_receipt_measurement": "1f7ec7b17cfad4da0dbe0f2bb6e78b2dade99f6cf25b0ecbcc81a573a79da62d"
+    },
+    {
+      "call": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/NEW_PROJECT_START_CONTRACT.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        140
+      ],
+      "derived_logical_text_bytes": 10484,
+      "sha256_at_receipt_measurement": "b4fdb6849de222c05a70a82ab183493723a5c5a325af4af2e43b550d8c8da24f"
+    },
+    {
+      "call": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        41
+      ],
+      "derived_logical_text_bytes": 1892,
+      "sha256_at_receipt_measurement": "7882fea7002f5f2cce71987a7371256410c6a39edc0d1208976f30ad0a45feab"
+    },
+    {
+      "call": 28,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/MANIFEST.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        33
+      ],
+      "derived_logical_text_bytes": 2215,
+      "sha256_at_receipt_measurement": "816318d5a6287029cbfb81b228df0472c1a23873fd3ac56a420a5c9ac5f68ef9"
+    },
+    {
+      "call": 28,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/PROJECT_CONTEXT.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        214
+      ],
+      "derived_logical_text_bytes": 16179,
+      "sha256_at_receipt_measurement": "a0cd74f8af8133c3ae1f99e227cd94b55895fe420722e197f97f14b8f6b67eb4"
+    },
+    {
+      "call": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        237
+      ],
+      "derived_logical_text_bytes": 14923,
+      "sha256_at_receipt_measurement": "aa26bde4fcc3cf4cd0ce4db0c9d90a2c931c890c06428db3eb60af3549e43160"
+    },
+    {
+      "call": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        31
+      ],
+      "derived_logical_text_bytes": 859,
+      "sha256_at_receipt_measurement": "cfef50a1720f1b15e5135d6affa4e9fa038506f716cff41db01199b0999b95ff"
+    },
+    {
+      "call": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        76
+      ],
+      "derived_logical_text_bytes": 5335,
+      "sha256_at_receipt_measurement": "1232ca9b169c547b35d0fba406c8c87cfd950c2bd170a42433b143c56105c3ea"
+    },
+    {
+      "call": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/templates/IOS_PROJECT_MEMORY.template.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        109
+      ],
+      "derived_logical_text_bytes": 8195,
+      "sha256_at_receipt_measurement": "44e2061ed43867bf3a2c2d9b5e34a311a8e530fbef81c94cef020e0fdcf20630"
+    },
+    {
+      "call": 30,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md",
+      "start": 195,
+      "end": 260,
+      "kind": "text-read",
+      "actual_line_range": [
+        195,
+        237
+      ],
+      "derived_logical_text_bytes": 2798,
+      "sha256_at_receipt_measurement": "aa26bde4fcc3cf4cd0ce4db0c9d90a2c931c890c06428db3eb60af3549e43160"
+    },
+    {
+      "call": 30,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        31
+      ],
+      "derived_logical_text_bytes": 859,
+      "sha256_at_receipt_measurement": "cfef50a1720f1b15e5135d6affa4e9fa038506f716cff41db01199b0999b95ff"
+    },
+    {
+      "call": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/README.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        125
+      ],
+      "derived_logical_text_bytes": 3809,
+      "sha256_at_receipt_measurement": "92986dd6ed5859b6b87f3f273db0918e2f54cb3d5bdd55d785c568562653cad8"
+    },
+    {
+      "call": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/PackageContract.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        46
+      ],
+      "derived_logical_text_bytes": 1276,
+      "sha256_at_receipt_measurement": "a5272495e57dc330469034821ee823def0869349c067624c895e7bbb4b846d58"
+    },
+    {
+      "call": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/LOCAL_USE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        12
+      ],
+      "derived_logical_text_bytes": 827,
+      "sha256_at_receipt_measurement": "ce0dc61cc6ce6828ba925a5142ad3fc9b5bf0ff8a29d7ca48813d9f324e00c5b"
+    },
+    {
+      "call": 32,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        48
+      ],
+      "derived_logical_text_bytes": 2109,
+      "sha256_at_receipt_measurement": "07fa5b6a52feaf3583bf5bfbb18f5ad6d0ff62888f7864c12ef84f89e6b29278"
+    },
+    {
+      "call": 32,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        229
+      ],
+      "derived_logical_text_bytes": 8834,
+      "sha256_at_receipt_measurement": "9d892f8f5e7c7e239da35dd11476d757513cdc70650d261cbdbb7a2a52a65d2e"
+    },
+    {
+      "call": 33,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        30
+      ],
+      "derived_logical_text_bytes": 2045,
+      "sha256_at_receipt_measurement": "c75a0d64f5a7042adedf31cf0f13b5c93dcf4e43a771a09078de37d1898ea158"
+    },
+    {
+      "call": 34,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/STARTUP_RULE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        59
+      ],
+      "derived_logical_text_bytes": 4116,
+      "sha256_at_receipt_measurement": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de"
+    },
+    {
+      "call": 35,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/PROJECT_MODE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        108
+      ],
+      "derived_logical_text_bytes": 7913,
+      "sha256_at_receipt_measurement": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022"
+    },
+    {
+      "call": 37,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        341
+      ],
+      "derived_logical_text_bytes": 12088,
+      "sha256_at_receipt_measurement": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c"
+    },
+    {
+      "call": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        48
+      ],
+      "derived_logical_text_bytes": 1847,
+      "sha256_at_receipt_measurement": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605"
+    },
+    {
+      "call": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        82
+      ],
+      "derived_logical_text_bytes": 2795,
+      "sha256_at_receipt_measurement": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741"
+    },
+    {
+      "call": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/USAGE.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        35
+      ],
+      "derived_logical_text_bytes": 995,
+      "sha256_at_receipt_measurement": "76f0c68d89be8286bb5122c6c67385b0fdcca31f7a1d62a2806595b49c276db8"
+    },
+    {
+      "call": 39,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PROJECT_HEALTH.md",
+      "start": null,
+      "end": null,
+      "kind": "text-read",
+      "actual_line_range": [
+        1,
+        74
+      ],
+      "derived_logical_text_bytes": 3412,
+      "sha256_at_receipt_measurement": "23c3e30aa516391e01a7bfa0cf5de380d237d64078dd744c97acb3d0fb3600d3"
+    }
+  ],
+  "command_trace": [
+    {
+      "command": 1,
+      "purpose": "bootstrap",
+      "chunk_id": "47327a",
+      "exit_code": 0,
+      "returned_token_count": 1287,
+      "tool_reported_wall_seconds": null
+    },
+    {
+      "command": 2,
+      "purpose": "baseline-router",
+      "chunk_id": "beced0",
+      "exit_code": 0,
+      "returned_token_count": 6190,
+      "tool_reported_wall_seconds": 1.2583e-05
+    },
+    {
+      "command": 3,
+      "purpose": "level0-discovery",
+      "chunk_id": "49c02e",
+      "exit_code": 0,
+      "returned_token_count": 4791,
+      "tool_reported_wall_seconds": 7.375e-06
+    },
+    {
+      "command": 4,
+      "purpose": "plan-sizing",
+      "chunk_id": "d0c74f",
+      "exit_code": 0,
+      "returned_token_count": 111,
+      "tool_reported_wall_seconds": 8.083e-06
+    },
+    {
+      "command": 5,
+      "purpose": "task-level0-full",
+      "chunk_id": "f55865",
+      "exit_code": 0,
+      "returned_token_count": 13183,
+      "tool_reported_wall_seconds": 1.1583e-05
+    },
+    {
+      "command": 6,
+      "purpose": "recover-canonical-handoff",
+      "chunk_id": "b6d096",
+      "exit_code": 0,
+      "returned_token_count": 3102,
+      "tool_reported_wall_seconds": 9.167e-06
+    },
+    {
+      "command": 7,
+      "purpose": "recover-local-plan",
+      "chunk_id": "10efff",
+      "exit_code": 0,
+      "returned_token_count": 3412,
+      "tool_reported_wall_seconds": 6.917e-06
+    },
+    {
+      "command": 8,
+      "purpose": "main-plan-1-160",
+      "chunk_id": "f77b6c",
+      "exit_code": 0,
+      "returned_token_count": 4075,
+      "tool_reported_wall_seconds": 1.1e-05
+    },
+    {
+      "command": 9,
+      "purpose": "main-plan-161-320-and-clipping-recovery",
+      "chunk_id": "aca54f",
+      "exit_code": 0,
+      "returned_token_count": 5499,
+      "tool_reported_wall_seconds": 1.0291e-05
+    },
+    {
+      "command": 10,
+      "purpose": "main-plan-321-500",
+      "chunk_id": "876f61",
+      "exit_code": 0,
+      "returned_token_count": 4534,
+      "tool_reported_wall_seconds": 1e-05
+    },
+    {
+      "command": 11,
+      "purpose": "main-plan-501-680",
+      "chunk_id": "139b0c",
+      "exit_code": 0,
+      "returned_token_count": 4765,
+      "tool_reported_wall_seconds": 1.25e-05
+    },
+    {
+      "command": 12,
+      "purpose": "main-plan-681-850",
+      "chunk_id": "f9de23",
+      "exit_code": 0,
+      "returned_token_count": 3764,
+      "tool_reported_wall_seconds": 1.1708e-05
+    },
+    {
+      "command": 13,
+      "purpose": "main-plan-851-1029",
+      "chunk_id": "7fbf24",
+      "exit_code": 0,
+      "returned_token_count": 4864,
+      "tool_reported_wall_seconds": 1.0292e-05
+    },
+    {
+      "command": 14,
+      "purpose": "work-system",
+      "chunk_id": "40dfc2",
+      "exit_code": 0,
+      "returned_token_count": 8056,
+      "tool_reported_wall_seconds": 1.0583e-05
+    },
+    {
+      "command": 15,
+      "purpose": "worksystem-clipping-recovery-preflight-quality",
+      "chunk_id": "b4a30b",
+      "exit_code": 0,
+      "returned_token_count": 4807,
+      "tool_reported_wall_seconds": 1.1209e-05
+    },
+    {
+      "command": 16,
+      "purpose": "boundaries-skills-full",
+      "chunk_id": "a43f26",
+      "exit_code": 0,
+      "returned_token_count": 3936,
+      "tool_reported_wall_seconds": 1.3375e-05
+    },
+    {
+      "command": 17,
+      "purpose": "package-ref-and-orientation",
+      "chunk_id": "e14c8d",
+      "exit_code": 0,
+      "returned_token_count": 3202,
+      "tool_reported_wall_seconds": 8.959e-06
+    },
+    {
+      "command": 18,
+      "purpose": "package-standards",
+      "chunk_id": "e10418",
+      "exit_code": 0,
+      "returned_token_count": 5087,
+      "tool_reported_wall_seconds": 1.2833e-05
+    },
+    {
+      "command": 19,
+      "purpose": "package-overlays-persistence",
+      "chunk_id": "34ce63",
+      "exit_code": 0,
+      "returned_token_count": 2675,
+      "tool_reported_wall_seconds": 8.5e-06
+    },
+    {
+      "command": 20,
+      "purpose": "concurrency-toolchain",
+      "chunk_id": "78e531",
+      "exit_code": 0,
+      "returned_token_count": 2329,
+      "tool_reported_wall_seconds": 7.791e-06
+    },
+    {
+      "command": 21,
+      "purpose": "concurrency-deep-review-gate",
+      "chunk_id": "d6a3a2",
+      "exit_code": 0,
+      "returned_token_count": 2883,
+      "tool_reported_wall_seconds": 1.1375e-05
+    },
+    {
+      "command": 22,
+      "purpose": "quality-review-documentation-readiness",
+      "chunk_id": "eece34",
+      "exit_code": 0,
+      "returned_token_count": 9731,
+      "tool_reported_wall_seconds": 1.2042e-05
+    },
+    {
+      "command": 23,
+      "purpose": "checklist-recovery-done-evidence-exception",
+      "chunk_id": "ad3131",
+      "exit_code": 0,
+      "returned_token_count": 4302,
+      "tool_reported_wall_seconds": 1.2e-05
+    },
+    {
+      "command": 24,
+      "purpose": "qc-governance",
+      "chunk_id": "ded4d7",
+      "exit_code": 0,
+      "returned_token_count": 4023,
+      "tool_reported_wall_seconds": 1.2959e-05
+    },
+    {
+      "command": 25,
+      "purpose": "required-review-readme",
+      "chunk_id": "50cf14",
+      "exit_code": 0,
+      "returned_token_count": 793,
+      "tool_reported_wall_seconds": 1.2708e-05
+    },
+    {
+      "command": 26,
+      "purpose": "completion-testing-diagnostics",
+      "chunk_id": "647276",
+      "exit_code": 1,
+      "returned_token_count": 1430,
+      "tool_reported_wall_seconds": 9.291e-06
+    },
+    {
+      "command": 27,
+      "purpose": "diagnostics-recovery-worksystem-refs",
+      "chunk_id": "bc6400",
+      "exit_code": 0,
+      "returned_token_count": 5254,
+      "tool_reported_wall_seconds": 1.1041e-05
+    },
+    {
+      "command": 28,
+      "purpose": "route-selected-members-app-before-nested",
+      "chunk_id": "5a0ea1",
+      "exit_code": 0,
+      "returned_token_count": 5034,
+      "tool_reported_wall_seconds": 7.334e-06
+    },
+    {
+      "command": 29,
+      "purpose": "remaining-machine-route-worksystem-template",
+      "chunk_id": "00fb89",
+      "exit_code": 0,
+      "returned_token_count": 7328,
+      "tool_reported_wall_seconds": 1.0791e-05
+    },
+    {
+      "command": 30,
+      "purpose": "recovery-and-required-package-doc-discovery",
+      "chunk_id": "c3b2a6",
+      "exit_code": 0,
+      "returned_token_count": 977,
+      "tool_reported_wall_seconds": 7.875e-06
+    },
+    {
+      "command": 31,
+      "purpose": "actual-adopted-package-docs",
+      "chunk_id": "c6ba2b",
+      "exit_code": 0,
+      "returned_token_count": 1478,
+      "tool_reported_wall_seconds": 1.2625e-05
+    },
+    {
+      "command": 32,
+      "purpose": "severity-security-first-layer-close",
+      "chunk_id": "06ce44",
+      "exit_code": 0,
+      "returned_token_count": 2754,
+      "tool_reported_wall_seconds": 7.875e-06
+    },
+    {
+      "command": 33,
+      "purpose": "g1-nested-overlays",
+      "chunk_id": "38b37b",
+      "exit_code": 0,
+      "returned_token_count": 512,
+      "tool_reported_wall_seconds": 7.75e-06
+    },
+    {
+      "command": 34,
+      "purpose": "startup-control-allowlist-frozen",
+      "chunk_id": "0e696c",
+      "exit_code": 0,
+      "returned_token_count": 2232,
+      "tool_reported_wall_seconds": 1.0042e-05
+    },
+    {
+      "command": 35,
+      "purpose": "g2-control-pin-exact34",
+      "chunk_id": "112341",
+      "exit_code": 0,
+      "returned_token_count": 2063,
+      "tool_reported_wall_seconds": 0.396228459
+    },
+    {
+      "command": 36,
+      "purpose": "g3-filtered-membership-g4-status",
+      "chunk_id": "ff5bba",
+      "exit_code": 0,
+      "returned_token_count": 910,
+      "tool_reported_wall_seconds": 0.181125458
+    },
+    {
+      "command": 37,
+      "purpose": "initial-preservation-source-start-core-full",
+      "chunk_id": "ccb2c6",
+      "exit_code": 0,
+      "returned_token_count": 4046,
+      "tool_reported_wall_seconds": 0.030109166
+    },
+    {
+      "command": 38,
+      "purpose": "source-actor-main-full-package-usage",
+      "chunk_id": "f9d3df",
+      "exit_code": 0,
+      "returned_token_count": 1637,
+      "tool_reported_wall_seconds": 1.2875e-05
+    },
+    {
+      "command": 39,
+      "purpose": "late-local-package-skill-health-reference-source-end",
+      "chunk_id": "76fada",
+      "exit_code": 0,
+      "returned_token_count": 865,
+      "tool_reported_wall_seconds": 7.542e-06
+    },
+    {
+      "command": 40,
+      "purpose": "immutable-provisional-save",
+      "chunk_id": "5526e9",
+      "exit_code": 0,
+      "returned_token_count": 31,
+      "tool_reported_wall_seconds": 0.00473
+    }
+  ],
+  "derived_logical_text_bytes_including_rereads": 571596,
+  "unique_text_bytes": 518222,
+  "unique_files": {
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md": {
+      "sha256": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da",
+      "bytes": 5070,
+      "lines": 83
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md": {
+      "sha256": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d",
+      "bytes": 13748,
+      "lines": 145
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md": {
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "bytes": 11011,
+      "lines": 117
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md": {
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "bytes": 7507,
+      "lines": 110
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md": {
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "bytes": 8381,
+      "lines": 78
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md": {
+      "sha256": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd",
+      "bytes": 13646,
+      "lines": 172
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md": {
+      "sha256": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68",
+      "bytes": 12405,
+      "lines": 160
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md": {
+      "sha256": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd",
+      "bytes": 13646,
+      "lines": 172
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md": {
+      "sha256": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68",
+      "bytes": 12405,
+      "lines": 160
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/TASK_DOCUMENT_ROUTES.overlay.json": {
+      "sha256": "229203512a1cd4e44d5f3f4d76c2786e872c29474f66cfc99e8a7dfa4626a510",
+      "bytes": 627,
+      "lines": 26
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md": {
+      "sha256": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627",
+      "bytes": 104492,
+      "lines": 1029
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md": {
+      "sha256": "3bda6ea4f6e5b8d4c30b98c9d5732108a05753ca2e2d23fbb20388a897bebbc3",
+      "bytes": 32224,
+      "lines": 409
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md": {
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "bytes": 1155,
+      "lines": 24
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md": {
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "bytes": 15851,
+      "lines": 239
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SOURCE_OF_TRUTH_MAP.md": {
+      "sha256": "93b992401b25bd55f5f4386aae7bd5a84c1f3574e99df11f7fcf25f0e56b540d",
+      "bytes": 2461,
+      "lines": 36
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DOCUMENT_BOUNDARY_STANDARD.md": {
+      "sha256": "08704eb6c31db0aba515c366601c24518c7765c6b6de2f1e6af69ae2e1750625",
+      "bytes": 7391,
+      "lines": 120
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-reusable-packages/SKILL.md": {
+      "sha256": "792ceb106c82c2425664f190c8c16adc6bebcb4da4c16d05b75e4db9f088f58e",
+      "bytes": 1930,
+      "lines": 45
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-data-migration/SKILL.md": {
+      "sha256": "602fe8c0e9080d1a446ecb3aa971b96d6ffef720aec1f0084473179afd3079d6",
+      "bytes": 1034,
+      "lines": 24
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-reusable-packages/references/package-rules.md": {
+      "sha256": "7c6895353e9f16cbf33152c3f8d020e78065d5b7e11b34b1eb0c91846bfb224a",
+      "bytes": 814,
+      "lines": 25
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_DOCUMENTATION.md": {
+      "sha256": "70bb0a874a99a9d28d17acc8802f9fe7a699387234ce20bab043bdaeb9b46256",
+      "bytes": 4310,
+      "lines": 67
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/PROJECT_HEALTH.md": {
+      "sha256": "85a574d18aff7e4685a6db183ae14776f7ae4b061028f627965d0d3751eeeeab",
+      "bytes": 3105,
+      "lines": 68
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md": {
+      "sha256": "c99a0b46a94d625a7abe65f7c762cf8026dcb3983bbd70fe1d167b4e5ae3f750",
+      "bytes": 4576,
+      "lines": 49
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGES_AND_MANAGERS.md": {
+      "sha256": "d66248462eadb7c1fb8d2b0eb1477d7c83d0b40e21351c0c57be786ce83c34da",
+      "bytes": 11721,
+      "lines": 351
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PACKAGE_OWNERSHIP_AND_ADOPTION_STANDARD.md": {
+      "sha256": "57fca9ffa04babd8c8b184168e5e59809398726c9cc7c647c5c617ce9b516962",
+      "bytes": 3560,
+      "lines": 64
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_REUSABLE_INFRASTRUCTURE_PACKAGE_STANDARD.md": {
+      "sha256": "7ffd94a6ec2d2db4e777da68b2dd189de11bb2620cc9329b040bee849d40613b",
+      "bytes": 3694,
+      "lines": 126
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEPENDENCY_POLICY.md": {
+      "sha256": "31a2c6c392d465a19b39323b7498fdf195d542118cd3c0ed815b5cb21afca5ae",
+      "bytes": 1371,
+      "lines": 33
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/README.md": {
+      "sha256": "afe9f54486216bf865cbe1d38e00973d7e453c0495aba81e5834c9a4b36bb50c",
+      "bytes": 2763,
+      "lines": 45
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesForReuse/README.md": {
+      "sha256": "21bfcfc09d63579bd2b29c0fec4bad052aac342a929941ef0dbb031a75263964",
+      "bytes": 2628,
+      "lines": 37
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/PACKAGE_USAGE_SOURCE_ONLY.md": {
+      "sha256": "4efe2ac42da2a782240e60b1177802122951dedf2c6c5df8b6921dee1f767ee0",
+      "bytes": 2448,
+      "lines": 54
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/PACKAGE_DOC_MIRROR_CONTRACT.md": {
+      "sha256": "f9b786c8c483900bc1bcc12205fe9cdff73f1c0408bcc0f8d0d08dbeede407ce",
+      "bytes": 1352,
+      "lines": 27
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_DATA_MIGRATION_STANDARD.md": {
+      "sha256": "a6209270d5b765e1fb330deb136923578150e3f13f6e799d03292417e317431e",
+      "bytes": 797,
+      "lines": 19
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DATA_GOVERNANCE_AND_COMPLIANCE.md": {
+      "sha256": "78f8ac22f81bc93c9cb48cf7e91d9eb6be02e3c0189a9e2e64521e772dd56bd1",
+      "bytes": 712,
+      "lines": 18
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md": {
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "bytes": 2091,
+      "lines": 31
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md": {
+      "sha256": "6b7dd38e81f21c5775e4210896ac4e233e02b306e858fc2edf78318aa7fa2c9e",
+      "bytes": 5585,
+      "lines": 89
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPATIBILITY_MATRIX.md": {
+      "sha256": "5cc804faf905fcf42abdedb2dc285425509635991cbf21bf8108a54a7220f486",
+      "bytes": 1450,
+      "lines": 37
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md": {
+      "sha256": "a56683e093d9b8bde8184eea527e079ad87e155abcf1e9a3712ac3c3611b27d2",
+      "bytes": 4874,
+      "lines": 72
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md": {
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "bytes": 4513,
+      "lines": 84
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/agent-prompts/production-review-completeness.md": {
+      "sha256": "2189b7d9195fca3d3e9a4d10d96b67bde92c21877ebf52bfec853b2195a77495",
+      "bytes": 2142,
+      "lines": 41
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md": {
+      "sha256": "a26f509c236bc7cb4a430f882db94ade22344f15f018b8652343421241f41abf",
+      "bytes": 14974,
+      "lines": 270
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md": {
+      "sha256": "3fee8b075a697968f284507298c6d5179934a320084615fe6810bb25402ec75e",
+      "bytes": 13015,
+      "lines": 204
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CODE_DOCUMENTATION_STANDARD.md": {
+      "sha256": "41c9a82a63a4e9873d0bbcb9b559c4e9aa1e1c26075f5e8114b53960a79eb20d",
+      "bytes": 7915,
+      "lines": 205
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md": {
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "bytes": 3018,
+      "lines": 73
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md": {
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "bytes": 1593,
+      "lines": 31
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md": {
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "bytes": 1046,
+      "lines": 34
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md": {
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "bytes": 1552,
+      "lines": 45
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md": {
+      "sha256": "2b097fafeba023364924527c2ff672e9e688cf67ec3d0db67536b195b49e5783",
+      "bytes": 16091,
+      "lines": 276
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/README.md": {
+      "sha256": "670910c4afc7f12a4cdec2033ec3d1dee2eed88a6aa356a4803709b09afbb800",
+      "bytes": 3169,
+      "lines": 68
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md": {
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "bytes": 916,
+      "lines": 25
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TESTING_STRATEGY.md": {
+      "sha256": "1facd29f338ea801843931beef4a47079f9c58be734a3a99c78aa7451ee1bc26",
+      "bytes": 4657,
+      "lines": 119
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/TESTING_DEBUGGING_AND_DIAGNOSTICS.md": {
+      "sha256": "c1fd3ea53dc92ac1005e678c0fc771b2c496daee77e6929c18b34efac0a2282b",
+      "bytes": 5664,
+      "lines": 78
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md": {
+      "sha256": "1f7ec7b17cfad4da0dbe0f2bb6e78b2dade99f6cf25b0ecbcc81a573a79da62d",
+      "bytes": 2974,
+      "lines": 58
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/NEW_PROJECT_START_CONTRACT.md": {
+      "sha256": "b4fdb6849de222c05a70a82ab183493723a5c5a325af4af2e43b550d8c8da24f",
+      "bytes": 10484,
+      "lines": 140
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/STATIC_GATE_ADOPTION.md": {
+      "sha256": "7882fea7002f5f2cce71987a7371256410c6a39edc0d1208976f30ad0a45feab",
+      "bytes": 1892,
+      "lines": 41
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/MANIFEST.md": {
+      "sha256": "816318d5a6287029cbfb81b228df0472c1a23873fd3ac56a420a5c9ac5f68ef9",
+      "bytes": 2215,
+      "lines": 33
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/PROJECT_CONTEXT.md": {
+      "sha256": "a0cd74f8af8133c3ae1f99e227cd94b55895fe420722e197f97f14b8f6b67eb4",
+      "bytes": 16179,
+      "lines": 214
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UNIVERSAL_ENGINEERING_QUALITY_STANDARD.md": {
+      "sha256": "aa26bde4fcc3cf4cd0ce4db0c9d90a2c931c890c06428db3eb60af3549e43160",
+      "bytes": 14923,
+      "lines": 237
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md": {
+      "sha256": "cfef50a1720f1b15e5135d6affa4e9fa038506f716cff41db01199b0999b95ff",
+      "bytes": 859,
+      "lines": 31
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/PERSISTENCE_DATA_AND_CLOUDKIT.md": {
+      "sha256": "1232ca9b169c547b35d0fba406c8c87cfd950c2bd170a42433b143c56105c3ea",
+      "bytes": 5335,
+      "lines": 76
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/templates/IOS_PROJECT_MEMORY.template.md": {
+      "sha256": "44e2061ed43867bf3a2c2d9b5e34a311a8e530fbef81c94cef020e0fdcf20630",
+      "bytes": 8195,
+      "lines": 109
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/README.md": {
+      "sha256": "92986dd6ed5859b6b87f3f273db0918e2f54cb3d5bdd55d785c568562653cad8",
+      "bytes": 3809,
+      "lines": 125
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/PackageContract.md": {
+      "sha256": "a5272495e57dc330469034821ee823def0869349c067624c895e7bbb4b846d58",
+      "bytes": 1276,
+      "lines": 46
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/LOCAL_USE.md": {
+      "sha256": "ce0dc61cc6ce6828ba925a5142ad3fc9b5bf0ff8a29d7ca48813d9f324e00c5b",
+      "bytes": 827,
+      "lines": 12
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md": {
+      "sha256": "07fa5b6a52feaf3583bf5bfbb18f5ad6d0ff62888f7864c12ef84f89e6b29278",
+      "bytes": 2109,
+      "lines": 48
+    },
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md": {
+      "sha256": "9d892f8f5e7c7e239da35dd11476d757513cdc70650d261cbdbb7a2a52a65d2e",
+      "bytes": 8834,
+      "lines": 229
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md": {
+      "sha256": "c75a0d64f5a7042adedf31cf0f13b5c93dcf4e43a771a09078de37d1898ea158",
+      "bytes": 2045,
+      "lines": 30
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/STARTUP_RULE.md": {
+      "sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+      "bytes": 4116,
+      "lines": 59
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/PROJECT_MODE.md": {
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "bytes": 7913,
+      "lines": 108
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift": {
+      "sha256": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+      "bytes": 12088,
+      "lines": 341
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift": {
+      "sha256": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+      "bytes": 1847,
+      "lines": 48
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift": {
+      "sha256": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741",
+      "bytes": 2795,
+      "lines": 82
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppDatabase/USAGE.md": {
+      "sha256": "76f0c68d89be8286bb5122c6c67385b0fdcca31f7a1d62a2806595b49c276db8",
+      "bytes": 995,
+      "lines": 35
+    },
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PROJECT_HEALTH.md": {
+      "sha256": "23c3e30aa516391e01a7bfa0cf5de380d237d64078dd744c97acb3d0fb3600d3",
+      "bytes": 3412,
+      "lines": 74
+    }
+  },
+  "metrics_limit": "Derived raw content bytes for recorded cat/sed/nl reads at current fingerprints; excludes framing and metadata parsing. Not physical I/O, context tokens or cache telemetry.",
+  "root_AGENTS": "Supplied in user instruction; applied before G0. File fingerprint collected only after G0.",
+  "clipping": [
+    {
+      "commands": [
+        5,
+        6,
+        7,
+        8
+      ],
+      "recovery": [
+        6,
+        9
+      ],
+      "state": "RECOVERED; outer exec serialization also clipped combined results; main1-160 visible complete"
+    },
+    {
+      "command": 14,
+      "recovery": [
+        15,
+        16
+      ],
+      "state": "RECOVERED table210-225"
+    },
+    {
+      "command": 22,
+      "recovery": 23,
+      "state": "RECOVERED full checklist"
+    },
+    {
+      "command": 29,
+      "recovery": 30,
+      "state": "RECOVERED universal tail and QA text"
+    }
+  ],
+  "missing_path_recovery": {
+    "command": 26,
+    "correct_command": 27
+  },
+  "G0_strict": "PARTIAL: local skill-relative PROJECT_HEALTH command39 late; canonical counterpart command17 timely."
+}

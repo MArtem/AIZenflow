@@ -1,0 +1,25 @@
+{
+  "devices": [
+    {
+      "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-0",
+      "udid": "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+      "state": "Shutdown",
+      "name": "BG-T01-new-task-be0b-iPhone-iOS27",
+      "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation",
+      "isAvailable": true
+    },
+    {
+      "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-18-2",
+      "udid": "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+      "state": "Shutdown",
+      "name": "BG-T01-new-task-be0b-iPhone",
+      "deviceTypeIdentifier": "com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation",
+      "isAvailable": true
+    }
+  ],
+  "xcode": "27.0 27A266a",
+  "terminal_failures": [
+    "Initial confined simctl XPC/log denied; authorized Simulator exception works",
+    "Display-name prefix guard failed because owned iPhones have task-specific names; actual deviceTypeIdentifier revalidated before writes"
+  ]
+}

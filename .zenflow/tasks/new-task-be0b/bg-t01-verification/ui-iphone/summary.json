@@ -1,0 +1,52 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "deviceName" : "BG-T01-new-task-be0b-iPhone",
+        "modelName" : "iPhone SE (3rd generation)",
+        "osBuildNumber" : "22C150",
+        "osVersion" : "18.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 1,
+      "passedTests" : 2,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "BattleshipGame · Built with macOS 27.0",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1791068044.503,
+  "passedTests" : 2,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1791067897.696,
+  "statistics" : [
+
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'\".",
+      "targetName" : "BattleshipGameUITests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "BoardInteractionTests/testRotationUpdatesGeometryAndRetainsCoordinateActions()",
+      "testIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testRotationUpdatesGeometryAndRetainsCoordinateActions",
+      "testName" : "testRotationUpdatesGeometryAndRetainsCoordinateActions()"
+    }
+  ],
+  "title" : "Test - BattleshipGame",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 3
+}

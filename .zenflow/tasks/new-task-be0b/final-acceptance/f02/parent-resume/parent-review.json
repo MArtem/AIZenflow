@@ -1,0 +1,44 @@
+{
+  "status": "PARENT_F02_IPHONE_VERIFIED_SCOPED",
+  "runtime_receipt_sha256": "e31d4691f4d808dafc6832bd75e971e0cfd4b0cb218747f4851613783fec3092",
+  "compile_receipt_sha256": "348235091104e019189dab6a20a507197ed1291e26247344ccf8d86c5ebaed98",
+  "assertions_per_runtime": {
+    "18.2": 16,
+    "27.0": 16
+  },
+  "shutdown_verified": true,
+  "log_sha256": {
+    "18.2/initial.json": "28a5fbabdf91bfeb80631eac0b9f729f39b2d633134cf1aa9c37992b6fb4ddfa",
+    "18.2/boot.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "18.2/bootstatus.log": "8bd9bd61105070696293a0cac02cd8837c3502265d2c088803d197572a10f2e0",
+    "18.2/success/old.log": "519c2472cb49b27967e3daac5a77c3ee978119be5b50a3e6f38d676f34171766",
+    "18.2/success/new.log": "ee485b0959ea5e0d3ed5deeafe5530a25822fc4ef9bf020dd296946b47c8d577",
+    "18.2/success/reopen.log": "d4b440eb9cf24ae1f1f20d4b44d0fd2c82991d2f329c3e67ad82a6911f9a1ef0",
+    "18.2/failure/old.log": "519c2472cb49b27967e3daac5a77c3ee978119be5b50a3e6f38d676f34171766",
+    "18.2/failure/migrate-failure.log": "4f849bbbbab13fe9f1a5860ac1c6acbd784b3f8e2e1c602453b6785634df44d8",
+    "18.2/failure/old-reopen.log": "6148007a41f505379037a99d0a842a3959992d00f6e5136d299cff2afaa4cc34",
+    "18.2/shutdown.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "18.2/final.json": "ce0686707d7dfb1ca2cef350406e1f2ef726c2f8bed7c32af4d8527cc38d6452",
+    "27.0/initial.json": "e6ed1e9476e4e4168cfe1ccfffde0911f8309b44d8e91c979a22e4a62bc6559e",
+    "27.0/boot.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "27.0/bootstatus.log": "7259122d70ebf9930c78b3cb30e4fba599999122733582a19cc5e8c17d6c4d3f",
+    "27.0/success/old.log": "519c2472cb49b27967e3daac5a77c3ee978119be5b50a3e6f38d676f34171766",
+    "27.0/success/new.log": "79653973cc56d8ba324d847c7f73f4426b461a1a94a701604ccfc2eb7fa5632a",
+    "27.0/success/reopen.log": "abc0243f71260fec8f84a53126f3021cbc828592f124d831088100f06b7e0c10",
+    "27.0/failure/old.log": "519c2472cb49b27967e3daac5a77c3ee978119be5b50a3e6f38d676f34171766",
+    "27.0/failure/migrate-failure.log": "c5cdc70c42d258751c1ed07aa5755d760fa807add838c1186613e98ef286460d",
+    "27.0/failure/old-reopen.log": "6148007a41f505379037a99d0a842a3959992d00f6e5136d299cff2afaa4cc34",
+    "27.0/shutdown.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "27.0/final.json": "8f3db1a87489b4f05885d56d00d49e8ceff47f81a4be8339b588ce05f69855d1"
+  },
+  "actual_adopted3_sources_unchanged": true,
+  "claim": "Actual unchanged adopted mechanism + disposable V1/V2 component on iPhone Simulator18.2/27; both success and injected callback failure/reopen",
+  "limits": [
+    "Disposable schema/component only, no app/user data",
+    "SDK27 compile, not SDK18.2",
+    "Cancellation maps to transactionFailed, not propagation PASS",
+    "No physical/iPad/VoiceOver checks",
+    "No production schema integration, durable UserDefaults migration-version restart or crash/diskfull proof"
+  ],
+  "prior_failures": "Historical sandbox/approval/macro/harness failures retained; new PASS separately scoped"
+}

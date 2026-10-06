@@ -36,6 +36,11 @@ Test applicability belongs in the project profile: authoritative schemes/targets
 destinations, release-critical UI/snapshot suites, migration fixtures, and capabilities that are
 truly absent. `NOT_APPLICABLE` requires a validated project fact, not convenience or missing setup.
 
+Apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality) before
+constructing any matrix: omit all iPad and physical-device checks, including actual
+VoiceOver sessions, from plans and acceptance gates. Static accessibility analysis and
+permitted iPhone Simulator audits remain applicable; omitted evidence is never PASS.
+
 ## Test Decision Matrix
 ### Unit Tests
 Use for:
@@ -63,15 +68,14 @@ Use for:
 - permission prompts where practical
 - accessibility identifiers on critical flows
 
-### Manual Simulator/Device QA
+### Manual iPhone Simulator QA
 Use for:
 - gestures, scrolling, animations, sheets
 - visual polish
 - keyboard/focus behavior
 - device-size-specific layouts
 - share extension and system integration flows
-- iPhone and iPad adaptive layouts, resizing, keyboard, pointer, and multi-window behavior where supported
-- physical-device-only hardware, protected-data, biometrics, thermal, and background behavior
+- iPhone adaptive layouts, orientation, keyboard and supported Simulator system integration
 
 ### Instruments / Performance Verification
 Use for:

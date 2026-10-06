@@ -53,15 +53,15 @@ enum AppTab: String, CaseIterable, Identifiable, Codable {
     var placeholderDescription: String {
         switch self {
         case .news:
-            AppLocalization.text("tab.news.placeholderDescription")
+            AppLocalization.text("tab.news.stubDescription")
         case .mixes:
-            AppLocalization.text("tab.mixes.placeholderDescription")
+            AppLocalization.text("tab.mixes.stubDescription")
         case .pinned:
-            AppLocalization.text("tab.pinned.placeholderDescription")
+            AppLocalization.text("tab.pinned.stubDescription")
         case .chat:
-            AppLocalization.text("tab.chat.placeholderDescription")
+            AppLocalization.text("tab.chat.stubDescription")
         case .profile:
-            AppLocalization.text("tab.profile.placeholderDescription")
+            AppLocalization.text("tab.profile.stubDescription")
         }
     }
 }

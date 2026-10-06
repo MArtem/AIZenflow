@@ -1,0 +1,51 @@
+{
+  "base": "f9031c96afa3cd82525f33084986bee169be7e49",
+  "owned_files": [
+    "apps/BattleshipGame/PROJECT_CONTEXT.md",
+    "tasks/new-task-be0b/plan.md",
+    "tasks/new-task-be0b/handoff.md",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md",
+    "tasks/new-task-be0b/ios-project-work-system-ordered-startup-check.md"
+  ],
+  "file_sha256": {
+    "apps/BattleshipGame/PROJECT_CONTEXT.md": "1a266a3196a73b1d97c7e299218afd3adf8fb3763ac5c1755353a2002b833af0",
+    "tasks/new-task-be0b/plan.md": "ea9ec820139b544b0e2d5aa4451860f70d44a9ab1be1f6dbb89116ea6c026455",
+    "tasks/new-task-be0b/handoff.md": "8a098f90ecd46de783534d5a265a4347555901395f050d0c7171f8754b5560af",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md": "49a13219bd67fb8d6296679912b56af68e5697e5c2ed0c28ade66208ca513a82",
+    "tasks/new-task-be0b/ios-project-work-system-ordered-startup-check.md": "3ebe52dcbb2a40ea75274d0c8ec971b763b88f02575c08d399ffba4afa410fe4"
+  },
+  "reviewed_tracked_patch_sha256": "7559d7290e94b35cd250e63881dcb0d0bb8e859b809312522ddcef23e3dc034e",
+  "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+  "contract": "Close W5.3.b only from actually confirmed prior E11 publication; current closure publication gated separately; general improvement/Library LIB004 and TC-L02 remain OPEN, no expanded permission/readiness",
+  "final_semantic_review": "Complete final five-file diff reviewed; actual first publication full receipt/remote-state supports named checkbox. Trusted f9031c96 base and exact target authority checked. No new evidence, runtime, source or releases. No candidate P0-P3; separate LIB004 P2/TC-L02 P3 remain OPEN. Current mirrors/context claims consistent.",
+  "checks": {
+    "candidate_links": 48,
+    "whitespace_scoped_secret_patterns": "PASS",
+    "canonical_active_diff": "PASS",
+    "consistency": "PASS",
+    "manifest_vault_boundaries": "reuse unchanged E11 PASS; inventory/owners/links unchanged",
+    "bootstrap_index_runtime": "reuse unchanged eligible evidence",
+    "drift": "known33 pre-existing, not full PASS",
+    "manifest check": "PASS",
+    "vault check": "PASS",
+    "boundary check": "PASS",
+    "docs consistency": "PASS",
+    "canonical diff check": "PASS",
+    "active diff check": "PASS"
+  },
+  "omitted": "new runtime/tests/transitions/fixtures/agents/MCP; no uplift/cost or independent code review",
+  "context_health": "adequate; next work needs concrete human task/approach choice",
+  "next_action": "Choose actual new Library utility case; no known-case repeat",
+  "trusted_remote": "https://github.com/MArtem/AIZenflowDocumentation refs/heads/main",
+  "target_remote_sha": "f9031c96afa3cd82525f33084986bee169be7e49",
+  "merge_base": "f9031c96afa3cd82525f33084986bee169be7e49",
+  "staged_exact5": true,
+  "complete_patch_sha256": "7559d7290e94b35cd250e63881dcb0d0bb8e859b809312522ddcef23e3dc034e",
+  "head": "27954d38e1b4e9ceab52bf640518968cee0f49cc",
+  "range": "f9031c96afa3cd82525f33084986bee169be7e49..27954d38e1b4e9ceab52bf640518968cee0f49cc",
+  "postcommit_review": "PASS exact reviewed trusted-base..HEAD5-file complete diff/blob hashes; clean canonical; prior actual publication supports closure, no new authority/readiness. No owned P0-P3. Separate LIB004/TC-L02 OPEN.",
+  "remote_confirmation": "PASS independent ls-remote main 27954d38e1b4e9ceab52bf640518968cee0f49cc",
+  "origin_main": "27954d38e1b4e9ceab52bf640518968cee0f49cc",
+  "remote_state": "PASS",
+  "canonical_clean": true
+}

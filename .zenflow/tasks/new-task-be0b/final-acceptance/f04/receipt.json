@@ -1,0 +1,84 @@
+{
+  "scope": "Static/manual/off/unavailable signing boundary only; no workflow or credential execution",
+  "membership": {
+    "TchopApp": [
+      "FloatingActionButton.swift",
+      "ShellContentView.swift",
+      "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift"
+    ],
+    "TchopAppOcean": [
+      "FloatingActionButton.swift",
+      "ShellContentView.swift",
+      "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift"
+    ]
+  },
+  "pbx_sha256": "8c3f7c9cf8ed6b4fe13975e4d0523b89aa378a68045d9264201d6e0c8957a47b",
+  "workflow_metadata": {
+    "path": ".github/workflows/manual-quality.yml",
+    "sha256": "ee90d496ffbaa1af9adb98769762ac52a7cd8fd735fa1fb84dfe7bc383508be4",
+    "triggers": [
+      "on:",
+      "workflow_dispatch:"
+    ],
+    "permissions": [
+      "permissions:",
+      "contents: read"
+    ],
+    "actions": [
+      "actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1",
+      "actions/checkout@93cb6efe18208431cddfb8368fd83d5badbf9bfd # v5.0.1"
+    ],
+    "credential_reference_count": 2,
+    "pipeline_execution": "not_run; current selected-app QC DEFERRED; root workflow does not prove selected-app adoption"
+  },
+  "cases": [
+    {
+      "case": "CI off",
+      "result": "WITHHELD no remote invocation; absence not PASS"
+    },
+    {
+      "case": "manual static",
+      "result": "workflow_dispatch and contents read observed, actual run not requested"
+    },
+    {
+      "case": "signed archive with unavailable credentials",
+      "result": "BLOCKED; no credential probe/Keychain/provisioning attempt"
+    },
+    {
+      "case": "unsigned Debug build",
+      "result": "REUSED four prior terminal build results, exact PBX/view/test unchanged and selected package clean at same client HEAD; no signing/release claim"
+    }
+  ],
+  "reused_results": {
+    "after-27.0-TchopAppOcean-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 2.54,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    },
+    "after-27.0-TchopApp-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 1.972,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    },
+    "after-18.2-TchopApp-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 4.649,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    },
+    "after-18.2-TchopAppOcean-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 19.667,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    }
+  },
+  "preserved_limits": "No active CI/service mutation, signing, provisioning or installed tool; no iPad/physical/actual VoiceOver gate",
+  "diagnostic": "PyYAML unavailable; exact permitted scalar metadata extracted lexically, no general YAML/schema validator claim"
+}

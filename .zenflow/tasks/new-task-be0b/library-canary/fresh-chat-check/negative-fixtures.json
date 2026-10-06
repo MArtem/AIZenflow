@@ -1,0 +1,61 @@
+{
+  "handler_sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+  "scope": "owned isolated state_dir only; no source or live-store writes",
+  "results": [
+    {
+      "case": "absent",
+      "API": "operate(status, exact root/selector, state_dir=owned absent)",
+      "result": {
+        "status": "UNSET",
+        "profile": null
+      },
+      "consumer_disposition": "full KB; second layer withheld; absent is not ON or observed saved OFF",
+      "no_record_created": true
+    },
+    {
+      "case": "invalid",
+      "result": {
+        "status": "UNSET/invalid",
+        "profile": null
+      },
+      "fixture_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+      "consumer_disposition": "full KB, explicit invalid; never OFF/PASS/ON",
+      "record_preserved": true
+    },
+    {
+      "case": "invalid-on-refused",
+      "error": "invalid record preserved; recovery disabled",
+      "record_preserved": true,
+      "fixture_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "case": "invalid-recover-refused",
+      "error": "recovery disabled; invalid record preserved unchanged",
+      "record_preserved": true,
+      "fixture_sha256": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+    },
+    {
+      "case": "busy-lock-UNKNOWN",
+      "error": "state lock busy; retry explicitly",
+      "consumer_disposition": "UNKNOWN; second layer withheld; no OFF/PASS relabel",
+      "state_files_created": 0,
+      "CLI_parity": "main catches ModeError -> UNKNOWN stderr exit2; fixture tested existing operate API, not live CLI"
+    }
+  ],
+  "live_after": {
+    "TchopApp": {
+      "status": {
+        "profile": "AUTO",
+        "status": "ON"
+      },
+      "record_sha256": "787ef8abe76b0b346b3e08a575bdee86f7806848b253c3a8b0bfbaa254d9ff0b"
+    },
+    "BattleshipGame": {
+      "status": {
+        "profile": "AUTO",
+        "status": "ON"
+      },
+      "record_sha256": "f86061a2e890ad99b912675199fca83ea200c0824aedf4a259cd68be95b7e5a6"
+    }
+  }
+}

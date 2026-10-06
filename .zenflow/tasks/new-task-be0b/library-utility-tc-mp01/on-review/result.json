@@ -1,0 +1,128 @@
+{
+  "case": "TC-MP01",
+  "observed_mode": "ON/AUTO",
+  "model": "GPT-6.1 Sol/high",
+  "mode": "\u044d\u043a\u043e\u043d\u043e\u043c",
+  "status": "PARTIAL",
+  "scope_completed": "Scoped static source/model/membership review and own Library challenge concluded; no source or runtime action",
+  "static_findings": [
+    {
+      "id": "KB-F1",
+      "severity": "P2",
+      "confidence": "high static gap; current user-visible exposure conditional",
+      "applicability": "applicable",
+      "evidence_status": "fresh static; runtime not_run",
+      "title": "Cancelled request can commit into current visible preview",
+      "evidence": [
+        "NewsFeedView.swift:978\u2013984 unconditionally assigns awaited optional to @State",
+        "NewsFeedView.swift:1396\u20131411 worker cancellation returns nil after waiting",
+        "NewsFeedView.swift:1230\u20131235 loader returns nil to cancelled caller"
+      ],
+      "scenario": "Same FeedAsyncMediaFrame identity changes A\u2192B. A detached synchronous work is still finishing; SwiftUI cancels A. B finishes (for example cache hit) and commits image B. A then observes cancellation, returns nil, and its still-live closure assigns nil over B. No post-await cancellation/generation gate exists. A successful result racing cancellation can also commit. This is a legal static ordering, not an observed UI reproduction.",
+      "impact": "Current photo/video/PDF/teaser shows fallback or mismatched old asset after supersession; initial loading may retain previous image.",
+      "target": "Only the active, non-cancelled request may commit visible state.",
+      "fix": "Capture awaited result, guard !Task.isCancelled immediately before assignment on UI actor. Independently stop cancelled loader before image conversion/cache insert. Decide pending-image clearing from existing intended presentation, avoid unrelated architecture.",
+      "check": "Parent authorized deterministic delayed A/cached B, cancelled A nil/success, disappear/reappear, nil/invalid B scenarios; both hosts type/build check if patched. No check executed here.",
+      "current_exposure": "UNKNOWN pending precise producer/lifetime envelope",
+      "parent_adjudication": "required"
+    },
+    {
+      "id": "KB-F2",
+      "severity": "P2",
+      "confidence": "high static gap; current user-visible exposure conditional",
+      "applicability": "applicable",
+      "evidence_status": "fresh static; runtime not_run",
+      "title": "Video thumbnail and retained image cost lack a decoded resource envelope",
+      "evidence": [
+        "NewsFeedView.swift:1297\u20131305 AVAssetImageGenerator sets transform but no maximumSize",
+        "NewsFeedView.swift:1237\u20131253 image bytes converted to CGImage/UIImage under MainActor",
+        "NewsFeedView.swift:1197\u20131207 NSCache countLimit160 without cost/totalCostLimit",
+        "NewsFeedView.swift:1267 image path already limits maxPixelSize1200; PDF raster bounds1343\u20131346"
+      ],
+      "scenario": "A published high-resolution local video goes straight through full frame generation, PNG encoding, MainActor image creation and shared cache. Entry count alone does not bound bytes when a single frame has no maximum dimensions.",
+      "impact": "Avoidable allocation/encode/decode cost and large retained objects in repeated media previews. Actual memory pressure, jank or crash not established.",
+      "target": "Bound generated video preview pixel size; account decoded cache cost with an app-owned budget.",
+      "fix": "Set generator.maximumSize using the existing preview pixel envelope; set NSCache per-object decoded cost and owner-selected totalCostLimit. Keep detached worker and kind-specific semantics; no speculative new package.",
+      "check": "Parent permitted high-resolution video, many unique previews, repeated cancellation/navigation and memory-pressure eviction in iPhone Simulator18.2/27; both affected hosts compile if changed. No measured performance claim.",
+      "current_exposure": "UNKNOWN pending precise producer/lifetime envelope",
+      "parent_adjudication": "required"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "KB-H1",
+      "title": "PDF aggregate source-memory envelope",
+      "evidence": "NewsFeedView.swift:1321\u20131325 readToEnd retains entire original PDF before first-page raster; each active request can repeat it.",
+      "status": "Full-read is definite; accepted PDF byte limit, exposure and resulting memory failure UNKNOWN. No standalone severity until producer/import envelope is checked.",
+      "missing_dependency": "Producer/validation of FeedFileMediaContent(kind:.pdf,fileURLString:) and AppFileStorageDomains composer-media ownership/intake byte envelope.",
+      "minimal_followup": "Inspect exact producer boundary; if no bound, choose app-owned source-byte limit and enforce bounded read; bounded raster alone is insufficient."
+    },
+    {
+      "id": "KB-H2",
+      "title": "Duplicate active decode / aggregate task budget",
+      "evidence": "Loader cache miss\u2192await is reentrant, no in-flight map; multiple callers can start same key concurrently.",
+      "status": "Possible duplicate work proven structurally; frequency, peak concurrency and required limiter/coalescing benefit UNVERIFIED. Avoid new actor/service absent a measured or concrete accepted workload."
+    },
+    {
+      "id": "KB-H3",
+      "title": "AV underlying cancellation latency",
+      "evidence": "1299/1304 cooperative Task checks and1314 Task.cancel; no generator.cancelAllCGImageGeneration hook.",
+      "status": "Do not infer resource leak or permanent work from absence of explicit generator cancel; actual async API cancellation response unverified.",
+      "minimal_followup": "Permitted delayed long-video request cancellation measurement before selecting integration change."
+    },
+    {
+      "id": "KB-H4",
+      "title": "Cache invalidation and resolver authority",
+      "evidence": "Cache identity only kind|original string; resolver accepts scheme!=nil if url.path exists, then raw path and filename fallback.",
+      "status": "Incorrect stale image requires in-place overwrite/deletion with same path; wrong/network reference requires producer/path behavior not in scope. Not a confirmed security or data corruption finding.",
+      "missing_dependency": "AppFileStorageDomains.composerMediaPath(existingFilename:) / composerMediaFileURL(for:), plus persisted media producer immutable filename/version contract."
+    }
+  ],
+  "coverage": {
+    "correctness_product": "checked current scoped rendering; pending old-image policy unknown",
+    "architecture_ownership": "checked scoped symbols; no rewrite needed",
+    "UI_hot_path": "no file/decode inside scoped body; loader main actor image work risk under KB-F2",
+    "state_identity": "requestID kind|URL; state commit defect KB-F1; outer row identity outside scope",
+    "persistence_files": "resolver current fallback traced; durable producer/retention/privacy semantics unknown",
+    "network_sync": "no intentional network flow in scoped path; non-file URL authority hypothesis only; sync outside scope",
+    "concurrency": "owner/cancel/stale/failure traced; AV cancellation latency unverified",
+    "memory": "image/PDF pixel bounds checked; video/cache cost KB-F2; PDF/in-flight hypotheses",
+    "metadata_visual": "captions/copyright/teaser preserved; repeated clipping/shadow present, cost unmeasured",
+    "security_privacy": "no scoped logging/input changes; AppFileStorage trust dependency and signpost methods not audited",
+    "navigation": "passive preview; parent navigation outside scope",
+    "verification": "static only; iPad/physical/actual VoiceOver OMITTED_BY_USER; all runtime/tests/builds not_run"
+  },
+  "contract": {
+    "behavior": "Evaluate current photo(first item)/video(first frame)/PDF(first page)/teaser previews; preserve model/card semantics, resolver fallback, captions/copyright and placeholder framing. No behavior changed.",
+    "authority": "Persisted model fileURLString supplies renderer input; producer validation/immutability contract outside source scope is UNKNOWN. Source owns behavior; canonical/app docs coordinate only.",
+    "producers_consumers": "Photo and teaser \u2192 image request; video \u2192 video request; PDF \u2192 pdf request; audio uses static placeholder with caption and optional image teaser. Both host consumers compile NewsFeedView; models also enter both Share targets.",
+    "state_time": "SwiftUI .task(id: kind|URL) owns request; cancellation forwarded to detached operation; stale UI commits and post-await cache/conversion require independent checks.",
+    "input_envelope": "nil/empty/missing/unreadable/malformed media; same path across consumers; URL replacement; large image/video/PDF. Upstream byte/pixel/in-place-mutation guarantees unknown.",
+    "resource_envelope": "image thumbnail max dimension1200; PDF raster640\u00d7420; video maximumSize absent; NSCache countLimit160, no cost accounting; no in-flight coalescing/permit limit; whole PDF read.",
+    "failure": "nil produces kind-specific placeholder; metadata preserved. Cancellation also maps to nil and is currently indistinguishable at caller. No error/retry behavior invented.",
+    "claims": "No build/runtime/smooth-scroll/retained-memory/app-release/Library-readiness claim."
+  },
+  "library_delta_file": "library-delta.json",
+  "provisional_file": "kb-provisional.json",
+  "new_library_defects": 0,
+  "remaining_gates": [
+    "Current same-frame URL replacement/lifetime exposure",
+    "Media producer byte/pixel/immutability envelope",
+    "Runtime not_run",
+    "Strict ordered-read protocol deviations; no PASS"
+  ],
+  "protocol_caveats": [
+    "Read-only git HEAD/status observation occurred after baseline/router but before full Level0/task documents (chunk7ce485). No mutation; strict before-git startup criterion not satisfied.",
+    "Major requested routes/preflight/change-quality/skills/app manifest/context loaded before nested. Ancillary memory/media route references, universal-quality tail and orientation docs finished after nested/status (chunks5b3c16,7be560); strict all-first-layer-before-nested criterion is not fully satisfied. Provisional semantic KB review preceded Library routes.",
+    "Initial large outputs were truncated; bounded repeated ranges restored main plan/rules content where needed. Bytes/calls include rereads, no savings claim.",
+    "Scheme sed range incidentally emitted LaunchAction TCHOP_API_ENV demo value, exceeding only-membership/toolchain output scope. No auth/config investigation or use, no secrets observed. Later metadata extraction is scoped."
+  ],
+  "general_claims": "No app/runtime/general Library/full-system readiness; LIB-004 P2 and TC-L02 P3 remain OPEN",
+  "writes": "Own observer artifacts only; source/tests/resources/AGENTS/payload/canonical/Git/mode unchanged",
+  "checks_not_run": "build/test/UI/Simulator/profilers/fixtures/network/agents/MCP/messages; all forbidden to observer",
+  "proposal": "Parent adjudicate F1/F2, then only a bounded one-file request ownership fix and/or video/cache envelope fix if confirmed. Deterministic delayed A/cached B, cancel nil/success, disappear/reappear, invalid B; both affected host Debug builds and permitted iPhone18.2/27 checks only under parent matching grant. PDF envelope separately conditional. No new observer wave.",
+  "tokens_account_cost": "UNKNOWN",
+  "durable_docs_changed": false,
+  "context_health": "No refresh needed for bounded result; later implementation revalidates scope.",
+  "handoff_rule": "\u043f\u0435\u0440\u0435\u0447\u0438\u0442\u0430\u0442\u044c \u0432\u0435\u0441\u044c \u0430\u043a\u0442\u0443\u0430\u043b\u044c\u043d\u044b\u0439 \u043d\u0430\u0431\u043e\u0440 \u0434\u043e\u043a\u0443\u043c\u0435\u043d\u0442\u0430\u0446\u0438\u0438 \u0438 \u043f\u0440\u0430\u0432\u0438\u043b \u0434\u043b\u044f \u044d\u0442\u043e\u0433\u043e worktree \u0438 task-\u043a\u043e\u043d\u0442\u0435\u043a\u0441\u0442\u0430"
+}

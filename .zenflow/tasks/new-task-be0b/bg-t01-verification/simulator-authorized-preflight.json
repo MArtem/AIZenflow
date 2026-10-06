@@ -1,0 +1,25 @@
+{
+  "grant": "User explicitly permits outside .zenflow only operations strictly necessary for Simulator; 2026-10-04",
+  "results": [
+    {
+      "command": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "--set",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-verification/simulator-devices",
+        "list",
+        "runtimes",
+        "--json"
+      ],
+      "exit": 0,
+      "log": "logs/runtimes-authorized.log"
+    },
+    {
+      "command": [
+        "xcodebuild",
+        "-help"
+      ],
+      "exit": 0,
+      "log": "logs/help-authorized.log"
+    }
+  ]
+}

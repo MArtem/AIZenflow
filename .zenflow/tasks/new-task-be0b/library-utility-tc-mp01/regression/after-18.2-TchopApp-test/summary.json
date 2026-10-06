@@ -1,0 +1,48 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "deviceName" : "BG-T01-new-task-be0b-iPhone",
+        "modelName" : "iPhone SE (3rd generation)",
+        "osBuildNumber" : "22C150",
+        "osVersion" : "18.2",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 0,
+      "passedTests" : 8,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "TchopApp · Built with macOS 27.0",
+  "expectedFailures" : 0,
+  "failedTests" : 0,
+  "finishTime" : 1791159875.581,
+  "passedTests" : 3,
+  "result" : "Passed",
+  "runtimeWarnings" : [
+
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1791159853.531,
+  "statistics" : [
+    {
+      "subtitle" : "8 test runs",
+      "title" : "3 tests ran with dynamic parameters"
+    }
+  ],
+  "testFailures" : [
+
+  ],
+  "title" : "Test - TchopApp",
+  "topInsights" : [
+
+  ],
+  "totalTestCount" : 3
+}

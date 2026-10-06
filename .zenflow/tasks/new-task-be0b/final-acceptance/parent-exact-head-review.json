@@ -1,0 +1,21 @@
+{
+  "status": "PARENT_EXACT_HEAD_REVIEW_PASS",
+  "base": "3955d424901a411bdae1e71bb3d37eed0f212eb0",
+  "head": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "exact3": [
+    "tasks/new-task-be0b/handoff.md",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md",
+    "tasks/new-task-be0b/plan.md"
+  ],
+  "patch_sha256_by_serialization": {
+    "binary_full_index": "a1bc06e56130be6dcbef78836e7bc441752ef157d12edb4ef9f27b25d1f32ff9",
+    "default": "c0122bc881b4a9fb7b60758585b24be18dc14a52c2ea3df23e58059f4d07a36b"
+  },
+  "integrator_receipt_serialization": [
+    "default"
+  ],
+  "clean": true,
+  "semantic_review_reused": "Parent full final candidate matches exact committed binary/full-index patch and all file hashes; no changes since review",
+  "remote": "Pending independent remote verification",
+  "parent_check_failure": "Initial equality assertion conflated default and binary/full-index serializations; read-only assertion failed, no mutation; corrected by matching both explicitly"
+}

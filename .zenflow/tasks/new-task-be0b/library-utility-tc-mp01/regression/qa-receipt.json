@@ -1,0 +1,176 @@
+{
+  "utc": "2026-10-05T00:45:37.460647+00:00",
+  "case": "TC-MP01",
+  "contract": {
+    "case": "TC-MP01",
+    "utc": "2026-10-04T23:54:59.246049+00:00",
+    "behavior": "Generated video preview obeys existing1200px image envelope and preferred-track orientation; file source, first frame, PNG representation, captions/teaser/reference/fallback unchanged",
+    "authority": "Parent current task implementation/self-verification delegated; exactly2 read-only observer grants consumed. No extra chats/MCP/CI or client Git actions",
+    "producer_consumer": "Photos video intake copies original movie via ComposerPickedVideo/ComposerPickedMediaStorage; no spatial transformation. Shared host renderer → PNG → MainActor image/cache. Feed view consumed by TchopApp+Ocean. Existing TchopAppTests only new membership; no new target",
+    "state_time": "Same asynchronous pipeline/cancellation handler, kind/cache identity. No request-state rewrite absent current URL replacement evidence. File fixture ownership/finalization precedes actual renderer",
+    "envelope": "Reuse1200×1200 aspect-fit maximum for video, consistent existing photo cap; no invented decoded-cache budget or byte-admission cap",
+    "failure": "Invalid/missing media retains nil fallback, cancellation unchanged; fixture writer failures distinguished from renderer assertion failures",
+    "claim_limits": "Pixel-output and compile evidence only; not UI stale-result reproduction/smoothness/memory-pressure or general Library/readiness. F1 current exposure and aggregate cache/PDF hypotheses remain unverified",
+    "source_files_max": 3,
+    "owned_paths": [
+      "TchopApp/Views/News/NewsFeedView.swift",
+      "TchopApp.xcodeproj/project.pbxproj",
+      "TchopAppTests/FeedMediaPreviewRendererTests.swift"
+    ],
+    "before_sha256": {
+      "TchopApp/Views/News/NewsFeedView.swift": "eb1d0c2d61a6686448d2a44991cf9c9bae78d15e19b95a75eb3ba5287f356f28",
+      "TchopApp.xcodeproj/project.pbxproj": "a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb"
+    },
+    "first_step": "Expose only existing kind/renderer at internal module scope and add real-media regression tests, old pixel behavior unchanged; record baseline FAIL before1200 maximumSize patch",
+    "verification": "Selected existing test suite only on iPhone Simulator18.2+27, unsigned Debug; both host builds both destinations after patch. No full suite/UI/auth/profiling or global/iPad/physical checks",
+    "simulator_exception": "Necessary fixture movie files in test app Simulator temporary directory only, remove own directories via defer. Host outputs/DerivedData/cache/tmp remain .zenflow",
+    "source_producer_reads": [
+      "SharedCardComposerView.swift644–696,1054–1097",
+      "AppFileStorageDomains.swift full small path owner",
+      "FeedCardStore32–118 and publisher352–365 in AppShellViewModel",
+      "NewsFeedViewModel213–233,399–439,707–753; model immutable media and interaction replacement1172–1220"
+    ],
+    "known_open": "LIB004 P2; TC-L02 P3; strict two-arm comparison PARTIAL, no app release claim",
+    "after_sha256": {
+      "TchopApp/Views/News/NewsFeedView.swift": "2322c43b56437039ba3aeefdd2dfc7559308513eda4d706346f6c1fd64b4c0b8",
+      "TchopApp.xcodeproj/project.pbxproj": "8c3f7c9cf8ed6b4fe13975e4d0523b89aa378a68045d9264201d6e0c8957a47b",
+      "TchopAppTests/FeedMediaPreviewRendererTests.swift": "66c520d9da9eaa9d82e3f915856255e864c75a230910e9bdf47d57388fd967f3"
+    },
+    "static_review": "Complete owned3-file code/test/membership diff reviewed: shared1200 policy, video transform/firstframe/fallback/cancel untouched; finite isolated actual-video fixtures, assertion output not calls. No owned P0-P3, conditional cache/ordering risks retained; one root diff --check PASS"
+  },
+  "terminal_results": {
+    "after-18.2-TchopApp-test/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 26.084,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis",
+      "shutdown": {
+        "exit_code": 149,
+        "stderr": "An error was encountered processing the command (domain=com.apple.CoreSimulator.SimError, code=405):\nUnable to shutdown device in current state: Shutdown\n"
+      }
+    },
+    "after-27.0-TchopAppOcean-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 2.54,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    },
+    "after-27.0-TchopApp-test/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 63.122,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis",
+      "shutdown": {
+        "exit_code": 149,
+        "stderr": "An error was encountered processing the command (domain=com.apple.CoreSimulator.SimError, code=405):\nUnable to shutdown device in current state: Shutdown\n"
+      }
+    },
+    "component-after/runtime-27.0/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 30.58
+    },
+    "component-after/runtime-18.2/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 6.509
+    },
+    "after-27.0-TchopApp-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 1.972,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    },
+    "after-18.2-TchopApp-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 4.649,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    },
+    "baseline-18.2-TchopApp-test/result.json": {
+      "exit_code": 124,
+      "elapsed_seconds": 603.176,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis",
+      "shutdown": {
+        "exit_code": 149,
+        "stderr": "An error was encountered processing the command (domain=com.apple.CoreSimulator.SimError, code=405):\nUnable to shutdown device in current state: Shutdown\n"
+      }
+    },
+    "baseline-27.0-TchopApp-test/result.json": {
+      "exit_code": 65,
+      "elapsed_seconds": 63.31,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis",
+      "shutdown": {
+        "exit_code": 149,
+        "stderr": "An error was encountered processing the command (domain=com.apple.CoreSimulator.SimError, code=405):\nUnable to shutdown device in current state: Shutdown\n"
+      }
+    },
+    "after-18.2-TchopAppOcean-build/result.json": {
+      "exit_code": 0,
+      "elapsed_seconds": 19.667,
+      "inputs_unchanged": true,
+      "interpretation": "Terminal evidence only; baseline failures require diagnosis"
+    },
+    "component-baseline/runtime-27.0/result.json": {
+      "exit_code": 1,
+      "elapsed_seconds": 33.997
+    },
+    "component-baseline/runtime-18.2/result.json": {
+      "exit_code": 1,
+      "elapsed_seconds": 5.317
+    }
+  },
+  "actual_unit_after": "3 test functions / 8 parameter runs PASS each on iPhone18.2 and27; only FeedMediaPreviewRendererTests",
+  "native_component": "Exact production renderer slices, fixture-only file resolver; baseline two dimension failures each, after14/14 assertions each; not app fallback/cache/state integration",
+  "geometry": "2048x1536 / 1536x2048 -> 1200x900 / 900x1200; preferred orientation/aspect retained",
+  "host_builds": "All4 unsigned Debug TchopApp/Ocean destination builds PASS; cached SDK27 inputs reused, not independent SDK18.2 compilation",
+  "toolchain": "Xcode27.0 27A266a; SDKiPhoneSimulator27.0; AppleSwift6.4 swiftlang-6.4.0.34.1 clang-2100.3.34.1; component arm64-apple-ios17.0-simulator Swift6 strict complete warnings-as-errors",
+  "failures_retained": "iOS18.2 baseline timeout124 at603.176sec UNKNOWN cause/incomplete assertions; completed27 baseline actual2048>1200 FAIL plus fixture QoS runtime warning also present in after27 successful suite. LaterPASS does not rewrite baseline. Preexisting FoundationModelsOnDeviceAIManager.swift86 deprecation untouched.",
+  "diagnostic_scope": "Initial automatic diagnostic collection error retained; no host/config/snapshot contents read. Own incomplete verbose bundle removed after compact failure/compile evidence retention. Subsequent collect-test-diagnostics never; no hidden host-launch-root-cause claim",
+  "preservation": {
+    "protected_total": 107,
+    "unchanged": 104,
+    "changed_existing_source": [
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift"
+    ],
+    "authorized_mode_transition": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/reference-status/29105892f934e061fdd32f67692fa1829dedbfd2485966b4d6288a7bfbfbf24d.json",
+    "new_test": "TchopAppTests/FeedMediaPreviewRendererTests.swift",
+    "mode": "TC ON/AUTO restored to pre-canary ON hash; BG exact record preserved",
+    "client_git": "HEAD unchanged, no client commit/push",
+    "foreign_roadmap": "preserved"
+  },
+  "simulators": [
+    {
+      "udid": "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+      "name": "BG-T01-new-task-be0b-iPhone-iOS27",
+      "state": "Shutdown"
+    },
+    {
+      "udid": "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+      "name": "BG-T01-new-task-be0b-iPhone",
+      "state": "Shutdown"
+    }
+  ],
+  "omitted": "Full suite/UI/auth/performance/memory/CI/archive/signing not executed; iPad/physical/actual VoiceOver OMITTED_BY_USER",
+  "residual": "F1 exposure/cancellation overlap and cache/PDF/aggregate hypotheses unverified; LIB-004 OPEN, Library NOT_READY_FOR_GENERAL_RELEASE; TC-L02 OPEN",
+  "next": "Publish compact canonical results after exact gates; significant next Library approach awaits human choice; no extra chat grant",
+  "runtime_warnings": {
+    "baseline-27.0-TchopApp-test": [
+      {
+        "issueType": "Runtime Warning",
+        "message": "[Internal] Thread running at User-interactive quality-of-service class waiting on a lower QoS thread running at Utility quality-of-service class. Investigate ways to avoid priority inversions",
+        "sourceURL": "file:///Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopAppTests/FeedMediaPreviewRendererTests.swift"
+      }
+    ],
+    "after-27.0-TchopApp-test": [
+      {
+        "issueType": "Runtime Warning",
+        "message": "[Internal] Thread running at User-interactive quality-of-service class waiting on a lower QoS thread running at Utility quality-of-service class. Investigate ways to avoid priority inversions",
+        "sourceURL": "file:///Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopAppTests/FeedMediaPreviewRendererTests.swift"
+      }
+    ],
+    "after-18.2-TchopApp-test": []
+  },
+  "warning_disposition": "Nonblocking iOS27 selected test fixture QoS diagnostic retained/reported. Production priority inversion/root cause not established; no warning-free or performance claim. No extra profile/runtime chosen."
+}

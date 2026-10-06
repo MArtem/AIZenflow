@@ -1,0 +1,847 @@
+{
+  "testIdentifier" : "BoardInteractionTests/testScrolledPlacementFireDuplicateAndReset()",
+  "testIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testScrolledPlacementFireDuplicateAndReset",
+  "testName" : "testScrolledPlacementFireDuplicateAndReset()",
+  "testRuns" : [
+    {
+      "activities" : [
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "Screen Recording 2026-10-04 at 07.08.20 PM.mp4",
+              "payloadId" : "0~0nsYkHAwsxlk4g5dhzOfng_WZ_5sltPTqmYNb-fsyirBoCIr86kY07-AxOtTQ-DIpwSaHd1renavHyCg6-LSFw==",
+              "timestamp" : 1791130100.86,
+              "uuid" : "E0F734C6-1ECF-4CCA-B99A-9CD4E3E4EE57"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130100.86,
+              "title" : "kXCTAttachmentScreenRecording"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130100.838,
+          "title" : "Start Test at 2026-10-04 19:08:20.838"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130100.863,
+          "title" : "Set Up"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130100.871,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130100.864,
+          "title" : "Setting device orientation to Portrait"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "childActivities" : [
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130100.878,
+                  "title" : "Terminate com.zenflow.BattleshipGame:486"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130102.134,
+                  "title" : "Setting up automation session"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130103.03,
+                  "title" : "Wait for com.zenflow.BattleshipGame to idle"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130100.878,
+              "title" : "Launch com.zenflow.BattleshipGame"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130100.876,
+          "title" : "Open com.zenflow.BattleshipGame"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "childActivities" : [
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130105.385,
+                  "title" : "Checking existence of `\"New game\" Button`"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130105.384,
+              "title" : "Checking `Expect predicate `existsNoRetry == 1` for object \"New game\" Button`"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130104.383,
+          "title" : "Waiting 15.0s for \"New game\" Button to exist"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130105.508,
+          "title" : "Requesting snapshot of accessibility hierarchy for app with pid 527"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130105.918,
+          "title" : "Requesting snapshot of accessibility hierarchy for app with pid 527"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.attachmentContainer",
+          "attachments" : [
+            {
+              "lifetime" : "keepAlways",
+              "name" : "Initial accessibility tree_0_DD3297C3-C7E9-4F64-9AA5-9770C122788F.txt",
+              "payloadId" : "0~5T5rzrhsB3fVy2di944Ytf79VR5AcVJqmxxFTeb1hrgM2a911pn-dCvf8_IkuZ06TwoSEPJ0oAg2kESVhRQH4g==",
+              "timestamp" : 1791130106.015,
+              "uuid" : "C59E42F0-B463-4BD4-958D-80C88FD60894"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130106.015,
+              "title" : "Initial accessibility tree"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.015,
+          "title" : "Added attachment named 'Initial accessibility tree'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.015,
+          "title" : "Get all elements bound by index for: Descendants matching type ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.069,
+          "title" : "Get number of matches for: Descendants matching type Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.363,
+          "title" : "Get number of matches for: Descendants matching type Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.501,
+          "title" : "Get number of matches for: Descendants matching type Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.649,
+          "title" : "Find the \"Start\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.733,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 1, column 1\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.806,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.852,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.875,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.926,
+          "title" : "Find the ScrollView (Element at index 1)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130106.994,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.017,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.091,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.14,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.189,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 1, column 10\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.268,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.331,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.396,
+          "title" : "Find the \"Empty cell, row 1, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.482,
+          "title" : "Find the \"Game board\" ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.594,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.642,
+          "title" : "Find the \"Empty cell, row 1, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.746,
+          "title" : "Find the \"Empty cell, row 1, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.813,
+          "title" : "Find the \"Empty cell, row 1, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.868,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 10, column 10\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130107.96,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.11,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.14,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.27,
+          "title" : "Find the \"Game board\" ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.339,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.363,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.522,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.655,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.782,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 10, column 1\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.853,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.958,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130108.98,
+          "title" : "Find the \"Empty cell, row 10, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.08,
+          "title" : "Find the \"Game board\" ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.146,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.172,
+          "title" : "Find the \"Empty cell, row 10, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.307,
+          "title" : "Find the \"Empty cell, row 10, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.422,
+          "title" : "Find the \"Empty cell, row 10, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.532,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 1, column 1\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.608,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.657,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.681,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.727,
+          "title" : "Find the \"Game board\" ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.792,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.82,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.883,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.931,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 07.08.30 PM",
+              "payloadId" : "0~ZkmZEs-uL3H4goOE6FYiMWmp4VjS3Ou0IqC9ojq10KUG2wl7Z18zLgSVCzJqWul6HLxX1REfegQE_JmFBYu6TQ==",
+              "timestamp" : 1791130110.093,
+              "uuid" : "242D886C-13E1-46F7-8019-99EF304D3374"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "Synthesized Event 2026-10-04 at 07.08.30 PM",
+              "payloadId" : "0~ILbL-Z84BwXU9ddGDIA8Ps_KznZ7jS225OwPEzZQOx53OAcpHLP-gbzmSUNNm_LkaET6G91Et4VvJ493-Ad6lg==",
+              "timestamp" : 1791130110.426,
+              "uuid" : "B0784EA4-759E-458C-A4CB-458F41F87AD7"
+            }
+          ],
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130109.974,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130109.978,
+              "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130110.019,
+              "title" : "Check for interrupting elements affecting \"Empty cell, row 1, column 1\" Button"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "attachments" : [
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 07.08.30 PM",
+                  "payloadId" : "0~ZkmZEs-uL3H4goOE6FYiMWmp4VjS3Ou0IqC9ojq10KUG2wl7Z18zLgSVCzJqWul6HLxX1REfegQE_JmFBYu6TQ==",
+                  "timestamp" : 1791130110.093,
+                  "uuid" : "242D886C-13E1-46F7-8019-99EF304D3374"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "Synthesized Event 2026-10-04 at 07.08.30 PM",
+                  "payloadId" : "0~ILbL-Z84BwXU9ddGDIA8Ps_KznZ7jS225OwPEzZQOx53OAcpHLP-gbzmSUNNm_LkaET6G91Et4VvJ493-Ad6lg==",
+                  "timestamp" : 1791130110.426,
+                  "uuid" : "B0784EA4-759E-458C-A4CB-458F41F87AD7"
+                }
+              ],
+              "childActivities" : [
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130110.093,
+                  "title" : "kXCTAttachmentLegacySnapshot"
+                },
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130110.426,
+                  "title" : "kXCTAttachmentLegacySynthesizedEvent"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130110.092,
+              "title" : "Synthesize event"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130110.427,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130109.974,
+          "title" : "Tap \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.432,
+          "title" : "Find the \"Empty cell, row 1, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.47,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 2, column 1\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.552,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.617,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.645,
+          "title" : "Find the \"Empty cell, row 2, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.711,
+          "title" : "Find the \"Game board\" ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.779,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.802,
+          "title" : "Find the \"Empty cell, row 2, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.884,
+          "title" : "Find the \"Empty cell, row 2, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130110.945,
+          "title" : "Find the \"Empty cell, row 2, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 07.08.31 PM",
+              "payloadId" : "0~ZkmZEs-uL3H4goOE6FYiMWmp4VjS3Ou0IqC9ojq10KUG2wl7Z18zLgSVCzJqWul6HLxX1REfegQE_JmFBYu6TQ==",
+              "timestamp" : 1791130111.139,
+              "uuid" : "042478A2-2C12-422B-8F70-C1DA537A01C8"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "Synthesized Event 2026-10-04 at 07.08.31 PM",
+              "payloadId" : "0~3AIwTIvCOXyARXxRsZwbiAA0mx_P9x2COTtBy5EU6znBSswtYG6z9KkqckOBkSmU5tN1lFZd5AP-omx3_na1IQ==",
+              "timestamp" : 1791130111.462,
+              "uuid" : "417C1676-D784-47AC-A8DD-C17E9EF6188D"
+            }
+          ],
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130111.008,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130111.013,
+              "title" : "Find the \"Empty cell, row 2, column 1\" Button"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130111.068,
+              "title" : "Check for interrupting elements affecting \"Empty cell, row 2, column 1\" Button"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "attachments" : [
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 07.08.31 PM",
+                  "payloadId" : "0~ZkmZEs-uL3H4goOE6FYiMWmp4VjS3Ou0IqC9ojq10KUG2wl7Z18zLgSVCzJqWul6HLxX1REfegQE_JmFBYu6TQ==",
+                  "timestamp" : 1791130111.139,
+                  "uuid" : "042478A2-2C12-422B-8F70-C1DA537A01C8"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "Synthesized Event 2026-10-04 at 07.08.31 PM",
+                  "payloadId" : "0~3AIwTIvCOXyARXxRsZwbiAA0mx_P9x2COTtBy5EU6znBSswtYG6z9KkqckOBkSmU5tN1lFZd5AP-omx3_na1IQ==",
+                  "timestamp" : 1791130111.462,
+                  "uuid" : "417C1676-D784-47AC-A8DD-C17E9EF6188D"
+                }
+              ],
+              "childActivities" : [
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130111.139,
+                  "title" : "kXCTAttachmentLegacySnapshot"
+                },
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130111.462,
+                  "title" : "kXCTAttachmentLegacySynthesizedEvent"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130111.138,
+              "title" : "Synthesize event"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130111.463,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.008,
+          "title" : "Tap \"Empty cell, row 2, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.466,
+          "title" : "Find the \"Empty cell, row 2, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.517,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 3, column 1\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.597,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.652,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.674,
+          "title" : "Find the \"Empty cell, row 3, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.741,
+          "title" : "Find the \"Game board\" ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.804,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.83,
+          "title" : "Find the \"Empty cell, row 3, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.912,
+          "title" : "Find the \"Empty cell, row 3, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130111.972,
+          "title" : "Find the \"Empty cell, row 3, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 07.08.32 PM",
+              "payloadId" : "0~ZkmZEs-uL3H4goOE6FYiMWmp4VjS3Ou0IqC9ojq10KUG2wl7Z18zLgSVCzJqWul6HLxX1REfegQE_JmFBYu6TQ==",
+              "timestamp" : 1791130112.154,
+              "uuid" : "B6D7970E-4F56-414B-B6F4-BCC6CBE47833"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "Synthesized Event 2026-10-04 at 07.08.32 PM",
+              "payloadId" : "0~w4SvNUXHZc4gPyXfgyxMTpmsDB4AeLJZEKGs5oPNzCIPqMgXrt5F3iI1OYLft4ERdIFwOzjlo6a3e2__OGjQ8g==",
+              "timestamp" : 1791130112.478,
+              "uuid" : "65D47697-135A-4534-8839-D0CB32FA4BFA"
+            }
+          ],
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130112.032,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130112.035,
+              "title" : "Find the \"Empty cell, row 3, column 1\" Button"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130112.086,
+              "title" : "Check for interrupting elements affecting \"Empty cell, row 3, column 1\" Button"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "attachments" : [
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 07.08.32 PM",
+                  "payloadId" : "0~ZkmZEs-uL3H4goOE6FYiMWmp4VjS3Ou0IqC9ojq10KUG2wl7Z18zLgSVCzJqWul6HLxX1REfegQE_JmFBYu6TQ==",
+                  "timestamp" : 1791130112.154,
+                  "uuid" : "B6D7970E-4F56-414B-B6F4-BCC6CBE47833"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "Synthesized Event 2026-10-04 at 07.08.32 PM",
+                  "payloadId" : "0~w4SvNUXHZc4gPyXfgyxMTpmsDB4AeLJZEKGs5oPNzCIPqMgXrt5F3iI1OYLft4ERdIFwOzjlo6a3e2__OGjQ8g==",
+                  "timestamp" : 1791130112.478,
+                  "uuid" : "65D47697-135A-4534-8839-D0CB32FA4BFA"
+                }
+              ],
+              "childActivities" : [
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130112.154,
+                  "title" : "kXCTAttachmentLegacySnapshot"
+                },
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791130112.478,
+                  "title" : "kXCTAttachmentLegacySynthesizedEvent"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130112.153,
+              "title" : "Synthesize event"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791130112.479,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130112.032,
+          "title" : "Tap \"Empty cell, row 3, column 1\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130112.483,
+          "title" : "Find the \"Empty cell, row 3, column 1\" Button"
+        },
+        {
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "title" : ""
+            }
+          ],
+          "isAssociatedWithFailure" : true,
+          "startTime" : 1791130112.547,
+          "title" : "XCTAssertTrue failed - Placement must affect requested coordinate"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791130112.982,
+          "title" : "Tear Down"
+        }
+      ],
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "6739882F-BE95-4039-8300-09BC701E2BD0",
+        "deviceName" : "BG-T01-new-task-be0b-iPad",
+        "modelName" : "iPad Pro 11-inch (M4)",
+        "osBuildNumber" : "22C150",
+        "osVersion" : "18.2",
+        "platform" : "iOS Simulator"
+      },
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ]
+}
+2026-10-04 19:10:35.789 xcodebuild[895:3105400]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-10-04 19:10:35.962 xcodebuild[895:3105393] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.

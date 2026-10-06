@@ -1,0 +1,33 @@
+{
+  "source_frozen": "MATCH",
+  "rules_changes_since_coverage_snapshot": [],
+  "rules_first_read_to_snapshot": "not independently fingerprinted during G0; selected canonical paths clean at unchanged supplied base",
+  "canonical_scoped_dirty": "",
+  "pin_local_final_count": 34,
+  "pin_local_final_hash_bytes": 138647,
+  "final_other_hash_bytes": 798456,
+  "git_blob_body_reads_final": 0,
+  "status": {
+    "profile": "AUTO",
+    "status": "OFF"
+  },
+  "mode_record_hash_preserved": true,
+  "mode_record_sha256": "21d10213a6c9496e2d5486ff4be927aca9edf27ebf2637c7b0a516b34e003a9b",
+  "preservation_receipt_references": {
+    "initial-preservation.json": {
+      "sha256": "c86304d60ac4945360e9f2b4e244ecc9ed02abbf160e5aba4f3f92a126dbde1c",
+      "unchanged": true
+    },
+    "final-preservation.json": {
+      "sha256": "f274977199deed9ee6a4471463c172be11c7304d5e1e258e057f9d35e4a72e20",
+      "unchanged": true
+    }
+  },
+  "scoped_dirty_unchanged": true,
+  "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+  "canonical_head": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "provisional_sha256": "698cc4a10262dcab812981c97047e21ca8c47fd8eba8b1aa9586b30b292623c7",
+  "wall_ns": 1791222285706204000,
+  "reported_monotonic_ns": 314234958,
+  "broader_foreign_files": "No observer mutations; whole foreign-state equality not independently claimed."
+}

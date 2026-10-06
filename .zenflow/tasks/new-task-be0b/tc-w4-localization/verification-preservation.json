@@ -1,0 +1,100 @@
+{
+  "changed_shipping_sources": [
+    "TchopApp/Models/AppTab.swift"
+  ],
+  "after_AppTab_sha256": "603f50c7ff6ee3bb563151ba82493289481ebeeb7d48cfb53368e9d9b2d4bdcd",
+  "contract_exact_5_literal_only": true,
+  "all_other_observed_source_project_scheme_resource_hashes_preserved": true,
+  "builds": {
+    "TchopApp-27.0": {
+      "exit_code": 0,
+      "elapsed_seconds": 2.65,
+      "inputs_unchanged": true
+    },
+    "TchopAppOcean-27.0": {
+      "exit_code": 0,
+      "elapsed_seconds": 2.52,
+      "inputs_unchanged": true
+    },
+    "TchopAppOcean-18.2": {
+      "exit_code": 0,
+      "elapsed_seconds": 16.37,
+      "inputs_unchanged": true
+    },
+    "TchopApp-18.2": {
+      "exit_code": 0,
+      "elapsed_seconds": 24.21,
+      "inputs_unchanged": true
+    }
+  },
+  "actual_source_runtime_probes": {
+    "runtime-27.0": [
+      {
+        "language": "en",
+        "exit_code": 0,
+        "elapsed_seconds": 2.11,
+        "stdout": "PASS en news\nPASS en mixes\nPASS en pinned\nPASS en chat\nPASS en profile\nRESULT: 5/5 exact app-property/resource lookups PASS\n",
+        "stderr": ""
+      },
+      {
+        "language": "ru",
+        "exit_code": 0,
+        "elapsed_seconds": 4.05,
+        "stdout": "PASS ru news\nPASS ru mixes\nPASS ru pinned\nPASS ru chat\nPASS ru profile\nRESULT: 5/5 exact app-property/resource lookups PASS\n",
+        "stderr": ""
+      }
+    ],
+    "runtime-18.2": [
+      {
+        "language": "en",
+        "exit_code": 0,
+        "elapsed_seconds": 1.37,
+        "stdout": "PASS en news\nPASS en mixes\nPASS en pinned\nPASS en chat\nPASS en profile\nRESULT: 5/5 exact app-property/resource lookups PASS\n",
+        "stderr": ""
+      },
+      {
+        "language": "ru",
+        "exit_code": 0,
+        "elapsed_seconds": 0.84,
+        "stdout": "PASS ru news\nPASS ru mixes\nPASS ru pinned\nPASS ru chat\nPASS ru profile\nRESULT: 5/5 exact app-property/resource lookups PASS\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "actual_host_resource_bundles": {
+    "TchopApp.app/en": {
+      "keys": 323,
+      "contents_match": true,
+      "file_sha256": "c0627430cb370bc756f52c1e2514ee29cb472808d9d291d3d27a369472532ed0"
+    },
+    "TchopApp.app/ru": {
+      "keys": 323,
+      "contents_match": true,
+      "file_sha256": "1300d7684f76d034a721233512aa3861e01a6c13c42a1b625b8a9b466c55a266"
+    },
+    "TchopAppOcean.app/en": {
+      "keys": 323,
+      "contents_match": true,
+      "file_sha256": "c0627430cb370bc756f52c1e2514ee29cb472808d9d291d3d27a369472532ed0"
+    },
+    "TchopAppOcean.app/ru": {
+      "keys": 323,
+      "contents_match": true,
+      "file_sha256": "1300d7684f76d034a721233512aa3861e01a6c13c42a1b625b8a9b466c55a266"
+    }
+  },
+  "emitted_compiler_input_lists": {
+    "host-build-cache/derived-data/Build/Intermediates.noindex/TchopApp.build/Debug-iphonesimulator/TchopApp.build/Objects-normal/arm64/TchopApp.SwiftFileList": {
+      "contains_AppTab": true,
+      "count": 155,
+      "sha256": "226a033ab43fb01265d086ffef74c4958e8f54196367adaa228040c20b6eb51b"
+    },
+    "host-build-cache/derived-data/Build/Intermediates.noindex/TchopApp.build/Debug-iphonesimulator/TchopAppOcean.build/Objects-normal/arm64/TchopAppOcean.SwiftFileList": {
+      "contains_AppTab": true,
+      "count": 155,
+      "sha256": "2d04be2f7af64f013c8bc9ecdb8d962fcc0184df44bad67a3253abb109aa60cb"
+    }
+  },
+  "Library": "Tchop UNVERIFIED; first layer only, no transition/handler inheritance",
+  "limits": "Real existing preview lookup defect; actual property/localizer/resource path tested; no authenticated app navigation/rendered previews/actual VoiceOver/iPad/physical/release claim; no live mode controls; SideMenu preview menu.footer remains separate observed mismatch"
+}

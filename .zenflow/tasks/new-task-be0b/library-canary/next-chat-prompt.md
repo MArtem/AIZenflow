@@ -1,0 +1,26 @@
+Продолжай реализацию системы iOS-проектов, task new-task-be0b.
+Worktree: /Users/Artem/.zenflow/worktrees/knowledge-base-next.
+Модель GPT-6.1 Sol/high, режим эконом. Цель улучшений — максимально полная и качественная реализация исходного плана; вариант A суженной приёмки не выбран, выбран B.
+
+Перечитать весь актуальный набор документации и правил для этого worktree и task-контекста:
+canonical bootstrap → baseline/router → Level 0 → текущие plan/handoff → применимые routes/overlays.
+Основной план: /Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md
+Канон на момент передачи: 332a794d033f705bfe93dbc40674ca78f0b3982a. Проверь актуальный HEAD, не считай старый SHA текущим автоматически.
+Текущий отчёт: /Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-library-canary.md
+Локальные доказательства/receipt: /Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-canary/
+
+Мои действующие разрешения сохраняются: реализация системы и выбор пилотов; проверки/тесты/сборки выбираешь и выполняешь сам при необходимости. Для требуемых iOS runtime проверок используй iPhone Simulator iOS 18.2 и iOS 27. Любые проверки iPad и реальных устройств, включая настоящий VoiceOver, исключены из планов всех проектов/тасков; это не PASS. Работа вне /Users/Artem/.zenflow разрешена исключительно для необходимых операций Simulator; все проектные артефакты/кеши/DerivedData/логи внутри .zenflow, shell login:false.
+
+Я разрешил переключения Library на время работы над ней до завершения общего плана улучшений или моего отзыва. Разрешён ограниченный canary OFF/AUTO, ON/AUTO и ON/ADVISORY для точных TchopApp.xcodeproj и BattleshipGame/BattleshipGame.xcodeproj. Tchop после canary оставить ON/AUTO — мой явный выбор. BG восстановить в наблюдённое исходное ON/AUTO. Режим не даёт новых полномочий. Не воспроизводи прошлые записи из памяти: прежде каждой необходимой новой операции проверь актуальные scope/status/handler/hash и разрешение. Невалидное состояние не ремонтировать/удалять; recover запрещён.
+
+Остальные ограничения сохраняются: без secrets/host/config/установщиков/автоматизаций/агентов/MCP; commit/push только AIZenflowDocumentation после gates. Сохранить чужие правки; старый worktree и установочную ветку не менять. Не развивать пилоты вне цели системы, не возобновлять paused Share follow-up. Клиентский HEAD b7c48e163d9108d1cc4b123d93456ce8f7628d93 и его dirty изменения не коммитить.
+
+W1–W2 завершены, W3 принят в выбранном scope. W4.3.a/b закрыты для реально наблюдённых текущих review задач: saved OFF KB → фактический AUTO pass → ADVISORY предложения. Восемь реальных переходов/отдельных status успешны, чужой project record/hash сохранён. BG восстановлен точно; Tchop ON/AUTO. Новых подтверждённых находок Library: 0, стоимость/повторяемая польза не измерены. LIB-004 P2 OPEN. BG-A01 и TC-L01 CLOSED_SCOPED; отдельный TC-L02 P3 SideMenu preview вне кандида́та не исправлять без отдельной цели.
+
+Начни с настоящей fresh-chat проверки нового Tchop entrypoint: общий корневой AGENTS → собственный TchopApp/AGENTS.md → TchopApp/IOSLibrary/STARTUP_RULE.md после полного первого слоя. Повторно проверь exact selector/ProjectID, pin 3c42e490e82866eee0f303d6340452dbf9fff5eb, 34 payload hashes и свой matching handler SHA 6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d; независимо наблюдай актуальные режимы обоих проектов. Восстанови scope/permissions/next step самостоятельно из текущих источников и этого моего сообщения; не выдавай старую same-session receipt за fresh-chat доказательство.
+
+Затем выполни минимальную недостающую интеграционную проверку W4.3.d: применение общего root AGENTS к двум независимо управляемым проектам, собственный Tchop entrypoint в OFF/ON и отказ при invalid/UNKNOWN (только изолированный принадлежащий задаче fixture, без порчи live record). Если нужны новые переходы, действуй по моему продолжающемуся разрешению выше, после проверки верни оба проекта ON/AUTO и проверь сохранность другого scope. Оба Tchop host target имеют один project mode; не присваивай им независимые режимы. Общий instruction artifact и shared Swift source — разные границы: не заявляй проверку общего Swift файла между независимыми проектами, если её нет; сверь фактическую достаточность с исходным требованием, не сужай его молча и не придумывай app feature ради галочки.
+
+Ранее реально выполненные TC20/20 EN/RU lookup и четыре host builds на iOS18.2/27, BG native12/12 и выбранная Simulator QA сохраняют силу только при неизменных входах. Для нового entrypoint/mode наблюдения повтор app runtime сам по себе не нужен. Исторические assertion/build failures и combined27 timeout600s сохранить, не превращать в PASS. 17 synthetic reader/selector controls не заменяют fresh-chat интеграцию.
+
+Обнови memory/план на значимом результате и опубликуй необходимые canonical изменения после точного final-diff/HEAD/remote gates. Продолжай общий план до конкретного необходимого решения или действия от меня; готовность core, Library и app оценивай отдельно. Не закрывай LIB-004 или весь план только по mode/status/сборкам; значимые новые подходы сравнивай для моего выбора.

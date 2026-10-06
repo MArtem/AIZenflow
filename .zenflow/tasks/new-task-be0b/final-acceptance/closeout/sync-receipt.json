@@ -1,0 +1,29 @@
+{
+  "base": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "owned_files": [
+    "tasks/new-task-be0b/plan.md",
+    "tasks/new-task-be0b/handoff.md",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md"
+  ],
+  "before_sha256": {
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68"
+  },
+  "after_sha256": {
+    "tasks/new-task-be0b/plan.md": "5035a0cd5075ddad4996d659f473dbf50cc3b80a5212b23a0e2362eb0969a7e6",
+    "tasks/new-task-be0b/handoff.md": "adfd415c8432c57a6e2fb2b8a3a3d76231b74464117bc6719b7d1cfd2430267e",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md": "ae3324abe10f14c35caaa3eecdf805536663bac22efb2252d64395cb7649e8b7"
+  },
+  "words_plan_handoff": 2932,
+  "contract": "Terminal-evidence update only; exact3 canonical docs+2 local mirrors; retain failures, conditional reachability and general NOT_READY; no source/rules/runtime/mode permission change",
+  "root_packet": {
+    "f06/parent-confirmed/parent-adjudication.json": "4d9e15297a7552eb94f6b2bc1dd5d1309a201dbd077fcb73182f717b292ce5f0",
+    "f02/parent-resume/runtime-receipt.json": "e31d4691f4d808dafc6832bd75e971e0cfd4b0cb218747f4851613783fec3092",
+    "cancellation-regression/qa-receipt.json": "bcac49b1c5a1a65d63464f4e9a0ccaf5d8e59528b2ccc49e989d5267813b800f",
+    "cancellation-regression/application-receipt.json": "d4130ee67eda35953e1f9fd158d29ca0e19856430dca5f19a827ea1ef379a8ab",
+    "cancellation-regression/semantic-review.json": "c57a15cba3d6d4d44637dc8ea5d17ed2419ff3e6cbb478c9dc67763258eafd19"
+  }
+}

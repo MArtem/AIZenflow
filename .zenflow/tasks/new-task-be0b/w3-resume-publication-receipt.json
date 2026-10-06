@@ -1,0 +1,44 @@
+{
+  "target": "origin/main",
+  "target_remote_observed": "9b06125839878fd145701c84d3ad95d439f36402",
+  "base": "9b06125839878fd145701c84d3ad95d439f36402",
+  "candidate_diff_sha256": "fab2f5ef4cb3a6e91f464b1b6d029443a22813ef964183adcbeb58feacdb7a2b",
+  "files": {
+    "apps/BattleshipGame/TASK_BG_T01.md": "cf735fdd0e8c256ddc06397b8e835e2056ca42ff52f86a421689eb232281f5bc",
+    "tasks/new-task-be0b/handoff.md": "6a420e6cb8c656ec29f357bfd3ee05af6c1e4f3ad98f3e22a7c6a6990e0ac57f",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md": "f2d3a192656c7be395f62fcab74431dd9ee49acedb33ed8c7d302d64c277c747",
+    "tasks/new-task-be0b/plan.md": "bf0667860708de4edbc2929135f83cb8944b8fff669b98500a8b4c7990f82dd1"
+  },
+  "contract": "Actual pre-QA resumed scope/constraints/next step only; preserve permissions, source/foreign bytes and open UI/library/full-cycle gates. No runtime or new grants. Existing record consumers synchronized.",
+  "review": "Complete final four-file diff reviewed after scope-wording correction; no confirmed P0-P2 or residual P3 in owned documentary candidate; self-review only.",
+  "checks": [
+    "vault/manifests PASS 5187 files",
+    "62 unique leaves; only W3.4.b newly closed",
+    "task budgets 738/730 <=3500",
+    "source/project/scheme, client HEAD, foreign roadmap/entrypoints and all34 copied files unchanged",
+    "candidate-only limited secret patterns PASS",
+    "whitespace PASS before wording/format-only correction; exact committed check planned"
+  ],
+  "reused": [
+    "prior unchanged routing/index/boundaries/links evidence; no path/rule/route changes",
+    "exact historical BG compile evidence, not a fresh environment probe"
+  ],
+  "omitted": [
+    "build/tests/test-writing/runtime/UI/device/signing",
+    "agents/MCP/independent review",
+    "host/config/secrets/installers/Library transitions",
+    "client or engine Git; old checkout mutations"
+  ],
+  "residual": "W3 QA choice and UI/VoiceOver not_run; BG-A01/LIB-004 OPEN; W4/W5 acceptance incomplete. Context refreshed, no further reload needed.",
+  "head": "749ed732b9dce22836a00d9f53ae2cab43a4caa8",
+  "range": "9b06125839878fd145701c84d3ad95d439f36402..749ed732b9dce22836a00d9f53ae2cab43a4caa8",
+  "canonical_clean": true,
+  "exact_committed_review": "Complete trusted-base..HEAD reviewed; byte-identical to frozen candidate; no P0-P2/P3. git show --check PASS. Reused unchanged static evidence.",
+  "input_revalidation": "Canonical record hashes unchanged since checks; client HEAD/source/project/scheme/roadmap/entrypoints unchanged; current permissions unchanged; no runtime/toolchain probe.",
+  "fresh_target_before_push": "9b06125839878fd145701c84d3ad95d439f36402",
+  "remote_after_push": "749ed732b9dce22836a00d9f53ae2cab43a4caa8",
+  "head_unchanged_after_push": true,
+  "canonical_clean_after_push": true,
+  "publication": "PASS: reviewed SHA observed on authoritative main",
+  "remote_state_validator": "PASS from active worktree after push; clean main synchronized with origin/main"
+}

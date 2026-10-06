@@ -1,0 +1,38 @@
+{
+  "root": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+  "task_id": null,
+  "selected_routes": [
+    "ios-project-work-system"
+  ],
+  "level0_documents": [
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/MODEL_ROUTING_RULE.md",
+    "./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md"
+  ],
+  "route_documents": {
+    "ios-project-work-system": [
+      "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+    ]
+  },
+  "documents": [
+    "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+  ],
+  "combined_documents": [
+    "./docs/CURRENT_USER_OVERRIDES.md",
+    "./docs/MODEL_ROUTING_RULE.md",
+    "./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+    "./docs/IOS_PROJECT_WORK_SYSTEM.md"
+  ],
+  "trigger_patterns": [
+    "./docs/templates/IOS_PROJECT_MEMORY.template.md"
+  ],
+  "duplicates_removed": [],
+  "missing": [],
+  "optional_missing": [],
+  "unclassified": [],
+  "unknown_routes": [],
+  "notes": [
+    "dynamic task documents skipped: .zenflow/tasks is absent"
+  ],
+  "failures": []
+}

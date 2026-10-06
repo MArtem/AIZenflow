@@ -326,6 +326,8 @@ public final class DatabaseMigrationRunner {
 
             do {
                 try nextStep.run(using: manager)
+            } catch let cancellationError as CancellationError {
+                throw cancellationError
             } catch let databaseError as DatabaseError {
                 throw databaseError
             } catch {

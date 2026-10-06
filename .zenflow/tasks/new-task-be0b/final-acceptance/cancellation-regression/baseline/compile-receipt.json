@@ -1,0 +1,52 @@
+{
+  "mode": "compile",
+  "authority": "Direct human six-source cancellation patch and necessary QA approval",
+  "source_sha256": {
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/DatabaseProbe.swift": "8278757818602fbcd92a397497c64f7103d65b213d5bef5c1bc2f1f1eac11591"
+  },
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/cache"
+  },
+  "commands": [
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+        "-disable-sandbox",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-strict-concurrency=complete",
+        "-warnings-as-errors",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk",
+        "-target",
+        "arm64-apple-ios17.0-simulator",
+        "-module-cache-path",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/cache/ios-modules",
+        "-o",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/DatabaseProbe.app/DatabaseProbe",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/AppDatabaseCore.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/SwiftDataModelActorDatabaseManager.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/AppSwiftDataDatabase.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/DatabaseProbe.swift"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/compile.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.03
+    }
+  ],
+  "devices": [],
+  "limits": [
+    "Disposable schema/component only, no app/user data",
+    "SDK27 compile, not SDK18.2",
+    "Pre-fix mismatch observation only",
+    "No physical/iPad/VoiceOver checks"
+  ],
+  "binary_sha256": "eab92bd22cc963d0acc3189d9c6bc656b7aa15bd3c29f7c498bb6cf95cb938c9",
+  "status": "COMPILE_PASS"
+}

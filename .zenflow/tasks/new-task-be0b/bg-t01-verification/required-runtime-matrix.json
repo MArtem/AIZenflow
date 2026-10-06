@@ -1,0 +1,14 @@
+{
+  "authority": "User2026-10-04: запускай тесты и сборки как на иос18.2 и на иос27, для надежности, сохрани это",
+  "scope": "Current BG-T01/system W3 verification, not a reusable cross-project rule",
+  "runtimes": [
+    "18.2",
+    "27.0"
+  ],
+  "families": [
+    "iPhone",
+    "iPad"
+  ],
+  "sdk": "iPhoneSimulator27.0 from installed Xcode27.0",
+  "build_and_test_each_runtime": true
+}

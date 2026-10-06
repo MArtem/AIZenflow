@@ -1,0 +1,26 @@
+{
+  "args": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+    "spawn",
+    "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/after/TabDescriptionLocalizationProbe.app/TabDescriptionLocalizationProbe",
+    "ru",
+    "-AppleLanguages",
+    "(ru)",
+    "-AppleLocale",
+    "ru_RU"
+  ],
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/cache"
+  },
+  "runtime": "27.0",
+  "udid": "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+  "harness_inputs": {
+    "TchopApp/Models/AppTab.swift": "603f50c7ff6ee3bb563151ba82493289481ebeeb7d48cfb53368e9d9b2d4bdcd",
+    "TchopApp/App/AppLocalization.swift": "a8df9918f7926e1ed4895d4ae8401ff9a91c94f2564c30a501e4018e7168bdd5",
+    "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift": "97ae589e25e58dd35a409b544389c61684f9371af5f6e913a9b42277fbb66a81",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift": "6949428380cc3e5954407e6ca8d07a917d254724c9b277d0bacd7bcc4320a118"
+  }
+}

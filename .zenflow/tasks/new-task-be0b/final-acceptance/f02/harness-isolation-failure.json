@@ -1,0 +1,35 @@
+{
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/cache"
+  },
+  "results": [
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+        "-disable-sandbox",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-strict-concurrency=complete",
+        "-warnings-as-errors",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk",
+        "-target",
+        "arm64-apple-macos14.0",
+        "-module-cache-path",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/cache/mac-modules",
+        "-o",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos/DatabaseProbe",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppDatabaseCore.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/SwiftDataModelActorDatabaseManager.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppSwiftDataDatabase.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/DatabaseProbe.swift"
+      ],
+      "exit_code": 1,
+      "elapsed_seconds": 0.852,
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos/compile.log"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+  "base": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "contract": {
+    "behavior": "Close current task cycle by explicit user choice; preserve experimental Library and all unpassed gates",
+    "authority": "Human заканчивай directly after proposed cycle closure versus continued Library work; standing canonical-only Git",
+    "scope": [
+      "tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "tasks/new-task-be0b/plan.md",
+      "tasks/new-task-be0b/handoff.md"
+    ],
+    "producer_consumer": "Mainplan owns task-local closure ADR; plan/handoff and local mirrors reflect same status",
+    "ordering": "Verified QA/publication precedes user closure; no retroactive strict-pair PASS",
+    "failure": "LIB004 staysP2OPEN/generalNOTREADY; F01verifierP3/TC-L02P3 preserved; task closure is no release waiver",
+    "resource": "Three existing docs and two mirrors only, no new pilots/runtime/agents/MCP/mode changes",
+    "expiry": "Cycle-specific discretionary Library transitions and observer/runtime pilot work end; selected recorded ON/AUTO remains unchanged"
+  },
+  "before_sha256": {
+    "tasks/new-task-be0b/ios-project-work-system-plan.md": "ae3324abe10f14c35caaa3eecdf805536663bac22efb2252d64395cb7649e8b7",
+    "tasks/new-task-be0b/plan.md": "5035a0cd5075ddad4996d659f473dbf50cc3b80a5212b23a0e2362eb0969a7e6",
+    "tasks/new-task-be0b/handoff.md": "adfd415c8432c57a6e2fb2b8a3a3d76231b74464117bc6719b7d1cfd2430267e"
+  },
+  "foreign_diff_args": [
+    "git",
+    "diff",
+    "--binary",
+    "--full-index",
+    "--",
+    ".",
+    ":(exclude).zenflow/tasks/new-task-be0b/plan.md",
+    ":(exclude).zenflow/tasks/new-task-be0b/handoff.md",
+    ":(exclude)PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+    ":(exclude)PackagesForReuse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+    ":(exclude)PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+    ":(exclude)PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+    ":(exclude)PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+    ":(exclude)PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift"
+  ],
+  "foreign_diff_sha256": "679fe99e844d51e12393bca82563cb6898889995f43eabaa10a94396fda8bb7a",
+  "QA_reuse": {
+    "f06/parent-confirmed/parent-adjudication.json": "4d9e15297a7552eb94f6b2bc1dd5d1309a201dbd077fcb73182f717b292ce5f0",
+    "f02/parent-resume/runtime-receipt.json": "e31d4691f4d808dafc6832bd75e971e0cfd4b0cb218747f4851613783fec3092",
+    "cancellation-regression/qa-receipt.json": "bcac49b1c5a1a65d63464f4e9a0ccaf5d8e59528b2ccc49e989d5267813b800f",
+    "cancellation-regression/application-receipt.json": "d4130ee67eda35953e1f9fd158d29ca0e19856430dca5f19a827ea1ef379a8ab",
+    "cancellation-regression/semantic-review.json": "c57a15cba3d6d4d44637dc8ea5d17ed2419ff3e6cbb478c9dc67763258eafd19"
+  },
+  "source_candidates": [
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "before_sha256": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+      "candidate_sha256": "c975da97e560793659bcc3ece3dbd93c9f16bf7b3ff76abdd534639066937d73"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "before_sha256": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+      "candidate_sha256": "c975da97e560793659bcc3ece3dbd93c9f16bf7b3ff76abdd534639066937d73"
+    },
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "before_sha256": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+      "candidate_sha256": "f69ec07d9a27730fb5a72a3a8223aafb23c15d8fb5ad564f0d74de78d9fdf0d2"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "before_sha256": "2768e12bbf535c703adf7276f4c8499c8a4209949f11b5360d767cec2ab111f6",
+      "candidate_sha256": "36dfe9569059df06b014005a314fe3605c12f27322d238826c043c239956444c"
+    },
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "before_sha256": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741",
+      "candidate_sha256": "0af2f9d9efd0f16e2458e96b97694dc849af60678789bee1769d836fcaec8c29"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "before_sha256": "2df2436044f7bebf7c46b45b53f2901d4c0dd1afe4d482b1dcf6b024497259bb",
+      "candidate_sha256": "3e16a46b6a6b1478c72698177cb8e70f7ed081a84f4ddb6a07d2f2a05458cd03"
+    }
+  ],
+  "client_HEAD": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+  "canonical_available": true,
+  "routes": "Level0 + documentation governance/boundary/sourceoftruth/taskstate/preflight/quality/completion/localexception",
+  "CODEX_HOME": "UNSET",
+  "model": "GPT6.1Sol/high",
+  "mode": "эконом",
+  "deep_refs": "Not needed; no code/evidence re-adjudication or AI evaluation"
+}

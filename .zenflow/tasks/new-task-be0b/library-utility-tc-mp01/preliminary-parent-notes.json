@@ -1,0 +1,8 @@
+{
+  "status": "PRELIMINARY_NOT_RUNTIME_REPRODUCED",
+  "not_observer_input": true,
+  "hypothesis": "FeedAsyncMediaFrame .task assigns image immediately after awaited loader with no caller cancellation/identity commit guard. Renderer cancellation returns nil. Need establish actual supersession ordering before confirmed defect/fix.",
+  "anchor": "NewsFeedView.swift:979-983, renderer detachedData/videoPreviewData cancellation paths",
+  "scope": "No severity/preferred fix given to observers; no uplift claimed; no source mutation",
+  "other_resource_questions": "NSCache count160 and media decode envelopes examined as source facts, not a measured memory defect or optimization claim"
+}

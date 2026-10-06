@@ -1,0 +1,67 @@
+{
+  "source_universe": {
+    "REUSE.md": "62059efa6b04e4e7bfd2472269cf7d3557ed7f01bf5e36b146ff18b1097943b8",
+    "README.md": "1c9511a06d093f934befaa49475fec43071fa59454e7b91933f86bc5656ff26e",
+    "PackageContract.md": "c949be4a6c89b56433e296fbb9bcfb61e95d7b37f69049f5bc043911d658b839",
+    "Package.swift": "809d6150889d084ccb6ab800f44d2f2a115458602ad83b44d42abad8507c8cf3",
+    "Tests/AppValidationCoreTests/AppValidationCoreTests.swift": "4e067f9c96d779f670a01256af2a84a720547479352ba57ef49dadd872b0d062",
+    "Docs/Iteration22_Report.md": "51c947f6632322ebb06d5d2843ebd23a3d5f198f0761c259a3da2475fc0baf50",
+    "Scripts/verify_package.sh": "8b7b6f0015969f1ad12785a372af615c70c0f858ed54efc4946bf9cee0985990",
+    "Sources/AppValidationCore/ValidationValue.swift": "0dc781eaaac97caca9a842734742b41803081fc6ec1eff6acb51171afe3ad552",
+    "Sources/AppValidationCore/ValidationRuleSet.swift": "f8ec03e432989ba110ba75ab142be84f223225063145394924022690a4a79755",
+    "Sources/AppValidationCore/ValidationIssue.swift": "594a8941a3d7ce81328168527bc09f9462ea81b771a4fa3af01ba3d5fe061e97",
+    "Sources/AppValidationCore/ValidationFailure.swift": "c82bdce56cd069a519b38b60ddd3c32f54d2639d342109f01b6ce383d7e457d6",
+    "Sources/AppValidationCore/BuiltInValidationRule.swift": "e1da4aea4515a64bb6911cf3e175f83404622c678f5511ac5905b714a7bdc9ae",
+    "Sources/AppValidationCore/ValidationIdentifiers.swift": "46109bf25f216ab48d78bf73f654bba4065fdbcfa51200269eabc01a65b2739a",
+    "Sources/AppValidationCore/AppValidationCoreEngine.swift": "22fd5d6c929e9f08149c49119872d562799327155d1a5656a5bb3cf7e75b35df",
+    "Sources/AppValidationCore/SafeValidationIdentifier.swift": "17a315f9078eaacae07312b2940d6159fd52462c2b8c707500e244a658533167",
+    "Sources/AppValidationCore/ValidationRule.swift": "bdf39d31d065f6a19dbe917f643a3bde59cbfe65edd19882c307eb8b992600be",
+    "Sources/AppValidationCore/ValidationResult.swift": "0b27bc95a9e56377ddca3a11c8c7e87843a3f0aec60e891f0c5dcac24efe7093",
+    "Sources/AppValidationCore/ValidationContext.swift": "31315099b846d788ef482e83f1ec026c779cd44e969744cc1016a04eaff91694",
+    "Sources/AppValidationCore/Documentation.docc/AppValidationCore.md": "366a51a73fd334bcbbd0ed2e0a41ef126ee894fa37a6911cdf8c6a30dde7fd7f"
+  },
+  "source_files": 19,
+  "invocation": {
+    "args": [
+      "swift",
+      "test",
+      "--package-path",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/AppValidationCore",
+      "--scratch-path",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/build",
+      "--cache-path",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/spm-cache",
+      "--config-path",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/spm-config",
+      "--security-path",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/spm-security",
+      "--manifest-cache",
+      "none",
+      "--disable-sandbox",
+      "--disable-keychain",
+      "--disable-netrc",
+      "--skip-update",
+      "--disable-index-store",
+      "-Xswiftc",
+      "-strict-concurrency=complete"
+    ],
+    "environment": {
+      "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/tmp",
+      "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/cocoa-home",
+      "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/cache",
+      "CLANG_MODULE_CACHE_PATH": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/clang-cache",
+      "SWIFTPM_MODULECACHE_OVERRIDE": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f01/swift-cache"
+    },
+    "verifier_exit": 1
+  },
+  "result": {
+    "exit_code": 0,
+    "elapsed_seconds": 25.103201833
+  },
+  "native_tests": "XCTest11/11 PASS, current macOS native; separate Swift Testing runner0 does not replace XCTest count",
+  "original_verifier": "FAIL exit1: own README app-specific wording, P3 tooling conflict retained, no full verifier PASS",
+  "warning": "SwiftPM --skip-update deprecated warning retained",
+  "platform_limits": "No minimum macOS12 runtime proof; declared iOS15/tvOS15/watchOS8 not executed",
+  "source_mutations": 0,
+  "library": "UNKNOWN/unadopted selector, no inherited ON or route pass"
+}

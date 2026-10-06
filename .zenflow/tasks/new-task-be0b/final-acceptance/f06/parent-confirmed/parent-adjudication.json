@@ -1,0 +1,153 @@
+{
+  "status": "F06_TWO_AUTHORIZED_ARMS_EXECUTED_STRICT_PAIR_WITHHELD",
+  "off_thread": "01a10d1d-198c-75e1-bb2f-04881b472c28",
+  "on_thread": "01a10d2f-3aff-7853-88dc-b8a0b3736b14",
+  "metadata_turn_duration_ms": {
+    "OFF": 1088912,
+    "ON": 946995,
+    "combined": 2035907
+  },
+  "off_receipt_sha256": "9c0d899368ffae47d4bca2ff2b55dc9aa763a91f96120d4993434552705bd640",
+  "on_receipt_sha256": "6fd43bf65289d2b9663c11bc9e832563066df732c9b6e1db7d6a7d54175c6daf",
+  "sources_documents_unchanged_through_both_completed_arms": true,
+  "off_status": "PARTIAL_PROCEDURAL",
+  "on_status": "PARTIAL_PROCEDURAL_METRICS",
+  "delta": {
+    "stage": "ADOPTED_LIBRARY_CHALLENGE_AFTER_IMMUTABLE_FULL_KB",
+    "kb_sha256": "48b2fba8cb5b2c8539afe7b7e890a79d70db6df5444a4165eb538f117945aec4",
+    "actual_status": "ON/AUTO",
+    "confirmed_new_defects": 0,
+    "new_remedies": 0,
+    "retained": [
+      {
+        "id": "KB-CANCEL-01",
+        "reason": "Concurrency route confirms cooperative cancellation and committed-effect distinction; source transformation remains real, shipping consumer impact unknown."
+      },
+      {
+        "id": "KB-MIGRATION-01",
+        "reason": "Data route requires supported old-state/version/producer contracts; overshoot path remains conditional, not proven app schema defect."
+      }
+    ],
+    "added": [],
+    "rejected": [
+      {
+        "claim": "Mutable read-context closure proves a shipped read-only violation",
+        "reason": "Closure producer contract says read-only; no actual violating caller inspected; public misuse is hypothetical."
+      },
+      {
+        "claim": "Actor or async entrypoint proves all database work is off-main",
+        "reason": "Isolation/executor/runtime and creation path remain unobserved."
+      },
+      {
+        "claim": "Compilation or callback runner proves successful SwiftData schema migration/downgrade/preservation",
+        "reason": "Distinct schema/data transformations and failure/reopen runtime require actual evidence."
+      }
+    ],
+    "merged": [
+      {
+        "topic": "severity/reachability",
+        "delta": "Explicit Library review rule requires actual caller/input-producer trace for P0-P2. KB already did this; retained calibration, zero novel conclusion.",
+        "evidence": "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md Findings and correction"
+      },
+      {
+        "topic": "migration/retry/downgrade",
+        "delta": "Data route reinforces supported historical/partial/large store, idempotence/downgrade and reopen distinctions already present in KB; zero new finding/remedy.",
+        "evidence": "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md migration bullets"
+      },
+      {
+        "topic": "verification and compatibility",
+        "delta": "Mapped static-only mechanism evidence versus unobserved target/runtime/source/semantic/ABI compatibility; no changed API/distribution, no compatibility PASS.",
+        "evidence": "10_TESTING and16_BUILD_MODULARITY_TOOLING routes"
+      }
+    ],
+    "route_dispositions": {
+      "03_CONCURRENCY": "APPLIED actor/context, cancellation/error and executor distinctions",
+      "09_PERSISTENCE_DATA": "APPLIED version/checkpoint, idempotence, rollback/reopen/schema/downgrade",
+      "19_CODE_REVIEW_REFACTOR": "APPLIED conditional candidate adjudication before adding",
+      "10_TESTING": "APPLIED evidence only; all execution withheld",
+      "16_BUILD_MODULARITY_TOOLING": "APPLIED exact two hosts and source-only boundary; no changed public API/ABI claim",
+      "34_FULL_AUDIT": "NOT_APPLICABLE bounded mechanism review",
+      "05_UI_FLOW": "NOT_APPLICABLE no UI source scope",
+      "08_NETWORK": "NOT_APPLICABLE no transport source",
+      "12_SECURITY_PRIVACY": "NOT_SELECTED no observed credential/log/export boundary; downstream disclosure unknown",
+      "15_AI_FEATURE": "NOT_APPLICABLE sources not an AI feature; evaluator governed by first-layer eval guidance",
+      "44_AGENT_COORDINATION": "REFUSED no downstream agent authority"
+    },
+    "outcome": "Zero confirmed incremental defects; repeated guidance/evidence calibration only. Cannot establish blind discovery, causal quality uplift, complete misses/false positives or token/account savings."
+  },
+  "quality": "Both see actual cancellation transformation, shipping exposure unobserved. OFF P2 public mismatch versus ON conditional P2; default API preservation repair selected by direct human, not a Library-added production finding. Migration graph candidate conditional; no invented app defect.",
+  "metrics": {
+    "off": {
+      "elapsed_wall_seconds": 1046.955838,
+      "hard_limit_seconds": 1200,
+      "exec_command_calls": 43,
+      "functions_exec_invocations": 42,
+      "extra_functions_metadata_call": 1,
+      "status_handler_invocations": 2,
+      "git_pin_blob_body_requests": 34,
+      "extra_git_blob_body_requests": 0,
+      "unique_pin_names": 34,
+      "local_pin_passes": 2,
+      "logical_unique_text_bytes": 518222,
+      "logical_text_bytes_including_rereads": 571596,
+      "pin_local_hash_input_bytes": 277294,
+      "pin_git_blob_hash_input_bytes": 138647,
+      "initial_handler_extra_hash_input_bytes": 20974,
+      "initial_source_hash_input_bytes": 16730,
+      "initial_control_preservation_hash_input_bytes": 242190,
+      "coverage_measurement_hash_input_bytes": 1173624,
+      "final_other_hash_input_bytes": 798456,
+      "hash_metric_definition": "Raw authorized input bytes fetched for named hash-only/metadata-measurement operations; separate from policy/source textual reads. Generated own JSON hashing and metadata JSON parses not treated as instruction reading. Physical I/O and hash CPU passes are UNKNOWN.",
+      "total_tool_physical_reads": "UNKNOWN",
+      "context_bytes": "UNKNOWN",
+      "input_output_reasoning_tokens": "UNKNOWN",
+      "subscription_or_account_cost": "UNKNOWN",
+      "cross_process_monotonic_elapsed": "UNKNOWN: observed raw clocks are not continuous across tool processes",
+      "causal_quality_uplift": "NOT_ESTABLISHED",
+      "savings": "NOT_ESTABLISHED"
+    },
+    "on": {
+      "logical_requested_text_bytes": 641711,
+      "logical_unique_covered_text_bytes": 614051,
+      "read_invocation_groups": 36,
+      "read_file_range_entries": 97,
+      "unique_text_files": 90,
+      "g0_unique_files": 72,
+      "library_route_text_bytes": 51811,
+      "source_text_bytes": 16730,
+      "hash_initial_pin_pair_bytes": 277294,
+      "tokens": "UNKNOWN",
+      "account_cost": "UNKNOWN",
+      "physical_tool_read_bytes": "UNKNOWN",
+      "model_context_bytes": "UNKNOWN",
+      "metric_derivation": "Logical requested bytes from selected source ranges, with repeats/recovery. Unique coverage deduplicates lines. These are not physical I/O or model-context byte measurements. Metric computation reopens files; metadata/hash/derivation reads are separate from content inspection."
+    },
+    "on_timing": {
+      "first_action_wall_epoch_ms": 1791222577780,
+      "first_action_process_monotonic_seconds": 0.025134791,
+      "g0_closure_wall_epoch_ms": 1791222876173,
+      "source_review_start_wall_epoch_ms": 1791222956571,
+      "source_review_end_wall_epoch_ms": 1791223048946,
+      "library_start_wall_epoch_ms": 1791223056128,
+      "library_end_wall_epoch_ms": 1791223137033,
+      "tool_calls_including_result_write": 45,
+      "elapsed_wall_seconds_before_result_write": 903.789,
+      "final_end_wall_epoch_ms": 1791223481714.9229,
+      "final_end_process_monotonic_seconds": 0.080804625,
+      "elapsed_wall_seconds": 903.9349228515625,
+      "g0_wall_seconds": 298.393,
+      "source_review_wall_seconds": 92.375,
+      "library_wall_seconds": 80.905,
+      "comparable_monotonic_stages": "UNKNOWN: first and final Python monotonic readings use separate process origins; intermediate stages were captured with Date.now wall time, not a comparable monotonic clock. No retroactive monotonic reconstruction."
+    }
+  },
+  "limitations": [
+    "Late local-health read OFF",
+    "Late source-directory nested-rule presence checks ON",
+    "Mandatory current plans prime previous conclusions",
+    "ON instruction clarifies existing local mandatory paths; not byte-identical prompts",
+    "Cross-process monotonic not available; no causal utility/cost or precision/recall ground truth"
+  ],
+  "library_verdict": "NOT_READY_FOR_GENERAL_RELEASE; LIB-004 OPEN",
+  "next": "Human explicitly approved guarded6-file default cancellation patch plus necessary QA; no new observer/pilot wave"
+}

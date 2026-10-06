@@ -1,0 +1,117 @@
+{
+  "claim": "Synthetic existing record-reader only; no full project stage/profile advice/activation/new-chat proof",
+  "handler_sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+  "cases": [
+    {
+      "case": "ON-AUTO",
+      "status": "ON",
+      "profile": "AUTO",
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "ON-ADVISORY",
+      "status": "ON",
+      "profile": "ADVISORY",
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "OFF-AUTO",
+      "status": "OFF",
+      "profile": "AUTO",
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "OFF-ADVISORY",
+      "status": "OFF",
+      "profile": "ADVISORY",
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "absent",
+      "status": "UNSET",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "wrong-consumer-identity",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "unsupported-schema",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "boolean-schema",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "unsupported-mode",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "unsupported-profile",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "duplicate-schema",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "oversized",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "malformed",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "second-consumer-off",
+      "status": "OFF",
+      "profile": "ADVISORY",
+      "reader_preserved_inputs": true
+    },
+    {
+      "case": "second-consumer-cannot-borrow-on",
+      "status": "UNSET/invalid",
+      "profile": null,
+      "reader_preserved_inputs": true
+    }
+  ],
+  "passed": 17,
+  "failed": 0,
+  "called_api": "_record(owned_fixture_directory_fd,...); no operate/status CLI, _write, transition or default STATE_DIR access; scope only negative exact-selector cases in owned synthetic fixture, no identity creation",
+  "authority": "Current task self-verification delegation; existing system control-case scope; synthetic reads only, no live Library transitions",
+  "Library_Tchop": "UNVERIFIED unchanged",
+  "scope_note": "Test labels ON/OFF and consumer A/B are fixture data, not saved mode or real project identity",
+  "reused": "Prior unchanged FIFO/lock/disabled-recovery regression evidence retained without rerun",
+  "scope_refusals": [
+    {
+      "case": "ambiguous-no-selector",
+      "refused": true,
+      "error": "selector must be a repository-relative project path",
+      "scope": "synthetic two-project fixture only; no live status/identity returned"
+    },
+    {
+      "case": "escaping-selector",
+      "refused": true,
+      "error": "selector must be a repository-relative project path",
+      "scope": "synthetic two-project fixture only; no live status/identity returned"
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "status": "PUBLISHED_EXACT_SCOPED_DOCS_GENERAL_LIBRARY_NOT_READY",
+  "range": "cd36cc5664ac7155eb268b6af41fdab5298d6cee..f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "head": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "remote_sha": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "canonical_clean": true,
+  "changed_canonical_files": [
+    "tasks/new-task-be0b/plan.md",
+    "tasks/new-task-be0b/handoff.md",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md"
+  ],
+  "local_mirrors": 2,
+  "source_files": 6,
+  "source_git": "uncommitted; client HEAD unchanged; no client commit/push",
+  "F01": "native11/11; verifier P3 retained",
+  "F02": "CLOSED_SCOPED public cancellation contract repair;66 runtime assertions;4 fresh unsigned host builds;5 strict native modules; shipped cancellation producer unproven",
+  "F03_F04_F05": "scoped offline/boundary/native evidence; no live Figma, CI, signing, minimumOS/allplatform claim",
+  "F06": "2 observers executed, both procedural PARTIAL;0 Library-added defects/remedies;strict comparison withheld",
+  "general_acceptance": "NOT_READY_FOR_GENERAL_RELEASE;LIB004 P2 OPEN",
+  "other_residual": "F01 verifier P3;TC-L02 P3; durable checkpoint/crash atomicity and repeat-seeding idempotence not established; compiler warnings retained",
+  "preservation": {
+    "status": "PASS",
+    "protected_files": 121,
+    "source_candidate_hashes": "6/6 unchanged",
+    "foreign_diff_sha256": "679fe99e844d51e12393bca82563cb6898889995f43eabaa10a94396fda8bb7a",
+    "canonical_clean": true,
+    "canonical_head_unchanged": true,
+    "client_head_unchanged": true,
+    "mirrors": "2/2 byte-identical",
+    "mode_records": "initial byte-identical; observed ON/AUTO both",
+    "root_packet": "unchanged"
+  },
+  "mode": "TC ON/AUTO;BG exactinitial ON/AUTO",
+  "simulator_shutdown": "Root terminal evidence verified for both phones; no new runtime performed",
+  "stop": "No automatic observer/runtime/source cycle; next human decision concerns general Library acceptance",
+  "receipt": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/closeout/publication-receipt.json",
+  "context_transfer": "перечитать весь актуальный набор документации и правил для этого worktree и task-контекста"
+}

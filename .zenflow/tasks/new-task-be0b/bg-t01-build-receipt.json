@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "claim": "BG-T01 Debug generic iOS Simulator SDK compilation PASS; no UI/test/release claim",
+  "model": "GPT-6.1 Sol",
+  "reasoning": "high",
+  "operating_mode": "эконом",
+  "toolchain": "Xcode27.0/27A266a",
+  "input_sha256": {
+    "BattleshipGame/BattleshipGame/ContentView.swift": "d9134483db19a9d1e7e8edcca42f06120f66bb410c2cea124b86700146b010c1",
+    "BattleshipGame/BattleshipGame/GameModel.swift": "a4dd935d45917c35a123f445b6a55fd0f645bb42ffd8cfa113a9d5423c758776",
+    "BattleshipGame/BattleshipGame/BattleshipGameApp.swift": "eb6fd744642c7df2f343b9b9294b7a77404801bb3f981c429b749d5cfd430aba",
+    "BattleshipGame/BattleshipGame.xcodeproj/project.pbxproj": "47cff5b4dcb8923a6816ad3a0642ab10a24bd7099fea5292c34e7a0cde8b4b3c",
+    "BattleshipGame/BattleshipGame.xcodeproj/xcshareddata/xcschemes/BattleshipGame.xcscheme": "b25b65c0d3e66d4a18c6bec3b8f7d3984748cccedc1dd7e038b1b0641e2ed449"
+  },
+  "invocation_sha256": "047dadfc991483a50ada0b5e00cbe653bccba37765fd05bf2da35247b47d7fc0",
+  "log_sha256": "496e070c46d77d430dfbde8d690650bb7c4cd180c5f3c4b5c6c6f1f1700f87e1",
+  "exit_status": 0,
+  "artifacts_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-build-retry",
+  "architectures": [
+    "arm64",
+    "x86_64"
+  ],
+  "first_attempt": {
+    "root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-build",
+    "exit_status": -5,
+    "classification": "nested sandbox/macro plugin environment failure; retained, not PASS"
+  },
+  "omitted": [
+    "tests",
+    "Simulator launch",
+    "UI interaction",
+    "VoiceOver",
+    "signing/archive",
+    "independent review",
+    "client commit/push"
+  ],
+  "remaining": "BG-A01 OPEN for narrow/wide/resize/scroll/accessibility interaction; LIB-004 OPEN",
+  "compile_input_disposition": "Both emitted SwiftFileLists: three declared Swift sources and generated asset symbols; scoped to this build, not whole-root coverage."
+}

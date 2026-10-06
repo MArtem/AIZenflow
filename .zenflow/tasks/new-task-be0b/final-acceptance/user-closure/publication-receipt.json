@@ -1,0 +1,90 @@
+{
+  "status": "PUBLISHED_USER_SELECTED_CYCLE_CLOSURE",
+  "base": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "owned_files": [
+    "tasks/new-task-be0b/ios-project-work-system-plan.md",
+    "tasks/new-task-be0b/plan.md",
+    "tasks/new-task-be0b/handoff.md"
+  ],
+  "patch_sha256": "5ecdc811f626a6a22e95ca6c5fb05cb061a01301fbfd956ed9feac98b52f05e4",
+  "after_sha256": {
+    "tasks/new-task-be0b/ios-project-work-system-plan.md": "d36ed49eedcd7221b6c640ce5de7e1a233826ab50b1263510c48f911a5c4f58a",
+    "tasks/new-task-be0b/plan.md": "7f63b0004db7f2c87013e1dd797e3270f89c9c308b39193ea5a152a55e3f4bf1",
+    "tasks/new-task-be0b/handoff.md": "0dcd93150b2ebc03cd5bd4ddcfb6bfd902356af160d78cf49fde3f3ad004fb05"
+  },
+  "semantic_contract": "User closes current cycle; task-local exception permits stop with retained P2, never general Library release; source/runtime and prior claims unchanged",
+  "findings": {
+    "new_P0-P2": 0,
+    "new_P3": 0
+  },
+  "retained_risks": [
+    "LIB004P2OPEN",
+    "F01verifierP3",
+    "TC-L02P3"
+  ],
+  "checks": {
+    "docs_vault_manifest": "PASS reused at unchanged membership",
+    "diff_check": "PASS after pointer correction",
+    "changed_docs_secret_patterns": "PASS exact3 docs; limited classifier only",
+    "source_candidate_hashes": "6/6 PASS",
+    "QA_packet_hashes": "PASS unchanged",
+    "protected": "121/121 PASS",
+    "foreign_tracked_diff": "PASS unchanged",
+    "local_mirrors": "2/2 PASS",
+    "words": 3321,
+    "helper_ast": "PASS"
+  },
+  "independent_review": "Not invoked; no extra reviewer grant; direct complete final-diff review for bounded docs-only closure",
+  "runtime": "Not rerun, unchanged PASS reused",
+  "expiry": "No new cycle work, Library transitions, observer agents/MCP/runtime from closure",
+  "publication": "Pending exact HEAD and remote gates",
+  "head": "bccedc951cb471e9c195adc9555e74d1dac0d69c",
+  "range": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca..bccedc951cb471e9c195adc9555e74d1dac0d69c",
+  "target_remote": "https://github.com/MArtem/AIZenflowDocumentation.git refs/heads/main",
+  "validated_remote_before_commit": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "actual_merge_base": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "clean": true,
+  "exact_HEAD_diff_equals_reviewed_candidate": true,
+  "reused": "Source/runtime/observer receipts unchanged; no repeat QA",
+  "local_exception": "NT-BE0B-CLOSE-01 accepted from actual user; no general Library release waiver",
+  "exact_HEAD_review": {
+    "status": "PASS",
+    "full_diff_read": true,
+    "candidate_hash_match": true,
+    "findings": "0newP0-P3",
+    "clean": true,
+    "range": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca..bccedc951cb471e9c195adc9555e74d1dac0d69c",
+    "trusted_target_base": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+    "actual_merge_base": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca"
+  },
+  "prepush": {
+    "HEAD_unchanged": true,
+    "clean": true,
+    "remote": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+    "merge_base": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+    "inputs_unchanged": true
+  },
+  "push": {
+    "status": "COMMAND_PASS",
+    "non_force": true,
+    "exact_SHA": "bccedc951cb471e9c195adc9555e74d1dac0d69c"
+  },
+  "remote_verification": {
+    "status": "PASS",
+    "separate_root_ls_remote_observed": "bccedc951cb471e9c195adc9555e74d1dac0d69c",
+    "HEAD_origin_main_match": true,
+    "remote_state_checker": "PASS",
+    "canonical_clean": true
+  },
+  "final_preservation": {
+    "status": "PASS",
+    "protected": 121,
+    "source_candidates": 6,
+    "QA_packet": "unchanged",
+    "foreign_diff": "unchanged",
+    "client_HEAD": "unchanged",
+    "mirrors": 2,
+    "modes": "unchanged protected records"
+  },
+  "task_status": "CLOSED_SCOPED_BY_USER"
+}

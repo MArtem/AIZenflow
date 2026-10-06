@@ -1,0 +1,9 @@
+from pathlib import Path
+v=Path('/Users/Artem/.zenflow/worktrees/documentation-vault')
+p=v/'tasks/new-task-be0b/ios-project-work-system-plan.md';s=p.read_text().replace('Three declared sources/one target, current dirty source hash','Three shipping sources/one app plus non-shipping UI target, current dirty source hash')
+s=s.replace('| E6 | [Prior library pilot](ios-library-pilot-2026-09-30.md) | Prior exact payload/case evidence only; LIB-004 remains open, no unchanged PASS rerun |','| E6 | [Prior library pilot](ios-library-pilot-2026-09-30.md) | Prior exact payload/case evidence only; LIB-004 remains open, no unchanged PASS rerun |\n| E7 | [Current verification receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md) | Native12/12, nominal phones18.2/27, AX5 flow and isolated audits/Rotate5/5 each; historical failures preserved, global user omissions, no app release |')
+s=s.replace('Scoped pre-QA recovery observed; W3 interaction/full-cycle acceptance remains open, no compaction/self-review substitute','Actual pre-QA recovery observed; E7 closes selected W3 interaction/cycle scope, no compaction/self-review substitute')
+s=s.replace('и compile PASS переиспользуются в exact scope; BG-A01 interaction gate остаётся.','и compile PASS переиспользуются в exact scope; E7 now supplies selected iPhone interaction acceptance.')
+p.write_text(s)
+p=v/'apps/BattleshipGame/AUDIT_LEDGER.md';s=p.read_text().replace('absence of runtime evidence prevents a','limited scoped runtime evidence prevents a').replace('Measure start latency on smallest supported device before off-main refactor','Measure start latency in a permitted iPhone Simulator before off-main refactor');p.write_text(s)
+p=v/'apps/BattleshipGame/TASK_BG_T01.md';s=p.read_text().replace('- [x] Nominal iPhone/iPad18.2/27 scrolling','- [x] Nominal iPhone18.2/27 scrolling');p.write_text(s)

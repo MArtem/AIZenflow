@@ -1,0 +1,86 @@
+{
+  "case": "TC-MP01",
+  "stage": "ON_AUTO_ADDITIVE_CHALLENGE",
+  "created_utc": "2026-10-04T23:43:10.695189+00:00",
+  "kb_provisional_sha256": "a803855e8852d6a8ddf41e62dd039eb070052d3352cba8533f90bf7006bd856f",
+  "payload_pin": "3c42e490e82866eee0f303d6340452dbf9fff5eb",
+  "payload_verified": "34 exact pin hashes, regular non-executable",
+  "core_sources": [
+    "KNOWLEDGE_ROUTER.md",
+    "QUALITY_STANDARD.md",
+    "PROJECT_FACTS.md",
+    "REPOSITORY_INSPECTION.md",
+    "RISK_AND_EVIDENCE.md",
+    "EVIDENCE_POLICY.md",
+    "REVIEW_GUIDE.md"
+  ],
+  "supporting_sources": [
+    "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+    "11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+    "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+    "05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md"
+  ],
+  "groups": "two supporting routes per read; one bounded challenge, no extra source sweep",
+  "retained": [
+    {
+      "id": "KB-F1",
+      "conclusion": "Missing post-await commit gate is a real static ownership gap; success and cancellation nil need protection.",
+      "provenance": [
+        "03_CONCURRENCY: identity before success and generic failure",
+        "05_SWIFTUI: old result must not replace current input"
+      ]
+    },
+    {
+      "id": "KB-F2",
+      "conclusion": "Video dimensions and decoded cache byte cost have no enforced envelope; overload unmeasured.",
+      "provenance": [
+        "11_PERFORMANCE: downsampling, decoded cost, transient peak versus retained leak"
+      ]
+    }
+  ],
+  "added": [],
+  "refined": [
+    {
+      "id": "KB-F1",
+      "before": "P1 definite current A-to-B defect",
+      "after": "P2 static ownership-pattern finding; actual stale overwrite conditional until current producer/lifetime evidence. P1 current impact not established.",
+      "reason": "Allowed caller reads pass model metadata but do not prove a current same-identity URL replacement. Disappear/reappear old-task overlap and State retention unobserved. Presence of task(id:) alone is not producer evidence.",
+      "provenance": "19_CODE_REVIEW: adjudicate each local P0-P2 against actual caller, allowed value range and product contract; conditional severity on missing reachability"
+    },
+    {
+      "id": "KB-F2",
+      "before": "P2 definite resource omission",
+      "after": "P2 static resource-pattern finding; current accepted high-resolution exposure and suitable cache byte budget UNKNOWN. No jank/crash/leak established.",
+      "reason": "Scoped model lacks intake envelope; source proves absent renderer bounds, not current accepted media maximum.",
+      "provenance": "19_CODE_REVIEW +11_PERFORMANCE"
+    }
+  ],
+  "rejected": [
+    {
+      "conclusion": "No new leak/crash/security breach claim from full PDF read, NSCache count160, absent explicit AV cancel hook or non-file URL possibility.",
+      "reason": "Worker cancellation is wired; producer range and framework runtime behavior missing.",
+      "provenance": "REPOSITORY_INSPECTION pattern leads; EVIDENCE_POLICY E1 is not E4"
+    },
+    {
+      "conclusion": "No mandatory new coalescing/limiter/cache service or per-row ViewModel.",
+      "reason": "No accepted aggregate workload or measurement establishing payoff.",
+      "provenance": "11_PERFORMANCE bounded correction; QUALITY_STANDARD smallest change"
+    }
+  ],
+  "merged": "Two static pattern findings and four hypotheses retained; MainActor conversion remains within F2, generic-failure ordering within F1.",
+  "minimal_followup": [
+    "Parent inspect exact current mediaContent producer/update path under persistent FeedCard identity or supply permitted deterministic same-frame replacement evidence. Observer did not expand to refresh or whole-app code.",
+    "Exact missing dependencies: AppFileStorageDomains.composerMediaPath(existingFilename:) and composerMediaFileURL(for:), plus FeedFileMediaContent/photo publishing/import byte/pixel and immutable-path contract.",
+    "If same-frame replacement is current, capture awaited result and guard cancellation before UI assignment; reject cancelled loader before conversion/cache work. Keep published semantics.",
+    "If accepted videos lack a pixel envelope, constrain generator.maximumSize and choose decoded-byte cache budget. PDF source-byte/intake envelope is a separate conditional question."
+  ],
+  "counts": {
+    "new_defects": 0,
+    "retained_static_findings": 2,
+    "refinements": 2,
+    "actionable_code_delta": 0,
+    "hypotheses_retained": 4
+  },
+  "utility_limit": "Observed same-observer evidence calibration, not independent reviewer evidence or stable causal Library benefit. Parent adjudicates versus OFF. Protocol read-order caveats invalidate strict PASS; no savings claim.",
+  "evidence": "E1 only; runtime/tests/builds/network not_run; iPad/physical/actual VoiceOver OMITTED_BY_USER"
+}

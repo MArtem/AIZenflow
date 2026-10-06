@@ -1,0 +1,88 @@
+{
+  "source_universe": {
+    "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741"
+  },
+  "native_cases": [
+    {
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos/old.log",
+      "PASS_labels": [
+        "old-store-saved"
+      ],
+      "observations": [],
+      "runtime_diagnostics": "CoreData notification/errors retained"
+    },
+    {
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos/new.log",
+      "PASS_labels": [
+        "lightweight-preserves-old-values",
+        "typed-failure-preserved",
+        "write-failure-rollback",
+        "cooperative-cancellation-rolls-back",
+        "actor-concurrent-writes-preserved",
+        "migration-failure-visible",
+        "version-advances-only-after-success",
+        "migration-retry-resumes-version",
+        "current-version-is-idempotent"
+      ],
+      "observations": [
+        "cancellation-wrapped-as-transactionFailed"
+      ],
+      "runtime_diagnostics": "CoreData notification/errors retained"
+    },
+    {
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos/reopen.log",
+      "PASS_labels": [
+        "separate-process-reopen-count",
+        "separate-process-reopen-old-fields",
+        "separate-process-rollback-durable"
+      ],
+      "observations": [],
+      "runtime_diagnostics": "none in scoped log"
+    },
+    {
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos-failure/old.log",
+      "PASS_labels": [
+        "old-store-saved"
+      ],
+      "observations": [],
+      "runtime_diagnostics": "CoreData notification/errors retained"
+    },
+    {
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos-failure/migrate-failure.log",
+      "PASS_labels": [
+        "actual-SwiftData-migration-failure-visible"
+      ],
+      "observations": [],
+      "runtime_diagnostics": "CoreData notification/errors retained"
+    },
+    {
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos-failure/old-reopen.log",
+      "PASS_labels": [
+        "failed-migration-old-store-reopen-preserved"
+      ],
+      "observations": [],
+      "runtime_diagnostics": "none in scoped log"
+    }
+  ],
+  "PASS_assertions": 16,
+  "concurrent_writes": 20,
+  "schema_fixture": "Disposable V1/V2 only, no actual product schema or users",
+  "provenance": "three exact adopted source files compiled unchanged together; fixtures only supply schema/container/version store and inject errors",
+  "ios_compile": "PASS Swift6 strict complete warnings-as-errors, SDK27 deployment17 before migration-failure-only extra fixture; exact compiled fixture hash recorded below",
+  "ios_binary_sha256": "dd0df49a7d64742361755bfbf86393f17ae87306c242b72455b079f171c82e1c",
+  "ios_runtime": "BLOCKED automatic approval reviewer rejected Simulator grant; confined boot attempt failed before runtime. No device installed/created",
+  "failure_history": [
+    "initial nested macro sandbox failure retained",
+    "harness MainActor inheritance compile failure retained/fixed with concurrent worker",
+    "default CoreSimulator unavailable attempt retained; elevated launch rejected, not run"
+  ],
+  "limits": [
+    "no app schema integration/real data/production migration",
+    "no cancellation propagation PASS: transactionFailed mapping observed",
+    "no downgrade compatibility claim; supported downgrade policy unspecified",
+    "no diskfull/crash interruption/storage permission/full app release coverage"
+  ],
+  "mode": "TC ON/AUTO restored, BG exact record untouched"
+}

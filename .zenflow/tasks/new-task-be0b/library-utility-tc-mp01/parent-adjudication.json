@@ -1,0 +1,72 @@
+{
+  "case": "TC-MP01",
+  "observer_verdict": "PARTIAL_BOTH; no strict comparative protocol/cost PASS",
+  "source_frozen_during_observations": true,
+  "canonical_sha_during_both": "801b22ec753a59383a3e2719f62c934aaf27494c",
+  "off": {
+    "thread": "01a10935-7070-7b91-91be-15db2d050ac6",
+    "duration_ms_actual": 865978,
+    "semantic_findings": 2,
+    "overscan_git_blobs": 1402,
+    "logical_extra_blob_bytes": 5139382,
+    "limitations": {
+      "severity": "procedural comparison/evidence limitation, not app finding",
+      "tool_chunks": [
+        "ce0654",
+        "d9a778"
+      ],
+      "description": "Pin comparison mistakenly enumerated every path under pinned reference-copy-only prefix (1402), reading blobs for SHA256 rather than filtering to34 locally adopted names. Only names/hashes were emitted (truncated); Library text was not received/applied. 34 adopted files matched;1368 additional canonical blobs were hashed. No writes/runtime/network command used.",
+      "scope_effect": "Exceeds authorized saved-input metadata scope and inflates read/call cost. OFF arm cannot be reported clean or used for an unqualified comparative cost claim. No automatic redo/further observer authorized.",
+      "ordering": "F1/F2 source conclusions were already articulated before this over-read; no second-layer reasoning applied."
+    }
+  },
+  "on": {
+    "thread": "01a10943-5869-7980-9c11-fa894388f4db",
+    "duration_ms_actual": 868995,
+    "new_defects": 0,
+    "provisional_retained": true,
+    "refinements": [
+      {
+        "id": "KB-F1",
+        "before": "P1 definite current A-to-B defect",
+        "after": "P2 static ownership-pattern finding; actual stale overwrite conditional until current producer/lifetime evidence. P1 current impact not established.",
+        "reason": "Allowed caller reads pass model metadata but do not prove a current same-identity URL replacement. Disappear/reappear old-task overlap and State retention unobserved. Presence of task(id:) alone is not producer evidence.",
+        "provenance": "19_CODE_REVIEW: adjudicate each local P0-P2 against actual caller, allowed value range and product contract; conditional severity on missing reachability"
+      },
+      {
+        "id": "KB-F2",
+        "before": "P2 definite resource omission",
+        "after": "P2 static resource-pattern finding; current accepted high-resolution exposure and suitable cache byte budget UNKNOWN. No jank/crash/leak established.",
+        "reason": "Scoped model lacks intake envelope; source proves absent renderer bounds, not current accepted media maximum.",
+        "provenance": "19_CODE_REVIEW +11_PERFORMANCE"
+      }
+    ],
+    "limitations": [
+      "Read-only git HEAD/status observation occurred after baseline/router but before full Level0/task documents (chunk7ce485). No mutation; strict before-git startup criterion not satisfied.",
+      "Major requested routes/preflight/change-quality/skills/app manifest/context loaded before nested. Ancillary memory/media route references, universal-quality tail and orientation docs finished after nested/status (chunks5b3c16,7be560); strict all-first-layer-before-nested criterion is not fully satisfied. Provisional semantic KB review preceded Library routes.",
+      "Initial large outputs were truncated; bounded repeated ranges restored main plan/rules content where needed. Bytes/calls include rereads, no savings claim.",
+      "Scheme sed range incidentally emitted LaunchAction TCHOP_API_ENV demo value, exceeding only-membership/toolchain output scope. No auth/config investigation or use, no secrets observed. Later metadata extraction is scoped."
+    ]
+  },
+  "parent_adjudication": {
+    "F1": "Source commit guard absent, but current publisher IDs are unique, sync rejects existingIDs, current interaction/translation copies preserve media. URL-replacement impact not confirmed. Lazy-lifetime overlap still runtime-unverified. No confirmed P1 current app defect or state/architecture rewrite.",
+    "F2": "Original video intake copies without pixel reduction; bounded actual regression confirms2048px output. Existing1200 photo envelope applied to video. Both iPhone runtimes verify1200 geometry/orientation/fallback; cache byte budget/pressure remains unknown.",
+    "hypotheses": "PDF bytes/aggregate admission, duplicate miss work, AV cancellation latency, cache mutation/path freshness remain unmeasured; no broad source sweep/new service",
+    "useful_library_delta": "Evidence calibration/severity qualification observed, no new code remedy/defect. Same-observer refinement is not stable causal or repeatable Library benefit. LIB004 remains OPEN; token/account cost UNKNOWN."
+  },
+  "owned_source_change": "Only narrow video pixel envelope + internal test access; existing-unit test membership, no new target. No speculative F1 fix.",
+  "extra_chats": 0,
+  "required_ending_mode": "TC ON/AUTO, BG exact record preserved",
+  "tests": "Parent self-verification delegation; children none",
+  "terminal_failures": [
+    "Parent preservation assertion initially counted permitted TC transition as unexpected; corrected exact handler receipt comparison before source patch",
+    "Parent ON result filename guess incorrect; result.json subsequently read",
+    "Parent initial file listing included build-cache paths metadata; output truncated, subsequent search narrowed to source/script filenames",
+    "Initial simulator sandbox XPC deny followed authorized exception; custom name guard corrected via actual deviceTypeIdentifier",
+    "Closure preservation assertion initially compared OFF baseline against ON as if the baseline were ON; failed before writes. Corrected only using exact existing tc-on receipt before/after hashes, not a general waiver."
+  ],
+  "read_route": "Loaded canonical core/task/concurrency/media/evidence; parent exact dependency trace only for producer acceptance, no auth/Share/AI behavior changes",
+  "claims": "No app release/general Library completion; TC-L02/LIB004 OPEN; iPad/physical/actual VoiceOver OMITTED_BY_USER",
+  "verification_complete": "qa-receipt.json: unit3 functions/8 parameter runs each; native14 assertions each; all4 host builds PASS.18.2 initial timeout UNKNOWN preserved;27 baseline real FAIL preserved.",
+  "preservation_final": "104/107 comparison hashes unchanged; approved View/PBX plus exact authorized TC OFF->ON transition differ; new test recorded. TC restored pre-canary ON/AUTO bytes and BG unchanged. Both selected phones Shutdown."
+}

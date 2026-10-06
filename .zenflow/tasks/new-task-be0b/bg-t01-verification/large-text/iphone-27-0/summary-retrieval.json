@@ -1,0 +1,5 @@
+{
+  "exit": 64,
+  "stdout": "",
+  "stderr": "2026-10-04 19:38:45.028 xcodebuild[4789:3160991]  DVTFilePathFSEvents: Failed to start fs event stream.\n2026-10-04 19:38:45.328 xcodebuild[4789:3160990] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 \"Input/output error\". Using NSCachesDirectory instead.\nError: Failed to create a new result bundle reader, underlying error: Info.plist at /Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-verification/large-text/iphone-27-0/result.xcresult/Info.plist does not exist, the result bundle might be corrupted or the provided path is not a result bundle\nUsage: xcresulttool <subcommand>\n  See 'xcresulttool --help' for more information.\n"
+}

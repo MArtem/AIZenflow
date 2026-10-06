@@ -1,0 +1,777 @@
+diff --git a/apps/BattleshipGame/AUDIT_LEDGER.md b/apps/BattleshipGame/AUDIT_LEDGER.md
+index 84abf92..22fab50 100644
+--- a/apps/BattleshipGame/AUDIT_LEDGER.md
++++ b/apps/BattleshipGame/AUDIT_LEDGER.md
+@@ -29,7 +29,7 @@ This is a static audit, not app production readiness or an independent review.
+ ## Ranked findings and questions
+ 
+ **BG-A01 — P2, confidence high for layout geometry, applicability current board UI,
+-evidence status STATIC_OBSERVED for original source; decision OPEN (runtime acceptance pending) after BG-T01 code change.**
++evidence status STATIC_OBSERVED for original source; decision CLOSED_SCOPED after BG-T01 selected iPhone Simulator acceptance and explicit global user omissions.**
+ Original audited ContentView.swift (hash c95adbcd469e2fb09bb298bc807e46686dcd36ce287d9b12e253c70ef82f683e) GameBoardView cellSide/frame and BoardCellButton use
+ (width−27)/10 with no explicit minimum44 or alternative precision interaction.
+ For available width320, cell layout29.3pt; width390 gives36.3pt.
+@@ -37,19 +37,19 @@ This proves cell layout bounds below44, not actual system hit-test behavior or a
+ VoiceOver failure. Closely spaced placement/fire targets risk unintended selection
+ and should be corrected before expanding this UI. Local/merge/release app readiness
+ is not granted. Target: accessible, unambiguous placement/fire interaction at narrow
+-supported widths, preserving10×10 gameplay. Remediation order1: user chose minimum-cell/horizontal-scroll A and authorized project source edits; bounded ContentView patch implemented. Compilation PASS for exact candidate; nominal widths/rotation and phone AX5 gameplay now observed; expanded AX5 audit27 timed out; real assistive traversal and live iPad resizing acceptance remain.
++supported widths, preserving10×10 gameplay. Remediation order1: user chose minimum-cell/horizontal-scroll A and authorized project source edits; bounded ContentView patch implemented. Compilation PASS for exact candidate; nominal widths/rotation and phone AX5 gameplay now observed; original combined AX5 audit27 timed out; isolated four audit types plus Rotate/placement now5/5 PASS on both phones. All iPad/physical checks omitted by global user rule.
+ Verification: static geometry/consumer review, then user-authorized narrow-window,
+-large-text and VoiceOver placement/fire/reset checks. Residual: device behavior unrun.
++large-text Simulator placement/fire/reset checks. Residual: iPad/physical/VoiceOver unverified and omitted by user.
+ 
+ | Lead | Classification / priority | Next evidence / decision |
+ |---|---|---|
+ | BG-Q02 | Conditional hardening, after A01 | Coordinate methods lack complete bounds guard; all current UI callers bounded. Revisit if adding callers; no reachable UI-crash finding |
+-| BG-Q03 | Performance hypothesis | Measure start latency on smallest supported device before off-main refactor; no jank claim |
++| BG-Q03 | Performance hypothesis | Measure start latency in a permitted iPhone Simulator before off-main refactor; no jank claim |
+ | BG-Q04 | Product question | English-only or supported locales? Only then define dynamic string/localization task |
+ | BG-Q05 | Release gap | Missing icon image entry; required before release scenario, no asset generation authorized |
+ | BG-Q06 | Verification gap | Decide toolchain/QC adoption and permitted verification before any source block; DEFERRED is not PASS |
+ 
+-No confirmed P0/P1 from inspected paths; absence of runtime evidence prevents a
++No confirmed P0/P1 from inspected paths; limited scoped runtime evidence prevents a
+ clean production claim. P2 is existing app UI, not a regression introduced by this
+ documentation-only system candidate. No waiver/closure by documentation publication.
+ No blanket backlog acceptance inferred. BG-A01 remediation A is explicitly selected; other product questions remain open.
+@@ -74,8 +74,8 @@ OFF/ADVISORY/UNKNOWN/multi-project transitions were not executed. No mode change
+ Current source bound by updated PROJECT_MAP hash: cellSide=max(44,(width−27)/10),
+ board side=10×cellSide+27, ScrollView content and viewport height both equal board side.
+ Widths320/390/467 yield cells44 and side467; width768 yields cells74.1 and side768.
+-Calculation/complete source diff supports static geometry correction only; executed UI assertions are now scoped in the verification receipt; no hardware or actual VoiceOver proof. Exact candidate compile now PASS; [receipt](history/bg-t01-build-2026-10-03.md). BG-A01 remains open for
+-interaction acceptance; no app local/merge/release PASS or system end-to-end claim.
++Calculation/complete source diff supports static geometry correction only; executed UI assertions are now scoped in the verification receipt; no hardware or actual VoiceOver proof. Exact candidate compile now PASS; [receipt](history/bg-t01-build-2026-10-03.md). BG-A01 is CLOSED_SCOPED for selected iPhone Simulator interaction acceptance below;
++no app release or whole-system readiness claim.
+ QC DEFERRED applicability revisited: source/project membership known, QC runner not adopted or executed; Xcode27.0 scoped build executed, baseline-only review, revisit before implementation PR
+ or target/resource/QC change. No new exception or complete engine adoption invented.
+ 
+@@ -84,5 +84,10 @@ or target/resource/QC change. No new exception or complete engine adoption inven
+ [Current evidence](history/bg-t01-verification-2026-10-04.md) adds both-version/family
+ nominal scenarios and phone AX5; iPad18 immediate placement failure retained with
+ one state-wait follow-up PASS, no guarantee of no flakiness. Expanded AX5 audit27 timed out600s; narrower flow is separate evidence. Shipping source unchanged.
+-BG-A01 remains P2 OPEN for actual VoiceOver and supported live-resize acceptance;
+-automated audits do not close those gates. Library LIB-004 remains separately OPEN.
++Global [USER.VERIFICATION.SCOPE](../../reusable/baseline/docs/CURRENT_USER_OVERRIDES.md#verification-and-quality) removes all iPad/physical checks, including actual VoiceOver,
++from every project/task plan. Follow-up isolated audit types and Rotate/placement
++5/5 PASS on each iPhone runtime, same new harness, shipping source unchanged.
++BG-A01 P2 CLOSED_SCOPED for corrected minimum44pt geometry and selected iPhone
++interaction. Omitted hardware/iPad/assistive behavior remains unverified; original
++combined27 timeout remains historical, root cause unknown. No app release claim.
++Library LIB-004 remains OPEN.
+diff --git a/apps/BattleshipGame/PROJECT_CONTEXT.md b/apps/BattleshipGame/PROJECT_CONTEXT.md
+index 4e2481c..f872a4d 100644
+--- a/apps/BattleshipGame/PROJECT_CONTEXT.md
++++ b/apps/BattleshipGame/PROJECT_CONTEXT.md
+@@ -37,7 +37,7 @@ engine pin, local runner or workflow is adopted by this memory registration.
+ | Memory registration / entrypoint | Explicit S4 proposal apply approval; only three proposed documentation files | Separate apply/post-check receipt; no source runtime change |
+ | Project source edits | User explicitly permits code edits without recurring permission; user selected BG-T01 A, 2026-10-03 | ContentView changed; compare meaningful alternatives before execution |
+ | Client Git | Separate authorization still required | not_run |
+-| Builds/tests/Simulator QA | User2026-10-04 delegates exact BG-T01 verification; necessary Simulator-only external exception; mandatory iOS18.2+27 iPhone/iPad matrix, outputs .zenflow | Native12/12 and scoped UI/AX5 observations; failures/omissions in [receipt](history/bg-t01-verification-2026-10-04.md) |
++| Builds/tests/Simulator QA | User2026-10-04 delegates exact BG-T01 verification; necessary Simulator-only external exception; mandatory iOS18.2+27 iPhone Simulator matrix; USER.VERIFICATION.SCOPE excludes all iPad/physical checks, outputs .zenflow | Native12/12 and scoped UI/AX5 observations; failures/omissions in [receipt](history/bg-t01-verification-2026-10-04.md) |
+ | Device/signing/archive/Instruments | Not selected in this bounded verification block | not_run |
+ | Agents/MCP/external review | Not authorized | not_run |
+ | Canonical documentation Git | Existing standing authority after required gates | Exact-SHA receipts remain separate |
+@@ -62,13 +62,16 @@ code defect or token saving. Self-review is not independent evidence.
+ ## Coverage and next safe step
+ 
+ Structural target/scheme membership: checked within the project/scheme inputs above.
+-Source behavior/ownership: [PROJECT_MAP.md](PROJECT_MAP.md). Static coverage and OPEN BG-A01 P2: [AUDIT_LEDGER.md](AUDIT_LEDGER.md). Product requirements remain unverified.
+-Current automated matrix and limitations: [BG-T01 card](TASK_BG_T01.md) and
+-[verification receipt](history/bg-t01-verification-2026-10-04.md). Both runtime versions
+-and families observed; AX5 gameplay on both phones, expanded AX5 audit27 timed out. Native12/12 retained. Original compile receipt
+-remains historical at its original project/scheme hashes, not reused for the new test graph.
+-VoiceOver/live resize/device/release remain unverified; BG-A01 and LIB-004 OPEN.
+-Next safe action: user provides actual VoiceOver and supported iPad resize observations.
++Source behavior/ownership: [PROJECT_MAP.md](PROJECT_MAP.md). Static coverage and CLOSED_SCOPED BG-A01 P2: [AUDIT_LEDGER.md](AUDIT_LEDGER.md). Product requirements remain unverified.
++Current [BG-T01 card](TASK_BG_T01.md) and [verification receipt](history/bg-t01-verification-2026-10-04.md):
++nominal iPhone18.2/27 scenarios and AX5 gameplay observed; isolated four audit types
++plus Rotate/placement5/5 PASS per version. Original combined27 timeout retained,
++cause unknown. Native12/12 reused. Original compile receipt is historical at its
++project/scheme hashes; current non-shipping UI target separately recorded.
++Global USER.VERIFICATION.SCOPE removes all iPad/physical-device checks, including
++actual VoiceOver, from plans; no verified coverage inferred. BG-A01 CLOSED_SCOPED
++for selected Simulator geometry/interaction acceptance; LIB-004 OPEN. No release claim.
++Next safe system action: W4 real shared-consumer task/mode controls; no app backlog.
+ 
+ Refresh affected records after source/target/scheme/pin/permission changes; preserve
+ accepted human decisions and retain superseded evidence under this app's history.
+diff --git a/apps/BattleshipGame/PROJECT_MAP.md b/apps/BattleshipGame/PROJECT_MAP.md
+index a15e0a8..18a0c54 100644
+--- a/apps/BattleshipGame/PROJECT_MAP.md
++++ b/apps/BattleshipGame/PROJECT_MAP.md
+@@ -85,3 +85,8 @@ and phone AX5 gameplay/expanded-audit limits are scoped in [receipt](history/bg-
+ They supersede earlier unrun rotation/scroll claims only for observed environments;
+ live resize, actual VoiceOver and hardware remain unverified. Old target/scheme facts
+ belong to their exact historical compile inputs, not this new verification graph.
++
++Current isolated follow-up UI test SHA-256 `650de8fba466bed9d8cf5bb1430680d636ebb88856bb6d85eb72d86f92992796`: four separate AX5 audits and
++Rotate/placement5/5 per iPhone18.2/27. Shipping hashes/project/scheme unchanged.
++All iPad/physical checks removed from plans by global user rule; retained history is
++not new execution or hardware/actual VoiceOver proof.
+diff --git a/apps/BattleshipGame/TASK_BG_T01.md b/apps/BattleshipGame/TASK_BG_T01.md
+index 15aa806..c94e3fe 100644
+--- a/apps/BattleshipGame/TASK_BG_T01.md
++++ b/apps/BattleshipGame/TASK_BG_T01.md
+@@ -1,12 +1,12 @@
+ # BG-T01 — board interaction acceptance
+ 
+-Status AUTOMATED_SCENARIOS_OBSERVED_MANUAL_ACCEPTANCE_OPEN; 2026-10-04.
++Status ACCEPTED_IN_SELECTED_IPHONE_SIMULATOR_SCOPE; 2026-10-04.
+ Owner user; integrator GPT-6.1 Sol/high, эконом, self-review only.
+ ProjectID `6a655f50-2a48-49df-9b5a-bdff693564de`; root
+ `/Users/Artem/.zenflow/worktrees/knowledge-base-next`; selector `BattleshipGame/BattleshipGame.xcodeproj`.
+ Client HEAD `b7c48e163d9108d1cc4b123d93456ce8f7628d93`, dirty source/test graph uncommitted.
+ Identity/current shipping hashes: [context](PROJECT_CONTEXT.md), [map](PROJECT_MAP.md).
+-Trigger [BG-A01 P2 OPEN](AUDIT_LEDGER.md); system question R07/R11–R13/R19–R21:
++Trigger [BG-A01 P2 CLOSED_SCOPED](AUDIT_LEDGER.md); system question R07/R11–R13/R19–R21:
+ fresh context → selected approach/permissions → owned change → honest verification/memory/resume.
+ 
+ ## Accepted behavior and bounded contract
+@@ -24,9 +24,11 @@ Test graph is separate non-shipping verification; no dependency/asset/config mig
+ ## Current authority and selected checks
+ 
+ User2026-10-04 delegates BG-T01 test creation/modification, builds, test execution and
+-necessary Simulator QA. Necessary Simulator operations alone may use external paths;
++necessary Simulator QA. Global user rule: [USER.VERIFICATION.SCOPE](../../reusable/baseline/docs/CURRENT_USER_OVERRIDES.md#verification-and-quality). Necessary Simulator operations alone may use external paths;
+ project artifacts/caches/DerivedData/logs stay in `/Users/Artem/.zenflow`, shell login:false.
+-Mandatory task matrix: **iOS18.2 + iOS27**, iPhone/iPad; this is not a reusable rule.
++Mandatory current task matrix: **iOS18.2 + iOS27**, iPhone Simulator only.
++Global USER.VERIFICATION.SCOPE excludes every iPad/physical-device check, including
++actual VoiceOver, for all projects/tasks; omissions remain unverified, never PASS.
+ Two original build grants remain consumed; current execution uses the newer delegation.
+ No agents/MCP, Library transitions, installers, secrets/host/config, automations or
+ client/engine Git authority. Canonical AIZenflowDocumentation Git remains authorized after gates.
+@@ -45,15 +47,17 @@ Both phones and iPad27: three nominal UI scenarios PASS. iPad18: rotation/audit
+ placement initially failed an immediate state assertion, then the focused scenario
+ PASS after predicate-based state waiting, without repeated taps. Retain the initial
+ failure; one successful follow-up does not prove absence of flakiness.
+-AX5 iPhone18 PASS: hit-region/description/text-clipping/Dynamic-Type audits, ship
+-Rotate button, vertical placement, scrolled gameplay/duplicate/reset. Expanded AX5
+-iPhone27 run timed out600s; xcresult unreadable, failing operation/root cause unknown.
+-One smaller AX5 gameplay/duplicate/reset scenario PASS on iPhone27, without the expanded
+-audit/Rotate scenario. That timeout remains unverified, never superseded by narrower PASS.
+-Original text settings restored. Nominal, expanded AX5 and narrower flow results use separately recorded harness inputs.
+-Unchanged rotation/audit evidence reused; no claim of one final four-test suite on every device.
+-VoiceOver experience, live iPad window resizing and physical-device/release evidence
+-remain unverified. BG-A01 P2 OPEN; LIB-004 P2 OPEN; no whole-system/app readiness PASS.
++AX5 full combined scenario PASS on iPhone18. Original combined iPhone27 run timed
++out600s with unreadable xcresult; retained, cause unknown. Smaller AX5 gameplay PASS
++on27 was separate evidence. New isolated follow-up: four separately named audit
++types (hit region, description, text clipping, Dynamic Type) plus Rotate/vertical
++placement/reset **5/5 PASS on both iPhone18.2 and27**, at the same new test-source
++hash. No shipping change or relaxed assertion. Text size restored, owned phones shutdown.
++No claim that the original combined timeout itself passed or that flakiness is absent.
++All iPad and physical-device checks, including actual VoiceOver, are removed from plans
++by global USER.VERIFICATION.SCOPE, omitted/unverified, never PASS. BG-A01 geometry/
++interaction CLOSED_SCOPED; W3 accepted within selected Simulator scope; LIB-004 OPEN.
++No app/full-system/Library release claim.
+ 
+ Exact commands/harness versions/UDIDs/outcomes/failures/limits:
+ [verification receipt](history/bg-t01-verification-2026-10-04.md).
+@@ -66,19 +70,17 @@ their grants and next actions are superseded by this current card.
+ - [x] Exact identity, current instructions/grants, preserved dirty state and handler hash.
+ - [x] Existing A source/consumer review; actual-model12 regression checks.
+ - [x] App/UI-test target graph and complete owned diff reviewed, shipping settings preserved.
+-- [x] Nominal iPhone/iPad18.2/27 scrolling, corner reachability, coordinate gameplay,
++- [x] Nominal iPhone18.2/27 scrolling, corner reachability, coordinate gameplay,
+   duplicate/reset, orientation and visible hit-region/description scenarios observed.
+ - [x] AX5 gameplay on both phones; expanded audit/Rotate/vertical placement on iPhone18.
+-- [ ] Expanded AX5 audit/Rotate on iPhone27:600s timeout; root cause unverified.
++- [x] Isolated expanded AX5 audit types/Rotate on both iPhone runtimes:5/5 each;
++  original combined27 timeout retained, root cause unknown.
+ - [x] Actual new-chat pre-QA restoration W3.4.b; user-pause interruption/resume retained.
+-- [ ] Actual VoiceOver traversal and activation across both boards, coordinates/states,
+-  offscreen scroll, placement/fire/reset; automated descriptions do not replace it.
+-- [ ] Supported live iPad window resize: sizing and accurate actions after width changes.
+-- [ ] BG-A01 closure/full W3 acceptance only from sufficient remaining evidence.
++- OMITTED_BY_USER USER.VERIFICATION.SCOPE: actual VoiceOver, all iPad and physical-device checks;
++  no PASS or release certification inferred.
++- [x] BG-A01 CLOSED_SCOPED and W3 selected-scope acceptance with global user omissions.
+ 
+-Next required user action: report those two manual observations with device/runtime,
+-text size and result; a failure returns to the smallest grounded correction and meaningful
+-approach choice. Existing labels/localization, icon, performance and other backlog are
++Next system step: W4 legitimate shared-consumer task and mode-control choices. Existing labels/localization, icon, performance and other backlog are
+ outside this system canary. No app release, Library release or generic reliability claim.
+ 
+ KB first, then approved ON/AUTO pass: current handler/payload validated, copied test/evidence
+diff --git a/apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md b/apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md
+index 039ce15..cd9dbf3 100644
+--- a/apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md
++++ b/apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md
+@@ -113,7 +113,7 @@ summary.json is xcresulttool test-results summary when available. The600s timeou
+ has result.json plus failed summary/activity retrieval receipts, no terminal test counts. Dynamic Type setting receipts are
+ text-size.json. No runtime, device or app unrelated to these four owned devices was changed.
+ 
+-Current UI test source SHA-256 `9288802d60eb3c825436008f031297d3664063630c2cb31f03b0b5be6f83b9a7`.
++Prior nominal/combined-AX5 UI test source SHA-256 `9288802d60eb3c825436008f031297d3664063630c2cb31f03b0b5be6f83b9a7`.
+ Project SHA-256 `1382ee516cf4d957d430f9f9a4754244fa7027bde96a670fd3f2cf3722467e95`; scheme `0634e1a0c0ef747928ba9db12b1707e1b3bb086ca813b661a63b7144fe70ec79`.
+ One non-shipping XCTest UI target/source and scheme registration were added after the
+ exception; the three shipping sources, their app target settings/phases/resources and
+@@ -135,8 +135,51 @@ Plan review/KB provisional retained missing manual proof and exact action/source
+ Then approved ON/AUTO copied test-strategy/evidence guidance retained independent grants,
+ real-state synchronization and failed/interrupted evidence. Self-review only; no measured
+ Library uplift. Source/membership memory refreshed; no mode or permission restored from history.
+-Expanded AX5 audit on iOS27 needs a bounded follow-up decision after its observed
+-timeout; do not repeat it unchanged or call it PASS. Next necessary human action: actual
+-VoiceOver coordinate traversal/actions and supported
+-live iPad resizing; record environment/results. W4 also needs a legitimate accepted shared
+-consumer task; no artificial product feature or paused Tchop backlog was developed.
++The preceding checkpoint retained expanded-AX5/manual gaps. Its next-step requirements
++are superseded by the user-approved global scope and isolated follow-up below. The
++original failed/interrupted attempts and results are not rewritten.
++
++
++## Global user scope and isolated AX5 follow-up
++
++User2026-10-04 first excluded iPad/physical checks temporarily, then explicitly applied
++the rule to **every project and task**. Canonical
++[USER.VERIFICATION.SCOPE v1.0](../../../reusable/baseline/docs/CURRENT_USER_OVERRIDES.md#verification-and-quality)
++removes all iPad checks and every physical-device check, including actual VoiceOver,
++from plans and prerequisites. Historical results retained; omission is never PASS.
++App support/accessibility implementation requirements remain. No app release claim.
++
++One non-shipping test-file patch split four audit types into separately named tests
++and extracted the unchanged Rotate/vertical-placement/reset assertions. The original
++combined method still exists; no failed test/assertion was removed or relaxed. Separate
++launch per audit records its own attributable result; each audit remains an actual system call.
++The fifth test verifies Rotate→Vertical, row6/column10 through row10/column10 placement
++and reset at AX5. Existing gameplay/corner/duplicate/rotation/native results remain
++valid only at their exact unchanged method/source inputs. New UI source SHA-256: `650de8fba466bed9d8cf5bb1430680d636ebb88856bb6d85eb72d86f92992796`.
++Project/scheme and all three shipping sources unchanged; preserved original root
++AGENTS prefix, nested overlay, foreign roadmap and34 payload hashes. Library ON/AUTO
++observation reused at unchanged handler; no transition, agent/MCP or client Git.
++
++| New attempt | Exit | Passed/failed | Wall time |
++|---|---:|---:|---:|
++| `large-text-isolated/iphone-18-2` | 0 | 5/0 | 63.83s |
++| `large-text-isolated/iphone-27-0` | 0 | 5/0 | 151.66s |
++
++Exact command and input identities: each invocation.json. Xcode test timeouts enabled,
++default60s/maximum90s per test; runner wall bound360s; serial owned iPhoneSE3 Simulator,
++Xcode27.0/27A266a and Simulator27.0 SDK, runtime18.2 or27.0. Output/cache/DerivedData
++and receipts remain under the active task root. Result.json confirms inputs unchanged;
++xcresult summary confirms five passed, zero failed/skipped/expected failures. AX5 was
++observed before execution, original `large` setting restored and owned Simulator
++shutdown exit0 after each run; no iPad action occurred in this follow-up.
++
++This supplies separate hit-region/description/text-clipping/Dynamic-Type outcomes
++and Rotate/placement for both mandatory iPhone runtimes. The original combined iOS27
++600s timeout still happened and its cause is unknown; separate five-test PASS does not
++claim that original combined execution passed or prove absence of flakiness. No repeated
++unchanged run, performance certification, actual VoiceOver or hardware evidence claimed.
++
++BG-A01 geometry/interaction remediation is CLOSED_SCOPED for selected iPhone Simulator
++acceptance with explicit user omissions; app release remains unverified. W3 accepted
++in this revised scope, LIB-004 OPEN. W4 still needs a real accepted shared-source task
++and complete mode controls; historical handler regressions are supporting evidence only.
+diff --git a/reusable/baseline/AGENTS.md b/reusable/baseline/AGENTS.md
+index 21f3979..44c612a 100644
+--- a/reusable/baseline/AGENTS.md
++++ b/reusable/baseline/AGENTS.md
+@@ -122,6 +122,7 @@ as defined by `./docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`.
+ - Do not use SwiftPM for app integration unless there is an explicit current reason.
+ 
+ ## Tests And Verification
++- Apply `./docs/CURRENT_USER_OVERRIDES.md` USER.VERIFICATION.SCOPE: omit all iPad checks and checks requiring a physical device, including actual VoiceOver, from every project/task plan and acceptance gate. Preserve historical evidence and report omissions without PASS; only a later explicit user instruction changes this scope.
+ - Do not write or modify tests unless the user explicitly opens a test-writing phase or asks to fix a specific failing test.
+ - Do not touch app/UI/package test files unless explicitly allowed.
+ - Do not run builds/tests/simulator UI/Instruments unless explicitly requested or already approved for the current block.
+diff --git a/reusable/baseline/docs/COMPATIBILITY_MATRIX.md b/reusable/baseline/docs/COMPATIBILITY_MATRIX.md
+index c5ec4b5..79b8ec5 100644
+--- a/reusable/baseline/docs/COMPATIBILITY_MATRIX.md
++++ b/reusable/baseline/docs/COMPATIBILITY_MATRIX.md
+@@ -3,6 +3,11 @@
+ ## Purpose
+ Tracks supported runtime compatibility across devices, OS versions, app versions, extensions, and backend contracts.
+ 
++Planning scope: apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality).
++Exclude all iPad verification and every physical-device check, including actual VoiceOver,
++from plans and exit gates. Keep implementation requirements, source-level accessibility
++review and permitted iPhone Simulator checks; exclusion does not establish coverage.
++
+ ## Matrix Dimensions
+ - Xcode/toolchain and compiler version
+ - Swift language mode and strict-concurrency settings
+@@ -10,7 +15,7 @@ Tracks supported runtime compatibility across devices, OS versions, app versions
+ - upcoming language features and stability status
+ - iOS versions
+ - device classes and screen sizes
+-- simulator vs real device
++- permitted iPhone Simulator destinations
+ - app versions
+ - backend/API versions
+ - persistence schema versions
+diff --git a/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md b/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md
+index 184d141..de47cfa 100644
+--- a/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md
++++ b/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md
+@@ -76,6 +76,18 @@ the current app or task boundary, not here.
+ 
+ ## Verification And Quality
+ 
++<!-- Rule ID: USER.VERIFICATION.SCOPE v1.0 -->
++User-approved cross-project rule, 2026-10-04: exclude all iPad verification and every
++check requiring a physical device, including actual VoiceOver sessions, from plans,
++acceptance prerequisites and required follow-ups for every project and task. Do not
++propose, schedule, execute or ask the user to perform these checks unless a later
++explicit instruction changes this rule. Continue applicable static review and permitted
++iPhone Simulator verification. This does not change supported app platforms, remove
++accessibility implementation requirements, or grant test/runtime authority. Retain prior
++results as history; excluded checks are OMITTED_BY_USER, never PASS. Do not claim
++hardware/iPad/actual VoiceOver coverage from Simulator evidence. Owner: user / canonical
++rules maintainer; revisit only on explicit user change or a conflicting requested claim.
++
+ - The user owns builds, tests, Simulator UI, screenshots, Instruments, archive, and signing until
+   delegating a specific verification action. Do not write/modify tests or touch test files without
+   that permission. Read-only static checks and `git diff --check` remain allowed when relevant.
+diff --git a/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md b/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md
+index 48e1ed9..d3b0ad2 100644
+--- a/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md
++++ b/reusable/baseline/docs/IOS_ACCESSIBILITY_STANDARD.md
+@@ -7,6 +7,11 @@ Record supported iPhone/iPad/window, VoiceOver, Dynamic Type, RTL, keyboard/poin
+ Reduce Motion rows in `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`. A screenshot is supporting
+ visual evidence only; it does not prove assistive-technology or device behavior.
+ 
++Planning scope: apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality).
++Exclude all iPad verification and every physical-device check, including actual VoiceOver,
++from plans and exit gates. Keep implementation requirements, source-level accessibility
++review and permitted iPhone Simulator checks; exclusion does not establish coverage.
++
+ ## Required Checks
+ - VoiceOver labels, traits, hints, and grouping.
+ - Logical focus order.
+diff --git a/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md b/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md
+index 96fa69d..6d0ebdd 100644
+--- a/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md
++++ b/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md
+@@ -234,7 +234,11 @@ consumer because the task is small or claim full audit from a sampled task analy
+ After the initial analysis of every task and before implementing it, present a compact
+ verification plan for the user's choice. Reuse the task packet/action table; do not hide
+ testing decisions inside the implementation plan or add a separate verification service.
+-Show these actions independently, including an explicit reason when not applicable:
++Apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality): omit
++all iPad checks and physical-device checks, including actual VoiceOver, from every
++project/task plan and continuation gate. Retain scoped evidence limits and applicable
++source review/iPhone Simulator checks. Show the remaining actions independently,
++including an explicit reason when not applicable:
+ 
+ | Proposed action | What the plan must specify |
+ |---|---|
+@@ -243,7 +247,6 @@ Show these actions independently, including an explicit reason when not applicab
+ | Build / compile | Exact target/configuration/destination, question answered, output/cache roots and bounds. Compilation alone does not verify feature interaction. |
+ | Run tests | Relevant existing/new suites and target/destination, prerequisites, deterministic scenarios and evidence; no full-suite expansion by default. |
+ | Verify feature on Simulator | Concrete user flows, positive/failure/boundary cases, UI/state/accessibility assertions appropriate to the feature; selected environment and manual/agent operator. |
+-| Verify feature on device | Why device-specific evidence matters, available device/environment/operator and scenario; cannot silently substitute Simulator results. |
+ | Static / other necessary checks | Complete diff/consumer/contract review and relevant static checks; additional runtime/performance/release actions only for a concrete uncertainty. |
+ 
+ For each action give purpose, applicability, qualitative effort/side effects, prerequisites,
+diff --git a/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md b/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md
+index cf67f4f..c12e4bb 100644
+--- a/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md
++++ b/reusable/baseline/docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md
+@@ -69,6 +69,11 @@ behavior.
+ 
+ ## Platform and accessibility matrix
+ 
++Planning follows [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality):
++all iPad and physical-device checks, including actual VoiceOver, are omitted from plans
++and prerequisites. Supported-platform metadata and source accessibility requirements
++remain; historical or omitted evidence must not be presented as verified coverage.
++
+ For each supported platform row, record iPhone/iPad idiom, size classes, orientation, resizing or
+ multiple windows, keyboard/pointer, VoiceOver, Dynamic Type, contrast, Reduce Motion, RTL and any
+ hardware/region prerequisite. A single iPhone screenshot does not prove iPad, window, keyboard,
+diff --git a/reusable/baseline/docs/IOS_TESTING_STRATEGY.md b/reusable/baseline/docs/IOS_TESTING_STRATEGY.md
+index f2ae39c..21e53dd 100644
+--- a/reusable/baseline/docs/IOS_TESTING_STRATEGY.md
++++ b/reusable/baseline/docs/IOS_TESTING_STRATEGY.md
+@@ -36,6 +36,11 @@ Test applicability belongs in the project profile: authoritative schemes/targets
+ destinations, release-critical UI/snapshot suites, migration fixtures, and capabilities that are
+ truly absent. `NOT_APPLICABLE` requires a validated project fact, not convenience or missing setup.
+ 
++Apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality) before
++constructing any matrix: omit all iPad and physical-device checks, including actual
++VoiceOver sessions, from plans and acceptance gates. Static accessibility analysis and
++permitted iPhone Simulator audits remain applicable; omitted evidence is never PASS.
++
+ ## Test Decision Matrix
+ ### Unit Tests
+ Use for:
+@@ -63,15 +68,14 @@ Use for:
+ - permission prompts where practical
+ - accessibility identifiers on critical flows
+ 
+-### Manual Simulator/Device QA
++### Manual iPhone Simulator QA
+ Use for:
+ - gestures, scrolling, animations, sheets
+ - visual polish
+ - keyboard/focus behavior
+ - device-size-specific layouts
+ - share extension and system integration flows
+-- iPhone and iPad adaptive layouts, resizing, keyboard, pointer, and multi-window behavior where supported
+-- physical-device-only hardware, protected-data, biometrics, thermal, and background behavior
++- iPhone adaptive layouts, orientation, keyboard and supported Simulator system integration
+ 
+ ### Instruments / Performance Verification
+ Use for:
+diff --git a/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md b/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md
+index 179d46d..69ebd0a 100644
+--- a/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md
++++ b/reusable/baseline/docs/QA_TEST_PLAN_STANDARD.md
+@@ -3,6 +3,11 @@
+ ## Purpose
+ Provides reusable QA planning artifacts for production iOS releases and critical features.
+ 
++Planning scope: apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality).
++Exclude all iPad verification and every physical-device check, including actual VoiceOver,
++from plans and exit gates. Keep implementation requirements, source-level accessibility
++review and permitted iPhone Simulator checks; exclusion does not establish coverage.
++
+ ## Test Plan Sections
+ - Scope
+ - Devices/iOS versions
+diff --git a/tasks/new-task-be0b/handoff.md b/tasks/new-task-be0b/handoff.md
+index e98aa5e..83b5861 100644
+--- a/tasks/new-task-be0b/handoff.md
++++ b/tasks/new-task-be0b/handoff.md
+@@ -1,55 +1,46 @@
+ # Resume — new-task-be0b
+ 
+-Worktree `/Users/Artem/.zenflow/worktrees/knowledge-base-next`. GPT-6.1 Sol/high, эконом; current route adequate.
+-Read canonical bootstrap → baseline/router Level0 → current main plan/handoff →
+-ios-project-work-system and actual subtask routes/overlays. Main plan:
+-[main plan](ios-project-work-system-plan.md). App [BG-T01](../../apps/BattleshipGame/TASK_BG_T01.md).
++Active `/Users/Artem/.zenflow/worktrees/knowledge-base-next`; GPT-6.1 Sol/high, эконом.
++Read canonical bootstrap → baseline/router Level0 → current [main plan](ios-project-work-system-plan.md)/handoff → applicable routes/overlays. Route currently adequate.
+ 
+-System implementation, pilot selection/use/owned registration and source edits in
+-accepted tasks remain authorized; meaningful approaches still require user choice.
+-User2026-10-04 delegates BG-T01 test creation/modification, builds, test execution and
+-necessary Simulator QA. Necessary Simulator operations alone may use external paths;
+-project artifacts/caches/DerivedData/logs stay in `/Users/Artem/.zenflow`, shell login:false.
+-Mandatory task matrix: **iOS18.2 + iOS27**, iPhone/iPad; this is not a reusable rule.
+-Two original build grants remain consumed; current execution uses the newer delegation.
+-No agents/MCP, Library transitions, installers, secrets/host/config, automations or
+-client/engine Git authority. Canonical AIZenflowDocumentation Git remains authorized after gates.
++System implementation/pilot selection/owned registration/source edits in accepted tasks
++authorized; meaningful approaches need user choice. BG-T01 test changes/builds/tests/
++necessary Simulator QA delegated; iPhone Simulator iOS18.2+27 required for this task.
++Global [USER.VERIFICATION.SCOPE](../../reusable/baseline/docs/CURRENT_USER_OVERRIDES.md#verification-and-quality) removes all iPad/physical checks, including actual VoiceOver,
++from every project/task plan and gate; exclusions never PASS. Necessary Simulator-only
++operations may be outside .zenflow; project artifacts/caches/DerivedData/logs inside,
++shell login:false. No agents/MCP/Library transitions/installers/host/config/secrets/
++automations/client or engine Git. Canonical documentation Git authorized after gates.
++Two original build grants consumed; current QA uses newer delegation.
+ 
+-Native actual-model12/12 PASS on macOS, reused at unchanged hashes. Debug build/test
+-actions executed on iPhoneSE3 and iPadPro11M4 with iOS18.2/27.0; Xcode27.0/27A266a,
+-iPhoneSimulator27.0 SDK, Swift6/strict complete. SDK and runtime are separate dimensions.
+-Both phones and iPad27: three nominal UI scenarios PASS. iPad18: rotation/audit PASS;
+-placement initially failed an immediate state assertion, then the focused scenario
+-PASS after predicate-based state waiting, without repeated taps. Retain the initial
+-failure; one successful follow-up does not prove absence of flakiness.
+-AX5 iPhone18 PASS: hit-region/description/text-clipping/Dynamic-Type audits, ship
+-Rotate button, vertical placement, scrolled gameplay/duplicate/reset. Expanded AX5
+-iPhone27 run timed out600s; xcresult unreadable, failing operation/root cause unknown.
+-One smaller AX5 gameplay/duplicate/reset scenario PASS on iPhone27, without the expanded
+-audit/Rotate scenario. That timeout remains unverified, never superseded by narrower PASS.
+-Original text settings restored. Nominal, expanded AX5 and narrower flow results use separately recorded harness inputs.
+-Unchanged rotation/audit evidence reused; no claim of one final four-test suite on every device.
+-VoiceOver experience, live iPad window resizing and physical-device/release evidence
+-remain unverified. BG-A01 P2 OPEN; LIB-004 P2 OPEN; no whole-system/app readiness PASS.
++W1/W2 complete; W3 accepted with revised iPhone-only verification. W4 structural
++Tchop map/owned association complete; W4.4.a/b/c/d observed at documented scope;
++W4.5.a independent-review decision explicit (not authorized; self-review only).
++W4 actual shared-source task and complete OFF/ADVISORY/UNKNOWN/ambiguous/cross-mode
++controls still OPEN. Historical same-handler regression evidence supports only its
++exact cases. W5 final system verdict OPEN; LIB-004 P2 OPEN independently.
+ 
+-Source A remains dirty hash d9134483db19a9d1e7e8edcca42f06120f66bb410c2cea124b86700146b010c1.
+-Native test source + one UI source/project/scheme addition are uncommitted in client;
+-client HEAD b7c48e163d9108d1cc4b123d93456ce8f7628d93. Foreign roadmap/entrypoints,
+-original model/app entry and34 copied Library files preserved. Handler revalidated
+-ON/AUTO for exact Battleship selector only; Tchop mode unverified, no inheritance.
+-Original shipping project objects/scheme actions preserved except owned test registration.
++BG exact selector BattleshipGame/BattleshipGame.xcodeproj, ProjectID
++6a655f50-2a48-49df-9b5a-bdff693564de. Client HEAD
++b7c48e163d9108d1cc4b123d93456ce8f7628d93, dirty A source plus non-shipping native/UI
++verification and target/scheme registration uncommitted. Current hashes/membership
++in app [context](../../apps/BattleshipGame/PROJECT_CONTEXT.md)/map. Shipping source,
++foreign roadmap, original root AGENTS prefix/nested overlay and34 payload files preserved.
++Root gained only owned global-scope pointer. BG handler ON/AUTO observation reused at
++unchanged hash; Tchop mode/adoption UNVERIFIED, no reuse/transition.
+ 
+-W1/W2 complete; W3.2.b/W3.4.b choice/recovery recorded, W3.4.a/W3.5.a partial receipt;
+-W3 full acceptance remains OPEN. W4 structural map done; common adverse W4.4.c observed;
+-shared source task/modes/freshness/conflict acceptance remains OPEN. W5 final verdict OPEN.
+-App evidence: [receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md).
+-Local raw artifacts: `.zenflow/tasks/new-task-be0b/bg-t01-verification/`; preserve all
+-failed/interrupted attempts. Four owned UDIDs in owned-simulators.json. Publication
+-receipt separately outside tracked content; no raw products/logs in the vault.
++[BG receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md): native12/12,
++nominal iPhone18.2/27, AX5 gameplay and isolated four audit types+Rotate/placement5/5
++per version. Original combined27 timeout600s retained, cause unknown; no original
++combined PASS/flakiness guarantee. All iPad/physical/manualVoiceOver checks removed
++from plans globally by user; historical observations retained, exclusions not PASS.
++BG-A01 CLOSED_SCOPED, no app release. Owned text settings restored/phones shutdown;
++no runtime job. Raw products/failures/receipts remain under active task bg-t01-verification/.
++Canonical exact-SHA receipts stay outside tracked content.
+ 
+-Next required human action: actual VoiceOver traversal/actions and live iPad resize
+-result with environment. No more unchanged PASS reruns. Then choose a legitimate
+-shared-consumer task; do not invent a feature to complete W4. Keep paused app follow-ups,
+-old checkout/installation branch and foreign edits. No client Git or mode transitions.
++Next decision: real existing shared-consumer task and permissible mode-control evidence,
++or explicitly narrowed system verdict. Keep paused app follow-ups/old checkout/
++installation branch and foreign content. No artificial feature or prohibited action.
++Global rule change is authorized promotion, no temporary task-only limit remains.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+diff --git a/tasks/new-task-be0b/ios-project-work-system-plan.md b/tasks/new-task-be0b/ios-project-work-system-plan.md
+index f624331..ed25e72 100644
+--- a/tasks/new-task-be0b/ios-project-work-system-plan.md
++++ b/tasks/new-task-be0b/ios-project-work-system-plan.md
+@@ -17,8 +17,8 @@ finite acceptance matrix; pilot chosen for missing evidence, not app development
+ 
+ S0–S3 documentary contracts и S4 Battleship association существуют. S5–S8 bounded
+ outputs существуют; BG-T01 A implemented, static reviewed, exact-input compile PASS
+-на Xcode27.0/27A266a. Nominal and AX5 gameplay observed in the current receipt; VoiceOver/live resize, expanded AX5 audit27 and full acceptance unverified;
+-BG-A01 OPEN. LIB-004 P2/OPEN for general library release. W1–W5 checklist ниже не
++на Xcode27.0/27A266a. Nominal and AX5 gameplay observed in the current receipt; all iPad/physical checks excluded globally by user; isolated AX5 audits/Rotate5/5 on each iPhone runtime;
++BG-A01 CLOSED_SCOPED, W3 accepted in selected Simulator scope. LIB-004 P2/OPEN for general library release. W1–W5 checklist ниже не
+ переписывает historical receipts и не маркирует whole system ready.
+ 
+ User разрешил implementation системы, project source edits в accepted tasks и
+@@ -31,13 +31,27 @@ Canonical AIZenflowDocumentation commit/push standing-authorized после gate
+ User2026-10-04 delegates BG-T01 test creation/modification, builds, test execution and
+ necessary Simulator QA. Necessary Simulator operations alone may use external paths;
+ project artifacts/caches/DerivedData/logs stay in `/Users/Artem/.zenflow`, shell login:false.
+-Mandatory task matrix: **iOS18.2 + iOS27**, iPhone/iPad; this is not a reusable rule.
++Mandatory current task matrix: **iOS18.2 + iOS27**, iPhone Simulator only.
++Global USER.VERIFICATION.SCOPE excludes every iPad/physical-device check, including
++actual VoiceOver, for all projects/tasks; omissions remain unverified, never PASS.
+ Two original build grants remain consumed; current execution uses the newer delegation.
+ No agents/MCP, Library transitions, installers, secrets/host/config, automations or
+ client/engine Git authority. Canonical AIZenflowDocumentation Git remains authorized after gates.
+ No host/config/auth/Keychain/secrets/installers/automations; shell login:false.
+ Old new-task-be0b checkout/installation branch untouched, foreign edits retained.
+ 
++## Current verification scope — all projects and tasks
++
++User2026-10-04 explicitly promoted the earlier temporary NT-BE0B-QA-01 exception:
++all iPad checks and every check requiring a physical device, including actual VoiceOver,
++are removed from verification plans and acceptance prerequisites for every project/task.
++Canonical owner: [USER.VERIFICATION.SCOPE v1.0](../../reusable/baseline/docs/CURRENT_USER_OVERRIDES.md#verification-and-quality).
++The temporary exception is superseded; no expiration or task-only limit remains.
++Historical results remain intact. Required current runtime matrix: iPhone Simulator
++**iOS18.2 + iOS27**. Excluded evidence is OMITTED_BY_USER, never PASS; implementation
++accessibility requirements and actual Simulator failures still apply. New task/runtime,
++Library, agents/MCP, client Git and other permissions are not added by this scope rule.
++
+ ## Evidence keys and reuse scope
+ 
+ | Key | Existing source | Scope / limit |
+@@ -46,9 +60,10 @@ Old new-task-be0b checkout/installation branch untouched, foreign edits retained
+ | E1 | [Workflow](../../reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md) | Human operational contract incl R19–R21; no parser/automatic enforcement proof |
+ | E2 | [Memory/card template](../../reusable/baseline/docs/templates/IOS_PROJECT_MEMORY.template.md) | Human projection/adaptation, no instantiated acceptance from template alone |
+ | E3 | [S4–S7](ios-project-work-system-s4-s7.md), [intake](ios-project-work-system-s4-intake.md) | Approved exact Battleship identity/apply/post-check/static scope |
+-| E4 | [Map](../../apps/BattleshipGame/PROJECT_MAP.md), [ledger](../../apps/BattleshipGame/AUDIT_LEDGER.md) | Three declared sources/one target, current dirty source hash; no whole-root semantic claim |
++| E4 | [Map](../../apps/BattleshipGame/PROJECT_MAP.md), [ledger](../../apps/BattleshipGame/AUDIT_LEDGER.md) | Three shipping sources/one app plus non-shipping UI target, current dirty source hash; no whole-root semantic claim |
+ | E5 | [BG-T01](../../apps/BattleshipGame/TASK_BG_T01.md), [build receipt](../../apps/BattleshipGame/history/bg-t01-build-2026-10-03.md) | One-file A diff and exact compile PASS; no interaction/VoiceOver/test/release PASS |
+ | E6 | [Prior library pilot](ios-library-pilot-2026-09-30.md) | Prior exact payload/case evidence only; LIB-004 remains open, no unchanged PASS rerun |
++| E7 | [Current verification receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md) | Native12/12, nominal phones18.2/27, AX5 flow and isolated audits/Rotate5/5 each; historical failures preserved, global user omissions, no app release |
+ 
+ ## R01–R21: механизм → evidence → оставшийся gate
+ 
+@@ -70,7 +85,7 @@ Revalidate relevant fingerprints/dependencies перед reuse; timestamps alone
+ | R10 | E5 scoped capability table, withheld agents/runtime | Consolidation/operators W2.1/W2.4; actual adverse disposition W4.4.c |
+ | R11 | E5 complete owned source/consumer diff reviewed | Shared/resource consumers and final observed change W4.2.c |
+ | R12 | E5 failed initial build preserved; approved retry exit0, UI gap retained | Remaining named adverse cases W4.4.c, final claims W5.1 |
+-| R13 | E1 current startup/freshness/handoff rules + actual new-chat reconstruction W3.4.b on 2026-10-04 | Scoped pre-QA recovery observed; W3 interaction/full-cycle acceptance remains open, no compaction/self-review substitute |
++| R13 | E1 current startup/freshness/handoff rules + actual new-chat reconstruction W3.4.b on 2026-10-04 | Actual pre-QA recovery observed; E7 closes selected W3 interaction/cycle scope, no compaction/self-review substitute |
+ | R14 | E1/E3 separate mode/adoption/grants/readiness | One truthful task card/status + mode separation W2.1/W4.3 |
+ | R15 | E3 exact own addition/detach checks; existing dirty edits retained | W1 snapshots/static check, W4.4.b/d observed preservation |
+ | R16 | E4 declared single-target membership | Shared/resource graph W4.2.a/c; Figma/packages/specialist scenarios have separate declared acceptance gaps |
+@@ -508,7 +523,7 @@ consistency and links PASS; W3/W4 observations remain separate. W2 remote SHA
+ Exact selector BattleshipGame/BattleshipGame.xcodeproj в knowledge-base-next.
+ System question: связывает ли workflow fresh context/choice/owned diff с honest
+ verification, memory и resumed task без лишней app development? Existing BG-T01 A
+-и compile PASS переиспользуются в exact scope; BG-A01 interaction gate остаётся.
++и compile PASS переиспользуются в exact scope; E7 now supplies selected iPhone interaction acceptance.
+ 
+ | Leaf | Output | Проверка / условие закрытия |
+ |---|---|---|
+@@ -517,8 +532,8 @@ verification, memory и resumed task без лишней app development? Existi
+ | [x] W3.2.a | Current analysis/alternatives/plan review | A already selected; R19/R21 contract applied prospectively, historical absent step не выдуман |
+ | [x] W3.2.b | Verification choice до следующего исполнения | Present existing compile PASS/reuse and independent test/UI/device options; actual user selection recorded |
+ | [x] W3.3.a | Source/final diff review | Existing one-file A patch/current consumers checked; new source only for grounded blocker/accepted correction |
+-| [ ] W3.3.b | Narrow/wide/resized/scroll scenario evidence | All board rows/columns reachable and no ambiguous selection under selected environment/operator |
+-| [ ] W3.3.c | Gameplay/accessibility scenario evidence | Placement/rotate/start/fire/reset, Dynamic Type/VoiceOver results recorded, omissions remain open |
++| [x] W3.3.b | Selected iPhone widths/rotation/scroll evidence | Board corners/actions reachable on iPhone18.2/27; all iPad/live-iPad resize checks removed by global user rule |
++| [x] W3.3.c | Gameplay/accessibility scenario evidence | Placement/rotate/start/fire/reset, Dynamic Type/iPhone results recorded; actual VoiceOver/iPad/physical checks excluded by global user rule |
+ | [x] W3.4.a | Memory/finding disposition refreshed | BG-A01 closes only from sufficient evidence; failure returns to bounded correction/decision |
+ | [x] W3.4.b | Actual resumed-context observation | New chat/authorized observer reconstructs current scope/constraints/next step from canonical sources; same-session self-review not substitute |
+ | [x] W3.5.a | Scoped canary receipt | Exact inputs/operator/evidence/omissions, no app release or library uplift assertion |
+@@ -529,14 +544,14 @@ original compile inputs and handler ON/AUTO; current test graph is recorded belo
+ Selected exact copied guidance unchanged/reused after KB provisional; no new source
+ patch/build in the preparation pass. Subsequent user-delegated verification and Simulator-only exception:
+ [receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md).
+-Native12/12 and nominal iPhone/iPad18.2/27 observations; AX5 gameplay on both phones.
+-Expanded AX5 audit/Rotate PASS on18.2;27 run timed out600s, unreadable xcresult.
+-One narrower AX5 flow PASS on27 does not close the expanded audit gate.
+-Original failures and user pause/interruption retained; state-wait follow-up separately
+-labelled. New non-shipping test graph invalidated original empty-Testables memory and
+-was refreshed; shipping source/foreign/pin unchanged. W3.3.b/c remain open for actual
+-VoiceOver/live resizing; BG-A01/LIB-004 OPEN. W3.4.a records current disposition,
+-W3.5.a is a scoped partial canary receipt, not full W3 acceptance.
++Native12/12 and nominal iPhone18.2/27 plus AX5 gameplay observed. Prior iPad
++results remain history; all iPad/physical checks removed globally by user. Original
++combined AX5 audit27 timeout600s retained, cause unknown. Isolated four audits plus
++Rotate/vertical-placement/reset5/5 PASS per iPhone runtime at one new harness hash;
++no assertion weakened/shipping patch. Settings restored; owned phones shutdown.
++Shipping/foreign/payload unchanged. BG-A01 CLOSED_SCOPED for selected geometry/
++interaction acceptance, LIB-004 OPEN. W3 full workflow accepted in this revised scope;
++no app release/full-system/library uplift assertion.
+ 
+ W3.4.b observed 2026-10-04 in a fresh user-started chat, GPT-6.1 Sol/high, эконом.
+ The integrator reconstructed from canonical bootstrap/baseline/router/Level0, current
+@@ -574,11 +589,11 @@ System question — accurate shared-source/target memory и task consumer covera
+ | [ ] W4.3.b | ON/AUTO + ON/ADVISORY boundaries | Advice/useful delta actual scope, permission independence; reuse unchanged eligible receipts, no live transition by default |
+ | [ ] W4.3.c | UNKNOWN/invalid/ambiguous scope refusal | No ON, repair, fabricated identity/evidence; dependent uncertainty visible; fixtures only if authorized |
+ | [ ] W4.3.d | Different modes across consumers | Scope/cross-project permissions independent, shared change still covers every affected consumer |
+-| [ ] W4.4.a | Source change→freshness observation | Relevant fact/evidence invalidated and refreshed; other unchanged evidence reused |
+-| [ ] W4.4.b | Dirty/conflicting notes observation | Preserve human edits, fact-vs-decision conflict resolved from authority/source, no silent overwrite |
++| [x] W4.4.a | Source change→freshness observation | Relevant fact/evidence invalidated and refreshed; other unchanged evidence reused |
++| [x] W4.4.b | Dirty/conflicting notes observation | Preserve human edits, fact-vs-decision conflict resolved from authority/source, no silent overwrite |
+ | [x] W4.4.c | Denied/unavailable/partial/interrupted observation | Named action has actual result/withheld status, no repeated consumed grant/false success; prior BG failure/retry reused within scope |
+ | [x] W4.4.d | Safe detach observation | Exact own entry removability and preservation; actual writes only when chosen, dry-run scope labelled |
+-| [ ] W4.5.a | Independent review decision | Need/benefit/risk and separate authority recorded; no auto agents, no self-review labelled independent |
++| [x] W4.5.a | Independent review decision | Need/benefit/risk and separate authority recorded; no auto agents, no self-review labelled independent |
+ | [ ] W4.5.b | Second scoped receipt и acceptance matrix | Each required case has exact evidence/gap/owner; synthetic tests never become real new-chat proof |
+ 
+ W4 scoped observation: exact three-file apply/post-check, unique registered ID and
+@@ -587,8 +602,20 @@ share27 and six shipping localization consumers mapped from declared phases. Old
+ test-entry count2 corrected to1 from authoritative same-hash plist; no test bodies read.
+ Dirty root/BG patch/foreign roadmap preserved. Tchop second-layer status UNVERIFIED
+ withheld, never inherits BG ON/AUTO. W4.2.a closed for structural metadata only; shared
+-code/resource semantic change, actual OFF/ADVISORY/invalid/ambiguity/freshness/conflict
+-canaries remain open. Current doc task does not substitute for those requirements.
++code/resource semantic change, actual complete OFF/ADVISORY/invalid/ambiguity controls remain open. Current doc task
++does not substitute for those requirements.
++
++W4.4.a observed: actual BG test-target/source changes invalidated empty-Testables and
++old UI harness evidence; project/context and separately hashed follow-up refreshed,
++unchanged shipping/model/native/payload evidence reused. W4.4.b observed: preserve
++original root AGENTS prefix, nested overlay, foreign roadmap and34 payload hashes;
++new user global scope supersedes contradictory old manual gates, historical failures/
++results retained rather than rewritten. W4.5.a decision: agents/MCP and independent
++review remain forbidden; explicit self-review only, no high-risk app shipping/irreversible
++action performed. Independent review is unperformed, never inferred.
++Historical corrected-handler absent/invalid/FIFO/lock/disabled-recovery checks at exact
++SHA6d4f7cce... are reused from the library receipt only within handler scope; they do
++not prove full project workflow OFF/ADVISORY/ambiguous/shared-consumer scenarios.
+ 
+ ### W5. Решение о готовности и эксплуатация
+ 
+@@ -656,5 +683,6 @@ Current common adverse-case observation W4.4.c: confined preflight unavailable,
+ initial build/test failures preserved, user-pause BUILD INTERRUPTED and actual resumed
+ matrix recorded in the BG receipt. No unavailable/partial/interrupted result became PASS.
+ This closes that named common observation only, not Tchop shared change or full W4.
+-Current next human gate: VoiceOver/live iPad resize; then a legitimate accepted shared
+-consumer task/current choices. No synthetic product feature or live mode transition.
++Current next decision: select a legitimate existing shared-consumer task for W4 and
++resolve permitted mode-control evidence, or explicitly accept a narrower system verdict.
++No artificial product feature/live Library transition; all iPad/physical checks removed globally.
+diff --git a/tasks/new-task-be0b/plan.md b/tasks/new-task-be0b/plan.md
+index f0f402c..b4dd92f 100644
+--- a/tasks/new-task-be0b/plan.md
++++ b/tasks/new-task-be0b/plan.md
+@@ -1,55 +1,38 @@
+ # Current execution — основной план B
+ 
+-Task new-task-be0b; worktree `/Users/Artem/.zenflow/worktrees/knowledge-base-next`; GPT-6.1 Sol/high, эконом.
+-Main plan: [main plan](ios-project-work-system-plan.md). W1/W2 published; W3/W4 partial,
+-W5 OPEN. Resume after user shutdown request2026-10-04 completed; no background job.
++Task new-task-be0b; active knowledge-base-next; GPT-6.1 Sol/high, эконом.
++Main plan: [main plan](ios-project-work-system-plan.md). W1/W2 complete, W3 accepted
++in selected iPhone Simulator scope; W4 partial, W5 OPEN. No background runtime job.
+ 
+-System implementation, pilot selection/use/owned registration and source edits in
+-accepted tasks remain authorized; meaningful approaches still require user choice.
+-User2026-10-04 delegates BG-T01 test creation/modification, builds, test execution and
+-necessary Simulator QA. Necessary Simulator operations alone may use external paths;
+-project artifacts/caches/DerivedData/logs stay in `/Users/Artem/.zenflow`, shell login:false.
+-Mandatory task matrix: **iOS18.2 + iOS27**, iPhone/iPad; this is not a reusable rule.
+-Two original build grants remain consumed; current execution uses the newer delegation.
+-No agents/MCP, Library transitions, installers, secrets/host/config, automations or
+-client/engine Git authority. Canonical AIZenflowDocumentation Git remains authorized after gates.
++System implementation/pilot selection/owned registration/source edits in accepted tasks
++authorized; meaningful approaches need user choice. BG-T01 test changes/builds/tests/
++necessary Simulator QA delegated; iPhone Simulator iOS18.2+27 required for this task.
++Global [USER.VERIFICATION.SCOPE](../../reusable/baseline/docs/CURRENT_USER_OVERRIDES.md#verification-and-quality) removes all iPad/physical checks, including actual VoiceOver,
++from every project/task plan and gate; exclusions never PASS. Necessary Simulator-only
++operations may be outside .zenflow; project artifacts/caches/DerivedData/logs inside,
++shell login:false. No agents/MCP/Library transitions/installers/host/config/secrets/
++automations/client or engine Git. Canonical documentation Git authorized after gates.
++Two original build grants consumed; current QA uses newer delegation.
+ 
+-- [x] W3.4.b actual pre-QA new-chat scope/permission recovery.
+-- [x] Native actual-model12/12 and UI graph/preservation review.
+-- [x] Mandatory iPhone/iPad iOS18.2/27 nominal observations; phone AX5 gameplay on both versions.
+-- [x] Preserve failed/interrupted results, current app memory/partial scoped receipt.
+-- [x] W4.4.c common unavailable/failed/partial/interrupted/resumed observation, BG scope.
+-- [ ] W3: actual VoiceOver/live iPad resize acceptance and expanded AX5 audit27 gap; BG-A01 P2 OPEN.
+-- [ ] W4: real accepted shared-consumer task and remaining mode/freshness/conflict cases.
+-- [ ] W5: requirement dispositions, separate system/library/app verdicts, final adoption.
++- [x] Save promoted global verification scope; supersede temporary NT-BE0B-QA-01.
++- [x] W3 actual fresh-chat scope recovery, source/consumer review and selected QA.
++- [x] Native12/12; nominal iPhone18.2/27; AX5 gameplay and isolated audits/Rotate5/5 each.
++- [x] Preserve failures/interruption/combined27 timeout; no original timeout PASS claimed.
++- [x] BG-A01 CLOSED_SCOPED; W3 selected-scope receipt and memory refresh.
++- [x] W4 structural map/association, freshness, foreign/conflict preservation,
++  partial/interrupted recovery, detach dry-run and independent-review decision.
++- [ ] W4 real accepted shared-consumer task plus complete mode-control evidence.
++- [ ] W5 final traceability/independent system-library-app verdict and bounded adoption.
+ 
+-Native actual-model12/12 PASS on macOS, reused at unchanged hashes. Debug build/test
+-actions executed on iPhoneSE3 and iPadPro11M4 with iOS18.2/27.0; Xcode27.0/27A266a,
+-iPhoneSimulator27.0 SDK, Swift6/strict complete. SDK and runtime are separate dimensions.
+-Both phones and iPad27: three nominal UI scenarios PASS. iPad18: rotation/audit PASS;
+-placement initially failed an immediate state assertion, then the focused scenario
+-PASS after predicate-based state waiting, without repeated taps. Retain the initial
+-failure; one successful follow-up does not prove absence of flakiness.
+-AX5 iPhone18 PASS: hit-region/description/text-clipping/Dynamic-Type audits, ship
+-Rotate button, vertical placement, scrolled gameplay/duplicate/reset. Expanded AX5
+-iPhone27 run timed out600s; xcresult unreadable, failing operation/root cause unknown.
+-One smaller AX5 gameplay/duplicate/reset scenario PASS on iPhone27, without the expanded
+-audit/Rotate scenario. That timeout remains unverified, never superseded by narrower PASS.
+-Original text settings restored. Nominal, expanded AX5 and narrower flow results use separately recorded harness inputs.
+-Unchanged rotation/audit evidence reused; no claim of one final four-test suite on every device.
+-VoiceOver experience, live iPad window resizing and physical-device/release evidence
+-remain unverified. BG-A01 P2 OPEN; LIB-004 P2 OPEN; no whole-system/app readiness PASS.
++Current [BG-T01](../../apps/BattleshipGame/TASK_BG_T01.md) / [receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md).
++BG shipping hashes/payload/foreign edits preserved; client changes uncommitted.
++Owned text settings restored/phones shutdown. Original combined27 timeout cause unknown;
++isolated audit PASS covers selected checks without rewriting that failure. LIB-004 OPEN.
++Tchop Library unverified, never inherits BG ON/AUTO; paused app follow-ups unchanged.
+ 
+-App evidence/card: [BG-T01](../../apps/BattleshipGame/TASK_BG_T01.md),
+-[receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md).
+-Tchop structural graph/association remains current; unknown Library never inherits BG ON.
+-No source feature chosen in Tchop. Existing preserved snapshots stay under archive/main-plan-B-before.
+-
+-Next necessary user action: report VoiceOver and supported live iPad resize observations.
+-Continue only the grounded correction if they fail; compare meaningful approaches.
+-Do not develop unrelated pilots/backlog, switch Library, invoke agents/MCP, install tools,
+-touch old worktree/installation branch, host/config/secrets, or client Git.
+-Canonical publication only after complete owned-diff/semantic/static gates; exact-SHA
+-receipt stays outside tracked state. No app/full-system/Library release declaration.
++Next necessary decision: a real existing shared-consumer task for W4, with permitted
++mode-control observation, or explicitly narrower system adoption. Do not invent a
++product feature, run prohibited transitions/agents or reinstate omitted device gates.
++Canonical publish only after exact final-diff/static/remote gates; no client Git.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

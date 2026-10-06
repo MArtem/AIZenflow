@@ -1,0 +1,7 @@
+from pathlib import Path
+import json
+w=Path('/Users/Artem/.zenflow/worktrees/knowledge-base-next');v=Path('/Users/Artem/.zenflow/worktrees/documentation-vault');r=w/'.zenflow/tasks/new-task-be0b/library-utility-tc-mp01'
+p=v/'apps/Tchop/MANIFEST.md';s=p.read_text().replace('NOT_READY_FOR_GENERAL_RELEASE or inherited status','NOT_READY_FOR_GENERAL_RELEASE; no inherited status');p.write_text(s)
+p=v/'tasks/new-task-be0b/ios-project-work-system-plan.md';s=p.read_text().replace('baseline27 fixture QoS warning retained, no blanket warning-free claim.','iOS27 baseline and after-test fixture QoS warning retained, no blanket warning-free claim.');p.write_text(s)
+p=r/'regression/qa-receipt.json';d=json.loads(p.read_text());d['failures_retained']=d['failures_retained'].replace('plus fixture QoS runtime warning.','plus fixture QoS runtime warning also present in after27 successful suite.');d['runtime_warnings']={stage:json.loads((r/'regression'/stage/'summary.json').read_text())['runtimeWarnings'] for stage in ['baseline-27.0-TchopApp-test','after-27.0-TchopApp-test','after-18.2-TchopApp-test']};d['warning_disposition']='Nonblocking iOS27 selected test fixture QoS diagnostic retained/reported. Production priority inversion/root cause not established; no warning-free or performance claim. No extra profile/runtime chosen.';p.write_text(json.dumps(d,indent=2,ensure_ascii=False)+'\n')
+print('Corrected actual after27 QoS warning claim; no source/test changes or repeated runtime.')

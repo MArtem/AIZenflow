@@ -1,0 +1,33 @@
+{
+  "freeze_monotonic": 0.063568541,
+  "cases": [
+    "migration version target and restart",
+    "write rollback on thrown failure",
+    "read boundary mutability and pending state",
+    "cancellation classification/cooperation",
+    "actor/main-context isolation and claim boundaries"
+  ],
+  "candidates": [
+    {
+      "id": "H1",
+      "status": "conditional",
+      "statement": "Actor cancellation only handled when closure throws; generic catch converts CancellationError; no cancellation API contract yet."
+    },
+    {
+      "id": "H2",
+      "status": "conditional",
+      "statement": "Migration runner may advance past target when step.toVersion exceeds target; no plan validation; shipped invocation not established."
+    },
+    {
+      "id": "H3",
+      "status": "conditional",
+      "statement": "Read exposes mutable ModelContext; read-only is caller discipline, and actor read failure may leave pending changes; shipped misuse not established."
+    },
+    {
+      "id": "H4",
+      "status": "conditional",
+      "statement": "Raw String(describing:error) error payload may expose caller values; no logging consumer established."
+    }
+  ],
+  "scope": "Held out from observers; no confirmed production defect or severity assumed"
+}

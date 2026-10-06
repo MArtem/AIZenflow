@@ -1,0 +1,20 @@
+{
+  "status": "PARENT_FINAL_PRESERVATION_PASS",
+  "protected_unchanged": 121,
+  "owned_document_exclusions": [
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md"
+  ],
+  "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+  "foreign_full_tracked_patch_sha256": "679fe99e844d51e12393bca82563cb6898889995f43eabaa10a94396fda8bb7a",
+  "serialization": "git diff --binary --full-index -- . :(exclude).zenflow/tasks/new-task-be0b/plan.md :(exclude).zenflow/tasks/new-task-be0b/handoff.md",
+  "mirrors_equal": {
+    "plan.md": true,
+    "handoff.md": true
+  },
+  "not_claimed": "Untracked files outside protected universe not exhaustively inventoried; own new task evidence expected",
+  "publication": "Pending independent exact HEAD/remote verification"
+}

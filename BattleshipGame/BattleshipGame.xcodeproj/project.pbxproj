@@ -11,6 +11,7 @@
 		5A1B2C3D4E5F600000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B2C3D4E5F600000000102 /* ContentView.swift */; };
 		5A1B2C3D4E5F600000000003 /* GameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A1B2C3D4E5F600000000103 /* GameModel.swift */; };
 		5A1B2C3D4E5F600000000004 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A1B2C3D4E5F600000000104 /* Assets.xcassets */; };
+		B60100000000000000000001 /* BoardInteractionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B60100000000000000000002; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,8 @@
 		5A1B2C3D4E5F600000000102 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		5A1B2C3D4E5F600000000103 /* GameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameModel.swift; sourceTree = "<group>"; };
 		5A1B2C3D4E5F600000000104 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		B60100000000000000000002 /* BoardInteractionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardInteractionTests.swift; sourceTree = "<group>"; };
+		B60100000000000000000003 /* BattleshipGameUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BattleshipGameUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,13 +32,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B60100000000000000000007 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXContainerItemProxy section */
+		B6010000000000000000000C = {isa = PBXContainerItemProxy; containerPortal = 5A1B2C3D4E5F600000000070; proxyType = 1; remoteGlobalIDString = 5A1B2C3D4E5F600000000040; remoteInfo = BattleshipGame; };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXTargetDependency section */
+		B6010000000000000000000D = {isa = PBXTargetDependency; target = 5A1B2C3D4E5F600000000040; targetProxy = B6010000000000000000000C; };
+/* End PBXTargetDependency section */
 
 /* Begin PBXGroup section */
 		5A1B2C3D4E5F600000000030 = {
 			isa = PBXGroup;
 			children = (
 				5A1B2C3D4E5F600000000031 /* BattleshipGame */,
+				B60100000000000000000004 /* BattleshipGameUITests */,
 				5A1B2C3D4E5F600000000032 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -55,10 +68,12 @@
 			isa = PBXGroup;
 			children = (
 				5A1B2C3D4E5F600000000010 /* BattleshipGame.app */,
+				B60100000000000000000003 /* BattleshipGameUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B60100000000000000000004 /* BattleshipGameUITests */ = {isa = PBXGroup; children = (B60100000000000000000002,); path = BattleshipGameUITests; sourceTree = "<group>"; };
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -79,6 +94,17 @@
 			productReference = 5A1B2C3D4E5F600000000010 /* BattleshipGame.app */;
 			productType = "com.apple.product-type.application";
 		};
+		B60100000000000000000005 /* BattleshipGameUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B60100000000000000000009;
+			buildPhases = (B60100000000000000000006, B60100000000000000000007, B60100000000000000000008,);
+			buildRules = ();
+			dependencies = (B6010000000000000000000D,);
+			name = BattleshipGameUITests;
+			productName = BattleshipGameUITests;
+			productReference = B60100000000000000000003;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -89,6 +115,7 @@
 				LastSwiftUpdateCheck = 1600;
 				LastUpgradeCheck = 1600;
 				TargetAttributes = {
+					B60100000000000000000005 = {CreatedOnToolsVersion = 27.0; TestTargetID = 5A1B2C3D4E5F600000000040; };
 					5A1B2C3D4E5F600000000040 = {
 						CreatedOnToolsVersion = 16.0;
 					};
@@ -107,6 +134,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
+				B60100000000000000000005,
 				5A1B2C3D4E5F600000000040 /* BattleshipGame */,
 			);
 		};
@@ -121,6 +149,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B60100000000000000000008 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -134,6 +163,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		B60100000000000000000006 = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (B60100000000000000000001,); runOnlyForDeploymentPostprocessing = 0; };
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
@@ -313,6 +343,8 @@
 			};
 			name = Release;
 		};
+		B6010000000000000000000A /* Debug */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.BattleshipGameUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = "1,2"; TEST_TARGET_NAME = BattleshipGame;}; name = Debug; };
+		B6010000000000000000000B /* Release */ = {isa = XCBuildConfiguration; buildSettings = {CODE_SIGN_STYLE = Automatic; GENERATE_INFOPLIST_FILE = YES; IPHONEOS_DEPLOYMENT_TARGET = 17.0; PRODUCT_BUNDLE_IDENTIFIER = com.zenflow.BattleshipGameUITests; PRODUCT_NAME = "$(TARGET_NAME)"; SWIFT_VERSION = 6.0; SWIFT_STRICT_CONCURRENCY = complete; TARGETED_DEVICE_FAMILY = "1,2"; TEST_TARGET_NAME = BattleshipGame;}; name = Release; };
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -334,6 +366,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
+		B60100000000000000000009 = {isa = XCConfigurationList; buildConfigurations = (B6010000000000000000000A, B6010000000000000000000B,); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
 /* End XCConfigurationList section */
 	};
 	rootObject = 5A1B2C3D4E5F600000000070 /* Project object */;

@@ -1,0 +1,42 @@
+{
+  "case": "TC-MP01",
+  "grant": "Actual human explicitly approved exactly two sequential read-only fresh chats OFF/AUTO then ON/AUTO; parent creation/necessary metadata/status/results MCP only",
+  "canonical_sha": "801b22ec753a59383a3e2719f62c934aaf27494c",
+  "off_thread": {
+    "threadId": "01a10935-7070-7b91-91be-15db2d050ac6",
+    "hostId": "local",
+    "title": "Tchop TC-MP01 — OFF media preview review",
+    "created_utc": "2026-10-04T23:18:02.418890+00:00",
+    "state": "COMPLETED_PARTIAL_PROCEDURAL",
+    "duration_ms": 865978,
+    "limitation": "Overbroad pin metadata hashing1402 canonical blobs; no Library route text applied; comparison clean/cost gate not PASS"
+  },
+  "on_thread": {
+    "threadId": "01a10943-5869-7980-9c11-fa894388f4db",
+    "hostId": "local",
+    "title": "Tchop TC-MP01 — ON media preview review",
+    "created_utc": "2026-10-04T23:33:22.850521+00:00",
+    "state": "COMPLETED_PARTIAL",
+    "prompt": "same identical_dispatch_sha256 as OFF",
+    "duration_ms": 868995
+  },
+  "terminal_failures": [
+    "Preparation initial sandbox-confined ls-remote exit128 DNS; exact authorized network retry/publication PASS",
+    "Parent interim preservation assertion included authorized TC mode change; failed before writes, corrected by comparing exact tc-on receipt, not weakening source preservation"
+  ],
+  "source_writes": false,
+  "runtime_executed": false,
+  "mode_ending_required": "TC ON/AUTO, BG record preserved",
+  "extra_chats_authorized": false,
+  "identical_dispatch_sha256": "199d33bedafcb9f37e2cb3c649f42a08a7af17b3745cb6ead429fcb847db1590",
+  "after_off_preservation": "PASS107hashes/clientHEAD/trackedDiff/canonicalHEADclean",
+  "remaining_creation_grants": 0,
+  "after_both_preservation": "PASS106 unchanged hashes/clientHEAD/trackedDiff/canonicalHEADclean + exact authorized TC ON/AUTO transition",
+  "parent_closeout": {
+    "canonical_published": "5d9f0a7a3fca97765bc2294d6655ed3c1e3836cc",
+    "independent_remote": "PASS",
+    "verification": "COMPLETE_SELECTED_SCOPE",
+    "next_decision": "pending human observation-protocol correction vs next real app task",
+    "new_chat_grants_remaining": 0
+  }
+}

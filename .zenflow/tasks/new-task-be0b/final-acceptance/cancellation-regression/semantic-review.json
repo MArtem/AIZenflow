@@ -1,0 +1,31 @@
+{
+  "status": "SOURCE_CONTRACT_REVIEW_PASS",
+  "contract": "Six explicit cancellation catches; write rollback precedes rethrow; migration version written after callback only",
+  "findings": {
+    "P0-P2": 0,
+    "P3": 0
+  },
+  "source_diff": "24 additions total in exact6, no removals. Full patch reviewed against before/candidate hashes and surrounding implementation",
+  "consumer_review": [
+    "Active AppDatabase factory selects main SwiftData manager; legacy core migration commented",
+    "AppDataSeeder and app content/user repositories: synchronous model fetch/insert/update/decode, no observed explicit CancellationError producer or reliance on wrapped cancellation",
+    "No active migrationRunner or actor consumer found in bounded Tchop source search; public API behavior corrected without asserting shipping defect"
+  ],
+  "failure_review": "Typed/generic mapping unchanged; read context discipline and context-wide rollback limits unchanged; cancelled flag alone is not autoabort; independent durable migration checkpoint is not made atomic",
+  "mirror_review": "Core byte-identical; main/actor only existing AppDatabaseCore import removal in InUse",
+  "preservation": {
+    "protected_unchanged": 121,
+    "outside_approved_six_foreign_diff_unchanged": true,
+    "client_HEAD": "b7c48e163d9108d1cc4b123d93456ce8f7628d93"
+  },
+  "checks": "git diff --check PASS once for this agreed iteration",
+  "warning": "Standalone SwiftPM driver emits language-mode override warning; compile succeeds, no warning-free claim",
+  "limits": [
+    "CoreData manager cancellation unchanged",
+    "Fixtures not actual product schema/storage/history",
+    "VersionStore is in-memory fixture; durable checkpoint crash atomicity not proven",
+    "iPad/physical/actual VoiceOver OMITTED_BY_USER",
+    "No client Git publication"
+  ],
+  "mirrored_claim_search": "USAGE.md, REUSE.md and existing AppDatabaseTests have no explicit cancellation wrapping contract or matching cancellation assertions; README/PackageContract/LOCAL_USE checked. No stale categorical error normalization claim found in this bounded package docs universe."
+}

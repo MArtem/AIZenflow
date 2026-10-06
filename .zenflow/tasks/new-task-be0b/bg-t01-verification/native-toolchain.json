@@ -1,0 +1,25 @@
+[
+  {
+    "args": [
+      "xcrun",
+      "--no-cache",
+      "--find",
+      "swiftc"
+    ],
+    "exit": 0,
+    "stdout": "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+    "stderr": "2026-10-04 01:37:11.828 xcodebuild[93373:2965933]  DVTFilePathFSEvents: Failed to start fs event stream.\n2026-10-04 01:37:12.089 xcodebuild[93373:2965931] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 \"Input/output error\". Using NSCachesDirectory instead."
+  },
+  {
+    "args": [
+      "xcrun",
+      "--no-cache",
+      "--sdk",
+      "macosx",
+      "--show-sdk-path"
+    ],
+    "exit": 0,
+    "stdout": "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX27.0.sdk",
+    "stderr": "2026-10-04 01:37:13.545 xcodebuild[93390:2966011]  DVTFilePathFSEvents: Failed to start fs event stream.\n2026-10-04 01:37:13.690 xcodebuild[93390:2966010] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 \"Input/output error\". Using NSCachesDirectory instead.\n2026-10-04 01:37:14.275 xcodebuild[93397:2966043]  DVTFilePathFSEvents: Failed to start fs event stream.\n2026-10-04 01:37:14.425 xcodebuild[93397:2966041] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 \"Input/output error\". Using NSCachesDirectory instead."
+  }
+]

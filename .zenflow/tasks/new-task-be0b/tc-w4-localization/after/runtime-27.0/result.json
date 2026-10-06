@@ -1,0 +1,16 @@
+[
+  {
+    "language": "en",
+    "exit_code": 0,
+    "elapsed_seconds": 2.11,
+    "stdout": "PASS en news\nPASS en mixes\nPASS en pinned\nPASS en chat\nPASS en profile\nRESULT: 5/5 exact app-property/resource lookups PASS\n",
+    "stderr": ""
+  },
+  {
+    "language": "ru",
+    "exit_code": 0,
+    "elapsed_seconds": 4.05,
+    "stdout": "PASS ru news\nPASS ru mixes\nPASS ru pinned\nPASS ru chat\nPASS ru profile\nRESULT: 5/5 exact app-property/resource lookups PASS\n",
+    "stderr": ""
+  }
+]

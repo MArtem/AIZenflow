@@ -1,0 +1,63 @@
+{
+  "devicesAndConfigurations" : [
+    {
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "deviceName" : "BG-T01-new-task-be0b-iPhone-iOS27",
+        "modelName" : "iPhone SE (3rd generation)",
+        "osBuildNumber" : "24A434",
+        "osVersion" : "27.0",
+        "platform" : "iOS Simulator"
+      },
+      "expectedFailures" : 0,
+      "failedTests" : 2,
+      "passedTests" : 6,
+      "skippedTests" : 0,
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ],
+  "environmentDescription" : "TchopApp · Built with macOS 27.0",
+  "expectedFailures" : 0,
+  "failedTests" : 1,
+  "finishTime" : 1791159171.339,
+  "passedTests" : 2,
+  "result" : "Failed",
+  "runtimeWarnings" : [
+    {
+      "issueType" : "Runtime Warning",
+      "message" : "[Internal] Thread running at User-interactive quality-of-service class waiting on a lower QoS thread running at Utility quality-of-service class. Investigate ways to avoid priority inversions",
+      "sourceURL" : "file:///Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopAppTests/FeedMediaPreviewRendererTests.swift"
+    }
+  ],
+  "skippedTests" : 0,
+  "startTime" : 1791159112.281,
+  "statistics" : [
+    {
+      "subtitle" : "8 test runs",
+      "title" : "3 tests ran with dynamic parameters"
+    }
+  ],
+  "testFailures" : [
+    {
+      "failureText" : "Expectation failed: max(image.width, image.height) <= 1200\nmax(image.width, image.height) → 2048",
+      "targetName" : "TchopAppTests",
+      "testIdentifier" : 1,
+      "testIdentifierString" : "FeedMediaPreviewRendererTests/videoThumbnailFitsPreviewEnvelope(rotated:)",
+      "testIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/videoThumbnailFitsPreviewEnvelope(rotated:)",
+      "testName" : "videoThumbnailFitsPreviewEnvelope(rotated:)"
+    }
+  ],
+  "title" : "Test - TchopApp",
+  "topInsights" : [
+    {
+      "category" : "Common Failures",
+      "impact" : "100% of failures",
+      "text" : "2 runs of 1 test failed with Expectation failed: max(image.width, image.height) <= 1200"
+    }
+  ],
+  "totalTestCount" : 3
+}

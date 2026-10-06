@@ -1,0 +1,38 @@
+[
+  {
+    "name": "BG-T01-new-task-be0b-iPhone",
+    "udid": "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+    "device_type": "com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation",
+    "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-18-2",
+    "runtime_version": "18.2",
+    "family": "iPhone",
+    "scope": "New task-owned default-set device; service/device state permitted by explicit Simulator exception"
+  },
+  {
+    "name": "BG-T01-new-task-be0b-iPad",
+    "udid": "6739882F-BE95-4039-8300-09BC701E2BD0",
+    "device_type": "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-11-inch-M4-8GB",
+    "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-18-2",
+    "runtime_version": "18.2",
+    "family": "iPad",
+    "scope": "New task-owned default-set device; service/device state permitted by explicit Simulator exception"
+  },
+  {
+    "name": "BG-T01-new-task-be0b-iPhone-iOS27",
+    "udid": "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+    "device_type": "com.apple.CoreSimulator.SimDeviceType.iPhone-SE-3rd-generation",
+    "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-0",
+    "runtime_version": "27.0",
+    "family": "iPhone",
+    "scope": "New owned device; user explicitly requests iOS18.2 +27 test/build matrix"
+  },
+  {
+    "name": "BG-T01-new-task-be0b-iPad-iOS27",
+    "udid": "67D19F4F-A0A9-47F7-82F7-B5C095DE55EF",
+    "device_type": "com.apple.CoreSimulator.SimDeviceType.iPad-Pro-11-inch-M4-8GB",
+    "runtime": "com.apple.CoreSimulator.SimRuntime.iOS-27-0",
+    "runtime_version": "27.0",
+    "family": "iPad",
+    "scope": "New owned device; user explicitly requests iOS18.2 +27 test/build matrix"
+  }
+]

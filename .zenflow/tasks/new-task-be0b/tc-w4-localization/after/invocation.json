@@ -1,0 +1,35 @@
+{
+  "args": [
+    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+    "-parse-as-library",
+    "-swift-version",
+    "6",
+    "-strict-concurrency=complete",
+    "-warnings-as-errors",
+    "-target",
+    "arm64-apple-ios17.0-simulator",
+    "-sdk",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk",
+    "-module-cache-path",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/cache/modules",
+    "-o",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/after/TabDescriptionLocalizationProbe.app/TabDescriptionLocalizationProbe",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Models/AppTab.swift",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/App/AppLocalization.swift",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/TabDescriptionLocalizationProbe.swift"
+  ],
+  "input_sha256": {
+    "TchopApp/Models/AppTab.swift": "603f50c7ff6ee3bb563151ba82493289481ebeeb7d48cfb53368e9d9b2d4bdcd",
+    "TchopApp/App/AppLocalization.swift": "a8df9918f7926e1ed4895d4ae8401ff9a91c94f2564c30a501e4018e7168bdd5",
+    "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift": "97ae589e25e58dd35a409b544389c61684f9371af5f6e913a9b42277fbb66a81",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift": "6949428380cc3e5954407e6ca8d07a917d254724c9b277d0bacd7bcc4320a118"
+  },
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/tc-w4-localization/cache"
+  },
+  "scope": "Actual four Foundation sources + one nonshipping ephemeral probe; bundle copied exact product language resources, not full host app"
+}

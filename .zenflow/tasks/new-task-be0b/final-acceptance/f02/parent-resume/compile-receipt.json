@@ -1,0 +1,52 @@
+{
+  "mode": "compile",
+  "authority": "Human parent confirmation of F02 iPhone18.2/27 and necessary CoreSimulator exception",
+  "source_sha256": {
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.swift": "f73319942e20b8f91168754a242fa77302876b2aaec64d4731c29e65fc5fbc17"
+  },
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/cache"
+  },
+  "commands": [
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+        "-disable-sandbox",
+        "-parse-as-library",
+        "-swift-version",
+        "6",
+        "-strict-concurrency=complete",
+        "-warnings-as-errors",
+        "-sdk",
+        "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk",
+        "-target",
+        "arm64-apple-ios17.0-simulator",
+        "-module-cache-path",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/cache/ios-modules",
+        "-o",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppDatabaseCore.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/SwiftDataModelActorDatabaseManager.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppSwiftDataDatabase.swift",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.swift"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/compile.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.089
+    }
+  ],
+  "devices": [],
+  "limits": [
+    "Disposable schema/component only, no app/user data",
+    "SDK27 compile, not SDK18.2",
+    "Cancellation maps to transactionFailed, not propagation PASS",
+    "No physical/iPad/VoiceOver checks"
+  ],
+  "binary_sha256": "997045d74db29008e30af6419c270c2347ce817b129eb8c5526a3239ba301eab",
+  "status": "COMPILE_PASS"
+}

@@ -1,0 +1,26 @@
+{
+  "state": "awaiting-w4-real-task-or-explicit-bounded-verdict",
+  "global_scope": "USER.VERIFICATION.SCOPE v1.0 all projects/tasks no iPad/physical",
+  "W3": "accepted selected iPhone Simulator scope",
+  "BG-A01": "CLOSED_SCOPED",
+  "LIB-004": "OPEN",
+  "source_ui_sha256": "650de8fba466bed9d8cf5bb1430680d636ebb88856bb6d85eb72d86f92992796",
+  "isolated_results": [
+    {
+      "device": "iphone-18-2",
+      "passed": 5,
+      "failed": 0,
+      "elapsed_seconds": 63.83
+    },
+    {
+      "device": "iphone-27-0",
+      "passed": 5,
+      "failed": 0,
+      "elapsed_seconds": 151.66
+    }
+  ],
+  "original_combined27_timeout": "retained/root cause unknown; not PASS",
+  "next": "real shared-consumer task/mode-control choices",
+  "runtime": "none; owned settings restored/simulators shutdown",
+  "published_canonical_sha": "4c3a901243a6788cfce59ec3db09d037062651a3"
+}

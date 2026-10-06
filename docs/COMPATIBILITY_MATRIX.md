@@ -3,6 +3,11 @@
 ## Purpose
 Tracks supported runtime compatibility across devices, OS versions, app versions, extensions, and backend contracts.
 
+Planning scope: apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality).
+Exclude all iPad verification and every physical-device check, including actual VoiceOver,
+from plans and exit gates. Keep implementation requirements, source-level accessibility
+review and permitted iPhone Simulator checks; exclusion does not establish coverage.
+
 ## Matrix Dimensions
 - Xcode/toolchain and compiler version
 - Swift language mode and strict-concurrency settings
@@ -10,7 +15,7 @@ Tracks supported runtime compatibility across devices, OS versions, app versions
 - upcoming language features and stability status
 - iOS versions
 - device classes and screen sizes
-- simulator vs real device
+- permitted iPhone Simulator destinations
 - app versions
 - backend/API versions
 - persistence schema versions

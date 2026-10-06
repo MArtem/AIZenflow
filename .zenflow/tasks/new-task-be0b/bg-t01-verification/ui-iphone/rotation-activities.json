@@ -1,0 +1,1230 @@
+{
+  "testIdentifier" : "BoardInteractionTests/testRotationUpdatesGeometryAndRetainsCoordinateActions()",
+  "testIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testRotationUpdatesGeometryAndRetainsCoordinateActions",
+  "testName" : "testRotationUpdatesGeometryAndRetainsCoordinateActions()",
+  "testRuns" : [
+    {
+      "activities" : [
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "Screen Recording 2026-10-04 at 01.52.27 AM.mp4",
+              "payloadId" : "0~NQr6_j-Cz9A6xopvpRysDZZpAyvXytss5rGQ2NDWJnudShbwlReAoAMwTE9Kx9yEPKn2Nzp4AwU-7zuS1ZxTWg==",
+              "timestamp" : 1791067947.687,
+              "uuid" : "7C490AD6-0C6F-4151-8525-AA1079E2C7A3"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067947.687,
+              "title" : "kXCTAttachmentScreenRecording"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067947.265,
+          "title" : "Start Test at 2026-10-04 01:52:27.265"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067947.689,
+          "title" : "Set Up"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.orientation.portrait",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067947.693,
+              "title" : "Device orientation changed to Portrait"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067947.711,
+              "title" : "Wait for com.apple.springboard to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067947.69,
+          "title" : "Setting device orientation to Portrait"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "childActivities" : [
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067948.943,
+                  "title" : "Setting up automation session"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067949.634,
+                  "title" : "Wait for com.zenflow.BattleshipGame to idle"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067947.759,
+              "title" : "Launch com.zenflow.BattleshipGame"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067947.758,
+          "title" : "Open com.zenflow.BattleshipGame"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "childActivities" : [
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067951.955,
+                  "title" : "Checking existence of `\"New game\" Button`"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067951.955,
+              "title" : "Checking `Expect predicate `existsNoRetry == 1` for object \"New game\" Button`"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067950.924,
+          "title" : "Waiting 15.0s for \"New game\" Button to exist"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067952.106,
+          "title" : "Requesting snapshot of accessibility hierarchy for app with pid 94449"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067952.629,
+          "title" : "Requesting snapshot of accessibility hierarchy for app with pid 94449"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.attachmentContainer",
+          "attachments" : [
+            {
+              "lifetime" : "keepAlways",
+              "name" : "Initial accessibility tree_0_594D7285-34F7-4907-9570-B2CABB9D5B47.txt",
+              "payloadId" : "0~utXjOFMbcFHpgifQgGVGsyYPdfUOYIIzuTiL9NvzzUlGOuWFYVGTUoRgoSw5K_QLhj6xE3WEN_XiKOK659ZA6Q==",
+              "timestamp" : 1791067952.733,
+              "uuid" : "0D1B6D39-D3E7-4A72-9AA5-E2A74D4193C4"
+            }
+          ],
+          "childActivities" : [
+            {
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067952.733,
+              "title" : "Initial accessibility tree"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067952.733,
+          "title" : "Added attachment named 'Initial accessibility tree'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067952.734,
+          "title" : "Get all elements bound by index for: Descendants matching type ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067952.791,
+          "title" : "Get number of matches for: Descendants matching type Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067953.076,
+          "title" : "Get number of matches for: Descendants matching type Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067953.209,
+          "title" : "Get number of matches for: Descendants matching type Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067953.344,
+          "title" : "Get number of matches for: Elements matching predicate 'label ENDSWITH \"row 10, column 10\"'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067953.415,
+          "title" : "Find the Button (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067953.542,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.33 AM",
+              "payloadId" : "0~Of0AwVNaCzRM7NRy-oTQcrsgrD4hdC6rlW02Z9rHLUkAjM7RHxDn2jHbdfawUmmFeKC3guu38nL8USO84xNozA==",
+              "timestamp" : 1791067953.655,
+              "uuid" : "8986C710-1137-4B44-A2B7-C17D7F55597A"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "Synthesized Event 2026-10-04 at 01.52.34 AM",
+              "payloadId" : "0~QBvRGo6Jbwliif7M38_jlwx1XpEBtRKOoxGi2w0fz4t9iLzuT49zs4jguhH8sqwh9nMSoECSYc9IT7LsP7rIPQ==",
+              "timestamp" : 1791067954.222,
+              "uuid" : "7134D529-9521-4DB9-86FF-A720C1AA9D6E"
+            }
+          ],
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067953.565,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067953.569,
+              "title" : "Find the ScrollView at {{0.0, 0.0}, {375.0, 667.0}}"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067953.591,
+              "title" : "Check for interrupting elements affecting ScrollView"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "attachments" : [
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.33 AM",
+                  "payloadId" : "0~Of0AwVNaCzRM7NRy-oTQcrsgrD4hdC6rlW02Z9rHLUkAjM7RHxDn2jHbdfawUmmFeKC3guu38nL8USO84xNozA==",
+                  "timestamp" : 1791067953.655,
+                  "uuid" : "8986C710-1137-4B44-A2B7-C17D7F55597A"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "Synthesized Event 2026-10-04 at 01.52.34 AM",
+                  "payloadId" : "0~QBvRGo6Jbwliif7M38_jlwx1XpEBtRKOoxGi2w0fz4t9iLzuT49zs4jguhH8sqwh9nMSoECSYc9IT7LsP7rIPQ==",
+                  "timestamp" : 1791067954.222,
+                  "uuid" : "7134D529-9521-4DB9-86FF-A720C1AA9D6E"
+                }
+              ],
+              "childActivities" : [
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067953.655,
+                  "title" : "kXCTAttachmentLegacySnapshot"
+                },
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067954.222,
+                  "title" : "kXCTAttachmentLegacySynthesizedEvent"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067953.654,
+              "title" : "Synthesize event"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067954.223,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067953.564,
+          "title" : "Swipe up ScrollView at {{0.0, 0.0}, {375.0, 667.0}}"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.322,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.409,
+          "title" : "Find the ScrollView at {{0.0, 0.0}, {375.0, 667.0}}"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.425,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.516,
+          "title" : "Find the ScrollView (Element at index 1)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.577,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.597,
+          "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.647,
+          "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.702,
+          "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.753,
+          "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.36 AM",
+              "payloadId" : "0~B-SbK5n37Ed9s7zCUZbnK0lW6LaZ_HPZDMfz2uI6K46uAj09tAKZwknQVEtkdfxS-ODmXZkLwErOimpfbq6jFA==",
+              "timestamp" : 1791067956.921,
+              "uuid" : "40126D61-C4AA-471F-8F1D-A4244F0C5638"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "Synthesized Event 2026-10-04 at 01.52.37 AM",
+              "payloadId" : "0~QrB4DWhDI2NuK9gOapoQY1dQ3zL1F8VmrbuSWODjB-RaYYubX1hywMYO-eaxE1blzF_frzeT64mezAssnwVPZA==",
+              "timestamp" : 1791067957.856,
+              "uuid" : "B10B15FB-5C39-4D3B-AD38-2E7F1F0F7058"
+            }
+          ],
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067956.802,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067956.805,
+              "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067956.856,
+              "title" : "Check for interrupting elements affecting \"BattleshipGame\" Application"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "attachments" : [
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.36 AM",
+                  "payloadId" : "0~B-SbK5n37Ed9s7zCUZbnK0lW6LaZ_HPZDMfz2uI6K46uAj09tAKZwknQVEtkdfxS-ODmXZkLwErOimpfbq6jFA==",
+                  "timestamp" : 1791067956.921,
+                  "uuid" : "40126D61-C4AA-471F-8F1D-A4244F0C5638"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "Synthesized Event 2026-10-04 at 01.52.37 AM",
+                  "payloadId" : "0~QrB4DWhDI2NuK9gOapoQY1dQ3zL1F8VmrbuSWODjB-RaYYubX1hywMYO-eaxE1blzF_frzeT64mezAssnwVPZA==",
+                  "timestamp" : 1791067957.856,
+                  "uuid" : "B10B15FB-5C39-4D3B-AD38-2E7F1F0F7058"
+                }
+              ],
+              "childActivities" : [
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067956.921,
+                  "title" : "kXCTAttachmentLegacySnapshot"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067956.922,
+                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067956.976,
+                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067957.029,
+                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067957.079,
+                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067957.136,
+                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                },
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067957.856,
+                  "title" : "kXCTAttachmentLegacySynthesizedEvent"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067956.919,
+              "title" : "Synthesize event"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067957.857,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067956.802,
+          "title" : "Press Target Application 'com.zenflow.BattleshipGame'[0.00, 0.00] -> (280.8, 105.2) for 0.1 seconds, then drag to Target Application 'com.zenflow.BattleshipGame'[0.00, 0.00] -> (94.2, 105.2) with velocity of 500.00 pixels per second, and then hold for 0.0 seconds "
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067958.239,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067958.326,
+          "title" : "Find the \"Game board\" ScrollView"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067958.381,
+          "title" : "Find the ScrollView (First Match)"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067958.396,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067958.509,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067958.596,
+          "title" : "Find the \"Empty cell, row 10, column 10\" Button"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.orientation.landscapeRight",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067958.681,
+              "title" : "Device orientation changed to Landscape Left"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.orientation.landscapeRight",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067958.721,
+              "title" : "Interface orientation changed to Landscape Right"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067958.722,
+              "title" : "Wait for com.zenflow.BattleshipGame to idle"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067958.679,
+          "title" : "Setting device orientation to Landscape Left"
+        },
+        {
+          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+          "attachments" : [
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.39 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067959.847,
+              "uuid" : "2795BE94-00C1-427B-A466-69A25805686B"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.40 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067960.832,
+              "uuid" : "B5EE2B9C-B2AB-44E0-BABF-BE1ABC608D50"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.41 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067961.809,
+              "uuid" : "D6174537-69C8-41B3-8E28-F9DD42E41133"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.42 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067962.885,
+              "uuid" : "B0942F5E-19E6-408E-86B2-B789C86B8EE4"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.43 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067963.865,
+              "uuid" : "EE8BB483-8654-43BC-9244-F3C80E767630"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.44 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067964.849,
+              "uuid" : "BDE31A81-6258-47B3-8695-C8290C40B96E"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067965.826,
+              "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067966.801,
+              "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067967.883,
+              "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+            },
+            {
+              "lifetime" : "deleteOnSuccess",
+              "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+              "timestamp" : 1791067968.794,
+              "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+            }
+          ],
+          "childActivities" : [
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "attachments" : [
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.39 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067959.847,
+                  "uuid" : "2795BE94-00C1-427B-A466-69A25805686B"
+                }
+              ],
+              "childActivities" : [
+                {
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067959.847,
+                  "title" : "kXCTAttachmentLegacySnapshot"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067959.77,
+              "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+            },
+            {
+              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+              "attachments" : [
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.40 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067960.832,
+                  "uuid" : "B5EE2B9C-B2AB-44E0-BABF-BE1ABC608D50"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.41 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067961.809,
+                  "uuid" : "D6174537-69C8-41B3-8E28-F9DD42E41133"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.42 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067962.885,
+                  "uuid" : "B0942F5E-19E6-408E-86B2-B789C86B8EE4"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.43 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067963.865,
+                  "uuid" : "EE8BB483-8654-43BC-9244-F3C80E767630"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.44 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067964.849,
+                  "uuid" : "BDE31A81-6258-47B3-8695-C8290C40B96E"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067965.826,
+                  "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067966.801,
+                  "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067967.883,
+                  "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                },
+                {
+                  "lifetime" : "deleteOnSuccess",
+                  "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                  "timestamp" : 1791067968.794,
+                  "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                }
+              ],
+              "childActivities" : [
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "attachments" : [
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.40 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067960.832,
+                      "uuid" : "B5EE2B9C-B2AB-44E0-BABF-BE1ABC608D50"
+                    }
+                  ],
+                  "childActivities" : [
+                    {
+                      "isAssociatedWithFailure" : false,
+                      "startTime" : 1791067960.832,
+                      "title" : "kXCTAttachmentLegacySnapshot"
+                    }
+                  ],
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067960.785,
+                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                },
+                {
+                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                  "attachments" : [
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.41 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067961.809,
+                      "uuid" : "D6174537-69C8-41B3-8E28-F9DD42E41133"
+                    },
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.42 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067962.885,
+                      "uuid" : "B0942F5E-19E6-408E-86B2-B789C86B8EE4"
+                    },
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.43 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067963.865,
+                      "uuid" : "EE8BB483-8654-43BC-9244-F3C80E767630"
+                    },
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.44 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067964.849,
+                      "uuid" : "BDE31A81-6258-47B3-8695-C8290C40B96E"
+                    },
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067965.826,
+                      "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+                    },
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067966.801,
+                      "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                    },
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067967.883,
+                      "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                    },
+                    {
+                      "lifetime" : "deleteOnSuccess",
+                      "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                      "timestamp" : 1791067968.794,
+                      "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                    }
+                  ],
+                  "childActivities" : [
+                    {
+                      "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                      "attachments" : [
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.41 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067961.809,
+                          "uuid" : "D6174537-69C8-41B3-8E28-F9DD42E41133"
+                        }
+                      ],
+                      "childActivities" : [
+                        {
+                          "isAssociatedWithFailure" : false,
+                          "startTime" : 1791067961.809,
+                          "title" : "kXCTAttachmentLegacySnapshot"
+                        }
+                      ],
+                      "isAssociatedWithFailure" : false,
+                      "startTime" : 1791067961.76,
+                      "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                    },
+                    {
+                      "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                      "attachments" : [
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.42 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067962.885,
+                          "uuid" : "B0942F5E-19E6-408E-86B2-B789C86B8EE4"
+                        },
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.43 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067963.865,
+                          "uuid" : "EE8BB483-8654-43BC-9244-F3C80E767630"
+                        },
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.44 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067964.849,
+                          "uuid" : "BDE31A81-6258-47B3-8695-C8290C40B96E"
+                        },
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067965.826,
+                          "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+                        },
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067966.801,
+                          "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                        },
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067967.883,
+                          "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                        },
+                        {
+                          "lifetime" : "deleteOnSuccess",
+                          "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                          "timestamp" : 1791067968.794,
+                          "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                        }
+                      ],
+                      "childActivities" : [
+                        {
+                          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                          "attachments" : [
+                            {
+                              "lifetime" : "deleteOnSuccess",
+                              "name" : "UI Snapshot 2026-10-04 at 01.52.42 AM",
+                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                              "timestamp" : 1791067962.885,
+                              "uuid" : "B0942F5E-19E6-408E-86B2-B789C86B8EE4"
+                            }
+                          ],
+                          "childActivities" : [
+                            {
+                              "isAssociatedWithFailure" : false,
+                              "startTime" : 1791067962.885,
+                              "title" : "kXCTAttachmentLegacySnapshot"
+                            }
+                          ],
+                          "isAssociatedWithFailure" : false,
+                          "startTime" : 1791067962.837,
+                          "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                        },
+                        {
+                          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                          "attachments" : [
+                            {
+                              "lifetime" : "deleteOnSuccess",
+                              "name" : "UI Snapshot 2026-10-04 at 01.52.43 AM",
+                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                              "timestamp" : 1791067963.865,
+                              "uuid" : "EE8BB483-8654-43BC-9244-F3C80E767630"
+                            },
+                            {
+                              "lifetime" : "deleteOnSuccess",
+                              "name" : "UI Snapshot 2026-10-04 at 01.52.44 AM",
+                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                              "timestamp" : 1791067964.849,
+                              "uuid" : "BDE31A81-6258-47B3-8695-C8290C40B96E"
+                            },
+                            {
+                              "lifetime" : "deleteOnSuccess",
+                              "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                              "timestamp" : 1791067965.826,
+                              "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+                            },
+                            {
+                              "lifetime" : "deleteOnSuccess",
+                              "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                              "timestamp" : 1791067966.801,
+                              "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                            },
+                            {
+                              "lifetime" : "deleteOnSuccess",
+                              "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                              "timestamp" : 1791067967.883,
+                              "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                            },
+                            {
+                              "lifetime" : "deleteOnSuccess",
+                              "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                              "timestamp" : 1791067968.794,
+                              "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                            }
+                          ],
+                          "childActivities" : [
+                            {
+                              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                              "attachments" : [
+                                {
+                                  "lifetime" : "deleteOnSuccess",
+                                  "name" : "UI Snapshot 2026-10-04 at 01.52.43 AM",
+                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                  "timestamp" : 1791067963.865,
+                                  "uuid" : "EE8BB483-8654-43BC-9244-F3C80E767630"
+                                }
+                              ],
+                              "childActivities" : [
+                                {
+                                  "isAssociatedWithFailure" : false,
+                                  "startTime" : 1791067963.865,
+                                  "title" : "kXCTAttachmentLegacySnapshot"
+                                }
+                              ],
+                              "isAssociatedWithFailure" : false,
+                              "startTime" : 1791067963.819,
+                              "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                            },
+                            {
+                              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                              "attachments" : [
+                                {
+                                  "lifetime" : "deleteOnSuccess",
+                                  "name" : "UI Snapshot 2026-10-04 at 01.52.44 AM",
+                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                  "timestamp" : 1791067964.849,
+                                  "uuid" : "BDE31A81-6258-47B3-8695-C8290C40B96E"
+                                },
+                                {
+                                  "lifetime" : "deleteOnSuccess",
+                                  "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                  "timestamp" : 1791067965.826,
+                                  "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+                                },
+                                {
+                                  "lifetime" : "deleteOnSuccess",
+                                  "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                  "timestamp" : 1791067966.801,
+                                  "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                                },
+                                {
+                                  "lifetime" : "deleteOnSuccess",
+                                  "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                  "timestamp" : 1791067967.883,
+                                  "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                                },
+                                {
+                                  "lifetime" : "deleteOnSuccess",
+                                  "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                  "timestamp" : 1791067968.794,
+                                  "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                                }
+                              ],
+                              "childActivities" : [
+                                {
+                                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                  "attachments" : [
+                                    {
+                                      "lifetime" : "deleteOnSuccess",
+                                      "name" : "UI Snapshot 2026-10-04 at 01.52.44 AM",
+                                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                      "timestamp" : 1791067964.849,
+                                      "uuid" : "BDE31A81-6258-47B3-8695-C8290C40B96E"
+                                    }
+                                  ],
+                                  "childActivities" : [
+                                    {
+                                      "isAssociatedWithFailure" : false,
+                                      "startTime" : 1791067964.849,
+                                      "title" : "kXCTAttachmentLegacySnapshot"
+                                    }
+                                  ],
+                                  "isAssociatedWithFailure" : false,
+                                  "startTime" : 1791067964.787,
+                                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                                },
+                                {
+                                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                  "attachments" : [
+                                    {
+                                      "lifetime" : "deleteOnSuccess",
+                                      "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+                                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                      "timestamp" : 1791067965.826,
+                                      "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+                                    },
+                                    {
+                                      "lifetime" : "deleteOnSuccess",
+                                      "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                      "timestamp" : 1791067966.801,
+                                      "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                                    },
+                                    {
+                                      "lifetime" : "deleteOnSuccess",
+                                      "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                      "timestamp" : 1791067967.883,
+                                      "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                                    },
+                                    {
+                                      "lifetime" : "deleteOnSuccess",
+                                      "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                      "timestamp" : 1791067968.794,
+                                      "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                                    }
+                                  ],
+                                  "childActivities" : [
+                                    {
+                                      "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                      "attachments" : [
+                                        {
+                                          "lifetime" : "deleteOnSuccess",
+                                          "name" : "UI Snapshot 2026-10-04 at 01.52.45 AM",
+                                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                          "timestamp" : 1791067965.826,
+                                          "uuid" : "CD1723A7-098D-47AB-9196-8986280AAFCC"
+                                        }
+                                      ],
+                                      "childActivities" : [
+                                        {
+                                          "isAssociatedWithFailure" : false,
+                                          "startTime" : 1791067965.826,
+                                          "title" : "kXCTAttachmentLegacySnapshot"
+                                        }
+                                      ],
+                                      "isAssociatedWithFailure" : false,
+                                      "startTime" : 1791067965.769,
+                                      "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                                    },
+                                    {
+                                      "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                      "attachments" : [
+                                        {
+                                          "lifetime" : "deleteOnSuccess",
+                                          "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                          "timestamp" : 1791067966.801,
+                                          "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                                        },
+                                        {
+                                          "lifetime" : "deleteOnSuccess",
+                                          "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                          "timestamp" : 1791067967.883,
+                                          "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                                        },
+                                        {
+                                          "lifetime" : "deleteOnSuccess",
+                                          "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                                          "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                          "timestamp" : 1791067968.794,
+                                          "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                                        }
+                                      ],
+                                      "childActivities" : [
+                                        {
+                                          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                          "attachments" : [
+                                            {
+                                              "lifetime" : "deleteOnSuccess",
+                                              "name" : "UI Snapshot 2026-10-04 at 01.52.46 AM",
+                                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                              "timestamp" : 1791067966.801,
+                                              "uuid" : "17851862-3BC9-40FA-9FDD-E90ABB167CE9"
+                                            }
+                                          ],
+                                          "childActivities" : [
+                                            {
+                                              "isAssociatedWithFailure" : false,
+                                              "startTime" : 1791067966.801,
+                                              "title" : "kXCTAttachmentLegacySnapshot"
+                                            }
+                                          ],
+                                          "isAssociatedWithFailure" : false,
+                                          "startTime" : 1791067966.754,
+                                          "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                                        },
+                                        {
+                                          "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                          "attachments" : [
+                                            {
+                                              "lifetime" : "deleteOnSuccess",
+                                              "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                              "timestamp" : 1791067967.883,
+                                              "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                                            },
+                                            {
+                                              "lifetime" : "deleteOnSuccess",
+                                              "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                                              "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                              "timestamp" : 1791067968.794,
+                                              "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                                            }
+                                          ],
+                                          "childActivities" : [
+                                            {
+                                              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                              "attachments" : [
+                                                {
+                                                  "lifetime" : "deleteOnSuccess",
+                                                  "name" : "UI Snapshot 2026-10-04 at 01.52.47 AM",
+                                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                                  "timestamp" : 1791067967.883,
+                                                  "uuid" : "662C0D3B-4BED-49EB-AD89-F53D02B4B33F"
+                                                }
+                                              ],
+                                              "childActivities" : [
+                                                {
+                                                  "isAssociatedWithFailure" : false,
+                                                  "startTime" : 1791067967.883,
+                                                  "title" : "kXCTAttachmentLegacySnapshot"
+                                                }
+                                              ],
+                                              "isAssociatedWithFailure" : false,
+                                              "startTime" : 1791067967.835,
+                                              "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                                            },
+                                            {
+                                              "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                              "attachments" : [
+                                                {
+                                                  "lifetime" : "deleteOnSuccess",
+                                                  "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                                                  "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                                  "timestamp" : 1791067968.794,
+                                                  "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                                                }
+                                              ],
+                                              "childActivities" : [
+                                                {
+                                                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                                  "attachments" : [
+                                                    {
+                                                      "lifetime" : "deleteOnSuccess",
+                                                      "name" : "UI Snapshot 2026-10-04 at 01.52.48 AM",
+                                                      "payloadId" : "0~nGW7QOU4Io-jlOa9vtvqQdA7V4F37qP5rRx3rUasEuYzb8efDWKAumIaJMo0r5Ddz3pA4K7lwKbs2bKZT95Brg==",
+                                                      "timestamp" : 1791067968.794,
+                                                      "uuid" : "D17CCBEF-CFC2-4CCF-9AE1-843D7656F978"
+                                                    }
+                                                  ],
+                                                  "childActivities" : [
+                                                    {
+                                                      "isAssociatedWithFailure" : false,
+                                                      "startTime" : 1791067968.794,
+                                                      "title" : "kXCTAttachmentLegacySnapshot"
+                                                    }
+                                                  ],
+                                                  "isAssociatedWithFailure" : false,
+                                                  "startTime" : 1791067968.745,
+                                                  "title" : "Find the Target Application 'com.zenflow.BattleshipGame'"
+                                                },
+                                                {
+                                                  "childActivities" : [
+                                                    {
+                                                      "isAssociatedWithFailure" : false,
+                                                      "title" : ""
+                                                    }
+                                                  ],
+                                                  "isAssociatedWithFailure" : true,
+                                                  "startTime" : 1791067969.024,
+                                                  "title" : "Asynchronous wait failed: Exceeded timeout of 10 seconds, with unfulfilled expectations: \"Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'\"."
+                                                },
+                                                {
+                                                  "activityType" : "com.apple.dt.xctest.activity-type.internal",
+                                                  "isAssociatedWithFailure" : false,
+                                                  "startTime" : 1791067969.027,
+                                                  "title" : "Tear Down"
+                                                }
+                                              ],
+                                              "isAssociatedWithFailure" : true,
+                                              "startTime" : 1791067968.745,
+                                              "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                                            }
+                                          ],
+                                          "isAssociatedWithFailure" : false,
+                                          "startTime" : 1791067967.835,
+                                          "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                                        }
+                                      ],
+                                      "isAssociatedWithFailure" : false,
+                                      "startTime" : 1791067966.753,
+                                      "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                                    }
+                                  ],
+                                  "isAssociatedWithFailure" : false,
+                                  "startTime" : 1791067965.769,
+                                  "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                                }
+                              ],
+                              "isAssociatedWithFailure" : false,
+                              "startTime" : 1791067964.787,
+                              "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                            }
+                          ],
+                          "isAssociatedWithFailure" : false,
+                          "startTime" : 1791067963.819,
+                          "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                        }
+                      ],
+                      "isAssociatedWithFailure" : false,
+                      "startTime" : 1791067962.837,
+                      "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                    }
+                  ],
+                  "isAssociatedWithFailure" : false,
+                  "startTime" : 1791067961.76,
+                  "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+                }
+              ],
+              "isAssociatedWithFailure" : false,
+              "startTime" : 1791067960.785,
+              "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+            }
+          ],
+          "isAssociatedWithFailure" : false,
+          "startTime" : 1791067959.769,
+          "title" : "Checking `Expect predicate `frame.SIZE.width > frame.SIZE.height` for object Target Application 'com.zenflow.BattleshipGame'`"
+        }
+      ],
+      "device" : {
+        "architecture" : "arm64",
+        "deviceId" : "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "deviceName" : "BG-T01-new-task-be0b-iPhone",
+        "modelName" : "iPhone SE (3rd generation)",
+        "osBuildNumber" : "22C150",
+        "osVersion" : "18.2",
+        "platform" : "iOS Simulator"
+      },
+      "testPlanConfiguration" : {
+        "configurationId" : "1",
+        "configurationName" : "Test Scheme Action"
+      }
+    }
+  ]
+}

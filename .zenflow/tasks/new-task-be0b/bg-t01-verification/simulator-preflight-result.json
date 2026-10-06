@@ -1,0 +1,19 @@
+{
+  "command": [
+    "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+    "--set",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/bg-t01-verification/simulator-devices",
+    "help"
+  ],
+  "exit": 1,
+  "evidence": "logs/simctl-help.log",
+  "evidence_sha256": "2647b6556260c09ce10af65d519188dc6ebf9ba7d10c1a45b139df5e3b5b48c2",
+  "result": "unavailable",
+  "diagnostics": [
+    "CoreSimulatorService connection invalid",
+    "external CoreSimulator log open denied",
+    "device set unavailable"
+  ],
+  "ui_launch_or_test_executed": false,
+  "outside_sandbox_escalation": false
+}

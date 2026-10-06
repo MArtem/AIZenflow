@@ -1,0 +1,3063 @@
+{
+  "source": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+  "sha256": "a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb",
+  "target_phases": [
+    {
+      "id": "A000008A0000000000000001",
+      "name": "TchopAppTests",
+      "phases": [
+        {
+          "id": "A000008B0000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "A30000010000000000000001",
+              "file_ref": "A30000020000000000000001",
+              "path": "AppDIContainerTests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A20000010000000000000001",
+              "file_ref": "A20000020000000000000001",
+              "path": "AppDatabasePolicyTests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000810000000000000001",
+              "file_ref": "A00000820000000000000001",
+              "path": "AppStateTests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A40000010000000000000001",
+              "file_ref": "A40000020000000000000001",
+              "path": "AppShellViewModelTests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000830000000000000001",
+              "file_ref": "A00000840000000000000001",
+              "path": "LoginViewModelTests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000850000000000000001",
+              "file_ref": "A00000860000000000000001",
+              "path": "NewsFeedViewModelTests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A40000030000000000000001",
+              "file_ref": "A40000040000000000000001",
+              "path": "ShareExtensionRuntimeContractTests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A10000010000000000000001",
+              "file_ref": "A10000020000000000000001",
+              "path": "AppStateTestDoubles.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A10000030000000000000001",
+              "file_ref": "A10000040000000000000001",
+              "path": "NewsFeedTestDoubles.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A10000050000000000000001",
+              "file_ref": "A10000060000000000000001",
+              "path": "TestAppContentRepository.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A10000070000000000000001",
+              "file_ref": "A10000080000000000000001",
+              "path": "UIConfigurationTestDoubles.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "A000008C0000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": []
+        }
+      ],
+      "dependencies": [
+        "TchopApp"
+      ]
+    },
+    {
+      "id": "A000000C0000000000000001",
+      "name": "TchopApp",
+      "phases": [
+        {
+          "id": "A000000D0000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "A00000110000000000000001",
+              "file_ref": "A00000210000000000000001",
+              "path": "TchopApp.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000120000000000000001",
+              "file_ref": "A00000220000000000000001",
+              "path": "AppTab.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000130000000000000001",
+              "file_ref": "A00000230000000000000001",
+              "path": "AppShellView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000140000000000000001",
+              "file_ref": "A00000240000000000000001",
+              "path": "TopBarView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000150000000000000001",
+              "file_ref": "A00000250000000000000001",
+              "path": "BrandMarkView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000160000000000000001",
+              "file_ref": "A00000260000000000000001",
+              "path": "BottomTabBar.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000170000000000000001",
+              "file_ref": "A00000270000000000000001",
+              "path": "FloatingActionButton.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000180000000000000001",
+              "file_ref": "A00000280000000000000001",
+              "path": "SideMenuView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000190000000000000001",
+              "file_ref": "A00000290000000000000001",
+              "path": "NewsFeedView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000001C0000000000000001",
+              "file_ref": "A000002C0000000000000001",
+              "path": "TabStubView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000350000000000000001",
+              "file_ref": "A00000360000000000000001",
+              "path": "ShellContentView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "M00000010000000000000001",
+              "file_ref": "M00000020000000000000001",
+              "path": "SharedCardComposerView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000370000000000000001",
+              "file_ref": "A00000380000000000000001",
+              "path": "TabContentView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000391000000000000001",
+              "file_ref": "A000003A1000000000000001",
+              "path": "FeedCardStatusBadge.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "R00000010000000000000001",
+              "file_ref": "R00000030000000000000001",
+              "path": "AppChannel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003B0000000000000001",
+              "file_ref": "A000003C0000000000000001",
+              "path": "ChannelHeaderInfo.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003C1000000000000001",
+              "file_ref": "A000003C2000000000000001",
+              "path": "AccountProfileSummary.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000920000000000000001",
+              "file_ref": "A00000930000000000000001",
+              "path": "FeatureTabModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003D0000000000000001",
+              "file_ref": "A000003E0000000000000001",
+              "path": "NewsFeedModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003F0000000000000001",
+              "file_ref": "A00000400000000000000001",
+              "path": "AppShellViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "K00000010000000000000001",
+              "file_ref": "K00000020000000000000001",
+              "path": "NewsFeedCardActionCoordinator.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000410000000000000001",
+              "file_ref": "A00000420000000000000001",
+              "path": "NewsFeedViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000430000000000000001",
+              "file_ref": "A00000440000000000000001",
+              "path": "AppDatabase.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000450000000000000001",
+              "file_ref": "A00000460000000000000001",
+              "path": "AppContentRecord.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000470000000000000001",
+              "file_ref": "A00000480000000000000001",
+              "path": "AppDataSeeder.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000490000000000000001",
+              "file_ref": "A000004A0000000000000001",
+              "path": "AppContentRepository.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000004D0000000000000001",
+              "file_ref": "A000004E0000000000000001",
+              "path": "TabRoutes.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000004F0000000000000001",
+              "file_ref": "A00000500000000000000001",
+              "path": "AppCoordinator.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000A00000000000000001",
+              "file_ref": "A00000A10000000000000001",
+              "path": "NavigationSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000A70000000000000001",
+              "file_ref": "A00000A60000000000000001",
+              "path": "DeepLinkManaging.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000A40000000000000001",
+              "file_ref": "A00000A50000000000000001",
+              "path": "DeepLinkManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000510000000000000001",
+              "file_ref": "A00000520000000000000001",
+              "path": "NewsTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000530000000000000001",
+              "file_ref": "A00000540000000000000001",
+              "path": "NewsDestinationView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000940000000000000001",
+              "file_ref": "A00000950000000000000001",
+              "path": "FeatureTabScaffoldView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000960000000000000001",
+              "file_ref": "A00000970000000000000001",
+              "path": "MixesTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000980000000000000001",
+              "file_ref": "A00000990000000000000001",
+              "path": "PinnedTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000009A0000000000000001",
+              "file_ref": "A000009B0000000000000001",
+              "path": "ChatTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000550000000000000001",
+              "file_ref": "A00000560000000000000001",
+              "path": "StubTabNavigationRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000570000000000000001",
+              "file_ref": "A00000580000000000000001",
+              "path": "StubTabDetailView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000590000000000000001",
+              "file_ref": "A000005A0000000000000001",
+              "path": "AppUser.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "J00000010000000000000001",
+              "file_ref": "J00000020000000000000001",
+              "path": "AuthenticationAPIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000005B0000000000000001",
+              "file_ref": "A000005C0000000000000001",
+              "path": "UserSessionService.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000005D0000000000000001",
+              "file_ref": "A000005E0000000000000001",
+              "path": "UserRepository.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000610000000000000001",
+              "file_ref": "A00000620000000000000001",
+              "path": "AppState.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000630000000000000001",
+              "file_ref": "A00000640000000000000001",
+              "path": "LoginViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000650000000000000001",
+              "file_ref": "A00000660000000000000001",
+              "path": "AppRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000670000000000000001",
+              "file_ref": "A00000680000000000000001",
+              "path": "LoginScreenView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000690000000000000001",
+              "file_ref": "A000006A0000000000000001",
+              "path": "ProfileTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "P00000020000000000000001",
+              "file_ref": "P00000010000000000000001",
+              "path": "ProfileTabViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "K00000040000000000000001",
+              "file_ref": "K00000050000000000000001",
+              "path": "AppErrorMapping.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000730000000000000001",
+              "file_ref": "A00000740000000000000001",
+              "path": "AppDIContainer.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "U00000110000000000000001",
+              "file_ref": "U00000130000000000000001",
+              "path": "AppLaunchConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B00000030000000000000001",
+              "file_ref": "B00000020000000000000001",
+              "path": "AppBranding.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "S00000050000000000000001",
+              "file_ref": "S00000060000000000000001",
+              "path": "ChannelSettingsRepository.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "R00000070000000000000001",
+              "file_ref": "R00000090000000000000001",
+              "path": "ChannelsStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000B00000000000000001",
+              "file_ref": "A00000B10000000000000001",
+              "path": "AppLocalization.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000009C0000000000000001",
+              "file_ref": "A000009D0000000000000001",
+              "path": "AppTheme.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "R00000040000000000000001",
+              "file_ref": "R00000060000000000000001",
+              "path": "SessionStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "E00000040000000000000001",
+              "file_ref": "E00000080000000000000001",
+              "path": "AppPushNotificationBridge.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "E00000050000000000000001",
+              "file_ref": "E00000090000000000000001",
+              "path": "TchopApplicationDelegate.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000010000000000000001",
+              "file_ref": "D00000020000000000000001",
+              "path": "AppWidgetBridge.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000030000000000000001",
+              "file_ref": "D00000040000000000000001",
+              "path": "AppGroupConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000031000000000000001",
+              "file_ref": "D00000041000000000000001",
+              "path": "SharedFeedCardSyncManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000032000000000000001",
+              "file_ref": "D00000042000000000000001",
+              "path": "ShareExtensionSessionContextManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "BF1AF5020000000000000001",
+              "file_ref": "FF1AF5020000000000000001",
+              "path": "AppFileStorageDomains.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1174D9B4D1000F7A6F19921",
+              "file_ref": "F1174D9B4D1000F7A6F19921",
+              "path": "PackagesInUse/AppAnalytics/Sources/AppAnalytics/AppAnalytics.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11ED4DC89E5864CE4DED583",
+              "file_ref": "F11ED4DC89E5864CE4DED583",
+              "path": "PackagesInUse/AppAnalytics/Sources/AppAnalyticsCore/AppAnalyticsCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E7122EA40405498D50C09D",
+              "file_ref": "F1E7122EA40405498D50C09D",
+              "path": "PackagesInUse/AppAppleAuthentication/Sources/AppAppleAuthentication/AppAppleAuthentication.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B162886B171F46F1F2D8D95A",
+              "file_ref": "F162886B171F46F1F2D8D95A",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/AppBrandingCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1576A5C2E26E2E4B69A28B6",
+              "file_ref": "F1576A5C2E26E2E4B69A28B6",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/BrandColorTokens.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B110FB90539E3194095CD07A",
+              "file_ref": "F110FB90539E3194095CD07A",
+              "path": "PackagesInUse/AppConfiguration/Sources/AppConfiguration/AppConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B163BBE7C99F1AE0567E4547",
+              "file_ref": "F163BBE7C99F1AE0567E4547",
+              "path": "PackagesInUse/AppDatabase/Sources/AppCoreDataDatabase/AppCoreDataDatabase.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1A6C1AD05D926918F243E00",
+              "file_ref": "F1A6C1AD05D926918F243E00",
+              "path": "PackagesInUse/AppDatabase/Sources/AppCoreDataDatabase/CoreDataBackgroundDatabaseManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C3C4D8B411F61A2022694F",
+              "file_ref": "F1C3C4D8B411F61A2022694F",
+              "path": "PackagesInUse/AppDatabase/Sources/AppDatabase/AppDatabaseUmbrella.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B126A543659698EDD6960061",
+              "file_ref": "F126A543659698EDD6960061",
+              "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseComposition/AppDatabaseComposition.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15F9AFB8CA760D841B23702",
+              "file_ref": "F15F9AFB8CA760D841B23702",
+              "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1029B7894F1D1A1259351B0",
+              "file_ref": "F1029B7894F1D1A1259351B0",
+              "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B12601760918A642BB479B00",
+              "file_ref": "F12601760918A642BB479B00",
+              "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1EE089F94F76CE1F4380763",
+              "file_ref": "F1EE089F94F76CE1F4380763",
+              "path": "PackagesInUse/AppErrors/Sources/AppErrors/AppErrors.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11B94034E9E1F4ECC90FBA3",
+              "file_ref": "F11B94034E9E1F4ECC90FBA3",
+              "path": "PackagesInUse/AppErrors/Sources/AppErrorsCore/AppErrorsCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B19F1CFEBD8C4A3B2A1812E8",
+              "file_ref": "F19F1CFEBD8C4A3B2A1812E8",
+              "path": "PackagesInUse/AppGlassUI/Sources/AppGlassUI/AppGlassUI.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E06D8E19300078611945EF",
+              "file_ref": "F1E06D8E19300078611945EF",
+              "path": "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B17DD97FCE3B35FEA615A9F4",
+              "file_ref": "F17DD97FCE3B35FEA615A9F4",
+              "path": "PackagesInUse/AppNavigation/Sources/AppNavigation/AppNavigation.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1522094F946E1DA9FB44D3F",
+              "file_ref": "F1522094F946E1DA9FB44D3F",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIConnectivity.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1A28940CF0D2F8C32A5394E",
+              "file_ref": "F1A28940CF0D2F8C32A5394E",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIInterceptors.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B10C84564E26C312C5688EAA",
+              "file_ref": "F10C84564E26C312C5688EAA",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIManaging.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18AB02F1628DAEA7946F794",
+              "file_ref": "F18AB02F1628DAEA7946F794",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B189B3E22C5618F294D1A3D9",
+              "file_ref": "F189B3E22C5618F294D1A3D9",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIOfflineQueue.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B10C0BD3C50D6141D7C061E0",
+              "file_ref": "F10C0BD3C50D6141D7C061E0",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/AppNetworking.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B14F717F55399A354CC2705E",
+              "file_ref": "F14F717F55399A354CC2705E",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/MockAPIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11A5138596F0215F8644D0A",
+              "file_ref": "F11A5138596F0215F8644D0A",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/AppOnDeviceAI.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13D8B25FB31E0D0E98F4997",
+              "file_ref": "F13D8B25FB31E0D0E98F4997",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F76607CF3AA427F344EE70",
+              "file_ref": "F1F76607CF3AA427F344EE70",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/UnavailableOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1790EF9086DCA513DABE26B",
+              "file_ref": "F1790EF9086DCA513DABE26B",
+              "path": "PackagesInUse/AppPushNotifications/Sources/AppPushNotifications/AppPushNotifications.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1AFBD5B8465FE6627D03AEC",
+              "file_ref": "F1AFBD5B8465FE6627D03AEC",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppGroupJSONFileStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15D8BAA5A60D12A48E2BBB8",
+              "file_ref": "F15D8BAA5A60D12A48E2BBB8",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppShareExtensionSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1FD56D66ED90A5816CA8FBD",
+              "file_ref": "F1FD56D66ED90A5816CA8FBD",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/ShareItemImporter.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11EF913A8B930702FD185B1",
+              "file_ref": "F11EF913A8B930702FD185B1",
+              "path": "PackagesInUse/AppWidgetSupport/Sources/AppWidgetSupport/AppWidgetSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1B4FD3AA1666E2680DA16F7",
+              "file_ref": "F1B4FD3AA1666E2680DA16F7",
+              "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNavigationIntegration/Sources/AppAnalyticsNavigationIntegration/AppAnalyticsNavigationIntegration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18EFC7790280D8DB59E79E4",
+              "file_ref": "F18EFC7790280D8DB59E79E4",
+              "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNetworkingIntegration/Sources/AppAnalyticsNetworkingIntegration/AppAnalyticsNetworkingIntegration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1465A1AA7B57175F914FECB",
+              "file_ref": "F1465A1AA7B57175F914FECB",
+              "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/Sources/AppAnalyticsPushNotificationsIntegration/AppAnalyticsPushNotificationsIntegration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1739E5934BD76F887F5D974",
+              "file_ref": "F1739E5934BD76F887F5D974",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13AA7F9D10F170ACE435056",
+              "file_ref": "F13AA7F9D10F170ACE435056",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/AVFoundationPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1DC209FBCD5A356594801D9",
+              "file_ref": "F1DC209FBCD5A356594801D9",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/CompositePermissionManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C804DF0516393CF241903B",
+              "file_ref": "F1C804DF0516393CF241903B",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/ContactsPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18700A0334F1812D6D0B343",
+              "file_ref": "F18700A0334F1812D6D0B343",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/CoreLocationPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E4D04EEB6373398DD7A46E",
+              "file_ref": "F1E4D04EEB6373398DD7A46E",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/ManualPermissionManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1530AFA0913592B0EB0DC2C",
+              "file_ref": "F1530AFA0913592B0EB0DC2C",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionError.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C8A9EA8829613EFB1AEC22",
+              "file_ref": "F1C8A9EA8829613EFB1AEC22",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionKind.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18FCFD3C31948A805BEAF54",
+              "file_ref": "F18FCFD3C31948A805BEAF54",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionManaging.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C9C3CF1AB8E127A07992BC",
+              "file_ref": "F1C9C3CF1AB8E127A07992BC",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionReadiness.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1AED921D96048A2D06D862C",
+              "file_ref": "F1AED921D96048A2D06D862C",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionRequestOutcome.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11FD9DCF8A431CFBA94722B",
+              "file_ref": "F11FD9DCF8A431CFBA94722B",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1101913E03F06EB8300AFB3",
+              "file_ref": "F1101913E03F06EB8300AFB3",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionState.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1ED026FDBC4B459E744B9F4",
+              "file_ref": "F1ED026FDBC4B459E744B9F4",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionUsageDescriptionChecker.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D9851D7848038CF8EDE469",
+              "file_ref": "F1D9851D7848038CF8EDE469",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionUsageDescriptions.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11C542223DD825AF79A4A67",
+              "file_ref": "F11C542223DD825AF79A4A67",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PhotoLibraryPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CB977B4A278DDE896331CF",
+              "file_ref": "F1CB977B4A278DDE896331CF",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/StaticPermissionManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1294C7AFDED3CC4EEE05435",
+              "file_ref": "F1294C7AFDED3CC4EEE05435",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/SystemPermissionManagerFactory.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11D5C9644D4AD68ECBD8A64",
+              "file_ref": "F11D5C9644D4AD68ECBD8A64",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/TrackingTransparencyPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B14701072B26244C28F267AE",
+              "file_ref": "F14701072B26244C28F267AE",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/UserNotificationPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15DB9E3784CE340E16C9434",
+              "file_ref": "F15DB9E3784CE340E16C9434",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppBuildInfo.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B123F9845F21F48DDA812C65",
+              "file_ref": "F123F9845F21F48DDA812C65",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentDiagnostics.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E44787048058FEDD3AF909",
+              "file_ref": "F1E44787048058FEDD3AF909",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentProviding.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B182D22A0B360456132A3184",
+              "file_ref": "F182D22A0B360456132A3184",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13F94E33B7F05890809E77F",
+              "file_ref": "F13F94E33B7F05890809E77F",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppLocaleContext.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B12E7568FD5D7E1D751FB691",
+              "file_ref": "F12E7568FD5D7E1D751FB691",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppRuntimeFlags.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B139683313ACB3F013724210",
+              "file_ref": "F139683313ACB3F013724210",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/BuildConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1096E05B7263C8905B2AF59",
+              "file_ref": "F1096E05B7263C8905B2AF59",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/BundleAppBuildInfoProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1DCB83FC2BB84AF16A27A37",
+              "file_ref": "F1DCB83FC2BB84AF16A27A37",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/CurrentLocaleContextProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1FF3868CA33E862E3B62241",
+              "file_ref": "F1FF3868CA33E862E3B62241",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/DefaultAppEnvironmentProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B107DC66714B65397F210359",
+              "file_ref": "F107DC66714B65397F210359",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/EnvironmentKind.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B196836BA89782A8E5E0742C",
+              "file_ref": "F196836BA89782A8E5E0742C",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/ProcessRuntimeFlagsProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F50FDFFCB3F84F8CDE3DCE",
+              "file_ref": "F1F50FDFFCB3F84F8CDE3DCE",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/StaticProviders.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CD46F4C0AEEB6B9C363AF8",
+              "file_ref": "F1CD46F4C0AEEB6B9C363AF8",
+              "path": "PackagesInUse/AppLifecycle/Sources/AppLifecycle/AppLifecycle.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B185F952AAAE615D759B082E",
+              "file_ref": "F185F952AAAE615D759B082E",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/BuiltInFormValidationRule.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1A17DA1002324BB6444E331",
+              "file_ref": "F1A17DA1002324BB6444E331",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormFieldState.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E0090A4683F72570AA6056",
+              "file_ref": "F1E0090A4683F72570AA6056",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormFieldValue.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B158F3364FF9783BC93BD290",
+              "file_ref": "F158F3364FF9783BC93BD290",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B154A2CB61F2F98F652D800D",
+              "file_ref": "F154A2CB61F2F98F652D800D",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormSnapshotStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1B8834A337097125AA59B94",
+              "file_ref": "F1B8834A337097125AA59B94",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormStateController.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D280A0625CB3AED3BCD844",
+              "file_ref": "F1D280A0625CB3AED3BCD844",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationContext.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1119117F0EC03F9B711655E",
+              "file_ref": "F1119117F0EC03F9B711655E",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationFailure.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13FCFC497D0B22C32461194",
+              "file_ref": "F13FCFC497D0B22C32461194",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationIdentifiers.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D297DE79FE1C469455FF82",
+              "file_ref": "F1D297DE79FE1C469455FF82",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationIssue.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F92F327C15B89975B20374",
+              "file_ref": "F1F92F327C15B89975B20374",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationPlan.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1306B74D0FA6F5D23EB1562",
+              "file_ref": "F1306B74D0FA6F5D23EB1562",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationResult.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E197B00711E5060C4EBD35",
+              "file_ref": "F1E197B00711E5060C4EBD35",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationRule.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B12083C9BF3E0EA8BC042CB3",
+              "file_ref": "F12083C9BF3E0EA8BC042CB3",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidator.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D38587460DC768AAA08F20",
+              "file_ref": "F1D38587460DC768AAA08F20",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/SafeFormIdentifier.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CB9F7302D2B76B8F03B500",
+              "file_ref": "F1CB9F7302D2B76B8F03B500",
+              "path": "PackagesInUse/AppFileStorage/Sources/AppFileStorage/AppFileStorage.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B10F1D49CC48B83C3BC3A892",
+              "file_ref": "F10F1D49CC48B83C3BC3A892",
+              "path": "PackagesInUse/AppIntentSupport/Sources/AppIntentSupport/AppIntentSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "AISRC1C9CB4A69EF9403806B",
+              "file_ref": "AIREFC9CB4A69EF9403806BE",
+              "path": "CreateTextFeedCardIntent.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "AISRC1E8A87337A180CBC938",
+              "file_ref": "AIREFE8A87337A180CBC938E",
+              "path": "TchopAppShortcutsProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "A000000E0000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": []
+        },
+        {
+          "id": "A000000F0000000000000001",
+          "kind": "PBXResourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "A000001D0000000000000001",
+              "file_ref": "A000002E0000000000000001",
+              "path": "Assets.xcassets",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B282B563D6F0C9D5B1F473F3",
+              "file_ref": "F282B563D6F0C9D5B1F473F3",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B214DC0A4405C1B7F4A631BB",
+              "file_ref": "F214DC0A4405C1B7F4A631BB",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "D00000110000000000000001",
+          "kind": "PBXCopyFilesBuildPhase",
+          "entries": [
+            {
+              "build_id": "D00000080000000000000001",
+              "file_ref": "D000000A0000000000000001",
+              "path": "TchopWidgetsExtension.appex",
+              "source_tree": "BUILT_PRODUCTS_DIR",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000050000000000000001",
+              "file_ref": "L00000130000000000000001",
+              "path": "TchopShareExtension.appex",
+              "source_tree": "BUILT_PRODUCTS_DIR",
+              "product_ref": null
+            }
+          ]
+        }
+      ],
+      "dependencies": [
+        "TchopWidgetsExtension",
+        "TchopShareExtension"
+      ]
+    },
+    {
+      "id": "D000002C0000000000000001",
+      "name": "TchopWidgetsOceanExtension",
+      "phases": [
+        {
+          "id": "D000002D0000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "D00000250000000000000001",
+              "file_ref": "D000000C0000000000000001",
+              "path": "FeedHeadlineWidget.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000260000000000000001",
+              "file_ref": "D000000E0000000000000001",
+              "path": "TchopWidgetsBundle.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000270000000000000001",
+              "file_ref": "D00000040000000000000001",
+              "path": "AppGroupConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11EF913A8B930702FD185B1",
+              "file_ref": "F11EF913A8B930702FD185B1",
+              "path": "PackagesInUse/AppWidgetSupport/Sources/AppWidgetSupport/AppWidgetSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1739E5934BD76F887F5D974",
+              "file_ref": "F1739E5934BD76F887F5D974",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "D000002B0000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": [
+            {
+              "build_id": "ZAI000050000000000000001",
+              "file_ref": "ZAI000000000000000000001",
+              "path": "System/Library/Frameworks/AppIntents.framework",
+              "source_tree": "SDKROOT",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "D000002E0000000000000001",
+          "kind": "PBXResourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "B282B563D6F0C9D5B1F473F3",
+              "file_ref": "F282B563D6F0C9D5B1F473F3",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B214DC0A4405C1B7F4A631BB",
+              "file_ref": "F214DC0A4405C1B7F4A631BB",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "D00000160000000000000001",
+      "name": "TchopWidgetsExtension",
+      "phases": [
+        {
+          "id": "D000001A0000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "D000000B0000000000000001",
+              "file_ref": "D000000C0000000000000001",
+              "path": "FeedHeadlineWidget.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D000000D0000000000000001",
+              "file_ref": "D000000E0000000000000001",
+              "path": "TchopWidgetsBundle.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D000000F0000000000000001",
+              "file_ref": "D00000040000000000000001",
+              "path": "AppGroupConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11EF913A8B930702FD185B1",
+              "file_ref": "F11EF913A8B930702FD185B1",
+              "path": "PackagesInUse/AppWidgetSupport/Sources/AppWidgetSupport/AppWidgetSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1739E5934BD76F887F5D974",
+              "file_ref": "F1739E5934BD76F887F5D974",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "D00000150000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": [
+            {
+              "build_id": "ZAI000040000000000000001",
+              "file_ref": "ZAI000000000000000000001",
+              "path": "System/Library/Frameworks/AppIntents.framework",
+              "source_tree": "SDKROOT",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "D000001B0000000000000001",
+          "kind": "PBXResourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "B282B563D6F0C9D5B1F473F3",
+              "file_ref": "F282B563D6F0C9D5B1F473F3",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B214DC0A4405C1B7F4A631BB",
+              "file_ref": "F214DC0A4405C1B7F4A631BB",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "B00000080000000000000001",
+      "name": "TchopAppOcean",
+      "phases": [
+        {
+          "id": "B00000070000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "A00000110000000000000001",
+              "file_ref": "A00000210000000000000001",
+              "path": "TchopApp.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000120000000000000001",
+              "file_ref": "A00000220000000000000001",
+              "path": "AppTab.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000130000000000000001",
+              "file_ref": "A00000230000000000000001",
+              "path": "AppShellView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000140000000000000001",
+              "file_ref": "A00000240000000000000001",
+              "path": "TopBarView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000150000000000000001",
+              "file_ref": "A00000250000000000000001",
+              "path": "BrandMarkView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000160000000000000001",
+              "file_ref": "A00000260000000000000001",
+              "path": "BottomTabBar.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000170000000000000001",
+              "file_ref": "A00000270000000000000001",
+              "path": "FloatingActionButton.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000180000000000000001",
+              "file_ref": "A00000280000000000000001",
+              "path": "SideMenuView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000190000000000000001",
+              "file_ref": "A00000290000000000000001",
+              "path": "NewsFeedView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000001C0000000000000001",
+              "file_ref": "A000002C0000000000000001",
+              "path": "TabStubView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000350000000000000001",
+              "file_ref": "A00000360000000000000001",
+              "path": "ShellContentView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "M00000010000000000000001",
+              "file_ref": "M00000020000000000000001",
+              "path": "SharedCardComposerView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000370000000000000001",
+              "file_ref": "A00000380000000000000001",
+              "path": "TabContentView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000391000000000000001",
+              "file_ref": "A000003A1000000000000001",
+              "path": "FeedCardStatusBadge.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "R00000020000000000000001",
+              "file_ref": "R00000030000000000000001",
+              "path": "AppChannel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003B0000000000000001",
+              "file_ref": "A000003C0000000000000001",
+              "path": "ChannelHeaderInfo.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003C1000000000000001",
+              "file_ref": "A000003C2000000000000001",
+              "path": "AccountProfileSummary.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000920000000000000001",
+              "file_ref": "A00000930000000000000001",
+              "path": "FeatureTabModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003D0000000000000001",
+              "file_ref": "A000003E0000000000000001",
+              "path": "NewsFeedModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000003F0000000000000001",
+              "file_ref": "A00000400000000000000001",
+              "path": "AppShellViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "K00000030000000000000001",
+              "file_ref": "K00000020000000000000001",
+              "path": "NewsFeedCardActionCoordinator.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000410000000000000001",
+              "file_ref": "A00000420000000000000001",
+              "path": "NewsFeedViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000430000000000000001",
+              "file_ref": "A00000440000000000000001",
+              "path": "AppDatabase.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000450000000000000001",
+              "file_ref": "A00000460000000000000001",
+              "path": "AppContentRecord.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000470000000000000001",
+              "file_ref": "A00000480000000000000001",
+              "path": "AppDataSeeder.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000490000000000000001",
+              "file_ref": "A000004A0000000000000001",
+              "path": "AppContentRepository.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000004D0000000000000001",
+              "file_ref": "A000004E0000000000000001",
+              "path": "TabRoutes.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000004F0000000000000001",
+              "file_ref": "A00000500000000000000001",
+              "path": "AppCoordinator.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000A00000000000000001",
+              "file_ref": "A00000A10000000000000001",
+              "path": "NavigationSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000A70000000000000001",
+              "file_ref": "A00000A60000000000000001",
+              "path": "DeepLinkManaging.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000A40000000000000001",
+              "file_ref": "A00000A50000000000000001",
+              "path": "DeepLinkManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000510000000000000001",
+              "file_ref": "A00000520000000000000001",
+              "path": "NewsTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000530000000000000001",
+              "file_ref": "A00000540000000000000001",
+              "path": "NewsDestinationView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000940000000000000001",
+              "file_ref": "A00000950000000000000001",
+              "path": "FeatureTabScaffoldView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000960000000000000001",
+              "file_ref": "A00000970000000000000001",
+              "path": "MixesTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000980000000000000001",
+              "file_ref": "A00000990000000000000001",
+              "path": "PinnedTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000009A0000000000000001",
+              "file_ref": "A000009B0000000000000001",
+              "path": "ChatTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000550000000000000001",
+              "file_ref": "A00000560000000000000001",
+              "path": "StubTabNavigationRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000570000000000000001",
+              "file_ref": "A00000580000000000000001",
+              "path": "StubTabDetailView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000590000000000000001",
+              "file_ref": "A000005A0000000000000001",
+              "path": "AppUser.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "J00000010000000000000001",
+              "file_ref": "J00000020000000000000001",
+              "path": "AuthenticationAPIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000005B0000000000000001",
+              "file_ref": "A000005C0000000000000001",
+              "path": "UserSessionService.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000005D0000000000000001",
+              "file_ref": "A000005E0000000000000001",
+              "path": "UserRepository.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000610000000000000001",
+              "file_ref": "A00000620000000000000001",
+              "path": "AppState.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000630000000000000001",
+              "file_ref": "A00000640000000000000001",
+              "path": "LoginViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000650000000000000001",
+              "file_ref": "A00000660000000000000001",
+              "path": "AppRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000670000000000000001",
+              "file_ref": "A00000680000000000000001",
+              "path": "LoginScreenView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000690000000000000001",
+              "file_ref": "A000006A0000000000000001",
+              "path": "ProfileTabRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "P00000030000000000000001",
+              "file_ref": "P00000010000000000000001",
+              "path": "ProfileTabViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "K00000060000000000000001",
+              "file_ref": "K00000050000000000000001",
+              "path": "AppErrorMapping.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000730000000000000001",
+              "file_ref": "A00000740000000000000001",
+              "path": "AppDIContainer.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "U00000120000000000000001",
+              "file_ref": "U00000130000000000000001",
+              "path": "AppLaunchConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B00000030000000000000001",
+              "file_ref": "B00000020000000000000001",
+              "path": "AppBranding.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "S00000070000000000000001",
+              "file_ref": "S00000060000000000000001",
+              "path": "ChannelSettingsRepository.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "R00000080000000000000001",
+              "file_ref": "R00000090000000000000001",
+              "path": "ChannelsStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A00000B00000000000000001",
+              "file_ref": "A00000B10000000000000001",
+              "path": "AppLocalization.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "A000009C0000000000000001",
+              "file_ref": "A000009D0000000000000001",
+              "path": "AppTheme.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "R00000050000000000000001",
+              "file_ref": "R00000060000000000000001",
+              "path": "SessionStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "E00000060000000000000001",
+              "file_ref": "E00000080000000000000001",
+              "path": "AppPushNotificationBridge.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "E00000070000000000000001",
+              "file_ref": "E00000090000000000000001",
+              "path": "TchopApplicationDelegate.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000010000000000000001",
+              "file_ref": "D00000020000000000000001",
+              "path": "AppWidgetBridge.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000030000000000000001",
+              "file_ref": "D00000040000000000000001",
+              "path": "AppGroupConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000031000000000000001",
+              "file_ref": "D00000041000000000000001",
+              "path": "SharedFeedCardSyncManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "D00000033000000000000001",
+              "file_ref": "D00000042000000000000001",
+              "path": "ShareExtensionSessionContextManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "BF1AF5020000000000000001",
+              "file_ref": "FF1AF5020000000000000001",
+              "path": "AppFileStorageDomains.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1174D9B4D1000F7A6F19921",
+              "file_ref": "F1174D9B4D1000F7A6F19921",
+              "path": "PackagesInUse/AppAnalytics/Sources/AppAnalytics/AppAnalytics.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11ED4DC89E5864CE4DED583",
+              "file_ref": "F11ED4DC89E5864CE4DED583",
+              "path": "PackagesInUse/AppAnalytics/Sources/AppAnalyticsCore/AppAnalyticsCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E7122EA40405498D50C09D",
+              "file_ref": "F1E7122EA40405498D50C09D",
+              "path": "PackagesInUse/AppAppleAuthentication/Sources/AppAppleAuthentication/AppAppleAuthentication.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B162886B171F46F1F2D8D95A",
+              "file_ref": "F162886B171F46F1F2D8D95A",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/AppBrandingCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1576A5C2E26E2E4B69A28B6",
+              "file_ref": "F1576A5C2E26E2E4B69A28B6",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/BrandColorTokens.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B110FB90539E3194095CD07A",
+              "file_ref": "F110FB90539E3194095CD07A",
+              "path": "PackagesInUse/AppConfiguration/Sources/AppConfiguration/AppConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B163BBE7C99F1AE0567E4547",
+              "file_ref": "F163BBE7C99F1AE0567E4547",
+              "path": "PackagesInUse/AppDatabase/Sources/AppCoreDataDatabase/AppCoreDataDatabase.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1A6C1AD05D926918F243E00",
+              "file_ref": "F1A6C1AD05D926918F243E00",
+              "path": "PackagesInUse/AppDatabase/Sources/AppCoreDataDatabase/CoreDataBackgroundDatabaseManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C3C4D8B411F61A2022694F",
+              "file_ref": "F1C3C4D8B411F61A2022694F",
+              "path": "PackagesInUse/AppDatabase/Sources/AppDatabase/AppDatabaseUmbrella.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B126A543659698EDD6960061",
+              "file_ref": "F126A543659698EDD6960061",
+              "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseComposition/AppDatabaseComposition.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15F9AFB8CA760D841B23702",
+              "file_ref": "F15F9AFB8CA760D841B23702",
+              "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1029B7894F1D1A1259351B0",
+              "file_ref": "F1029B7894F1D1A1259351B0",
+              "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B12601760918A642BB479B00",
+              "file_ref": "F12601760918A642BB479B00",
+              "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1EE089F94F76CE1F4380763",
+              "file_ref": "F1EE089F94F76CE1F4380763",
+              "path": "PackagesInUse/AppErrors/Sources/AppErrors/AppErrors.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11B94034E9E1F4ECC90FBA3",
+              "file_ref": "F11B94034E9E1F4ECC90FBA3",
+              "path": "PackagesInUse/AppErrors/Sources/AppErrorsCore/AppErrorsCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B19F1CFEBD8C4A3B2A1812E8",
+              "file_ref": "F19F1CFEBD8C4A3B2A1812E8",
+              "path": "PackagesInUse/AppGlassUI/Sources/AppGlassUI/AppGlassUI.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E06D8E19300078611945EF",
+              "file_ref": "F1E06D8E19300078611945EF",
+              "path": "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B17DD97FCE3B35FEA615A9F4",
+              "file_ref": "F17DD97FCE3B35FEA615A9F4",
+              "path": "PackagesInUse/AppNavigation/Sources/AppNavigation/AppNavigation.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1522094F946E1DA9FB44D3F",
+              "file_ref": "F1522094F946E1DA9FB44D3F",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIConnectivity.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1A28940CF0D2F8C32A5394E",
+              "file_ref": "F1A28940CF0D2F8C32A5394E",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIInterceptors.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B10C84564E26C312C5688EAA",
+              "file_ref": "F10C84564E26C312C5688EAA",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIManaging.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18AB02F1628DAEA7946F794",
+              "file_ref": "F18AB02F1628DAEA7946F794",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B189B3E22C5618F294D1A3D9",
+              "file_ref": "F189B3E22C5618F294D1A3D9",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/APIOfflineQueue.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B10C0BD3C50D6141D7C061E0",
+              "file_ref": "F10C0BD3C50D6141D7C061E0",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/AppNetworking.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B14F717F55399A354CC2705E",
+              "file_ref": "F14F717F55399A354CC2705E",
+              "path": "PackagesInUse/AppNetworking/Sources/AppNetworking/MockAPIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11A5138596F0215F8644D0A",
+              "file_ref": "F11A5138596F0215F8644D0A",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/AppOnDeviceAI.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13D8B25FB31E0D0E98F4997",
+              "file_ref": "F13D8B25FB31E0D0E98F4997",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F76607CF3AA427F344EE70",
+              "file_ref": "F1F76607CF3AA427F344EE70",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/UnavailableOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1790EF9086DCA513DABE26B",
+              "file_ref": "F1790EF9086DCA513DABE26B",
+              "path": "PackagesInUse/AppPushNotifications/Sources/AppPushNotifications/AppPushNotifications.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1AFBD5B8465FE6627D03AEC",
+              "file_ref": "F1AFBD5B8465FE6627D03AEC",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppGroupJSONFileStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15D8BAA5A60D12A48E2BBB8",
+              "file_ref": "F15D8BAA5A60D12A48E2BBB8",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppShareExtensionSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1FD56D66ED90A5816CA8FBD",
+              "file_ref": "F1FD56D66ED90A5816CA8FBD",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/ShareItemImporter.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11EF913A8B930702FD185B1",
+              "file_ref": "F11EF913A8B930702FD185B1",
+              "path": "PackagesInUse/AppWidgetSupport/Sources/AppWidgetSupport/AppWidgetSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1B4FD3AA1666E2680DA16F7",
+              "file_ref": "F1B4FD3AA1666E2680DA16F7",
+              "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNavigationIntegration/Sources/AppAnalyticsNavigationIntegration/AppAnalyticsNavigationIntegration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18EFC7790280D8DB59E79E4",
+              "file_ref": "F18EFC7790280D8DB59E79E4",
+              "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsNetworkingIntegration/Sources/AppAnalyticsNetworkingIntegration/AppAnalyticsNetworkingIntegration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1465A1AA7B57175F914FECB",
+              "file_ref": "F1465A1AA7B57175F914FECB",
+              "path": "PackagesInUse/IntegrationHelpers/AppAnalyticsPushNotificationsIntegration/Sources/AppAnalyticsPushNotificationsIntegration/AppAnalyticsPushNotificationsIntegration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1739E5934BD76F887F5D974",
+              "file_ref": "F1739E5934BD76F887F5D974",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13AA7F9D10F170ACE435056",
+              "file_ref": "F13AA7F9D10F170ACE435056",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/AVFoundationPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1DC209FBCD5A356594801D9",
+              "file_ref": "F1DC209FBCD5A356594801D9",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/CompositePermissionManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C804DF0516393CF241903B",
+              "file_ref": "F1C804DF0516393CF241903B",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/ContactsPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18700A0334F1812D6D0B343",
+              "file_ref": "F18700A0334F1812D6D0B343",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/CoreLocationPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E4D04EEB6373398DD7A46E",
+              "file_ref": "F1E4D04EEB6373398DD7A46E",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/ManualPermissionManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1530AFA0913592B0EB0DC2C",
+              "file_ref": "F1530AFA0913592B0EB0DC2C",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionError.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C8A9EA8829613EFB1AEC22",
+              "file_ref": "F1C8A9EA8829613EFB1AEC22",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionKind.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B18FCFD3C31948A805BEAF54",
+              "file_ref": "F18FCFD3C31948A805BEAF54",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionManaging.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1C9C3CF1AB8E127A07992BC",
+              "file_ref": "F1C9C3CF1AB8E127A07992BC",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionReadiness.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1AED921D96048A2D06D862C",
+              "file_ref": "F1AED921D96048A2D06D862C",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionRequestOutcome.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11FD9DCF8A431CFBA94722B",
+              "file_ref": "F11FD9DCF8A431CFBA94722B",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1101913E03F06EB8300AFB3",
+              "file_ref": "F1101913E03F06EB8300AFB3",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionState.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1ED026FDBC4B459E744B9F4",
+              "file_ref": "F1ED026FDBC4B459E744B9F4",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionUsageDescriptionChecker.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D9851D7848038CF8EDE469",
+              "file_ref": "F1D9851D7848038CF8EDE469",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PermissionUsageDescriptions.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11C542223DD825AF79A4A67",
+              "file_ref": "F11C542223DD825AF79A4A67",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/PhotoLibraryPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CB977B4A278DDE896331CF",
+              "file_ref": "F1CB977B4A278DDE896331CF",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/StaticPermissionManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1294C7AFDED3CC4EEE05435",
+              "file_ref": "F1294C7AFDED3CC4EEE05435",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/SystemPermissionManagerFactory.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11D5C9644D4AD68ECBD8A64",
+              "file_ref": "F11D5C9644D4AD68ECBD8A64",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/TrackingTransparencyPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B14701072B26244C28F267AE",
+              "file_ref": "F14701072B26244C28F267AE",
+              "path": "PackagesInUse/AppPermissions/Sources/AppPermissions/UserNotificationPermissionProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15DB9E3784CE340E16C9434",
+              "file_ref": "F15DB9E3784CE340E16C9434",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppBuildInfo.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B123F9845F21F48DDA812C65",
+              "file_ref": "F123F9845F21F48DDA812C65",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentDiagnostics.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E44787048058FEDD3AF909",
+              "file_ref": "F1E44787048058FEDD3AF909",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentProviding.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B182D22A0B360456132A3184",
+              "file_ref": "F182D22A0B360456132A3184",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppEnvironmentSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13F94E33B7F05890809E77F",
+              "file_ref": "F13F94E33B7F05890809E77F",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppLocaleContext.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B12E7568FD5D7E1D751FB691",
+              "file_ref": "F12E7568FD5D7E1D751FB691",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/AppRuntimeFlags.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B139683313ACB3F013724210",
+              "file_ref": "F139683313ACB3F013724210",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/BuildConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1096E05B7263C8905B2AF59",
+              "file_ref": "F1096E05B7263C8905B2AF59",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/BundleAppBuildInfoProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1DCB83FC2BB84AF16A27A37",
+              "file_ref": "F1DCB83FC2BB84AF16A27A37",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/CurrentLocaleContextProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1FF3868CA33E862E3B62241",
+              "file_ref": "F1FF3868CA33E862E3B62241",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/DefaultAppEnvironmentProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B107DC66714B65397F210359",
+              "file_ref": "F107DC66714B65397F210359",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/EnvironmentKind.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B196836BA89782A8E5E0742C",
+              "file_ref": "F196836BA89782A8E5E0742C",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/ProcessRuntimeFlagsProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F50FDFFCB3F84F8CDE3DCE",
+              "file_ref": "F1F50FDFFCB3F84F8CDE3DCE",
+              "path": "PackagesInUse/AppEnvironment/Sources/AppEnvironment/StaticProviders.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CD46F4C0AEEB6B9C363AF8",
+              "file_ref": "F1CD46F4C0AEEB6B9C363AF8",
+              "path": "PackagesInUse/AppLifecycle/Sources/AppLifecycle/AppLifecycle.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B185F952AAAE615D759B082E",
+              "file_ref": "F185F952AAAE615D759B082E",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/BuiltInFormValidationRule.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1A17DA1002324BB6444E331",
+              "file_ref": "F1A17DA1002324BB6444E331",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormFieldState.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E0090A4683F72570AA6056",
+              "file_ref": "F1E0090A4683F72570AA6056",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormFieldValue.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B158F3364FF9783BC93BD290",
+              "file_ref": "F158F3364FF9783BC93BD290",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormSnapshot.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B154A2CB61F2F98F652D800D",
+              "file_ref": "F154A2CB61F2F98F652D800D",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormSnapshotStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1B8834A337097125AA59B94",
+              "file_ref": "F1B8834A337097125AA59B94",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormStateController.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D280A0625CB3AED3BCD844",
+              "file_ref": "F1D280A0625CB3AED3BCD844",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationContext.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1119117F0EC03F9B711655E",
+              "file_ref": "F1119117F0EC03F9B711655E",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationFailure.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13FCFC497D0B22C32461194",
+              "file_ref": "F13FCFC497D0B22C32461194",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationIdentifiers.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D297DE79FE1C469455FF82",
+              "file_ref": "F1D297DE79FE1C469455FF82",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationIssue.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F92F327C15B89975B20374",
+              "file_ref": "F1F92F327C15B89975B20374",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationPlan.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1306B74D0FA6F5D23EB1562",
+              "file_ref": "F1306B74D0FA6F5D23EB1562",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationResult.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E197B00711E5060C4EBD35",
+              "file_ref": "F1E197B00711E5060C4EBD35",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidationRule.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B12083C9BF3E0EA8BC042CB3",
+              "file_ref": "F12083C9BF3E0EA8BC042CB3",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/FormValidator.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1D38587460DC768AAA08F20",
+              "file_ref": "F1D38587460DC768AAA08F20",
+              "path": "PackagesInUse/AppFormValidation/Sources/AppFormValidation/SafeFormIdentifier.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CB9F7302D2B76B8F03B500",
+              "file_ref": "F1CB9F7302D2B76B8F03B500",
+              "path": "PackagesInUse/AppFileStorage/Sources/AppFileStorage/AppFileStorage.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B10F1D49CC48B83C3BC3A892",
+              "file_ref": "F10F1D49CC48B83C3BC3A892",
+              "path": "PackagesInUse/AppIntentSupport/Sources/AppIntentSupport/AppIntentSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "AISRC2C9CB4A69EF9403806B",
+              "file_ref": "AIREFC9CB4A69EF9403806BE",
+              "path": "CreateTextFeedCardIntent.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "AISRC2E8A87337A180CBC938",
+              "file_ref": "AIREFE8A87337A180CBC938E",
+              "path": "TchopAppShortcutsProvider.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "B00000050000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": []
+        },
+        {
+          "id": "B00000060000000000000001",
+          "kind": "PBXResourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "A000001D0000000000000001",
+              "file_ref": "A000002E0000000000000001",
+              "path": "Assets.xcassets",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B282B563D6F0C9D5B1F473F3",
+              "file_ref": "F282B563D6F0C9D5B1F473F3",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B214DC0A4405C1B7F4A631BB",
+              "file_ref": "F214DC0A4405C1B7F4A631BB",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "D00000210000000000000001",
+          "kind": "PBXCopyFilesBuildPhase",
+          "entries": [
+            {
+              "build_id": "D00000240000000000000001",
+              "file_ref": "D000002A0000000000000001",
+              "path": "TchopWidgetsOceanExtension.appex",
+              "source_tree": "BUILT_PRODUCTS_DIR",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000100000000000000001",
+              "file_ref": "L00000140000000000000001",
+              "path": "TchopShareOceanExtension.appex",
+              "source_tree": "BUILT_PRODUCTS_DIR",
+              "product_ref": null
+            }
+          ]
+        }
+      ],
+      "dependencies": [
+        "TchopWidgetsOceanExtension",
+        "TchopShareOceanExtension"
+      ]
+    },
+    {
+      "id": "L00000220000000000000001",
+      "name": "TchopShareOceanExtension",
+      "phases": [
+        {
+          "id": "L00000360000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "L00000060000000000000001",
+              "file_ref": "L00000150000000000000001",
+              "path": "ShareViewController.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000070000000000000001",
+              "file_ref": "L00000160000000000000001",
+              "path": "ShareExtensionRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000080000000000000001",
+              "file_ref": "D00000040000000000000001",
+              "path": "AppGroupConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000002B0000000000000001",
+              "file_ref": "D00000041000000000000001",
+              "path": "SharedFeedCardSyncManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000002C0000000000000001",
+              "file_ref": "D00000042000000000000001",
+              "path": "ShareExtensionSessionContextManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "BF1AF5020000000000000001",
+              "file_ref": "FF1AF5020000000000000001",
+              "path": "AppFileStorageDomains.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000002D0000000000000001",
+              "file_ref": "A000009D0000000000000001",
+              "path": "AppTheme.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000002E0000000000000001",
+              "file_ref": "A00000B10000000000000001",
+              "path": "AppLocalization.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000002F0000000000000001",
+              "file_ref": "R00000030000000000000001",
+              "path": "AppChannel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000390000000000000001",
+              "file_ref": "A000003C0000000000000001",
+              "path": "ChannelHeaderInfo.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000003A00000000000000001",
+              "file_ref": "A000003E0000000000000001",
+              "path": "NewsFeedModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000003B00000000000000001",
+              "file_ref": "A00000400000000000000001",
+              "path": "AppShellViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000003C00000000000000001",
+              "file_ref": "M00000020000000000000001",
+              "path": "SharedCardComposerView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000003D00000000000000001",
+              "file_ref": "R00000090000000000000001",
+              "path": "ChannelsStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000420000000000000001",
+              "file_ref": "B00000020000000000000001",
+              "path": "AppBranding.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000440000000000000001",
+              "file_ref": "A000004E0000000000000001",
+              "path": "TabRoutes.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B162886B171F46F1F2D8D95A",
+              "file_ref": "F162886B171F46F1F2D8D95A",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/AppBrandingCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1576A5C2E26E2E4B69A28B6",
+              "file_ref": "F1576A5C2E26E2E4B69A28B6",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/BrandColorTokens.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E06D8E19300078611945EF",
+              "file_ref": "F1E06D8E19300078611945EF",
+              "path": "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11A5138596F0215F8644D0A",
+              "file_ref": "F11A5138596F0215F8644D0A",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/AppOnDeviceAI.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13D8B25FB31E0D0E98F4997",
+              "file_ref": "F13D8B25FB31E0D0E98F4997",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F76607CF3AA427F344EE70",
+              "file_ref": "F1F76607CF3AA427F344EE70",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/UnavailableOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1AFBD5B8465FE6627D03AEC",
+              "file_ref": "F1AFBD5B8465FE6627D03AEC",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppGroupJSONFileStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15D8BAA5A60D12A48E2BBB8",
+              "file_ref": "F15D8BAA5A60D12A48E2BBB8",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppShareExtensionSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1FD56D66ED90A5816CA8FBD",
+              "file_ref": "F1FD56D66ED90A5816CA8FBD",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/ShareItemImporter.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1739E5934BD76F887F5D974",
+              "file_ref": "F1739E5934BD76F887F5D974",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CB9F7302D2B76B8F03B500",
+              "file_ref": "F1CB9F7302D2B76B8F03B500",
+              "path": "PackagesInUse/AppFileStorage/Sources/AppFileStorage/AppFileStorage.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "L00000370000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": [
+            {
+              "build_id": "ZAI000020000000000000001",
+              "file_ref": "ZAI000000000000000000001",
+              "path": "System/Library/Frameworks/AppIntents.framework",
+              "source_tree": "SDKROOT",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "L00000380000000000000001",
+          "kind": "PBXResourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "B282B563D6F0C9D5B1F473F3",
+              "file_ref": "F282B563D6F0C9D5B1F473F3",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B214DC0A4405C1B7F4A631BB",
+              "file_ref": "F214DC0A4405C1B7F4A631BB",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "L00000210000000000000001",
+      "name": "TchopShareExtension",
+      "phases": [
+        {
+          "id": "L00000330000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "L00000010000000000000001",
+              "file_ref": "L00000150000000000000001",
+              "path": "ShareViewController.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000020000000000000001",
+              "file_ref": "L00000160000000000000001",
+              "path": "ShareExtensionRootView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000030000000000000001",
+              "file_ref": "D00000040000000000000001",
+              "path": "AppGroupConfiguration.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000000A0000000000000001",
+              "file_ref": "D00000041000000000000001",
+              "path": "SharedFeedCardSyncManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000000B0000000000000001",
+              "file_ref": "D00000042000000000000001",
+              "path": "ShareExtensionSessionContextManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "BF1AF5020000000000000001",
+              "file_ref": "FF1AF5020000000000000001",
+              "path": "AppFileStorageDomains.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000000C0000000000000001",
+              "file_ref": "A000009D0000000000000001",
+              "path": "AppTheme.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000000D0000000000000001",
+              "file_ref": "A00000B10000000000000001",
+              "path": "AppLocalization.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000000E0000000000000001",
+              "file_ref": "R00000030000000000000001",
+              "path": "AppChannel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000000F0000000000000001",
+              "file_ref": "A000003C0000000000000001",
+              "path": "ChannelHeaderInfo.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000001A0000000000000001",
+              "file_ref": "A000003E0000000000000001",
+              "path": "NewsFeedModels.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000001B0000000000000001",
+              "file_ref": "A00000400000000000000001",
+              "path": "AppShellViewModel.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000001C0000000000000001",
+              "file_ref": "M00000020000000000000001",
+              "path": "SharedCardComposerView.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L000001D0000000000000001",
+              "file_ref": "R00000090000000000000001",
+              "path": "ChannelsStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000410000000000000001",
+              "file_ref": "B00000020000000000000001",
+              "path": "AppBranding.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "L00000430000000000000001",
+              "file_ref": "A000004E0000000000000001",
+              "path": "TabRoutes.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B162886B171F46F1F2D8D95A",
+              "file_ref": "F162886B171F46F1F2D8D95A",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/AppBrandingCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1576A5C2E26E2E4B69A28B6",
+              "file_ref": "F1576A5C2E26E2E4B69A28B6",
+              "path": "PackagesInUse/AppBranding/Sources/AppBranding/BrandColorTokens.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1E06D8E19300078611945EF",
+              "file_ref": "F1E06D8E19300078611945EF",
+              "path": "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B11A5138596F0215F8644D0A",
+              "file_ref": "F11A5138596F0215F8644D0A",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/AppOnDeviceAI.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B13D8B25FB31E0D0E98F4997",
+              "file_ref": "F13D8B25FB31E0D0E98F4997",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1F76607CF3AA427F344EE70",
+              "file_ref": "F1F76607CF3AA427F344EE70",
+              "path": "PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/UnavailableOnDeviceAIManager.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1AFBD5B8465FE6627D03AEC",
+              "file_ref": "F1AFBD5B8465FE6627D03AEC",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppGroupJSONFileStore.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B15D8BAA5A60D12A48E2BBB8",
+              "file_ref": "F15D8BAA5A60D12A48E2BBB8",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/AppShareExtensionSupport.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1FD56D66ED90A5816CA8FBD",
+              "file_ref": "F1FD56D66ED90A5816CA8FBD",
+              "path": "PackagesInUse/AppShareExtensionSupport/Sources/AppShareExtensionSupport/ShareItemImporter.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1739E5934BD76F887F5D974",
+              "file_ref": "F1739E5934BD76F887F5D974",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B1CB9F7302D2B76B8F03B500",
+              "file_ref": "F1CB9F7302D2B76B8F03B500",
+              "path": "PackagesInUse/AppFileStorage/Sources/AppFileStorage/AppFileStorage.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "L00000340000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": [
+            {
+              "build_id": "ZAI000010000000000000001",
+              "file_ref": "ZAI000000000000000000001",
+              "path": "System/Library/Frameworks/AppIntents.framework",
+              "source_tree": "SDKROOT",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "L00000350000000000000001",
+          "kind": "PBXResourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "B282B563D6F0C9D5B1F473F3",
+              "file_ref": "F282B563D6F0C9D5B1F473F3",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            },
+            {
+              "build_id": "B214DC0A4405C1B7F4A631BB",
+              "file_ref": "F214DC0A4405C1B7F4A631BB",
+              "path": "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        }
+      ],
+      "dependencies": []
+    },
+    {
+      "id": "U00000060000000000000001",
+      "name": "TchopAppUITests",
+      "phases": [
+        {
+          "id": "U00000070000000000000001",
+          "kind": "PBXSourcesBuildPhase",
+          "entries": [
+            {
+              "build_id": "U00000010000000000000001",
+              "file_ref": "U00000020000000000000001",
+              "path": "TchopAppUITests.swift",
+              "source_tree": "<group>",
+              "product_ref": null
+            }
+          ]
+        },
+        {
+          "id": "U00000080000000000000001",
+          "kind": "PBXFrameworksBuildPhase",
+          "entries": [
+            {
+              "build_id": "ZAI000030000000000000001",
+              "file_ref": "ZAI000000000000000000001",
+              "path": "System/Library/Frameworks/AppIntents.framework",
+              "source_tree": "SDKROOT",
+              "product_ref": null
+            }
+          ]
+        }
+      ],
+      "dependencies": [
+        "TchopApp"
+      ]
+    }
+  ],
+  "coverage": "declared project metadata only; no source/test/resource bodies, signing/build settings, compile or runtime"
+}

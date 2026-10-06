@@ -1,0 +1,106 @@
+--- a/PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift
++++ b/PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift
+@@ -326,6 +326,8 @@
+ 
+             do {
+                 try nextStep.run(using: manager)
++            } catch let cancellationError as CancellationError {
++                throw cancellationError
+             } catch let databaseError as DatabaseError {
+                 throw databaseError
+             } catch {
+--- a/PackagesForReuse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift
++++ b/PackagesForReuse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift
+@@ -326,6 +326,8 @@
+ 
+             do {
+                 try nextStep.run(using: manager)
++            } catch let cancellationError as CancellationError {
++                throw cancellationError
+             } catch let databaseError as DatabaseError {
+                 throw databaseError
+             } catch {
+--- a/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift
++++ b/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift
+@@ -15,6 +15,8 @@
+     ) throws -> Result {
+         do {
+             return try operation(modelContext)
++        } catch let cancellationError as CancellationError {
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             throw databaseError
+         } catch {
+@@ -32,6 +34,9 @@
+                 try modelContext.save()
+             }
+             return result
++        } catch let cancellationError as CancellationError {
++            modelContext.rollback()
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             modelContext.rollback()
+             throw databaseError
+--- a/PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift
++++ b/PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift
+@@ -16,6 +16,8 @@
+     ) throws -> Result {
+         do {
+             return try operation(modelContext)
++        } catch let cancellationError as CancellationError {
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             throw databaseError
+         } catch {
+@@ -33,6 +35,9 @@
+                 try modelContext.save()
+             }
+             return result
++        } catch let cancellationError as CancellationError {
++            modelContext.rollback()
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             modelContext.rollback()
+             throw databaseError
+--- a/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift
++++ b/PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift
+@@ -31,6 +31,8 @@
+ 
+         do {
+             return try swiftDataOperation(modelContext)
++        } catch let cancellationError as CancellationError {
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             throw databaseError
+         } catch {
+@@ -71,6 +73,9 @@
+             let result = try swiftDataOperation(modelContext)
+             try modelContext.save()
+             return result
++        } catch let cancellationError as CancellationError {
++            modelContext.rollback()
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             modelContext.rollback()
+             throw databaseError
+--- a/PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift
++++ b/PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift
+@@ -32,6 +32,8 @@
+ 
+         do {
+             return try swiftDataOperation(modelContext)
++        } catch let cancellationError as CancellationError {
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             throw databaseError
+         } catch {
+@@ -72,6 +74,9 @@
+             let result = try swiftDataOperation(modelContext)
+             try modelContext.save()
+             return result
++        } catch let cancellationError as CancellationError {
++            modelContext.rollback()
++            throw cancellationError
+         } catch let databaseError as DatabaseError {
+             modelContext.rollback()
+             throw databaseError

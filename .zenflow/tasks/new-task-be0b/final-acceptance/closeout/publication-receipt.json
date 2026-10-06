@@ -1,0 +1,113 @@
+{
+  "utc": "2026-10-05T18:32:47.495036+00:00",
+  "base": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "trusted_remote": "https://github.com/MArtem/AIZenflowDocumentation.git",
+  "validated_remote_before": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "actual_merge_base": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "owned_files": [
+    "tasks/new-task-be0b/plan.md",
+    "tasks/new-task-be0b/handoff.md",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md"
+  ],
+  "serialization": "git diff --binary --full-index base -- exact3files",
+  "patch_sha256": "5d3c2edd785bf5aa5ad27f46488eda2f77c9a9196b45bb259a300fdcc5eff49a",
+  "file_sha256": {
+    "tasks/new-task-be0b/plan.md": "5035a0cd5075ddad4996d659f473dbf50cc3b80a5212b23a0e2362eb0969a7e6",
+    "tasks/new-task-be0b/handoff.md": "adfd415c8432c57a6e2fb2b8a3a3d76231b74464117bc6719b7d1cfd2430267e",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md": "ae3324abe10f14c35caaa3eecdf805536663bac22efb2252d64395cb7649e8b7"
+  },
+  "root_packet": {
+    "f06/parent-confirmed/parent-adjudication.json": "4d9e15297a7552eb94f6b2bc1dd5d1309a201dbd077fcb73182f717b292ce5f0",
+    "f02/parent-resume/runtime-receipt.json": "e31d4691f4d808dafc6832bd75e971e0cfd4b0cb218747f4851613783fec3092",
+    "cancellation-regression/qa-receipt.json": "bcac49b1c5a1a65d63464f4e9a0ccaf5d8e59528b2ccc49e989d5267813b800f",
+    "cancellation-regression/application-receipt.json": "d4130ee67eda35953e1f9fd158d29ca0e19856430dca5f19a827ea1ef379a8ab",
+    "cancellation-regression/semantic-review.json": "c57a15cba3d6d4d44637dc8ea5d17ed2419ff3e6cbb478c9dc67763258eafd19"
+  },
+  "contract": {
+    "behavior": "Synchronize terminal F01-F06 results, public cancellation-contract repair and bounded QA; preserve general Library NOT_READY",
+    "authority": "Direct parent closeout delegation plus standing user authority for canonical documentation commit/push only",
+    "producer_consumer": "Detailed matrix and active plan/handoff agree; local2 mirrors byte-identical",
+    "ordering": "Both frozen observer arms terminal before approved source repair; actual evidence before claims; exact HEAD review before non-force publication",
+    "envelope": "Exact3 canonical task docs plus2 local mirrors; no rules, source, mode, host/config or client Git mutations",
+    "failure": "Historical rejects remain historical; procedural PARTIAL and unknown cost never PASS; no current pending runtime authority",
+    "claims": "Scoped F02 closed; F06 executed but strict comparison withheld; no Library-added remedy, general LIB004 P2 remains OPEN; no app release claim"
+  },
+  "semantic_review": "Complete current candidate reviewed by integrator and independently by parent; no new P0-P3 doc findings",
+  "parent_review_sha256": "8f55fbce376a9f7d93ce341223d3b94b672c3e0667ea795abe8a5187b9254314",
+  "checks": {
+    "canonical_diff_check": "PASS once for current iteration",
+    "vault_index_and_manifest": "PASS 5193 files /4 app boundaries",
+    "client_document_boundaries": "PASS",
+    "local_markdown_links": 42,
+    "active_plan_handoff_words": 2932,
+    "sync_helper_ast": "PASS"
+  },
+  "preservation": {
+    "status": "PASS",
+    "protected_count": 121,
+    "approved_source_hashes": "6/6 PASS",
+    "outside_six_foreign_diff_sha256": "679fe99e844d51e12393bca82563cb6898889995f43eabaa10a94396fda8bb7a",
+    "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+    "mode_record_hashes": "unchanged within protected set",
+    "mirrors": "2/2 byte-identical",
+    "local_markdown_links": 42,
+    "sync_helper_ast": "PASS",
+    "parent_review_patch_sha256": "5d3c2edd785bf5aa5ad27f46488eda2f77c9a9196b45bb259a300fdcc5eff49a"
+  },
+  "reused_evidence": "Root source hashes/compiled provenance;66 actual post-fix assertions across iPhone18.2+27;4 fresh unsigned host builds;5 strict standalone module builds;both observer terminal receipts",
+  "omitted": "No repeat source/runtime QA; durable UserDefaults relaunch/crash atomicity and repeat-seeding idempotence not established; live Figma/CI/manual signing unavailable; iPad/physical/actual VoiceOver OMITTED_BY_USER",
+  "residual": "LIB004 general utility/cost P2 OPEN; F01 verifier P3 and unrelated TC-L02 P3 retained; shipped cancellation producer not established; preexisting compiler warnings retained",
+  "mode_status": {
+    "Tchop": "ON/AUTO",
+    "BattleshipGame": "ON/AUTO"
+  },
+  "postcommit_exact_review": {
+    "status": "PASS",
+    "head": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+    "base": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+    "patch_sha256": "5d3c2edd785bf5aa5ad27f46488eda2f77c9a9196b45bb259a300fdcc5eff49a",
+    "complete_diff_read": true,
+    "new_findings": "0 P0-P3",
+    "unchanged_pass_evidence_reused": true,
+    "clean": true,
+    "utc": "2026-10-05T18:33:08.550474+00:00"
+  },
+  "push": {
+    "status": "COMMAND_PASS",
+    "non_force": true,
+    "exact_sha": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+    "utc": "2026-10-05T18:33:28.574432+00:00"
+  },
+  "head": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "range": "cd36cc5664ac7155eb268b6af41fdab5298d6cee..f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+  "canonical_clean": true,
+  "staged_exact3": true,
+  "prepush": {
+    "head_unchanged": true,
+    "clean": true,
+    "remote_sha": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+    "actual_merge_base": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+    "inputs_unchanged": true
+  },
+  "remote_confirmation": {
+    "status": "PASS",
+    "independent_ls_remote_sha": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+    "separate_command": true,
+    "origin_main_after_exact_tracking_fetch": "f204df3b2d3f993ec0fac186d58f2c3f23ae5eca",
+    "remote_state_check": "PASS",
+    "utc": "2026-10-05T18:34:19.430939+00:00"
+  },
+  "final_preservation": {
+    "status": "PASS",
+    "protected_files": 121,
+    "source_candidate_hashes": "6/6 unchanged",
+    "foreign_diff_sha256": "679fe99e844d51e12393bca82563cb6898889995f43eabaa10a94396fda8bb7a",
+    "canonical_clean": true,
+    "canonical_head_unchanged": true,
+    "client_head_unchanged": true,
+    "mirrors": "2/2 byte-identical",
+    "mode_records": "initial byte-identical; observed ON/AUTO both",
+    "root_packet": "unchanged"
+  },
+  "status": "PUBLISHED_EXACT_SCOPED_DOCS_GENERAL_LIBRARY_NOT_READY"
+}

@@ -1,0 +1,93 @@
+{
+  "before": {
+    "TchopApp": {
+      "record_sha256": "787ef8abe76b0b346b3e08a575bdee86f7806848b253c3a8b0bfbaa254d9ff0b",
+      "cli": {
+        "command": [
+          "python3",
+          "-B",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/tools/reference_mode.py",
+          "status",
+          "--root",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+          "--project",
+          "TchopApp.xcodeproj"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"profile\": \"AUTO\", \"status\": \"ON\"}",
+        "stderr": ""
+      }
+    },
+    "BattleshipGame": {
+      "record_sha256": "f86061a2e890ad99b912675199fca83ea200c0824aedf4a259cd68be95b7e5a6",
+      "cli": {
+        "command": [
+          "python3",
+          "-B",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next/BattleshipGame/IOSLibrary/tools/reference_mode.py",
+          "status",
+          "--root",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+          "--project",
+          "BattleshipGame/BattleshipGame.xcodeproj"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"profile\": \"AUTO\", \"status\": \"ON\"}",
+        "stderr": ""
+      }
+    }
+  },
+  "operation": {
+    "command": [
+      "python3",
+      "-B",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/tools/reference_mode.py",
+      "off",
+      "--root",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+      "--project",
+      "TchopApp.xcodeproj"
+    ],
+    "exit_code": 0,
+    "stdout": "{\"profile\": \"AUTO\", \"status\": \"OFF\"}",
+    "stderr": ""
+  },
+  "after": {
+    "TchopApp": {
+      "record_sha256": "21d10213a6c9496e2d5486ff4be927aca9edf27ebf2637c7b0a516b34e003a9b",
+      "cli": {
+        "command": [
+          "python3",
+          "-B",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/tools/reference_mode.py",
+          "status",
+          "--root",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+          "--project",
+          "TchopApp.xcodeproj"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"profile\": \"AUTO\", \"status\": \"OFF\"}",
+        "stderr": ""
+      }
+    },
+    "BattleshipGame": {
+      "record_sha256": "f86061a2e890ad99b912675199fca83ea200c0824aedf4a259cd68be95b7e5a6",
+      "cli": {
+        "command": [
+          "python3",
+          "-B",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next/BattleshipGame/IOSLibrary/tools/reference_mode.py",
+          "status",
+          "--root",
+          "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+          "--project",
+          "BattleshipGame/BattleshipGame.xcodeproj"
+        ],
+        "exit_code": 0,
+        "stdout": "{\"profile\": \"AUTO\", \"status\": \"ON\"}",
+        "stderr": ""
+      }
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "stage": "ADOPTED_LIBRARY_CHALLENGE_AFTER_IMMUTABLE_FULL_KB",
+  "kb_sha256": "48b2fba8cb5b2c8539afe7b7e890a79d70db6df5444a4165eb538f117945aec4",
+  "actual_status": "ON/AUTO",
+  "confirmed_new_defects": 0,
+  "new_remedies": 0,
+  "retained": [
+    {
+      "id": "KB-CANCEL-01",
+      "reason": "Concurrency route confirms cooperative cancellation and committed-effect distinction; source transformation remains real, shipping consumer impact unknown."
+    },
+    {
+      "id": "KB-MIGRATION-01",
+      "reason": "Data route requires supported old-state/version/producer contracts; overshoot path remains conditional, not proven app schema defect."
+    }
+  ],
+  "added": [],
+  "rejected": [
+    {
+      "claim": "Mutable read-context closure proves a shipped read-only violation",
+      "reason": "Closure producer contract says read-only; no actual violating caller inspected; public misuse is hypothetical."
+    },
+    {
+      "claim": "Actor or async entrypoint proves all database work is off-main",
+      "reason": "Isolation/executor/runtime and creation path remain unobserved."
+    },
+    {
+      "claim": "Compilation or callback runner proves successful SwiftData schema migration/downgrade/preservation",
+      "reason": "Distinct schema/data transformations and failure/reopen runtime require actual evidence."
+    }
+  ],
+  "merged": [
+    {
+      "topic": "severity/reachability",
+      "delta": "Explicit Library review rule requires actual caller/input-producer trace for P0-P2. KB already did this; retained calibration, zero novel conclusion.",
+      "evidence": "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md Findings and correction"
+    },
+    {
+      "topic": "migration/retry/downgrade",
+      "delta": "Data route reinforces supported historical/partial/large store, idempotence/downgrade and reopen distinctions already present in KB; zero new finding/remedy.",
+      "evidence": "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md migration bullets"
+    },
+    {
+      "topic": "verification and compatibility",
+      "delta": "Mapped static-only mechanism evidence versus unobserved target/runtime/source/semantic/ABI compatibility; no changed API/distribution, no compatibility PASS.",
+      "evidence": "10_TESTING and16_BUILD_MODULARITY_TOOLING routes"
+    }
+  ],
+  "route_dispositions": {
+    "03_CONCURRENCY": "APPLIED actor/context, cancellation/error and executor distinctions",
+    "09_PERSISTENCE_DATA": "APPLIED version/checkpoint, idempotence, rollback/reopen/schema/downgrade",
+    "19_CODE_REVIEW_REFACTOR": "APPLIED conditional candidate adjudication before adding",
+    "10_TESTING": "APPLIED evidence only; all execution withheld",
+    "16_BUILD_MODULARITY_TOOLING": "APPLIED exact two hosts and source-only boundary; no changed public API/ABI claim",
+    "34_FULL_AUDIT": "NOT_APPLICABLE bounded mechanism review",
+    "05_UI_FLOW": "NOT_APPLICABLE no UI source scope",
+    "08_NETWORK": "NOT_APPLICABLE no transport source",
+    "12_SECURITY_PRIVACY": "NOT_SELECTED no observed credential/log/export boundary; downstream disclosure unknown",
+    "15_AI_FEATURE": "NOT_APPLICABLE sources not an AI feature; evaluator governed by first-layer eval guidance",
+    "44_AGENT_COORDINATION": "REFUSED no downstream agent authority"
+  },
+  "outcome": "Zero confirmed incremental defects; repeated guidance/evidence calibration only. Cannot establish blind discovery, causal quality uplift, complete misses/false positives or token/account savings."
+}

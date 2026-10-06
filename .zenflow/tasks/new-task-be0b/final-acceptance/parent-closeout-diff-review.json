@@ -1,0 +1,28 @@
+{
+  "status": "PARENT_COMPLETE_CLOSEOUT_DOC_DIFF_REVIEW_PASS",
+  "trusted_base": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "paths": [
+    "tasks/new-task-be0b/handoff.md",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md",
+    "tasks/new-task-be0b/plan.md"
+  ],
+  "serialization": "git diff --binary --full-index trusted_base -- exact3files",
+  "full_patch_sha256": "5d3c2edd785bf5aa5ad27f46488eda2f77c9a9196b45bb259a300fdcc5eff49a",
+  "contract": "Terminal scope/counters/authority/preservation match current immutable source/QA/observer receipts; historical refuses remain historical; source correction independent of Library outcome",
+  "findings": {
+    "P0-P2": 0,
+    "P3": 0
+  },
+  "preserved_open_gates": [
+    "LIB004 general utility/cost/P2 OPEN",
+    "F01 verifier P3",
+    "TC-L02 P3"
+  ],
+  "evidence_reused": [
+    "33 actual assertion labels per runtime and shutdown",
+    "6 before/candidate source hashes and matching compile/package inputs",
+    "4 fresh unsigned host exits/input SHA",
+    "F06 both terminal before source mutation and parent adjudication"
+  ],
+  "remaining": "Verify exact committed HEAD diff same hash, clean state, remote SHA after publication; this review invalidates if content changes"
+}

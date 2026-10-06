@@ -1,0 +1,252 @@
+Attributes: Application, 0x101a090b0, pid: 527, label: 'BattleshipGame'
+Element subtree:
+ →Application, 0x101a090b0, pid: 527, label: 'BattleshipGame'
+    Window (Main), 0x101a126f0, {{0.0, 0.0}, {834.0, 1210.0}}
+      Other, 0x101a157d0, {{0.0, 0.0}, {834.0, 1210.0}}
+        Other, 0x101a158f0, {{0.0, 0.0}, {834.0, 1210.0}}
+          Other, 0x101a15680, {{0.0, 0.0}, {834.0, 1210.0}}
+            Other, 0x101a12b10, {{0.0, 0.0}, {834.0, 1210.0}}
+              Other, 0x101a15e90, {{0.0, 0.0}, {834.0, 1210.0}}
+                Other, 0x101a15a10, {{0.0, 0.0}, {834.0, 1210.0}}
+                  NavigationBar, 0x101a15b30, {{0.0, 24.0}, {834.0, 102.0}}, identifier: 'Battleship'
+                    StaticText, 0x101a15c50, {{20.0, 77.5}, {161.5, 41.0}}, label: 'Battleship'
+                  Other, 0x101a15d70, {{0.0, 0.0}, {834.0, 1210.0}}
+                    Other, 0x101a15fb0, {{0.0, 0.0}, {834.0, 1210.0}}
+                      Other, 0x101a160d0, {{0.0, 0.0}, {834.0, 1210.0}}
+                        Other, 0x101a161f0, {{0.0, 0.0}, {834.0, 1210.0}}
+                          ScrollView, 0x101a16310, {{0.0, 0.0}, {834.0, 1210.0}}
+                            Other, 0x101a16430, {{0.0, 126.0}, {834.0, 1946.5}}
+                              Other, 0x101a16550, {{16.0, 142.0}, {802.0, 164.5}}
+                                StaticText, 0x101a16670, {{32.0, 158.0}, {168.0, 24.0}}, label: 'Place your Carrier.'
+                                StaticText, 0x101a16790, {{32.0, 194.0}, {170.5, 18.0}}, label: 'Placing: Carrier — 5 cells'
+                                Other, 0x101a168b0, {{32.0, 224.0}, {116.0, 20.0}}, label: 'Selected ship: Carrier, length 5 cells'
+                                Button, 0x101a169d0, {{32.0, 256.0}, {160.5, 34.5}}, label: 'Rotate: Horizontal'
+                                Button, 0x101a16af0, {{200.5, 256.0}, {61.5, 34.5}}, label: 'Start', Disabled
+                                Button, 0x101a16c10, {{696.5, 256.0}, {105.5, 34.5}}, label: 'New game'
+                              StaticText, 0x101a16d30, {{32.0, 340.5}, {76.5, 20.5}}, label: 'Your fleet'
+                              StaticText, 0x101a16e50, {{32.0, 371.0}, {414.5, 14.5}}, label: 'Place ships here. During the battle, computer shots appear on this board.'
+                              ScrollView, 0x101a16f70, {{32.0, 395.5}, {770.0, 770.0}}, label: 'Game board'
+                                Other, 0x101a17090, {{32.0, 395.5}, {770.0, 770.0}}
+                                  Button, 0x101a171b0, {{32.0, 395.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 1'
+                                  Button, 0x101a172d0, {{109.5, 395.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 2'
+                                  Button, 0x101a173f0, {{186.5, 395.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 3'
+                                  Button, 0x101a17510, {{264.0, 395.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 4'
+                                  Button, 0x101a17630, {{341.0, 395.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 5'
+                                  Button, 0x101a17750, {{418.5, 395.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 6'
+                                  Button, 0x101a17870, {{496.0, 395.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 7'
+                                  Button, 0x101a17990, {{573.0, 395.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 8'
+                                  Button, 0x101a17ab0, {{650.5, 395.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 9'
+                                  Button, 0x101a17bd0, {{727.5, 395.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 10'
+                                  Button, 0x101a17cf0, {{32.0, 473.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 1'
+                                  Button, 0x101a17e10, {{109.5, 473.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 2'
+                                  Button, 0x101a17f30, {{186.5, 473.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 3'
+                                  Button, 0x101a18050, {{264.0, 473.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 4'
+                                  Button, 0x101a18170, {{341.0, 473.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 5'
+                                  Button, 0x101a18290, {{418.5, 473.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 6'
+                                  Button, 0x101a183b0, {{496.0, 473.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 7'
+                                  Button, 0x101a184d0, {{573.0, 473.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 8'
+                                  Button, 0x101a185f0, {{650.5, 473.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 9'
+                                  Button, 0x101a18710, {{727.5, 473.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 10'
+                                  Button, 0x101a18830, {{32.0, 550.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 1'
+                                  Button, 0x101a18950, {{109.5, 550.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 2'
+                                  Button, 0x101a18a70, {{186.5, 550.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 3'
+                                  Button, 0x101a18b90, {{264.0, 550.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 4'
+                                  Button, 0x101a18cb0, {{341.0, 550.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 5'
+                                  Button, 0x101a18dd0, {{418.5, 550.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 6'
+                                  Button, 0x101a18ef0, {{496.0, 550.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 7'
+                                  Button, 0x101a19160, {{573.0, 550.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 8'
+                                  Button, 0x101a19280, {{650.5, 550.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 9'
+                                  Button, 0x101a193a0, {{727.5, 550.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 10'
+                                  Button, 0x101a194c0, {{32.0, 627.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 1'
+                                  Button, 0x101a195e0, {{109.5, 627.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 2'
+                                  Button, 0x101a19700, {{186.5, 627.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 3'
+                                  Button, 0x101a19820, {{264.0, 627.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 4'
+                                  Button, 0x101a19940, {{341.0, 627.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 5'
+                                  Button, 0x101a19a60, {{418.5, 627.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 6'
+                                  Button, 0x101a19b80, {{496.0, 627.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 7'
+                                  Button, 0x101a19ca0, {{573.0, 627.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 8'
+                                  Button, 0x101a19dc0, {{650.5, 627.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 9'
+                                  Button, 0x101a19ee0, {{727.5, 627.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 10'
+                                  Button, 0x101a1a000, {{32.0, 704.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 1'
+                                  Button, 0x101a1a120, {{109.5, 704.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 2'
+                                  Button, 0x101a1a240, {{186.5, 704.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 3'
+                                  Button, 0x101a19010, {{264.0, 704.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 4'
+                                  Button, 0x101a1a580, {{341.0, 704.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 5'
+                                  Button, 0x101a1a6a0, {{418.5, 704.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 6'
+                                  Button, 0x101a1a7c0, {{496.0, 704.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 7'
+                                  Button, 0x101a1a8e0, {{573.0, 704.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 8'
+                                  Button, 0x101a1aa00, {{650.5, 704.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 9'
+                                  Button, 0x101a1ab20, {{727.5, 704.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 10'
+                                  Button, 0x101a1ac40, {{32.0, 782.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 1'
+                                  Button, 0x101a1ad60, {{109.5, 782.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 2'
+                                  Button, 0x101a1ae80, {{186.5, 782.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 3'
+                                  Button, 0x101a1afa0, {{264.0, 782.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 4'
+                                  Button, 0x101a1b0c0, {{341.0, 782.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 5'
+                                  Button, 0x101a1b1e0, {{418.5, 782.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 6'
+                                  Button, 0x101a1b300, {{496.0, 782.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 7'
+                                  Button, 0x101a1b420, {{573.0, 782.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 8'
+                                  Button, 0x101a1b540, {{650.5, 782.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 9'
+                                  Button, 0x101a1b660, {{727.5, 782.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 10'
+                                  Button, 0x101a1b780, {{32.0, 859.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 1'
+                                  Button, 0x101a1b8a0, {{109.5, 859.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 2'
+                                  Button, 0x101a1b9c0, {{186.5, 859.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 3'
+                                  Button, 0x101a1bae0, {{264.0, 859.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 4'
+                                  Button, 0x101a1bc00, {{341.0, 859.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 5'
+                                  Button, 0x101a1bd20, {{418.5, 859.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 6'
+                                  Button, 0x101a1be40, {{496.0, 859.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 7'
+                                  Button, 0x101a1bf60, {{573.0, 859.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 8'
+                                  Button, 0x101a1c080, {{650.5, 859.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 9'
+                                  Button, 0x101a1a360, {{727.5, 859.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 10'
+                                  Button, 0x101a1c510, {{32.0, 936.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 1'
+                                  Button, 0x101a1c630, {{109.5, 936.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 2'
+                                  Button, 0x101a1c750, {{186.5, 936.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 3'
+                                  Button, 0x101a1c870, {{264.0, 936.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 4'
+                                  Button, 0x101a1c990, {{341.0, 936.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 5'
+                                  Button, 0x101a1cab0, {{418.5, 936.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 6'
+                                  Button, 0x101a1cbd0, {{496.0, 936.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 7'
+                                  Button, 0x101a1ccf0, {{573.0, 936.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 8'
+                                  Button, 0x101a1ce10, {{650.5, 936.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 9'
+                                  Button, 0x101a1cf30, {{727.5, 936.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 10'
+                                  Button, 0x101a1d050, {{32.0, 1014.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 1'
+                                  Button, 0x101a1d170, {{109.5, 1014.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 2'
+                                  Button, 0x101a1d290, {{186.5, 1014.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 3'
+                                  Button, 0x101a1d3b0, {{264.0, 1014.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 4'
+                                  Button, 0x101a1d4d0, {{341.0, 1014.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 5'
+                                  Button, 0x101a1d5f0, {{418.5, 1014.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 6'
+                                  Button, 0x101a1d710, {{496.0, 1014.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 7'
+                                  Button, 0x101a1d830, {{573.0, 1014.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 8'
+                                  Button, 0x101a1d950, {{650.5, 1014.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 9'
+                                  Button, 0x101a1da70, {{727.5, 1014.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 10'
+                                  Button, 0x101a1db90, {{32.0, 1091.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 1'
+                                  Button, 0x101a1dcb0, {{109.5, 1091.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 2'
+                                  Button, 0x101a1ddd0, {{186.5, 1091.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 3'
+                                  Button, 0x101a1def0, {{264.0, 1091.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 4'
+                                  Button, 0x101a1e010, {{341.0, 1091.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 5'
+                                  Button, 0x101a1e130, {{418.5, 1091.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 6'
+                                  Button, 0x101a1e250, {{496.0, 1091.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 7'
+                                  Button, 0x101a1e370, {{573.0, 1091.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 8'
+                                  Button, 0x101a1e490, {{650.5, 1091.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 9'
+                                  Button, 0x101a1e5b0, {{727.5, 1091.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 10'
+                                Other, 0x101a1e6d0, {{32.0, 1132.5}, {770.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                                  Other, 0x101a1e7f0, {{792.0, 1159.5}, {7.0, 3.0}}
+                                Other, 0x101a1e910, {{32.0, 1132.5}, {770.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                                  Other, 0x101a1ea30, {{792.0, 1159.5}, {7.0, 3.0}}
+                              StaticText, 0x101a1eb50, {{32.0, 1215.5}, {112.0, 20.5}}, label: 'Enemy waters'
+                              StaticText, 0x101a1ec70, {{32.0, 1246.0}, {185.0, 14.5}}, label: 'After start, tap a cell here to fire.'
+                              ScrollView, 0x101a1ed90, {{32.0, 1270.5}, {770.0, 770.0}}, label: 'Game board'
+                                Other, 0x101a1eeb0, {{32.0, 1270.5}, {770.0, 770.0}}
+                                  Button, 0x101a1efd0, {{32.0, 1270.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 1', Disabled
+                                  Button, 0x101a1f0f0, {{109.5, 1270.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 2', Disabled
+                                  Button, 0x101a1f210, {{186.5, 1270.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 3', Disabled
+                                  Button, 0x101a1f330, {{264.0, 1270.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 4', Disabled
+                                  Button, 0x101a1f450, {{341.0, 1270.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 5', Disabled
+                                  Button, 0x101a1f570, {{418.5, 1270.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 6', Disabled
+                                  Button, 0x101a1f690, {{496.0, 1270.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 7', Disabled
+                                  Button, 0x101a1f7b0, {{573.0, 1270.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 8', Disabled
+                                  Button, 0x101a1f8d0, {{650.5, 1270.5}, {74.0, 74.5}}, label: 'Empty cell, row 1, column 9', Disabled
+                                  Button, 0x101a1f9f0, {{727.5, 1270.5}, {74.5, 74.5}}, label: 'Empty cell, row 1, column 10', Disabled
+                                  Button, 0x101a1fb10, {{32.0, 1348.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 1', Disabled
+                                  Button, 0x101a1fc30, {{109.5, 1348.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 2', Disabled
+                                  Button, 0x101a1fd50, {{186.5, 1348.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 3', Disabled
+                                  Button, 0x101a1fe70, {{264.0, 1348.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 4', Disabled
+                                  Button, 0x101a1ff90, {{341.0, 1348.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 5', Disabled
+                                  Button, 0x101a200b0, {{418.5, 1348.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 6', Disabled
+                                  Button, 0x101a201d0, {{496.0, 1348.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 7', Disabled
+                                  Button, 0x101a202f0, {{573.0, 1348.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 8', Disabled
+                                  Button, 0x101a20410, {{650.5, 1348.0}, {74.0, 74.0}}, label: 'Empty cell, row 2, column 9', Disabled
+                                  Button, 0x101a20530, {{727.5, 1348.0}, {74.5, 74.0}}, label: 'Empty cell, row 2, column 10', Disabled
+                                  Button, 0x101a20650, {{32.0, 1425.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 1', Disabled
+                                  Button, 0x101a20770, {{109.5, 1425.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 2', Disabled
+                                  Button, 0x101a20890, {{186.5, 1425.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 3', Disabled
+                                  Button, 0x101a209b0, {{264.0, 1425.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 4', Disabled
+                                  Button, 0x101a20ad0, {{341.0, 1425.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 5', Disabled
+                                  Button, 0x101a20bf0, {{418.5, 1425.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 6', Disabled
+                                  Button, 0x101a20d10, {{496.0, 1425.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 7', Disabled
+                                  Button, 0x101a20f80, {{573.0, 1425.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 8', Disabled
+                                  Button, 0x101a210a0, {{650.5, 1425.0}, {74.0, 74.5}}, label: 'Empty cell, row 3, column 9', Disabled
+                                  Button, 0x101a211c0, {{727.5, 1425.0}, {74.5, 74.5}}, label: 'Empty cell, row 3, column 10', Disabled
+                                  Button, 0x101a212e0, {{32.0, 1502.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 1', Disabled
+                                  Button, 0x101a21400, {{109.5, 1502.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 2', Disabled
+                                  Button, 0x101a21520, {{186.5, 1502.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 3', Disabled
+                                  Button, 0x101a21640, {{264.0, 1502.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 4', Disabled
+                                  Button, 0x101a21760, {{341.0, 1502.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 5', Disabled
+                                  Button, 0x101a21880, {{418.5, 1502.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 6', Disabled
+                                  Button, 0x101a219a0, {{496.0, 1502.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 7', Disabled
+                                  Button, 0x101a21ac0, {{573.0, 1502.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 8', Disabled
+                                  Button, 0x101a21be0, {{650.5, 1502.5}, {74.0, 74.0}}, label: 'Empty cell, row 4, column 9', Disabled
+                                  Button, 0x101a21d00, {{727.5, 1502.5}, {74.5, 74.0}}, label: 'Empty cell, row 4, column 10', Disabled
+                                  Button, 0x101a21e20, {{32.0, 1579.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 1', Disabled
+                                  Button, 0x101a21f40, {{109.5, 1579.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 2', Disabled
+                                  Button, 0x101a22060, {{186.5, 1579.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 3', Disabled
+                                  Button, 0x101a20e30, {{264.0, 1579.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 4', Disabled
+                                  Button, 0x101a223a0, {{341.0, 1579.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 5', Disabled
+                                  Button, 0x101a224c0, {{418.5, 1579.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 6', Disabled
+                                  Button, 0x101a225e0, {{496.0, 1579.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 7', Disabled
+                                  Button, 0x101a22700, {{573.0, 1579.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 8', Disabled
+                                  Button, 0x101a22820, {{650.5, 1579.5}, {74.0, 74.5}}, label: 'Empty cell, row 5, column 9', Disabled
+                                  Button, 0x101a22940, {{727.5, 1579.5}, {74.5, 74.5}}, label: 'Empty cell, row 5, column 10', Disabled
+                                  Button, 0x101a22a60, {{32.0, 1657.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 1', Disabled
+                                  Button, 0x101a22b80, {{109.5, 1657.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 2', Disabled
+                                  Button, 0x101a22ca0, {{186.5, 1657.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 3', Disabled
+                                  Button, 0x101a22dc0, {{264.0, 1657.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 4', Disabled
+                                  Button, 0x101a22ee0, {{341.0, 1657.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 5', Disabled
+                                  Button, 0x101a23000, {{418.5, 1657.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 6', Disabled
+                                  Button, 0x101a23120, {{496.0, 1657.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 7', Disabled
+                                  Button, 0x101a23240, {{573.0, 1657.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 8', Disabled
+                                  Button, 0x101a23360, {{650.5, 1657.0}, {74.0, 74.5}}, label: 'Empty cell, row 6, column 9', Disabled
+                                  Button, 0x101a23480, {{727.5, 1657.0}, {74.5, 74.5}}, label: 'Empty cell, row 6, column 10', Disabled
+                                  Button, 0x101a235a0, {{32.0, 1734.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 1', Disabled
+                                  Button, 0x101a236c0, {{109.5, 1734.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 2', Disabled
+                                  Button, 0x101a237e0, {{186.5, 1734.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 3', Disabled
+                                  Button, 0x101a23900, {{264.0, 1734.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 4', Disabled
+                                  Button, 0x101a23a20, {{341.0, 1734.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 5', Disabled
+                                  Button, 0x101a23b40, {{418.5, 1734.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 6', Disabled
+                                  Button, 0x101a23c60, {{496.0, 1734.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 7', Disabled
+                                  Button, 0x101a23d80, {{573.0, 1734.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 8', Disabled
+                                  Button, 0x101a23ea0, {{650.5, 1734.5}, {74.0, 74.0}}, label: 'Empty cell, row 7, column 9', Disabled
+                                  Button, 0x101a22180, {{727.5, 1734.5}, {74.5, 74.0}}, label: 'Empty cell, row 7, column 10', Disabled
+                                  Button, 0x101a24330, {{32.0, 1811.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 1', Disabled
+                                  Button, 0x101a24450, {{109.5, 1811.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 2', Disabled
+                                  Button, 0x101a24570, {{186.5, 1811.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 3', Disabled
+                                  Button, 0x101a24690, {{264.0, 1811.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 4', Disabled
+                                  Button, 0x101a247b0, {{341.0, 1811.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 5', Disabled
+                                  Button, 0x101a248d0, {{418.5, 1811.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 6', Disabled
+                                  Button, 0x101a249f0, {{496.0, 1811.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 7', Disabled
+                                  Button, 0x101a24b10, {{573.0, 1811.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 8', Disabled
+                                  Button, 0x101a24c30, {{650.5, 1811.5}, {74.0, 74.5}}, label: 'Empty cell, row 8, column 9', Disabled
+                                  Button, 0x101a24d50, {{727.5, 1811.5}, {74.5, 74.5}}, label: 'Empty cell, row 8, column 10', Disabled
+                                  Button, 0x101a24e70, {{32.0, 1889.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 1', Disabled
+                                  Button, 0x101a24f90, {{109.5, 1889.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 2', Disabled
+                                  Button, 0x101a250b0, {{186.5, 1889.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 3', Disabled
+                                  Button, 0x101a251d0, {{264.0, 1889.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 4', Disabled
+                                  Button, 0x101a252f0, {{341.0, 1889.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 5', Disabled
+                                  Button, 0x101a25410, {{418.5, 1889.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 6', Disabled
+                                  Button, 0x101a25530, {{496.0, 1889.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 7', Disabled
+                                  Button, 0x101a25650, {{573.0, 1889.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 8', Disabled
+                                  Button, 0x101a25770, {{650.5, 1889.0}, {74.0, 74.0}}, label: 'Empty cell, row 9, column 9', Disabled
+                                  Button, 0x101a25890, {{727.5, 1889.0}, {74.5, 74.0}}, label: 'Empty cell, row 9, column 10', Disabled
+                                  Button, 0x101a259b0, {{32.0, 1966.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 1', Disabled
+                                  Button, 0x101a25ad0, {{109.5, 1966.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 2', Disabled
+                                  Button, 0x101a25bf0, {{186.5, 1966.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 3', Disabled
+                                  Button, 0x101a25d10, {{264.0, 1966.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 4', Disabled
+                                  Button, 0x101a25e30, {{341.0, 1966.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 5', Disabled
+                                  Button, 0x101a25f50, {{418.5, 1966.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 6', Disabled
+                                  Button, 0x101a26070, {{496.0, 1966.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 7', Disabled
+                                  Button, 0x101a26190, {{573.0, 1966.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 8', Disabled
+                                  Button, 0x101a262b0, {{650.5, 1966.0}, {74.0, 74.5}}, label: 'Empty cell, row 10, column 9', Disabled
+                                  Button, 0x101a263d0, {{727.5, 1966.0}, {74.5, 74.5}}, label: 'Empty cell, row 10, column 10', Disabled
+                                Other, 0x101a264f0, {{32.0, 2007.5}, {770.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                                  Other, 0x101a26610, {{792.0, 2034.5}, {7.0, 3.0}}
+                                Other, 0x101a26730, {{32.0, 2007.5}, {770.0, 30.0}}, label: 'Horizontal scroll bar, 1 page', value: 0%
+                                  Other, 0x101a26850, {{792.0, 2034.5}, {7.0, 3.0}}
+                            Other, 0x101a26970, {{801.0, 126.0}, {30.0, 1061.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                              Other, 0x101a26a90, {{828.0, 129.0}, {3.0, 608.5}}
+                            Other, 0x101a26bb0, {{801.0, 126.0}, {30.0, 1061.0}}, label: 'Vertical scroll bar, 2 pages', value: 0%
+                              Other, 0x101a26cd0, {{828.0, 129.0}, {3.0, 608.5}}
+Path to element:
+ →Application, 0x101a090b0, pid: 527, label: 'BattleshipGame'
+Query chain:
+ →Find: Target Application 'com.zenflow.BattleshipGame'
+  Output: {
+    Application, 0x101c226f0, pid: 527, label: 'BattleshipGame'
+  }

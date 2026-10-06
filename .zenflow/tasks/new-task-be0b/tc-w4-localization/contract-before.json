@@ -1,0 +1,83 @@
+{
+  "id": "TC-W4-01",
+  "owner": "user; integrator GPT-6.1 Sol/high economic",
+  "authority": "User chose real Tchop W4 task and then explicitly delegated task selection: выбери сам; earlier current task self-verification delegation and iPhone18.2/27 mandate applied to this chosen system pilot; no authority from BG memory",
+  "behavior": "AppTab.placeholderDescription resolves existing product tab.*.stubDescription translations in English/Russian; property/cases/navigation/product strings remain unchanged",
+  "producer_consumer": "AppTab.placeholderDescription -> TabStubView -> existing TabStubView pinned preview / StubTabNavigationRootView mixes preview. Live Mixes/Pinned/Chat use FeatureTabNavigationRootView; no live-route crash asserted. Both exact host targets compile shared AppTab; strings unchanged across six targets.",
+  "state_ordering": "Synchronous immutable lookup; no persistence/network/async/state migration",
+  "envelope": "Five existing enum cases,323 locale keys per English/Russian table; five literal replacements in one shipping source",
+  "failure": "Missing resource calls assertionFailure in Debug, raw key fallback in Release; no new fallback/suppression",
+  "scope": "Real existing shared developer-preview localization defect; five AppTab literal keys, no production feature. SideMenu menu.footer preview mismatch separately observed outside chosen one-source block.",
+  "checks": "Static keys/resources/consumer graph/diff, standalone actual-source bundle lookup probes per iPhone runtime/language; unsigned isolated Debug host builds per selected runtime where environment supports; no auth/product network/UI test target changes",
+  "Library": "UNVERIFIED exact Tchop selector; complete KB only, no adoption/status-script inheritance/transition",
+  "constraints": "No iPad/physical checks globally; no agents/MCP/installers/host config/secrets/client Git; .zenflow output; necessary Simulator exception only",
+  "before_sha256": {
+    "TchopApp/Models/AppTab.swift": "650e8abea9fa7d79659c8744f5174271f4379ccc4f1b396556390ccf3b0beecb",
+    "TchopApp/App/AppLocalization.swift": "a8df9918f7926e1ed4895d4ae8401ff9a91c94f2564c30a501e4018e7168bdd5",
+    "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift": "97ae589e25e58dd35a409b544389c61684f9371af5f6e913a9b42277fbb66a81",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift": "6949428380cc3e5954407e6ca8d07a917d254724c9b277d0bacd7bcc4320a118",
+    "TchopApp/Views/Stub/TabStubView.swift": "90a0a6d5922950464501e86db8900eb2e26f6f3ddc35f41f53ebcce0c651e4d6",
+    "TchopApp/Views/Tabs/StubTabNavigationRootView.swift": "6fc6422b3f17e33dfac5fefff72c29e5584253e51eca9474a78e54d952651929",
+    "TchopApp.xcodeproj/project.pbxproj": "a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb",
+    "TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme": "9ac7bb21f641b0f247ccf6c414c12a5d74a33e64523e63a0f2751348a2fa2a17",
+    "TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme": "ef060370056878093d9b70ecbbd132bd72c8290f558ec12b07dbdd6555b754d8",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj/Localizable.strings": "c0627430cb370bc756f52c1e2514ee29cb472808d9d291d3d27a369472532ed0",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj/Localizable.strings": "1300d7684f76d034a721233512aa3861e01a6c13c42a1b625b8a9b466c55a266"
+  },
+  "consumers": [
+    {
+      "target": "TchopApp",
+      "id": "A000000C0000000000000001"
+    },
+    {
+      "target": "TchopAppOcean",
+      "id": "B00000080000000000000001"
+    }
+  ],
+  "host_config_metadata": [
+    {
+      "target": "TchopApp",
+      "name": "Debug",
+      "settings": {
+        "SWIFT_VERSION": "6.0",
+        "SWIFT_STRICT_CONCURRENCY": "complete",
+        "SWIFT_DEFAULT_ACTOR_ISOLATION": "inherited/unspecified",
+        "IPHONEOS_DEPLOYMENT_TARGET": "17.0"
+      }
+    },
+    {
+      "target": "TchopApp",
+      "name": "Release",
+      "settings": {
+        "SWIFT_VERSION": "6.0",
+        "SWIFT_STRICT_CONCURRENCY": "complete",
+        "SWIFT_DEFAULT_ACTOR_ISOLATION": "inherited/unspecified",
+        "IPHONEOS_DEPLOYMENT_TARGET": "17.0"
+      }
+    },
+    {
+      "target": "TchopAppOcean",
+      "name": "Debug",
+      "settings": {
+        "SWIFT_VERSION": "6.0",
+        "SWIFT_STRICT_CONCURRENCY": "complete",
+        "SWIFT_DEFAULT_ACTOR_ISOLATION": "inherited/unspecified",
+        "IPHONEOS_DEPLOYMENT_TARGET": "17.0"
+      }
+    },
+    {
+      "target": "TchopAppOcean",
+      "name": "Release",
+      "settings": {
+        "SWIFT_VERSION": "6.0",
+        "SWIFT_STRICT_CONCURRENCY": "complete",
+        "SWIFT_DEFAULT_ACTOR_ISOLATION": "inherited/unspecified",
+        "IPHONEOS_DEPLOYMENT_TARGET": "17.0"
+      }
+    }
+  ],
+  "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+  "canonical_base": "4c3a901243a6788cfce59ec3db09d037062651a3",
+  "QC": "DEFERRED owned by user/maintainer; revisited before TC-W4-01: existing exact source/target graph and Swift6 strict-complete metadata observed, baseline-only scoped review; no engine/profile/runner or host/config wiring adopted",
+  "classification_correction": "Initial route hypothesis was corrected after reading actual three tab roots; actual probe failure proves property lookup, not authenticated navigation or rendered preview."
+}

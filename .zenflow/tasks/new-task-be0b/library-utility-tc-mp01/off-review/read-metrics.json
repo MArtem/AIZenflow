@@ -1,0 +1,703 @@
+{
+  "file_path_sizes_by_read_group": [
+    {
+      "sequence_group": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "file_bytes": 5070,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "file_bytes": 13748,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "file_bytes": 11011,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "file_bytes": 7507,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "file_bytes": 8381,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+      "file_bytes": 14913,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 4,
+      "path": "/Users/Artem/.zenflow/AGENTS.md",
+      "file_bytes": 496,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/docs/TASK_DOCUMENT_ROUTES.overlay.json",
+      "file_bytes": 627,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md",
+      "file_bytes": 7261,
+      "access": "cat/full; returned output truncated",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md",
+      "file_bytes": 6359,
+      "access": "cat/full; returned output truncated",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "file_bytes": 85786,
+      "access": "cat/full; returned output truncated",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md",
+      "file_bytes": 7661,
+      "access": "cat/full; pointer only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md",
+      "file_bytes": 6687,
+      "access": "cat/full; pointer only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "file_bytes": 85786,
+      "access": "sed selected lines for truncation recovery",
+      "range": [
+        1,
+        240
+      ],
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "file_bytes": 85786,
+      "access": "sed selected lines for truncation recovery",
+      "range": [
+        241,
+        480
+      ],
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "file_bytes": 85786,
+      "access": "sed selected lines for truncation recovery",
+      "range": [
+        481,
+        680
+      ],
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "file_bytes": 85786,
+      "access": "sed selected lines for truncation recovery",
+      "range": [
+        681,
+        831
+      ],
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+      "file_bytes": 32224,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PROJECT_WORK_SYSTEM.md",
+      "file_bytes": 32224,
+      "access": "sed missing lines",
+      "range": [
+        61,
+        190
+      ],
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "file_bytes": 1155,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "file_bytes": 15851,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "file_bytes": 2091,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md",
+      "file_bytes": 1542,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_UI_STATE_RENDERING_STANDARD.md",
+      "file_bytes": 6996,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PERFORMANCE_BUDGETS.md",
+      "file_bytes": 4529,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "file_bytes": 4513,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "file_bytes": 3018,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "file_bytes": 1593,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "file_bytes": 1046,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "file_bytes": 1552,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/agent-prompts/production-review-completeness.md",
+      "file_bytes": 2142,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md",
+      "file_bytes": 13015,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_QUALITY_GATES.md",
+      "file_bytes": 14974,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md",
+      "file_bytes": 877,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "file_bytes": 916,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+      "file_bytes": 4874,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_TOOLCHAIN_PROFILE_STANDARD.md",
+      "file_bytes": 5585,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-concurrency-runtime/SKILL.md",
+      "file_bytes": 1078,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-memory-cache-media/SKILL.md",
+      "file_bytes": 889,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.codex/skills/ios-evidence-gate/SKILL.md",
+      "file_bytes": 1007,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/MANIFEST.md",
+      "file_bytes": 2082,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/PROJECT_CONTEXT.md",
+      "file_bytes": 14854,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md",
+      "file_bytes": 2045,
+      "access": "cat/full",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/STARTUP_RULE.md",
+      "file_bytes": 4116,
+      "access": "cat/full adopted entrypoint only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/PROJECT_MODE.md",
+      "file_bytes": 7913,
+      "access": "cat/full mode contract only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/frozen-inputs.json",
+      "file_bytes": 7840,
+      "access": "cat/full neutral metadata",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/frozen-inputs.json",
+      "file_bytes": 7840,
+      "access": "JSON metadata read",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+      "file_bytes": 47829,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Models/NewsFeedModels.swift",
+      "file_bytes": 55115,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+      "file_bytes": 169498,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme",
+      "file_bytes": 4018,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme",
+      "file_bytes": 2918,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+      "file_bytes": 14913,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md",
+      "file_bytes": 2045,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/tools/reference_mode.py",
+      "file_bytes": 10487,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/knowledge-base-library-roadmap.md",
+      "file_bytes": 27503,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+      "file_bytes": 47829,
+      "access": "rg selected symbol anchors (whole file scan); nl/sed emitted window",
+      "range": [
+        910,
+        1450
+      ],
+      "semantic_scope": [
+        940,
+        1442
+      ]
+    },
+    {
+      "sequence_group": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Models/NewsFeedModels.swift",
+      "file_bytes": 55115,
+      "access": "nl/sed emitted window",
+      "range": [
+        925,
+        990
+      ],
+      "semantic_scope": [
+        937,
+        977
+      ]
+    },
+    {
+      "sequence_group": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+      "file_bytes": 47829,
+      "access": "nl/sed emitted callers window",
+      "range": [
+        470,
+        615
+      ],
+      "semantic_scope": [
+        483,
+        610
+      ]
+    },
+    {
+      "sequence_group": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+      "file_bytes": 169498,
+      "access": "rg selected filename/Swift flags; plutil JSON -> filter sources/targets/settings only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme",
+      "file_bytes": 4018,
+      "access": "XML -> BuildAction IDs/action config metadata only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme",
+      "file_bytes": 2918,
+      "access": "XML -> BuildAction IDs/action config metadata only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+      "file_bytes": 47829,
+      "access": "nl/sed caller adapter window",
+      "range": [
+        614,
+        665
+      ],
+      "semantic_scope": [
+        614,
+        648
+      ]
+    },
+    {
+      "sequence_group": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_RULES.md",
+      "file_bytes": 4576,
+      "access": "cat/full text",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_AUDIT_MATRIX.md",
+      "file_bytes": 2109,
+      "access": "sed lines",
+      "range": [
+        1,
+        130
+      ],
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "file_bytes": 16091,
+      "access": "rg severity/confidence/evidence anchors",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md",
+      "file_bytes": 16091,
+      "access": "sed lines",
+      "range": [
+        1,
+        105
+      ],
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/reference-status/29105892f934e061fdd32f67692fa1829dedbfd2485966b4d6288a7bfbfbf24d.json",
+      "file_bytes": 138,
+      "access": "SHA256 only, raw contents not emitted",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/frozen-inputs.json",
+      "file_bytes": 7840,
+      "access": "JSON metadata",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/off-review/kb-provisional.json",
+      "file_bytes": 27069,
+      "access": "own result JSON",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Views/News/NewsFeedView.swift",
+      "file_bytes": 47829,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/Models/NewsFeedModels.swift",
+      "file_bytes": 55115,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/project.pbxproj",
+      "file_bytes": 169498,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme",
+      "file_bytes": 4018,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme",
+      "file_bytes": 2918,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md",
+      "file_bytes": 14913,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/AGENTS.md",
+      "file_bytes": 2045,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopApp/IOSLibrary/tools/reference_mode.py",
+      "file_bytes": 10487,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/knowledge-base-library-roadmap.md",
+      "file_bytes": 27503,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    },
+    {
+      "sequence_group": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/reference-status/29105892f934e061fdd32f67692fa1829dedbfd2485966b4d6288a7bfbfbf24d.json",
+      "file_bytes": 138,
+      "access": "SHA256 only",
+      "range": null,
+      "semantic_scope": null
+    }
+  ],
+  "distinct_file_count": 53,
+  "distinct_file_bytes": 703175,
+  "sum_full_text_file_bytes": 340400,
+  "payload_files_count": 34,
+  "payload_bytes": 138647,
+  "two_frozen_hash_passes_logical_bytes": 668652,
+  "two_local_payload_hash_passes_logical_bytes": 277294,
+  "accidental_git_blob_bytes_hashed": 5139382,
+  "accidental_git_blob_reads": 1402,
+  "actual_os_read_bytes": "UNKNOWN/not instrumented; logical sizes are not read-system-call telemetry",
+  "partial_output_or_overscan": "Tool output truncation and additional source window lines listed in read-order.json; do not claim all file bytes entered model context",
+  "utc_end_observed": "2026-10-04T23:29:59.170287+00:00",
+  "tokens_account_cost": "UNKNOWN",
+  "wall_clock_elapsed_basis": "UTC start2026-10-04T23:17:52Z; monotonic samples per tool process cannot be compared reliably"
+}

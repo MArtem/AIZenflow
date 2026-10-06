@@ -1,0 +1,345 @@
+[
+  {
+    "command": 1,
+    "purpose": "bootstrap",
+    "chunk_id": "47327a",
+    "exit_code": 0,
+    "returned_token_count": 1287,
+    "tool_reported_wall_seconds": null
+  },
+  {
+    "command": 2,
+    "purpose": "baseline-router",
+    "chunk_id": "beced0",
+    "exit_code": 0,
+    "returned_token_count": 6190,
+    "tool_reported_wall_seconds": 1.2583e-05
+  },
+  {
+    "command": 3,
+    "purpose": "level0-discovery",
+    "chunk_id": "49c02e",
+    "exit_code": 0,
+    "returned_token_count": 4791,
+    "tool_reported_wall_seconds": 7.375e-06
+  },
+  {
+    "command": 4,
+    "purpose": "plan-sizing",
+    "chunk_id": "d0c74f",
+    "exit_code": 0,
+    "returned_token_count": 111,
+    "tool_reported_wall_seconds": 8.083e-06
+  },
+  {
+    "command": 5,
+    "purpose": "task-level0-full",
+    "chunk_id": "f55865",
+    "exit_code": 0,
+    "returned_token_count": 13183,
+    "tool_reported_wall_seconds": 1.1583e-05
+  },
+  {
+    "command": 6,
+    "purpose": "recover-canonical-handoff",
+    "chunk_id": "b6d096",
+    "exit_code": 0,
+    "returned_token_count": 3102,
+    "tool_reported_wall_seconds": 9.167e-06
+  },
+  {
+    "command": 7,
+    "purpose": "recover-local-plan",
+    "chunk_id": "10efff",
+    "exit_code": 0,
+    "returned_token_count": 3412,
+    "tool_reported_wall_seconds": 6.917e-06
+  },
+  {
+    "command": 8,
+    "purpose": "main-plan-1-160",
+    "chunk_id": "f77b6c",
+    "exit_code": 0,
+    "returned_token_count": 4075,
+    "tool_reported_wall_seconds": 1.1e-05
+  },
+  {
+    "command": 9,
+    "purpose": "main-plan-161-320-and-clipping-recovery",
+    "chunk_id": "aca54f",
+    "exit_code": 0,
+    "returned_token_count": 5499,
+    "tool_reported_wall_seconds": 1.0291e-05
+  },
+  {
+    "command": 10,
+    "purpose": "main-plan-321-500",
+    "chunk_id": "876f61",
+    "exit_code": 0,
+    "returned_token_count": 4534,
+    "tool_reported_wall_seconds": 1e-05
+  },
+  {
+    "command": 11,
+    "purpose": "main-plan-501-680",
+    "chunk_id": "139b0c",
+    "exit_code": 0,
+    "returned_token_count": 4765,
+    "tool_reported_wall_seconds": 1.25e-05
+  },
+  {
+    "command": 12,
+    "purpose": "main-plan-681-850",
+    "chunk_id": "f9de23",
+    "exit_code": 0,
+    "returned_token_count": 3764,
+    "tool_reported_wall_seconds": 1.1708e-05
+  },
+  {
+    "command": 13,
+    "purpose": "main-plan-851-1029",
+    "chunk_id": "7fbf24",
+    "exit_code": 0,
+    "returned_token_count": 4864,
+    "tool_reported_wall_seconds": 1.0292e-05
+  },
+  {
+    "command": 14,
+    "purpose": "work-system",
+    "chunk_id": "40dfc2",
+    "exit_code": 0,
+    "returned_token_count": 8056,
+    "tool_reported_wall_seconds": 1.0583e-05
+  },
+  {
+    "command": 15,
+    "purpose": "worksystem-clipping-recovery-preflight-quality",
+    "chunk_id": "b4a30b",
+    "exit_code": 0,
+    "returned_token_count": 4807,
+    "tool_reported_wall_seconds": 1.1209e-05
+  },
+  {
+    "command": 16,
+    "purpose": "boundaries-skills-full",
+    "chunk_id": "a43f26",
+    "exit_code": 0,
+    "returned_token_count": 3936,
+    "tool_reported_wall_seconds": 1.3375e-05
+  },
+  {
+    "command": 17,
+    "purpose": "package-ref-and-orientation",
+    "chunk_id": "e14c8d",
+    "exit_code": 0,
+    "returned_token_count": 3202,
+    "tool_reported_wall_seconds": 8.959e-06
+  },
+  {
+    "command": 18,
+    "purpose": "package-standards",
+    "chunk_id": "e10418",
+    "exit_code": 0,
+    "returned_token_count": 5087,
+    "tool_reported_wall_seconds": 1.2833e-05
+  },
+  {
+    "command": 19,
+    "purpose": "package-overlays-persistence",
+    "chunk_id": "34ce63",
+    "exit_code": 0,
+    "returned_token_count": 2675,
+    "tool_reported_wall_seconds": 8.5e-06
+  },
+  {
+    "command": 20,
+    "purpose": "concurrency-toolchain",
+    "chunk_id": "78e531",
+    "exit_code": 0,
+    "returned_token_count": 2329,
+    "tool_reported_wall_seconds": 7.791e-06
+  },
+  {
+    "command": 21,
+    "purpose": "concurrency-deep-review-gate",
+    "chunk_id": "d6a3a2",
+    "exit_code": 0,
+    "returned_token_count": 2883,
+    "tool_reported_wall_seconds": 1.1375e-05
+  },
+  {
+    "command": 22,
+    "purpose": "quality-review-documentation-readiness",
+    "chunk_id": "eece34",
+    "exit_code": 0,
+    "returned_token_count": 9731,
+    "tool_reported_wall_seconds": 1.2042e-05
+  },
+  {
+    "command": 23,
+    "purpose": "checklist-recovery-done-evidence-exception",
+    "chunk_id": "ad3131",
+    "exit_code": 0,
+    "returned_token_count": 4302,
+    "tool_reported_wall_seconds": 1.2e-05
+  },
+  {
+    "command": 24,
+    "purpose": "qc-governance",
+    "chunk_id": "ded4d7",
+    "exit_code": 0,
+    "returned_token_count": 4023,
+    "tool_reported_wall_seconds": 1.2959e-05
+  },
+  {
+    "command": 25,
+    "purpose": "required-review-readme",
+    "chunk_id": "50cf14",
+    "exit_code": 0,
+    "returned_token_count": 793,
+    "tool_reported_wall_seconds": 1.2708e-05
+  },
+  {
+    "command": 26,
+    "purpose": "completion-testing-diagnostics",
+    "chunk_id": "647276",
+    "exit_code": 1,
+    "returned_token_count": 1430,
+    "tool_reported_wall_seconds": 9.291e-06
+  },
+  {
+    "command": 27,
+    "purpose": "diagnostics-recovery-worksystem-refs",
+    "chunk_id": "bc6400",
+    "exit_code": 0,
+    "returned_token_count": 5254,
+    "tool_reported_wall_seconds": 1.1041e-05
+  },
+  {
+    "command": 28,
+    "purpose": "route-selected-members-app-before-nested",
+    "chunk_id": "5a0ea1",
+    "exit_code": 0,
+    "returned_token_count": 5034,
+    "tool_reported_wall_seconds": 7.334e-06
+  },
+  {
+    "command": 29,
+    "purpose": "remaining-machine-route-worksystem-template",
+    "chunk_id": "00fb89",
+    "exit_code": 0,
+    "returned_token_count": 7328,
+    "tool_reported_wall_seconds": 1.0791e-05
+  },
+  {
+    "command": 30,
+    "purpose": "recovery-and-required-package-doc-discovery",
+    "chunk_id": "c3b2a6",
+    "exit_code": 0,
+    "returned_token_count": 977,
+    "tool_reported_wall_seconds": 7.875e-06
+  },
+  {
+    "command": 31,
+    "purpose": "actual-adopted-package-docs",
+    "chunk_id": "c6ba2b",
+    "exit_code": 0,
+    "returned_token_count": 1478,
+    "tool_reported_wall_seconds": 1.2625e-05
+  },
+  {
+    "command": 32,
+    "purpose": "severity-security-first-layer-close",
+    "chunk_id": "06ce44",
+    "exit_code": 0,
+    "returned_token_count": 2754,
+    "tool_reported_wall_seconds": 7.875e-06
+  },
+  {
+    "command": 33,
+    "purpose": "g1-nested-overlays",
+    "chunk_id": "38b37b",
+    "exit_code": 0,
+    "returned_token_count": 512,
+    "tool_reported_wall_seconds": 7.75e-06
+  },
+  {
+    "command": 34,
+    "purpose": "startup-control-allowlist-frozen",
+    "chunk_id": "0e696c",
+    "exit_code": 0,
+    "returned_token_count": 2232,
+    "tool_reported_wall_seconds": 1.0042e-05
+  },
+  {
+    "command": 35,
+    "purpose": "g2-control-pin-exact34",
+    "chunk_id": "112341",
+    "exit_code": 0,
+    "returned_token_count": 2063,
+    "tool_reported_wall_seconds": 0.396228459
+  },
+  {
+    "command": 36,
+    "purpose": "g3-filtered-membership-g4-status",
+    "chunk_id": "ff5bba",
+    "exit_code": 0,
+    "returned_token_count": 910,
+    "tool_reported_wall_seconds": 0.181125458
+  },
+  {
+    "command": 37,
+    "purpose": "initial-preservation-source-start-core-full",
+    "chunk_id": "ccb2c6",
+    "exit_code": 0,
+    "returned_token_count": 4046,
+    "tool_reported_wall_seconds": 0.030109166
+  },
+  {
+    "command": 38,
+    "purpose": "source-actor-main-full-package-usage",
+    "chunk_id": "f9d3df",
+    "exit_code": 0,
+    "returned_token_count": 1637,
+    "tool_reported_wall_seconds": 1.2875e-05
+  },
+  {
+    "command": 39,
+    "purpose": "late-local-package-skill-health-reference-source-end",
+    "chunk_id": "76fada",
+    "exit_code": 0,
+    "returned_token_count": 865,
+    "tool_reported_wall_seconds": 7.542e-06
+  },
+  {
+    "command": 40,
+    "purpose": "immutable-provisional-save",
+    "chunk_id": "5526e9",
+    "exit_code": 0,
+    "returned_token_count": 31,
+    "tool_reported_wall_seconds": 0.00473
+  },
+  {
+    "command": 41,
+    "purpose": "coverage-trace-metrics-save",
+    "chunk_id": "b1923d",
+    "exit_code": 0,
+    "returned_token_count": 44,
+    "tool_reported_wall_seconds": 0.033500375
+  },
+  {
+    "command": 42,
+    "purpose": "g5-final-source-rules-pin-mode-preservation-check",
+    "chunk_id": "bf74a2",
+    "exit_code": 0,
+    "returned_token_count": 346,
+    "tool_reported_wall_seconds": 0.21407825
+  },
+  {
+    "command": 43,
+    "purpose": "final-result-receipt-save-and-own-json-validation",
+    "chunk_id": "returned in final tool output",
+    "exit_code": "see final tool output",
+    "returned_token_count": "UNKNOWN"
+  }
+]

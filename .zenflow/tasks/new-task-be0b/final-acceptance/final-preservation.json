@@ -1,0 +1,27 @@
+{
+  "protected_unchanged_count": 121,
+  "owned_document_exclusions": [
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md"
+  ],
+  "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+  "aggregate_client_diff_sha256": "b364f44a9bd54c2051b76705f576ecb5249121b0950e5d086336c19e6a33cde0",
+  "aggregate_change": "exact two owned local plan/handoff mirror writes; old aggregate not reused as PASS",
+  "foreign_patch_serialization": "old receipt excluded hash not reproduced; independent parent exact-serialization receipt PASS separately",
+  "tracked_foreign_not_in_initial_hash_universe": [
+    "docs/COMPATIBILITY_MATRIX.md",
+    "docs/CURRENT_USER_OVERRIDES.md",
+    "docs/IOS_ACCESSIBILITY_STANDARD.md",
+    "docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+    "docs/IOS_TESTING_STRATEGY.md",
+    "docs/QA_TEST_PLAN_STANDARD.md"
+  ],
+  "source_universes": "F01 19 files and F02 exact3 unchanged",
+  "mode_records": "both exact initial hashes preserved",
+  "mirror_equal": true,
+  "fixture_python_parse": "PASS",
+  "links": 42
+}

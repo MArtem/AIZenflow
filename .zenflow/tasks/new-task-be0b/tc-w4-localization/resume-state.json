@@ -1,0 +1,19 @@
+{
+  "state": "TC-W4-01 verified scoped; awaiting real Library profile authorization or bounded verdict",
+  "source_AppTab_sha256": "603f50c7ff6ee3bb563151ba82493289481ebeeb7d48cfb53368e9d9b2d4bdcd",
+  "source_commit": "not authorized/uncommitted",
+  "builds": "four host/destination PASS",
+  "lookups": "20/20 EN/RU across iPhone18.2/27",
+  "mode_controls": "17 synthetic PASS, no live transition/state access",
+  "Library_Tchop": "UNVERIFIED",
+  "other_finding": "TC-L02 P3 SideMenu preview key mismatch outside one-file task",
+  "remaining": "saved OFF/ADVISORY/real cross-mode stage evidence, LIB-004 OPEN",
+  "runtime": "none; owned phones shutdown",
+  "canonical_published_sha": "bef68b8de0c7668fdfc65ae759fec61be1f4b913",
+  "canonical_clean": true,
+  "core_verdict": "PENDING_USER_SCOPE_DECISION",
+  "Library_verdict": "NOT_READY_FOR_GENERAL_RELEASE; LIB-004 P2 OPEN",
+  "app_verdict": "NO_RELEASE_CLAIM; TC-L02 P3 separate OPEN",
+  "prepared_choices": "main plan W5: A bounded core acceptance recommended / B precise separately permitted Library canary; no actual transition/adoption",
+  "cleanup": "retain owned evidence and caches for reproducible resume; no deletion"
+}

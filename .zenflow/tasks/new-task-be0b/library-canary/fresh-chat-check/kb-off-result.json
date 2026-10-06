@@ -1,0 +1,145 @@
+{
+  "stage": "actual saved TC OFF/AUTO; BG ON/AUTO; provisional KB result frozen before consulting thematic Library",
+  "observed": {
+    "TchopApp": {
+      "profile": "AUTO",
+      "status": "OFF"
+    },
+    "BattleshipGame": {
+      "profile": "AUTO",
+      "status": "ON"
+    }
+  },
+  "source_freshness": {
+    "TchopApp/Models/AppTab.swift": "603f50c7ff6ee3bb563151ba82493289481ebeeb7d48cfb53368e9d9b2d4bdcd",
+    "TchopApp/App/AppLocalization.swift": "a8df9918f7926e1ed4895d4ae8401ff9a91c94f2564c30a501e4018e7168bdd5",
+    "PackagesInUse/AppLocalization/Sources/AppLocalization/AppLocalizationCore.swift": "97ae589e25e58dd35a409b544389c61684f9371af5f6e913a9b42277fbb66a81",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/TchopProductLocalizationResources.swift": "6949428380cc3e5954407e6ca8d07a917d254724c9b277d0bacd7bcc4320a118",
+    "TchopApp/Views/Stub/TabStubView.swift": "90a0a6d5922950464501e86db8900eb2e26f6f3ddc35f41f53ebcce0c651e4d6",
+    "TchopApp/Views/Tabs/StubTabNavigationRootView.swift": "6fc6422b3f17e33dfac5fefff72c29e5584253e51eca9474a78e54d952651929",
+    "TchopApp.xcodeproj/project.pbxproj": "a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb",
+    "TchopApp.xcodeproj/xcshareddata/xcschemes/TchopApp.xcscheme": "9ac7bb21f641b0f247ccf6c414c12a5d74a33e64523e63a0f2751348a2fa2a17",
+    "TchopApp.xcodeproj/xcshareddata/xcschemes/TchopAppOcean.xcscheme": "ef060370056878093d9b70ecbbd132bd72c8290f558ec12b07dbdd6555b754d8",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj/Localizable.strings": "c0627430cb370bc756f52c1e2514ee29cb472808d9d291d3d27a369472532ed0",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj/Localizable.strings": "1300d7684f76d034a721233512aa3861e01a6c13c42a1b625b8a9b466c55a266"
+  },
+  "graphs": {
+    "TchopApp.xcodeproj": {
+      "project_sha256": "a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb",
+      "targets": [
+        {
+          "name": "TchopAppTests",
+          "id": "A000008A0000000000000001",
+          "source_count": 11,
+          "AppTab_member": false
+        },
+        {
+          "name": "TchopApp",
+          "id": "A000000C0000000000000001",
+          "source_count": 154,
+          "AppTab_member": true
+        },
+        {
+          "name": "TchopWidgetsOceanExtension",
+          "id": "D000002C0000000000000001",
+          "source_count": 5,
+          "AppTab_member": false
+        },
+        {
+          "name": "TchopWidgetsExtension",
+          "id": "D00000160000000000000001",
+          "source_count": 5,
+          "AppTab_member": false
+        },
+        {
+          "name": "TchopAppOcean",
+          "id": "B00000080000000000000001",
+          "source_count": 154,
+          "AppTab_member": true
+        },
+        {
+          "name": "TchopShareOceanExtension",
+          "id": "L00000220000000000000001",
+          "source_count": 27,
+          "AppTab_member": false
+        },
+        {
+          "name": "TchopShareExtension",
+          "id": "L00000210000000000000001",
+          "source_count": 27,
+          "AppTab_member": false
+        },
+        {
+          "name": "TchopAppUITests",
+          "id": "U00000060000000000000001",
+          "source_count": 1,
+          "AppTab_member": false
+        }
+      ],
+      "library_file_refs": [],
+      "synchronized_groups": false
+    },
+    "BattleshipGame/BattleshipGame.xcodeproj": {
+      "project_sha256": "1382ee516cf4d957d430f9f9a4754244fa7027bde96a670fd3f2cf3722467e95",
+      "targets": [
+        {
+          "name": "BattleshipGame",
+          "id": "5A1B2C3D4E5F600000000040",
+          "source_count": 3,
+          "AppTab_member": false
+        },
+        {
+          "name": "BattleshipGameUITests",
+          "id": "B60100000000000000000005",
+          "source_count": 1,
+          "AppTab_member": false
+        }
+      ],
+      "library_file_refs": [],
+      "synchronized_groups": false
+    }
+  },
+  "shared_artifact": {
+    "path": "AGENTS.md",
+    "sha256": "13e4b68396a8599e4c352d4504a82f1e5c0124476ed1d1ac87549799e5f29754",
+    "consumers": [
+      "BG exact project nested entrypoint",
+      "TC exact project root->nested entrypoint"
+    ],
+    "interpretation": [
+      "Common baseline and global user verification scope apply to both selected projects",
+      "Tchop root section predicate exact TchopApp.xcodeproj; does not route BG into Tchop",
+      "BG nested own selector and handler apply to BG only",
+      "OFF does not disable full KB, consumer review or current human scopes",
+      "Both TC hosts share one mode; no source shared with BG claimed"
+    ]
+  },
+  "scope_recovery": {
+    "permissions": "current delegated task contract: read/static + TC off/on + isolated API fixtures + own evidence; no agents/MCP/Git/app edits; broader plan grants do not expand this chat",
+    "ending": "both ON/AUTO, BG byte hash exact initial",
+    "next_safe_step": "apply BG own pinned reference review to shared artifact while TC remains OFF; then authorized TC ON and own scoped challenge",
+    "QC": "both DEFERRED"
+  },
+  "review_conclusions": [
+    "Full current rules and task state restored before handler use; initial nested read-order deviation visible",
+    "No mode grants runtime/tests/Git; no paused backlog activation",
+    "AppTab exact five literals retained, all two declared/compiled host consumers accounted for",
+    "Payload is not shipping source/resource membership",
+    "No new confirmed entrypoint/app P0-P2"
+  ],
+  "reuse": {
+    "TC20_lookups_and4_builds": "prior observed selected case evidence retained;11 relevant source/project/scheme/resource fingerprints revalidated; no fresh build/UI claim, toolchain not reprobed",
+    "17_prior_controls": "not reexecuted; fresh minimal cases separately planned"
+  },
+  "failures": [
+    "First nested read before app manifests/context; corrected before execution, no strict-order PASS",
+    "read-only rg guessed TabBarItem/TabContentPlaceholder paths absent; corrected via rg --files",
+    "read-only rg TchopApp/Features absent; corrected via actual filenames"
+  ],
+  "omitted": [
+    "App builds/tests/UI/Simulator at unchanged inputs",
+    "all iPad/physical/actual VoiceOver OMITTED_BY_USER",
+    "ADVISORY replay no new risk",
+    "independent/multi-model review not authorized"
+  ]
+}

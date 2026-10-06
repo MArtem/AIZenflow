@@ -67,6 +67,25 @@ runtime/
 # Node / web tooling if ever present
 node_modules/
 
+# new-task-be0b: retain receipts and probe sources, keep derived QA products local.
+/.zenflow/tasks/new-task-be0b/**/derived-data/
+/.zenflow/tasks/new-task-be0b/**/cache/
+/.zenflow/tasks/new-task-be0b/**/module-cache/
+/.zenflow/tasks/new-task-be0b/**/swift-cache/
+/.zenflow/tasks/new-task-be0b/**/clang-cache/
+/.zenflow/tasks/new-task-be0b/**/build-cache/
+/.zenflow/tasks/new-task-be0b/**/host-build-cache/
+/.zenflow/tasks/new-task-be0b/**/cocoa-home/
+/.zenflow/tasks/new-task-be0b/**/sdk-stat/
+/.zenflow/tasks/new-task-be0b/**/compiled/
+/.zenflow/tasks/new-task-be0b/**/*.store
+/.zenflow/tasks/new-task-be0b/**/*.store-shm
+/.zenflow/tasks/new-task-be0b/**/*.store-wal
+/.zenflow/tasks/new-task-be0b/bg-t01-verification/extract-video
+/.zenflow/tasks/new-task-be0b/bg-t01-verification/native/model-regression
+/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos/DatabaseProbe
+/.zenflow/tasks/new-task-be0b/final-acceptance/f02/macos-failure/DatabaseProbe
+
 # Environment files / local config
 .env
 .env.*

@@ -7,6 +7,11 @@ Record supported iPhone/iPad/window, VoiceOver, Dynamic Type, RTL, keyboard/poin
 Reduce Motion rows in `./docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md`. A screenshot is supporting
 visual evidence only; it does not prove assistive-technology or device behavior.
 
+Planning scope: apply [USER.VERIFICATION.SCOPE](CURRENT_USER_OVERRIDES.md#verification-and-quality).
+Exclude all iPad verification and every physical-device check, including actual VoiceOver,
+from plans and exit gates. Keep implementation requirements, source-level accessibility
+review and permitted iPhone Simulator checks; exclusion does not establish coverage.
+
 ## Required Checks
 - VoiceOver labels, traits, hints, and grouping.
 - Logical focus order.

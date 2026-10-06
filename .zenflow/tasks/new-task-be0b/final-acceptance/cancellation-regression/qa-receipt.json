@@ -1,0 +1,70 @@
+{
+  "status": "APPROVED_CANCELLATION_FIX_AND_REQUIRED_QA_PASS",
+  "authority": "Human explicitly approved six-source patch and necessary QA after OFF/ON completed",
+  "source_contract": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-fix-proposal/contract.json",
+  "application": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/application-receipt.json",
+  "semantic_review": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/semantic-review.json",
+  "baseline": {
+    "status": "Six cancellation type mismatches observed on EACH18.2/27",
+    "assertions_per_runtime": 17,
+    "receipts": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/baseline/runtime-receipt.json"
+  },
+  "after": {
+    "cancellation_assertions_per_runtime": 17,
+    "migration_reopen_assertions_per_runtime": 16,
+    "total_per_runtime": 33,
+    "total_both_runtimes": 66,
+    "receipt": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/runtime-receipt.json",
+    "sdk": "27.0 deployment17, runtime18.2/27.0",
+    "shutdown_both_verified": true
+  },
+  "standalone_package": {
+    "result": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/package/build-receipt.json",
+    "all_five_modules": "PASS strictSwift6 complete warnings-as-errors",
+    "driver_warning": "Language mode overridden by extra Swift flags; no warning-free claim"
+  },
+  "host_builds": [
+    {
+      "runtime_destination": "18.2",
+      "scheme": "TchopApp",
+      "result": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/hosts/after-18.2-TchopApp-build/result.json",
+      "elapsed_seconds": 23.037,
+      "warnings": [
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift:86:26: warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]",
+        "    |                          |- warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift:86:26: warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]",
+        "    |                          |- warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]"
+      ]
+    },
+    {
+      "runtime_destination": "18.2",
+      "scheme": "TchopAppOcean",
+      "result": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/hosts/after-18.2-TchopAppOcean-build/result.json",
+      "elapsed_seconds": 15.713,
+      "warnings": [
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift:86:26: warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]",
+        "    |                          |- warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/PackagesInUse/AppOnDeviceAI/Sources/AppOnDeviceAI/FoundationModelsOnDeviceAIManager.swift:86:26: warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]",
+        "    |                          |- warning: 'init(sampling:temperature:maximumResponseTokens:)' is deprecated: replaced by 'init(samplingMode:temperature:maximumResponseTokens:)' [#DeprecatedDeclaration]"
+      ]
+    },
+    {
+      "runtime_destination": "27.0",
+      "scheme": "TchopApp",
+      "result": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/hosts/after-27.0-TchopApp-build/result.json",
+      "elapsed_seconds": 2.578,
+      "warnings": []
+    },
+    {
+      "runtime_destination": "27.0",
+      "scheme": "TchopAppOcean",
+      "result": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/hosts/after-27.0-TchopAppOcean-build/result.json",
+      "elapsed_seconds": 2.586,
+      "warnings": []
+    }
+  ],
+  "native_test_suite": "Not rerun unrelated media/validation suites; current cancellation/migration fixture actual execution",
+  "client_git": "Sources uncommitted; HEAD unchanged; no client commit/push",
+  "exclusions": "iPad/physical/actual VoiceOver OMITTED_BY_USER",
+  "residual": "No production schema/data/user or all-backend cancellation/global Library release claim"
+}

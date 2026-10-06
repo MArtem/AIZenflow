@@ -1,0 +1,169 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+      "deviceName" : "BG-T01-new-task-be0b-iPhone-iOS27",
+      "modelName" : "iPhone SE (3rd generation)",
+      "osBuildNumber" : "24A434",
+      "osVersion" : "27.0",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "children" : [
+                    {
+                      "children" : [
+                        {
+                          "name" : "Expectation failed: max(image.width, image.height) <= 1200\nmax(image.width, image.height) → 2048",
+                          "nodeType" : "Failure Message",
+                          "sourceLocation" : {
+                            "filePath" : "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopAppTests/FeedMediaPreviewRendererTests.swift",
+                            "lineNumber" : 27
+                          }
+                        },
+                        {
+                          "name" : "[Internal] Thread running at User-interactive quality-of-service class waiting on a lower QoS thread running at Utility quality-of-service class. Investigate ways to avoid priority inversions",
+                          "nodeType" : "Runtime Warning",
+                          "sourceLocation" : {
+                            "filePath" : "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopAppTests/FeedMediaPreviewRendererTests.swift",
+                            "lineNumber" : 120
+                          }
+                        }
+                      ],
+                      "duration" : "4s",
+                      "durationInSeconds" : 4.759012699127197,
+                      "name" : "false",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/videoThumbnailFitsPreviewEnvelope(rotated:)?args=fcbcf165908dd18a9e49f7ff27810176db8e9f63b4352213741664245224f8aa",
+                      "nodeType" : "Arguments",
+                      "result" : "Failed"
+                    },
+                    {
+                      "children" : [
+                        {
+                          "name" : "Expectation failed: max(image.width, image.height) <= 1200\nmax(image.width, image.height) → 2048",
+                          "nodeType" : "Failure Message",
+                          "sourceLocation" : {
+                            "filePath" : "/Users/Artem/.zenflow/worktrees/knowledge-base-next/TchopAppTests/FeedMediaPreviewRendererTests.swift",
+                            "lineNumber" : 27
+                          }
+                        }
+                      ],
+                      "duration" : "1s",
+                      "durationInSeconds" : 1.0060832500457764,
+                      "name" : "true",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/videoThumbnailFitsPreviewEnvelope(rotated:)?args=b5bea41b6c623f7c09f1bf24dcae58ebab3c0cdd90ad966bc43a45b44867e12b",
+                      "nodeType" : "Arguments",
+                      "result" : "Failed"
+                    }
+                  ],
+                  "duration" : "2s",
+                  "durationInSeconds" : 2.882547974586487,
+                  "name" : "videoThumbnailFitsPreviewEnvelope(rotated:)",
+                  "nodeIdentifier" : "FeedMediaPreviewRendererTests/videoThumbnailFitsPreviewEnvelope(rotated:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/videoThumbnailFitsPreviewEnvelope(rotated:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Failed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0,0094s",
+                      "durationInSeconds" : 0.009449005126953125,
+                      "name" : ".image",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/missingMediaKeepsFallback(kind:)?args=affa657b3c3e9337bdf3c879c0561b74d54a9197fdc6acd834dcdc02837454fc",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0,0011s",
+                      "durationInSeconds" : 0.0010540485382080078,
+                      "name" : ".pdf",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/missingMediaKeepsFallback(kind:)?args=7e79aba9dd5a9e6f2077a55a57f3903c1e4e84b4ef31f80dafad87a52581751d",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0,0011s",
+                      "durationInSeconds" : 0.0010917186737060547,
+                      "name" : ".video",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/missingMediaKeepsFallback(kind:)?args=807f0525549ec1760febbccb23415a1d78b6acbb28b101cbdbff27c394c1c826",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "duration" : "0,0039s",
+                  "durationInSeconds" : 0.003864924112955729,
+                  "name" : "missingMediaKeepsFallback(kind:)",
+                  "nodeIdentifier" : "FeedMediaPreviewRendererTests/missingMediaKeepsFallback(kind:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/missingMediaKeepsFallback(kind:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "children" : [
+                    {
+                      "duration" : "0,0013s",
+                      "durationInSeconds" : 0.0013239383697509766,
+                      "name" : ".image",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/malformedMediaKeepsFallback(kind:)?args=affa657b3c3e9337bdf3c879c0561b74d54a9197fdc6acd834dcdc02837454fc",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0,021s",
+                      "durationInSeconds" : 0.02129387855529785,
+                      "name" : ".pdf",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/malformedMediaKeepsFallback(kind:)?args=7e79aba9dd5a9e6f2077a55a57f3903c1e4e84b4ef31f80dafad87a52581751d",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    },
+                    {
+                      "duration" : "0,02s",
+                      "durationInSeconds" : 0.020469188690185547,
+                      "name" : ".video",
+                      "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/malformedMediaKeepsFallback(kind:)?args=807f0525549ec1760febbccb23415a1d78b6acbb28b101cbdbff27c394c1c826",
+                      "nodeType" : "Arguments",
+                      "result" : "Passed"
+                    }
+                  ],
+                  "duration" : "0,014s",
+                  "durationInSeconds" : 0.014362335205078125,
+                  "name" : "malformedMediaKeepsFallback(kind:)",
+                  "nodeIdentifier" : "FeedMediaPreviewRendererTests/malformedMediaKeepsFallback(kind:)",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests/malformedMediaKeepsFallback(kind:)",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "FeedMediaPreviewRendererTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests/FeedMediaPreviewRendererTests",
+              "nodeType" : "Test Suite",
+              "result" : "Failed"
+            }
+          ],
+          "name" : "TchopAppTests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/TchopApp/TchopAppTests",
+          "nodeType" : "Unit test bundle",
+          "result" : "Failed"
+        }
+      ],
+      "name" : "TchopApp",
+      "nodeType" : "Test Plan",
+      "result" : "Failed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "Test Scheme Action"
+    }
+  ]
+}

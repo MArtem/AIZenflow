@@ -1,0 +1,419 @@
+{
+  "mode": "runtime",
+  "authority": "Human parent confirmation of F02 iPhone18.2/27 and necessary CoreSimulator exception",
+  "source_sha256": {
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.swift": "f73319942e20b8f91168754a242fa77302876b2aaec64d4731c29e65fc5fbc17"
+  },
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/cache"
+  },
+  "commands": [
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/initial.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.563
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "boot",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/boot.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.484
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "bootstatus",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "-b"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/bootstatus.log",
+      "exit_code": 0,
+      "elapsed_seconds": 8.88
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/success/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 2.047
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "new",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/success/new.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.572
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/success/reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.044
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/failure/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.363
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "migrate-failure",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/failure/migrate-failure.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.084
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "old-reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/failure/old-reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.053
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "shutdown",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/shutdown.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.405
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/18.2/final.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.245
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/initial.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.188
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "boot",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/boot.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.722
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "bootstatus",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "-b"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/bootstatus.log",
+      "exit_code": 0,
+      "elapsed_seconds": 10.203
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/success/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 4.359
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "new",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/success/new.log",
+      "exit_code": 0,
+      "elapsed_seconds": 12.76
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/success/reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 10.788
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/failure/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 2.91
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "migrate-failure",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/failure/migrate-failure.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.73
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/DatabaseProbe.app/DatabaseProbe",
+        "old-reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/failure/old-reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.3
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "shutdown",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/shutdown.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.305
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f02/parent-resume/27.0/final.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.247
+    }
+  ],
+  "devices": [
+    {
+      "version": "18.2",
+      "udid": "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+      "status": "PASS",
+      "phases": [
+        {
+          "group": "success",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "new",
+          "pass_labels": [
+            "lightweight-preserves-old-values",
+            "typed-failure-preserved",
+            "write-failure-rollback",
+            "cooperative-cancellation-rolls-back",
+            "actor-concurrent-writes-preserved",
+            "migration-failure-visible",
+            "version-advances-only-after-success",
+            "migration-retry-resumes-version",
+            "current-version-is-idempotent"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "reopen",
+          "pass_labels": [
+            "separate-process-reopen-count",
+            "separate-process-reopen-old-fields",
+            "separate-process-rollback-durable"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "migrate-failure",
+          "pass_labels": [
+            "actual-SwiftData-migration-failure-visible"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old-reopen",
+          "pass_labels": [
+            "failed-migration-old-store-reopen-preserved"
+          ]
+        }
+      ],
+      "runtime_identifier": "com.apple.CoreSimulator.SimRuntime.iOS-18-2",
+      "name": "BG-T01-new-task-be0b-iPhone",
+      "assertions": 16,
+      "shutdown_verified": true
+    },
+    {
+      "version": "27.0",
+      "udid": "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+      "status": "PASS",
+      "phases": [
+        {
+          "group": "success",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "new",
+          "pass_labels": [
+            "lightweight-preserves-old-values",
+            "typed-failure-preserved",
+            "write-failure-rollback",
+            "cooperative-cancellation-rolls-back",
+            "actor-concurrent-writes-preserved",
+            "migration-failure-visible",
+            "version-advances-only-after-success",
+            "migration-retry-resumes-version",
+            "current-version-is-idempotent"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "reopen",
+          "pass_labels": [
+            "separate-process-reopen-count",
+            "separate-process-reopen-old-fields",
+            "separate-process-rollback-durable"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "migrate-failure",
+          "pass_labels": [
+            "actual-SwiftData-migration-failure-visible"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old-reopen",
+          "pass_labels": [
+            "failed-migration-old-store-reopen-preserved"
+          ]
+        }
+      ],
+      "runtime_identifier": "com.apple.CoreSimulator.SimRuntime.iOS-27-0",
+      "name": "BG-T01-new-task-be0b-iPhone-iOS27",
+      "assertions": 16,
+      "shutdown_verified": true
+    }
+  ],
+  "limits": [
+    "Disposable schema/component only, no app/user data",
+    "SDK27 compile, not SDK18.2",
+    "Cancellation maps to transactionFailed, not propagation PASS",
+    "No physical/iPad/VoiceOver checks"
+  ],
+  "binary_sha256": "997045d74db29008e30af6419c270c2347ce817b129eb8c5526a3239ba301eab",
+  "status": "PASS"
+}

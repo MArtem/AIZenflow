@@ -1,0 +1,89 @@
+{
+  "devices" : [
+    {
+      "architecture" : "arm64",
+      "deviceId" : "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+      "deviceName" : "BG-T01-new-task-be0b-iPhone-iOS27",
+      "modelName" : "iPhone SE (3rd generation)",
+      "osBuildNumber" : "24A434",
+      "osVersion" : "27.0",
+      "platform" : "iOS Simulator"
+    }
+  ],
+  "testNodes" : [
+    {
+      "children" : [
+        {
+          "children" : [
+            {
+              "children" : [
+                {
+                  "duration" : "29s",
+                  "durationInSeconds" : 29.53624701499939,
+                  "name" : "testLargeTextClippingAudit()",
+                  "nodeIdentifier" : "BoardInteractionTests/testLargeTextClippingAudit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testLargeTextClippingAudit",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "15s",
+                  "durationInSeconds" : 15.765670895576477,
+                  "name" : "testLargeTextDescriptionAudit()",
+                  "nodeIdentifier" : "BoardInteractionTests/testLargeTextDescriptionAudit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testLargeTextDescriptionAudit",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "10s",
+                  "durationInSeconds" : 10.267372012138367,
+                  "name" : "testLargeTextDynamicTypeAudit()",
+                  "nodeIdentifier" : "BoardInteractionTests/testLargeTextDynamicTypeAudit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testLargeTextDynamicTypeAudit",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "7s",
+                  "durationInSeconds" : 7.810925006866455,
+                  "name" : "testLargeTextHitRegionAudit()",
+                  "nodeIdentifier" : "BoardInteractionTests/testLargeTextHitRegionAudit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testLargeTextHitRegionAudit",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                },
+                {
+                  "duration" : "22s",
+                  "durationInSeconds" : 22.914106011390686,
+                  "name" : "testLargeTextRotationAndPlacementWithoutAudit()",
+                  "nodeIdentifier" : "BoardInteractionTests/testLargeTextRotationAndPlacementWithoutAudit()",
+                  "nodeIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests/testLargeTextRotationAndPlacementWithoutAudit",
+                  "nodeType" : "Test Case",
+                  "result" : "Passed"
+                }
+              ],
+              "name" : "BoardInteractionTests",
+              "nodeIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests/BoardInteractionTests",
+              "nodeType" : "Test Suite",
+              "result" : "Passed"
+            }
+          ],
+          "name" : "BattleshipGameUITests",
+          "nodeIdentifierURL" : "test://com.apple.xcode/BattleshipGame/BattleshipGameUITests",
+          "nodeType" : "UI test bundle",
+          "result" : "Passed"
+        }
+      ],
+      "name" : "BattleshipGame",
+      "nodeType" : "Test Plan",
+      "result" : "Passed"
+    }
+  ],
+  "testPlanConfigurations" : [
+    {
+      "configurationId" : "1",
+      "configurationName" : "Test Scheme Action"
+    }
+  ]
+}

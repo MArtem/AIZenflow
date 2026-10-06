@@ -1,0 +1,126 @@
+diff --git a/apps/BattleshipGame/PROJECT_CONTEXT.md b/apps/BattleshipGame/PROJECT_CONTEXT.md
+index d403c84f735ad0cbb565e8e7b5a71cc9a32013f8..51c7e84ea8e2b9b91f63c11dad1f7437195d37e3 100644
+--- a/apps/BattleshipGame/PROJECT_CONTEXT.md
++++ b/apps/BattleshipGame/PROJECT_CONTEXT.md
+@@ -71,7 +71,7 @@ project/scheme hashes; current non-shipping UI target separately recorded.
+ Global USER.VERIFICATION.SCOPE removes all iPad/physical-device checks, including
+ actual VoiceOver, from plans; no verified coverage inferred. BG-A01 CLOSED_SCOPED
+ for selected Simulator geometry/interaction acceptance; LIB-004 OPEN. No release claim.
+-Next safe system action: finish E11 publication, then select genuine new task for Library utility evidence; current BG/TC mode receipts below, no app backlog.
++Next safe system action: select genuine new task for Library utility evidence after confirmed E11 publication f9031c96; current BG/TC mode receipts below, no app backlog.
+ 
+ Refresh affected records after source/target/scheme/pin/permission changes; preserve
+ accepted human decisions and retain superseded evidence under this app's history.
+diff --git a/tasks/new-task-be0b/handoff.md b/tasks/new-task-be0b/handoff.md
+index 5c8e2f510d42ece9ebb28339332d22e4816c4b6b..38adae4ad8e88f853ea68ee6fc47ef70529c50d0 100644
+--- a/tasks/new-task-be0b/handoff.md
++++ b/tasks/new-task-be0b/handoff.md
+@@ -21,7 +21,7 @@ observed within actual-withheld/synthetic scope. E9 supplies saved OFF/ON profil
+ E10 supplies shared-root application; E11 closes strict startup in its own new observation.
+ Historical same-handler regression evidence supports only its
+ exact cases. W5 R01–R21 traceability and separate Library/app verdicts prepared; core acceptance
+-now verifies the selected full mandatory core matrix; no acceptance waiver. Final publication gate and LIB-004 P2 OPEN independently.
++now verifies the selected full mandatory core matrix; no acceptance waiver. E11 publication verified at f9031c96; LIB-004 P2 OPEN independently.
+ 
+ BG exact selector BattleshipGame/BattleshipGame.xcodeproj, ProjectID
+ 6a655f50-2a48-49df-9b5a-bdff693564de. Client HEAD
+@@ -62,8 +62,8 @@ tracked diff unchanged. FC-P3-01 CLOSED_SCOPED; W4.3.d shared-instruction bounda
+ no independently moded shared Swift claim. W5.1.b VERIFIED_REQUIRED_CORE_MATRIX using
+ all mandatory named core cases, no A waiver. General specialist/Library/app acceptance
+ not inferred. LIB-004 P2 and unrelated TC-L02 P3 remain OPEN.
+-Next: finish exact canonical publication/remote gates; then human selects a genuine new
+-project task for Library utility evidence. Recommended next real project work versus
++E11 canonical publication f9031c96 independently confirmed; remote-state PASS.
++Next human decision: select genuine new project work for Library utility evidence. Recommended next real project work versus
+ a separately selected bounded new-case pilot; no repeated known-case/corpus expansion,
+ no invented app feature or automatic further chat. General improvement plan incomplete.
+ Preserve paused follow-ups/old checkout/branch/foreign edits and all useful failures.
+diff --git a/tasks/new-task-be0b/ios-project-work-system-ordered-startup-check.md b/tasks/new-task-be0b/ios-project-work-system-ordered-startup-check.md
+index 572c16180c779e272a855ffc00a9cd6a2b7847fb..7a0c78d992e17abc06fba3d4e078daf5be714f71 100644
+--- a/tasks/new-task-be0b/ios-project-work-system-ordered-startup-check.md
++++ b/tasks/new-task-be0b/ios-project-work-system-ordered-startup-check.md
+@@ -28,6 +28,6 @@ Library **NOT_READY_FOR_GENERAL_RELEASE**, LIB-004 P2 OPEN: current passes added
+ 
+ Necessary next decision after publication: select genuine new project work for Library utility evidence. Recommend nearest real project task with a frozen first-layer baseline and grounded ON delta plus false positives/missed findings/time and available context telemetry; missing tokens remain UNKNOWN. Alternative: explicitly select a bounded previously unexamined case for earlier evidence, with more overhead and no guaranteed uplift. No another known-case/corpus comparison or speculative app feature. Concrete task/project and limits must be selected before execution; extra chats need separate explicit approval.
+ 
+-Raw local evidence retained under `.zenflow/tasks/new-task-be0b/library-canary/ordered-startup-check/{receipt.md,read-order.md,evidence.json}`, parent `ordered-startup-parent-review.json`, exact publication receipt outside tracked canonical content. Canonical publication gate remains pending until actual reviewed HEAD/remote confirmation; document existence alone grants nothing.
++Raw local evidence retained under `.zenflow/tasks/new-task-be0b/library-canary/ordered-startup-check/{receipt.md,read-order.md,evidence.json}`, parent `ordered-startup-parent-review.json`, exact publication receipt outside tracked canonical content. E11 publication subsequently completed: exact reviewed e132655..f9031c96 range, independent remote main f9031c96afa3cd82525f33084986bee169be7e49 and active remote-state PASS. This closure records the confirmed prior publication; any later commit needs its own exact review/remote receipt. Document existence alone grants nothing.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+diff --git a/tasks/new-task-be0b/ios-project-work-system-plan.md b/tasks/new-task-be0b/ios-project-work-system-plan.md
+index 77ec53fd2de487f1eda870de947e06938046fc1f..93e5dc4164d407d78a1f547b37f435886f59f867 100644
+--- a/tasks/new-task-be0b/ios-project-work-system-plan.md
++++ b/tasks/new-task-be0b/ios-project-work-system-plan.md
+@@ -653,21 +653,21 @@ TC-L02 P3 separate SideMenu preview key mismatch reported outside one-file task.
+ | [x] W5.2.a | Короткий user guide в existing workflow | Choose project→task card→approaches/check selection→bounded work→evidence→resume, без нового UI/service |
+ | [x] W5.2.b | Maintenance/compatibility/invalidation | Named owners/events/review triggers and rollback/source precedence; no recurring automation |
+ | [x] W5.3.a | Exact disposable cleanup decision | Only own proven outputs after useful receipts preserved; no broad root/user-state deletion |
+-| [ ] W5.3.b | Final diff/commit/remote receipt | Quality gates and current identities/permissions, no unresolved owned candidate P0–P2, exact remote SHA |
++| [x] W5.3.b | Final diff/commit/remote receipt | E11 exact range e132655..f9031c96 reviewed, committed/pushed; independent remote SHA and remote-state PASS. Later closure commit has a separate exact receipt; no self-SHA assertion |
+ | [x] W5.3.c | Bounded adoption proposal | Only supported scope after evidence; user chooses any expansion/Library activation/runtime/Git separately |
+ 
+ W5.2 only: quick user guide added to existing workflow; named maintenance owner and
+ invalidation/source precedence already in workflow Sections 1–3/7. These documentary
+ outputs can proceed independently of W3/W4 execution; final verdict still depends on them.
+ 
+-Current W5 review packet (not an acceptance or release grant):
++Current W5 scoped verification verdict (evidence, not a permission or release grant):
+ R01–R21 table above now maps final scoped evidence and exact remaining gaps.
+ Core verdict W5.1.b **VERIFIED_REQUIRED_CORE_MATRIX** (selected full canary B): W3 full cycle, W4 selected shared-source/all-consumer task, complete saved OFF first layer, ON/AUTO and ON/ADVISORY stages, refusal/independent-mode cases, freshness/dirty/conflict preservation, failed/partial/resumed recovery and safe detach dry-run have the named evidence above. E11 supplies the last missing strict startup observation and closes FC-P3-01 scoped; failed E10 order remains historical. No A waiver or removal of required core cases. This is operational core acceptance for the declared canaries, not automatic engine enforcement or unobserved specialist/end-to-end release acceptance. Library verdict
+ W5.1.c **NOT_READY_FOR_GENERAL_RELEASE**, LIB-004 P2 OPEN; passing17 codec controls does
+ not demonstrate stage uplift/cost. App verdict W5.1.d **NO_RELEASE_CLAIM**: selected
+ BG-A01/TC-L01 scopes closed, unrelated TC-L02 P3 open, no whole-app acceptance.
+ W5.3.a cleanup decision: retain owned raw failures/results/caches for reproducible
+-resume; no deletion now and no foreign cleanup. W5.3.b publication gate remains open in this candidate until its actual exact-HEAD/remote receipt; core evidence is now complete. No pre-push completion claim. A separate compact closure records the first confirmed publication; any later commit requires its own exact review/receipt.
++resume; no deletion now and no foreign cleanup. W5.3.b CLOSED for actual E11 publication: exact reviewed e132655..f9031c96 range, clean canonical, independent remote f9031c96 confirmation and active remote-state PASS. This closure records that prior confirmed event; its own later commit requires a new exact review/remote receipt before completion reporting. Required W1–W5 named core work complete; general Library/improvement and specialist acceptance remain separate OPEN.
+ 
+ W5.3.c choices and actual user decision:
+ 
+@@ -735,7 +735,7 @@ Current user selected and delegated the real shared task; TC-W4-01 is verified s
+ Current human decision: option2/B selected, temporary Library switching permitted until
+ common improvement plan completion/revocation; full-quality original scope retained.
+ E9 completed reviewed adoption and bounded mode stages; E10 supplies actual fresh
+-shared-root/mode/refusal observations with its historical first-read deviation. E11 separately observes the correct startup order. Next: exact publication gate, then a concrete human decision about genuine new work for LIB-004; no repeat of known cases.
++shared-root/mode/refusal observations with its historical first-read deviation. E11 separately observes the correct startup order. E11 exact publication gate completed; next concrete human decision about genuine new work for LIB-004, no repeat of known cases.
+ Tchop terminal ON/AUTO was explicitly
+ chosen before its first write; no absence restoration or repair.
+ No artificial product feature or unrelated rollout; all iPad/physical checks removed globally.
+@@ -812,3 +812,5 @@ FC-P3-01 CLOSED_SCOPED. W4 named core requirements complete; W5.1.b VERIFIED_REQ
+ Useful next work requires a genuine new project task and frozen pre-Library baseline, with actionable useful delta/false positives/missed findings and actual available time/context telemetry (tokens UNKNOWN when unavailable). Recommend the next real project task; another known-case comparison/corpus expansion adds no discriminating evidence. Alternative is an explicitly selected bounded new-case pilot for earlier evidence, with greater cost and no guaranteed positive delta. No speculative feature/backlog activation or invented defect. Exact project/task/limits and any extra chat approval must be selected before such execution.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
++
++Publication closeout: E11 remote f9031c96afa3cd82525f33084986bee169be7e49 independently confirmed; current local recovery and external publication receipt retain full exact range/checks. W5.3.b closes the actual published named-core packet, not LIB-004/general release. Further closure publication gated separately.
+diff --git a/tasks/new-task-be0b/plan.md b/tasks/new-task-be0b/plan.md
+index 0ec11a715ad9a5bf312af1287169412cb9dfdbc8..20558cccd9e56c4a0d057fc1c6646a5461a65f3c 100644
+--- a/tasks/new-task-be0b/plan.md
++++ b/tasks/new-task-be0b/plan.md
+@@ -2,7 +2,7 @@
+ 
+ Task new-task-be0b; active knowledge-base-next; GPT-6.1 Sol/high, эконом.
+ Main plan: [main plan](ios-project-work-system-plan.md). W1/W2 complete, W3 accepted
+-in selected iPhone Simulator scope; W4 required named core cases complete, W5 publication/Library gate OPEN. No background runtime job.
++in selected iPhone Simulator scope; W4/W5 required named core work complete; general Library gate OPEN. No background runtime job.
+ 
+ System implementation/pilot selection/owned registration/source edits in accepted tasks
+ authorized; meaningful approaches need user choice. Current task self-verification delegated; BG-T01 and chosen TC-W4-01 test/probe changes,
+@@ -31,7 +31,7 @@ Two original build grants consumed; current QA uses newer delegation.
+ - [x] Temporary Library switching granted until common plan completion/revocation; full original scope retained.
+ - [x] W5 final traceability and separate Library/app verdicts; retain owned evidence, bounded choices prepared.
+ - [x] W5.1.b full mandatory named core matrix verified; no A waiver or general release.
+-- [ ] W5.3.b exact final publication/remote receipt; candidate alone does not close it.
++- [x] W5.3.b exact E11 publication e132655..f9031c96, committed/pushed and independent remote/remote-state PASS; closure commit separately gated.
+ 
+ Current [BG-T01](../../apps/BattleshipGame/TASK_BG_T01.md) / [receipt](../../apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md).
+ BG shipping hashes/payload/foreign edits preserved; client changes uncommitted.
+@@ -57,8 +57,8 @@ tracked diff unchanged. FC-P3-01 CLOSED_SCOPED; W4.3.d shared-instruction bounda
+ no independently moded shared Swift claim. W5.1.b VERIFIED_REQUIRED_CORE_MATRIX using
+ all mandatory named core cases, no A waiver. General specialist/Library/app acceptance
+ not inferred. LIB-004 P2 and unrelated TC-L02 P3 remain OPEN.
+-Next: finish exact canonical publication/remote gates; then human selects a genuine new
+-project task for Library utility evidence. Recommended next real project work versus
++E11 canonical publication f9031c96 independently confirmed; remote-state PASS.
++Next human decision: select genuine new project work for Library utility evidence. Recommended next real project work versus
+ a separately selected bounded new-case pilot; no repeated known-case/corpus expansion,
+ no invented app feature or automatic further chat. General improvement plan incomplete.
+ Preserve paused follow-ups/old checkout/branch/foreign edits and all useful failures.

@@ -1,0 +1,20 @@
+{
+  "status": "NOT_READY_FINAL_ACCEPTANCE",
+  "core": "VERIFIED_REQUIRED_CORE_MATRIX unchanged",
+  "library": "NOT_READY_FOR_GENERAL_RELEASE, LIB004 P2 OPEN",
+  "rows": {
+    "F01": "SCOPED native11/11, verifier FAIL P3",
+    "F02": "native16 assertions6 phases20 writes; iOS compile PASS, iPhone runtime BLOCKED",
+    "F03": "SCOPED offline catalog, live not_run",
+    "F04": "SCOPED static/manual/off/unavailable boundary + four builds reused",
+    "F05": "SCOPED native additional platform, remaining declared runtime not_run",
+    "F06": "BLOCKED first dispatch rejected,0 observer chats,0 same-session added confirmed defects, costs UNKNOWN"
+  },
+  "canonical_commit": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "remote": "exact SHA confirmed independently + remote-state PASS",
+  "client_commit_push": "NONE",
+  "modes": "TC ON/AUTO, BG exact initial ON/AUTO",
+  "remaining": "Direct human approval questions pending for two existing iPhone runtimes and at most two20-minute read-only observer chats",
+  "publication_receipt": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/publication-receipt.json",
+  "foreign_preservation": "121 exact protected hashes unchanged; independent parent serialization PASS separately, own old serialization not reproduced"
+}

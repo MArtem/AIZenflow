@@ -1,0 +1,14 @@
+{
+  "paused_at": "2026-10-03T23:02:06.829313+00:00",
+  "reason": "User explicitly requests pause to shut down Mac",
+  "terminated_pids": [
+    95571,
+    95572
+  ],
+  "required_runtime_matrix": [
+    "iOS18.2",
+    "iOS27.0"
+  ],
+  "first_matrix_run": "interrupted; do not claim PASS",
+  "resume": "Inspect partial matrix/iphone-18-2 result and process state, then continue final-source matrix. Simulator-only outside .zenflow permission persists."
+}

@@ -1,0 +1,65 @@
+{
+  "status": "PROPOSAL_ONLY_NO_SOURCE_CHANGED",
+  "behavior": "Preserve closure-thrown CancellationError through SwiftData actor/main read/write/batch and common migration runner; keep write rollback, do not advance failed migration version",
+  "authority": "Highest routed cancellation default; no explicit product cancellation-as-failure exception recorded. Actual6-source mutation requires AGENTS >3-file checkpoint",
+  "scope": [
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "before_sha256": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+      "candidate_sha256": "c975da97e560793659bcc3ece3dbd93c9f16bf7b3ff76abdd534639066937d73"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "before_sha256": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+      "candidate_sha256": "c975da97e560793659bcc3ece3dbd93c9f16bf7b3ff76abdd534639066937d73"
+    },
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "before_sha256": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+      "candidate_sha256": "f69ec07d9a27730fb5a72a3a8223aafb23c15d8fb5ad564f0d74de78d9fdf0d2"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "before_sha256": "2768e12bbf535c703adf7276f4c8499c8a4209949f11b5360d767cec2ab111f6",
+      "candidate_sha256": "36dfe9569059df06b014005a314fe3605c12f27322d238826c043c239956444c"
+    },
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "before_sha256": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741",
+      "candidate_sha256": "0af2f9d9efd0f16e2458e96b97694dc849af60678789bee1769d836fcaec8c29"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "before_sha256": "2df2436044f7bebf7c46b45b53f2901d4c0dd1afe4d482b1dcf6b024497259bb",
+      "candidate_sha256": "3e16a46b6a6b1478c72698177cb8e70f7ed081a84f4ddb6a07d2f2a05458cd03"
+    }
+  ],
+  "source_only_adaptations": [
+    {
+      "path": "Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "adaptation": "byte-identical"
+    },
+    {
+      "path": "Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "adaptation": "source-only copy removes one module import; preserve this existing difference"
+    },
+    {
+      "path": "Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "adaptation": "source-only copy removes one module import; preserve this existing difference"
+    }
+  ],
+  "consumers": "Both Tchop host memberships and standalone reviewed package. No caller/UI/schema/target/pin changes. CoreData-specific manager mapping is not reviewed/changed by this bounded proposal",
+  "ordering": "Catch cancellation before generic mapping; write rollback before rethrow; migration version stays after successful callback only",
+  "envelope": "Existing closures and types; no new API/task/actor/wrapper, reset or migration",
+  "failures": "Other typed DatabaseError and generic mappings unchanged; read mutation, context-wide rollback and callback/crash atomicity limits retained",
+  "verification_plan": [
+    "Disposable regression phase pre-patch: actor/main read/write/batch and migration callback cancellation type/rollback/version; retain current mismatch",
+    "Apply guarded6-file patch only after permission AND completion of frozen OFF/ON",
+    "After patch same new cancellation fixture and migration/reopen matrix on iPhone18.2+27, strict source compile",
+    "Standalone package build with isolated outputs to validate module-import adaptation; four affected unsigned host builds on selected destinations as appropriate",
+    "Final complete-diff/membership/mirror review; original foreign hunks preserved; no client/engine Git; exact canonical sync/publication gates"
+  ],
+  "estimate": "Approximately10–20min after permission and ON completion; token/account cost UNKNOWN; no new chats",
+  "patch_sha256": "c70748f2c415899e731aa607ce79dd85474bc9e5fbbe8c1f74851436091ad16a",
+  "preparation_failure": "Initial byte-equality guard aborted before any original mutation because expected source-only import adaptation differs; precise normalization verified, no version overwritten"
+}

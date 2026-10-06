@@ -1,0 +1,34 @@
+{
+  "project": "BattleshipGame/BattleshipGame.xcodeproj",
+  "status": {
+    "TchopApp": {
+      "profile": "AUTO",
+      "status": "OFF"
+    },
+    "BattleshipGame": {
+      "profile": "AUTO",
+      "status": "ON"
+    }
+  },
+  "KB_input": "kb-off-result.json frozen before own BG guidance",
+  "guidance": {
+    "KNOWLEDGE_ROUTER.md": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+    "QUALITY_STANDARD.md": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+    "EVIDENCE_POLICY.md": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+    "REVIEW_GUIDE.md": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+    "50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f"
+  },
+  "applied": [
+    "Shared root common baseline/global verification limits apply to BG independent of its own ON/AUTO",
+    "Tchop-specific root predicate cannot route BG into TC memory or mode",
+    "Mode store common-dir+selector independently keyed; one writer TC only, preserve BG and dirty source",
+    "Do not infer grant/PASS from copied guidance; no agents/MCP/client Git/runtime activation",
+    "Report partial strict-read-order observation and existing library uplift gate honestly"
+  ],
+  "delta": {
+    "retained": "KB identity, grants, preservation and complete shared-artifact consumer conclusions",
+    "added_confirmed_findings": 0,
+    "added_limit": "Fresh independent chat is same-model observer, not multi-model independent review or general value/cost measurement"
+  },
+  "TC_second_pass": "UNPERFORMED while OFF; no TC thematic guidance read"
+}

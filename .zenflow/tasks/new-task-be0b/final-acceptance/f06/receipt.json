@@ -1,0 +1,29 @@
+{
+  "actual_comparison": "BLOCKED: first create_thread rejected, zero observer chats created",
+  "successful_observer_count": 0,
+  "rejected_dispatch_count": 1,
+  "required_direct_approval": "pending async request, no bypass",
+  "same_session_only": {
+    "KB_sha256": "9845fca3f7b1b4b94e852986e34aa44e49ac8c4cbc920af03f5fac8a109ce892",
+    "retained": "actor/main-context ownership, transaction rollback, caller-owned cancellation, raw-error conditional privacy and input-plan limitations",
+    "added_confirmed_defects": 0,
+    "useful_refinement": "explicit supported downgrade-readability gap; actual failure/reopen fixture added to F02 under existing scope",
+    "false_positive_missed_findings": "not measurable from zero accepted fresh arms; held-out cases are conditional, no ground-truth set asserted"
+  },
+  "metrics": {
+    "observer_calls": 0,
+    "observer_elapsed_seconds": null,
+    "fresh_pair_read_overhead_bytes": null,
+    "tokens": "UNKNOWN",
+    "account_cost": "UNKNOWN",
+    "savings": "NOT_ESTABLISHED"
+  },
+  "verdict": "NOT_READY_FOR_GENERAL_RELEASE; LIB-004 P2 OPEN",
+  "controls": "exact34-name pin verified, two scheme memberships filtered only, own TC status observed; no inactive Library inherited by standalone selector",
+  "frozen_sources": {
+    "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741"
+  },
+  "no_automatic_retry_or_task_tree": true
+}

@@ -1,0 +1,76 @@
+{
+  "TchopApp.xcodeproj": {
+    "project_sha256": "a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb",
+    "targets": [
+      {
+        "name": "TchopAppTests",
+        "id": "A000008A0000000000000001",
+        "source_count": 11,
+        "AppTab_member": false
+      },
+      {
+        "name": "TchopApp",
+        "id": "A000000C0000000000000001",
+        "source_count": 154,
+        "AppTab_member": true
+      },
+      {
+        "name": "TchopWidgetsOceanExtension",
+        "id": "D000002C0000000000000001",
+        "source_count": 5,
+        "AppTab_member": false
+      },
+      {
+        "name": "TchopWidgetsExtension",
+        "id": "D00000160000000000000001",
+        "source_count": 5,
+        "AppTab_member": false
+      },
+      {
+        "name": "TchopAppOcean",
+        "id": "B00000080000000000000001",
+        "source_count": 154,
+        "AppTab_member": true
+      },
+      {
+        "name": "TchopShareOceanExtension",
+        "id": "L00000220000000000000001",
+        "source_count": 27,
+        "AppTab_member": false
+      },
+      {
+        "name": "TchopShareExtension",
+        "id": "L00000210000000000000001",
+        "source_count": 27,
+        "AppTab_member": false
+      },
+      {
+        "name": "TchopAppUITests",
+        "id": "U00000060000000000000001",
+        "source_count": 1,
+        "AppTab_member": false
+      }
+    ],
+    "library_file_refs": [],
+    "synchronized_groups": false
+  },
+  "BattleshipGame/BattleshipGame.xcodeproj": {
+    "project_sha256": "1382ee516cf4d957d430f9f9a4754244fa7027bde96a670fd3f2cf3722467e95",
+    "targets": [
+      {
+        "name": "BattleshipGame",
+        "id": "5A1B2C3D4E5F600000000040",
+        "source_count": 3,
+        "AppTab_member": false
+      },
+      {
+        "name": "BattleshipGameUITests",
+        "id": "B60100000000000000000005",
+        "source_count": 1,
+        "AppTab_member": false
+      }
+    ],
+    "library_file_refs": [],
+    "synchronized_groups": false
+  }
+}

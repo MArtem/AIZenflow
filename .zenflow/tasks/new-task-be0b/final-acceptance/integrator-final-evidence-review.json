@@ -1,0 +1,143 @@
+{
+  "f02/parent-resume/runtime-receipt.json": {
+    "18.2": {
+      "assertions": 16,
+      "shutdown": true
+    },
+    "27.0": {
+      "assertions": 16,
+      "shutdown": true
+    }
+  },
+  "cancellation-regression/after/runtime-receipt.json": {
+    "18.2": {
+      "assertions": 33,
+      "shutdown": true
+    },
+    "27.0": {
+      "assertions": 33,
+      "shutdown": true
+    }
+  },
+  "host_builds": [
+    {
+      "scheme": "TchopApp",
+      "runtime": "18.2",
+      "exit_code": 0,
+      "terminal": "quiet xcodebuild exit0; no BUILD SUCCEEDED string required",
+      "invocation_sha256": "a8b1e712c14bc6e3e408fad804ce4786490751cfd1eb5a4e0fca69181e264475"
+    },
+    {
+      "scheme": "TchopAppOcean",
+      "runtime": "18.2",
+      "exit_code": 0,
+      "terminal": "quiet xcodebuild exit0; no BUILD SUCCEEDED string required",
+      "invocation_sha256": "1a00d2402153dcc0ab4bcacc59f38b05ea343d64dc747383595351d371bc9afd"
+    },
+    {
+      "scheme": "TchopApp",
+      "runtime": "27.0",
+      "exit_code": 0,
+      "terminal": "quiet xcodebuild exit0; no BUILD SUCCEEDED string required",
+      "invocation_sha256": "c2aee49fc0cac3b243f1d230c071b9caee530c461361711f53dced1261a29a3f"
+    },
+    {
+      "scheme": "TchopAppOcean",
+      "runtime": "27.0",
+      "exit_code": 0,
+      "terminal": "quiet xcodebuild exit0; no BUILD SUCCEEDED string required",
+      "invocation_sha256": "9a65c7246011bf43355ef300ba648c9145f7bb73e6d28d8e6fef19af9e66ffdc"
+    }
+  ],
+  "f06/off-review-confirmed/result.json": {
+    "keys": [
+      "schema_version",
+      "task",
+      "arm",
+      "profile",
+      "observed_status",
+      "selector",
+      "project_id",
+      "model",
+      "operating_mode",
+      "assessment",
+      "strict_protocol",
+      "pair_acceptance",
+      "G0",
+      "G1",
+      "G2",
+      "G3",
+      "G4",
+      "G5",
+      "findings",
+      "recommendations",
+      "supported_paths",
+      "checklist",
+      "priming",
+      "clipping_recovery",
+      "source_sha256",
+      "canonical_head",
+      "client_head",
+      "provisional_sha256",
+      "metrics",
+      "stages",
+      "preservation",
+      "refused_capabilities",
+      "files_changed",
+      "runtime_checks",
+      "physical_iPad_actual_VoiceOver",
+      "whole_app_release",
+      "blind_discovery",
+      "foreign_state_limit",
+      "durable_docs",
+      "context_health",
+      "next_safe_step"
+    ],
+    "sha256": "9c0d899368ffae47d4bca2ff2b55dc9aa763a91f96120d4993434552705bd640"
+  },
+  "f06/on-review-confirmed/result.json": {
+    "keys": [
+      "task",
+      "arm",
+      "model",
+      "mode",
+      "observer_scope_complete",
+      "strict_protocol_status",
+      "pair_status",
+      "gate_status",
+      "scope",
+      "semantic_verdict",
+      "findings",
+      "recommendations",
+      "checklist",
+      "library_delta",
+      "confirmed_shipped_defects",
+      "confirmed_incremental_library_defects",
+      "conditional_api_candidates",
+      "priming",
+      "limitation_detail",
+      "authority",
+      "refused_capabilities",
+      "tests_build_runtime",
+      "files_changed",
+      "durable_docs_updated",
+      "local_exception",
+      "context_health",
+      "timing",
+      "logical_metrics",
+      "final_hash_check_logical_bytes",
+      "final_checks",
+      "receipts",
+      "next_safe_step",
+      "context_transfer_rule"
+    ],
+    "sha256": "6fd43bf65289d2b9663c11bc9e832563066df732c9b6e1db7d6a7d54175c6daf"
+  },
+  "frozen_source_map_matches_original": true,
+  "source_candidates": "all6 exact SHA match",
+  "standalone_package": "exit0",
+  "warning_free": "NOT_CLAIMED",
+  "ground_truth": "no inferred shipped producer",
+  "foreign_serialization": "PASS exact --binary --full-index outside6/owned2 task mirrors",
+  "foreign_diff_sha256": "679fe99e844d51e12393bca82563cb6898889995f43eabaa10a94396fda8bb7a"
+}

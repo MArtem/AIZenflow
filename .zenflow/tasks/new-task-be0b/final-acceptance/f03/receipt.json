@@ -1,0 +1,80 @@
+{
+  "items": [
+    {
+      "asset": "ShellCreateAdd",
+      "catalog_member": "shell-create-add.svg",
+      "metadata_sha256": "91532594cee21ad6feee681c9957f15f58b056a06cca86ac3baa68642f3c3d1e",
+      "svg_sha256": "71043c064909bf5fac7a4d06bdd71c733896a71daf36384dae9e8e4ba91599b7",
+      "geometry": {
+        "width": "24",
+        "height": "24",
+        "viewBox": "0 0 24 24",
+        "preserveAspectRatio": "none"
+      },
+      "provenance": "actual existing local export; Figma file/node provenance unavailable"
+    },
+    {
+      "asset": "ShellCreatePencilSimple",
+      "catalog_member": "shell-create-pencil-simple.svg",
+      "metadata_sha256": "4ee274da869181b90baa3c5e36ebd3434991488c51800e1cfad1964a63798776",
+      "svg_sha256": "67efc3c7c4c00fe8790d1413ccccedf32a86d86b28c1a8435dee571ae89f354f",
+      "geometry": {
+        "width": "22",
+        "height": "22",
+        "viewBox": "0 0 22 22",
+        "preserveAspectRatio": "none"
+      },
+      "provenance": "actual existing local export; Figma file/node provenance unavailable"
+    }
+  ],
+  "resource_consumers": {
+    "TchopApp": [
+      "Assets.xcassets"
+    ],
+    "TchopAppOcean": [
+      "Assets.xcassets"
+    ]
+  },
+  "source_mapping": {
+    "ShellCreateAdd": "TchopApp/Views/Tabs/FloatingActionButton.swift:22",
+    "ShellCreatePencilSimple": "TchopApp/Views/ShellContentView.swift:227"
+  },
+  "refusals": [
+    {
+      "case": "missing Figma URL/node/provider",
+      "evidence": "no selected design source or callable access grant",
+      "decision": "BLOCKED live design fidelity; no provider probe/install"
+    },
+    {
+      "case": "multiple assets without exact node/semantic mapping",
+      "decision": "BLOCKED ambiguous replacement; preserve existing assets"
+    },
+    {
+      "case": "asset geometry differs 24 vs22",
+      "decision": "retain source dimensions; do not infer new token or force icon parity"
+    }
+  ],
+  "limits": "Offline catalog compile verifies accepted asset input only, not pixel-perfect match, UI/action behavior, accessibility or live Figma",
+  "deep_reference": "not needed: two asset inputs, no screen implementation or new interaction",
+  "compile": {
+    "args": [
+      "/Applications/Xcode.app/Contents/Developer/usr/bin/actool",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f03/OfflineAssets.xcassets",
+      "--compile",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/f03/compiled",
+      "--platform",
+      "iphonesimulator",
+      "--minimum-deployment-target",
+      "17.0",
+      "--target-device",
+      "iphone",
+      "--output-format",
+      "human-readable-text",
+      "--warnings",
+      "--notices"
+    ],
+    "exit_code": 0,
+    "elapsed_seconds": 2.336858833,
+    "Assets_car_present": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "checks": {
+    "json_artifacts_parse": true,
+    "all_frozen_inputs_unchanged": true,
+    "head_unchanged": true,
+    "normal_dirty_status_unchanged": true,
+    "tracked_diff_unchanged": true,
+    "own_mode_record_unchanged": true,
+    "provisional_retained": true
+  },
+  "utc_start": "2026-10-04T23:17:52+00:00",
+  "utc_end": "2026-10-04T23:31:45.311190+00:00",
+  "elapsed_wall_clock_seconds": 833.31119,
+  "monotonic_elapsed": "UNKNOWN",
+  "tool_calls_terminal": {
+    "exec_command": 28,
+    "write_stdin": 1,
+    "apply_patch": 3,
+    "MCP": 0,
+    "agents": 0,
+    "messages": 0,
+    "network": 0,
+    "runtime": 0
+  },
+  "artifact_sha256_before_this_receipt": {
+    "accidental-hash-read-paths.json": "4bdb7a2ca979ded8ca1f917d855ed05a1a858d2fd6500732cfbce392b5381804",
+    "kb-provisional.json": "d251175a8119c954095318639a903a0f70471be8579ae97c9bd61616f1377bb7",
+    "read-metrics.json": "948a532da9904e7fb2e4c4e2395287fd5b89beefb1b33a6a5a065c5d07084b38",
+    "read-order.json": "460a8b63bc88842017d1fdeaad88a02a5456da5db8115b59ddc655ed17880aba",
+    "receipt.md": "55f7b8cf292c2e8075120acbaf3e1f826d1d2f58d107abbd43c3bb3ab135c148",
+    "structured-result.json": "850268120bbdf8459a71330e3ae850a0185b7c03b8a90ee40a8a520edc5a9f13"
+  },
+  "final_hash_pass_logical_bytes_additional": 334326,
+  "note": "Own artifact JSON/integrity and permitted source-state metadata check only; not runtime, test or build; procedural PARTIAL remains."
+}

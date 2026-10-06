@@ -1,0 +1,85 @@
+{
+  "utc": "2026-10-05T16:11:18.323737+00:00",
+  "base": "3955d424901a411bdae1e71bb3d37eed0f212eb0",
+  "owned_files": [
+    "tasks/new-task-be0b/plan.md",
+    "tasks/new-task-be0b/handoff.md",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md"
+  ],
+  "trusted_remote": "https://github.com/MArtem/AIZenflowDocumentation.git",
+  "target_remote_sha": "3955d424901a411bdae1e71bb3d37eed0f212eb0",
+  "contract": {
+    "behavior": "Publish finite observed results and explicit unmet gates; no source or permission change",
+    "authority": "Standing user AGENTS authorizes canonical documentation commit/push after gates; exact3 parent-preparation files transferred",
+    "producer_consumer": "Main matrix owns detailed scope; active plan/handoff mirror open F02/F06 and Library verdict",
+    "ordering": "Actual output precedes claims; KB frozen before Library; final diff/HEAD/remote review before publication",
+    "envelope": "Only exact3 canonical documents; no raw secrets/records/logs; local2 mirrors plus task receipts",
+    "failure": "Original verifier/runtime/approval failures retained; BLOCKED/UNKNOWN never PASS",
+    "claims": "Core unchanged, scoped execution only, general Library NOT_READY LIB004 P2 OPEN, no app release"
+  },
+  "patch_sha256": "c0122bc881b4a9fb7b60758585b24be18dc14a52c2ea3df23e58059f4d07a36b",
+  "file_sha256": {
+    "tasks/new-task-be0b/plan.md": "87a1e4d3cf1898d574e09d3630300687cb7ecba7baf7dd9d06bea64163d09efd",
+    "tasks/new-task-be0b/handoff.md": "a1943e1f4dfe18e4ff54eed5ed31f8cdf66fa23666d194346a3868500c67cc68",
+    "tasks/new-task-be0b/ios-project-work-system-plan.md": "6ec612cf5ae6f8e1ff261645646a92d83c4a1545c88b2b3cbf05b3ff4ca5f627"
+  },
+  "final_semantic_review": "Complete candidate against base read; evidence/count/platform/refusal boundaries checked. No P0-P2 introduced by docs patch.",
+  "findings": {
+    "patch": "no P0-P2; existing F01 verifier P3 reported",
+    "system": "LIB004 P2 OPEN, F02/F06 blocked; publication does not waive",
+    "unrelated": "TC-L02 P3 untouched"
+  },
+  "checks": {
+    "vault_including_manifest": "PASS",
+    "boundaries": "PASS",
+    "canonical_and_client_diff_check": "PASS",
+    "local_links": 42,
+    "active_plan_handoff_words": 2902,
+    "fixture_python_parse": "PASS"
+  },
+  "reused": "Four unchanged unsigned host builds; prior core/E11 scoped evidence only",
+  "omitted": "No fresh observer or Simulator runtime after rejection; signing/liveFigma unavailable; iPad/physical/VoiceOver OMITTED_BY_USER",
+  "preservation": {
+    "protected_unchanged_count": 121,
+    "owned_document_exclusions": [
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/handoff.md",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/new-task-be0b/plan.md",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/handoff.md",
+      "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/plan.md"
+    ],
+    "client_head": "b7c48e163d9108d1cc4b123d93456ce8f7628d93",
+    "aggregate_client_diff_sha256": "b364f44a9bd54c2051b76705f576ecb5249121b0950e5d086336c19e6a33cde0",
+    "aggregate_change": "exact two owned local plan/handoff mirror writes; old aggregate not reused as PASS",
+    "foreign_patch_serialization": "old receipt excluded hash not reproduced; independent parent exact-serialization receipt PASS separately",
+    "tracked_foreign_not_in_initial_hash_universe": [
+      "docs/COMPATIBILITY_MATRIX.md",
+      "docs/CURRENT_USER_OVERRIDES.md",
+      "docs/IOS_ACCESSIBILITY_STANDARD.md",
+      "docs/IOS_RELEASE_PRIVACY_PERFORMANCE_MATRIX.md",
+      "docs/IOS_TESTING_STRATEGY.md",
+      "docs/QA_TEST_PLAN_STANDARD.md"
+    ],
+    "source_universes": "F01 19 files and F02 exact3 unchanged",
+    "mode_records": "both exact initial hashes preserved",
+    "mirror_equal": true,
+    "fixture_python_parse": "PASS",
+    "links": 42
+  },
+  "residual": "F02 iPhone18.2+27 and F06 fresh comparison require direct human authority; cost unknown, verifier remains FAIL",
+  "head": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "range": "3955d424901a411bdae1e71bb3d37eed0f212eb0..cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "staged_exact3": true,
+  "canonical_clean": true,
+  "postcommit_exact_review": "PASS: complete exact HEAD diff read against trusted base; unchanged contract, scope, evidence and residual findings",
+  "push": "PASS non-force exact SHA to main",
+  "prepush_head_unchanged": true,
+  "remote_confirmed": "cd36cc5664ac7155eb268b6af41fdab5298d6cee",
+  "postpush_local_head_unchanged": true,
+  "independent_remote_confirmation": "cd36cc5664ac7155eb268b6af41fdab5298d6cee via separate ls-remote invocation",
+  "remote_state_check": "PASS after exact origin/main fetch; initial stale tracking [ahead1] failure retained",
+  "tracking_ref_refresh": "only main:refs/remotes/origin/main, --no-tags, no source or HEAD change",
+  "final_preservation_recheck": "121 protected files unchanged excluding exact5 owned doc surfaces; mode hashes exact initial, both statuses ON/AUTO",
+  "block_complete": "Permitted execution and canonical publication complete; required F02/F06 acceptance still BLOCKED, no completion waiver",
+  "completed_utc": "2026-10-05T16:13:49.547313+00:00"
+}

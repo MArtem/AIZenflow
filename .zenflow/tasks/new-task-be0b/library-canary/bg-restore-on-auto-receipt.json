@@ -1,0 +1,24 @@
+{
+  "project": "BG",
+  "command": "auto",
+  "before": {
+    "profile": "ADVISORY",
+    "status": "ON"
+  },
+  "before_record_sha256": "db3a4a984764b5dd43c84099895c4a16627f69666b34d78ee10b0f48e4871aa0",
+  "observed": {
+    "profile": "AUTO",
+    "status": "ON"
+  },
+  "after_record_sha256": "f86061a2e890ad99b912675199fca83ea200c0824aedf4a259cd68be95b7e5a6",
+  "other_project": "TC",
+  "other_observed": {
+    "profile": null,
+    "status": "UNSET"
+  },
+  "other_record_preserved": true,
+  "scope_fingerprint_revalidated": true,
+  "handler_sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+  "raw_record_exported": false,
+  "grant": "Actual latest user option2 and temporary Library switching until common improvement plan completes/revocation; no grant from this helper"
+}

@@ -1,0 +1,28 @@
+{
+  "args": [
+    "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc",
+    "-parse-as-library",
+    "-swift-version",
+    "6",
+    "-strict-concurrency=complete",
+    "-warnings-as-errors",
+    "-target",
+    "arm64-apple-ios17.0-simulator",
+    "-sdk",
+    "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneSimulator.platform/Developer/SDKs/iPhoneSimulator27.0.sdk",
+    "-module-cache-path",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/regression/cache/component-modules",
+    "-o",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/regression/component-after/MediaPreviewProbe.app/MediaPreviewProbe",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/regression/component-after/MediaPreviewProbe.swift"
+  ],
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/regression/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/regression/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-utility-tc-mp01/regression/cache"
+  },
+  "source_sha256": "2322c43b56437039ba3aeefdd2dfc7559308513eda4d706346f6c1fd64b4c0b8",
+  "renderer_exact_slice_sha256": "eb132f46f383ca284c57fba55ab41a63fe7a4b525eeb515aeadade6e0d3e927a",
+  "fixture_test_source_sha256": "66c520d9da9eaa9d82e3f915856255e864c75a230910e9bdf47d57388fd967f3",
+  "limits": "Exact real production renderer/kind compiled; fixture-only direct-file resolver replaces app path fallback. No loader/cache/view/app-host or fallback-domain integration claim. Fixture builder derived from actual unit source, no target logic reimplementation."
+}

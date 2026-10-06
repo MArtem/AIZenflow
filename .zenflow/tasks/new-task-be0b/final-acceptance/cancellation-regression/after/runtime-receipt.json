@@ -1,0 +1,491 @@
+{
+  "mode": "runtime",
+  "authority": "Direct human six-source cancellation patch and necessary QA approval",
+  "source_sha256": {
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/AppDatabaseCore.swift": "c975da97e560793659bcc3ece3dbd93c9f16bf7b3ff76abdd534639066937d73",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/SwiftDataModelActorDatabaseManager.swift": "f69ec07d9a27730fb5a72a3a8223aafb23c15d8fb5ad564f0d74de78d9fdf0d2",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/AppSwiftDataDatabase.swift": "0af2f9d9efd0f16e2458e96b97694dc849af60678789bee1769d836fcaec8c29",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.swift": "f5aba7c03da687578c5305309502bd00da37c18400ed0a2b06bf67171d124ebc"
+  },
+  "environment": {
+    "TMPDIR": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/tmp",
+    "CFFIXED_USER_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/cocoa-home",
+    "XDG_CACHE_HOME": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/cache"
+  },
+  "commands": [
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/initial.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.35
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "boot",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/boot.log",
+      "exit_code": 0,
+      "elapsed_seconds": 0.777
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "bootstatus",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "-b"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/bootstatus.log",
+      "exit_code": 0,
+      "elapsed_seconds": 6.74
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "cancellation",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/cancellation/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/cancellation/cancellation.log",
+      "exit_code": 0,
+      "elapsed_seconds": 2.38
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/success/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.425
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "new",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/success/new.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.481
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/success/reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.232
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/failure/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.579
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "migrate-failure",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/failure/migrate-failure.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.242
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "old-reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/failure/old-reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 0.986
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "shutdown",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/shutdown.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.326
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/18.2/final.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.186
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/initial.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.187
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "boot",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/boot.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.096
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "bootstatus",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "-b"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/bootstatus.log",
+      "exit_code": 0,
+      "elapsed_seconds": 10.099
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "cancellation",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/cancellation/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/cancellation/cancellation.log",
+      "exit_code": 0,
+      "elapsed_seconds": 2.631
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/success/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 14.971
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "new",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/success/new.log",
+      "exit_code": 0,
+      "elapsed_seconds": 11.543
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/success/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/success/reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 2.181
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "old",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/failure/old.log",
+      "exit_code": 0,
+      "elapsed_seconds": 2.079
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "migrate-failure",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/failure/migrate-failure.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.036
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "spawn",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/DatabaseProbe.app/DatabaseProbe",
+        "old-reopen",
+        "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/failure/fixture.store"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/failure/old-reopen.log",
+      "exit_code": 0,
+      "elapsed_seconds": 1.205
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "shutdown",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/shutdown.log",
+      "exit_code": 0,
+      "elapsed_seconds": 3.3
+    },
+    {
+      "args": [
+        "/Applications/Xcode.app/Contents/Developer/usr/bin/simctl",
+        "list",
+        "devices",
+        "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+        "--json"
+      ],
+      "log": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/final-acceptance/cancellation-regression/after/27.0/final.json",
+      "exit_code": 0,
+      "elapsed_seconds": 0.188
+    }
+  ],
+  "devices": [
+    {
+      "version": "18.2",
+      "udid": "BE43D4FD-1B71-4E6F-9EE7-DB32BD2D4D7C",
+      "status": "PASS",
+      "phases": [
+        {
+          "group": "cancellation",
+          "phase": "cancellation",
+          "pass_labels": [
+            "actor-read-cancellation",
+            "actor-write-cancellation",
+            "actor-cancellation-rollback",
+            "main-read-cancellation",
+            "main-read-sentinel-preserved",
+            "main-write-cancellation",
+            "main-write-sentinel-preserved",
+            "main-batch-cancellation",
+            "main-batch-sentinel-preserved",
+            "generic-error-unchanged",
+            "typed-error-unchanged",
+            "migration-nested-cancellation",
+            "cancelled-migration-version-not-advanced",
+            "migration-direct-cancellation",
+            "direct-cancelled-migration-version-not-advanced",
+            "cancelled-migration-retry-success",
+            "all-main-failures-rollback"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "new",
+          "pass_labels": [
+            "lightweight-preserves-old-values",
+            "typed-failure-preserved",
+            "write-failure-rollback",
+            "cooperative-cancellation-rolls-back",
+            "actor-concurrent-writes-preserved",
+            "migration-failure-visible",
+            "version-advances-only-after-success",
+            "migration-retry-resumes-version",
+            "current-version-is-idempotent"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "reopen",
+          "pass_labels": [
+            "separate-process-reopen-count",
+            "separate-process-reopen-old-fields",
+            "separate-process-rollback-durable"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "migrate-failure",
+          "pass_labels": [
+            "actual-SwiftData-migration-failure-visible"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old-reopen",
+          "pass_labels": [
+            "failed-migration-old-store-reopen-preserved"
+          ]
+        }
+      ],
+      "runtime_identifier": "com.apple.CoreSimulator.SimRuntime.iOS-18-2",
+      "name": "BG-T01-new-task-be0b-iPhone",
+      "assertions": 33,
+      "shutdown_verified": true
+    },
+    {
+      "version": "27.0",
+      "udid": "2BED6C3B-5DA5-4F43-A44E-FB1CC9BB8F8D",
+      "status": "PASS",
+      "phases": [
+        {
+          "group": "cancellation",
+          "phase": "cancellation",
+          "pass_labels": [
+            "actor-read-cancellation",
+            "actor-write-cancellation",
+            "actor-cancellation-rollback",
+            "main-read-cancellation",
+            "main-read-sentinel-preserved",
+            "main-write-cancellation",
+            "main-write-sentinel-preserved",
+            "main-batch-cancellation",
+            "main-batch-sentinel-preserved",
+            "generic-error-unchanged",
+            "typed-error-unchanged",
+            "migration-nested-cancellation",
+            "cancelled-migration-version-not-advanced",
+            "migration-direct-cancellation",
+            "direct-cancelled-migration-version-not-advanced",
+            "cancelled-migration-retry-success",
+            "all-main-failures-rollback"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "new",
+          "pass_labels": [
+            "lightweight-preserves-old-values",
+            "typed-failure-preserved",
+            "write-failure-rollback",
+            "cooperative-cancellation-rolls-back",
+            "actor-concurrent-writes-preserved",
+            "migration-failure-visible",
+            "version-advances-only-after-success",
+            "migration-retry-resumes-version",
+            "current-version-is-idempotent"
+          ]
+        },
+        {
+          "group": "success",
+          "phase": "reopen",
+          "pass_labels": [
+            "separate-process-reopen-count",
+            "separate-process-reopen-old-fields",
+            "separate-process-rollback-durable"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old",
+          "pass_labels": [
+            "old-store-saved"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "migrate-failure",
+          "pass_labels": [
+            "actual-SwiftData-migration-failure-visible"
+          ]
+        },
+        {
+          "group": "failure",
+          "phase": "old-reopen",
+          "pass_labels": [
+            "failed-migration-old-store-reopen-preserved"
+          ]
+        }
+      ],
+      "runtime_identifier": "com.apple.CoreSimulator.SimRuntime.iOS-27-0",
+      "name": "BG-T01-new-task-be0b-iPhone-iOS27",
+      "assertions": 33,
+      "shutdown_verified": true
+    }
+  ],
+  "limits": [
+    "Disposable schema/component only, no app/user data",
+    "SDK27 compile, not SDK18.2",
+    "CancellationError preservation and rollback on corrected sources",
+    "No physical/iPad/VoiceOver checks"
+  ],
+  "binary_sha256": "a0ad20d91a6c7d42f0432ca8f69eb3491f755fa6abd4985cc8c80e3b70619a5e",
+  "status": "PASS"
+}

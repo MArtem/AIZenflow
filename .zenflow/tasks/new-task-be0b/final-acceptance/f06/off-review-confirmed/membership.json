@@ -1,0 +1,93 @@
+{
+  "scheme_membership": {
+    "TchopApp": {
+      "build": [
+        {
+          "BlueprintIdentifier": "A000000C0000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopApp",
+          "BuildableName": "TchopApp.app"
+        }
+      ],
+      "test": [
+        {
+          "BlueprintIdentifier": "A000008A0000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopAppTests",
+          "BuildableName": "TchopAppTests.xctest"
+        },
+        {
+          "BlueprintIdentifier": "U00000060000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopAppUITests",
+          "BuildableName": "TchopAppUITests.xctest"
+        }
+      ]
+    },
+    "TchopAppOcean": {
+      "build": [
+        {
+          "BlueprintIdentifier": "B00000080000000000000001",
+          "ReferencedContainer": "container:TchopApp.xcodeproj",
+          "BlueprintName": "TchopAppOcean",
+          "BuildableName": "TchopAppOcean.app"
+        }
+      ],
+      "test": []
+    }
+  },
+  "source_membership": {
+    "A000000C0000000000000001": {
+      "name": "TchopApp",
+      "sources": [
+        {
+          "phase_id": "A000000D0000000000000001",
+          "build_file_id": "B15F9AFB8CA760D841B23702",
+          "file_ref": "F15F9AFB8CA760D841B23702",
+          "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift"
+        },
+        {
+          "phase_id": "A000000D0000000000000001",
+          "build_file_id": "B1029B7894F1D1A1259351B0",
+          "file_ref": "F1029B7894F1D1A1259351B0",
+          "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift"
+        },
+        {
+          "phase_id": "A000000D0000000000000001",
+          "build_file_id": "B12601760918A642BB479B00",
+          "file_ref": "F12601760918A642BB479B00",
+          "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift"
+        }
+      ]
+    },
+    "B00000080000000000000001": {
+      "name": "TchopAppOcean",
+      "sources": [
+        {
+          "phase_id": "B00000070000000000000001",
+          "build_file_id": "B15F9AFB8CA760D841B23702",
+          "file_ref": "F15F9AFB8CA760D841B23702",
+          "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift"
+        },
+        {
+          "phase_id": "B00000070000000000000001",
+          "build_file_id": "B1029B7894F1D1A1259351B0",
+          "file_ref": "F1029B7894F1D1A1259351B0",
+          "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift"
+        },
+        {
+          "phase_id": "B00000070000000000000001",
+          "build_file_id": "B12601760918A642BB479B00",
+          "file_ref": "F12601760918A642BB479B00",
+          "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift"
+        }
+      ]
+    }
+  },
+  "source_sha256": {
+    "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741"
+  },
+  "metadata_only": true
+}

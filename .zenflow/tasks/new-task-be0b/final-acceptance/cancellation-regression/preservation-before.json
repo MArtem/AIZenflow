@@ -1,0 +1,53 @@
+{
+  "outside_approved_six_diff_sha256": "679fe99e844d51e12393bca82563cb6898889995f43eabaa10a94396fda8bb7a",
+  "diff_args": [
+    "git",
+    "diff",
+    "--binary",
+    "--full-index",
+    "--",
+    ".",
+    ":(exclude).zenflow/tasks/new-task-be0b/plan.md",
+    ":(exclude).zenflow/tasks/new-task-be0b/handoff.md",
+    ":(exclude)PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+    ":(exclude)PackagesForReuse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+    ":(exclude)PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+    ":(exclude)PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+    ":(exclude)PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+    ":(exclude)PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift"
+  ],
+  "approved_sources": [
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "before_sha256": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+      "candidate_sha256": "c975da97e560793659bcc3ece3dbd93c9f16bf7b3ff76abdd534639066937d73"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift",
+      "before_sha256": "dd65da26f864952201febf9414c135b909b5cf2929a9b6ab31dca60588b3160c",
+      "candidate_sha256": "c975da97e560793659bcc3ece3dbd93c9f16bf7b3ff76abdd534639066937d73"
+    },
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "before_sha256": "b9d81407a1839602ba51578f2b042fe5778644e42d5e8cc8560d0a296b455605",
+      "candidate_sha256": "f69ec07d9a27730fb5a72a3a8223aafb23c15d8fb5ad564f0d74de78d9fdf0d2"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift",
+      "before_sha256": "2768e12bbf535c703adf7276f4c8499c8a4209949f11b5360d767cec2ab111f6",
+      "candidate_sha256": "36dfe9569059df06b014005a314fe3605c12f27322d238826c043c239956444c"
+    },
+    {
+      "path": "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "before_sha256": "ea3c4aae8626144e8f81cf97921f493954b74faf12941813b6357488ba04b741",
+      "candidate_sha256": "0af2f9d9efd0f16e2458e96b97694dc849af60678789bee1769d836fcaec8c29"
+    },
+    {
+      "path": "PackagesForReuse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift",
+      "before_sha256": "2df2436044f7bebf7c46b45b53f2901d4c0dd1afe4d482b1dcf6b024497259bb",
+      "candidate_sha256": "3e16a46b6a6b1478c72698177cb8e70f7ed081a84f4ddb6a07d2f2a05458cd03"
+    }
+  ],
+  "human_authority": "Direct approval: \u0420\u0430\u0437\u0440\u0435\u0448\u0430\u044e patch \u0438 \u043d\u0435\u043e\u0431\u0445\u043e\u0434\u0438\u043c\u0443\u044e QA",
+  "f06_freeze_closed": true
+}

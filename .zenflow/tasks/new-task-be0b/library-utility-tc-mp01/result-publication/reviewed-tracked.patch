@@ -1,0 +1,279 @@
+diff --git a/apps/Tchop/MANIFEST.md b/apps/Tchop/MANIFEST.md
+index 7c8e5d86d18105748af49c0b8e9bbd342c40550b..b0d0d2ff4ad31163558e78abbe76e32d8749d4c2 100644
+--- a/apps/Tchop/MANIFEST.md
++++ b/apps/Tchop/MANIFEST.md
+@@ -13,16 +13,16 @@ this app root and may refine, but not redefine, that baseline.
+ - Selector: TchopApp.xcodeproj
+ - Owner: user / AIZenflow maintainer
+ - Association authority: user's explicit delegation to select/use available pilots; bounded system task new-task-be0b
+-- Scope: TchopApp/TchopAppOcean and declared widget/share consumers; test targets metadata only
++- Scope: TchopApp/TchopAppOcean and declared widget/share consumers; selected TC-MP01 existing-unit suite runtime verified; other unit/UI coverage unverified
+ - Context/map/current structural task: [PROJECT_CONTEXT.md](PROJECT_CONTEXT.md)
+ - Quality-control: DEFERRED; no reviewed exact-project profile/runner adopted by registration
+ - Deferral owner: user / AIZenflow maintainer; revisit before accepted app implementation/PR
+-- Library: EXPERIMENTAL_CANARY at exact pin3c42e490e82866eee0f303d6340452dbf9fff5eb; own TchopApp/IOSLibrary and nested/root entrypoints; observed selected ON/AUTO and fresh scoped mode checks, strict first-read order verified scoped in E11; no general release or inherited status
++- Library: EXPERIMENTAL_CANARY at exact pin3c42e490e82866eee0f303d6340452dbf9fff5eb; own TchopApp/IOSLibrary and nested/root entrypoints; observed selected ON/AUTO and fresh scoped mode checks, strict first-read order verified scoped in historical E11; latest TC-MP01 comparison PARTIAL_PROCEDURAL, LIB-004 OPEN; NOT_READY_FOR_GENERAL_RELEASE; no inherited status
+ - Invalidation: root/selector/permissions or project/scheme/source changes refresh affected memory
+ 
+ ## Active Documents
+ 
+-- `PROJECT_CONTEXT.md`: completed TC-W4-01/E11 evidence and current prepared TC-MP01 media-preview lifecycle card; two bounded observer grants confirmed; execution pending.
++- `PROJECT_CONTEXT.md`: completed TC-W4-01/E11 and TC-MP01 bounded video-preview correction/QA; two observer grants consumed, strict Library comparison PARTIAL.
+ - `history/tc-w4-01-localization-2026-10-04.md`: exact source/consumer/build/probe/control evidence and remaining gaps.
+ - `plans/package-adoption-audit.md`: app-owned reusable-package adoption, target scope and rollback rationale.
+ - `plans/share-extension-follow-up.md`: paused Share Extension product/verification follow-up.
+diff --git a/apps/Tchop/PROJECT_CONTEXT.md b/apps/Tchop/PROJECT_CONTEXT.md
+index 7f532a4dcf094aaceac784b57053b34f940846fe..c0d9d5d1e34dceed1f2500b9ae25c9f8dd172faf 100644
+--- a/apps/Tchop/PROJECT_CONTEXT.md
++++ b/apps/Tchop/PROJECT_CONTEXT.md
+@@ -10,7 +10,8 @@ separate BattleshipGame dirty patch. No whole-repository clean claim.
+ 
+ ## Exact structural inputs
+ 
+-Project SHA-256 a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb.
++Current project SHA-2568c3f7c9cf8ed6b4fe13975e4d0523b89aa378a68045d9264201d6e0c8957a47b.
++Intake project SHA-256a915c271ddb824b5548a6a8192ec7b5af761517e6eb9abbf1ba4bf8618d10ffb; TC-MP01 added only one existing-unit source membership.
+ Shared TchopApp scheme SHA-256 9ac7bb21f641b0f247ccf6c414c12a5d74a33e64523e63a0f2751348a2fa2a17.
+ Shared Ocean scheme SHA-256 ef060370056878093d9b70ecbbd132bd72c8290f558ec12b07dbdd6555b754d8.
+ Read PBXNativeTarget/dependency/source/build-file sections and scheme references only.
+@@ -25,7 +26,7 @@ secrets, test files and paused app-task history were not read for this intake.
+ | TchopWidgetsOceanExtension | D000002C0000000000000001 | 5 |
+ | TchopShareExtension | L00000210000000000000001 | 27 |
+ | TchopShareOceanExtension | L00000220000000000000001 | 27 |
+-| TchopAppTests | A000008A0000000000000001 | 11 metadata only |
++| TchopAppTests | A000008A0000000000000001 | 12; selected TC-MP01 suite verified |
+ | TchopAppUITests | U00000060000000000000001 | 1 metadata only |
+ 
+ Main host depends on main widget/share; Ocean host depends on Ocean widget/share.
+@@ -173,12 +174,41 @@ Historical E10 first-order failure remains: nested read preceded app manifest/co
+ [E11 ordered startup](../../tasks/new-task-be0b/ios-project-work-system-ordered-startup-check.md) separately observes the complete first layer before nested, own pin/status and105 preserved fingerprints/records/HEAD/diff; parent checked. FC-P3-01 CLOSED_SCOPED. Both own statuses ON/AUTO, no mode/runtime replay. Each observer grant consumed, no further automatic agents/MCP. Named core acceptance does not establish Library/app release. LIB-004 P2 and TC-L02 P3 remain separate OPEN; next genuine project task requires concrete bounded selection, paused follow-ups unchanged.
+ 
+ 
+-## Current prepared task card — TC-MP01
+-
+-PREPARED_OBSERVER_GRANT_CONFIRMED,2026-10-05. Human delegates most-useful approach selection; existing media preview lifecycle selected for genuine Library utility/concurrency evidence. NewsFeedView.swift source SHAeb1d0c2d61a6686448d2a44991cf9c9bae78d15e19b95a75eb3ba5287f356f28, media model SHA78825d4c2e4037ecc35566779d2d616b2cd885f1adb712955d427f563a87b9d3. Authoritative PBX memberships confirm view in both host Sources only; models unchanged input, project/schemes match current memory. No whole-feed/source audit.
+-
+-Neutral contract: current preview request owns visible state; cancellation/supersession/failure and resource/decode/cache boundaries inspected from existing photo/video/PDF/teaser flow, preserve published card semantics. No auth/Share/AI/new feature/backlog activation. Scoped preparation complete, no source/test/build/runtime/mode changes or new confirmed finding. Own matching handler returned ON/AUTO; both hosts one selector.
+-
+-Local frozen-inputs/neutral task under .zenflow/tasks/new-task-be0b/library-utility-tc-mp01/. Parent hypotheses withheld from proposed observers. Two sequential read-only fresh chats OFF/AUTO and ON/AUTO recommended; human authorization for exactly two read-only chats and necessary parent MCP explicitly confirmed; execution pending. Each own full first layer precedes Library, separate provenance/actual costs, zero delta valid; no general utility/readiness presumed. Smaller current-chat review alternative weaker for attribution. Parent alone later adjudicates and implements/verifies only matching in-scope work. All previous grants remain precisely limited; this card grants no actions. Paused follow-ups, TC-L02 and LIB-004 unchanged OPEN.
++## Current completed bounded task — TC-MP01
++
++TC-MP01 completed its two authorized sequential read-only observations at frozen source
++and canonical801b22ec753a59383a3e2719f62c934aaf27494c. Both are PARTIAL_PROCEDURAL;
++strict comparison is not accepted. OFF hashed1368 extra pin blobs (5,139,382 logical
++bytes) beyond34 adopted names; no Library text applied. ON first-layer ordering and
++scheme-output scope also incomplete. Library produced0 new defects/remedies and2
++evidence/severity refinements, not established causal/general utility. Actual combined
++turn time1734.973sec; token/account cost UNKNOWN. Exactly2 grants consumed; no new chats/MCP.
++Parent traced current media producers: same-identity URL replacement not established,
++so no speculative F1 state rewrite. Original video intake is not spatially reduced;
++confirmed preview oversize fixed using existing1200px photo envelope. Only View,
++new FeedMediaPreviewRendererTests and existing-unit PBX membership changed; both hosts
++consume View, new test only TchopAppTests. Native baseline oversized on both iPhones;
++after1200x900/900x1200,14/14 assertions each. Actual unit3 functions/8 parameter runs
++PASS each on18.2+27; all4 unsigned Debug host builds PASS with SDK27/cache reuse.
++Initial18.2 unit timeout UNKNOWN retained; completed27 baseline real2048>1200 FAIL retained.
++No smoothness/memory/stale-result/auth/UI/full-suite/release claim. iPad/physical/actual
++VoiceOver OMITTED_BY_USER. TC and BG ON/AUTO; BG exact record preserved, TC restored
++initial ON bytes. Source HEAD unchanged, foreign edits/paused follow-ups retained.
++Full exact local evidence: library-utility-tc-mp01/regression/qa-receipt.json and
++parent-adjudication.json. General improvement plan/LIB-004 P2 OPEN; Library
++NOT_READY_FOR_GENERAL_RELEASE; TC-L02 P3 OPEN. Next significant approach awaits
++human choice: bounded observation-protocol correction (recommended) or next real app task.
++Canonical documentation alone publishable after exact final-diff/HEAD/remote gates.
++
++Current source SHA256 View2322c43b56437039ba3aeefdd2dfc7559308513eda4d706346f6c1fd64b4c0b8,
++new test66c520d9da9eaa9d82e3f915856255e864c75a230910e9bdf47d57388fd967f3;
++media model78825d4c2e4037ecc35566779d2d616b2cd885f1adb712955d427f563a87b9d3 unchanged.
++Both host Sources154/widget5/share27 unchanged; unit now12, UI1 unchanged.
++Only selected FeedMediaPreviewRendererTests executed; other unit/UI coverage not implied.
++Current3-file source/test patch remains working-tree-only. Historical structural intake
++scope/clean project observation above is not a current clean-source claim.
++[Canonical result and exact claim matrix](../../tasks/new-task-be0b/ios-project-work-system-plan.md#current-tc-mp01-result--2026-10-05).
++Local exact artifacts resolve under repository-root .zenflow/tasks/new-task-be0b/;
++revalidate source/mode/current permissions before reuse, never derive authority from memory.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+diff --git a/tasks/new-task-be0b/handoff.md b/tasks/new-task-be0b/handoff.md
+index 232cef8bbefd7eff15f96552a64d9810e3059922..5ba5f393d8ce61043712aad046f2e73e9b57dfba 100644
+--- a/tasks/new-task-be0b/handoff.md
++++ b/tasks/new-task-be0b/handoff.md
+@@ -63,16 +63,28 @@ no independently moded shared Swift claim. W5.1.b VERIFIED_REQUIRED_CORE_MATRIX
+ all mandatory named core cases, no A waiver. General specialist/Library/app acceptance
+ not inferred. LIB-004 P2 and unrelated TC-L02 P3 remain OPEN.
+ E11 canonical publication f9031c96 independently confirmed; remote-state PASS.
+-User delegated selection of the most useful next approach. Selected genuine Tchop
+-TC-MP01 media preview lifecycle case; neutral task and immutable inputs prepared locally
+-under library-utility-tc-mp01/. NewsFeedView source consumed by both hosts, existing
+-media semantics retained. No source/test/runtime/mode changes in preparation.
+-Confirmed bounded human grant: exactly two sequential fresh read-only chats (OFF/AUTO
+-and ON/AUTO, same inputs/task, GPT-6.1 Sol/high) and parent creation/metadata/status/result
+-MCP only: human explicitly approved exactly these two chats; execution pending, no additional automatic grant. Smaller alternative: single-integrator
+-review here, weaker utility attribution. Own TC status ON/AUTO hash-verified; BG untouched.
+-No observed comparative delta yet. General improvement plan/LIB-004 still OPEN.
+-Preserve paused follow-ups/old checkout/branch/foreign edits and all useful failures.
++TC-MP01 completed its two authorized sequential read-only observations at frozen source
++and canonical801b22ec753a59383a3e2719f62c934aaf27494c. Both are PARTIAL_PROCEDURAL;
++strict comparison is not accepted. OFF hashed1368 extra pin blobs (5,139,382 logical
++bytes) beyond34 adopted names; no Library text applied. ON first-layer ordering and
++scheme-output scope also incomplete. Library produced0 new defects/remedies and2
++evidence/severity refinements, not established causal/general utility. Actual combined
++turn time1734.973sec; token/account cost UNKNOWN. Exactly2 grants consumed; no new chats/MCP.
++Parent traced current media producers: same-identity URL replacement not established,
++so no speculative F1 state rewrite. Original video intake is not spatially reduced;
++confirmed preview oversize fixed using existing1200px photo envelope. Only View,
++new FeedMediaPreviewRendererTests and existing-unit PBX membership changed; both hosts
++consume View, new test only TchopAppTests. Native baseline oversized on both iPhones;
++after1200x900/900x1200,14/14 assertions each. Actual unit3 functions/8 parameter runs
++PASS each on18.2+27; all4 unsigned Debug host builds PASS with SDK27/cache reuse.
++Initial18.2 unit timeout UNKNOWN retained; completed27 baseline real2048>1200 FAIL retained.
++No smoothness/memory/stale-result/auth/UI/full-suite/release claim. iPad/physical/actual
++VoiceOver OMITTED_BY_USER. TC and BG ON/AUTO; BG exact record preserved, TC restored
++initial ON bytes. Source HEAD unchanged, foreign edits/paused follow-ups retained.
++Full exact local evidence: library-utility-tc-mp01/regression/qa-receipt.json and
++parent-adjudication.json. General improvement plan/LIB-004 P2 OPEN; Library
++NOT_READY_FOR_GENERAL_RELEASE; TC-L02 P3 OPEN. Next significant approach awaits
++human choice: bounded observation-protocol correction (recommended) or next real app task.
+ Canonical documentation alone publishable after exact final-diff/HEAD/remote gates.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+diff --git a/tasks/new-task-be0b/ios-project-work-system-plan.md b/tasks/new-task-be0b/ios-project-work-system-plan.md
+index 3079c98c6bf1a4edecc179cecd74262e5095d565..5be74982a2bfeebdcf81f37cc6bfa8d65136e911 100644
+--- a/tasks/new-task-be0b/ios-project-work-system-plan.md
++++ b/tasks/new-task-be0b/ios-project-work-system-plan.md
+@@ -816,16 +816,62 @@ Useful next work requires a genuine new project task and frozen pre-Library base
+ Publication closeout: E11 remote f9031c96afa3cd82525f33084986bee169be7e49 independently confirmed; current local recovery and external publication receipt retain full exact range/checks. W5.3.b closes the actual published named-core packet, not LIB-004/general release. Further closure publication gated separately.
+ 
+ 
+-## Current TC-MP01 preparation — 2026-10-05
+-
+-Latest human «выбери тот вариант который даст больше пользы» delegates next approach selection. Integrator chooses genuine existing project work: Tchop media preview lifecycle, rather than another known-case/corpus comparison. Named core W1–W5 verdict stays complete; LIB-004 utility/cost and specialist acceptance still OPEN. No uplift presumed.
+-
+-Case source owner NewsFeedView.swift, media model contract and exact membership inputs only; actual shared PBXSources consumers TchopApp/TchopAppOcean. Photo/video/PDF/teaser request ownership, cancellation/order/failure/resource envelope are the neutral review scope; no refresh/Share/auth/AI/product expansion. Hashes: NewsFeedView eb1d0c2d61a6686448d2a44991cf9c9bae78d15e19b95a75eb3ba5287f356f28; NewsFeedModels78825d4c2e4037ecc35566779d2d616b2cd885f1adb712955d427f563a87b9d3; projecta915c271... unchanged. Local library-utility-tc-mp01/card.md, frozen-inputs.json and observer-task-prompt.md hold complete exact preparation; parent hypotheses separate, excluded from observers. Relevant rules/skills and scoped source trace completed, no reviewed runtime or source patch.
+-
+-Recommended next action: two sequential fresh read-only chats, identical neutral prompt/source/rules/model, actual OFF and ON/AUTO; ON own provisional KB result frozen before its scoped Library challenge. Separate receipt directories, parent adjudication; useful delta/false positives/missed findings/elapsed/read inputs observed, tokens/account cost UNKNOWN if unavailable. No positive outcome or general release guaranteed. Review target up to20min each, estimated25–40min for two observations, not a fixed account-budget prediction. Alternative one integrator here saves context/time but cannot isolate current-chat hypothesis/reviewer variance as well.
+-
+-Human explicitly approved exactly two creation/metadata/status/result-read built-in MCP scopes in reply to the concrete proposal; no chat created yet. This record documents the actual grant, never supplies new authority. No child agents/MCP/messages/tests/builds/UI/mode/Git/source/canonical writes. Parent mode switching only through own matching existing handler under already-granted temporary authority, strictly sequential, preserve BG and end TC ON/AUTO; not executed in preparation. Source frozen throughout observations. User restriction against automatic agents/MCP persists; any further chat needs a distinct concrete choice.
+-
+-After actual reviews, one bounded fix only for a confirmed in-scope defect. Current self-verification delegation chooses relevant deterministic ordering/cancellation/failure evidence and actual affected host Debug unsigned builds on iPhone18.2+27 when source changes; test seam/membership/toolchain/output confinement must be checked before execution. No new target/full suite by default. Profiling only for an unresolved media-performance claim and matching delegated authority; static review is not smooth-scroll/memory proof. Global iPad/physical/actual VoiceOver exclusion unchanged. Preserve old failures, foreign source edits/roadmap and paused follow-ups.
++## Current TC-MP01 result — 2026-10-05
++
++TC-MP01 completed its two authorized sequential read-only observations at frozen source
++and canonical801b22ec753a59383a3e2719f62c934aaf27494c. Both are PARTIAL_PROCEDURAL;
++strict comparison is not accepted. OFF hashed1368 extra pin blobs (5,139,382 logical
++bytes) beyond34 adopted names; no Library text applied. ON first-layer ordering and
++scheme-output scope also incomplete. Library produced0 new defects/remedies and2
++evidence/severity refinements, not established causal/general utility. Actual combined
++turn time1734.973sec; token/account cost UNKNOWN. Exactly2 grants consumed; no new chats/MCP.
++Parent traced current media producers: same-identity URL replacement not established,
++so no speculative F1 state rewrite. Original video intake is not spatially reduced;
++confirmed preview oversize fixed using existing1200px photo envelope. Only View,
++new FeedMediaPreviewRendererTests and existing-unit PBX membership changed; both hosts
++consume View, new test only TchopAppTests. Native baseline oversized on both iPhones;
++after1200x900/900x1200,14/14 assertions each. Actual unit3 functions/8 parameter runs
++PASS each on18.2+27; all4 unsigned Debug host builds PASS with SDK27/cache reuse.
++Initial18.2 unit timeout UNKNOWN retained; completed27 baseline real2048>1200 FAIL retained.
++No smoothness/memory/stale-result/auth/UI/full-suite/release claim. iPad/physical/actual
++VoiceOver OMITTED_BY_USER. TC and BG ON/AUTO; BG exact record preserved, TC restored
++initial ON bytes. Source HEAD unchanged, foreign edits/paused follow-ups retained.
++Full exact local evidence: library-utility-tc-mp01/regression/qa-receipt.json and
++parent-adjudication.json. General improvement plan/LIB-004 P2 OPEN; Library
++NOT_READY_FOR_GENERAL_RELEASE; TC-L02 P3 OPEN. Next significant approach awaits
++human choice: bounded observation-protocol correction (recommended) or next real app task.
++Canonical documentation alone publishable after exact final-diff/HEAD/remote gates.
++
++OFF observer01a10935-7070-7b91-91be-15db2d050ac6 and ON observer01a10943-5869-7980-9c11-fa894388f4db
++used the same frozen task/model/source. OFF semantic candidates preceded its pin overscan;
++ON own provisional KB result was frozen before Library. Their individual receipts retain
++startup/scope failures, output clipping/recovery and available read metrics. Neither arm
++supports a clean token/cost comparison, missed-findings completeness or repeatability claim.
++Historical E11 ordered-startup PASS remains scoped; these new gaps are separately retained.
++
++| Current claim | iPhone18.2 | iPhone27.0 |
++|---|---|---|
++| Baseline native geometry | FAIL2048px,2 dimension assertions | FAIL2048px,2 dimension assertions |
++| Baseline actual unit | TIMEOUT124, assertions incomplete | FAIL1/3 functions,2/8 parameter runs |
++| After native exact renderer | PASS14/14,1200px/orientation/fallback | PASS14/14,1200px/orientation/fallback |
++| After actual selected unit | PASS3/3 functions,8/8 parameter runs | PASS3/3 functions,8/8 parameter runs |
++| Unsigned Debug TchopApp + Ocean | PASS both | PASS both |
++
++Xcode27.0 build27A266a, SDKiPhoneSimulator27.0; runtimes18.2/27.0, not two SDK versions.
++Native component uses actual renderer slices plus fixture-only direct-file resolver;
++app fallback/cache/state integration remains outside that claim. Invalid/missing image,
++video and PDF preserve nil. Existing FoundationModels package deprecation untouched;
++iOS27 baseline and after-test fixture QoS warning retained, no blanket warning-free claim. Both selected phones Shutdown.
++Source current SHA256: View2322c43b56437039ba3aeefdd2dfc7559308513eda4d706346f6c1fd64b4c0b8;
++PBX8c3f7c9cf8ed6b4fe13975e4d0523b89aa378a68045d9264201d6e0c8957a47b;
++new test66c520d9da9eaa9d82e3f915856255e864c75a230910e9bdf47d57388fd967f3.
++Frozen pre-review hashes remain immutable in frozen-inputs.json. Current producer trace
++rejects definite P1 URL-replacement impact; lazy-lifetime cancellation overlap, decoded
++cache budget, aggregate admission/PDF/cancellation latency remain unverified hypotheses.
++No current confirmed defect is silently waived; no broad app architecture/cache-policy fix.
++
++Current5-file evidence synchronization is subject to publication gates and separate
++external exact-SHA/remote receipt. Client source/tests stay uncommitted; no client Git permission inferred.
++No raw diagnostic bundles or reference-mode records belong in canonical docs.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+diff --git a/tasks/new-task-be0b/plan.md b/tasks/new-task-be0b/plan.md
+index 943633be7a95f84dc50a344e9071adfde00ee0ba..05a3f5b4b9cb42dc3c29df878e10c80e30f05f81 100644
+--- a/tasks/new-task-be0b/plan.md
++++ b/tasks/new-task-be0b/plan.md
+@@ -58,28 +58,39 @@ no independently moded shared Swift claim. W5.1.b VERIFIED_REQUIRED_CORE_MATRIX
+ all mandatory named core cases, no A waiver. General specialist/Library/app acceptance
+ not inferred. LIB-004 P2 and unrelated TC-L02 P3 remain OPEN.
+ E11 canonical publication f9031c96 independently confirmed; remote-state PASS.
+-User delegated selection of the most useful next approach. Selected genuine Tchop
+-TC-MP01 media preview lifecycle case; neutral task and immutable inputs prepared locally
+-under library-utility-tc-mp01/. NewsFeedView source consumed by both hosts, existing
+-media semantics retained. No source/test/runtime/mode changes in preparation.
+-Confirmed bounded human grant: exactly two sequential fresh read-only chats (OFF/AUTO
+-and ON/AUTO, same inputs/task, GPT-6.1 Sol/high) and parent creation/metadata/status/result
+-MCP only: human explicitly approved exactly these two chats; execution pending, no additional automatic grant. Smaller alternative: single-integrator
+-review here, weaker utility attribution. Own TC status ON/AUTO hash-verified; BG untouched.
+-No observed comparative delta yet. General improvement plan/LIB-004 still OPEN.
+-Preserve paused follow-ups/old checkout/branch/foreign edits and all useful failures.
++TC-MP01 completed its two authorized sequential read-only observations at frozen source
++and canonical801b22ec753a59383a3e2719f62c934aaf27494c. Both are PARTIAL_PROCEDURAL;
++strict comparison is not accepted. OFF hashed1368 extra pin blobs (5,139,382 logical
++bytes) beyond34 adopted names; no Library text applied. ON first-layer ordering and
++scheme-output scope also incomplete. Library produced0 new defects/remedies and2
++evidence/severity refinements, not established causal/general utility. Actual combined
++turn time1734.973sec; token/account cost UNKNOWN. Exactly2 grants consumed; no new chats/MCP.
++Parent traced current media producers: same-identity URL replacement not established,
++so no speculative F1 state rewrite. Original video intake is not spatially reduced;
++confirmed preview oversize fixed using existing1200px photo envelope. Only View,
++new FeedMediaPreviewRendererTests and existing-unit PBX membership changed; both hosts
++consume View, new test only TchopAppTests. Native baseline oversized on both iPhones;
++after1200x900/900x1200,14/14 assertions each. Actual unit3 functions/8 parameter runs
++PASS each on18.2+27; all4 unsigned Debug host builds PASS with SDK27/cache reuse.
++Initial18.2 unit timeout UNKNOWN retained; completed27 baseline real2048>1200 FAIL retained.
++No smoothness/memory/stale-result/auth/UI/full-suite/release claim. iPad/physical/actual
++VoiceOver OMITTED_BY_USER. TC and BG ON/AUTO; BG exact record preserved, TC restored
++initial ON bytes. Source HEAD unchanged, foreign edits/paused follow-ups retained.
++Full exact local evidence: library-utility-tc-mp01/regression/qa-receipt.json and
++parent-adjudication.json. General improvement plan/LIB-004 P2 OPEN; Library
++NOT_READY_FOR_GENERAL_RELEASE; TC-L02 P3 OPEN. Next significant approach awaits
++human choice: bounded observation-protocol correction (recommended) or next real app task.
+ Canonical documentation alone publishable after exact final-diff/HEAD/remote gates.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**
+ 
+-## TC-MP01 — next genuine Library utility case
++## TC-MP01 — completed bounded media case
+ 
+-- [x] User delegates approach choice; select existing media preview lifecycle, not known-case/corpus expansion.
+-- [x] Source/model/consumer trace and neutral task/frozen hashes; no app source edits or execution.
+-- [x] Human explicitly approves two bounded read-only chats and necessary parent metadata/status/result MCP; no further automatic agents/MCP.
+-- [ ] OFF full first layer and ON own first layer plus additive challenge at identical inputs.
+-- [ ] Semantic adjudication of useful delta/false positives/missed findings/observed costs; zero delta valid.
+-- [ ] Grounded bounded fix and claim-specific delegated QA only if warranted; no speculative app development.
+-- [ ] Canonical evidence/final-diff/exact HEAD/remote publication.
++- [x] Select genuine existing media preview case; freeze source/task and consumer identity.
++- [x] Exactly2 authorized OFF/ON observations executed; both PARTIAL, strict protocol not PASS.
++- [x] Adjudicate0 new Library defects/remedies and2 refinements; costs/causality limitations retained.
++- [x] Confirm and fix only video pixel envelope; selected unit/native checks and4 builds PASS.
++- [x] Synchronize compact app/task evidence for exact publication gates; actual remote receipt is external.
++- [ ] Human chooses next significant Library approach; no extra chat/MCP/runtime authority implied.
+ 
+ **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**

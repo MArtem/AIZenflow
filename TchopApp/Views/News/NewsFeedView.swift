@@ -1182,7 +1182,7 @@ private struct FeedMediaTeaserBlock: View {
 }
 
 
-private enum FeedMediaPreviewKind: String, Hashable, Sendable {
+enum FeedMediaPreviewKind: String, Hashable, Sendable {
     case image
     case video
     case pdf
@@ -1255,7 +1255,9 @@ private enum FeedMediaPreviewLoader {
 
 /// Performs media decoding and file access away from the main actor and returns only sendable
 /// image bytes. UI image ownership stays on the main actor where the preview cache is owned.
-private enum FeedMediaPreviewRenderer {
+enum FeedMediaPreviewRenderer {
+    private static let maxPreviewPixelSize: CGFloat = 1200
+
     static func previewData(fileURLString: String?, kind: FeedMediaPreviewKind) async -> Data? {
         guard let fileURL = ComposerMediaPathResolver.resolve(fileURLString: fileURLString) else {
             return nil
@@ -1264,7 +1266,7 @@ private enum FeedMediaPreviewRenderer {
         switch kind {
         case .image:
             return await detachedData {
-                downsampledImageData(at: fileURL, maxPixelSize: 1200)
+                downsampledImageData(at: fileURL, maxPixelSize: maxPreviewPixelSize)
             }
         case .video:
             return await videoPreviewData(at: fileURL)
@@ -1300,6 +1302,7 @@ private enum FeedMediaPreviewRenderer {
                 let asset = AVURLAsset(url: url)
                 let generator = AVAssetImageGenerator(asset: asset)
                 generator.appliesPreferredTrackTransform = true
+                generator.maximumSize = CGSize(width: maxPreviewPixelSize, height: maxPreviewPixelSize)
                 let result = try await generator.image(at: .zero)
                 try Task.checkCancellation()
                 return encodedPNGData(for: result.image)

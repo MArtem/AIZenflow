@@ -1,0 +1,17 @@
+diff --git a/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md b/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-canary/tchop-proposal/AGENTS.md
+index 1b9532204..8b4a4b74b 100644
+--- a/Users/Artem/.zenflow/worktrees/knowledge-base-next/AGENTS.md
++++ b/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/new-task-be0b/library-canary/tchop-proposal/AGENTS.md
+@@ -140,8 +140,10 @@ canonical bootstrap/Level 0 load the `ios-project-work-system` route and current
+ `/Users/Artem/.zenflow/worktrees/documentation-vault/apps/Tchop/MANIFEST.md`
+ and `PROJECT_CONTEXT.md`. ProjectID: `7aab0419-fa15-469e-96e7-9b84e21b321a`.
+ Revalidate identity, source fingerprints and current user scope before using memory.
+-The required first layer remains complete. Library status/adoption for this selector
+-is unverified: do not reuse the BattleshipGame pilot/handler or inherit its ON.
++The required first layer remains complete. For this exact selector, also read
++`./TchopApp/AGENTS.md` and its reviewed project-local Library entrypoint after this chain.
++Its canary does not inherit the BattleshipGame handler/status or grants; observe Tchop
++mode through its own matching pinned handler. Missing/stale payload yields UNKNOWN.
+ This entrypoint grants no runtime, tests, agents/MCP, library mode, Git or new task scope.
+ Preserve paused app follow-ups and human decisions; no activation follows from memory.
+ 

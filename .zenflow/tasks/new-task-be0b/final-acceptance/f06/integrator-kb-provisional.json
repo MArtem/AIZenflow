@@ -1,0 +1,17 @@
+{
+  "case": "actual AppDatabase3file scoped mechanism, source unchanged",
+  "full_KB_provisional": "Public method facts: actor write saves and rollback catches, read exposes mutable context and does not rollback, main manager uses UI mainContext, MigrationRunner persists version after successful closure. No actual shipping call to actor or runner established; compilation membership alone is not runtime exposure. H1\u2013H4 remain conditional contract boundaries, no synthetic-production flaw assertion.",
+  "findings": [],
+  "remaining": [
+    "cancellation checks caller-owned; CancellationError is wrapped transactionFailed",
+    "read-only relies on caller discipline",
+    "migration plan input validation/target overshoot requires contract decision and fixture evidence",
+    "generic errors carry raw descriptions; no logging consumer established"
+  ],
+  "refusals": [
+    "unapproved remoteCI/signing/liveFigma",
+    "unknown standalone Library adoption",
+    "new comparison chat auto-review rejection"
+  ],
+  "scope": "Same-session parent assessment is not a fresh independent comparison or blind discovery"
+}

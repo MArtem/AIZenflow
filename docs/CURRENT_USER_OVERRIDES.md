@@ -76,6 +76,18 @@ the current app or task boundary, not here.
 
 ## Verification And Quality
 
+<!-- Rule ID: USER.VERIFICATION.SCOPE v1.0 -->
+User-approved cross-project rule, 2026-10-04: exclude all iPad verification and every
+check requiring a physical device, including actual VoiceOver sessions, from plans,
+acceptance prerequisites and required follow-ups for every project and task. Do not
+propose, schedule, execute or ask the user to perform these checks unless a later
+explicit instruction changes this rule. Continue applicable static review and permitted
+iPhone Simulator verification. This does not change supported app platforms, remove
+accessibility implementation requirements, or grant test/runtime authority. Retain prior
+results as history; excluded checks are OMITTED_BY_USER, never PASS. Do not claim
+hardware/iPad/actual VoiceOver coverage from Simulator evidence. Owner: user / canonical
+rules maintainer; revisit only on explicit user change or a conflicting requested claim.
+
 - The user owns builds, tests, Simulator UI, screenshots, Instruments, archive, and signing until
   delegating a specific verification action. Do not write/modify tests or touch test files without
   that permission. Read-only static checks and `git diff --check` remain allowed when relevant.

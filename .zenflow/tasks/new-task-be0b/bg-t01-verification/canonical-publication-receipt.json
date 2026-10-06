@@ -1,0 +1,53 @@
+{
+  "target": "refs/heads/main",
+  "target_sha": "749ed732b9dce22836a00d9f53ae2cab43a4caa8",
+  "merge_base": "749ed732b9dce22836a00d9f53ae2cab43a4caa8",
+  "staged_patch_sha256": "76af285b98c455722a0661bbf070b05558108a2f85897f1289a316ca0f7ec260",
+  "contract": "Human grant/task matrix independent of results; exact source/target membership; failed/timeout/interrupted retained; manual gates OPEN; app/task boundary only",
+  "findings": "Owned P0-P3 none after wording fixes and full final review; external BG-A01 and LIB-004 OPEN",
+  "checks": {
+    "owned_canonical_files": [
+      "MANIFEST.md",
+      "MANIFEST_SUMMARY.md",
+      "apps/BattleshipGame/AUDIT_LEDGER.md",
+      "apps/BattleshipGame/PROJECT_CONTEXT.md",
+      "apps/BattleshipGame/PROJECT_MAP.md",
+      "apps/BattleshipGame/TASK_BG_T01.md",
+      "tasks/new-task-be0b/handoff.md",
+      "tasks/new-task-be0b/ios-project-work-system-plan.md",
+      "tasks/new-task-be0b/plan.md",
+      "apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md"
+    ],
+    "file_sha256": {
+      "MANIFEST.md": "74efd03a23835278b49bd07ed79aa3b74b87550d1ea33f039de16a6ca51f3bda",
+      "MANIFEST_SUMMARY.md": "58150a16631de3aa76fde38db886eccb039721496fc0b4ff7ac989df014b98e2",
+      "apps/BattleshipGame/AUDIT_LEDGER.md": "3ec1da94827275bac0fca2f32d5873ac141113b640e243a5f2b5a607d90cf78c",
+      "apps/BattleshipGame/PROJECT_CONTEXT.md": "e236783d41044f50509ddd5ff53b6e666079df646f71dc16d4219d51a9207fb9",
+      "apps/BattleshipGame/PROJECT_MAP.md": "51778823350ae3a1e718dbab0f8f736b850ab2ebe99ec0c3f1330cf390a11122",
+      "apps/BattleshipGame/TASK_BG_T01.md": "b0f47de38591d2e2727b7af72a83788693b0c2f54e8206b448c1e2637a37ecba",
+      "tasks/new-task-be0b/handoff.md": "6b12af92e3ac91cce7f1250452bcae2f0672726b0b0660d68e199536219cefdc",
+      "tasks/new-task-be0b/ios-project-work-system-plan.md": "ad6b8deae6b4f646552843314da12c9ead1dd9fdbe7a6fda1c078693ce16bf77",
+      "tasks/new-task-be0b/plan.md": "00e783703313d7fc1770cf6fdaf2c6b181474f15a02c95509076626012009137",
+      "apps/BattleshipGame/history/bg-t01-verification-2026-10-04.md": "5ed249d2055df571af8ad64aca41c63fd6ebfd18ae904644be818c51738cd9cc"
+    },
+    "scoped_secret_patterns": "PASS; docs+2 tests only; no secret store read",
+    "links_checked": 41,
+    "task_words": 946,
+    "unique_plan_leaves": 62,
+    "reusable_rules_unchanged": true,
+    "review": "Self-review; scope/permission/membership/failure-state mirrors aligned; no owned P0-P2/P3; BG-A01/LIB-004 remain outside documentary candidate OPEN",
+    "reused_checks": "Unchanged baseline/bootstrap/router/index/boundary PASS; new manifest/vault/diff checks run"
+  },
+  "independent_review": "Not authorized; self-review only",
+  "reviewed_head": "813255c1de6cc2a483c8d883726c9e561e09997c",
+  "review_range": "749ed732b9dce22836a00d9f53ae2cab43a4caa8..813255c1de6cc2a483c8d883726c9e561e09997c",
+  "target_remote_fresh_sha": "749ed732b9dce22836a00d9f53ae2cab43a4caa8",
+  "clean": true,
+  "exact_committed_diff": "Byte-identical to completely reviewed frozen candidate; committed file hashes equal checked inputs",
+  "source_and_foreign_preservation": "PASS; client HEAD/source/foreign/34 Library files retained",
+  "canonical_publication": "pushed and remote SHA confirmed",
+  "residual": "BG-A01/LIB-004 OPEN; real VoiceOver/live resize and expanded AX5 audit27 timeout; iPad18 original failure retained; no app/system readiness",
+  "confirmed_remote_sha": "813255c1de6cc2a483c8d883726c9e561e09997c",
+  "postpush_clean": true,
+  "active_worktree_remote_state_gate": "PASS"
+}

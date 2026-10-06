@@ -1,0 +1,72 @@
+{
+  "status": "PARENT_F02_EVIDENCE_VERIFIED_SCOPED",
+  "assertions": 16,
+  "native_logs": [
+    {
+      "log": "f02/macos/old.log",
+      "pass_labels": [
+        "old-store-saved"
+      ],
+      "terminal_pass": true
+    },
+    {
+      "log": "f02/macos/new.log",
+      "pass_labels": [
+        "lightweight-preserves-old-values",
+        "typed-failure-preserved",
+        "write-failure-rollback",
+        "cooperative-cancellation-rolls-back",
+        "actor-concurrent-writes-preserved",
+        "migration-failure-visible",
+        "version-advances-only-after-success",
+        "migration-retry-resumes-version",
+        "current-version-is-idempotent"
+      ],
+      "terminal_pass": true
+    },
+    {
+      "log": "f02/macos/reopen.log",
+      "pass_labels": [
+        "separate-process-reopen-count",
+        "separate-process-reopen-old-fields",
+        "separate-process-rollback-durable"
+      ],
+      "terminal_pass": true
+    },
+    {
+      "log": "f02/macos-failure/old.log",
+      "pass_labels": [
+        "old-store-saved"
+      ],
+      "terminal_pass": true
+    },
+    {
+      "log": "f02/macos-failure/migrate-failure.log",
+      "pass_labels": [
+        "actual-SwiftData-migration-failure-visible"
+      ],
+      "terminal_pass": true
+    },
+    {
+      "log": "f02/macos-failure/old-reopen.log",
+      "pass_labels": [
+        "failed-migration-old-store-reopen-preserved"
+      ],
+      "terminal_pass": true
+    }
+  ],
+  "actual_sources_match_receipt": {
+    "PackagesInUse/AppDatabase/Sources/AppDatabaseCore/AppDatabaseCore.swift": true,
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/SwiftDataModelActorDatabaseManager.swift": true,
+    "PackagesInUse/AppDatabase/Sources/AppSwiftDataDatabase/AppSwiftDataDatabase.swift": true
+  },
+  "claim_limits": [
+    "no app schema integration/real data/production migration",
+    "no cancellation propagation PASS: transactionFailed mapping observed",
+    "no downgrade compatibility claim; supported downgrade policy unspecified",
+    "no diskfull/crash interruption/storage permission/full app release coverage"
+  ],
+  "ios_runtime": "BLOCKED automatic approval reviewer rejected Simulator grant; confined boot attempt failed before runtime. No device installed/created",
+  "receipt_sha256": "4566751720dd63953d856839c61db9e7ee0ae7dd53f9481316fc231e76eb9af5",
+  "non_mutation": "Parent wrote only own evidence receipt"
+}
