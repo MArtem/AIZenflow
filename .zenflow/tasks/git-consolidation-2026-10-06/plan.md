@@ -18,3 +18,10 @@ Verification: reuse prior matching-fingerprint QA. No new source/configuration/r
 Static results: docs index 208, consistency, router 95 (Level 0 3224/5000), boundaries and bootstrap PASS. Baseline drift: one missing/32 stale, zero unexpected/failures; all affected paths unchanged from the approved integration base, classified pre-existing synchronization debt (P3 for this preservation scope). No mirror repair or new runtime claim in this task.
 
 Outcome: COMPLETE for selected AIZenflow scope. Atomic initial publication confirmed both targets at 072a01e54bf3548796883b6641e8e28579b10be2 and audit branch at 99563476ab68485c94e84bfd36a68b55fbd7aa80. Closure documentation adds no source changes; its final SHA and canonical confirmation are recorded externally to avoid self-referential commits. Separate AIZenflowRelease remote remains excluded.
+
+## User-checkout follow-up
+
+The previous clean-status claim was insufficient after switching the old audit checkout to development: 36,440 previously ignored local Library review/fixture files became untracked because the current .gitignore omitted the old acceptance block. This is a useful branch change missed by history-only integration, not new app source. Reopen this preservation follow-up until the exact old ignore block is restored, reviewed and published to both targets and the actual development checkout is verified clean. Preserve every existing file; no fixture execution/deletion or blanket add.
+
+- [x] Inventory every pending path; all 36,440 fit the exact restored rules, zero tracked files match the new block.
+- [ ] Publish the reviewed ignore fix and canonical recovery, fast-forward the actual development checkout and main, verify both remote SHAs/clean statuses.

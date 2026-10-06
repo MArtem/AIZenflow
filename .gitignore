@@ -64,6 +64,21 @@ docs/archive/retired-documentation-cleanup/
 .zenflow/tasks/*/runtime/
 runtime/
 
+# iOS engineering library acceptance/review workspaces (regenerable local evidence)
+/PACKAGE_FILE_MANIFEST.json
+.zenflow/library-review-*/
+.zenflow/library-adoption-v54/fixtures/
+.zenflow/library-adoption-v54/patch-work/
+.zenflow/library-adoption-v54/proposed-integration/
+.zenflow/library-adoption-v54/evidence/astra-v13-*/
+.zenflow/library-adoption-v54/evidence/installer-smoke-*/
+.zenflow/library-adoption-v54/evidence/manual-smoke-*/
+.zenflow/library-adoption-v54/evidence/v*-runtime-compat/
+.zenflow/library-adoption-v54/evidence/v*-extracted-qc/
+.zenflow/library-adoption-v54/evidence/v*-smoke/
+.zenflow/library-adoption-v54/evidence/final-acceptance/archive-qc*/
+.zenflow/library-adoption-v54/evidence/final-acceptance/fixtures/
+
 # Node / web tooling if ever present
 node_modules/
 
