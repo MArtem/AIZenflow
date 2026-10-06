@@ -2,14 +2,14 @@
 
 ## Current follow-up — Git preservation, 2026-10-06
 
-Human explicitly requests commit/push of all useful progress, including applications.
+Human requests commit/push of useful progress, including applications.
 GPT-6.1 Sol/high, эконом. This overrides historical client Git restrictions for this
 follow-up only. Existing implementation cycle remains closed; Library stays experimental.
 
 - [x] Freeze initial inventory; preserve foreign edits and existing QA evidence.
 - [x] Review useful source/test/docs/evidence and the existing unpublished commit.
-- [ ] Commit reviewed changes; review exact HEAD against fresh target remote.
-- [ ] Push origin/codex/knowledge-base-next; confirm clean/synchronized Git.
+- [x] Commit reviewed changes; review exact HEAD against fresh target remote.
+- [x] Push origin/codex/knowledge-base-next; confirm clean/synchronized Git.
 
 Derived QA products remain local under narrow ignore rules. No deletion, force push,
 old checkout/install branch changes, new pilots, agents/MCP, or runtime authority.

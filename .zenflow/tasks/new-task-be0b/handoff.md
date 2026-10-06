@@ -8,7 +8,7 @@ repository. Historical client Git restrictions below are superseded for this fol
 Preserve foreign work; derived QA products stay local. No new runtime/pilot/agent/MCP
 grant or old checkout/install branch change. Exact publication receipts stay external
 under `.zenflow/task-artifacts/new-task-be0b/git-preservation/`.
-Next: review, commit and guarded push.
+Published implementation: `9d46123e5d72af7ca6209247ac3989f3f9f04c14`; remote confirmed. Follow-up complete.
 
 **Current status: CLOSED_SCOPED_BY_USER — 2026-10-05.** Human «заканчивай»
 after the offered experimental-Library closure selects completion of this cycle.
