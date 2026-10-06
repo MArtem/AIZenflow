@@ -20,5 +20,9 @@ Make API integrations reliable under mobile network conditions.
 - Are retries bounded?
 
 ## Required Verification
+- Choose evidence appropriate to the changed endpoint and current permissions.
+  Test creation/execution and manual/offline runtime validation remain
+  user-owned unless separately delegated; otherwise mark them not run and
+  state the unverified failure-path risk.
 - Stubbed transport tests or equivalent static proof for error mapping.
 - Manual/offline validation for user-critical flows.

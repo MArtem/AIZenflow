@@ -11,6 +11,13 @@ A comment is required when a future developer or AI agent could misuse the type,
 ## Default Project Documentation Scope
 When the user asks to add, improve, refresh, or review code documentation for a project and does not specify exact files, the scope is the whole project.
 
+Treat that as an inventory and completion target, not permission for an
+unbounded edit. Apply the current small-batch, source-file, token-budget,
+test, and build authority limits; seek the required scope decision before a
+larger implementation block. Report a bounded partial pass honestly and
+retain the remaining-file inventory rather than claiming project-wide
+completion.
+
 Every logically significant executable source file must contain contract-level code documentation for its primary responsibility. This applies to Swift files that define or coordinate app behavior, UI behavior, state ownership, navigation, persistence, services, platform capabilities, scripts, reusable package code, or build/runtime tooling.
 
 The required minimum is:

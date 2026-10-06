@@ -1,5 +1,8 @@
 MASTER PROMPT: AI ENGINEERING FOR iOS, iPadOS, macOS AND APPLE PLATFORMS
 
+Section numbers are stable deep-reference anchors. Use `AI_iOS_TASK_ROUTER.md` route IDs to select
+only the needed ranges; the master is not a default full-context prompt.
+
 ## 0. ПРИОРИТЕТ И УСЛОВНОЕ ПРИМЕНЕНИЕ
 
 Этот prompt является reusable AI-specific operating reference, а не источником,
@@ -7,9 +10,9 @@ MASTER PROMPT: AI ENGINEERING FOR iOS, iPadOS, macOS AND APPLE PLATFORMS
 
 Порядок приоритета:
 
-1. актуальная явная инструкция пользователя;
-2. системные и developer-инструкции активной среды;
-3. `AGENTS.md`, current user overrides и task-local правила;
+1. системные и developer-инструкции активной среды;
+2. актуальная явная инструкция пользователя в пределах её scope;
+3. `AGENTS.md`, current user overrides и task-local правила в пределах делегированной authority;
 4. актуальная проектная документация и утверждённые ADR/планы;
 5. этот master-prompt;
 6. общие примеры и рекомендуемые структуры из этого prompt.
@@ -2449,8 +2452,8 @@ legal submission;
 
 Для каждой задачи выполняй:
 
-Прочитай этот prompt.
-Прочитай AGENTS.md.
+Прочитай `AI_iOS_TASK_ROUTER.md`, `AGENTS.md` и только релевантные диапазоны этого master
+prompt; полный master нужен для broad/cross-cutting AI work или его изменения.
 Изучи feature.
 Классифицируй AI-задачу.
 Выбери deterministic/on-device/cloud/hybrid approach.
@@ -2469,9 +2472,11 @@ legal submission;
 Проверь privacy/security.
 Проверь memory/performance.
 Покажи diff и риски.
-91. НЕОБХОДИМЫЙ PLAN ПЕРЕД РЕАЛИЗАЦИЕЙ
+91. PLAN ПЕРЕД РЕАЛИЗАЦИЕЙ
 
-Формат:
+Для простой утверждённой задачи используй компактный план только с релевантными строками ниже.
+Полный формат нужен для broad/high-risk AI feature или cross-cutting change; нерелевантные строки
+помечай `NOT_APPLICABLE`, а не заполняй шаблонным текстом.
 
 AI FEATURE PLAN
 
@@ -2506,7 +2511,8 @@ AI FEATURE PLAN
 
 - AI-ready не означает “LLM на каждом экране”. Сначала проверь deterministic baseline и добавляй модель только там, где она улучшает пользовательскую задачу.
 - `LanguageModelSession` stateful: планируй lifecycle transcript, context-window limits, summarization/compaction, reset policy и privacy retention. Не веди бесконечный чат в одной session без контроля.
-- Любой AI provider должен иметь mock/fake implementation для разработки, previews, ручной проверки и evaluation без реального provider call.
+- Добавляй mock/fake implementation только при разрешённом test/preview/evaluation seam и реальной
+  необходимости; не создавай его как production fallback или обязательный слой для каждого provider.
 - Local/cloud/hybrid routing должен учитывать availability, device/OS requirements, sensitive data, large context, internet freshness, cost, latency, offline behavior и user consent.
 - Cloud AI вызовы с секретами идут через backend; app bundle не хранит постоянные provider secrets.
 - Structured AI output требует deterministic validation перед persistence/action execution.
@@ -2515,7 +2521,8 @@ AI FEATURE PLAN
 - Image, speech, translation, OCR, and Foundation Models capabilities require explicit availability and permission handling before UI promises the feature.
 92. ФОРМАТ ФИНАЛЬНОГО ОТЧЕТА
 
-После реализации выдай:
+После реализации выдай компактный отчёт по фактическому scope. Включай только релевантные разделы
+ниже, а для неприменимого verification явно укажи `NOT_APPLICABLE` или оставшийся риск.
 
 AI IMPLEMENTATION REPORT
 
@@ -2745,14 +2752,13 @@ Relevant project paths:
 Additional restrictions:
 [RESTRICTIONS]
 
-Используй заполненный контекст вместе со всеми правилами этого master-prompt.
+Используй заполненный контекст вместе с `AI_iOS_TASK_ROUTER.md` и выбранными релевантными
+разделами этого master-prompt. Не импортируй полный master в каждую задачу.
 
-Практически лучше не вставлять все 96 разделов в каждую задачу. Храни этот файл как главный reference, а в корневом AGENTS.md добавь короткое правило:
-
-Для любых функций, связанных с AI, моделями, ML, App Intents,
-Apple Intelligence, Speech, Vision, RAG или cloud LLM,
-сначала прочитай AI_iOS_MASTER_PROMPT.md и применяй только
-релевантные разделы.
+Для любых функций, связанных с AI, моделями, ML, App Intents, Apple Intelligence, Speech, Vision,
+RAG или cloud LLM, сначала прочитай `AI_iOS_TASK_ROUTER.md`, затем открой только подходящие
+диапазоны `AI_iOS_MASTER_PROMPT.md`. Полный master нужен для broad/cross-cutting AI audit,
+архитектуры или изменения самого master.
 
 Canonical reusable copy для текущей документационной библиотеки:
 `/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/agent-prompts/AI_iOS_MASTER_PROMPT.md`.

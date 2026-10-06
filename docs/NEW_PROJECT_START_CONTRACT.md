@@ -71,7 +71,7 @@ Before implementation:
 3. Run or satisfy `scripts/check_bootstrap_contract.py`.
 4. Read `./docs/DOCUMENT_BOUNDARY_STANDARD.md`.
 5. Read `./docs/SOURCE_OF_TRUTH_MAP.md`.
-6. Read `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` and select only task-relevant bootstrap, app, package, prompt, skill, and deep-reference docs.
+6. Apply the canonical task router already loaded by the global bootstrap; if canonical is unavailable, report that state and use the tracked local router under the governed portable snapshot. Select only task-relevant bootstrap, app, package, prompt, skill, and deep-reference docs. A project-local route overlay adds optional candidates only when the actual subtask needs them; do not reread a mirror when canonical is available or treat every optional candidate as mandatory.
 7. Apply `./docs/AGENT_PREFLIGHT_CHECKLIST.md`.
 8. Apply `./docs/SECRET_HANDLING_AND_SECURITY_INTAKE_STANDARD.md`.
 9. Confirm `.gitignore` covers local secret files, signing material, private configs, sensitive logs, traces, and exports.
@@ -122,7 +122,7 @@ The project start contract is satisfied only when:
 - bootstrap contract passes or remaining risks are recorded;
 - documentation boundary is active;
 - source-of-truth locations are known;
-- task-specific docs were selected through `./docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` instead of loading unrelated library material;
+- task-specific docs were selected through the canonical task router, or through the tracked local router with an explicit `canonical-baseline-unavailable` report, and only relevant project overlays; no duplicate router or unrelated library material was loaded;
 - secret handling standard is applied;
 - `.gitignore` or equivalent secret ignore baseline exists;
 - real secrets are outside normal AI-readable workspace files or documented as an explicit security-intake/remediation risk;

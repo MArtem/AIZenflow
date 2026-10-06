@@ -192,13 +192,15 @@ compiler/runtime/release evidence.
 
 ## Severity and exception policy
 
-- **P0:** data loss, credential exposure, unsafe release/signing, security bypass, false evidence,
-  or a crash/blocker on a promised critical path. Stop immediately.
-- **P1:** correctness, concurrency, privacy, migration, release, or major accessibility defect.
-  Blocks merge and release.
-- **P2:** material performance, maintainability, observability, compatibility, or UX defect.
-  Blocks the affected claim until fixed or explicitly accepted by the owning authority.
-- **P3:** bounded polish or documentation gap. Fix before completion or record owner and expiry.
+Use the single P0–P3 impact definitions in
+`./docs/IOS_PRODUCTION_AUDIT_MATRIX.md` and the separate confidence,
+applicability, and evidence axes in
+`./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`. Data loss,
+credential exposure, concurrency, accessibility, performance, and release
+failures may be severe, but category names alone do not assign priority:
+establish the affected path, exposure, and consequence. P0 stops immediately;
+P0–P2 block commit/push until fixed or a higher-authority scoped accepted-risk
+decision applies. Fix or explicitly report P3.
 
 An exception is a short app/task ADR with scope, reason, alternatives rejected, risk, owner,
 expiry/removal condition, and compensating evidence. Exceptions cannot authorize forbidden Swift

@@ -77,13 +77,17 @@ Promotion requires:
 Without that promotion step, the decision remains local forever.
 
 ## Import Gate
-When starting a new project, use this read order:
+When starting a new project, follow the bootstrap and Level 0 read order; this
+boundary standard does not replace their authority or move task state ahead of
+the canonical baseline:
 
-1. project-local `AGENTS.md`, handoff, and plan;
-2. this standard;
-3. reusable baseline docs needed for the task;
-4. the current app's own `apps/<AppName>/` docs, if they exist;
-5. other apps' docs only when the user explicitly asks for cross-app reference.
+1. receive the project-local `AGENTS.md` and apply its canonical bootstrap (or
+   the declared portable-snapshot fallback);
+2. load the canonical baseline/router and its Level 0 set, including the
+   current task handoff and plan when present;
+3. load this standard and the other reusable documents selected for the task;
+4. load the current app's own `apps/<AppName>/` docs when that boundary exists;
+5. read other apps' docs only when the user explicitly asks for cross-app reference.
 
 Do not bootstrap a new app by copying another app's docs.
 

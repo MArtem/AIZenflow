@@ -26,6 +26,8 @@ Before adding a dependency, review:
 
 ## Update Policy
 - Review changelog and migration notes.
-- Run affected build/test/QA scope.
+- Select the affected build/test/QA scope and recommend it to the user. Run
+  each check only when separately authorized by the current permission policy;
+  otherwise record it as not run with the remaining integration risk.
 - Watch for privacy manifest and signing changes.
 - Re-check transitive dependency, license, vulnerability, build-tool, and binary compatibility changes.

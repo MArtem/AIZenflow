@@ -38,25 +38,44 @@ every AI task load all 96 sections.
 
 ## Section Routes
 
-| Task | Read master sections |
-|---|---|
-| Classification, discovery, minimal architecture | 1–6 |
-| Foundation Models, Core AI/Core ML, local runtimes | 7–11 |
-| Cloud providers, OpenAI, routing, hybrid execution | 12–16 |
-| RAG, local retrieval, embeddings | 17–19 |
-| App Intents, App Entities, parameters, system surfaces | 20–24 |
-| Writing Tools, Image Playground, Translation, Speech, Vision, Natural Language, Sound, Create ML | 25–33 |
-| Agents, tool calling, MCP, structured output, prompts and injection | 34–40 |
-| Privacy, retention, security, safety, high-stakes output, hallucinations, citations | 41–48 |
-| UX, streaming, concurrency, errors, retry/fallback/offline, model downloads and capability | 49–58 |
-| Performance, memory, thermal, cost, context, memory, caches, persistence, observability | 59–68 |
-| Evaluation, datasets, testing, mocks, nondeterminism, previews, rollout, localization, accessibility, disclosure | 69–80 |
-| App architecture, ViewModel/SwiftUI, background work, multimodal/document/image input, validation, confirmation | 81–89 |
-| Implementation workflow, plan, report, prohibitions, technology choice, final principles, task context | 90–96 |
+Use the stable route ID in task notes and receipts. The numeric range is a locator inside the
+versioned master; it is not an instruction to load unrelated sections.
+
+| Route ID | Task | Read master sections |
+|---|---|---|
+| `AI.CLASSIFY` | Classification, discovery, minimal architecture | 1–6 |
+| `AI.LOCAL` | Foundation Models, Core AI/Core ML, local runtimes | 7–11 |
+| `AI.CLOUD` | Cloud providers, OpenAI, routing, hybrid execution | 12–16 |
+| `AI.RETRIEVAL` | RAG, local retrieval, embeddings | 17–19 |
+| `AI.INTENTS` | App Intents, App Entities, parameters, system surfaces | 20–24 |
+| `AI.APPLE_CAPABILITIES` | Writing Tools, Image Playground, Translation, Speech, Vision, Natural Language, Sound, Create ML | 25–33 |
+| `AI.AGENTS` | Agents, tool calling, MCP, structured output, prompts and injection | 34–40 |
+| `AI.TRUST` | Privacy, retention, security, safety, high-stakes output, hallucinations, citations | 41–48 |
+| `AI.RUNTIME` | UX, streaming, concurrency, errors, retry/fallback/offline, model downloads and capability | 49–58 |
+| `AI.COST_RUNTIME` | Performance, memory, thermal, cost, context, caches, persistence, observability | 59–68 |
+| `AI.EVALUATION` | Evaluation, datasets, testing, mocks, nondeterminism, previews, rollout, localization, accessibility, disclosure | 69–80 |
+| `AI.APP_ARCH` | App architecture, ViewModel/SwiftUI, background work, multimodal/document/image input, validation, confirmation | 81–89 |
+| `AI.DELIVERY` | Implementation workflow, plan, report, prohibitions, technology choice, final principles, task context | 90–96 |
 
 Combine only the ranges required by the actual task. For example, a bounded local OCR change
 normally needs sections 1–4, 30, 41, 49, 51, 53, 58–61, 69–72, 79, and 81–90—not the complete
 cloud, RAG, agent, and provider material.
+
+## Specialist Route Ownership
+
+Choose one primary owner before adding a narrow supplement:
+
+| Concern | Primary skill | Add only when the task also contains |
+|---|---|---|
+| API schema, DTO/domain mapping, decode/version/error contract | `ios-api-contracts` | `ios-network-resilience` for transport retry/timeout or `ios-offline-sync` for durable replay/conflict |
+| Transport reliability, retry/backoff, timeout, cancellation, upload/download | `ios-network-resilience` | `ios-api-contracts` for payload contract or `ios-offline-sync` for durable local mutation |
+| Durable offline mutation, outbox/replay, conflict, relaunch, app-group sync | `ios-offline-sync` | `ios-api-contracts` for remote contract or `ios-data-migration` for schema migration |
+| Verification strategy and permission-bounded test choice | `ios-test-strategy` | `ios-testing-debugging` for an observed failure, flake, hang, or runtime diagnosis |
+| Test/runtime diagnosis and regression evidence | `ios-testing-debugging` | `ios-test-strategy` only for a new verification matrix |
+
+Do not activate all overlapping routes because a task mentions a generic word such as API, file,
+review, or test. A skill trigger must describe the action/risk it owns; a reference document may
+still be consulted as a narrow supplement.
 
 ## Canonical Files
 

@@ -21,6 +21,11 @@ Keep memory bounded and scrolling responsive when handling images, video, audio,
 - Are PDF/video thumbnails generated off the hot path?
 
 ## Required Verification
+Select these checks when the changed media/file path makes them relevant.
+Scroll traces, memory tools, and relaunch/runtime checks remain user-owned
+unless separately delegated; if unavailable, report them as not run and keep
+the corresponding performance or lifecycle risk explicit.
+
 - Scroll trace for media-heavy lists.
 - Memory graph or allocations check for repeated open/close flows.
 - Relaunch check for persistent media references.

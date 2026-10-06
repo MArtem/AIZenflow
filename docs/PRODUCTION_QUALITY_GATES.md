@@ -257,11 +257,14 @@ When the user asks for review/refactor/cleanup, the review must explicitly cover
 Do not return a purely stylistic review if runtime hot-path issues exist.
 
 ## Severity Classification
-Use this severity model:
+Use the single P0–P3 impact scale in
+`./docs/IOS_PRODUCTION_AUDIT_MATRIX.md` and the separate confidence/evidence
+axes in `./docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md`. A category
+name such as crash, performance, security, or maintainability does not assign
+severity by itself: establish the affected path, exposure, user impact, and
+failure likelihood. P2 includes incorrect patterns that must be fixed before
+expanding the affected area; ordinary cleanup belongs at P3.
 
-- **P0 Blocker**: crash, data loss, broken core flow, severe jank, main-thread stalls in primary UI, security/privacy leak.
-- **P1 Production Risk**: likely performance degradation, incorrect state ownership, broad invalidation, bad persistence/network shape, memory growth, brittle migration.
-- **P2 Maintainability Risk**: duplication, naming confusion, unnecessary abstraction, unclear ownership, hard-to-test structure.
-- **P3 Polish**: visual/wording cleanup that does not threaten correctness or runtime quality.
-
-P0/P1 must be surfaced immediately and fixed before cosmetic work unless the user explicitly chooses otherwise.
+Surface P0/P1 immediately. Resolve P0–P2 before commit or push under the
+engineering change gate unless a higher-authority scoped exception applies;
+report or resolve P3 explicitly. Do not convert unknown evidence into PASS.

@@ -1,6 +1,6 @@
 ---
 name: ios-api-contracts
-description: Use this skill for iOS backend/API integration reviews involving DTOs, domain mapping, error handling, pagination, retry, idempotency, offline behavior, sync, auth refresh, cancellation, and logging redaction. Trigger whenever API, backend, network, sync, DTO, pagination, retry, or auth/session expiration is mentioned.
+description: Use this skill for iOS API contract work: DTO/domain/persistence mapping, schema/version compatibility, decode failures, API error taxonomy, and request/response contract review. Trigger when the task reviews or changes a backend contract or mapping; add network-resilience or offline-sync only for those separate risks.
 ---
 
 # iOS API Contracts

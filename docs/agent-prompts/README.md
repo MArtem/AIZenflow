@@ -80,5 +80,6 @@ Before applying any prompt here, apply the current project/task rules first:
 - Several prompts recommend generating tests as part of feature work. In this project, tests remain opt-in unless the user explicitly asks.
 - Several prompts mention repository protocols and Action enums as defaults. In this project, repository protocols are allowed only at real seams, and UI action enums / `send(_ action:)` dispatch are not default MVVM boilerplate. Use explicit ViewModel intent methods unless reducer/state-machine architecture is explicitly approved and documented.
 - Model selection is governed only by `../MODEL_ROUTING_RULE.md`; do not hardcode model versions in prompt presets.
+- AI route IDs and overlapping API/network/sync/testing ownership are governed by `AI_iOS_TASK_ROUTER.md`; do not activate every specialist route from a generic keyword.
 - The prompts are generic iOS production templates. Existing current-app architecture, task rules, product contracts, localization, design tokens, and verification policy are higher priority.
 - Evidence-based completion prompt is mandatory before claiming work is done when verification is non-trivial.

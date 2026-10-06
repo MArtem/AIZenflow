@@ -29,7 +29,7 @@ Short answers such as “готов”, “да, всё ясно”, “гото
 ## Startup Read Rule
 Before code, docs, git, project, build, or task changes:
 
-1. Use the canonical `reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` selected by the global bootstrap (or its governed portable snapshot when canonical is unavailable); do not reread the project mirror, which only adds an optional-document index.
+1. Use the canonical `reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md` selected by the global bootstrap. When canonical is unavailable, report `canonical-baseline-unavailable` and use the tracked local router under the governed portable snapshot; do not claim it is the current canonical revision or reread it when canonical is available.
 2. Read its current Level 0 set once, including current task handoff/plan when present.
 3. Load only the task-relevant routes. For a matching project-specific route, consider `./docs/TASK_DOCUMENT_ROUTES.overlay.json` candidates and read only those relevant to the actual subtask; resolver output alone does not make every optional document mandatory. Do not reread the full router.
 
