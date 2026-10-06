@@ -1,0 +1,103 @@
+{
+  "finding": "F01",
+  "status": "CLOSED_SCOPED",
+  "negative_and_control_cases": [
+    {
+      "case": "valid-readme",
+      "expected_exit": 0,
+      "actual_exit": 0,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "source-app",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "readme-placeholder",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "existing-build",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "existing-swiftpm",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "existing-resolved",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "existing-userdata",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "swift-failure",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "swift-warning",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "swift-generated",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    },
+    {
+      "case": "scratch-symlink",
+      "expected_exit": 1,
+      "actual_exit": 1,
+      "preservation": "PASS",
+      "private_cleanup": "PASS",
+      "swift": "stub; control-flow verification only"
+    }
+  ],
+  "native": {
+    "standard": "11/11 PASS",
+    "strict": "11/11 PASS",
+    "verifier_exit": 0,
+    "log_sha256": "9ffab0cce8f18e019b6bec0aa8332271165e29826d26a0bbeea6e1b081299f4f",
+    "adaptation": "PATH wrapper adds --disable-sandbox; disposable source copy; scoped CFFIXED_USER_HOME"
+  },
+  "omitted": "No iOS/Simulator/app builds; package runtime unchanged, native verification only",
+  "source_script_sha256": "7186bac04cebc51a67d76921e2014d0498ffb70e11ea6f57cafb8a38a6cdd370"
+}

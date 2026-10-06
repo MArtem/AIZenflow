@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "generated_by": "scripts/generate_package_snapshot_manifest.py",
-  "documentation_vault_revision": "cb8ffedf7e5c032478e36fa8f2f1e751952ad76b",
+  "documentation_vault_revision": "ae35e915edc6f7ae3c8ed3a9d6a5bfe73396a138",
   "counts": {
     "reusable_root": 40,
     "reusable_helpers": 5,
@@ -162,7 +162,7 @@
       ],
       "maturity": "vault-cataloged",
       "package_manifest_sha256": "2510e9205da4a91cd130016bc356961a205b350a2e91ca4862b5394802b53473",
-      "content_sha256": "cf4fd9900a3987f98bc4afabd2683b07b9f6888d40b90c674c1f9fc4a2e54468",
+      "content_sha256": "c80b7f6137d64582ae3ba1f8a358c86f7da8a798d040404fc6a442a3432c740b",
       "required_surfaces": {
         "README.md": true,
         "PackageContract.md": true,
@@ -171,7 +171,7 @@
       },
       "active_snapshot": {
         "path": "PackagesInUse/AppDatabase",
-        "content_sha256": "0d9a285addc6f57b27c4f317f7a94edffdb00c582942cf73cc07c1f408273a02",
+        "content_sha256": "d88dd9191257ddac613bd3ef6bc81cbc04207a609d3bba3cca6764c03d7ad44d",
         "maturity": "source-only-active"
       }
     },
@@ -749,7 +749,7 @@
       ],
       "maturity": "vault-cataloged",
       "package_manifest_sha256": "809d6150889d084ccb6ab800f44d2f2a115458602ad83b44d42abad8507c8cf3",
-      "content_sha256": "d067670d83fecfa220982c599c0981583556dbac4b63a63fffb921b696cb7ae6",
+      "content_sha256": "3043fd3c140df8b565dcf85e260e517233e6de985ed514af96faf7118d8ed4b4",
       "required_surfaces": {
         "README.md": true,
         "PackageContract.md": true,
@@ -933,7 +933,7 @@
     },
     {
       "path": "PackagesInUse/AppDatabase",
-      "content_sha256": "0d9a285addc6f57b27c4f317f7a94edffdb00c582942cf73cc07c1f408273a02",
+      "content_sha256": "d88dd9191257ddac613bd3ef6bc81cbc04207a609d3bba3cca6764c03d7ad44d",
       "maturity": "source-only-active",
       "kind": "root-package",
       "package_name": "AppDatabase"

@@ -1,0 +1,30 @@
+{
+  "finding": "LIB-004",
+  "status": "OPEN_P2",
+  "pair_acceptance": "NOT_ACCEPTED_PARTIAL",
+  "mode_sequence": [
+    "OFF/AUTO verified",
+    "ON/AUTO verified",
+    "terminal OFF/AUTO verified"
+  ],
+  "off_duration_ms": 454443,
+  "on_duration_ms": 2766356,
+  "observer_limit_ms": 1200000,
+  "on_time_gate": "FAIL;46m06s thread elapsed,44m10s observer measurement",
+  "on_active_library_routes": "NOT_READ",
+  "incremental_confirmed_library_defects": "NOT_MEASURED; no active Library pass",
+  "incremental_coverage": "NOT_MEASURED",
+  "cost_tokens_account": "UNKNOWN",
+  "savings": "NOT_ESTABLISHED",
+  "baseline_sha256": {
+    "off": "2fbcc078243abcf2ec6ef95141b16fabefad6e75f4ec46b8c916352e894f6e05",
+    "on": "289a59fe998fa1aa3883ce14fa54e8aa69ac827e349c836faaea61191d313e72"
+  },
+  "freeze_commentary_final_agreement": "PASS both",
+  "source_preservation": "24 original and24 snapshot entries PASS; original HEAD/tracked state unchanged",
+  "known_mapping": "source AGENTS.md maps to UPSTREAM_AGENTS.md; local AGENTS is separate overlay",
+  "permissions": "exactly2 chats consumed; no automatic repeat, source fixes or additional runtime",
+  "parent_scope": "preliminary adjudication qualifies original findings; not app-wide production review",
+  "publication_scope": "two P3 fixes and transparent negative/partial receipts, no Library rollout",
+  "required_decision": "Keep general additive-value acceptance OPEN, or explicitly retire mandatory Library rollout/value criterion while retaining optional experimental reference. Additional pilot needs a distinct concrete grant and credible enforced deadline."
+}

@@ -1,0 +1,42 @@
+{
+  "scope": "Independent parent source adjudication; no runtime or client changes",
+  "off_findings": [
+    {
+      "observer_id": "F1",
+      "title": "Disk round-trip changes metadata",
+      "observer_severity": "P2",
+      "parent_verdict": "CONFIRMED_SCOPED_P2",
+      "reason": "Actual encode uses lang and credits; disk decoder expects language and reads credits from byline. Producer/consumer mismatch explicit."
+    },
+    {
+      "observer_id": "F2",
+      "title": "Request cache follows selected tab instead of requesting WebView",
+      "observer_severity": "P1",
+      "parent_verdict": "CONFIRMED_SCOPED_P2; P1 exposure unverified",
+      "reason": "Selected-tab privacy chooses router, requesting WebView unused. Wrong-partition trigger established in component; real-app activation/exposure not demonstrated."
+    },
+    {
+      "observer_id": "F3",
+      "title": "Supplied cache-miss fallback enqueues a no-op",
+      "observer_severity": "P1",
+      "parent_verdict": "CONFIRMED_COMPONENT_INCOMPLETE; P2 scoped",
+      "reason": "main() has only cancellation guard; conversion/result code commented out. Declared TODO, live-app reachability unknown; do not call production P1."
+    },
+    {
+      "observer_id": "F4",
+      "title": "Caches enforce no resource envelope",
+      "observer_severity": "P2",
+      "parent_verdict": "RESOURCE_POLICY_GAP; not a demonstrated runtime defect",
+      "reason": "No explicit count/cost/retention envelope shown. Resource limits require app policy/measurements; deterministic exhaustion not established."
+    },
+    {
+      "observer_id": "F5",
+      "title": "Reader navigation proceeds after cache write failure",
+      "observer_severity": "P2",
+      "parent_verdict": "CONFIRMED_ORDERING_GAP_P2; final UX unknown",
+      "reason": "try? discards write failure before load; route fallback absent, so final failure/recovery not established."
+    }
+  ],
+  "unchecked_sendable_policy": "Not accepted as a runtime defect solely from spelling; apply migration rule scope and concrete ownership evidence",
+  "library_delta": "PENDING_ON; no conclusions yet"
+}

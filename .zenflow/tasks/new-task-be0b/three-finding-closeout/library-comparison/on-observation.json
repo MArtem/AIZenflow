@@ -1,0 +1,249 @@
+{
+  "thread": {
+    "id": "01a111b9-04f1-7882-84cc-8258b5894a3a",
+    "kind": "codex",
+    "hostId": "local",
+    "title": "LIB-004 Firefox ReaderMode — observation…",
+    "preview": "",
+    "status": {
+      "type": "idle"
+    },
+    "cwd": "/",
+    "createdAt": 1791298701,
+    "updatedAt": 1791301467
+  },
+  "turn": {
+    "id": "01a111b9-067c-7ec2-99a7-65de514c7427",
+    "status": "completed",
+    "startedAt": 1791298700,
+    "completedAt": 1791301467,
+    "durationMs": 2766356
+  },
+  "items": [
+    {
+      "type": "agentMessage",
+      "id": "msg_01e40fdb89a9775b016ac50c935c0087d2a930ca98d5513689",
+      "text": "- **Модель:** GPT-6.1 Sol / high\n- **Режим:** эконом\n- **Смена модели:** не требуется\n- **Фаза:** загрузка правил ограниченного read-only review\n- **Файлы:** review-root `AGENTS.md` и canonical bootstrap\n- **Следующий безопасный шаг:** прочитать инструкции выбранного frozen subset\n- **Build/tests:** не запускаются; разрешён только статический review\n- **Sandbox:** вся проектная работа остаётся внутри `/Users/Artem/.zenflow`\n",
+      "phase": "commentary"
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-70a520ce-c904-4524-aec2-c8fc8756a28f",
+      "command": "/bin/zsh -c \"python3 -c 'import time; print(time.time())'\ncat AGENTS.md\"",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-c3c9bd8a-f781-4520-9732-d1bfaf0dfdc5",
+      "command": "/bin/zsh -c 'cat /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-eb40ee5b-91c3-49c9-a27e-131faeb3dbd0",
+      "command": "/bin/zsh -c 'cat reusable/baseline/AGENTS.md reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-f83decf3-5442-4126-96fc-081e35a64af1",
+      "command": "/bin/zsh -c 'cat /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md plan.md handoff.md'",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-1c43a0b3-9a5f-427d-9b8f-dac5af6b2c9c",
+      "command": "/bin/zsh -c 'cat PROJECT_DOCUMENTATION.md PROJECT_HEALTH.md docs/AGENT_RULES.md docs/AGENT_PREFLIGHT_CHECKLIST.md docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-e5fbf7cd-92b4-4288-86b9-293484175484",
+      "command": "/bin/zsh -c 'cat docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md docs/IOS_PRODUCTION_READINESS_STANDARD.md docs/DEFINITION_OF_DONE.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-c76226c7-bfdf-463d-bdbc-3807cc3db8b7",
+      "command": "/bin/zsh -c 'cat docs/EVIDENCE_BASED_ENGINEERING_RULES.md docs/IOS_PRODUCTION_EXCEPTION_POLICY.md docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md docs/IOS_MEMORY_CACHE_MEDIA_STANDARD.md docs/IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-928a1e6c-d8b8-40d4-9ec5-e351e0bafe4b",
+      "command": "/bin/zsh -c 'cat docs/agent-prompts/production-review-completeness.md docs/PRODUCTION_CODE_REVIEW_CHECKLIST.md docs/PRODUCTION_QUALITY_GATES.md docs/COMPLETION_REPORT_CONTRACT.md docs/CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "agentMessage",
+      "id": "msg_01e40fdb89a9775b016ac50cbce6e487d2b290a9a04f61ea6d",
+      "text": "- **Модель:** GPT-6.1 Sol / high\n- **Режим:** эконом\n- **Смена модели:** не требуется\n- **Фаза:** завершение обязательного первого слоя\n- **Файлы:** canonical review/evidence/cache/concurrency standards; локальные `plan.md`, `handoff.md`\n- **Следующий безопасный шаг:** дочитать обязательные ссылки, затем проверить frozen inputs\n- **Build/tests:** запрещены текущим scope; тесты будут только прочитаны\n- **Sandbox:** работа внутри `/Users/Artem/.zenflow`\n\nDocs route: Level 0 + code orientation + review/evidence + memory/cache/files + concurrency. Проверяется только предоставленный subset; принятие всего приложения и QualityControl engine отложены владельцем. Контекст обновлять не нужно.\n",
+      "phase": "commentary"
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-356c1454-3181-4277-a11a-a044b611034a",
+      "command": "/bin/zsh -c 'cat docs/README.md docs/SOURCE_OF_TRUTH_MAP.md docs/IOS_CODE_DOCUMENTATION_STANDARD.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-30b918dd-a090-416c-a556-77367332b79d",
+      "command": "/bin/zsh -c 'cat docs/UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md docs/IOS_PRODUCTION_AUDIT_MATRIX.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-2c4ef7d8-8fd6-4aa2-bd85-65ccfbb72161",
+      "command": "/bin/zsh -c 'cat docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md'",
+      "cwd": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-2235c5e0-ac24-48b0-bd4c-11cd8bb28bc0",
+      "command": "/bin/zsh -c 'cat UPSTREAM_AGENTS.md source-manifest.json pin-manifest.json'",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-c7e04c37-d98b-4d8a-84e0-25e85959e68f",
+      "command": "/bin/zsh -c \"cat IOSLibrary/STARTUP_RULE.md IOSLibrary/PROJECT_MODE.md\npython3 -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,subprocess\nr=Path.cwd(); s=json.loads((r/'source-manifest.json').read_text()); p=json.loads((r/'pin-manifest.json').read_text())\nprint('review_root_git_marker', (r/'.git').exists())\nprint('source_count',len(s['source_file_sha256']))\nfor n,h in s['source_file_sha256'].items():\n b=(r/n).read_bytes(); got=hashlib.sha256(b).hexdigest()\n if got\"'!=h: print('\"'SOURCE_MISMATCH',n,got,h)\nprint('source_logical_bytes',sum((r/n).stat().st_size for n in s['source_file_sha256']))\nprint('payload_count',len(p['payload_file_sha256']))\nfor n,h in p['payload_file_sha256'].items():\n b=(r/'IOSLibrary'/n).read_bytes(); cb=subprocess.check_output(['git','-C',p['canonical_root'],'show',p['pin']+':'+p['canonical_prefix']+n]); got=hashlib.sha256(b).hexdigest(); ch=hashlib.sha256(cb).hexdigest()\n if not got==ch==h: print('PIN_MISMATCH',n,got,ch,h)\nprint('payload_local_bytes',sum((r/'IOSLibrary'/n).stat().st_size for n in p['payload_file_sha256']))\nprint('canonical_HEAD',subprocess.check_output(['git','-C',p['canonical_root'],'rev-parse','HEAD'],text=True).strip())\nprint('CODEX_HOME',__import__('os').environ.get('CODEX_HOME','UNKNOWN'))\nPY\"",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 385
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-9120f714-e4e3-4d94-a36b-ae57874b57d3",
+      "command": "/bin/zsh -c \"python3 -B IOSLibrary/tools/reference_mode.py status --root /Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache --project firefox-ios/Client.xcodeproj\npython3 -B - <<'PY'\nfrom pathlib import Path\nimport json,hashlib,xml.etree.ElementTree as E\nr=Path.cwd(); s=json.loads((r/'source-manifest.json').read_text()); expected=s['source_file_sha256']['AGENTS.md']; print('UPSTREAM_AGENTS_matches_manifest_AGENTS',hashlib.sha256((r/'UPSTREAM_AGENTS.md').read_bytes()).hexdigest()==expected)\np=json.loads((r/'pin-manifest.json').read_text()); actual={str(x.relative_to(r/'IOSLibrary')) for x in (r/'IOSLibrary').rglob('*') if x.is_file()}; print('local_payload_inventory',len(actual),'extra',sorted(actual-set(p['payload_file_sha256'])),'missing', sorted(set(p['payload_file_sha256'])-actual))\nf=r/'firefox-ios/Client.xcodeproj/xcshareddata/xcschemes/Firefox.xcscheme'; t=E.parse(f)\nfor path in ['.//BuildActionEntry/BuildableReference','.//TestableReference/BuildableReference']:\n for x in t.findall(path): print(path,x.attrib)\nfor n in sorted(r.rglob('AGENTS.override.md')): print('nested_override',n)\nfor n in sorted(r.rglob('AGENTS.md')):\n if n\"'!=r/'\"'AGENTS.md': print('nested_AGENTS',n)\nPY\"",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 142
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-591a959f-d092-4050-abb3-bde43de5f589",
+      "command": "/bin/zsh -c 'nl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeCache.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift\nnl -ba BrowserKit/Sources/Common/Protocols/FileManagerProtocol.swift'",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "agentMessage",
+      "id": "msg_01e40fdb89a9775b016ac51672b90c87d2bd6a3a0b432203fd",
+      "text": "- **Модель:** GPT-6.1 Sol / high\n- **Режим:** эконом\n- **Смена модели:** не требуется\n- **Фаза:** статический review frozen sources\n- **Файлы:** ReaderMode caches, сериализация, объявленные callers/tests\n- **Следующий безопасный шаг:** проследить consumers и target membership до фиксации baseline\n- **Build/tests:** только чтение; выполнения нет\n- **Sandbox:** работа внутри `/Users/Artem/.zenflow`\n\nIOS Library: **ON/AUTO** по собственному status handler. Все 34 payload файла совпали с индивидуальными canonical blobs указанного pin. В source-manifest 24 записи: 23 совпадают напрямую; запись `AGENTS.md` соответствует `UPSTREAM_AGENTS.md`, а действующий root `AGENTS.md` — отдельный overlay. Это расхождение provenance будет явно отражено в отчёте.\n",
+      "phase": "commentary"
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-8412ec83-de42-4584-847e-ebf9290c7962",
+      "command": "/bin/zsh -c 'nl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeContentScript.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeUtils.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityService.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeDelegate.swift\nnl -ba BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeHandlers.swift'",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-a2ed043d-5eb1-4df2-95d0-7a617395281e",
+      "command": "/bin/zsh -c 'nl -ba firefox-ios/Client/Frontend/Browser/BrowserViewController/Extensions/BrowserViewController+ReaderMode.swift\nnl -ba firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift\nnl -ba firefox-ios/firefox-ios-tests/Tests/ClientTests/ReaderTests/SchemeHandler/MockReaderModeCache.swift\nnl -ba firefox-ios/firefox-ios-tests/Tests/ClientTests/ReaderTests/SchemeHandler/ReaderModeSchemeHandlerTests.swift'",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-a4eb6e0d-5314-45d9-958e-12db21c828ef",
+      "command": "/bin/zsh -c \"sed -n '84,121p' firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift\nnl -ba BrowserKit/Package.swift\nnl -ba BrowserKit/Sources/Common/ReaderMode/ReaderModeFontSize.swift\nnl -ba BrowserKit/Sources/Common/ReaderMode/ReaderModeFontType.swift\nnl -ba BrowserKit/Sources/Common/ReaderMode/ReaderModeState.swift\nnl -ba BrowserKit/Sources/Common/ReaderMode/ReaderModeStyle.swift\nnl -ba BrowserKit/Sources/Common/ReaderMode/ReaderModeTheme.swift\"",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 0
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-40ca006b-42f8-4231-a71c-97590544e211",
+      "command": "/bin/zsh -c \"python3 -B - <<'PY'\nimport json,subprocess\nfrom pathlib import Path\nr=Path.cwd(); p=r/'firefox-ios/Client.xcodeproj/project.pbxproj'; d=json.loads(subprocess.check_output(['plutil','-convert','json','-o','-',str(p)])); o=d['objects']\nids=['F84B21BD1A090F8100AAB793','3BFE4B061D342FB800DDF53F','E69DB07C1E97DEA9008A67E6','2FA436041ABB83B4008031D1','F84B21D21A090F8100AAB793','E4D567211ADECE2700F1EFE7','E6F9650B1B2F1CF20034B023','3B43E3CF1D95C48D00BBA9DB','2FCAE2231ABB51F800877008','282731671ABC9BE700AA1954']\ns=json.loads((r/'source-manifest.json').read_text()); names={Path(n).name for n in s['source_file_sha256'] if n.endswith('.swift') and n\"'!='\"'BrowserKit/Package.swift'}\nfor id in ids:\n t=o[id]; phases=[o[x] for x in t.get('buildPhases',[]) if o[x]['isa']=='PBXSourcesBuildPhase']; memberships=[]\n for ph in phases:\n  for x in ph.get('files',[]):\n   b=o[x]; f=o.get(b.get('fileRef'),{}); name=f.get('path',f.get('name',''))\n   if Path(name).name in names: memberships.append((x,b.get('fileRef'),name))\n products=[o[x].get('productName') for x in t.get('packageProductDependencies',[])]\n print('target',id,t.get('name'),'declared_memberships',memberships,'package_products',products)\nprint('selected_file_refs',[(k,v.get('path'),v.get('sourceTree')) for k,v in o.items() if v.get('isa')=='PBXFileReference' and Path(v.get('path','')).name in names])\nprint('elapsed_seconds',round(__import__('time').time()-1791298712.011519,2))\nPY\"",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "failed",
+      "exitCode": 1,
+      "durationMs": 108
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-9b335153-6027-440c-b883-200c50ce6634",
+      "command": "/bin/zsh -c \"python3 -B - <<'PY'\nimport json,subprocess,time\nfrom pathlib import Path\nr=Path.cwd(); d=json.loads(subprocess.check_output(['plutil','-convert','json','-o','-',str(r/'firefox-ios/Client.xcodeproj/project.pbxproj')])); o=d['objects']\nfor id in ['E4D567211ADECE2700F1EFE7','E6F9650B1B2F1CF20034B023','3B43E3CF1D95C48D00BBA9DB','2FCAE2231ABB51F800877008','282731671ABC9BE700AA1954']:\n t=o.get(id); print('remaining_scheme_target',id,None if t is None else {k:t.get(k) for k in ['isa','name','productName']})\nfor id in ['F84B21BD1A090F8100AAB793','F84B21D21A090F8100AAB793']:\n t=o[id]\n for phid in t.get('buildPhases',[]):\n  ph=o[phid]\n  if ph['isa']=='PBXFrameworksBuildPhase':\n   relevant=[]\n   for bid in ph.get('files',[]):\n    b=o[bid]; f=o.get(b.get('fileRef',b.get('productRef','')),{}); name=f.get('path',f.get('productName',''))\n    if any(v in name for v in ['WebEngine','Common','BrowserKit']): relevant.append((bid,name))\n   print('framework_membership',t['name'],relevant)\nprint('local_package_references',[(k,v.get('relativePath')) for k,v in o.items() if v.get('isa')=='XCLocalSwiftPackageReference'])\nprint('elapsed_seconds',round(time.time()-1791298712.011519,2))\nPY\"",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 74
+    },
+    {
+      "type": "agentMessage",
+      "id": "msg_01e40fdb89a9775b016ac516c57b8487d2abc8677ee38f0314",
+      "text": "- **Модель:** GPT-6.1 Sol / high\n- **Режим:** эконом\n- **Смена модели:** не требуется\n- **Фаза:** остановка по wall-time limit\n- **Файлы:** frozen ReaderMode subset и metadata\n- **Следующий безопасный шаг:** зафиксировать полученные findings и process gaps\n- **Build/tests:** не выполнялись\n- **Sandbox:** работа внутри `/Users/Artem/.zenflow`\n\nИзмеренное время превысило установленный предел 20 минут. Обзор останавливаю; активные Library route bodies не читались. Полученные выводы будут зафиксированы как неполный baseline, без Library delta и без заявления о выполнении acceptance. Обнаружены расхождения сериализации и неработающий cache-miss producer; интеграционные ограничения остаются явными.\n",
+      "phase": "commentary"
+    },
+    {
+      "type": "commandExecution",
+      "id": "exec-264b1bb8-1805-42e5-a1a7-b1eaaf8277fc",
+      "command": "/bin/zsh -c \"python3 -B - '{\\\"schema_version\\\":1,\\\"scope\\\":\\\"lib004-firefox-reader-cache; firefox-ios/Client.xcodeproj; frozen subset only\\\",\\\"complete\\\":false,\\\"confirmed\\\":[{\\\"id\\\":\\\"F1\\\",\\\"severity\\\":\\\"P2\\\",\\\"confidence\\\":\\\"high\\\",\\\"title\\\":\\\"Disk round-trip changes credits and loses language\\\",\\\"trigger\\\":\\\"put/get of a result with credits different from byline or nonempty language\\\",\\\"evidence\\\":[\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift:61-74\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift:82-89\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeUtils.swift:24\\\"],\\\"impact\\\":\\\"Decoder reads credits from byline and language from language; encoder writes credits and lang. Disk results differ from memory results and HTML language is lost.\\\",\\\"target\\\":\\\"Symmetric keys with compatible legacy decoding\\\",\\\"verification\\\":\\\"Source round-trip reasoning; runtime/tests not run\\\"},{\\\"id\\\":\\\"F2\\\",\\\"severity\\\":\\\"P1\\\",\\\"confidence\\\":\\\"high\\\",\\\"title\\\":\\\"Legacy WebEngine cache-miss regeneration has no producer\\\",\\\"trigger\\\":\\\"WKReaderModeHandlers cache miss calls WKReadabilityService.process\\\",\\\"evidence\\\":[\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeHandlers.swift:123-130\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityService.swift:18-22\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift:48-76\\\"],\\\"impact\\\":\\\"Operation main returns without loading a session or processing a result; this path cannot populate the cache. Actual app activation is unproven.\\\",\\\"target\\\":\\\"Implemented producer with terminal success/failure and bounded lifetime before adopting this path\\\",\\\"verification\\\":\\\"Static call chain; full-app activation and runtime unavailable\\\"},{\\\"id\\\":\\\"F3\\\",\\\"severity\\\":\\\"P2\\\",\\\"confidence\\\":\\\"high\\\",\\\"title\\\":\\\"Cache resource envelopes are unspecified and unenforced locally\\\",\\\"trigger\\\":\\\"Repeated insertion of distinct large articles\\\",\\\"evidence\\\":[\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:12-19\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:25-40\\\"],\\\"impact\\\":\\\"Memory NSCache has no count/cost limit or insertion cost; disk cache has no size/age budget. OS eviction is not a defined application envelope.\\\",\\\"target\\\":\\\"Explicit aggregate byte/count budgets and eviction policy\\\",\\\"verification\\\":\\\"Static implementation inspection; memory/disk measurements not run\\\"}],\\\"candidates\\\":[{\\\"id\\\":\\\"C1\\\",\\\"severity\\\":\\\"P1\\\",\\\"confidence\\\":\\\"medium\\\",\\\"title\\\":\\\"Request privacy classification follows selected tab instead of requesting webView\\\",\\\"evidence\\\":[\\\"firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift:85-92\\\"],\\\"trigger\\\":\\\"Background tab requests reader content while a tab of opposite privacy is selected\\\",\\\"gap\\\":\\\"PageRoute, tab-to-webView binding and registration are absent; cache isolation breach cannot be fully traced\\\"},{\\\"id\\\":\\\"C2\\\",\\\"severity\\\":\\\"P1\\\",\\\"confidence\\\":\\\"high\\\",\\\"title\\\":\\\"MainActor legacy reader path performs synchronous disk/JSON/HTML work\\\",\\\"evidence\\\":[\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeHandlers.swift:92-108\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:44-47\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeUtils.swift:9-27\\\"],\\\"gap\\\":\\\"Call-path work is proven; activation, article size and measured responsiveness are unavailable\\\"},{\\\"id\\\":\\\"C3\\\",\\\"severity\\\":\\\"P2\\\",\\\"confidence\\\":\\\"high\\\",\\\"title\\\":\\\"Canonical forbidden unchecked Sendable declarations remain\\\",\\\"evidence\\\":[\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:10\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift:23\\\",\\\"BrowserKit/Sources/Common/Protocols/FileManagerProtocol.swift:30\\\",\\\"firefox-ios/firefox-ios-tests/Tests/ClientTests/ReaderTests/SchemeHandler/MockReaderModeCache.swift:8\\\"],\\\"gap\\\":\\\"Policy migration blocker; NSCache annotation alone is not evidence of a runtime data race\\\"},{\\\"id\\\":\\\"C4\\\",\\\"severity\\\":\\\"P1\\\",\\\"confidence\\\":\\\"medium\\\",\\\"title\\\":\\\"Cache clear and writes have no generation/transaction ordering\\\",\\\"evidence\\\":[\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:25-40\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:113-117\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:18-19\\\",\\\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:41-42\\\"],\\\"gap\\\":\\\"Clear/delete owners and inflight cancellation are absent; privacy cleanup guarantees are unproven\\\"}],\\\"gaps\\\":[\\\"24 source-manifest entries: 23 direct matches; AGENTS.md expected hash matches UPSTREAM_AGENTS.md, not active root overlay.\\\",\\\"Missing PageRoute, TinyRouter, ReaderFileRoute, BrowserViewController cache ownership, tab/session implementations, Reader templates and JSON/hash helpers.\\\",\\\"Scheme ReadingListTests BlueprintIdentifier E4D567211ADECE2700F1EFE7 has no PBX object; remaining memberships only partially resolved.\\\",\\\"Declared Client/ClientTests source memberships resolved; selected Client package products do not show WebEngine, so whole integration is unproven.\\\",\\\"One consumer-read tool output was clipped; missing scheme-handler function range was subsequently read. Mandatory governance reads were not clipped.\\\",\\\"20-minute wall-time exceeded; local review completeness and Library delta acceptance not established.\\\",\\\"No builds/tests/simulator/network/agents/writes; no runtime or absence-of-defects claim.\\\"]}' <<'PY'\nimport sys,hashlib,time,json,subprocess\nfrom pathlib import Path\nb=sys.argv[1].encode('utf-8'); print('FROZEN_SHA256',hashlib.sha256(b).hexdigest()); print('FROZEN_UTF8_BYTES',len(b))\nr=Path.cwd(); s=json.loads((r/'source-manifest.json').read_text()); p=json.loads((r/'pin-manifest.json').read_text())\nprint('source_recheck_mismatches',[(n,hashlib.sha256((r/n).read_bytes()).hexdigest()) for n,h in s['source_file_sha256'].items() if hashlib.sha256((r/n).read_bytes()).hexdigest()\"'!=h])\nprint('\"'upstream_agents_recheck',hashlib.sha256((r/'UPSTREAM_AGENTS.md').read_bytes()).hexdigest()==s['source_file_sha256']['AGENTS.md'])\nbad=[]\nfor n,h in p['payload_file_sha256'].items():\n local=(r/'IOSLibrary'/n).read_bytes(); canonical=subprocess.check_output(['git','-C',p['canonical_root'],'show',p['pin']+':'+p['canonical_prefix']+n]);\n if hashlib.sha256(local).hexdigest()\"'!=h or hashlib.sha256(canonical).hexdigest()!=h: bad.append(n)\nprint('\"'pin_recheck',len(p['payload_file_sha256']),'mismatches',bad)\nprint('elapsed_seconds',round(time.time()-1791298712.011519,2))\nPY\"",
+      "cwd": "/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache",
+      "status": "completed",
+      "exitCode": 0,
+      "durationMs": 370
+    },
+    {
+      "type": "agentMessage",
+      "id": "msg_01e40fdb89a9775b016ac516fef0dc87d28b4605a127d4684a",
+      "text": "- **Модель:** GPT-6.1 Sol / high\n- **Режим:** эконом\n- **Смена модели:** не требуется\n- **Фаза:** фиксация неполного first-layer baseline\n- **Файлы:** source-manifest subset; изменений нет\n- **Следующий безопасный шаг:** передать frozen результат владельцу\n- **Build/tests:** не выполнялись; runtime evidence отсутствует\n- **Sandbox:** работа внутри `/Users/Artem/.zenflow`\n\nFrozen baseline: exact UTF-8 JSON ниже, без завершающего перевода строки; 5544 bytes. SHA256: `289a59fe998fa1aa3883ce14fa54e8aa69ac827e349c836faaea61191d313e72`. Active Library bodies не читались. `complete:false` сохраняет нарушение time gate и недостаток integration evidence.\n\n```json\n{\"schema_version\":1,\"scope\":\"lib004-firefox-reader-cache; firefox-ios/Client.xcodeproj; frozen subset only\",\"complete\":false,\"confirmed\":[{\"id\":\"F1\",\"severity\":\"P2\",\"confidence\":\"high\",\"title\":\"Disk round-trip changes credits and loses language\",\"trigger\":\"put/get of a result with credits different from byline or nonempty language\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift:61-74\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift:82-89\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeUtils.swift:24\"],\"impact\":\"Decoder reads credits from byline and language from language; encoder writes credits and lang. Disk results differ from memory results and HTML language is lost.\",\"target\":\"Symmetric keys with compatible legacy decoding\",\"verification\":\"Source round-trip reasoning; runtime/tests not run\"},{\"id\":\"F2\",\"severity\":\"P1\",\"confidence\":\"high\",\"title\":\"Legacy WebEngine cache-miss regeneration has no producer\",\"trigger\":\"WKReaderModeHandlers cache miss calls WKReadabilityService.process\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeHandlers.swift:123-130\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityService.swift:18-22\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift:48-76\"],\"impact\":\"Operation main returns without loading a session or processing a result; this path cannot populate the cache. Actual app activation is unproven.\",\"target\":\"Implemented producer with terminal success/failure and bounded lifetime before adopting this path\",\"verification\":\"Static call chain; full-app activation and runtime unavailable\"},{\"id\":\"F3\",\"severity\":\"P2\",\"confidence\":\"high\",\"title\":\"Cache resource envelopes are unspecified and unenforced locally\",\"trigger\":\"Repeated insertion of distinct large articles\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:12-19\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:25-40\"],\"impact\":\"Memory NSCache has no count/cost limit or insertion cost; disk cache has no size/age budget. OS eviction is not a defined application envelope.\",\"target\":\"Explicit aggregate byte/count budgets and eviction policy\",\"verification\":\"Static implementation inspection; memory/disk measurements not run\"}],\"candidates\":[{\"id\":\"C1\",\"severity\":\"P1\",\"confidence\":\"medium\",\"title\":\"Request privacy classification follows selected tab instead of requesting webView\",\"evidence\":[\"firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift:85-92\"],\"trigger\":\"Background tab requests reader content while a tab of opposite privacy is selected\",\"gap\":\"PageRoute, tab-to-webView binding and registration are absent; cache isolation breach cannot be fully traced\"},{\"id\":\"C2\",\"severity\":\"P1\",\"confidence\":\"high\",\"title\":\"MainActor legacy reader path performs synchronous disk/JSON/HTML work\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeHandlers.swift:92-108\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:44-47\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeUtils.swift:9-27\"],\"gap\":\"Call-path work is proven; activation, article size and measured responsiveness are unavailable\"},{\"id\":\"C3\",\"severity\":\"P2\",\"confidence\":\"high\",\"title\":\"Canonical forbidden unchecked Sendable declarations remain\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:10\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift:23\",\"BrowserKit/Sources/Common/Protocols/FileManagerProtocol.swift:30\",\"firefox-ios/firefox-ios-tests/Tests/ClientTests/ReaderTests/SchemeHandler/MockReaderModeCache.swift:8\"],\"gap\":\"Policy migration blocker; NSCache annotation alone is not evidence of a runtime data race\"},{\"id\":\"C4\",\"severity\":\"P1\",\"confidence\":\"medium\",\"title\":\"Cache clear and writes have no generation/transaction ordering\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:25-40\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:113-117\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:18-19\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:41-42\"],\"gap\":\"Clear/delete owners and inflight cancellation are absent; privacy cleanup guarantees are unproven\"}],\"gaps\":[\"24 source-manifest entries: 23 direct matches; AGENTS.md expected hash matches UPSTREAM_AGENTS.md, not active root overlay.\",\"Missing PageRoute, TinyRouter, ReaderFileRoute, BrowserViewController cache ownership, tab/session implementations, Reader templates and JSON/hash helpers.\",\"Scheme ReadingListTests BlueprintIdentifier E4D567211ADECE2700F1EFE7 has no PBX object; remaining memberships only partially resolved.\",\"Declared Client/ClientTests source memberships resolved; selected Client package products do not show WebEngine, so whole integration is unproven.\",\"One consumer-read tool output was clipped; missing scheme-handler function range was subsequently read. Mandatory governance reads were not clipped.\",\"20-minute wall-time exceeded; local review completeness and Library delta acceptance not established.\",\"No builds/tests/simulator/network/agents/writes; no runtime or absence-of-defects claim.\"]}\n```\n",
+      "phase": "commentary"
+    },
+    {
+      "type": "agentMessage",
+      "id": "msg_01e40fdb89a9775b016ac5171eac7887d28f69f21210bac7ee",
+      "text": "- **Модель:** GPT-6.1 Sol / high\n- **Режим:** эконом\n- **Смена модели:** не требуется\n- **Фаза:** review остановлен; результат неполный\n- **Файлы:** frozen subset `lib004-firefox-reader-cache`; изменений нет\n- **Следующий безопасный шаг:** передать результат владельцу для adjudication\n- **Build/tests:** не выполнялись; разрешено только статическое чтение\n- **Sandbox:** вся проектная работа выполнена внутри `/Users/Artem/.zenflow`\n\n**Обнаружены три source-backed finding. Acceptance observer не достигнут:** измеренное время составило **2650,62 секунды — 44 минуты 10,62 секунды**, превышая лимит 20 минут. IOS Library фактически **ON/AUTO**, но активные Library route bodies не читались; Library delta **не выполнен**, его отсутствие не означает отсутствие дополнительных findings.\n\n| Finding | Вывод и граница доказательства |\n|---|---|\n| F1 · P2 · high | [ReadabilityResult.swift](/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache/BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift:61): disk round-trip заменяет `credits` значением `byline` и теряет `language`, поскольку encoder пишет `lang`. |\n| F2 · P1 · high | [WKReadabilityOperation.swift](/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache/BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift:48): legacy cache-miss consumer запускает operation с пустым `main()`. Этот путь не производит cached result; его включение в приложение не доказано. |\n| F3 · P2 · high | [MemoryReaderModeCache.swift](/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache/BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:12) и [DiskReaderModeCache.swift](/Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache/BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:25): нет определённого aggregate resource budget; memory cache не задаёт count/cost limits, disk cache — size/age eviction. |\n\nПриоритет исправлений: F2 перед использованием legacy пути, затем F1 и F3. Исправления и новая verification phase не выполнялись.\n\nСтатически рассмотрены сериализация, cache ownership, failure paths, concurrency, resource envelopes и supplied callers/tests. Остались кандидаты: выбор cache по selected tab вместо requesting webView, синхронная работа на MainActor, запрещённые canonical policy `@unchecked Sendable` и ordering между clear/write. Полный privacy/lifecycle/integration вывод невозможен без отсутствующих зависимостей. SwiftUI lazy-layout checks неприменимы к предоставленным UIKit/cache файлам; UI performance, accessibility, release и whole-app readiness не установлены. iPad и physical-device checks — `OMITTED_BY_USER`.\n\nФактический порядок первого слоя, все чтения полностью до source/status/pin inspection:\n\n1. Review-root `AGENTS.md` → canonical `GLOBAL_RULES_BOOTSTRAP.md`.\n2. Canonical baseline `AGENTS.md` → `TASK_TYPE_DOCUMENTATION_ROUTER.md`.\n3. `CURRENT_USER_OVERRIDES.md` → `MODEL_ROUTING_RULE.md` → **review-root** `plan.md` → `handoff.md`.\n4. `PROJECT_DOCUMENTATION.md` → `PROJECT_HEALTH.md` → `AGENT_RULES.md` → `AGENT_PREFLIGHT_CHECKLIST.md` → `ENGINEERING_CHANGE_QUALITY_STANDARD.md`.\n5. `PRODUCTION_REVIEW_COMPLETENESS_GATE.md` → `IOS_PRODUCTION_READINESS_STANDARD.md` → `DEFINITION_OF_DONE.md`.\n6. `EVIDENCE_BASED_ENGINEERING_RULES.md` → `IOS_PRODUCTION_EXCEPTION_POLICY.md` → `IOS_CONCURRENCY_RUNTIME_STANDARD.md` → `IOS_MEMORY_CACHE_MEDIA_STANDARD.md` → `IOS_CAMERA_PHOTOS_FILES_PERMISSIONS_STANDARD.md`.\n7. `production-review-completeness.md` → `PRODUCTION_CODE_REVIEW_CHECKLIST.md` → `PRODUCTION_QUALITY_GATES.md` → `COMPLETION_REPORT_CONTRACT.md` → `CONTEXT_TRANSFER_AND_NEW_CHAT_STANDARD.md`.\n8. Обязательные ссылки: `README.md` → `SOURCE_OF_TRUTH_MAP.md` → `IOS_CODE_DOCUMENTATION_STANDARD.md` → `UNIVERSAL_XCODE_QUALITY_CONTROL_GOVERNANCE.md` → `IOS_PRODUCTION_AUDIT_MATRIX.md` → `SWIFT_CONCURRENCY_DEEP_REFERENCE.md`.\n9. После первого слоя: `UPSTREAM_AGENTS.md` → manifests → Library startup/mode contracts → integrity verification → собственный status → sources и ограниченная scheme/PBX inspection.\n\nProcess receipt:\n\n- Root — изолированный non-Git subset; selector `firefox-ios/Client.xcodeproj`. Saved checkout не использовался как review identity.\n- Canonical baseline доступен; наблюдавшийся HEAD: `4dc0ffa443bbb50bd6318a6564fc829961d9082d`. `CODEX_HOME`: `UNKNOWN`.\n- Source manifest: **24 записи**, **23 прямых совпадения**. Expected hash записи `AGENTS.md` совпадает с `UPSTREAM_AGENTS.md`; действующий root overlay имеет иной hash. Повторная проверка сохранила это расхождение.\n- Local payload: **ровно 34 файла**, без extra/missing; все совпали с индивидуальными named blobs pin `3c42e490e82866eee0f303d6340452dbf9fff5eb`, включая заключительную перепроверку.\n- Прочитаны только разрешённые scheme `BuildableReference` attributes. Client/ClientTests memberships разрешены; `ReadingListTests` BlueprintIdentifier отсутствует в PBX. Один membership command завершился `KeyError`; оставшиеся идентификаторы затем проверены ограниченным supplemental read.\n- Один consumer output был clipped; недостающий диапазон scheme handler дочитан. Mandatory governance reads не были clipped.\n- **Метрики отдельно от correctness:** 21 shell invocation; 68 индивидуальных canonical `git show`. Source set — 3 217 608 logical bytes за integrity pass; payload — 138 647 bytes на local/canonical сторону за pass. Совокупные logical read bytes не инструментировались: `UNKNOWN`. Token/account cost: `UNKNOWN`.\n- Только shell `login:false`. Без агентов, сетевых действий, MCP inspection, builds/tests/Simulator, source/file writes и mode mutations.\n- Durable docs не изменены. Применены `QC.CHANGE.CONTRACT`, `QC.EVIDENCE.FRESHNESS`, `QC.VERDICT.READINESS`, `QC.EXCEPTION.CONTRACT`; app/engine adoption отложены approved isolated scope.\n- Контекст обновлять не нужно. При передаче: **перечитать весь актуальный набор документации и правил для этого worktree и task-контекста**.\n\nFrozen baseline повторён **без изменений**. SHA256 exact UTF-8 JSON bytes, без завершающего перевода строки: **`289a59fe998fa1aa3883ce14fa54e8aa69ac827e349c836faaea61191d313e72`**, 5544 bytes.\n\n```json\n{\"schema_version\":1,\"scope\":\"lib004-firefox-reader-cache; firefox-ios/Client.xcodeproj; frozen subset only\",\"complete\":false,\"confirmed\":[{\"id\":\"F1\",\"severity\":\"P2\",\"confidence\":\"high\",\"title\":\"Disk round-trip changes credits and loses language\",\"trigger\":\"put/get of a result with credits different from byline or nonempty language\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift:61-74\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReadabilityResult.swift:82-89\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeUtils.swift:24\"],\"impact\":\"Decoder reads credits from byline and language from language; encoder writes credits and lang. Disk results differ from memory results and HTML language is lost.\",\"target\":\"Symmetric keys with compatible legacy decoding\",\"verification\":\"Source round-trip reasoning; runtime/tests not run\"},{\"id\":\"F2\",\"severity\":\"P1\",\"confidence\":\"high\",\"title\":\"Legacy WebEngine cache-miss regeneration has no producer\",\"trigger\":\"WKReaderModeHandlers cache miss calls WKReadabilityService.process\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeHandlers.swift:123-130\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityService.swift:18-22\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift:48-76\"],\"impact\":\"Operation main returns without loading a session or processing a result; this path cannot populate the cache. Actual app activation is unproven.\",\"target\":\"Implemented producer with terminal success/failure and bounded lifetime before adopting this path\",\"verification\":\"Static call chain; full-app activation and runtime unavailable\"},{\"id\":\"F3\",\"severity\":\"P2\",\"confidence\":\"high\",\"title\":\"Cache resource envelopes are unspecified and unenforced locally\",\"trigger\":\"Repeated insertion of distinct large articles\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:12-19\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:25-40\"],\"impact\":\"Memory NSCache has no count/cost limit or insertion cost; disk cache has no size/age budget. OS eviction is not a defined application envelope.\",\"target\":\"Explicit aggregate byte/count budgets and eviction policy\",\"verification\":\"Static implementation inspection; memory/disk measurements not run\"}],\"candidates\":[{\"id\":\"C1\",\"severity\":\"P1\",\"confidence\":\"medium\",\"title\":\"Request privacy classification follows selected tab instead of requesting webView\",\"evidence\":[\"firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift:85-92\"],\"trigger\":\"Background tab requests reader content while a tab of opposite privacy is selected\",\"gap\":\"PageRoute, tab-to-webView binding and registration are absent; cache isolation breach cannot be fully traced\"},{\"id\":\"C2\",\"severity\":\"P1\",\"confidence\":\"high\",\"title\":\"MainActor legacy reader path performs synchronous disk/JSON/HTML work\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReaderModeHandlers.swift:92-108\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:44-47\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/ReaderModeUtils.swift:9-27\"],\"gap\":\"Call-path work is proven; activation, article size and measured responsiveness are unavailable\"},{\"id\":\"C3\",\"severity\":\"P2\",\"confidence\":\"high\",\"title\":\"Canonical forbidden unchecked Sendable declarations remain\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:10\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/WKReadabilityOperation.swift:23\",\"BrowserKit/Sources/Common/Protocols/FileManagerProtocol.swift:30\",\"firefox-ios/firefox-ios-tests/Tests/ClientTests/ReaderTests/SchemeHandler/MockReaderModeCache.swift:8\"],\"gap\":\"Policy migration blocker; NSCache annotation alone is not evidence of a runtime data race\"},{\"id\":\"C4\",\"severity\":\"P1\",\"confidence\":\"medium\",\"title\":\"Cache clear and writes have no generation/transaction ordering\",\"evidence\":[\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:25-40\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/DiskReaderModeCache.swift:113-117\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:18-19\",\"BrowserKit/Sources/WebEngine/WKWebview/Scripts/ReaderMode/MemoryReaderModeCache.swift:41-42\"],\"gap\":\"Clear/delete owners and inflight cancellation are absent; privacy cleanup guarantees are unproven\"}],\"gaps\":[\"24 source-manifest entries: 23 direct matches; AGENTS.md expected hash matches UPSTREAM_AGENTS.md, not active root overlay.\",\"Missing PageRoute, TinyRouter, ReaderFileRoute, BrowserViewController cache ownership, tab/session implementations, Reader templates and JSON/hash helpers.\",\"Scheme ReadingListTests BlueprintIdentifier E4D567211ADECE2700F1EFE7 has no PBX object; remaining memberships only partially resolved.\",\"Declared Client/ClientTests source memberships resolved; selected Client package products do not show WebEngine, so whole integration is unproven.\",\"One consumer-read tool output was clipped; missing scheme-handler function range was subsequently read. Mandatory governance reads were not clipped.\",\"20-minute wall-time exceeded; local review completeness and Library delta acceptance not established.\",\"No builds/tests/simulator/network/agents/writes; no runtime or absence-of-defects claim.\"]}\n```",
+      "phase": "final_answer"
+    }
+  ]
+}

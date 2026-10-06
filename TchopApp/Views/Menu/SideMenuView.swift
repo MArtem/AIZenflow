@@ -185,7 +185,7 @@ private struct SideMenuAccountSummaryCard: View {
         }(),
         accountSummary: ViewPreviewSupport.sampleAccountSummary,
         selectedTab: .news,
-        footerText: AppLocalization.text("menu.footer"),
+        footerText: AppLocalization.text("shell.sideMenu.footer"),
         onSelect: { _ in }
     )
     .frame(width: 320)

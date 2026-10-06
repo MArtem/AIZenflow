@@ -5,9 +5,8 @@ SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 PACKAGE_DIR="$(cd "${SCRIPT_DIR}/.." && pwd)"
 PACKAGE_NAME="$(basename "${PACKAGE_DIR}")"
 WORKTREE_DIR="$(cd "${PACKAGE_DIR}/.." && pwd)"
-SCRATCH_ROOT="${WORKTREE_DIR}/WorktreeScratch/${PACKAGE_NAME}"
-BUILD_DIR="${SCRATCH_ROOT}/build"
-LOG_DIR="${SCRATCH_ROOT}/logs"
+SCRATCH_PARENT="${WORKTREE_DIR}/WorktreeScratch/${PACKAGE_NAME}"
+SCRATCH_ROOT=""
 
 fail() {
   echo "❌ $1" >&2
@@ -15,11 +14,10 @@ fail() {
 }
 
 cleanup() {
-  rm -rf "${SCRATCH_ROOT}"
-  rm -rf "${PACKAGE_DIR}/.build" "${PACKAGE_DIR}/.swiftpm" "${PACKAGE_DIR}/Package.resolved"
-  find "${PACKAGE_DIR}" -name ".DS_Store" -delete
-  find "${PACKAGE_DIR}" -name "__MACOSX" -type d -prune -exec rm -rf {} + 2>/dev/null || true
-  find "${PACKAGE_DIR}" -name "xcuserdata" -type d -prune -exec rm -rf {} + 2>/dev/null || true
+  # Remove only the unique directory created by this invocation.
+  if [[ -n "${SCRATCH_ROOT}" ]]; then
+    rm -rf "${SCRATCH_ROOT}"
+  fi
 }
 trap cleanup EXIT
 
@@ -46,13 +44,31 @@ if grep -R --line-number -E '^import App[A-Za-z0-9_]+' "${PACKAGE_DIR}/Sources/A
   fail "sibling SDK import found"
 fi
 
-if find "${PACKAGE_DIR}" \( -name '.build' -o -name '.swiftpm' -o -name 'Package.resolved' -o -name '.DS_Store' -o -name '__MACOSX' -o -name 'xcuserdata' \) | grep -q .; then
-  fail "package-local generated artifact found"
-fi
+reject_generated_artifacts() {
+  local found
+  found="$(find "${PACKAGE_DIR}" \( -name '.build' -o -name '.swiftpm' -o -name 'Package.resolved' -o -name '.DS_Store' -o -name '__MACOSX' -o -name 'xcuserdata' \) -print)" || fail "unable to inspect package artifacts"
+  [[ -z "${found}" ]] || fail "$1"
+}
+reject_generated_artifacts "package-local generated artifact found"
 
-if grep -R --line-number -E 'TODO|FIXME|PLACEHOLDER|Tchop|News|Profile|Feed' "${PACKAGE_DIR}/Sources" "${PACKAGE_DIR}/Tests" "${PACKAGE_DIR}/README.md" "${PACKAGE_DIR}/PackageContract.md" >/dev/null; then
-  fail "unresolved placeholder or app-specific wording found"
-fi
+reject_pattern() {
+  local pattern="$1"
+  local message="$2"
+  shift 2
+  local status=0
+  grep -R --line-number -E "${pattern}" "$@" >/dev/null || status=$?
+  case "${status}" in
+    0) fail "${message}" ;;
+    1) return 0 ;;
+    *) fail "unable to inspect package content: ${message}" ;;
+  esac
+}
+
+reject_pattern 'TODO|FIXME|PLACEHOLDER' "unresolved placeholder found" \
+  "${PACKAGE_DIR}/Sources" "${PACKAGE_DIR}/Tests" "${PACKAGE_DIR}/README.md" "${PACKAGE_DIR}/PackageContract.md"
+# Consuming-app names are valid README integration context, not package behavior.
+reject_pattern 'Tchop|News|Profile|Feed' "app-specific package wording found" \
+  "${PACKAGE_DIR}/Sources" "${PACKAGE_DIR}/Tests" "${PACKAGE_DIR}/PackageContract.md"
 
 for pattern in \
   'String\(describing:[[:space:]]*error\)' \
@@ -69,31 +85,35 @@ for pattern in \
   'secret' \
   'try[[:space:]]*\?'
 do
-  if grep -R --line-number -E "${pattern}" "${PACKAGE_DIR}/Sources/AppValidationCore" >/dev/null; then
-    fail "forbidden source pattern found: ${pattern}"
-  fi
+  reject_pattern "${pattern}" "forbidden source pattern found: ${pattern}" "${PACKAGE_DIR}/Sources/AppValidationCore"
 done
 
-rm -rf "${SCRATCH_ROOT}"
-mkdir -p "${BUILD_DIR}" "${LOG_DIR}"
+[[ ! -L "${WORKTREE_DIR}/WorktreeScratch" && ! -L "${SCRATCH_PARENT}" ]] || fail "scratch directories must not be symlinks"
+mkdir -p "${SCRATCH_PARENT}"
+SCRATCH_ROOT="$(mktemp -d "${SCRATCH_PARENT}/verify.XXXXXXXX")"
+BUILD_DIR="${SCRATCH_ROOT}/build"
+LOG_DIR="${SCRATCH_ROOT}/logs"
+mkdir -p "${BUILD_DIR}" "${LOG_DIR}" "${SCRATCH_ROOT}/tmp" "${SCRATCH_ROOT}/module-cache"
+export TMPDIR="${SCRATCH_ROOT}/tmp"
+export CLANG_MODULE_CACHE_PATH="${SCRATCH_ROOT}/module-cache"
+export SWIFT_MODULECACHE_PATH="${SCRATCH_ROOT}/module-cache"
 
 run_swift_test() {
   local name="$1"
   shift
   local log_file="${LOG_DIR}/${name}.log"
-  if ! swift test --package-path "${PACKAGE_DIR}" --scratch-path "${BUILD_DIR}" "$@" 2>&1 | tee "${log_file}"; then
+  if ! swift test --package-path "${PACKAGE_DIR}" --scratch-path "${BUILD_DIR}" \
+    --cache-path "${SCRATCH_ROOT}/cache" --config-path "${SCRATCH_ROOT}/config" \
+    --security-path "${SCRATCH_ROOT}/security" --manifest-cache none \
+    --disable-keychain --disable-netrc --disable-index-store "$@" 2>&1 | tee "${log_file}"; then
     fail "swift test failed during ${name}"
   fi
-  if grep -E '(^|[[:space:]])(warning|error):' "${log_file}" >/dev/null; then
-    fail "swift test emitted warning/error output during ${name}"
-  fi
+  reject_pattern '(^|[[:space:]])(warning|error):' "swift test emitted warning/error output during ${name}" "${log_file}"
 }
 
 run_swift_test standard
 run_swift_test strict -Xswiftc -strict-concurrency=complete
 
-if find "${PACKAGE_DIR}" \( -name '.build' -o -name '.swiftpm' -o -name 'Package.resolved' -o -name '.DS_Store' -o -name '__MACOSX' -o -name 'xcuserdata' \) | grep -q .; then
-  fail "verification left package-local generated artifact"
-fi
+reject_generated_artifacts "verification left package-local generated artifact"
 
 echo "✅ AppValidationCore verification passed"

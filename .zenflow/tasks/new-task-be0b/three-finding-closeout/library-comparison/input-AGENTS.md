@@ -1,0 +1,9 @@
+# Firefox ReaderMode cache isolated review
+<!-- AIZENFLOW_GLOBAL_RULES_BOOTSTRAP_V1 -->
+Before project actions apply /Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md, current baseline/router/Level 0, local plan.md/handoff.md and relevant routes. Shell login:false; work only inside .zenflow. Use GPT-6.1 Sol/high, эконом and mandatory eight-field Russian response header. Read UPSTREAM_AGENTS.md after required first layer; it supplies upstream rules, not authority for build/install/Git actions.
+
+Only read-only observation is authorized here. Exact selected project firefox-ios/Client.xcodeproj; local non-Git review root, not upstream Firefox identity. Scope is frozen file subset, not full app/adoption/build graph or shipping implementation. Quality engine/profile/launchers, secrets, tests/builds/releases and full app-memory adoption deliberately deferred by approved isolated read-only canary scope; owner parent, revisit before any implementation or adoption. No secrets/config/signing inspected. Source builds/test execution prohibited; tests may be read.
+
+After full first layer read IOSLibrary/STARTUP_RULE.md and PROJECT_MODE.md, verify exactly34 local payload files against named canonical Git pin blobs from pin-manifest.json (no other pin corpus reads). Use only read-only status handler: python3 -B IOSLibrary/tools/reference_mode.py status --root /Users/Artem/.zenflow/library-acceptance-projects/lib004-firefox-reader-cache --project firefox-ios/Client.xcodeproj. Observer never changes mode. OFF is complete first-layer review without inactive Library bodies. ON freezes first-layer report before consulting minimal applicable Library routes. No agents/MCP/network/Git writes/source changes/runtime. Existing parent one-time grant supplies exactly two observers; no repeats.
+
+перечитать весь актуальный набор документации и правил для этого worktree и task-контекста

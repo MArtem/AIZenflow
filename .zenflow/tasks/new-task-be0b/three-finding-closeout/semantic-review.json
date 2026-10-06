@@ -1,0 +1,19 @@
+{
+  "contract": "README host names allowed; other package inputs product-neutral; placeholders rejected; only invocation-owned scratch removed",
+  "source_diff_review": "entire verifier and single preview key diff read; package Swift source/tests/API unchanged",
+  "source_consumers": "package verifier standalone native; SideMenu declared both hosts",
+  "checks": [
+    "bash syntax PASS",
+    "native standard11/11 + strict11/11 PASS",
+    "eleven control/negative checks PASS",
+    "canonical mirror exact except explicit host token PASS",
+    "preview literal/resource/membership PASS"
+  ],
+  "risks": [
+    "native package validation does not imply iOS/all-declared-platform coverage",
+    "legacy manifest name/sibling-dependency checks are unchanged; not an exhaustive Swift syntax parser",
+    "Library comparison is separate, general gate remains OPEN"
+  ],
+  "source_script_sha256": "7186bac04cebc51a67d76921e2014d0498ffb70e11ea6f57cafb8a38a6cdd370",
+  "canonical_script_sha256": "c493501df097fdfc8ba5e6e7e5b7cfb1ab8e37d3fdf2198d02285e2313e526e0"
+}

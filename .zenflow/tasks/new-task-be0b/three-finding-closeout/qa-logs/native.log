@@ -1,0 +1,110 @@
+2026-10-06 17:46:35.282 xcodebuild[78031:4283210]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-10-06 17:46:35.562 xcodebuild[78031:4283208] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+2026-10-06 17:46:36.245 xcodebuild[78041:4283285]  DVTFilePathFSEvents: Failed to start fs event stream.
+2026-10-06 17:46:36.395 xcodebuild[78041:4283283] [MT] DVTDeveloperPaths: Failed to get length of DARWIN_USER_CACHE_DIR from confstr(3), error = Error Domain=NSPOSIXErrorDomain Code=5 "Input/output error". Using NSCachesDirectory instead.
+Building for debugging...
+[Planning deferred tasks]
+[28 / 52]
+[29 / 53] AppValidationCore
+[38 / 96]
+[41 / 96]
+[46 / 96]
+[48 / 96]
+[52 / 96]
+[54 / 96]
+[57 / 96]
+[60 / 96]
+[62 / 96]
+[63 / 96]
+[72 / 96] AppValidationCore
+[80 / 96] AppValidationCore
+[86 / 97] AppValidationCoreTests-product
+[96 / 133]
+[105 / 133]
+[108 / 133]
+[112 / 133]
+[113 / 133]
+[115 / 133]
+[118 / 133]
+[119 / 133]
+[122 / 133] AppValidationCoreTests-product
+[127 / 133] AppValidationCoreTests-product
+[129 / 133] AppValidationCoreTests-product
+Build complete! (8,45 secs)
+Test Suite 'All tests' started at 2026-10-06 17:46:58.192.
+Test Suite 'AppValidationCoreTests.xctest' started at 2026-10-06 17:46:58.194.
+Test Suite 'AppValidationCoreTests' started at 2026-10-06 17:46:58.194.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testBulkValidationRunsConfiguredRulesForMissingValues]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testBulkValidationRunsConfiguredRulesForMissingValues]' passed (0.002 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCodableRoundTripKeepsValidationResult]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCodableRoundTripKeepsValidationResult]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCrossValueRuleUsesContextWithoutExposingValues]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCrossValueRuleUsesContextWithoutExposingValues]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testDecimalBetweenRejectsInvertedRangeAndValidatesValue]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testDecimalBetweenRejectsInvertedRangeAndValidatesValue]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testEngineAggregatesIssues]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testEngineAggregatesIssues]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRequiredRuleFlagsMissingAndBlankText]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRequiredRuleFlagsMissingAndBlankText]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRuleSetRejectsDuplicateRuleIDs]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRuleSetRejectsDuplicateRuleIDs]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierRejectsUnsupportedCharactersAndRedactsDescription]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierRejectsUnsupportedCharactersAndRedactsDescription]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierStringDescriptionsAreRedacted]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierStringDescriptionsAreRedacted]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testTextLengthRulesValidateBounds]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testTextLengthRulesValidateBounds]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testValidationContextRejectsDuplicateValueIDs]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testValidationContextRejectsDuplicateValueIDs]' passed (0.000 seconds).
+Test Suite 'AppValidationCoreTests' passed at 2026-10-06 17:46:58.199.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'AppValidationCoreTests.xctest' passed at 2026-10-06 17:46:58.199.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.004 (0.005) seconds
+Test Suite 'All tests' passed at 2026-10-06 17:46:58.199.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.004 (0.006) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.
+Building for debugging...
+[Planning deferred tasks]
+[2 / 6] AppValidationCore
+[6 / 8] AppValidationCoreTests-product
+[9 / 10] AppValidationCoreTests-product
+Build complete! (1,09 secs)
+Test Suite 'All tests' started at 2026-10-06 17:47:00.710.
+Test Suite 'AppValidationCoreTests.xctest' started at 2026-10-06 17:47:00.711.
+Test Suite 'AppValidationCoreTests' started at 2026-10-06 17:47:00.711.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testBulkValidationRunsConfiguredRulesForMissingValues]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testBulkValidationRunsConfiguredRulesForMissingValues]' passed (0.001 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCodableRoundTripKeepsValidationResult]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCodableRoundTripKeepsValidationResult]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCrossValueRuleUsesContextWithoutExposingValues]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testCrossValueRuleUsesContextWithoutExposingValues]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testDecimalBetweenRejectsInvertedRangeAndValidatesValue]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testDecimalBetweenRejectsInvertedRangeAndValidatesValue]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testEngineAggregatesIssues]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testEngineAggregatesIssues]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRequiredRuleFlagsMissingAndBlankText]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRequiredRuleFlagsMissingAndBlankText]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRuleSetRejectsDuplicateRuleIDs]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testRuleSetRejectsDuplicateRuleIDs]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierRejectsUnsupportedCharactersAndRedactsDescription]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierRejectsUnsupportedCharactersAndRedactsDescription]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierStringDescriptionsAreRedacted]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testSafeIdentifierStringDescriptionsAreRedacted]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testTextLengthRulesValidateBounds]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testTextLengthRulesValidateBounds]' passed (0.000 seconds).
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testValidationContextRejectsDuplicateValueIDs]' started.
+Test Case '-[AppValidationCoreTests.AppValidationCoreTests testValidationContextRejectsDuplicateValueIDs]' passed (0.000 seconds).
+Test Suite 'AppValidationCoreTests' passed at 2026-10-06 17:47:00.714.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'AppValidationCoreTests.xctest' passed at 2026-10-06 17:47:00.714.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+Test Suite 'All tests' passed at 2026-10-06 17:47:00.715.
+	 Executed 11 tests, with 0 failures (0 unexpected) in 0.003 (0.004) seconds
+◇ Test run started.
+↳ Testing Library Version: 2084
+↳ Target Platform: arm64e-apple-macos14.0
+✔ Test run with 0 tests in 0 suites passed after 0.001 seconds.
+✅ AppValidationCore verification passed

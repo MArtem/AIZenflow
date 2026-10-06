@@ -1,0 +1,25 @@
+{
+  "finding": "TC-L02",
+  "status": "CLOSED_SCOPED",
+  "contract": "DEBUG preview agrees with existing production localization key in EN/RU; no resource or product behavior change",
+  "declared_consumers": [
+    "TchopApp",
+    "TchopAppOcean"
+  ],
+  "checks": [
+    "literal agreement PASS",
+    "existing EN/RU key PASS",
+    "PBX declared host membership PASS"
+  ],
+  "omissions": [
+    "rendered preview NOT_RUN",
+    "app builds unnecessary for literal-only correction; no compile claim"
+  ],
+  "sha256": {
+    "TchopApp/Views/Menu/SideMenuView.swift": "2fe801b231f18512776a406b6eced0db2e87eac10e6e5606627843da95ecb042",
+    "TchopApp/ViewModels/AppShellViewModel.swift": "3a1d7880db5e02a6d75924a662b3d984b142ca647a525a85388c23e1383f9023",
+    "TchopApp.xcodeproj/project.pbxproj": "8c3f7c9cf8ed6b4fe13975e4d0523b89aa378a68045d9264201d6e0c8957a47b",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/en.lproj/Localizable.strings": "c0627430cb370bc756f52c1e2514ee29cb472808d9d291d3d27a369472532ed0",
+    "PackagesInUse/TchopProductLocalizationResources/Sources/TchopProductLocalizationResources/Resources/ru.lproj/Localizable.strings": "1300d7684f76d034a721233512aa3861e01a6c13c42a1b625b8a9b466c55a266"
+  }
+}
