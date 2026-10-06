@@ -1,0 +1,483 @@
+{
+  "schema_version": 1,
+  "task": "kb-library-effectiveness-2026-10-07",
+  "status": "P0_ACCEPTED_STATIC",
+  "date": "2026-10-07",
+  "model": "GPT-6.1 Sol/medium",
+  "mode": "эконом",
+  "approved_instruction": "перешел на 6.1 сол средний; Приступай к реализации плана созданного астра",
+  "identity": {
+    "worktree": "/Users/Artem/.zenflow/worktrees/knowledge-base-next",
+    "worktree_head": "ad3b80c3608f949d68f324083c05154d0e23358f",
+    "branch": "codex/knowledge-base-next",
+    "canonical": "/Users/Artem/.zenflow/worktrees/documentation-vault",
+    "canonical_head": "a521aa5a5dc036f6955cfb326ad290ad27ef264b",
+    "initial_clean": true,
+    "selected_project": "NONE; system work, no app mode inherited",
+    "CODEX_HOME": "UNKNOWN; not inspected",
+    "host_configuration": "UNKNOWN; not inspected"
+  },
+  "baseline_recovery": {
+    "method": "Published Git revisions plus exact payload hashes; reconstruct using Git blobs, never live mutable canonical content. Experimental execution envelope is finalized P2; this receipt is inventory, not an approved A/C harness.",
+    "payload_count": 34,
+    "payload": [
+      {
+        "path": "KNOWLEDGE_ROUTER.md",
+        "canonical_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+        "bytes": 9304,
+        "copies": {
+          "BattleshipGame": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+          "TchopApp": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "QUALITY_STANDARD.md",
+        "canonical_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+        "bytes": 5238,
+        "copies": {
+          "BattleshipGame": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+          "TchopApp": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "EVIDENCE_POLICY.md",
+        "canonical_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+        "bytes": 2095,
+        "copies": {
+          "BattleshipGame": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+          "TchopApp": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "PROJECT_FACTS.md",
+        "canonical_sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+        "bytes": 2686,
+        "copies": {
+          "BattleshipGame": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+          "TchopApp": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "REPOSITORY_INSPECTION.md",
+        "canonical_sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+        "bytes": 4040,
+        "copies": {
+          "BattleshipGame": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+          "TchopApp": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "RISK_AND_EVIDENCE.md",
+        "canonical_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+        "bytes": 4008,
+        "copies": {
+          "BattleshipGame": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+          "TchopApp": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "REVIEW_GUIDE.md",
+        "canonical_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+        "bytes": 3080,
+        "copies": {
+          "BattleshipGame": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+          "TchopApp": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "PROJECT_MODE.md",
+        "canonical_sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+        "bytes": 7913,
+        "copies": {
+          "BattleshipGame": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+          "TchopApp": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "STARTUP_RULE.md",
+        "canonical_sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+        "bytes": 4116,
+        "copies": {
+          "BattleshipGame": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+          "TchopApp": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "COPY_ONLY_QUICKSTART.md",
+        "canonical_sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+        "bytes": 3111,
+        "copies": {
+          "BattleshipGame": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+          "TchopApp": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "tools/reference_mode.py",
+        "canonical_sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+        "bytes": 10487,
+        "copies": {
+          "BattleshipGame": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+          "TchopApp": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+        "canonical_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+        "bytes": 4826,
+        "copies": {
+          "BattleshipGame": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+          "TchopApp": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+        "canonical_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+        "bytes": 5576,
+        "copies": {
+          "BattleshipGame": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+          "TchopApp": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+        "canonical_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+        "bytes": 2771,
+        "copies": {
+          "BattleshipGame": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+          "TchopApp": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+        "canonical_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+        "bytes": 3573,
+        "copies": {
+          "BattleshipGame": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+          "TchopApp": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+        "canonical_sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+        "bytes": 3353,
+        "copies": {
+          "BattleshipGame": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+          "TchopApp": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+        "canonical_sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+        "bytes": 2880,
+        "copies": {
+          "BattleshipGame": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+          "TchopApp": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+        "canonical_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+        "bytes": 3603,
+        "copies": {
+          "BattleshipGame": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+          "TchopApp": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+        "canonical_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+        "bytes": 3730,
+        "copies": {
+          "BattleshipGame": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+          "TchopApp": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+        "canonical_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+        "bytes": 3875,
+        "copies": {
+          "BattleshipGame": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+          "TchopApp": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+        "canonical_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+        "bytes": 5105,
+        "copies": {
+          "BattleshipGame": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+          "TchopApp": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+        "canonical_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+        "bytes": 2858,
+        "copies": {
+          "BattleshipGame": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+          "TchopApp": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+        "canonical_sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+        "bytes": 4759,
+        "copies": {
+          "BattleshipGame": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+          "TchopApp": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+        "canonical_sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+        "bytes": 2715,
+        "copies": {
+          "BattleshipGame": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+          "TchopApp": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+        "canonical_sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+        "bytes": 3101,
+        "copies": {
+          "BattleshipGame": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+          "TchopApp": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+        "canonical_sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+        "bytes": 3421,
+        "copies": {
+          "BattleshipGame": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+          "TchopApp": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+        "canonical_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+        "bytes": 5162,
+        "copies": {
+          "BattleshipGame": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+          "TchopApp": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+        "canonical_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+        "bytes": 3899,
+        "copies": {
+          "BattleshipGame": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+          "TchopApp": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+        "canonical_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+        "bytes": 3611,
+        "copies": {
+          "BattleshipGame": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+          "TchopApp": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+        "canonical_sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+        "bytes": 1356,
+        "copies": {
+          "BattleshipGame": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+          "TchopApp": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+        "canonical_sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+        "bytes": 1605,
+        "copies": {
+          "BattleshipGame": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+          "TchopApp": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+        "canonical_sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+        "bytes": 5456,
+        "copies": {
+          "BattleshipGame": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+          "TchopApp": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+        "canonical_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+        "bytes": 1922,
+        "copies": {
+          "BattleshipGame": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+          "TchopApp": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb"
+        },
+        "copies_match": true
+      },
+      {
+        "path": "18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+        "canonical_sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+        "bytes": 3412,
+        "copies": {
+          "BattleshipGame": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+          "TchopApp": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe"
+        },
+        "copies_match": true
+      }
+    ],
+    "library_status": "OPTIONAL_EXPERIMENTAL; NOT_READY_FOR_GENERAL_RELEASE",
+    "mode_observation": "NOT_RUN; no selector activation needed for content diagnosis"
+  },
+  "drift": {
+    "canonical_revision": "a521aa5a5dc036f6955cfb326ad290ad27ef264b",
+    "missing": [
+      "docs/IOS_PROJECT_WORK_SYSTEM.md -> docs/IOS_PROJECT_WORK_SYSTEM.md"
+    ],
+    "stale": [
+      ".codex/skills/ios-accessibility/SKILL.md -> .codex/skills/ios-accessibility/SKILL.md",
+      ".codex/skills/ios-api-contracts/SKILL.md -> .codex/skills/ios-api-contracts/SKILL.md",
+      ".codex/skills/ios-app-store-compliance/SKILL.md -> .codex/skills/ios-app-store-compliance/SKILL.md",
+      ".codex/skills/ios-architecture-router/SKILL.md -> .codex/skills/ios-architecture-router/SKILL.md",
+      ".codex/skills/ios-build-system/SKILL.md -> .codex/skills/ios-build-system/SKILL.md",
+      ".codex/skills/ios-concurrency-runtime/SKILL.md -> .codex/skills/ios-concurrency-runtime/SKILL.md",
+      ".codex/skills/ios-configuration-environments/SKILL.md -> .codex/skills/ios-configuration-environments/SKILL.md",
+      ".codex/skills/ios-data-migration/SKILL.md -> .codex/skills/ios-data-migration/SKILL.md",
+      ".codex/skills/ios-error-handling/SKILL.md -> .codex/skills/ios-error-handling/SKILL.md",
+      ".codex/skills/ios-evidence-gate/SKILL.md -> .codex/skills/ios-evidence-gate/SKILL.md",
+      ".codex/skills/ios-identity-authentication/SKILL.md -> .codex/skills/ios-identity-authentication/SKILL.md",
+      ".codex/skills/ios-incident-ops/SKILL.md -> .codex/skills/ios-incident-ops/SKILL.md",
+      ".codex/skills/ios-input-validation/SKILL.md -> .codex/skills/ios-input-validation/SKILL.md",
+      ".codex/skills/ios-lifecycle-background/SKILL.md -> .codex/skills/ios-lifecycle-background/SKILL.md",
+      ".codex/skills/ios-memory-cache-media/SKILL.md -> .codex/skills/ios-memory-cache-media/SKILL.md",
+      ".codex/skills/ios-modular-architecture/SKILL.md -> .codex/skills/ios-modular-architecture/SKILL.md",
+      ".codex/skills/ios-network-resilience/SKILL.md -> .codex/skills/ios-network-resilience/SKILL.md",
+      ".codex/skills/ios-offline-sync/SKILL.md -> .codex/skills/ios-offline-sync/SKILL.md",
+      ".codex/skills/ios-performance-profiler/SKILL.md -> .codex/skills/ios-performance-profiler/SKILL.md",
+      ".codex/skills/ios-platform-capabilities/SKILL.md -> .codex/skills/ios-platform-capabilities/SKILL.md",
+      ".codex/skills/ios-product-governance/SKILL.md -> .codex/skills/ios-product-governance/SKILL.md",
+      ".codex/skills/ios-production-auditor/SKILL.md -> .codex/skills/ios-production-auditor/SKILL.md",
+      ".codex/skills/ios-qa-localization/SKILL.md -> .codex/skills/ios-qa-localization/SKILL.md",
+      ".codex/skills/ios-release-engineering/SKILL.md -> .codex/skills/ios-release-engineering/SKILL.md",
+      ".codex/skills/ios-security-privacy/SKILL.md -> .codex/skills/ios-security-privacy/SKILL.md",
+      ".codex/skills/ios-swift-runtime/SKILL.md -> .codex/skills/ios-swift-runtime/SKILL.md",
+      ".codex/skills/ios-test-strategy/SKILL.md -> .codex/skills/ios-test-strategy/SKILL.md",
+      ".codex/skills/ios-testing-debugging/SKILL.md -> .codex/skills/ios-testing-debugging/SKILL.md",
+      "docs/REUSABLE_BASELINE_POLICY.json -> docs/REUSABLE_BASELINE_POLICY.json",
+      "docs/TASK_DOCUMENT_ROUTES.json -> docs/TASK_DOCUMENT_ROUTES.json",
+      "root-scripts/report_documentation_context_cost.py -> scripts/report_documentation_context_cost.py",
+      "root-scripts/resolve_docs_route.py -> scripts/resolve_docs_route.py"
+    ],
+    "unexpected": [],
+    "failures": []
+  },
+  "permissions": [
+    {
+      "action": "system implementation and task docs",
+      "state": "AUTHORIZED",
+      "quote": "Приступай к реализации плана созданного астра",
+      "scope": "accepted plan; significant approach choice P1.2 remains; budget calibration P2 remains"
+    },
+    {
+      "action": "runtime/tests",
+      "state": "CYCLE_SPECIFIC_GRANTS_ENDED; future blocks need exact coverage",
+      "quote": "делай проверки тесты и так далее сам; запускай тесты и сборки как на иос 18.2 и на иос 27",
+      "limitation": "Past closeout NT-BE0B-CLOSE-02 explicitly ends cycle-specific execution grants. Current instruction starts plan; P2 determines concrete verification authority before runtime. No previous build allotment restored."
+    },
+    {
+      "action": "test writing",
+      "state": "NO_CURRENT_EXPLICIT_GENERAL_GRANT",
+      "scope": "Separate from executing existing tests; no test files changed"
+    },
+    {
+      "action": "Simulator external paths",
+      "state": "SCOPED_EXCEPTION_RETAINED",
+      "quote": "работу с симулятором я разрешаю вне `/Users/Artem/.zenflow` но только для симулятора и только то что именно необходимо для этого",
+      "scope": "Only necessary Simulator operations in an otherwise permitted block; not used now"
+    },
+    {
+      "action": "iPad/physical-device checks",
+      "state": "OMITTED_BY_USER",
+      "quote": "Проверки iPad и проверки на реальном устройстве убрать из плана вобще, для любых задач проектов и тасков"
+    },
+    {
+      "action": "new agents/chats/MCP",
+      "state": "REQUIRES_SPECIFIC_USER_DECISION",
+      "quote": "автоматически создавать да я запрещаю, но если ты считаешь это нужным, разумным, цеоесообразным, ты должен мне об этом сказать, а я прийму решение",
+      "scope": "Old two observer grants consumed; no new agents/MCP created"
+    },
+    {
+      "action": "Library transitions",
+      "state": "OLD_CYCLE_GRANTS_ENDED; no new selector assumed",
+      "quote": "даю разрешение на переключение либрари на время работы над ней, пока наш общий план улучшения не закончен",
+      "scope": "Prior named-cycle permission ended at NT-BE0B-CLOSE-02; need exact current selector/action if required. Content design itself does not change modes."
+    },
+    {
+      "action": "Git publication",
+      "state": "AUTHORIZED_AFTER_GATES",
+      "quote": "Делай комиты и пуши всего полезного в том числе и приложений ... гит был чистым; ... в обоих ветках девелопмент и мейн была вся информация",
+      "scope": "Canonical docs standing authorization; AIZenflow task docs permitted, main/development synchronization; no force, hooks disabled, preserve worktrees; no authority invented for unrelated remote"
+    },
+    {
+      "action": "installers/automation/host/config/secrets",
+      "state": "NOT_AUTHORIZED",
+      "quote": "Без secrets/host/config/установщиков/автоматизаций",
+      "scope": "No reads/writes/activation; secrets path excluded"
+    }
+  ],
+  "evidence": [
+    ".zenflow/tasks/new-task-be0b/three-finding-closeout/library-scope-decision.json",
+    ".zenflow/tasks/new-task-be0b/three-finding-closeout/library-comparison/pair-adjudication.json",
+    ".zenflow/tasks/new-task-be0b/library-utility-tc-mp01/on-review/library-delta.json",
+    ".zenflow/tasks/git-consolidation-2026-10-06/README.md"
+  ],
+  "claims": {
+    "benefit": "NOT_ESTABLISHED",
+    "tokens_and_weekly_usage": "UNKNOWN",
+    "runtime": "NOT_RUN",
+    "independent_review": "NOT_RUN",
+    "holdout": "NOT_ACCESSED"
+  },
+  "acceptance": {
+    "P0.1": "ACCEPTED_SCOPED; next actions are doc/static only",
+    "P0.2": "ACCEPTED_STATIC; versions and exact payload recorded; execution freeze P2",
+    "P0.3": "ACCEPTED_SCOPED; confirmed failures plus hypotheses recorded in diagnosis-design.md"
+  },
+  "drift_check": "No corpus/runtime/policy expansion; task evidence advances identity, diagnosis and upcoming choice only."
+}
