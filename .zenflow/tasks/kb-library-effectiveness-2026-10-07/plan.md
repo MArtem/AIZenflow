@@ -16,6 +16,8 @@ Canonical task: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-li
 - [ ] P6/P7: development/frozen C/independent holdout not completed. No automatic110attempts.
 - [ ] P8/P9: workflow/maintenance/final closeout not completed.
 
-Next: publish this verified KB-first boundary, then bounded next gap under the accepted approach. No new agent/MCP/runtime/source grant. Static word reduction is not model/token/outcome benefit.
+Next: publish KB-first02 common-loop consolidation, then address remaining measured KB gaps under the accepted approach. No new agent/MCP/runtime/source grant. Static word reduction is not model/token/outcome benefit.
 
 Useful results must be committed/pushed and ultimately included in main/development of affected repos; exact HEAD receipts and actual clean checkout matter. Current original apps remain unchanged by this block. Ghibli preservation commit9e647491… is local; user-owned publication target unresolved. Preserve foreign changes and unique history; no force/reset/clean. Permissions, old PASS and Library ON never inherit through memory. Current restrictions and recovery detail: [handoff.md](handoff.md).
+
+KB-first02: [common-loop consolidation](kb-first-02/README.md) static parity accepted; repeated contract/review text delegated to canonical engineering standard, unique Library challenges retained. Runtime/agent/pin grants unchanged; outcome benefit unmeasured.

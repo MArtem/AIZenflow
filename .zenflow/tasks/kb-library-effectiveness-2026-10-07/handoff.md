@@ -33,3 +33,5 @@ Current static semantic review and documentation gates PASS. Publication require
 Ghibli four pre-existing dirty files preserved locally `9e647491…` on codex/preserve-ghibli-favorites-20261007; not V2 implementation or runtime evidence. Origin is upstream gahntpo, user-owned publication remote unresolved; no upstream push implied. Root license absent remains an eligibility gate for distributed dataset, not bypassed by memory.
 
 Full approved criteria: [joint-improvement-plan.md](joint-improvement-plan.md); current checklist [plan.md](plan.md). Old new-task-be0b cycle remains closed OPTIONAL_EXPERIMENTAL; this program does not reopen it.
+
+KB-first02: [common-loop consolidation](kb-first-02/README.md) static parity accepted; repeated contract/review text delegated to canonical engineering standard, unique Library challenges retained. Runtime/agent/pin grants unchanged; outcome benefit unmeasured.

@@ -1,0 +1,9 @@
+# Next bounded execution decision
+
+PREPARED_NOT_AUTHORIZED. KB-first01/02 produce addressed norms and one engineering loop, but no measured model benefit. Stop text-only expansion after these two blocks.
+
+Recommended: exactly two fresh GPT6.1Sol/medium executors, 600s each, read-only documentation diagnostic for the same four predeclared inputs: narrow cancellation, callback bridge, compiler-isolation migration, then late change from cancellation to callback/stream. Baseline reference bundle before KB-first versus new bundle; mandatory current user/authority baseline identical and authoritative, historical bundle reference data only. Each must select precise deep sections and name required invariants/unknowns, record actual ordered content reads and scopes, avoid full unrelated reference reading. No app sources/patches/oracles/holdout, tests/build/runtime/network/MCP/Git mutation/child agents. Own evidence only; one pair total20min cap, estimate10–20min, tokens UNKNOWN. Parent unblinded grader; no causal/time savings or broad outcome proof from single pair.
+
+Before dispatch freeze four prompts, required invariant rubric, current normative hashes, reference bundles, tool/read/write boundaries and time cap. Acceptance: all applicable norms retained; changed scope invalidates/reopens correct sections; new route actually delivers fewer irrelevant sections; no inherited grant/ON/PASS. Failure: missing mandatory constraint, unconditional old full read, or unsupported completeness. Tie: no further text-polish loop; user decides retain addressed static improvement or new task/outcome evidence.
+
+Smaller alternative: retain current static improvements and defer model measurement until a real task, leaving benefit NOT_ESTABLISHED and P6/P7 open. This decision does not freeze full C/dataset or authorize broader series. New agents require human decision under current AGENTS/user prohibition; previous6worker grants consumed.

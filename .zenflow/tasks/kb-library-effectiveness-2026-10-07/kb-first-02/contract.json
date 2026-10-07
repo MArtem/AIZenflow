@@ -1,0 +1,20 @@
+{
+  "authority": "user continue KB-first 2026-10-08; accepted V2/system plan",
+  "scope": [
+    "QUALITY_STANDARD.md",
+    "REVIEW_GUIDE.md",
+    "KNOWLEDGE_ROUTER.md"
+  ],
+  "problem": "duplicated change-contract/final review loop across normative KB and Library",
+  "action": "replace duplicate paragraphs with explicit canonical delegation, retain unique practical checks and evidence policy",
+  "invariants": [
+    "no P0-P2 gate waived",
+    "exactHEAD/postcommit/push receipts remain KB norm",
+    "current source required, absent/stale not PASS",
+    "unique Library surfaces preserved",
+    "OFF full workflow remains",
+    "Level0 and actual app pins/modes unchanged",
+    "old frozen experiments unchanged"
+  ],
+  "cost": "selected Library text words only; unchanged required KB excluded equally; no token/outcome claim"
+}
