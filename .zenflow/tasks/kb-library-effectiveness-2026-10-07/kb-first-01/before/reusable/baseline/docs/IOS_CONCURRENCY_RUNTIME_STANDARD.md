@@ -3,26 +3,7 @@
 ## Purpose
 Prevent data races, main-thread stalls, unbounded tasks, and lifecycle leaks in iOS apps.
 
-## Addressed Deep Reading
-
-This standard owns the operating rules below. The [deep reference](knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md)
-explains their application; its distribution mirror has the same authority as the canonical knowledge source.
-After this standard, select sections by the actual task:
-
-| Task | Required deep sections |
-| --- | --- |
-| Task lifetime, cancellation or stale publication | Core Model; Task Ownership; Cancellation; Ordering And Stale Results |
-| Actor ownership or cross-actor transfer | Core Model; Isolation Design; Swift 6.x Discipline |
-| Callback/continuation bridge | Core Model; Task Ownership; Cancellation; Continuations And Callbacks |
-| Reactive/legacy queue bridge | Core Model; Task Ownership; Cancellation; Reactive And Queue Bridges; Isolation Design |
-| Async stream or fan-out | Core Model; Task Ownership; Cancellation; Streams |
-| Compiler/language-mode migration | Core Model; Isolation Design; Swift 6.x Discipline |
-
-Combine rows when the scope crosses concerns. Read Testing And Evidence when selecting verification;
-its checks remain permission-bounded. Read the complete reference for cross-cutting concurrency design
-or when state ownership/order remains ambiguous after the selected sections. Reopen only newly relevant
-sections after a scope change; an omitted relevant requirement is not PASS. This selection changes reading,
-not the required engineering guarantees or build/test authority.
+Load `./docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md` for isolation design, structured and unstructured task ownership, cancellation, continuation/stream contracts, ordering, and Swift language-mode migration.
 
 ## Required Rules
 - UI state mutations happen on the main actor.

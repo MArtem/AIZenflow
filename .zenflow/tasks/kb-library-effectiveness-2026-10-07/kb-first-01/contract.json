@@ -1,0 +1,22 @@
+{
+  "status": "BEFORE_EDIT",
+  "authority": "user chose KB-first 2026-10-08; accepted overall improvement plan/V2",
+  "scope": [
+    "reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+    "reusable/knowledge-global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+    "reusable/baseline/docs/knowledge/global/ios/SWIFT_CONCURRENCY_DEEP_REFERENCE.md",
+    "reusable/ios-engineering-library/reference-copy-only/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+    "reusable/ios-engineering-library/reference-copy-only/KNOWLEDGE_ROUTER.md"
+  ],
+  "behavior": "KB owns norms; Library points to normative sections plus optional practical candidate. Narrow tasks select relevant deep sections; cross-cutting design reads full reference. No authority/permission weakening.",
+  "invariants": [
+    "all existing normative rules remain discoverable",
+    "Library unique nuance preserved in KB",
+    "no examples become authority or runtime PASS",
+    "Level0 unchanged",
+    "old experimental payloads unchanged, active app pins/modes untouched",
+    "missing canonical reference remains UNKNOWN with governed portable fallback only"
+  ],
+  "checks": "requirement map,12 static diagnostic routes,5 resume controls,links/hashes/context words/governance gates",
+  "goal_drift": "no topic expansion, agents, runtime or executable new tooling; static savings not outcome benefit"
+}
