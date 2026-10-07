@@ -18,14 +18,14 @@ Canonical: `/Users/Artem/.zenflow/worktrees/documentation-vault/tasks/kb-library
 - [ ] P3: качество и адресность базы знаний — NOT_STARTED.
 - [x] CXL-01 bounded prototype: module + routing + 8 Swift checks завершены как candidate.
 - [ ] P4: PARTIAL — CXL-01 module candidate подготовлен; exact example parity, type-check и 8/8 local model PASS. App adoption/delivery benefit NOT_MEASURED; остальные темы не начаты.
-- [ ] P5: PARTIAL - pilot01 delivered the module before final review verdict; A/C scoped outcomes tied. v0.2 review slice prepared, delivery NOT_RUN.
+- [ ] P5: PARTIAL - pilot01 delivered the module before final review verdict; A/C scoped outcomes tied. v0.2 review slice delivered in pilot02, outcomes tied.
 - [ ] P2.4 final: восемь delivery-попыток, стоимость, бюджет основной серии — NOT_STARTED.
 - [ ] P6: development, ограниченные исправления, frozen C — NOT_STARTED.
 - [ ] P7: независимый holdout, анализ, решение — NOT_STARTED.
 - [ ] P8: обычный workflow, публикация, обратимость — NOT_STARTED.
 - [ ] P9: поддержка, итог и закрытие — NOT_STARTED.
 
-Next safe step: final review/publication of pilot01 and v0.2; then a bounded constrained-fix/clean-control decision. The two-executor grant is consumed.
+Next safe step: publish pilot02, then user selects KB-first consolidation or a distinct bounded hypothesis. All six delivery executor grants are consumed.
 
 Найденные четыре dirty файла Ghibli проверены и сохранены локальным коммитом `9e647491fa7d39d58971dadf86c9faa5c6a08e43`, ветка `codex/preserve-ghibli-favorites-20261007`; checkout чистый. Origin upstream gahntpo, не пользовательский publication target; push не выполнен. Исходный evaluation HEAD `524c4348…` сохранён. Runtime evidence в этом блоке NOT_RUN.
 
@@ -56,7 +56,7 @@ workers/agents и их бюджет требуют конкретного реш
   zero incremental confirmed defects/capabilities. Severity headings are not extra discoveries.
 - [x] v0.2: review slice 499 words versus full v0.1 module 1265; exact checked Swift example retained.
   Task-history link removed from reusable boundary. Required normative KB reads unchanged.
-- [ ] v0.2 delivery/benefit NOT_RUN/NOT_ESTABLISHED; active app payloads/pins/modes untouched.
+- [x] v0.2 delivery PASS; benefit NOT_ESTABLISHED; active app payloads/pins/modes untouched.
 
 [Results](delivery-pilot-01/results.md), [adjudication](delivery-pilot-01/adjudication.json),
 [future candidate pin](cxl01-evidence/candidate-payload-v0.2.json). The v0.1 pin remains historical
@@ -64,7 +64,7 @@ pilot01 input, not a live v0.2 manifest. Observed 138/132s do not establish effi
 startup clocks, single attempts, extra selected KB reads differ, token cost UNKNOWN. Grader is
 unblinded module author; procedural separation only, holdout unopened. Swift8 PASS reused because
 exact code is unchanged. This tie does not close P6/P7 or justify topic expansion/rollout.
-Next experiment should check a bounded fix plus clean control, with explicit workers/check grants
-and resolution of existing eligibility. Avoid simply repeating the same prompted review.
+The subsequent pilot02 completed that bounded fix plus clean control on eligible Firefox sources.
+Do not repeat this hypothesis merely to seek a positive outcome.
 
-Prepared next decision: [Firefox constrained-fix + success-control proposal](delivery-pilot-02-proposal/README.md), exactly four fresh Sol6.1/medium executors, 600s each, 40-minute total cap; no original source changes/app builds/runtime/network/MCP. NOT_AUTHORIZED.
+Latest boundary: [pilot02 results](delivery-pilot-02/results.md), four authorized fresh Sol6.1/medium executors completed; grant consumed. Fix semantic checks and apply-check PASS both, success control zero findings both; outcomes TIED, incremental benefit NOT_ESTABLISHED. C v0.2 delivery PASS; original projects unchanged, holdout unopened, no runtime. Stop this hypothesis pending user choice: recommended KB-first consolidation versus a distinct bounded hypothesis. No further agent/runtime grant; full plan/dataset/C remain incomplete/not frozen.

@@ -1,0 +1,735 @@
+{
+  "schema_version": 1,
+  "task_id": "delivery-pilot-02",
+  "case_id": "PILOT-FIX01",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "эконом",
+  "start_utc": "2026-10-07T22:14:52Z",
+  "start_clock_note": "First observed clock immediately following initial instruction reads; no per-read clock precision claimed.",
+  "end_utc": "2026-10-07T22:17:28.086154+00:00",
+  "elapsed_seconds": 156.086154,
+  "cap_seconds": 600,
+  "ordered_reads": [
+    {
+      "sequence": 1,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/AGENTS.md",
+      "purpose": "content: own scoped authority/startup",
+      "sha256": "44f699bc72fdf35f4221c4c95ecb348c98f7bb2357641d6c2370aee5ec5b10e6",
+      "expected_sha256": null,
+      "match": null
+    },
+    {
+      "sequence": 2,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/handoff.md",
+      "purpose": "content: own scoped authority/startup",
+      "sha256": "ef1589110a97aa1fa82bb42ae1059245e5bafe1968697d33d5c3d9b691aa7dae",
+      "expected_sha256": null,
+      "match": null
+    },
+    {
+      "sequence": 3,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/plan.md",
+      "purpose": "content: own scoped authority/startup",
+      "sha256": "d2f8292d15b941211ab48150a7045a6428cba663825a023d9028fce3b738d60d",
+      "expected_sha256": null,
+      "match": null
+    },
+    {
+      "sequence": 4,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/input.json",
+      "purpose": "content: own scoped authority/startup",
+      "sha256": "05bc8c77b24977e9b438868f82295e919657642858dc53c01228b0c8155c48b2",
+      "expected_sha256": null,
+      "match": null
+    },
+    {
+      "sequence": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "purpose": "content: canonical bootstrap",
+      "sha256": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da",
+      "expected_sha256": null,
+      "match": null
+    },
+    {
+      "sequence": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "purpose": "content: activated baseline",
+      "sha256": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d",
+      "expected_sha256": null,
+      "match": null
+    },
+    {
+      "sequence": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "purpose": "content: canonical router",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "expected_sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "match": true
+    },
+    {
+      "sequence": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "expected_sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "match": true
+    },
+    {
+      "sequence": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "expected_sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "match": true
+    },
+    {
+      "sequence": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "expected_sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "match": true
+    },
+    {
+      "sequence": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "expected_sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "match": true
+    },
+    {
+      "sequence": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "expected_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "match": true
+    },
+    {
+      "sequence": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "expected_sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "match": true
+    },
+    {
+      "sequence": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "expected_sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "match": true
+    },
+    {
+      "sequence": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "expected_sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "match": true
+    },
+    {
+      "sequence": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "expected_sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "match": true
+    },
+    {
+      "sequence": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "expected_sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "match": true
+    },
+    {
+      "sequence": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "expected_sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "match": true
+    },
+    {
+      "sequence": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "purpose": "integrity-only: approved normative",
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "expected_sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "match": true
+    },
+    {
+      "sequence": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/KNOWLEDGE_ROUTER.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "expected_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "match": true
+    },
+    {
+      "sequence": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/QUALITY_STANDARD.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "expected_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "match": true
+    },
+    {
+      "sequence": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/EVIDENCE_POLICY.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "expected_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "match": true
+    },
+    {
+      "sequence": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/PROJECT_FACTS.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "expected_sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "match": true
+    },
+    {
+      "sequence": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/REPOSITORY_INSPECTION.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "expected_sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "match": true
+    },
+    {
+      "sequence": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/RISK_AND_EVIDENCE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "expected_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "match": true
+    },
+    {
+      "sequence": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/REVIEW_GUIDE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "expected_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "match": true
+    },
+    {
+      "sequence": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/PROJECT_MODE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "expected_sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "match": true
+    },
+    {
+      "sequence": 28,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/STARTUP_RULE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+      "expected_sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+      "match": true
+    },
+    {
+      "sequence": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/COPY_ONLY_QUICKSTART.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+      "expected_sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+      "match": true
+    },
+    {
+      "sequence": 30,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/tools/reference_mode.py",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+      "expected_sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+      "match": true
+    },
+    {
+      "sequence": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "expected_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "match": true
+    },
+    {
+      "sequence": 32,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+      "expected_sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+      "match": true
+    },
+    {
+      "sequence": 33,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+      "expected_sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+      "match": true
+    },
+    {
+      "sequence": 34,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+      "expected_sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+      "match": true
+    },
+    {
+      "sequence": 35,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "expected_sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "match": true
+    },
+    {
+      "sequence": 36,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+      "expected_sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+      "match": true
+    },
+    {
+      "sequence": 37,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+      "expected_sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+      "match": true
+    },
+    {
+      "sequence": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "expected_sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "match": true
+    },
+    {
+      "sequence": 39,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+      "expected_sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+      "match": true
+    },
+    {
+      "sequence": 40,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+      "expected_sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+      "match": true
+    },
+    {
+      "sequence": 41,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+      "expected_sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+      "match": true
+    },
+    {
+      "sequence": 42,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+      "expected_sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+      "match": true
+    },
+    {
+      "sequence": 43,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+      "expected_sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+      "match": true
+    },
+    {
+      "sequence": 44,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+      "expected_sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+      "match": true
+    },
+    {
+      "sequence": 45,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+      "expected_sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+      "match": true
+    },
+    {
+      "sequence": 46,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+      "expected_sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+      "match": true
+    },
+    {
+      "sequence": 47,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+      "expected_sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+      "match": true
+    },
+    {
+      "sequence": 48,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+      "expected_sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+      "match": true
+    },
+    {
+      "sequence": 49,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+      "expected_sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+      "match": true
+    },
+    {
+      "sequence": 50,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+      "expected_sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+      "match": true
+    },
+    {
+      "sequence": 51,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+      "expected_sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+      "match": true
+    },
+    {
+      "sequence": 52,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+      "expected_sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+      "match": true
+    },
+    {
+      "sequence": 53,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "purpose": "integrity-only: own frozen payload",
+      "sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+      "expected_sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+      "match": true
+    },
+    {
+      "sequence": 54,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "expected_sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "match": true
+    },
+    {
+      "sequence": 55,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "expected_sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "match": true
+    },
+    {
+      "sequence": 56,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "expected_sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "match": true
+    },
+    {
+      "sequence": 57,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "expected_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "match": true
+    },
+    {
+      "sequence": 58,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "expected_sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "match": true
+    },
+    {
+      "sequence": 59,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "expected_sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "match": true
+    },
+    {
+      "sequence": 60,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "expected_sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "match": true
+    },
+    {
+      "sequence": 61,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "expected_sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "match": true
+    },
+    {
+      "sequence": 62,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "expected_sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "match": true
+    },
+    {
+      "sequence": 63,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "expected_sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "match": true
+    },
+    {
+      "sequence": 64,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "purpose": "content: selected normative (combined tool output partially truncated)",
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "expected_sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "match": true
+    },
+    {
+      "sequence": 65,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "purpose": "content: focused reread due to combined-output truncation",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "expected_sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "match": true
+    },
+    {
+      "sequence": 66,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "purpose": "content: focused reread due to combined-output truncation",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "expected_sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "match": true
+    },
+    {
+      "sequence": 67,
+      "path": "git:0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071:firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+      "purpose": "content + SHA-1/SHA-256/bytes: exact source blob",
+      "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+      "expected_sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+      "match": true
+    },
+    {
+      "sequence": 68,
+      "path": "git:0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071:firefox-ios/Client/Frontend/Reader/SchemeHandler/PageRoute.swift",
+      "purpose": "content + SHA-1/SHA-256/bytes: exact source blob",
+      "sha256": "75d5e04347d444c7eb70467cfa026b3596634ee3df95fb591f99e10b5bc1737b",
+      "expected_sha256": "75d5e04347d444c7eb70467cfa026b3596634ee3df95fb591f99e10b5bc1737b",
+      "match": true
+    },
+    {
+      "sequence": 69,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/KNOWLEDGE_ROUTER.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "expected_sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "match": true
+    },
+    {
+      "sequence": 70,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/PROJECT_MODE.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "expected_sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "match": true
+    },
+    {
+      "sequence": 71,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/QUALITY_STANDARD.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "expected_sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "match": true
+    },
+    {
+      "sequence": 72,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/EVIDENCE_POLICY.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "expected_sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "match": true
+    },
+    {
+      "sequence": 73,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/PROJECT_FACTS.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "expected_sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "match": true
+    },
+    {
+      "sequence": 74,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/REPOSITORY_INSPECTION.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "expected_sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "match": true
+    },
+    {
+      "sequence": 75,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/RISK_AND_EVIDENCE.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "expected_sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "match": true
+    },
+    {
+      "sequence": 76,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/REVIEW_GUIDE.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "expected_sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "match": true
+    },
+    {
+      "sequence": 77,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "expected_sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "match": true
+    },
+    {
+      "sequence": 78,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "purpose": "content: source-first payload route",
+      "sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "expected_sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "match": true
+    },
+    {
+      "sequence": 79,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-01/input.json",
+      "purpose": "content: input reread for proposal generation",
+      "sha256": "05bc8c77b24977e9b438868f82295e919657642858dc53c01228b0c8155c48b2",
+      "expected_sha256": null,
+      "match": null
+    },
+    {
+      "sequence": 80,
+      "path": "git:0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071:firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+      "purpose": "content: exact source reread for diff generation",
+      "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+      "expected_sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+      "match": true
+    },
+    {
+      "sequence": 81,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "purpose": "content: focused completion of initial truncated model document",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "match": true
+    }
+  ],
+  "ledger_hash_receipt_note": "Receipt construction rehashes only the listed same allowed paths; no additional content surfaced. Source rehashed by exact git show only.",
+  "source_facts_checkpoint_utc": "2026-10-07T22:15:17Z",
+  "source_facts_before_specialist_routes": true,
+  "router_read_after_source_facts": true,
+  "decision_after_selected_route_content": true,
+  "decision_clock_checkpoint_utc": "2026-10-07T22:15:44Z",
+  "routes": [
+    "canonical Level0",
+    "canonical preflight/change contract",
+    "canonical bounded iOS review/concurrency",
+    "canonical completion",
+    "payload ON baseline/guides",
+    "payload code-review route",
+    "payload concurrency route"
+  ],
+  "all_expected_hashes_match": true,
+  "canonical_available": true,
+  "canonical_revision": "UNKNOWN",
+  "actual_project_reference_mode": "NOT_INSPECTED_OR_CHANGED",
+  "task_trial_mode": "ON supplied frozen payload only",
+  "outputs": [
+    "review.md",
+    "ledger.json",
+    "proposal.patch"
+  ],
+  "source_mutations": "NONE",
+  "git_mutations": "NONE",
+  "proposal_added_lines": 6,
+  "proposal_applied": false,
+  "evidence_level": "E1",
+  "checks": [
+    "exact blobs SHA-1/SHA-256/bytes",
+    "supplied normative/payload SHA-256",
+    "unique exact diff anchor",
+    "full proposed diff contract review",
+    "static success/cancellation/generic-error traces",
+    "proposed patch six-line scope and added-line whitespace static check"
+  ],
+  "not_run": [
+    "build",
+    "tests",
+    "typecheck",
+    "runtime",
+    "network",
+    "MCP",
+    "child agents",
+    "SDK/profile inspection",
+    "broader callers",
+    "commit/push"
+  ],
+  "omitted_by_user": [
+    "iPad",
+    "physical devices",
+    "actual VoiceOver"
+  ],
+  "uncertainties": [
+    "Real SDK isolation and callback ordering UNKNOWN; explicit task assumptions only",
+    "TinyRouter implementation and actual screen impact UNKNOWN",
+    "Excluded deeper references not read; no full production coverage",
+    "Usage and primary selector verification UNKNOWN"
+  ],
+  "usage": "UNKNOWN",
+  "context_health": "контекст обновлять не нужно",
+  "output_read_receipt": [
+    "proposal.patch: full static final verification",
+    "review.md: final report check",
+    "ledger.json: own receipt update"
+  ],
+  "receipt_construction_additional_reads": "All paths in ordered_reads were rehashed in that listed order while reconstructing this receipt. Each of the two exact source Git blobs was reread for that reconstruction. This is distinct from the original semantic-read order; no additional paths were accessed.",
+  "output_hashes": {
+    "proposal.patch": "5214b29589b2c6f91dd38f6c194f27e16f122fbacae19818faae14bc9875054c",
+    "review.md": "0dd274bcbe887c9ab2e40ec0accfd3410714ce4f07083c96e6c9e9580f02dbd0"
+  }
+}

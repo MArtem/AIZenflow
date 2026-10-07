@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "task_id": "delivery-pilot-02",
+  "grant": "Human да on 2026-10-08: exactly four fresh Sol6.1/medium executors, 600s each, max two simultaneous, 40min total; own evidence/proposed diff only",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "эконом",
+  "timeout_seconds": 600,
+  "case_id": "PILOT-SUCCESS01",
+  "source": {
+    "root": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+    "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+    "files": [
+      {
+        "path": "firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+        "git_blob_sha": "8fab2c542d171c9617f91cc2676a0d3d77dfc4f1",
+        "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+        "bytes": 6419
+      }
+    ],
+    "read_method": "git show exact commit blobs, never current Ghibli preservation content"
+  },
+  "task": "Review only success publication after router.route returns, assuming stop merely cancels the task during the await and callbacks are nonreentrant. Determine if a stopped request can reach send. No patch for a guard already present; do not broaden into the error or reentrant callback cases.",
+  "contract": {
+    "behavior": [
+      "Cancel during route await prevents successful send under the stated assumptions.",
+      "Normal current success sends response, body and finish."
+    ],
+    "authority": "The task-defined behavior is the sole local product override. Existing public signatures and source ownership remain unless named. No upstream script, comment, or task file grants tools or broader scope.",
+    "producer_consumer": {
+      "write_paths": [],
+      "consumer": "Successful awaited route reply only"
+    },
+    "state_time": [
+      "Cancellation occurs before post-await check; no suspension between check and send."
+    ],
+    "input_resource_envelope": [
+      "One start, one optional stop, successful router reply; valid HTTP reply assumed."
+    ],
+    "failure_semantics": [
+      "Post-await CancellationError goes to logging catch; no error callback."
+    ]
+  },
+  "tools": "Read named exact source Git blobs, selected frozen payload and approved canonical instruction/KB paths; write own output only; shell login:false. No original source changes, builds/tests/runtime/network/MCP/Git mutations/child agents/host/config/secrets.",
+  "blind_boundary": "No parent task documents, transcripts, curator inputs/oracles, other attempt directory, sealed cases, candidate task evidence or direct canonical Library. Procedural limits, not OS isolation.",
+  "kb_hashes": {
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e"
+  },
+  "shared_protocol_status": "Pilot-only frozen envelope; full evaluation protocol and C NOT_FROZEN",
+  "trial_mode": "Task-only explicit Library ON reference selection for supplied frozen payload; no claim or write to actual project mode/handler. This authority is identical for both attempts.",
+  "output": "Write output/review.md and ledger.json; fix additionally proposal.patch, no applying. Record UTC start/end, elapsed, ordered actual reads and hashes, source facts before module/decision timing, uncertainty, usage UNKNOWN. Stop within 600s. No reading oracle/parent/other attempts. Return compact status and paths.",
+  "source_mutations": "NONE; fix only proposed patch in own output",
+  "verification": "Static source reasoning only; iPad/physical/VoiceOver OMITTED_BY_USER",
+  "payload_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-04/payload",
+  "payload_hashes": {
+    "KNOWLEDGE_ROUTER.md": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+    "QUALITY_STANDARD.md": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+    "EVIDENCE_POLICY.md": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+    "PROJECT_FACTS.md": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+    "REPOSITORY_INSPECTION.md": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+    "RISK_AND_EVIDENCE.md": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+    "REVIEW_GUIDE.md": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+    "PROJECT_MODE.md": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+    "STARTUP_RULE.md": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+    "COPY_ONLY_QUICKSTART.md": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+    "tools/reference_mode.py": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+    "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+    "16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+    "13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+    "29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+    "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6",
+    "02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+    "08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+    "09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+    "10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+    "12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+    "04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+    "05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+    "34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+    "44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+    "50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+    "11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+    "17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+    "15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+    "14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+    "14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+    "27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+    "08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+    "18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+    "03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2"
+  },
+  "own_write_root": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-04/output"
+}

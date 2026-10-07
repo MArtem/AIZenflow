@@ -1,0 +1,731 @@
+{
+  "schema_version": 1,
+  "task_id": "delivery-pilot-02",
+  "case_id": "PILOT-FIX01",
+  "executor": "attempt-02",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "эконом",
+  "start_utc": "2026-10-07T22:14:58+00:00",
+  "start_note": "conservative start before initial tool reads; first clock observed 22:14:59 UTC",
+  "end_utc": "2026-10-07T22:17:13.579818+00:00",
+  "elapsed_seconds": 135.579818,
+  "timeout_seconds": 600,
+  "ordered_actual_reads": [
+    {
+      "order": 1,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/AGENTS.md",
+      "purpose": "task envelope content",
+      "sha256": "44f699bc72fdf35f4221c4c95ecb348c98f7bb2357641d6c2370aee5ec5b10e6",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 2,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/handoff.md",
+      "purpose": "task envelope content",
+      "sha256": "ef1589110a97aa1fa82bb42ae1059245e5bafe1968697d33d5c3d9b691aa7dae",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 3,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/plan.md",
+      "purpose": "task envelope content",
+      "sha256": "d2f8292d15b941211ab48150a7045a6428cba663825a023d9028fce3b738d60d",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 4,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/input.json",
+      "purpose": "task envelope content",
+      "sha256": "0d426c6a02a7aaee0faadcdc470cedcbdcbdca43e6acc889edd11b7b8d306593",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "purpose": "bootstrap content",
+      "sha256": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "purpose": "canonical instructions content",
+      "sha256": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "purpose": "router content",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "purpose": "selected normative content",
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "purpose": "selected normative content",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "purpose": "selected normative content",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "purpose": "selected normative content",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "purpose": "selected normative content",
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "purpose": "selected normative content",
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "purpose": "selected normative content",
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "purpose": "selected normative content",
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "purpose": "selected normative content",
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "purpose": "selected normative content",
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "purpose": "selected normative content",
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/input.json",
+      "purpose": "validation envelope reread",
+      "sha256": "0d426c6a02a7aaee0faadcdc470cedcbdcbdca43e6acc889edd11b7b8d306593",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 20,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "purpose": "hash-only validation",
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 21,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "purpose": "hash-only validation",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 22,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "purpose": "hash-only validation",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 23,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "purpose": "hash-only validation",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 24,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "purpose": "hash-only validation",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 25,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "purpose": "hash-only validation",
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 26,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "purpose": "hash-only validation",
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 27,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "purpose": "hash-only validation",
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 28,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "purpose": "hash-only validation",
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 29,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "purpose": "hash-only validation",
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 30,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "purpose": "hash-only validation",
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 31,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "purpose": "hash-only validation",
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 32,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/KNOWLEDGE_ROUTER.md",
+      "purpose": "hash-only validation",
+      "sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 33,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/QUALITY_STANDARD.md",
+      "purpose": "hash-only validation",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 34,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/EVIDENCE_POLICY.md",
+      "purpose": "hash-only validation",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 35,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/PROJECT_FACTS.md",
+      "purpose": "hash-only validation",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 36,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/REPOSITORY_INSPECTION.md",
+      "purpose": "hash-only validation",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 37,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/RISK_AND_EVIDENCE.md",
+      "purpose": "hash-only validation",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 38,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/REVIEW_GUIDE.md",
+      "purpose": "hash-only validation",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 39,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/PROJECT_MODE.md",
+      "purpose": "hash-only validation",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 40,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/STARTUP_RULE.md",
+      "purpose": "hash-only validation",
+      "sha256": "5b5eace561c794ccd6064a41acd6b5b18a062e5111c280476736481d1d8093de",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 41,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/COPY_ONLY_QUICKSTART.md",
+      "purpose": "hash-only validation",
+      "sha256": "069f20b832336fe634ada2af89bef174951ea65a646e8eb389b2d1df3da300c0",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 42,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/tools/reference_mode.py",
+      "purpose": "hash-only validation",
+      "sha256": "6d4f7cce88cd821ce14dec11d2ebf38d4432bfa5adf8c89294895b53bbd0452d",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 43,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 44,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/16_BUILD_MODULARITY_TOOLING/COPY_ONLY_BUILD_GRAPH_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "88927692a4c21353d03817927e46d44075490cac4e2c93062fbf70171657bac7",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 45,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/13_ACCESSIBILITY_LOCALIZATION/COPY_ONLY_INCLUSIVE_UI_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "a733b6fb87529064e51490947a8575523892f98cfc76161784eb454e4ffdd623",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 46,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/29_DESIGN_SYSTEM/COPY_ONLY_DESIGN_TO_IOS_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "cfcca1e43528a91d7f66f57fc7261c68ab9953b7e240e0120acd732398711344",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 47,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 48,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/02_SWIFT_LANGUAGE/COPY_ONLY_SWIFT_RUNTIME_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "d6bab5160a9c7e62ff0879c5c8ca5f3dd8c2a9d77c1734d9b0a3654a985b17dd",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 49,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/08_NETWORKING/COPY_ONLY_NETWORK_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "5439be33b1319b29cb67cb8f96e30cc64c01628cb5aa29c3fcd57dce5608ab55",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 50,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/09_PERSISTENCE_DATA/COPY_ONLY_DATA_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "1e8ada550cdb5994067b06887010843d462fd500880b2ca8a3b6832dedadc890",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 51,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/10_TESTING/COPY_ONLY_TEST_STRATEGY_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "4b6fdcc992c15fc2550357731eb31e11d590410dcf85208a79e7b4c8f99d508c",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 52,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/12_SECURITY_PRIVACY/COPY_ONLY_SECURITY_PRIVACY_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "5006eb09dfced3e51354815ab6409613253e8d537357bf5054335b32fdf88528",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 53,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/04_ARCHITECTURE/COPY_ONLY_ARCHITECTURE_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "563a447c80da02661b3f4ef5f4533cc036c01bae6243903fa0f0fa2a9c86aa3c",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 54,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/05_SWIFTUI/COPY_ONLY_UI_FLOW_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "61279caf1e6761f950fbbeb47363923e43492d21d558f252d6e2ae06924fc2d1",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 55,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/34_AUDIT_GATES/COPY_ONLY_FULL_AUDIT_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "6d5fbff621ff20df3416e2067ae2b254ac48b5215adbd1afd1dacbb0ac226d3e",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 56,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/44_MULTI_AGENT_ORCHESTRATION/COPY_ONLY_AGENT_COORDINATION_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "5fb47bc6b0a78c0b21ac9c575b87592628e3f5c0313b222e251683f3dc7c02c5",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 57,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/50_CLIENT_CODE_PROTECTION/COPY_ONLY_REPOSITORY_SAFETY_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "4410019a1fdb6bcfcd8be7e88a649371962d5b80046e2d36ccd0c3da822b1d1f",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 58,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/11_PERFORMANCE_MEMORY/COPY_ONLY_PERFORMANCE_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "89e855e6146e89dcf571f39c452713f5db4adcb8e630533bff8ef7e55ac634ff",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 59,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/17_CI_CD_RELEASE/COPY_ONLY_RELEASE_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "4bf8329ae46fa2af32ef137bf90d6631064073b1ced5742c6dc8b643b57febac",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 60,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/15_AI_INTELLIGENCE/COPY_ONLY_AI_FEATURE_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "6d8069196351320c39e92a2405a2270072a421ab83de0571b269d6ca8a9134c1",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 61,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/14_PLATFORM_SERVICES/COPY_ONLY_APP_INTENTS_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "f5adb44afe6298e5c0ef3eea6ea32c0fafaf1a420ee8c5a43888b082a9879ae7",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 62,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/14_PLATFORM_SERVICES/COPY_ONLY_STOREKIT_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "140980bc4b63df7bf065d7aeeb57b3377345db9ef34661162fc698af04101348",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 63,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/27_SYSTEM_INTEGRATION/COPY_ONLY_SYSTEM_INTEGRATION_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "8a74fadffb47fe4077611e1aa8ede6e96c18cc0d8a583a35e4e7c48d9befb26c",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 64,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/08_NETWORKING/COPY_ONLY_API_CONTRACT_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "c1c327f5ec601a48a82c0fa0bd352bb3ab3256bfd6854d1f1205e4d9b3e03beb",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 65,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/18_OBSERVABILITY_DEBUGGING/COPY_ONLY_OBSERVABILITY_ROUTE.md",
+      "purpose": "hash-only validation",
+      "sha256": "a62238d03ad51c6863ebb08fe187aa2a7de1ed80efba880a18c087272f5aa6fe",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 66,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+      "purpose": "hash-only validation",
+      "sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 67,
+      "path": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071:firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+      "purpose": "exact Git blob content and hash/bytes validation",
+      "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 68,
+      "path": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071:firefox-ios/Client/Frontend/Reader/SchemeHandler/PageRoute.swift",
+      "purpose": "exact Git blob content and hash/bytes validation",
+      "sha256": "75d5e04347d444c7eb70467cfa026b3596634ee3df95fb591f99e10b5bc1737b",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 69,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/KNOWLEDGE_ROUTER.md",
+      "purpose": "selected payload content",
+      "sha256": "686940a4afcf7e6da06c28a02f0e0c5f610229f67dcaf89194109b07c9c5ee59",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 70,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/PROJECT_MODE.md",
+      "purpose": "selected payload content",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 71,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/QUALITY_STANDARD.md",
+      "purpose": "selected payload content",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 72,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/EVIDENCE_POLICY.md",
+      "purpose": "selected payload content",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 73,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/PROJECT_FACTS.md",
+      "purpose": "selected payload content",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 74,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/REPOSITORY_INSPECTION.md",
+      "purpose": "selected payload content",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 75,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/RISK_AND_EVIDENCE.md",
+      "purpose": "selected payload content",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 76,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/REVIEW_GUIDE.md",
+      "purpose": "selected payload content",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 77,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "purpose": "selected payload content",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 78,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "purpose": "selected payload content",
+      "sha256": "574d540dfe1c00b740b2931597b1a9d363b155e7280207e0e45d588b338838b6",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 79,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/payload/03_CONCURRENCY/CXL-01_CANCELLATION_PUBLICATION.md",
+      "purpose": "selected payload content",
+      "sha256": "104924b8cba011b09bd7cd427e40d1ad76f805367e4e938f1cc156502ec945a2",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 80,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/input.json",
+      "purpose": "artifact generation envelope reread",
+      "sha256": "0d426c6a02a7aaee0faadcdc470cedcbdcbdca43e6acc889edd11b7b8d306593",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 81,
+      "path": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071:firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+      "purpose": "exact blob reread for patch generation",
+      "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 82,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/AGENTS.md",
+      "purpose": "receipt hash-only read",
+      "sha256": "44f699bc72fdf35f4221c4c95ecb348c98f7bb2357641d6c2370aee5ec5b10e6",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 83,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/handoff.md",
+      "purpose": "receipt hash-only read",
+      "sha256": "ef1589110a97aa1fa82bb42ae1059245e5bafe1968697d33d5c3d9b691aa7dae",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 84,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/plan.md",
+      "purpose": "receipt hash-only read",
+      "sha256": "d2f8292d15b941211ab48150a7045a6428cba663825a023d9028fce3b738d60d",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 85,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/input.json",
+      "purpose": "receipt hash-only read",
+      "sha256": "0d426c6a02a7aaee0faadcdc470cedcbdcbdca43e6acc889edd11b7b8d306593",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 86,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "purpose": "receipt hash-only read",
+      "sha256": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 87,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "purpose": "receipt hash-only read",
+      "sha256": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d",
+      "timestamp_utc": "bounded by phase timestamps; individual read timestamps not captured"
+    },
+    {
+      "order": 88,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/output/review.md",
+      "purpose": "correct payload count in own review",
+      "sha256": "1847ea391d1b2b650c7831dde00a14fee97f983a3d63f9ac8c631bb00257d183",
+      "timestamp_utc": "2026-10-07T22:17:13.579818+00:00"
+    },
+    {
+      "order": 89,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/output/proposal.patch",
+      "purpose": "final complete proposed diff read",
+      "sha256": "eadc595e23f52b3183be9e17b4b19c44231ce3af6a4df62aaf276e2967246173",
+      "timestamp_utc": "2026-10-07T22:17:13.579818+00:00"
+    },
+    {
+      "order": 90,
+      "path": "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/output/ledger.json",
+      "purpose": "own receipt finalization",
+      "sha256": "ec48b762d1c027a2ab2b9c7b1f00ec5a72faff1a3313b796ca367eb454ff4b2d",
+      "timestamp_utc": "2026-10-07T22:17:13.579818+00:00"
+    }
+  ],
+  "phase_timing": {
+    "source_facts_before_payload_router": "2026-10-07T22:15:22+00:00",
+    "supporting_routes_loaded_by": "2026-10-07T22:15:33+00:00",
+    "CXL_01_loaded_by": "2026-10-07T22:15:37+00:00",
+    "decision": "after CXL-01 and before artifact generation",
+    "final_review": "2026-10-07T22:17:13.579818+00:00"
+  },
+  "hash_validation": {
+    "kb": {
+      "count": 12,
+      "status": "PASS"
+    },
+    "payload": {
+      "count": 35,
+      "status": "PASS"
+    },
+    "source": {
+      "status": "PASS",
+      "files": [
+        {
+          "path": "firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+          "git_blob_sha": "8fab2c542d171c9617f91cc2676a0d3d77dfc4f1",
+          "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+          "bytes": 6419
+        },
+        {
+          "path": "firefox-ios/Client/Frontend/Reader/SchemeHandler/PageRoute.swift",
+          "git_blob_sha": "36ef2289c6c02fc6e79e149c2a3b04b44c9563f1",
+          "sha256": "75d5e04347d444c7eb70467cfa026b3596634ee3df95fb591f99e10b5bc1737b",
+          "bytes": 5389
+        }
+      ]
+    }
+  },
+  "source_facts": [
+    "stop cancels/removes stored task",
+    "success checks cancellation after route",
+    "generic catch lacks cancellation guard",
+    "CancellationError publishes no callback",
+    "PageRoute broad catch may convert errors into reply; other router behavior unknown"
+  ],
+  "proposal": "one cancellation guard in generic catch; no application",
+  "static_checks": [
+    "exact blob hash and bytes",
+    "unique replacement site",
+    "only one added line",
+    "added-line whitespace",
+    "complete proposed diff semantic review under supplied contract"
+  ],
+  "uncertainties": [
+    "toolchain and SDK isolation UNKNOWN",
+    "runtime and real serialized/nonreentrant enforcement UNVERIFIED",
+    "producer cancellation cooperation and lifetime bound UNKNOWN",
+    "actual project reference mode intentionally uninspected",
+    "canonical Git revision UNKNOWN",
+    "individual read timestamps not captured; order preserved"
+  ],
+  "usage": "UNKNOWN",
+  "source_mutations": "NONE",
+  "writes": [
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/output/proposal.patch",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/output/review.md",
+    "/Users/Artem/.zenflow/worktrees/knowledge-base-next/.zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-02/output/ledger.json"
+  ],
+  "omitted": [
+    "build",
+    "tests",
+    "typecheck",
+    "runtime",
+    "network",
+    "MCP",
+    "Git mutations",
+    "child agents",
+    "host/config/secrets"
+  ],
+  "verification_scope": {
+    "iPad": "OMITTED_BY_USER",
+    "physical_device": "OMITTED_BY_USER",
+    "actual_VoiceOver": "OMITTED_BY_USER"
+  },
+  "context_health": "контекст обновлять не нужно",
+  "final_artifact_hashes": {
+    "review.md": "1847ea391d1b2b650c7831dde00a14fee97f983a3d63f9ac8c631bb00257d183",
+    "proposal.patch": "eadc595e23f52b3183be9e17b4b19c44231ce3af6a4df62aaf276e2967246173"
+  }
+}

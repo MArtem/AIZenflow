@@ -1,0 +1,42 @@
+{
+  "status": "FROZEN_BEFORE_DISPATCH",
+  "created_utc": "2026-10-07T22:14:38.315487+00:00",
+  "grant": "Human да on 2026-10-08: exactly four fresh Sol6.1/medium executors, 600s each, max two simultaneous, 40min total; own evidence/proposed diff only",
+  "arms": {
+    "attempt-01": "A fix",
+    "attempt-02": "C fix",
+    "attempt-03": "A success",
+    "attempt-04": "C success"
+  },
+  "kb_hashes": {
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+    "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e"
+  },
+  "input_hashes": {
+    "attempt-01": "05bc8c77b24977e9b438868f82295e919657642858dc53c01228b0c8155c48b2",
+    "attempt-02": "0d426c6a02a7aaee0faadcdc470cedcbdcbdca43e6acc889edd11b7b8d306593",
+    "attempt-03": "9eafb9637e7bd5061a58396ebced7460ce4c1b304235a7f9ee7c9f5896c04b2d",
+    "attempt-04": "e48b124a2fc1810319647c367f119a13ad78c461e2c361ceaaa49f07e2e01992"
+  },
+  "holdout": "NOT_READ",
+  "limits": "600s each, max2 simultaneous, total40min",
+  "stop_rule": "If tied again, stop hypothesis for user decision; no larger favorable sample",
+  "confounds": [
+    "public explicit contracts",
+    "one attempt per arm/task",
+    "unblinded author/grader",
+    "procedural isolation only",
+    "token usage unavailable",
+    "static evidence only"
+  ]
+}

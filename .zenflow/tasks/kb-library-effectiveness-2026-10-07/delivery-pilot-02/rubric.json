@@ -1,0 +1,17 @@
+{
+  "status": "FROZEN_BEFORE_DISPATCH",
+  "fix": [
+    "stop then late generic error: no didFailWithError",
+    "current genuine error: mapped callback and logger preserved",
+    "cancelled success: post-await guard preserved",
+    "current success: response/body/finish preserved",
+    "CancellationError branch equivalent",
+    "only generic catch path changed, no unnecessary architecture/identity or original mutation"
+  ],
+  "success": [
+    "post-await check blocks stopped successful response under explicit serialized nonreentrant contract",
+    "current success response/body/finish preserved",
+    "no unnecessary patch or broader unsupported defect"
+  ],
+  "grading": "Equivalent behavior, not exact guard spelling; static apply --check and semantic review only; no SDK/runtime acceptance. Parent unblinded; no independent grader."
+}

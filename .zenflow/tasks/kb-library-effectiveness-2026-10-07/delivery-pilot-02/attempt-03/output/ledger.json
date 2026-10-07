@@ -1,0 +1,300 @@
+{
+  "schema_version": 1,
+  "case_id": "PILOT-SUCCESS01",
+  "start_utc": "2026-10-07T22:17:50Z",
+  "start_timestamp_precision": "Approximate initial read; first directly observed clock 22:17:55Z",
+  "model": "gpt-6.1-sol",
+  "reasoning": "medium",
+  "mode": "\u044d\u043a\u043e\u043d\u043e\u043c",
+  "canonical_available": true,
+  "canonical_revision": "UNKNOWN; Git metadata outside named source not inspected",
+  "host": "UNKNOWN; prohibited inspection",
+  "usage": "UNKNOWN",
+  "reads": [
+    {
+      "order": 1,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/AGENTS.md",
+      "utc": "2026-10-07T22:17:50Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "44f699bc72fdf35f4221c4c95ecb348c98f7bb2357641d6c2370aee5ec5b10e6",
+      "expected_match": "NO_EXPECTED_HASH"
+    },
+    {
+      "order": 2,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/handoff.md",
+      "utc": "2026-10-07T22:17:50Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "ef1589110a97aa1fa82bb42ae1059245e5bafe1968697d33d5c3d9b691aa7dae",
+      "expected_match": "NO_EXPECTED_HASH"
+    },
+    {
+      "order": 3,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/plan.md",
+      "utc": "2026-10-07T22:17:50Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "d2f8292d15b941211ab48150a7045a6428cba663825a023d9028fce3b738d60d",
+      "expected_match": "NO_EXPECTED_HASH"
+    },
+    {
+      "order": 4,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/input.json",
+      "utc": "2026-10-07T22:17:50Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "9eafb9637e7bd5061a58396ebced7460ce4c1b304235a7f9ee7c9f5896c04b2d",
+      "expected_match": "NO_EXPECTED_HASH"
+    },
+    {
+      "order": 5,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/GLOBAL_RULES_BOOTSTRAP.md",
+      "utc": "2026-10-07T22:17:55Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "8b68feb4e406a9b34063d83a95bfbba98eae0b0de4d27c9d8cfce49ead4106da",
+      "expected_match": "NO_EXPECTED_HASH"
+    },
+    {
+      "order": 6,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/AGENTS.md",
+      "utc": "2026-10-07T22:17:59Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "bff707271c5baf9c7f5b7baba791d8733928884f548461dd6efba2f703a0074d",
+      "expected_match": "NO_EXPECTED_HASH"
+    },
+    {
+      "order": 7,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/TASK_TYPE_DOCUMENTATION_ROUTER.md",
+      "utc": "2026-10-07T22:17:59Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "0494d9b875d362080c43b2c11dde864aa6712bc93730b32110183cbdb36226a5",
+      "expected_match": true
+    },
+    {
+      "order": 8,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/CURRENT_USER_OVERRIDES.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "972503676a2d387b05eb26c2f605c8b58e7058f5bb3e17038a07e2e0e3b26f40",
+      "expected_match": true
+    },
+    {
+      "order": 9,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/MODEL_ROUTING_RULE.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "9a8b21fb32bc234bd9cbae0edca25bb8d7d5c5eac4d881edfb82e7753ff2bf2e",
+      "expected_match": true
+    },
+    {
+      "order": 10,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/AGENT_PREFLIGHT_CHECKLIST.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "b027bedb0aefe1014009759a5a0b3782489610e56038c21b2d9352143218d27f",
+      "expected_match": true
+    },
+    {
+      "order": 11,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "expected_match": true
+    },
+    {
+      "order": 12,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/PRODUCTION_REVIEW_COMPLETENESS_GATE.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "ac5eea48a0997ac6ba4ed8c9fc46bf0e3f5bab33f78cc481b4c176ced0752a04",
+      "expected_match": true
+    },
+    {
+      "order": 13,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_READINESS_STANDARD.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "86d8120c7ef05e6921ed003019290959392273e56e6dd5b16a48f2e9444038f3",
+      "expected_match": true
+    },
+    {
+      "order": 14,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/DEFINITION_OF_DONE.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "2e89e53fd54447fa058c7af44c324d72bccdc9506c4958b91f6639151d2d1595",
+      "expected_match": true
+    },
+    {
+      "order": 15,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/EVIDENCE_BASED_ENGINEERING_RULES.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "70d5b342632beb06fd7954534bd83b7f8c9cfe436325a23cc6028156067d85b4",
+      "expected_match": true
+    },
+    {
+      "order": 16,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_PRODUCTION_EXCEPTION_POLICY.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "9de94c6e7f95032356cb10675b4e8f6f8ab9fcb4a8810983b7625dd2617889a9",
+      "expected_match": true
+    },
+    {
+      "order": 17,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/IOS_CONCURRENCY_RUNTIME_STANDARD.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "b9b6180d4033c60f52a16ace077d7420ef837a0451c470a5ae890b770c2bcf89",
+      "expected_match": true
+    },
+    {
+      "order": 18,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/COMPLETION_REPORT_CONTRACT.md",
+      "utc": "2026-10-07T22:18:04Z",
+      "timestamp_precision": "second/approximate except tool-observed UTC",
+      "sha256": "0945a5541b5d4bedb1ea387f4755ab19e36fb2fcdac75de59f369add5599ec2e",
+      "expected_match": true
+    },
+    {
+      "order": 19,
+      "path": "/Users/Artem/.zenflow/worktrees/documentation-vault/reusable/baseline/docs/ENGINEERING_CHANGE_QUALITY_STANDARD.md",
+      "utc": "2026-10-07T22:18:14Z",
+      "reason": "Full reread after output truncation",
+      "sha256": "658d602d91ecd945b89e2e83c0a8aacae76bafd1a863bf7e53904a9a916f2899",
+      "expected_match": true
+    },
+    {
+      "order": 20,
+      "path": "firefox-ios/Client/Frontend/Reader/SchemeHandler/ReaderModeSchemeHandler.swift",
+      "root": "/Users/Artem/.zenflow/library-acceptance-projects/firefox-ios",
+      "commit": "0ac7cc9e98b81ac7ec68b18cd38ea6ab8a0ed071",
+      "utc": "2026-10-07T22:18:14.219662Z",
+      "sha256": "8ef21596b5fe87c01381df7e46d867ca41ecf21cd343f655760b99e6c08765cc",
+      "git_blob_sha": "8fab2c542d171c9617f91cc2676a0d3d77dfc4f1",
+      "bytes": 6419,
+      "expected_match": true,
+      "method": "git show exact commit:path"
+    },
+    {
+      "order": 21,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/KNOWLEDGE_ROUTER.md",
+      "utc": "2026-10-07T22:18:36.772231+00:00",
+      "sha256": "228ee47ac9a24b18af696b9d12ec6cb559069333d841a78b037e3d986cd76cd3",
+      "expected_match": true
+    },
+    {
+      "order": 22,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/PROJECT_MODE.md",
+      "utc": "2026-10-07T22:18:44.588502+00:00",
+      "sha256": "2788b232fc859def7126c0dc8a1c18e361e171d7e964611b3bc747c123cf1022",
+      "expected_match": true
+    },
+    {
+      "order": 23,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/QUALITY_STANDARD.md",
+      "utc": "2026-10-07T22:18:44.588918+00:00",
+      "sha256": "fa8e5c2936be12f2ceea842a8c44a0dbeab5e1f41b1d548cf929609d82f2d279",
+      "expected_match": true
+    },
+    {
+      "order": 24,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/EVIDENCE_POLICY.md",
+      "utc": "2026-10-07T22:18:44.589505+00:00",
+      "sha256": "d18b69d44c897e314cd9de71574b2c7133ad31c5a8927d4acdf04541d14228f9",
+      "expected_match": true
+    },
+    {
+      "order": 25,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/PROJECT_FACTS.md",
+      "utc": "2026-10-07T22:18:44.589722+00:00",
+      "sha256": "e7f65ad1d0c0d7390ff97f26c0a64c23ecc94589f5d7940cba9e773a27fc87af",
+      "expected_match": true
+    },
+    {
+      "order": 26,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/REPOSITORY_INSPECTION.md",
+      "utc": "2026-10-07T22:18:44.591039+00:00",
+      "sha256": "f20b47359138b51f9ec1e469681cdeb6b6e0058a77f1fe7512edfd7b45f7e534",
+      "expected_match": true
+    },
+    {
+      "order": 27,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/RISK_AND_EVIDENCE.md",
+      "utc": "2026-10-07T22:18:44.591129+00:00",
+      "sha256": "0a703d816fdfc0fb96ff2932c5f1be407c1fa054baa83a981d507615ed31719c",
+      "expected_match": true
+    },
+    {
+      "order": 28,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/REVIEW_GUIDE.md",
+      "utc": "2026-10-07T22:18:44.591220+00:00",
+      "sha256": "6f5fbe8b289198184f9c62b08432bd67e31b26acccc72b76d8a4bc2181f1273d",
+      "expected_match": true
+    },
+    {
+      "order": 29,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+      "utc": "2026-10-07T22:18:44.591306+00:00",
+      "sha256": "daa3f1cc6d8c69e4236f1c7b1ebb5bc13844677219efa54cde0a29ec7e518fc2",
+      "expected_match": true
+    },
+    {
+      "order": 30,
+      "path": ".zenflow/tasks/kb-library-effectiveness-2026-10-07/delivery-pilot-02/attempt-03/payload/03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md",
+      "utc": "2026-10-07T22:18:44.591394+00:00",
+      "sha256": "351a09664eb87142644e9e088885cfaf7ce176e6767b61902a205507224a68fe",
+      "expected_match": true
+    }
+  ],
+  "source_facts_recorded_utc": "2026-10-07T22:18:36.772231+00:00",
+  "source_facts": [
+    "start creates Task and saves handle lines 93-114",
+    "route await at line 99 is followed by Task.checkCancellation at line 100",
+    "send follows synchronously line 102",
+    "CancellationError catch logs only lines 103-106",
+    "stop cancels stored task then removes handle lines 117-120",
+    "send invokes response/body/finish sequentially lines 128-130"
+  ],
+  "decision": "NO_FINDING_IN_SCOPED_SUCCESS_PUBLICATION",
+  "uncertainties": [
+    "Runtime/build/toolchain/profile and upstream router internals not inspected; task fixes successful reply and nonreentrant callback assumptions",
+    "Initial read timestamp approximate"
+  ],
+  "boundaries": {
+    "source_mutations": "NONE",
+    "runtime": "NOT_RUN_BY_SCOPE",
+    "iPad_physical_VoiceOver": "OMITTED_BY_USER",
+    "parent_oracle_other_attempts": "NOT_READ"
+  },
+  "metadata_hashing_note": "This ledger initialization reread the named instruction files for hashes only at 2026-10-07T22:18:36.772231+00:00; no additional context paths read.",
+  "payload_routes_selected": [
+    "19_CODE_REVIEW_REFACTOR/COPY_ONLY_REVIEW_ROUTE.md",
+    "03_CONCURRENCY/COPY_ONLY_CONCURRENCY_ROUTE.md"
+  ],
+  "payload_route_utc": "2026-10-07T22:18:44.591407+00:00",
+  "decision_utc": "2026-10-07T22:19:28.316115+00:00",
+  "findings": [],
+  "patch_required": false,
+  "reference_result": {
+    "local_candidate": "No missing post-await cancellation guard observed",
+    "adjudication": "Existing line 100 enforces cancellation before line 102 successful send under task assumptions",
+    "incremental_findings": 0,
+    "operation_identity": "Single start/optional stop envelope; replacement identity outside scope",
+    "mode": "Task-only explicit supplied Library ON; real project mode UNKNOWN/untouched"
+  },
+  "hash_validation": {
+    "source": "PASS: sha256, Git blob ID, bytes exact",
+    "canonical_selected": "PASS for input expected hashes including router",
+    "payload_selected": "PASS for router, seven common documents and two specialist routes",
+    "unselected_payload": "NOT_READ/NOT_VALIDATED; no coverage claim"
+  },
+  "docs_route": "Canonical Level0 + preflight/engineering + bounded iOS review/evidence + concurrency + completion; frozen payload common documents + code-review/concurrency",
+  "omitted_references": [
+    "Canonical specialist deep reference and linked production prompt/checklists not in approved kb_hashes remain NOT_READ; broad review was explicitly prohibited",
+    "Original imported Library sources, tools, reference status records, parent/oracle/curator/other attempts NOT_READ"
+  ],
+  "end_utc": "2026-10-07T22:19:28.316115+00:00",
+  "elapsed_seconds": 98.316115,
+  "within_600s": true,
+  "output_review_sha256": "500b6bfe8d46220ceab938c8a803dd9716722fbb3b654bedadaf950b547dc41a"
+}

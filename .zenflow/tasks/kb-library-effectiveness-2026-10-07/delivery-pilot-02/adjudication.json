@@ -1,0 +1,79 @@
+{
+  "status": "COMPLETE_SCOPED_STATIC_TIED",
+  "attempts": [
+    {
+      "attempt": "attempt-01",
+      "arm": "A fix",
+      "elapsed_seconds_reported": 156.086154,
+      "result": "PASS_STATIC",
+      "reads_count": 81,
+      "artifacts": {
+        "proposal.patch": "5214b29589b2c6f91dd38f6c194f27e16f122fbacae19818faae14bc9875054c",
+        "review.md": "0dd274bcbe887c9ab2e40ec0accfd3410714ce4f07083c96e6c9e9580f02dbd0",
+        "ledger.json": "ddab2530c79670af50d59645b590ef3fd47569a013c6c62576f10361dff26fb1"
+      },
+      "extra_content_KB": []
+    },
+    {
+      "attempt": "attempt-02",
+      "arm": "C fix",
+      "elapsed_seconds_reported": 135.579818,
+      "result": "PASS_STATIC",
+      "reads_count": 90,
+      "artifacts": {
+        "proposal.patch": "eadc595e23f52b3183be9e17b4b19c44231ce3af6a4df62aaf276e2967246173",
+        "review.md": "1847ea391d1b2b650c7831dde00a14fee97f983a3d63f9ac8c631bb00257d183",
+        "ledger.json": "ab774c80a90efcd6a0743fdc8a23bb0c8aad3b0030c1c63c79d63aa70f2a66a6"
+      },
+      "extra_content_KB": []
+    },
+    {
+      "attempt": "attempt-03",
+      "arm": "A success",
+      "elapsed_seconds_reported": 98.316115,
+      "result": "PASS_STATIC",
+      "reads_count": 30,
+      "artifacts": {
+        "review.md": "500b6bfe8d46220ceab938c8a803dd9716722fbb3b654bedadaf950b547dc41a",
+        "ledger.json": "8c6adcf4294532c4a4962b8868e8450a7a42f07fa13690728f8a9a2a81391710"
+      },
+      "extra_content_KB": []
+    },
+    {
+      "attempt": "attempt-04",
+      "arm": "C success",
+      "elapsed_seconds_reported": 108.972295,
+      "result": "PASS_STATIC",
+      "reads_count": 30,
+      "artifacts": {
+        "review.md": "233c1dcc69fa2161df893d0fdcb9a177bc344018bdad2c93c80d563891a874c3",
+        "ledger.json": "03491af1afe76ce9abc41133d80d16b51bbf90819c03a55310c3b1ad10281314"
+      },
+      "extra_content_KB": [],
+      "clock_accuracy": "estimated startup"
+    }
+  ],
+  "fix": {
+    "A": "6-line guard with cancellation debug logging",
+    "C": "1-line guard",
+    "apply_check": "PASS both",
+    "mandatory_semantics": "PASS both",
+    "incremental_correct_outcomes": 0,
+    "difference": "compactness only; cancelled generic debug logging not required by contract"
+  },
+  "success": {
+    "A": "0 findings/no patch",
+    "C": "0 findings/no patch",
+    "oracle": "public DEV-F02 read only after both completed; all three semantic assertions PASS"
+  },
+  "delivery": "C fix full module and C success499-word review slice consulted after source facts before verdict; PASS",
+  "efficiency": "NOT_ESTABLISHED; single attempts, approximate/startup clocks, varied read records and usage UNKNOWN",
+  "benefit": "NOT_ESTABLISHED, not evidence of general ineffectiveness",
+  "holdout": "NOT_READ",
+  "original_project_states": "UNCHANGED",
+  "runtime": "NOT_RUN",
+  "grader": "unblinded parent module author, no independent grader",
+  "grant": "four executors consumed",
+  "stop": "Stop CXL hypothesis expansion and additional pilots pending concrete user decision",
+  "finished_utc": "2026-10-07T22:20:32.430683+00:00"
+}

@@ -52,9 +52,9 @@ HEAD/status unchanged; holdout NOT_READ.
 v0.2 prepared within V2: bounded review slice (499 words), exact full checked example unchanged;
 reusable task-history link removed. New hashes: cxl01-evidence/candidate-payload-v0.2.json.
 Old candidate-payload.json and pilot01 snapshots are immutable historical v0.1 inputs.
-v0.2 delivery/benefit NOT_RUN/NOT_ESTABLISHED; no app pins/modes/source changes, no new
+v0.2 delivery PASS/benefit NOT_ESTABLISHED; no app pins/modes/source changes, no new
 runtime/agent grant. Preserve raw outputs and their severity labels without claiming a gain.
-Next: publish this boundary, then bounded fix + clean control; new workers/checks and eligibility
-need their respective decisions. Do not blindly repeat this review or expand module topics.
+Pilot02 subsequently completed the bounded fix + clean control. Publish latest boundary, then
+obtain the significant next approach decision; do not repeat this hypothesis or expand topics.
 
-Prepared next decision: [Firefox constrained-fix + success-control proposal](delivery-pilot-02-proposal/README.md), exactly four fresh Sol6.1/medium executors, 600s each, 40-minute total cap; no original source changes/app builds/runtime/network/MCP. NOT_AUTHORIZED.
+Latest boundary: [pilot02 results](delivery-pilot-02/results.md), four authorized fresh Sol6.1/medium executors completed; grant consumed. Fix semantic checks and apply-check PASS both, success control zero findings both; outcomes TIED, incremental benefit NOT_ESTABLISHED. C v0.2 delivery PASS; original projects unchanged, holdout unopened, no runtime. Stop this hypothesis pending user choice: recommended KB-first consolidation versus a distinct bounded hypothesis. No further agent/runtime grant; full plan/dataset/C remain incomplete/not frozen.
